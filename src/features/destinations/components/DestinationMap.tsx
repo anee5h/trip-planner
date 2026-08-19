@@ -147,7 +147,7 @@ export default function DestinationMap({
                     >
                       <Button
                         size="sm"
-                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-2 h-8"
+                        className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-xs px-2 h-8"
                       >
                         <Compass className="w-3.5 h-3.5 mr-1 shrink-0" />
                         <span className="truncate">

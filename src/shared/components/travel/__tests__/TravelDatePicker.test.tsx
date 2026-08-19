@@ -379,7 +379,7 @@ describe("TravelDatePicker Component", () => {
     act(() => host!.querySelector("button")!.click());
 
     const todayBtn = host!.querySelector(`button[data-date="${todayIso}"]`);
-    expect(todayBtn?.className).toContain("bg-emerald-600");
+    expect(todayBtn?.className).toContain("bg-emerald-700");
   });
 
   it("12. 2D1N highlights Day 1 and derived Day 2", () => {
@@ -401,7 +401,7 @@ describe("TravelDatePicker Component", () => {
       `button[data-date="${tomorrowIso}"]`,
     );
 
-    expect(todayBtn?.className).toContain("bg-emerald-600");
+    expect(todayBtn?.className).toContain("bg-emerald-700");
     expect(tomorrowBtn?.className).toContain("bg-emerald-100");
   });
 
@@ -718,7 +718,7 @@ describe("TravelDatePicker Component", () => {
     const todayBtn = host!.querySelector(`button[data-date="${todayIso}"]`)!;
     expect(todayBtn).not.toBeNull();
     expect(todayBtn.className).toContain("border-2");
-    expect(todayBtn.className).not.toContain("bg-emerald-600");
+    expect(todayBtn.className).not.toContain("bg-emerald-700");
 
     act(() => {
       root!.render(
@@ -735,6 +735,6 @@ describe("TravelDatePicker Component", () => {
     const selectedTodayBtn = host!.querySelector(
       `button[data-date="${todayIso}"]`,
     )!;
-    expect(selectedTodayBtn.className).toContain("bg-emerald-600");
+    expect(selectedTodayBtn.className).toContain("bg-emerald-700");
   });
 });

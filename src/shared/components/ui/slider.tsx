@@ -34,14 +34,14 @@ function Slider({
         >
           <SliderPrimitive.Indicator
             data-slot="slider-range"
-            className="bg-emerald-500 select-none h-full absolute left-0 top-0"
+            className="bg-emerald-700 select-none h-full absolute left-0 top-0"
           />
         </SliderPrimitive.Track>
         {Array.from({ length: _values.length }, (_, index) => (
           <SliderPrimitive.Thumb
             data-slot="slider-thumb"
             key={index}
-            className="relative block size-7 shrink-0 rounded-full border-2 border-emerald-500 bg-white ring-emerald-500/30 shadow-md transition-[color,box-shadow,transform] select-none hover:scale-110 active:scale-95 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 cursor-grab active:cursor-grabbing z-10"
+            className="relative block size-7 shrink-0 rounded-full border-2 border-emerald-700 bg-white ring-emerald-500/30 shadow-md transition-[color,box-shadow,transform] select-none hover:scale-110 active:scale-95 focus-visible:ring-4 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 cursor-grab active:cursor-grabbing z-10"
           />
         ))}
       </SliderPrimitive.Control>

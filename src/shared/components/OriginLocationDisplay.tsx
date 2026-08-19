@@ -33,7 +33,7 @@ export function OriginLocationDisplay({
         <MapPin className="size-4 shrink-0 text-emerald-500" />
         <div className="min-w-0">
           <p className="min-w-0 truncate text-sm" title={formattedText}>
-            <span className="text-slate-500 dark:text-slate-400">
+            <span className="text-slate-500 dark:text-slate-300">
               {t("origin.from")} {locale === "ja" ? "　" : ""}
             </span>
             <span className="font-semibold text-slate-700 dark:text-slate-200">
@@ -41,7 +41,7 @@ export function OriginLocationDisplay({
             </span>
           </p>
           {isCurrentLocation && (
-            <span className="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400">
+            <span className="text-[10px] font-semibold text-emerald-700 dark:text-emerald-300">
               {t("origin.currentLocationActive")}
             </span>
           )}
@@ -52,7 +52,7 @@ export function OriginLocationDisplay({
           <button
             type="button"
             onClick={onRestoreSaved}
-            className="h-9 shrink-0 whitespace-nowrap rounded-lg px-2 text-xs font-bold text-emerald-600 transition-colors hover:bg-emerald-50 dark:text-emerald-400 dark:hover:bg-emerald-950/40"
+            className="h-9 shrink-0 whitespace-nowrap rounded-lg px-2 text-xs font-bold text-emerald-700 transition-colors hover:bg-emerald-50 dark:text-emerald-300 dark:hover:bg-emerald-950/40"
           >
             {t("origin.useSavedLocation")}
           </button>
@@ -61,7 +61,7 @@ export function OriginLocationDisplay({
           type="button"
           onClick={onEdit}
           disabled={editDisabled}
-          className="h-9 shrink-0 whitespace-nowrap rounded-lg px-2 text-xs font-bold text-emerald-600 transition-colors hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50 dark:text-emerald-400 dark:hover:bg-emerald-950/40"
+          className="h-9 shrink-0 whitespace-nowrap rounded-lg px-2 text-xs font-bold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50 dark:text-emerald-300 dark:hover:bg-emerald-950/40"
         >
           {t("origin.edit")}
         </button>

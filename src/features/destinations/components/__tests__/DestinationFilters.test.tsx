@@ -235,7 +235,7 @@ describe("DestinationFilters dark-mode states", () => {
     const container = renderFilters({ selectedCollections: ["unesco-japan"] });
     const button = buttonByText(container, "1 Collection");
 
-    expect(button?.className).toContain("dark:bg-emerald-500/20");
+    expect(button?.className).toContain("dark:bg-emerald-500/30");
     expect(button?.className).toContain("dark:text-emerald-200");
     expect(button?.className).toContain("dark:ring-emerald-400/50");
   });
@@ -255,7 +255,7 @@ describe("DestinationFilters dark-mode states", () => {
     const active = renderFilters({ vibe: "nature" });
     const activeButton = buttonByText(active, "Filters1");
 
-    expect(activeButton?.className).toContain("dark:bg-emerald-500/20");
+    expect(activeButton?.className).toContain("dark:bg-emerald-500/30");
     expect(activeButton?.className).toContain("dark:text-emerald-200");
     expect(activeButton?.className).toContain("dark:ring-emerald-400/50");
   });
@@ -266,7 +266,7 @@ describe("DestinationFilters dark-mode states", () => {
     act(() => filtersButton?.click());
 
     const anyTransport = buttonByText(container, "Any transport");
-    expect(anyTransport?.className).toContain("dark:bg-emerald-500/20");
+    expect(anyTransport?.className).toContain("dark:bg-emerald-500/30");
     expect(anyTransport?.className).toContain("dark:text-emerald-200");
     expect(anyTransport?.className).toContain("dark:ring-emerald-400/50");
 
@@ -276,7 +276,7 @@ describe("DestinationFilters dark-mode states", () => {
     act(() => selectedFiltersButton?.click());
 
     const localTrains = buttonContainingText(selected, "Local trains");
-    expect(localTrains?.className).toContain("dark:bg-emerald-500/20");
+    expect(localTrains?.className).toContain("dark:bg-emerald-500/30");
     expect(localTrains?.className).toContain("dark:text-emerald-200");
     expect(localTrains?.className).toContain("dark:ring-emerald-400/50");
   });
@@ -299,15 +299,15 @@ describe("single Car transport chip (KAI-63)", () => {
     openFiltersModal(container);
 
     const carChip = carChipButtons(container)[0];
-    expect(carChip?.className).not.toContain("dark:bg-emerald-500/20");
+    expect(carChip?.className).not.toContain("dark:bg-emerald-500/30");
     expect(buttonByText(container, "Any transport")).toBeTruthy();
 
     act(() => carChip?.click());
-    expect(carChip?.className).toContain("dark:bg-emerald-500/20");
+    expect(carChip?.className).toContain("dark:bg-emerald-500/30");
     expect(buttonByText(container, "1 selected · Clear")).toBeTruthy();
 
     act(() => carChip?.click());
-    expect(carChip?.className).not.toContain("dark:bg-emerald-500/20");
+    expect(carChip?.className).not.toContain("dark:bg-emerald-500/30");
     expect(buttonByText(container, "Any transport")).toBeTruthy();
   });
 
@@ -323,12 +323,12 @@ describe("single Car transport chip (KAI-63)", () => {
 
     const carChip = carChipButtons(container)[0];
     act(() => carChip?.click());
-    expect(carChip?.className).toContain("dark:bg-emerald-500/20");
+    expect(carChip?.className).toContain("dark:bg-emerald-500/30");
     expect(buttonByText(container, "1 selected · Clear")).toBeTruthy();
     expect(modes.at(-1)).toBe("rental");
 
     act(() => carChip?.click());
-    expect(carChip?.className).not.toContain("dark:bg-emerald-500/20");
+    expect(carChip?.className).not.toContain("dark:bg-emerald-500/30");
     expect(buttonByText(container, "Any transport")).toBeTruthy();
     expect(modes.at(-1)).toBe("none");
   });
@@ -380,7 +380,7 @@ describe("single Car transport chip (KAI-63)", () => {
 
       const chips = carChipButtons(container);
       expect(chips).toHaveLength(1);
-      expect(chips[0]?.className).toContain("dark:bg-emerald-500/20");
+      expect(chips[0]?.className).toContain("dark:bg-emerald-500/30");
       expect(chips[0]?.textContent).toContain("✓");
       expect(buttonByText(container, "1 selected · Clear")).toBeTruthy();
 

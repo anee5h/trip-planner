@@ -244,7 +244,7 @@ export default function RouletteModal({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-100 p-5 dark:border-[hsl(var(--border-subtle))]">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+            <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
               <Dices className="w-5 h-5" />
             </div>
             <div>
@@ -252,7 +252,7 @@ export default function RouletteModal({
                 <span>{t("home.roulette.title")}</span>
                 <Sparkles className="w-4 h-4 text-emerald-500" />
               </h2>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-xs text-slate-500 dark:text-slate-300">
                 {t("home.roulette.subtitle")}
               </p>
             </div>
@@ -260,7 +260,7 @@ export default function RouletteModal({
           <button
             onClick={onClose}
             aria-label={t("home.roulette.close")}
-            className="p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-xl text-slate-500 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -280,7 +280,7 @@ export default function RouletteModal({
                 className={`relative h-64 rounded-2xl overflow-hidden shadow-lg transition-all duration-150 border ${
                   spinning
                     ? "scale-[0.98] border-emerald-400/50 dark:border-emerald-500/50"
-                    : "scale-100 border-emerald-500 ring-2 ring-emerald-500/20"
+                    : "scale-100 border-emerald-700 ring-2 ring-emerald-500/20"
                 }`}
               >
                 <LazyImage
@@ -299,7 +299,7 @@ export default function RouletteModal({
                     </span>
                   </div>
                 ) : (
-                  <div className="absolute top-3 left-3 bg-emerald-500 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 animate-bounce">
+                  <div className="absolute top-3 left-3 bg-emerald-700 text-white font-extrabold text-xs px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5 animate-bounce">
                     <Trophy className="w-3.5 h-3.5" />
                     <span>{t("home.roulette.match")}</span>
                   </div>
@@ -311,7 +311,7 @@ export default function RouletteModal({
                   <h3 className="line-clamp-2 text-xl font-extrabold text-slate-900 dark:text-white">
                     {displayName}
                   </h3>
-                  <p className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-400">
+                  <p className="mt-1 text-xs font-medium text-slate-500 dark:text-slate-300">
                     {locationLabel}
                   </p>
                 </div>
@@ -358,7 +358,7 @@ export default function RouletteModal({
 
                 {winner && (
                   <Link to={detailHref} onClick={onClose} className="flex-1">
-                    <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-lg shadow-emerald-500/25">
+                    <Button className="w-full h-12 rounded-2xl font-bold bg-emerald-700 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-500/25">
                       <span>{t("home.roulette.viewDetails")}</span>
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
@@ -367,7 +367,7 @@ export default function RouletteModal({
               </div>
             </div>
           ) : (
-            <div className="py-12 text-slate-400">
+            <div className="py-12 text-slate-500">
               <MapPin className="w-10 h-10 mx-auto mb-2 opacity-50" />
               <p>{t("home.roulette.empty")}</p>
             </div>

@@ -31,19 +31,19 @@ export function PassportAchievements() {
           <h2 className="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white">
             Travel Accomplishments & Heritage Goals
           </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-xs text-slate-500 dark:text-slate-300">
             Permanent milestone awards unlocked as you complete collections and
             reach travel benchmarks.
           </p>
         </div>
 
         <div className="px-4 py-2 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 shrink-0 text-center md:text-right">
-          <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+          <div className="text-xs font-bold text-slate-500 dark:text-slate-300 uppercase tracking-wider">
             Unlocked
           </div>
           <div className="text-xl font-extrabold text-amber-600 dark:text-amber-400">
             {totalUnlocked}{" "}
-            <span className="text-xs font-normal text-slate-400">
+            <span className="text-xs font-normal text-slate-500">
               / {ACHIEVEMENTS_CATALOG.length}
             </span>
           </div>
@@ -69,7 +69,7 @@ export function PassportAchievements() {
                   className={`p-3.5 rounded-2xl shrink-0 ${
                     status.isUnlocked
                       ? "bg-gradient-to-br from-amber-500 to-yellow-500 text-white shadow-md shadow-amber-500/20 ring-4 ring-amber-400/20"
-                      : "bg-slate-100 dark:bg-slate-800 text-slate-400"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-500"
                   }`}
                 >
                   <Trophy className="w-6 h-6" />
@@ -85,7 +85,7 @@ export function PassportAchievements() {
                         <CheckCircle2 className="w-3.5 h-3.5" /> Earned
                       </span>
                     ) : (
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-400">
+                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500">
                         <Lock className="w-3.5 h-3.5" /> Locked
                       </span>
                     )}
@@ -95,7 +95,7 @@ export function PassportAchievements() {
                     {ach.title}
                   </h3>
 
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-300 leading-relaxed">
                     {ach.description}
                   </p>
                 </div>

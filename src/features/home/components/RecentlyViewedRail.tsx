@@ -65,7 +65,7 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
               <History className="size-5 shrink-0 text-emerald-500 sm:size-6" />
               <span>{title}</span>
             </h2>
-            <p className="mt-1 text-[13px] leading-relaxed text-slate-500 dark:text-slate-400 sm:text-sm">
+            <p className="mt-1 text-[13px] leading-relaxed text-slate-500 dark:text-slate-300 sm:text-sm">
               {description}
             </p>
           </div>

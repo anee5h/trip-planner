@@ -168,7 +168,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                   <h3 className="text-base font-bold text-slate-900 dark:text-white">
                     Suggested Next Goal
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     Target your next milestone to level up your passport
                   </p>
                 </div>
@@ -189,7 +189,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     <Flame className="w-4 h-4 text-amber-500" />
                     Complete {nextRegionGoal.region} Region Explorer
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     Visit {nextRegionGoal.remaining} more prefecture
                     {nextRegionGoal.remaining > 1 ? "s" : ""} in{" "}
                     {nextRegionGoal.region} ({nextRegionGoal.visitedCount}/
@@ -212,7 +212,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 </span>
                 <button
                   onClick={() => onSelectTab("badges")}
-                  className="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-xs"
+                  className="px-3 py-1.5 rounded-lg bg-emerald-700 text-white font-bold text-xs"
                 >
                   Claim Badges
                 </button>
@@ -228,14 +228,14 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                   <Trophy className="w-5 h-5 text-amber-500" />
                   Top Benchmark Achievements
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-slate-500 dark:text-slate-300">
                   Progress metrics across official Japanese heritage benchmarks
                 </p>
               </div>
 
               <button
                 onClick={() => onSelectTab("achievements")}
-                className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:underline flex items-center gap-1"
               >
                 All Achievements ({achievementCollections.length}){" "}
                 <ArrowRight className="w-3 h-3" />
@@ -256,7 +256,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     <Link
                       key={collection.id}
                       to={`/collections/${collection.slug}`}
-                      className="group p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-all shadow-sm block"
+                      className="group p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-700/50 transition-all shadow-sm block"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-sm font-bold text-slate-900 dark:text-white truncate">
@@ -267,7 +267,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                             Done
                           </span>
                         ) : (
-                          <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+                          <span className="text-xs font-bold text-slate-500 dark:text-slate-300">
                             {visitedCount}/{totalMembers}
                           </span>
                         )}
@@ -277,7 +277,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                         <div
                           className={`h-full rounded-full transition-all duration-500 ${
                             isCompleted
-                              ? "bg-emerald-500"
+                              ? "bg-emerald-700"
                               : "bg-gradient-to-r from-amber-500 to-emerald-500"
                           }`}
                           style={{ width: `${Math.max(pct, 3)}%` }}
@@ -294,7 +294,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
         <div className="lg:col-span-4 space-y-6">
           {/* Quick Stats Panel */}
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500">
               Activity Overview
             </h3>
 
@@ -305,7 +305,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <div className="text-xs text-slate-500 dark:text-slate-300">
                       Visited Destinations
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -324,7 +324,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     <Trophy className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <div className="text-xs text-slate-500 dark:text-slate-300">
                       Achievements Unlocked
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -333,7 +333,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowRight className="w-4 h-4 text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <div
@@ -341,11 +341,11 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 className="cursor-pointer flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 shadow-xs">
+                  <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 shadow-xs">
                     <Award className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <div className="text-xs text-slate-500 dark:text-slate-300">
                       Enamel Pin Badges
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -353,7 +353,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowRight className="w-4 h-4 text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
               <div
@@ -365,7 +365,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">
+                    <div className="text-xs text-slate-500 dark:text-slate-300">
                       Planned Trips
                     </div>
                     <div className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -373,7 +373,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     </div>
                   </div>
                 </div>
-                <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <ArrowRight className="w-4 h-4 text-slate-500 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
           </div>
@@ -381,12 +381,12 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
           {/* Recent Logged Activity Feed Snippet */}
           <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500">
                 Recent Logged Visits
               </h3>
               <button
                 onClick={() => onSelectTab("timeline")}
-                className="text-xs text-emerald-600 dark:text-emerald-400 font-bold hover:underline"
+                className="text-xs text-emerald-700 dark:text-emerald-300 font-bold hover:underline"
               >
                 Full Timeline →
               </button>
@@ -399,14 +399,14 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                     key={dest.id}
                     className="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/50"
                   >
-                    <div className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 shrink-0">
+                    <div className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 shrink-0">
                       <CheckCircle2 className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
                         {dest.name}
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-300">
                         {dest.prefecture}
                         {dest.categories?.[0] ? ` • ${dest.categories[0]}` : ""}
                       </div>
@@ -415,7 +415,7 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
                 ))}
               </div>
             ) : (
-              <p className="text-xs text-slate-500 dark:text-slate-400 text-center py-4">
+              <p className="text-xs text-slate-500 dark:text-slate-300 text-center py-4">
                 No visited places logged yet. Browse destinations to mark your
                 first spot!
               </p>

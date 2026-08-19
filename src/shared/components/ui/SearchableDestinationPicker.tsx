@@ -235,19 +235,19 @@ export function SearchableDestinationPicker({
         aria-controls={isMobile ? dialogId : listboxId}
         onClick={() => setIsOpen(!isOpen)}
         onKeyDown={handleKeyDown}
-        className="w-full flex items-center justify-between gap-2 px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-left text-sm font-medium text-slate-900 dark:text-white hover:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all shadow-sm min-h-[44px]"
+        className="w-full flex items-center justify-between gap-2 px-3.5 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-left text-sm font-medium text-slate-900 dark:text-white hover:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all shadow-sm min-h-[44px]"
       >
         <span className="flex items-center gap-2 truncate">
-          <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          <MapPin className="w-4 h-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
           {selectedDestination ? (
             <span className="font-bold">
               {formatPlaceName(selectedDestination, locale)}
             </span>
           ) : (
-            <span className="text-slate-400 font-normal">{placeholder}</span>
+            <span className="text-slate-500 font-normal">{placeholder}</span>
           )}
         </span>
-        <span className="text-slate-400 text-xs shrink-0">▼</span>
+        <span className="text-slate-500 text-xs shrink-0">▼</span>
       </button>
 
       {/* Dropdown / Mobile Sheet */}
@@ -274,13 +274,13 @@ export function SearchableDestinationPicker({
           >
             {/* Header / Search Input */}
             <div className="p-3 sm:p-2.5 border-b border-slate-100 dark:border-slate-800 flex items-center gap-2 bg-slate-50/50 dark:bg-slate-850 shrink-0">
-              <Search className="w-4 h-4 text-slate-400 shrink-0" />
+              <Search className="w-4 h-4 text-slate-500 shrink-0" />
               {isMobile && (
                 <button
                   type="button"
                   onClick={closePicker}
                   aria-label="Close destination search"
-                  className="p-1 text-slate-400 min-h-[44px] min-w-[44px] flex items-center justify-center"
+                  className="p-1 text-slate-500 min-h-[44px] min-w-[44px] flex items-center justify-center"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -304,13 +304,13 @@ export function SearchableDestinationPicker({
                     ? "都市・スポット名で検索..."
                     : "Type to search..."
                 }
-                className="w-full bg-transparent text-base sm:text-sm font-medium text-slate-900 dark:text-white focus:outline-none placeholder:text-slate-400"
+                className="w-full bg-transparent text-base sm:text-sm font-medium text-slate-900 dark:text-white focus:outline-none placeholder:text-slate-500"
               />
               {query && (
                 <button
                   type="button"
                   onClick={() => setQuery("")}
-                  className="p-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md text-slate-400"
+                  className="p-1 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-md text-slate-500"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -325,7 +325,7 @@ export function SearchableDestinationPicker({
               {/* Search Query Active */}
               {query.trim() ? (
                 searchResults.length === 0 ? (
-                  <div className="p-4 text-center text-xs text-slate-400 font-medium">
+                  <div className="p-4 text-center text-xs text-slate-500 font-medium">
                     {locale === "ja"
                       ? "該当するスポットが見つかりません"
                       : "No matching destinations found"}
@@ -362,13 +362,13 @@ export function SearchableDestinationPicker({
                             <div className="font-bold truncate">
                               {formatPlaceName(dest, locale)}
                             </div>
-                            <div className="text-[10px] text-slate-400 truncate">
+                            <div className="text-[10px] text-slate-500 truncate">
                               {dest.prefecture} •{" "}
                               {dest.categories?.[0] || dest.kind}
                             </div>
                           </div>
                           {isSelected && (
-                            <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                            <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
                           )}
                         </button>
                       );
@@ -380,8 +380,8 @@ export function SearchableDestinationPicker({
                 <div className="space-y-3">
                   {suggestionGroups?.recent.length ? (
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-slate-400" />
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-slate-500" />
                         {locale === "ja"
                           ? "最近見たスポット"
                           : "Recently Viewed"}
@@ -409,7 +409,7 @@ export function SearchableDestinationPicker({
 
                   {suggestionGroups?.itinerary.length ? (
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
                         <MapPin className="w-3 h-3 text-emerald-500" />
                         {locale === "ja"
                           ? "この旅行のスポット"
@@ -438,7 +438,7 @@ export function SearchableDestinationPicker({
 
                   {suggestionGroups?.saved.length ? (
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
                         <Bookmark className="w-3 h-3 text-purple-500" />
                         {locale === "ja" ? "保存したスポット" : "Saved Places"}
                       </span>
@@ -465,7 +465,7 @@ export function SearchableDestinationPicker({
 
                   {suggestionGroups?.popular.length ? (
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
                         <Sparkles className="w-3 h-3 text-amber-500" />
                         {locale === "ja"
                           ? "人気のスポット"

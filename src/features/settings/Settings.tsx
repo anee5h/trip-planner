@@ -275,7 +275,7 @@ export default function Settings() {
                 onClick={() => setActiveSection(sec.id)}
                 className={`flex items-center justify-center gap-2 px-3 py-2 min-h-[44px] sm:min-h-[36px] rounded-lg text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                   isActive
-                    ? "bg-emerald-600 text-white shadow-sm"
+                    ? "bg-emerald-700 text-white shadow-sm"
                     : "bg-slate-50 dark:bg-slate-800/60 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -310,12 +310,12 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.account")}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     {t("ui.accountDescription")}
                   </p>
                 </div>
 
-                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300">
                   {t("settings.fullName")}
                   <input
                     value={fullName}
@@ -326,7 +326,7 @@ export default function Settings() {
                     className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-base sm:text-sm text-slate-800 dark:text-white"
                   />
                 </label>
-                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300">
                   {t("settings.username")}
                   <input
                     value={username}
@@ -337,7 +337,7 @@ export default function Settings() {
                     className="mt-2 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2.5 text-base sm:text-sm text-slate-800 dark:text-white"
                   />
                 </label>
-                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400">
+                <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300">
                   {t("ui.chooseCity")}
                   <SearchableDestinationPicker
                     value={homeCityId}
@@ -351,17 +351,17 @@ export default function Settings() {
                     recentDestinations={[]}
                     className="mt-2"
                   />
-                  <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-300 mt-1">
                     {t("settings.homeCityHelp")}
                   </p>
                 </label>
 
                 {/* Base location — flattened, no nested card */}
                 <div className="border-t border-slate-100 dark:border-slate-800 pt-4">
-                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                     {t("ui.baseLocation")}
                   </label>
-                  <p className="text-[11px] text-slate-400 dark:text-slate-500 mb-2">
+                  <p className="text-[11px] text-slate-500 dark:text-slate-300 mb-2">
                     {t("settings.baseLocationHelp")}
                   </p>
                   <StationInput embedded={true} allowCurrentLocation={false} />
@@ -376,7 +376,7 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.travelPreferences")}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     {t("settings.travelDescription")}
                   </p>
                 </div>
@@ -384,7 +384,7 @@ export default function Settings() {
                 <div className="space-y-5">
                   {/* Budget */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                       {t("home.budget")}
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
@@ -395,7 +395,7 @@ export default function Settings() {
                           onClick={() => handleFieldChange(setBudget, b.id)}
                           className={`${btnBase} text-center ${
                             budget === b.id
-                              ? "bg-emerald-500 text-white border-emerald-500"
+                              ? "bg-emerald-700 text-white border-emerald-700"
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                           }`}
                         >
@@ -407,7 +407,7 @@ export default function Settings() {
 
                   {/* Primary transport */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                       {t("settings.primaryTransport")}
                     </label>
                     <div className="grid grid-cols-3 gap-1.5">
@@ -433,7 +433,7 @@ export default function Settings() {
                           }
                           className={`${btnBase} text-center ${
                             carMode === m.id
-                              ? "bg-emerald-500 text-white border-emerald-500"
+                              ? "bg-emerald-700 text-white border-emerald-700"
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                           }`}
                         >
@@ -445,7 +445,7 @@ export default function Settings() {
 
                   {/* Public transport modes */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                       {t("settings.publicTransportModes")}
                     </label>
                     <div className="grid grid-cols-3 sm:grid-cols-5 gap-1.5">
@@ -456,7 +456,7 @@ export default function Settings() {
                           onClick={() => togglePublicMode(tm.id)}
                           className={`${btnBase} text-center ${
                             publicModes.includes(tm.id)
-                              ? "bg-emerald-500 text-white border-emerald-500"
+                              ? "bg-emerald-700 text-white border-emerald-700"
                               : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                           }`}
                         >
@@ -468,11 +468,15 @@ export default function Settings() {
 
                   {/* Party size */}
                   <div>
-                    <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1.5">
+                    <label
+                      htmlFor="settings-party-size"
+                      className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-1.5"
+                    >
                       {t("home.party")}:{" "}
                       {t("home.people_other", { count: partySize })}
                     </label>
                     <input
+                      id="settings-party-size"
                       type="range"
                       min={1}
                       max={10}
@@ -498,12 +502,15 @@ export default function Settings() {
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
                           {t("recommendation.personalization.enableLabel")}
                         </div>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-300">
                           {t("recommendation.personalization.enableHelp")}
                         </div>
                       </div>
                       <input
                         type="checkbox"
+                        aria-label={t(
+                          "recommendation.personalization.enableLabel",
+                        )}
                         checked={personalizationService.getSettings().enabled}
                         onChange={(e) => {
                           personalizationService.updateSettings({
@@ -515,7 +522,7 @@ export default function Settings() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                      <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                         {t("recommendation.personalization.noveltyLabel")}
                       </label>
                       <div className="grid grid-cols-3 gap-1.5">
@@ -550,7 +557,7 @@ export default function Settings() {
                             className={`${btnBase} text-center ${
                               personalizationService.getSettings().novelty ===
                               nov.id
-                                ? "bg-emerald-500 text-white border-emerald-500"
+                                ? "bg-emerald-700 text-white border-emerald-700"
                                 : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                             }`}
                           >
@@ -565,12 +572,13 @@ export default function Settings() {
                         <div className="text-xs font-bold text-slate-900 dark:text-white">
                           {t("settings.recommendationAnalytics")}
                         </div>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-300">
                           {t("settings.recommendationAnalyticsHelp")}
                         </div>
                       </div>
                       <input
                         type="checkbox"
+                        aria-label={t("settings.recommendationAnalytics")}
                         checked={!recommendationAnalytics.getOptOut()}
                         onChange={(e) => {
                           recommendationAnalytics.setOptOut(!e.target.checked);
@@ -612,13 +620,13 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.appearance")}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     {t("settings.appearanceHelp")}
                   </p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                     {t("settings.theme")}
                   </label>
                   <div className="grid grid-cols-3 gap-2">
@@ -633,7 +641,7 @@ export default function Settings() {
                         onClick={() => setTheme(opt.id as any)}
                         className={`${btnBase} text-center ${
                           theme === opt.id
-                            ? "bg-emerald-500 text-white border-emerald-500 shadow-sm"
+                            ? "bg-emerald-700 text-white border-emerald-700 shadow-sm"
                             : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -644,7 +652,7 @@ export default function Settings() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">
+                  <label className="block text-xs font-bold uppercase text-slate-500 dark:text-slate-300 mb-2">
                     {t("ui.defaultLanguage")}
                   </label>
                   <div className="grid grid-cols-2 gap-2">
@@ -670,7 +678,7 @@ export default function Settings() {
                         }}
                         className={`${btnBase} text-center ${
                           defaultLocale === opt.id
-                            ? "bg-emerald-500 text-white border-emerald-500"
+                            ? "bg-emerald-700 text-white border-emerald-700"
                             : "bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700"
                         }`}
                       >
@@ -689,13 +697,13 @@ export default function Settings() {
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {t("ui.dataExport")}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     {t("settings.dataHelp")}
                   </p>
                 </div>
 
                 <div className="space-y-3">
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-500 dark:text-slate-300">
                     {t("settings.dataDescription")}
                   </p>
                   <Button
@@ -717,7 +725,7 @@ export default function Settings() {
                 <Button
                   type="submit"
                   disabled={loading || !isDirty}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold shadow-md flex items-center gap-1.5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                   {t("ui.save")}

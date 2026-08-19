@@ -184,10 +184,10 @@ export default function PrefectureChecklist() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-slate-800">
         <div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-2 flex items-center gap-3">
-            <Compass className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
+            <Compass className="w-8 h-8 text-emerald-700 dark:text-emerald-300" />
             Travel Passport
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl text-base">
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl text-base">
             Your personal travel activity log and curated heritage achievements
             across Japan.
           </p>
@@ -195,14 +195,14 @@ export default function PrefectureChecklist() {
 
         <div className="flex items-center gap-3">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-4 py-2.5 rounded-2xl shadow-sm flex items-center gap-3">
-            <MapPin className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <MapPin className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
             <div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <div className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                 Prefectures
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
                 {visitedPrefectures.length}{" "}
-                <span className="text-xs text-slate-400">/ 47</span>
+                <span className="text-xs text-slate-500">/ 47</span>
               </div>
             </div>
           </div>
@@ -210,12 +210,12 @@ export default function PrefectureChecklist() {
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-4 py-2.5 rounded-2xl shadow-sm flex items-center gap-3">
             <Trophy className="w-5 h-5 text-amber-500" />
             <div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <div className="text-xs text-slate-500 dark:text-slate-300 font-medium">
                 Achievements
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
                 {completedAchievementsCount}{" "}
-                <span className="text-xs text-slate-400">
+                <span className="text-xs text-slate-500">
                   / {achievementCollections.length}
                 </span>
               </div>
@@ -229,7 +229,7 @@ export default function PrefectureChecklist() {
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
           <a
             href="#dashboard"
-            className="px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-bold text-xs shrink-0 border border-emerald-200 dark:border-emerald-800"
+            className="px-4 py-2 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold text-xs shrink-0 border border-emerald-200 dark:border-emerald-800"
           >
             🎯 Dashboard
           </a>
@@ -270,7 +270,7 @@ export default function PrefectureChecklist() {
             <h2 className="text-xl font-bold text-slate-900 dark:text-white">
               Explored Prefectures
             </h2>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-300 mt-1">
               Hover over any prefecture to view details
             </p>
           </div>
@@ -296,7 +296,7 @@ export default function PrefectureChecklist() {
 
           {/* Compact Region Breakdown Strip */}
           <div className="w-full pt-6 border-t border-slate-100 dark:border-slate-800/80 mt-4">
-            <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 text-center sm:text-left">
               Regional Breakdown
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
@@ -321,8 +321,8 @@ export default function PrefectureChecklist() {
                     <div
                       className={`text-xs font-extrabold mt-0.5 ${
                         hasVisited
-                          ? "text-emerald-700 dark:text-emerald-400"
-                          : "text-slate-400 dark:text-slate-500"
+                          ? "text-emerald-700 dark:text-emerald-300"
+                          : "text-slate-500 dark:text-slate-300"
                       }`}
                     >
                       {visitedCount} / {total}
@@ -351,16 +351,16 @@ export default function PrefectureChecklist() {
               <Trophy className="w-6 h-6 text-amber-500" />
               Passport Achievements
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
+            <p className="text-slate-600 dark:text-slate-300 text-sm mt-1">
               Track progress across official heritage benchmarks & curated
               Japanese travel lists
             </p>
           </div>
           <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800/80 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-700/60 self-start sm:self-auto">
-            <span className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider">
+            <span className="text-xs text-slate-500 dark:text-slate-300 uppercase font-bold tracking-wider">
               Unlocked
             </span>
-            <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-400">
+            <span className="text-base font-extrabold text-emerald-700 dark:text-emerald-300">
               {completedAchievementsCount} / {achievementCollections.length}
             </span>
           </div>
@@ -374,7 +374,7 @@ export default function PrefectureChecklist() {
                 <Link
                   key={collection.id}
                   to={`/collections/${collection.slug}`}
-                  className="group block p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-emerald-500/50 transition-all shadow-sm"
+                  className="group block p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700/60 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-emerald-700/50 transition-all shadow-sm"
                 >
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2.5 min-w-0">
@@ -390,14 +390,14 @@ export default function PrefectureChecklist() {
                         <CheckCircle2 className="w-3.5 h-3.5" /> Done
                       </span>
                     ) : (
-                      <span className="text-xs font-extrabold text-slate-500 dark:text-slate-400 shrink-0">
+                      <span className="text-xs font-extrabold text-slate-500 dark:text-slate-300 shrink-0">
                         {pct}%
                       </span>
                     )}
                   </div>
 
                   <div className="space-y-1.5 mt-2">
-                    <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
+                    <div className="flex justify-between text-xs text-slate-500 dark:text-slate-300">
                       <span>Progress</span>
                       <span className="font-semibold text-slate-700 dark:text-slate-300">
                         {visitedCount} / {totalMembers}
@@ -407,8 +407,8 @@ export default function PrefectureChecklist() {
                       <div
                         className={`h-full rounded-full transition-all duration-500 ${
                           isCompleted
-                            ? "bg-emerald-500 shadow-sm"
-                            : "bg-emerald-500"
+                            ? "bg-emerald-700 shadow-sm"
+                            : "bg-emerald-700"
                         }`}
                         style={{ width: `${pct}%` }}
                       />

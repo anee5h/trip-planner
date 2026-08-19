@@ -283,7 +283,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
           </h2>
           <button
             onClick={onClose}
-            className="p-2 -mr-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 -mr-2 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -295,13 +295,13 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
               Username
             </label>
             <div className="relative">
-              <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 type="text"
                 placeholder="How should we call you?"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all dark:text-white"
+                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition-all dark:text-white"
               />
             </div>
           </div>
@@ -311,13 +311,13 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
               Home City
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 type="text"
                 placeholder="Where do you live?"
                 value={homeCity}
                 onChange={(e) => setHomeCity(e.target.value)}
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all dark:text-white"
+                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition-all dark:text-white"
               />
             </div>
           </div>
@@ -327,12 +327,12 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
               Date of Birth
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
               <input
                 type="date"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-all dark:text-white"
+                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-base sm:text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-700 transition-all dark:text-white"
               />
             </div>
           </div>
@@ -383,8 +383,8 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
               disabled={loading}
               className={`w-full py-2.5 rounded-xl font-bold shadow-md transition-all duration-300 ${
                 success
-                  ? "bg-emerald-500 hover:bg-emerald-600 text-white"
-                  : "bg-emerald-600 hover:bg-emerald-700 text-white"
+                  ? "bg-emerald-700 hover:bg-emerald-800 text-white"
+                  : "bg-emerald-700 hover:bg-emerald-800 text-white"
               }`}
             >
               {loading ? (

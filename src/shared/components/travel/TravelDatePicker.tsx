@@ -372,21 +372,21 @@ export default function TravelDatePicker({
             btnClassName,
             "relative flex flex-col items-center justify-center h-10 w-full rounded-xl text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50",
             isSelected &&
-              "bg-emerald-600 text-white shadow-sm z-10 hover:bg-emerald-700 font-extrabold",
+              "bg-emerald-700 text-white shadow-sm z-10 hover:bg-emerald-800 font-extrabold",
             isDay2 &&
               !isSelected &&
               "bg-emerald-100 dark:bg-emerald-950/80 text-emerald-900 dark:text-emerald-200 font-extrabold border border-emerald-400/80 dark:border-emerald-700/80 z-10 hover:bg-emerald-200 dark:hover:bg-emerald-900",
             !isSelected &&
               !isDay2 &&
               isToday &&
-              "border-2 border-emerald-500/90 text-emerald-700 dark:text-emerald-300 font-bold bg-emerald-50/40 dark:bg-emerald-950/20",
+              "border-2 border-emerald-700/90 text-emerald-700 dark:text-emerald-300 font-bold bg-emerald-50/40 dark:bg-emerald-950/20",
             !isSelected &&
               !isDay2 &&
               !isToday &&
               !dayModifiers.disabled &&
               "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100",
             dayModifiers.disabled &&
-              "opacity-35 cursor-not-allowed text-slate-400 dark:text-slate-600",
+              "opacity-35 cursor-not-allowed text-slate-500 dark:text-slate-600",
           )}
         >
           <span>{children}</span>
@@ -398,7 +398,7 @@ export default function TravelDatePicker({
                   ? "text-emerald-100"
                   : isDay2
                     ? "text-emerald-800 dark:text-emerald-300"
-                    : "text-slate-500 dark:text-slate-400",
+                    : "text-slate-500 dark:text-slate-300",
               )}
             >
               <ForecastIcon className="w-2.5 h-2.5 shrink-0" />
@@ -435,7 +435,7 @@ export default function TravelDatePicker({
         className={cn(
           "inline-flex h-9 w-full min-w-0 items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-bold shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50 sm:w-auto",
           isSelectedStyle
-            ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-200"
+            ? "border-emerald-700 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-200"
             : "border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300",
         )}
       >
@@ -445,7 +445,7 @@ export default function TravelDatePicker({
         </div>
         <ChevronDown
           className={cn(
-            "h-3.5 w-3.5 text-slate-400 shrink-0 transition-transform duration-200",
+            "h-3.5 w-3.5 text-slate-500 shrink-0 transition-transform duration-200",
             isOpen && "rotate-180 text-emerald-500",
           )}
         />
@@ -475,7 +475,7 @@ export default function TravelDatePicker({
           >
             {/* Popover Header */}
             <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-800">
-              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+              <span className="text-xs font-extrabold uppercase tracking-wider text-slate-600 dark:text-slate-300">
                 {t("datePicker.chooseTravelDate", {
                   defaultValue: "Choose travel date",
                 })}
@@ -486,7 +486,7 @@ export default function TravelDatePicker({
                   defaultValue: "Close date picker",
                 })}
                 onClick={handleClose}
-                className="flex h-7 w-7 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200 transition-colors"
+                className="flex h-7 w-7 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-200 transition-colors"
               >
                 <X className="h-4 w-4" />
               </button>
@@ -501,7 +501,7 @@ export default function TravelDatePicker({
                   className={cn(
                     "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors min-w-[70px]",
                     !value
-                      ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
+                      ? "border-emerald-700 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
                       : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",
                   )}
                 >
@@ -514,7 +514,7 @@ export default function TravelDatePicker({
                 className={cn(
                   "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors min-w-[70px]",
                   value === todayIso && hasExplicitSelection
-                    ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
+                    ? "border-emerald-700 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
                     : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",
                 )}
               >
@@ -526,7 +526,7 @@ export default function TravelDatePicker({
                 className={cn(
                   "flex-1 h-8 rounded-lg text-xs font-bold border transition-colors min-w-[70px]",
                   value === tomorrowIso
-                    ? "border-emerald-500 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
+                    ? "border-emerald-700 bg-emerald-50 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200"
                     : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800",
                 )}
               >
@@ -537,7 +537,7 @@ export default function TravelDatePicker({
             {/* Origin Forecast Hint */}
             {forecastMap && (
               <div className="mt-2 rounded-xl bg-slate-50 dark:bg-slate-900/60 p-2 text-center border border-slate-100 dark:border-slate-800/80">
-                <p className="text-[11px] font-semibold text-slate-600 dark:text-slate-400">
+                <p className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
                   {t("datePicker.forecastNearOrigin", {
                     origin:
                       originLabel && originLabel.trim() !== ""
@@ -582,16 +582,16 @@ export default function TravelDatePicker({
                   month_caption: `${defaultClassNames.month_caption} flex items-center justify-center h-8 font-bold text-xs w-full`,
                   caption_label: `${defaultClassNames.caption_label} text-xs font-extrabold capitalize text-slate-900 dark:text-slate-100`,
                   nav: `${defaultClassNames.nav} flex items-center justify-between absolute top-0 inset-x-0 h-8 px-1 z-10 pointer-events-none`,
-                  button_previous: `${defaultClassNames.button_previous} pointer-events-auto h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors`,
-                  button_next: `${defaultClassNames.button_next} pointer-events-auto h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition-colors`,
+                  button_previous: `${defaultClassNames.button_previous} pointer-events-auto h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition-colors`,
+                  button_next: `${defaultClassNames.button_next} pointer-events-auto h-7 w-7 flex items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 transition-colors`,
                   month_grid: `${defaultClassNames.month_grid} w-full border-collapse space-y-1`,
                   weekdays: `${defaultClassNames.weekdays} flex w-full border-b border-slate-100 dark:border-slate-800 pb-1 mb-1`,
-                  weekday: `${defaultClassNames.weekday} w-full text-center text-[10px] font-bold text-slate-400 uppercase tracking-wider`,
+                  weekday: `${defaultClassNames.weekday} w-full text-center text-[10px] font-bold text-slate-500 uppercase tracking-wider`,
                   weeks: `${defaultClassNames.weeks} w-full space-y-1`,
                   week: `${defaultClassNames.week} flex w-full gap-1`,
                   day: `${defaultClassNames.day} w-full flex-1 text-center p-0 relative`,
-                  today: `${defaultClassNames.today} border-2 border-emerald-500/90 font-bold text-emerald-700 dark:text-emerald-300`,
-                  selected: `${defaultClassNames.selected} bg-emerald-600 text-white shadow-sm z-10 hover:bg-emerald-700 font-extrabold rounded-xl`,
+                  today: `${defaultClassNames.today} border-2 border-emerald-700/90 font-bold text-emerald-700 dark:text-emerald-300`,
+                  selected: `${defaultClassNames.selected} bg-emerald-700 text-white shadow-sm z-10 hover:bg-emerald-800 font-extrabold rounded-xl`,
                   outside: `${defaultClassNames.outside} opacity-40`,
                   disabled: `${defaultClassNames.disabled} opacity-30 cursor-not-allowed`,
                   hidden: `${defaultClassNames.hidden} invisible`,
@@ -602,9 +602,9 @@ export default function TravelDatePicker({
             {/* 2D1N Day 2 Derived Hint Footer */}
             {tripMode === "weekend_2d1n" && value && (
               <div className="mt-2.5 border-t border-slate-100 dark:border-slate-800 pt-2 text-center">
-                <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-300">
                   {t("datePicker.day2", "Day 2")}:{" "}
-                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-bold text-emerald-700 dark:text-emerald-300">
                     {formatTravelDateShort(
                       getNextCalendarDate(value),
                       currentLocale,

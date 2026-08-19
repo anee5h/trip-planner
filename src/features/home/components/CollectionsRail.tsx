@@ -184,7 +184,7 @@ export const CollectionsRail: React.FC = () => {
               <Compass className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500 shrink-0" />
               <span>{railTitle}</span>
             </h2>
-            <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+            <p className="text-[13px] sm:text-sm text-slate-500 dark:text-slate-300 mt-1 leading-relaxed">
               {railDescription}
             </p>
           </div>

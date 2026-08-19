@@ -84,7 +84,7 @@ export default function MyTrips() {
           to="/my-trips"
           className={`flex items-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl text-xs font-bold transition-all ${
             !isBucketListRoute
-              ? "bg-emerald-600 text-white shadow-sm"
+              ? "bg-emerald-700 text-white shadow-sm"
               : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
           }`}
         >
@@ -95,7 +95,7 @@ export default function MyTrips() {
           to="/bucket-list"
           className={`flex items-center gap-2 px-4 py-2.5 sm:py-2 min-h-[44px] sm:min-h-[36px] rounded-xl text-xs font-bold transition-all ${
             isBucketListRoute
-              ? "bg-emerald-600 text-white shadow-sm"
+              ? "bg-emerald-700 text-white shadow-sm"
               : "bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
           }`}
         >
@@ -124,7 +124,7 @@ export default function MyTrips() {
           activeTab === "planned" && trips.length > 0 ? (
             <Button
               onClick={() => setIsAddingTrip(true)}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-6 shadow-md"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-bold px-6 shadow-md"
             >
               <Plus className="w-4 h-4 mr-1.5" />
               {t("ui.newTrip")}
@@ -143,14 +143,14 @@ export default function MyTrips() {
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                 {t("ui.noItineraries")}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8 leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-300 text-sm max-w-md mx-auto mb-8 leading-relaxed">
                 {t("ui.noItinerariesHint")}
               </p>
               <div className="flex flex-col justify-center gap-2 sm:flex-row sm:flex-wrap">
                 <Button
                   onClick={() => setIsAddingTrip(true)}
                   size="lg"
-                  className="rounded-full bg-emerald-600 px-6 font-bold text-white shadow-md hover:bg-emerald-700"
+                  className="rounded-full bg-emerald-700 px-6 font-bold text-white shadow-md hover:bg-emerald-800"
                 >
                   <Plus className="mr-2 size-4" />
                   {t("ui.planFirstTrip")}
@@ -201,11 +201,11 @@ export default function MyTrips() {
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                 {t("ui.emptyBucketList")}
               </h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm max-w-md mx-auto mb-8 leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-300 text-sm max-w-md mx-auto mb-8 leading-relaxed">
                 {t("ui.emptyBucketListHint")}
               </p>
               <Link to="/destinations">
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold px-8 shadow-md">
+                <Button className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-bold px-8 shadow-md">
                   <Sparkles className="w-4 h-4 mr-2" />
                   {t("ui.exploreDestinations")}
                 </Button>

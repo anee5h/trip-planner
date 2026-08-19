@@ -33,7 +33,7 @@ export function PassportJapanMap() {
           <h2 className="text-xl font-bold text-slate-900 dark:text-white">
             Explored Prefectures Map
           </h2>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-slate-500 dark:text-slate-300 mt-1">
             Tap or hover over any prefecture to view details
           </p>
         </div>
@@ -59,7 +59,7 @@ export function PassportJapanMap() {
 
         {/* Region Breakdown */}
         <div className="w-full pt-6 border-t border-slate-100 dark:border-slate-800/80 mt-4">
-          <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 text-center sm:text-left">
+          <div className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 text-center sm:text-left">
             Regional Breakdown
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
@@ -84,8 +84,8 @@ export function PassportJapanMap() {
                   <div
                     className={`text-xs font-extrabold mt-0.5 ${
                       hasVisited
-                        ? "text-emerald-700 dark:text-emerald-400"
-                        : "text-slate-400 dark:text-slate-500"
+                        ? "text-emerald-700 dark:text-emerald-300"
+                        : "text-slate-500 dark:text-slate-300"
                     }`}
                   >
                     {visitedCount} / {total}

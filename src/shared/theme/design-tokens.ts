@@ -37,8 +37,8 @@ export const designTokens = {
     cardTitle: "text-[20px] font-bold leading-normal",
     body: "text-[16px] font-normal leading-relaxed",
     secondary:
-      "text-[14px] font-medium leading-relaxed text-slate-500 dark:text-slate-400",
+      "text-[14px] font-medium leading-relaxed text-slate-500 dark:text-slate-300",
     caption:
-      "text-[12px] font-medium leading-none text-slate-400 dark:text-slate-500",
+      "text-[12px] font-medium leading-none text-slate-500 dark:text-slate-300",
   },
 };

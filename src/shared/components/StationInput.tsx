@@ -316,14 +316,14 @@ export default function StationInput({
               <button
                 type="button"
                 onClick={() => setMode("station")}
-                className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
+                className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "station" ? "bg-white dark:bg-slate-950 text-emerald-700 shadow-sm" : "text-slate-600 hover:text-slate-700 dark:hover:text-slate-300"}`}
               >
                 {t("origin.station")}
               </button>
               <button
                 type="button"
                 onClick={() => setMode("zip")}
-                className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-600 shadow-sm" : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"}`}
+                className={`flex-1 sm:flex-initial px-3 py-1 text-xs font-medium rounded-md transition-colors text-center ${mode === "zip" ? "bg-white dark:bg-slate-950 text-emerald-700 shadow-sm" : "text-slate-600 hover:text-slate-700 dark:hover:text-slate-300"}`}
               >
                 {t("origin.zipPostal")}
               </button>
@@ -335,7 +335,8 @@ export default function StationInput({
               <select
                 value={selectedPref}
                 onChange={handlePrefChange}
-                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-36"
+                aria-label={t("origin.prefecture", "Prefecture")}
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-700 w-full sm:w-36"
               >
                 {PREFECTURES.map((p) => (
                   <option key={p} value={p}>
@@ -347,7 +348,8 @@ export default function StationInput({
               <select
                 value={selectedStation}
                 onChange={handleStationChange}
-                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
+                aria-label={t("origin.station", "Station")}
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-700 w-full sm:w-64"
                 disabled={stations.length === 0}
               >
                 <option value="">{t("origin.selectStation")}</option>
@@ -366,7 +368,7 @@ export default function StationInput({
                 value={zipCode}
                 onChange={handleZipChange}
                 onKeyDown={(e) => e.key === "Enter" && handleSet()}
-                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-500 w-full sm:w-64"
+                className="bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 text-base sm:text-sm font-semibold focus:outline-none focus:border-emerald-700 w-full sm:w-64"
               />
               {zipError && (
                 <span className="text-xs text-red-500">{zipError}</span>
@@ -385,7 +387,7 @@ export default function StationInput({
                   isFetchingZip ||
                   isLocatingCurrent
                 }
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex-1 flex items-center justify-center gap-2"
+                className="bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-xs px-4 py-2 rounded-lg transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex-1 flex items-center justify-center gap-2"
               >
                 {isFetchingZip && (
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -413,7 +415,7 @@ export default function StationInput({
                   className="inline-flex min-h-9 w-full items-center justify-center gap-2 rounded-lg border border-emerald-200 px-3 py-2 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-50 disabled:cursor-not-allowed disabled:opacity-50 dark:border-emerald-900 dark:text-emerald-300 dark:hover:bg-emerald-950/40"
                 >
                   {isLocatingCurrent ? (
-                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-emerald-500 border-t-transparent" />
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-emerald-700 border-t-transparent" />
                   ) : (
                     <LocateFixed className="size-4" />
                   )}

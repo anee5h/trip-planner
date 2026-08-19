@@ -42,21 +42,21 @@ export default function Passport() {
           role="status"
           aria-live="polite"
         >
-          <Loader2 className="size-6 animate-spin text-emerald-600" />
+          <Loader2 className="size-6 animate-spin text-emerald-700" />
           <p className="font-semibold text-slate-700 dark:text-slate-200">
             {t("ui.passportLoading")}
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-slate-500 dark:text-slate-300">
             {t("ui.passportLoadingHint")}
           </p>
         </div>
       ) : isSignedOut ? (
         <div className="flex min-h-64 flex-col items-center justify-center gap-3 text-center">
-          <LogIn className="size-6 text-slate-400" />
+          <LogIn className="size-6 text-slate-500" />
           <p className="font-semibold text-slate-700 dark:text-slate-200">
             {t("passport.signedOutTitle")}
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400 max-w-sm">
+          <p className="text-sm text-slate-500 dark:text-slate-300 max-w-sm">
             {t("passport.signedOutDescription")}
           </p>
           <Button onClick={openAuthModal}>{t("actions.signIn")}</Button>

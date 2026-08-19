@@ -69,6 +69,7 @@
     "check:security-headers": "node scripts/check-security-headers.mjs",
     "check:bundle-secrets": "node scripts/check-bundle-secrets.mjs",
     "test:pwa": "PWA_E2E=1 playwright test --workers=1 e2e/kai-64-pwa.spec.ts e2e/kai-64-upgrade.spec.ts e2e/kai-121-lazy-catalogue.spec.ts",
+    "test:a11y": "A11Y_E2E=1 playwright test --workers=1 e2e/kai-80-a11y.spec.ts",
     "check:pwa": "node scripts/check-pwa.cjs"
   },
   "dependencies": {
@@ -93,6 +94,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
+    "@axe-core/playwright": "^4.13.0",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/leaflet": "^1.9.22",
     "@types/node": "^26.1.2",

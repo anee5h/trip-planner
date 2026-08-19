@@ -73,7 +73,7 @@ export function Caption({
 }) {
   return (
     <span
-      className={`text-[11px] text-slate-500 dark:text-slate-400 ${className}`}
+      className={`text-[11px] text-slate-500 dark:text-slate-300 ${className}`}
     >
       {children}
     </span>

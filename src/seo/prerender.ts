@@ -152,7 +152,7 @@ function prerenderedBody(destination: Destination, locale: PageLocale): string {
           `<ul class="space-y-3 mb-8">`,
           ...highlights.map(
             (h) =>
-              `<li class="flex items-start gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-500"></span><span class="text-slate-700 dark:text-slate-200">${escapeHtml(h)}</span></li>`,
+              `<li class="flex items-start gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-700"></span><span class="text-slate-700 dark:text-slate-200">${escapeHtml(h)}</span></li>`,
           ),
           `</ul>`,
         ]

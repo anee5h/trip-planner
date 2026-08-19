@@ -392,7 +392,7 @@ export default function QaDashboard() {
       <div
         className={`p-6 rounded-3xl border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-lg ${
           metrics.isHealthy
-            ? "bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border-emerald-500/30"
+            ? "bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border-emerald-700/30"
             : "bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 text-white border-amber-500/30"
         }`}
       >
@@ -637,7 +637,7 @@ export default function QaDashboard() {
                           {data.clicks} clicks / {data.impressions} impressions
                         </div>
                       </div>
-                      <div className="font-mono font-extrabold text-sm text-emerald-600 dark:text-emerald-400">
+                      <div className="font-mono font-extrabold text-sm text-emerald-700 dark:text-emerald-300">
                         {data.ctr}% CTR
                       </div>
                     </div>
@@ -713,7 +713,7 @@ export default function QaDashboard() {
                 <div className="text-[11px] font-bold text-slate-500 uppercase">
                   Total Dispatched
                 </div>
-                <div className="text-xl font-extrabold text-emerald-600 dark:text-emerald-400">
+                <div className="text-xl font-extrabold text-emerald-700 dark:text-emerald-300">
                   {telemetryPipeline.getMetrics().totalBatchesDispatched}{" "}
                   batches
                 </div>
@@ -766,7 +766,7 @@ export default function QaDashboard() {
                 <Database className="w-4 h-4 text-emerald-500" />
               </div>
               <div className="text-2xl font-extrabold">{totalDestinations}</div>
-              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+              <p className="text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
                 0 Duplicate IDs
               </p>
             </div>
@@ -781,7 +781,7 @@ export default function QaDashboard() {
               <div className="text-2xl font-extrabold">
                 {totalDestinations - metrics.missingHero} / {totalDestinations}
               </div>
-              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+              <p className="text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
                 100% Hero Image Coverage
               </p>
             </div>
@@ -797,7 +797,7 @@ export default function QaDashboard() {
                 {totalDestinations - metrics.invalidCoords} /{" "}
                 {totalDestinations}
               </div>
-              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+              <p className="text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
                 0 Missing Lat/Lng
               </p>
             </div>
@@ -814,7 +814,7 @@ export default function QaDashboard() {
                   ? "100%"
                   : `${metrics.missingParentHub} Broken`}
               </div>
-              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
+              <p className="text-xs text-emerald-700 dark:text-emerald-300 font-semibold">
                 0 Broken Parent Hub References
               </p>
             </div>
@@ -848,7 +848,7 @@ export default function QaDashboard() {
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                   Unique Destination IDs Validation
                 </span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-emerald-700 dark:text-emerald-300 font-bold">
                   0 Errors
                 </span>
               </div>
@@ -859,7 +859,7 @@ export default function QaDashboard() {
                   Latitude / Longitude Range Boundary Checks (Japan Bounding
                   Box)
                 </span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-emerald-700 dark:text-emerald-300 font-bold">
                   0 Errors
                 </span>
               </div>
@@ -869,7 +869,7 @@ export default function QaDashboard() {
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                   Parent Hub Referential Integrity
                 </span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-emerald-700 dark:text-emerald-300 font-bold">
                   0 Errors
                 </span>
               </div>
@@ -879,7 +879,7 @@ export default function QaDashboard() {
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                   Prefecture Key Alignment (@react-map/japan)
                 </span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                <span className="text-emerald-700 dark:text-emerald-300 font-bold">
                   47/47 Prefectures Validated
                 </span>
               </div>
@@ -894,7 +894,7 @@ export default function QaDashboard() {
             <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
               {/* Search Bar */}
               <div className="relative flex-1">
-                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500" />
                 <Input
                   type="text"
                   placeholder="Search by destination name, ID, or prefecture..."
@@ -922,7 +922,7 @@ export default function QaDashboard() {
                 <Button
                   onClick={exportCsv}
                   size="sm"
-                  className="rounded-xl font-bold bg-emerald-600 hover:bg-emerald-700 text-white flex items-center gap-1.5 text-xs"
+                  className="rounded-xl font-bold bg-emerald-700 hover:bg-emerald-800 text-white flex items-center gap-1.5 text-xs"
                 >
                   <Download className="w-3.5 h-3.5" />
                   Export CSV
@@ -952,7 +952,7 @@ export default function QaDashboard() {
 
             {/* Status Filter Pills */}
             <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
-              <span className="text-xs font-extrabold uppercase text-slate-400 mr-2">
+              <span className="text-xs font-extrabold uppercase text-slate-500 mr-2">
                 Filter Status:
               </span>
               {[
@@ -969,7 +969,7 @@ export default function QaDashboard() {
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                     statusFilter === pill.value
                       ? "bg-slate-900 text-white dark:bg-emerald-500 dark:text-slate-950 shadow-sm"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-400"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300"
                   }`}
                 >
                   {pill.label}
@@ -1029,14 +1029,14 @@ export default function QaDashboard() {
                       <h4 className="font-extrabold text-sm text-slate-900 dark:text-white truncate">
                         {d.name}
                       </h4>
-                      <p className="text-[11px] font-mono text-slate-400 truncate">
+                      <p className="text-[11px] font-mono text-slate-500 truncate">
                         {d.id}
                       </p>
                     </div>
 
                     {/* QA Status Selector Buttons */}
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
+                      <label className="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider">
                         QA Status
                       </label>
                       <div className="grid grid-cols-2 gap-1.5">
@@ -1054,7 +1054,7 @@ export default function QaDashboard() {
                             className={`px-2 py-1 rounded-lg text-[11px] font-extrabold transition-all border ${
                               status === st.value
                                 ? st.value === "OK"
-                                  ? "bg-emerald-600 text-white border-emerald-500"
+                                  ? "bg-emerald-700 text-white border-emerald-700"
                                   : st.value === "BROKEN"
                                     ? "bg-rose-600 text-white border-rose-500"
                                     : st.value === "WRONG_LANDMARK"
@@ -1071,7 +1071,7 @@ export default function QaDashboard() {
 
                     {/* Custom Image URL Replacement Input */}
                     <div className="space-y-1.5 pt-1">
-                      <label className="text-[10px] font-extrabold uppercase text-slate-400 tracking-wider">
+                      <label className="text-[10px] font-extrabold uppercase text-slate-500 tracking-wider">
                         Replacement Image URL
                       </label>
                       <Input
@@ -1158,7 +1158,7 @@ export default function QaDashboard() {
                         <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">
                           {currentHub.name}
                         </h3>
-                        <p className="text-xs font-mono text-slate-400">
+                        <p className="text-xs font-mono text-slate-500">
                           {currentHub.id} • {currentHub.prefecture}
                         </p>
                       </div>
@@ -1168,11 +1168,11 @@ export default function QaDashboard() {
                     </div>
 
                     <div>
-                      <h4 className="text-sm font-extrabold uppercase tracking-wider text-slate-400 mb-3">
+                      <h4 className="text-sm font-extrabold uppercase tracking-wider text-slate-500 mb-3">
                         Child POI Destinations ({childSights.length})
                       </h4>
                       {childSights.length === 0 ? (
-                        <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 text-center text-xs text-slate-400">
+                        <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/40 text-center text-xs text-slate-500">
                           No POI destinations assigned to this hub yet.
                         </div>
                       ) : (
@@ -1186,7 +1186,7 @@ export default function QaDashboard() {
                                 <div className="font-extrabold text-xs text-slate-900 dark:text-white truncate">
                                   {cs.name}
                                 </div>
-                                <div className="text-[10px] font-mono text-slate-400 truncate">
+                                <div className="text-[10px] font-mono text-slate-500 truncate">
                                   {cs.id}
                                 </div>
                               </div>
@@ -1271,14 +1271,14 @@ export default function QaDashboard() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 text-xs font-semibold">
                   <span>Recommended Budget Populated</span>
-                  <span className="font-mono font-extrabold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-mono font-extrabold text-emerald-700 dark:text-emerald-300">
                     {totalDestinations - metrics.missingBudget} /{" "}
                     {totalDestinations}
                   </span>
                 </div>
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/40 text-xs font-semibold">
                   <span>Transport Fares Metadata</span>
-                  <span className="font-mono font-extrabold text-emerald-600 dark:text-emerald-400">
+                  <span className="font-mono font-extrabold text-emerald-700 dark:text-emerald-300">
                     {totalDestinations - metrics.missingTransportFares} /{" "}
                     {totalDestinations}
                   </span>
@@ -1307,7 +1307,7 @@ export default function QaDashboard() {
                         <Badge
                           className={
                             assignment.reason === "ASSIGNED"
-                              ? "bg-emerald-600 text-white font-extrabold text-[10px]"
+                              ? "bg-emerald-700 text-white font-extrabold text-[10px]"
                               : "bg-amber-600 text-white font-extrabold text-[10px]"
                           }
                         >

@@ -247,7 +247,7 @@ jobs:
   allure-report:
     name: Allure report (aggregate + preview)
     runs-on: ubuntu-latest
-    needs: [e2e, pwa-e2e]
+    needs: [e2e, pwa-e2e, a11y-e2e]
     if: ${{ always() }}
     timeout-minutes: 15
     steps:
@@ -340,6 +340,114 @@ jobs:
         # two-run history-continuity test (run A -> history -> run B),
         # exercising the exact restore mechanism the publisher uses.
         run: node scripts/check-allure-history.mjs
+
+  a11y-build:
+    name: A11y production build (built once)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build production assets (KAI-80 a11y preview + fake-Supabase fixture)
+        # KAI-80: a11y runs against the production preview with the fake
+        # a11y-test Supabase project so the authenticated-state fixture
+        # works; built ONCE, shared by both a11y project jobs.
+        run: |
+          VITE_SUPABASE_URL=https://a11y-test.supabase.co VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.a11y-test-anon-key npm run build
+
+      - name: Upload built dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-dist
+          path: dist/
+          retention-days: 1
+
+  a11y-e2e:
+    name: A11y E2E (${{ matrix.project }}) — WCAG 2.2 AA gate
+    runs-on: ubuntu-latest
+    needs: [a11y-build]
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [chromium-mobile, chromium-desktop]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Chromium
+        # Same no--with-deps policy as the E2E jobs (KAI-99).
+        run: npx playwright install chromium
+
+      - name: Download built dist (built once in a11y-build)
+        uses: actions/download-artifact@v4
+        with:
+          name: a11y-dist
+          path: dist/
+
+      - name: A11y E2E (representative major-route matrix, WCAG 2.2 AA)
+        shell: bash
+        env:
+          A11Y_E2E: "1"
+          A11Y_PREBUILT: "1"
+          PLAYWRIGHT_PROJECT: ${{ matrix.project }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -o pipefail
+          npx playwright test --project=${{ matrix.project }} e2e/kai-80-a11y.spec.ts 2>&1 | tee /tmp/a11y-output.log
+
+      - name: Privacy scan A11y test results (public repo artifacts)
+        id: scan-a11y-testresults
+        if: ${{ !cancelled() }}
+        run: node scripts/check-allure-privacy.mjs test-results --sanitize
+
+      - name: Upload A11y failure artifacts
+        if: ${{ !cancelled() && steps.scan-a11y-testresults.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-a11y-${{ matrix.project }}
+          path: test-results/
+          if-no-files-found: ignore
+
+      - name: Privacy scan A11y Allure results (public repo artifacts)
+        id: scan-a11y-allure
+        if: ${{ !cancelled() }}
+        run: node scripts/check-allure-privacy.mjs allure-results --sanitize
+
+      - name: Upload A11y Allure results
+        if: ${{ !cancelled() && steps.scan-a11y-allure.outcome == 'success' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-a11y-${{ matrix.project }}
+          path: allure-results/
+          if-no-files-found: ignore
 
   catalogue-fast:
     runs-on: ubuntu-latest

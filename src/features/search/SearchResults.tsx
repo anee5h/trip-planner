@@ -35,7 +35,7 @@ export function SearchResults({
         <p className="text-sm font-bold text-slate-800 dark:text-white">
           No matching results found
         </p>
-        <p className="text-xs text-slate-500 dark:text-slate-400 max-w-xs mx-auto">
+        <p className="text-xs text-slate-500 dark:text-slate-300 max-w-xs mx-auto">
           Try searching for a prefecture (e.g., "Kyoto"), sight ("Himeji"), or
           collection ("UNESCO").
         </p>
@@ -60,7 +60,7 @@ export function SearchResults({
               <div className="border-t border-slate-100 dark:border-slate-800/80 my-2" />
             )}
 
-            <div className="px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 dark:text-slate-500 flex items-center gap-2">
+            <div className="px-3.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300 flex items-center gap-2">
               <span>{group.label}</span>
             </div>
 
@@ -88,8 +88,8 @@ export function SearchResults({
                         <div
                           className={`p-2.5 rounded-xl shrink-0 transition-transform ${
                             isSelected
-                              ? "bg-emerald-600 text-white scale-105"
-                              : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:scale-105"
+                              ? "bg-emerald-700 text-white scale-105"
+                              : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-300 group-hover:scale-105"
                           }`}
                         >
                           <ItemIcon className="w-4 h-4" />
@@ -105,7 +105,7 @@ export function SearchResults({
                         >
                           {item.title}
                         </div>
-                        <div className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-300 truncate">
                           {item.subtitle}
                         </div>
                       </div>
@@ -113,12 +113,12 @@ export function SearchResults({
 
                     <div className="flex items-center gap-2 shrink-0 ml-3">
                       {item.badge && (
-                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-transparent text-slate-400 dark:text-slate-500 border border-slate-200 dark:border-slate-700/60">
+                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-transparent text-slate-500 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">
                           {item.badge}
                         </span>
                       )}
                       {isSelected ? (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                        <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
                           <EnterIcon className="w-3.5 h-3.5" />
                         </span>
                       ) : (
@@ -131,7 +131,7 @@ export function SearchResults({
               {isCollapsed && (
                 <button
                   onClick={() => setExpandedCollapsible(true)}
-                  className="flex sm:hidden w-full items-center justify-center py-3 px-4 mt-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 rounded-2xl transition-colors"
+                  className="flex sm:hidden w-full items-center justify-center py-3 px-4 mt-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 rounded-2xl transition-colors"
                 >
                   {t("ui.seeMore")}
                 </button>

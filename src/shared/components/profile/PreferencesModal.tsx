@@ -99,7 +99,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
           </h2>
           <button
             onClick={onClose}
-            className="p-2 -mr-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 -mr-2 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -124,8 +124,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarMode("none")}
                   className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border-2 transition-all ${
                     carMode === "none"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <X className="w-5 h-5" />
@@ -136,8 +136,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarMode("rental")}
                   className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border-2 transition-all ${
                     carMode === "rental"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <Car className="w-5 h-5" />
@@ -150,8 +150,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarMode("my_car")}
                   className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border-2 transition-all ${
                     carMode === "my_car"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <Car className="w-5 h-5" />
@@ -172,8 +172,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarOwnership("all")}
                   className={`py-2 px-2 rounded-xl border-2 text-xs font-medium transition-all ${
                     carOwnership === "all"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-bold"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200"
                   }`}
                 >
                   Show All
@@ -183,8 +183,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarOwnership("my_car")}
                   className={`py-2 px-2 rounded-xl border-2 text-xs font-medium transition-all ${
                     carOwnership === "my_car"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-bold"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200"
                   }`}
                 >
                   Personal Car
@@ -194,8 +194,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarOwnership("rental")}
                   className={`py-2 px-2 rounded-xl border-2 text-xs font-medium transition-all ${
                     carOwnership === "rental"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-bold"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200"
                   }`}
                 >
                   Rental Only
@@ -205,8 +205,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   onClick={() => setCarOwnership("none")}
                   className={`py-2 px-2 rounded-xl border-2 text-xs font-medium transition-all ${
                     carOwnership === "none"
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 font-bold"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 font-bold"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200"
                   }`}
                 >
                   No Car
@@ -230,8 +230,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   }
                   className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("train")
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <Train className="w-4 h-4" />
@@ -248,8 +248,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   }
                   className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("shinkansen")
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <TrainFront className="w-4 h-4" />
@@ -266,8 +266,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   }
                   className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("bus")
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <Bus className="w-4 h-4" />
@@ -284,8 +284,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   }
                   className={`flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-xl border-2 transition-all ${
                     publicModes.includes("flight")
-                      ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400"
-                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:border-emerald-200 dark:hover:border-emerald-800"
+                      ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                      : "border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-emerald-200 dark:hover:border-emerald-800"
                   }`}
                 >
                   <Plane className="w-4 h-4" />
@@ -299,7 +299,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                 Number of People (Party Size)
               </label>
               <div className="relative">
-                <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
                 <input
                   type="number"
                   min="1"
@@ -326,7 +326,7 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
                   );
                   onClose();
                 }}
-                className="flex-1 py-2.5 rounded-xl font-medium border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+                className="flex-1 py-2.5 rounded-xl font-medium border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 Skip for now
               </Button>
@@ -336,8 +336,8 @@ export function PreferencesModal({ isOpen, onClose }: PreferencesModalProps) {
               disabled={loading}
               className={`flex-1 py-2.5 rounded-xl font-bold shadow-md transition-all duration-300 ${
                 success
-                  ? "bg-emerald-500 hover:bg-emerald-600 text-white"
-                  : "bg-emerald-600 hover:bg-emerald-700 text-white"
+                  ? "bg-emerald-700 hover:bg-emerald-800 text-white"
+                  : "bg-emerald-700 hover:bg-emerald-800 text-white"
               }`}
             >
               {loading ? (

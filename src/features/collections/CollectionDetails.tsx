@@ -26,16 +26,16 @@ export default function CollectionDetails() {
   if (!collection) {
     return (
       <div className="container mx-auto px-4 py-20 text-center max-w-xl">
-        <Frown className="w-16 h-16 text-slate-400 mx-auto mb-4" />
+        <Frown className="w-16 h-16 text-slate-500 mx-auto mb-4" />
         <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">
           {t("ui.collectionNotFound")}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 mb-6">
+        <p className="text-slate-600 dark:text-slate-300 mb-6">
           {t("ui.collectionNotFoundHint")}
         </p>
         <Link
           to="/collections"
-          className="inline-flex items-center text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 rounded-xl transition-colors"
+          className="inline-flex items-center text-sm font-bold text-white bg-emerald-700 hover:bg-emerald-800 px-5 py-2.5 rounded-xl transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" /> {t("ui.allCollections")}
         </Link>
@@ -68,7 +68,7 @@ export default function CollectionDetails() {
         <div className="mb-4">
           <Link
             to={`/collections/${collection.slug}`}
-            className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
+            className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-1.5" /> {content.name}
           </Link>
@@ -78,7 +78,7 @@ export default function CollectionDetails() {
           <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
             {selectedGroup.name}
           </h1>
-          <p className="mt-1 text-sm font-bold text-emerald-600 dark:text-emerald-400">
+          <p className="mt-1 text-sm font-bold text-emerald-700 dark:text-emerald-300">
             {t("ui.places", { count: selectedGroup.destinations.length })}
           </p>
         </div>
@@ -98,7 +98,7 @@ export default function CollectionDetails() {
       <div className="mb-4">
         <Link
           to="/collections"
-          className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
+          className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-400 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-1.5" /> {t("ui.allCollections")}
         </Link>
@@ -116,7 +116,7 @@ export default function CollectionDetails() {
         <h1 className="mb-3 text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
           {content.name}
         </h1>
-        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 md:text-base">
+        <p className="mb-6 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300 md:text-base">
           {content.description}
         </p>
 
@@ -130,26 +130,26 @@ export default function CollectionDetails() {
                 ? t("ui.unescoVisited").toLowerCase()
                 : t("ui.visited").toLowerCase()}
             </span>
-            <span className="text-emerald-600 dark:text-emerald-400">
+            <span className="text-emerald-700 dark:text-emerald-300">
               {progress.percent}%
             </span>
           </div>
           <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
             <div
-              className="h-full bg-emerald-500 transition-all duration-500 rounded-full"
+              className="h-full bg-emerald-700 transition-all duration-500 rounded-full"
               style={{ width: `${progress.percent}%` }}
             />
           </div>
         </div>
 
         {collection.metadata && (
-          <details className="border-t border-slate-200 pt-4 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-400">
+          <details className="border-t border-slate-200 pt-4 text-xs text-slate-500 dark:border-slate-800 dark:text-slate-300">
             <summary className="cursor-pointer font-bold text-slate-700 dark:text-slate-200">
               {t("ui.aboutCollection")}
             </summary>
             <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
               <div>
-                <span className="text-slate-400 dark:text-slate-500">
+                <span className="text-slate-500 dark:text-slate-300">
                   {t("ui.authority")}:
                 </span>{" "}
                 <span className="font-semibold text-slate-700 dark:text-slate-200 capitalize">
@@ -159,7 +159,7 @@ export default function CollectionDetails() {
               {(collection.metadata.verificationSource ||
                 collection.officialSource) && (
                 <div>
-                  <span className="text-slate-400 dark:text-slate-500">
+                  <span className="text-slate-500 dark:text-slate-300">
                     {t("ui.source")}:
                   </span>{" "}
                   {collection.sourceUrl ? (
@@ -167,7 +167,7 @@ export default function CollectionDetails() {
                       href={collection.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 inline-flex items-center"
+                      className="font-semibold text-emerald-700 hover:text-emerald-700 dark:text-emerald-300 dark:hover:text-emerald-300 inline-flex items-center"
                     >
                       {collection.metadata.verificationSource ||
                         collection.officialSource}
@@ -182,7 +182,7 @@ export default function CollectionDetails() {
                 </div>
               )}
               <div>
-                <span className="text-slate-400 dark:text-slate-500">
+                <span className="text-slate-500 dark:text-slate-300">
                   {t("ui.lastReviewed")}:
                 </span>{" "}
                 <span className="font-semibold text-slate-700 dark:text-slate-200">
@@ -191,7 +191,7 @@ export default function CollectionDetails() {
               </div>
               {collection.metadata.expectedMembers && (
                 <div>
-                  <span className="text-slate-400 dark:text-slate-500">
+                  <span className="text-slate-500 dark:text-slate-300">
                     {t("ui.expected")}:
                   </span>{" "}
                   <span className="font-semibold text-slate-700 dark:text-slate-200">
@@ -207,7 +207,7 @@ export default function CollectionDetails() {
               )}
               {collection.metadata.reviewIntervalMonths && (
                 <div>
-                  <span className="text-slate-400 dark:text-slate-500">
+                  <span className="text-slate-500 dark:text-slate-300">
                     {t("ui.auditCycle")}:
                   </span>{" "}
                   <span className="font-semibold text-slate-700 dark:text-slate-200">
@@ -224,7 +224,7 @@ export default function CollectionDetails() {
 
       {destinations.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-slate-500">
-          <Frown className="w-12 h-12 mb-3 text-slate-400" />
+          <Frown className="w-12 h-12 mb-3 text-slate-500" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-1">
             No destinations are available in this collection yet.
           </h3>
@@ -239,7 +239,7 @@ export default function CollectionDetails() {
               {t("ui.unescoProperties", {
                 count: destinationGroups.length,
               })}
-              <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">
+              <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-300">
                 {t("ui.places", { count: destinations.length })}
               </span>
             </h2>
@@ -259,7 +259,7 @@ export default function CollectionDetails() {
               })}
               {collection.metadata.expectedMembers &&
                 collection.metadata.expectedMembers !== destinations.length && (
-                  <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-400">
+                  <span className="mt-1 block text-xs font-medium text-slate-500 dark:text-slate-300">
                     {t("ui.currentlyCatalogued", {
                       count: destinations.length,
                     })}{" "}

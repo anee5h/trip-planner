@@ -354,7 +354,7 @@ export function DayPlanWidget({
       <div className="bg-slate-50/80 dark:bg-slate-950/80 border-b border-slate-100 dark:border-slate-800 p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/30">
+            <div className="p-2 rounded-xl bg-emerald-50 dark:bg-emerald-500/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
               <Compass className="w-5 h-5" />
             </div>
             <div>
@@ -362,11 +362,11 @@ export function DayPlanWidget({
                 <h3 className="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                   {plannerTitle}
                 </h3>
-                <Badge className="bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-500/40 text-[10px] uppercase font-bold">
+                <Badge className="bg-emerald-100 dark:bg-emerald-500/30 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-500/40 text-[10px] uppercase font-bold">
                   {isHubOrCity ? "Hub Local Tour" : "POI Itinerary"}
                 </Badge>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+              <p className="text-xs text-slate-500 dark:text-slate-300 mt-0.5">
                 {isHubOrCity
                   ? locale === "ja"
                     ? `${destination.nameJa || destination.name}周辺の見どころ・グルメを効率よく巡るプラン`
@@ -381,7 +381,7 @@ export function DayPlanWidget({
           {hasGenerated && generatedPlan && !generatedPlan.isUnfeasible && (
             <div className="flex items-center gap-4 text-xs font-bold text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 px-3.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
               <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <Clock className="w-4 h-4 text-emerald-700 dark:text-emerald-300" />
                 <span>
                   {Math.round((generatedPlan.totalDurationMinutes / 60) * 10) /
                     10}{" "}
@@ -437,7 +437,7 @@ export function DayPlanWidget({
                         ? `${destination.nameJa || destination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
                         : `Build a personalized schedule around ${destination.name} with optimal visit durations.`}
                   </p>
-                  <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                  <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300">
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-emerald-500" />
                       {locale === "ja"
@@ -459,7 +459,7 @@ export function DayPlanWidget({
               <Button
                 onClick={handleStartCreation}
                 aria-expanded={showConfig}
-                className="w-full sm:w-auto min-h-[44px] px-5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-sm shrink-0 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto min-h-[44px] px-5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-sm shrink-0 flex items-center justify-center gap-2"
               >
                 <Plus className="w-4 h-4" />
                 <span>
@@ -487,7 +487,7 @@ export function DayPlanWidget({
               <button
                 type="button"
                 onClick={() => setShowConfig(false)}
-                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded-full min-h-[44px] min-w-[44px] flex items-center justify-center"
+                className="p-2 text-slate-500 hover:text-slate-600 dark:hover:text-white rounded-full min-h-[44px] min-w-[44px] flex items-center justify-center"
                 aria-label="Cancel config"
               >
                 <X className="w-4 h-4" />
@@ -685,7 +685,7 @@ export function DayPlanWidget({
                     : `Planning window: ${startTime}–${finishTime}`}
                 </span>
               </div>
-              <span className="text-[11px] text-slate-400 dark:text-slate-400 font-medium">
+              <span className="text-[11px] text-slate-500 dark:text-slate-300 font-medium">
                 {locale === "ja"
                   ? "最初のスポットまでの移動時間は含まれません。"
                   : "Travel to the first stop is not included."}
@@ -694,7 +694,7 @@ export function DayPlanWidget({
 
             <div className="flex flex-col items-end gap-2 pt-2">
               {catalogueLoading && (
-                <span className="text-[11px] font-medium text-slate-400">
+                <span className="text-[11px] font-medium text-slate-500">
                   {locale === "ja"
                     ? "目的地データを読み込み中…"
                     : "Loading destination data…"}
@@ -726,7 +726,7 @@ export function DayPlanWidget({
                 <Button
                   type="submit"
                   disabled={catalogueLoading || Boolean(catalogueError)}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl min-h-[44px] text-xs font-bold px-5 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl min-h-[44px] text-xs font-bold px-5 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {locale === "ja"
                     ? hasGenerated
@@ -771,7 +771,7 @@ export function DayPlanWidget({
               {generatedPlan.canFallbackToHalfDay && (
                 <Button
                   onClick={(e) => handleGeneratePlan(e, "half_day")}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl min-h-[44px] text-xs px-4"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl min-h-[44px] text-xs px-4"
                 >
                   <Sparkles className="w-3.5 h-3.5 mr-1.5" />
                   {locale === "ja"
@@ -797,7 +797,7 @@ export function DayPlanWidget({
               <Button
                 variant="ghost"
                 onClick={() => setShowConfig(true)}
-                className="text-slate-600 dark:text-slate-400 hover:text-slate-900 font-bold rounded-xl min-h-[44px] text-xs"
+                className="text-slate-600 dark:text-slate-300 hover:text-slate-900 font-bold rounded-xl min-h-[44px] text-xs"
               >
                 {locale === "ja" ? "条件を変更" : "Change preferences"}
               </Button>
@@ -859,12 +859,12 @@ export function DayPlanWidget({
             )}
 
             {/* Real Stop Badge Count Header */}
-            <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-500 dark:text-slate-300 uppercase tracking-wider pb-2 border-b border-slate-100 dark:border-slate-800">
               <span>
                 {locale === "ja" ? "モデルコース行程" : "Generated Itinerary"} (
                 {realStopCount} {locale === "ja" ? "スポット" : "POIs"})
               </span>
-              <span className="text-emerald-600 dark:text-emerald-400">
+              <span className="text-emerald-700 dark:text-emerald-300">
                 {locale === "ja"
                   ? "リアルタイム所要時間・交通計算"
                   : "Strict Catchment Verified"}
@@ -919,10 +919,10 @@ export function DayPlanWidget({
                         return (
                           <div
                             key={step.id}
-                            className="flex items-start justify-between gap-3 p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-500/50 transition-all group"
+                            className="flex items-start justify-between gap-3 p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-700/50 transition-all group"
                           >
                             <div className="flex items-start gap-3 flex-1 min-w-0">
-                              <span className="text-xs font-mono font-bold text-slate-400 shrink-0 mt-0.5">
+                              <span className="text-xs font-mono font-bold text-slate-500 shrink-0 mt-0.5">
                                 {step.startTime}
                               </span>
                               <div className="space-y-1 min-w-0 flex-1">
@@ -930,7 +930,7 @@ export function DayPlanWidget({
                                   {step.destination?.id ? (
                                     <Link
                                       to={`/destinations/${step.destination.id}`}
-                                      className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 hover:underline transition-colors"
+                                      className="text-sm font-bold text-slate-900 dark:text-white hover:text-emerald-700 dark:hover:text-emerald-400 hover:underline transition-colors"
                                     >
                                       {step.title[locale]}
                                     </Link>
@@ -951,7 +951,7 @@ export function DayPlanWidget({
                                   )}
                                 </div>
                                 {step.description && (
-                                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                                  <p className="text-xs text-slate-500 dark:text-slate-300">
                                     {step.description[locale]}
                                   </p>
                                 )}
@@ -969,7 +969,7 @@ export function DayPlanWidget({
                                       destinationIndex - 1,
                                     )
                                   }
-                                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
+                                  className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-white rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                                   title="Move up"
                                 >
                                   <MoveUp className="w-3.5 h-3.5" />
@@ -984,7 +984,7 @@ export function DayPlanWidget({
                                       destinationIndex + 1,
                                     )
                                   }
-                                  className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
+                                  className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-white rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                                   title="Move down"
                                 >
                                   <MoveDown className="w-3.5 h-3.5" />
@@ -993,7 +993,7 @@ export function DayPlanWidget({
                               <button
                                 type="button"
                                 onClick={() => handleRemoveStep(step.id)}
-                                className="p-1 text-slate-400 hover:text-rose-600 rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
+                                className="p-1 text-slate-500 hover:text-rose-600 rounded min-h-[44px] min-w-[44px] flex items-center justify-center"
                                 title="Remove stop"
                               >
                                 <Trash2 className="w-3.5 h-3.5" />
@@ -1010,7 +1010,7 @@ export function DayPlanWidget({
                             className="p-3 bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 rounded-xl flex items-center justify-between text-xs"
                           >
                             <div className="flex items-center gap-2 text-amber-900 dark:text-amber-200 font-bold">
-                              <span className="font-mono text-slate-400">
+                              <span className="font-mono text-slate-500">
                                 {step.startTime}
                               </span>
                               <Utensils className="w-3.5 h-3.5 text-amber-600" />
@@ -1023,7 +1023,7 @@ export function DayPlanWidget({
                       return (
                         <div
                           key={step.id}
-                          className="p-2.5 text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-2"
+                          className="p-2.5 text-[11px] text-slate-500 dark:text-slate-300 flex items-center gap-2"
                         >
                           <span className="font-mono">{step.startTime}</span>
                           <span>• {step.title[locale]}</span>
@@ -1059,7 +1059,7 @@ export function DayPlanWidget({
               {onSaveToItinerary && (
                 <Button
                   onClick={handleSave}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-sm min-h-[44px]"
+                  className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-sm min-h-[44px]"
                 >
                   <Calendar className="w-4 h-4" />
                   {locale === "ja" ? "旅程に登録" : "Save Plan to Itinerary"}

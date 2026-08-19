@@ -478,7 +478,7 @@ export default function DestinationFilters({
       <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-2.5">
         {/* Search Input Bar */}
         <div className="relative flex-1 min-w-[200px]">
-          <Search className="absolute left-3.5 top-2.5 h-4 w-4 text-slate-400" />
+          <Search className="absolute left-3.5 top-2.5 h-4 w-4 text-slate-500" />
           <Input
             ref={searchInputRef}
             type="search"
@@ -502,7 +502,7 @@ export default function DestinationFilters({
                 setSearchQuery("");
                 searchInputRef.current?.focus();
               }}
-              className="absolute right-2.5 top-1.5 p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+              className="absolute right-2.5 top-1.5 p-1.5 text-slate-500 hover:text-slate-600 dark:hover:text-slate-200"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -529,8 +529,8 @@ export default function DestinationFilters({
               onClick={() => setCollectionPopoverOpen(!collectionPopoverOpen)}
               className={`flex h-9 w-full items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-medium transition-all sm:w-auto ${
                 selectedCollections.length > 0
-                  ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 font-bold"
-                  : "border-slate-200 dark:border-[hsl(var(--border-subtle))] bg-slate-50 dark:bg-[hsl(var(--surface-overlay))] text-slate-700 dark:text-slate-300 hover:border-emerald-500"
+                  ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 font-bold"
+                  : "border-slate-200 dark:border-[hsl(var(--border-subtle))] bg-slate-50 dark:bg-[hsl(var(--surface-overlay))] text-slate-700 dark:text-slate-300 hover:border-emerald-700"
               }`}
             >
               <div className="flex items-center gap-1.5 min-w-0">
@@ -543,13 +543,13 @@ export default function DestinationFilters({
                     : `${selectedCollections.length} ${isJa ? "件" : "Collection"}${selectedCollections.length === 1 || isJa ? "" : "s"}`}
                 </span>
               </div>
-              <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+              <ChevronDown className="w-3.5 h-3.5 text-slate-500 shrink-0" />
             </button>
 
             {collectionPopoverOpen && (
               <div className="absolute left-0 mt-2 w-72 max-h-80 overflow-y-auto bg-white dark:bg-[hsl(var(--surface-overlay))] border border-slate-200 dark:border-[hsl(var(--border-subtle))] rounded-2xl shadow-xl z-50 p-3.5 space-y-3">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-[hsl(var(--border-subtle))]">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300">
                     {isJa ? "厳選コレクション" : "Curated Collections"}
                   </span>
                   {selectedCollections.length > 0 && (
@@ -580,12 +580,12 @@ export default function DestinationFilters({
                                 : [...prev, col.id],
                             );
                           }}
-                          className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
+                          className="rounded border-slate-300 text-emerald-700 focus:ring-emerald-500 w-3.5 h-3.5"
                         />
                         <span
                           className={
                             isChecked
-                              ? "font-bold text-emerald-600 dark:text-emerald-400"
+                              ? "font-bold text-emerald-700 dark:text-emerald-300"
                               : ""
                           }
                         >
@@ -620,7 +620,10 @@ export default function DestinationFilters({
               if (val) setSortBy(val);
             }}
           >
-            <SelectTrigger className="order-4 h-9 w-full rounded-xl border-slate-200 bg-slate-50 text-xs font-medium transition-colors hover:border-emerald-500 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] sm:order-none sm:w-36">
+            <SelectTrigger
+              aria-label={isJa ? "並び替え" : "Sort by"}
+              className="order-4 h-9 w-full rounded-xl border-slate-200 bg-slate-50 text-xs font-medium transition-colors hover:border-emerald-700 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] sm:order-none sm:w-36"
+            >
               {sortBy === "recommended" && (
                 <div className="flex items-center whitespace-nowrap">
                   <Compass className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
@@ -707,28 +710,28 @@ export default function DestinationFilters({
             onClick={() => setModalOpen(true)}
             className={`order-2 flex h-9 shrink-0 items-center gap-1.5 rounded-xl border px-3.5 text-xs font-bold transition-all sm:order-none ${
               activeAdvancedCount > 0
-                ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-sm"
-                : "border-slate-200 bg-slate-50 text-slate-700 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-300 hover:border-emerald-500"
+                ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-sm"
+                : "border-slate-200 bg-slate-50 text-slate-700 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-300 hover:border-emerald-700"
             }`}
           >
             <Filter
               className={`w-3.5 h-3.5 ${
                 activeAdvancedCount > 0
-                  ? "text-emerald-600 dark:text-emerald-400"
-                  : "text-slate-500 dark:text-slate-400"
+                  ? "text-emerald-700 dark:text-emerald-300"
+                  : "text-slate-500 dark:text-slate-300"
               }`}
             />
             <span>{isJa ? "フィルター" : "Filters"}</span>
             {activeAdvancedCount > 0 && (
-              <span className="bg-emerald-600 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center font-bold">
+              <span className="bg-emerald-700 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center font-bold">
                 {activeAdvancedCount}
               </span>
             )}
             <ChevronDown
               className={`w-3.5 h-3.5 ${
                 activeAdvancedCount > 0
-                  ? "text-emerald-600 dark:text-emerald-400"
-                  : "text-slate-500 dark:text-slate-400"
+                  ? "text-emerald-700 dark:text-emerald-300"
+                  : "text-slate-500 dark:text-slate-300"
               }`}
             />
           </button>
@@ -738,7 +741,7 @@ export default function DestinationFilters({
             <button
               type="button"
               onClick={onReset}
-              className="hidden h-9 shrink-0 items-center gap-1 rounded-xl border border-slate-200 px-3 text-xs font-bold text-slate-600 transition-colors hover:border-rose-300 hover:text-rose-600 dark:border-[hsl(var(--border-subtle))] dark:text-slate-400 sm:flex"
+              className="hidden h-9 shrink-0 items-center gap-1 rounded-xl border border-slate-200 px-3 text-xs font-bold text-slate-600 transition-colors hover:border-rose-300 hover:text-rose-600 dark:border-[hsl(var(--border-subtle))] dark:text-slate-300 sm:flex"
             >
               <RotateCcw className="w-3 h-3" />
               <span>{isJa ? "リセット" : "Reset"}</span>
@@ -750,7 +753,7 @@ export default function DestinationFilters({
       {/* Applied Active-Filter Chips Row (Below Primary Toolbar) */}
       {activeChips.length > 0 && (
         <div className="flex items-center justify-end pt-1 sm:mt-3 sm:flex-wrap sm:justify-start sm:gap-1.5 sm:border-t sm:border-slate-100 sm:pt-3 dark:sm:border-slate-800">
-          <span className="mr-1 hidden text-[11px] font-bold uppercase tracking-wider text-slate-400 sm:inline">
+          <span className="mr-1 hidden text-[11px] font-bold uppercase tracking-wider text-slate-500 sm:inline">
             {isJa ? "適用中:" : "Applied:"}
           </span>
           {activeChips.map((chip) => (
@@ -765,7 +768,7 @@ export default function DestinationFilters({
                 className="p-0.5 hover:bg-emerald-200/60 dark:hover:bg-emerald-800/60 rounded-full transition-colors shrink-0"
                 title={isJa ? `解除: ${chip.label}` : `Remove ${chip.label}`}
               >
-                <X className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                <X className="w-3 h-3 text-emerald-700 dark:text-emerald-300" />
               </button>
             </span>
           ))}
@@ -801,13 +804,13 @@ export default function DestinationFilters({
                 </div>
                 <button
                   onClick={() => setModalOpen(false)}
-                  className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[hsl(var(--surface-raised))] rounded-full transition-colors shrink-0"
+                  className="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-[hsl(var(--surface-raised))] rounded-full transition-colors shrink-0"
                   title={isJa ? "閉じる" : "Close preferences"}
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 leading-normal">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-300 leading-normal">
                 {isJa
                   ? "「希望条件」でおすすめ順が変わり、「必須条件」で合わない目的地を除外します。"
                   : "Preferences improve your ranking. Requirements remove unsuitable destinations."}
@@ -820,7 +823,7 @@ export default function DestinationFilters({
               <div className="space-y-3 rounded-xl border border-slate-200/70 bg-slate-50 p-4 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))]">
                 <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-[hsl(var(--border-subtle))]">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
-                    <ShieldCheck className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
+                    <ShieldCheck className="w-4 h-4 text-slate-500 dark:text-slate-300 shrink-0" />
                     <span>{isJa ? "旅行の基本設定" : "TRIP ESSENTIALS"}</span>
                   </div>
                   <span className="text-[11px] text-slate-600 dark:text-slate-300 font-semibold">
@@ -872,8 +875,8 @@ export default function DestinationFilters({
                       onClick={() => handleGettingAroundChange("either")}
                       className={`h-8 px-3 rounded-lg border text-xs font-bold transition-colors ${
                         selectedTransportModes.length === 0
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                          : "border-transparent text-slate-600 hover:border-slate-200 hover:bg-slate-50 dark:text-slate-400 dark:hover:border-[hsl(var(--border-subtle))] dark:hover:bg-[hsl(var(--surface-raised))]"
+                          ? "border-emerald-700 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                          : "border-transparent text-slate-600 hover:border-slate-200 hover:bg-slate-50 dark:text-slate-300 dark:hover:border-[hsl(var(--border-subtle))] dark:hover:bg-[hsl(var(--surface-raised))]"
                       }`}
                     >
                       {selectedTransportModes.length === 0
@@ -922,12 +925,12 @@ export default function DestinationFilters({
                           onClick={() => handleGettingAroundChange(opt.val)}
                           className={`relative min-h-[56px] px-3 py-2 rounded-xl border text-xs font-bold text-center flex flex-col gap-1 items-center justify-center transition-all leading-tight whitespace-normal break-words ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-400"
+                              ? "border-emerald-700 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-300"
                           }`}
                         >
                           {isSelected && (
-                            <span className="absolute right-2 top-1.5 text-emerald-600 dark:text-emerald-300">
+                            <span className="absolute right-2 top-1.5 text-emerald-700 dark:text-emerald-300">
                               ✓
                             </span>
                           )}
@@ -943,7 +946,7 @@ export default function DestinationFilters({
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <label className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300">
-                      <Coins className="w-4 h-4 text-emerald-600" />
+                      <Coins className="w-4 h-4 text-emerald-700" />
                       {isJa ? "予算の目安" : "Budget preference"}
                     </label>
                     <span className="text-[10px] text-slate-600 dark:text-slate-300 font-semibold">
@@ -957,7 +960,7 @@ export default function DestinationFilters({
                         label: isJa ? "指定なし" : "Any",
                         desc: isJa ? "制限なし" : "All price ranges",
                         icon: Sparkles,
-                        color: "text-emerald-600",
+                        color: "text-emerald-700",
                       },
                       {
                         val: "economy",
@@ -997,8 +1000,8 @@ export default function DestinationFilters({
                           onClick={() => setBudgetTier(opt.val as BudgetFilter)}
                           className={`min-h-[52px] px-3 py-2 rounded-xl border text-left transition-all ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-400"
+                              ? "border-emerald-700 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] dark:text-slate-300"
                           }`}
                         >
                           <span className="flex items-center gap-1.5 text-xs font-bold">
@@ -1007,7 +1010,7 @@ export default function DestinationFilters({
                             />
                             {opt.label}
                           </span>
-                          <span className="mt-0.5 block text-[10px] font-medium text-slate-500 dark:text-slate-400">
+                          <span className="mt-0.5 block text-[10px] font-medium text-slate-500 dark:text-slate-300">
                             {opt.desc}
                           </span>
                         </button>
@@ -1024,7 +1027,7 @@ export default function DestinationFilters({
                         ? "バリアフリー・環境"
                         : "Accessibility & requirements"}
                     </label>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold">
+                    <span className="text-[10px] text-slate-500 dark:text-slate-300 font-semibold">
                       {isJa ? "詳細は施設に要確認" : "Confirm venue details"}
                     </span>
                   </div>
@@ -1055,8 +1058,8 @@ export default function DestinationFilters({
                           }
                           className={`min-h-[36px] px-3 py-1.5 rounded-xl border text-xs font-bold transition-all text-left flex items-center gap-1 leading-snug whitespace-normal break-words ${
                             active
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
-                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                              ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
+                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-300 hover:border-slate-300"
                           }`}
                         >
                           {active ? "✓ " : ""}
@@ -1072,10 +1075,10 @@ export default function DestinationFilters({
               <div className="space-y-3 rounded-xl border border-slate-200/70 bg-slate-50/50 p-4 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]">
                 <div className="flex items-center justify-between pb-1 border-b border-slate-200 dark:border-[hsl(var(--border-subtle))]">
                   <div className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-900 dark:text-white">
-                    <Compass className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <Compass className="w-4 h-4 text-emerald-700 shrink-0" />
                     <span>{isJa ? "希望条件" : "RANKING PREFERENCES"}</span>
                   </div>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-300 font-semibold">
                     {isJa ? "マッチ度順に並び替え" : "Re-ranks destinations"}
                   </span>
                 </div>
@@ -1084,7 +1087,7 @@ export default function DestinationFilters({
                   <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
                     {t("destination.tripDuration")}
                   </span>
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 font-semibold">
+                  <span className="text-[11px] text-slate-500 dark:text-slate-300 font-semibold">
                     {isJa ? "フィルター" : "Filter"}
                   </span>
                 </div>
@@ -1097,8 +1100,8 @@ export default function DestinationFilters({
                     }}
                     className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
                       tripMode !== "day_trip" && tripMode !== "weekend_2d1n"
-                        ? "bg-emerald-600 text-white shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                        ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
                     {t("destination.tripModes.any")}
@@ -1108,8 +1111,8 @@ export default function DestinationFilters({
                     onClick={() => setTripMode("day_trip")}
                     className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
                       tripMode === "day_trip"
-                        ? "bg-emerald-600 text-white shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                        ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
                     {t("destination.tripModes.day_trip")}
@@ -1119,8 +1122,8 @@ export default function DestinationFilters({
                     onClick={() => setTripMode("weekend_2d1n")}
                     className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
                       tripMode === "weekend_2d1n"
-                        ? "bg-emerald-600 text-white shadow-sm dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                        ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
                     }`}
                   >
                     {t("destination.tripModes.weekend_2d1n")}
@@ -1164,7 +1167,7 @@ export default function DestinationFilters({
                               className={`min-h-[32px] px-1 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
                                 isSelected
                                   ? "bg-white dark:bg-[hsl(var(--surface-overlay))] text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-[hsl(var(--border-subtle))] font-extrabold"
-                                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                               }`}
                             >
                               {opt.label}
@@ -1195,7 +1198,7 @@ export default function DestinationFilters({
                               className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
                                 isSelected
                                   ? "bg-white dark:bg-[hsl(var(--surface-overlay))] text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-[hsl(var(--border-subtle))] font-extrabold"
-                                  : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                               }`}
                             >
                               {opt.label}
@@ -1211,12 +1214,12 @@ export default function DestinationFilters({
                 <details className="group border-t border-slate-100 dark:border-[hsl(var(--border-subtle))] pt-3">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
                     <span className="flex items-center gap-2">
-                      <Palette className="w-4 h-4 text-emerald-600" />
+                      <Palette className="w-4 h-4 text-emerald-700" />
                       {isJa ? "旅の雰囲気・テーマ" : "Vibe & atmosphere"}
                     </span>
-                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-300">
                       {preferenceSummaries.vibe}
-                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                      <ChevronDown className="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180" />
                     </span>
                   </summary>
                   <div className="flex flex-wrap gap-1.5 pt-2">
@@ -1225,7 +1228,7 @@ export default function DestinationFilters({
                         val: "any",
                         label: isJa ? "なんでも" : "Anything goes",
                         icon: Compass,
-                        color: "text-slate-400",
+                        color: "text-slate-500",
                       },
                       {
                         val: "art",
@@ -1285,8 +1288,8 @@ export default function DestinationFilters({
                           onClick={() => setVibe(opt.val)}
                           className={`flex min-h-[36px] items-center gap-1.5 whitespace-normal rounded-xl border px-3 py-1.5 text-xs font-bold leading-snug transition-all ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
-                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                              ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
+                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-300 hover:border-slate-300"
                           }`}
                         >
                           <Icon className={`size-3.5 shrink-0 ${opt.color}`} />
@@ -1302,12 +1305,12 @@ export default function DestinationFilters({
                 <details className="group border-t border-slate-100 dark:border-[hsl(var(--border-subtle))] pt-3">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
                     <span className="flex items-center gap-2">
-                      <CloudSun className="w-4 h-4 text-emerald-600" />
+                      <CloudSun className="w-4 h-4 text-emerald-700" />
                       {isJa ? "天候への対応力" : "Weather suitability"}
                     </span>
-                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-300">
                       {preferenceSummaries.weather}
-                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                      <ChevronDown className="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180" />
                     </span>
                   </summary>
                   <div className="flex flex-wrap gap-1.5 pt-2">
@@ -1340,8 +1343,8 @@ export default function DestinationFilters({
                           onClick={() => setWeather(w.val as typeof weather)}
                           className={`flex min-h-[36px] items-center gap-1.5 whitespace-normal rounded-xl border px-3 py-1.5 text-xs font-bold leading-snug transition-all ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
-                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                              ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
+                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-300 hover:border-slate-300"
                           }`}
                         >
                           <Icon className={`size-3.5 shrink-0 ${w.color}`} />
@@ -1357,12 +1360,12 @@ export default function DestinationFilters({
                 <details className="group border-t border-slate-100 dark:border-[hsl(var(--border-subtle))] pt-3">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
                     <span className="flex items-center gap-2">
-                      <Route className="w-4 h-4 text-emerald-600" />
+                      <Route className="w-4 h-4 text-emerald-700" />
                       {isJa ? "歩行負荷の目安" : "Walking difficulty"}
                     </span>
-                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-300">
                       {preferenceSummaries.walking}
-                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                      <ChevronDown className="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180" />
                     </span>
                   </summary>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 pt-2">
@@ -1398,7 +1401,7 @@ export default function DestinationFilters({
                           onClick={() => setWalkingIntensity(w.id)}
                           className={`p-2.5 rounded-2xl border text-left transition-all min-h-[64px] flex flex-col justify-center ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/20 dark:ring-1 dark:ring-emerald-400/50"
+                              ? "border-emerald-700 bg-emerald-50 dark:bg-emerald-500/30 dark:ring-1 dark:ring-emerald-400/50"
                               : "border-slate-200 dark:border-[hsl(var(--border-subtle))] bg-white dark:bg-[hsl(var(--surface-overlay))] hover:border-slate-300"
                           }`}
                         >
@@ -1411,7 +1414,7 @@ export default function DestinationFilters({
                             </span>
                             {isSelected && <span aria-hidden="true">✓</span>}
                           </div>
-                          <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
+                          <div className="text-[10px] text-slate-500 dark:text-slate-300 mt-0.5 leading-tight">
                             {w.desc}
                           </div>
                         </button>
@@ -1424,12 +1427,12 @@ export default function DestinationFilters({
                 <details className="group border-y border-slate-100 dark:border-[hsl(var(--border-subtle))] py-3">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
                     <span className="flex items-center gap-2">
-                      <CalendarDays className="w-4 h-4 text-emerald-600" />
+                      <CalendarDays className="w-4 h-4 text-emerald-700" />
                       {isJa ? "おすすめの季節" : "Best season"}
                     </span>
-                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-300">
                       {preferenceSummaries.season}
-                      <ChevronDown className="w-4 h-4 text-slate-400 transition-transform group-open:rotate-180" />
+                      <ChevronDown className="w-4 h-4 text-slate-500 transition-transform group-open:rotate-180" />
                     </span>
                   </summary>
                   <div className="flex flex-wrap gap-1.5 pt-2">
@@ -1468,8 +1471,8 @@ export default function DestinationFilters({
                           onClick={() => setSeason(val)}
                           className={`flex min-h-[36px] items-center gap-1.5 whitespace-normal rounded-xl border px-3 py-1.5 text-xs font-bold leading-snug transition-all ${
                             isSelected
-                              ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
-                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-400 hover:border-slate-300"
+                              ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50 shadow-2xs"
+                              : "bg-white dark:bg-[hsl(var(--surface-overlay))] border-slate-200 dark:border-[hsl(var(--border-subtle))] text-slate-600 dark:text-slate-300 hover:border-slate-300"
                           }`}
                         >
                           <Icon className={`size-3.5 shrink-0 ${color}`} />
@@ -1489,7 +1492,7 @@ export default function DestinationFilters({
                 <button
                   type="button"
                   onClick={onReset}
-                  className="rounded-lg px-2.5 py-2 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-[hsl(var(--surface-raised))] dark:hover:text-rose-400 transition-colors whitespace-nowrap"
+                  className="rounded-lg px-2.5 py-2 text-xs font-bold text-slate-500 dark:text-slate-300 hover:bg-slate-100 hover:text-rose-600 dark:hover:bg-[hsl(var(--surface-raised))] dark:hover:text-rose-400 transition-colors whitespace-nowrap"
                 >
                   {isJa ? "条件をリセット" : "Reset preferences"}
                 </button>
@@ -1499,7 +1502,7 @@ export default function DestinationFilters({
               <button
                 type="button"
                 onClick={() => setModalOpen(false)}
-                className="px-5 sm:px-6 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs rounded-xl shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
+                className="px-5 sm:px-6 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-xs rounded-xl shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
               >
                 {tripMode === "weekend_2d1n"
                   ? t("destination.tripAreas.show", {

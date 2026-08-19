@@ -150,9 +150,9 @@ describe("HomePlanner", () => {
       (btn) => btn.textContent?.includes("Weekend"),
     );
 
-    expect(dayTripBtn?.className).toContain("dark:bg-emerald-500/20");
+    expect(dayTripBtn?.className).toContain("dark:bg-emerald-500/30");
     expect(dayTripBtn?.className).toContain("dark:ring-emerald-400/50");
-    expect(weekendBtn?.className).not.toContain("dark:bg-emerald-500/20");
+    expect(weekendBtn?.className).not.toContain("dark:bg-emerald-500/30");
   });
 
   it("does not show allowance control in day trip mode", () => {

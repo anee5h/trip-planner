@@ -160,15 +160,15 @@ export default function WhereLocationPicker({
         onClick={() => setOpen(!open)}
         className={`flex h-9 w-full items-center gap-1.5 rounded-xl border px-3 text-xs font-medium transition-all sm:w-auto ${
           totalSelections > 0 || selectedRegions.length > 0
-            ? "border-emerald-500 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
-            : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-500"
+            ? "border-emerald-700 bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 font-bold"
+            : "border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 hover:border-emerald-700"
         }`}
       >
         <MapPin className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
         <span className="max-w-[150px] truncate sm:max-w-[200px]">
           {getButtonLabel()}
         </span>
-        <ChevronDown className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+        <ChevronDown className="w-3.5 h-3.5 text-slate-500 shrink-0" />
       </button>
 
       {open && (
@@ -207,7 +207,7 @@ export default function WhereLocationPicker({
                           type="checkbox"
                           checked={isRegionChecked}
                           onChange={() => toggleRegion(region)}
-                          className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3.5 h-3.5"
+                          className="rounded border-slate-300 text-emerald-700 focus:ring-emerald-500 w-3.5 h-3.5"
                         />
                         <span>{localizePlaceLabel(region, locale)}</span>
                       </label>
@@ -219,7 +219,7 @@ export default function WhereLocationPicker({
                             [region]: !prev[region],
                           }))
                         }
-                        className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                        className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-200"
                       >
                         {isRegionExpanded ? (
                           <ChevronDown className="w-3.5 h-3.5" />
@@ -237,18 +237,18 @@ export default function WhereLocationPicker({
                           return (
                             <label
                               key={pref}
-                              className="flex items-center gap-2 cursor-pointer text-xs text-slate-700 dark:text-slate-300 py-0.5 hover:text-emerald-600"
+                              className="flex items-center gap-2 cursor-pointer text-xs text-slate-700 dark:text-slate-300 py-0.5 hover:text-emerald-700"
                             >
                               <input
                                 type="checkbox"
                                 checked={isPrefChecked}
                                 onChange={() => togglePrefecture(region, pref)}
-                                className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500 w-3 h-3"
+                                className="rounded border-slate-300 text-emerald-700 focus:ring-emerald-500 w-3 h-3"
                               />
                               <span
                                 className={
                                   isPrefChecked
-                                    ? "font-bold text-emerald-600 dark:text-emerald-400"
+                                    ? "font-bold text-emerald-700 dark:text-emerald-300"
                                     : ""
                                 }
                               >

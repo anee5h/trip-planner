@@ -335,7 +335,7 @@ export function ItineraryPickerModal({
         {/* Header */}
         <div className="p-6 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between bg-slate-50/70 dark:bg-slate-900/90">
           <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/60 rounded-2xl text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/40">
+            <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/60 rounded-2xl text-emerald-700 dark:text-emerald-300 border border-emerald-100 dark:border-emerald-900/40">
               {payload.type === "destination" ? (
                 <Calendar className="w-5 h-5" />
               ) : (
@@ -349,7 +349,7 @@ export function ItineraryPickerModal({
               >
                 {modalTitle}
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[240px]">
+              <p className="text-xs text-slate-500 dark:text-slate-300 truncate max-w-[240px]">
                 {modalSubtitle}
               </p>
             </div>
@@ -358,7 +358,7 @@ export function ItineraryPickerModal({
             onClick={handleClose}
             disabled={isSubmitting}
             aria-label="Close modal"
-            className="p-2 text-slate-400 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-100 rounded-full transition-colors disabled:opacity-50 min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="p-2 text-slate-500 hover:text-slate-600 dark:text-slate-300 dark:hover:text-slate-100 rounded-full transition-colors disabled:opacity-50 min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             <X className="w-5 h-5" />
           </button>
@@ -368,7 +368,7 @@ export function ItineraryPickerModal({
         <div className="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
           {trips.length === 0 && !isCreating ? (
             <div className="text-center py-6 space-y-4">
-              <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto text-slate-400">
+              <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto text-slate-500">
                 <AlertCircle className="w-6 h-6" />
               </div>
               <div>
@@ -382,7 +382,7 @@ export function ItineraryPickerModal({
               </div>
               <Button
                 onClick={() => setIsCreating(true)}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl py-2.5 text-sm"
+                className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl py-2.5 text-sm"
               >
                 Create First Trip
               </Button>
@@ -416,7 +416,7 @@ export function ItineraryPickerModal({
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold"
+                  className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold"
                 >
                   {isSubmitting ? (
                     <Loader2 className="w-4 h-4 animate-spin mx-auto" />
@@ -429,12 +429,12 @@ export function ItineraryPickerModal({
           ) : (
             <>
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Select a Trip
                 </span>
                 <button
                   onClick={() => setIsCreating(true)}
-                  className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:underline flex items-center gap-1"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   New Trip
@@ -447,21 +447,21 @@ export function ItineraryPickerModal({
                     key={t.id}
                     onClick={() => handleSelectTrip(t.id)}
                     disabled={isSubmitting}
-                    className="w-full flex items-center justify-between p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 bg-white dark:bg-slate-900 transition-all text-left group disabled:opacity-50"
+                    className="w-full flex items-center justify-between p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-emerald-700 dark:hover:border-emerald-700 bg-white dark:bg-slate-900 transition-all text-left group disabled:opacity-50"
                   >
                     <div className="flex items-center gap-3 min-w-0 pr-2">
-                      <MapPin className="w-4 h-4 text-slate-400 group-hover:text-emerald-500 shrink-0" />
+                      <MapPin className="w-4 h-4 text-slate-500 group-hover:text-emerald-500 shrink-0" />
                       <div className="min-w-0">
                         <p className="font-bold text-sm text-slate-900 dark:text-white truncate">
                           {t.title}
                         </p>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-slate-500">
                           {t.stops.length}{" "}
                           {t.stops.length === 1 ? "stop" : "stops"}
                         </p>
                       </div>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-500 shrink-0" />
+                    <ChevronRight className="w-4 h-4 text-slate-500 group-hover:text-emerald-500 shrink-0" />
                   </button>
                 ))}
               </div>

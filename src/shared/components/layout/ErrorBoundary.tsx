@@ -40,7 +40,7 @@ export class ErrorBoundary extends Component<Props, State> {
           <h2 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
             {isJa ? "問題が発生しました" : "Something went wrong"}
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-md">
+          <p className="text-slate-600 dark:text-slate-300 mb-6 max-w-md">
             {isJa
               ? "コンテンツの読み込み中に予期しないエラーが発生しました。ページを再読み込みしてください。"
               : "We encountered an unexpected error while trying to load this content. Please try refreshing the page."}
@@ -48,7 +48,7 @@ export class ErrorBoundary extends Component<Props, State> {
           <div className="flex gap-3">
             <Button
               onClick={() => window.location.reload()}
-              className="bg-emerald-600 hover:bg-emerald-700 text-white"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white"
             >
               <RefreshCw className="w-4 h-4 mr-2" />
               {isJa ? "ページを再読み込み" : "Reload Page"}

@@ -62,7 +62,7 @@ export function BucketListButton({
         title={currentTitle}
         className={`px-4 py-2 rounded-xl flex items-center gap-2 font-semibold text-sm transition-all active:scale-95 shadow-sm border ${
           active
-            ? "border-emerald-200 bg-emerald-50 text-emerald-600 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-400"
+            ? "border-emerald-200 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-300"
             : "bg-slate-900/60 hover:bg-slate-900 text-white border-white/20 backdrop-blur-md"
         } ${className}`}
       >
