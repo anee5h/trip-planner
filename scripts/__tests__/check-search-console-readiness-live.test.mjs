@@ -23,12 +23,10 @@ function makeDestination(overrides) {
   };
 }
 
-// The live probe hardcodes the kamakura pair — the fixture catalogue
-// must include kamakura so the exact-set + hreflang assertions match.
-const TWO = [
-  makeDestination({ id: "kamakura" }),
-  makeDestination({ id: "aaa" }),
-];
+// The live probe picks the sorted-first destination id as the EN/JA pair —
+// the fixture catalogue must include an id that sorts first (aaa) so the
+// exact-set + hreflang assertions match.
+const TWO = [makeDestination({ id: "aaa" }), makeDestination({ id: "zzz" })];
 
 const SITE = "https://meguruto.app";
 
@@ -39,8 +37,8 @@ function fullSitemap() {
     `  <url>\n    <loc>${SITE}/</loc>\n  </url>`,
     `  <url>\n    <loc>${SITE}/destinations</loc>\n  </url>`,
     `  <url>\n    <loc>${SITE}/collections</loc>\n  </url>`,
-    `  <url>\n    <loc>${SITE}/destinations/kamakura</loc>\n  </url>`,
     `  <url>\n    <loc>${SITE}/destinations/aaa</loc>\n  </url>`,
+    `  <url>\n    <loc>${SITE}/destinations/zzz</loc>\n  </url>`,
     `</urlset>`,
     ``,
   ].join("\n");
@@ -66,15 +64,15 @@ function jaHomeHtml() {
   )}</head><body><div id="root"></div></body></html>`;
 }
 function enDestHtml() {
-  return `<html lang="en"><head><link rel="canonical" href="${SITE}/destinations/kamakura" />${HREFLANG(
-    `${SITE}/destinations/kamakura`,
-    `${SITE}/ja/destinations/kamakura`,
+  return `<html lang="en"><head><link rel="canonical" href="${SITE}/destinations/aaa" />${HREFLANG(
+    `${SITE}/destinations/aaa`,
+    `${SITE}/ja/destinations/aaa`,
   )}</head></html>`;
 }
 function jaDestHtml() {
-  return `<html lang="ja"><head><link rel="canonical" href="${SITE}/ja/destinations/kamakura" />${HREFLANG(
-    `${SITE}/destinations/kamakura`,
-    `${SITE}/ja/destinations/kamakura`,
+  return `<html lang="ja"><head><link rel="canonical" href="${SITE}/ja/destinations/aaa" />${HREFLANG(
+    `${SITE}/destinations/aaa`,
+    `${SITE}/ja/destinations/aaa`,
   )}</head></html>`;
 }
 
@@ -102,8 +100,8 @@ function validRoutes() {
     "/sitemap.xml": { body: fullSitemap() },
     "/": { body: homeHtml() },
     "/ja/": { body: jaHomeHtml() },
-    "/destinations/kamakura": { body: enDestHtml() },
-    "/ja/destinations/kamakura": { body: jaDestHtml() },
+    "/destinations/aaa": { body: enDestHtml() },
+    "/ja/destinations/aaa": { body: jaDestHtml() },
     "/settings": {
       body: "<html></html>",
       headers: { "x-robots-tag": "noindex, nofollow" },

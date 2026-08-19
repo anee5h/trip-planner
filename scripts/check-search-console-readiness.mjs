@@ -368,33 +368,41 @@ export async function runLiveProbe({
         ok("/ja/ -> 200 + JA canonical + complete 3-link hreflang set");
     }
 
-    const enDest = await getText("/destinations/kamakura");
-    const jaDest = await getText("/ja/destinations/kamakura");
-    const enUrl = "https://meguruto.app/destinations/kamakura";
-    const jaUrl = "https://meguruto.app/ja/destinations/kamakura";
-    if (enDest.status !== 200)
-      fail(`/destinations/kamakura -> ${enDest.status}`);
+    // Representative EN + JA destination pair — pick a REAL canonical id
+    // deterministically (sorted-first) so the probe never hardcodes an id
+    // that may not exist in the catalogue.
+    const probeId = [...destinations].map((d) => d.id).sort()[0];
+    if (!probeId)
+      fail("no destination ids in catalogue for the live pair probe");
     else {
-      if (!enDest.text.includes(`<link rel="canonical" href="${enUrl}" />`))
-        fail("EN destination lacks exact canonical");
-      const hf = validateLiveHreflangSet(enDest.text, enUrl, jaUrl);
-      for (const f of hf) fail(`EN destination ${f}`);
-      if (failures.filter((f) => f.includes("EN destination")).length === 0)
-        ok(
-          "EN destination /destinations/kamakura -> 200 + canonical + complete 3-link hreflang set",
-        );
-    }
-    if (jaDest.status !== 200)
-      fail(`/ja/destinations/kamakura -> ${jaDest.status}`);
-    else {
-      if (!jaDest.text.includes(`<link rel="canonical" href="${jaUrl}" />`))
-        fail("JA destination lacks exact canonical");
-      const hf = validateLiveHreflangSet(jaDest.text, enUrl, jaUrl);
-      for (const f of hf) fail(`JA destination ${f}`);
-      if (failures.filter((f) => f.includes("JA destination")).length === 0)
-        ok(
-          "JA destination /ja/destinations/kamakura -> 200 + JA canonical + complete 3-link hreflang set",
-        );
+      const enDest = await getText(`/destinations/${probeId}`);
+      const jaDest = await getText(`/ja/destinations/${probeId}`);
+      const enUrl = `${siteUrl}/destinations/${probeId}`;
+      const jaUrl = `${siteUrl}/ja/destinations/${probeId}`;
+      if (enDest.status !== 200)
+        fail(`/destinations/${probeId} -> ${enDest.status}`);
+      else {
+        if (!enDest.text.includes(`<link rel="canonical" href="${enUrl}" />`))
+          fail("EN destination lacks exact canonical");
+        const hf = validateLiveHreflangSet(enDest.text, enUrl, jaUrl);
+        for (const f of hf) fail(`EN destination ${f}`);
+        if (failures.filter((f) => f.includes("EN destination")).length === 0)
+          ok(
+            `EN destination /destinations/${probeId} -> 200 + canonical + complete 3-link hreflang set`,
+          );
+      }
+      if (jaDest.status !== 200)
+        fail(`/ja/destinations/${probeId} -> ${jaDest.status}`);
+      else {
+        if (!jaDest.text.includes(`<link rel="canonical" href="${jaUrl}" />`))
+          fail("JA destination lacks exact canonical");
+        const hf = validateLiveHreflangSet(jaDest.text, enUrl, jaUrl);
+        for (const f of hf) fail(`JA destination ${f}`);
+        if (failures.filter((f) => f.includes("JA destination")).length === 0)
+          ok(
+            `JA destination /ja/destinations/${probeId} -> 200 + JA canonical + complete 3-link hreflang set`,
+          );
+      }
     }
 
     const privateRes = await fetch(`${siteUrl}/settings`, {
