@@ -65,7 +65,10 @@ function goodSitemap() {
 /** A good prerender output map for the two-destination catalogue. */
 function goodOutputs() {
   const map = new Map();
-  map.set("/ja/index.html", `<html lang="ja"><head><link rel="canonical" href="https://meguruto.app/ja/" /></head></html>`);
+  map.set(
+    "/ja/index.html",
+    `<html lang="ja"><head><link rel="canonical" href="https://meguruto.app/ja/" /></head></html>`,
+  );
   for (const id of ["aaa", "bbb"]) {
     map.set(
       `/destinations/${id}/index.html`,
@@ -100,7 +103,7 @@ describe("KAI-120 checker: sitemap exact-set validation", () => {
   it("flags a MISSING destination URL", () => {
     const bad = () =>
       goodSitemap().replace(
-        '<loc>https://meguruto.app/destinations/bbb</loc>',
+        "<loc>https://meguruto.app/destinations/bbb</loc>",
         "",
       );
     const failures = runStaticChecks({
@@ -119,7 +122,7 @@ describe("KAI-120 checker: sitemap exact-set validation", () => {
     const bad = () =>
       goodSitemap().replace(
         "</urlset>",
-        '  <url>\n    <loc>https://meguruto.app/destinations/ghost</loc>\n  </url>\n</urlset>',
+        "  <url>\n    <loc>https://meguruto.app/destinations/ghost</loc>\n  </url>\n</urlset>",
       );
     const failures = runStaticChecks({
       shell: SHELL,
@@ -134,8 +137,8 @@ describe("KAI-120 checker: sitemap exact-set validation", () => {
   it("flags a DUPLICATE destination URL", () => {
     const bad = () =>
       goodSitemap().replace(
-        '<loc>https://meguruto.app/destinations/bbb</loc>',
-        '<loc>https://meguruto.app/destinations/aaa</loc>\n  </url>\n  <url>\n    <loc>https://meguruto.app/destinations/aaa</loc>',
+        "<loc>https://meguruto.app/destinations/bbb</loc>",
+        "<loc>https://meguruto.app/destinations/aaa</loc>\n  </url>\n  <url>\n    <loc>https://meguruto.app/destinations/aaa</loc>",
       );
     const failures = runStaticChecks({
       shell: SHELL,
@@ -151,7 +154,7 @@ describe("KAI-120 checker: sitemap exact-set validation", () => {
     const bad = () =>
       goodSitemap().replace(
         "</urlset>",
-        '  <url>\n    <loc>https://meguruto.app/ja/destinations/aaa</loc>\n  </url>\n</urlset>',
+        "  <url>\n    <loc>https://meguruto.app/ja/destinations/aaa</loc>\n  </url>\n</urlset>",
       );
     const failures = runStaticChecks({
       shell: SHELL,
@@ -165,7 +168,7 @@ describe("KAI-120 checker: sitemap exact-set validation", () => {
 
   it("flags a MISSING public hub URL", () => {
     const bad = () =>
-      goodSitemap().replace('<loc>https://meguruto.app/collections</loc>', "");
+      goodSitemap().replace("<loc>https://meguruto.app/collections</loc>", "");
     const failures = runStaticChecks({
       shell: SHELL,
       destinations: TWO,
@@ -191,8 +194,8 @@ describe("KAI-120 checker: sitemap exact-set validation", () => {
       log: () => {},
       renderSitemapFn: () =>
         goodSitemap().replace(
-          '<loc>https://meguruto.app/destinations/bbb</loc>',
-          '<loc>https://meguruto.app/destinations/bbb</loc>\n  </url>\n  <url>\n    <loc>https://meguruto.app/destinations/ccc</loc>\n  </url>\n  <url>\n    <loc>https://meguruto.app/destinations/ddd</loc>',
+          "<loc>https://meguruto.app/destinations/bbb</loc>",
+          "<loc>https://meguruto.app/destinations/bbb</loc>\n  </url>\n  <url>\n    <loc>https://meguruto.app/destinations/ccc</loc>\n  </url>\n  <url>\n    <loc>https://meguruto.app/destinations/ddd</loc>",
         ),
       buildOutputsFn: (shell, dests) => {
         const m = goodOutputs();
@@ -326,7 +329,7 @@ describe("KAI-120 checker: HTML contract", () => {
     const bad = () =>
       goodSitemap().replace(
         "</urlset>",
-        '  <url>\n    <loc>https://meguruto.app/settings</loc>\n  </url>\n</urlset>',
+        "  <url>\n    <loc>https://meguruto.app/settings</loc>\n  </url>\n</urlset>",
       );
     const failures = runStaticChecks({
       shell: SHELL,
