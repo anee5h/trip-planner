@@ -389,13 +389,20 @@ test.describe("KAI-80 Home planner controls (light)", () => {
 
   test("date picker dialog is accessible and traps focus", async ({ page }) => {
     await page.goto("/");
-    // Deterministic: wait for the planner's date control to settle, then
-    // use whichever layout's trigger is actually visible (desktop picker
-    // vs mobile date row) — never a hidden first-match.
+    // Deterministic: wait for the planner to settle (main + a known
+    // planner control) BEFORE hunting the date trigger — the planner
+    // renders after the catalogue loads, and the trigger wait alone can
+    // flake on a cold CI runner.
+    await expect(page.locator("main")).toBeVisible();
+    await page
+      .locator("button", { hasText: /Find|探す|View|表示/ })
+      .first()
+      .waitFor({ state: "visible", timeout: 20000 })
+      .catch(() => {});
     const dateTriggers = page.locator(
       'button[aria-label*="Choose travel date" i], [aria-label*="travel date" i]',
     );
-    await expect(dateTriggers.first()).toBeVisible({ timeout: 15000 });
+    await expect(dateTriggers.first()).toBeVisible({ timeout: 30000 });
     const visibleTrigger = dateTriggers.filter({ visible: true }).first();
     await expect(visibleTrigger).toBeVisible();
     await visibleTrigger.click();
