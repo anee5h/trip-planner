@@ -91,6 +91,78 @@ import {
 } from "../src/seo/prerender.js";
 
 /**
+ * EXACT sitemap-set validation (shared by static + live modes so the two
+ * can never drift): all 978 canonical EN destination URLs exactly once,
+ * all public hub URLs present, no missing/unexpected/duplicate URL, no
+ * /ja/ URLs (KAI-108 hreflang is HTML-based). Returns failure messages
+ * (empty = pass).
+ */
+export function validateSitemapSet(sitemapUrls, destinations) {
+  const failures = [];
+  const expectedDestUrls = destinations.map(
+    (d) => `${SITE_URL}/destinations/${d.id}`,
+  );
+  const expectedSet = new Set([...SITEMAP_HUB_URLS, ...expectedDestUrls]);
+  const seen = new Map();
+  for (const url of sitemapUrls) seen.set(url, (seen.get(url) ?? 0) + 1);
+
+  const missing = expectedDestUrls.filter((u) => !seen.has(u));
+  if (missing.length > 0) {
+    failures.push(
+      `sitemap missing ${missing.length} destination URL(s) (e.g. ${missing[0]})`,
+    );
+  }
+  const unexpected = [...seen.keys()].filter((u) => !expectedSet.has(u));
+  if (unexpected.length > 0) {
+    failures.push(
+      `sitemap has ${unexpected.length} unexpected URL(s): ${unexpected.slice(0, 3).join(", ")}`,
+    );
+  }
+  const dups = [...seen.entries()].filter(([, n]) => n > 1).map(([u]) => u);
+  if (dups.length > 0) {
+    failures.push(
+      `sitemap has duplicate URL(s): ${dups.slice(0, 3).join(", ")}`,
+    );
+  }
+  const missingHubs = SITEMAP_HUB_URLS.filter((u) => !seen.has(u));
+  if (missingHubs.length > 0) {
+    failures.push(
+      `sitemap missing public hub URL(s): ${missingHubs.join(", ")}`,
+    );
+  }
+  const jaInSitemap = sitemapUrls.filter((u) => u.includes("/ja/"));
+  if (jaInSitemap.length > 0) {
+    failures.push(
+      `sitemap contains /ja/ URL(s) (KAI-108 hreflang is HTML-based): ${jaInSitemap.slice(0, 3).join(", ")}`,
+    );
+  }
+  return failures;
+}
+
+/**
+ * Complete hreflang-set validation for a live HTML page: all three links
+ * (en → EN URL, ja → JA URL, x-default → EN URL) present and no MORE than
+ * the three (an extra/duplicate bad alternate must not silently pass).
+ * Returns failure messages (empty = pass).
+ */
+export function validateLiveHreflangSet(html, enUrl, jaUrl) {
+  const failures = [];
+  const expected = hreflangSet(enUrl, jaUrl);
+  for (const tag of expected) {
+    if (!html.includes(tag)) failures.push(`missing ${tag}`);
+  }
+  const links = [
+    ...html.matchAll(/<link rel="alternate" hreflang="[^"]*"[^>]*>/g),
+  ].map((m) => m[0].replace(/\s+/g, " ").trim());
+  if (links.length !== expected.length) {
+    failures.push(
+      `expected exactly ${expected.length} hreflang alternate link(s), found ${links.length}`,
+    );
+  }
+  return failures;
+}
+
+/**
  * Run every STATIC check against in-memory prerender output.
  * Returns the array of failure messages (empty = pass).
  * The generator functions are injectable for tests (dependency injection —
@@ -121,49 +193,12 @@ export function runStaticChecks({
     (m) => m[1],
   );
 
-  // --- EXACT sitemap set ---
-  const expectedDestUrls = destinations.map(
-    (d) => `${SITE_URL}/destinations/${d.id}`,
-  );
-  const expectedSet = new Set([...SITEMAP_HUB_URLS, ...expectedDestUrls]);
-  const seen = new Map();
-  for (const url of sitemapUrls) seen.set(url, (seen.get(url) ?? 0) + 1);
-
-  const missing = expectedDestUrls.filter((u) => !seen.has(u));
-  if (missing.length > 0) {
-    fail(
-      `sitemap missing ${missing.length} destination URL(s) (e.g. ${missing[0]})`,
+  // --- EXACT sitemap set (shared validator) ---
+  for (const f of validateSitemapSet(sitemapUrls, destinations)) fail(f);
+  if (failures.filter((f) => f.startsWith("sitemap")).length === 0) {
+    ok(
+      `sitemap: exact set of ${destinations.length} EN destination URLs + ${SITEMAP_HUB_URLS.length} hubs (no missing/unexpected/duplicate//ja/)`,
     );
-  } else {
-    ok(`sitemap contains all ${expectedDestUrls.length} EN destination URLs`);
-  }
-  const unexpected = [...seen.keys()].filter((u) => !expectedSet.has(u));
-  if (unexpected.length > 0) {
-    fail(
-      `sitemap has ${unexpected.length} unexpected URL(s): ${unexpected.slice(0, 3).join(", ")}`,
-    );
-  } else {
-    ok("sitemap has no unexpected URLs");
-  }
-  const dups = [...seen.entries()].filter(([, n]) => n > 1).map(([u]) => u);
-  if (dups.length > 0) {
-    fail(`sitemap has duplicate URL(s): ${dups.slice(0, 3).join(", ")}`);
-  } else {
-    ok("sitemap has no duplicate URLs");
-  }
-  const missingHubs = SITEMAP_HUB_URLS.filter((u) => !seen.has(u));
-  if (missingHubs.length > 0) {
-    fail(`sitemap missing public hub URL(s): ${missingHubs.join(", ")}`);
-  } else {
-    ok(`sitemap contains ${SITEMAP_HUB_URLS.length} public hub URLs`);
-  }
-  const jaInSitemap = sitemapUrls.filter((u) => u.includes("/ja/"));
-  if (jaInSitemap.length > 0) {
-    fail(
-      `sitemap contains /ja/ URL(s) (KAI-108 hreflang is HTML-based): ${jaInSitemap.slice(0, 3).join(", ")}`,
-    );
-  } else {
-    ok("sitemap contains no /ja/ URLs (hreflang is HTML-based)");
   }
 
   // --- Post-KAI-108 HTML contract ---
@@ -243,9 +278,12 @@ export function runStaticChecks({
 /**
  * Run the optional LIVE probe against meguruto.app (unauthenticated,
  * read-only). Returns failure messages (empty = pass).
+ * `destinations` is the canonical catalogue (required for exact-set
+ * sitemap validation) — injectable for tests.
  */
 export async function runLiveProbe({
   siteUrl = SITE_URL,
+  destinations,
   log = () => {},
 } = {}) {
   const failures = [];
@@ -257,6 +295,11 @@ export async function runLiveProbe({
     return { status: res.status, text: await res.text() };
   }
 
+  if (!destinations || destinations.length === 0) {
+    fail("live probe requires the canonical catalogue (destinations)");
+    return failures;
+  }
+
   try {
     const robots = await getText("/robots.txt");
     if (robots.status !== 200) fail(`/robots.txt -> ${robots.status}`);
@@ -264,18 +307,23 @@ export async function runLiveProbe({
       fail("/robots.txt lacks the sitemap directive");
     else ok("/robots.txt -> 200 + sitemap directive");
 
+    // EXACT sitemap-set validation (shared with static mode).
     const sitemap = await getText("/sitemap.xml");
     if (sitemap.status !== 200) fail(`/sitemap.xml -> ${sitemap.status}`);
     else {
       const urls = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map(
         (m) => m[1],
       );
-      const destCount = urls.filter((u) => u.includes("/destinations/")).length;
-      if (destCount < 900)
-        fail(`/sitemap.xml has only ${destCount} destination URLs`);
-      else ok(`/sitemap.xml -> 200 with ${destCount} destination URLs`);
+      const sitemapFailures = validateSitemapSet(urls, destinations);
+      for (const f of sitemapFailures) fail(`/sitemap.xml ${f}`);
+      if (sitemapFailures.length === 0)
+        ok(
+          `/sitemap.xml -> 200 with exact set (${destinations.length} EN destinations + ${SITEMAP_HUB_URLS.length} hubs)`,
+        );
     }
 
+    // Complete hreflang set on every representative page (all three
+    // links: en → EN URL, ja → JA URL, x-default → EN URL).
     const home = await getText("/");
     if (home.status !== 200) fail(`/ -> ${home.status}`);
     else {
@@ -285,14 +333,17 @@ export async function runLiveProbe({
         )
       )
         fail("/ lacks the EN home canonical");
-      if (!home.text.includes('hreflang="ja" href="https://meguruto.app/ja/"'))
-        fail("/ lacks the JA hreflang alternate");
+      const hf = validateLiveHreflangSet(
+        home.text,
+        "https://meguruto.app/",
+        "https://meguruto.app/ja/",
+      );
+      for (const f of hf) fail(`/ ${f}`);
       if (
-        !home.text.includes('hreflang="x-default" href="https://meguruto.app/"')
+        failures.filter((f) => f.startsWith("/ ")).length === 0 &&
+        hf.length === 0
       )
-        fail("/ lacks the x-default hreflang");
-      if (failures.filter((f) => f.startsWith("/ ")).length === 0)
-        ok("/ -> 200 + canonical + EN/JA/x-default hreflang");
+        ok("/ -> 200 + EN canonical + complete 3-link hreflang set");
     }
 
     const jaHome = await getText("/ja/");
@@ -304,10 +355,17 @@ export async function runLiveProbe({
         )
       )
         fail("/ja/ lacks the JA home canonical");
-      if (!jaHome.text.includes('hreflang="en" href="https://meguruto.app/"'))
-        fail("/ja/ lacks the EN hreflang alternate");
-      if (failures.filter((f) => f.startsWith("/ja/ ")).length === 0)
-        ok("/ja/ -> 200 + JA canonical + hreflang");
+      const hf = validateLiveHreflangSet(
+        jaHome.text,
+        "https://meguruto.app/",
+        "https://meguruto.app/ja/",
+      );
+      for (const f of hf) fail(`/ja/ ${f}`);
+      if (
+        failures.filter((f) => f.startsWith("/ja/ ")).length === 0 &&
+        hf.length === 0
+      )
+        ok("/ja/ -> 200 + JA canonical + complete 3-link hreflang set");
     }
 
     const enDest = await getText("/destinations/kamakura");
@@ -319,13 +377,11 @@ export async function runLiveProbe({
     else {
       if (!enDest.text.includes(`<link rel="canonical" href="${enUrl}" />`))
         fail("EN destination lacks exact canonical");
-      if (!enDest.text.includes(`hreflang="ja" href="${jaUrl}"`))
-        fail("EN destination lacks JA hreflang");
-      if (!enDest.text.includes('hreflang="x-default" href="' + enUrl + '"'))
-        fail("EN destination lacks x-default hreflang");
+      const hf = validateLiveHreflangSet(enDest.text, enUrl, jaUrl);
+      for (const f of hf) fail(`EN destination ${f}`);
       if (failures.filter((f) => f.includes("EN destination")).length === 0)
         ok(
-          "EN destination /destinations/kamakura -> 200 + canonical + 3-link hreflang",
+          "EN destination /destinations/kamakura -> 200 + canonical + complete 3-link hreflang set",
         );
     }
     if (jaDest.status !== 200)
@@ -333,11 +389,11 @@ export async function runLiveProbe({
     else {
       if (!jaDest.text.includes(`<link rel="canonical" href="${jaUrl}" />`))
         fail("JA destination lacks exact canonical");
-      if (!jaDest.text.includes(`hreflang="en" href="${enUrl}"`))
-        fail("JA destination lacks EN hreflang");
+      const hf = validateLiveHreflangSet(jaDest.text, enUrl, jaUrl);
+      for (const f of hf) fail(`JA destination ${f}`);
       if (failures.filter((f) => f.includes("JA destination")).length === 0)
         ok(
-          "JA destination /ja/destinations/kamakura -> 200 + JA canonical + hreflang",
+          "JA destination /ja/destinations/kamakura -> 200 + JA canonical + complete 3-link hreflang set",
         );
     }
 
@@ -415,6 +471,7 @@ if (isMain) {
   if (process.argv.includes("--live")) {
     console.log("  [live probe]");
     const liveFailures = await runLiveProbe({
+      destinations: loadPrerenderDestinations(),
       log: (msg) => console.log(`  ✓ ${msg}`),
     });
     for (const f of liveFailures) {
