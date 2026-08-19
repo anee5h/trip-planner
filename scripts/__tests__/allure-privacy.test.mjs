@@ -83,6 +83,13 @@ describe("check-allure-privacy Playwright trace-source exclusion", () => {
     expect(findings.some((f) => f.startsWith("email"))).toBe(true);
   });
 
+  it("allowlists the documented KAI-80 auth-fixture identity", () => {
+    // a11y-fixture@example.com is the synthetic non-production test user
+    // (see e2e/kai-80-a11y.spec.ts signInAsTestUser) — not a real person.
+    const findings = scanText("email=a11y-fixture@example.com");
+    expect(findings.some((f) => f.startsWith("email"))).toBe(false);
+  });
+
   it("fails closed on a near-miss src@ name with the wrong hex length", () => {
     // 39 hex chars — NOT the trusted 40-hex shape. The scanner must not
     // recognize it as a Playwright source filename, so the email-like

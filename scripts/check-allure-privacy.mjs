@@ -46,8 +46,10 @@ const SANITIZE = process.argv.includes("--sanitize");
 // Binary attachment extensions that cannot be inspected by regex.
 const BINARY_EXT = /\.(png|jpe?g|gif|webp|mp4|webm|ico|woff2?|ttf|eot)$/i;
 
-// Known intentionally-public values (app contact, etc.). Additive.
-const ALLOWLIST = ["info@meguruto.app"];
+// Known intentionally-public values (app contact, test fixture, etc.).
+// Additive. `a11y-fixture@example.com` is the KAI-80 deterministic
+// NON-PRODUCTION auth-fixture identity — synthetic, not a real user.
+const ALLOWLIST = ["info@meguruto.app", "a11y-fixture@example.com"];
 for (let i = 3; i < process.argv.length; i++) {
   if (process.argv[i] === "--allow" && process.argv[i + 1]) {
     ALLOWLIST.push(process.argv[i + 1]);
