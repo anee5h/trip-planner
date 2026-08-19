@@ -4,8 +4,11 @@ Status: automated gate + documented manual/AT evidence.
 
 ## Automated gate (CI, A11Y E2E job)
 
-- Runs against the **production build** (built once; `vite preview` —
-  never the dev server; see `playwright.config.ts` `A11Y_E2E` condition).
+- Runs against the **production build** (built ONCE in the `a11y-build`
+  job; both matrix jobs download `dist/` and run `A11Y_PREBUILT=1` →
+  `vite preview` only, no rebuild — never the dev server; see
+  `playwright.config.ts` webServer ownership: PWA keeps its normal
+  production build, a11y-local builds with the fake-Supabase env).
 - Two-project matrix: `chromium-mobile` + `chromium-desktop`, one project
   per CI job, unique privacy-scanned artifact names.
 - `@axe-core/playwright` with the WCAG 2.2 AA union
@@ -58,10 +61,13 @@ Plus (see `e2e/kai-80-a11y.spec.ts`):
 - **SearchDialog**: added `role="dialog"` + `aria-modal` + `aria-label`
   and a real focus trap (Tab/Shift+Tab cycle; focus restored to the
   trigger on close).
-- **Mobile search**: the desktop-only GlobalSearch left mobile with NO
-  reachable search — added a mobile-header Search button dispatching
-  `meguruto:open-search` (GlobalSearch listens) so search is reachable at
-  all widths.
+- **Mobile search reachability**: the desktop-only GlobalSearch left
+  mobile with NO reachable search on first inspection. Resolution: the
+  existing BottomNav Search control already opens the GlobalSearch dialog
+  (verified in the KAI-80 mobile tests); an initially-added mobile-header
+  Search button was removed again in review so the header keeps one
+  control per side slot and the brand stays centered. Tests use the
+  BottomNav Search.
 - **Settings**: party-size range got `id`+`htmlFor`; the two toggle
   checkboxes + analytics checkbox got `aria-label`s (axe `label` rule).
 - **Destinations pagination**: prev/next icon-only buttons got
@@ -86,13 +92,13 @@ desktop, production preview) from the pre-fix build:
 | `/destinations` | dark | 28 | 0 |
 | `/destinations/kamakura` | dark | 7 | 0 |
 | `/settings` | dark | 16 | 0 |
-| **Total** | | **310** | **0 (local)** |
+| **Total** | | **310** | **0 (exact-head CI green)** |
 
-> The "Current (CI)" column reflects the local full-matrix runs against
-> the production preview. The exact CI run on the PR head is the
-> authoritative gate — until it is green across the claimed matrix, the
-> automated claim is "CI gate configured and locally green", not
-> "zero violations in CI".
+> The "Current (CI)" column reflects the exact-head PR CI run (A11y E2E
+> chromium-mobile + chromium-desktop jobs) which is green: 0 automated
+> violations across the claimed matrix on the reviewed head. The
+> baseline column is the pre-fix build measured locally with the same
+> harness.
 
 Root causes fixed systemically (shared tokens/components):
 - `--primary-foreground` light token: emerald fill + near-white text
