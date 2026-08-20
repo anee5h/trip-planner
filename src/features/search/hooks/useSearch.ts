@@ -13,9 +13,11 @@ export function useSearch() {
   const navigate = useNavigate();
   const { locale } = useLocale();
 
-  // KAI-132: the search index awaits the runtime-loaded lite catalogue;
-  // resolve results asynchronously when the query/locale changes.
+  // KAI-132: the search index awaits the runtime-loaded lite catalogue.
+  // Build the index lazily — only when the search is OPEN — so non-search
+  // pages (legal, settings) never fetch the catalogue via global chrome.
   useEffect(() => {
+    if (!isOpen) return;
     let cancelled = false;
     searchDocuments(query, locale).then((g) => {
       if (!cancelled) setGroups(g);
@@ -23,7 +25,7 @@ export function useSearch() {
     return () => {
       cancelled = true;
     };
-  }, [query, locale]);
+  }, [query, locale, isOpen]);
 
   // Flatten all items across groups for index-based keyboard navigation
   const flatItems: SearchDocument[] = useMemo(() => {

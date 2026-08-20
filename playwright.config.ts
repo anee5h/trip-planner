@@ -69,11 +69,6 @@ export default defineConfig({
     locale: "en-US",
     timezoneId: "Asia/Tokyo",
     screenshot: "only-on-failure",
-    // KAI-132: catalogue-dependent pages parse a 2.7 MB JSON at runtime
-    // once per page; under CI's 8-way E2E parallelism (4 mobile + 4
-    // desktop jobs on shared runners) that parse + render contends with
-    // the other jobs — give assertions generous headroom.
-    expect: { timeout: 90_000 },
     // KAI-126: keep traces for Allure diagnostics (retain-on-failure
     // preserves the last run's trace for failure analysis).
     trace: "retain-on-failure",

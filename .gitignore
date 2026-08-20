@@ -49,3 +49,4 @@ public/data/destinations-index.lite.json
 __pycache__/
 *.pyc
 scripts/.pr*.py
+allure-results/

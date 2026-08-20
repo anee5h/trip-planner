@@ -10,11 +10,17 @@ import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
  * Returns true once the loader resolved (or failed — the caller renders
  * its own empty/degraded state). Uses the singleton loader, so the fetch
  * happens at most once per session across all consumers.
+ *
+ * `enabled` (default true): when false the hook never triggers a load and
+ * always returns false — for surfaces that are conditionally mounted
+ * (e.g. an onboarding flow hidden on most pages) so the catalogue is not
+ * fetched on routes that don't need it.
  */
-export function useLiteCatalogueReady(): boolean {
+export function useLiteCatalogueReady(enabled = true): boolean {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
+    if (!enabled) return;
     let cancelled = false;
     loadLiteIndex()
       .then(() => {
@@ -27,7 +33,7 @@ export function useLiteCatalogueReady(): boolean {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled]);
 
-  return ready;
+  return enabled ? ready : false;
 }

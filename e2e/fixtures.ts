@@ -15,9 +15,6 @@ import { test as base } from "@playwright/test";
 // details / full-data surfaces. Safe for the CI bins: the kai-121 spec
 // that asserts the REAL runtime fetch contract only runs under PWA_E2E=1
 // (preview build) and does NOT use this fixture.
-//
-// eslint-disable-next-line react-hooks/rules-of-hooks -- Playwright fixture
-// API uses `use` as the continuation param; it is not a React hook.
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const LITE_JSON = readFileSync(
@@ -28,7 +25,7 @@ const FULL_JSON = readFileSync(
 );
 
 export const test = base.extend({
-  page: async ({ page }, usePg) => {
+  page: async ({ page }, pg) => {
     await page.route("**/data/destinations-index.lite.json", async (route) => {
       await route.fulfill({
         status: 200,
@@ -43,7 +40,7 @@ export const test = base.extend({
         body: FULL_JSON,
       });
     });
-    await usePg(page);
+    await pg(page);
   },
 });
 export { expect } from "@playwright/test";
