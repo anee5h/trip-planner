@@ -13,8 +13,7 @@ import {
   Calendar,
 } from "lucide-react";
 import collectionsIndex from "@/shared/data/collections-index.json";
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useTranslation } from "react-i18next";
 import type { Collection } from "@/shared/types/collection";
 import type { Destination } from "@/shared/types/destination";
@@ -36,13 +35,11 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
   // boundary; render once resolved (getLoadedLitePlaces fails fast if
   // used too early).
   const {
-    ready: liteReady,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
-  const destinationsIndex = liteReady
-    ? (getLoadedLitePlaces() as Destination[])
-    : [];
+  } = useCatalogue({ need: "summary" });
+  const destinationsIndex = cataloguePlaces as Destination[];
 
   // Achievement Collections Progress
   const achievementCollections = (collectionsIndex as Collection[]).filter(

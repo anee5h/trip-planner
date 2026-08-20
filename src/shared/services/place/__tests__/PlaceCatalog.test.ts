@@ -11,6 +11,7 @@ import {
   getLocalizedPlace,
   hasLoadedFullIndex,
   isPlaceAvailableInLocale,
+  loadCatalogue,
   loadDestinationsIndex,
   loadLiteIndex,
   resetLiteIndexForTests,
@@ -26,6 +27,22 @@ beforeAll(async () => {
 });
 
 describe("PlaceCatalog", () => {
+  it("loads either catalogue through one intent-based interface", async () => {
+    const summary = await loadCatalogue("summary");
+    const full = await loadCatalogue("full");
+
+    expect(summary).toHaveLength(978);
+    expect(full).toHaveLength(978);
+    expect(summary[0].placeType).toBeTruthy();
+    expect(full[0].content.en.name).toBeTruthy();
+  });
+
+  it("rejects an unknown catalogue intent", async () => {
+    await expect(loadCatalogue("other" as never)).rejects.toThrow(
+      /unsupported catalogue intent/,
+    );
+  });
+
   it("creates canonical records for the complete catalog (full index)", () => {
     const places = getFullPlaces();
     expect(places).toHaveLength(978);

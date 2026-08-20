@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import type { Destination } from "@/shared/types/destination";
 import { BADGES_CATALOG } from "../data/badges";
 import { BadgeEngine } from "../services/BadgeEngine";
@@ -21,12 +20,14 @@ export function PassportBadges() {
   // failed load is NOT an empty catalogue — the shared hook surfaces an
   // explicit error/retry state.
   const {
-    ready: liteReady,
+    status: catalogueStatus,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
+  } = useCatalogue({ need: "summary" });
+  const liteReady = catalogueStatus === "ready";
   const catalogue: Destination[] | null = liteReady
-    ? (getLoadedLitePlaces() as unknown as Destination[])
+    ? (cataloguePlaces as Destination[])
     : null;
   const [activeCategory, setActiveCategory] = useState<BadgeCategory | "all">(
     "all",

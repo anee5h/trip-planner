@@ -2,12 +2,9 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import {
-  getLoadedLitePlaces,
-  getLocalizedPlace,
-} from "@/shared/services/place/PlaceCatalog";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useAuth } from "@/shared/hooks/useAuth";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import DestinationFilters from "@/features/destinations/components/DestinationFilters";
@@ -137,12 +134,12 @@ export default function Destinations() {
   // the grid renders once the loader resolves. `filtersReady` already
   // gates filter-derived state; `liteReady` gates the catalogue data.
   const {
-    ready: liteReady,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
-  const allDestinations = (liteReady ? getLoadedLitePlaces() : []).map(
-    (destination) => getLocalizedPlace(destination, locale),
+  } = useCatalogue({ need: "summary" });
+  const allDestinations = cataloguePlaces.map((destination) =>
+    getLocalizedPlace(destination, locale),
   );
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,

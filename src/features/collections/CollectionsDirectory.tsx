@@ -13,14 +13,15 @@ import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { useTranslation } from "react-i18next";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 
 export default function CollectionsDirectory() {
   const {
-    ready: liteReady,
+    status: catalogueStatus,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
+  } = useCatalogue({ need: "summary" });
+  const liteReady = catalogueStatus === "ready";
   const collections = getCollections();
   const { visited } = useTripStore();
   const { locale } = useLocale();

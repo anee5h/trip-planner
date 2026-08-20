@@ -1,9 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-// KAI-132: the lite catalogue is runtime-loaded by the map-route parent
-// (PrefectureChecklist gates on liteReady); read the loaded accessor here.
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { formatVisitedDate } from "@/shared/utils/date";
 
 import {
@@ -33,6 +31,7 @@ interface ActivityEvent {
 
 export function PassportTimelineCalendar() {
   const { visited, getVisitedDates, trips, lastSyncedDate } = useTripStore();
+  const { places: catalogue } = useCatalogue({ need: "summary" });
 
   const [filterType, setFilterType] = useState<"all" | "visited" | "trips">(
     "all",
@@ -49,7 +48,6 @@ export function PassportTimelineCalendar() {
     const events: ActivityEvent[] = [];
 
     // Visited destinations (supports multiple visit dates per sight)
-    const catalogue = getLoadedLitePlaces();
     visited.forEach((vId) => {
       const dest = catalogue.find((d) => d.id === vId);
       if (dest) {

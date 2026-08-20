@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
@@ -28,7 +28,8 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   const { t } = useTranslation();
   const { locale } = useLocale();
-  const allDestinations = getDestinationList() as Destination[];
+  const { places: cataloguePlaces } = useCatalogue({ need: "summary" });
+  const allDestinations = cataloguePlaces as Destination[];
 
   if (!isOpen) return null;
 

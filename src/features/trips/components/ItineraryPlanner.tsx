@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import { TripStopType } from "@/shared/types/trip";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Input } from "@/shared/components/ui/input";
@@ -16,7 +15,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 
 interface ItineraryPlannerProps {
@@ -82,11 +81,11 @@ export default function ItineraryPlanner({
   const recentDestinations = useRecentlyViewedDestinations();
 
   const {
-    ready: liteReady,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
-  const destinations = (liteReady ? getDestinationList() : []) as Destination[];
+  } = useCatalogue({ need: "summary" });
+  const destinations = cataloguePlaces as Destination[];
 
   const savedDestinations = useMemo(() => {
     return (favorites || [])
