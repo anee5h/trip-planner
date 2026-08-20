@@ -4,10 +4,8 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { getCityHubsAsDestinations } from "@/shared/services/cityHubs";
 import StationInput from "@/shared/components/StationInput";
-import type { Destination } from "@/shared/types/destination";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import {
   UserRound,
   Car,
@@ -96,18 +94,10 @@ export default function Settings() {
     user?.user_metadata?.default_locale === "ja" ? "ja" : locale,
   );
 
-  const {
-    ready: liteReady,
-    error: liteError,
-    retry: retryLite,
-  } = useLiteCatalogueReady();
-  const cityHubs = useMemo(
-    () =>
-      ((liteReady ? getDestinationList(locale) : []) as Destination[])
-        .filter((d) => d.role === "hub" && d.kind === "city")
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [locale, liteReady],
-  );
+  // KAI-132: city-hub options come from the dedicated lightweight
+  // metadata source (no lite-catalogue dependency — settings/account
+  // routes never fetch destinations-index.lite.json).
+  const cityHubs = useMemo(() => getCityHubsAsDestinations(), []);
 
   useEffect(() => {
     if (sectionParam) setActiveSection(sectionParam);
@@ -251,38 +241,6 @@ export default function Settings() {
 
   const btnBase =
     "p-2.5 sm:p-3 min-h-[44px] sm:min-h-[36px] flex items-center justify-center rounded-xl text-xs font-bold border transition-all";
-
-  // KAI-132: a failed lite load is NOT an empty hub list — an empty
-  // home-station select must not masquerade as real. Surface an explicit
-  // error/retry state.
-  if (liteError) {
-    return (
-      <div className="container mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
-        <div
-          role="alert"
-          data-lite-error
-          className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
-        >
-          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
-            {t("home.matchesErrorTitle", "Couldn't load destinations")}
-          </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-            {t(
-              "home.matchesErrorBody",
-              "The destination catalogue couldn't be loaded. Check your connection and try again.",
-            )}
-          </p>
-          <button
-            type="button"
-            onClick={retryLite}
-            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
-          >
-            {t("ui.retry", "Retry")}
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="container mx-auto max-w-6xl space-y-6 px-4 py-6 sm:px-6 sm:py-8 lg:px-8 animate-in fade-in duration-200">

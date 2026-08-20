@@ -394,49 +394,54 @@ test("/collections failure shows error + retry recovers", async ({ page }) => {
   expect(pageErrors).toEqual([]);
 });
 
-test("custom-destination city picker: parent fail → retry → success", async ({
+test("settings/account routes never fetch the lite catalogue + city picker works", async ({
   page,
 }) => {
-  // When customDestinations is supplied, the picker's internal lite
-  // loader is DISABLED and the PARENT owns loading/error/retry. Settings'
-  // home-station picker is a customDestinations consumer: on lite failure
-  // it must surface the parent's error/retry (not spin), and retry must
-  // recover — proving parent/child retries cannot diverge.
-  let failLite = true;
-  await page.route("**/data/destinations-index.lite.json", async (route) => {
-    if (failLite) {
-      await route.fulfill({
-        status: 500,
-        contentType: "application/json",
-        body: "[]",
-      });
-    } else {
-      await route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: LITE_BODY,
-      });
-    }
+  // KAI-132 guardrail: the lite catalogue must NOT be fetched on
+  // settings/account routes at all (not merely gated to a tab). Settings
+  // and onboarding build their city-hub options from the dedicated
+  // lightweight metadata source (no runtime fetch). Assert zero requests
+  // to the lite index across a cold /settings load and its Account
+  // section (the home-station city picker) — while proving the picker
+  // still functions without the catalogue.
+  const liteHits: string[] = [];
+  page.on("request", (req) => {
+    if (req.url().includes("destinations-index.lite")) liteHits.push(req.url());
   });
 
-  const pageErrors: string[] = [];
-  page.on("pageerror", (e) => pageErrors.push(e.message));
+  // 1. Cold /settings: zero lite requests.
+  await page.goto("/settings", { waitUntil: "networkidle", timeout: 60000 });
+  await page.waitForTimeout(1500);
+  expect(liteHits.filter((u) => u.includes(LITE_INDEX_URL))).toEqual([]);
 
-  await page.goto("/settings", {
-    waitUntil: "domcontentloaded",
+  // 2. The Account section (home-station city picker) — zero lite
+  // requests, and the picker renders options from the metadata source.
+  await page.goto("/settings?section=account", {
+    waitUntil: "networkidle",
     timeout: 60000,
   });
-
-  await page.waitForSelector("[data-lite-error]", { timeout: 20000 });
-  await expect(page.getByRole("button", { name: "Retry" })).toBeVisible();
-  expect(pageErrors).toEqual([]);
-
-  failLite = false;
-  await page.getByRole("button", { name: "Retry" }).click();
-  await expect
-    .poll(async () => page.locator("[data-lite-error]").count())
-    .toBe(0);
-  // Settings recovered: the home-station section rendered.
+  await page.waitForTimeout(1500);
+  expect(liteHits.filter((u) => u.includes(LITE_INDEX_URL))).toEqual([]);
   await expect(page.locator("main")).toBeVisible();
-  expect(pageErrors).toEqual([]);
+
+  // 3. Functional city-picker assertion (EN): opening the picker and
+  // typing shows hub-city options — proving removal of the catalogue
+  // dependency did not break city selection. (The onboarding flow uses
+  // the same picker + metadata source; the account section is its
+  // representative route here.)
+  // The closed picker renders the "Select home city" label span; clicking
+  // it opens the combobox input ("Type to search...").
+  const pickerTrigger = page.getByText("Select home city").first();
+  await pickerTrigger.click();
+  const cityInput = page
+    .locator(
+      'input[placeholder="Type to search..."], input[placeholder*="都市・スポット名で検索"]',
+    )
+    .first();
+  // Abashiri City is a hub city in the metadata source.
+  await cityInput.fill("abashiri");
+  await expect(page.getByRole("option").first()).toContainText(/Abashiri/i);
+
+  // No lite request was ever made.
+  expect(liteHits.filter((u) => u.includes(LITE_INDEX_URL))).toEqual([]);
 });

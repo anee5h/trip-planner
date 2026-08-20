@@ -1,0 +1,607 @@
+[
+  {
+    "id": "abashiri-city",
+    "name": "Abashiri City",
+    "nameJa": "Abashiri City"
+  },
+  {
+    "id": "aizuwakamatsu-city",
+    "name": "Aizuwakamatsu City",
+    "nameJa": "会津若松市"
+  },
+  {
+    "id": "akita-city",
+    "name": "Akita City",
+    "nameJa": "秋田市"
+  },
+  {
+    "id": "aomori-city",
+    "name": "Aomori City",
+    "nameJa": "青森市"
+  },
+  {
+    "id": "asago-city",
+    "name": "Asago City",
+    "nameJa": "朝来市"
+  },
+  {
+    "id": "asahikawa-city",
+    "name": "Asahikawa City",
+    "nameJa": "Asahikawa City"
+  },
+  {
+    "id": "ashikaga-city",
+    "name": "Ashikaga City",
+    "nameJa": "足利"
+  },
+  {
+    "id": "aso-city",
+    "name": "Aso City",
+    "nameJa": "阿蘇市"
+  },
+  {
+    "id": "atami-city",
+    "name": "Atami City",
+    "nameJa": "Atami City"
+  },
+  {
+    "id": "beppu-city",
+    "name": "Beppu City",
+    "nameJa": "別府市"
+  },
+  {
+    "id": "chiba-city",
+    "name": "Chiba City",
+    "nameJa": "千葉市"
+  },
+  {
+    "id": "chichibu-city",
+    "name": "Chichibu City",
+    "nameJa": "秩父市"
+  },
+  {
+    "id": "chigasaki-city",
+    "name": "Chigasaki City",
+    "nameJa": "茅ヶ崎市"
+  },
+  {
+    "id": "chofu-tokyo",
+    "name": "Chofu City",
+    "nameJa": "調布市"
+  },
+  {
+    "id": "choshi-city",
+    "name": "Choshi City",
+    "nameJa": "銚子"
+  },
+  {
+    "id": "dazaifu-city",
+    "name": "Dazaifu City",
+    "nameJa": "太宰府市"
+  },
+  {
+    "id": "fujinomiya-city",
+    "name": "Fujinomiya City",
+    "nameJa": "Fujinomiya City"
+  },
+  {
+    "id": "fujisawa-city",
+    "name": "Fujisawa City",
+    "nameJa": "藤沢"
+  },
+  {
+    "id": "fujiyoshida-city",
+    "name": "Fujiyoshida City",
+    "nameJa": "富士吉田"
+  },
+  {
+    "id": "fukuoka-city",
+    "name": "Fukuoka City",
+    "nameJa": "福岡市"
+  },
+  {
+    "id": "fukushima-city",
+    "name": "Fukushima City",
+    "nameJa": "福島市"
+  },
+  {
+    "id": "funabashi-city",
+    "name": "Funabashi City",
+    "nameJa": "船橋市"
+  },
+  {
+    "id": "furano-city",
+    "name": "Furano City",
+    "nameJa": "Furano City"
+  },
+  {
+    "id": "gero-city",
+    "name": "Gero City",
+    "nameJa": "Gero City"
+  },
+  {
+    "id": "gifu-city",
+    "name": "Gifu City",
+    "nameJa": "Gifu City"
+  },
+  {
+    "id": "gotemba-city",
+    "name": "Gotemba City",
+    "nameJa": "Gotemba City"
+  },
+  {
+    "id": "hachinohe-city",
+    "name": "Hachinohe City",
+    "nameJa": "八戸市"
+  },
+  {
+    "id": "hachioji-tokyo",
+    "name": "Hachioji City",
+    "nameJa": "八王子市"
+  },
+  {
+    "id": "hakodate-city",
+    "name": "Hakodate City",
+    "nameJa": "Hakodate City"
+  },
+  {
+    "id": "hamamatsu-city",
+    "name": "Hamamatsu City",
+    "nameJa": "Hamamatsu City"
+  },
+  {
+    "id": "hatsukaichi-city",
+    "name": "Hatsukaichi City",
+    "nameJa": "廿日市市"
+  },
+  {
+    "id": "hikone-city",
+    "name": "Hikone City",
+    "nameJa": "彦根市"
+  },
+  {
+    "id": "himeji-city",
+    "name": "Himeji City",
+    "nameJa": "姫路市"
+  },
+  {
+    "id": "hino-city",
+    "name": "Hino City",
+    "nameJa": "日野"
+  },
+  {
+    "id": "hirosaki-city",
+    "name": "Hirosaki City",
+    "nameJa": "弘前市"
+  },
+  {
+    "id": "hiroshima-city",
+    "name": "Hiroshima City",
+    "nameJa": "広島市"
+  },
+  {
+    "id": "hita-city",
+    "name": "Hita City",
+    "nameJa": "日田市"
+  },
+  {
+    "id": "ibusuki-city",
+    "name": "Ibusuki City",
+    "nameJa": "指宿市"
+  },
+  {
+    "id": "inuyama-city",
+    "name": "Inuyama City",
+    "nameJa": "Inuyama City"
+  },
+  {
+    "id": "ise-city",
+    "name": "Ise City",
+    "nameJa": "伊勢市"
+  },
+  {
+    "id": "ishigaki-city",
+    "name": "Ishigaki City",
+    "nameJa": "石垣市"
+  },
+  {
+    "id": "ito-city",
+    "name": "Ito City",
+    "nameJa": "Ito City"
+  },
+  {
+    "id": "iwakuni-city",
+    "name": "Iwakuni City",
+    "nameJa": "岩国市"
+  },
+  {
+    "id": "izumo-city",
+    "name": "Izumo City",
+    "nameJa": "出雲市"
+  },
+  {
+    "id": "kagoshima-city",
+    "name": "Kagoshima City",
+    "nameJa": "鹿児島市"
+  },
+  {
+    "id": "kamakura-city",
+    "name": "Kamakura City",
+    "nameJa": "鎌倉"
+  },
+  {
+    "id": "karatsu-city",
+    "name": "Karatsu City",
+    "nameJa": "唐津市"
+  },
+  {
+    "id": "katori-city",
+    "name": "Katori City",
+    "nameJa": "香取"
+  },
+  {
+    "id": "kawagoe-city",
+    "name": "Kawagoe City",
+    "nameJa": "川越"
+  },
+  {
+    "id": "kawaguchi-city",
+    "name": "Kawaguchi City",
+    "nameJa": "川口市"
+  },
+  {
+    "id": "kawasaki-city",
+    "name": "Kawasaki City",
+    "nameJa": "川崎"
+  },
+  {
+    "id": "kisarazu-city",
+    "name": "Kisarazu City",
+    "nameJa": "木更津市"
+  },
+  {
+    "id": "kitakyushu-city",
+    "name": "Kitakyushu City",
+    "nameJa": "北九州市"
+  },
+  {
+    "id": "kobe-city",
+    "name": "Kobe City",
+    "nameJa": "神戸市"
+  },
+  {
+    "id": "kochi-city",
+    "name": "Kochi City",
+    "nameJa": "Kochi City"
+  },
+  {
+    "id": "kofu-city",
+    "name": "Kofu City",
+    "nameJa": "Kofu City"
+  },
+  {
+    "id": "koriyama-city",
+    "name": "Koriyama City",
+    "nameJa": "郡山市"
+  },
+  {
+    "id": "kumamoto-city",
+    "name": "Kumamoto City",
+    "nameJa": "熊本市"
+  },
+  {
+    "id": "kurashiki-city",
+    "name": "Kurashiki City",
+    "nameJa": "倉敷市"
+  },
+  {
+    "id": "kushiro-city",
+    "name": "Kushiro City",
+    "nameJa": "Kushiro City"
+  },
+  {
+    "id": "kyoto-city",
+    "name": "Kyoto City",
+    "nameJa": "京都市"
+  },
+  {
+    "id": "machida-tokyo",
+    "name": "Machida City",
+    "nameJa": "町田市"
+  },
+  {
+    "id": "marugame-city",
+    "name": "Marugame City",
+    "nameJa": "丸亀"
+  },
+  {
+    "id": "matsudo-city",
+    "name": "Matsudo City",
+    "nameJa": "松戸"
+  },
+  {
+    "id": "matsue-city",
+    "name": "Matsue City",
+    "nameJa": "松江市"
+  },
+  {
+    "id": "matsumoto-city",
+    "name": "Matsumoto City",
+    "nameJa": "Matsumoto City"
+  },
+  {
+    "id": "matsuyama-city",
+    "name": "Matsuyama City",
+    "nameJa": "Matsuyama City"
+  },
+  {
+    "id": "mine-city",
+    "name": "Mine City",
+    "nameJa": "美祢市"
+  },
+  {
+    "id": "mito-city",
+    "name": "Mito City",
+    "nameJa": "水戸"
+  },
+  {
+    "id": "miyakojima-city",
+    "name": "Miyakojima City",
+    "nameJa": "宮古島市"
+  },
+  {
+    "id": "miyazaki-city",
+    "name": "Miyazaki City",
+    "nameJa": "宮崎市"
+  },
+  {
+    "id": "miyazu-city",
+    "name": "Miyazu City",
+    "nameJa": "宮津市"
+  },
+  {
+    "id": "miyoshi-city",
+    "name": "Miyoshi City",
+    "nameJa": "三好市"
+  },
+  {
+    "id": "morioka-city",
+    "name": "Morioka City",
+    "nameJa": "盛岡市"
+  },
+  {
+    "id": "nagano-city",
+    "name": "Nagano City",
+    "nameJa": "Nagano City"
+  },
+  {
+    "id": "nagasaki-city",
+    "name": "Nagasaki City",
+    "nameJa": "長崎市"
+  },
+  {
+    "id": "nago-city",
+    "name": "Nago City",
+    "nameJa": "名護市"
+  },
+  {
+    "id": "nagoya-city",
+    "name": "Nagoya City",
+    "nameJa": "Nagoya City"
+  },
+  {
+    "id": "naha-city",
+    "name": "Naha City",
+    "nameJa": "那覇市"
+  },
+  {
+    "id": "nara-city",
+    "name": "Nara City",
+    "nameJa": "奈良市"
+  },
+  {
+    "id": "narita-city",
+    "name": "Narita City",
+    "nameJa": "成田市"
+  },
+  {
+    "id": "naruto-city",
+    "name": "Naruto City",
+    "nameJa": "Naruto City"
+  },
+  {
+    "id": "nichinan-city",
+    "name": "Nichinan City",
+    "nameJa": "日南市"
+  },
+  {
+    "id": "nikko-city",
+    "name": "Nikko City",
+    "nameJa": "日光"
+  },
+  {
+    "id": "numazu-city",
+    "name": "Numazu City",
+    "nameJa": "Numazu City"
+  },
+  {
+    "id": "odawara-city",
+    "name": "Odawara City",
+    "nameJa": "小田原市"
+  },
+  {
+    "id": "okayama-city",
+    "name": "Okayama City",
+    "nameJa": "岡山市"
+  },
+  {
+    "id": "okazaki-city",
+    "name": "Okazaki City",
+    "nameJa": "Okazaki City"
+  },
+  {
+    "id": "ome-tokyo",
+    "name": "Ome City",
+    "nameJa": "青梅市"
+  },
+  {
+    "id": "onomichi-city",
+    "name": "Onomichi City",
+    "nameJa": "尾道市"
+  },
+  {
+    "id": "osaka-city",
+    "name": "Osaka City",
+    "nameJa": "大阪市"
+  },
+  {
+    "id": "otaru-city",
+    "name": "Otaru City",
+    "nameJa": "Otaru City"
+  },
+  {
+    "id": "otsu-city",
+    "name": "Otsu City",
+    "nameJa": "大津市"
+  },
+  {
+    "id": "sagamihara-city",
+    "name": "Sagamihara City",
+    "nameJa": "相模原市"
+  },
+  {
+    "id": "saitama-city",
+    "name": "Saitama City",
+    "nameJa": "さいたま市"
+  },
+  {
+    "id": "sakai-city",
+    "name": "Sakai City",
+    "nameJa": "堺市"
+  },
+  {
+    "id": "sapporo-city",
+    "name": "Sapporo City",
+    "nameJa": "Sapporo City"
+  },
+  {
+    "id": "sasebo-city",
+    "name": "Sasebo City",
+    "nameJa": "佐世保市"
+  },
+  {
+    "id": "semboku-city",
+    "name": "Semboku City",
+    "nameJa": "仙北市"
+  },
+  {
+    "id": "sendai-city",
+    "name": "Sendai City",
+    "nameJa": "仙台市"
+  },
+  {
+    "id": "shimonoseki-city",
+    "name": "Shimonoseki City",
+    "nameJa": "下関市"
+  },
+  {
+    "id": "shizuoka-city",
+    "name": "Shizuoka City",
+    "nameJa": "Shizuoka City"
+  },
+  {
+    "id": "tachikawa-tokyo",
+    "name": "Tachikawa City",
+    "nameJa": "立川市"
+  },
+  {
+    "id": "takahashi-city",
+    "name": "Takahashi City",
+    "nameJa": "高梁市"
+  },
+  {
+    "id": "takamatsu-city",
+    "name": "Takamatsu City",
+    "nameJa": "Takamatsu City"
+  },
+  {
+    "id": "takayama-city",
+    "name": "Takayama City",
+    "nameJa": "Takayama City"
+  },
+  {
+    "id": "tokorozawa-city",
+    "name": "Tokorozawa City",
+    "nameJa": "所沢市"
+  },
+  {
+    "id": "tokushima-city",
+    "name": "Tokushima City",
+    "nameJa": "Tokushima City"
+  },
+  {
+    "id": "tottori-city",
+    "name": "Tottori City",
+    "nameJa": "鳥取市"
+  },
+  {
+    "id": "toyooka-city",
+    "name": "Toyooka City",
+    "nameJa": "豊岡市"
+  },
+  {
+    "id": "toyota-city",
+    "name": "Toyota City",
+    "nameJa": "Toyota City"
+  },
+  {
+    "id": "tsukuba-city",
+    "name": "Tsukuba City",
+    "nameJa": "つくば市"
+  },
+  {
+    "id": "uji-city",
+    "name": "Uji City",
+    "nameJa": "宇治市"
+  },
+  {
+    "id": "urayasu-city",
+    "name": "Urayasu City",
+    "nameJa": "浦安市"
+  },
+  {
+    "id": "utsunomiya-city",
+    "name": "Utsunomiya City",
+    "nameJa": "宇都宮市"
+  },
+  {
+    "id": "uwajima-city",
+    "name": "Uwajima City",
+    "nameJa": "宇和島市"
+  },
+  {
+    "id": "wakayama-city",
+    "name": "Wakayama City",
+    "nameJa": "和歌山市"
+  },
+  {
+    "id": "yamagata-city",
+    "name": "Yamagata City",
+    "nameJa": "山形市"
+  },
+  {
+    "id": "yokohama-city",
+    "name": "Yokohama City",
+    "nameJa": "横浜"
+  },
+  {
+    "id": "yokosuka-city",
+    "name": "Yokosuka City",
+    "nameJa": "横須賀市"
+  },
+  {
+    "id": "yufu-city",
+    "name": "Yufu City",
+    "nameJa": "由布市"
+  }
+]
