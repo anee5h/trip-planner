@@ -28,7 +28,7 @@ const FULL_JSON = readFileSync(
 );
 
 export const test = base.extend({
-  page: async ({ page }, usePage) => {
+  page: async ({ page }, usePg) => {
     await page.route("**/data/destinations-index.lite.json", async (route) => {
       await route.fulfill({
         status: 200,
@@ -43,7 +43,7 @@ export const test = base.extend({
         body: FULL_JSON,
       });
     });
-    await usePage(page);
+    await usePg(page);
   },
 });
 export { expect } from "@playwright/test";
