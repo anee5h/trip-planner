@@ -60,12 +60,38 @@ export function useWeatherContext(
   useEffect(() => {
     const lat = homeStationCoords?.lat || 35.6762;
     const lng = homeStationCoords?.lng || 139.6503;
-    fetchWeatherTabContext(lat, lng)
-      .then((ctx) => {
-        setWeatherContext(ctx);
-        setActiveTabId(ctx.activeTabId);
-      })
-      .catch((err) => console.error("Weather tab fetch error:", err));
+    // KAI-130: defer the weather fetch until after first paint + idle.
+    // The origin forecast is display-only for the initial planner; when
+    // it resolved ~1.8s after load it triggered a Home re-render that
+    // showed up as a ~360ms long task in cold-load traces. Deferring
+    // moves that work off the interaction-critical path without changing
+    // what the user sees (weather tabs appear once loaded, as before).
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const start = () => {
+      if (cancelled) return;
+      fetchWeatherTabContext(lat, lng)
+        .then((ctx) => {
+          if (cancelled) return;
+          setWeatherContext(ctx);
+          setActiveTabId(ctx.activeTabId);
+        })
+        .catch((err) => console.error("Weather tab fetch error:", err));
+    };
+    const raf = requestAnimationFrame(() => {
+      if (cancelled) return;
+      requestAnimationFrame(() => {
+        if (cancelled) return;
+        // Give the initial render + paint a clear window before the fetch
+        // resolves and re-renders the weather consumers.
+        timer = setTimeout(start, 500);
+      });
+    });
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(raf);
+      if (timer) clearTimeout(timer);
+    };
   }, [homeStationCoords]);
 
   const handleCustomDateSelect = (selectedDate: string) => {

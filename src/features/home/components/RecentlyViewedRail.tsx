@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type React from "react";
 import { History } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -98,4 +99,4 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
   );
 };
 
-export default RecentlyViewedRail;
+export default memo(RecentlyViewedRail);

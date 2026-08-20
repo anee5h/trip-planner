@@ -216,6 +216,28 @@ function stationKey(name: string): string {
     .replace(/[^a-z0-9]+/g, "");
 }
 
+// KAI-130: cache the parsed stations-by-prefecture JSON module-wide. The
+// 895KB file is fetched+parsed for a single station lookup; without a
+// cache, every call (Home mount restore, station picker, sync) pays the
+// full ~350ms parse. The cache makes repeat lookups free.
+let stationsByPrefectureCache: Record<
+  string,
+  Array<{ name: string; lat: number; lng: number }>
+> | null = null;
+
+async function loadStationsByPrefecture(): Promise<
+  Record<string, Array<{ name: string; lat: number; lng: number }>>
+> {
+  if (stationsByPrefectureCache) return stationsByPrefectureCache;
+  const response = await fetch("/data/stations-by-prefecture.json");
+  if (!response.ok) throw new Error(`stations fetch ${response.status}`);
+  stationsByPrefectureCache = (await response.json()) as Record<
+    string,
+    Array<{ name: string; lat: number; lng: number }>
+  >;
+  return stationsByPrefectureCache;
+}
+
 async function resolveHomeStationCoordinates(
   station: string,
 ): Promise<ResolvedStation | null> {
@@ -223,13 +245,7 @@ async function resolveHomeStationCoordinates(
     const [stationName, prefecture] = station.split(", ", 2);
 
     try {
-      const response = await fetch("/data/stations-by-prefecture.json");
-      if (!response.ok) return null;
-
-      const stationsByPrefecture = (await response.json()) as Record<
-        string,
-        Array<{ name: string; lat: number; lng: number }>
-      >;
+      const stationsByPrefecture = await loadStationsByPrefecture();
 
       const target = stationKey(stationName);
       const match = stationsByPrefecture[prefecture]?.find(
@@ -260,13 +276,7 @@ async function resolveHomeStationCoordinates(
     !/^\d+$/.test(station)
   ) {
     try {
-      const response = await fetch("/data/stations-by-prefecture.json");
-      if (!response.ok) return null;
-
-      const stationsByPrefecture = (await response.json()) as Record<
-        string,
-        Array<{ name: string; lat: number; lng: number }>
-      >;
+      const stationsByPrefecture = await loadStationsByPrefecture();
 
       const matches: Array<{ lat: number; lng: number }> = [];
       const target = stationKey(station);

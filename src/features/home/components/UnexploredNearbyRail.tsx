@@ -1,3 +1,4 @@
+import { memo } from "react";
 import React, { useMemo } from "react";
 import { MapPin } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
@@ -124,4 +125,4 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
   );
 };
 
-export default UnexploredNearbyRail;
+export default memo(UnexploredNearbyRail);

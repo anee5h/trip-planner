@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type React from "react";
 import { CalendarDays, Clock3, Leaf, Route } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
@@ -150,4 +151,4 @@ export const DiscoveryRail: React.FC<DiscoveryRailProps> = ({
   );
 };
 
-export default DiscoveryRail;
+export default memo(DiscoveryRail);

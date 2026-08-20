@@ -4,7 +4,6 @@ import type {
 } from "./PersonalizationService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
-import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import type { TravelDateSelection } from "./TravelConditions";
 
 export type TripDuration =
@@ -99,8 +98,6 @@ export interface RecommendationContext {
    * Omitted means no explicit date: neutral, any-date behaviour.
    */
   travelDates?: TravelDateSelection;
-  /** Live forecast map (YYYY-MM-DD → forecast) for the planned origin. */
-  forecastMap?: ReadonlyMap<string, DayForecastData>;
   userRatings?: Record<string, "up" | "down">;
   tripDuration?: TripDuration;
   availableTimeHours?: number;

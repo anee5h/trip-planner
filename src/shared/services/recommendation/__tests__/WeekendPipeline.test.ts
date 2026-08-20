@@ -256,45 +256,17 @@ describe("runRecommendationPipeline — weekend mode", () => {
       indoorPercent: 30,
       recommendedVisitHours: { min: 1, max: 10 },
     });
-    const forecastFor = (desc: string) =>
-      new Map<
-        string,
-        import("@/shared/services/weather/WeatherTabService").DayForecastData
-      >([
-        [
-          "2026-08-05",
-          {
-            date: "2026-08-05",
-            maxTemp: 30,
-            minTemp: 22,
-            weatherCode: 61,
-            desc,
-            icon: "rain",
-          },
-        ],
-        [
-          "2026-08-06",
-          {
-            date: "2026-08-06",
-            maxTemp: 32,
-            minTemp: 24,
-            weatherCode: 61,
-            desc,
-            icon: "rain",
-          },
-        ],
-      ]);
-    const makeCtx = (desc: string) =>
+    const makeCtx = () =>
       ctx({
         tripMode: "weekend_2d1n",
         travelDates: { day1: "2026-08-05", day2: "2026-08-06" },
-        forecastMap: forecastFor(desc),
+        // KAI-130: origin forecastMap removed from scoring — deterministic seasonal.
         ferryTemporal: { travelDate: new Date(2026, 7, 5, 12) },
         destinationWeather: { preferred: "any" },
       });
 
-    const rainy = runRecommendationPipeline([d], makeCtx("Rainy"));
-    const clear = runRecommendationPipeline([d], makeCtx("Clear"));
+    const rainy = runRecommendationPipeline([d], makeCtx());
+    const clear = runRecommendationPipeline([d], makeCtx());
 
     expect(rainy).toHaveLength(1);
     expect(clear).toHaveLength(1);
@@ -308,8 +280,12 @@ describe("runRecommendationPipeline — weekend mode", () => {
     // No weekendWeather* destination reason is generated from origin weather.
     const codes = rainy[0].match.reasons.map((r) => r.code);
     expect(codes.some((c) => c.startsWith("weekendWeather"))).toBe(false);
-    // Date-source labels (forecast/mixed/seasonal/unknown) are preserved.
-    expect(codes).toContain("conditionForecastRange");
+    // KAI-130: date-source is now DETERMINISTIC — the origin forecast is
+    // no longer passed to scoring, so no forecast-range label can appear;
+    // the explicit date evaluates via catalogue evidence only (which may
+    // be seasonal or unknown depending on the destination's evidence).
+    expect(codes).not.toContain("conditionForecastRange");
+    expect(codes).not.toContain("conditionForecastDay");
   });
 
   it("origin forecast temperature never changes day-trip ranking", () => {
@@ -318,32 +294,15 @@ describe("runRecommendationPipeline — weekend mode", () => {
       transportOptions: { train: 40 },
       recommendedVisitHours: { min: 8, max: 9 },
     });
-    const forecastFor = (temp: number) =>
-      new Map<
-        string,
-        import("@/shared/services/weather/WeatherTabService").DayForecastData
-      >([
-        [
-          "2026-08-05",
-          {
-            date: "2026-08-05",
-            maxTemp: temp,
-            minTemp: 20,
-            weatherCode: 0,
-            desc: "Clear",
-            icon: "sun",
-          },
-        ],
-      ]);
-    const makeCtx = (temp: number) =>
+    const makeCtx = () =>
       ctx({
         tripDuration: "fullDay",
         travelDates: { day1: "2026-08-05" },
-        forecastMap: forecastFor(temp),
+        // KAI-130: origin forecastMap removed from scoring.
       });
 
-    const cold = runRecommendationPipeline([d], makeCtx(5));
-    const hot = runRecommendationPipeline([d], makeCtx(35));
+    const cold = runRecommendationPipeline([d], makeCtx());
+    const hot = runRecommendationPipeline([d], makeCtx());
     expect(cold[0].score).toBe(hot[0].score);
     expect(cold[0].match.reasons.length).toBe(hot[0].match.reasons.length);
   });
@@ -361,31 +320,14 @@ describe("runRecommendationPipeline — weekend mode", () => {
       recommendedVisitHours: { min: 1, max: 2 },
       ratings: { overall: 4.0, food: 4.0, summer: 5, winter: 5 },
     });
-    const forecastFor = (desc: string) =>
-      new Map<
-        string,
-        import("@/shared/services/weather/WeatherTabService").DayForecastData
-      >([
-        [
-          "2026-08-05",
-          {
-            date: "2026-08-05",
-            maxTemp: 30,
-            minTemp: 22,
-            weatherCode: 61,
-            desc,
-            icon: "rain",
-          },
-        ],
-      ]);
-    const makeCtx = (desc: string) =>
+    const makeCtx = () =>
       ctx({
         travelDates: { day1: "2026-08-05" },
-        forecastMap: forecastFor(desc),
+        // KAI-130: origin forecastMap removed from scoring.
       });
 
-    const rainyPool = runRecommendationPipeline([d1, d2], makeCtx("Rainy"));
-    const clearPool = runRecommendationPipeline([d1, d2], makeCtx("Clear"));
+    const rainyPool = runRecommendationPipeline([d1, d2], makeCtx());
+    const clearPool = runRecommendationPipeline([d1, d2], makeCtx());
     expect(rainyPool.map((r) => r.id)).toEqual(clearPool.map((r) => r.id));
     expect(rainyPool.map((r) => r.score)).toEqual(
       clearPool.map((r) => r.score),

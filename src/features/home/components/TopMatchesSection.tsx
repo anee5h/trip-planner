@@ -1,3 +1,4 @@
+import { memo } from "react";
 import React from "react";
 import { Sparkles } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
@@ -117,4 +118,4 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
   );
 };
 
-export default TopMatchesSection;
+export default memo(TopMatchesSection);

@@ -84,14 +84,12 @@ import CompareFloatingBar from "./features/compare/components/CompareFloatingBar
 import { ThemeProvider } from "./shared/context/ThemeContext";
 import { LocaleProvider, useLocale } from "./shared/context/LocaleContext";
 import { AuthModalProvider } from "./shared/context/AuthModalContext";
-import { useIdlePrefetch } from "./shared/hooks/useIdlePrefetch";
 import { OnboardingFlow } from "./shared/components/auth/OnboardingFlow";
 
 import BottomNav from "./shared/components/layout/BottomNav";
 
 function AppInner() {
   const [compareModalOpen, setCompareModalOpen] = useState(false);
-  useIdlePrefetch();
 
   // Locale-prefixed URLs (/ja/...) keep the locale visible to share-preview
   // crawlers; the basename makes every internal link stay on the locale
