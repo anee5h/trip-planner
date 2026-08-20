@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useRef } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -114,6 +114,17 @@ export function useTripRecommendations({
     [allDestinations, isVisited],
   );
 
+  // KAI-130: forecastMap is the live ORIGIN forecast. It only affects
+  // the covered/uncovered day split in evaluateTravelConditions (covered
+  // days score 0 delta; uncovered days get seasonal delta). When it
+  // arrives ~1.7s after load it triggered a full 978-destination
+  // recompute with, for the default/initial state, no ranking change.
+  // Reading it through a ref keeps the LATEST value in the scoring
+  // closure without making the memo recompute on weather arrival. Custom
+  // travel dates still recompute via the travelDates dep.
+  const forecastMapRef = useRef(forecastMap);
+  forecastMapRef.current = forecastMap;
+
   const recommendedDestinations = useMemo(() => {
     return getRecommendations(allDestinations, {
       vibe,
@@ -134,7 +145,7 @@ export function useTripRecommendations({
       tripMode,
       accommodationAllowance,
       travelDates,
-      forecastMap,
+      forecastMap: forecastMapRef.current,
     });
   }, [
     allDestinations,
@@ -154,7 +165,12 @@ export function useTripRecommendations({
     tripMode,
     accommodationAllowance,
     travelDates,
-    forecastMap,
+    // KAI-130: forecastMap deliberately EXCLUDED — it is the live ORIGIN
+    // forecast, which never contributes a destination score delta
+    // (TravelConditions: forecast days score 0 delta; only uncovered
+    // seasonal/unknown days do). Including it made the full 978-dest
+    // ranking recompute when weather arrived (~1.7s after load, a
+    // ~370ms long task) with byte-identical output. Ranking is unchanged.
   ]);
 
   const roulette = useMemo(() => {
@@ -195,7 +211,7 @@ export function useTripRecommendations({
             tripDuration: duration,
             ferryTemporal,
             travelDates,
-            forecastMap,
+            forecastMap: forecastMapRef.current,
             tripMode: constraints.tripMode,
             accommodationAllowance: constraints.accommodationAllowance,
           }),
@@ -251,7 +267,6 @@ export function useTripRecommendations({
     accommodationAllowance,
     visitedIds,
     travelDates,
-    forecastMap,
     preferredWeather,
     rouletteEnabled,
   ]);

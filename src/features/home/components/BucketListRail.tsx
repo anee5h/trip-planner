@@ -1,3 +1,4 @@
+import { memo } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Bookmark, Sparkles, LogIn } from "lucide-react";
@@ -138,4 +139,4 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
   );
 };
 
-export default BucketListRail;
+export default memo(BucketListRail);

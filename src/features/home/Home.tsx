@@ -14,6 +14,7 @@ import {
   normalizeTravelDateParam,
 } from "@/shared/services/recommendation/TravelConditions";
 import RouletteModal from "@/features/home/components/RouletteModal";
+import { DeferredSection } from "@/shared/components/ui/DeferredSection";
 
 import { useTripPlannerState } from "@/features/home/hooks/useTripPlannerState";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
@@ -673,97 +674,109 @@ export default function Home() {
       />
 
       {/* Recently viewed remains conditional and sits directly below Top matches. */}
-      <RecentlyViewedRail
-        destinations={recentlyViewedDestinations}
-        partySize={resolvedApplied.partySize}
-        carMode={resolvedApplied.carMode}
-        publicModes={resolvedApplied.publicModes}
-        travelDate={travelDateIso}
-      />
+      <DeferredSection>
+        <RecentlyViewedRail
+          destinations={recentlyViewedDestinations}
+          partySize={resolvedApplied.partySize}
+          carMode={resolvedApplied.carMode}
+          publicModes={resolvedApplied.publicModes}
+          travelDate={travelDateIso}
+        />
+      </DeferredSection>
 
       {/* Bucket List remains conditional and keeps its existing user-data semantics. */}
       {hasSavedItems && (
-        <BucketListRail
-          partySize={resolvedApplied.partySize}
-          carMode={resolvedApplied.carMode}
-          publicModes={resolvedApplied.publicModes}
-          travelDate={travelDateIso}
-        />
+        <DeferredSection delayMs={50}>
+          <BucketListRail
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+          />
+        </DeferredSection>
       )}
 
       {isWeekendMode ? (
-        <>
-          <DiscoveryRail
-            kind="weekendGetaways"
-            destinations={discoveryRails.weekendGetaways}
-            partySize={resolvedApplied.partySize}
-            carMode={resolvedApplied.carMode}
-            publicModes={resolvedApplied.publicModes}
-            travelDate={travelDateIso}
-          />
-          <DiscoveryRail
-            kind="seasonal"
-            season={currentSeason}
-            destinations={discoveryRails.seasonal}
-            partySize={resolvedApplied.partySize}
-            carMode={resolvedApplied.carMode}
-            publicModes={resolvedApplied.publicModes}
-            travelDate={travelDateIso}
-          />
-          <DiscoveryRail
-            kind="longerJourney"
-            destinations={discoveryRails.longerJourney}
-            partySize={resolvedApplied.partySize}
-            carMode={resolvedApplied.carMode}
-            publicModes={resolvedApplied.publicModes}
-            travelDate={travelDateIso}
-          />
-        </>
+        <DeferredSection delayMs={100}>
+          <>
+            <DiscoveryRail
+              kind="weekendGetaways"
+              destinations={discoveryRails.weekendGetaways}
+              partySize={resolvedApplied.partySize}
+              carMode={resolvedApplied.carMode}
+              publicModes={resolvedApplied.publicModes}
+              travelDate={travelDateIso}
+            />
+            <DiscoveryRail
+              kind="seasonal"
+              season={currentSeason}
+              destinations={discoveryRails.seasonal}
+              partySize={resolvedApplied.partySize}
+              carMode={resolvedApplied.carMode}
+              publicModes={resolvedApplied.publicModes}
+              travelDate={travelDateIso}
+            />
+            <DiscoveryRail
+              kind="longerJourney"
+              destinations={discoveryRails.longerJourney}
+              partySize={resolvedApplied.partySize}
+              carMode={resolvedApplied.carMode}
+              publicModes={resolvedApplied.publicModes}
+              travelDate={travelDateIso}
+            />
+          </>
+        </DeferredSection>
       ) : (
-        <>
-          <DiscoveryRail
-            kind="seasonal"
-            season={currentSeason}
-            destinations={discoveryRails.seasonal}
-            partySize={resolvedApplied.partySize}
-            carMode={resolvedApplied.carMode}
-            publicModes={resolvedApplied.publicModes}
-            travelDate={travelDateIso}
-          />
-          <DiscoveryRail
-            kind="under60"
-            destinations={discoveryRails.under60}
-            partySize={resolvedApplied.partySize}
-            carMode={resolvedApplied.carMode}
-            publicModes={resolvedApplied.publicModes}
-            travelDate={travelDateIso}
-          />
-          <UnexploredNearbyRail
-            destinations={allDestinations}
-            precomputedDestinations={discoveryRails.nearby}
-            homeStationCoords={homeStationCoords}
-            homeStationTransportZoneId={homeStationTransportZoneId}
-            isVisited={isVisited}
-            partySize={resolvedApplied.partySize}
-            carMode={resolvedApplied.carMode}
-            publicModes={resolvedApplied.publicModes}
-            travelDate={travelDateIso}
-          />
-        </>
+        <DeferredSection delayMs={100}>
+          <>
+            <DiscoveryRail
+              kind="seasonal"
+              season={currentSeason}
+              destinations={discoveryRails.seasonal}
+              partySize={resolvedApplied.partySize}
+              carMode={resolvedApplied.carMode}
+              publicModes={resolvedApplied.publicModes}
+              travelDate={travelDateIso}
+            />
+            <DiscoveryRail
+              kind="under60"
+              destinations={discoveryRails.under60}
+              partySize={resolvedApplied.partySize}
+              carMode={resolvedApplied.carMode}
+              publicModes={resolvedApplied.publicModes}
+              travelDate={travelDateIso}
+            />
+            <UnexploredNearbyRail
+              destinations={allDestinations}
+              precomputedDestinations={discoveryRails.nearby}
+              homeStationCoords={homeStationCoords}
+              homeStationTransportZoneId={homeStationTransportZoneId}
+              isVisited={isVisited}
+              partySize={resolvedApplied.partySize}
+              carMode={resolvedApplied.carMode}
+              publicModes={resolvedApplied.publicModes}
+              travelDate={travelDateIso}
+            />
+          </>
+        </DeferredSection>
       )}
 
       {/* Curated Collections Rail */}
-      <CollectionsRail />
+      <DeferredSection delayMs={200}>
+        <CollectionsRail />
+      </DeferredSection>
 
       {/* Compact Prompt Banner near bottom for empty/signed-out states */}
       {!hasSavedItems && (
-        <BucketListRail
-          partySize={resolvedApplied.partySize}
-          carMode={resolvedApplied.carMode}
-          publicModes={resolvedApplied.publicModes}
-          travelDate={travelDateIso}
-          isCompactPromptOnly
-        />
+        <DeferredSection delayMs={250}>
+          <BucketListRail
+            partySize={resolvedApplied.partySize}
+            carMode={resolvedApplied.carMode}
+            publicModes={resolvedApplied.publicModes}
+            travelDate={travelDateIso}
+            isCompactPromptOnly
+          />
+        </DeferredSection>
       )}
     </div>
   );

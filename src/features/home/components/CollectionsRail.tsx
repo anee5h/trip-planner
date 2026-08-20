@@ -1,3 +1,4 @@
+import { memo } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import { Compass, Layers } from "lucide-react";
@@ -258,4 +259,4 @@ export const CollectionsRail: React.FC = () => {
   );
 };
 
-export default CollectionsRail;
+export default memo(CollectionsRail);
