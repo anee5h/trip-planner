@@ -1,7 +1,6 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useTranslation } from "react-i18next";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
@@ -77,13 +76,18 @@ export function SearchableDestinationPicker({
   // error / retry for that data, so parent and child retries can never
   // diverge.
   const {
-    ready: liteReady,
+    status: catalogueStatus,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady(customDestinations == null);
+  } = useCatalogue({
+    need: "summary",
+    enabled: customDestinations == null,
+  });
+  const liteReady = catalogueStatus === "ready";
   const allDestinations = useMemo(
-    () => customDestinations ?? (liteReady ? getLoadedLitePlaces() : []),
-    [customDestinations, liteReady],
+    () => customDestinations ?? cataloguePlaces,
+    [cataloguePlaces, customDestinations],
   );
 
   const selectedDestination = useMemo(() => {
