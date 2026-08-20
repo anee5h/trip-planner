@@ -105,7 +105,13 @@ export const onRequest = async (context) => {
       "feedback: SUPABASE_URL / SUPABASE_SECRET_KEY not configured",
     );
     return Response.json(
-      { ok: false, error: "not_configured" },
+      {
+        ok: false,
+        error: "not_configured",
+        handlerVersion: "kai-137-envdiag-1",
+        hasSupabaseUrl: Boolean(env?.SUPABASE_URL),
+        hasSupabaseSecretKey: Boolean(env?.SUPABASE_SECRET_KEY),
+      },
       { status: 500 },
     );
   }

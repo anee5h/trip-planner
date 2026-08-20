@@ -134,7 +134,13 @@ describe("POST /api/feedback — validation", () => {
       postContext({ env: { SUPABASE_URL: "https://fake.supabase.co" } }),
     );
     expect(res.status).toBe(500);
-    expect((await res.json()).error).toBe("not_configured");
+    expect(await res.json()).toEqual({
+      ok: false,
+      error: "not_configured",
+      handlerVersion: "kai-137-envdiag-1",
+      hasSupabaseUrl: true,
+      hasSupabaseSecretKey: false,
+    });
   });
 });
 
