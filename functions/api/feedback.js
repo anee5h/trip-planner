@@ -1,14 +1,19 @@
 /**
- * KAI-96: durable owner-visible feedback capture.
+ * KAI-96 + KAI-137: durable owner-visible feedback capture.
  *
  * POST /api/feedback — validates the payload, then inserts into the Supabase
- * `feedback` table using the service-role key. The service key lives only in
- * server-side environment (Cloudflare Pages settings, or `.dev.vars` locally);
- * it is never exposed to the client bundle.
+ * `feedback` table. The secret key lives only in server-side environment
+ * (Cloudflare Pages settings, or `.dev.vars` locally); it is never exposed
+ * to the client bundle.
+ *
+ * KAI-137: Supabase's modern key model. The `sb_secret_...` key
+ * (SUPABASE_SECRET_KEY) is sent ONLY through the `apikey` header — never as
+ * `Authorization: Bearer` (that header is reserved for user session tokens).
+ * The legacy SUPABASE_SERVICE_ROLE_KEY JWT is no longer required.
  *
  * Requires env vars (see .dev.vars.example):
- *   SUPABASE_URL              — https://<project-ref>.supabase.co
- *   SUPABASE_SERVICE_ROLE_KEY — service-role key (bypasses RLS)
+ *   SUPABASE_URL          — https://<project-ref>.supabase.co
+ *   SUPABASE_SECRET_KEY   — modern `sb_secret_...` key (bypasses RLS)
  *
  * Schema: run supabase/migrations/001_feedback.sql in the Supabase SQL editor
  * before deploying (rollback: DROP TABLE feedback).
@@ -95,9 +100,9 @@ export const onRequest = async (context) => {
     return badRequest("invalid_message");
   }
 
-  if (!env.SUPABASE_URL || !env.SUPABASE_SERVICE_ROLE_KEY) {
+  if (!env.SUPABASE_URL || !env.SUPABASE_SECRET_KEY) {
     console.error(
-      "feedback: SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY not configured",
+      "feedback: SUPABASE_URL / SUPABASE_SECRET_KEY not configured",
     );
     return Response.json(
       { ok: false, error: "not_configured" },
@@ -114,8 +119,11 @@ export const onRequest = async (context) => {
     try {
       const userRes = await fetch(`${env.SUPABASE_URL}/auth/v1/user`, {
         headers: {
+          // The caller's own session access token.
           Authorization: authHeader,
-          apikey: env.SUPABASE_SERVICE_ROLE_KEY,
+          // KAI-137: the secret key rides separately as apikey — it is
+          // never substituted into Authorization.
+          apikey: env.SUPABASE_SECRET_KEY,
         },
       });
       if (userRes.ok) {
@@ -137,16 +145,27 @@ export const onRequest = async (context) => {
     user_id,
   };
 
-  const res = await fetch(`${env.SUPABASE_URL}/rest/v1/feedback`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      apikey: env.SUPABASE_SERVICE_ROLE_KEY,
-      Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify(row),
-  });
+  let res;
+  try {
+    res = await fetch(`${env.SUPABASE_URL}/rest/v1/feedback`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // KAI-137: the modern sb_secret_... key is sent ONLY as apikey.
+        // Authorization must NOT carry the secret key.
+        apikey: env.SUPABASE_SECRET_KEY,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(row),
+    });
+  } catch (err) {
+    // Network failure on the insert — same honest 502 as a non-2xx.
+    console.error("feedback: supabase insert request failed", err);
+    return Response.json(
+      { ok: false, error: "storage_failed" },
+      { status: 502 },
+    );
+  }
 
   if (!res.ok) {
     const detail = await res.text().catch(() => "");
