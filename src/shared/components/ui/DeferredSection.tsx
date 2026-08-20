@@ -37,6 +37,20 @@ let queueStarted = false;
 function startQueue() {
   if (queueStarted) return;
   queueStarted = true;
+  // Use rAF when it works; fall back to a timer when it is throttled or
+  // frozen (background tabs, test clocks) so deferred content is never
+  // permanently stuck. Detection: if a rAF callback hasn't fired within
+  // 700ms, drive the queue with setTimeout instead.
+  let rafWorking = false;
+  let timerMode = false;
+  // Probe whether rAF fires (it does not under frozen/throttled clocks).
+  requestAnimationFrame(() => {
+    rafWorking = true;
+  });
+  setTimeout(() => {
+    if (!rafWorking) timerMode = true;
+  }, 700);
+
   const tick = () => {
     // Mount one section per frame; each is its own task.
     const next = pendingMounts.values().next();
@@ -46,13 +60,22 @@ function startQueue() {
       mount();
     }
     if (pendingMounts.size > 0) {
-      requestAnimationFrame(tick);
+      if (timerMode) {
+        setTimeout(tick, 50);
+      } else {
+        requestAnimationFrame(tick);
+      }
     } else {
       queueStarted = false;
     }
   };
   // Start after the critical content has painted (double-rAF).
   requestAnimationFrame(() => requestAnimationFrame(tick));
+  // Safety net: if rAF never fires (frozen), start via timer.
+  const fallback = setTimeout(tick, 800);
+  setTimeout(() => {
+    if (timerMode) clearTimeout(fallback);
+  }, 900);
 }
 
 export function DeferredSection({
