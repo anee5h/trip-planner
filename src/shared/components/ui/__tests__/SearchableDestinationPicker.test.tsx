@@ -1,10 +1,12 @@
 import { act } from "react";
+import type { Destination } from "@/shared/types/destination";
 import { createRoot, type Root } from "react-dom/client";
 import { beforeAll, afterEach, describe, expect, it, vi } from "vitest";
 import {
   loadLiteIndex,
   loadDestinationsIndex,
 } from "@/shared/services/place/PlaceCatalog";
+import * as PlaceCatalog from "@/shared/services/place/PlaceCatalog";
 import { SearchableDestinationPicker } from "../SearchableDestinationPicker";
 
 let root: Root | undefined;
@@ -82,5 +84,31 @@ describe("SearchableDestinationPicker", () => {
       );
     });
     expect(onSelect).toHaveBeenCalledTimes(1);
+  });
+
+  it("does not load the summary catalogue when destinations are parent-owned", async () => {
+    const loadSpy = vi.spyOn(PlaceCatalog, "loadCatalogue");
+    loadSpy.mockClear();
+    const parentDestination = {
+      id: "parent-destination",
+      name: "Parent destination",
+      prefecture: "Kyoto",
+    } as Destination;
+
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    await act(async () => {
+      root!.render(
+        <SearchableDestinationPicker
+          destinations={[parentDestination]}
+          onSelect={vi.fn()}
+        />,
+      );
+      await Promise.resolve();
+    });
+
+    expect(loadSpy).not.toHaveBeenCalled();
+    loadSpy.mockRestore();
   });
 });

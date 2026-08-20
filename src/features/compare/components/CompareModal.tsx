@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
-import type { Destination } from "@/shared/types/destination";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { getAdjustedBudget } from "@/shared/utils/utils";
@@ -28,8 +27,11 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
   const { t } = useTranslation();
   const { locale } = useLocale();
-  const { places: cataloguePlaces } = useCatalogue({ need: "summary" });
-  const allDestinations = cataloguePlaces as Destination[];
+  const { places: cataloguePlaces } = useCatalogue({
+    need: "summary",
+    enabled: isOpen,
+  });
+  const allDestinations = cataloguePlaces;
 
   if (!isOpen) return null;
 
@@ -37,7 +39,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const compareDestinations = compareList
     .slice(0, 3)
     .map((id) => allDestinations.find((d) => d.id === id))
-    .filter((d): d is Destination => !!d);
+    .filter((d): d is NonNullable<typeof d> => Boolean(d));
 
   // Best value helpers
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);

@@ -71,7 +71,7 @@ export function useCatalogue({
     let cancelled = false;
     setState((previous) => ({
       ...previous,
-      status: previous.places.length > 0 ? "ready" : "loading",
+      status: "loading",
       error: null,
       retry,
     }));
