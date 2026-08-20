@@ -81,7 +81,11 @@ export default function ItineraryPlanner({
   const { favorites } = useTripStore();
   const recentDestinations = useRecentlyViewedDestinations();
 
-  const { ready: liteReady } = useLiteCatalogueReady();
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
   const destinations = (liteReady ? getDestinationList() : []) as Destination[];
 
   const savedDestinations = useMemo(() => {
@@ -155,6 +159,38 @@ export default function ItineraryPlanner({
     setNotes("");
     setStopDate("");
   };
+
+  // KAI-132: a failed lite load is NOT an empty destination list — the
+  // saved/favorite list and picker must not masquerade as empty. Surface
+  // an explicit error/retry state.
+  if (liteError) {
+    return (
+      <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-900/50 dark:bg-red-950/30">
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-8 px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">

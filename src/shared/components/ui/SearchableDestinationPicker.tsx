@@ -72,11 +72,15 @@ export function SearchableDestinationPicker({
   // ratings (present in the lite index). The lite catalogue is
   // runtime-loaded; options render once it resolves (spinner while
   // loading). A failed load is NOT ready — surface an error/retry state.
+  // When `customDestinations` is supplied, the internal loader is DISABLED
+  // (enabled = customDestinations == null): the parent owns loading /
+  // error / retry for that data, so parent and child retries can never
+  // diverge.
   const {
     ready: liteReady,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
+  } = useLiteCatalogueReady(customDestinations == null);
   const allDestinations = useMemo(
     () => customDestinations ?? (liteReady ? getLoadedLitePlaces() : []),
     [customDestinations, liteReady],

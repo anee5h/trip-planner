@@ -145,7 +145,11 @@ export function OnboardingFlow() {
     if (savedHomeStation) setBaseLocation(savedHomeStation);
   }, [savedHomeStation]);
 
-  const { ready: liteReady } = useLiteCatalogueReady(visible);
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady(visible);
   const cityHubs = useMemo(
     () =>
       ((liteReady ? getDestinationList(locale) : []) as Destination[])
@@ -284,16 +288,41 @@ export function OnboardingFlow() {
                 </label>
                 <label className="block text-xs font-bold uppercase text-slate-500">
                   {t("ui.chooseCity")}
-                  <SearchableDestinationPicker
-                    value={homeCityId}
-                    onSelect={(d) => setHomeCityId(d.id)}
-                    placeholder={t("ui.chooseCity")}
-                    locale={locale}
-                    destinations={cityHubs}
-                    savedDestinations={[]}
-                    recentDestinations={[]}
-                    className="mt-2"
-                  />
+                  {liteError ? (
+                    // KAI-132: failed load is NOT an empty hub list —
+                    // inline error + retry (the picker's internal loader
+                    // is disabled when customDestinations is supplied).
+                    <div
+                      role="alert"
+                      data-lite-error
+                      className="mt-2 flex flex-col items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3 py-3 dark:border-red-900/50 dark:bg-red-950/30"
+                    >
+                      <p className="text-xs font-bold text-slate-900 dark:text-white">
+                        {t(
+                          "home.matchesErrorTitle",
+                          "Couldn't load destinations",
+                        )}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={retryLite}
+                        className="rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-emerald-700"
+                      >
+                        {t("ui.retry", "Retry")}
+                      </button>
+                    </div>
+                  ) : (
+                    <SearchableDestinationPicker
+                      value={homeCityId}
+                      onSelect={(d) => setHomeCityId(d.id)}
+                      placeholder={t("ui.chooseCity")}
+                      locale={locale}
+                      destinations={cityHubs}
+                      savedDestinations={[]}
+                      recentDestinations={[]}
+                      className="mt-2"
+                    />
+                  )}
                 </label>
                 <div>
                   <label className="block text-xs font-bold uppercase text-slate-500 mb-2">

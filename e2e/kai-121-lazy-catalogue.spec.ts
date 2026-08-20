@@ -347,3 +347,98 @@ test("secondary route (explorer) fail → retry → success, no crash", async ({
   await expect(page.locator('a[href^="/destinations/"]').first()).toBeVisible();
   expect(pageErrors).toEqual([]);
 });
+
+test("/collections failure shows error + retry recovers", async ({ page }) => {
+  // CollectionsDirectory must not spinner-forever on a failed lite load:
+  // an explicit error + retry, then recovery when the loader succeeds.
+  let failLite = true;
+  await page.route("**/data/destinations-index.lite.json", async (route) => {
+    if (failLite) {
+      await route.fulfill({
+        status: 500,
+        contentType: "application/json",
+        body: "[]",
+      });
+    } else {
+      const response = await page.request.get(
+        "/data/destinations-index.lite.json",
+      );
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: (await response.body()) as Buffer,
+      });
+    }
+  });
+
+  const pageErrors: string[] = [];
+  page.on("pageerror", (e) => pageErrors.push(e.message));
+
+  await page.goto("/collections", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+
+  await page.waitForSelector("[data-lite-error]", { timeout: 20000 });
+  await expect(page.getByRole("button", { name: "Retry" })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+
+  failLite = false;
+  await page.getByRole("button", { name: "Retry" }).click();
+  await expect
+    .poll(async () => page.locator("[data-lite-error]").count())
+    .toBe(0);
+  // A collection card (link) recovers.
+  await expect(page.locator('a[href^="/collections/"]').first()).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("custom-destination city picker: parent fail → retry → success", async ({
+  page,
+}) => {
+  // When customDestinations is supplied, the picker's internal lite
+  // loader is DISABLED and the PARENT owns loading/error/retry. Settings'
+  // home-station picker is a customDestinations consumer: on lite failure
+  // it must surface the parent's error/retry (not spin), and retry must
+  // recover — proving parent/child retries cannot diverge.
+  let failLite = true;
+  await page.route("**/data/destinations-index.lite.json", async (route) => {
+    if (failLite) {
+      await route.fulfill({
+        status: 500,
+        contentType: "application/json",
+        body: "[]",
+      });
+    } else {
+      const response = await page.request.get(
+        "/data/destinations-index.lite.json",
+      );
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: (await response.body()) as Buffer,
+      });
+    }
+  });
+
+  const pageErrors: string[] = [];
+  page.on("pageerror", (e) => pageErrors.push(e.message));
+
+  await page.goto("/settings", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+
+  await page.waitForSelector("[data-lite-error]", { timeout: 20000 });
+  await expect(page.getByRole("button", { name: "Retry" })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+
+  failLite = false;
+  await page.getByRole("button", { name: "Retry" }).click();
+  await expect
+    .poll(async () => page.locator("[data-lite-error]").count())
+    .toBe(0);
+  // Settings recovered: the home-station section rendered.
+  await expect(page.locator("main")).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});

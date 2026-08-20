@@ -16,7 +16,11 @@ import { useTranslation } from "react-i18next";
 import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 
 export default function CollectionsDirectory() {
-  const { ready: liteReady } = useLiteCatalogueReady();
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
   const collections = getCollections();
   const { visited } = useTripStore();
   const { locale } = useLocale();
@@ -36,7 +40,32 @@ export default function CollectionsDirectory() {
         compact
       />
 
-      {!liteReady ? (
+      {liteError ? (
+        // KAI-132: failed load is NOT ready — explicit error + retry,
+        // never a spinner that runs forever.
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
+      ) : !liteReady ? (
         // KAI-132: lite catalogue still loading — show a spinner, not an
         // empty grid (availableCollections would be [] pre-load).
         <div className="flex flex-col items-center justify-center py-20">
