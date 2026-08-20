@@ -21,7 +21,13 @@ const results = [];
 for (let i = 0; i < runs; i++) {
   const browser = await chromium.launch({ headless: true });
   const ctx = await browser.newContext({
-    viewport: { width: 390, height: 844, isMobile: true, hasTouch: true, deviceScaleFactor: 3 },
+    viewport: {
+      width: 390,
+      height: 844,
+      isMobile: true,
+      hasTouch: true,
+      deviceScaleFactor: 3,
+    },
   });
   const page = await ctx.newPage();
   await page.addInitScript(() => {
@@ -30,7 +36,10 @@ for (let i = 0; i < runs; i++) {
       if (window.PerformanceLongTaskTiming) {
         new PerformanceObserver((l) => {
           for (const e of l.getEntries())
-            out.longTasks.push({ start: Math.round(e.startTime), dur: Math.round(e.duration) });
+            out.longTasks.push({
+              start: Math.round(e.startTime),
+              dur: Math.round(e.duration),
+            });
         }).observe({ type: "longtask", buffered: true });
       }
       new PerformanceObserver((l) => {

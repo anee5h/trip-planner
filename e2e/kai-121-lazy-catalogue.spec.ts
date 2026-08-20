@@ -224,9 +224,7 @@ test("delayed lite load: catalogue rails stay pending, then recover (Collections
     timeout: 20000,
   });
   await page.waitForTimeout(1000);
-  const pendingBefore = await page
-    .locator("[data-deferred-pending]")
-    .count();
+  const pendingBefore = await page.locator("[data-deferred-pending]").count();
   expect(pendingBefore).toBeGreaterThan(0);
   await expect(
     page.getByRole("heading", { name: "Featured collections" }),
@@ -257,7 +255,11 @@ test("lite load failure shows error + retry recovers (fail → retry → success
   let failLite = true;
   await page.route("**/data/destinations-index.lite.json", async (route) => {
     if (failLite) {
-      await route.fulfill({ status: 500, contentType: "application/json", body: "boom" });
+      await route.fulfill({
+        status: 500,
+        contentType: "application/json",
+        body: "boom",
+      });
     } else {
       const response = await page.request.get(
         "/data/destinations-index.lite.json",
@@ -278,9 +280,7 @@ test("lite load failure shows error + retry recovers (fail → retry → success
   // The failure surfaces as an explicit error state (NOT the skeleton,
   // NOT an empty catalogue, NOT a crash).
   await page.waitForSelector("[data-top-matches-error]", { timeout: 20000 });
-  await expect(
-    page.getByRole("button", { name: "Retry" }),
-  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Retry" })).toBeVisible();
   // No ErrorBoundary crash: the planner/hero still rendered.
   await expect(page.locator("main")).toBeVisible();
   expect(pageErrors).toEqual([]);
