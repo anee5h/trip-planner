@@ -3,7 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import {
-  getLitePlaces,
+  getLoadedLitePlaces,
+  loadLiteIndex,
   getLocalizedPlace,
 } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
@@ -131,14 +132,27 @@ export default function Destinations() {
   } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
-  // KAI-121: the explorer is a list/filter surface — SUMMARY-ONLY. Every
-  // field it reads (id, name, ratings, budget, transportOptions,
-  // coordinates, categories, prefecture) lives in the lite index, so it
-  // does NOT fetch the full catalogue on mount (no eager full-data
-  // upgrade).
-  const allDestinations = getLitePlaces().map((destination) =>
-    getLocalizedPlace(destination, locale),
-  );
+  // KAI-132: the explorer is a list/filter surface — SUMMARY-ONLY. The
+  // lite catalogue is runtime-loaded (not inlined in the shared chunk);
+  // the grid renders once the loader resolves. `filtersReady` already
+  // gates filter-derived state; `liteReady` gates the catalogue data.
+  const [liteReady, setLiteReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then(() => {
+        if (!cancelled) setLiteReady(true);
+      })
+      .catch((err) => {
+        console.error("[Destinations] lite catalogue load failed:", err);
+        if (!cancelled) setLiteReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const allDestinations = (liteReady ? getLoadedLitePlaces() : [])
+    .map((destination) => getLocalizedPlace(destination, locale));
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,
   );

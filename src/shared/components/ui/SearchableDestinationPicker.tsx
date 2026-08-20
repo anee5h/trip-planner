@@ -1,6 +1,9 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLoadedLitePlaces,
+  loadLiteIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   Search,
@@ -65,12 +68,30 @@ export function SearchableDestinationPicker({
     }
   }, [activeIndex, isOpen]);
 
-  // KAI-121: the picker is SUMMARY-ONLY — its "popular" filter reads
-  // ratings (present in the lite index) and its options render from
-  // summary-synthesized records. No eager full-catalogue fetch on mount.
+  // KAI-132: the picker is SUMMARY-ONLY — its "popular" filter reads
+  // ratings (present in the lite index). The lite catalogue is
+  // runtime-loaded; options render once it resolves (spinner while
+  // loading).
+  const [liteReady, setLiteReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then(() => {
+        if (!cancelled) setLiteReady(true);
+      })
+      .catch((err) => {
+        console.error("[Picker] lite catalogue load failed:", err);
+        if (!cancelled) setLiteReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const allDestinations = useMemo(
-    () => customDestinations ?? getLitePlaces(),
-    [customDestinations],
+    () =>
+      customDestinations ??
+      (liteReady ? getLoadedLitePlaces() : []),
+    [customDestinations, liteReady],
   );
 
   const selectedDestination = useMemo(() => {
@@ -322,8 +343,30 @@ export function SearchableDestinationPicker({
               role="listbox"
               className="overflow-y-auto p-2 space-y-3 flex-1"
             >
-              {/* Search Query Active */}
-              {query.trim() ? (
+              {/* KAI-132: lite catalogue still loading (and no custom
+                  destinations provided) — show a spinner, not an empty list. */}
+              {!liteReady && !customDestinations ? (
+                <div
+                  role="status"
+                  aria-label={
+                    locale === "ja" ? "読み込み中" : "Loading destinations"
+                  }
+                  className="flex flex-col items-center justify-center py-10"
+                >
+                  <div
+                    aria-hidden="true"
+                    className="h-8 w-8 animate-spin rounded-full border-4 border-emerald-500/30 border-t-emerald-500"
+                  />
+                  <p className="mt-3 text-xs text-slate-500 font-medium">
+                    {locale === "ja"
+                      ? "スポットを読み込み中…"
+                      : "Loading destinations…"}
+                  </p>
+                </div>
+              ) : (
+                // Search Query Active
+                <>
+                {query.trim() ? (
                 searchResults.length === 0 ? (
                   <div className="p-4 text-center text-xs text-slate-500 font-medium">
                     {locale === "ja"
@@ -492,6 +535,8 @@ export function SearchableDestinationPicker({
                     </div>
                   ) : null}
                 </div>
+              )}
+                </>
               )}
             </div>
           </div>

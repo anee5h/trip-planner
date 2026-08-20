@@ -7,18 +7,22 @@ import {
 import {
   getAvailablePlaces,
   getFullPlaces,
-  getLitePlaces,
+  getLoadedLitePlaces,
   getLocalizedPlace,
   hasLoadedFullIndex,
   isPlaceAvailableInLocale,
   loadDestinationsIndex,
+  loadLiteIndex,
+  resetLiteIndexForTests,
 } from "../PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 
-// KAI-121: full-data assertions require the async full index (explicit
-// contract). Summary (lite) assertions stay synchronous.
+// KAI-121/132: full-data assertions require the async full index (explicit
+// contract). Summary (lite) assertions require the async lite loader too —
+// the lite catalogue is a runtime asset, never a static inline.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 describe("PlaceCatalog", () => {
@@ -30,12 +34,19 @@ describe("PlaceCatalog", () => {
   });
 
   it("summary catalogue is complete for list surfaces (978 records)", () => {
-    const summary = getLitePlaces();
+    const summary = getLoadedLitePlaces();
     expect(summary).toHaveLength(978);
     expect(summary.every((place) => place.id)).toBe(true);
     expect(summary.every((place) => place.name)).toBe(true);
     expect(summary.every((place) => place.prefecture)).toBe(true);
     expect(summary.every((place) => place.placeType)).toBe(true);
+  });
+
+  it("getLoadedLitePlaces fails fast before the lite loader resolves", async () => {
+    resetLiteIndexForTests();
+    expect(() => getLoadedLitePlaces()).toThrow(/before loadLiteIndex/);
+    // Restore for subsequent tests.
+    await loadLiteIndex();
   });
 
   it("keeps official website links destination-only", () => {

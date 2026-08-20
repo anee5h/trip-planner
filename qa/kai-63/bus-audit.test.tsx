@@ -8,7 +8,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { beforeAll, afterEach, beforeEach, describe, it, vi } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../../src/features/destinations/Destinations";
 import destinationsData from "../../src/shared/data/destinations-index.json";
 import type { Destination } from "../../src/shared/types/destination";
@@ -102,6 +102,7 @@ let host: HTMLDivElement | undefined;
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -117,16 +118,18 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderDestinations(entry: string) {
+async function renderDestinations(entry: string) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <Destinations />
       </MemoryRouter>,
     );
+    // Flush the lite-catalogue microtask (setLiteReady fires on .then).
+    await Promise.resolve();
   });
   return host;
 }
@@ -239,14 +242,14 @@ function classify(
 }
 
 describe("KAI-63 bus audit", () => {
-  it("explore counts and exclusion reasons per origin", () => {
+  it("explore counts and exclusion reasons per origin", async () => {
     console.log(`Catalogue total: ${allDests.length}`);
     for (const [origin, coords] of Object.entries(ORIGINS)) {
       tripStoreMock.homeStationCoords = coords;
       tripStoreMock.homeStationTransportZoneId = resolveOriginTransportZone({
         coordinates: coords,
       });
-      const uiHost = renderDestinations("/destinations?mode=bus");
+      const uiHost = await renderDestinations("/destinations?mode=bus");
       const uiCount = getResultCount(uiHost);
       if (root) act(() => root!.unmount());
       root = undefined;

@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
+import type { Destination } from "@/shared/types/destination";
 import { BADGES_CATALOG } from "../data/badges";
 import { BadgeEngine } from "../services/BadgeEngine";
 import type { Badge, BadgeCategory } from "../types/badge";
@@ -13,6 +15,23 @@ import { Layers, Train, Heart, MapPin, Sparkles } from "lucide-react";
 export function PassportBadges() {
   const { t } = useTranslation();
   const { visited, visitedPrefectures, trips } = useTripStore();
+  // KAI-132: load the lite catalogue at the passport feature boundary;
+  // BadgeEngine stays synchronous and receives the loaded catalogue.
+  const [catalogue, setCatalogue] = useState<Destination[] | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then((places) => {
+        if (!cancelled) setCatalogue(places as unknown as Destination[]);
+      })
+      .catch((err) => {
+        console.error("[PassportBadges] lite catalogue load failed:", err);
+        if (!cancelled) setCatalogue([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const [activeCategory, setActiveCategory] = useState<BadgeCategory | "all">(
     "all",
   );
@@ -30,7 +49,10 @@ export function PassportBadges() {
     completedCollectionIds: [],
   };
 
-  const badgeStatuses = BadgeEngine.evaluateAll(evaluationContext);
+  const badgeStatuses = BadgeEngine.evaluateAll(
+    evaluationContext,
+    catalogue ?? [],
+  );
   const totalUnlocked = Object.values(badgeStatuses).filter(
     (b) => b.isUnlocked,
   ).length;

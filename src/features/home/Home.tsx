@@ -2,7 +2,10 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
-import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLoadedLitePlaces,
+  loadLiteIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -88,13 +91,32 @@ export function formatCompactDateRange(
 
 export default function Home() {
   const { t } = useTranslation();
-  // KAI-121: Home is SUMMARY-ONLY. Every rail-required field (id, name,
-  // ratings, budget, coordinates, transportOptions, categories) is present
-  // in the lite summary — Home does NOT fetch the full catalogue on mount.
+  // KAI-132: Home is SUMMARY-ONLY. The lite catalogue is runtime-loaded
+  // (not inlined in the shared chunk); the planner renders immediately
+  // and catalogue-dependent content (Top Matches + rails) mounts once
+  // the lite index resolves.
+  const [liteReady, setLiteReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then(() => {
+        if (!cancelled) setLiteReady(true);
+      })
+      .catch((err) => {
+        // Surface non-destructively: catalogue-dependent sections stay
+        // hidden; the planner remains usable. No unhandled rejection.
+        console.error("[Home] lite catalogue load failed:", err);
+        if (!cancelled) setLiteReady(true); // allow render (empty rails handled downstream)
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   const allDestinations = useMemo(
-    () => getLitePlaces() as Destination[],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
+    () => (liteReady ? (getLoadedLitePlaces() as Destination[]) : []),
+    [liteReady],
   );
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -655,15 +677,36 @@ export default function Home() {
       />
 
       {/* Section 1: Top Matches Section */}
-      <TopMatchesSection
-        recommendations={recommendedDestinations}
-        hasUserApplied={hasUserApplied}
-        appliedState={resolvedApplied}
-        travelDate={travelDateIso}
-        viewAllDate={
-          forecastSelection.type === "today" ? undefined : travelDateIso
-        }
-      />
+      {liteReady ? (
+        <TopMatchesSection
+          recommendations={recommendedDestinations}
+          hasUserApplied={hasUserApplied}
+          appliedState={resolvedApplied}
+          travelDate={travelDateIso}
+          viewAllDate={
+            forecastSelection.type === "today" ? undefined : travelDateIso
+          }
+        />
+      ) : (
+        // KAI-132: geometry-stable placeholder — reserve the same height
+        // as the Top Matches rail so the lite-catalogue resolution does
+        // not shift layout (no CLS spike before KAI-131).
+        <div
+          aria-hidden="true"
+          data-top-matches-placeholder
+          className="container mx-auto max-w-6xl px-4 py-6 sm:py-8"
+        >
+          <div className="mb-4 h-7 w-48 animate-pulse rounded bg-slate-200/70 dark:bg-slate-800/70" />
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div
+                key={i}
+                className="aspect-[16/10] animate-pulse rounded-2xl bg-slate-200/60 dark:bg-slate-800/60"
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Recently viewed remains conditional and sits directly below Top matches. */}
       <DeferredSection>

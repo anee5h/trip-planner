@@ -19,7 +19,7 @@ import {
   expect,
   vi,
 } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -94,6 +94,7 @@ let host: HTMLDivElement | undefined;
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -109,16 +110,17 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderDestinations(entry: string) {
+async function renderDestinations(entry: string) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <Destinations />
       </MemoryRouter>,
     );
+    await Promise.resolve();
   });
   return host;
 }
@@ -137,10 +139,10 @@ function goToPage(container: HTMLElement, page: string) {
 }
 
 describe("Destinations travel-time sort with a selected date", () => {
-  it("ranks the ferry-only destination fast in season and in winter operation", () => {
+  it("ranks the ferry-only destination fast in season and in winter operation", async () => {
     // In season (Nov 15): the Kada ferry runs — Tomogashima ranks early
     // (within the first two pages).
-    const inSeason = renderDestinations(
+    const inSeason = await renderDestinations(
       "/destinations?sort=travelTime&date=2026-11-15",
     );
     goToPage(inSeason, "2");
@@ -148,7 +150,7 @@ describe("Destinations travel-time sort with a selected date", () => {
 
     // Winter operation (Dec 15) is NOT a suspension — Tomogashima still
     // ranks early rather than sinking to the unknown-last bucket.
-    const winter = renderDestinations(
+    const winter = await renderDestinations(
       "/destinations?sort=travelTime&date=2026-12-15",
     );
     goToPage(winter, "2");

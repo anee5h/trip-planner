@@ -1,9 +1,18 @@
 import { BADGES_CATALOG } from "../data/badges";
 import type { Badge, BadgeContext } from "../types/badge";
-import destinationsIndex from "@/shared/data/destinations-index.lite.json";
+import type { Destination } from "@/shared/types/destination";
+
+// KAI-132: the lite catalogue is runtime-loaded. BadgeEngine stays a
+// synchronous evaluator; the Passport feature loads the lite index at its
+// boundary and passes the loaded catalogue in. No static lite import here
+// (that would inline 2.67 MB into the passport chunk).
 
 export class BadgeEngine {
-  static isUnlocked(badge: Badge, ctx: BadgeContext): boolean {
+  static isUnlocked(
+    badge: Badge,
+    ctx: BadgeContext,
+    catalogue: Destination[],
+  ): boolean {
     const { visited, visitedPrefectures } = ctx;
     const rule = badge.unlockRule;
 
@@ -48,7 +57,7 @@ export class BadgeEngine {
         return visitedPrefectures.length >= rule.target;
 
       case "category_count": {
-        const visitedDests = destinationsIndex.filter((d) =>
+        const visitedDests = catalogue.filter((d) =>
           visited.includes(d.id),
         );
         const count = visitedDests.filter((d) =>
@@ -58,7 +67,7 @@ export class BadgeEngine {
       }
 
       case "tag_count": {
-        const visitedDests = destinationsIndex.filter((d) =>
+        const visitedDests = catalogue.filter((d) =>
           visited.includes(d.id),
         );
         const count = visitedDests.filter((d) =>
@@ -84,12 +93,13 @@ export class BadgeEngine {
 
   static evaluateAll(
     ctx: BadgeContext,
+    catalogue: Destination[],
   ): Record<string, { isUnlocked: boolean; earnedAt?: string }> {
     const results: Record<string, { isUnlocked: boolean; earnedAt?: string }> =
       {};
 
     for (const badge of BADGES_CATALOG) {
-      const unlocked = this.isUnlocked(badge, ctx);
+      const unlocked = this.isUnlocked(badge, ctx, catalogue);
       results[badge.id] = {
         isUnlocked: unlocked,
         earnedAt: unlocked ? "July 2026" : undefined,

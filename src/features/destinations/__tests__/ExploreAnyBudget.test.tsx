@@ -23,7 +23,7 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 import destinations from "@/shared/data/destinations-index.json";
 import {
@@ -130,6 +130,7 @@ function LocationProbe() {
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -145,17 +146,18 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderDestinations(entry: string) {
+async function renderDestinations(entry: string) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <LocationProbe />
         <Destinations />
       </MemoryRouter>,
     );
+    await Promise.resolve();
   });
   return host;
 }
@@ -179,12 +181,12 @@ function getLocationSearch(container: HTMLDivElement): string {
 // ---------------------------------------------------------------------------
 
 describe("KAI-91: Any budget option", () => {
-  it("defaults to Any when no budget parameter is present in URL", () => {
+  it("defaults to Any when no budget parameter is present in URL", async () => {
     const parsed = parseDestinationSearchParams(new URLSearchParams(""));
     expect(parsed.budgetTier).toBe("any");
     expect(DEFAULT_DESTINATION_EXPLORER_STATE.budgetTier).toBe("any");
 
-    const container = renderDestinations("/destinations");
+    const container = await renderDestinations("/destinations");
     const count = getResultCount(container);
     // Unfiltered catalogue is shown
     expect(count).toBe(destinations.length);
@@ -202,9 +204,9 @@ describe("KAI-91: Any budget option", () => {
     expect(budgetChip).toBeUndefined();
   });
 
-  it("Clear filters resets budget to Any and restores unfiltered results", () => {
+  it("Clear filters resets budget to Any and restores unfiltered results", async () => {
     // Render with restrictive budget
-    const container = renderDestinations("/destinations?budgetTier=economy");
+    const container = await renderDestinations("/destinations?budgetTier=economy");
     const economyCount = getResultCount(container);
 
     // Click "Clear all"
@@ -225,8 +227,8 @@ describe("KAI-91: Any budget option", () => {
     expect(searchParams.get("budget")).toBe("any");
   });
 
-  it("Any budget option bypasses affordability filtering entirely", () => {
-    const containerAny = renderDestinations("/destinations?budgetTier=any");
+  it("Any budget option bypasses affordability filtering entirely", async () => {
+    const containerAny = await renderDestinations("/destinations?budgetTier=any");
     const anyCount = getResultCount(containerAny);
 
     act(() => root!.unmount());
@@ -234,7 +236,7 @@ describe("KAI-91: Any budget option", () => {
     host?.remove();
     host = undefined;
 
-    const containerEconomy = renderDestinations(
+    const containerEconomy = await renderDestinations(
       "/destinations?budgetTier=economy",
     );
     const economyCount = getResultCount(containerEconomy);
@@ -261,14 +263,14 @@ describe("KAI-91: Any budget option", () => {
     expect(reParsed.partySize).toBe(1);
   });
 
-  it("retains Standard tier for numeric-only legacy budget URLs without budgetTier", () => {
+  it("retains Standard tier for numeric-only legacy budget URLs without budgetTier", async () => {
     const parsed = parseDestinationSearchParams(
       new URLSearchParams("budget=45000"),
     );
     expect(parsed.budgetTier).toBe("standard");
     expect(parsed.maxBudget).toBe(45000);
 
-    const container = renderDestinations("/destinations?budget=45000");
+    const container = await renderDestinations("/destinations?budget=45000");
     const count = getResultCount(container);
     // Under Standard, only destinations with estimated cost <= 40000 (standard tier) or maxBudget are allowed
     expect(count).toBeLessThanOrEqual(destinations.length);
@@ -316,8 +318,8 @@ describe("KAI-91: Any budget option", () => {
     expect(flexParsed.budgetTier).toBe("luxury");
   });
 
-  it("switching from a restrictive tier to Any restores otherwise valid results", () => {
-    const container = renderDestinations("/destinations?budgetTier=economy");
+  it("switching from a restrictive tier to Any restores otherwise valid results", async () => {
+    const container = await renderDestinations("/destinations?budgetTier=economy");
     const economyCount = getResultCount(container);
 
     // Open filter modal

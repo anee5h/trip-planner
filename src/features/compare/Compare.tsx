@@ -1,7 +1,11 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { getLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLoadedLitePlaces,
+  loadLiteIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import { Button } from "@/shared/components/ui/button";
 import {
   Table,
@@ -32,13 +36,49 @@ export default function Compare() {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const { compareList, toggleCompare, clearCompare } = useTripStore();
-  // KAI-121: Compare reads ratings/walking/budget/transport — all lite
-  // fields. SUMMARY-ONLY: no eager full-catalogue fetch on mount.
-  const allDestinations = getLitePlaces() as Destination[];
+  // KAI-132: Compare reads ratings/walking/budget/transport — all lite
+  // fields. The lite catalogue is runtime-loaded; loading is
+  // distinguished from empty so the empty state is not flashed while
+  // the loader resolves.
+  const [liteReady, setLiteReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then(() => {
+        if (!cancelled) setLiteReady(true);
+      })
+      .catch((err) => {
+        console.error("[Compare] lite catalogue load failed:", err);
+        if (!cancelled) setLiteReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const allDestinations = (liteReady ? getLoadedLitePlaces() : []) as Destination[];
 
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))
     .filter((d): d is Destination => !!d);
+
+  if (!liteReady) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold tracking-tight mb-8">
+          {t("ui.compare")} {t("ui.destinations")}
+        </h1>
+        <div className="flex flex-col items-center justify-center py-20 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800">
+          <div
+            aria-hidden="true"
+            className="h-10 w-10 animate-spin rounded-full border-4 border-emerald-500/30 border-t-emerald-500"
+          />
+          <p className="mt-4 text-slate-500 dark:text-slate-300">
+            {t("ui.loading", "Loading…")}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   if (compareDestinations.length === 0) {
     return (

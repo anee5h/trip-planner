@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import {
@@ -13,8 +14,12 @@ import {
   Calendar,
 } from "lucide-react";
 import collectionsIndex from "@/shared/data/collections-index.json";
-import destinationsIndex from "@/shared/data/destinations-index.lite.json";
+import {
+  getLoadedLitePlaces,
+  loadLiteIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import type { Collection } from "@/shared/types/collection";
+import type { Destination } from "@/shared/types/destination";
 import type { PassportTab } from "../types";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getCollectionContent } from "@/shared/utils/collections";
@@ -28,6 +33,25 @@ interface PassportOverviewProps {
 export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
   const { visited, visitedPrefectures, trips } = useTripStore();
   const { locale } = useLocale();
+  // KAI-132: the lite catalogue is runtime-loaded at the passport route
+  // boundary; render once resolved (getLoadedLitePlaces fails fast if
+  // used too early).
+  const [liteReady, setLiteReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then(() => {
+        if (!cancelled) setLiteReady(true);
+      })
+      .catch((err) => {
+        console.error("[PassportOverview] lite catalogue load failed:", err);
+        if (!cancelled) setLiteReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const destinationsIndex = liteReady ? (getLoadedLitePlaces() as Destination[]) : [];
 
   // Achievement Collections Progress
   const achievementCollections = (collectionsIndex as Collection[]).filter(

@@ -115,3 +115,78 @@ test("settings (summary surface) never loads the full index", async ({
   await page.waitForTimeout(1500);
   expect(hits.filter((u) => u.includes(FULL_INDEX_URL))).toEqual([]);
 });
+
+// --- KAI-132: the LITE catalogue must be runtime-lazy like the full one. ---
+
+const LITE_INDEX_URL = "/data/destinations-index.lite.json";
+
+async function collectLiteRequests(page: Page): Promise<string[]> {
+  const urls: string[] = [];
+  page.on("request", (req) => {
+    if (req.url().includes("destinations-index.lite")) urls.push(req.url());
+  });
+  return urls;
+}
+
+test("served index.html never references the lite index (module graph clean)", async ({
+  page,
+}) => {
+  // The lite JSON exists at dist/data/destinations-index.lite.json as a
+  // plain runtime asset, but it must be ABSENT from the JS/module-preload
+  // graph: the served index.html must not reference it in any
+  // script/link/modulepreload (the 2.67 MB payload must not be inlined
+  // into the shared utils chunk).
+  const response = await page.goto("/", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+  const html = (await response?.text()) ?? "";
+  expect(html).not.toContain("destinations-index.lite");
+});
+
+test("no built JS chunk statically imports the lite index (payload not inlined)", async ({
+  page,
+}) => {
+  // Fetch every script the served index.html references and assert NONE
+  // of them contains the lite catalogue payload (destination names that
+  // would only appear if the 2.67 MB JSON were inlined).
+  const response = await page.goto("/", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+  const html = (await response?.text()) ?? "";
+  const scriptSrcs = [...html.matchAll(/<script[^>]+src="([^"]+)"/g)].map(
+    (m) => m[1],
+  );
+  expect(scriptSrcs.length).toBeGreaterThan(0);
+  for (const src of scriptSrcs) {
+    const res = await page.request.get(src);
+    const body = await res.text();
+    // A destination-name marker from the lite JSON — presence means the
+    // catalogue payload was inlined into this chunk.
+    expect(body).not.toContain("Abeno_Harukas_Osaka_Japan01-r");
+  }
+});
+
+test("cold non-catalogue route never requests the lite index", async ({
+  page,
+}) => {
+  const hits = await collectLiteRequests(page);
+  // /privacy is a real cold route with no catalogue surfaces.
+  await page.goto("/privacy", { waitUntil: "networkidle" });
+  await page.waitForTimeout(1500);
+  expect(hits).toEqual([]);
+});
+
+test("catalogue route requests the lite index exactly once", async ({
+  page,
+}) => {
+  const hits = await collectLiteRequests(page);
+  await page.goto("/", { waitUntil: "networkidle", timeout: 60000 });
+  // Home is a catalogue surface — the lite index must load.
+  await page.waitForSelector("[data-top-matches-placeholder], main", {
+    timeout: 20000,
+  });
+  await page.waitForTimeout(1500);
+  expect(hits.filter((u) => u.includes(LITE_INDEX_URL))).toHaveLength(1);
+});

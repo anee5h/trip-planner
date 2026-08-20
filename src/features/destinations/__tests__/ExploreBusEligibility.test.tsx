@@ -26,7 +26,7 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
@@ -121,6 +121,7 @@ let host: HTMLDivElement | undefined;
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -136,16 +137,17 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderDestinations(entry: string) {
+async function renderDestinations(entry: string) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <Destinations />
       </MemoryRouter>,
     );
+    await Promise.resolve();
   });
   return host;
 }
@@ -217,9 +219,9 @@ const HIROSHIMA = { lat: 34.3983, lng: 132.4756 };
 const TOKYO = { lat: 35.6812, lng: 139.7671 };
 
 describe("KAI-63 Explore bus eligibility", () => {
-  it("Naha postcode 900-8585: Okinawa-local bus results, zero mainland fabrication", () => {
+  it("Naha postcode 900-8585: Okinawa-local bus results, zero mainland fabrication", async () => {
     setOrigin(NAHA);
-    const hostEl = renderDestinations("/destinations?mode=bus");
+    const hostEl = await renderDestinations("/destinations?mode=bus");
     const count = getResultCount(hostEl);
     // >0 = Nago/Motobu/Onna destinations reachable via the verified naha⇔nago
     // highway bus (Naha-city POIs are origin-local; outer islands and the
@@ -245,7 +247,7 @@ describe("KAI-63 Explore bus eligibility", () => {
     }
   });
 
-  it("Iwakuni: station and postcode origins resolve identically and both yield bus results", () => {
+  it("Iwakuni: station and postcode origins resolve identically and both yield bus results", async () => {
     // Station-origin path resolves via the label's prefecture; the postcode
     // path resolves from coordinates only. Both must land on mainland-honshu
     // (KAI-63 fix) so bus corridors are reachable either way.
@@ -257,18 +259,18 @@ describe("KAI-63 Explore bus eligibility", () => {
     expect(fromLabel).toBe("mainland-honshu");
     expect(fromCoords).toBe("mainland-honshu");
     setOrigin(IWAKUNI);
-    const hostEl = renderDestinations("/destinations?mode=bus");
+    const hostEl = await renderDestinations("/destinations?mode=bus");
     // Pre-fix a coordinate/postcode origin was 0 (shikoku-box mis-resolution).
     // Now the Hiroshima hub (~33 km) is reachable: 32 destinations across its
     // verified corridors (station origins were already 32 via the label).
     expect(getResultCount(hostEl)).toBeGreaterThan(0);
   });
 
-  it("zero-result origins stay zero with the empty state", () => {
+  it("zero-result origins stay zero with the empty state", async () => {
     // Aomori has no bus terminal within 50 km and no corridor row: honest
     // zero, not a fabricated fallback.
     setOrigin(AOMORI);
-    const hostEl = renderDestinations("/destinations?mode=bus");
+    const hostEl = await renderDestinations("/destinations?mode=bus");
     expect(getResultCount(hostEl)).toBe(0);
     expect(hostEl.textContent).toContain("No destinations match");
   });
@@ -281,14 +283,14 @@ describe("KAI-63 Explore bus eligibility", () => {
     ["Hiroshima", HIROSHIMA],
   ])(
     "bus results exist for %s and the UI count equals the canonical pipeline count",
-    (_name, coords) => {
+    async (_name, coords) => {
       // Semantic invariant, not a pinned number (KAI-63: catalogue/corridor
       // expansion must not break this suite). Two properties hold by design:
       // the Explore filter uses the same gate as the canonical pipeline, so
       // the rendered count must equal the pipeline count for the same origin.
       setOrigin(coords);
       const uiCount = getResultCount(
-        renderDestinations("/destinations?mode=bus"),
+await renderDestinations("/destinations?mode=bus"),
       );
       expect(uiCount).toBeGreaterThan(0);
       expect(uiCount).toBe(pipelineBusCount(coords));
@@ -315,23 +317,23 @@ describe("KAI-63 Explore bus eligibility", () => {
     expect(modes).toContain("bus");
   });
 
-  it("a known unsupported destination is excluded from Tokyo", () => {
+  it("a known unsupported destination is excluded from Tokyo", async () => {
     // Abashiri (Hokkaido) has no bus corridor from Tokyo and the topology has
     // no honshu↔hokkaido bus edge: it must never appear.
     setOrigin(TOKYO);
-    const hostEl = renderDestinations("/destinations?mode=bus");
+    const hostEl = await renderDestinations("/destinations?mode=bus");
     const ids = cardIds(hostEl);
     expect(ids).not.toContain("abashiri-city");
   });
 
-  it("night-only corridors never appear in day-trip bus results", () => {
+  it("night-only corridors never appear in day-trip bus results", async () => {
     // From Tokyo, Fukuoka is bus-reachable only by the night-only はかた号 —
     // no Fukuoka destination may appear in a day-trip bus filter. (Under
     // "Any" duration the night coach is legitimate reachability and those
     // destinations ARE bus-eligible — KAI-63 D4; the night gate lives in
     // the day-trip envelope, so this test pins the explicit day_trip mode.)
     setOrigin(TOKYO);
-    const hostEl = renderDestinations(
+    const hostEl = await renderDestinations(
       "/destinations?mode=bus&tripMode=day_trip",
     );
     const ids = cardIds(hostEl);

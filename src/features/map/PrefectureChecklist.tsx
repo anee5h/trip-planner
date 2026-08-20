@@ -18,8 +18,12 @@ import {
   MapPin,
 } from "lucide-react";
 import collectionsIndex from "@/shared/data/collections-index.json";
-import destinationsIndex from "@/shared/data/destinations-index.lite.json";
+import {
+  getLoadedLitePlaces,
+  loadLiteIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import type { Collection } from "@/shared/types/collection";
+import type { Destination } from "@/shared/types/destination";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getCollectionContent } from "@/shared/utils/collections";
 
@@ -124,6 +128,23 @@ const REGIONS = [
 export default function PrefectureChecklist() {
   const { visited, visitedPrefectures, isPrefectureVisited } = useTripStore();
   const { locale } = useLocale();
+  // KAI-132: lite catalogue runtime-loaded at the map route boundary.
+  const [liteReady, setLiteReady] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    loadLiteIndex()
+      .then(() => {
+        if (!cancelled) setLiteReady(true);
+      })
+      .catch((err) => {
+        console.error("[PrefectureChecklist] lite load failed:", err);
+        if (!cancelled) setLiteReady(true);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const destinationsIndex = liteReady ? (getLoadedLitePlaces() as Destination[]) : [];
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200,

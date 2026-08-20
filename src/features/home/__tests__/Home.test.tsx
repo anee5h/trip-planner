@@ -4,10 +4,15 @@
 import { act, useState } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
-import { afterEach, describe, it, expect, vi } from "vitest";
+import { afterEach, beforeAll, describe, it, expect, vi } from "vitest";
 import Home, { formatCompactDate, formatCompactDateRange } from "../Home";
+import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
+
+beforeAll(async () => {
+  await loadLiteIndex();
+});
 
 vi.mock("@/features/home/hooks/useWeatherContext", () => {
   return {
@@ -153,23 +158,26 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderHome() {
+async function renderHome() {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter>
         <Home />
       </MemoryRouter>,
     );
+    // Flush the lite-catalogue microtask (loadLiteIndex resolves in
+    // beforeAll; the Home effect's setLiteReady fires on a microtask).
+    await Promise.resolve();
   });
   return host;
 }
 
 describe("Home Integration Tests", () => {
-  it("renders homepage planner and top matches section", () => {
-    const container = renderHome();
+  it("renders homepage planner and top matches section", async () => {
+    const container = await await renderHome();
 
     expect(container.textContent).toContain("home.headline");
     expect(container.textContent).toContain("home.planner");
@@ -194,8 +202,8 @@ describe("Home Integration Tests", () => {
     expect(weekend).toBeUndefined();
   });
 
-  it("transitions button state: Find matches -> View matches -> Update matches", () => {
-    const container = renderHome();
+  it("transitions button state: Find matches -> View matches -> Update matches", async () => {
+    const container = await await renderHome();
 
     // 1. Initial state: Find matches
     let primaryBtn = Array.from(container.querySelectorAll("button")).find(
@@ -238,8 +246,8 @@ describe("Home Integration Tests", () => {
     expect(primaryBtn?.textContent).toContain("home.update");
   });
 
-  it("edits the origin in a modal", () => {
-    const container = renderHome();
+  it("edits the origin in a modal", async () => {
+    const container = await await renderHome();
     const edit = Array.from(container.querySelectorAll("button")).find(
       (button) => button.textContent === "origin.edit",
     );
@@ -254,8 +262,8 @@ describe("Home Integration Tests", () => {
     expect(container.querySelector('[role="dialog"]')).toBeNull();
   });
 
-  it("Surprise Me opens modal without applying draft planner state to top matches", () => {
-    const container = renderHome();
+  it("Surprise Me opens modal without applying draft planner state to top matches", async () => {
+    const container = await await renderHome();
 
     const surpriseBtn = Array.from(container.querySelectorAll("button")).find(
       (b) => b.textContent?.includes("home.surprise"),
@@ -269,8 +277,8 @@ describe("Home Integration Tests", () => {
     expect(container.textContent).toContain("Top matches for you");
   });
 
-  it("weekend mode: toggling to Weekend changes heading after apply", () => {
-    const container = renderHome();
+  it("weekend mode: toggling to Weekend changes heading after apply", async () => {
+    const container = await await renderHome();
 
     // Find and click the weekend toggle button
     const weekendToggle = Array.from(container.querySelectorAll("button")).find(
@@ -340,8 +348,8 @@ describe("formatCompactDateRange", () => {
 });
 
 describe("weekend date capsule", () => {
-  it("keeps the compact visible label and the full range in aria/title", () => {
-    const container = renderHome();
+  it("keeps the compact visible label and the full range in aria/title", async () => {
+    const container = await await renderHome();
 
     // Switch to weekend and apply it.
     const weekendToggle = Array.from(container.querySelectorAll("button")).find(
@@ -380,9 +388,9 @@ describe("weekend date capsule", () => {
 });
 
 describe("KAI-114 Japanese brand association (visible DOM)", () => {
-  it("renders Meguruto（メグルト） visibly under the JA hero on all screen sizes", () => {
+  it("renders Meguruto（メグルト） visibly under the JA hero on all screen sizes", async () => {
     localeState.value = "ja";
-    const container = renderHome();
+    const container = await await renderHome();
     const association = container.querySelector<HTMLElement>(
       '[data-testid="home-brand-association"]',
     );
@@ -397,9 +405,9 @@ describe("KAI-114 Japanese brand association (visible DOM)", () => {
     );
   });
 
-  it("does not render the Katakana association on the EN home", () => {
+  it("does not render the Katakana association on the EN home", async () => {
     localeState.value = "en";
-    const container = renderHome();
+    const container = await await renderHome();
     expect(
       container.querySelector('[data-testid="home-brand-association"]'),
     ).toBeNull();
