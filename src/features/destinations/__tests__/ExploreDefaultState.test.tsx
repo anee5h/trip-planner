@@ -22,7 +22,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 import destinations from "@/shared/data/destinations-index.json";
 import {
@@ -605,7 +608,9 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     // but has no verified origin-aware duration from a Kanagawa origin — it
     // was previously dropped by the hidden 14 h/evidence gate. The search
     // query keeps the assertion independent of pagination.
-    const container = await renderDestinations("/destinations?mode=train&q=kyoto");
+    const container = await renderDestinations(
+      "/destinations?mode=train&q=kyoto",
+    );
     const headings = Array.from(container.querySelectorAll("h3")).map(
       (heading) => heading.textContent ?? "",
     );

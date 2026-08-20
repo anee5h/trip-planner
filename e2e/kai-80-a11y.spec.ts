@@ -25,7 +25,7 @@
  *
  * No conditional no-op tests: required controls are ASSERTED visible.
  */
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures";
 import { expectNoA11yViolations } from "./a11y";
 
 const RUN = process.env.A11Y_E2E === "1";

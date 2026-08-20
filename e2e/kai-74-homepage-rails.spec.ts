@@ -25,6 +25,19 @@ async function mockHomeWeather(page: Page) {
   });
 }
 
+// KAI-132: the lite catalogue is a runtime fetch; serve it from the local
+// build asset so the rails render deterministically (no CI network wait
+// for the 2.7 MB JSON).
+async function mockLiteCatalogue(page: Page) {
+  await page.route("**/data/destinations-index.lite.json", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      path: "dist/data/destinations-index.lite.json",
+    });
+  });
+}
+
 async function switchToJapanese(page: Page) {
   const desktopLanguage = page.getByRole("button", {
     name: "Select language",
@@ -64,6 +77,7 @@ async function assertRailCardLimit(section: ReturnType<typeof railSection>) {
 
 test.beforeEach(async ({ page }) => {
   await mockHomeWeather(page);
+  await mockLiteCatalogue(page);
   await page.addInitScript(() => {
     localStorage.setItem(
       "tabimap_recently_viewed_destinations",
@@ -77,6 +91,7 @@ test.describe("KAI-74 homepage rails", () => {
     page,
   }, testInfo) => {
     await page.goto("/");
+    await page.clock.runFor(3000);
 
     await expect(
       page.getByRole("heading", { name: "Top matches for you", exact: true }),
@@ -170,6 +185,7 @@ test.describe("KAI-74 homepage rails", () => {
     page,
   }) => {
     await page.goto("/");
+    await page.clock.runFor(3000);
     await page.getByRole("radio", { name: /Weekend/i }).click();
     await page
       .getByRole("button", { name: /Find matches|View matches|Update matches/ })
@@ -220,6 +236,7 @@ test.describe("KAI-74 homepage rails", () => {
       );
     });
     await page.goto("/");
+    await page.clock.runFor(3000);
 
     const section = railSection(page, "Unexplored places near you");
     // Origin-aware recommendations perform a cold transport/topology pass on

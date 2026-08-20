@@ -88,9 +88,7 @@ export function SearchableDestinationPicker({
     };
   }, []);
   const allDestinations = useMemo(
-    () =>
-      customDestinations ??
-      (liteReady ? getLoadedLitePlaces() : []),
+    () => customDestinations ?? (liteReady ? getLoadedLitePlaces() : []),
     [customDestinations, liteReady],
   );
 
@@ -366,176 +364,178 @@ export function SearchableDestinationPicker({
               ) : (
                 // Search Query Active
                 <>
-                {query.trim() ? (
-                searchResults.length === 0 ? (
-                  <div className="p-4 text-center text-xs text-slate-500 font-medium">
-                    {locale === "ja"
-                      ? "該当するスポットが見つかりません"
-                      : "No matching destinations found"}
-                  </div>
-                ) : (
-                  <div className="space-y-0.5">
-                    {searchResults.map((dest, idx) => {
-                      const isSelected = dest.id === value;
-                      const isActive = idx === activeIndex;
-                      return (
-                        <button
-                          key={dest.id}
-                          ref={isActive ? activeOptionRef : null}
-                          id={`option-${uniqueId}-${dest.id}`}
-                          role="option"
-                          aria-selected={isSelected}
-                          type="button"
-                          onClick={() => {
-                            onSelect(dest);
-                            closePicker();
-                            setQuery("");
-                          }}
-                          className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left text-xs transition-colors ${
-                            isActive
-                              ? "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white"
-                              : ""
-                          } ${
-                            isSelected
-                              ? "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 font-bold"
-                              : "text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-850"
-                          }`}
-                        >
-                          <div className="min-w-0 flex-1 pr-2">
-                            <div className="font-bold truncate">
-                              {formatPlaceName(dest, locale)}
-                            </div>
-                            <div className="text-[10px] text-slate-500 truncate">
-                              {dest.prefecture} •{" "}
-                              {dest.categories?.[0] || dest.kind}
-                            </div>
-                          </div>
-                          {isSelected && (
-                            <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )
-              ) : (
-                /* Non-search Initial Suggestion Groups */
-                <div className="space-y-3">
-                  {suggestionGroups?.recent.length ? (
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-slate-500" />
+                  {query.trim() ? (
+                    searchResults.length === 0 ? (
+                      <div className="p-4 text-center text-xs text-slate-500 font-medium">
                         {locale === "ja"
-                          ? "最近見たスポット"
-                          : "Recently Viewed"}
-                      </span>
-                      {suggestionGroups.recent.map((dest) => (
-                        <button
-                          key={dest.id}
-                          id={`option-${uniqueId}-${dest.id}`}
-                          role="option"
-                          aria-selected={dest.id === value}
-                          type="button"
-                          onClick={() => {
-                            onSelect(dest);
-                            closePicker();
-                          }}
-                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                        >
-                          <span className="font-medium truncate">
-                            {formatPlaceName(dest, locale)}
+                          ? "該当するスポットが見つかりません"
+                          : "No matching destinations found"}
+                      </div>
+                    ) : (
+                      <div className="space-y-0.5">
+                        {searchResults.map((dest, idx) => {
+                          const isSelected = dest.id === value;
+                          const isActive = idx === activeIndex;
+                          return (
+                            <button
+                              key={dest.id}
+                              ref={isActive ? activeOptionRef : null}
+                              id={`option-${uniqueId}-${dest.id}`}
+                              role="option"
+                              aria-selected={isSelected}
+                              type="button"
+                              onClick={() => {
+                                onSelect(dest);
+                                closePicker();
+                                setQuery("");
+                              }}
+                              className={`w-full flex items-center justify-between p-2.5 rounded-xl text-left text-xs transition-colors ${
+                                isActive
+                                  ? "bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white"
+                                  : ""
+                              } ${
+                                isSelected
+                                  ? "bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 font-bold"
+                                  : "text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-850"
+                              }`}
+                            >
+                              <div className="min-w-0 flex-1 pr-2">
+                                <div className="font-bold truncate">
+                                  {formatPlaceName(dest, locale)}
+                                </div>
+                                <div className="text-[10px] text-slate-500 truncate">
+                                  {dest.prefecture} •{" "}
+                                  {dest.categories?.[0] || dest.kind}
+                                </div>
+                              </div>
+                              {isSelected && (
+                                <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-300 shrink-0" />
+                              )}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )
+                  ) : (
+                    /* Non-search Initial Suggestion Groups */
+                    <div className="space-y-3">
+                      {suggestionGroups?.recent.length ? (
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                            <Clock className="w-3 h-3 text-slate-500" />
+                            {locale === "ja"
+                              ? "最近見たスポット"
+                              : "Recently Viewed"}
                           </span>
-                        </button>
-                      ))}
-                    </div>
-                  ) : null}
+                          {suggestionGroups.recent.map((dest) => (
+                            <button
+                              key={dest.id}
+                              id={`option-${uniqueId}-${dest.id}`}
+                              role="option"
+                              aria-selected={dest.id === value}
+                              type="button"
+                              onClick={() => {
+                                onSelect(dest);
+                                closePicker();
+                              }}
+                              className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                            >
+                              <span className="font-medium truncate">
+                                {formatPlaceName(dest, locale)}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      ) : null}
 
-                  {suggestionGroups?.itinerary.length ? (
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                        <MapPin className="w-3 h-3 text-emerald-500" />
-                        {locale === "ja"
-                          ? "この旅行のスポット"
-                          : "In This Trip"}
-                      </span>
-                      {suggestionGroups.itinerary.map((dest) => (
-                        <button
-                          key={dest.id}
-                          id={`option-${uniqueId}-${dest.id}`}
-                          role="option"
-                          aria-selected={dest.id === value}
-                          type="button"
-                          onClick={() => {
-                            onSelect(dest);
-                            closePicker();
-                          }}
-                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                        >
-                          <span className="font-medium truncate">
-                            {formatPlaceName(dest, locale)}
+                      {suggestionGroups?.itinerary.length ? (
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                            <MapPin className="w-3 h-3 text-emerald-500" />
+                            {locale === "ja"
+                              ? "この旅行のスポット"
+                              : "In This Trip"}
                           </span>
-                        </button>
-                      ))}
-                    </div>
-                  ) : null}
+                          {suggestionGroups.itinerary.map((dest) => (
+                            <button
+                              key={dest.id}
+                              id={`option-${uniqueId}-${dest.id}`}
+                              role="option"
+                              aria-selected={dest.id === value}
+                              type="button"
+                              onClick={() => {
+                                onSelect(dest);
+                                closePicker();
+                              }}
+                              className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                            >
+                              <span className="font-medium truncate">
+                                {formatPlaceName(dest, locale)}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      ) : null}
 
-                  {suggestionGroups?.saved.length ? (
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                        <Bookmark className="w-3 h-3 text-purple-500" />
-                        {locale === "ja" ? "保存したスポット" : "Saved Places"}
-                      </span>
-                      {suggestionGroups.saved.map((dest) => (
-                        <button
-                          key={dest.id}
-                          id={`option-${uniqueId}-${dest.id}`}
-                          role="option"
-                          aria-selected={dest.id === value}
-                          type="button"
-                          onClick={() => {
-                            onSelect(dest);
-                            closePicker();
-                          }}
-                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                        >
-                          <span className="font-medium truncate">
-                            {formatPlaceName(dest, locale)}
+                      {suggestionGroups?.saved.length ? (
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                            <Bookmark className="w-3 h-3 text-purple-500" />
+                            {locale === "ja"
+                              ? "保存したスポット"
+                              : "Saved Places"}
                           </span>
-                        </button>
-                      ))}
-                    </div>
-                  ) : null}
+                          {suggestionGroups.saved.map((dest) => (
+                            <button
+                              key={dest.id}
+                              id={`option-${uniqueId}-${dest.id}`}
+                              role="option"
+                              aria-selected={dest.id === value}
+                              type="button"
+                              onClick={() => {
+                                onSelect(dest);
+                                closePicker();
+                              }}
+                              className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                            >
+                              <span className="font-medium truncate">
+                                {formatPlaceName(dest, locale)}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      ) : null}
 
-                  {suggestionGroups?.popular.length ? (
-                    <div>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
-                        <Sparkles className="w-3 h-3 text-amber-500" />
-                        {locale === "ja"
-                          ? "人気のスポット"
-                          : "Popular Destinations"}
-                      </span>
-                      {suggestionGroups.popular.map((dest) => (
-                        <button
-                          key={dest.id}
-                          id={`option-${uniqueId}-${dest.id}`}
-                          role="option"
-                          aria-selected={dest.id === value}
-                          type="button"
-                          onClick={() => {
-                            onSelect(dest);
-                            closePicker();
-                          }}
-                          className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
-                        >
-                          <span className="font-medium truncate">
-                            {formatPlaceName(dest, locale)}
+                      {suggestionGroups?.popular.length ? (
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider px-2 block mb-1 flex items-center gap-1">
+                            <Sparkles className="w-3 h-3 text-amber-500" />
+                            {locale === "ja"
+                              ? "人気のスポット"
+                              : "Popular Destinations"}
                           </span>
-                        </button>
-                      ))}
+                          {suggestionGroups.popular.map((dest) => (
+                            <button
+                              key={dest.id}
+                              id={`option-${uniqueId}-${dest.id}`}
+                              role="option"
+                              aria-selected={dest.id === value}
+                              type="button"
+                              onClick={() => {
+                                onSelect(dest);
+                                closePicker();
+                              }}
+                              className="w-full flex items-center justify-between p-2 rounded-lg text-xs hover:bg-slate-100 dark:hover:bg-slate-800"
+                            >
+                              <span className="font-medium truncate">
+                                {formatPlaceName(dest, locale)}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                      ) : null}
                     </div>
-                  ) : null}
-                </div>
-              )}
+                  )}
                 </>
               )}
             </div>

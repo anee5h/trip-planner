@@ -19,7 +19,10 @@ import {
   expect,
   vi,
 } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;

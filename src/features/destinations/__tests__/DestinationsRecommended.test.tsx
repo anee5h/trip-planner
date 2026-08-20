@@ -13,7 +13,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -232,7 +235,9 @@ describe("Explore Recommended Day Trip ranking", () => {
       host?.remove();
       host = undefined;
 
-      const cleanAny = await renderDestinations("/destinations?sort=recommended");
+      const cleanAny = await renderDestinations(
+        "/destinations?sort=recommended",
+      );
       const cleanSnapshot = snapshot(cleanAny);
 
       expect(transitionedSnapshot.summary).toBe(cleanSnapshot.summary);

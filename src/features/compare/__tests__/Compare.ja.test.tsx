@@ -13,7 +13,10 @@ import {
   expect,
   vi,
 } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Compare from "../Compare";
 import CompareModal from "../components/CompareModal";
 
@@ -116,7 +119,7 @@ describe("Compare Page & Modal — Japanese Localization", () => {
           <Compare />
         </MemoryRouter>,
       );
-    await Promise.resolve();
+      await Promise.resolve();
     });
 
     const text = host.textContent ?? "";
@@ -162,7 +165,7 @@ describe("Compare Page & Modal — Japanese Localization", () => {
           <Compare />
         </MemoryRouter>,
       );
-    await Promise.resolve();
+      await Promise.resolve();
     });
 
     const text = host.textContent ?? "";

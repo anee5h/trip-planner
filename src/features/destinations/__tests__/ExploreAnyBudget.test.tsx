@@ -23,7 +23,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 import destinations from "@/shared/data/destinations-index.json";
 import {
@@ -206,7 +209,9 @@ describe("KAI-91: Any budget option", () => {
 
   it("Clear filters resets budget to Any and restores unfiltered results", async () => {
     // Render with restrictive budget
-    const container = await renderDestinations("/destinations?budgetTier=economy");
+    const container = await renderDestinations(
+      "/destinations?budgetTier=economy",
+    );
     const economyCount = getResultCount(container);
 
     // Click "Clear all"
@@ -228,7 +233,9 @@ describe("KAI-91: Any budget option", () => {
   });
 
   it("Any budget option bypasses affordability filtering entirely", async () => {
-    const containerAny = await renderDestinations("/destinations?budgetTier=any");
+    const containerAny = await renderDestinations(
+      "/destinations?budgetTier=any",
+    );
     const anyCount = getResultCount(containerAny);
 
     act(() => root!.unmount());
@@ -319,7 +326,9 @@ describe("KAI-91: Any budget option", () => {
   });
 
   it("switching from a restrictive tier to Any restores otherwise valid results", async () => {
-    const container = await renderDestinations("/destinations?budgetTier=economy");
+    const container = await renderDestinations(
+      "/destinations?budgetTier=economy",
+    );
     const economyCount = getResultCount(container);
 
     // Open filter modal

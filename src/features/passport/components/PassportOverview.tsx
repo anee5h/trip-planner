@@ -51,7 +51,9 @@ export function PassportOverview({ onSelectTab }: PassportOverviewProps) {
       cancelled = true;
     };
   }, []);
-  const destinationsIndex = liteReady ? (getLoadedLitePlaces() as Destination[]) : [];
+  const destinationsIndex = liteReady
+    ? (getLoadedLitePlaces() as Destination[])
+    : [];
 
   // Achievement Collections Progress
   const achievementCollections = (collectionsIndex as Collection[]).filter(

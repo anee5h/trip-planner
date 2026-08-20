@@ -8,7 +8,10 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { beforeAll, afterEach, beforeEach, describe, it, vi } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../../src/features/destinations/Destinations";
 import destinationsData from "../../src/shared/data/destinations-index.json";
 import type { Destination } from "../../src/shared/types/destination";

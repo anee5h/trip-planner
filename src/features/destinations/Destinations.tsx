@@ -151,8 +151,9 @@ export default function Destinations() {
       cancelled = true;
     };
   }, []);
-  const allDestinations = (liteReady ? getLoadedLitePlaces() : [])
-    .map((destination) => getLocalizedPlace(destination, locale));
+  const allDestinations = (liteReady ? getLoadedLitePlaces() : []).map(
+    (destination) => getLocalizedPlace(destination, locale),
+  );
   const [searchQuery, setSearchQuery] = useState(
     initialExplorerState.searchQuery,
   );

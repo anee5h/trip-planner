@@ -26,7 +26,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
@@ -290,7 +293,7 @@ describe("KAI-63 Explore bus eligibility", () => {
       // the rendered count must equal the pipeline count for the same origin.
       setOrigin(coords);
       const uiCount = getResultCount(
-await renderDestinations("/destinations?mode=bus"),
+        await renderDestinations("/destinations?mode=bus"),
       );
       expect(uiCount).toBeGreaterThan(0);
       expect(uiCount).toBe(pipelineBusCount(coords));

@@ -9,7 +9,15 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 import DestinationDetails from "../DestinationDetails";
 import liteIndex from "@/shared/data/destinations-index.lite.json";
 import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";

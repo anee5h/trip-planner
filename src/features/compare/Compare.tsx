@@ -55,7 +55,9 @@ export default function Compare() {
       cancelled = true;
     };
   }, []);
-  const allDestinations = (liteReady ? getLoadedLitePlaces() : []) as Destination[];
+  const allDestinations = (
+    liteReady ? getLoadedLitePlaces() : []
+  ) as Destination[];
 
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))

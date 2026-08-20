@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 /**
  * KAI-51 J1/J4: Home smoke — hero, trip planner, brand, and the EN⇄JA

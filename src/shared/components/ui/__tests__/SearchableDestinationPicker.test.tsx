@@ -1,7 +1,10 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { beforeAll, afterEach, describe, expect, it, vi } from "vitest";
-import { loadLiteIndex, loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import { SearchableDestinationPicker } from "../SearchableDestinationPicker";
 
 let root: Root | undefined;
@@ -40,7 +43,7 @@ describe("SearchableDestinationPicker", () => {
   // preload so it renders full data synchronously in tests.
   beforeAll(async () => {
     await loadDestinationsIndex();
-  await loadLiteIndex();
+    await loadLiteIndex();
   });
 
   it("keeps the desktop combobox separate from its controlled listbox", async () => {

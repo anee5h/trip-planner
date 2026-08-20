@@ -144,7 +144,9 @@ export default function PrefectureChecklist() {
       cancelled = true;
     };
   }, []);
-  const destinationsIndex = liteReady ? (getLoadedLitePlaces() as Destination[]) : [];
+  const destinationsIndex = liteReady
+    ? (getLoadedLitePlaces() as Destination[])
+    : [];
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200,

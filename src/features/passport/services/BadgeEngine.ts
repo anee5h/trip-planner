@@ -57,9 +57,7 @@ export class BadgeEngine {
         return visitedPrefectures.length >= rule.target;
 
       case "category_count": {
-        const visitedDests = catalogue.filter((d) =>
-          visited.includes(d.id),
-        );
+        const visitedDests = catalogue.filter((d) => visited.includes(d.id));
         const count = visitedDests.filter((d) =>
           d.categories?.includes(rule.targetValue || ""),
         ).length;
@@ -67,9 +65,7 @@ export class BadgeEngine {
       }
 
       case "tag_count": {
-        const visitedDests = catalogue.filter((d) =>
-          visited.includes(d.id),
-        );
+        const visitedDests = catalogue.filter((d) => visited.includes(d.id));
         const count = visitedDests.filter((d) =>
           d.tags?.some((t) =>
             t.toLowerCase().includes((rule.targetValue || "").toLowerCase()),
