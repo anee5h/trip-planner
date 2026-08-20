@@ -293,12 +293,13 @@ export function runRecommendationPipeline(
       // Forecast-covered days keep their existing scoring paths (weekend
       // weatherDays / ENV actual); only uncovered days contribute a delta,
       // so existing in-window behaviour is byte-for-byte unchanged.
+      // KAI-130: no origin forecastMap is passed — the origin forecast is
+      // display-only and never contributes a destination score delta.
+      // Without it, every explicit date evaluates deterministically via
+      // catalogue seasonal evidence (weather arrival cannot change
+      // ranking, and ranking is stable across renders).
       const condition = context.travelDates
-        ? evaluateTravelConditions(
-            candidate,
-            context.travelDates,
-            context.forecastMap,
-          )
+        ? evaluateTravelConditions(candidate, context.travelDates)
         : undefined;
       const totalScore =
         scoreResult.score +

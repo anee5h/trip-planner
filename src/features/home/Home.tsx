@@ -325,13 +325,6 @@ export default function Home() {
     if (!selectedDate) return undefined;
     return deriveTripDates(selectedDate, resolvedApplied.tripMode);
   }, [selectedDate, resolvedApplied.tripMode]);
-  const forecastMap = useMemo(
-    () =>
-      weatherContext?.forecastMap instanceof Map
-        ? weatherContext.forecastMap
-        : undefined,
-    [weatherContext],
-  );
   const [rouletteOpen, setRouletteOpen] = useState(false);
 
   // Recommendation engine consumes applied state + live weather context
@@ -355,7 +348,6 @@ export default function Home() {
       tripMode: resolvedApplied.tripMode,
       accommodationAllowance: resolvedApplied.accommodationAllowance,
       travelDates,
-      forecastMap,
       rouletteEnabled: rouletteOpen,
     });
 
@@ -686,7 +678,7 @@ export default function Home() {
 
       {/* Bucket List remains conditional and keeps its existing user-data semantics. */}
       {hasSavedItems && (
-        <DeferredSection delayMs={50}>
+        <DeferredSection order={1}>
           <BucketListRail
             partySize={resolvedApplied.partySize}
             carMode={resolvedApplied.carMode}
@@ -697,7 +689,7 @@ export default function Home() {
       )}
 
       {isWeekendMode ? (
-        <DeferredSection delayMs={100}>
+        <DeferredSection order={2}>
           <>
             <DiscoveryRail
               kind="weekendGetaways"
@@ -727,7 +719,7 @@ export default function Home() {
           </>
         </DeferredSection>
       ) : (
-        <DeferredSection delayMs={100}>
+        <DeferredSection order={2}>
           <>
             <DiscoveryRail
               kind="seasonal"
@@ -762,13 +754,13 @@ export default function Home() {
       )}
 
       {/* Curated Collections Rail */}
-      <DeferredSection delayMs={200}>
+      <DeferredSection order={3}>
         <CollectionsRail />
       </DeferredSection>
 
       {/* Compact Prompt Banner near bottom for empty/signed-out states */}
       {!hasSavedItems && (
-        <DeferredSection delayMs={250}>
+        <DeferredSection order={4}>
           <BucketListRail
             partySize={resolvedApplied.partySize}
             carMode={resolvedApplied.carMode}

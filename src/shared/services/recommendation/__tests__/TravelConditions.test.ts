@@ -524,7 +524,6 @@ describe("trip-date ferry eligibility (pipeline enforcement)", () => {
       accommodationAllowance: 10000,
       ferryTemporal: { travelDate: travelDateToDate(day1) },
       travelDates,
-      forecastMap: undefined,
     });
   }
 

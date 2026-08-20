@@ -189,7 +189,6 @@ describe("seasonal rules — closed ferry (restricted fixture data)", () => {
         accommodationAllowance: 10000,
         ferryTemporal: { travelDate: travelDateToDate(day1) },
         travelDates: deriveTripDates(day1, "weekend_2d1n"),
-        forecastMap: undefined,
       });
     // Both legs inside the window: recommended.
     expect(runWeekend("2026-11-29").some((r) => r.id === dest.id)).toBe(true);

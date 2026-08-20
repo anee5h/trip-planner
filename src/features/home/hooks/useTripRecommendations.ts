@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
@@ -7,7 +7,6 @@ import type {
   TripMode,
 } from "@/shared/services/recommendation/RecommendationContext";
 import type { TravelDateSelection } from "@/shared/services/recommendation/TravelConditions";
-import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
@@ -72,8 +71,6 @@ interface UseTripRecommendationsProps {
   >;
   /** Explicit trip dates (Day 1 + derived Day 2 for 2D1N). */
   travelDates?: TravelDateSelection;
-  /** Live forecast map for the planned origin. */
-  forecastMap?: ReadonlyMap<string, DayForecastData>;
   tripMode: TripMode;
   accommodationAllowance: number;
   /**
@@ -102,7 +99,6 @@ export function useTripRecommendations({
   tripMode,
   accommodationAllowance,
   travelDates,
-  forecastMap,
   rouletteEnabled = true,
 }: UseTripRecommendationsProps) {
   const { destinationRatings } = useTripStore();
@@ -113,17 +109,6 @@ export function useTripRecommendations({
         .map((destination) => destination.id),
     [allDestinations, isVisited],
   );
-
-  // KAI-130: forecastMap is the live ORIGIN forecast. It only affects
-  // the covered/uncovered day split in evaluateTravelConditions (covered
-  // days score 0 delta; uncovered days get seasonal delta). When it
-  // arrives ~1.7s after load it triggered a full 978-destination
-  // recompute with, for the default/initial state, no ranking change.
-  // Reading it through a ref keeps the LATEST value in the scoring
-  // closure without making the memo recompute on weather arrival. Custom
-  // travel dates still recompute via the travelDates dep.
-  const forecastMapRef = useRef(forecastMap);
-  forecastMapRef.current = forecastMap;
 
   const recommendedDestinations = useMemo(() => {
     return getRecommendations(allDestinations, {
@@ -145,7 +130,11 @@ export function useTripRecommendations({
       tripMode,
       accommodationAllowance,
       travelDates,
-      forecastMap: forecastMapRef.current,
+      // KAI-130: forecastMap deliberately NOT passed — the origin forecast
+      // is display-only. TravelConditions evaluates explicit dates
+      // deterministically via catalogue seasonal evidence, so weather
+      // arrival cannot change ranking and ranking is stable across
+      // renders (no ref-smuggled timing dependence).
     });
   }, [
     allDestinations,
@@ -165,12 +154,8 @@ export function useTripRecommendations({
     tripMode,
     accommodationAllowance,
     travelDates,
-    // KAI-130: forecastMap deliberately EXCLUDED — it is the live ORIGIN
-    // forecast, which never contributes a destination score delta
-    // (TravelConditions: forecast days score 0 delta; only uncovered
-    // seasonal/unknown days do). Including it made the full 978-dest
-    // ranking recompute when weather arrived (~1.7s after load, a
-    // ~370ms long task) with byte-identical output. Ranking is unchanged.
+    // KAI-130: forecastMap deliberately excluded — origin weather is
+    // display-only and never contributes a destination score delta.
   ]);
 
   const roulette = useMemo(() => {
@@ -211,7 +196,6 @@ export function useTripRecommendations({
             tripDuration: duration,
             ferryTemporal,
             travelDates,
-            forecastMap: forecastMapRef.current,
             tripMode: constraints.tripMode,
             accommodationAllowance: constraints.accommodationAllowance,
           }),
