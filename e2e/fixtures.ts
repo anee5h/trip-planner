@@ -5,8 +5,9 @@ import { test as base } from "@playwright/test";
 // details) must serve it deterministically — a 2.7 MB fetch over the CI
 // network would otherwise race the assertions. Extend `test` so the route
 // is installed automatically before each test: the response is fetched
-// from the server once per worker (module-level cache) and fulfilled
-// locally, so the 2.7 MB payload never rides the assertion critical path.
+// from the server once per worker (module-level cache, serialized) and
+// fulfilled locally, so the payload never rides the assertion critical
+// path and concurrent handlers never race a disposed response.
 //
 // The FULL catalogue (6.5 MB) is mocked the same way for destination
 // details / full-data surfaces. This is safe for the CI bins: the kai-121
@@ -15,35 +16,34 @@ import { test as base } from "@playwright/test";
 //
 // eslint-disable-next-line react-hooks/rules-of-hooks -- Playwright fixture
 // API uses `use` as the continuation param; it is not a React hook.
-let cachedLiteBody: Buffer | null = null;
-let cachedFullBody: Buffer | null = null;
+
+let liteBodyPromise: Promise<Buffer> | null = null;
+let fullBodyPromise: Promise<Buffer> | null = null;
 
 export const test = base.extend({
   page: async ({ page }, usePage) => {
     await page.route("**/data/destinations-index.lite.json", async (route) => {
-      if (!cachedLiteBody) {
-        const response = await page.request.get(
-          "/data/destinations-index.lite.json",
-        );
-        cachedLiteBody = (await response.body()) as Buffer;
+      if (!liteBodyPromise) {
+        liteBodyPromise = page.request
+          .get("/data/destinations-index.lite.json")
+          .then((r) => r.body() as Promise<Buffer>);
       }
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: cachedLiteBody,
+        body: await liteBodyPromise,
       });
     });
     await page.route("**/data/destinations-index.json", async (route) => {
-      if (!cachedFullBody) {
-        const response = await page.request.get(
-          "/data/destinations-index.json",
-        );
-        cachedFullBody = (await response.body()) as Buffer;
+      if (!fullBodyPromise) {
+        fullBodyPromise = page.request
+          .get("/data/destinations-index.json")
+          .then((r) => r.body() as Promise<Buffer>);
       }
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: cachedFullBody,
+        body: await fullBodyPromise,
       });
     });
     await usePage(page);
