@@ -5,12 +5,13 @@ import { toast } from "sonner";
 import type { Trip } from "@/shared/types/trip";
 import { SupabaseTripRepository } from "@/shared/services/trips/TripRepository";
 import { generateUUID, isValidUUID } from "@/shared/utils/uuid";
-// KAI-121: useTripSync runs inside the app ROOT (TripStore). It must NOT
-// pull the full catalogue (6.5 MB) into the entry closure — it only needs
-// prefecture lookups, which the SUMMARY (lite) index provides. The full
-// index stays a runtime-lazy fetch for full-data surfaces only.
-import destinationsIndex from "@/shared/data/destinations-index.lite.json";
-import type { Destination } from "@/shared/types/destination";
+// KAI-132: useTripSync runs inside the app ROOT (TripStore). It must NOT
+// pull the lite catalogue (2.67 MB) into the entry closure — it only
+// needs prefecture lookups for visited-prefecture derivation, which the
+// already-root-loaded destinations-meta.json (277 KB, id + prefecture +
+// role + relationships) provides. The lite catalogue stays a
+// route-scoped runtime fetch for catalogue surfaces only.
+import destinationsMeta from "@/shared/data/destinations-meta.json";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import type { OriginLocation } from "@/shared/hooks/useTripStore";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
@@ -86,11 +87,12 @@ export interface UseTripSyncReturn {
 
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
 
-const destinationById = new Map<string, Destination>(
-  (destinationsIndex as Destination[]).map((destination) => [
-    destination.id,
-    destination,
-  ]),
+// KAI-132: prefecture lookup from the lightweight metadata source (id →
+// prefecture). The lite catalogue is NOT loaded from the app root.
+const destinationPrefectureById = new Map<string, string>(
+  (destinationsMeta as Array<{ id: string; prefecture?: string }>).map(
+    (destination) => [destination.id, destination.prefecture ?? ""],
+  ),
 );
 
 function uniqueStrings(values: Iterable<unknown>): string[] {
@@ -162,10 +164,10 @@ function deriveVisitedPrefectures(
   const prefectures = new Set(uniqueStrings(existingPrefectures));
 
   for (const destinationId of visitedIds) {
-    const destination = destinationById.get(destinationId);
+    const prefecture = destinationPrefectureById.get(destinationId);
 
-    if (destination?.prefecture) {
-      prefectures.add(formatPrefectureId(destination.prefecture));
+    if (prefecture) {
+      prefectures.add(formatPrefectureId(prefecture));
     }
   }
 

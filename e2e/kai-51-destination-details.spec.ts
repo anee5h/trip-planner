@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 /**
  * KAI-51 J6/J9: destination detail (EN + JA) and collections.

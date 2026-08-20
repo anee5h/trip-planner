@@ -22,7 +22,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 import destinations from "@/shared/data/destinations-index.json";
 import {
@@ -142,6 +145,7 @@ function LocationProbe() {
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -158,17 +162,18 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderDestinations(entry: string) {
+async function renderDestinations(entry: string) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <LocationProbe />
         <Destinations />
       </MemoryRouter>,
     );
+    await Promise.resolve();
   });
   return host;
 }
@@ -225,9 +230,9 @@ describe("DEFAULT_DESTINATION_EXPLORER_STATE transport invariants", () => {
 // ---------------------------------------------------------------------------
 
 describe("Fresh Explore — no origin, no URL params", () => {
-  it("renders the Japanese Explore chrome without keys or English leakage", () => {
+  it("renders the Japanese Explore chrome without keys or English leakage", async () => {
     localeMock.language = "ja";
-    const container = renderDestinations("/destinations");
+    const container = await renderDestinations("/destinations");
     const text = container.textContent ?? "";
 
     expect(text).toContain("目的地");
@@ -246,8 +251,8 @@ describe("Fresh Explore — no origin, no URL params", () => {
     ).not.toBeNull();
   });
 
-  it("shows the full eligible catalogue without a transport filter", () => {
-    const container = renderDestinations("/destinations");
+  it("shows the full eligible catalogue without a transport filter", async () => {
+    const container = await renderDestinations("/destinations");
     const count = getResultCount(container);
     // Must be well above 410 (the broken-default count).
     // We use 600 as a conservative floor; catalogue may grow.
@@ -255,8 +260,8 @@ describe("Fresh Explore — no origin, no URL params", () => {
     expect(count).toBeLessThanOrEqual(destinations.length);
   });
 
-  it("URL does not contain specific transport mode params", () => {
-    const container = renderDestinations("/destinations");
+  it("URL does not contain specific transport mode params", async () => {
+    const container = await renderDestinations("/destinations");
     const params = new URLSearchParams(getLocationSearch(container));
     const modes = params.getAll("mode");
     // Acceptable: no mode param, or mode=none. Never specific modes like train.
@@ -270,9 +275,9 @@ describe("Fresh Explore — no origin, no URL params", () => {
 // ---------------------------------------------------------------------------
 
 describe("Logged-in user with saved transport preferences", () => {
-  it("saved ALL_PUBLIC_MODES preference does not reduce fresh Explore count vs anonymous", () => {
+  it("saved ALL_PUBLIC_MODES preference does not reduce fresh Explore count vs anonymous", async () => {
     authMock.user = null;
-    const containerAnon = renderDestinations("/destinations");
+    const containerAnon = await renderDestinations("/destinations");
     const anonCount = getResultCount(containerAnon);
     act(() => root!.unmount());
     root = undefined;
@@ -288,15 +293,15 @@ describe("Logged-in user with saved transport preferences", () => {
         },
       },
     };
-    const containerLoggedIn = renderDestinations("/destinations");
+    const containerLoggedIn = await renderDestinations("/destinations");
     const loggedInCount = getResultCount(containerLoggedIn);
 
     expect(loggedInCount).toBe(anonCount);
   });
 
-  it("saved restrictive publicModes: ['train'] preference does not reduce fresh Explore count vs anonymous", () => {
+  it("saved restrictive publicModes: ['train'] preference does not reduce fresh Explore count vs anonymous", async () => {
     authMock.user = null;
-    const containerAnon = renderDestinations("/destinations");
+    const containerAnon = await renderDestinations("/destinations");
     const anonCount = getResultCount(containerAnon);
     act(() => root!.unmount());
     root = undefined;
@@ -312,15 +317,15 @@ describe("Logged-in user with saved transport preferences", () => {
         },
       },
     };
-    const containerLoggedIn = renderDestinations("/destinations");
+    const containerLoggedIn = await renderDestinations("/destinations");
     const loggedInCount = getResultCount(containerLoggedIn);
 
     expect(loggedInCount).toBe(anonCount);
   });
 
-  it("saved restrictive carMode: 'rental' preference does not reduce fresh Explore count vs anonymous", () => {
+  it("saved restrictive carMode: 'rental' preference does not reduce fresh Explore count vs anonymous", async () => {
     authMock.user = null;
-    const containerAnon = renderDestinations("/destinations");
+    const containerAnon = await renderDestinations("/destinations");
     const anonCount = getResultCount(containerAnon);
     act(() => root!.unmount());
     root = undefined;
@@ -336,15 +341,15 @@ describe("Logged-in user with saved transport preferences", () => {
         },
       },
     };
-    const containerLoggedIn = renderDestinations("/destinations");
+    const containerLoggedIn = await renderDestinations("/destinations");
     const loggedInCount = getResultCount(containerLoggedIn);
 
     expect(loggedInCount).toBe(anonCount);
   });
 
-  it("saved restrictive carMode: 'my_car' preference does not reduce fresh Explore count vs anonymous", () => {
+  it("saved restrictive carMode: 'my_car' preference does not reduce fresh Explore count vs anonymous", async () => {
     authMock.user = null;
-    const containerAnon = renderDestinations("/destinations");
+    const containerAnon = await renderDestinations("/destinations");
     const anonCount = getResultCount(containerAnon);
     act(() => root!.unmount());
     root = undefined;
@@ -360,15 +365,15 @@ describe("Logged-in user with saved transport preferences", () => {
         },
       },
     };
-    const containerLoggedIn = renderDestinations("/destinations");
+    const containerLoggedIn = await renderDestinations("/destinations");
     const loggedInCount = getResultCount(containerLoggedIn);
 
     expect(loggedInCount).toBe(anonCount);
   });
 
-  it("saved combination of restrictive carMode and publicModes preferences does not reduce fresh Explore count vs anonymous", () => {
+  it("saved combination of restrictive carMode and publicModes preferences does not reduce fresh Explore count vs anonymous", async () => {
     authMock.user = null;
-    const containerAnon = renderDestinations("/destinations");
+    const containerAnon = await renderDestinations("/destinations");
     const anonCount = getResultCount(containerAnon);
     act(() => root!.unmount());
     root = undefined;
@@ -384,13 +389,13 @@ describe("Logged-in user with saved transport preferences", () => {
         },
       },
     };
-    const containerLoggedIn = renderDestinations("/destinations");
+    const containerLoggedIn = await renderDestinations("/destinations");
     const loggedInCount = getResultCount(containerLoggedIn);
 
     expect(loggedInCount).toBe(anonCount);
   });
 
-  it("URL written for a logged-in user (no URL params) has no specific transport modes", () => {
+  it("URL written for a logged-in user (no URL params) has no specific transport modes", async () => {
     authMock.user = {
       user_metadata: {
         preferences: {
@@ -400,7 +405,7 @@ describe("Logged-in user with saved transport preferences", () => {
         },
       },
     };
-    const container = renderDestinations("/destinations");
+    const container = await renderDestinations("/destinations");
     const params = new URLSearchParams(getLocationSearch(container));
     const modes = params.getAll("mode");
     const hasSpecificModes = modes.some((m) => m !== "none");
@@ -414,8 +419,8 @@ describe("Logged-in user with saved transport preferences", () => {
 // ---------------------------------------------------------------------------
 
 describe("Explicit URL transport filter", () => {
-  it("mode=train in URL with an origin reduces the count vs unfiltered", () => {
-    const containerAll = renderDestinations("/destinations");
+  it("mode=train in URL with an origin reduces the count vs unfiltered", async () => {
+    const containerAll = await renderDestinations("/destinations");
     const allCount = getResultCount(containerAll);
     act(() => root!.unmount());
     root = undefined;
@@ -426,15 +431,15 @@ describe("Explicit URL transport filter", () => {
     tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
-    const containerTrain = renderDestinations("/destinations?mode=train");
+    const containerTrain = await renderDestinations("/destinations?mode=train");
     const trainCount = getResultCount(containerTrain);
 
     expect(trainCount).toBeGreaterThan(0);
     expect(trainCount).toBeLessThan(allCount);
   }, 15000);
 
-  it("car=rental in URL with an origin reduces the count vs unfiltered", () => {
-    const containerAll = renderDestinations("/destinations");
+  it("car=rental in URL with an origin reduces the count vs unfiltered", async () => {
+    const containerAll = await renderDestinations("/destinations");
     const allCount = getResultCount(containerAll);
     act(() => root!.unmount());
     root = undefined;
@@ -446,25 +451,25 @@ describe("Explicit URL transport filter", () => {
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
     // Mode empty but car=rental is a restricted selection
-    const containerCar = renderDestinations("/destinations?car=rental");
+    const containerCar = await renderDestinations("/destinations?car=rental");
     const carCount = getResultCount(containerCar);
 
     expect(carCount).toBeGreaterThan(0);
     expect(carCount).toBeLessThan(allCount);
   }, 15000);
 
-  it("D1: ferry-only URL creates no hidden restriction (shows the full catalogue)", () => {
+  it("D1: ferry-only URL creates no hidden restriction (shows the full catalogue)", async () => {
     tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
-    const containerAll = renderDestinations("/destinations");
+    const containerAll = await renderDestinations("/destinations");
     const allCount = getResultCount(containerAll);
     act(() => root!.unmount());
     root = undefined;
     host?.remove();
     host = undefined;
 
-    const containerFerry = renderDestinations("/destinations?mode=ferry");
+    const containerFerry = await renderDestinations("/destinations?mode=ferry");
     const ferryCount = getResultCount(containerFerry);
 
     // Ferry has no Explore chip; a ferry-only URL must not silently filter
@@ -472,18 +477,18 @@ describe("Explicit URL transport filter", () => {
     expect(ferryCount).toBe(allCount);
   }, 15000);
 
-  it("D1: junk car value and legacy mode labels are rejected, not restrictive", () => {
+  it("D1: junk car value and legacy mode labels are rejected, not restrictive", async () => {
     tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
-    const containerAll = renderDestinations("/destinations");
+    const containerAll = await renderDestinations("/destinations");
     const allCount = getResultCount(containerAll);
     act(() => root!.unmount());
     root = undefined;
     host?.remove();
     host = undefined;
 
-    const containerJunk = renderDestinations(
+    const containerJunk = await renderDestinations(
       "/destinations?car=whatever&mode=local&mode=express",
     );
     const junkCount = getResultCount(containerJunk);
@@ -491,18 +496,18 @@ describe("Explicit URL transport filter", () => {
     expect(junkCount).toBe(allCount);
   }, 15000);
 
-  it("D1: mixed URL keeps valid modes and drops ferry from the restriction", () => {
+  it("D1: mixed URL keeps valid modes and drops ferry from the restriction", async () => {
     tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
-    const containerAll = renderDestinations("/destinations");
+    const containerAll = await renderDestinations("/destinations");
     const allCount = getResultCount(containerAll);
     act(() => root!.unmount());
     root = undefined;
     host?.remove();
     host = undefined;
 
-    const containerMixed = renderDestinations(
+    const containerMixed = await renderDestinations(
       "/destinations?mode=train&mode=shinkansen&mode=bus&mode=flight&mode=ferry",
     );
     const mixedCount = getResultCount(containerMixed);
@@ -513,12 +518,12 @@ describe("Explicit URL transport filter", () => {
 });
 
 describe("Clear/Reset Behavior (KAI-63)", () => {
-  it("clearing filters restores the full catalogue state exactly like fresh Explore", () => {
+  it("clearing filters restores the full catalogue state exactly like fresh Explore", async () => {
     // 1. Get baseline fresh Explore count (with origin so topology runs)
     tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
-    const containerFresh = renderDestinations("/destinations");
+    const containerFresh = await renderDestinations("/destinations");
     const freshCount = getResultCount(containerFresh);
     act(() => root!.unmount());
     root = undefined;
@@ -529,7 +534,7 @@ describe("Clear/Reset Behavior (KAI-63)", () => {
     tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
 
-    const containerFiltered = renderDestinations(
+    const containerFiltered = await renderDestinations(
       "/destinations?budget=3&party=4&car=rental&mode=train",
     );
     const filteredCount = getResultCount(containerFiltered);
@@ -560,8 +565,8 @@ describe("Clear/Reset Behavior (KAI-63)", () => {
 // ---------------------------------------------------------------------------
 
 describe("URL state restoration — no invisible defaults", () => {
-  it("URL with only car=none produces no specific transport modes in output", () => {
-    const container = renderDestinations(
+  it("URL with only car=none produces no specific transport modes in output", async () => {
+    const container = await renderDestinations(
       "/destinations?car=none&sort=recommended",
     );
     const params = new URLSearchParams(getLocationSearch(container));
@@ -569,15 +574,15 @@ describe("URL state restoration — no invisible defaults", () => {
     expect(hasSpecificModes).toBe(false);
   });
 
-  it("URL with tripMode=any+sort=recommended produces same count as blank URL", () => {
-    const containerBlank = renderDestinations("/destinations");
+  it("URL with tripMode=any+sort=recommended produces same count as blank URL", async () => {
+    const containerBlank = await renderDestinations("/destinations");
     const blankCount = getResultCount(containerBlank);
     act(() => root!.unmount());
     root = undefined;
     host?.remove();
     host = undefined;
 
-    const containerParams = renderDestinations(
+    const containerParams = await renderDestinations(
       "/destinations?sort=recommended&tripMode=any",
     );
     const paramsCount = getResultCount(containerParams);
@@ -596,14 +601,16 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
   }
 
-  it("mode=train with Any duration keeps a reachable destination whose duration is unknown", () => {
+  it("mode=train with Any duration keeps a reachable destination whose duration is unknown", async () => {
     setYokohamaOrigin();
 
     // Kyoto is reachable by conventional rail (topology + transportOptions)
     // but has no verified origin-aware duration from a Kanagawa origin — it
     // was previously dropped by the hidden 14 h/evidence gate. The search
     // query keeps the assertion independent of pagination.
-    const container = renderDestinations("/destinations?mode=train&q=kyoto");
+    const container = await renderDestinations(
+      "/destinations?mode=train&q=kyoto",
+    );
     const headings = Array.from(container.querySelectorAll("h3")).map(
       (heading) => heading.textContent ?? "",
     );
@@ -611,10 +618,10 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     expect(headings.some((text) => text.includes("Kyoto City"))).toBe(true);
   }, 15000);
 
-  it("explicit Day-trip mode still applies the duration gate", () => {
+  it("explicit Day-trip mode still applies the duration gate", async () => {
     setYokohamaOrigin();
 
-    const container = renderDestinations(
+    const container = await renderDestinations(
       "/destinations?mode=train&tripMode=day_trip&q=kyoto",
     );
     const headings = Array.from(container.querySelectorAll("h3")).map(
@@ -625,17 +632,17 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     expect(headings.some((text) => text.includes("Kyoto City"))).toBe(false);
   }, 15000);
 
-  it("mode=train with Any duration shows strictly more than the day-trip gate", () => {
+  it("mode=train with Any duration shows strictly more than the day-trip gate", async () => {
     setYokohamaOrigin();
 
-    const containerAny = renderDestinations("/destinations?mode=train");
+    const containerAny = await renderDestinations("/destinations?mode=train");
     const anyCount = getResultCount(containerAny);
     act(() => root!.unmount());
     root = undefined;
     host?.remove();
     host = undefined;
 
-    const containerDayTrip = renderDestinations(
+    const containerDayTrip = await renderDestinations(
       "/destinations?mode=train&tripMode=day_trip",
     );
     const dayTripCount = getResultCount(containerDayTrip);

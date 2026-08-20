@@ -4,8 +4,7 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
 import StationInput from "@/shared/components/StationInput";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import type { Destination } from "@/shared/types/destination";
+import { getCityHubsAsDestinations } from "@/shared/services/cityHubs";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { Button } from "@/shared/components/ui/button";
 import { useTranslation } from "react-i18next";
@@ -144,13 +143,10 @@ export function OnboardingFlow() {
     if (savedHomeStation) setBaseLocation(savedHomeStation);
   }, [savedHomeStation]);
 
-  const cityHubs = useMemo(
-    () =>
-      (getDestinationList(locale) as Destination[])
-        .filter((d) => d.role === "hub" && d.kind === "city")
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [locale],
-  );
+  // KAI-132: city-hub options come from the dedicated lightweight
+  // metadata source (no lite-catalogue dependency — onboarding/account
+  // never fetches destinations-index.lite.json).
+  const cityHubs = useMemo(() => getCityHubsAsDestinations(), []);
 
   const togglePublicMode = (mode: string) => {
     setPublicModes((prev) =>

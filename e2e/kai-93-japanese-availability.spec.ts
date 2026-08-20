@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures";
 
 // KAI-93: Parity verification that Japanese locale can access previously gated
 // destinations (such as abashiri-city) directly without dead-ending or blocking.

@@ -13,7 +13,10 @@ import {
   expect,
   vi,
 } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Compare from "../Compare";
 import CompareModal from "../components/CompareModal";
 
@@ -88,6 +91,7 @@ let host: HTMLDivElement | undefined;
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -104,17 +108,18 @@ afterEach(() => {
 });
 
 describe("Compare Page & Modal — Japanese Localization", () => {
-  it("renders Japanese table headers, metrics, vibe tags, and place labels on Compare page without overall score", () => {
+  it("renders Japanese table headers, metrics, vibe tags, and place labels on Compare page without overall score", async () => {
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
 
-    act(() => {
+    await act(async () => {
       root!.render(
         <MemoryRouter>
           <Compare />
         </MemoryRouter>,
       );
+      await Promise.resolve();
     });
 
     const text = host.textContent ?? "";
@@ -147,19 +152,20 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     expect(text).not.toContain("(train)");
   });
 
-  it("renders '比較情報なし' when destination travel time is unavailable", () => {
+  it("renders '比較情報なし' when destination travel time is unavailable", async () => {
     // hiroshima-peace-memorial has transportOptions: {}
     compareState.compareList = ["kyoto-city", "hiroshima-peace-memorial"];
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
 
-    act(() => {
+    await act(async () => {
       root!.render(
         <MemoryRouter>
           <Compare />
         </MemoryRouter>,
       );
+      await Promise.resolve();
     });
 
     const text = host.textContent ?? "";
@@ -167,12 +173,12 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     expect(text).not.toContain("N/A");
   });
 
-  it("renders Japanese comparison metrics, category, and buttons in CompareModal without overall score", () => {
+  it("renders Japanese comparison metrics, category, and buttons in CompareModal without overall score", async () => {
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
 
-    act(() => {
+    await act(async () => {
       root!.render(
         <MemoryRouter>
           <CompareModal isOpen={true} onClose={vi.fn()} />

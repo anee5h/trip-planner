@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import type { Destination } from "@/shared/types/destination";
 import { BADGES_CATALOG } from "../data/badges";
 import { BadgeEngine } from "../services/BadgeEngine";
 import type { Badge, BadgeCategory } from "../types/badge";
@@ -13,6 +16,18 @@ import { Layers, Train, Heart, MapPin, Sparkles } from "lucide-react";
 export function PassportBadges() {
   const { t } = useTranslation();
   const { visited, visitedPrefectures, trips } = useTripStore();
+  // KAI-132: load the lite catalogue at the passport feature boundary;
+  // BadgeEngine stays synchronous and receives the loaded catalogue. A
+  // failed load is NOT an empty catalogue — the shared hook surfaces an
+  // explicit error/retry state.
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
+  const catalogue: Destination[] | null = liteReady
+    ? (getLoadedLitePlaces() as unknown as Destination[])
+    : null;
   const [activeCategory, setActiveCategory] = useState<BadgeCategory | "all">(
     "all",
   );
@@ -30,7 +45,10 @@ export function PassportBadges() {
     completedCollectionIds: [],
   };
 
-  const badgeStatuses = BadgeEngine.evaluateAll(evaluationContext);
+  const badgeStatuses = BadgeEngine.evaluateAll(
+    evaluationContext,
+    catalogue ?? [],
+  );
   const totalUnlocked = Object.values(badgeStatuses).filter(
     (b) => b.isUnlocked,
   ).length;
@@ -49,6 +67,37 @@ export function PassportBadges() {
   });
 
   const CategoryIcon = Icons.badges;
+
+  // KAI-132: a failed lite load is NOT an empty catalogue — surface an
+  // explicit error/retry state.
+  if (liteError) {
+    return (
+      <div className="space-y-6">
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">

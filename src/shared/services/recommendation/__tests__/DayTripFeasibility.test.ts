@@ -1,6 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 import {
   getEstimatedBudgetRange,
   getTransportCost,
@@ -21,7 +22,11 @@ import {
 import { getSafeGroundEstimate } from "@/shared/services/transport/SafeGroundEstimateService";
 import { getDistance } from "@/shared/utils/distance";
 
-const catalog = getDestinationList("en") as Destination[];
+let catalog: Destination[] = [];
+beforeAll(async () => {
+  await loadLiteIndex();
+  catalog = getDestinationList("en") as Destination[];
+});
 const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
 const SHIN_YOKOHAMA = { lat: 35.5073, lng: 139.6172 };
 const SHIBUYA_CURRENT_LOCATION = { lat: 35.6595, lng: 139.7005 };

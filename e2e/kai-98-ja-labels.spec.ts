@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 /**
  * KAI-98: shared taxonomy labels must reach a rendered Japanese destination

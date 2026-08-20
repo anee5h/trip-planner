@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
@@ -50,7 +51,14 @@ export default function MyTrips() {
     }
   }, [location.pathname, paramTab, paramTripId]);
 
-  const allDestinations = getDestinationList() as Destination[];
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
+  const allDestinations = (
+    liteReady ? getDestinationList() : []
+  ) as Destination[];
 
   const favoriteDestinations = allDestinations.filter((d) =>
     favorites.includes(d.id),
@@ -72,6 +80,38 @@ export default function MyTrips() {
             reorderTripStops(selectedTrip.id, start, end)
           }
         />
+      </div>
+    );
+  }
+
+  // KAI-132: a failed lite load is NOT an empty catalogue — an empty
+  // bucket list must not masquerade as real. Surface an explicit
+  // error/retry state.
+  if (liteError) {
+    return (
+      <div className="container mx-auto px-4 py-12 max-w-7xl">
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
       </div>
     );
   }

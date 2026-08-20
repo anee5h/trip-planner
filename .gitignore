@@ -43,8 +43,10 @@ docs/*
 # Generated catalogue asset (copied from src/shared/data at build/dev time
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
 public/data/destinations-index.json
+public/data/destinations-index.lite.json
 
 # Python scratch artifacts
 __pycache__/
 *.pyc
 scripts/.pr*.py
+allure-results/

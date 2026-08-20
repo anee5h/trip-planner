@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures";
 
 const TODAY = "2026-08-12";
 const FORECAST_DATES = buildDateRange(TODAY, "2026-08-21");

@@ -1,3 +1,4 @@
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getCollectionBySlug } from "@/shared/data/collections";
@@ -16,6 +17,11 @@ import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
 
 export default function CollectionDetails() {
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const collection = slug ? getCollectionBySlug(slug) : undefined;
@@ -222,7 +228,43 @@ export default function CollectionDetails() {
         )}
       </div>
 
-      {destinations.length === 0 ? (
+      {liteError ? (
+        // KAI-132: failed load is NOT ready — explicit error + retry,
+        // never a spinner that runs forever.
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-16 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
+      ) : !liteReady ? (
+        // KAI-132: lite catalogue still loading — spinner, not empty state.
+        <div className="flex flex-col items-center justify-center py-16">
+          <div
+            aria-hidden="true"
+            className="h-10 w-10 animate-spin rounded-full border-4 border-emerald-500/30 border-t-emerald-500"
+          />
+          <p className="mt-4 text-sm text-slate-500">
+            {t("ui.loading", "Loading…")}
+          </p>
+        </div>
+      ) : destinations.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-slate-500">
           <Frown className="w-12 h-12 mb-3 text-slate-500" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-1">

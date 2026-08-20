@@ -9,8 +9,18 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter, Routes, Route } from "react-router-dom";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 import DestinationDetails from "../DestinationDetails";
+import liteIndex from "@/shared/data/destinations-index.lite.json";
+import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -93,6 +103,14 @@ vi.stubGlobal(
   "fetch",
   vi.fn(async (input: RequestInfo | URL) => {
     const url = String(input);
+    // KAI-132: the lite catalogue is fetched at runtime — serve it from
+    // the imported JSON so summary-dependent logic works in tests.
+    if (url.endsWith("/data/destinations-index.lite.json")) {
+      return {
+        ok: true,
+        json: async () => liteIndex,
+      } as Response;
+    }
     const match = url.match(/\/data\/destinations\/([^/]+)\.json$/);
     if (match && records.has(match[1])) {
       return { ok: true, json: async () => records.get(match[1]) } as Response;
@@ -147,6 +165,10 @@ function render(
     );
   });
 }
+
+beforeAll(async () => {
+  await loadLiteIndex();
+});
 
 beforeEach(() => {
   storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };

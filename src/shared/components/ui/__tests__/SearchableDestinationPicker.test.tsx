@@ -1,18 +1,23 @@
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { beforeAll, afterEach, describe, expect, it, vi } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import { SearchableDestinationPicker } from "../SearchableDestinationPicker";
 
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
 
-function renderPicker(onSelect = vi.fn()) {
+async function renderPicker(onSelect = vi.fn()) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(<SearchableDestinationPicker onSelect={onSelect} />);
+    // Flush the lite-catalogue microtask.
+    await Promise.resolve();
   });
   return onSelect;
 }
@@ -38,11 +43,12 @@ describe("SearchableDestinationPicker", () => {
   // preload so it renders full data synchronously in tests.
   beforeAll(async () => {
     await loadDestinationsIndex();
+    await loadLiteIndex();
   });
 
-  it("keeps the desktop combobox separate from its controlled listbox", () => {
+  it("keeps the desktop combobox separate from its controlled listbox", async () => {
     setViewport(1024);
-    renderPicker();
+    await renderPicker();
 
     const trigger = host!.querySelector("button")!;
     act(() => trigger.click());
@@ -53,9 +59,9 @@ describe("SearchableDestinationPicker", () => {
     expect(input.parentElement).not.toBe(listbox);
   });
 
-  it("moves once and selects once from the mobile combobox", () => {
+  it("moves once and selects once from the mobile combobox", async () => {
     setViewport(375);
-    const onSelect = renderPicker();
+    const onSelect = await renderPicker();
 
     act(() => host!.querySelector("button")!.click());
 

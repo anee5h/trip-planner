@@ -70,11 +70,11 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderAt(entry: string, element: ReactNode) {
+async function renderAt(entry: string, element: ReactNode) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <Routes>
@@ -82,6 +82,9 @@ function renderAt(entry: string, element: ReactNode) {
         </Routes>
       </MemoryRouter>,
     );
+    // Flush the lite-catalogue microtask (useLiteCatalogueReady resolves
+    // via loadLiteIndex's promise).
+    await Promise.resolve();
   });
   return host;
 }
@@ -99,8 +102,11 @@ function cardIds(host: HTMLDivElement): string[] {
 }
 
 describe("CollectionDetails — UNESCO property groups", () => {
-  it("renders one virtual group card per UNESCO property (27)", () => {
-    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
+  it("renders one virtual group card per UNESCO property (27)", async () => {
+    const host = await renderAt(
+      "/collections/unesco-japan",
+      <CollectionDetails />,
+    );
 
     expect(cardIds(host)).toHaveLength(27);
     expect(cardIds(host).every((id) => id.startsWith("unesco-property-"))).toBe(
@@ -111,16 +117,22 @@ describe("CollectionDetails — UNESCO property groups", () => {
     );
   });
 
-  it("links single-place properties straight to their destination", () => {
-    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
+  it("links single-place properties straight to their destination", async () => {
+    const host = await renderAt(
+      "/collections/unesco-japan",
+      <CollectionDetails />,
+    );
 
     expect(groupLinks(host)).toContain("/destinations/himeji-castle");
     expect(groupLinks(host)).toContain("/destinations/mount-fuji");
     expect(groupLinks(host)).toContain("/destinations/genbaku-dome");
   });
 
-  it("links multi-place properties to the collection listing surface", () => {
-    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
+  it("links multi-place properties to the collection listing surface", async () => {
+    const host = await renderAt(
+      "/collections/unesco-japan",
+      <CollectionDetails />,
+    );
 
     expect(groupLinks(host)).toContain(
       "/collections/unesco-japan?property=688",
@@ -130,8 +142,11 @@ describe("CollectionDetails — UNESCO property groups", () => {
     );
   });
 
-  it("carries the badge key and per-property place counts on group cards", () => {
-    const host = renderAt("/collections/unesco-japan", <CollectionDetails />);
+  it("carries the badge key and per-property place counts on group cards", async () => {
+    const host = await renderAt(
+      "/collections/unesco-japan",
+      <CollectionDetails />,
+    );
 
     const badges = Array.from(
       host.querySelectorAll('[data-testid="group-badge"]'),
@@ -147,8 +162,8 @@ describe("CollectionDetails — UNESCO property groups", () => {
     expect(counts[himejiIndex]).toBe("1");
   });
 
-  it("shows exactly the property's places in the group view", () => {
-    const host = renderAt(
+  it("shows exactly the property's places in the group view", async () => {
+    const host = await renderAt(
       "/collections/unesco-japan?property=688",
       <CollectionDetails />,
     );
@@ -174,8 +189,8 @@ describe("CollectionDetails — UNESCO property groups", () => {
     ).toBe(true);
   });
 
-  it("falls back to the group overview for an unknown property id", () => {
-    const host = renderAt(
+  it("falls back to the group overview for an unknown property id", async () => {
+    const host = await renderAt(
       "/collections/unesco-japan?property=9999",
       <CollectionDetails />,
     );
@@ -183,8 +198,8 @@ describe("CollectionDetails — UNESCO property groups", () => {
     expect(cardIds(host)).toHaveLength(27);
   });
 
-  it("keeps the ordinary destination grid for non-UNESCO collections", () => {
-    const host = renderAt(
+  it("keeps the ordinary destination grid for non-UNESCO collections", async () => {
+    const host = await renderAt(
       "/collections/japan-top-castles",
       <CollectionDetails />,
     );

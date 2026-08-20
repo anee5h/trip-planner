@@ -4,9 +4,8 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { getCityHubsAsDestinations } from "@/shared/services/cityHubs";
 import StationInput from "@/shared/components/StationInput";
-import type { Destination } from "@/shared/types/destination";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import {
   UserRound,
   Car,
@@ -95,13 +94,10 @@ export default function Settings() {
     user?.user_metadata?.default_locale === "ja" ? "ja" : locale,
   );
 
-  const cityHubs = useMemo(
-    () =>
-      (getDestinationList(locale) as Destination[])
-        .filter((d) => d.role === "hub" && d.kind === "city")
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [locale],
-  );
+  // KAI-132: city-hub options come from the dedicated lightweight
+  // metadata source (no lite-catalogue dependency — settings/account
+  // routes never fetch destinations-index.lite.json).
+  const cityHubs = useMemo(() => getCityHubsAsDestinations(), []);
 
   useEffect(() => {
     if (sectionParam) setActiveSection(sectionParam);

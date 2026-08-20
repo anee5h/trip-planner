@@ -1,4 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
+import { test } from "./fixtures";
 
 const TODAY = "2026-08-12";
 const FORECAST_DATES = [TODAY, "2026-08-13", "2026-08-14", "2026-08-15"];
@@ -24,6 +25,9 @@ async function mockHomeWeather(page: Page) {
     });
   });
 }
+
+// KAI-132: the lite catalogue route is mocked globally via e2e/fixtures.ts
+// (fetch-from-server, works under preview + dev). No spec-local mock needed.
 
 async function switchToJapanese(page: Page) {
   const desktopLanguage = page.getByRole("button", {
@@ -77,6 +81,7 @@ test.describe("KAI-74 homepage rails", () => {
     page,
   }, testInfo) => {
     await page.goto("/");
+    await page.clock.runFor(10000);
 
     await expect(
       page.getByRole("heading", { name: "Top matches for you", exact: true }),
@@ -170,6 +175,7 @@ test.describe("KAI-74 homepage rails", () => {
     page,
   }) => {
     await page.goto("/");
+    await page.clock.runFor(10000);
     await page.getByRole("radio", { name: /Weekend/i }).click();
     await page
       .getByRole("button", { name: /Find matches|View matches|Update matches/ })
@@ -220,6 +226,7 @@ test.describe("KAI-74 homepage rails", () => {
       );
     });
     await page.goto("/");
+    await page.clock.runFor(10000);
 
     const section = railSection(page, "Unexplored places near you");
     // Origin-aware recommendations perform a cold transport/topology pass on

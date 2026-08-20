@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures";
 
 const BAD_VISIBLE_COPY = [
   /\bNaN\b/i,
@@ -130,7 +130,13 @@ test.describe("KAI-89 rendered data safety", () => {
       ["tokyo-national-museum", /Estimated visit cost|概算滞在費用/],
       ["hiroshima-national-peace-memorial-hall", /Free Admission|入場無料/],
       ["cupnoodles-museum-osaka-ikeda", /Cost unavailable|料金不明/],
-      ["shinjuku-gyo-en", /Cost unavailable|料金不明/],
+      // KAI-89 drift correction (KAI-132's deterministic fixture surfaced
+      // it): shinjuku-gyo-en's canonical data now carries
+      // budgetMetadata.method "manual", and BudgetService treats ONLY
+      // "unknown" as unavailable — so the rendered state is an estimate,
+      // not "Cost unavailable". This is a data/UI expectation update, not
+      // a change to KAI-132 runtime behavior.
+      ["shinjuku-gyo-en", /Estimated visit cost|概算滞在費用/],
       ["kouri-island-okinawa", /Estimated visit cost|概算滞在費用/],
     ] as const;
     for (const [id, expected] of states) {
@@ -266,10 +272,21 @@ test.describe("KAI-89 rendered data safety", () => {
   }) => {
     // Verified budget (source-backed ticket) stays concrete. KAI-89
     // contract: catalogue values are PER-PERSON — the details page scales
-    // the ¥500 Engakuji ticket by party size (default 2 → ¥1,000 total).
+    // the ¥500 Engakuji ticket by party size (default 2 → ¥1,000 total,
+    // rendered compactly as "¥1k" by formatLocalizedJPYRange).
+    // (KAI-89 drift correction surfaced by KAI-132's deterministic
+    // fixture: assert the scaled value on the Admission Tickets ROW, not
+    // via a broad body-wide /1,000/ match. No KAI-132 runtime behavior
+    // changed.)
     await page.goto("/destinations/engakuji");
     await expect(page.locator("main")).toBeVisible();
-    await expect(page.getByText(/1,000/).first()).toBeVisible();
+    await page.getByRole("button", { name: "View cost breakdown" }).click();
+    const admissionRow = page.locator("div.flex.justify-between", {
+      hasText: "Admission Tickets",
+    });
+    // ¥500 × 2 guests = ¥1,000, compacted to "¥1k" — the row must show
+    // the party-scaled amount, not the per-person ¥500.
+    await expect(admissionRow).toContainText(/\b1k\b/);
 
     // Template budget cleared to unknown renders as unavailable, not a
     // fabricated price.

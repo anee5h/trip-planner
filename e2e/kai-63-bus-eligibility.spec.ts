@@ -1,4 +1,4 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page } from "./fixtures";
 
 // KAI-63: Bus-filter eligibility at the UI level. Exercises the real
 // StationInput origin flows (ZIP/postcode via mocked Nominatim, station via

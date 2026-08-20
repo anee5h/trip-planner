@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 /**
  * KAI-51 J5: Explore — the destinations grid renders and the search filter

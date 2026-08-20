@@ -13,7 +13,10 @@ import {
   it,
   vi,
 } from "vitest";
-import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
+import {
+  loadLiteIndex,
+  loadDestinationsIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import Destinations from "../Destinations";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -97,6 +100,7 @@ function LocationProbe() {
 // useFullCatalogue renders full data synchronously in tests.
 beforeAll(async () => {
   await loadDestinationsIndex();
+  await loadLiteIndex();
 });
 
 beforeEach(() => {
@@ -111,17 +115,18 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderDestinations(entry: string) {
+async function renderDestinations(entry: string) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
-  act(() => {
+  await act(async () => {
     root!.render(
       <MemoryRouter initialEntries={[entry]}>
         <LocationProbe />
         <Destinations />
       </MemoryRouter>,
     );
+    await Promise.resolve();
   });
   return host;
 }
@@ -156,8 +161,8 @@ async function switchTripMode(container: HTMLDivElement, label: string) {
 }
 
 describe("Explore Recommended Day Trip ranking", () => {
-  it("applies Nakayama Day Trip + Any feasibility before sorting", () => {
-    const container = renderDestinations(
+  it("applies Nakayama Day Trip + Any feasibility before sorting", async () => {
+    const container = await renderDestinations(
       "/destinations?sort=recommended&tripMode=day_trip",
     );
     const names = Array.from(container.querySelectorAll("h3")).map(
@@ -180,13 +185,13 @@ describe("Explore Recommended Day Trip ranking", () => {
     ).toBe(true);
   }, 60000);
 
-  it("scores with live transport controls instead of saved preferences", () => {
+  it("scores with live transport controls instead of saved preferences", async () => {
     authMock.user = {
       user_metadata: {
         preferences: { carMode: "rental", publicModes: ["shinkansen"] },
       },
     };
-    const container = renderDestinations(
+    const container = await renderDestinations(
       "/destinations?sort=recommended&tripMode=day_trip&mode=train&car=none",
     );
     const names = Array.from(container.querySelectorAll("h3")).map(
@@ -211,7 +216,7 @@ describe("Explore Recommended Day Trip ranking", () => {
   ])(
     "clears hidden Half-day state when switching from %s to Any",
     async (_label, intermediateMode) => {
-      const transitioned = renderDestinations(
+      const transitioned = await renderDestinations(
         "/destinations?sort=recommended&tripMode=day_trip&duration=halfDay",
       );
 
@@ -230,7 +235,9 @@ describe("Explore Recommended Day Trip ranking", () => {
       host?.remove();
       host = undefined;
 
-      const cleanAny = renderDestinations("/destinations?sort=recommended");
+      const cleanAny = await renderDestinations(
+        "/destinations?sort=recommended",
+      );
       const cleanSnapshot = snapshot(cleanAny);
 
       expect(transitionedSnapshot.summary).toBe(cleanSnapshot.summary);

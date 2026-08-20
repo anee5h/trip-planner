@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 /**
  * KAI-51 J16: legal pages render and remain reachable — terms, privacy and

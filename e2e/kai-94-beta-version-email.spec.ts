@@ -1,4 +1,4 @@
-import { expect, test } from "@playwright/test";
+import { expect, test } from "./fixtures";
 
 // KAI-94: Beta version badge and canonical public contact email must render
 // consistently in both locales without leaking stale addresses or raw keys.

@@ -24,8 +24,9 @@ import { EDITORIAL_PILOT } from "../../data/editorialPilot";
  *
  * getCanonicalPlaces() (the old sync accessor) is GONE from browser use:
  * it silently meant "lite now, full later", which made correctness
- * timing-dependent. Callers that need full data await; callers that need
- * only summary data use getLitePlaces().
+ * timing-dependent. Callers that need full data await loadDestinationsIndex();
+ * callers that need summary data await loadLiteIndex() then use
+ * getLoadedLitePlaces() (never a silently-empty pre-load array).
  */
 
 export type CanonicalPlace = Destination &
@@ -147,29 +148,69 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
 // NO CommonJS require), stays in the initial bundle, and is the ONLY
 // catalogue data first-paint/search/list surfaces depend on.
 
-let liteIndex: Destination[] | null = null;
+// KAI-132: the lite (summary) catalogue is now a RUNTIME-fetched asset
+// like the full index — NOT statically imported, so Vite never inlines
+// the 2.67 MB JSON into the shared chunk every route parses. Consumers
+// that need summary data must await loadLiteIndex(); getLoadedLitePlaces()
+// is the post-load accessor (fail-fast if used before load).
 
-function getLiteIndex(): Destination[] {
-  if (!liteIndex) {
-    // ESM import of the JSON module — Vite bundles this statically.
-    // (The full index is NOT imported here; it stays a lazy chunk.)
-    liteIndex = importSummaryData();
+const LITE_INDEX_URL = "/data/destinations-index.lite.json";
+
+let liteIndexPromise: Promise<CanonicalPlace[]> | null = null;
+let loadedLitePlaces: CanonicalPlace[] | null = null;
+
+/** Loads the lite (summary) catalogue exactly once per session, sharing
+ *  the in-flight promise between concurrent callers (no duplicate
+ *  fetches, no hydration races). FAILURE HANDLING: a rejected fetch
+ *  clears the singleton so the next caller can retry.
+ *
+ *  The JSON is parsed ONCE and mapped to CanonicalPlace ONCE; every
+ *  consumer receives the same stable array (no per-call 978-object
+ *  remapping / GC churn).
+ */
+export function loadLiteIndex(): Promise<CanonicalPlace[]> {
+  if (!liteIndexPromise) {
+    liteIndexPromise = fetch(LITE_INDEX_URL)
+      .then((response) => {
+        // KAI-132: mirror the full-index loader — a non-2xx response is a
+        // hard failure regardless of body (e.g. HTTP 500 with valid JSON).
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} fetching lite index`);
+        }
+        return response.json() as Promise<Destination[]>;
+      })
+      .then((index) => {
+        if (!Array.isArray(index)) {
+          throw new Error("lite index is not an array");
+        }
+        loadedLitePlaces = index.map(toCanonicalPlace);
+        return loadedLitePlaces;
+      })
+      .catch((error) => {
+        liteIndexPromise = null;
+        throw new Error(`failed to load lite index: ${String(error)}`);
+      });
   }
-  return liteIndex;
+  return liteIndexPromise;
 }
 
-import summaryData from "../../data/destinations-index.lite.json";
-
-function importSummaryData(): Destination[] {
-  return summaryData as Destination[];
+/** True once the lite catalogue has been loaded (loader resolved). */
+export function hasLoadedLiteIndex(): boolean {
+  return loadedLitePlaces !== null;
 }
 
-/** Synchronous summary accessor (KAI-121). Returns the formally complete
- *  lite catalogue for first-paint / search / list surfaces. Callers that
- *  need FULL destination content must await loadDestinationsIndex() and
- *  use getFullPlaces(). */
-export function getLitePlaces(): CanonicalPlace[] {
-  return getLiteIndex().map(toCanonicalPlace);
+/** Synchronous accessor for the loaded lite catalogue. ONLY valid AFTER
+ *  `await loadLiteIndex()` — throws if called before the loader resolves
+ *  (fail-fast rather than pretending the catalogue is genuinely empty).
+ *  Returns the SAME stable array for every caller. */
+export function getLoadedLitePlaces(): CanonicalPlace[] {
+  if (loadedLitePlaces === null) {
+    throw new Error(
+      "getLoadedLitePlaces() called before loadLiteIndex() resolved — " +
+        "callers must await the loader first",
+    );
+  }
+  return loadedLitePlaces;
 }
 
 // --- Backward-compat shim for tests/build scripts that read the full
@@ -188,6 +229,13 @@ export function resetDestinationsIndexForTests(): void {
   fullPlacesCache = null;
 }
 
+/** Test-only: clears the lite-index singleton so a fresh load can be
+ *  exercised (and the fail-fast precondition can be asserted). */
+export function resetLiteIndexForTests(): void {
+  liteIndexPromise = null;
+  loadedLitePlaces = null;
+}
+
 /**
  * Checks whether a destination is available in the requested locale.
  * Public destinations are equally accessible in English and Japanese;
@@ -203,9 +251,13 @@ export function isPlaceAvailableInLocale(
 export function getAvailablePlaces(
   locale: "en" | "ja" = "en",
 ): CanonicalPlace[] {
-  // KAI-121 contract: summary availability for list surfaces. Full-data
-  // consumers await loadDestinationsIndex() + getFullPlaces().
-  return getLitePlaces().filter((place) =>
+  // KAI-132 contract: summary availability for list surfaces. The lite
+  // catalogue is loaded via loadLiteIndex(); before that resolves this
+  // returns [] (safe degradation for service-level consumers). Callers
+  // that need the data must await loadLiteIndex() and use
+  // getLoadedLitePlaces() (which fails fast if used too early).
+  if (!hasLoadedLiteIndex()) return [];
+  return getLoadedLitePlaces().filter((place) =>
     isPlaceAvailableInLocale(place, locale),
   );
 }
