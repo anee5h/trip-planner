@@ -1,4 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
+import { expect, type Page } from "@playwright/test";
+import { test } from "./fixtures";
 
 const TODAY = "2026-08-12";
 const FORECAST_DATES = [TODAY, "2026-08-13", "2026-08-14", "2026-08-15"];
@@ -25,18 +26,8 @@ async function mockHomeWeather(page: Page) {
   });
 }
 
-// KAI-132: the lite catalogue is a runtime fetch; serve it from the local
-// build asset so the rails render deterministically (no CI network wait
-// for the 2.7 MB JSON).
-async function mockLiteCatalogue(page: Page) {
-  await page.route("**/data/destinations-index.lite.json", async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      path: "dist/data/destinations-index.lite.json",
-    });
-  });
-}
+// KAI-132: the lite catalogue route is mocked globally via e2e/fixtures.ts
+// (fetch-from-server, works under preview + dev). No spec-local mock needed.
 
 async function switchToJapanese(page: Page) {
   const desktopLanguage = page.getByRole("button", {
@@ -77,7 +68,6 @@ async function assertRailCardLimit(section: ReturnType<typeof railSection>) {
 
 test.beforeEach(async ({ page }) => {
   await mockHomeWeather(page);
-  await mockLiteCatalogue(page);
   await page.addInitScript(() => {
     localStorage.setItem(
       "tabimap_recently_viewed_destinations",
