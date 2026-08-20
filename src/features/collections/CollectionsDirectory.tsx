@@ -16,7 +16,7 @@ import { useTranslation } from "react-i18next";
 import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 
 export default function CollectionsDirectory() {
-  const liteReady = useLiteCatalogueReady();
+  const { ready: liteReady } = useLiteCatalogueReady();
   const collections = getCollections();
   const { visited } = useTripStore();
   const { locale } = useLocale();

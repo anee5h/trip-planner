@@ -81,7 +81,7 @@ export default function ItineraryPlanner({
   const { favorites } = useTripStore();
   const recentDestinations = useRecentlyViewedDestinations();
 
-  const liteReady = useLiteCatalogueReady();
+  const { ready: liteReady } = useLiteCatalogueReady();
   const destinations = (liteReady ? getDestinationList() : []) as Destination[];
 
   const savedDestinations = useMemo(() => {

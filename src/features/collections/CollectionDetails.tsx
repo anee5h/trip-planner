@@ -17,7 +17,7 @@ import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
 
 export default function CollectionDetails() {
-  const liteReady = useLiteCatalogueReady();
+  const { ready: liteReady } = useLiteCatalogueReady();
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const collection = slug ? getCollectionBySlug(slug) : undefined;

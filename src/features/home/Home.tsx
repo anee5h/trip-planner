@@ -2,15 +2,14 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
-import {
-  getLoadedLitePlaces,
-  loadLiteIndex,
-} from "@/shared/services/place/PlaceCatalog";
+import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
+import { HOME_RAIL_SECTION_SPACING } from "./components/HomeRailLayout";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
 import {
   deriveTripDates,
@@ -94,25 +93,13 @@ export default function Home() {
   // KAI-132: Home is SUMMARY-ONLY. The lite catalogue is runtime-loaded
   // (not inlined in the shared chunk); the planner renders immediately
   // and catalogue-dependent content (Top Matches + rails) mounts once
-  // the lite index resolves.
-  const [liteReady, setLiteReady] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    loadLiteIndex()
-      .then(() => {
-        if (!cancelled) setLiteReady(true);
-      })
-      .catch((err) => {
-        // Surface non-destructively: catalogue-dependent sections stay
-        // hidden; the planner remains usable. No unhandled rejection.
-        console.error("[Home] lite catalogue load failed:", err);
-        if (!cancelled) setLiteReady(true); // allow render (empty rails handled downstream)
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // the lite index resolves. A failed load is NOT treated as ready:
+  // the error state renders an explicit retry (KAI-132 error semantics).
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
 
   const allDestinations = useMemo(
     () => (liteReady ? (getLoadedLitePlaces() as Destination[]) : []),
@@ -687,29 +674,66 @@ export default function Home() {
             forecastSelection.type === "today" ? undefined : travelDateIso
           }
         />
+      ) : liteError ? (
+        // KAI-132: the lite catalogue failed to load — this is NOT
+        // treated as ready. Show an explicit error state with retry.
+        <section
+          role="alert"
+          data-top-matches-error
+          className={`bg-white ${HOME_RAIL_SECTION_SPACING} dark:bg-slate-950`}
+        >
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="flex flex-col items-center justify-center rounded-2xl border border-red-200 bg-red-50 py-10 px-4 text-center dark:border-red-900/50 dark:bg-red-950/30">
+              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+                {t("home.matchesErrorTitle", "Couldn't load recommendations")}
+              </h2>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                {t(
+                  "home.matchesErrorBody",
+                  "The destination catalogue couldn't be loaded. Check your connection and try again.",
+                )}
+              </p>
+              <button
+                type="button"
+                onClick={retryLite}
+                className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+              >
+                {t("ui.retry", "Retry")}
+              </button>
+            </div>
+          </div>
+        </section>
       ) : (
-        // KAI-132: geometry-stable placeholder — reserve the same height
-        // as the Top Matches rail so the lite-catalogue resolution does
-        // not shift layout (no CLS spike before KAI-131).
-        <div
+        // KAI-132: geometry-stable one-row skeleton matching the real
+        // Top Matches rail (horizontal scroll flex of fixed-width cards,
+        // same container/padding/gap) so the lite-catalogue resolution
+        // does not shift layout (no CLS spike before KAI-131).
+        <section
           aria-hidden="true"
           data-top-matches-placeholder
-          className="container mx-auto max-w-6xl px-4 py-6 sm:py-8"
+          className={`bg-white ${HOME_RAIL_SECTION_SPACING} dark:bg-slate-950`}
         >
-          <div className="mb-4 h-7 w-48 animate-pulse rounded bg-slate-200/70 dark:bg-slate-800/70" />
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-5">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[16/10] animate-pulse rounded-2xl bg-slate-200/60 dark:bg-slate-800/60"
-              />
-            ))}
+          <div className="container mx-auto px-4 max-w-6xl">
+            <div className="mb-4 flex items-start justify-between gap-3 sm:mb-6">
+              <div className="min-w-0">
+                <div className="h-7 w-48 animate-pulse rounded bg-slate-200/70 dark:bg-slate-800/70 sm:h-8" />
+                <div className="mt-1 h-4 w-64 animate-pulse rounded bg-slate-200/60 dark:bg-slate-800/60" />
+              </div>
+            </div>
+            <div className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-4">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="h-40 w-[46vw] min-w-[160px] max-w-[180px] shrink-0 animate-pulse rounded-2xl bg-slate-200/60 dark:bg-slate-800/60 sm:w-[250px] sm:min-w-[250px] sm:max-w-[250px]"
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       )}
 
       {/* Recently viewed remains conditional and sits directly below Top matches. */}
-      <DeferredSection>
+      <DeferredSection when={liteReady}>
         <RecentlyViewedRail
           destinations={recentlyViewedDestinations}
           partySize={resolvedApplied.partySize}
@@ -721,7 +745,7 @@ export default function Home() {
 
       {/* Bucket List remains conditional and keeps its existing user-data semantics. */}
       {hasSavedItems && (
-        <DeferredSection order={1}>
+        <DeferredSection order={1} when={liteReady}>
           <BucketListRail
             partySize={resolvedApplied.partySize}
             carMode={resolvedApplied.carMode}
@@ -732,7 +756,7 @@ export default function Home() {
       )}
 
       {isWeekendMode ? (
-        <DeferredSection order={2}>
+        <DeferredSection order={2} when={liteReady}>
           <>
             <DiscoveryRail
               kind="weekendGetaways"
@@ -762,7 +786,7 @@ export default function Home() {
           </>
         </DeferredSection>
       ) : (
-        <DeferredSection order={2}>
+        <DeferredSection order={2} when={liteReady}>
           <>
             <DiscoveryRail
               kind="seasonal"
@@ -797,13 +821,13 @@ export default function Home() {
       )}
 
       {/* Curated Collections Rail */}
-      <DeferredSection order={3}>
+      <DeferredSection order={3} when={liteReady}>
         <CollectionsRail />
       </DeferredSection>
 
       {/* Compact Prompt Banner near bottom for empty/signed-out states */}
       {!hasSavedItems && (
-        <DeferredSection order={4}>
+        <DeferredSection order={4} when={liteReady}>
           <BucketListRail
             partySize={resolvedApplied.partySize}
             carMode={resolvedApplied.carMode}

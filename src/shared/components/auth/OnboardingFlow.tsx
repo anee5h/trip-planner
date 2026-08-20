@@ -145,7 +145,7 @@ export function OnboardingFlow() {
     if (savedHomeStation) setBaseLocation(savedHomeStation);
   }, [savedHomeStation]);
 
-  const liteReady = useLiteCatalogueReady(visible);
+  const { ready: liteReady } = useLiteCatalogueReady(visible);
   const cityHubs = useMemo(
     () =>
       ((liteReady ? getDestinationList(locale) : []) as Destination[])

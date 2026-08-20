@@ -51,7 +51,7 @@ export default function MyTrips() {
     }
   }, [location.pathname, paramTab, paramTripId]);
 
-  const liteReady = useLiteCatalogueReady();
+  const { ready: liteReady } = useLiteCatalogueReady();
   const allDestinations = (
     liteReady ? getDestinationList() : []
   ) as Destination[];

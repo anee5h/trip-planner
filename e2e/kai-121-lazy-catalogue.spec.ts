@@ -190,3 +190,109 @@ test("catalogue route requests the lite index exactly once", async ({
   await page.waitForTimeout(1500);
   expect(hits.filter((u) => u.includes(LITE_INDEX_URL))).toHaveLength(1);
 });
+
+test("delayed lite load: catalogue rails stay pending, then recover (Collections + Bucket List)", async ({
+  page,
+}) => {
+  // Deliberately delay the lite catalogue fetch so the home page renders
+  // its skeleton + pending deferred sections BEFORE lite resolves. This
+  // proves the KAI-132 gates hold (no empty/partial catalogue rails
+  // render pre-load) and that Collections/Bucket List recover once the
+  // loader resolves — without any retry or reload.
+  let releaseLite: (() => void) | null = null;
+  const liteGate = new Promise<void>((resolve) => {
+    releaseLite = resolve;
+  });
+  await page.route("**/data/destinations-index.lite.json", async (route) => {
+    await liteGate;
+    const response = await page.request.get(
+      "/data/destinations-index.lite.json",
+    );
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: (await response.body()) as Buffer,
+    });
+  });
+
+  await page.goto("/", { waitUntil: "domcontentloaded", timeout: 60000 });
+
+  // While lite is still pending: the TopMatches skeleton is visible and
+  // the catalogue-dependent rails are held as deferred placeholders (NOT
+  // mounted — no empty Collections/Bucket List).
+  await page.waitForSelector("[data-top-matches-placeholder]", {
+    timeout: 20000,
+  });
+  await page.waitForTimeout(1000);
+  const pendingBefore = await page
+    .locator("[data-deferred-pending]")
+    .count();
+  expect(pendingBefore).toBeGreaterThan(0);
+  await expect(
+    page.getByRole("heading", { name: "Featured collections" }),
+  ).toHaveCount(0);
+
+  // Release the lite fetch: the loader resolves, deferred sections mount,
+  // and the catalogue rails recover.
+  releaseLite?.();
+  await expect
+    .poll(async () => page.locator("[data-deferred-pending]").count())
+    .toBe(0);
+  await expect(
+    page.getByRole("heading", { name: "Featured collections" }),
+  ).toBeVisible();
+  // Bucket List rail (compact prompt for the signed-out/empty state) is
+  // mounted too — the deferred queue drained completely.
+  await expect(page.locator("[data-deferred-pending]")).toHaveCount(0);
+});
+
+test("lite load failure shows error + retry recovers (fail → retry → success, no crash)", async ({
+  page,
+}) => {
+  // KAI-132 error semantics: a failed loadLiteIndex() must NOT be treated
+  // as ready. The home page shows an explicit error state (with Retry),
+  // the planner stays usable, and no ErrorBoundary crash occurs. Retry
+  // re-fetches (loadLiteIndex clears its singleton on failure) and the
+  // catalogue rails recover.
+  let failLite = true;
+  await page.route("**/data/destinations-index.lite.json", async (route) => {
+    if (failLite) {
+      await route.fulfill({ status: 500, contentType: "application/json", body: "boom" });
+    } else {
+      const response = await page.request.get(
+        "/data/destinations-index.lite.json",
+      );
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: (await response.body()) as Buffer,
+      });
+    }
+  });
+
+  const pageErrors: string[] = [];
+  page.on("pageerror", (e) => pageErrors.push(e.message));
+
+  await page.goto("/", { waitUntil: "domcontentloaded", timeout: 60000 });
+
+  // The failure surfaces as an explicit error state (NOT the skeleton,
+  // NOT an empty catalogue, NOT a crash).
+  await page.waitForSelector("[data-top-matches-error]", { timeout: 20000 });
+  await expect(
+    page.getByRole("button", { name: "Retry" }),
+  ).toBeVisible();
+  // No ErrorBoundary crash: the planner/hero still rendered.
+  await expect(page.locator("main")).toBeVisible();
+  expect(pageErrors).toEqual([]);
+
+  // Retry succeeds: error state clears, rails mount.
+  failLite = false;
+  await page.getByRole("button", { name: "Retry" }).click();
+  await expect
+    .poll(async () => page.locator("[data-top-matches-error]").count())
+    .toBe(0);
+  await expect(
+    page.getByRole("heading", { name: "Featured collections" }),
+  ).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});

@@ -96,7 +96,7 @@ export default function Settings() {
     user?.user_metadata?.default_locale === "ja" ? "ja" : locale,
   );
 
-  const liteReady = useLiteCatalogueReady();
+  const { ready: liteReady } = useLiteCatalogueReady();
   const cityHubs = useMemo(
     () =>
       ((liteReady ? getDestinationList(locale) : []) as Destination[])
