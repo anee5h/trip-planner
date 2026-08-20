@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 export function GlobalSearch() {
   const { t } = useTranslation();
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const {
     query,
     setQuery,
@@ -18,9 +19,8 @@ export function GlobalSearch() {
     setSelectedIndex,
     selectItem,
     handleKeyDown,
-  } = useSearch();
+  } = useSearch(isPopoverOpen);
 
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Close popover when clicking outside

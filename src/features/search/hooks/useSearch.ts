@@ -5,7 +5,7 @@ import type { SearchDocument, SearchGroup } from "../types";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { OPEN_SEARCH_EVENT } from "../openSearch";
 
-export function useSearch() {
+export function useSearch(active = true) {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -14,10 +14,12 @@ export function useSearch() {
   const { locale } = useLocale();
 
   // KAI-132: the search index awaits the runtime-loaded lite catalogue.
-  // Build the index lazily — only when the search is OPEN — so non-search
-  // pages (legal, settings) never fetch the catalogue via global chrome.
+  // Build the index lazily — only when the search UI is active (dialog
+  // open or the navbar input focused) — so non-search pages (legal,
+  // settings) never fetch the catalogue via global chrome.
+  const searchActive = active || isOpen || query.trim().length > 0;
   useEffect(() => {
-    if (!isOpen) return;
+    if (!searchActive) return;
     let cancelled = false;
     searchDocuments(query, locale).then((g) => {
       if (!cancelled) setGroups(g);
@@ -25,7 +27,7 @@ export function useSearch() {
     return () => {
       cancelled = true;
     };
-  }, [query, locale, isOpen]);
+  }, [query, locale, searchActive]);
 
   // Flatten all items across groups for index-based keyboard navigation
   const flatItems: SearchDocument[] = useMemo(() => {
