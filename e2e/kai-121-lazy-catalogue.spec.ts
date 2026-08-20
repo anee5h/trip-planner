@@ -1,9 +1,22 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { expect, test, type Page } from "@playwright/test";
 
 // KAI-121: these checks assert PRODUCTION runtime network behavior (lazy
 // fetch, SW precache). They run against the production preview build in
 // the dedicated PWA/preview E2E job (PWA_E2E=1); the vite-dev bins skip.
 test.skip(process.env.PWA_E2E !== "1", "preview-build runtime checks only");
+
+// The lite catalogue source file (committed) — used to fulfill mocked
+// routes WITHOUT page.request.get, which races the request pool under
+// CI parallelism ("Response has been disposed").
+const LITE_BODY = readFileSync(
+  path.join(
+    path.dirname(fileURLToPath(import.meta.url)),
+    "../src/shared/data/destinations-index.lite.json",
+  ),
+);
 
 /**
  * KAI-121: deterministic runtime-lazy catalogue performance checks.
@@ -205,13 +218,10 @@ test("delayed lite load: catalogue rails stay pending, then recover (Collections
   });
   await page.route("**/data/destinations-index.lite.json", async (route) => {
     await liteGate;
-    const response = await page.request.get(
-      "/data/destinations-index.lite.json",
-    );
     await route.fulfill({
       status: 200,
       contentType: "application/json",
-      body: (await response.body()) as Buffer,
+      body: LITE_BODY,
     });
   });
 
@@ -263,13 +273,10 @@ test("lite load failure shows error + retry recovers (fail → retry → success
         body: "[]",
       });
     } else {
-      const response = await page.request.get(
-        "/data/destinations-index.lite.json",
-      );
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: (await response.body()) as Buffer,
+        body: LITE_BODY,
       });
     }
   });
@@ -315,13 +322,10 @@ test("secondary route (explorer) fail → retry → success, no crash", async ({
         body: "[]",
       });
     } else {
-      const response = await page.request.get(
-        "/data/destinations-index.lite.json",
-      );
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: (await response.body()) as Buffer,
+        body: LITE_BODY,
       });
     }
   });
@@ -360,13 +364,10 @@ test("/collections failure shows error + retry recovers", async ({ page }) => {
         body: "[]",
       });
     } else {
-      const response = await page.request.get(
-        "/data/destinations-index.lite.json",
-      );
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: (await response.body()) as Buffer,
+        body: LITE_BODY,
       });
     }
   });
@@ -410,13 +411,10 @@ test("custom-destination city picker: parent fail → retry → success", async 
         body: "[]",
       });
     } else {
-      const response = await page.request.get(
-        "/data/destinations-index.lite.json",
-      );
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: (await response.body()) as Buffer,
+        body: LITE_BODY,
       });
     }
   });
