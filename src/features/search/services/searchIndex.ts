@@ -2,7 +2,10 @@ import collectionsIndex from "@/shared/data/collections-index.json";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import {
+  getLocalizedPlace,
+  loadLiteIndex,
+} from "@/shared/services/place/PlaceCatalog";
 import { getDestinationsForCollection } from "@/shared/utils/collections";
 import {
   buildTokyoWardsLink,
@@ -171,9 +174,16 @@ const cachedDocuments = new Map<"en" | "ja", SearchDocument[]>();
 // it never needs to be invalidated when the full dataset loads, and it
 // never permanently holds a partial lite result: the summary is complete
 // by definition.
-export function buildSearchIndex(locale: "en" | "ja" = "en"): SearchDocument[] {
+export async function buildSearchIndex(
+  locale: "en" | "ja" = "en",
+): Promise<SearchDocument[]> {
   const cached = cachedDocuments.get(locale);
   if (cached) return cached;
+
+  // KAI-132: the lite catalogue is runtime-loaded — await it before
+  // building, so the STABLE cache is never built from an empty summary
+  // (the pre-KAI-132 sync contract made an empty build impossible).
+  await loadLiteIndex();
 
   const docs: SearchDocument[] = [];
 
@@ -246,11 +256,11 @@ export function buildSearchIndex(locale: "en" | "ja" = "en"): SearchDocument[] {
   return docs;
 }
 
-export function searchDocuments(
+export async function searchDocuments(
   query: string,
   locale: "en" | "ja" = "en",
-): SearchGroup[] {
-  const allDocs = buildSearchIndex(locale);
+): Promise<SearchGroup[]> {
+  const allDocs = await buildSearchIndex(locale);
   const cleanQuery = query.trim().toLowerCase();
 
   if (!cleanQuery) {

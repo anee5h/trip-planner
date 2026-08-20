@@ -16,6 +16,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 
 interface ItineraryPlannerProps {
@@ -80,7 +81,8 @@ export default function ItineraryPlanner({
   const { favorites } = useTripStore();
   const recentDestinations = useRecentlyViewedDestinations();
 
-  const destinations = getDestinationList() as Destination[];
+  const liteReady = useLiteCatalogueReady();
+  const destinations = (liteReady ? getDestinationList() : []) as Destination[];
 
   const savedDestinations = useMemo(() => {
     return (favorites || [])
@@ -206,7 +208,7 @@ export default function ItineraryPlanner({
               activeItineraryDestinations={trip?.stops
                 ?.map((s) =>
                   s.destinationId
-                    ? getDestinationList().find((d) => d.id === s.destinationId)
+                    ? destinations.find((d) => d.id === s.destinationId)
                     : null,
                 )
                 .filter((d): d is Destination => Boolean(d))}

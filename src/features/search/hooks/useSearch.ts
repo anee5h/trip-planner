@@ -9,11 +9,20 @@ export function useSearch() {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [groups, setGroups] = useState<SearchGroup[]>([]);
   const navigate = useNavigate();
   const { locale } = useLocale();
 
-  const groups: SearchGroup[] = useMemo(() => {
-    return searchDocuments(query, locale);
+  // KAI-132: the search index awaits the runtime-loaded lite catalogue;
+  // resolve results asynchronously when the query/locale changes.
+  useEffect(() => {
+    let cancelled = false;
+    searchDocuments(query, locale).then((g) => {
+      if (!cancelled) setGroups(g);
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [query, locale]);
 
   // Flatten all items across groups for index-based keyboard navigation

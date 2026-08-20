@@ -4,6 +4,7 @@ import { useAuth } from "@/shared/hooks/useAuth";
 import { useTheme } from "@/shared/context/ThemeContext";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import StationInput from "@/shared/components/StationInput";
 import type { Destination } from "@/shared/types/destination";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
@@ -95,12 +96,13 @@ export default function Settings() {
     user?.user_metadata?.default_locale === "ja" ? "ja" : locale,
   );
 
+  const liteReady = useLiteCatalogueReady();
   const cityHubs = useMemo(
     () =>
-      (getDestinationList(locale) as Destination[])
+      ((liteReady ? getDestinationList(locale) : []) as Destination[])
         .filter((d) => d.role === "hub" && d.kind === "city")
         .sort((a, b) => a.name.localeCompare(b.name)),
-    [locale],
+    [locale, liteReady],
   );
 
   useEffect(() => {

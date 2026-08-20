@@ -81,7 +81,7 @@ test.describe("KAI-74 homepage rails", () => {
     page,
   }, testInfo) => {
     await page.goto("/");
-    await page.clock.runFor(3000);
+    await page.clock.runFor(10000);
 
     await expect(
       page.getByRole("heading", { name: "Top matches for you", exact: true }),
@@ -175,7 +175,7 @@ test.describe("KAI-74 homepage rails", () => {
     page,
   }) => {
     await page.goto("/");
-    await page.clock.runFor(3000);
+    await page.clock.runFor(10000);
     await page.getByRole("radio", { name: /Weekend/i }).click();
     await page
       .getByRole("button", { name: /Find matches|View matches|Update matches/ })
@@ -226,7 +226,7 @@ test.describe("KAI-74 homepage rails", () => {
       );
     });
     await page.goto("/");
-    await page.clock.runFor(3000);
+    await page.clock.runFor(10000);
 
     const section = railSection(page, "Unexplored places near you");
     // Origin-aware recommendations perform a cold transport/topology pass on

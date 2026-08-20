@@ -1,49 +1,46 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { test as base } from "@playwright/test";
 
 // KAI-132: the lite catalogue is a runtime fetch. Every spec that renders
 // catalogue-dependent pages (Home rails, collections, search, destination
-// details) must serve it deterministically — a 2.7 MB fetch over the CI
-// network would otherwise race the assertions. Extend `test` so the route
-// is installed automatically before each test: the response is fetched
-// from the server once per worker (module-level cache, serialized) and
-// fulfilled locally, so the payload never rides the assertion critical
-// path and concurrent handlers never race a disposed response.
+// details) must serve it deterministically. The fixture fulfills the
+// route from the SOURCE JSON on disk — no dev-server round-trip, so the
+// 2.7 MB payload never contends with the server under CI's 8-way E2E
+// parallelism (fetching it through vite dev per worker was the bottleneck:
+// the same tests failed at full local parallelism, passed at 2-4 workers).
 //
 // The FULL catalogue (6.5 MB) is mocked the same way for destination
-// details / full-data surfaces. This is safe for the CI bins: the kai-121
-// spec that asserts the REAL runtime fetch contract only runs under
-// PWA_E2E=1 (preview build), where these route mocks are not installed.
+// details / full-data surfaces. Safe for the CI bins: the kai-121 spec
+// that asserts the REAL runtime fetch contract only runs under PWA_E2E=1
+// (preview build) and does NOT use this fixture.
 //
 // eslint-disable-next-line react-hooks/rules-of-hooks -- Playwright fixture
 // API uses `use` as the continuation param; it is not a React hook.
 
-let liteBodyPromise: Promise<Buffer> | null = null;
-let fullBodyPromise: Promise<Buffer> | null = null;
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const LITE_JSON = readFileSync(
+  path.join(ROOT, "src/shared/data/destinations-index.lite.json"),
+);
+const FULL_JSON = readFileSync(
+  path.join(ROOT, "src/shared/data/destinations-index.json"),
+);
 
 export const test = base.extend({
   page: async ({ page }, usePage) => {
     await page.route("**/data/destinations-index.lite.json", async (route) => {
-      if (!liteBodyPromise) {
-        liteBodyPromise = page.request
-          .get("/data/destinations-index.lite.json")
-          .then((r) => r.body() as Promise<Buffer>);
-      }
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: await liteBodyPromise,
+        body: LITE_JSON,
       });
     });
     await page.route("**/data/destinations-index.json", async (route) => {
-      if (!fullBodyPromise) {
-        fullBodyPromise = page.request
-          .get("/data/destinations-index.json")
-          .then((r) => r.body() as Promise<Buffer>);
-      }
       await route.fulfill({
         status: 200,
         contentType: "application/json",
-        body: await fullBodyPromise,
+        body: FULL_JSON,
       });
     });
     await usePage(page);

@@ -5,6 +5,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useLocale } from "@/shared/context/LocaleContext";
 import StationInput from "@/shared/components/StationInput";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import type { Destination } from "@/shared/types/destination";
 import { SearchableDestinationPicker } from "@/shared/components/ui/SearchableDestinationPicker";
 import { Button } from "@/shared/components/ui/button";
@@ -144,12 +145,13 @@ export function OnboardingFlow() {
     if (savedHomeStation) setBaseLocation(savedHomeStation);
   }, [savedHomeStation]);
 
+  const liteReady = useLiteCatalogueReady();
   const cityHubs = useMemo(
     () =>
-      (getDestinationList(locale) as Destination[])
+      ((liteReady ? getDestinationList(locale) : []) as Destination[])
         .filter((d) => d.role === "hub" && d.kind === "city")
         .sort((a, b) => a.name.localeCompare(b.name)),
-    [locale],
+    [locale, liteReady],
   );
 
   const togglePublicMode = (mode: string) => {

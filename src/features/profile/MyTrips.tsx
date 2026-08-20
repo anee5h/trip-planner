@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useSearchParams, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import type { Destination } from "@/shared/types/destination";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
@@ -50,7 +51,10 @@ export default function MyTrips() {
     }
   }, [location.pathname, paramTab, paramTripId]);
 
-  const allDestinations = getDestinationList() as Destination[];
+  const liteReady = useLiteCatalogueReady();
+  const allDestinations = (
+    liteReady ? getDestinationList() : []
+  ) as Destination[];
 
   const favoriteDestinations = allDestinations.filter((d) =>
     favorites.includes(d.id),

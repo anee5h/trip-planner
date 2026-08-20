@@ -14,22 +14,22 @@ function destinationGroup(groups: SearchGroup[]): SearchGroup | undefined {
   return groups.find((group) => group.type === "destination");
 }
 
-function popularIds(locale: "en" | "ja"): string[] {
-  const group = destinationGroup(searchDocuments("", locale));
+async function popularIds(locale: "en" | "ja"): Promise<string[]> {
+  const group = destinationGroup(await searchDocuments("", locale));
   return (group?.items ?? []).map((item) => item.metadata?.dest?.id as string);
 }
 
 describe("empty search state — curated popular destinations (KAI-83)", () => {
-  it("shows the curated hubs in the exact required order", () => {
-    expect(popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
+  it("shows the curated hubs in the exact required order", async () => {
+    expect(await popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
   });
 
-  it("is deterministic across repeated calls", () => {
-    expect(popularIds("en")).toEqual(popularIds("en"));
+  it("is deterministic across repeated calls", async () => {
+    expect(await popularIds("en")).toEqual(await popularIds("en"));
   });
 
-  it("leads with the Tokyo 23 Wards virtual group", () => {
-    const group = destinationGroup(searchDocuments("", "en"));
+  it("leads with the Tokyo 23 Wards virtual group", async () => {
+    const group = destinationGroup(await await searchDocuments("", "en"));
     const tokyo = group?.items[0];
 
     expect(tokyo?.metadata?.dest?.id).toBe("tokyo-23-wards");
@@ -40,8 +40,8 @@ describe("empty search state — curated popular destinations (KAI-83)", () => {
     expect((tokyo?.url ?? "").match(/city=/g)).toHaveLength(23);
   });
 
-  it("is not simply the first alphabetical catalogue records", () => {
-    const ids = popularIds("en");
+  it("is not simply the first alphabetical catalogue records", async () => {
+    const ids = await popularIds("en");
     expect(ids).not.toEqual([
       "abashiri-city",
       "abeno-harukas-300-osaka",
@@ -57,40 +57,40 @@ describe("empty search state — curated popular destinations (KAI-83)", () => {
     expect(ids).not.toContain("abukuma-cave-fukushima");
   });
 
-  it("returns normal scored results for a text query and popular again after clearing", () => {
-    const withQuery = destinationGroup(searchDocuments("kyoto", "en"));
+  it("returns normal scored results for a text query and popular again after clearing", async () => {
+    const withQuery = destinationGroup(await searchDocuments("kyoto", "en"));
     expect(withQuery?.label).toMatch(/^Destinations \(\d+\)$/);
     expect(withQuery?.items.map((item) => item.metadata?.dest?.id)).toContain(
       "kyoto-city",
     );
 
     // Clearing the query restores the curated popular list.
-    expect(popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
+    expect(await popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
   });
 
-  it("ranks an exact title match first for text queries", () => {
-    const group = destinationGroup(searchDocuments("kyoto city", "en"));
+  it("ranks an exact title match first for text queries", async () => {
+    const group = destinationGroup(await searchDocuments("kyoto city", "en"));
     expect(group?.items[0]?.metadata?.dest?.id).toBe("kyoto-city");
     expect(group?.items[0]?.score).toBe(100);
   });
 });
 
 describe("empty search state — locale behavior (KAI-83)", () => {
-  it("keeps the curated order in the Japanese UI with the localized label", () => {
-    const groups = searchDocuments("", "ja");
+  it("keeps the curated order in the Japanese UI with the localized label", async () => {
+    const groups = await await searchDocuments("", "ja");
     const group = destinationGroup(groups);
 
     expect(groups.map((g) => g.label)).toContain("人気の目的地");
-    expect(popularIds("ja")).toEqual(EXPECTED_POPULAR_IDS);
+    expect(await popularIds("ja")).toEqual(EXPECTED_POPULAR_IDS);
     expect(group?.items).toHaveLength(8);
   });
 
-  it("localizes the popular destination entries in Japanese while maintaining curated order", () => {
-    const jaGroup = destinationGroup(searchDocuments("", "ja"));
-    const enGroup = destinationGroup(searchDocuments("", "en"));
+  it("localizes the popular destination entries in Japanese while maintaining curated order", async () => {
+    const jaGroup = destinationGroup(await await searchDocuments("", "ja"));
+    const enGroup = destinationGroup(await await searchDocuments("", "en"));
 
-    expect(popularIds("ja")).toEqual(EXPECTED_POPULAR_IDS);
-    expect(popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
+    expect(await popularIds("ja")).toEqual(EXPECTED_POPULAR_IDS);
+    expect(await popularIds("en")).toEqual(EXPECTED_POPULAR_IDS);
 
     const jaTitles = jaGroup?.items.map((item) => item.title) ?? [];
     const enTitles = enGroup?.items.map((item) => item.title) ?? [];
@@ -113,11 +113,11 @@ describe("empty search state — locale behavior (KAI-83)", () => {
 });
 
 describe("search index destination availability parity (KAI-93)", () => {
-  it("indexes all 978 canonical destination IDs identically across English and Japanese", () => {
-    const enDocs = buildSearchIndex("en").filter(
+  it("indexes all 978 canonical destination IDs identically across English and Japanese", async () => {
+    const enDocs = (await buildSearchIndex("en")).filter(
       (d) => d.type === "destination",
     );
-    const jaDocs = buildSearchIndex("ja").filter(
+    const jaDocs = (await buildSearchIndex("ja")).filter(
       (d) => d.type === "destination",
     );
 
@@ -131,8 +131,8 @@ describe("search index destination availability parity (KAI-93)", () => {
     expect(jaIds).toEqual(enIds);
   });
 
-  it("finds abashiri-city in Japanese search index using English fallback", () => {
-    const jaDestDocs = searchDocuments("abashiri", "ja");
+  it("finds abashiri-city in Japanese search index using English fallback", async () => {
+    const jaDestDocs = await searchDocuments("abashiri", "ja");
     const abashiri = jaDestDocs
       .find((g) => g.type === "destination")
       ?.items.find((item) => item.metadata?.dest?.id === "abashiri-city");
@@ -142,9 +142,9 @@ describe("search index destination availability parity (KAI-93)", () => {
     expect(abashiri?.url).toBe("/destinations/abashiri-city");
   });
 
-  it("searches and localizes destinations with Japanese names and aliases (e.g. あぶくま洞)", () => {
+  it("searches and localizes destinations with Japanese names and aliases (e.g. あぶくま洞)", async () => {
     // 1. Japanese name search in JA locale
-    const jaQueryResults = searchDocuments("あぶくま洞", "ja");
+    const jaQueryResults = await searchDocuments("あぶくま洞", "ja");
     const jaMatch = jaQueryResults
       .find((g) => g.type === "destination")
       ?.items.find(
@@ -155,7 +155,7 @@ describe("search index destination availability parity (KAI-93)", () => {
     expect(jaMatch?.title).toBe("あぶくま洞");
 
     // 2. English alias search in JA locale
-    const enAliasInJaResults = searchDocuments("abukuma", "ja");
+    const enAliasInJaResults = await searchDocuments("abukuma", "ja");
     const aliasMatch = enAliasInJaResults
       .find((g) => g.type === "destination")
       ?.items.find(
@@ -166,7 +166,7 @@ describe("search index destination availability parity (KAI-93)", () => {
     expect(aliasMatch?.title).toBe("あぶくま洞");
 
     // 3. English search in EN locale displays English name
-    const enQueryResults = searchDocuments("abukuma", "en");
+    const enQueryResults = await searchDocuments("abukuma", "en");
     const enMatch = enQueryResults
       .find((g) => g.type === "destination")
       ?.items.find(
