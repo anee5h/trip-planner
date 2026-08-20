@@ -4,10 +4,10 @@ import { useTranslation } from "react-i18next";
 
 import {
   getLoadedLitePlaces,
-  loadLiteIndex,
   getLocalizedPlace,
 } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import { useAuth } from "@/shared/hooks/useAuth";
 import DestinationCard from "@/features/destinations/components/DestinationCard";
 import DestinationFilters from "@/features/destinations/components/DestinationFilters";
@@ -136,21 +136,11 @@ export default function Destinations() {
   // lite catalogue is runtime-loaded (not inlined in the shared chunk);
   // the grid renders once the loader resolves. `filtersReady` already
   // gates filter-derived state; `liteReady` gates the catalogue data.
-  const [liteReady, setLiteReady] = useState(false);
-  useEffect(() => {
-    let cancelled = false;
-    loadLiteIndex()
-      .then(() => {
-        if (!cancelled) setLiteReady(true);
-      })
-      .catch((err) => {
-        console.error("[Destinations] lite catalogue load failed:", err);
-        if (!cancelled) setLiteReady(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
   const allDestinations = (liteReady ? getLoadedLitePlaces() : []).map(
     (destination) => getLocalizedPlace(destination, locale),
   );
@@ -1194,6 +1184,38 @@ export default function Destinations() {
   const totalPages = Math.ceil(
     filteredAndSortedDestinations.length / ITEMS_PER_PAGE,
   );
+
+  // KAI-132: a failed lite load is NOT ready — surface an explicit
+  // error/retry state instead of an empty grid that looks like a real
+  // (empty) catalogue.
+  if (liteError) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">

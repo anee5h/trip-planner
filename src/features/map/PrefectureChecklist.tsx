@@ -18,13 +18,12 @@ import {
   MapPin,
 } from "lucide-react";
 import collectionsIndex from "@/shared/data/collections-index.json";
-import {
-  getLoadedLitePlaces,
-  loadLiteIndex,
-} from "@/shared/services/place/PlaceCatalog";
+import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
 import type { Collection } from "@/shared/types/collection";
 import type { Destination } from "@/shared/types/destination";
 import { useLocale } from "@/shared/context/LocaleContext";
+import { useTranslation } from "react-i18next";
 import { getCollectionContent } from "@/shared/utils/collections";
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -126,24 +125,15 @@ const REGIONS = [
 ];
 
 export default function PrefectureChecklist() {
+  const { t } = useTranslation();
   const { visited, visitedPrefectures, isPrefectureVisited } = useTripStore();
   const { locale } = useLocale();
   // KAI-132: lite catalogue runtime-loaded at the map route boundary.
-  const [liteReady, setLiteReady] = useState(false);
-  useEffect(() => {
-    let cancelled = false;
-    loadLiteIndex()
-      .then(() => {
-        if (!cancelled) setLiteReady(true);
-      })
-      .catch((err) => {
-        console.error("[PrefectureChecklist] lite load failed:", err);
-        if (!cancelled) setLiteReady(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
   const destinationsIndex = liteReady
     ? (getLoadedLitePlaces() as Destination[])
     : [];
@@ -200,6 +190,37 @@ export default function PrefectureChecklist() {
   const completedAchievementsCount = achievementStats.filter(
     (s) => s.isCompleted,
   ).length;
+
+  // KAI-132: a failed lite load is NOT ready — surface an explicit
+  // error/retry state instead of an empty checklist that looks real.
+  if (liteError) {
+    return (
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
+        <div
+          role="alert"
+          data-lite-error
+          className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
+        >
+          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
+            {t("home.matchesErrorTitle", "Couldn't load destinations")}
+          </h2>
+          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+            {t(
+              "home.matchesErrorBody",
+              "The destination catalogue couldn't be loaded. Check your connection and try again.",
+            )}
+          </p>
+          <button
+            type="button"
+            onClick={retryLite}
+            className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+          >
+            {t("ui.retry", "Retry")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl space-y-10">

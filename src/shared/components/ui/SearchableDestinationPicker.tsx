@@ -1,9 +1,8 @@
 import { useState, useMemo, useRef, useEffect, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
-import {
-  getLoadedLitePlaces,
-  loadLiteIndex,
-} from "@/shared/services/place/PlaceCatalog";
+import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useTranslation } from "react-i18next";
 import { formatPlaceName } from "@/shared/utils/placeLabels";
 import {
   Search,
@@ -38,6 +37,7 @@ export function SearchableDestinationPicker({
   savedDestinations = [],
   recentDestinations = [],
 }: SearchableDestinationPickerProps) {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -71,22 +71,12 @@ export function SearchableDestinationPicker({
   // KAI-132: the picker is SUMMARY-ONLY — its "popular" filter reads
   // ratings (present in the lite index). The lite catalogue is
   // runtime-loaded; options render once it resolves (spinner while
-  // loading).
-  const [liteReady, setLiteReady] = useState(false);
-  useEffect(() => {
-    let cancelled = false;
-    loadLiteIndex()
-      .then(() => {
-        if (!cancelled) setLiteReady(true);
-      })
-      .catch((err) => {
-        console.error("[Picker] lite catalogue load failed:", err);
-        if (!cancelled) setLiteReady(true);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  // loading). A failed load is NOT ready — surface an error/retry state.
+  const {
+    ready: liteReady,
+    error: liteError,
+    retry: retryLite,
+  } = useLiteCatalogueReady();
   const allDestinations = useMemo(
     () => customDestinations ?? (liteReady ? getLoadedLitePlaces() : []),
     [customDestinations, liteReady],
@@ -342,8 +332,26 @@ export function SearchableDestinationPicker({
               className="overflow-y-auto p-2 space-y-3 flex-1"
             >
               {/* KAI-132: lite catalogue still loading (and no custom
-                  destinations provided) — show a spinner, not an empty list. */}
-              {!liteReady && !customDestinations ? (
+                  destinations provided) — show a spinner, not an empty list.
+                  A failed load is NOT ready — show an error + retry. */}
+              {liteError ? (
+                <div
+                  role="alert"
+                  data-lite-error
+                  className="flex flex-col items-center justify-center py-10 px-4 text-center"
+                >
+                  <p className="text-sm font-bold text-slate-900 dark:text-white">
+                    {t("home.matchesErrorTitle", "Couldn't load destinations")}
+                  </p>
+                  <button
+                    type="button"
+                    onClick={retryLite}
+                    className="mt-3 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
+                  >
+                    {t("ui.retry", "Retry")}
+                  </button>
+                </div>
+              ) : !liteReady && !customDestinations ? (
                 <div
                   role="status"
                   aria-label={

@@ -255,10 +255,12 @@ test("lite load failure shows error + retry recovers (fail → retry → success
   let failLite = true;
   await page.route("**/data/destinations-index.lite.json", async (route) => {
     if (failLite) {
+      // HTTP 500 with a VALID JSON body: proves status handling (the
+      // response.ok rejection), not a JSON-parse failure.
       await route.fulfill({
         status: 500,
         contentType: "application/json",
-        body: "boom",
+        body: "[]",
       });
     } else {
       const response = await page.request.get(
@@ -294,5 +296,54 @@ test("lite load failure shows error + retry recovers (fail → retry → success
   await expect(
     page.getByRole("heading", { name: "Featured collections" }),
   ).toBeVisible();
+  expect(pageErrors).toEqual([]);
+});
+
+test("secondary route (explorer) fail → retry → success, no crash", async ({
+  page,
+}) => {
+  // Same error semantics on a NON-Home route: /destinations surfaces the
+  // explicit error state (NOT an empty grid that looks like a real empty
+  // catalogue), retry re-fetches, and the grid recovers — no
+  // ErrorBoundary crash at any point.
+  let failLite = true;
+  await page.route("**/data/destinations-index.lite.json", async (route) => {
+    if (failLite) {
+      await route.fulfill({
+        status: 500,
+        contentType: "application/json",
+        body: "[]",
+      });
+    } else {
+      const response = await page.request.get(
+        "/data/destinations-index.lite.json",
+      );
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: (await response.body()) as Buffer,
+      });
+    }
+  });
+
+  const pageErrors: string[] = [];
+  page.on("pageerror", (e) => pageErrors.push(e.message));
+
+  await page.goto("/destinations", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+
+  await page.waitForSelector("[data-lite-error]", { timeout: 20000 });
+  await expect(page.getByRole("button", { name: "Retry" })).toBeVisible();
+  expect(pageErrors).toEqual([]);
+
+  failLite = false;
+  await page.getByRole("button", { name: "Retry" }).click();
+  await expect
+    .poll(async () => page.locator("[data-lite-error]").count())
+    .toBe(0);
+  // The explorer grid recovers: a destination card link is present.
+  await expect(page.locator('a[href^="/destinations/"]').first()).toBeVisible();
   expect(pageErrors).toEqual([]);
 });

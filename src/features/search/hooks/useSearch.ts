@@ -21,9 +21,16 @@ export function useSearch(active = true) {
   useEffect(() => {
     if (!searchActive) return;
     let cancelled = false;
-    searchDocuments(query, locale).then((g) => {
-      if (!cancelled) setGroups(g);
-    });
+    searchDocuments(query, locale)
+      .then((g) => {
+        if (!cancelled) setGroups(g);
+      })
+      .catch((err) => {
+        // KAI-132: the lite catalogue failed to load — search degrades to
+        // no results (never an unhandled rejection, never a crash).
+        console.error("[useSearch] catalogue load failed:", err);
+        if (!cancelled) setGroups([]);
+      });
     return () => {
       cancelled = true;
     };

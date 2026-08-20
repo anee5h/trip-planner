@@ -172,8 +172,11 @@ export function loadLiteIndex(): Promise<CanonicalPlace[]> {
   if (!liteIndexPromise) {
     liteIndexPromise = fetch(LITE_INDEX_URL)
       .then((response) => {
-        // Tolerate mocks/test responses without a real status; the JSON
-        // parse below is the real gate (it throws on non-JSON).
+        // KAI-132: mirror the full-index loader — a non-2xx response is a
+        // hard failure regardless of body (e.g. HTTP 500 with valid JSON).
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status} fetching lite index`);
+        }
         return response.json() as Promise<Destination[]>;
       })
       .then((index) => {
