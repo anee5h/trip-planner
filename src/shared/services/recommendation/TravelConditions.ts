@@ -1,6 +1,9 @@
 import type { Destination } from "@/shared/types/destination";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
-import { getNextCalendarDate } from "@/shared/services/weather/WeatherTabService";
+import {
+  getNextCalendarDate,
+  travelDateToDate,
+} from "@/shared/utils/travelDate";
 import type { TripMode } from "./RecommendationContext";
 import type { MatchReason } from "./RecommendationTypes";
 
@@ -37,6 +40,11 @@ export interface TravelConditionEvaluation {
  * selected date; 2D1N always evaluates the selected date plus the following
  * calendar date. A third day never enters the model.
  */
+export {
+  getNextCalendarDate,
+  travelDateToDate,
+} from "@/shared/utils/travelDate";
+
 export function deriveTripDates(
   day1: string,
   tripMode: TripMode,
@@ -45,12 +53,6 @@ export function deriveTripDates(
     return { day1, day2: getNextCalendarDate(day1) };
   }
   return { day1 };
-}
-
-/** Local-noon Date for a YYYY-MM-DD string (avoids UTC drift on date math). */
-export function travelDateToDate(iso: string): Date {
-  const [year, month, day] = iso.split("-").map(Number);
-  return new Date(year, month - 1, day, 12, 0, 0);
 }
 
 /**

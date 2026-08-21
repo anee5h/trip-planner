@@ -11,7 +11,7 @@ import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import Navbar from "./shared/components/layout/Navbar";
 import Footer from "./shared/components/layout/Footer";
 import { StartupSkeleton } from "./shared/components/layout/StartupSkeleton";
-const Home = lazy(() => import("./features/home/Home"));
+import Home from "./features/home/Home";
 const Destinations = lazy(() => import("./features/destinations/Destinations"));
 import { ErrorBoundary } from "./shared/components/layout/ErrorBoundary";
 import { Toaster } from "sonner";

@@ -92,7 +92,8 @@ function homeChunkFile(manifest) {
     process.exit(1);
   }
   const homeSrc = entry.dynamicImports.find(
-    (src) => src.includes("/features/home/") && /Home(\.tsx)?$/.test(src),
+    (src) =>
+      src.includes("/features/home/") && /Home(?:Heavy)?(\.tsx)?$/.test(src),
   );
   if (!homeSrc || !manifest[homeSrc]) {
     console.error(

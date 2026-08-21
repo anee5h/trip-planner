@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   fetchWeatherTabContext,
   type WeatherTabContext,
@@ -54,8 +54,15 @@ export function useWeatherContext(
 ) {
   const [weatherContext, setWeatherContext] =
     useState<WeatherTabContext | null>(null);
-  const [activeTabId, setActiveTabId] = useState<string>("today");
+  const [activeTabId, setActiveTabIdState] = useState<string>("today");
   const [customDate, setCustomDate] = useState<string | null>(null);
+  const pendingActiveTabRef = useRef<string | null>(null);
+  const pendingCustomDateRef = useRef<string | null>(null);
+
+  const setActiveTabId = (nextTabId: string) => {
+    pendingActiveTabRef.current = nextTabId;
+    setActiveTabIdState(nextTabId);
+  };
 
   useEffect(() => {
     const lat = homeStationCoords?.lat || 35.6762;
@@ -73,8 +80,18 @@ export function useWeatherContext(
       fetchWeatherTabContext(lat, lng)
         .then((ctx) => {
           if (cancelled) return;
-          setWeatherContext(ctx);
-          setActiveTabId(ctx.activeTabId);
+          const queuedDate = pendingCustomDateRef.current;
+          const queuedTab = pendingActiveTabRef.current;
+          const resolved = queuedDate
+            ? resolveDateTabSelection(ctx, queuedDate)
+            : null;
+          pendingCustomDateRef.current = null;
+          pendingActiveTabRef.current = null;
+          setWeatherContext(resolved ? { ...ctx, tabs: resolved.tabs } : ctx);
+          setActiveTabIdState(
+            resolved?.activeTabId ?? queuedTab ?? ctx.activeTabId,
+          );
+          setCustomDate(resolved?.customDate ?? null);
         })
         .catch((err) => console.error("Weather tab fetch error:", err));
     };
@@ -95,7 +112,10 @@ export function useWeatherContext(
   }, [homeStationCoords]);
 
   const handleCustomDateSelect = (selectedDate: string) => {
-    if (!weatherContext) return;
+    if (!weatherContext) {
+      pendingCustomDateRef.current = selectedDate;
+      return;
+    }
     const resolved = resolveDateTabSelection(weatherContext, selectedDate);
     setWeatherContext({ ...weatherContext, tabs: resolved.tabs });
     setActiveTabId(resolved.activeTabId);

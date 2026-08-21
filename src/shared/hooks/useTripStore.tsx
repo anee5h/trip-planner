@@ -19,7 +19,7 @@ import type { Trip, TripStop } from "@/shared/types/trip";
 import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
+import { resolveOriginTransportZone } from "@/shared/services/transport/OriginTransportZone";
 
 /**
  * Formats a prefecture name into the exact SVG key required by @react-map/japan@1.0.10.

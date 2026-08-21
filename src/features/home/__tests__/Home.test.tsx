@@ -176,21 +176,20 @@ async function renderHome() {
         <Home />
       </MemoryRouter>,
     );
-    // Flush the lite-catalogue microtask (loadLiteIndex resolves in
-    // beforeAll; the Home effect's setLiteReady fires on a microtask).
+    // HeavyHome is deliberately outside this eager-shell unit seam. Its
+    // results/rails are covered by the homepage E2E matrix.
     await Promise.resolve();
   });
   return host;
 }
 
 describe("Home Integration Tests", () => {
-  it("renders homepage planner and top matches section", async () => {
+  it("renders the eager homepage origin/date, H1, and planner surface", async () => {
     const container = await await renderHome();
 
     expect(container.textContent).toContain("home.headline");
     expect(container.textContent).toContain("home.planner");
     expect(container.textContent).toContain("home.find");
-    expect(container.textContent).toContain("Top matches for you");
     expect(container.textContent).toContain("origin.from");
     const today = Array.from(container.querySelectorAll("button")).find(
       (button) => button.textContent?.startsWith("Today"),
@@ -210,18 +209,40 @@ describe("Home Integration Tests", () => {
     expect(weekend).toBeUndefined();
   });
 
-  it("reserves the weather/date row footprint while weather is pending", async () => {
+  it("preserves the origin/date → H1 → planner DOM order with one real H1", async () => {
+    const container = await renderHome();
+    const originDate = container.querySelector("[data-home-origin-date-ready]");
+    const headline = container.querySelector("h1");
+    const planner = container.querySelector("[data-home-planner-ready]");
+
+    expect(originDate).not.toBeNull();
+    expect(headline).not.toBeNull();
+    expect(planner).not.toBeNull();
+    expect(container.querySelectorAll("h1")).toHaveLength(1);
+    expect(
+      Boolean(
+        originDate!.compareDocumentPosition(headline!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBe(true);
+    expect(
+      Boolean(
+        headline!.compareDocumentPosition(planner!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBe(true);
+  });
+
+  it("renders real date controls while weather is pending", async () => {
     weatherMockState.ready = false;
     const container = await renderHome();
-    const placeholder = container.querySelector(
-      "[data-home-weather-placeholder]",
-    );
-
-    expect(placeholder).not.toBeNull();
-    expect(placeholder?.getAttribute("aria-hidden")).toBe("true");
-    expect(placeholder?.children).toHaveLength(3);
-    expect(placeholder?.lastElementChild?.className).toContain("col-span-2");
-    expect(placeholder?.lastElementChild?.className).toContain("sm:col-span-1");
+    expect(
+      container.querySelector("[data-home-weather-placeholder]"),
+    ).toBeNull();
+    expect(container.querySelector("[data-home-weather-shell]")).not.toBeNull();
+    expect(
+      container.querySelector('button[aria-haspopup="dialog"]'),
+    ).not.toBeNull();
 
     weatherMockState.ready = true;
   });
@@ -286,7 +307,7 @@ describe("Home Integration Tests", () => {
     expect(container.querySelector('[role="dialog"]')).toBeNull();
   });
 
-  it("Surprise Me opens modal without applying draft planner state to top matches", async () => {
+  it("Surprise Me does not apply the draft planner state", async () => {
     const container = await await renderHome();
 
     const surpriseBtn = Array.from(container.querySelectorAll("button")).find(
@@ -298,7 +319,11 @@ describe("Home Integration Tests", () => {
       surpriseBtn?.click();
     });
 
-    expect(container.textContent).toContain("Top matches for you");
+    expect(
+      Array.from(container.querySelectorAll("button")).some((button) =>
+        button.textContent?.includes("home.find"),
+      ),
+    ).toBe(true);
   });
 
   it("weekend mode: toggling to Weekend changes heading after apply", async () => {
@@ -316,9 +341,7 @@ describe("Home Integration Tests", () => {
       weekendToggle?.click();
     });
 
-    // The toggle should now show weekend mode
-    // Default heading should still be day-trip since we haven't applied yet
-    expect(container.textContent).toContain("Top matches for you");
+    expect(weekendToggle?.getAttribute("aria-checked")).toBe("true");
 
     // Click Find/Apply to see if weekend heading appears
     const applyBtn = Array.from(container.querySelectorAll("button")).find(
@@ -330,8 +353,11 @@ describe("Home Integration Tests", () => {
     act(() => {
       applyBtn?.click();
     });
-    // Top matches stays the first rail in every trip mode.
-    expect(container.textContent).toContain("Top matches for you");
+    expect(
+      Array.from(container.querySelectorAll("button")).some((button) =>
+        button.textContent?.includes("home.view"),
+      ),
+    ).toBe(true);
   });
 });
 
@@ -397,6 +423,13 @@ describe("weekend date capsule", () => {
     const capsuleBefore = rangeBtn();
     expect(capsuleBefore).toBeDefined();
     act(() => capsuleBefore?.click());
+
+    await act(async () => {
+      for (let attempt = 0; attempt < 100; attempt += 1) {
+        if (container.querySelector("button[data-date]")) break;
+        await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+    });
 
     const dayBtn = container.querySelector(
       "button[data-date]",
