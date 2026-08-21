@@ -1,4 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import type { PostgrestError, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
@@ -188,8 +194,29 @@ function getDatePart(value: unknown): string | null {
   return /^\d{4}-\d{2}-\d{2}$/.test(datePart) ? datePart : null;
 }
 
+type OriginPersistenceRequest = {
+  origin: OriginLocation;
+  userId: string;
+  generation: number;
+  resolve: (succeeded: boolean) => void;
+};
+
 function serializeProfileSnapshot(snapshot: ProfileSnapshot): string {
   return JSON.stringify(snapshot);
+}
+
+function acknowledgeSyncedHomeStation(
+  previousBaseline: string | null,
+  homeStation: string,
+): string | null {
+  if (!previousBaseline) return null;
+
+  try {
+    const baseline = JSON.parse(previousBaseline) as ProfileSnapshot;
+    return serializeProfileSnapshot({ ...baseline, homeStation });
+  } catch {
+    return null;
+  }
 }
 
 function isValidResolvedCoordinates(
@@ -403,9 +430,26 @@ export function useTripSync({
     generation: number;
     status: "pending" | "succeeded";
   } | null>(null);
+  const originPersistenceQueueRef = useRef<{
+    pending: OriginPersistenceRequest | null;
+    running: boolean;
+  }>({ pending: null, running: false });
+  const renderedUserIdRef = useRef(user?.id);
+
+  // Invalidate queued work during render as soon as ownership changes. The
+  // layout effect below also resets account-scoped UI state, but a synchronous
+  // guard is needed before an already-resolved network promise can resume.
+  if (renderedUserIdRef.current !== user?.id) {
+    profileMutationVersionRef.current += 1;
+    const queuedOrigin = originPersistenceQueueRef.current.pending;
+    originPersistenceQueueRef.current.pending = null;
+    queuedOrigin?.resolve(false);
+    explicitOriginMutationRef.current = null;
+    renderedUserIdRef.current = user?.id;
+  }
 
   // Clear account-scoped memory state on logout or account switch.
-  useEffect(() => {
+  useLayoutEffect(() => {
     const previousUserId = previousUserIdRef.current;
     const currentUserId = user?.id;
     const accountChanged =
@@ -413,6 +457,9 @@ export function useTripSync({
 
     if (accountChanged || (previousUserId && !currentUserId)) {
       profileMutationVersionRef.current += 1;
+      const queuedOrigin = originPersistenceQueueRef.current.pending;
+      originPersistenceQueueRef.current.pending = null;
+      queuedOrigin?.resolve(false);
       explicitOriginMutationRef.current = null;
       hydratedUserIdRef.current = null;
       lastSyncedProfileRef.current = null;
@@ -439,6 +486,9 @@ export function useTripSync({
       setActiveOrigin(guestOrigin);
     } else if (currentUserId && currentUserId !== previousUserId) {
       profileMutationVersionRef.current += 1;
+      const queuedOrigin = originPersistenceQueueRef.current.pending;
+      originPersistenceQueueRef.current.pending = null;
+      queuedOrigin?.resolve(false);
       explicitOriginMutationRef.current = null;
       hydratedUserIdRef.current = null;
       lastSyncedProfileRef.current = null;
@@ -798,14 +848,17 @@ export function useTripSync({
       explicitOriginMutation.label === savedHomeStation
     ) {
       if (explicitOriginMutation.status === "succeeded") {
-        lastSyncedProfileRef.current = snapshot;
+        lastSyncedProfileRef.current = acknowledgeSyncedHomeStation(
+          lastSyncedProfileRef.current,
+          savedHomeStation,
+        );
         explicitOriginMutationRef.current = null;
       }
       if (profileSyncTimeoutRef.current) {
         clearTimeout(profileSyncTimeoutRef.current);
         profileSyncTimeoutRef.current = null;
       }
-      return;
+      if (explicitOriginMutation.status === "pending") return;
     }
 
     if (profileSyncTimeoutRef.current) {
@@ -1008,7 +1061,7 @@ export function useTripSync({
   };
 
   const persistSelectedOrigin = useCallback(
-    async (origin: OriginLocation): Promise<boolean> => {
+    (origin: OriginLocation): Promise<boolean> => {
       const userId = user?.id;
       const client = supabase;
       const generation = profileMutationVersionRef.current;
@@ -1021,8 +1074,15 @@ export function useTripSync({
           profileSyncStatus !== "saving" &&
           profileSyncStatus !== "origin_error")
       ) {
-        return false;
+        return Promise.resolve(false);
       }
+
+      const queue = originPersistenceQueueRef.current;
+      queue.pending?.resolve(false);
+
+      const requestPromise = new Promise<boolean>((resolve) => {
+        queue.pending = { origin, userId, generation, resolve };
+      });
 
       explicitOriginMutationRef.current = {
         userId,
@@ -1032,54 +1092,73 @@ export function useTripSync({
       };
       setProfileSyncStatus("saving");
 
-      const { error } = await withJwtFutureRecovery(
-        client,
-        () =>
-          client.from("user_data").upsert({
-            id: userId,
-            home_station: origin.label,
-            updated_at: new Date().toISOString(),
-          }),
-        {
-          phase: "user_data.origin_save",
-          isStillCurrent: () =>
-            previousUserIdRef.current === userId &&
-            hydratedUserIdRef.current === userId &&
-            profileMutationVersionRef.current === generation,
-          userId,
-        },
-      );
+      const processQueue = async () => {
+        if (queue.running) return;
+        queue.running = true;
 
-      if (
-        previousUserIdRef.current !== userId ||
-        hydratedUserIdRef.current !== userId ||
-        profileMutationVersionRef.current !== generation
-      ) {
-        return false;
-      }
+        while (queue.pending) {
+          const request = queue.pending;
+          queue.pending = null;
+          const { origin: queuedOrigin } = request;
+          const { error } = await withJwtFutureRecovery(
+            client,
+            () =>
+              client.from("user_data").upsert({
+                id: request.userId,
+                home_station: queuedOrigin.label,
+                updated_at: new Date().toISOString(),
+              }),
+            {
+              phase: "user_data.origin_save",
+              isStillCurrent: () =>
+                previousUserIdRef.current === request.userId &&
+                hydratedUserIdRef.current === request.userId &&
+                profileMutationVersionRef.current === request.generation,
+              userId: request.userId,
+            },
+          );
 
-      if (error) {
-        console.error(
-          "[Meguruto Sync] Failed to persist selected origin:",
-          error,
-        );
-        explicitOriginMutationRef.current = null;
-        setProfileSyncStatus("origin_error");
-        toast.error("Failed to save your home station. Please try again.", {
-          id: "origin-save-error",
-        });
-        return false;
-      }
+          const stillCurrent =
+            previousUserIdRef.current === request.userId &&
+            hydratedUserIdRef.current === request.userId &&
+            profileMutationVersionRef.current === request.generation;
+          const hasNewerSelection = Boolean(queue.pending);
 
-      explicitOriginMutationRef.current = {
-        userId,
-        label: origin.label,
-        generation,
-        status: "succeeded",
+          if (!stillCurrent || hasNewerSelection) {
+            request.resolve(false);
+            continue;
+          }
+
+          if (error) {
+            console.error(
+              "[Meguruto Sync] Failed to persist selected origin:",
+              error,
+            );
+            explicitOriginMutationRef.current = null;
+            setProfileSyncStatus("origin_error");
+            toast.error("Failed to save your home station. Please try again.", {
+              id: "origin-save-error",
+            });
+            request.resolve(false);
+            continue;
+          }
+
+          explicitOriginMutationRef.current = {
+            userId: request.userId,
+            label: queuedOrigin.label,
+            generation: request.generation,
+            status: "succeeded",
+          };
+          setOriginPersistenceRevision((revision) => revision + 1);
+          setProfileSyncStatus("ready");
+          request.resolve(true);
+        }
+
+        queue.running = false;
       };
-      setOriginPersistenceRevision((revision) => revision + 1);
-      setProfileSyncStatus("ready");
-      return true;
+
+      void processQueue();
+      return requestPromise;
     },
     [profileSyncStatus, user?.id],
   );
