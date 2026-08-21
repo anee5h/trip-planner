@@ -18,9 +18,12 @@ import {
 import { ja, enUS } from "date-fns/locale";
 import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
-import { getNextCalendarDate } from "@/shared/services/weather/WeatherTabService";
-import { formatTravelDateShort } from "@/shared/utils/recommendationLabels";
-import { travelDateToDate } from "@/shared/services/recommendation/TravelConditions";
+import { getNextCalendarDate } from "@/shared/utils/travelDate";
+import {
+  formatCapsuleLabel,
+  formatTravelDateShort,
+  travelDateToDate,
+} from "@/shared/utils/travelDate";
 import { cn } from "@/shared/utils/utils";
 
 export interface OriginForecastCalendarMarker {
@@ -68,62 +71,7 @@ export function getOriginForecastCalendarMarker(
   };
 }
 
-export function formatCapsuleLabel(
-  value: string | undefined,
-  tripMode: TripMode,
-  allowAnyDate: boolean | undefined,
-  locale: "en" | "ja",
-  todayIso: string,
-  tomorrowIso: string,
-  t: (key: any, options?: any) => any,
-  hasExplicitSelection?: boolean,
-): string {
-  if (
-    !hasExplicitSelection &&
-    !allowAnyDate &&
-    (!value || value === todayIso)
-  ) {
-    return t("datePicker.selectDate", { defaultValue: "Select date" });
-  }
-
-  if (!value) {
-    if (allowAnyDate) {
-      return t("datePicker.anyDate", { defaultValue: "Any date" });
-    }
-    return t("datePicker.selectDate", { defaultValue: "Select date" });
-  }
-
-  if (tripMode === "day_trip") {
-    if (value === todayIso) {
-      return t("datePicker.today", { defaultValue: "Today" });
-    }
-    if (value === tomorrowIso) {
-      return t("datePicker.tomorrow", { defaultValue: "Tomorrow" });
-    }
-    return formatTravelDateShort(value, locale);
-  }
-
-  // 2D1N mode
-  const day2Iso = getNextCalendarDate(value);
-  if (value === todayIso && day2Iso === tomorrowIso) {
-    return locale === "ja" ? "今日〜明日" : "Today – Tomorrow";
-  }
-
-  if (locale === "ja") {
-    return `${formatTravelDateShort(value, "ja")}〜${formatTravelDateShort(day2Iso, "ja")}`;
-  }
-
-  const [y1, m1, d1] = value.split("-").map(Number);
-  const [y2, m2, d2] = day2Iso.split("-").map(Number);
-  if (y1 === y2 && m1 === m2) {
-    const monthName = new Intl.DateTimeFormat("en-US", {
-      month: "short",
-    }).format(new Date(y1, m1 - 1, 1));
-    return `${monthName} ${d1}–${d2}`;
-  }
-
-  return `${formatTravelDateShort(value, "en")} – ${formatTravelDateShort(day2Iso, "en")}`;
-}
+export { formatCapsuleLabel };
 
 export interface TravelDatePickerProps {
   value?: string;
@@ -137,6 +85,7 @@ export interface TravelDatePickerProps {
   minDate?: string;
   triggerLabel?: string;
   className?: string;
+  initialOpen?: boolean;
 }
 
 export default function TravelDatePicker({
@@ -151,12 +100,13 @@ export default function TravelDatePicker({
   minDate: propMinDate,
   triggerLabel: propTriggerLabel,
   className,
+  initialOpen = false,
 }: TravelDatePickerProps) {
   const { t, i18n } = useTranslation();
   const currentLocale: "en" | "ja" =
     propLocale || (i18n.language === "ja" ? "ja" : "en");
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(initialOpen);
 
   const todayIso = useMemo(() => localDateToIso(new Date()), []);
   const tomorrowIso = useMemo(() => getNextCalendarDate(todayIso), [todayIso]);

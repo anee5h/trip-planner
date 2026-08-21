@@ -1,7 +1,7 @@
 import { LocateFixed, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
+import { resolveOriginTransportZone } from "@/shared/services/transport/OriginTransportZone";
 
 import { useState, useEffect, useMemo } from "react";
 import { OriginLocationDisplay } from "@/shared/components/OriginLocationDisplay";
