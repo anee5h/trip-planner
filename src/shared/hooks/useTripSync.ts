@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import type { PostgrestError, User } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import { toast } from "sonner";
@@ -13,7 +19,10 @@ import { generateUUID, isValidUUID } from "@/shared/utils/uuid";
 // route-scoped runtime fetch for catalogue surfaces only.
 import destinationsMeta from "@/shared/data/destinations-meta.json";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
-import type { OriginLocation } from "@/shared/hooks/useTripStore";
+import type {
+  OriginLocation,
+  SavedOriginLocation,
+} from "@/shared/hooks/useTripStore";
 import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { withJwtFutureRecovery } from "@/shared/hooks/jwtRecovery";
 import { getLocalizedStationNameOnly } from "@/shared/utils/formatOriginLocation";
@@ -50,7 +59,7 @@ interface UseTripSyncProps {
   setCompareList: (val: string[] | ((prev: string[]) => string[])) => void;
   savedHomeStation: string;
   guestOrigin: OriginLocation;
-  setActiveOrigin: (origin: OriginLocation) => void;
+  setActiveOrigin: (origin: SavedOriginLocation) => void;
   trips?: Trip[];
   setTrips?: (val: Trip[] | ((prev: Trip[]) => Trip[])) => void;
   destinationRatings?: DestinationRatings;
@@ -83,6 +92,10 @@ export interface UseTripSyncReturn {
   persistCorrectedOrigin: (
     origin: import("./useTripStore").OriginLocation,
   ) => Promise<void>;
+  /** Persist a station explicitly selected as the signed-in account origin. */
+  persistSelectedOrigin: (
+    origin: import("./useTripStore").OriginLocation,
+  ) => Promise<boolean>;
 }
 
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
@@ -181,8 +194,29 @@ function getDatePart(value: unknown): string | null {
   return /^\d{4}-\d{2}-\d{2}$/.test(datePart) ? datePart : null;
 }
 
+type OriginPersistenceRequest = {
+  origin: OriginLocation;
+  userId: string;
+  generation: number;
+  resolve: (succeeded: boolean) => void;
+};
+
 function serializeProfileSnapshot(snapshot: ProfileSnapshot): string {
   return JSON.stringify(snapshot);
+}
+
+function acknowledgeSyncedHomeStation(
+  previousBaseline: string | null,
+  homeStation: string,
+): string | null {
+  if (!previousBaseline) return null;
+
+  try {
+    const baseline = JSON.parse(previousBaseline) as ProfileSnapshot;
+    return serializeProfileSnapshot({ ...baseline, homeStation });
+  } catch {
+    return null;
+  }
 }
 
 function isValidResolvedCoordinates(
@@ -371,11 +405,14 @@ export function useTripSync({
   const [tripSyncStatus, setTripSyncStatus] = useState<TripSyncStatus>("idle");
   const [retryProfileTrigger, setRetryProfileTrigger] = useState<number>(0);
   const [retryTripTrigger, setRetryTripTrigger] = useState<number>(0);
+  const [originPersistenceRevision, setOriginPersistenceRevision] =
+    useState<number>(0);
 
   const hydratedUserIdRef = useRef<string | null>(null);
   const hydratedTripsUserIdRef = useRef<string | null>(null);
   const previousUserIdRef = useRef(user?.id);
   const hydrationVersionRef = useRef(0);
+  const profileMutationVersionRef = useRef(0);
   // Non-null while profileSyncStatus === "origin_error" so that
   // persistCorrectedOrigin knows which account to upsert.
   const pendingOriginRepairUserIdRef = useRef<string | null>(null);
@@ -387,15 +424,43 @@ export function useTripSync({
   >(null);
   const previousTripsRef = useRef<Trip[]>(trips);
   const lastSyncedProfileRef = useRef<string | null>(null);
+  const explicitOriginMutationRef = useRef<{
+    userId: string;
+    label: string;
+    generation: number;
+    status: "pending" | "succeeded";
+  } | null>(null);
+  const originPersistenceQueueRef = useRef<{
+    pending: OriginPersistenceRequest | null;
+    running: boolean;
+  }>({ pending: null, running: false });
+  const renderedUserIdRef = useRef(user?.id);
+
+  // Invalidate queued work during render as soon as ownership changes. The
+  // layout effect below also resets account-scoped UI state, but a synchronous
+  // guard is needed before an already-resolved network promise can resume.
+  if (renderedUserIdRef.current !== user?.id) {
+    profileMutationVersionRef.current += 1;
+    const queuedOrigin = originPersistenceQueueRef.current.pending;
+    originPersistenceQueueRef.current.pending = null;
+    queuedOrigin?.resolve(false);
+    explicitOriginMutationRef.current = null;
+    renderedUserIdRef.current = user?.id;
+  }
 
   // Clear account-scoped memory state on logout or account switch.
-  useEffect(() => {
+  useLayoutEffect(() => {
     const previousUserId = previousUserIdRef.current;
     const currentUserId = user?.id;
     const accountChanged =
       Boolean(previousUserId) && previousUserId !== currentUserId;
 
     if (accountChanged || (previousUserId && !currentUserId)) {
+      profileMutationVersionRef.current += 1;
+      const queuedOrigin = originPersistenceQueueRef.current.pending;
+      originPersistenceQueueRef.current.pending = null;
+      queuedOrigin?.resolve(false);
+      explicitOriginMutationRef.current = null;
       hydratedUserIdRef.current = null;
       lastSyncedProfileRef.current = null;
       hydrationVersionRef.current += 1;
@@ -420,6 +485,11 @@ export function useTripSync({
       previousTripsRef.current = [];
       setActiveOrigin(guestOrigin);
     } else if (currentUserId && currentUserId !== previousUserId) {
+      profileMutationVersionRef.current += 1;
+      const queuedOrigin = originPersistenceQueueRef.current.pending;
+      originPersistenceQueueRef.current.pending = null;
+      queuedOrigin?.resolve(false);
+      explicitOriginMutationRef.current = null;
       hydratedUserIdRef.current = null;
       lastSyncedProfileRef.current = null;
       // Current-location origin is runtime-only; account hydration starts from
@@ -599,15 +669,12 @@ export function useTripSync({
             loadedHomeStation,
           );
           setActiveOrigin({
-            label: "Tokyo Station",
-            coordinates: DEFAULT_TOKYO_COORDS,
-            source: "default",
-            transportZoneId: resolveOriginTransportZone({
-              coordinates: DEFAULT_TOKYO_COORDS,
-              label: "Tokyo Station",
-            }),
+            label: loadedHomeStation,
+            // Keep the cloud label visible without inventing Tokyo coordinates.
+            coordinates: undefined,
+            source: "station",
+            transportZoneId: undefined,
           });
-          // Store the user id so persistCorrectedOrigin can target it.
           pendingOriginRepairUserIdRef.current = userId;
           setProfileSyncStatus("origin_error");
           toast.error(
@@ -773,6 +840,28 @@ export function useTripSync({
 
     if (lastSyncedProfileRef.current === snapshot) return;
 
+    // home_station is owned by the explicit account-origin mutation. While it
+    // is in flight, the generic debounce must not send a stale profile.
+    const explicitOriginMutation = explicitOriginMutationRef.current;
+    if (
+      explicitOriginMutation?.userId === userId &&
+      explicitOriginMutation.label === savedHomeStation
+    ) {
+      if (explicitOriginMutation.status === "succeeded") {
+        lastSyncedProfileRef.current = acknowledgeSyncedHomeStation(
+          lastSyncedProfileRef.current,
+          savedHomeStation,
+        );
+        explicitOriginMutationRef.current = null;
+      }
+      if (profileSyncTimeoutRef.current) {
+        clearTimeout(profileSyncTimeoutRef.current);
+        profileSyncTimeoutRef.current = null;
+      }
+      if (explicitOriginMutation.status === "pending") return;
+      if (lastSyncedProfileRef.current === snapshot) return;
+    }
+
     if (profileSyncTimeoutRef.current) {
       clearTimeout(profileSyncTimeoutRef.current);
     }
@@ -851,6 +940,7 @@ export function useTripSync({
     destinationRatings,
     savedHomeStation,
     user?.id,
+    originPersistenceRevision,
     setLastSyncedDate,
   ]);
 
@@ -971,6 +1061,109 @@ export function useTripSync({
     setRetryTripTrigger((prev: number) => prev + 1);
   };
 
+  const persistSelectedOrigin = useCallback(
+    (origin: OriginLocation): Promise<boolean> => {
+      const userId = user?.id;
+      const client = supabase;
+      const generation = profileMutationVersionRef.current;
+      if (
+        !userId ||
+        !client ||
+        hydratedUserIdRef.current !== userId ||
+        previousUserIdRef.current !== userId ||
+        (profileSyncStatus !== "ready" &&
+          profileSyncStatus !== "saving" &&
+          profileSyncStatus !== "origin_error")
+      ) {
+        return Promise.resolve(false);
+      }
+
+      const queue = originPersistenceQueueRef.current;
+      queue.pending?.resolve(false);
+
+      const requestPromise = new Promise<boolean>((resolve) => {
+        queue.pending = { origin, userId, generation, resolve };
+      });
+
+      explicitOriginMutationRef.current = {
+        userId,
+        label: origin.label,
+        generation,
+        status: "pending",
+      };
+      setProfileSyncStatus("saving");
+
+      const processQueue = async () => {
+        if (queue.running) return;
+        queue.running = true;
+
+        while (queue.pending) {
+          const request = queue.pending;
+          queue.pending = null;
+          const { origin: queuedOrigin } = request;
+          const { error } = await withJwtFutureRecovery(
+            client,
+            () =>
+              client.from("user_data").upsert({
+                id: request.userId,
+                home_station: queuedOrigin.label,
+                updated_at: new Date().toISOString(),
+              }),
+            {
+              phase: "user_data.origin_save",
+              isStillCurrent: () =>
+                previousUserIdRef.current === request.userId &&
+                hydratedUserIdRef.current === request.userId &&
+                profileMutationVersionRef.current === request.generation,
+              userId: request.userId,
+            },
+          );
+
+          const stillCurrent =
+            previousUserIdRef.current === request.userId &&
+            hydratedUserIdRef.current === request.userId &&
+            profileMutationVersionRef.current === request.generation;
+          const hasNewerSelection = Boolean(queue.pending);
+
+          if (!stillCurrent || hasNewerSelection) {
+            request.resolve(false);
+            continue;
+          }
+
+          if (error) {
+            console.error(
+              "[Meguruto Sync] Failed to persist selected origin:",
+              error,
+            );
+            explicitOriginMutationRef.current = null;
+            setProfileSyncStatus("origin_error");
+            toast.error("Failed to save your home station. Please try again.", {
+              id: "origin-save-error",
+            });
+            request.resolve(false);
+            continue;
+          }
+
+          explicitOriginMutationRef.current = {
+            userId: request.userId,
+            label: queuedOrigin.label,
+            generation: request.generation,
+            status: "succeeded",
+          };
+          setOriginPersistenceRevision((revision) => revision + 1);
+          setProfileSyncStatus("ready");
+          request.resolve(true);
+        }
+
+        queue.running = false;
+      };
+
+      void processQueue();
+      return requestPromise;
+    },
+    [profileSyncStatus, user?.id],
+  );
+
   /**
    * Persist a corrected origin chosen by the user after a coordinate-resolution
    * failure. Upserts only home_station; transitions status to "ready" on
@@ -1040,5 +1233,6 @@ export function useTripSync({
     retryProfileHydration,
     retryTripHydration,
     persistCorrectedOrigin,
+    persistSelectedOrigin,
   };
 }

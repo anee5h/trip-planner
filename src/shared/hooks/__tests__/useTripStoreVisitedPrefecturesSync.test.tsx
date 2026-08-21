@@ -28,6 +28,7 @@ vi.mock("@/shared/hooks/useTripSync", () => ({
       retryProfileHydration: vi.fn(),
       retryTripHydration: vi.fn(),
       persistCorrectedOrigin: vi.fn().mockResolvedValue(undefined),
+      persistSelectedOrigin: vi.fn().mockResolvedValue(true),
     };
   },
 }));

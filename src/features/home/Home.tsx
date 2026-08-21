@@ -123,7 +123,7 @@ export default function Home() {
     setCustomDate,
     currentTab,
     handleCustomDateSelect,
-  } = useWeatherContext(homeStationCoords);
+  } = useWeatherContext(homeStationCoords ?? null);
 
   const tomorrowIso = useMemo(
     () => weatherContext?.tabs.find((tab) => tab.id === "tomorrow")?.dates?.[0],
@@ -346,7 +346,7 @@ export default function Home() {
       partySize: resolvedApplied.partySize,
       budgetTier: resolvedApplied.budgetTier,
       tripDuration: resolvedApplied.tripDuration,
-      homeStationCoords,
+      homeStationCoords: homeStationCoords ?? null,
       homeStationTransportZoneId,
       ferryTemporal,
       isVisited,
@@ -400,7 +400,7 @@ export default function Home() {
   );
   const discoveryRails = useMemo(() => {
     const originRailContext: OriginRailContext = {
-      homeStationCoords,
+      homeStationCoords: homeStationCoords ?? null,
       homeStationTransportZoneId,
       carMode: resolvedApplied.carMode,
       publicModes: resolvedApplied.publicModes,
@@ -805,7 +805,7 @@ export default function Home() {
             <UnexploredNearbyRail
               destinations={allDestinations}
               precomputedDestinations={discoveryRails.nearby}
-              homeStationCoords={homeStationCoords}
+              homeStationCoords={homeStationCoords ?? null}
               homeStationTransportZoneId={homeStationTransportZoneId}
               isVisited={isVisited}
               partySize={resolvedApplied.partySize}

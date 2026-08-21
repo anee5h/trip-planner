@@ -6,7 +6,7 @@ import { createRoot, type Root } from "react-dom/client";
 import type { User } from "@supabase/supabase-js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useTripSync, type UseTripSyncReturn } from "../useTripSync";
-import type { OriginLocation } from "../useTripStore";
+import type { OriginLocation, SavedOriginLocation } from "../useTripStore";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -88,8 +88,12 @@ const TOKYO_DEFAULT: OriginLocation = {
 
 interface HarnessValue {
   sync: UseTripSyncReturn;
-  activeOrigin: OriginLocation;
-  setRuntimeOrigin: (origin: OriginLocation) => void;
+  activeOrigin: SavedOriginLocation;
+  setRuntimeOrigin: (origin: SavedOriginLocation) => void;
+  setSavedOrigin: (origin: OriginLocation) => void;
+  setFavorites: (value: string[]) => void;
+  setVisited: (value: string[]) => void;
+  setDestinationRatings: (value: Record<string, "up" | "down">) => void;
 }
 
 let latest: HarnessValue;
@@ -111,9 +115,10 @@ function Harness({
   >({});
   const [compareList, setCompareList] = useState<string[]>([]);
   const [savedOrigin, setSavedOrigin] = useState<OriginLocation>(guestOrigin);
-  const [activeOrigin, setActiveOrigin] = useState<OriginLocation>(guestOrigin);
-  const setSavedActiveOrigin = useCallback((origin: OriginLocation) => {
-    setSavedOrigin(origin);
+  const [activeOrigin, setActiveOrigin] =
+    useState<SavedOriginLocation>(guestOrigin);
+  const setSavedActiveOrigin = useCallback((origin: SavedOriginLocation) => {
+    if (origin.coordinates) setSavedOrigin(origin as OriginLocation);
     setActiveOrigin(origin);
   }, []);
   const [destinationRatings, setDestinationRatings] = useState<
@@ -143,6 +148,10 @@ function Harness({
     sync,
     activeOrigin,
     setRuntimeOrigin: setActiveOrigin,
+    setSavedOrigin,
+    setFavorites,
+    setVisited,
+    setDestinationRatings,
   };
   return null;
 }
@@ -272,7 +281,353 @@ describe("useTripSync — origin ownership integration", () => {
     expect(latest.activeOrigin.label).toBe("Tokyo Station");
   });
 
-  it("does not persist a runtime current origin when the saved origin is unchanged", async () => {
+  it("persists a selected signed-in origin immediately and suppresses the generic debounce", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    let save!: (value: { data: null; error: null }) => void;
+    mocks.upsert.mockReturnValueOnce(
+      new Promise((resolve) => (save = resolve)),
+    );
+    const mutation = latest.sync.persistSelectedOrigin(NAKAYAMA);
+    act(() => latest.setSavedOrigin(NAKAYAMA));
+    expect(mocks.upsert).toHaveBeenCalledTimes(1);
+    expect(mocks.upsert).toHaveBeenCalledWith(
+      expect.objectContaining({ id: "user-b", home_station: NAKAYAMA.label }),
+    );
+
+    await act(async () => {
+      save({ data: null, error: null });
+      await mutation;
+    });
+    await act(async () => {
+      // Flush the post-success React effect before advancing its debounce.
+      await Promise.resolve();
+      vi.advanceTimersByTime(1_100);
+      await Promise.resolve();
+    });
+
+    expect(mocks.upsert).toHaveBeenCalledTimes(1);
+  });
+
+  it("origin success acknowledges only home_station and leaves unrelated changes for generic sync", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    let saveOrigin!: (value: { data: null; error: null }) => void;
+    mocks.upsert.mockReturnValueOnce(
+      new Promise((resolve) => (saveOrigin = resolve)),
+    );
+    const originMutation = latest.sync.persistSelectedOrigin(NAKAYAMA);
+    act(() => {
+      latest.setSavedOrigin(NAKAYAMA);
+      latest.setFavorites(["destination-a"]);
+      latest.setVisited(["destination-b"]);
+      latest.setDestinationRatings({ "destination-c": "up" });
+    });
+
+    await act(async () => {
+      saveOrigin({ data: null, error: null });
+      await originMutation;
+    });
+    await act(async () => {
+      await Promise.resolve();
+      vi.advanceTimersByTime(1_100);
+      await Promise.resolve();
+    });
+
+    expect(mocks.upsert).toHaveBeenCalledTimes(2);
+    expect(mocks.upsert.mock.calls[1][0]).toEqual(
+      expect.objectContaining({
+        id: "user-b",
+        home_station: NAKAYAMA.label,
+        favorites: ["destination-a"],
+        visited: ["destination-b"],
+        destination_ratings: { "destination-c": "up" },
+      }),
+    );
+  });
+
+  it("serializes rapid origin selections so the final durable value is latest-wins", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    let resolveA!: (value: { data: null; error: null }) => void;
+    let resolveB!: (value: { data: null; error: null }) => void;
+    mocks.upsert
+      .mockReturnValueOnce(new Promise((resolve) => (resolveA = resolve)))
+      .mockReturnValueOnce(new Promise((resolve) => (resolveB = resolve)));
+
+    const saveA = latest.sync.persistSelectedOrigin(TOKYO_DEFAULT);
+    const saveB = latest.sync.persistSelectedOrigin(NAKAYAMA);
+    act(() => latest.setSavedOrigin(NAKAYAMA));
+    expect(mocks.upsert).toHaveBeenCalledWith(
+      expect.objectContaining({ home_station: TOKYO_DEFAULT.label }),
+    );
+
+    await act(async () => {
+      resolveA({ data: null, error: null });
+      await Promise.resolve();
+    });
+    expect(mocks.upsert).toHaveBeenCalledTimes(2);
+    expect(mocks.upsert.mock.calls[1][0]).toEqual(
+      expect.objectContaining({ home_station: NAKAYAMA.label }),
+    );
+
+    await act(async () => {
+      resolveB({ data: null, error: null });
+      await Promise.all([saveA, saveB]);
+    });
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+  });
+
+  it("coalesces A to B to C with C as the final durable origin", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    let resolveA!: (value: { data: null; error: null }) => void;
+    let resolveC!: (value: { data: null; error: null }) => void;
+    mocks.upsert
+      .mockReturnValueOnce(new Promise((resolve) => (resolveA = resolve)))
+      .mockReturnValueOnce(new Promise((resolve) => (resolveC = resolve)));
+
+    const saveA = latest.sync.persistSelectedOrigin(TOKYO_DEFAULT);
+    const saveB = latest.sync.persistSelectedOrigin(NAKAYAMA);
+    const saveC = latest.sync.persistSelectedOrigin({
+      ...NAKAYAMA,
+      label: "Shinyokohama Station, Kanagawa",
+    });
+
+    await act(async () => {
+      resolveA({ data: null, error: null });
+      await Promise.resolve();
+    });
+    expect(mocks.upsert).toHaveBeenCalledTimes(2);
+    expect(mocks.upsert.mock.calls[1][0]).toEqual(
+      expect.objectContaining({
+        home_station: "Shinyokohama Station, Kanagawa",
+      }),
+    );
+
+    await act(async () => {
+      resolveC({ data: null, error: null });
+      await Promise.all([saveA, saveB, saveC]);
+    });
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+  });
+  it("does not surface a stale origin failure after a newer selection succeeds", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    let rejectA!: (value: { data: null; error: Error }) => void;
+    let resolveB!: (value: { data: null; error: null }) => void;
+    mocks.upsert
+      .mockReturnValueOnce(new Promise((resolve) => (rejectA = resolve)))
+      .mockReturnValueOnce(new Promise((resolve) => (resolveB = resolve)));
+
+    const saveA = latest.sync.persistSelectedOrigin(TOKYO_DEFAULT);
+    const saveB = latest.sync.persistSelectedOrigin(NAKAYAMA);
+    act(() => latest.setSavedOrigin(NAKAYAMA));
+
+    await act(async () => {
+      rejectA({ data: null, error: new Error("stale failure") });
+      await Promise.resolve();
+      resolveB({ data: null, error: null });
+      await Promise.all([saveA, saveB]);
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("ready");
+    expect(mocks.toastError).not.toHaveBeenCalledWith(
+      "Failed to save your home station. Please try again.",
+      expect.anything(),
+    );
+  });
+  it("does not apply a pending account-origin result after an account switch", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    let save!: (value: { data: null; error: null }) => void;
+    mocks.upsert.mockReturnValueOnce(
+      new Promise((resolve) => (save = resolve)),
+    );
+    const mutation = latest.sync.persistSelectedOrigin(NAKAYAMA);
+
+    await act(async () => {
+      render({ id: "user-c" } as User, TOKYO_DEFAULT);
+      save({ data: null, error: null });
+      await mutation;
+      await Promise.resolve();
+    });
+
+    expect(latest.activeOrigin.label).not.toBe(NAKAYAMA.label);
+    expect(mocks.upsert.mock.calls[0][0]).toEqual(
+      expect.objectContaining({ id: "user-b", home_station: NAKAYAMA.label }),
+    );
+  });
+
+  it("invalidates a queued origin from the old account on account switch", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockClear();
+
+    let resolveA!: (value: { data: null; error: null }) => void;
+    mocks.upsert.mockReturnValueOnce(
+      new Promise((resolve) => (resolveA = resolve)),
+    );
+    const saveA = latest.sync.persistSelectedOrigin(TOKYO_DEFAULT);
+    const saveB = latest.sync.persistSelectedOrigin(NAKAYAMA);
+
+    render({ id: "user-c" } as User, TOKYO_DEFAULT);
+    await act(async () => {
+      await Promise.resolve();
+      resolveA({ data: null, error: null });
+      await Promise.all([saveA, saveB]);
+    });
+
+    expect(mocks.upsert).toHaveBeenCalled();
+    expect(mocks.upsert.mock.calls).not.toContainEqual([
+      expect.objectContaining({
+        id: "user-b",
+        home_station: NAKAYAMA.label,
+      }),
+    ]);
+  });
+  it("exposes an origin error when the explicit account save fails", async () => {
+    mocks.maybeSingle.mockResolvedValue({
+      data: {
+        favorites: [],
+        visited: [],
+        visited_prefectures: [],
+        visited_dates: {},
+        destination_ratings: {},
+        home_station: "Tokyo Station",
+      },
+      error: null,
+    });
+    await act(async () => {
+      render(userB, TOKYO_DEFAULT);
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    mocks.upsert.mockResolvedValueOnce({ error: new Error("offline") });
+
+    await act(async () => {
+      await latest.sync.persistSelectedOrigin(NAKAYAMA);
+    });
+
+    expect(latest.sync.profileSyncStatus).toBe("origin_error");
+    expect(mocks.toastError).toHaveBeenCalledWith(
+      "Failed to save your home station. Please try again.",
+      expect.objectContaining({ id: "origin-save-error" }),
+    );
+  });
+
+  it("does not persist a runtime current origin through the account mutation", async () => {
     mocks.maybeSingle.mockResolvedValue({
       data: {
         favorites: [],
@@ -331,7 +686,7 @@ describe("useTripSync — origin ownership integration", () => {
     expect(latest.activeOrigin.label).toBe("Shin-Yokohama Station, Kanagawa");
   });
 
-  it("coordinate resolution failure sets sync origin_error and falls back to Tokyo, does not upsert", async () => {
+  it("coordinate resolution failure retains the saved label in origin_error and does not upsert", async () => {
     // Cloud has a station that cannot be resolved (not in stations JSON).
     mocks.maybeSingle.mockResolvedValue({
       data: {
@@ -354,8 +709,9 @@ describe("useTripSync — origin ownership integration", () => {
     });
 
     expect(latest.sync.profileSyncStatus).toBe("origin_error");
-    expect(latest.activeOrigin.label).toBe("Tokyo Station");
-    expect(latest.activeOrigin.source).toBe("default");
+    expect(latest.activeOrigin.label).toBe("Nonexistent Station, Nowhere");
+    expect(latest.activeOrigin.source).toBe("station");
+    expect(latest.activeOrigin.coordinates).toBeUndefined();
     expect(mocks.upsert).not.toHaveBeenCalled();
   });
 
@@ -550,9 +906,10 @@ describe("useTripSync — origin ownership integration", () => {
       await Promise.resolve();
     });
 
-    // Should fall back to Tokyo safely.
+    // Retain the cloud label rather than fabricating Tokyo.
     expect(latest.sync.profileSyncStatus).toBe("origin_error");
-    expect(latest.activeOrigin.label).toBe("Tokyo Station");
+    expect(latest.activeOrigin.label).toBe("Duplicate Station");
+    expect(latest.activeOrigin.coordinates).toBeUndefined();
   });
 
   it("origin_error: persistCorrectedOrigin upserts corrected station and returns ready", async () => {
@@ -578,7 +935,7 @@ describe("useTripSync — origin ownership integration", () => {
     });
 
     expect(latest.sync.profileSyncStatus).toBe("origin_error");
-    expect(latest.activeOrigin.label).toBe("Tokyo Station");
+    expect(latest.activeOrigin.label).toBe("Nonexistent Station, Nowhere");
     // StationInput must be unblocked in this state.
     expect(latest.sync.profileSyncStatus).toBe("origin_error");
 
