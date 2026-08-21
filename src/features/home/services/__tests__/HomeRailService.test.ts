@@ -249,6 +249,25 @@ describe("homepage discovery eligibility", () => {
     );
   });
 
+  it("reuses origin evidence when under-60 and nearby rails inspect one place", () => {
+    const candidate = destination("fast", 0, {
+      coordinates: { lat: 35.681, lng: 139.761 },
+    });
+    const estimateCache = new Map();
+    estimate.mockClear();
+
+    expect(
+      getUnder60Destinations([candidate], { ...dayContext, estimateCache }),
+    ).toEqual([candidate]);
+    expect(
+      getUnexploredNearbyDestinations([candidate], {
+        ...dayContext,
+        estimateCache,
+      }),
+    ).toEqual([candidate]);
+    expect(estimate).toHaveBeenCalledTimes(1);
+  });
+
   it("orders nearby destinations by origin coordinates, not travel-band order", () => {
     const candidates = [
       destination("coordinate-missing", 100),

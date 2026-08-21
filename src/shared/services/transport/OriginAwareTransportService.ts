@@ -541,6 +541,50 @@ function getGroundEstimate(
   };
 }
 
+const MAX_ORIGIN_AWARE_CACHE_ENTRIES = 4096;
+const originAwareEstimateCache = new Map<
+  string,
+  OriginAwareTransportEstimate | null
+>();
+
+function buildEstimateCacheKey(
+  destination: Destination,
+  context: OriginAwareEstimateContext,
+  modes: readonly string[],
+): string {
+  const coordinates = destination.coordinates
+    ? `${destination.coordinates.lat},${destination.coordinates.lng}`
+    : "";
+  const origin = context.homeStationCoords
+    ? `${context.homeStationCoords.lat},${context.homeStationCoords.lng}`
+    : "";
+  const travelDate = context.ferryTemporal?.travelDate?.getTime() ?? "";
+  return [
+    destination.id,
+    coordinates,
+    destination.municipalityId ?? "",
+    destination.prefecture ?? "",
+    origin,
+    context.originZoneId ?? "",
+    context.originPrefecture ?? "",
+    context.originMunicipalityId ?? "",
+    travelDate,
+    context.ferryTemporal?.season ?? "",
+    [...modes].sort().join(","),
+  ].join("|");
+}
+
+function rememberOriginAwareEstimate(
+  key: string,
+  estimate: OriginAwareTransportEstimate | null,
+): void {
+  if (originAwareEstimateCache.size >= MAX_ORIGIN_AWARE_CACHE_ENTRIES) {
+    const oldest = originAwareEstimateCache.keys().next().value;
+    if (oldest !== undefined) originAwareEstimateCache.delete(oldest);
+  }
+  originAwareEstimateCache.set(key, estimate);
+}
+
 /**
  * Returns the fastest canonical origin-aware estimate across the requested
  * modes. A catchment-adjusted result is bounded/estimated for the complete
@@ -551,6 +595,10 @@ export function getOriginAwareTransportEstimate(
   context: OriginAwareEstimateContext,
   modes: readonly string[],
 ): OriginAwareTransportEstimate | null {
+  const cacheKey = buildEstimateCacheKey(destination, context, modes);
+  const cached = originAwareEstimateCache.get(cacheKey);
+  if (cached !== undefined) return cached;
+
   let best: OriginAwareTransportEstimate | null = null;
   for (const mode of modes) {
     let estimate: OriginAwareTransportEstimate | null = null;
@@ -595,5 +643,6 @@ export function getOriginAwareTransportEstimate(
       best = estimate;
     }
   }
+  rememberOriginAwareEstimate(cacheKey, best);
   return best;
 }

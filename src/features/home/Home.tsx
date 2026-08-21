@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
 import type { Destination } from "@/shared/types/destination";
-import { getDistance } from "@/shared/utils/distance";
+
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -24,19 +24,12 @@ import HomePlanner from "./components/HomePlanner";
 import TopMatchesSection from "./components/TopMatchesSection";
 import BucketListRail from "./components/BucketListRail";
 import CollectionsRail from "./components/CollectionsRail";
-import UnexploredNearbyRail from "./components/UnexploredNearbyRail";
-import DiscoveryRail from "./components/DiscoveryRail";
+
 import RecentlyViewedRail from "./components/RecentlyViewedRail";
+import DeferredDiscoveryRails from "./components/DeferredDiscoveryRails";
 import {
   getHomepageRailConfig,
-  getSeasonalDiscoveryDestinations,
-  getUnder60Destinations,
-  getUnexploredNearbyDestinations,
-  getWeekendGetawayDestinations,
-  getWorthLongerJourneyDestinations,
   orderRecentlyViewedDestinations,
-  softDeduplicateRail,
-  type OriginRailContext,
 } from "./services/HomeRailService";
 import { useTranslation } from "react-i18next";
 import StationInput from "@/shared/components/StationInput";
@@ -418,106 +411,6 @@ export default function Home() {
         .map((destination) => destination.id),
     [allDestinations, favorites],
   );
-  const discoveryRails = useMemo(() => {
-    const originRailContext: OriginRailContext = {
-      homeStationCoords: homeStationCoords ?? null,
-      homeStationTransportZoneId,
-      carMode: resolvedApplied.carMode,
-      publicModes: resolvedApplied.publicModes,
-      budgetTier: resolvedApplied.budgetTier,
-      ferryTemporal,
-      visitedIds,
-      tripMode: resolvedApplied.tripMode,
-    };
-    const usedIds = new Set(topMatchIds);
-    recentlyViewedDestinations.forEach((destination) =>
-      usedIds.add(destination.id),
-    );
-    bucketListDisplayedIds.forEach((id) => usedIds.add(id));
-    const pick = (
-      candidates: Destination[],
-      qualityOf?: (candidate: Destination) => number,
-      duplicateQualityMargin?: number,
-    ) => {
-      const selected = softDeduplicateRail(
-        candidates,
-        usedIds,
-        10,
-        qualityOf,
-        duplicateQualityMargin,
-      );
-      selected.forEach((destination) => usedIds.add(destination.id));
-      return selected;
-    };
-
-    if (isWeekendMode) {
-      const weekendGetaways = pick(
-        getWeekendGetawayDestinations(recommendedDestinations),
-      );
-      const seasonal = pick(
-        getSeasonalDiscoveryDestinations(
-          recommendedDestinations,
-          seasonalReferenceDate,
-        ),
-      );
-      const longerJourney = pick(
-        getWorthLongerJourneyDestinations(recommendedDestinations),
-      );
-      return {
-        weekendGetaways,
-        seasonal,
-        longerJourney,
-        under60: [],
-        nearby: [],
-      };
-    }
-
-    const seasonal = pick(
-      getSeasonalDiscoveryDestinations(
-        recommendedDestinations,
-        seasonalReferenceDate,
-      ),
-    );
-    const under60 = pick(
-      getUnder60Destinations(recommendedDestinations, originRailContext),
-    );
-    const nearby = pick(
-      getUnexploredNearbyDestinations(allDestinations, originRailContext),
-      (destination) =>
-        homeStationCoords && destination.coordinates
-          ? -getDistance(
-              homeStationCoords.lat,
-              homeStationCoords.lng,
-              destination.coordinates.lat,
-              destination.coordinates.lng,
-            )
-          : Number.NEGATIVE_INFINITY,
-      0,
-    );
-    return {
-      seasonal,
-      under60,
-      nearby,
-      weekendGetaways: [],
-      longerJourney: [],
-    };
-  }, [
-    recommendedDestinations,
-    topMatchIds,
-    recentlyViewedDestinations,
-    bucketListDisplayedIds,
-    homeStationCoords,
-    homeStationTransportZoneId,
-    resolvedApplied.carMode,
-    resolvedApplied.publicModes,
-    allDestinations,
-    resolvedApplied.budgetTier,
-    ferryTemporal,
-    visitedIds,
-    resolvedApplied.tripMode,
-    isWeekendMode,
-    seasonalReferenceDate,
-  ]);
 
   const handleApplyAndScroll = useCallback(() => {
     applyPlannerState();
@@ -778,70 +671,29 @@ export default function Home() {
         </DeferredSection>
       )}
 
-      {isWeekendMode ? (
-        <DeferredSection order={2} when={liteReady}>
-          <>
-            <DiscoveryRail
-              kind="weekendGetaways"
-              destinations={discoveryRails.weekendGetaways}
-              partySize={resolvedApplied.partySize}
-              carMode={resolvedApplied.carMode}
-              publicModes={resolvedApplied.publicModes}
-              travelDate={travelDateIso}
-            />
-            <DiscoveryRail
-              kind="seasonal"
-              season={currentSeason}
-              destinations={discoveryRails.seasonal}
-              partySize={resolvedApplied.partySize}
-              carMode={resolvedApplied.carMode}
-              publicModes={resolvedApplied.publicModes}
-              travelDate={travelDateIso}
-            />
-            <DiscoveryRail
-              kind="longerJourney"
-              destinations={discoveryRails.longerJourney}
-              partySize={resolvedApplied.partySize}
-              carMode={resolvedApplied.carMode}
-              publicModes={resolvedApplied.publicModes}
-              travelDate={travelDateIso}
-            />
-          </>
-        </DeferredSection>
-      ) : (
-        <DeferredSection order={2} when={liteReady}>
-          <>
-            <DiscoveryRail
-              kind="seasonal"
-              season={currentSeason}
-              destinations={discoveryRails.seasonal}
-              partySize={resolvedApplied.partySize}
-              carMode={resolvedApplied.carMode}
-              publicModes={resolvedApplied.publicModes}
-              travelDate={travelDateIso}
-            />
-            <DiscoveryRail
-              kind="under60"
-              destinations={discoveryRails.under60}
-              partySize={resolvedApplied.partySize}
-              carMode={resolvedApplied.carMode}
-              publicModes={resolvedApplied.publicModes}
-              travelDate={travelDateIso}
-            />
-            <UnexploredNearbyRail
-              destinations={allDestinations}
-              precomputedDestinations={discoveryRails.nearby}
-              homeStationCoords={homeStationCoords ?? null}
-              homeStationTransportZoneId={homeStationTransportZoneId}
-              isVisited={isVisited}
-              partySize={resolvedApplied.partySize}
-              carMode={resolvedApplied.carMode}
-              publicModes={resolvedApplied.publicModes}
-              travelDate={travelDateIso}
-            />
-          </>
-        </DeferredSection>
-      )}
+      <DeferredSection order={2} when={liteReady}>
+        <DeferredDiscoveryRails
+          isWeekendMode={isWeekendMode}
+          recommendedDestinations={recommendedDestinations}
+          allDestinations={allDestinations}
+          topMatchIds={topMatchIds}
+          recentlyViewedDestinations={recentlyViewedDestinations}
+          bucketListDisplayedIds={bucketListDisplayedIds}
+          homeStationCoords={homeStationCoords ?? null}
+          homeStationTransportZoneId={homeStationTransportZoneId}
+          carMode={resolvedApplied.carMode}
+          publicModes={resolvedApplied.publicModes}
+          budgetTier={resolvedApplied.budgetTier}
+          ferryTemporal={ferryTemporal}
+          visitedIds={visitedIds}
+          tripMode={resolvedApplied.tripMode}
+          seasonalReferenceDate={seasonalReferenceDate}
+          currentSeason={currentSeason}
+          partySize={resolvedApplied.partySize}
+          travelDate={travelDateIso}
+          isVisited={isVisited}
+        />
+      </DeferredSection>
 
       {/* Curated Collections Rail */}
       <DeferredSection order={3} when={liteReady}>
