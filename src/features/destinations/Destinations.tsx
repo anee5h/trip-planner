@@ -206,8 +206,9 @@ export default function Destinations() {
 
   // Live forecast map for the planned origin: lets a selected date use real
   // forecast data when it exists, seasonal guidance otherwise.
-  const { weatherContext: explorerWeatherContext } =
-    useWeatherContext(homeStationCoords);
+  const { weatherContext: explorerWeatherContext } = useWeatherContext(
+    homeStationCoords ?? null,
+  );
   const forecastMap = explorerWeatherContext?.forecastMap;
 
   // Shared trip-date model: Day 1 + derived Day 2 for 2D1N. Omitted date

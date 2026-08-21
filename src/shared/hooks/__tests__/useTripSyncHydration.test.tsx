@@ -6,7 +6,7 @@ import { createRoot, type Root } from "react-dom/client";
 import type { User } from "@supabase/supabase-js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useTripSync, type UseTripSyncReturn } from "../useTripSync";
-import type { OriginLocation } from "../useTripStore";
+import type { OriginLocation, SavedOriginLocation } from "../useTripStore";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -91,7 +91,7 @@ function Harness({ user }: { user: User | null }) {
   >({});
   const [compareList, setCompareList] = useState<string[]>([]);
   const [activeOrigin, setActiveOrigin] =
-    useState<OriginLocation>(DEFAULT_ORIGIN);
+    useState<SavedOriginLocation>(DEFAULT_ORIGIN);
   const [destinationRatings, setDestinationRatings] = useState<
     Record<string, "up" | "down">
   >({});

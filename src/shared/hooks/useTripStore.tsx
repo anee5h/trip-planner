@@ -38,10 +38,19 @@ export type OriginLocation = {
   transportZoneId?: TransportZoneId;
 };
 
+export type UnresolvedOriginLocation = {
+  label: string;
+  coordinates?: { lat: number; lng: number };
+  source: "station";
+  transportZoneId?: TransportZoneId;
+};
+
+export type SavedOriginLocation = OriginLocation | UnresolvedOriginLocation;
+
 export type OriginSource = "saved" | "current";
 
 type ActiveOrigin =
-  | { source: "saved"; location: OriginLocation }
+  | { source: "saved"; location: SavedOriginLocation }
   | {
       source: "current";
       location: {
@@ -74,7 +83,7 @@ interface TripStoreContextType {
 
   homeStation: string;
   savedHomeStation: string;
-  homeStationCoords: { lat: number; lng: number };
+  homeStationCoords?: { lat: number; lng: number };
   homeStationTransportZoneId?: TransportZoneId;
   originSource: OriginSource;
   setOriginLocation: (origin: OriginLocation) => void;
@@ -260,13 +269,14 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const [guestOrigin, setGuestOrigin] =
     useState<OriginLocation>(loadGuestOrigin);
-  const [savedOrigin, setSavedOrigin] = useState<OriginLocation>(guestOrigin);
+  const [savedOrigin, setSavedOrigin] =
+    useState<SavedOriginLocation>(guestOrigin);
   const [activeOrigin, setActiveOrigin] = useState<ActiveOrigin>({
     source: "saved",
     location: guestOrigin,
   });
 
-  const setSavedActiveOrigin = useCallback((origin: OriginLocation) => {
+  const setSavedActiveOrigin = useCallback((origin: SavedOriginLocation) => {
     setSavedOrigin(origin);
     setActiveOrigin({ source: "saved", location: origin });
   }, []);
@@ -285,7 +295,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     tripSyncStatus,
     retryProfileHydration,
     retryTripHydration,
-    persistCorrectedOrigin,
+    persistSelectedOrigin,
   } = useTripSync({
     user,
     favorites,
@@ -324,9 +334,10 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     if (!user) {
       setGuestOrigin(origin);
       persistGuestOrigin(origin);
-    } else if (profileSyncStatus === "origin_error") {
-      // Persist the corrected station to the cloud account.
-      void persistCorrectedOrigin(origin);
+    } else {
+      // A chosen account origin is an explicit account-setting mutation; it
+      // must not wait for the generic profile debounce.
+      void persistSelectedOrigin(origin);
     }
   };
 
