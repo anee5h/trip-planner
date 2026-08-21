@@ -87,6 +87,26 @@ export function formatCompactDateRange(
   return `${formatCompactDate(day1Iso, "en")} – ${formatCompactDate(day2Iso, "en")}`;
 }
 
+const HOME_WEATHER_TABS_CLASS =
+  "grid w-full grid-cols-2 items-center gap-1 sm:w-[450px] sm:max-w-full sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(105px,125px)] sm:gap-1.5";
+const HOME_WEATHER_TAB_SLOT_CLASS = "h-9 min-w-0 w-full rounded-full";
+
+function HomeWeatherTabsPlaceholder() {
+  return (
+    <div
+      aria-hidden="true"
+      data-home-weather-placeholder
+      className={HOME_WEATHER_TABS_CLASS}
+    >
+      <div className={HOME_WEATHER_TAB_SLOT_CLASS} />
+      <div className={HOME_WEATHER_TAB_SLOT_CLASS} />
+      <div
+        className={`${HOME_WEATHER_TAB_SLOT_CLASS} col-span-2 sm:col-span-1`}
+      />
+    </div>
+  );
+}
+
 export default function Home() {
   const { t } = useTranslation();
   // KAI-132: Home is SUMMARY-ONLY. The lite catalogue is runtime-loaded
@@ -521,16 +541,62 @@ export default function Home() {
               <StationInput />
             </div>
 
-            {weatherContext && (
-              <div className="grid w-full grid-cols-2 items-center gap-1 sm:w-[450px] sm:max-w-full sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(105px,125px)] sm:gap-1.5">
-                {weatherContext.tabs
-                  .filter((tab) => tab.id === "today" || tab.id === "tomorrow")
-                  .map((tab) => (
-                    <button
-                      key={tab.id}
-                      type="button"
-                      onClick={() => {
-                        if (weatherContext && !tab.isCustom) {
+            <div className="contents" data-home-weather-shell>
+              {weatherContext ? (
+                <div className={HOME_WEATHER_TABS_CLASS}>
+                  {weatherContext.tabs
+                    .filter(
+                      (tab) => tab.id === "today" || tab.id === "tomorrow",
+                    )
+                    .map((tab) => (
+                      <button
+                        key={tab.id}
+                        type="button"
+                        onClick={() => {
+                          if (weatherContext && !tab.isCustom) {
+                            const cleanTabs = weatherContext.tabs.filter(
+                              (t) => !t.isCustom,
+                            );
+                            setWeatherContext({
+                              ...weatherContext,
+                              tabs: cleanTabs,
+                            });
+                            setCustomDate(null);
+                          }
+                          setActiveTabId(tab.id);
+                        }}
+                        className={`inline-flex h-9 min-w-0 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full px-1 py-1 text-[10px] font-bold transition-all focus:outline-none sm:px-1.5 sm:text-[11px] ${
+                          activeTabId === tab.id
+                            ? "bg-emerald-700 text-white shadow-sm"
+                            : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
+                        }`}
+                      >
+                        {t(`home.dateTabs.${tab.id}`, {
+                          defaultValue: tab.label,
+                        })}
+                        {activeTabId === tab.id && currentSituation && (
+                          <>
+                            <span className="mx-0.5">·</span>
+                            <span className="inline-flex items-center gap-0.5 sm:hidden">
+                              <CurrentWeatherIcon className="size-3 shrink-0" />
+                              {currentSituation.temp}°
+                            </span>
+                            <span className="hidden sm:inline">
+                              {weatherLabel} {currentSituation.temp}°
+                            </span>
+                          </>
+                        )}
+                      </button>
+                    ))}
+
+                  <div className="relative col-span-2 min-w-0 sm:col-span-1">
+                    <TravelDatePicker
+                      value={stateDate}
+                      onChange={(newDate) => {
+                        setHasExplicitSelection(true);
+                        if (newDate) {
+                          handleCustomDateSelect(newDate);
+                        } else {
                           const cleanTabs = weatherContext.tabs.filter(
                             (t) => !t.isCustom,
                           );
@@ -539,65 +605,25 @@ export default function Home() {
                             tabs: cleanTabs,
                           });
                           setCustomDate(null);
+                          setActiveTabId("today");
                         }
-                        setActiveTabId(tab.id);
                       }}
-                      className={`inline-flex h-9 min-w-0 w-full items-center justify-center overflow-hidden whitespace-nowrap rounded-full px-1 py-1 text-[10px] font-bold transition-all focus:outline-none sm:px-1.5 sm:text-[11px] ${
-                        activeTabId === tab.id
-                          ? "bg-emerald-700 text-white shadow-sm"
-                          : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800"
-                      }`}
-                    >
-                      {t(`home.dateTabs.${tab.id}`, {
-                        defaultValue: tab.label,
-                      })}
-                      {activeTabId === tab.id && currentSituation && (
-                        <>
-                          <span className="mx-0.5">·</span>
-                          <span className="inline-flex items-center gap-0.5 sm:hidden">
-                            <CurrentWeatherIcon className="size-3 shrink-0" />
-                            {currentSituation.temp}°
-                          </span>
-                          <span className="hidden sm:inline">
-                            {weatherLabel} {currentSituation.temp}°
-                          </span>
-                        </>
-                      )}
-                    </button>
-                  ))}
-
-                <div className="relative col-span-2 min-w-0 sm:col-span-1">
-                  <TravelDatePicker
-                    value={stateDate}
-                    onChange={(newDate) => {
-                      setHasExplicitSelection(true);
-                      if (newDate) {
-                        handleCustomDateSelect(newDate);
-                      } else {
-                        const cleanTabs = weatherContext.tabs.filter(
-                          (t) => !t.isCustom,
-                        );
-                        setWeatherContext({
-                          ...weatherContext,
-                          tabs: cleanTabs,
-                        });
-                        setCustomDate(null);
-                        setActiveTabId("today");
+                      hasExplicitSelection={hasExplicitSelection}
+                      forecastMap={weatherContext.forecastMap}
+                      originLabel={
+                        originSource === "current"
+                          ? t("origin.currentLocation")
+                          : getLocalizedStationLabel(homeStation, locale)
                       }
-                    }}
-                    hasExplicitSelection={hasExplicitSelection}
-                    forecastMap={weatherContext.forecastMap}
-                    originLabel={
-                      originSource === "current"
-                        ? t("origin.currentLocation")
-                        : getLocalizedStationLabel(homeStation, locale)
-                    }
-                    tripMode={resolvedApplied.tripMode}
-                    allowAnyDate={false}
-                  />
+                      tripMode={resolvedApplied.tripMode}
+                      allowAnyDate={false}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              ) : (
+                <HomeWeatherTabsPlaceholder />
+              )}
+            </div>
           </div>
 
           <div className="mx-auto mb-4 max-w-3xl text-center sm:mb-6">
