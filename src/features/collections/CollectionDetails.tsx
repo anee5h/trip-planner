@@ -1,4 +1,4 @@
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { getCollectionBySlug } from "@/shared/data/collections";
@@ -18,10 +18,11 @@ import { useTranslation } from "react-i18next";
 
 export default function CollectionDetails() {
   const {
-    ready: liteReady,
+    status: catalogueStatus,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
+  } = useCatalogue({ need: "summary" });
+  const liteReady = catalogueStatus === "ready";
   const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const collection = slug ? getCollectionBySlug(slug) : undefined;

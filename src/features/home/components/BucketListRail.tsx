@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Bookmark, Sparkles, LogIn } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useAuthModal } from "@/shared/context/AuthModalContext";
@@ -35,7 +35,8 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
   const { user } = useAuth();
   const { openAuthModal } = useAuthModal();
   const { t } = useTranslation();
-  const allDestinations = getDestinationList() as Destination[];
+  const { places: cataloguePlaces } = useCatalogue({ need: "summary" });
+  const allDestinations = cataloguePlaces as Destination[];
 
   const savedDestinations: Destination[] = favorites
     .map((id) => allDestinations.find((dest) => dest.id === id))

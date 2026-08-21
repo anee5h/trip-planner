@@ -18,8 +18,7 @@ import {
   MapPin,
 } from "lucide-react";
 import collectionsIndex from "@/shared/data/collections-index.json";
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import type { Collection } from "@/shared/types/collection";
 import type { Destination } from "@/shared/types/destination";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -130,13 +129,11 @@ export default function PrefectureChecklist() {
   const { locale } = useLocale();
   // KAI-132: lite catalogue runtime-loaded at the map route boundary.
   const {
-    ready: liteReady,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
-  const destinationsIndex = liteReady
-    ? (getLoadedLitePlaces() as Destination[])
-    : [];
+  } = useCatalogue({ need: "summary" });
+  const destinationsIndex = cataloguePlaces as Destination[];
 
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1200,

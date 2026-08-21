@@ -2,11 +2,10 @@ import { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Cloud, CloudLightning, Snowflake, Sun } from "lucide-react";
 
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
 import { HOME_RAIL_SECTION_SPACING } from "./components/HomeRailLayout";
@@ -96,15 +95,13 @@ export default function Home() {
   // the lite index resolves. A failed load is NOT treated as ready:
   // the error state renders an explicit retry (KAI-132 error semantics).
   const {
-    ready: liteReady,
+    status: catalogueStatus,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
-
-  const allDestinations = useMemo(
-    () => (liteReady ? (getLoadedLitePlaces() as Destination[]) : []),
-    [liteReady],
-  );
+  } = useCatalogue({ need: "summary" });
+  const liteReady = catalogueStatus === "ready";
+  const allDestinations = cataloguePlaces as Destination[];
 
   const [searchParams, setSearchParams] = useSearchParams();
   const { user } = useAuth();

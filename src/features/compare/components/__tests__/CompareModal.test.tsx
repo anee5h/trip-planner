@@ -2,6 +2,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, beforeEach, describe, it, expect, vi } from "vitest";
+import * as PlaceCatalog from "@/shared/services/place/PlaceCatalog";
 import CompareModal from "../CompareModal";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -67,6 +68,54 @@ describe("CompareModal Component", () => {
     expect(node.children.length).toBe(0);
   });
 
+  it("does not load the summary catalogue while mounted closed", async () => {
+    const loadSpy = vi.spyOn(PlaceCatalog, "loadCatalogue");
+    loadSpy.mockClear();
+    const node = renderCompareModal(false);
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(node.children.length).toBe(0);
+    expect(loadSpy).not.toHaveBeenCalled();
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <CompareModal isOpen={true} onClose={vi.fn()} />
+        </MemoryRouter>,
+      );
+    });
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+
+    expect(loadSpy).toHaveBeenCalledWith("summary");
+    expect(node.textContent).toContain("Kyoto");
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <CompareModal isOpen={false} onClose={vi.fn()} />
+        </MemoryRouter>,
+      );
+    });
+    expect(node.children.length).toBe(0);
+
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <CompareModal isOpen={true} onClose={vi.fn()} />
+        </MemoryRouter>,
+      );
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+    expect(loadSpy).toHaveBeenCalledTimes(2);
+    expect(node.textContent).toContain("Kyoto");
+    loadSpy.mockRestore();
+  });
   it("renders both fixture destinations and their view links", () => {
     const node = renderCompareModal(true);
 

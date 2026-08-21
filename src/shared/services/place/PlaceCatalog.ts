@@ -80,6 +80,23 @@ export function loadDestinationsIndex(): Promise<Destination[]> {
   return fullIndexPromise;
 }
 
+export type CatalogueNeed = "summary" | "full";
+
+/**
+ * Deep catalogue interface: callers express data intent, not asset choice or
+ * loader timing. The source-specific loaders remain internal adapters during
+ * migration; this is the seam application code should cross.
+ */
+export function loadCatalogue(need: CatalogueNeed): Promise<CanonicalPlace[]> {
+  if (need === "summary") return loadLiteIndex();
+  if (need === "full") {
+    return loadDestinationsIndex().then(() => getFullPlaces());
+  }
+  return Promise.reject(
+    new Error(`unsupported catalogue intent: ${String(need)}`),
+  );
+}
+
 /** Synchronous accessor for the FULL catalogue. Only valid AFTER
  *  `await loadDestinationsIndex()` (or after the promise resolved).
  *  Returns [] before the full index has loaded — callers must await.

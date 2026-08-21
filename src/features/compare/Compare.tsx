@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { useLiteCatalogueReady } from "@/shared/hooks/useLiteCatalogueReady";
-import { getLoadedLitePlaces } from "@/shared/services/place/PlaceCatalog";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import {
   Table,
@@ -38,13 +37,13 @@ export default function Compare() {
   // distinguished from empty so the empty state is not flashed while
   // the loader resolves.
   const {
-    ready: liteReady,
+    status: catalogueStatus,
+    places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useLiteCatalogueReady();
-  const allDestinations = (
-    liteReady ? getLoadedLitePlaces() : []
-  ) as Destination[];
+  } = useCatalogue({ need: "summary" });
+  const liteReady = catalogueStatus === "ready";
+  const allDestinations = cataloguePlaces as Destination[];
 
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))

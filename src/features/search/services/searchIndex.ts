@@ -1,10 +1,9 @@
 import collectionsIndex from "@/shared/data/collections-index.json";
 import type { Destination } from "@/shared/types/destination";
 import type { Collection } from "@/shared/types/collection";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
 import {
   getLocalizedPlace,
-  loadLiteIndex,
+  loadCatalogue,
 } from "@/shared/services/place/PlaceCatalog";
 import { getDestinationsForCollection } from "@/shared/utils/collections";
 import {
@@ -144,8 +143,11 @@ export const POPULAR_DESTINATION_IDS: readonly string[] = [
  * municipality) in deterministic sorted order, and the target is the same
  * explorer ward filter the Tokyo group card uses.
  */
-function buildTokyoWardsDocument(locale: "en" | "ja"): SearchDocument {
-  const wardHubIds = (getDestinationList("en") as Destination[])
+function buildTokyoWardsDocument(
+  locale: "en" | "ja",
+  destinations: Destination[],
+): SearchDocument {
+  const wardHubIds = destinations
     .filter((dest) => isTokyoWardHub(dest))
     .map((dest) => dest.id)
     .sort()
@@ -166,6 +168,7 @@ function buildTokyoWardsDocument(locale: "en" | "ja"): SearchDocument {
 }
 
 const cachedDocuments = new Map<"en" | "ja", SearchDocument[]>();
+const cachedCatalogue = new Map<"en" | "ja", Destination[]>();
 
 // KAI-121 contract: search depends ONLY on the formally complete SUMMARY
 // catalogue (getDestinationList -> getAvailablePlaces -> getLitePlaces).
@@ -183,15 +186,13 @@ export async function buildSearchIndex(
   // KAI-132: the lite catalogue is runtime-loaded — await it before
   // building, so the STABLE cache is never built from an empty summary
   // (the pre-KAI-132 sync contract made an empty build impossible).
-  await loadLiteIndex();
-
+  const destinations = (await loadCatalogue("summary")) as Destination[];
+  cachedCatalogue.set(locale, destinations);
   const docs: SearchDocument[] = [];
-
-  // Add static navigation actions
   docs.push(...STATIC_ACTIONS);
 
   // Add destinations
-  (getDestinationList(locale) as Destination[]).forEach((dest) => {
+  destinations.forEach((dest) => {
     const categoryName = dest.categories?.[0] || "Destination";
     const localized = locale === "ja" ? getLocalizedPlace(dest, "ja") : dest;
     const title = localized.name || dest.name;
@@ -274,7 +275,7 @@ export async function searchDocuments(
       }
     }
     const popularDestinations = [
-      buildTokyoWardsDocument(locale),
+      buildTokyoWardsDocument(locale, cachedCatalogue.get(locale) ?? []),
       ...POPULAR_DESTINATION_IDS.map((id) => destinationDocsById.get(id)),
     ].filter((doc): doc is SearchDocument => doc !== undefined);
     const popularCollections = allDocs

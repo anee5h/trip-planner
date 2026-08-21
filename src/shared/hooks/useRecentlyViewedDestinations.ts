@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { getDestinationList } from "@/shared/services/destination/DestinationService";
-import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 
 const STORAGE_KEY = "tabimap_recently_viewed_destinations";
 const MAX_ITEMS = 10;
@@ -16,41 +15,37 @@ export function addRecentlyViewedDestination(destinationId: string) {
       MAX_ITEMS,
     );
     localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-  } catch (e) {
-    // Ignore storage errors
+  } catch {
+    // Ignore storage errors.
   }
 }
 
+/**
+ * Non-critical catalogue consumer: failure deliberately degrades to an empty
+ * recent list, while the shared catalogue interface still owns loading and
+ * retry semantics for other surfaces.
+ */
 export function useRecentlyViewedDestinations(): Destination[] {
   const [recent, setRecent] = useState<Destination[]>([]);
+  const { places } = useCatalogue({ need: "summary" });
 
   useEffect(() => {
-    let cancelled = false;
-    // KAI-132: the lite catalogue is runtime-loaded — await it before
-    // resolving recent ids (otherwise the list would be permanently empty
-    // when the effect runs before the loader resolves).
-    loadLiteIndex()
-      .catch(() => {})
-      .then(() => {
-        if (cancelled) return;
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          if (raw) {
-            const ids: string[] = JSON.parse(raw);
-            const places = getDestinationList() as Destination[];
-            const resolved = ids
-              .map((id) => places.find((p) => p.id === id))
-              .filter((p): p is Destination => Boolean(p));
-            setRecent(resolved);
-          }
-        } catch (e) {
-          setRecent([]);
-        }
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+    if (places.length === 0) return;
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const ids: string[] = JSON.parse(raw);
+        const resolved = ids
+          .map((id) => places.find((place) => place.id === id))
+          .filter((place): place is NonNullable<typeof place> =>
+            Boolean(place),
+          );
+        setRecent(resolved);
+      }
+    } catch {
+      setRecent([]);
+    }
+  }, [places]);
 
   return recent;
 }
