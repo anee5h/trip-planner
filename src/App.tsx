@@ -3,12 +3,14 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
 import { AuthProvider } from "./shared/hooks/useAuth";
 import { TripStoreProvider } from "./shared/hooks/useTripStore";
 import Navbar from "./shared/components/layout/Navbar";
 import Footer from "./shared/components/layout/Footer";
+import { StartupSkeleton } from "./shared/components/layout/StartupSkeleton";
 const Home = lazy(() => import("./features/home/Home"));
 const Destinations = lazy(() => import("./features/destinations/Destinations"));
 import { ErrorBoundary } from "./shared/components/layout/ErrorBoundary";
@@ -41,6 +43,11 @@ function PageLoader() {
       <div className="w-8 h-8 border-4 border-emerald-700 border-t-transparent rounded-full animate-spin" />
     </div>
   );
+}
+
+function RouteLoader() {
+  const location = useLocation();
+  return location.pathname === "/" ? <StartupSkeleton /> : <PageLoader />;
 }
 
 /**
@@ -106,7 +113,7 @@ function AppInner() {
           <Navbar />
           <main className="flex-grow pb-[calc(4.25rem+env(safe-area-inset-bottom))] md:pb-0">
             <ErrorBoundary>
-              <Suspense fallback={<PageLoader />}>
+              <Suspense fallback={<RouteLoader />}>
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/destinations" element={<Destinations />} />
