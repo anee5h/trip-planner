@@ -1422,6 +1422,19 @@
     }
   },
   {
+    "id": "dmm-kariyushi-aquarium",
+    "name": "DMM KARIYUSHI AQUARIUM",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "aquarium",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": ["naha-city"],
+      "relatedDestinationIds": ["churaumi-aquarium-motobu"]
+    }
+  },
+  {
     "id": "dogo-haikara-dori",
     "name": "Dogo Haikara Dori",
     "prefecture": "Ehime",
@@ -3963,6 +3976,23 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "sendai-city"
+    }
+  },
+  {
+    "id": "junglia-okinawa",
+    "name": "JUNGLIA OKINAWA",
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "role": "standalone",
+    "kind": "theme_park",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": [
+        "nago-city",
+        "yambaru",
+        "churaumi-aquarium-motobu"
+      ],
+      "relatedDestinationIds": ["nakijin-castle-ruins-motobu"]
     }
   },
   {

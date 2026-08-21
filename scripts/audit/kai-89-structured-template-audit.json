@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 978,
+  "totalRecords": 980,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 189,
-    "affectedRecordCount": 977,
+    "affectedRecordCount": 979,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -123,6 +123,7 @@
       "dewa-sanzan-yamagata",
       "disneyland",
       "disneysea",
+      "dmm-kariyushi-aquarium",
       "dogo-haikara-dori",
       "dogo-onsen-annex-asuka-no-yu",
       "dogo-onsen-ehime",
@@ -324,6 +325,7 @@
       "joshinetsu-kogen",
       "joypolis",
       "jozenji-dori",
+      "junglia-okinawa",
       "kabira-bay-ishigaki",
       "kabukicho",
       "kabukiza",
@@ -3501,7 +3503,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 24,
-      "affectedRecordCount": 944,
+      "affectedRecordCount": 945,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3614,6 +3616,7 @@
         "dazaifu-tenmangu",
         "dejima-nagasaki",
         "dewa-sanzan-yamagata",
+        "dmm-kariyushi-aquarium",
         "dogo-haikara-dori",
         "dogo-onsen-annex-asuka-no-yu",
         "dogo-onsen-ehime",
@@ -4452,7 +4455,7 @@
         {
           "id": "1cf659956fa2",
           "severity": "review",
-          "count": 172,
+          "count": 173,
           "ids": [
             "ameya-yokocho",
             "boso-no-mura",
@@ -4462,6 +4465,7 @@
             "chinatown-nagasaki",
             "chofu-historic-jindaiji-district",
             "dazaifu-tenmangu",
+            "dmm-kariyushi-aquarium",
             "dotonbori",
             "ehime-art-museum",
             "engakuji",
@@ -5707,7 +5711,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 945,
+      "affectedRecordCount": 947,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -5822,6 +5826,7 @@
         "dewa-sanzan-yamagata",
         "disneyland",
         "disneysea",
+        "dmm-kariyushi-aquarium",
         "dogo-haikara-dori",
         "dogo-onsen-annex-asuka-no-yu",
         "dogo-onsen-ehime",
@@ -6013,6 +6018,7 @@
         "joshinetsu-kogen",
         "joypolis",
         "jozenji-dori",
+        "junglia-okinawa",
         "kabukicho",
         "kabukiza",
         "kabushima-shrine",
@@ -6659,7 +6665,7 @@
         {
           "id": "2da3e147dbe3",
           "severity": "review",
-          "count": 167,
+          "count": 168,
           "ids": [
             "aizu-bukeyashiki",
             "akihabara-chiyoda",
@@ -6680,6 +6686,7 @@
             "daisho-in",
             "disneyland",
             "disneysea",
+            "dmm-kariyushi-aquarium",
             "dogo-haikara-dori",
             "engakuji",
             "enoshima-island",
@@ -7755,6 +7762,31 @@
           }
         },
         {
+          "id": "9360e7c9bb23",
+          "severity": "review",
+          "count": 12,
+          "ids": [
+            "bitchu-matsuyama-castle",
+            "iwakuni-castle",
+            "junglia-okinawa",
+            "kitakata-kura-district",
+            "lake-towada-aomori",
+            "mount-zao-yamagata",
+            "nagano-kamikochi",
+            "obi-castle",
+            "sendai-yagiyama-zoo",
+            "takatori-castle",
+            "yambaru",
+            "yufuin-onsen-ryokan-district"
+          ],
+          "value": { "walkingMin": 180 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "dd90a22e6ec0",
           "severity": "review",
           "count": 12,
@@ -7777,30 +7809,6 @@
             "category": "B",
             "action": "manual-review",
             "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-          }
-        },
-        {
-          "id": "9360e7c9bb23",
-          "severity": "review",
-          "count": 11,
-          "ids": [
-            "bitchu-matsuyama-castle",
-            "iwakuni-castle",
-            "kitakata-kura-district",
-            "lake-towada-aomori",
-            "mount-zao-yamagata",
-            "nagano-kamikochi",
-            "obi-castle",
-            "sendai-yagiyama-zoo",
-            "takatori-castle",
-            "yambaru",
-            "yufuin-onsen-ryokan-district"
-          ],
-          "value": { "walkingMin": 180 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
           }
         },
         {
@@ -7993,7 +8001,7 @@
       "category": "season",
       "severity": "review",
       "clusterCount": 4,
-      "affectedRecordCount": 129,
+      "affectedRecordCount": 131,
       "affectedIds": [
         "abeno-harukas-300-osaka",
         "aizu-bukeyashiki",
@@ -8013,6 +8021,7 @@
         "cup-noodles-museum-yokohama",
         "cupnoodles-museum-osaka-ikeda",
         "dejima-nagasaki",
+        "dmm-kariyushi-aquarium",
         "echizen-kaga-kaigan",
         "fukagawa-edo-museum",
         "fukuoka-city-museum",
@@ -8037,6 +8046,7 @@
         "jindai-zakura",
         "jogashima",
         "joypolis",
+        "junglia-okinawa",
         "kabukiza",
         "kagoshima-city-aquarium",
         "kakegawa-castle-shizuoka",
@@ -8129,7 +8139,7 @@
         {
           "id": "248edaf45789",
           "severity": "review",
-          "count": 94,
+          "count": 96,
           "ids": [
             "abeno-harukas-300-osaka",
             "aizu-bukeyashiki",
@@ -8145,6 +8155,7 @@
             "cup-noodles-museum-yokohama",
             "cupnoodles-museum-osaka-ikeda",
             "dejima-nagasaki",
+            "dmm-kariyushi-aquarium",
             "fukagawa-edo-museum",
             "fukuoka-city-museum",
             "fukuoka-paypay-dome",
@@ -8162,6 +8173,7 @@
             "hondori",
             "ikuno-silver-mine",
             "joypolis",
+            "junglia-okinawa",
             "kabukiza",
             "kagoshima-city-aquarium",
             "kakegawa-castle-shizuoka",
