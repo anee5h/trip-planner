@@ -125,7 +125,7 @@ describe("KAI-68 prerender: destination HTML", () => {
     <meta name="theme-color" content="#243C58" />
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
-      href="https://fonts.bunny.net/css?family=geist:100,200,300,400,500,600,700,800,900&display=swap"
+      href="https://fonts.bunny.net/css?family=geist:400,500,600,700,800,900&display=swap"
       rel="stylesheet"
     />
     <title>Meguruto: めぐると、見つかる。</title>
