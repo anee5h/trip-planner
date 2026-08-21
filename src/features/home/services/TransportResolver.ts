@@ -1,4 +1,6 @@
-export type TransportPreference = "public" | "myCar" | "rentalCar" | "either";
+import type { TransportPreference } from "@/shared/types/homePlannerState";
+
+export type { TransportPreference } from "@/shared/types/homePlannerState";
 
 export interface TransportSelection {
   carMode: "none" | "my_car" | "rental";

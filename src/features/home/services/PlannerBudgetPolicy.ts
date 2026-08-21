@@ -1,10 +1,10 @@
 import type { BudgetTier } from "@/shared/types/planner";
 import type {
-  TripDuration,
+  HomepageTripDuration,
   TripMode,
-} from "@/shared/services/recommendation/RecommendationContext";
+} from "@/shared/types/homePlannerState";
 
-export type HomepageTripDuration = Exclude<TripDuration, "any" | "weekend">;
+export type { HomepageTripDuration } from "@/shared/types/homePlannerState";
 
 export const PER_PERSON_DAILY_LIMITS = {
   economy: 10_000,
