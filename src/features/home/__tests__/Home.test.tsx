@@ -10,6 +10,8 @@ import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
+const weatherMockState = vi.hoisted(() => ({ ready: true }));
+
 beforeAll(async () => {
   await loadLiteIndex();
 });
@@ -19,23 +21,28 @@ vi.mock("@/features/home/hooks/useWeatherContext", () => {
     useWeatherContext: () => {
       const [customDate, setCustomDate] = useState<string | null>(null);
       const [activeTabId, setActiveTabId] = useState("today");
+      const weatherContext = weatherMockState.ready
+        ? {
+            tabs: [
+              { id: "today", label: "Today", isCustom: false },
+              { id: "tomorrow", label: "Tomorrow", isCustom: false },
+              { id: "this_weekend", label: "This Weekend", isCustom: false },
+            ],
+            forecastMap: new Map(),
+            minDate: "2026-08-01",
+            maxDate: "2026-08-10",
+          }
+        : null;
       return {
-        weatherContext: {
-          tabs: [
-            { id: "today", label: "Today", isCustom: false },
-            { id: "tomorrow", label: "Tomorrow", isCustom: false },
-            { id: "this_weekend", label: "This Weekend", isCustom: false },
-          ],
-          forecastMap: new Map(),
-          minDate: "2026-08-01",
-          maxDate: "2026-08-10",
-        },
+        weatherContext,
         setWeatherContext: vi.fn(),
         activeTabId,
         setActiveTabId,
         customDate,
         setCustomDate,
-        currentTab: { id: activeTabId, label: activeTabId, isCustom: false },
+        currentTab: weatherContext
+          ? { id: activeTabId, label: activeTabId, isCustom: false }
+          : undefined,
         handleCustomDateSelect: (d: string) => {
           setCustomDate(d);
         },
@@ -150,6 +157,7 @@ let root: Root | undefined;
 let host: HTMLDivElement | undefined;
 
 afterEach(() => {
+  weatherMockState.ready = true;
   if (root) {
     act(() => root!.unmount());
   }
@@ -200,6 +208,22 @@ describe("Home Integration Tests", () => {
       (node) => node.textContent === "This Weekend",
     );
     expect(weekend).toBeUndefined();
+  });
+
+  it("reserves the weather/date row footprint while weather is pending", async () => {
+    weatherMockState.ready = false;
+    const container = await renderHome();
+    const placeholder = container.querySelector(
+      "[data-home-weather-placeholder]",
+    );
+
+    expect(placeholder).not.toBeNull();
+    expect(placeholder?.getAttribute("aria-hidden")).toBe("true");
+    expect(placeholder?.children).toHaveLength(3);
+    expect(placeholder?.lastElementChild?.className).toContain("col-span-2");
+    expect(placeholder?.lastElementChild?.className).toContain("sm:col-span-1");
+
+    weatherMockState.ready = true;
   });
 
   it("transitions button state: Find matches -> View matches -> Update matches", async () => {
