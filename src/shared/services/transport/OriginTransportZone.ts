@@ -163,11 +163,13 @@ export function resolveOriginTransportZone(params: {
   transportZoneId?: TransportZoneId;
 }): TransportZoneId {
   if (params.transportZoneId) {
+    // `unknown` is a fallback sentinel, not a topology zone. Keep this set
+    // aligned with the real IDs above; persisted `unknown` must fall through
+    // to the same geographic resolution as TransportTopologyService.
     const knownZone = Object.keys({
       ...ISLAND_BOUNDS,
       ...MAINLAND_BOUNDS,
       "mainland-honshu": true,
-      unknown: true,
     }).includes(params.transportZoneId);
     if (knownZone) return params.transportZoneId;
   }
