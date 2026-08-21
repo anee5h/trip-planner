@@ -7,6 +7,7 @@ import {
   type WeekendTravelBand,
 } from "@/shared/services/recommendation/WeekendPolicy";
 import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
+import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type {
   TripDuration,
   TripMode,
@@ -164,11 +165,16 @@ export interface OriginRailContext {
   ferryTemporal?: FerryTemporalContext;
   visitedIds?: readonly string[];
   tripMode: TripMode;
+  /** Reuse origin evidence when multiple rails inspect the same destination. */
+  estimateCache?: Map<string, TravelDurationEstimate | null>;
 }
 
 function originEstimate(destination: Destination, context: OriginRailContext) {
   if (!context.homeStationCoords || context.tripMode !== "day_trip") {
     return null;
+  }
+  if (context.estimateCache?.has(destination.id)) {
+    return context.estimateCache.get(destination.id) ?? null;
   }
   const modes = getValidModes(
     destination,
@@ -179,7 +185,10 @@ function originEstimate(destination: Destination, context: OriginRailContext) {
     context.homeStationTransportZoneId,
     context.ferryTemporal,
   );
-  if (modes.length === 0) return null;
+  if (modes.length === 0) {
+    context.estimateCache?.set(destination.id, null);
+    return null;
+  }
   const estimate = getDayTripTravelDurationEvidence(
     destination,
     {
@@ -196,8 +205,10 @@ function originEstimate(destination: Destination, context: OriginRailContext) {
     estimate.timeRange[0] < 0 ||
     estimate.timeRange[1] < estimate.timeRange[0]
   ) {
+    context.estimateCache?.set(destination.id, null);
     return null;
   }
+  context.estimateCache?.set(destination.id, estimate);
   return estimate;
 }
 

@@ -186,6 +186,20 @@ describe("getOriginAwareTransportEstimate — policy", () => {
     expect(estimate!.mode).toBe("shinkansen");
   });
 
+  it("reuses identical origin-aware estimates across authorization and evidence checks", () => {
+    const kyoto = dest({
+      id: "kyoto-cache-check",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 35.0116, lng: 135.7681 },
+    });
+    const first = estimateFor(kyoto, TOKYO, ["train", "shinkansen"]);
+    const second = estimateFor(kyoto, TOKYO, ["shinkansen", "train"]);
+
+    expect(first).not.toBeNull();
+    expect(second).toBe(first);
+  });
+
   it("same-prefecture trips resolve via municipality corridors", () => {
     const shibuya = dest({
       id: "shibuya-city",
