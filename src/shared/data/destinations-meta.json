@@ -386,6 +386,18 @@
     }
   },
   {
+    "id": "arashiyama-bamboo-togetsukyo",
+    "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
     "id": "arima-onsen",
     "name": "Arima Onsen",
     "prefecture": "Hyogo",
@@ -2097,6 +2109,18 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"],
       "gatewayHubId": "morioka-city"
+    }
+  },
+  {
+    "id": "gekkeikan-okura-sake-museum",
+    "name": "Gekkeikan Okura Sake Museum",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
     }
   },
   {
@@ -3858,6 +3882,18 @@
     }
   },
   {
+    "id": "jakko-in-ohara",
+    "name": "Jakko-in Temple",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
     "id": "jindai-botanical-gardens",
     "name": "Jindai Botanical Gardens",
     "prefecture": "Tokyo",
@@ -4705,6 +4741,18 @@
     }
   },
   {
+    "id": "kifune-jinja-kyoto",
+    "name": "Kifune-jinja Shrine",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
     "id": "kimii-dera-temple",
     "name": "Kimii-dera Temple",
     "prefecture": "Wakayama",
@@ -4959,6 +5007,23 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "chofu-tokyo"
+    }
+  },
+  {
+    "id": "kiyomizu-dera",
+    "name": "Kiyomizu-dera Temple",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city",
+      "nearbyDestinationIds": [
+        "kyoto-historic",
+        "yasaka-shrine",
+        "sanjusangen-do"
+      ]
     }
   },
   {
@@ -5421,6 +5486,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "koya-town"
+    }
+  },
+  {
+    "id": "kurama-dera-kyoto",
+    "name": "Kurama-dera Temple",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
     }
   },
   {
@@ -9150,6 +9227,18 @@
     "relationships": {}
   },
   {
+    "id": "sanzen-in-ohara",
+    "name": "Sanzen-in Temple",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
     "id": "sapporo-art-park",
     "name": "Sapporo Art Park",
     "prefecture": "Hokkaido",
@@ -10770,6 +10859,18 @@
     }
   },
   {
+    "id": "tenryu-ji-kyoto",
+    "name": "Tenryu-ji Temple",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
     "id": "tenryu-okumikawa",
     "name": "Tenryu-Okumikawa Quasi-National Park",
     "prefecture": "Nagano",
@@ -11663,6 +11764,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "naruto-city"
+    }
+  },
+  {
+    "id": "uzumasa-kyoto-village",
+    "name": "UZUMASA KYOTO VILLAGE",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "theme_park",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
     }
   },
   {

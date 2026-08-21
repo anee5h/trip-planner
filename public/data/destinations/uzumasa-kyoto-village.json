@@ -1,0 +1,254 @@
+{
+  "id": "uzumasa-kyoto-village",
+  "officialWebsite": "https://en.eigamura.com/",
+  "officialWebsiteRequirement": "required",
+  "name": "UZUMASA KYOTO VILLAGE",
+  "nameJa": "太秦映画村",
+  "aliases": [
+    "Toei Kyoto Studio Park",
+    "Toei Uzumasa Eigamura",
+    "東映太秦映画村"
+  ],
+  "municipalityId": "Kyoto:kyoto",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "theme_park",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "major",
+  "areaId": "arashiyama",
+  "coordinates": {
+    "lat": 35.016452,
+    "lng": 135.708023
+  },
+  "location": {
+    "address": "10 Higashi Hachiokacho, Uzumasa, Ukyo-ku, Kyoto",
+    "latitude": 35.016452,
+    "longitude": 135.708023
+  },
+  "categories": ["Theme Park", "Family", "Entertainment", "Culture"],
+  "tags": ["Theme Park", "Family", "Entertainment", "Culture", "Kyoto City"],
+  "description": "A film-themed Kyoto attraction with Edo-period sets, live entertainment, and hands-on historical-film experiences under the current UZUMASA KYOTO VILLAGE brand.",
+  "highlights": [
+    "Edo-period film and television sets",
+    "Family-friendly live experiences",
+    "The current UZUMASA KYOTO VILLAGE renewal"
+  ],
+  "content": {
+    "en": {
+      "name": "UZUMASA KYOTO VILLAGE",
+      "description": "A film-themed Kyoto attraction with Edo-period sets, live entertainment, and hands-on historical-film experiences under the current UZUMASA KYOTO VILLAGE brand.",
+      "highlights": [
+        "Edo-period film and television sets",
+        "Family-friendly live experiences",
+        "The current UZUMASA KYOTO VILLAGE renewal"
+      ],
+      "notes": "The operator publishes different 2–3 hour, half-day, and full-day planning choices; no single visit duration is asserted here. Rides, sets, shows, and temporary events remain components of one park record.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "太秦映画村",
+      "description": "現在のUZUMASA KYOTO VILLAGEブランドで運営される映画・時代劇テーマパーク。江戸の町並みセットやショー、体験型の展示を楽しめます。",
+      "highlights": [
+        "時代劇の町並みセット",
+        "家族で楽しめる体験・ショー",
+        "UZUMASA KYOTO VILLAGEの新しい運営ブランド"
+      ],
+      "notes": "公式案内には2〜3時間・半日・1日など複数の過ごし方が示されるため、単一の滞在時間は掲載していません。アトラクション、セット、ショー、期間イベントは一つのパーク記録に含めます。",
+      "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg/1280px-Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Bykim2012, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "The operator publishes multiple 2–3 hour, half-day, and full-day planning choices rather than one duration; the repository's conservative theme-park band is used as a 4–8 hour planning window, excluding access time."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "The operator publishes different 2–3 hour, half-day, and full-day planning choices; no single visit duration is asserted here. Rides, sets, shows, and temporary events remain components of one park record.",
+  "notesJa": "公式案内には2〜3時間・半日・1日など複数の過ごし方が示されるため、単一の滞在時間は掲載していません。アトラクション、セット、ショー、期間イベントは一つのパーク記録に含めます。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "kyoto-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://en.eigamura.com/",
+        "title": "UZUMASA KYOTO VILLAGE official English site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://en.eigamura.com/access/",
+        "title": "UZUMASA KYOTO VILLAGE official access",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://eigamura.com/",
+        "title": "UZUMASA KYOTO VILLAGE official Japanese site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://global.toei-eigamura.com/",
+        "title": "Toei Kyoto Studio Park renewal information",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/access/",
+          "title": "UZUMASA KYOTO VILLAGE official access",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/access/",
+          "title": "UZUMASA KYOTO VILLAGE official access",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
+          "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
+          "accessedAt": "2026-08-22"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22"
+}

@@ -253,7 +253,9 @@
       "hakone-open-air-museum",
       "kanazawa-21",
       "junglia-okinawa",
-      "dmm-kariyushi-aquarium"
+      "dmm-kariyushi-aquarium",
+      "uzumasa-kyoto-village",
+      "gekkeikan-okura-sake-museum"
     ],
     "duration-model-v1": [
       "abeno-harukas-300-osaka",
@@ -465,7 +467,15 @@
       "sado-yahiko-yoneyama",
       "kyushu-chuo-sanchi",
       "sobo-katamuki",
-      "nichinan-kaigan-drive"
+      "nichinan-kaigan-drive",
+      "kiyomizu-dera",
+      "arashiyama-bamboo-togetsukyo",
+      "tenryu-ji-kyoto",
+      "uzumasa-kyoto-village",
+      "kurama-dera-kyoto",
+      "kifune-jinja-kyoto",
+      "sanzen-in-ohara",
+      "jakko-in-ohara"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -741,7 +751,16 @@
       "karato-market-shimonoseki",
       "akiyoshidai-plateau",
       "iwakuni-castle",
-      "matsushima-town"
+      "matsushima-town",
+      "kiyomizu-dera",
+      "arashiyama-bamboo-togetsukyo",
+      "tenryu-ji-kyoto",
+      "uzumasa-kyoto-village",
+      "kurama-dera-kyoto",
+      "kifune-jinja-kyoto",
+      "sanzen-in-ohara",
+      "jakko-in-ohara",
+      "gekkeikan-okura-sake-museum"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1714,7 +1733,16 @@
       "meiji-no-mori-takao",
       "kongo-ikoma-kisen",
       "junglia-okinawa",
-      "dmm-kariyushi-aquarium"
+      "dmm-kariyushi-aquarium",
+      "kiyomizu-dera",
+      "arashiyama-bamboo-togetsukyo",
+      "tenryu-ji-kyoto",
+      "uzumasa-kyoto-village",
+      "kurama-dera-kyoto",
+      "kifune-jinja-kyoto",
+      "sanzen-in-ohara",
+      "jakko-in-ohara",
+      "gekkeikan-okura-sake-museum"
     ]
   },
   "modelClusterIds": [
@@ -1764,26 +1792,62 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-21T22:50",
-    "changeCount": 2,
+    "at": "2026-08-21T23:32",
+    "changeCount": 8,
     "byModel": [
       [
         "duration-model-v1",
-        2
+        8
       ]
     ],
     "sample": [
       {
-        "id": "junglia-okinawa",
+        "id": "kiyomizu-dera",
         "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "dmm-kariyushi-aquarium",
+        "id": "arashiyama-bamboo-togetsukyo",
         "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
+      },
+      {
+        "id": "tenryu-ji-kyoto",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
+      },
+      {
+        "id": "uzumasa-kyoto-village",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
+      },
+      {
+        "id": "kurama-dera-kyoto",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
+      },
+      {
+        "id": "kifune-jinja-kyoto",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
+      },
+      {
+        "id": "sanzen-in-ohara",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
+      },
+      {
+        "id": "jakko-in-ohara",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       }
     ]
   }

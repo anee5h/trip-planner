@@ -3,7 +3,7 @@
   "errors": 0,
   "warningsByCode": {
     "COARSE_GRID_COORDS": 4,
-    "GEO_DUPLICATE_COORDINATES": 5,
+    "GEO_DUPLICATE_COORDINATES": 6,
     "HOURS_CROSS_FIELD_CONFLICT": 15,
     "LOW_RES_HERO": 16,
     "MISSING_IMAGE_METADATA": 53,
@@ -28,6 +28,7 @@
     "GEO_DUPLICATE_COORDINATES:osaka-castle:osaka-castle,osaka-castle-park": 1,
     "GEO_DUPLICATE_COORDINATES:oura-church-nagasaki:glover-garden-nagasaki,oura-church-nagasaki": 1,
     "GEO_DUPLICATE_COORDINATES:tokugawa-art-museum:tokugawa-art-museum,tokugawa-garden": 1,
+    "GEO_DUPLICATE_COORDINATES:kyoto-historic:kiyomizu-dera,kyoto-historic": 1,
     "HOURS_CROSS_FIELD_CONFLICT:ameya-yokocho": 1,
     "HOURS_CROSS_FIELD_CONFLICT:chiba-shrine": 1,
     "HOURS_CROSS_FIELD_CONFLICT:enoshima-shrine": 1,
