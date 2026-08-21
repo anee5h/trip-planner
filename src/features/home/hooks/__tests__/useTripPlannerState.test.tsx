@@ -5,6 +5,7 @@ import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, it, expect } from "vitest";
 import { useTripPlannerState } from "../useTripPlannerState";
+import { HomePlannerStateProvider } from "@/features/home/state/HomePlannerStateContext";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -20,7 +21,7 @@ afterEach(() => {
   host = undefined;
 });
 
-function TestHarness({
+function TestHarnessContent({
   mockUser,
   onHookResult,
 }: {
@@ -30,6 +31,20 @@ function TestHarness({
   const plannerState = useTripPlannerState(mockUser);
   onHookResult(plannerState);
   return <div id="test-harness" />;
+}
+
+function TestHarness({
+  mockUser,
+  onHookResult,
+}: {
+  mockUser: Parameters<typeof useTripPlannerState>[0];
+  onHookResult: (state: ReturnType<typeof useTripPlannerState>) => void;
+}) {
+  return (
+    <HomePlannerStateProvider user={mockUser}>
+      <TestHarnessContent mockUser={mockUser} onHookResult={onHookResult} />
+    </HomePlannerStateProvider>
+  );
 }
 
 function setupHook(mockUser: Parameters<typeof useTripPlannerState>[0] = null) {

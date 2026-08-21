@@ -1,7 +1,9 @@
-import type { HomepageTripDuration } from "./PlannerBudgetPolicy";
+import type {
+  ForecastDateSelection,
+  HomepageTripDuration,
+} from "@/shared/types/homePlannerState";
 
-export type ForecastDateSelection =
-  { type: "today" } | { type: "tomorrow" } | { type: "custom"; date: string };
+export type { ForecastDateSelection } from "@/shared/types/homePlannerState";
 
 export interface DefaultDurationOptions {
   selection: ForecastDateSelection;

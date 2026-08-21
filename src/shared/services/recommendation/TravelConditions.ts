@@ -3,6 +3,8 @@ import type { DayForecastData } from "@/shared/services/weather/WeatherTabServic
 import { getNextCalendarDate } from "@/shared/services/weather/WeatherTabService";
 import type { TripMode } from "./RecommendationContext";
 import type { MatchReason } from "./RecommendationTypes";
+
+export { normalizeTravelDateParam } from "@/shared/types/homePlannerState";
 import { evaluateSeasonalSuitability } from "./SeasonalSuitabilityService";
 import { isFerryTripAvailable } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
@@ -43,31 +45,6 @@ export function deriveTripDates(
     return { day1, day2: getNextCalendarDate(day1) };
   }
   return { day1 };
-}
-
-/**
- * Parses a YYYY-MM-DD date parameter safely: malformed dates, impossible
- * calendar dates (2026-02-30, 2026-13-01) and past dates all normalize to
- * undefined. Omitted means "no explicit date".
- */
-export function normalizeTravelDateParam(
-  value: string | null | undefined,
-): string | undefined {
-  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return undefined;
-  const [year, month, day] = value.split("-").map(Number);
-  if (month < 1 || month > 12 || day < 1 || day > 31) return undefined;
-  const date = new Date(year, month - 1, day);
-  if (
-    date.getFullYear() !== year ||
-    date.getMonth() !== month - 1 ||
-    date.getDate() !== day
-  ) {
-    return undefined;
-  }
-  const today = new Date();
-  const todayIso = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
-  if (value < todayIso) return undefined;
-  return value;
 }
 
 /** Local-noon Date for a YYYY-MM-DD string (avoids UTC drift on date math). */

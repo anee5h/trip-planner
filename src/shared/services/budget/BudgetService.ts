@@ -15,14 +15,13 @@ import type {
 } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
-export const ACCOMMODATION_ALLOWANCE_PRESETS = {
-  economy: 8000,
-  standard: 15000,
-  comfortable: 25000,
-} as const;
-export type AccommodationAllowancePreset =
-  keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS;
-export const MAX_ACCOMMODATION_ALLOWANCE = 500000;
+import { isValidAccommodationAllowance } from "@/shared/types/homePlannerState";
+export {
+  ACCOMMODATION_ALLOWANCE_PRESETS,
+  MAX_ACCOMMODATION_ALLOWANCE,
+} from "@/shared/types/homePlannerState";
+export { isValidAccommodationAllowance };
+export type { AccommodationAllowancePreset } from "@/shared/types/homePlannerState";
 
 const COST_UNAVAILABLE = { en: "Cost unavailable", ja: "料金不明" } as const;
 
@@ -118,18 +117,6 @@ function deriveTripDurationHours(
     },
     modes,
   )?.representativeHours;
-}
-
-/**
- * Returns true when value is a finite integer between 0 and MAX_ACCOMMODATION_ALLOWANCE inclusive.
- */
-export function isValidAccommodationAllowance(value: number): boolean {
-  return (
-    Number.isFinite(value) &&
-    Number.isInteger(value) &&
-    value >= 0 &&
-    value <= MAX_ACCOMMODATION_ALLOWANCE
-  );
 }
 
 function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {

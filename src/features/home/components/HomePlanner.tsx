@@ -30,15 +30,17 @@ import {
   SelectTrigger,
 } from "@/shared/components/ui/select";
 import type { BudgetTier } from "@/shared/types/planner";
-import type { HomepageTripDuration } from "../services/PlannerBudgetPolicy";
-import type { TransportPreference } from "../services/TransportResolver";
+import type {
+  HomepageTripDuration,
+  TransportPreference,
+  TripMode,
+} from "@/shared/types/homePlannerState";
 import { useTranslation } from "react-i18next";
-import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
 import {
   ACCOMMODATION_ALLOWANCE_PRESETS,
   MAX_ACCOMMODATION_ALLOWANCE,
   isValidAccommodationAllowance,
-} from "@/shared/services/budget/BudgetService";
+} from "@/shared/types/homePlannerState";
 
 interface HomePlannerProps {
   vibe: string;
