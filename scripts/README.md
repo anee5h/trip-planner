@@ -175,7 +175,29 @@ npm run check:catalog-warnings:update  # deliberate baseline reduction (refuses 
 npm run check:catalog-sync             # generated-file currency + idempotency
 npm run sync-destination-details       # regenerate committed outputs (if stale)
 npm run audit:catalog-integrity        # the read-only audit alone
+npm run audit:destination-depth        # deterministic advisory depth report
 ```
+
+### Destination-depth audit (advisory)
+
+`npm run audit:destination-depth` reads the canonical
+`src/shared/data/destinations-index.json` and writes deterministic,
+repository-local reports to the ignored `reports/` directory:
+`destination-depth-audit.json` and `destination-depth-audit.md`. It never
+modifies canonical or generated catalogue data and is not a CI quality gate.
+
+The report covers all 47 prefectures, regional rollups, municipality
+concentration, experience/archetype coverage, visit-duration usefulness,
+structured season sample coverage, transport diversity, role/place-type
+composition, relationship concentration, shell hubs, and fake-depth warnings.
+Its six advisory dimensions use approximate weights of 25/20/20/15/10/10%.
+Missing metadata is excluded from the affected dimension and the remaining
+weights are renormalized; the report exposes available sample counts and score
+coverage so sparse metadata cannot masquerade as evidence. The taxonomy is
+currently inconsistent, structured seasonality is incomplete, and some
+municipality IDs are missing. Scores are signals for QA and expansion review,
+not minimum-count targets or merge blockers. Mie follows the app's existing
+Kansai region convention.
 
 ## Pipeline Stages
 
