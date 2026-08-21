@@ -315,6 +315,10 @@ describe("useTripSync — origin ownership integration", () => {
     await act(async () => {
       save({ data: null, error: null });
       await mutation;
+    });
+    await act(async () => {
+      // Flush the post-success React effect before advancing its debounce.
+      await Promise.resolve();
       vi.advanceTimersByTime(1_100);
       await Promise.resolve();
     });

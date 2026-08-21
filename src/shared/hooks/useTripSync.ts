@@ -859,6 +859,7 @@ export function useTripSync({
         profileSyncTimeoutRef.current = null;
       }
       if (explicitOriginMutation.status === "pending") return;
+      if (lastSyncedProfileRef.current === snapshot) return;
     }
 
     if (profileSyncTimeoutRef.current) {
