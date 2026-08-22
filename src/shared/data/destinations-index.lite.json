@@ -4802,7 +4802,10 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "inubosaki-lighthouse-choshi",
+        "byobugaura-choshi"
+      ]
     }
   },
   {
@@ -7686,12 +7689,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": ["funabashi-andersen-park"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -22777,10 +22775,8 @@
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
+        "tojo-tei-matsudo",
+        "yagiri-no-watashi-matsudo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
@@ -88037,6 +88033,908 @@
     "walkingIntensity": "low",
     "relationships": {
       "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "funabashi-andersen-park",
+    "name": "H.C. Andersen Park",
+    "nameJa": "ふなばしアンデルセン公園",
+    "kind": "park",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:funabashi",
+    "aliases": ["Funabashi Andersen Park", "ふなばしアンデルセンパーク"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Park", "Family", "Nature", "Outdoors"],
+    "tags": ["Park", "Family", "Nature", "Outdoors", "Funabashi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Funabashi-Andersen-Park_33.jpg/1280px-Funabashi-Andersen-Park_33.jpg",
+    "description": "A large family-oriented park with play areas, animals, gardens, nature, and children's art experiences in northern Funabashi.",
+    "highlights": [
+      "Five themed park zones",
+      "Family play, animals, gardens, and nature",
+      "A substantial bus-accessible outing from the Funabashi area"
+    ],
+    "coordinates": {
+      "lat": 35.75853,
+      "lng": 140.058273
+    },
+    "officialWebsite": "https://www.park-funabashi.or.jp/and/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 265,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "funabashi-city"
+    }
+  },
+  {
+    "id": "nakayama-hokekyoji-ichikawa",
+    "name": "Nakayama Hokekyo-ji Temple",
+    "nameJa": "日蓮宗大本山 中山法華経寺",
+    "kind": "temple",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:ichikawa",
+    "aliases": ["Hokekyo-ji", "Nakayama Hokekyoji", "中山法華経寺"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Temple", "History", "Culture", "Architecture"],
+    "tags": ["Temple", "History", "Culture", "Ichikawa", "Commuter Belt"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Nakayama_Hokekyoji_temple.jpg/1280px-Nakayama_Hokekyoji_temple.jpg",
+    "description": "A major Nichiren Buddhist temple in Ichikawa with nationally designated cultural properties and a substantial historic precinct.",
+    "highlights": [
+      "Historic Nakayama temple precinct",
+      "Nationally designated cultural properties",
+      "A rail-accessible cultural outing in the northern Chiba commuter belt"
+    ],
+    "coordinates": {
+      "lat": 35.721226,
+      "lng": 139.948273
+    },
+    "officialWebsite": "https://hokekyoji2101.wixsite.com/nakayama",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "tojo-tei-matsudo",
+    "name": "Tojo-tei House and Tojo Historical Museum",
+    "nameJa": "戸定邸・戸定歴史館",
+    "kind": "historic",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:matsudo",
+    "aliases": ["Tojo-tei", "Tojo Residence", "戸定邸"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["History", "Museum", "Garden", "Culture"],
+    "tags": ["History", "Museum", "Garden", "Culture", "Matsudo"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Tojo-tei_02.jpg/1280px-Tojo-tei_02.jpg",
+    "description": "A coherent Matsudo historic outing combining the nationally designated Tojo-tei residence, its garden, adjacent historical museum, and park setting.",
+    "highlights": [
+      "Tojo-tei historic residence",
+      "Adjacent Tojo Historical Museum",
+      "Garden and hilltop views near Matsudo Station"
+    ],
+    "coordinates": {
+      "lat": 35.776695,
+      "lng": 139.900284
+    },
+    "officialWebsite": "https://www.city.matsudo.chiba.jp/tojo/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "matsudo-city"
+    }
+  },
+  {
+    "id": "yagiri-no-watashi-matsudo",
+    "name": "Yagiri-no-Watashi Ferry",
+    "nameJa": "矢切の渡し",
+    "kind": "mixed",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:matsudo",
+    "aliases": ["Yagiri Ferry", "Yagiri-no-Watashi", "矢切の渡し船"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["River", "Culture", "Scenery", "Outdoors"],
+    "tags": ["River Crossing", "River", "Scenery", "Matsudo", "Shibamata"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/YagiriNoWatashi_Matsudo_Chiba_Japan_JAN2016.jpg/1280px-YagiriNoWatashi_Matsudo_Chiba_Japan_JAN2016.jpg",
+    "description": "A historic Edo River ferry outing linking the Matsudo/Yagiri landing with the Shibamata side of the river.",
+    "highlights": [
+      "Edo River crossing",
+      "Matsudo/Yagiri and Shibamata-side walking context",
+      "A small-scale heritage and riverside experience"
+    ],
+    "coordinates": {
+      "lat": 35.75901,
+      "lng": 139.885132
+    },
+    "officialWebsite": "https://maruchiba.jp/spot/detail_10042.html",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 45,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {
+      "parentDestinationId": "matsudo-city"
+    }
+  },
+  {
+    "id": "akebonoyama-agricultural-park-kashiwa",
+    "name": "Akebonoyama Agricultural Park",
+    "nameJa": "あけぼの山農業公園",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:kashiwa",
+    "aliases": ["Akebonoyama Park", "あけぼの山公園"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Park", "Nature", "Flowers", "Agriculture"],
+    "tags": ["Park", "Flowers", "Nature", "Agriculture", "Kashiwa"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Akebonoyama_Agricultural_Park.JPG/1280px-Akebonoyama_Agricultural_Park.JPG",
+    "description": "A municipal agricultural and flower park in Kashiwa with gardens, farm-themed facilities, nature, and recurring events.",
+    "highlights": [
+      "Flower and garden landscapes",
+      "Agricultural and nature-oriented facilities",
+      "A distinct Kashiwa outing outside the central Tokyo commuter corridor"
+    ],
+    "coordinates": {
+      "lat": 35.891518,
+      "lng": 139.992828
+    },
+    "officialWebsite": "https://akebonoyama-nougyoukouen.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 145,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "shimizu-park-noda",
+    "name": "Shimizu Park",
+    "nameJa": "清水公園",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:noda",
+    "aliases": ["Shimizu-koen", "清水公園（野田市）"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Park", "Nature", "Family", "Outdoors"],
+    "tags": ["Park", "Family", "Nature", "Outdoors", "Noda"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Shimizu_Park_%28Noda%29_201905.jpg/1280px-Shimizu_Park_%28Noda%29_201905.jpg",
+    "description": "A large active park in Noda combining seasonal gardens, outdoor facilities, camping and BBQ, fishing, and family activities.",
+    "highlights": [
+      "Seasonal gardens and broad park grounds",
+      "Outdoor, camping, BBQ, fishing, and family facilities",
+      "A station-accessible Noda day-outing anchor"
+    ],
+    "coordinates": {
+      "lat": 35.96006,
+      "lng": 139.85083
+    },
+    "officialWebsite": "https://www.shimizu-kouen.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "kikkoman-soy-sauce-museum-noda",
+    "name": "Kikkoman Soy Sauce Museum",
+    "nameJa": "キッコーマンもの知りしょうゆ館",
+    "kind": "museum",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:noda",
+    "aliases": ["Kikkoman Noda Factory Tour", "Kikkoman Soy Sauce Museum Noda"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Museum", "Food", "Industry", "Culture", "Indoor"],
+    "tags": ["Museum", "Food", "Industry", "Culture", "Noda"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Kikkoman_Noda_01.jpg/1280px-Kikkoman_Noda_01.jpg",
+    "description": "An operator-run museum and factory-tour destination covering Kikkoman's soy-sauce history, production, and food culture in Noda.",
+    "highlights": [
+      "Soy-sauce history and production exhibits",
+      "A concrete anchor for Noda's food and industry heritage",
+      "A short walk from Nodashi Station"
+    ],
+    "coordinates": {
+      "lat": 35.941463,
+      "lng": 139.870667
+    },
+    "officialWebsite": "https://www.kikkoman.com/en/culture/soysaucemuseum/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "spa-metsa-ootaka-nagareyama",
+    "name": "Spa Metsa Ootaka, Ryusenji-no-Yu",
+    "nameJa": "スパメッツァおおたか 竜泉寺の湯",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:nagareyama",
+    "aliases": ["Spa Metsa Ootaka", "Ryusenji-no-Yu Spa Metsa Ootaka"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Onsen", "Wellness", "Indoor", "Relaxation"],
+    "tags": ["Onsen", "Wellness", "Relaxation", "Indoor", "Nagareyama"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ryusenji-no-yu_%28Spa-metsa-Otaka%29_02.jpg/1280px-Ryusenji-no-yu_%28Spa-metsa-Otaka%29_02.jpg",
+    "description": "A current natural-hot-spring and sauna facility near Nagareyama-Otakanomori Station, useful as a concrete evening and relaxation destination.",
+    "highlights": [
+      "Natural hot-spring bathing and sauna facilities",
+      "A late-hours relaxation option near the station",
+      "A concrete attraction rather than a generic Nagareyama evening district"
+    ],
+    "coordinates": {
+      "lat": 35.872856,
+      "lng": 139.921661
+    },
+    "officialWebsite": "https://www.ryusenjinoyu.com/spametsaotaka/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 150,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "national-museum-japanese-history-sakura",
+    "name": "National Museum of Japanese History",
+    "nameJa": "国立歴史民俗博物館",
+    "kind": "museum",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:sakura",
+    "aliases": ["Rekihaku", "National Museum of Japanese History Sakura"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Museum", "History", "Culture", "Indoor"],
+    "tags": ["Museum", "History", "Culture", "Sakura", "Chiba"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/National_Museum_of_Japanese_History_2008.jpg/1280px-National_Museum_of_Japanese_History_2008.jpg",
+    "description": "A national museum in Sakura presenting Japanese history and folk culture through large-scale permanent and special exhibitions.",
+    "highlights": [
+      "Large-scale Japanese history and folk-culture galleries",
+      "A strong indoor complement to Sakura Castle Park",
+      "Rail-and-bus access from the Tokyo/Chiba commuter belt"
+    ],
+    "coordinates": {
+      "lat": 35.724312,
+      "lng": 140.219498
+    },
+    "officialWebsite": "https://www.rekihaku.ac.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["sakura-castle-chiba"]
+    }
+  },
+  {
+    "id": "inubosaki-lighthouse-choshi",
+    "name": "Inubosaki Lighthouse",
+    "nameJa": "犬吠埼灯台",
+    "kind": "tower",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:choshi",
+    "aliases": ["Inubosaki Lighthouse", "Inubohsaki Lighthouse", "犬吠埼"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Landmark", "Scenery", "History", "Coast"],
+    "tags": ["Lighthouse", "Coast", "Scenery", "History", "Choshi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/250821_Inubosaki_Lighthouse_05.jpg/1280px-250821_Inubosaki_Lighthouse_05.jpg",
+    "description": "An active visitor lighthouse at Cape Inubo, offering a distinctive Choshi coastal landmark and Pacific views.",
+    "highlights": [
+      "Historic lighthouse tower and coastal setting",
+      "Pacific views from Cape Inubo",
+      "A distinct lighthouse anchor for a Choshi east-coast outing"
+    ],
+    "coordinates": {
+      "lat": 35.7077778,
+      "lng": 140.8686111
+    },
+    "officialWebsite": "https://www.choshikanko.com/kankoDB/%E7%8A%AC%E5%90%A0%E5%9F%BC%E7%81%AF%E5%8F%B0/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
+    },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "choshi-city"
+    }
+  },
+  {
+    "id": "byobugaura-choshi",
+    "name": "Byobugaura Cliffs",
+    "nameJa": "屏風ケ浦",
+    "kind": "cliff",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:choshi",
+    "aliases": ["Byobugaura", "Byōbugaura", "Dover of the Orient"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Nature", "Geology", "Scenery", "Coast"],
+    "tags": ["Cliffs", "Geology", "Coast", "Scenery", "Choshi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Byobugaura_01.jpg/1280px-Byobugaura_01.jpg",
+    "description": "A long Pacific-facing cliff landscape and natural monument viewed from the Choshi Marina promenade.",
+    "highlights": [
+      "Layered coastal cliffs",
+      "Choshi Marina promenade viewpoint context",
+      "A geology-and-scenery outing distinct from Inubosaki Lighthouse"
+    ],
+    "coordinates": {
+      "lat": 35.704407,
+      "lng": 140.843445
+    },
+    "officialWebsite": "https://www.choshikanko.com/kankoDB/%E5%B1%8F%E9%A2%A8%E3%82%B1%E6%B5%A6/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
+    },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 45,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {
+      "parentDestinationId": "choshi-city"
     }
   }
 ]

@@ -55,12 +55,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "boso-peninsula",
-      "chiba-nokogiriyama",
-      "chiba-port-tower",
-      "chiba-sawara"
-    ],
+    "featuredDestinationIds": ["funabashi-andersen-park"],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {
@@ -112,8 +107,16 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance standard, 0 children, metro=false",
+          "title": "hub-window-model-v1; hub exploration window: importance standard, 1 children, metro=false",
           "accessedAt": "2026-08-14"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-146",
+          "title": "KAI-146 curated Northern Chiba hub children; structural children remain authoritative",
+          "accessedAt": "2026-08-22"
         }
       ]
     }
@@ -177,7 +180,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance standard, 0 children, metro=false"
+    "basis": "hub exploration window: importance standard, 1 children, metro=false"
   },
   "comfortMetadata": {
     "method": "model",

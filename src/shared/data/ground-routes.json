@@ -820,6 +820,78 @@
       "timeRange": [25, 45],
       "sourceUrl": "https://timetables.jreast.co.jp/en/2608/timetable/tt0913/0913061.html",
       "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Chiba:funabashi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [20, 35],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/115/117031.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Chiba:matsudo",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [28, 45],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/035/038152.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Chiba:sakura",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [55, 75],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/185/186051.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Tokyo:chiyoda",
+      "to": "Chiba:choshi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [120, 150],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/125/128441.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Kanagawa:yokohama",
+      "to": "Chiba:funabashi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [50, 75],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/115/117031.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Chiba:chiba",
+      "to": "Chiba:funabashi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [15, 30],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/115/117031.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Chiba:chiba",
+      "to": "Chiba:sakura",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [25, 45],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/100/101871.html",
+      "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "Chiba:chiba",
+      "to": "Chiba:choshi",
+      "bidirectional": true,
+      "mode": "train",
+      "timeRange": [90, 130],
+      "sourceUrl": "https://timetables.jreast.co.jp/en/2608/train/100/101871.html",
+      "checkedAt": "2026-08-22"
     }
   ]
 }

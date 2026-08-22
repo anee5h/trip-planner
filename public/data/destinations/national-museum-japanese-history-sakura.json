@@ -1,0 +1,303 @@
+{
+  "id": "national-museum-japanese-history-sakura",
+  "officialWebsite": "https://www.rekihaku.ac.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "National Museum of Japanese History",
+  "nameJa": "国立歴史民俗博物館",
+  "aliases": ["Rekihaku", "National Museum of Japanese History Sakura"],
+  "municipalityId": "Chiba:sakura",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 35.724312,
+    "lng": 140.219498
+  },
+  "location": {
+    "address": "117 Jonai-cho, Sakura, Chiba 285-8502",
+    "latitude": 35.724312,
+    "longitude": 140.219498
+  },
+  "categories": ["Museum", "History", "Culture", "Indoor"],
+  "tags": ["Museum", "History", "Culture", "Sakura", "Chiba"],
+  "description": "A national museum in Sakura presenting Japanese history and folk culture through large-scale permanent and special exhibitions.",
+  "highlights": [
+    "Large-scale Japanese history and folk-culture galleries",
+    "A strong indoor complement to Sakura Castle Park",
+    "Rail-and-bus access from the Tokyo/Chiba commuter belt"
+  ],
+  "content": {
+    "en": {
+      "name": "National Museum of Japanese History",
+      "description": "A national museum in Sakura presenting Japanese history and folk culture through large-scale permanent and special exhibitions.",
+      "highlights": [
+        "Large-scale Japanese history and folk-culture galleries",
+        "A strong indoor complement to Sakura Castle Park",
+        "Rail-and-bus access from the Tokyo/Chiba commuter belt"
+      ],
+      "notes": "The museum is modeled as a separate sibling/related destination to the existing Sakura Castle Park record. Seasonal hours and closures are operational facts; no season score is inferred.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "The museum publishes car and visitor parking guidance; check current access conditions before arrival.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "国立歴史民俗博物館",
+      "description": "佐倉城址公園に近接し、日本の歴史と民俗文化を大規模な常設・企画展示で紹介する国立博物館です。",
+      "highlights": [
+        "日本の歴史・民俗文化の展示",
+        "佐倉城址公園と組み合わせやすい屋内文化施設",
+        "東京・千葉方面から鉄道とバスでアクセス"
+      ],
+      "notes": "既存の佐倉城址公園とは別の姉妹・関連行き先として扱っています。季節ごとの開館時間や休館日は運用情報であり、季節スコアは推定していません。",
+      "reservation": "予約・利用条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "利用時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/National_Museum_of_Japanese_History_2008.jpg/1280px-National_Museum_of_Japanese_History_2008.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Wiiii, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Japanese_History_2008.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'museum'"
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "The museum publishes car and visitor parking guidance; check current access conditions before arrival.",
+  "notes": "The museum is modeled as a separate sibling/related destination to the existing Sakura Castle Park record. Seasonal hours and closures are operational facts; no season score is inferred.",
+  "notesJa": "既存の佐倉城址公園とは別の姉妹・関連行き先として扱っています。季節ごとの開館時間や休館日は運用情報であり、季節スコアは推定していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "relatedDestinationIds": ["sakura-castle-chiba"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Northern Chiba destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.rekihaku.ac.jp/",
+        "title": "National Museum of Japanese History official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.rekihaku.ac.jp/information/access/",
+        "title": "National Museum of Japanese History official access",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.sakura.lg.jp/soshiki/sakuranomiryoku/1/15919.html",
+        "title": "Sakura City National Museum of Japanese History page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "government",
+        "url": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E5%8D%83%E8%91%89%E7%9C%8C%E4%BD%90%E5%80%89%E5%B8%82%E5%9F%8E%E5%86%85%E7%94%BA117",
+        "title": "GSI Address Search coordinate for 千葉県佐倉市城内町117",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/",
+          "title": "National Museum of Japanese History official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/",
+          "title": "National Museum of Japanese History official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/",
+          "title": "National Museum of Japanese History official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/",
+          "title": "National Museum of Japanese History official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/information/access/",
+          "title": "National Museum of Japanese History official access",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/",
+          "title": "National Museum of Japanese History official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.rekihaku.ac.jp/",
+          "title": "National Museum of Japanese History official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E5%8D%83%E8%91%89%E7%9C%8C%E4%BD%90%E5%80%89%E5%B8%82%E5%9F%8E%E5%86%85%E7%94%BA117",
+          "title": "GSI Address Search coordinate for 千葉県佐倉市城内町117",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'museum'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Northern Chiba destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

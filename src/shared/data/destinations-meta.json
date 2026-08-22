@@ -141,6 +141,16 @@
     "relationships": {}
   },
   {
+    "id": "akebonoyama-agricultural-park-kashiwa",
+    "name": "Akebonoyama Agricultural Park",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "akihabara-chiyoda",
     "name": "Akihabara (Chiyoda)",
     "prefecture": "Tokyo",
@@ -857,6 +867,18 @@
     }
   },
   {
+    "id": "byobugaura-choshi",
+    "name": "Byobugaura Cliffs",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "cliff",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "choshi-city"
+    }
+  },
+  {
     "id": "byodoin-temple",
     "name": "Byodoin Temple",
     "prefecture": "Kyoto",
@@ -1208,7 +1230,10 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "inubosaki-lighthouse-choshi",
+        "byobugaura-choshi"
+      ]
     }
   },
   {
@@ -2025,6 +2050,18 @@
     "relationships": {}
   },
   {
+    "id": "funabashi-andersen-park",
+    "name": "H.C. Andersen Park",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "funabashi-city"
+    }
+  },
+  {
     "id": "funabashi-city",
     "name": "Funabashi City",
     "prefecture": "Chiba",
@@ -2033,12 +2070,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": ["funabashi-andersen-park"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -3554,6 +3586,18 @@
     }
   },
   {
+    "id": "inubosaki-lighthouse-choshi",
+    "name": "Inubosaki Lighthouse",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "tower",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "choshi-city"
+    }
+  },
+  {
     "id": "inujima",
     "name": "Inujima Island",
     "prefecture": "Okayama",
@@ -4751,6 +4795,16 @@
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
+  },
+  {
+    "id": "kikkoman-soy-sauce-museum-noda",
+    "name": "Kikkoman Soy Sauce Museum",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "kimii-dera-temple",
@@ -6019,10 +6073,8 @@
     "status": "published",
     "relationships": {
       "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
+        "tojo-tei-matsudo",
+        "yagiri-no-watashi-matsudo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
@@ -7292,6 +7344,16 @@
     }
   },
   {
+    "id": "nakayama-hokekyoji-ichikawa",
+    "name": "Nakayama Hokekyo-ji Temple",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "nakazu-banshoen-marugame",
     "name": "Nakazu Banshoen",
     "prefecture": "Kagawa",
@@ -7518,6 +7580,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "naruto-city"
+    }
+  },
+  {
+    "id": "national-museum-japanese-history-sakura",
+    "name": "National Museum of Japanese History",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["sakura-castle-chiba"]
     }
   },
   {
@@ -9748,6 +9822,16 @@
     "relationships": {}
   },
   {
+    "id": "shimizu-park-noda",
+    "name": "Shimizu Park",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "shimokita-hanto",
     "name": "Shimokita Hanto Quasi-National Park",
     "prefecture": "Aomori",
@@ -10133,6 +10217,16 @@
     "relationships": {
       "parentDestinationId": "yokohama-city"
     }
+  },
+  {
+    "id": "spa-metsa-ootaka-nagareyama",
+    "name": "Spa Metsa Ootaka, Ryusenji-no-Yu",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "sugamo-jizo-dori",
@@ -10967,6 +11061,18 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
+    }
+  },
+  {
+    "id": "tojo-tei-matsudo",
+    "name": "Tojo-tei House and Tojo Historical Museum",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "historic",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "matsudo-city"
     }
   },
   {
@@ -11860,6 +11966,18 @@
     "kind": "nature",
     "status": "published",
     "relationships": {}
+  },
+  {
+    "id": "yagiri-no-watashi-matsudo",
+    "name": "Yagiri-no-Watashi Ferry",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "mixed",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "matsudo-city"
+    }
   },
   {
     "id": "yakushi-ike-park",
