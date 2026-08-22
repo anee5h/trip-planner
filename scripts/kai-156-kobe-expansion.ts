@@ -64,7 +64,6 @@ type KobeSpec = {
   notes: string;
   notesJa: string;
   localAccessModes: TransportMode[];
-  transportOptions?: { train?: number; bus?: number; shinkansen?: number };
   sources: SourceReference[];
   image: NonNullable<Destination["imageMetadata"]> & { heroImage: string };
   duration?: {
@@ -112,13 +111,6 @@ const unknownSeason = {
   confidence: "unknown" as const,
   basis:
     "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved.",
-};
-
-const legacyTransport = {
-  method: "legacy-fallback" as const,
-  confidence: "low" as const,
-  basis:
-    "Static minutes are retained only as a legacy display fallback matching existing Kobe records; origin-aware transport remains authoritative and is never fabricated.",
 };
 
 const image = (
@@ -257,10 +249,15 @@ const makeRecord = (spec: KobeSpec): DestinationWithLocation => {
       attribution: spec.image.attribution,
       sourceUrl: spec.image.sourceUrl,
     },
-    transportOptions: spec.transportOptions ?? {},
+    transportOptions: {},
     localAccessModes: spec.localAccessModes,
     localAccessUnestimated: true,
-    transportMetadata: legacyTransport,
+    transportMetadata: {
+      method: "unestimated",
+      confidence: "unknown",
+      basis:
+        "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers.",
+    },
     recommendedVisitHours: spec.duration?.hours,
     durationMetadata: spec.duration
       ? {
@@ -362,7 +359,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "アクセスは六甲ケーブル下駅（JR六甲道駅からバス）から六甲山上駅までケーブル、さらに六甲山上バスでガーデンテラスへ約13分です。山頂へ直通の鉄道はありません。六甲有馬ロープウェーで有馬温泉と結ばれています。",
     localAccessModes: ["bus", "car", "my_car"],
-    transportOptions: { bus: 90 },
     sources: [
       source("official", rokkoHome, "Rokko Garden Terrace official site"),
       source(
@@ -428,7 +424,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "入館無料、開館9:30〜16:30（入館は16:00まで）。阪神住吉駅から徒歩約5分です。隣接する本社敷地内の工事で駐車場の一部が利用できない場合があります。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 35, bus: 50 },
     sources: [
       source(
         "official",
@@ -491,7 +486,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "境内は毎日開いています。お札授与所・御朱印受付は9時〜16時半。JR三ノ宮駅・各私鉄三宮駅から徒歩約10分です。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 20, bus: 30 },
     sources: [
       source("official", ikutaHome, "Ikuta Shrine official access page"),
       source(
@@ -550,7 +544,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "開園9:00〜17:00（入園は16:30まで）。木曜と年末年始は休園。入園料300円。茶室「八三庵」と庭園が見どころです。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 15, bus: 25 },
     sources: [
       source(
         "official",
@@ -613,7 +606,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "須磨海浜水族園は2023年5月31日に閉館し、2024年6月に「神戸須磨シーワールド」として同じ須磨海岸に開業しました。料金・時間は季節により変動し、オンライン事前予約が推奨されます。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 40, bus: 60 },
     sources: [
       source("official", sumaHome, "Kobe Suma Sea World official English site"),
       source(
@@ -696,6 +688,24 @@ for (const candidate of reviewedCandidates) {
       existing.heroImage = candidate.heroImage;
       existing.imageMetadata = candidate.imageMetadata;
       if (existing.content?.en) existing.content.en.image = undefined;
+      enrichedIds.push(candidate.id);
+    }
+    // Transport correction (KAI-156 review): a newly verified destination
+    // must not carry static transportOptions minutes — those bypass the
+    // origin-aware guard and let a broad prefecture corridor masquerade as
+    // an attraction-level route. Mt. Rokko's static bus figure was the
+    // clearest case (cable + mountain bus is not a single bus corridor).
+    if (
+      existing.transportOptions &&
+      Object.keys(existing.transportOptions).length > 0
+    ) {
+      existing.transportOptions = {};
+      existing.transportMetadata = {
+        method: "unestimated",
+        confidence: "unknown",
+        basis:
+          "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers.",
+      };
       enrichedIds.push(candidate.id);
     }
     continue;

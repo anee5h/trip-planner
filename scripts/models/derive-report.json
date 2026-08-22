@@ -1862,26 +1862,44 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T14:56",
-    "changeCount": 2,
+    "at": "2026-08-22T18:00",
+    "changeCount": 5,
     "byModel": [
       [
-        "duration-model-v1",
-        2
+        "score-rubric-v2",
+        5
       ]
     ],
     "sample": [
       {
         "id": "mt-rokko-kobe",
-        "model": "duration-model-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'mountain'"
+        "reason": "estimated rubric score 7.1"
+      },
+      {
+        "id": "hakutsuru-sake-brewery-museum",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
+      },
+      {
+        "id": "ikuta-shrine-kobe",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
+      },
+      {
+        "id": "sorakuen-garden",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       },
       {
         "id": "kobe-suma-sea-world",
-        "model": "duration-model-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'aquarium'"
+        "reason": "estimated rubric score 7.1"
       }
     ]
   }

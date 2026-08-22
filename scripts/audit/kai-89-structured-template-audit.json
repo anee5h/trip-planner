@@ -6,7 +6,7 @@
   "totalRecords": 1017,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 191,
+    "clusterCount": 190,
     "affectedRecordCount": 1014,
     "affectedIds": [
       "abashiri",
@@ -1385,9 +1385,9 @@
       "confidence-gated": 31,
       "model-estimate": 43,
       "manual-review": 93,
-      "legitimate": 10
+      "legitimate": 9
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 10, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 9, "E": 31 }
   },
   "categories": [
     {
@@ -8605,8 +8605,8 @@
     {
       "category": "transport",
       "severity": "review",
-      "clusterCount": 60,
-      "affectedRecordCount": 427,
+      "clusterCount": 59,
+      "affectedRecordCount": 424,
       "affectedIds": [
         "abukuma-cave-fukushima",
         "adachi-city",
@@ -8866,7 +8866,6 @@
         "nijo-market",
         "niseko-town",
         "nishiki-market",
-        "noritake-garden",
         "nozuta-park",
         "numazu-city",
         "nunobiki-falls",
@@ -8938,7 +8937,6 @@
         "shitennoji",
         "shonan-kaigan-park",
         "soji-ji-yokohama",
-        "sorakuen-garden",
         "sugamo-jizo-dori",
         "suginami-city",
         "sumida-city",
@@ -8971,7 +8969,6 @@
         "teamlab-planets",
         "tempozan-ferris-wheel",
         "tenjin",
-        "tenjinbashi-suji-shopping-street",
         "tennoji-park",
         "tenshaen-garden-uwajima",
         "tojinbo-cliffs-fukui",
@@ -10102,22 +10099,6 @@
             "category": "E",
             "action": "manual-review",
             "reason": "mixed"
-          }
-        },
-        {
-          "id": "b6f0b5b82a44",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "noritake-garden",
-            "sorakuen-garden",
-            "tenjinbashi-suji-shopping-street"
-          ],
-          "value": { "bus": 25, "train": 15 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "Three new Kobe destinations (Ikuta Shrine, Sorakuen Garden, Hakutsuru Sake Brewery Museum) share a legacy-fallback transportOptions profile {bus:25, train:15} with low-confidence provenance per transportMetadata; these are display fallbacks, not origin-aware corridor claims."
           }
         },
         {

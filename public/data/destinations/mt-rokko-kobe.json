@@ -64,15 +64,13 @@
     "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt_rokko01s2816.jpg"
   },
-  "transportOptions": {
-    "bus": 90
-  },
+  "transportOptions": {},
   "localAccessModes": ["bus", "car", "my_car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
-    "method": "legacy-fallback",
-    "confidence": "low",
-    "basis": "Static minutes are retained only as a legacy display fallback matching existing Kobe records; origin-aware transport remains authoritative and is never fabricated."
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
   },
   "recommendedVisitHours": {
     "min": 4,
@@ -260,13 +258,13 @@
   },
   "scoreMetadata": {
     "state": "estimated",
-    "value": 7,
+    "value": 7.1,
     "rubricVersion": "kai-89-overall-v2",
     "confidence": "low",
-    "coverage": 1,
+    "coverage": 0.9,
     "provenance": {
       "sourceClass": "model",
-      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
   }
