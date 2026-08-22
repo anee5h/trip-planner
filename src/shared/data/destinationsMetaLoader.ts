@@ -29,21 +29,37 @@ import type { Destination } from "@/shared/types/destination";
 
 let destinationsMetaPromise: Promise<Destination[]> | null = null;
 
+/**
+ * Test-only override seam (KAI-147 review): lets tests hold the metadata
+ * unresolved across store mutations. Production never installs an
+ * override; when `null` is installed the real chunk import is used.
+ */
+type MetaOverride = () => Promise<Destination[]>;
+let metaOverride: MetaOverride | null = null;
+
+export function installMetaOverride(override: MetaOverride | null): void {
+  metaOverride = override;
+  // A new override invalidates any cached load so tests start clean.
+  if (override) destinationsMetaPromise = null;
+}
+
 /** Loads the lightweight destination metadata index exactly once per
  *  session (shared promise between concurrent callers). Retryable: a
  *  failed import clears the singleton so the next call retries. Never
  *  leaves an unhandled rejection behind. */
 export function loadDestinationsMeta(): Promise<Destination[]> {
   if (!destinationsMetaPromise) {
-    destinationsMetaPromise = import(
-      /* webpackChunkName: "destinations-meta" */ "@/shared/data/destinations-meta.json"
-    )
-      .then((module) => module.default as Destination[])
-      .catch((error) => {
-        // Do not poison the singleton: clear so the next call retries.
-        destinationsMetaPromise = null;
-        throw error;
-      });
+    destinationsMetaPromise = (
+      metaOverride
+        ? metaOverride()
+        : import(
+            /* webpackChunkName: "destinations-meta" */ "@/shared/data/destinations-meta.json"
+          ).then((module) => module.default as Destination[])
+    ).catch((error) => {
+      // Do not poison the singleton: clear so the next call retries.
+      destinationsMetaPromise = null;
+      throw error;
+    });
   }
   return destinationsMetaPromise;
 }

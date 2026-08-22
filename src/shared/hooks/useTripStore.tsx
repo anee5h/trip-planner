@@ -545,8 +545,70 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
           prevPrefs.filter((p) => p !== prefId),
         );
       }
+    } else {
+      // KAI-147 review fix: metadata not resolved yet — record the removal
+      // so the prefecture it justified is pruned when the chunk arrives
+      // (deferred parity with the synchronous-era behavior above).
+      setPreloadRemovedIds((prev) =>
+        prev.includes(id) ? prev : [...prev, id],
+      );
     }
   };
+
+  // KAI-147 review fix (deferred clear parity): destinations removed via
+  // clearAllVisits while metadata was unresolved are recorded here. When
+  // the chunk resolves, prune exactly the prefectures whose last visited
+  // justification was a removed destination — what the synchronous-era
+  // clearAllVisits would have done immediately.
+  const [preloadRemovedIds, setPreloadRemovedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (preloadRemovedIds.length === 0 || destinationsIndex.length === 0) {
+      return;
+    }
+
+    // Prefectures that lost their justification from these removals…
+    const orphanedPrefs = new Set<string>();
+    for (const id of preloadRemovedIds) {
+      const dest = destinationsIndex.find((d) => d.id === id);
+      if (!dest) continue;
+      orphanedPrefs.add(formatPrefectureId(dest.prefecture));
+      // …including any parent hub the removal cascaded through.
+      let currentId: string | undefined =
+        dest.relationships?.parentDestinationId;
+      while (currentId) {
+        const parent = destinationsIndex.find((d) => d.id === currentId);
+        if (!parent) break;
+        orphanedPrefs.add(formatPrefectureId(parent.prefecture));
+        currentId = parent.relationships?.parentDestinationId;
+      }
+    }
+
+    setVisitedPrefectures((prevPrefs) => {
+      // A prefecture survives only if some still-visited destination (or
+      // its parent chain) justifies it. Manual entries the user/sync added
+      // that metadata cannot explain are preserved.
+      const stillJustified = new Set<string>();
+      for (const vId of visited) {
+        const other = destinationsIndex.find((d) => d.id === vId);
+        if (other) {
+          stillJustified.add(formatPrefectureId(other.prefecture));
+          let pid: string | undefined =
+            other.relationships?.parentDestinationId;
+          while (pid) {
+            const parent = destinationsIndex.find((d) => d.id === pid);
+            if (!parent) break;
+            stillJustified.add(formatPrefectureId(parent.prefecture));
+            pid = parent.relationships?.parentDestinationId;
+          }
+        }
+      }
+      const next = prevPrefs.filter((p) => !orphanedPrefs.has(p));
+      return next.length === prevPrefs.length ? prevPrefs : next;
+    });
+
+    setPreloadRemovedIds([]);
+  }, [destinationsIndex, preloadRemovedIds, visited]);
 
   const toggleVisited = (id: string, date?: string) => {
     if (!canMutateProfile) return;
