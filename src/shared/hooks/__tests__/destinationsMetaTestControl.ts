@@ -15,6 +15,7 @@ import path from "node:path";
 
 let held: Promise<Destination[]> | null = null;
 let releaseHeld: ((meta: Destination[]) => void) | null = null;
+const samplers = new Set<() => void>();
 
 function loadRealMeta(): Destination[] {
   return JSON.parse(
@@ -32,6 +33,20 @@ export const destinationsMetaState = {
     held = new Promise<Destination[]>((resolve) => {
       releaseHeld = resolve;
     });
+  },
+  /**
+   * Observe the store at every microtask boundary while metadata resolves.
+   * The Consumer re-renders on store changes; sampling here catches
+   * transient intermediate states (e.g. a prefecture removed then
+   * re-added by a later effect).
+   */
+  onStoreSample(sample: () => void): () => void {
+    samplers.add(sample);
+    return () => samplers.delete(sample);
+  },
+  /** Called by the test's flush loop — runs all registered samplers. */
+  runSamplers(): void {
+    for (const sample of samplers) sample();
   },
   /** Release a held load with the real committed meta JSON. */
   async release(): Promise<void> {

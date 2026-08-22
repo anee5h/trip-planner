@@ -603,7 +603,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
           }
         }
       }
-      const next = prevPrefs.filter((p) => !orphanedPrefs.has(p));
+      const next = prevPrefs.filter(
+        (p) => !orphanedPrefs.has(p) || stillJustified.has(p),
+      );
       return next.length === prevPrefs.length ? prevPrefs : next;
     });
 

@@ -70,9 +70,18 @@ vi.mock("@/shared/hooks/useTripSync", () => ({
 let root: Root;
 let host: HTMLDivElement;
 let store: ReturnType<typeof useTripStore>;
+let prefValueCommits = 0;
+let lastPrefValue = "";
 
 function Consumer() {
   store = useTripStore();
+  // Count every commit whose visitedPrefectures VALUE differs from the
+  // previous commit — the churn signal (remove→re-add) the guard avoids.
+  const serialized = JSON.stringify(store.visitedPrefectures);
+  if (serialized !== lastPrefValue) {
+    lastPrefValue = serialized;
+    prefValueCommits += 1;
+  }
   return null;
 }
 
@@ -172,6 +181,82 @@ describe("KAI-147 pre-metadata-load clear parity", () => {
     expect(store.getVisitedDates("hakodate-city")).toEqual(["2026-05-11"]);
     expect(store.getVisitedDates("hakodate-night-view")).toEqual([]);
     // Another visited destination in the same prefecture remains → keep it.
+    expect(store.visitedPrefectures).toContain("Hokkaido\x8D");
+  });
+
+  it("never transiently removes a still-justified prefecture during reconciliation", async () => {
+    render();
+    hydrateVisited(["hakodate-night-view", "hakodate-city"], ["Hokkaido\x8D"], {
+      "hakodate-night-view": ["2026-05-10"],
+      "hakodate-city": ["2026-05-11"],
+    });
+
+    act(() => {
+      store.clearAllVisits("hakodate-night-view");
+    });
+    expect(store.visitedPrefectures).toContain("Hokkaido\x8D");
+
+    // Baseline: commits consumed so far (hydration + clear).
+    const baselineCommits = prefValueCommits;
+    expect(baselineCommits).toBeGreaterThan(0);
+
+    // With the guard, reconciliation finds nothing to prune (the sibling
+    // still justifies Hokkaido) and must commit ZERO visitedPrefectures
+    // value changes. Without the guard, the prune removes Hokkaido and
+    // the back-fill effect re-adds it — a spurious remove→re-add cycle
+    // (extra value-changing commits) even though React batches away the
+    // intermediate value.
+
+    await act(async () => {
+      await destinationsMetaState.release();
+    });
+
+    // Flush remaining microtask-committed renders.
+    for (let i = 0; i < 5; i++) {
+      // eslint-disable-next-line no-await-in-loop
+      await Promise.resolve();
+    }
+
+    // The churn assertion: with the guard, NO visitedPrefectures
+    // value-changing commit happens after the clear (reconciliation is a
+    // no-op). Without the guard, the remove→re-add cycle adds commits.
+    expect(prefValueCommits).toBe(baselineCommits);
+    expect(store.visitedPrefectures).toContain("Hokkaido\x8D");
+  });
+
+  it("keeps the prefecture when a removed destination is re-added before metadata resolves (race)", async () => {
+    render();
+    hydrateVisited(["hakodate-night-view"], ["Hokkaido\x8D"], {
+      "hakodate-night-view": ["2026-05-10"],
+    });
+
+    // Remove A while metadata is unresolved…
+    act(() => {
+      store.toggleVisited("hakodate-night-view");
+    });
+    expect(store.visited).toEqual([]);
+
+    // …then re-add A BEFORE metadata resolves.
+    act(() => {
+      store.addVisitedDate("hakodate-night-view", "2026-05-12");
+    });
+    expect(store.visited).toEqual(["hakodate-night-view"]);
+    expect(store.visitedPrefectures).toContain("Hokkaido\x8D");
+
+    await act(async () => {
+      await destinationsMetaState.release();
+    });
+
+    // The prefecture must remain throughout/finally. (The parent-hub
+    // cascade re-adds hakodate-city as a visited hub — documented
+    // synchronous-era behavior preserved by the lazy path.)
+    expect(store.visited).toEqual(
+      expect.arrayContaining(["hakodate-night-view", "hakodate-city"]),
+    );
+    expect(store.getVisitedDates("hakodate-night-view")).toEqual([
+      "2026-05-12",
+    ]);
+    expect(store.getVisitedDates("hakodate-city")).toEqual(["2026-05-12"]);
     expect(store.visitedPrefectures).toContain("Hokkaido\x8D");
   });
 });
