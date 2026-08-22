@@ -125,11 +125,7 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "kyoto-city",
-    "nearbyDestinationIds": [
-      "kyoto-historic",
-      "yasaka-shrine",
-      "sanjusangen-do"
-    ]
+    "nearbyDestinationIds": ["yasaka-shrine", "sanjusangen-do"]
   },
   "editorial": {
     "lifecycle": "approved",

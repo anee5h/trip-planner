@@ -16,6 +16,10 @@ export const visitHoursValidator: ValidatorModule = {
     for (const destination of catalog.destinations) {
       const range = destination.recommendedVisitHours;
       if (!range) {
+        // Compatibility/group surfaces remain addressable but are excluded
+        // from recommendation and planning candidates, so a single visit
+        // window would be false precision for them.
+        if (destination.recommendationEligible === false) continue;
         issues.push({
           severity: "error" as const,
           code: "MISSING_RECOMMENDED_VISIT_HOURS",

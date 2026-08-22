@@ -139,17 +139,20 @@ export const destinationsValidator: ValidatorModule = {
       }
 
       // 5. Coordinates check
-      if (
-        !dest.coordinates ||
-        typeof dest.coordinates.lat !== "number" ||
-        typeof dest.coordinates.lng !== "number"
-      ) {
-        issues.push({
-          severity: "error",
-          code: "MISSING_COORDINATES",
-          message: `Destination '${dest.id}' is missing valid numerical lat/lng coordinates.`,
-          targetId: dest.id,
-        });
+      const hasCoordinates = Boolean(
+        dest.coordinates &&
+        typeof dest.coordinates.lat === "number" &&
+        typeof dest.coordinates.lng === "number",
+      );
+      if (!hasCoordinates) {
+        if (dest.recommendationEligible !== false) {
+          issues.push({
+            severity: "error",
+            code: "MISSING_COORDINATES",
+            message: `Destination '${dest.id}' is missing valid numerical lat/lng coordinates.`,
+            targetId: dest.id,
+          });
+        }
       } else {
         const { lat, lng } = dest.coordinates;
         if (lat < 24 || lat > 46 || lng < 122 || lng > 146) {

@@ -1,18 +1,13 @@
 {
   "id": "kyoto-historic",
-  "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-  "nameJa": "古都京都の文化財",
+  "name": "Historic Kyoto Cultural Heritage Area",
+  "nameJa": "古都京都の文化財（エリア案内）",
   "prefecture": "Kyoto",
   "region": "Kansai",
-  "coordinates": {
-    "lat": 34.9949,
-    "lng": 135.785
-  },
   "tags": [
     "UNESCO World Heritage",
-    "National Treasure",
-    "Golden Pavilion",
-    "Kiyomizu Stage"
+    "Historic Monuments of Ancient Kyoto",
+    "Kyoto City"
   ],
   "rating": 10,
   "ratings": {
@@ -30,65 +25,38 @@
     "value": 9.6,
     "uniqueness": 10
   },
-  "categories": ["culture", "history", "sightseeing"],
-  "budgetMin": 3000,
-  "budgetMax": 15000,
+  "categories": ["Culture", "History", "Heritage"],
   "status": "published",
   "travelEstimate": {
-    "confidence": "high"
+    "confidence": "beta"
   },
   "collections": [],
-  "transportOptions": {
-    "shinkansen": 140,
-    "train": 170,
-    "car": 240
-  },
-  "budget": {
-    "low": 4000,
-    "mid": 8000,
-    "high": 18000
-  },
+  "transportOptions": {},
   "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-  "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
-  "notes": "Explore Kyoto's UNESCO-listed historic monuments, including Kiyomizu-dera, Kinkaku-ji, and other sites within the Historic Monuments of Ancient Kyoto property.",
-  "budgetRecommended": 9000,
-  "walkingMin": 150,
-  "indoorPercent": 20,
-  "totalTripHours": 4,
+  "description": "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.",
+  "notes": "This retained URL is a heritage-group compatibility page, not a single venue or a Kiyomizu-dera/Kinkaku-ji combined outing. Its old ID remains addressable for saved trips and bookmarks; it is excluded from search, explorer cards, and recommendation candidates.",
   "relationships": {
-    "parentDestinationId": "kyoto-city"
+    "featuredDestinationIds": [
+      "kiyomizu-dera",
+      "kinkaku-ji",
+      "nijo-castle-kyoto",
+      "ginkaku-ji",
+      "sanjusangen-do",
+      "nanzen-ji",
+      "yasaka-shrine"
+    ]
   },
   "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 2600,
-    "cafe": 1400
-  },
   "highlights": [
-    "Explore Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-    "Local Culture & Scenery"
+    "Distributed Historic Monuments of Ancient Kyoto heritage group",
+    "Standalone destination records for individual places",
+    "Kyoto-wide cultural context rather than one venue"
   ],
-  "weatherDependence": "moderate",
-  "comfort": {
-    "heatTolerance": 5,
-    "rainFriendly": 4,
-    "walkingIntensity": 8
-  },
-  "reservation": "None required",
-  "parking": "Available on site",
   "schemaVersion": 2,
-  "walkingIntensity": "high",
-  "role": "destination",
-  "placeType": "destination",
+  "role": "hub",
+  "placeType": "hub",
   "ratingsSchemaVersion": 2,
-  "recommendedVisitHours": {
-    "min": 3,
-    "max": 5
-  },
-  "areaId": "higashiyama",
-  "officialWebsite": "https://kyoto-travel.kyoto/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "officialWebsite": "https://whc.unesco.org/en/list/688/",
   "editorial": {
     "rating": 4.8,
     "recommendedDurationMinutes": 90,
@@ -97,13 +65,13 @@
     "sources": [
       {
         "type": "official",
-        "url": "https://kyoto-travel.kyoto/",
-        "title": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-        "accessedAt": "2026-08-13"
+        "url": "https://whc.unesco.org/en/list/688/",
+        "title": "UNESCO Historic Monuments of Ancient Kyoto",
+        "accessedAt": "2026-08-22"
       }
     ],
-    "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-08-03T00:00:00Z",
+    "reviewedAt": "2026-08-22",
+    "checkedAt": "2026-08-22",
     "freshness": "current",
     "fieldSources": {
       "comfort": [
@@ -121,28 +89,131 @@
           "title": "walking-model-v1; template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "name": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "catalogue://kyoto-city",
+          "title": "Kyoto City hub coordinate reused as a non-venue heritage-group map anchor",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "role": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "placeType": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "recommendationEligible": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "transportZoneId": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "content": [
+        {
+          "type": "official",
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
+        }
       ]
-    }
+    },
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Converted the legacy Kiyomizu-oriented record into a retained, non-recommendable Historic Kyoto heritage-group compatibility surface while adding standalone Kyoto destinations.",
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        "method": "manual"
+      },
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        "method": "manual"
+      },
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        "method": "manual"
+      },
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        "method": "manual"
+      }
+    ]
   },
-  "notesJa": "【見どころ】古都京都の文化財は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
-  "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-  "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+  "notesJa": "この旧URLは世界遺産群の互換用エリア案内であり、清水寺・金閣寺を一つにまとめた単一の訪問先ではありません。保存した旅行やブックマークのためIDは維持しますが、検索・一覧・おすすめ候補からは除外しています。",
   "nearHubs": ["kyoto-city"],
   "content": {
     "en": {
-      "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-      "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
-      "highlights": []
+      "name": "Historic Kyoto Cultural Heritage Area",
+      "description": "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.",
+      "highlights": [
+        "Distributed Historic Monuments of Ancient Kyoto heritage group",
+        "Standalone destination records for individual places",
+        "Kyoto-wide cultural context rather than one venue"
+      ],
+      "notes": "This retained URL is a heritage-group compatibility page, not a single venue or a Kiyomizu-dera/Kinkaku-ji combined outing. Its old ID remains addressable for saved trips and bookmarks; it is excluded from search, explorer cards, and recommendation candidates."
     },
     "ja": {
-      "name": "古都京都の文化財",
-      "description": "京都市・宇治市・大津市に点在する17の社寺・城郭からなる世界文化遺産群。清水寺、金閣寺、二条城、延暦寺など、日本の伝統建築と庭園文化の至高の傑作が集結しています。",
+      "name": "古都京都の文化財（エリア案内）",
+      "description": "京都市などに点在する「古都京都の文化財」世界遺産群のエリア案内です。個々の寺院・城郭などは、重複しない各スタンドアロンの目的地ページをご覧ください。",
       "highlights": [
-        "清水寺の舞台",
-        "金閣寺（鹿苑寺）の金箔建築",
-        "二条城二の丸御殿"
-      ]
+        "点在する「古都京都の文化財」世界遺産群",
+        "各文化財の個別目的地ページ",
+        "一つの施設ではなく京都の文化的背景を示すエリア案内"
+      ],
+      "notes": "この旧URLは世界遺産群の互換用エリア案内であり、清水寺・金閣寺を一つにまとめた単一の訪問先ではありません。保存した旅行やブックマークのためIDは維持しますが、検索・一覧・おすすめ候補からは除外しています。"
     }
   },
   "municipalityId": "Kyoto:kyoto",
@@ -156,13 +227,7 @@
     "method": "unknown",
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
-  },
-  "comfortMetadata": {
-    "method": "model",
-    "modelVersion": "comfort-model-v1",
-    "confidence": "low",
-    "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+    "basis": "A distributed heritage group has no single defensible season score; individual destination records carry season evidence where available."
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -181,5 +246,34 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  }
+  },
+  "kind": "district",
+  "importance": "major",
+  "recommendationEligible": false,
+  "transportZoneId": "unknown",
+  "localAccessModes": [],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "The heritage group spans distributed sites and has no single origin-aware route or venue endpoint; individual destination records carry their own transport behavior."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "A group page has no single admission, food, or access cost; individual destination records carry their own costs where known."
+  },
+  "durationMetadata": {
+    "method": "unknown",
+    "modelVersion": "duration-model-v1",
+    "confidence": "unknown",
+    "basis": "A group page has no single visit duration; individual destination records carry their own conservative visit windows."
+  },
+  "walkingMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "The group spans non-contiguous sites; no single on-site walking estimate is applicable."
+  },
+  "officialWebsiteRequirement": "recommended"
 }

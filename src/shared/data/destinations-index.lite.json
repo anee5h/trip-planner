@@ -21117,18 +21117,18 @@
     "businessHours": "Open access",
     "relationships": {
       "featuredDestinationIds": [
-        "kyoto-historic",
-        "nijo-castle-kyoto",
+        "kiyomizu-dera",
+        "arashiyama-bamboo-togetsukyo",
+        "tenryu-ji-kyoto",
         "kinkaku-ji",
+        "nijo-castle-kyoto",
         "kyoto-railway-museum",
         "kyoto-international-manga-museum",
-        "philosopher-s-walk",
         "ginkaku-ji",
-        "nishiki-market",
-        "sanjusangen-do",
-        "nanzen-ji",
-        "yasaka-shrine",
-        "kennin-ji"
+        "kurama-dera-kyoto",
+        "sanzen-in-ohara",
+        "gekkeikan-okura-sake-museum",
+        "uzumasa-kyoto-village"
       ],
       "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["nara-city"]
@@ -21136,44 +21136,38 @@
   },
   {
     "id": "kyoto-historic",
-    "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-    "nameJa": "古都京都の文化財",
-    "role": "destination",
-    "placeType": "destination",
+    "name": "Historic Kyoto Cultural Heritage Area",
+    "nameJa": "古都京都の文化財（エリア案内）",
+    "kind": "district",
+    "role": "hub",
+    "importance": "major",
+    "placeType": "hub",
+    "recommendationEligible": false,
     "municipalityId": "Kyoto:kyoto",
-    "areaId": "higashiyama",
     "prefecture": "Kyoto",
     "region": "Kansai",
-    "categories": ["culture", "history", "sightseeing"],
+    "categories": ["Culture", "History", "Heritage"],
     "tags": [
       "UNESCO World Heritage",
-      "National Treasure",
-      "Golden Pavilion",
-      "Kiyomizu Stage"
+      "Historic Monuments of Ancient Kyoto",
+      "Kyoto City"
     ],
     "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-    "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
+    "description": "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.",
     "highlights": [
-      "Explore Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-      "Local Culture & Scenery"
+      "Distributed Historic Monuments of Ancient Kyoto heritage group",
+      "Standalone destination records for individual places",
+      "Kyoto-wide cultural context rather than one venue"
     ],
-    "coordinates": {
-      "lat": 34.9949,
-      "lng": 135.785
-    },
-    "officialWebsite": "https://kyoto-travel.kyoto/",
+    "officialWebsite": "https://whc.unesco.org/en/list/688/",
+    "officialWebsiteRequirement": "recommended",
     "status": "published",
-    "weatherDependence": "moderate",
-    "budgetMin": 3000,
-    "budgetRecommended": 9000,
-    "budgetMax": 15000,
-    "totalTripHours": 4,
-    "walkingMin": 150,
-    "indoorPercent": 20,
-    "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "A group page has no single admission, food, or access cost; individual destination records carry their own costs where known."
     },
     "collections": [],
     "ratings": {
@@ -21204,22 +21198,22 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
-      "confidence": "high"
+      "confidence": "beta"
     },
-    "transportOptions": {
-      "shinkansen": 140,
-      "train": 170,
-      "car": 240
-    },
-    "walkingIntensity": "high",
-    "comfort": {
-      "heatTolerance": 5,
-      "rainFriendly": 4,
-      "walkingIntensity": 8
-    },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "transportOptions": {},
+    "transportZoneId": "unknown",
+    "localAccessModes": [],
+    "localAccessUnestimated": true,
     "relationships": {
-      "parentDestinationId": "kyoto-city"
+      "featuredDestinationIds": [
+        "kiyomizu-dera",
+        "kinkaku-ji",
+        "nijo-castle-kyoto",
+        "ginkaku-ji",
+        "sanjusangen-do",
+        "nanzen-ji",
+        "yasaka-shrine"
+      ]
     }
   },
   {
@@ -87376,11 +87370,7 @@
     "localAccessUnestimated": true,
     "relationships": {
       "parentDestinationId": "kyoto-city",
-      "nearbyDestinationIds": [
-        "kyoto-historic",
-        "yasaka-shrine",
-        "sanjusangen-do"
-      ]
+      "nearbyDestinationIds": ["yasaka-shrine", "sanjusangen-do"]
     }
   },
   {

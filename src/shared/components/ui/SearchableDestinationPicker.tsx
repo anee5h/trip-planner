@@ -96,6 +96,7 @@ export function SearchableDestinationPicker({
 
   const popularDestinations = useMemo(() => {
     return allDestinations
+      .filter((d) => d.recommendationEligible !== false)
       .filter((d) => (d.ratings?.overall ?? 4.5) >= 4.5)
       .slice(0, 5);
   }, [allDestinations]);
@@ -130,6 +131,7 @@ export function SearchableDestinationPicker({
     const q = query.toLowerCase().trim();
     return allDestinations
       .filter((d: Destination) => {
+        if (d.recommendationEligible === false) return false;
         const nameEn = (d.name || "").toLowerCase();
         const nameJa = (d.nameJa || "").toLowerCase();
         const prefecture = (d.prefecture || "").toLowerCase();

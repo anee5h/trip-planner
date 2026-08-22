@@ -186,7 +186,9 @@ export async function buildSearchIndex(
   // KAI-132: the lite catalogue is runtime-loaded — await it before
   // building, so the STABLE cache is never built from an empty summary
   // (the pre-KAI-132 sync contract made an empty build impossible).
-  const destinations = (await loadCatalogue("summary")) as Destination[];
+  const destinations = (
+    (await loadCatalogue("summary")) as Destination[]
+  ).filter((destination) => destination.recommendationEligible !== false);
   cachedCatalogue.set(locale, destinations);
   const docs: SearchDocument[] = [];
   docs.push(...STATIC_ACTIONS);

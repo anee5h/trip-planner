@@ -80,18 +80,18 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
-      "kyoto-historic",
-      "nijo-castle-kyoto",
+      "kiyomizu-dera",
+      "arashiyama-bamboo-togetsukyo",
+      "tenryu-ji-kyoto",
       "kinkaku-ji",
+      "nijo-castle-kyoto",
       "kyoto-railway-museum",
       "kyoto-international-manga-museum",
-      "philosopher-s-walk",
       "ginkaku-ji",
-      "nishiki-market",
-      "sanjusangen-do",
-      "nanzen-ji",
-      "yasaka-shrine",
-      "kennin-ji"
+      "kurama-dera-kyoto",
+      "sanzen-in-ohara",
+      "gekkeikan-okura-sake-museum",
+      "uzumasa-kyoto-village"
     ],
     "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["nara-city"]

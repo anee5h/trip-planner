@@ -211,6 +211,11 @@ export interface Destination {
   municipalityId?: string;
   /** Canonical v2 place classification; role remains for legacy callers. */
   placeType?: PlaceType;
+  /**
+   * Retained compatibility/group records can remain addressable without
+   * competing with canonical recommendation choices. Omitted means eligible.
+   */
+  recommendationEligible?: boolean;
   content?: {
     en: LocalizedPlaceContent;
     ja?: LocalizedPlaceContent;

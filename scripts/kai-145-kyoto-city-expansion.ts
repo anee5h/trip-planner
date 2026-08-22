@@ -5,6 +5,9 @@
  * records, street fragments, temple subfeatures, and venue subcomponents are
  * intentionally not split into synthetic depth. The script is idempotent:
  * missing IDs are appended once, while an existing conflicting ID fails fast.
+ * It also keeps the legacy `kyoto-historic` URL as a non-recommendable
+ * heritage-group surface so the old Kiyomizu-oriented record cannot compete
+ * with the standalone places added here.
  *
  * Usage: tsx scripts/kai-145-kyoto-city-expansion.ts
  */
@@ -343,7 +346,7 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "CC BY-SA 4.0",
       "Martin Falbisoner, CC BY-SA 4.0, via Wikimedia Commons",
     ),
-    nearbyDestinationIds: ["kyoto-historic", "yasaka-shrine", "sanjusangen-do"],
+    nearbyDestinationIds: ["yasaka-shrine", "sanjusangen-do"],
   }),
   makeRecord({
     id: "ninenzaka-sannenzaka",
@@ -404,7 +407,7 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "CC BY 2.0",
       "othree, CC BY 2.0, via Wikimedia Commons",
     ),
-    nearbyDestinationIds: ["kiyomizu-dera", "yasaka-shrine", "kyoto-historic"],
+    nearbyDestinationIds: ["kiyomizu-dera", "yasaka-shrine"],
   }),
   makeRecord({
     id: "arashiyama-bamboo-togetsukyo",
@@ -1088,6 +1091,188 @@ const catalog = JSON.parse(
 const byId = new Map(
   catalog.map((destination) => [destination.id, destination]),
 );
+
+const heritageGroupSource: SourceReference = source(
+  "official",
+  "https://whc.unesco.org/en/list/688/",
+  "UNESCO Historic Monuments of Ancient Kyoto",
+);
+const kyotoHistoricCompatibilityIds = [
+  "kiyomizu-dera",
+  "kinkaku-ji",
+  "nijo-castle-kyoto",
+  "ginkaku-ji",
+  "sanjusangen-do",
+  "nanzen-ji",
+  "yasaka-shrine",
+];
+let compatibilityChanged = false;
+const kyotoHistoric = byId.get("kyoto-historic");
+if (kyotoHistoric) {
+  const compatibilityName = "Historic Kyoto Cultural Heritage Area";
+  const compatibilityDescription =
+    "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.";
+  const compatibilityDescriptionJa =
+    "京都市などに点在する「古都京都の文化財」世界遺産群のエリア案内です。個々の寺院・城郭などは、重複しない各スタンドアロンの目的地ページをご覧ください。";
+  const compatibilityNotes =
+    "This retained URL is a heritage-group compatibility page, not a single venue or a Kiyomizu-dera/Kinkaku-ji combined outing. Its old ID remains addressable for saved trips and bookmarks; it is excluded from search, explorer cards, and recommendation candidates.";
+  const compatibilityNotesJa =
+    "この旧URLは世界遺産群の互換用エリア案内であり、清水寺・金閣寺を一つにまとめた単一の訪問先ではありません。保存した旅行やブックマークのためIDは維持しますが、検索・一覧・おすすめ候補からは除外しています。";
+  if (
+    kyotoHistoric.name !== compatibilityName ||
+    kyotoHistoric.recommendationEligible !== false ||
+    kyotoHistoric.role !== "hub" ||
+    kyotoHistoric.placeType !== "hub" ||
+    kyotoHistoric.kind !== "district" ||
+    kyotoHistoric.travelEstimate?.confidence !== "beta" ||
+    kyotoHistoric.relationships?.parentDestinationId !== undefined ||
+    kyotoHistoric.coordinates !== undefined
+  ) {
+    compatibilityChanged = true;
+  }
+
+  kyotoHistoric.name = compatibilityName;
+  kyotoHistoric.nameJa = "古都京都の文化財（エリア案内）";
+  kyotoHistoric.description = compatibilityDescription;
+  kyotoHistoric.highlights = [
+    "Distributed Historic Monuments of Ancient Kyoto heritage group",
+    "Standalone destination records for individual places",
+    "Kyoto-wide cultural context rather than one venue",
+  ];
+  kyotoHistoric.notes = compatibilityNotes;
+  kyotoHistoric.notesJa = compatibilityNotesJa;
+  kyotoHistoric.categories = ["Culture", "History", "Heritage"];
+  kyotoHistoric.tags = [
+    "UNESCO World Heritage",
+    "Historic Monuments of Ancient Kyoto",
+    "Kyoto City",
+  ];
+  kyotoHistoric.role = "hub";
+  kyotoHistoric.placeType = "hub";
+  kyotoHistoric.kind = "district";
+  kyotoHistoric.importance = "major";
+  kyotoHistoric.recommendationEligible = false;
+  delete kyotoHistoric.areaId;
+  delete kyotoHistoric.coordinates;
+  kyotoHistoric.travelEstimate = { confidence: "beta" };
+  kyotoHistoric.transportZoneId = "unknown";
+  kyotoHistoric.transportOptions = {};
+  kyotoHistoric.localAccessModes = [];
+  kyotoHistoric.localAccessUnestimated = true;
+  kyotoHistoric.transportMetadata = {
+    method: "unknown",
+    confidence: "unknown",
+    basis:
+      "The heritage group spans distributed sites and has no single origin-aware route or venue endpoint; individual destination records carry their own transport behavior.",
+  };
+  kyotoHistoric.budgetMetadata = {
+    method: "unknown",
+    modelVersion: "budget-model-v1",
+    confidence: "unknown",
+    basis:
+      "A group page has no single admission, food, or access cost; individual destination records carry their own costs where known.",
+  };
+  kyotoHistoric.seasonMetadata = {
+    method: "unknown",
+    modelVersion: "season-model-v1",
+    confidence: "unknown",
+    basis:
+      "A distributed heritage group has no single defensible season score; individual destination records carry season evidence where available.",
+  };
+  kyotoHistoric.durationMetadata = {
+    method: "unknown",
+    modelVersion: "duration-model-v1",
+    confidence: "unknown",
+    basis:
+      "A group page has no single visit duration; individual destination records carry their own conservative visit windows.",
+  };
+  kyotoHistoric.walkingMetadata = {
+    method: "unknown",
+    confidence: "unknown",
+    basis:
+      "The group spans non-contiguous sites; no single on-site walking estimate is applicable.",
+  };
+  delete kyotoHistoric.budgetMin;
+  delete kyotoHistoric.budgetRecommended;
+  delete kyotoHistoric.budgetMax;
+  delete kyotoHistoric.budgetBreakdown;
+  delete (kyotoHistoric as Destination & { budget?: unknown }).budget;
+  delete kyotoHistoric.transportFares;
+  delete kyotoHistoric.totalTripHours;
+  delete kyotoHistoric.recommendedVisitHours;
+  delete kyotoHistoric.recommendedDuration;
+  delete kyotoHistoric.walkingMin;
+  delete kyotoHistoric.walkingIntensity;
+  delete kyotoHistoric.walkingSunMin;
+  delete kyotoHistoric.walkingShadeMin;
+  delete kyotoHistoric.indoorPercent;
+  delete kyotoHistoric.weatherDependence;
+  delete kyotoHistoric.comfort;
+  delete kyotoHistoric.comfortMetadata;
+  delete kyotoHistoric.businessHours;
+  delete kyotoHistoric.openingHours;
+  delete kyotoHistoric.openingHoursJa;
+  delete kyotoHistoric.reservation;
+  delete kyotoHistoric.reservationJa;
+  delete kyotoHistoric.parking;
+  delete kyotoHistoric.parkingJa;
+  kyotoHistoric.content = {
+    en: {
+      name: compatibilityName,
+      description: compatibilityDescription,
+      highlights: kyotoHistoric.highlights,
+      notes: compatibilityNotes,
+    },
+    ja: {
+      name: kyotoHistoric.nameJa,
+      description: compatibilityDescriptionJa,
+      highlights: [
+        "点在する「古都京都の文化財」世界遺産群",
+        "各文化財の個別目的地ページ",
+        "一つの施設ではなく京都の文化的背景を示すエリア案内",
+      ],
+      notes: compatibilityNotesJa,
+    },
+  };
+  kyotoHistoric.relationships = {
+    featuredDestinationIds: kyotoHistoricCompatibilityIds,
+  };
+  kyotoHistoric.officialWebsite = heritageGroupSource.url;
+  kyotoHistoric.officialWebsiteRequirement = "recommended";
+  kyotoHistoric.editorial = {
+    ...(kyotoHistoric.editorial ?? { lifecycle: "published", sources: [] }),
+    lifecycle: "published",
+    sources: [heritageGroupSource],
+    reviewedAt: REVIEW_DATE,
+    reviewedBy: "Meguruto editorial",
+    checkedAt: REVIEW_DATE,
+    freshness: "current",
+    changeSummary:
+      "Converted the legacy Kiyomizu-oriented record into a retained, non-recommendable Historic Kyoto heritage-group compatibility surface while adding standalone Kyoto destinations.",
+    fieldSources: {
+      ...(kyotoHistoric.editorial?.fieldSources ?? {}),
+      name: [heritageGroupSource],
+      nameJa: [heritageGroupSource],
+      role: [heritageGroupSource],
+      placeType: [heritageGroupSource],
+      recommendationEligible: [heritageGroupSource],
+      transportZoneId: [heritageGroupSource],
+      relationships: [heritageGroupSource],
+      content: [heritageGroupSource],
+    },
+    changes: [
+      ...(kyotoHistoric.editorial?.changes ?? []),
+      {
+        changedAt: REVIEW_DATE,
+        changedBy: "Meguruto editorial",
+        summary:
+          "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        method: "manual",
+      },
+    ],
+  };
+  byId.set(kyotoHistoric.id, kyotoHistoric);
+}
 const existingNames = new Map<string, string>();
 for (const destination of catalog) {
   for (const candidate of [destination.name, ...(destination.aliases ?? [])]) {
@@ -1129,6 +1314,24 @@ for (const candidate of candidates) {
       delete existing.editorial.fieldSources.recommendedVisitHours;
       enrichedIds.push(candidate.id);
     }
+    const nearbyWithoutLegacyAggregate =
+      existing.relationships?.nearbyDestinationIds?.filter(
+        (id) => id !== "kyoto-historic",
+      );
+    if (
+      nearbyWithoutLegacyAggregate &&
+      nearbyWithoutLegacyAggregate.length !==
+        existing.relationships?.nearbyDestinationIds?.length
+    ) {
+      existing.relationships = {
+        ...existing.relationships,
+        nearbyDestinationIds:
+          nearbyWithoutLegacyAggregate.length > 0
+            ? nearbyWithoutLegacyAggregate
+            : undefined,
+      };
+      enrichedIds.push(candidate.id);
+    }
     continue;
   }
 
@@ -1168,6 +1371,35 @@ for (const candidate of candidates) {
   addedIds.push(candidate.id);
 }
 
+const kyotoCity = byId.get("kyoto-city");
+if (!kyotoCity || kyotoCity.role !== "hub") {
+  throw new Error("kyoto-city hub is required before updating featured places");
+}
+const curatedKyotoFeaturedIds = [
+  "kiyomizu-dera",
+  "arashiyama-bamboo-togetsukyo",
+  "tenryu-ji-kyoto",
+  "kinkaku-ji",
+  "nijo-castle-kyoto",
+  "kyoto-railway-museum",
+  "kyoto-international-manga-museum",
+  "ginkaku-ji",
+  "kurama-dera-kyoto",
+  "sanzen-in-ohara",
+  "gekkeikan-okura-sake-museum",
+  "uzumasa-kyoto-village",
+];
+if (
+  JSON.stringify(kyotoCity.relationships?.featuredDestinationIds ?? []) !==
+  JSON.stringify(curatedKyotoFeaturedIds)
+) {
+  kyotoCity.relationships = {
+    ...kyotoCity.relationships,
+    featuredDestinationIds: curatedKyotoFeaturedIds,
+  };
+  compatibilityChanged = true;
+}
+
 for (const candidate of candidates) {
   for (const relatedId of [
     candidate.relationships?.parentDestinationId,
@@ -1181,12 +1413,12 @@ for (const candidate of candidates) {
   }
 }
 
-if (addedIds.length > 0 || enrichedIds.length > 0) {
+if (addedIds.length > 0 || enrichedIds.length > 0 || compatibilityChanged) {
   fs.writeFileSync(INDEX_PATH, `${JSON.stringify(catalog, null, 2)}\n`);
 }
 
 console.log(
-  addedIds.length > 0 || enrichedIds.length > 0
-    ? `KAI-145: added ${addedIds.length} Kyoto City destinations (${addedIds.join(", ")}); enriched ${enrichedIds.length} (${enrichedIds.join(", ")})`
+  addedIds.length > 0 || enrichedIds.length > 0 || compatibilityChanged
+    ? `KAI-145: added ${addedIds.length} Kyoto City destinations (${addedIds.join(", ")}); enriched ${enrichedIds.length} (${enrichedIds.join(", ")}); compatibility ${compatibilityChanged ? "updated" : "unchanged"}`
     : "KAI-145: catalogue already contains the verified Kyoto records; no changes made",
 );

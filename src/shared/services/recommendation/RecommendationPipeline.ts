@@ -149,9 +149,9 @@ export function runRecommendationPipeline(
     destinations,
   );
 
-  const candidates = destinations.map((destination) =>
-    buildRecommendationCandidate(destination, context),
-  );
+  const candidates = destinations
+    .filter((destination) => destination.recommendationEligible !== false)
+    .map((destination) => buildRecommendationCandidate(destination, context));
   const hasOrigin = hasPersonalizedOrigin(context);
 
   // Cache weekend evaluations keyed by destination id

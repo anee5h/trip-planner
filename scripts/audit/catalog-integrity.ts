@@ -712,7 +712,7 @@ function checkTiming(
 
     // UI-required timing field absent (hub/POI level).
     const isHubOrCity = dest.role === "hub" || dest.kind === "city";
-    if (isHubOrCity && !h) {
+    if (isHubOrCity && !h && dest.recommendationEligible !== false) {
       findings.push({
         code: "TIME_HUB_MISSING_VISIT_HOURS",
         severity: "warning",
@@ -758,10 +758,11 @@ function checkTiming(
     );
     const invalidChildren = children.filter(
       (c) =>
-        !c.recommendedVisitHours ||
-        c.recommendedVisitHours.min <= 0 ||
-        c.recommendedVisitHours.max <= 0 ||
-        c.recommendedVisitHours.min > c.recommendedVisitHours.max,
+        c.recommendationEligible !== false &&
+        (!c.recommendedVisitHours ||
+          c.recommendedVisitHours.min <= 0 ||
+          c.recommendedVisitHours.max <= 0 ||
+          c.recommendedVisitHours.min > c.recommendedVisitHours.max),
     );
     if (invalidChildren.length > 0) {
       findings.push({
