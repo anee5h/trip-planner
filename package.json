@@ -47,6 +47,7 @@
     "report:editorial-freshness": "tsx scripts/report-editorial-freshness.ts",
     "report:editorial-quality": "tsx scripts/report-editorial-quality.ts",
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
+    "audit:destination-depth": "tsx scripts/audit-destination-depth.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",
     "audit:kai-89-structured-templates": "tsx scripts/audit-kai-89-structured-templates.ts",
