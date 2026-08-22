@@ -1230,7 +1230,10 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "inubosaki-lighthouse-choshi",
+        "byobugaura-choshi"
+      ]
     }
   },
   {
@@ -2067,12 +2070,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": ["funabashi-andersen-park"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -6075,10 +6073,8 @@
     "status": "published",
     "relationships": {
       "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
+        "tojo-tei-matsudo",
+        "yagiri-no-watashi-matsudo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }

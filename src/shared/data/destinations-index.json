@@ -10522,7 +10522,10 @@
     "reservation": "No advance reservation required; tickets available on arrival.",
     "parking": "Paid public parking options available nearby.",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "inubosaki-lighthouse-choshi",
+        "byobugaura-choshi"
+      ]
     },
     "status": "published",
     "travelEstimate": {
@@ -10573,6 +10576,14 @@
             "url": "catalogue-model://kai-89",
             "title": "comfort-model-v1; derived from indoorPercent=35, kind='city', walkingMin=70",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-146",
+            "title": "KAI-146 curated Northern Chiba hub children; structural children remain authoritative",
+            "accessedAt": "2026-08-22"
           }
         ]
       }
@@ -17110,10 +17121,7 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
+        "funabashi-andersen-park"
       ],
       "nearbyDestinationIds": [
         "shibuya-city",
@@ -17172,6 +17180,14 @@
             "url": "catalogue-model://kai-89",
             "title": "hub-window-model-v1; hub exploration window: importance standard, 1 children, metro=false",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-146",
+            "title": "KAI-146 curated Northern Chiba hub children; structural children remain authoritative",
+            "accessedAt": "2026-08-22"
           }
         ]
       }
@@ -49242,10 +49258,8 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
+        "tojo-tei-matsudo",
+        "yagiri-no-watashi-matsudo"
       ],
       "nearbyDestinationIds": [
         "shibuya-city",
@@ -49304,6 +49318,14 @@
             "url": "catalogue-model://kai-89",
             "title": "hub-window-model-v1; hub exploration window: importance standard, 2 children, metro=false",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-146",
+            "title": "KAI-146 curated Northern Chiba hub children; structural children remain authoritative",
+            "accessedAt": "2026-08-22"
           }
         ]
       }
@@ -195636,7 +195658,6 @@
     },
     "transportOptions": {},
     "localAccessModes": [
-      "train",
       "bus",
       "car",
       "my_car"
@@ -197117,7 +197138,6 @@
     },
     "transportOptions": {},
     "localAccessModes": [
-      "train",
       "bus",
       "car",
       "my_car"
@@ -197455,7 +197475,6 @@
     },
     "transportOptions": {},
     "localAccessModes": [
-      "train",
       "bus",
       "my_car"
     ],

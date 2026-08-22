@@ -545,7 +545,9 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "Current prefectural tourism information says the service is not currently hand-rowed. Weather can stop the crossing, so confirm current operation by phone before relying on it for a timed itinerary.",
     notesJa:
       "現在の県観光案内では手漕ぎ運航ではないと案内されています。天候で休航する場合があるため、時間を決めた行程では訪問前に電話で運航をご確認ください。",
-    localAccessModes: ["train", "bus", "car", "my_car"],
+    // The ferry landing's last leg is weather- and site-dependent; the
+    // catalogue does not model a direct rail-to-landing journey.
+    localAccessModes: ["bus", "car", "my_car"],
     parentDestinationId: "matsudo-city",
     duration: {
       hours: { min: 0.5, max: 1.5 },
@@ -899,7 +901,11 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "The museum is modeled as a separate sibling/related destination to the existing Sakura Castle Park record. Seasonal hours and closures are operational facts; no season score is inferred.",
     notesJa:
       "既存の佐倉城址公園とは別の姉妹・関連行き先として扱っています。季節ごとの開館時間や休館日は運用情報であり、季節スコアは推定していません。",
-    localAccessModes: ["train", "bus", "car", "my_car"],
+    // The museum is reached from Sakura/Keisei-Sakura by a local bus or
+    // walk; the long-haul rail corridor is not a direct museum entrance.
+    // Keep train out of this record so recommendation transport cannot imply
+    // a station-to-gallery journey that the catalogue does not model.
+    localAccessModes: ["bus", "car", "my_car"],
     relatedDestinationIds: ["sakura-castle-chiba"],
     duration: {
       hours: { min: 3, max: 5 },
@@ -971,7 +977,10 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "Cape Inubo/Inubosaki is kept as the lighthouse's setting rather than a second micro-destination. Visitor hours and weather closures are volatile; the separate materials exhibition hall is not represented as an open attraction.",
     notesJa:
       "犬吠埼は灯台の立地として扱い、別の小規模な記録には分けていません。見学時間や天候による休止は変動し、別館の資料展示室を営業中の行き先としては掲載していません。",
-    localAccessModes: ["train", "bus", "my_car"],
+    // Choshi Electric Railway access to Inuboh is real, but this catalogue
+    // record has no exact station-to-lighthouse leg. Keep the complete-mode
+    // claim conservative until that local corridor is modeled.
+    localAccessModes: ["bus", "my_car"],
     parentDestinationId: "choshi-city",
     duration: {
       hours: { min: 1, max: 2 },
@@ -1271,6 +1280,56 @@ for (const candidate of reviewedCandidates) {
   catalog.push(candidate);
   byId.set(candidate.id, candidate);
   addedIds.push(candidate.id);
+}
+
+// DestinationDetails uses featuredDestinationIds when a hub has a curated
+// list; parentDestinationId alone is only the structural child index. Replace
+// the old cross-prefecture Chiba placeholders on the three reviewed hubs so
+// the new children are actually visible in the product. Kisarazu and other
+// hubs remain untouched.
+const curatedHubChildren: Record<string, string[]> = {
+  "funabashi-city": ["funabashi-andersen-park"],
+  "matsudo-city": ["tojo-tei-matsudo", "yagiri-no-watashi-matsudo"],
+  "choshi-city": ["inubosaki-lighthouse-choshi", "byobugaura-choshi"],
+};
+const featuredRelationshipSource = source(
+  "calculated",
+  "catalogue-model://kai-146",
+  "KAI-146 curated Northern Chiba hub children; structural children remain authoritative",
+);
+for (const [hubId, featuredDestinationIds] of Object.entries(
+  curatedHubChildren,
+)) {
+  const hub = byId.get(hubId);
+  if (!hub || hub.role !== "hub") {
+    throw new Error(
+      `${hubId}: expected an existing hub before curating children`,
+    );
+  }
+  for (const childId of featuredDestinationIds) {
+    const child = byId.get(childId);
+    if (!child || child.relationships?.parentDestinationId !== hubId) {
+      throw new Error(
+        `${hubId}: featured child ${childId} is not a direct child`,
+      );
+    }
+  }
+  if (
+    JSON.stringify(hub.relationships?.featuredDestinationIds ?? []) !==
+    JSON.stringify(featuredDestinationIds)
+  ) {
+    hub.relationships = {
+      ...hub.relationships,
+      featuredDestinationIds,
+    };
+    if (hub.editorial?.fieldSources) {
+      hub.editorial.fieldSources = {
+        ...hub.editorial.fieldSources,
+        relationships: [featuredRelationshipSource],
+      };
+    }
+    enrichedIds.push(hubId);
+  }
 }
 
 // Ensure parent chains remain acyclic after the append. This is intentionally

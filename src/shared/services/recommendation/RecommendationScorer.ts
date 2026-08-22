@@ -185,30 +185,58 @@ export function getValidModes(
     if (mode === "ferry") return Boolean(ferryEstimate);
     // my_car uses the same road-support check as car
     const checkMode = mode === "my_car" ? "car" : mode;
-    if (checkMode === "shinkansen" || checkMode === "bus") {
+    if (
+      checkMode === "train" ||
+      checkMode === "shinkansen" ||
+      checkMode === "bus"
+    ) {
       if (homeCoords) {
         // Personalized origin with coordinates: the canonical origin-aware
-        // system is authoritative. A null canonical result means unsupported —
-        // stale transportOptions must not resurrect a missing personalized
-        // corridor (KAI-12).
+        // system is authoritative for records whose static mode is unknown.
+        // A null canonical result means unsupported — stale transportOptions
+        // must not resurrect a missing personalized corridor (KAI-12).
+        // Existing records with a legacy static value retain that value as an
+        // availability fallback until their corridor is migrated; newly
+        // verified expansion records deliberately leave the value absent.
+        if (
+          dest.transportOptions?.[
+            checkMode as keyof typeof dest.transportOptions
+          ] === undefined
+        ) {
+          return Boolean(
+            getOriginAwareTransportEstimate(
+              dest,
+              {
+                homeStationCoords: homeCoords,
+                originZoneId: effectiveOriginZoneId,
+                ferryTemporal,
+              },
+              [checkMode],
+            ),
+          );
+        }
+      }
+      if (checkMode === "shinkansen" || checkMode === "bus") {
+        if (homeCoords) {
+          return Boolean(
+            getOriginAwareTransportEstimate(
+              dest,
+              {
+                homeStationCoords: homeCoords,
+                originZoneId: effectiveOriginZoneId,
+                ferryTemporal,
+              },
+              [checkMode],
+            ),
+          );
+        }
+        // Zone-only / neutral browsing keeps the legacy metadata display gate.
         return Boolean(
-          getOriginAwareTransportEstimate(
-            dest,
-            {
-              homeStationCoords: homeCoords,
-              originZoneId: effectiveOriginZoneId,
-              ferryTemporal,
-            },
-            [checkMode],
-          ),
+          dest.transportOptions?.[
+            checkMode as keyof typeof dest.transportOptions
+          ] !== undefined,
         );
       }
-      // Zone-only / neutral browsing keeps the legacy metadata display gate.
-      return (
-        dest.transportOptions?.[
-          checkMode as keyof typeof dest.transportOptions
-        ] !== undefined
-      );
     }
     return (
       dest.transportOptions?.[

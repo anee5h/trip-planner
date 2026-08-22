@@ -65,7 +65,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:250821_Inubosaki_Lighthouse_05.jpg"
   },
   "transportOptions": {},
-  "localAccessModes": ["train", "bus", "my_car"],
+  "localAccessModes": ["bus", "my_car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
     "method": "unknown",

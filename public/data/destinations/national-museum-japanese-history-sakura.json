@@ -65,7 +65,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:National_Museum_of_Japanese_History_2008.jpg"
   },
   "transportOptions": {},
-  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessModes": ["bus", "car", "my_car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
     "method": "unknown",

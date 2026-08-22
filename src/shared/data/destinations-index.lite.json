@@ -4802,7 +4802,10 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": []
+      "featuredDestinationIds": [
+        "inubosaki-lighthouse-choshi",
+        "byobugaura-choshi"
+      ]
     }
   },
   {
@@ -7686,12 +7689,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": ["funabashi-andersen-park"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -22777,10 +22775,8 @@
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
+        "tojo-tei-matsudo",
+        "yagiri-no-watashi-matsudo"
       ],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
@@ -88350,7 +88346,7 @@
       "confidence": "beta"
     },
     "transportOptions": {},
-    "localAccessModes": ["train", "bus", "car", "my_car"],
+    "localAccessModes": ["bus", "car", "my_car"],
     "localAccessUnestimated": true,
     "walkingIntensity": "low",
     "relationships": {
@@ -88758,7 +88754,7 @@
       "confidence": "beta"
     },
     "transportOptions": {},
-    "localAccessModes": ["train", "bus", "car", "my_car"],
+    "localAccessModes": ["bus", "car", "my_car"],
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
     "relationships": {
@@ -88846,7 +88842,7 @@
       "confidence": "beta"
     },
     "transportOptions": {},
-    "localAccessModes": ["train", "bus", "my_car"],
+    "localAccessModes": ["bus", "my_car"],
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
     "relationships": {

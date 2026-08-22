@@ -65,7 +65,7 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:YagiriNoWatashi_Matsudo_Chiba_Japan_JAN2016.jpg"
   },
   "transportOptions": {},
-  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessModes": ["bus", "car", "my_car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
     "method": "unknown",
