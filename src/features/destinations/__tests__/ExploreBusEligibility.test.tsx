@@ -244,6 +244,8 @@ describe("KAI-63 Explore bus eligibility", () => {
       "nakijin-castle-ruins-motobu",
       "kouri-island-okinawa",
       "okinawa-kaigan",
+      "dmm-kariyushi-aquarium",
+      "junglia-okinawa",
     ]);
     for (const id of cards) {
       expect(okinawaIds.has(id)).toBe(true);

@@ -284,6 +284,7 @@ describe("KAI-98 Japanese taxonomy coverage", () => {
   });
 
   it("localizes the confirmed leak examples", () => {
+    expect(localizePlaceLabel("Adventure", "ja")).toBe("アドベンチャー");
     expect(localizePlaceLabel("Castle", "ja")).toBe("城");
     expect(localizePlaceLabel("Park", "ja")).toBe("公園");
     expect(localizePlaceLabel("Museum", "ja")).toBe("博物館");
