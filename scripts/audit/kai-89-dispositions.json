@@ -1,958 +1,968 @@
 {
- "audit": "KAI-89 structured cluster dispositions",
- "schemaVersion": 2,
- "generatedAt": "2026-08-14",
- "note": "Per-cluster reviewed disposition. category A-E; action: legitimate | corrected | confidence-gated | manual-review | model-estimate. model-estimate = cluster whose members all equal the documented KAI-89 model output (pure-function value equality, scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources. The audit generator fails --check on unclassified clusters.",
- "clusters": {
-  "ratings:7d6449898a3b": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Nine newly reviewed Kyoto records deliberately use the neutral {5,5,...} placeholder while destination-specific ratings remain unverified; these values are not a positive quality claim."
-  },
-  "ratings:43dd983ddcc5": {
-   "category": "D",
-   "action": "corrected",
-   "reason": "Template vector identical across 114 distinct cities/wards/towns/villages (role=hub). 44 records falsely stamped {rubricVersion:2, method:manual, confidence:high} from a bulk 'Coordinate Calibration' pass with the SAME generic gotokyo.org tourism-board source for all 22 Tokyo wards; 70 have no metad"
-  },
-  "ratings:f98cf1399e01": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula profile (nature-like offsets: food -1.0, rain -0.9, photo +0.3) at base 8.7 across 27 mixed attractions; all stamped {assisted, low} (honest). Generated, low-confidence."
-  },
-  "ratings:3bc1000f8f4f": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "'Famous attraction' near-flat template (offsets ~0, rain -0.5, photo +0.2) at base 9.0. Sites genuinely notable (Tottori Sand Dunes, Naoshima, Sakurajima) with official sources on ~12/23, so base value plausible; but 21/23 lack metadata and vector is template. Values plausible, unverified."
-  },
-  "ratings:06be054374c3": {
-   "category": "D",
-   "action": "corrected",
-   "reason": "Hub-city template: identical vector incl. rain 5.5 across 22 climatically disparate cities (Aomori, Akita, Ise, Koriyama...). 4 records (ashikaga-city, choshi-city, hino-city, katori-city) laundered {manual,high}. Hubs scored like attractions."
-  },
-  "ratings:a898a32ad188": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile (food -1.1, rain -0.9, photo +0.3) at base 8.3 across 19 quasi-national parks; {assisted, low}."
-  },
-  "ratings:d12dbf9c1a83": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "UNESCO/world-heritage template at base 9.2. Sites world-class (Hiroshima Peace Memorial, Horyuji, Shiretoko) with official sources; 14/18 lack metadata; 3 Kanto-stamped {manual,high} (national-museum-western-art-tokyo, ogasawara-islands-tokyo, tomioka-silk-mill-gunma) are laundered. Values plausible"
-  },
-  "ratings:62d6a8ed466d": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Flat 8.9 template (offsets ~0) across 15 must-see attractions, all with official attraction sources but NO metadata. Plausible base, unverified."
-  },
-  "ratings:432d383e1bdf": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "Formula nature profile at base 8.2; 14 quasi-national parks; {assisted, low/medium}."
-  },
-  "ratings:53e47f6d1272": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Flat 9.1 template (rain 8.6, photo 9.3) across 12 famous temples/shrines (Byodoin, Toshodaiji, Yakushiji, Enryakuji), all with official sources, NO metadata. Plausible base for these sites, unverified."
-  },
-  "ratings:27e255972fbc": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile (food -0.9, photo +0.3, rain -1.0) at base 8.6; 11 castles; {assisted, low}."
-  },
-  "ratings:2c090ba67bf2": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.4; 11 quasi-national parks; {assisted, low}."
-  },
-  "ratings:5eae752fbf79": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Flat 8.7 template across 10 distinct destinations with official sources (kawagoe-kurazukuri, takayama-sanmachi, sakai-city-museum...), NO metadata. Plausible, unverified."
-  },
-  "ratings:6d78ee73fce6": {
-   "category": "D",
-   "action": "corrected",
-   "reason": "10 distinct Yokohama attractions (museum, temple, park, ramen museum, theme park, red-brick warehouse) share ONE identical vector and ALL carry {manual, high} stamps from the Kanto bulk pass. Statistically impossible for per-record manual review; strongest laundering case."
-  },
-  "ratings:dd930b0d8ec6": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.5; 9 castles; {assisted, low}."
-  },
-  "ratings:6ac49dde2a4c": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.6; 8 quasi-national parks; {assisted, low/medium}."
-  },
-  "ratings:e3130d158469": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.4; 8 castles; {assisted, low}."
-  },
-  "ratings:6a560b360dc4": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.5; 6 quasi-national parks; {assisted, low}."
-  },
-  "ratings:c40cf6674c83": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.8; 6 quasi-national parks; {assisted, medium/low}."
-  },
-  "ratings:ceaf1d5cd0a7": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.8; 6 castles; {assisted, low}."
-  },
-  "ratings:265f5359c798": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.7; 5 castles; {assisted, low}."
-  },
-  "ratings:9f901c5ff7b5": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.9; 5 castles; {assisted, low}."
-  },
-  "ratings:aab1f870dbbd": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.7; 5 quasi-national parks; {assisted, medium/low}."
-  },
-  "ratings:b6a37d7b475f": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 9.0; 5 quasi-national parks; {assisted, low/medium}."
-  },
-  "ratings:cee6d167ed6d": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (values 7.5..8.4 sequential, overall below mean by -0.50) across 5 unrelated POIs; {assisted, low}. Not credible as ratings."
-  },
-  "ratings:dd559d8d9f7e": {
-   "category": "C",
-   "action": "confidence-gated",
-   "reason": "Okinawa-tuned hub template (summer 9.5, rain 5.0, overall 9.0) across 5 Ryukyu hubs with official tourism sources, NO metadata. Seasonal shape plausible; hubs scored like attractions; unverified."
-  },
-  "ratings:99e6164cd738": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Extreme-divergence template: couple 9.3/summer 9.4/winter 9.5 but food 6.1/photography 6.2; overall 9.2 vs mean 7.3 (delta +1.9). Meiji Jingu with photography 6.2 is implausible; {assisted, low}."
-  },
-  "ratings:9bfd9eae2c45": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 9.0; 4 castles; {assisted, low}."
-  },
-  "ratings:edb4c47778f5": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 8.9; 4 quasi-national parks; {assisted, medium/low}."
-  },
-  "ratings:f1f11bfa0236": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Extreme-divergence template (overall 9.3 vs mean 7.0, delta +2.3); {assisted, low}."
-  },
-  "ratings:fcb278268115": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Extreme-divergence template (overall 9.1 vs mean 7.6, delta +1.5, rain 9.5); {assisted, low}."
-  },
-  "ratings:4b5593e7fa4c": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "ratings:9b829ec74e5f": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "ratings:b7544620eb2b": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula nature profile at base 9.2; 3 national parks incl. daisetsuzan (stamped {assisted, high} - invalid combo per rubric; assisted cannot be high); {medium/low}."
-  },
-  "ratings:c9c42faca501": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "ratings:cab01376f45a": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Formula castle profile at base 8.2; 3 castles; {assisted, low}."
-  },
-  "ratings:e0bc90b54f5a": {
-   "category": "B",
-   "action": "confidence-gated",
-   "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
-  },
-  "budget:3bcb2a3c5cdd": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "budget:c178216b2bef": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "budget:e39678941b25": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
-  },
-  "budget:59f041cab981": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-  },
-  "budget:70babdf47301": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-  },
-  "budget:546bb5ac6a3c": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
-  },
-  "budget:a0aa92974412": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
-  },
-  "budget:bd0a0d5cebfb": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
-  },
-  "visitDuration:1cf659956fa2": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Attraction convention: 1-3h museums/temples/shrines/districts (69+22+18+16 of 172). Applied via assisted generation (161/172 assisted-low) but the range is the standard Japan visit-duration convention."
-  },
-  "visitDuration:1c84ff3f729a": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Quick-visit convention across museums/temples/nature/markets."
-  },
-  "visitDuration:bb109b6c5b53": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
-  },
-  "visitDuration:db24647aa9a1": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Castle convention: 54/72 members are castles; 1.5-3.5h is the standard Japanese castle-visit window."
-  },
-  "visitDuration:e7d3c053b289": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "63/69 members unknown kind; standalone/destination nature areas."
-  },
-  "visitDuration:ce28d84e211b": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Nature-park convention: 63/64 members kind=nature."
-  },
-  "visitDuration:3339bcb2ae09": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:807f7cbc4b49": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
-  },
-  "visitDuration:c7f7bd9ca006": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:afa8461550d9": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:4b9f3c3ff6be": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Quick-stop convention: bridges/shrines/monuments/viewpoints."
-  },
-  "visitDuration:a8d277c24598": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:159ea4ea79ef": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "23/24 unknown kind."
-  },
-  "visitDuration:0f753cf4bbb0": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:4cd5ba30889e": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:d59c365ae4c0": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:2e8cc740f9f8": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Mountain/lake/onsen full-day; plausible for hikes."
-  },
-  "visitDuration:480983978476": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:b2a5eb034cbe": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:99843a89b1e2": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "visitDuration:768f833d8371": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Historic towns/onsen full-day."
-  },
-  "visitDuration:e229b7d66d77": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "visitDuration:fe496e42c678": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "visitDuration:843cc3ccc08a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "Plausible."
-  },
-  "walking:2da3e147dbe3": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
-  },
-  "walking:78ee2462f5ff": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "v1.6.0 hub template in METRES (4000m) while contract/validator expects MINUTES (walkingMin <= visit.max*60; commit 8d47f316 canonicalized minutes). All 81 members no metadata. sun(1500)<shade(2500); metre values violate WALKING_MIN_IMPLAUSIBLE (430 baselined)."
-  },
-  "walking:3d368f449db1": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-  },
-  "walking:b02b173faa86": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:a5c2919dfbb8": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:79390c65d95f": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 pipeline split on 40-min base for wards/cities; minute units."
-  },
-  "walking:52b14c9c17b9": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:9fee176d5529": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:8184feae45ad": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:0e42a5221c6a": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:154a4586dc2f": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:3c247d7c6e27": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:47f1236f5181": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:89873aec239d": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-  },
-  "walking:fad0df6ef9f2": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:1e4109ee1e47": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:43314730306e": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:ecb6b523936d": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:dd90a22e6ec0": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-  },
-  "walking:9360e7c9bb23": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:a632295bef14": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:caace1894bbc": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:127a36315638": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:31f3c597aca5": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:faa58d4d2f61": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "60/40 split, minutes."
-  },
-  "walking:49908606ba6a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "50/50 metres; kai-31 style."
-  },
-  "walking:da386b1ae837": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:7100f3a0a0b9": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:ac22bdc97cc3": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "walking:b7e9721e1e32": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-  },
-  "season:248edaf45789": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "season:96690f810f73": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "season:6b05ba8b5e86": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "season:cf719c225387": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "transport:ffd6f6849522": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:bfbeeffa6890": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:7400a209eda9": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:31e49e949bd8": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:06f324feb05f": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:c6470871d9cc": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "estimated"
-  },
-  "transport:203e9e566e9b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:928f25834c51": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:6b93ff76dd6a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:5f13a3c8e03f": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:8e154fa9699d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:0ca61547daa4": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "legit"
-  },
-  "transport:25969fe8d6bb": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:1a09e04d146b": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:38d800e59962": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:5e16a3f71051": {
-   "category": "C",
-   "action": "corrected",
-   "reason": "estimated"
-  },
-  "transport:ae4d6d219ddd": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:065ae4eb8d77": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:5411dbdeab8b": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:5536d0da8c0c": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:a1df472c9e0e": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e4f5f3f5e71c": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "legit"
-  },
-  "transport:63c8fe7e0dbf": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:9bba2f9188d1": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:a1c8fc629bf0": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:a77c0e9347bb": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:c0171bec0b97": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:d98a02f9dd67": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:0b41e50e6292": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:323b97cb38ca": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:75e6141a02d8": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e710b19b1379": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:01b1a1d26731": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:2b1e5080b728": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:45d13cea7bc8": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "legit"
-  },
-  "transport:47ba8eb8bd91": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:49bbb1d48d5d": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:ad981fc25ee7": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:b5b6a957edd0": {
-   "category": "D",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:ce85216196d2": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:e69e18d4b0b3": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:36c25a6b9c22": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:40700df14b6b": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:4525322dacf2": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:4d6873bb3a18": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:5e1fa514870b": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:68779e3c5c5c": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:766918dce32a": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:7fe62e806615": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:881b39c54b40": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:88d60c375800": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:9e7113408d9d": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:a6c340ff7222": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:c859ad703e3e": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "transport:ce58ea87b9a3": {
-   "category": "E",
-   "action": "manual-review",
-   "reason": "mixed"
-  },
-  "transport:d2da40161c8a": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e11e3086dca5": {
-   "category": "C",
-   "action": "manual-review",
-   "reason": "estimated"
-  },
-  "transport:e14f10a9d784": {
-   "category": "B",
-   "action": "corrected",
-   "reason": "template"
-  },
-  "transport:f89c3413a8dd": {
-   "category": "B",
-   "action": "manual-review",
-   "reason": "template"
-  },
-  "comfort:438e501f22f6": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:fc8339d38bf3": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:3ff254fd7ba5": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:d4bab1a51e44": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:75a33a9f8510": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:e0a68e6134f3": {
-   "category": "A",
-   "action": "legitimate",
-   "reason": "Indoor museum/aquarium convention: 30 museums + 4 aquariums, indoorPercent>=85. Formula-derived (round(indoor/10)) but semantically CORRECT for indoor venues."
-  },
-  "comfort:c32d82b6aeb1": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:b1c1966d7620": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:5cc52143a504": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:99dd7fe7d035": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:541e20f7bd6c": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:074cd025871b": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:2be75416ddba": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:33ad413ebe7a": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:1832c76e2596": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:06eb44964c79": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:20c7254a9b75": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:4d3e2d59e09a": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:da1999751cb8": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:ede1d8426e84": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:ef4b5ffd8fff": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:3a8e699be686": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:8d074d9cdc5d": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:ad9e707b0c96": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:5017dfa271c1": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:a627db49b646": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:b8dd62e195da": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-  },
-  "comfort:e08a042bbee9": {
-   "category": "C",
-   "action": "model-estimate",
-   "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+  "audit": "KAI-89 structured cluster dispositions",
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-22",
+  "note": "Per-cluster reviewed disposition. category A-E; action: legitimate | corrected | confidence-gated | manual-review | model-estimate. model-estimate = cluster whose members all equal the documented KAI-89 model output (pure-function value equality, scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources. The audit generator fails --check on unclassified clusters.",
+  "clusters": {
+    "ratings:7d6449898a3b": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Nine newly reviewed Kyoto records deliberately use the neutral {5,5,...} placeholder while destination-specific ratings remain unverified; these values are not a positive quality claim."
+    },
+    "ratings:43dd983ddcc5": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "Template vector identical across 114 distinct cities/wards/towns/villages (role=hub). 44 records falsely stamped {rubricVersion:2, method:manual, confidence:high} from a bulk 'Coordinate Calibration' pass with the SAME generic gotokyo.org tourism-board source for all 22 Tokyo wards; 70 have no metad"
+    },
+    "ratings:f98cf1399e01": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula profile (nature-like offsets: food -1.0, rain -0.9, photo +0.3) at base 8.7 across 27 mixed attractions; all stamped {assisted, low} (honest). Generated, low-confidence."
+    },
+    "ratings:3bc1000f8f4f": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "'Famous attraction' near-flat template (offsets ~0, rain -0.5, photo +0.2) at base 9.0. Sites genuinely notable (Tottori Sand Dunes, Naoshima, Sakurajima) with official sources on ~12/23, so base value plausible; but 21/23 lack metadata and vector is template. Values plausible, unverified."
+    },
+    "ratings:06be054374c3": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "Hub-city template: identical vector incl. rain 5.5 across 22 climatically disparate cities (Aomori, Akita, Ise, Koriyama...). 4 records (ashikaga-city, choshi-city, hino-city, katori-city) laundered {manual,high}. Hubs scored like attractions."
+    },
+    "ratings:a898a32ad188": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile (food -1.1, rain -0.9, photo +0.3) at base 8.3 across 19 quasi-national parks; {assisted, low}."
+    },
+    "ratings:d12dbf9c1a83": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "UNESCO/world-heritage template at base 9.2. Sites world-class (Hiroshima Peace Memorial, Horyuji, Shiretoko) with official sources; 14/18 lack metadata; 3 Kanto-stamped {manual,high} (national-museum-western-art-tokyo, ogasawara-islands-tokyo, tomioka-silk-mill-gunma) are laundered. Values plausible"
+    },
+    "ratings:62d6a8ed466d": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Flat 8.9 template (offsets ~0) across 15 must-see attractions, all with official attraction sources but NO metadata. Plausible base, unverified."
+    },
+    "ratings:432d383e1bdf": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "Formula nature profile at base 8.2; 14 quasi-national parks; {assisted, low/medium}."
+    },
+    "ratings:53e47f6d1272": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Flat 9.1 template (rain 8.6, photo 9.3) across 12 famous temples/shrines (Byodoin, Toshodaiji, Yakushiji, Enryakuji), all with official sources, NO metadata. Plausible base for these sites, unverified."
+    },
+    "ratings:27e255972fbc": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile (food -0.9, photo +0.3, rain -1.0) at base 8.6; 11 castles; {assisted, low}."
+    },
+    "ratings:2c090ba67bf2": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.4; 11 quasi-national parks; {assisted, low}."
+    },
+    "ratings:5eae752fbf79": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Flat 8.7 template across 10 distinct destinations with official sources (kawagoe-kurazukuri, takayama-sanmachi, sakai-city-museum...), NO metadata. Plausible, unverified."
+    },
+    "ratings:6d78ee73fce6": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "10 distinct Yokohama attractions (museum, temple, park, ramen museum, theme park, red-brick warehouse) share ONE identical vector and ALL carry {manual, high} stamps from the Kanto bulk pass. Statistically impossible for per-record manual review; strongest laundering case."
+    },
+    "ratings:dd930b0d8ec6": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.5; 9 castles; {assisted, low}."
+    },
+    "ratings:6ac49dde2a4c": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.6; 8 quasi-national parks; {assisted, low/medium}."
+    },
+    "ratings:e3130d158469": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.4; 8 castles; {assisted, low}."
+    },
+    "ratings:6a560b360dc4": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.5; 6 quasi-national parks; {assisted, low}."
+    },
+    "ratings:c40cf6674c83": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.8; 6 quasi-national parks; {assisted, medium/low}."
+    },
+    "ratings:ceaf1d5cd0a7": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.8; 6 castles; {assisted, low}."
+    },
+    "ratings:265f5359c798": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.7; 5 castles; {assisted, low}."
+    },
+    "ratings:9f901c5ff7b5": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.9; 5 castles; {assisted, low}."
+    },
+    "ratings:aab1f870dbbd": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.7; 5 quasi-national parks; {assisted, medium/low}."
+    },
+    "ratings:b6a37d7b475f": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 9.0; 5 quasi-national parks; {assisted, low/medium}."
+    },
+    "ratings:cee6d167ed6d": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (values 7.5..8.4 sequential, overall below mean by -0.50) across 5 unrelated POIs; {assisted, low}. Not credible as ratings."
+    },
+    "ratings:dd559d8d9f7e": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Okinawa-tuned hub template (summer 9.5, rain 5.0, overall 9.0) across 5 Ryukyu hubs with official tourism sources, NO metadata. Seasonal shape plausible; hubs scored like attractions; unverified."
+    },
+    "ratings:99e6164cd738": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Extreme-divergence template: couple 9.3/summer 9.4/winter 9.5 but food 6.1/photography 6.2; overall 9.2 vs mean 7.3 (delta +1.9). Meiji Jingu with photography 6.2 is implausible; {assisted, low}."
+    },
+    "ratings:9bfd9eae2c45": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 9.0; 4 castles; {assisted, low}."
+    },
+    "ratings:edb4c47778f5": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 8.9; 4 quasi-national parks; {assisted, medium/low}."
+    },
+    "ratings:f1f11bfa0236": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Extreme-divergence template (overall 9.3 vs mean 7.0, delta +2.3); {assisted, low}."
+    },
+    "ratings:fcb278268115": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Extreme-divergence template (overall 9.1 vs mean 7.6, delta +1.5, rain 9.5); {assisted, low}."
+    },
+    "ratings:4b5593e7fa4c": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "ratings:9b829ec74e5f": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "ratings:b7544620eb2b": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula nature profile at base 9.2; 3 national parks incl. daisetsuzan (stamped {assisted, high} - invalid combo per rubric; assisted cannot be high); {medium/low}."
+    },
+    "ratings:c9c42faca501": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "ratings:cab01376f45a": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Formula castle profile at base 8.2; 3 castles; {assisted, low}."
+    },
+    "ratings:e0bc90b54f5a": {
+      "category": "B",
+      "action": "confidence-gated",
+      "reason": "Arithmetic staircase template (delta -0.50); 3 POIs; {assisted, low}."
+    },
+    "budget:3bcb2a3c5cdd": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "budget:c178216b2bef": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "budget:e39678941b25": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "pr12c-kyushu-expansion.ts buildPoi() formula: breakdown = {35%, ticketCost, 40%, 10% of budgetMin} -> sum 850 != rec 3000 (formula bug: uses min not rec)"
+    },
+    "budget:59f041cab981": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
+    },
+    "budget:70babdf47301": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
+    },
+    "budget:546bb5ac6a3c": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
+    },
+    "budget:a0aa92974412": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+    },
+    "budget:bd0a0d5cebfb": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "pr12c formula with budgetMin=1500, ticketCost=0 -> {525,0,600,150}; sum 1275 != rec 4000"
+    },
+    "visitDuration:1cf659956fa2": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Attraction convention: 1-3h museums/temples/shrines/districts (69+22+18+16 of 172). Applied via assisted generation (161/172 assisted-low) but the range is the standard Japan visit-duration convention."
+    },
+    "visitDuration:1c84ff3f729a": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Quick-visit convention across museums/temples/nature/markets."
+    },
+    "visitDuration:bb109b6c5b53": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
+    },
+    "visitDuration:db24647aa9a1": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Castle convention: 54/72 members are castles; 1.5-3.5h is the standard Japanese castle-visit window."
+    },
+    "visitDuration:e7d3c053b289": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "63/69 members unknown kind; standalone/destination nature areas."
+    },
+    "visitDuration:ce28d84e211b": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Nature-park convention: 63/64 members kind=nature."
+    },
+    "visitDuration:3339bcb2ae09": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:807f7cbc4b49": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Museum 2-4h convention (31 museums) + 35 unknown-kind members; appears in kai-31/kai-32 script tuples."
+    },
+    "visitDuration:c7f7bd9ca006": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:afa8461550d9": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:4b9f3c3ff6be": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Quick-stop convention: bridges/shrines/monuments/viewpoints."
+    },
+    "visitDuration:a8d277c24598": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:159ea4ea79ef": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "23/24 unknown kind."
+    },
+    "visitDuration:0f753cf4bbb0": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:4cd5ba30889e": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:d59c365ae4c0": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:2e8cc740f9f8": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Mountain/lake/onsen full-day; plausible for hikes."
+    },
+    "visitDuration:480983978476": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:b2a5eb034cbe": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:99843a89b1e2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "visitDuration:768f833d8371": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Historic towns/onsen full-day."
+    },
+    "visitDuration:e229b7d66d77": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "visitDuration:fe496e42c678": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "visitDuration:843cc3ccc08a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "Plausible."
+    },
+    "walking:2da3e147dbe3": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "pipeline.cjs 60/40 derivation: sun=0.6*walkingMin, shade=0.4*walkingMin. 1h total is a plausible attraction convention but the split is formula-produced (135 members)."
+    },
+    "walking:78ee2462f5ff": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "v1.6.0 hub template in METRES (4000m) while contract/validator expects MINUTES (walkingMin <= visit.max*60; commit 8d47f316 canonicalized minutes). All 81 members no metadata. sun(1500)<shade(2500); metre values violate WALKING_MIN_IMPLAUSIBLE (430 baselined)."
+    },
+    "walking:3d368f449db1": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:b02b173faa86": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:a5c2919dfbb8": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:79390c65d95f": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 pipeline split on 40-min base for wards/cities; minute units."
+    },
+    "walking:52b14c9c17b9": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:9fee176d5529": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:8184feae45ad": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:0e42a5221c6a": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:154a4586dc2f": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:3c247d7c6e27": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:47f1236f5181": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:89873aec239d": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:fad0df6ef9f2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:1e4109ee1e47": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:43314730306e": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:ecb6b523936d": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:dd90a22e6ec0": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+    },
+    "walking:9360e7c9bb23": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:a632295bef14": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:caace1894bbc": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:127a36315638": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:31f3c597aca5": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:faa58d4d2f61": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "60/40 split, minutes."
+    },
+    "walking:49908606ba6a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "50/50 metres; kai-31 style."
+    },
+    "walking:da386b1ae837": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:7100f3a0a0b9": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:ac22bdc97cc3": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "walking:b7e9721e1e32": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+    },
+    "season:248edaf45789": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "season:96690f810f73": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "season:6b05ba8b5e86": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "season:cf719c225387": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "transport:ffd6f6849522": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:bfbeeffa6890": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:7400a209eda9": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:31e49e949bd8": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:06f324feb05f": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:c6470871d9cc": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "estimated"
+    },
+    "transport:203e9e566e9b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:928f25834c51": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:6b93ff76dd6a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:5f13a3c8e03f": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:8e154fa9699d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:0ca61547daa4": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "legit"
+    },
+    "transport:25969fe8d6bb": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:1a09e04d146b": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:38d800e59962": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:5e16a3f71051": {
+      "category": "C",
+      "action": "corrected",
+      "reason": "estimated"
+    },
+    "transport:ae4d6d219ddd": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:065ae4eb8d77": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:5411dbdeab8b": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:5536d0da8c0c": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:a1df472c9e0e": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e4f5f3f5e71c": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "legit"
+    },
+    "transport:63c8fe7e0dbf": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:9bba2f9188d1": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:a1c8fc629bf0": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:a77c0e9347bb": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:c0171bec0b97": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:d98a02f9dd67": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:0b41e50e6292": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:323b97cb38ca": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:75e6141a02d8": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e710b19b1379": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:01b1a1d26731": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:2b1e5080b728": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:45d13cea7bc8": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "legit"
+    },
+    "transport:47ba8eb8bd91": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:49bbb1d48d5d": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:ad981fc25ee7": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:b5b6a957edd0": {
+      "category": "D",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:ce85216196d2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:e69e18d4b0b3": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:36c25a6b9c22": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:40700df14b6b": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:4525322dacf2": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:4d6873bb3a18": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:5e1fa514870b": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:68779e3c5c5c": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:766918dce32a": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:7fe62e806615": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:881b39c54b40": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:88d60c375800": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:9e7113408d9d": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:a6c340ff7222": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:c859ad703e3e": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "transport:ce58ea87b9a3": {
+      "category": "E",
+      "action": "manual-review",
+      "reason": "mixed"
+    },
+    "transport:d2da40161c8a": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e11e3086dca5": {
+      "category": "C",
+      "action": "manual-review",
+      "reason": "estimated"
+    },
+    "transport:e14f10a9d784": {
+      "category": "B",
+      "action": "corrected",
+      "reason": "template"
+    },
+    "transport:f89c3413a8dd": {
+      "category": "B",
+      "action": "manual-review",
+      "reason": "template"
+    },
+    "comfort:438e501f22f6": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:fc8339d38bf3": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:3ff254fd7ba5": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:d4bab1a51e44": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:75a33a9f8510": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:e0a68e6134f3": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Indoor museum/aquarium convention: 30 museums + 4 aquariums, indoorPercent>=85. Formula-derived (round(indoor/10)) but semantically CORRECT for indoor venues."
+    },
+    "comfort:c32d82b6aeb1": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:b1c1966d7620": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:5cc52143a504": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:99dd7fe7d035": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:541e20f7bd6c": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:074cd025871b": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:2be75416ddba": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:33ad413ebe7a": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:1832c76e2596": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:06eb44964c79": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:20c7254a9b75": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:4d3e2d59e09a": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:da1999751cb8": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:ede1d8426e84": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:ef4b5ffd8fff": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:3a8e699be686": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:8d074d9cdc5d": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:ad9e707b0c96": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:5017dfa271c1": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:a627db49b646": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:b8dd62e195da": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "comfort:e08a042bbee9": {
+      "category": "C",
+      "action": "model-estimate",
+      "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+    },
+    "b6f0b5b82a44": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Three new Kobe destinations (Ikuta Shrine, Sorakuen Garden, Hakutsuru Sake Brewery Museum) share a legacy-fallback transportOptions profile {bus:25, train:15} with low-confidence provenance per transportMetadata; these are display fallbacks, not origin-aware corridor claims."
+    },
+    "transport:b6f0b5b82a44": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Three new Kobe destinations (Ikuta Shrine, Sorakuen Garden, Hakutsuru Sake Brewery Museum) share a legacy-fallback transportOptions profile {bus:25, train:15} with low-confidence provenance per transportMetadata; these are display fallbacks, not origin-aware corridor claims."
+    }
   }
- }
 }

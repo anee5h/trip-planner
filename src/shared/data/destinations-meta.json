@@ -2717,6 +2717,18 @@
     "relationships": {}
   },
   {
+    "id": "hakutsuru-sake-brewery-museum",
+    "name": "Hakutsuru Sake Brewery Museum",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    }
+  },
+  {
     "id": "hamamatsu-city",
     "name": "Hamamatsu City",
     "prefecture": "Shizuoka",
@@ -3555,6 +3567,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kawasaki-city"
+    }
+  },
+  {
+    "id": "ikuta-shrine-kobe",
+    "name": "Ikuta Shrine",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
     }
   },
   {
@@ -5189,18 +5213,22 @@
     "status": "published",
     "relationships": {
       "featuredDestinationIds": [
-        "kobe-maya-night-view",
-        "arima-onsen",
-        "nunobiki-herb-gardens",
         "meriken-park",
         "kobe-port-tower",
-        "nunobiki-falls",
         "kobe-harborland",
-        "kobe-animal-kingdom",
-        "nunobiki-ropeway",
-        "kobe-maritime-museum",
+        "nankinmachi-chinatown",
         "kitano-ijinkan",
-        "nankinmachi-chinatown"
+        "nunobiki-falls",
+        "nunobiki-herb-gardens",
+        "nunobiki-ropeway",
+        "arima-onsen",
+        "kobe-maya-night-view",
+        "kobe-animal-kingdom",
+        "kobe-maritime-museum",
+        "ikuta-shrine-kobe",
+        "sorakuen-garden",
+        "hakutsuru-sake-brewery-museum",
+        "kobe-suma-sea-world"
       ],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
@@ -5256,6 +5284,19 @@
     "kind": "tower",
     "status": "published",
     "relationships": {
+      "parentDestinationId": "kobe-city"
+    }
+  },
+  {
+    "id": "kobe-suma-sea-world",
+    "name": "Kobe Suma Sea World",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "aquarium",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": [],
       "parentDestinationId": "kobe-city"
     }
   },
@@ -7001,6 +7042,16 @@
     "relationships": {
       "parentDestinationId": "sakai-city"
     }
+  },
+  {
+    "id": "mt-rokko-kobe",
+    "name": "Mt. Rokko",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "mukojima-hyakkaen",
@@ -10315,6 +10366,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "yokohama-city"
+    }
+  },
+  {
+    "id": "sorakuen-garden",
+    "name": "Sorakuen Garden",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "garden",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
     }
   },
   {

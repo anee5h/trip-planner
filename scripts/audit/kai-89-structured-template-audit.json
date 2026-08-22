@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1012,
+  "totalRecords": 1017,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 190,
-    "affectedRecordCount": 1009,
+    "clusterCount": 191,
+    "affectedRecordCount": 1014,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -225,6 +225,7 @@
       "hakone-town",
       "hakuba-village",
       "hakusan",
+      "hakutsuru-sake-brewery-museum",
       "hamamatsu-city",
       "hamarikyu-gardens",
       "harajuku-takeshita-street",
@@ -293,6 +294,7 @@
       "iki-tsushima",
       "ikuno-silver-mine",
       "ikuta-ryokuchi",
+      "ikuta-shrine-kobe",
       "imabari-castle",
       "imperial-palace-chiyoda",
       "inage-seaside-park",
@@ -425,6 +427,7 @@
       "kobe-maritime-museum",
       "kobe-maya-night-view",
       "kobe-port-tower",
+      "kobe-suma-sea-world",
       "kochi-castle",
       "kochi-city",
       "kofu-castle",
@@ -557,6 +560,7 @@
       "mount-yoshino-nara",
       "mount-zao-yamagata",
       "mozufuruichi-kofun-osaka",
+      "mt-rokko-kobe",
       "mukojima-hyakkaen",
       "muro-akame-aoyama",
       "muroto-anan-kaigan",
@@ -824,6 +828,7 @@
       "shuri-castle-okinawa",
       "sobo-katamuki",
       "soji-ji-yokohama",
+      "sorakuen-garden",
       "spa-metsa-ootaka-nagareyama",
       "sugamo-jizo-dori",
       "suginami-city",
@@ -1380,16 +1385,16 @@
       "confidence-gated": 31,
       "model-estimate": 43,
       "manual-review": 93,
-      "legitimate": 9
+      "legitimate": 10
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 9, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 10, "E": 31 }
   },
   "categories": [
     {
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 449,
+      "affectedRecordCount": 454,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1487,6 +1492,7 @@
         "hakone-open-air-museum",
         "hakuba-village",
         "hakusan",
+        "hakutsuru-sake-brewery-museum",
         "hamamatsu-city",
         "hatsukaichi-city",
         "hayachine",
@@ -1518,6 +1524,7 @@
         "iga-ueno-castle",
         "ikaruga-town",
         "iki-tsushima",
+        "ikuta-shrine-kobe",
         "imabari-castle",
         "ine-funaya-boathouses",
         "inubosaki-lighthouse-choshi",
@@ -1575,6 +1582,7 @@
         "kiyosumi-gardens",
         "kiyotsu-gorge-niigata",
         "kobe-city",
+        "kobe-suma-sea-world",
         "kochi-city",
         "kofu-castle",
         "kofu-city",
@@ -1631,6 +1639,7 @@
         "motonosumi-shrine-yamaguchi",
         "mount-aso-kumamoto",
         "mozufuruichi-kofun-osaka",
+        "mt-rokko-kobe",
         "mukojima-hyakkaen",
         "muro-akame-aoyama",
         "muroto-anan-kaigan",
@@ -1755,6 +1764,7 @@
         "shukkeien",
         "sobo-katamuki",
         "soji-ji-yokohama",
+        "sorakuen-garden",
         "spa-metsa-ootaka-nagareyama",
         "sugamo-jizo-dori",
         "suginami-city",
@@ -1983,7 +1993,7 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 32,
+          "count": 37,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
@@ -1992,8 +2002,10 @@
             "funabashi-andersen-park",
             "gekkeikan-okura-sake-museum",
             "ghibli-park-nagakute",
+            "hakutsuru-sake-brewery-museum",
             "higashiyama-zoo-and-botanical-gardens",
             "hirakata-park",
+            "ikuta-shrine-kobe",
             "inubosaki-lighthouse-choshi",
             "jakko-in-ohara",
             "kifune-jinja-kyoto",
@@ -2001,14 +2013,17 @@
             "kishiwada-castle",
             "kishiwada-danjiri-kaikan",
             "kiyomizu-dera",
+            "kobe-suma-sea-world",
             "kurama-dera-kyoto",
             "legoland-japan-nagoya",
+            "mt-rokko-kobe",
             "nakayama-hokekyoji-ichikawa",
             "national-museum-japanese-history-sakura",
             "noritake-garden",
             "sanzen-in-ohara",
             "shimizu-park-noda",
             "shirotori-garden",
+            "sorakuen-garden",
             "spa-metsa-ootaka-nagareyama",
             "sumiyoshi-taisha",
             "teamlab-botanical-garden-osaka",
@@ -3621,7 +3636,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 24,
-      "affectedRecordCount": 973,
+      "affectedRecordCount": 976,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3829,6 +3844,7 @@
         "hakone-town",
         "hakuba-village",
         "hakusan",
+        "hakutsuru-sake-brewery-museum",
         "hamamatsu-city",
         "hamarikyu-gardens",
         "harajuku-takeshita-street",
@@ -4022,6 +4038,7 @@
         "kobe-maritime-museum",
         "kobe-maya-night-view",
         "kobe-port-tower",
+        "kobe-suma-sea-world",
         "kochi-castle",
         "kochi-city",
         "kofu-castle",
@@ -4151,6 +4168,7 @@
         "mount-yoshino-nara",
         "mount-zao-yamagata",
         "mozufuruichi-kofun-osaka",
+        "mt-rokko-kobe",
         "mukojima-hyakkaen",
         "muro-akame-aoyama",
         "muroto-anan-kaigan",
@@ -4789,7 +4807,7 @@
         {
           "id": "1c84ff3f729a",
           "severity": "review",
-          "count": 113,
+          "count": 114,
           "ids": [
             "aizu-bukeyashiki",
             "akita-museum-of-art",
@@ -4814,6 +4832,7 @@
             "fukushuen-garden-naha",
             "fukuurajima",
             "gessho-ji-temple-matsue",
+            "hakutsuru-sake-brewery-museum",
             "hayashibara-museum-of-art",
             "heiwadai-park-miyazaki",
             "hida-cave",
@@ -4915,7 +4934,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 94,
+          "count": 95,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -4947,6 +4966,7 @@
             "kataonami-beach-wakanoura",
             "katase-higashihama-beach",
             "kawagoe-castle-saitama",
+            "kobe-suma-sea-world",
             "kokusai-dori-naha",
             "kujukushima-pearl-sea-resort",
             "lake-hamanako",
@@ -5466,7 +5486,7 @@
         {
           "id": "afa8461550d9",
           "severity": "review",
-          "count": 46,
+          "count": 47,
           "ids": [
             "akan-mashu",
             "amami-gunto",
@@ -5491,6 +5511,7 @@
             "legoland-japan-nagoya",
             "minami-alps",
             "mount-tsurugi-miyoshi",
+            "mt-rokko-kobe",
             "myoko-togakushi",
             "nago-pineapple-park",
             "nichinan-kaigan-drive",
@@ -5885,7 +5906,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 976,
+      "affectedRecordCount": 981,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6095,6 +6116,7 @@
         "hakone-town",
         "hakuba-village",
         "hakusan",
+        "hakutsuru-sake-brewery-museum",
         "hamamatsu-city",
         "hamarikyu-gardens",
         "harajuku-takeshita-street",
@@ -6162,6 +6184,7 @@
         "iki-tsushima",
         "ikuno-silver-mine",
         "ikuta-ryokuchi",
+        "ikuta-shrine-kobe",
         "imabari-castle",
         "imperial-palace-chiyoda",
         "inage-seaside-park",
@@ -6288,6 +6311,7 @@
         "kobe-maritime-museum",
         "kobe-maya-night-view",
         "kobe-port-tower",
+        "kobe-suma-sea-world",
         "kochi-castle",
         "kochi-city",
         "kofu-castle",
@@ -6414,6 +6438,7 @@
         "mount-yoshino-nara",
         "mount-zao-yamagata",
         "mozufuruichi-kofun-osaka",
+        "mt-rokko-kobe",
         "mukojima-hyakkaen",
         "muro-akame-aoyama",
         "muroto-anan-kaigan",
@@ -6672,6 +6697,7 @@
         "shuri-castle-okinawa",
         "sobo-katamuki",
         "soji-ji-yokohama",
+        "sorakuen-garden",
         "spa-metsa-ootaka-nagareyama",
         "sugamo-jizo-dori",
         "suginami-city",
@@ -6868,7 +6894,7 @@
         {
           "id": "2da3e147dbe3",
           "severity": "review",
-          "count": 172,
+          "count": 173,
           "ids": [
             "aizu-bukeyashiki",
             "akihabara-chiyoda",
@@ -6906,6 +6932,7 @@
             "gyokudo-art-museum",
             "hachioji-tokyo",
             "hakkeijima",
+            "hakutsuru-sake-brewery-museum",
             "hamarikyu-gardens",
             "harajuku-takeshita-street",
             "harry-potter-studio",
@@ -7475,7 +7502,7 @@
         {
           "id": "52b14c9c17b9",
           "severity": "review",
-          "count": 58,
+          "count": 59,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -7504,6 +7531,7 @@
             "kintai-bridge-yamaguchi",
             "kiyotsu-gorge-niigata",
             "kobe-maya-night-view",
+            "kobe-suma-sea-world",
             "kochi-castle",
             "korakuen-okayama",
             "kumamoto-castle",
@@ -7717,7 +7745,7 @@
         {
           "id": "154a4586dc2f",
           "severity": "review",
-          "count": 31,
+          "count": 32,
           "ids": [
             "akita-museum-of-art",
             "art-tower-mito",
@@ -7732,6 +7760,7 @@
             "hirome-market-kochi",
             "hirosaki-neputa-mura",
             "hiroshima-national-peace-memorial-hall",
+            "ikuta-shrine-kobe",
             "kawagoe-castle-saitama",
             "kouri-island-okinawa",
             "lafcadio-hearn-memorial-museum",
@@ -8016,6 +8045,32 @@
           }
         },
         {
+          "id": "caace1894bbc",
+          "severity": "review",
+          "count": 13,
+          "ids": [
+            "akiyoshidai-plateau",
+            "aoshima-island-miyazaki",
+            "arashiyama-bamboo-togetsukyo",
+            "chiringashima-island",
+            "izu",
+            "kiso",
+            "koiwai-farm",
+            "kusasenri-meadow-aso",
+            "mt-rokko-kobe",
+            "nanatsugama-sea-caves",
+            "noto",
+            "toyama-alpine",
+            "uradome-coast"
+          ],
+          "value": { "walkingMin": 290 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "dd90a22e6ec0",
           "severity": "review",
           "count": 13,
@@ -8042,31 +8097,6 @@
           }
         },
         {
-          "id": "caace1894bbc",
-          "severity": "review",
-          "count": 12,
-          "ids": [
-            "akiyoshidai-plateau",
-            "aoshima-island-miyazaki",
-            "arashiyama-bamboo-togetsukyo",
-            "chiringashima-island",
-            "izu",
-            "kiso",
-            "koiwai-farm",
-            "kusasenri-meadow-aso",
-            "nanatsugama-sea-caves",
-            "noto",
-            "toyama-alpine",
-            "uradome-coast"
-          ],
-          "value": { "walkingMin": 290 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
           "id": "a632295bef14",
           "severity": "review",
           "count": 11,
@@ -8088,6 +8118,26 @@
             "category": "E",
             "action": "manual-review",
             "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
+          "id": "faa58d4d2f61",
+          "severity": "review",
+          "count": 7,
+          "ids": [
+            "akasaka-minato",
+            "boso-peninsula",
+            "ghibli-museum",
+            "sorakuen-garden",
+            "tachikawa-tokyo",
+            "ueno-zoo",
+            "utsunomiya-oya"
+          ],
+          "value": { "walkingMin": 50 },
+          "disposition": {
+            "category": "B",
+            "action": "manual-review",
+            "reason": "60/40 split, minutes."
           }
         },
         {
@@ -8145,25 +8195,6 @@
             "category": "C",
             "action": "manual-review",
             "reason": "50/50 metres; kai-31 style."
-          }
-        },
-        {
-          "id": "faa58d4d2f61",
-          "severity": "review",
-          "count": 6,
-          "ids": [
-            "akasaka-minato",
-            "boso-peninsula",
-            "ghibli-museum",
-            "tachikawa-tokyo",
-            "ueno-zoo",
-            "utsunomiya-oya"
-          ],
-          "value": { "walkingMin": 50 },
-          "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "60/40 split, minutes."
           }
         },
         {
@@ -8574,8 +8605,8 @@
     {
       "category": "transport",
       "severity": "review",
-      "clusterCount": 59,
-      "affectedRecordCount": 424,
+      "clusterCount": 60,
+      "affectedRecordCount": 427,
       "affectedIds": [
         "abukuma-cave-fukushima",
         "adachi-city",
@@ -8835,6 +8866,7 @@
         "nijo-market",
         "niseko-town",
         "nishiki-market",
+        "noritake-garden",
         "nozuta-park",
         "numazu-city",
         "nunobiki-falls",
@@ -8906,6 +8938,7 @@
         "shitennoji",
         "shonan-kaigan-park",
         "soji-ji-yokohama",
+        "sorakuen-garden",
         "sugamo-jizo-dori",
         "suginami-city",
         "sumida-city",
@@ -8938,6 +8971,7 @@
         "teamlab-planets",
         "tempozan-ferris-wheel",
         "tenjin",
+        "tenjinbashi-suji-shopping-street",
         "tennoji-park",
         "tenshaen-garden-uwajima",
         "tojinbo-cliffs-fukui",
@@ -10068,6 +10102,22 @@
             "category": "E",
             "action": "manual-review",
             "reason": "mixed"
+          }
+        },
+        {
+          "id": "b6f0b5b82a44",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "noritake-garden",
+            "sorakuen-garden",
+            "tenjinbashi-suji-shopping-street"
+          ],
+          "value": { "bus": 25, "train": 15 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "Three new Kobe destinations (Ikuta Shrine, Sorakuen Garden, Hakutsuru Sake Brewery Museum) share a legacy-fallback transportOptions profile {bus:25, train:15} with low-confidence provenance per transportMetadata; these are display fallbacks, not origin-aware corridor claims."
           }
         },
         {

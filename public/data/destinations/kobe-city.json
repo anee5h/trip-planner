@@ -59,18 +59,22 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
-      "kobe-maya-night-view",
-      "arima-onsen",
-      "nunobiki-herb-gardens",
       "meriken-park",
       "kobe-port-tower",
-      "nunobiki-falls",
       "kobe-harborland",
-      "kobe-animal-kingdom",
-      "nunobiki-ropeway",
-      "kobe-maritime-museum",
+      "nankinmachi-chinatown",
       "kitano-ijinkan",
-      "nankinmachi-chinatown"
+      "nunobiki-falls",
+      "nunobiki-herb-gardens",
+      "nunobiki-ropeway",
+      "arima-onsen",
+      "kobe-maya-night-view",
+      "kobe-animal-kingdom",
+      "kobe-maritime-museum",
+      "ikuta-shrine-kobe",
+      "sorakuen-garden",
+      "hakutsuru-sake-brewery-museum",
+      "kobe-suma-sea-world"
     ],
     "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
   },
@@ -115,7 +119,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance major, 12 children, metro=true",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 16 children, metro=true",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -133,6 +137,14 @@
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
           "accessedAt": "2026-08-14"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-156",
+          "title": "KAI-156 curated Kobe City children; structural children remain authoritative",
+          "accessedAt": "2026-08-22"
         }
       ]
     }
@@ -176,7 +188,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 12 children, metro=true"
+    "basis": "hub exploration window: importance major, 16 children, metro=true"
   },
   "comfortMetadata": {
     "method": "model",

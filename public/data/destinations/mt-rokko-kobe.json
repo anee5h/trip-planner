@@ -1,0 +1,273 @@
+{
+  "id": "mt-rokko-kobe",
+  "officialWebsite": "https://www.rokkosan.com/gt/?lang=en",
+  "officialWebsiteRequirement": "recommended",
+  "name": "Mt. Rokko",
+  "nameJa": "六甲山",
+  "aliases": ["Mount Rokko", "Rokko-san"],
+  "municipalityId": "Hyogo:kobe",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 34.7625,
+    "lng": 135.257
+  },
+  "location": {
+    "address": "Rokkosan-cho, Nada-ku, Kobe, Hyogo 657-0101",
+    "latitude": 34.7625,
+    "longitude": 135.257
+  },
+  "categories": ["Mountain", "Nature", "Viewpoint", "Sightseeing"],
+  "tags": ["Mountain", "Nature", "Viewpoint", "Sightseeing", "Kobe"],
+  "description": "The mountain range above Kobe with panoramic views over Osaka Bay, reached by the Rokko Cable and mountain buses, with the Rokko Garden Terrace observation complex and seasonal nature trails.",
+  "highlights": [
+    "Panoramic Osaka Bay views from the summit area",
+    "Rokko Garden Terrace and Rokko Shidare observatory",
+    "A mountain outing reached by cable car and mountain bus (no direct train)"
+  ],
+  "content": {
+    "en": {
+      "name": "Mt. Rokko",
+      "description": "The mountain range above Kobe with panoramic views over Osaka Bay, reached by the Rokko Cable and mountain buses, with the Rokko Garden Terrace observation complex and seasonal nature trails.",
+      "highlights": [
+        "Panoramic Osaka Bay views from the summit area",
+        "Rokko Garden Terrace and Rokko Shidare observatory",
+        "A mountain outing reached by cable car and mountain bus (no direct train)"
+      ],
+      "notes": "Access requires the Rokko Cable from Rokko Cable Shimo Station (JR Rokkomichi Station + bus) to Rokko Sanjo, then the Rokko Sanjo bus to Garden Terrace (~13 min). There is NO direct train to the summit. Rokko-Arima Ropeway links to Arima Onsen.",
+      "reservation": "Check current cable and mountain-bus schedules; no summit admission reservation is modeled.",
+      "parking": "Car parking exists at Rokko Cable Shimo and some summit facilities; check the official guidance.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "六甲山",
+      "description": "神戸の背後にそびえる山塊。六甲ケーブルと山上バスでアクセスし、六甲ガーデンテラスからの大阪湾の絶景と四季の自然を楽しめます。",
+      "highlights": [
+        "大阪湾を見渡す山上からの絶景",
+        "六甲ガーデンテラスと六甲枝垂れ展望台",
+        "ケーブルと山上バスで登る山の行き先"
+      ],
+      "notes": "アクセスは六甲ケーブル下駅（JR六甲道駅からバス）から六甲山上駅までケーブル、さらに六甲山上バスでガーデンテラスへ約13分です。山頂へ直通の鉄道はありません。六甲有馬ロープウェーで有馬温泉と結ばれています。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Mt_rokko01s2816.jpg/1280px-Mt_rokko01s2816.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt_rokko01s2816.jpg"
+  },
+  "transportOptions": {
+    "bus": 90
+  },
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "legacy-fallback",
+    "confidence": "low",
+    "basis": "Static minutes are retained only as a legacy display fallback matching existing Kobe records; origin-aware transport remains authoritative and is never fabricated."
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain'"
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check current cable and mountain-bus schedules; no summit admission reservation is modeled.",
+  "parking": "Car parking exists at Rokko Cable Shimo and some summit facilities; check the official guidance.",
+  "notes": "Access requires the Rokko Cable from Rokko Cable Shimo Station (JR Rokkomichi Station + bus) to Rokko Sanjo, then the Rokko Sanjo bus to Garden Terrace (~13 min). There is NO direct train to the summit. Rokko-Arima Ropeway links to Arima Onsen.",
+  "notesJa": "アクセスは六甲ケーブル下駅（JR六甲道駅からバス）から六甲山上駅までケーブル、さらに六甲山上バスでガーデンテラスへ約13分です。山頂へ直通の鉄道はありません。六甲有馬ロープウェーで有馬温泉と結ばれています。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Kobe and Hanshin destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.rokkosan.com/gt/?lang=en",
+        "title": "Rokko Garden Terrace official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.rokkocable.com/en/",
+        "title": "Kobe Rokko Railway (cable) official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://kobe-rokko.jp/",
+        "title": "Kobe Rokko mountain official portal",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.rokkosan.com/gt/?lang=en",
+          "title": "Rokko Garden Terrace official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'mountain'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Kobe destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 290,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 6h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 1,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
