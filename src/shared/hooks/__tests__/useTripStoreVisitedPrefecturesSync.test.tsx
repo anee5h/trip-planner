@@ -6,6 +6,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { TripStoreProvider, useTripStore } from "../useTripStore";
+import { loadDestinationsMeta } from "@/shared/data/destinationsMetaLoader";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -68,8 +69,13 @@ describe("TripStore visited prefecture sync", () => {
     host.remove();
   });
 
-  it("adds the destination prefecture and preserves parent/date cascade behavior", () => {
+  it("adds the destination prefecture and preserves parent/date cascade behavior", async () => {
     render();
+    // KAI-147: destination meta is a runtime-lazy chunk; await the real
+    // loader promise so relationship/prefecture lookups are populated.
+    await act(async () => {
+      await loadDestinationsMeta();
+    });
 
     act(() => {
       store.addVisitedDate("hakodate-night-view", "2026-05-10");
@@ -93,8 +99,12 @@ describe("TripStore visited prefecture sync", () => {
     ]);
   });
 
-  it("preserves a newer prefecture value across later cascade updates", () => {
+  it("preserves a newer prefecture value across later cascade updates", async () => {
     render();
+    // KAI-147: await the lazy meta chunk before asserting derivation.
+    await act(async () => {
+      await loadDestinationsMeta();
+    });
 
     act(() => {
       store.addVisitedDate("hakodate-night-view", "2026-05-10");
@@ -119,8 +129,12 @@ describe("TripStore visited prefecture sync", () => {
     );
   });
 
-  it("stabilizes after equivalent updates without looping", () => {
+  it("stabilizes after equivalent updates without looping", async () => {
     render();
+    // KAI-147: await the lazy meta chunk before asserting derivation.
+    await act(async () => {
+      await loadDestinationsMeta();
+    });
 
     act(() => {
       store.addVisitedDate("hakodate-night-view", "2026-05-10");

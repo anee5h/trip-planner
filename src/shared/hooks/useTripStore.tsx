@@ -14,8 +14,15 @@ import type {
   TripSyncStatus,
 } from "@/shared/hooks/useTripSync";
 import { clearLegacyAccountStorage } from "@/shared/utils/clearLegacyAccountStorage";
-import destinationsIndex from "@/shared/data/destinations-meta.json";
+// KAI-147: destinations-meta.json (277 KB raw) was statically imported here
+// and in useTripSync, inlining the whole catalogue into the shared
+// LocaleContext chunk that the entry HTML modulepreloads — production
+// mobile FCP/LCP measured ~3.8 s/~5.0 s with the H1 as sole LCP candidate.
+// It is now a runtime-lazy chunk (see destinationsMetaLoader.ts, KAI-121
+// pattern): loaded after mount; lookups return "not found" until resolved.
+import { loadDestinationsMeta } from "@/shared/data/destinationsMetaLoader";
 import type { Trip, TripStop } from "@/shared/types/trip";
+import type { Destination } from "@/shared/types/destination";
 import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
@@ -252,6 +259,30 @@ function persistGuestOrigin(origin: OriginLocation) {
 export function TripStoreProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
 
+  // KAI-147: destination metadata is a runtime-lazy chunk. State (not a
+  // ref) so the visited-prefectures derivation effect below re-runs — and
+  // back-fills any prefectures it could not resolve pre-load.
+  const [destinationsIndex, setDestinationsIndex] = useState<Destination[]>(
+    () => [],
+  );
+
+  useEffect(() => {
+    let cancelled = false;
+    loadDestinationsMeta()
+      .then((meta) => {
+        if (!cancelled) setDestinationsIndex(meta);
+      })
+      .catch((error: unknown) => {
+        console.warn(
+          "[Meguruto Store] destinations-meta chunk failed to load:",
+          error,
+        );
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   useEffect(() => {
     clearLegacyAccountStorage();
   }, []);
@@ -476,7 +507,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       setVisitedDates(updatedDates);
       setVisitedPrefectures(updatedPrefectures);
     }
-  }, [visited, visitedDates, visitedPrefectures]);
+    // KAI-147: destinationsIndex is a dependency so prefecture derivation
+    // re-runs (and back-fills) once the lazy meta chunk resolves.
+  }, [visited, visitedDates, visitedPrefectures, destinationsIndex]);
 
   const toggleFavorite = (id: string) => {
     if (!canMutateProfile) return;
@@ -512,8 +545,72 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
           prevPrefs.filter((p) => p !== prefId),
         );
       }
+    } else {
+      // KAI-147 review fix: metadata not resolved yet — record the removal
+      // so the prefecture it justified is pruned when the chunk arrives
+      // (deferred parity with the synchronous-era behavior above).
+      setPreloadRemovedIds((prev) =>
+        prev.includes(id) ? prev : [...prev, id],
+      );
     }
   };
+
+  // KAI-147 review fix (deferred clear parity): destinations removed via
+  // clearAllVisits while metadata was unresolved are recorded here. When
+  // the chunk resolves, prune exactly the prefectures whose last visited
+  // justification was a removed destination — what the synchronous-era
+  // clearAllVisits would have done immediately.
+  const [preloadRemovedIds, setPreloadRemovedIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (preloadRemovedIds.length === 0 || destinationsIndex.length === 0) {
+      return;
+    }
+
+    // Prefectures that lost their justification from these removals…
+    const orphanedPrefs = new Set<string>();
+    for (const id of preloadRemovedIds) {
+      const dest = destinationsIndex.find((d) => d.id === id);
+      if (!dest) continue;
+      orphanedPrefs.add(formatPrefectureId(dest.prefecture));
+      // …including any parent hub the removal cascaded through.
+      let currentId: string | undefined =
+        dest.relationships?.parentDestinationId;
+      while (currentId) {
+        const parent = destinationsIndex.find((d) => d.id === currentId);
+        if (!parent) break;
+        orphanedPrefs.add(formatPrefectureId(parent.prefecture));
+        currentId = parent.relationships?.parentDestinationId;
+      }
+    }
+
+    setVisitedPrefectures((prevPrefs) => {
+      // A prefecture survives only if some still-visited destination (or
+      // its parent chain) justifies it. Manual entries the user/sync added
+      // that metadata cannot explain are preserved.
+      const stillJustified = new Set<string>();
+      for (const vId of visited) {
+        const other = destinationsIndex.find((d) => d.id === vId);
+        if (other) {
+          stillJustified.add(formatPrefectureId(other.prefecture));
+          let pid: string | undefined =
+            other.relationships?.parentDestinationId;
+          while (pid) {
+            const parent = destinationsIndex.find((d) => d.id === pid);
+            if (!parent) break;
+            stillJustified.add(formatPrefectureId(parent.prefecture));
+            pid = parent.relationships?.parentDestinationId;
+          }
+        }
+      }
+      const next = prevPrefs.filter(
+        (p) => !orphanedPrefs.has(p) || stillJustified.has(p),
+      );
+      return next.length === prevPrefs.length ? prevPrefs : next;
+    });
+
+    setPreloadRemovedIds([]);
+  }, [destinationsIndex, preloadRemovedIds, visited]);
 
   const toggleVisited = (id: string, date?: string) => {
     if (!canMutateProfile) return;
