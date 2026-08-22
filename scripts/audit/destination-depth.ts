@@ -1,7 +1,7 @@
 import type { Destination } from "../../src/shared/types/destination.js";
 import { JAPAN_PREFECTURES } from "../config/prefectures.js";
 
-export const DESTINATION_DEPTH_REPORT_VERSION = "1.0.0";
+export const DESTINATION_DEPTH_REPORT_VERSION = "1.1.0";
 
 export const DESTINATION_DEPTH_WEIGHTS = {
   geographicDistribution: 0.25,
@@ -18,7 +18,6 @@ const TRANSPORT_MODES = [
   "bus",
   "shinkansen",
   "car",
-  "my_car",
   "ferry",
   "flight",
 ] as const;
@@ -83,7 +82,7 @@ const ARCHETYPE_RULES = {
     categories: ["temple", "shrine", "shrines"],
     kinds: ["temple", "shrine"],
   },
-  castleHistoric: {
+  castle: {
     categories: ["castle", "fortress", "palace"],
     kinds: ["castle", "palace"],
   },
@@ -122,69 +121,48 @@ const ARCHETYPE_RULES = {
       "gorge",
     ],
   },
-  mountainOutdoor: {
+  mountainHiking: {
     categories: ["hiking", "mountain", "outdoors", "adventure", "trail"],
-    kinds: ["mountain", "waterfall", "cliff", "rock_formation"],
+    kinds: ["mountain"],
   },
   coastBeach: {
     categories: ["coast", "coastal", "beach", "waterfront", "sea", "ocean"],
-    kinds: ["beach", "cape", "cliff"],
+    kinds: ["beach"],
   },
   island: {
     categories: ["island", "islands"],
     kinds: ["island"],
   },
-  onsenWellness: {
-    categories: [
-      "onsen",
-      "onsen & wellness",
-      "hot spring",
-      "relaxation",
-      "spa",
-    ],
+  onsen: {
+    categories: ["onsen", "onsen & wellness", "hot spring", "relaxation"],
     kinds: ["onsen"],
   },
   foodMarket: {
-    categories: ["food", "market", "markets", "sake", "brewery", "culinary"],
+    categories: ["food", "market"],
     kinds: ["market"],
   },
   shoppingEntertainment: {
-    categories: [
-      "shopping",
-      "nightlife",
-      "entertainment",
-      "street",
-      "district",
-      "shopping district",
-    ],
-    kinds: ["shopping", "street", "entertainment"],
+    categories: ["shopping", "nightlife", "entertainment"],
+    kinds: ["shopping", "street"],
   },
-  familyTheme: {
-    categories: ["theme park", "family", "aquarium", "leisure", "zoo"],
+  themeFamily: {
+    categories: ["theme park", "family", "aquarium", "leisure"],
     kinds: ["theme_park", "amusement_park", "zoo", "aquarium", "cruise"],
   },
-  landmarkArchitecture: {
-    categories: [
-      "tower",
-      "observation",
-      "observation deck",
-      "landmark",
-      "architecture",
-      "bridge",
-    ],
-    kinds: ["tower", "bridge", "monument", "observation"],
-  },
-  historicCulture: {
+  historicDistrict: {
     categories: [
       "historic",
+      "district",
       "history",
       "culture",
       "world heritage",
       "unesco",
-      "historic town",
-      "heritage",
     ],
-    kinds: ["historic", "historic_town", "village", "town", "cultural"],
+    kinds: ["historic", "historic_town", "village", "town"],
+  },
+  towerLandmark: {
+    categories: ["tower", "observation deck", "landmark", "architecture"],
+    kinds: ["tower"],
   },
 } as const;
 
@@ -197,6 +175,99 @@ export interface DepthDimension {
   availableSampleCount: number;
   unavailableReason?: string;
   details: Record<string, number | string | null>;
+}
+
+export interface DestinationDepthScoreInput {
+  total: number;
+  largestMunicipalityCount: number;
+  municipalityBucketCount: number;
+  archetypesCovered: number;
+  halfDayCandidates: number;
+  dayTripCandidates: number;
+  seasonsCovered: number | null;
+  transportModeCount: number;
+}
+
+export interface DestinationDepthScoreResult {
+  components: Partial<Record<keyof typeof DESTINATION_DEPTH_WEIGHTS, number>>;
+  unavailableComponents: Array<keyof typeof DESTINATION_DEPTH_WEIGHTS>;
+  depthScore: number | null;
+  depthScoreCoveragePct: number;
+}
+
+/**
+ * Reproduces the 2026-08-21 source-audit scoring formulas.
+ *
+ * Keep this pure and independently testable: the audit is a methodology
+ * contract, so changing a denominator or threshold changes historical scores.
+ */
+export function scoreDestinationDepth(
+  input: DestinationDepthScoreInput,
+): DestinationDepthScoreResult {
+  const expectedMunicipalities =
+    input.total < 10 ? 4 : input.total < 30 ? 8 : 15;
+  const components: Partial<
+    Record<keyof typeof DESTINATION_DEPTH_WEIGHTS, number>
+  > = {
+    geographicDistribution:
+      input.total > 0
+        ? round((1 - input.largestMunicipalityCount / input.total) * 100)
+        : 0,
+    municipalityCoverage: round(
+      Math.min(
+        100,
+        (input.municipalityBucketCount / expectedMunicipalities) * 100,
+      ),
+    ),
+    experienceDiversity: round(
+      (input.archetypesCovered / ARCHETYPE_KEYS.length) * 100,
+    ),
+    tripDurationUsefulness:
+      input.total > 0
+        ? round(
+            Math.min(
+              100,
+              ((input.dayTripCandidates + input.halfDayCandidates) /
+                Math.max(6, input.total * 0.5)) *
+                100,
+            ),
+          )
+        : 0,
+    transportDiversity: round(
+      (input.transportModeCount / TRANSPORT_MODES.length) * 100,
+    ),
+  };
+
+  const unavailableComponents: Array<keyof typeof DESTINATION_DEPTH_WEIGHTS> =
+    [];
+  if (input.seasonsCovered === null) {
+    unavailableComponents.push("seasonalDiversity");
+  } else {
+    components.seasonalDiversity = round(
+      (input.seasonsCovered / SEASONS.length) * 100,
+    );
+  }
+
+  const availableKeys = Object.keys(DESTINATION_DEPTH_WEIGHTS).filter(
+    (key) => components[key as keyof typeof DESTINATION_DEPTH_WEIGHTS] != null,
+  ) as Array<keyof typeof DESTINATION_DEPTH_WEIGHTS>;
+  const availableWeight = availableKeys.reduce(
+    (total, key) => total + DESTINATION_DEPTH_WEIGHTS[key],
+    0,
+  );
+  const weightedScore = availableKeys.reduce(
+    (total, key) =>
+      total + (components[key] ?? 0) * DESTINATION_DEPTH_WEIGHTS[key],
+    0,
+  );
+
+  return {
+    components,
+    unavailableComponents,
+    depthScore:
+      availableWeight > 0 ? round(weightedScore / availableWeight) : null,
+    depthScoreCoveragePct: round(availableWeight * 100),
+  };
 }
 
 export interface MunicipalitySummary {
@@ -376,23 +447,31 @@ function classifyExperience(destination: Destination): string[] {
   return result;
 }
 
-function durationOf(
-  destination: Destination,
-): { min: number; max: number } | null {
-  const visit = destination.recommendedVisitHours;
-  if (
-    visit &&
-    finite(visit.min) &&
-    finite(visit.max) &&
-    visit.max >= visit.min
-  ) {
-    return { min: visit.min, max: visit.max };
-  }
+function totalTripHoursOf(destination: Destination): number | null {
+  return finite(destination.totalTripHours) && destination.totalTripHours > 0
+    ? destination.totalTripHours
+    : null;
+}
 
-  if (finite(destination.totalTripHours) && destination.totalTripHours > 0) {
-    return { min: destination.totalTripHours, max: destination.totalTripHours };
-  }
-  return null;
+interface TripDurationStats {
+  known: number[];
+  halfDayCandidates: number;
+  dayTripCandidates: number;
+  fullDayAnchors: number;
+}
+
+function tripDurationStats(
+  destinations: readonly Destination[],
+): TripDurationStats {
+  const known = destinations
+    .map(totalTripHoursOf)
+    .filter((value): value is number => value !== null);
+  return {
+    known,
+    halfDayCandidates: known.filter((hours) => hours <= 4).length,
+    dayTripCandidates: known.filter((hours) => hours > 4 && hours <= 8).length,
+    fullDayAnchors: known.filter((hours) => hours >= 6).length,
+  };
 }
 
 function completeSeason(destination: Destination): boolean {
@@ -419,19 +498,20 @@ function sortedCounts(values: string[]): Record<string, number> {
 function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
   const municipalityCounts = new Map<string, number>();
   for (const destination of destinations) {
-    const municipalityId = municipalityIdOf(destination);
-    if (municipalityId) {
-      municipalityCounts.set(
-        municipalityId,
-        (municipalityCounts.get(municipalityId) ?? 0) + 1,
-      );
-    }
+    const municipalityId = municipalityIdOf(destination) ?? "(unassigned)";
+    municipalityCounts.set(
+      municipalityId,
+      (municipalityCounts.get(municipalityId) ?? 0) + 1,
+    );
   }
 
-  const municipalityRows = [...municipalityCounts.entries()].sort(
+  const scoringMunicipalityRows = [...municipalityCounts.entries()].sort(
     (a, b) => b[1] - a[1] || a[0].localeCompare(b[0]),
   );
-  const topMunicipalityCount = municipalityRows[0]?.[1] ?? 0;
+  const municipalityRows = scoringMunicipalityRows.filter(
+    ([municipalityId]) => municipalityId !== "(unassigned)",
+  );
+  const topMunicipalityCount = scoringMunicipalityRows[0]?.[1] ?? 0;
   const assignedMunicipalityCount = municipalityRows.reduce(
     (total, [, count]) => total + count,
     0,
@@ -441,7 +521,7 @@ function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
     .map(([municipalityId, count]) => ({
       municipalityId,
       count,
-      sharePct: round((count / Math.max(1, assignedMunicipalityCount)) * 100),
+      sharePct: round((count / Math.max(1, destinations.length)) * 100),
     }));
 
   const experienceByDestination = destinations.map(classifyExperience);
@@ -450,18 +530,10 @@ function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
   );
   const archetypesCovered = [...new Set(recognizedExperience.flat())].sort();
 
-  const durationRows = destinations
-    .map(durationOf)
-    .filter(
-      (duration): duration is { min: number; max: number } => duration !== null,
-    );
-  const halfDayCandidates = durationRows.filter(
-    ({ min, max }) => min <= 4 && max >= 2,
-  ).length;
-  const dayTripCandidates = durationRows.filter(
-    ({ min, max }) => min <= 8 && max >= 5,
-  ).length;
-  const fullDayAnchors = durationRows.filter(({ max }) => max >= 8).length;
+  const durationStats = tripDurationStats(destinations);
+  const durationRows = durationStats.known;
+  const { halfDayCandidates, dayTripCandidates, fullDayAnchors } =
+    durationStats;
 
   const seasonalRows = destinations.filter(completeSeason);
   const seasonalCoverage = Object.fromEntries(
@@ -487,86 +559,63 @@ function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
     .filter((modes) => modes.length > 0);
   const modeSet = new Set(transportRows.flat());
 
-  const expectedMunicipalities =
-    destinations.length < 10 ? 4 : destinations.length < 30 ? 8 : 15;
+  const scoreResult = scoreDestinationDepth({
+    total: destinations.length,
+    largestMunicipalityCount: topMunicipalityCount,
+    municipalityBucketCount: scoringMunicipalityRows.length,
+    archetypesCovered: archetypesCovered.length,
+    halfDayCandidates,
+    dayTripCandidates,
+    seasonsCovered,
+    transportModeCount: modeSet.size,
+  });
+
   const dimensions: ScopeDepthMetrics["dimensions"] = {
     geographicDistribution: {
-      score:
-        assignedMunicipalityCount > 0
-          ? round((1 - topMunicipalityCount / assignedMunicipalityCount) * 100)
-          : null,
+      score: scoreResult.components.geographicDistribution ?? null,
       weight: DESTINATION_DEPTH_WEIGHTS.geographicDistribution,
       availableSampleCount: assignedMunicipalityCount,
-      unavailableReason:
-        assignedMunicipalityCount > 0 ? undefined : "No municipality IDs",
       details: {
-        topMunicipalitySharePct:
-          assignedMunicipalityCount > 0
-            ? round((topMunicipalityCount / assignedMunicipalityCount) * 100)
-            : null,
+        topMunicipalitySharePct: destinations.length
+          ? round((topMunicipalityCount / destinations.length) * 100)
+          : null,
       },
     },
     municipalityCoverage: {
-      score:
-        assignedMunicipalityCount > 0
-          ? round(
-              Math.min(
-                100,
-                (municipalityRows.length / expectedMunicipalities) * 100,
-              ),
-            )
-          : null,
+      score: scoreResult.components.municipalityCoverage ?? null,
       weight: DESTINATION_DEPTH_WEIGHTS.municipalityCoverage,
       availableSampleCount: assignedMunicipalityCount,
-      unavailableReason:
-        assignedMunicipalityCount > 0 ? undefined : "No municipality IDs",
       details: {
         distinctMunicipalities: municipalityRows.length,
-        advisoryExpectedMunicipalities: expectedMunicipalities,
+        scoringMunicipalityBuckets: scoringMunicipalityRows.length,
+        advisoryExpectedMunicipalities:
+          destinations.length < 10 ? 4 : destinations.length < 30 ? 8 : 15,
       },
     },
     experienceDiversity: {
-      score:
-        recognizedExperience.length > 0
-          ? round((archetypesCovered.length / ARCHETYPE_KEYS.length) * 100)
-          : null,
+      score: scoreResult.components.experienceDiversity ?? null,
       weight: DESTINATION_DEPTH_WEIGHTS.experienceDiversity,
       availableSampleCount: recognizedExperience.length,
-      unavailableReason:
-        recognizedExperience.length > 0
-          ? undefined
-          : "No recognized kind/category archetypes",
       details: {
         archetypesCovered: archetypesCovered.length,
         archetypeCount: ARCHETYPE_KEYS.length,
       },
     },
     tripDurationUsefulness: {
-      score:
-        durationRows.length > 0
-          ? round(
-              ((halfDayCandidates + dayTripCandidates) /
-                (durationRows.length * 2)) *
-                100,
-            )
-          : null,
+      score: scoreResult.components.tripDurationUsefulness ?? null,
       weight: DESTINATION_DEPTH_WEIGHTS.tripDurationUsefulness,
       availableSampleCount: durationRows.length,
-      unavailableReason:
-        durationRows.length > 0 ? undefined : "No visit-duration metadata",
       details: { halfDayCandidates, dayTripCandidates, fullDayAnchors },
     },
     seasonalDiversity: {
-      score:
-        seasonsCovered === null
-          ? null
-          : round((seasonsCovered / SEASONS.length) * 100),
+      score: scoreResult.components.seasonalDiversity ?? null,
       weight: DESTINATION_DEPTH_WEIGHTS.seasonalDiversity,
       availableSampleCount: seasonalRows.length,
-      unavailableReason:
-        seasonalRows.length > 0
-          ? undefined
-          : "No complete structured season vectors",
+      unavailableReason: scoreResult.unavailableComponents.includes(
+        "seasonalDiversity",
+      )
+        ? "No complete structured season vectors"
+        : undefined,
       details: {
         seasonsCovered,
         springShareGte7Pct: seasonalCoverage.spring,
@@ -576,32 +625,15 @@ function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
       },
     },
     transportDiversity: {
-      score:
-        transportRows.length > 0
-          ? round((modeSet.size / TRANSPORT_MODES.length) * 100)
-          : null,
+      score: scoreResult.components.transportDiversity ?? null,
       weight: DESTINATION_DEPTH_WEIGHTS.transportDiversity,
       availableSampleCount: transportRows.length,
-      unavailableReason:
-        transportRows.length > 0 ? undefined : "No transport option metadata",
       details: {
         distinctTransportModes: modeSet.size,
         transportModeCount: TRANSPORT_MODES.length,
       },
     },
   };
-
-  const availableDimensions = Object.values(dimensions).filter(
-    (dimension) => dimension.score !== null,
-  );
-  const availableWeight = availableDimensions.reduce(
-    (total, dimension) => total + dimension.weight,
-    0,
-  );
-  const weightedScore = availableDimensions.reduce(
-    (total, dimension) => total + (dimension.score ?? 0) * dimension.weight,
-    0,
-  );
 
   return {
     total: destinations.length,
@@ -611,8 +643,8 @@ function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
       destinations.length - assignedMunicipalityCount,
     topMunicipalities,
     topMunicipalitySharePct:
-      assignedMunicipalityCount > 0
-        ? round((topMunicipalityCount / assignedMunicipalityCount) * 100)
+      destinations.length > 0
+        ? round((topMunicipalityCount / destinations.length) * 100)
         : null,
     roles: sortedCounts(
       destinations.map((destination) => destination.role ?? "(none)"),
@@ -635,9 +667,8 @@ function scopeMetrics(destinations: readonly Destination[]): ScopeDepthMetrics {
       transport: transportRows.length,
     },
     dimensions,
-    depthScore:
-      availableWeight > 0 ? round(weightedScore / availableWeight) : null,
-    depthScoreCoveragePct: round(availableWeight * 100),
+    depthScore: scoreResult.depthScore,
+    depthScoreCoveragePct: scoreResult.depthScoreCoveragePct,
   };
 }
 
@@ -664,11 +695,7 @@ function prefectureMetrics(
   const regionMismatchCount = destinations.filter(
     (destination) => destination.region !== region,
   ).length;
-  const durationRows = destinations
-    .map(durationOf)
-    .filter(
-      (duration): duration is { min: number; max: number } => duration !== null,
-    );
+  const durationStats = tripDurationStats(destinations);
   const transportRows = destinations.map(transportModes);
   const modes = [...new Set(transportRows.flat())].sort();
   const transitCount = transportRows.filter((items) =>
@@ -709,14 +736,10 @@ function prefectureMetrics(
         : topShare >= 40
           ? "moderate(40-60%)"
           : "",
-    halfDayCandidates: durationRows.filter(
-      ({ min, max }) => min <= 4 && max >= 2,
-    ).length,
-    dayTripCandidates: durationRows.filter(
-      ({ min, max }) => min <= 8 && max >= 5,
-    ).length,
-    fullDayAnchors: durationRows.filter(({ max }) => max >= 8).length,
-    durationUnknown: destinations.length - durationRows.length,
+    halfDayCandidates: durationStats.halfDayCandidates,
+    dayTripCandidates: durationStats.dayTripCandidates,
+    fullDayAnchors: durationStats.fullDayAnchors,
+    durationUnknown: destinations.length - durationStats.known.length,
     transportModes: modes,
     transitAccessibleSharePct: destinations.length
       ? round((transitCount / destinations.length) * 100)

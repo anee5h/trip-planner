@@ -71,6 +71,7 @@ describe("destination-depth audit", () => {
       destination("known", {
         municipalityId: "Tokyo:taito",
         coordinates: { lat: 35.71, lng: 139.8 },
+        totalTripHours: 3,
       }),
       destination("unknown", {
         municipalityId: undefined,
@@ -96,11 +97,12 @@ describe("destination-depth audit", () => {
       destination("known", {
         municipalityId: "Tokyo:taito",
         coordinates: { lat: 35.71, lng: 139.8 },
+        totalTripHours: 3,
       }),
     ]);
-    expect(tokyo.depthScore).toBe(
+    expect(tokyo.dimensions.tripDurationUsefulness.score).toBe(
       knownOnly.prefectures.find((row) => row.prefecture === "Tokyo")!
-        .depthScore,
+        .dimensions.tripDurationUsefulness.score!,
     );
   });
 

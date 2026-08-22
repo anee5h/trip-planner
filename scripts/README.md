@@ -190,11 +190,20 @@ The report covers all 47 prefectures, regional rollups, municipality
 concentration, experience/archetype coverage, visit-duration usefulness,
 structured season sample coverage, transport diversity, role/place-type
 composition, relationship concentration, shell hubs, and fake-depth warnings.
-Its six advisory dimensions use approximate weights of 25/20/20/15/10/10%.
-Missing metadata is excluded from the affected dimension and the remaining
-weights are renormalized; the report exposes available sample counts and score
-coverage so sparse metadata cannot masquerade as evidence. The taxonomy is
-currently inconsistent, structured seasonality is incomplete, and some
+Its six advisory dimensions use the source-audit weights of 25/20/20/15/10/10%.
+The scoring formulas are deliberately kept in `scoreDestinationDepth` and
+covered by the 978-record golden fixture: geographic distribution is
+`100 * (1 - largest municipality count / prefecture total)`; municipality
+coverage compares the municipality bucket count with the size-calibrated 4/8/15
+expectation; experience is covered archetypes / 14; trip usefulness is
+`min(100, (half-day + day-trip) / max(6, prefecture total * 0.5) * 100)` using
+`totalTripHours` (`<=4` and `>4..<=8`); seasonality is the number of seasons
+with at least 30% of complete vectors scoring >=7, divided by four; and
+transport is distinct available modes / the six source-audit modes. Only a
+dimension with no season vectors is omitted and its weight renormalized. Other
+unknown fields remain visible through sample counts and the source formula's
+denominators rather than being converted into positive evidence. The taxonomy
+is currently inconsistent, structured seasonality is incomplete, and some
 municipality IDs are missing. Scores are signals for QA and expansion review,
 not minimum-count targets or merge blockers. Mie follows the app's existing
 Kansai region convention.
