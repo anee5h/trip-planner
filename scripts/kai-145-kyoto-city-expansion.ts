@@ -1118,6 +1118,7 @@ if (kyotoHistoric) {
     "This retained URL is a heritage-group compatibility page, not a single venue or a Kiyomizu-dera/Kinkaku-ji combined outing. Its old ID remains addressable for saved trips and bookmarks; it is excluded from search, explorer cards, and recommendation candidates.";
   const compatibilityNotesJa =
     "この旧URLは世界遺産群の互換用エリア案内であり、清水寺・金閣寺を一つにまとめた単一の訪問先ではありません。保存した旅行やブックマークのためIDは維持しますが、検索・一覧・おすすめ候補からは除外しています。";
+  const existingFieldSources = kyotoHistoric.editorial?.fieldSources;
   if (
     kyotoHistoric.name !== compatibilityName ||
     kyotoHistoric.recommendationEligible !== false ||
@@ -1126,7 +1127,10 @@ if (kyotoHistoric) {
     kyotoHistoric.kind !== "district" ||
     kyotoHistoric.travelEstimate?.confidence !== "beta" ||
     kyotoHistoric.relationships?.parentDestinationId !== undefined ||
-    kyotoHistoric.coordinates !== undefined
+    kyotoHistoric.coordinates !== undefined ||
+    ["coordinates", "recommendedVisitHours", "walkingMin", "comfort"].some(
+      (field) => existingFieldSources?.[field] !== undefined,
+    )
   ) {
     compatibilityChanged = true;
   }
@@ -1239,6 +1243,21 @@ if (kyotoHistoric) {
   };
   kyotoHistoric.officialWebsite = heritageGroupSource.url;
   kyotoHistoric.officialWebsiteRequirement = "recommended";
+  const compatibilityFieldSources = {
+    ...(kyotoHistoric.editorial?.fieldSources ?? {}),
+    name: [heritageGroupSource],
+    nameJa: [heritageGroupSource],
+    role: [heritageGroupSource],
+    placeType: [heritageGroupSource],
+    recommendationEligible: [heritageGroupSource],
+    transportZoneId: [heritageGroupSource],
+    relationships: [heritageGroupSource],
+    content: [heritageGroupSource],
+  };
+  delete compatibilityFieldSources.coordinates;
+  delete compatibilityFieldSources.recommendedVisitHours;
+  delete compatibilityFieldSources.walkingMin;
+  delete compatibilityFieldSources.comfort;
   kyotoHistoric.editorial = {
     ...(kyotoHistoric.editorial ?? { lifecycle: "published", sources: [] }),
     lifecycle: "published",
@@ -1249,17 +1268,7 @@ if (kyotoHistoric) {
     freshness: "current",
     changeSummary:
       "Converted the legacy Kiyomizu-oriented record into a retained, non-recommendable Historic Kyoto heritage-group compatibility surface while adding standalone Kyoto destinations.",
-    fieldSources: {
-      ...(kyotoHistoric.editorial?.fieldSources ?? {}),
-      name: [heritageGroupSource],
-      nameJa: [heritageGroupSource],
-      role: [heritageGroupSource],
-      placeType: [heritageGroupSource],
-      recommendationEligible: [heritageGroupSource],
-      transportZoneId: [heritageGroupSource],
-      relationships: [heritageGroupSource],
-      content: [heritageGroupSource],
-    },
+    fieldSources: compatibilityFieldSources,
     changes: [
       ...(kyotoHistoric.editorial?.changes ?? []),
       {

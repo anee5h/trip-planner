@@ -45639,7 +45639,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance major, 18 children, metro=true",
+            "title": "hub-window-model-v1; hub exploration window: importance major, 26 children, metro=true",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -45694,7 +45694,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance major, 18 children, metro=true"
+      "basis": "hub exploration window: importance major, 26 children, metro=true"
     },
     "comfortMetadata": {
       "method": "model",
@@ -45806,22 +45806,6 @@
       "checkedAt": "2026-08-22",
       "freshness": "current",
       "fieldSources": {
-        "comfort": [
-          {
-            "type": "calculated",
-            "url": "catalogue-model://kai-89",
-            "title": "comfort-model-v1; derived from indoorPercent=20, kind='', walkingMin=150",
-            "accessedAt": "2026-08-14"
-          }
-        ],
-        "walkingMin": [
-          {
-            "type": "calculated",
-            "url": "catalogue-model://kai-89",
-            "title": "walking-model-v1; template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
-            "accessedAt": "2026-08-14"
-          }
-        ],
         "name": [
           {
             "type": "official",
@@ -45835,14 +45819,6 @@
             "type": "official",
             "url": "https://whc.unesco.org/en/list/688/",
             "title": "UNESCO Historic Monuments of Ancient Kyoto",
-            "accessedAt": "2026-08-22"
-          }
-        ],
-        "coordinates": [
-          {
-            "type": "calculated",
-            "url": "catalogue://kyoto-city",
-            "title": "Kyoto City hub coordinate reused as a non-venue heritage-group map anchor",
             "accessedAt": "2026-08-22"
           }
         ],
@@ -45921,6 +45897,12 @@
           "changedBy": "Meguruto editorial",
           "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
           "method": "manual"
+        },
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+          "method": "manual"
         }
       ]
     },
@@ -45971,13 +45953,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 8,
+      "value": 8.3,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.6,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -192189,9 +192171,10 @@
       "max": 2
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 temple band, excluding access time."
+      "basis": "kind band 'temple'"
     },
     "ratings": {
       "overall": 5,
@@ -192340,9 +192323,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -192355,7 +192346,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "arashiyama-bamboo-togetsukyo",
@@ -192455,9 +192467,10 @@
       "max": 6
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 3–6 hour estimate from the repository's duration-model-v1 nature band, excluding access time."
+      "basis": "kind band 'nature'"
     },
     "ratings": {
       "overall": 5,
@@ -192602,9 +192615,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'nature'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 6h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -192617,7 +192638,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 290,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 6h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "tenryu-ji-kyoto",
@@ -192717,9 +192759,10 @@
       "max": 2
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 temple band, excluding access time."
+      "basis": "kind band 'temple'"
     },
     "ratings": {
       "overall": 5,
@@ -192858,9 +192901,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -192873,7 +192924,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "uzumasa-kyoto-village",
@@ -192974,9 +193046,10 @@
       "max": 8
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "The operator publishes multiple 2–3 hour, half-day, and full-day planning choices rather than one duration; the repository's conservative theme-park band is used as a 4–8 hour planning window, excluding access time."
+      "basis": "kind band 'theme_park'"
     },
     "ratings": {
       "overall": 5,
@@ -193127,9 +193200,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'theme_park'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 8h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -193142,7 +193223,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 240,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 8h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "kurama-dera-kyoto",
@@ -193241,9 +193343,10 @@
       "max": 2
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 temple band, excluding access time."
+      "basis": "kind band 'temple'"
     },
     "ratings": {
       "overall": 5,
@@ -193394,9 +193497,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -193409,7 +193520,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "kifune-jinja-kyoto",
@@ -193511,9 +193643,10 @@
       "max": 2
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 shrine band, excluding access time."
+      "basis": "kind band 'shrine'"
     },
     "ratings": {
       "overall": 5,
@@ -193658,9 +193791,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'shrine'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -193673,7 +193814,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "sanzen-in-ohara",
@@ -193772,9 +193934,10 @@
       "max": 2
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 temple band, excluding access time."
+      "basis": "kind band 'temple'"
     },
     "ratings": {
       "overall": 5,
@@ -193913,9 +194076,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -193928,7 +194099,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "jakko-in-ohara",
@@ -194028,9 +194220,10 @@
       "max": 2
     },
     "durationMetadata": {
-      "method": "manual",
+      "method": "model",
+      "modelVersion": "duration-model-v1",
       "confidence": "medium",
-      "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 temple band, excluding access time."
+      "basis": "kind band 'temple'"
     },
     "ratings": {
       "overall": 5,
@@ -194175,9 +194368,17 @@
         "recommendedVisitHours": [
           {
             "type": "calculated",
-            "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-            "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-            "accessedAt": "2026-08-22"
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
           }
         ]
       },
@@ -194190,7 +194391,28 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   },
   {
     "id": "gekkeikan-okura-sake-museum",
@@ -194434,6 +194656,14 @@
             "title": "Gekkeikan official visitor and access information",
             "accessedAt": "2026-08-22"
           }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 1h visit",
+            "accessedAt": "2026-08-14"
+          }
         ]
       },
       "changes": [
@@ -194445,6 +194675,27 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "walkingMin": 30,
+    "walkingIntensity": "low",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 1h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   }
 ]

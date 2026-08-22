@@ -78,9 +78,10 @@
     "max": 2
   },
   "durationMetadata": {
-    "method": "manual",
+    "method": "model",
+    "modelVersion": "duration-model-v1",
     "confidence": "medium",
-    "basis": "No official duration was published; conservative 1–2 hour estimate from the repository's duration-model-v1 shrine band, excluding access time."
+    "basis": "kind band 'shrine'"
   },
   "ratings": {
     "overall": 5,
@@ -225,9 +226,17 @@
       "recommendedVisitHours": [
         {
           "type": "calculated",
-          "url": "https://github.com/aneesh-patil/trip-planner/blob/main/scripts/models/duration-model-v1.ts",
-          "title": "Meguruto KAI-89 duration-model-v1 kind-band estimate",
-          "accessedAt": "2026-08-22"
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'shrine'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+          "accessedAt": "2026-08-14"
         }
       ]
     },
@@ -240,5 +249,26 @@
       }
     ]
   },
-  "addedAt": "2026-08-22"
+  "addedAt": "2026-08-22",
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }

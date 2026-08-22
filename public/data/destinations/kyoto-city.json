@@ -129,7 +129,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance major, 18 children, metro=true",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 26 children, metro=true",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -184,7 +184,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 18 children, metro=true"
+    "basis": "hub exploration window: importance major, 26 children, metro=true"
   },
   "comfortMetadata": {
     "method": "model",

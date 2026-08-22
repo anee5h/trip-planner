@@ -21187,13 +21187,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 8,
+      "value": 8.3,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.6,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -87340,6 +87340,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
@@ -87362,12 +87363,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["bus", "train"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
     "relationships": {
       "parentDestinationId": "kyoto-city",
       "nearbyDestinationIds": ["yasaka-shrine", "sanjusangen-do"]
@@ -87408,6 +87422,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 290,
     "recommendedVisitHours": {
       "min": 3,
       "max": 6
@@ -87430,12 +87445,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "high",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87475,6 +87503,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
@@ -87497,12 +87526,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["train", "bus", "my_car"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87546,6 +87588,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 240,
     "recommendedVisitHours": {
       "min": 4,
       "max": 8
@@ -87568,12 +87611,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["train", "bus", "my_car"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "high",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87613,6 +87669,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
@@ -87635,12 +87692,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87680,6 +87750,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
@@ -87702,12 +87773,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["train", "bus", "my_car"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87747,6 +87831,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
@@ -87769,12 +87854,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["bus", "train"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87814,6 +87912,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
       "max": 2
@@ -87836,12 +87935,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["bus", "train"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }
@@ -87881,6 +87993,7 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
+    "walkingMin": 30,
     "recommendedVisitHours": {
       "min": 0.7,
       "max": 1
@@ -87903,12 +88016,25 @@
       "method": "manual",
       "confidence": "low"
     },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
     "travelEstimate": {
       "confidence": "beta"
     },
     "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
+    "walkingIntensity": "low",
     "relationships": {
       "parentDestinationId": "kyoto-city"
     }

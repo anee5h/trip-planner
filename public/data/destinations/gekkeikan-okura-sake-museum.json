@@ -221,6 +221,14 @@
           "title": "Gekkeikan official visitor and access information",
           "accessedAt": "2026-08-22"
         }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 1h visit",
+          "accessedAt": "2026-08-14"
+        }
       ]
     },
     "changes": [
@@ -232,5 +240,26 @@
       }
     ]
   },
-  "addedAt": "2026-08-22"
+  "addedAt": "2026-08-22",
+  "walkingMin": 30,
+  "walkingIntensity": "low",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 1h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
 }
