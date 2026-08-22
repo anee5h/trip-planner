@@ -963,6 +963,11 @@
       "category": "A",
       "action": "legitimate",
       "reason": "Three new Kobe destinations (Ikuta Shrine, Sorakuen Garden, Hakutsuru Sake Brewery Museum) share a legacy-fallback transportOptions profile {bus:25, train:15} with low-confidence provenance per transportMetadata; these are display fallbacks, not origin-aware corridor claims."
+    },
+    "transport:a9917329fab1": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "New Fukuoka destinations sharing a legacy-fallback transportOptions profile {bus:80, train:55} (Marine World Uminonakamichi, Nokonoshima Island Park, Yanagawa Canal Cruise) with low-confidence provenance per transportMetadata; display fallbacks, not origin-aware corridor claims."
     }
   }
 }

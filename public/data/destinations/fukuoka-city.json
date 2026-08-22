@@ -60,17 +60,20 @@
   "relationships": {
     "featuredDestinationIds": [
       "tenjin",
-      "fukuoka-art-museum",
+      "canal-city-hakata",
+      "ohori-park",
       "kushida-shrine",
       "fukuoka-castle-ruins",
+      "fukuoka-tower",
       "fukuoka-yatai",
       "nakasu",
       "tochoji",
-      "fukuoka-tower",
-      "ohori-park",
-      "canal-city-hakata",
       "hakata-machiya-folk-museum",
-      "maizuru-park"
+      "maizuru-park",
+      "fukuoka-art-museum",
+      "fukuoka-city-museum",
+      "fukuoka-paypay-dome",
+      "marine-world-uminonakamichi"
     ],
     "nearbyDestinationIds": ["kitakyushu-city", "dazaifu-city", "nagasaki-city"]
   },
@@ -116,7 +119,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance major, 15 children, metro=true",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 16 children, metro=true",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -134,6 +137,14 @@
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=50, kind='city', walkingMin=360",
           "accessedAt": "2026-08-14"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-157",
+          "title": "KAI-157 curated Fukuoka City children; structural children remain authoritative",
+          "accessedAt": "2026-08-22"
         }
       ]
     }
@@ -160,7 +171,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 15 children, metro=true"
+    "basis": "hub exploration window: importance major, 16 children, metro=true"
   },
   "comfortMetadata": {
     "method": "model",

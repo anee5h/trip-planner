@@ -15,7 +15,8 @@
         "Oh Sadaharu Baseball Museum",
         "BOSS E-ZO entertainment complex & bay views"
       ],
-      "openingHours": "Event times vary (Tours 10:00–17:00)"
+      "openingHours": "Event times vary (Tours 10:00–17:00)",
+      "notes": "teamLab Forest Fukuoka, a permanent interactive digital-art museum, is on the 5th floor of BOSS E-ZO (beside Mizuho PayPay Dome). It is modeled as part of this venue record, not a separate card."
     },
     "ja": {
       "name": "福岡ペイペイドーム・BOSS E-ZO FUKUOKA",
@@ -25,7 +26,8 @@
         "王貞治ベースボールミュージアム",
         "BOSS E-ZO FUKUOKA の体験型アトラクション"
       ],
-      "openingHours": "イベントにより異なる（ツアーは10:00～17:00）"
+      "openingHours": "イベントにより異なる（ツアーは10:00～17:00）",
+      "notes": "チームラボフォレスト福岡は、みずほPayPayドーム横のBOSS E・ZO 5階にある常設のデジタルアートミュージアムです。この施設レコードの一部として扱い、別カードにはしません。"
     }
   },
   "prefecture": "Fukuoka",
@@ -105,7 +107,7 @@
   "weatherDependence": "low",
   "reservation": "Required for game days",
   "parking": "Dome parking and nearby lots",
-  "notes": "Dome tours run on non-game days and take you onto the field and into the bullpen.",
+  "notes": "Dome tours run on non-game days and take you onto the field and into the bullpen.\nteamLab Forest Fukuoka, a permanent interactive digital-art museum, is on the 5th floor of BOSS E-ZO (beside Mizuho PayPay Dome). It is modeled as part of this venue record, not a separate card.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -185,7 +187,7 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.softbankhawks.co.jp/global/english/"
   },
-  "notesJa": "試合がない日はフィールドを見学できるドームツアーがおすすめです。",
+  "notesJa": "試合がない日はフィールドを見学できるドームツアーがおすすめです。\nチームラボフォレスト福岡は、みずほPayPayドーム横のBOSS E・ZO 5階にある常設のデジタルアートミュージアムです。この施設レコードの一部として扱い、別カードにはしません。",
   "bestSeason": "All Year (indoor)",
   "seasonMetadata": {
     "method": "model",

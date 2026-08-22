@@ -1934,17 +1934,20 @@
     "relationships": {
       "featuredDestinationIds": [
         "tenjin",
-        "fukuoka-art-museum",
+        "canal-city-hakata",
+        "ohori-park",
         "kushida-shrine",
         "fukuoka-castle-ruins",
+        "fukuoka-tower",
         "fukuoka-yatai",
         "nakasu",
         "tochoji",
-        "fukuoka-tower",
-        "ohori-park",
-        "canal-city-hakata",
         "hakata-machiya-folk-museum",
-        "maizuru-park"
+        "maizuru-park",
+        "fukuoka-art-museum",
+        "fukuoka-city-museum",
+        "fukuoka-paypay-dome",
+        "marine-world-uminonakamichi"
       ],
       "nearbyDestinationIds": [
         "kitakyushu-city",
@@ -6120,6 +6123,18 @@
     }
   },
   {
+    "id": "marine-world-uminonakamichi",
+    "name": "Marine World Uminonakamichi",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "poi",
+    "kind": "aquarium",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "fukuoka-city"
+    }
+  },
+  {
     "id": "marugame-castle",
     "name": "Marugame Castle",
     "prefecture": "Kagawa",
@@ -8042,6 +8057,16 @@
     }
   },
   {
+    "id": "nokonoshima-island-park",
+    "name": "Nokonoshima Island Park",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "noritake-garden",
     "name": "Noritake Garden",
     "prefecture": "Aichi",
@@ -9370,6 +9395,16 @@
     "relationships": {
       "gatewayHubId": "narita-city"
     }
+  },
+  {
+    "id": "sakurai-futamigaura-itoshima",
+    "name": "Sakurai Futamigaura",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "sakurajima-volcano-kagoshima",
@@ -12351,6 +12386,16 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "yanagawa-canal-cruise",
+    "name": "Yanagawa Canal Cruise",
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "cruise",
+    "status": "verified",
     "relationships": {}
   },
   {
