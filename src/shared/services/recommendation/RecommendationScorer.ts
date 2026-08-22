@@ -203,6 +203,16 @@ export function getValidModes(
             checkMode as keyof typeof dest.transportOptions
           ] === undefined
         ) {
+          // Origin-aware fallback is opt-in for records that explicitly
+          // declare local access modes. Legacy fixtures and records without
+          // that declaration must not gain a synthetic corridor merely
+          // because a broad prefecture route exists.
+          if (
+            checkMode === "train" &&
+            !dest.localAccessModes?.includes(checkMode)
+          ) {
+            return false;
+          }
           return Boolean(
             getOriginAwareTransportEstimate(
               dest,
