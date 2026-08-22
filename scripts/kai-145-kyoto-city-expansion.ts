@@ -1122,8 +1122,8 @@ if (kyotoHistoric) {
   if (
     kyotoHistoric.name !== compatibilityName ||
     kyotoHistoric.recommendationEligible !== false ||
-    kyotoHistoric.role !== "hub" ||
-    kyotoHistoric.placeType !== "hub" ||
+    kyotoHistoric.role !== "standalone" ||
+    kyotoHistoric.placeType !== "destination" ||
     kyotoHistoric.kind !== "district" ||
     kyotoHistoric.travelEstimate?.confidence !== "beta" ||
     kyotoHistoric.relationships?.parentDestinationId !== undefined ||
@@ -1151,8 +1151,8 @@ if (kyotoHistoric) {
     "Historic Monuments of Ancient Kyoto",
     "Kyoto City",
   ];
-  kyotoHistoric.role = "hub";
-  kyotoHistoric.placeType = "hub";
+  kyotoHistoric.role = "standalone";
+  kyotoHistoric.placeType = "destination";
   kyotoHistoric.kind = "district";
   kyotoHistoric.importance = "major";
   kyotoHistoric.recommendationEligible = false;
@@ -1258,6 +1258,40 @@ if (kyotoHistoric) {
   delete compatibilityFieldSources.recommendedVisitHours;
   delete compatibilityFieldSources.walkingMin;
   delete compatibilityFieldSources.comfort;
+  // FIX 1: idempotent editorial history — deduplicate by logical event key
+  // (changedAt|changedBy|summary|method) so re-running never appends a duplicate.
+  const compatibilityChangeEvent = {
+    changedAt: REVIEW_DATE,
+    changedBy: "Meguruto editorial",
+    summary:
+      "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+    method: "manual" as const,
+  };
+  const compatibilityChangeKey = `${compatibilityChangeEvent.changedAt}|${compatibilityChangeEvent.changedBy}|${compatibilityChangeEvent.summary}|${compatibilityChangeEvent.method}`;
+  const existingChanges = kyotoHistoric.editorial?.changes ?? [];
+  const dedupedChanges: typeof existingChanges = [];
+  const seenChangeKeys = new Set<string>();
+  for (const change of existingChanges) {
+    const key = `${change.changedAt}|${change.changedBy}|${change.summary}|${change.method}`;
+    if (!seenChangeKeys.has(key)) {
+      seenChangeKeys.add(key);
+      dedupedChanges.push(change);
+    }
+  }
+  const alreadyHasCompatibilityEvent = seenChangeKeys.has(
+    compatibilityChangeKey,
+  );
+  // If dedup removed duplicates, that's a meaningful change that must be persisted.
+  if (dedupedChanges.length !== existingChanges.length) {
+    compatibilityChanged = true;
+  }
+  const finalChanges = alreadyHasCompatibilityEvent
+    ? dedupedChanges
+    : [...dedupedChanges, compatibilityChangeEvent];
+  if (!alreadyHasCompatibilityEvent) {
+    compatibilityChanged = true;
+  }
+
   kyotoHistoric.editorial = {
     ...(kyotoHistoric.editorial ?? { lifecycle: "published", sources: [] }),
     lifecycle: "published",
@@ -1269,16 +1303,7 @@ if (kyotoHistoric) {
     changeSummary:
       "Converted the legacy Kiyomizu-oriented record into a retained, non-recommendable Historic Kyoto heritage-group compatibility surface while adding standalone Kyoto destinations.",
     fieldSources: compatibilityFieldSources,
-    changes: [
-      ...(kyotoHistoric.editorial?.changes ?? []),
-      {
-        changedAt: REVIEW_DATE,
-        changedBy: "Meguruto editorial",
-        summary:
-          "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
-        method: "manual",
-      },
-    ],
+    changes: finalChanges,
   };
   byId.set(kyotoHistoric.id, kyotoHistoric);
 }

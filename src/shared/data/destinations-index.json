@@ -45785,8 +45785,8 @@
       "Kyoto-wide cultural context rather than one venue"
     ],
     "schemaVersion": 2,
-    "role": "hub",
-    "placeType": "hub",
+    "role": "standalone",
+    "placeType": "destination",
     "ratingsSchemaVersion": 2,
     "officialWebsite": "https://whc.unesco.org/en/list/688/",
     "editorial": {
@@ -45874,30 +45874,6 @@
       "reviewedBy": "Meguruto editorial",
       "changeSummary": "Converted the legacy Kiyomizu-oriented record into a retained, non-recommendable Historic Kyoto heritage-group compatibility surface while adding standalone Kyoto destinations.",
       "changes": [
-        {
-          "changedAt": "2026-08-22",
-          "changedBy": "Meguruto editorial",
-          "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
-          "method": "manual"
-        },
-        {
-          "changedAt": "2026-08-22",
-          "changedBy": "Meguruto editorial",
-          "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
-          "method": "manual"
-        },
-        {
-          "changedAt": "2026-08-22",
-          "changedBy": "Meguruto editorial",
-          "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
-          "method": "manual"
-        },
-        {
-          "changedAt": "2026-08-22",
-          "changedBy": "Meguruto editorial",
-          "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
-          "method": "manual"
-        },
         {
           "changedAt": "2026-08-22",
           "changedBy": "Meguruto editorial",

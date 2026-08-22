@@ -5666,7 +5666,7 @@
     "name": "Historic Kyoto Cultural Heritage Area",
     "prefecture": "Kyoto",
     "region": "Kansai",
-    "role": "hub",
+    "role": "standalone",
     "kind": "district",
     "status": "published",
     "relationships": {

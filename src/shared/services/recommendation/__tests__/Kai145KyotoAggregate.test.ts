@@ -14,14 +14,37 @@ describe("KAI-145 kyoto-historic compatibility surface", () => {
   it("keeps the old canonical ID/detail file while making the group non-recommendable", () => {
     expect(aggregate).toBeDefined();
     expect(aggregate.recommendationEligible).toBe(false);
-    expect(aggregate.role).toBe("hub");
-    expect(aggregate.placeType).toBe("hub");
+    // Heritage-group compatibility surface — not an actionable geographic hub.
+    expect(aggregate.role).toBe("standalone");
+    expect(aggregate.placeType).toBe("destination");
+    expect(aggregate.kind).toBe("district");
     expect(aggregate.relationships?.featuredDestinationIds).toContain(
       "kiyomizu-dera",
     );
     expect(existsSync("public/data/destinations/kyoto-historic.json")).toBe(
       true,
     );
+  });
+
+  it("is not counted as an actionable shell hub", async () => {
+    const { buildDestinationDepthReport } =
+      await import("@/../scripts/audit/destination-depth.js");
+    const report = buildDestinationDepthReport(destinations);
+    const shellIds = report.relationshipSummary.shellHubs.map((hub) => hub.id);
+    expect(shellIds).not.toContain("kyoto-historic");
+  });
+
+  it("contains exactly one compatibility-conversion editorial event", () => {
+    const changes = aggregate.editorial?.changes ?? [];
+    const compatEvents = changes.filter(
+      (change) =>
+        change.summary ===
+        "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+    );
+    expect(compatEvents).toHaveLength(1);
+    expect(compatEvents[0].changedAt).toBe("2026-08-22");
+    expect(compatEvents[0].changedBy).toBe("Meguruto editorial");
+    expect(compatEvents[0].method).toBe("manual");
   });
 
   it("keeps standalone Kiyomizu exactly once and excludes the aggregate from choices", () => {
