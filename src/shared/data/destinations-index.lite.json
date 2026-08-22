@@ -26935,16 +26935,16 @@
       "featuredDestinationIds": [
         "nagoya-castle-aichi",
         "atsuta-shrine-nagoya",
-        "mirai-tower-nagoya",
+        "osu-shopping-district",
         "nagoya-city-science-museum",
         "tokugawa-art-museum",
-        "higashiyama-sky-tower-nagoya",
-        "osu-shopping-district",
-        "nagoya-port-tower",
         "scmaglev-and-railway-park",
         "nagoya-city-art-museum",
         "toyota-commemorative-museum-of-industry-and-technology",
-        "honmaru-palace"
+        "legoland-japan-nagoya",
+        "higashiyama-zoo-and-botanical-gardens",
+        "noritake-garden",
+        "shirotori-garden"
       ],
       "nearbyDestinationIds": [
         "shirakawa-village",
@@ -89488,5 +89488,419 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "relationships": {}
+  },
+  {
+    "id": "ghibli-park-nagakute",
+    "name": "Ghibli Park",
+    "nameJa": "ジブリパーク",
+    "kind": "theme_park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Aichi:nagakute",
+    "aliases": ["Ghibli Park Nagakute"],
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Theme Park", "Family", "Culture", "Entertainment"],
+    "tags": ["Theme Park", "Family", "Culture", "Entertainment", "Nagakute"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Panorama_Photo_of_Mononoke_Village_of_Ghibli_Park.jpg/1280px-Panorama_Photo_of_Mononoke_Village_of_Ghibli_Park.jpg",
+    "description": "Studio Ghibli's theme park inside Expo 2005 Aichi Commemorative Park in Nagakute, with five themed areas including Ghibli's Grand Warehouse, Hill of Youth, and Mononoke Village.",
+    "highlights": [
+      "Five themed areas across Expo 2005 Aichi Commemorative Park",
+      "Ghibli's Grand Warehouse indoor exhibition hall",
+      "A Nagakute family outing — NOT Nagoya City"
+    ],
+    "coordinates": {
+      "lat": 35.1735,
+      "lng": 137.0748
+    },
+    "officialWebsite": "https://ghibli-park.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 210,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "train": 50,
+      "bus": 70
+    },
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "legoland-japan-nagoya",
+    "name": "LEGOLAND Japan",
+    "nameJa": "レゴランド・ジャパン",
+    "kind": "theme_park",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Aichi:nagoya",
+    "aliases": ["LEGOLAND Japan Resort", "Legoland Nagoya"],
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Theme Park", "Family", "Amusement", "Entertainment"],
+    "tags": ["Theme Park", "Family", "Amusement", "Entertainment", "Nagoya"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Legoland_Japan_Hotel_and_Sea_Life_Nagoya.jpg/1280px-Legoland_Japan_Hotel_and_Sea_Life_Nagoya.jpg",
+    "description": "An outdoor LEGO theme park on Nagoya's Kinjo Pier with rides, LEGO-building areas, and the adjacent SEA LIFE Nagoya aquarium, about 10 minutes on foot from Aonami Line Kinjo-futo Station.",
+    "highlights": [
+      "Outdoor LEGO rides and building experiences",
+      "Adjacent SEA LIFE Nagoya aquarium (shared resort)",
+      "A Nagoya bay-area family outing"
+    ],
+    "coordinates": {
+      "lat": 35.0505,
+      "lng": 136.8445
+    },
+    "officialWebsite": "https://www.legoland.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 180,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "train": 40,
+      "bus": 60
+    },
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "higashiyama-zoo-and-botanical-gardens",
+    "name": "Higashiyama Zoo and Botanical Gardens",
+    "nameJa": "東山動植物園",
+    "kind": "zoo",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Aichi:nagoya",
+    "aliases": ["Higashiyama Zoo", "Higashiyama Botanical Gardens"],
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Zoo", "Family", "Nature", "Garden"],
+    "tags": ["Zoo", "Family", "Nature", "Garden", "Nagoya"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Main_Gate_of_Higashiyama_Zoo_and_Botanical_Gardens_in_Autumn.jpg/1280px-Main_Gate_of_Higashiyama_Zoo_and_Botanical_Gardens_in_Autumn.jpg",
+    "description": "One of Japan's largest city zoos with a botanical garden and the Higashiyama Sky Tower, home to over 550 animal species and extensive seasonal plantings.",
+    "highlights": [
+      "Over 550 animal species in one city zoo",
+      "Adjacent botanical garden and seasonal plantings",
+      "A Nagoya family and nature anchor"
+    ],
+    "coordinates": {
+      "lat": 35.1616,
+      "lng": 136.9755
+    },
+    "officialWebsite": "https://www.higashiyama.city.nagoya.jp/english/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 150,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "train": 30,
+      "bus": 45
+    },
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "noritake-garden",
+    "name": "Noritake Garden",
+    "nameJa": "ノリタケの森",
+    "kind": "garden",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Aichi:nagoya",
+    "aliases": ["Noritake no Mori", "Noritake Garden Nagoya"],
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Garden", "Culture", "Museum", "Shopping"],
+    "tags": ["Garden", "Culture", "Museum", "Shopping", "Nagoya"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Noritake_Garden02%2C_Nishi_Ward_Nagoya_2014.jpg/1280px-Noritake_Garden02%2C_Nishi_Ward_Nagoya_2014.jpg",
+    "description": "An urban green space on the former Noritake china factory site near Nagoya Station, with the Noritake Museum, craft center, and garden paths.",
+    "highlights": [
+      "The Noritake Museum and craft demonstrations",
+      "Garden paths on the former factory site",
+      "A short walk from Nagoya Station"
+    ],
+    "coordinates": {
+      "lat": 35.1818,
+      "lng": 136.8965
+    },
+    "officialWebsite": "https://www.noritake.co.jp/eng/mori/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 145,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "train": 15,
+      "bus": 25
+    },
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "shirotori-garden",
+    "name": "Shirotori Garden",
+    "nameJa": "白鳥庭園",
+    "kind": "garden",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Aichi:nagoya",
+    "aliases": ["Shirotori Teien"],
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "categories": ["Garden", "Nature", "Culture", "Sightseeing"],
+    "tags": ["Garden", "Nature", "Culture", "Sightseeing", "Nagoya"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Shirotori_Garden%2C_Atsuta_Ward_Nagoya_2014.jpg/1280px-Shirotori_Garden%2C_Atsuta_Ward_Nagoya_2014.jpg",
+    "description": "A Japanese garden in Atsuta with a central pond, tea house, and the Shirotori no Yu teahouse, offering a serene Nagoya garden outing near the Nagoya Congress Center.",
+    "highlights": [
+      "A landscaped Japanese garden with central pond",
+      "Tea house and seasonal plantings",
+      "Pairs with Atsuta Shrine for a southern Nagoya outing"
+    ],
+    "coordinates": {
+      "lat": 35.1453,
+      "lng": 136.906
+    },
+    "officialWebsite": "https://www.shirotori-garden.jp/english/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "train": 25,
+      "bus": 35
+    },
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "nearbyDestinationIds": ["atsuta-shrine-nagoya"],
+      "parentDestinationId": "nagoya-city"
+    }
   }
 ]

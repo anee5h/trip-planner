@@ -484,7 +484,10 @@
       "inubosaki-lighthouse-choshi",
       "sumiyoshi-taisha",
       "expo-70-commemorative-park",
-      "hirakata-park"
+      "hirakata-park",
+      "ghibli-park-nagakute",
+      "legoland-japan-nagoya",
+      "higashiyama-zoo-and-botanical-gardens"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -787,7 +790,12 @@
       "tenjinbashi-suji-shopping-street",
       "kishiwada-castle",
       "kishiwada-danjiri-kaikan",
-      "hirakata-park"
+      "hirakata-park",
+      "ghibli-park-nagakute",
+      "legoland-japan-nagoya",
+      "higashiyama-zoo-and-botanical-gardens",
+      "noritake-garden",
+      "shirotori-garden"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1787,7 +1795,12 @@
       "tenjinbashi-suji-shopping-street",
       "kishiwada-castle",
       "kishiwada-danjiri-kaikan",
-      "hirakata-park"
+      "hirakata-park",
+      "ghibli-park-nagakute",
+      "legoland-japan-nagoya",
+      "higashiyama-zoo-and-botanical-gardens",
+      "noritake-garden",
+      "shirotori-garden"
     ]
   },
   "modelClusterIds": [
@@ -1837,56 +1850,32 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T17:40",
-    "changeCount": 7,
+    "at": "2026-08-22T14:25",
+    "changeCount": 3,
     "byModel": [
       [
-        "score-rubric-v2",
-        7
+        "duration-model-v1",
+        3
       ]
     ],
     "sample": [
       {
-        "id": "sumiyoshi-taisha",
-        "model": "score-rubric-v2",
+        "id": "ghibli-park-nagakute",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 7.1"
+        "reason": "kind band 'theme_park'"
       },
       {
-        "id": "teamlab-botanical-garden-osaka",
-        "model": "score-rubric-v2",
+        "id": "legoland-japan-nagoya",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 7.1"
+        "reason": "kind band 'theme_park'"
       },
       {
-        "id": "expo-70-commemorative-park",
-        "model": "score-rubric-v2",
+        "id": "higashiyama-zoo-and-botanical-gardens",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 7.1"
-      },
-      {
-        "id": "tenjinbashi-suji-shopping-street",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "kishiwada-castle",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "kishiwada-danjiri-kaikan",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "hirakata-park",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
+        "reason": "kind band 'zoo'"
       }
     ]
   }

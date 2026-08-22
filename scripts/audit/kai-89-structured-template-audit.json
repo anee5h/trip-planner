@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1007,
+  "totalRecords": 1012,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 190,
-    "affectedRecordCount": 1004,
+    "affectedRecordCount": 1009,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -190,6 +190,7 @@
       "gero-onsen",
       "gessho-ji-temple-matsue",
       "ghibli-museum",
+      "ghibli-park-nagakute",
       "gifu-castle-gifu",
       "gifu-city",
       "gifu-gujo-hachiman",
@@ -242,6 +243,7 @@
       "hiei-zan-driveway-observatory",
       "higashi-hennazaki-cape-miyako",
       "higashiyama-sky-tower-nagoya",
+      "higashiyama-zoo-and-botanical-gardens",
       "hijikata-toshizo-museum",
       "hikone-castle-shiga",
       "hikone-city",
@@ -478,6 +480,7 @@
       "lake-tazawa-akita",
       "lake-towada-aomori",
       "lazona-kawasaki-plaza",
+      "legoland-japan-nagoya",
       "machida-graphic-arts-museum",
       "machida-tokyo",
       "maizuru-park",
@@ -634,6 +637,7 @@
       "nishi-chugoku-sanchi",
       "nishiki-market",
       "nisshinkan",
+      "noritake-garden",
       "noto",
       "noto-hanto",
       "nozuta-park",
@@ -807,6 +811,7 @@
       "shirakawa-komine-castle",
       "shiratani-unsuikyo-ravine",
       "shiretoko-national-park-hokkaido",
+      "shirotori-garden",
       "shitennoji",
       "shizuoka-city",
       "shodoshima",
@@ -1384,7 +1389,7 @@
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 444,
+      "affectedRecordCount": 449,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1469,6 +1474,7 @@
         "genkai",
         "genkyuen-garden",
         "gero-city",
+        "ghibli-park-nagakute",
         "gifu-city",
         "ginzan-onsen-yamagata",
         "gotemba-city",
@@ -1489,6 +1495,7 @@
         "hida-kisogawa",
         "hidakasanmyaku-erimo-tokachi",
         "hiei-zan-driveway-observatory",
+        "higashiyama-zoo-and-botanical-gardens",
         "hikone-city",
         "himeji-city",
         "hino-city",
@@ -1592,6 +1599,7 @@
         "kyusendo-cave",
         "kyushu-chuo-sanchi",
         "lake-biwa-shiga",
+        "legoland-japan-nagoya",
         "marugame-city",
         "matsudo-city",
         "matsue-city",
@@ -1658,6 +1666,7 @@
         "niseko-shakotan-otaru-kaigan",
         "niseko-town",
         "nishi-chugoku-sanchi",
+        "noritake-garden",
         "noto-hanto",
         "nozuta-park",
         "numazu-city",
@@ -1736,6 +1745,7 @@
         "shirakami-sanchi-aomori",
         "shirakawa-komine-castle",
         "shiretoko-national-park-hokkaido",
+        "shirotori-garden",
         "shizuoka-city",
         "shodoshima",
         "shokanbetsu-teuri-yagishiri",
@@ -1973,7 +1983,7 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 27,
+          "count": 32,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
@@ -1981,6 +1991,8 @@
             "expo-70-commemorative-park",
             "funabashi-andersen-park",
             "gekkeikan-okura-sake-museum",
+            "ghibli-park-nagakute",
+            "higashiyama-zoo-and-botanical-gardens",
             "hirakata-park",
             "inubosaki-lighthouse-choshi",
             "jakko-in-ohara",
@@ -1990,10 +2002,13 @@
             "kishiwada-danjiri-kaikan",
             "kiyomizu-dera",
             "kurama-dera-kyoto",
+            "legoland-japan-nagoya",
             "nakayama-hokekyoji-ichikawa",
             "national-museum-japanese-history-sakura",
+            "noritake-garden",
             "sanzen-in-ohara",
             "shimizu-park-noda",
+            "shirotori-garden",
             "spa-metsa-ootaka-nagareyama",
             "sumiyoshi-taisha",
             "teamlab-botanical-garden-osaka",
@@ -3606,7 +3621,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 24,
-      "affectedRecordCount": 968,
+      "affectedRecordCount": 973,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3782,6 +3797,7 @@
         "gero-onsen",
         "gessho-ji-temple-matsue",
         "ghibli-museum",
+        "ghibli-park-nagakute",
         "gifu-castle-gifu",
         "gifu-city",
         "gifu-gujo-hachiman",
@@ -3830,6 +3846,7 @@
         "hiei-zan-driveway-observatory",
         "higashi-hennazaki-cape-miyako",
         "higashiyama-sky-tower-nagoya",
+        "higashiyama-zoo-and-botanical-gardens",
         "hijikata-toshizo-museum",
         "hikone-castle-shiga",
         "hikone-city",
@@ -4060,6 +4077,7 @@
         "lake-tazawa-akita",
         "lake-towada-aomori",
         "lazona-kawasaki-plaza",
+        "legoland-japan-nagoya",
         "machida-graphic-arts-museum",
         "machida-tokyo",
         "maizuru-park",
@@ -4212,6 +4230,7 @@
         "nishi-chugoku-sanchi",
         "nishiki-market",
         "nisshinkan",
+        "noritake-garden",
         "noto",
         "noto-hanto",
         "nozuta-park",
@@ -4378,6 +4397,7 @@
         "shirakawa-komine-castle",
         "shiratani-unsuikyo-ravine",
         "shiretoko-national-park-hokkaido",
+        "shirotori-garden",
         "shitennoji",
         "shizuoka-city",
         "shodoshima",
@@ -4581,7 +4601,7 @@
         {
           "id": "1cf659956fa2",
           "severity": "review",
-          "count": 174,
+          "count": 175,
           "ids": [
             "ameya-yokocho",
             "boso-no-mura",
@@ -4675,6 +4695,7 @@
             "nijo-market",
             "ninna-ji",
             "nishiki-market",
+            "noritake-garden",
             "nozuta-park",
             "nunobiki-ropeway",
             "ochiai-folk-village",
@@ -4768,7 +4789,7 @@
         {
           "id": "1c84ff3f729a",
           "severity": "review",
-          "count": 112,
+          "count": 113,
           "ids": [
             "aizu-bukeyashiki",
             "akita-museum-of-art",
@@ -4857,6 +4878,7 @@
             "senjojiki-sandanbeki-cliffs",
             "senjokaku",
             "shirahama-beach-adventure-world",
+            "shirotori-garden",
             "shoryu-cave",
             "sumiyoshi-taisha",
             "sunamushi-onsen-saraku",
@@ -4893,7 +4915,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 93,
+          "count": 94,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -4915,6 +4937,7 @@
             "godaido",
             "goshikinuma-ponds-fukushima",
             "higashiyama-sky-tower-nagoya",
+            "higashiyama-zoo-and-botanical-gardens",
             "hokki-ji-pagoda",
             "inage-seaside-park",
             "kagoshima-city-aquarium",
@@ -5443,7 +5466,7 @@
         {
           "id": "afa8461550d9",
           "severity": "review",
-          "count": 44,
+          "count": 46,
           "ids": [
             "akan-mashu",
             "amami-gunto",
@@ -5454,6 +5477,7 @@
             "daisetsuzan",
             "echigo-sanzan-tadami",
             "fuji-hakone-izu",
+            "ghibli-park-nagakute",
             "hakusan",
             "hayachine",
             "hidakasanmyaku-erimo-tokachi",
@@ -5464,6 +5488,7 @@
             "kurikoma",
             "kurobe-gorge",
             "kyushu-chuo-sanchi",
+            "legoland-japan-nagoya",
             "minami-alps",
             "mount-tsurugi-miyoshi",
             "myoko-togakushi",
@@ -5860,7 +5885,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 971,
+      "affectedRecordCount": 976,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6039,6 +6064,7 @@
         "gero-onsen",
         "gessho-ji-temple-matsue",
         "ghibli-museum",
+        "ghibli-park-nagakute",
         "gifu-castle-gifu",
         "gifu-city",
         "gifu-gujo-hachiman",
@@ -6087,6 +6113,7 @@
         "hiei-zan-driveway-observatory",
         "higashi-hennazaki-cape-miyako",
         "higashiyama-sky-tower-nagoya",
+        "higashiyama-zoo-and-botanical-gardens",
         "hijikata-toshizo-museum",
         "hikone-castle-shiga",
         "hikone-city",
@@ -6315,6 +6342,7 @@
         "lake-tazawa-akita",
         "lake-towada-aomori",
         "lazona-kawasaki-plaza",
+        "legoland-japan-nagoya",
         "machida-graphic-arts-museum",
         "machida-tokyo",
         "maizuru-park",
@@ -6466,6 +6494,7 @@
         "nishi-chugoku-sanchi",
         "nishiki-market",
         "nisshinkan",
+        "noritake-garden",
         "noto",
         "noto-hanto",
         "nozuta-park",
@@ -6630,6 +6659,7 @@
         "shirakami-sanchi-aomori",
         "shirakawa-komine-castle",
         "shiretoko-national-park-hokkaido",
+        "shirotori-garden",
         "shitennoji",
         "shizuoka-city",
         "shodoshima",
@@ -7445,7 +7475,7 @@
         {
           "id": "52b14c9c17b9",
           "severity": "review",
-          "count": 57,
+          "count": 58,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -7459,6 +7489,7 @@
             "gero-onsen",
             "ginzan-onsen-yamagata",
             "hakodate-night-view",
+            "higashiyama-zoo-and-botanical-gardens",
             "himeji-castle",
             "hirosaki-castle",
             "hita-onsen",
@@ -7728,6 +7759,44 @@
           }
         },
         {
+          "id": "47f1236f5181",
+          "severity": "review",
+          "count": 25,
+          "ids": [
+            "bizan-ropeway-tokushima",
+            "fujita-memorial-garden",
+            "fukuurajima",
+            "heiwadai-park-miyazaki",
+            "hida-cave",
+            "hiroshima-peace-memorial-park",
+            "jindai-zakura",
+            "katsurahama-beach",
+            "kyusendo-cave",
+            "lake-biwa-shiga",
+            "lake-ikeda",
+            "miharu-takizakura",
+            "nakazu-banshoen-marugame",
+            "nanatsugama-cave",
+            "nijinomatsubara-pine-grove",
+            "nippara-cave",
+            "oboke-koboke-gorge",
+            "ritsuunkyo-viewpoint",
+            "shirahama-beach-adventure-world",
+            "shirotori-garden",
+            "shoryu-cave",
+            "teamlab-botanical-garden-osaka",
+            "tenshaen-garden-uwajima",
+            "usuzumi-zakura",
+            "yuzuki-castle-ruins-matsuyama"
+          ],
+          "value": { "walkingMin": 95 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "3c247d7c6e27",
           "severity": "review",
           "count": 24,
@@ -7765,36 +7834,31 @@
           }
         },
         {
-          "id": "47f1236f5181",
+          "id": "1e4109ee1e47",
           "severity": "review",
-          "count": 24,
+          "count": 19,
           "ids": [
-            "bizan-ropeway-tokushima",
-            "fujita-memorial-garden",
-            "fukuurajima",
-            "heiwadai-park-miyazaki",
-            "hida-cave",
-            "hiroshima-peace-memorial-park",
-            "jindai-zakura",
-            "katsurahama-beach",
-            "kyusendo-cave",
-            "lake-biwa-shiga",
-            "lake-ikeda",
-            "miharu-takizakura",
-            "nakazu-banshoen-marugame",
-            "nanatsugama-cave",
-            "nijinomatsubara-pine-grove",
-            "nippara-cave",
-            "oboke-koboke-gorge",
-            "ritsuunkyo-viewpoint",
-            "shirahama-beach-adventure-world",
-            "shoryu-cave",
-            "teamlab-botanical-garden-osaka",
-            "tenshaen-garden-uwajima",
-            "usuzumi-zakura",
-            "yuzuki-castle-ruins-matsuyama"
+            "akebonoyama-agricultural-park-kashiwa",
+            "danjo-garan-koyasan",
+            "enryaku-ji-mount-hiei",
+            "hokki-ji-pagoda",
+            "kashima-jingu",
+            "makino-botanical-garden",
+            "nakadake-crater-aso",
+            "noritake-garden",
+            "nunobiki-herb-gardens",
+            "orizuru-tower",
+            "ritsurin-garden",
+            "saisho-in",
+            "sengan-en-garden-kagoshima",
+            "shukkeien",
+            "suizenji-garden-kumamoto",
+            "takkoku-no-iwa",
+            "tempozan-ferris-wheel",
+            "tokugawa-garden",
+            "toshodai-ji-temple"
           ],
-          "value": { "walkingMin": 95 },
+          "value": { "walkingMin": 145 },
           "disposition": {
             "category": "E",
             "action": "manual-review",
@@ -7827,37 +7891,6 @@
             "yagiri-no-watashi-matsudo"
           ],
           "value": { "walkingMin": 45 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "1e4109ee1e47",
-          "severity": "review",
-          "count": 18,
-          "ids": [
-            "akebonoyama-agricultural-park-kashiwa",
-            "danjo-garan-koyasan",
-            "enryaku-ji-mount-hiei",
-            "hokki-ji-pagoda",
-            "kashima-jingu",
-            "makino-botanical-garden",
-            "nakadake-crater-aso",
-            "nunobiki-herb-gardens",
-            "orizuru-tower",
-            "ritsurin-garden",
-            "saisho-in",
-            "sengan-en-garden-kagoshima",
-            "shukkeien",
-            "suizenji-garden-kumamoto",
-            "takkoku-no-iwa",
-            "tempozan-ferris-wheel",
-            "tokugawa-garden",
-            "toshodai-ji-temple"
-          ],
-          "value": { "walkingMin": 145 },
           "disposition": {
             "category": "E",
             "action": "manual-review",
@@ -7957,6 +7990,32 @@
           }
         },
         {
+          "id": "9360e7c9bb23",
+          "severity": "review",
+          "count": 13,
+          "ids": [
+            "bitchu-matsuyama-castle",
+            "hirakata-park",
+            "iwakuni-castle",
+            "kitakata-kura-district",
+            "lake-towada-aomori",
+            "legoland-japan-nagoya",
+            "mount-zao-yamagata",
+            "nagano-kamikochi",
+            "obi-castle",
+            "sendai-yagiyama-zoo",
+            "takatori-castle",
+            "yambaru",
+            "yufuin-onsen-ryokan-district"
+          ],
+          "value": { "walkingMin": 180 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "dd90a22e6ec0",
           "severity": "review",
           "count": 13,
@@ -7980,31 +8039,6 @@
             "category": "B",
             "action": "manual-review",
             "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
-          }
-        },
-        {
-          "id": "9360e7c9bb23",
-          "severity": "review",
-          "count": 12,
-          "ids": [
-            "bitchu-matsuyama-castle",
-            "hirakata-park",
-            "iwakuni-castle",
-            "kitakata-kura-district",
-            "lake-towada-aomori",
-            "mount-zao-yamagata",
-            "nagano-kamikochi",
-            "obi-castle",
-            "sendai-yagiyama-zoo",
-            "takatori-castle",
-            "yambaru",
-            "yufuin-onsen-ryokan-district"
-          ],
-          "value": { "walkingMin": 180 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
           }
         },
         {
@@ -8095,6 +8129,25 @@
           }
         },
         {
+          "id": "49908606ba6a",
+          "severity": "review",
+          "count": 6,
+          "ids": [
+            "akiu-onsen-miyagi",
+            "asamushi-onsen",
+            "ghibli-park-nagakute",
+            "iizaka-onsen",
+            "nyuto-onsen-akita",
+            "shiretoko-national-park-hokkaido"
+          ],
+          "value": { "walkingMin": 210 },
+          "disposition": {
+            "category": "C",
+            "action": "manual-review",
+            "reason": "50/50 metres; kai-31 style."
+          }
+        },
+        {
           "id": "faa58d4d2f61",
           "severity": "review",
           "count": 6,
@@ -8111,24 +8164,6 @@
             "category": "B",
             "action": "manual-review",
             "reason": "60/40 split, minutes."
-          }
-        },
-        {
-          "id": "49908606ba6a",
-          "severity": "review",
-          "count": 5,
-          "ids": [
-            "akiu-onsen-miyagi",
-            "asamushi-onsen",
-            "iizaka-onsen",
-            "nyuto-onsen-akita",
-            "shiretoko-national-park-hokkaido"
-          ],
-          "value": { "walkingMin": 210 },
-          "disposition": {
-            "category": "C",
-            "action": "manual-review",
-            "reason": "50/50 metres; kai-31 style."
           }
         },
         {

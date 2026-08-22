@@ -274,6 +274,8 @@ const japaneseLabels: Record<string, string> = {
   "Kobe Skyline": "神戸のスカイライン",
   "Momiji manju": "もみじ饅頭",
   "Nagoya Meshi": "名古屋めし",
+  Nagoya: "名古屋",
+  Nagakute: "長久手",
   "Nightingale Floors": "鴬張りの床",
   Okonomiyaki: "お好み焼き",
   "Penguin Parade": "ペンギンパレード",
