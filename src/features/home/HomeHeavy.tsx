@@ -23,6 +23,17 @@ import {
 import { useTranslation } from "react-i18next";
 import { getFixedSeason } from "@/shared/utils/season";
 import type { HomePendingAction } from "./state/HomeAction";
+// KAI-147-P2: prewarm the lite catalogue the moment HomeHeavy mounts.
+// HomeHeavy is already rendered AFTER first paint (lazy boundary), so this
+// starts the fetch during chunk evaluation — overlapping download with
+// recommendation setup instead of waiting for the useCatalogue effect.
+// The loader is a shared singleton; useCatalogue remains the single source
+// of truth for status/error/retry, and a failed prewarm surfaces there.
+import { loadCatalogue } from "@/shared/services/place/PlaceCatalog";
+
+void loadCatalogue("summary").catch(() => {
+  // failure surfaces through useCatalogue's error state + retry
+});
 
 export default function HeavyHome({
   pendingAction,
