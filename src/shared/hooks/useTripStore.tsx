@@ -14,8 +14,15 @@ import type {
   TripSyncStatus,
 } from "@/shared/hooks/useTripSync";
 import { clearLegacyAccountStorage } from "@/shared/utils/clearLegacyAccountStorage";
-import destinationsIndex from "@/shared/data/destinations-meta.json";
+// KAI-147: destinations-meta.json (277 KB raw) was statically imported here
+// and in useTripSync, inlining the whole catalogue into the shared
+// LocaleContext chunk that the entry HTML modulepreloads — production
+// mobile FCP/LCP measured ~3.8 s/~5.0 s with the H1 as sole LCP candidate.
+// It is now a runtime-lazy chunk (see destinationsMetaLoader.ts, KAI-121
+// pattern): loaded after mount; lookups return "not found" until resolved.
+import { loadDestinationsMeta } from "@/shared/data/destinationsMetaLoader";
 import type { Trip, TripStop } from "@/shared/types/trip";
+import type { Destination } from "@/shared/types/destination";
 import * as TripService from "@/shared/services/trips/TripService";
 import { generateUUID } from "@/shared/utils/uuid";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
@@ -252,6 +259,30 @@ function persistGuestOrigin(origin: OriginLocation) {
 export function TripStoreProvider({ children }: { children: ReactNode }) {
   const { user } = useAuth();
 
+  // KAI-147: destination metadata is a runtime-lazy chunk. State (not a
+  // ref) so the visited-prefectures derivation effect below re-runs — and
+  // back-fills any prefectures it could not resolve pre-load.
+  const [destinationsIndex, setDestinationsIndex] = useState<Destination[]>(
+    () => [],
+  );
+
+  useEffect(() => {
+    let cancelled = false;
+    loadDestinationsMeta()
+      .then((meta) => {
+        if (!cancelled) setDestinationsIndex(meta);
+      })
+      .catch((error: unknown) => {
+        console.warn(
+          "[Meguruto Store] destinations-meta chunk failed to load:",
+          error,
+        );
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   useEffect(() => {
     clearLegacyAccountStorage();
   }, []);
@@ -476,7 +507,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       setVisitedDates(updatedDates);
       setVisitedPrefectures(updatedPrefectures);
     }
-  }, [visited, visitedDates, visitedPrefectures]);
+    // KAI-147: destinationsIndex is a dependency so prefecture derivation
+    // re-runs (and back-fills) once the lazy meta chunk resolves.
+  }, [visited, visitedDates, visitedPrefectures, destinationsIndex]);
 
   const toggleFavorite = (id: string) => {
     if (!canMutateProfile) return;

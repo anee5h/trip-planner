@@ -11,13 +11,15 @@ import { toast } from "sonner";
 import type { Trip } from "@/shared/types/trip";
 import { SupabaseTripRepository } from "@/shared/services/trips/TripRepository";
 import { generateUUID, isValidUUID } from "@/shared/utils/uuid";
-// KAI-132: useTripSync runs inside the app ROOT (TripStore). It must NOT
-// pull the lite catalogue (2.67 MB) into the entry closure — it only
-// needs prefecture lookups for visited-prefecture derivation, which the
-// already-root-loaded destinations-meta.json (277 KB, id + prefecture +
-// role + relationships) provides. The lite catalogue stays a
-// route-scoped runtime fetch for catalogue surfaces only.
-import destinationsMeta from "@/shared/data/destinations-meta.json";
+// KAI-132/KAI-147: useTripSync runs inside the app ROOT (TripStore). It
+// must NOT pull the lite catalogue (2.67 MB) — or, as the KAI-147
+// production LCP diagnosis proved, the destinations-meta.json index
+// (277 KB raw) that was statically imported here and inlined into the
+// shared entry-preloaded LocaleContext chunk (mobile LCP ~5.0 s) — into
+// the entry closure. Prefecture lookups now use the runtime-lazy meta
+// chunk; until it resolves, derivation falls back to the authoritative
+// server-persisted visited_prefectures list.
+import { loadDestinationsMeta } from "@/shared/data/destinationsMetaLoader";
 import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import type {
   OriginLocation,
@@ -100,13 +102,25 @@ export interface UseTripSyncReturn {
 
 const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
 
-// KAI-132: prefecture lookup from the lightweight metadata source (id →
-// prefecture). The lite catalogue is NOT loaded from the app root.
-const destinationPrefectureById = new Map<string, string>(
-  (destinationsMeta as Array<{ id: string; prefecture?: string }>).map(
-    (destination) => [destination.id, destination.prefecture ?? ""],
-  ),
-);
+// KAI-147: prefecture lookup from the runtime-lazy metadata chunk (id →
+// prefecture). The map is filled when the chunk resolves; until then it is
+// empty and deriveVisitedPrefectures() relies on the persisted list. The
+// module-level promise keeps the chunk warm for useTripStore too.
+let destinationPrefectureById = new Map<string, string>();
+void loadDestinationsMeta()
+  .then((meta) => {
+    destinationPrefectureById = new Map<string, string>(
+      (meta as Array<{ id: string; prefecture?: string }>).map(
+        (destination) => [destination.id, destination.prefecture ?? ""],
+      ),
+    );
+  })
+  .catch((error: unknown) => {
+    console.warn(
+      "[Meguruto Sync] destinations-meta chunk failed to load:",
+      error,
+    );
+  });
 
 function uniqueStrings(values: Iterable<unknown>): string[] {
   const result = new Set<string>();
