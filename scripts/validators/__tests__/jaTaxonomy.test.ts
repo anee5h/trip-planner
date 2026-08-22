@@ -286,8 +286,13 @@ describe("KAI-98 Japanese taxonomy coverage", () => {
   it("localizes the confirmed leak examples", () => {
     expect(localizePlaceLabel("Adventure", "ja")).toBe("アドベンチャー");
     expect(localizePlaceLabel("Castle", "ja")).toBe("城");
+    expect(localizePlaceLabel("Heritage", "ja")).toBe("遺産");
+    expect(
+      localizePlaceLabel("Historic Monuments of Ancient Kyoto", "ja"),
+    ).toBe("古都京都の文化財");
     expect(localizePlaceLabel("Park", "ja")).toBe("公園");
     expect(localizePlaceLabel("Museum", "ja")).toBe("博物館");
+    expect(localizePlaceLabel("Sake", "ja")).toBe("日本酒");
     expect(localizePlaceLabel("Crab", "ja")).toBe("カニ");
     expect(localizePlaceLabel("Green Tea", "ja")).toBe("緑茶");
     expect(localizePlaceLabel("Oysters", "ja")).toBe("牡蠣");

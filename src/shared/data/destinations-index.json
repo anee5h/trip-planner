@@ -45584,18 +45584,18 @@
     ],
     "relationships": {
       "featuredDestinationIds": [
-        "kyoto-historic",
-        "nijo-castle-kyoto",
+        "kiyomizu-dera",
+        "arashiyama-bamboo-togetsukyo",
+        "tenryu-ji-kyoto",
         "kinkaku-ji",
+        "nijo-castle-kyoto",
         "kyoto-railway-museum",
         "kyoto-international-manga-museum",
-        "philosopher-s-walk",
         "ginkaku-ji",
-        "nishiki-market",
-        "sanjusangen-do",
-        "nanzen-ji",
-        "yasaka-shrine",
-        "kennin-ji"
+        "kurama-dera-kyoto",
+        "sanzen-in-ohara",
+        "gekkeikan-okura-sake-museum",
+        "uzumasa-kyoto-village"
       ],
       "nearbyDestinationIds": [
         "osaka-city",
@@ -45639,7 +45639,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance major, 18 children, metro=true",
+            "title": "hub-window-model-v1; hub exploration window: importance major, 26 children, metro=true",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -45694,7 +45694,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance major, 18 children, metro=true"
+      "basis": "hub exploration window: importance major, 26 children, metro=true"
     },
     "comfortMetadata": {
       "method": "model",
@@ -45728,19 +45728,14 @@
   },
   {
     "id": "kyoto-historic",
-    "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-    "nameJa": "古都京都の文化財",
+    "name": "Historic Kyoto Cultural Heritage Area",
+    "nameJa": "古都京都の文化財（エリア案内）",
     "prefecture": "Kyoto",
     "region": "Kansai",
-    "coordinates": {
-      "lat": 34.9949,
-      "lng": 135.785
-    },
     "tags": [
       "UNESCO World Heritage",
-      "National Treasure",
-      "Golden Pavilion",
-      "Kiyomizu Stage"
+      "Historic Monuments of Ancient Kyoto",
+      "Kyoto City"
     ],
     "rating": 10,
     "ratings": {
@@ -45759,68 +45754,41 @@
       "uniqueness": 10
     },
     "categories": [
-      "culture",
-      "history",
-      "sightseeing"
+      "Culture",
+      "History",
+      "Heritage"
     ],
-    "budgetMin": 3000,
-    "budgetMax": 15000,
     "status": "published",
     "travelEstimate": {
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [],
-    "transportOptions": {
-      "shinkansen": 140,
-      "train": 170,
-      "car": 240
-    },
-    "budget": {
-      "low": 4000,
-      "mid": 8000,
-      "high": 18000
-    },
+    "transportOptions": {},
     "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-    "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
-    "notes": "Explore Kyoto's UNESCO-listed historic monuments, including Kiyomizu-dera, Kinkaku-ji, and other sites within the Historic Monuments of Ancient Kyoto property.",
-    "budgetRecommended": 9000,
-    "walkingMin": 150,
-    "indoorPercent": 20,
-    "totalTripHours": 4,
+    "description": "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.",
+    "notes": "This retained URL is a heritage-group compatibility page, not a single venue or a Kiyomizu-dera/Kinkaku-ji combined outing. Its old ID remains addressable for saved trips and bookmarks; it is excluded from search, explorer cards, and recommendation candidates.",
     "relationships": {
-      "parentDestinationId": "kyoto-city"
+      "featuredDestinationIds": [
+        "kiyomizu-dera",
+        "kinkaku-ji",
+        "nijo-castle-kyoto",
+        "ginkaku-ji",
+        "sanjusangen-do",
+        "nanzen-ji",
+        "yasaka-shrine"
+      ]
     },
     "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-    "budgetBreakdown": {
-      "transport": 3000,
-      "tickets": 2000,
-      "food": 2600,
-      "cafe": 1400
-    },
     "highlights": [
-      "Explore Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-      "Local Culture & Scenery"
+      "Distributed Historic Monuments of Ancient Kyoto heritage group",
+      "Standalone destination records for individual places",
+      "Kyoto-wide cultural context rather than one venue"
     ],
-    "weatherDependence": "moderate",
-    "comfort": {
-      "heatTolerance": 5,
-      "rainFriendly": 4,
-      "walkingIntensity": 8
-    },
-    "reservation": "None required",
-    "parking": "Available on site",
     "schemaVersion": 2,
-    "walkingIntensity": "high",
-    "role": "destination",
+    "role": "standalone",
     "placeType": "destination",
     "ratingsSchemaVersion": 2,
-    "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
-    },
-    "areaId": "higashiyama",
-    "officialWebsite": "https://kyoto-travel.kyoto/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "officialWebsite": "https://whc.unesco.org/en/list/688/",
     "editorial": {
       "rating": 4.8,
       "recommendedDurationMinutes": 90,
@@ -45829,54 +45797,115 @@
       "sources": [
         {
           "type": "official",
-          "url": "https://kyoto-travel.kyoto/",
-          "title": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-          "accessedAt": "2026-08-13"
+          "url": "https://whc.unesco.org/en/list/688/",
+          "title": "UNESCO Historic Monuments of Ancient Kyoto",
+          "accessedAt": "2026-08-22"
         }
       ],
-      "reviewedAt": "2026-08-03T00:00:00Z",
-      "checkedAt": "2026-08-03T00:00:00Z",
+      "reviewedAt": "2026-08-22",
+      "checkedAt": "2026-08-22",
       "freshness": "current",
       "fieldSources": {
-        "comfort": [
+        "name": [
           {
-            "type": "calculated",
-            "url": "catalogue-model://kai-89",
-            "title": "comfort-model-v1; derived from indoorPercent=20, kind='', walkingMin=150",
-            "accessedAt": "2026-08-14"
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
           }
         ],
-        "walkingMin": [
+        "nameJa": [
           {
-            "type": "calculated",
-            "url": "catalogue-model://kai-89",
-            "title": "walking-model-v1; template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
-            "accessedAt": "2026-08-14"
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "role": [
+          {
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "placeType": [
+          {
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendationEligible": [
+          {
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "content": [
+          {
+            "type": "official",
+            "url": "https://whc.unesco.org/en/list/688/",
+            "title": "UNESCO Historic Monuments of Ancient Kyoto",
+            "accessedAt": "2026-08-22"
           }
         ]
-      }
+      },
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Converted the legacy Kiyomizu-oriented record into a retained, non-recommendable Historic Kyoto heritage-group compatibility surface while adding standalone Kyoto destinations.",
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+          "method": "manual"
+        }
+      ]
     },
-    "notesJa": "【見どころ】古都京都の文化財は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
-    "parkingJa": "【駐車場】近隣に有料駐車場およびコインパーキングが完備されています。",
-    "openingHoursJa": "09:00 - 17:00 (最終入場 16:30)",
+    "notesJa": "この旧URLは世界遺産群の互換用エリア案内であり、清水寺・金閣寺を一つにまとめた単一の訪問先ではありません。保存した旅行やブックマークのためIDは維持しますが、検索・一覧・おすすめ候補からは除外しています。",
     "nearHubs": [
       "kyoto-city"
     ],
     "content": {
       "en": {
-        "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-        "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
-        "highlights": []
+        "name": "Historic Kyoto Cultural Heritage Area",
+        "description": "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.",
+        "highlights": [
+          "Distributed Historic Monuments of Ancient Kyoto heritage group",
+          "Standalone destination records for individual places",
+          "Kyoto-wide cultural context rather than one venue"
+        ],
+        "notes": "This retained URL is a heritage-group compatibility page, not a single venue or a Kiyomizu-dera/Kinkaku-ji combined outing. Its old ID remains addressable for saved trips and bookmarks; it is excluded from search, explorer cards, and recommendation candidates."
       },
       "ja": {
-        "name": "古都京都の文化財",
-        "description": "京都市・宇治市・大津市に点在する17の社寺・城郭からなる世界文化遺産群。清水寺、金閣寺、二条城、延暦寺など、日本の伝統建築と庭園文化の至高の傑作が集結しています。",
+        "name": "古都京都の文化財（エリア案内）",
+        "description": "京都市などに点在する「古都京都の文化財」世界遺産群のエリア案内です。個々の寺院・城郭などは、重複しない各スタンドアロンの目的地ページをご覧ください。",
         "highlights": [
-          "清水寺の舞台",
-          "金閣寺（鹿苑寺）の金箔建築",
-          "二条城二の丸御殿"
-        ]
+          "点在する「古都京都の文化財」世界遺産群",
+          "各文化財の個別目的地ページ",
+          "一つの施設ではなく京都の文化的背景を示すエリア案内"
+        ],
+        "notes": "この旧URLは世界遺産群の互換用エリア案内であり、清水寺・金閣寺を一つにまとめた単一の訪問先ではありません。保存した旅行やブックマークのためIDは維持しますが、検索・一覧・おすすめ候補からは除外しています。"
       }
     },
     "municipalityId": "Kyoto:kyoto",
@@ -45890,13 +45919,7 @@
       "method": "unknown",
       "modelVersion": "season-model-v1",
       "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
-    },
-    "comfortMetadata": {
-      "method": "model",
-      "modelVersion": "comfort-model-v1",
-      "confidence": "low",
-      "basis": "derived from indoorPercent=20, kind='', walkingMin=150"
+      "basis": "A distributed heritage group has no single defensible season score; individual destination records carry season evidence where available."
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -45906,16 +45929,45 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 8,
+      "value": 8.3,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.6,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    }
+    },
+    "kind": "district",
+    "importance": "major",
+    "recommendationEligible": false,
+    "transportZoneId": "unknown",
+    "localAccessModes": [],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "The heritage group spans distributed sites and has no single origin-aware route or venue endpoint; individual destination records carry their own transport behavior."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "A group page has no single admission, food, or access cost; individual destination records carry their own costs where known."
+    },
+    "durationMetadata": {
+      "method": "unknown",
+      "modelVersion": "duration-model-v1",
+      "confidence": "unknown",
+      "basis": "A group page has no single visit duration; individual destination records carry their own conservative visit windows."
+    },
+    "walkingMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "The group spans non-contiguous sites; no single on-site walking estimate is applicable."
+    },
+    "officialWebsiteRequirement": "recommended"
   },
   {
     "id": "kyoto-imperial-palace",
@@ -191997,5 +192049,2629 @@
       ]
     },
     "addedAt": "2026-08-22"
+  },
+  {
+    "id": "kiyomizu-dera",
+    "officialWebsite": "https://www.kiyomizudera.or.jp/en/location/",
+    "officialWebsiteRequirement": "required",
+    "name": "Kiyomizu-dera Temple",
+    "nameJa": "清水寺",
+    "aliases": [
+      "Kiyomizu-dera",
+      "Kiyomizudera"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "areaId": "higashiyama",
+    "coordinates": {
+      "lat": 34.994856,
+      "lng": 135.78505
+    },
+    "location": {
+      "address": "1-294 Kiyomizu, Higashiyama-ku, Kyoto-shi, Kyoto 605-0862",
+      "latitude": 34.994856,
+      "longitude": 135.78505
+    },
+    "categories": [
+      "Temple",
+      "History",
+      "Culture",
+      "Sightseeing"
+    ],
+    "tags": [
+      "Temple",
+      "History",
+      "Culture",
+      "Photography",
+      "Kyoto City"
+    ],
+    "description": "A historic temple complex in eastern Kyoto known for its wooden Main Hall stage, hillside views, and Otowa waterfall.",
+    "highlights": [
+      "Kiyomizu-dera's wooden Main Hall stage",
+      "Otowa waterfall and the temple hillside",
+      "A core Higashiyama cultural outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Kiyomizu-dera Temple",
+        "description": "A historic temple complex in eastern Kyoto known for its wooden Main Hall stage, hillside views, and Otowa waterfall.",
+        "highlights": [
+          "Kiyomizu-dera's wooden Main Hall stage",
+          "Otowa waterfall and the temple hillside",
+          "A core Higashiyama cultural outing"
+        ],
+        "notes": "The official approach guidance matters: some map-app routes do not reach the temple grounds correctly. No on-site parking is asserted here.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "清水寺",
+        "description": "京都東山の山腹に建つ歴史ある寺院。清水の舞台、境内からの眺望、音羽の滝で知られます。",
+        "highlights": [
+          "清水の舞台",
+          "音羽の滝",
+          "東山を代表する文化散策"
+        ],
+        "notes": "公式案内が示す正しい参道をご確認ください。地図アプリによっては境内へ正しく到達できない経路が表示されます。境内駐車場は案内していません。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg/1280px-Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Martin Falbisoner, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "train"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The official approach guidance matters: some map-app routes do not reach the temple grounds correctly. No on-site parking is asserted here.",
+    "notesJa": "公式案内が示す正しい参道をご確認ください。地図アプリによっては境内へ正しく到達できない経路が表示されます。境内駐車場は案内していません。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city",
+      "nearbyDestinationIds": [
+        "yasaka-shrine",
+        "sanjusangen-do"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kiyomizudera.or.jp/en/location/",
+          "title": "Kiyomizu-dera official location and access",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kiyomizudera.or.jp/en/visit/",
+          "title": "Kiyomizu-dera official grounds and visitor guidance",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/areas/gion-kiyomizu/",
+          "title": "Kyoto Travel Gion and Kiyomizu area",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.kiyomizudera.or.jp/en/location/",
+            "title": "Kiyomizu-dera official location and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "arashiyama-bamboo-togetsukyo",
+    "officialWebsite": "https://kyoto.travel/en/areas/saga-arashiyama/",
+    "officialWebsiteRequirement": "recommended",
+    "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+    "nameJa": "嵐山竹林・渡月橋",
+    "aliases": [
+      "Arashiyama Bamboo Grove",
+      "Togetsukyo Bridge",
+      "渡月橋"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "nature",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "areaId": "arashiyama",
+    "coordinates": {
+      "lat": 35.0128769,
+      "lng": 135.6777748
+    },
+    "location": {
+      "address": "Saga-Arashiyama, Ukyo-ku, Kyoto; Togetsukyo Bridge area",
+      "latitude": 35.0128769,
+      "longitude": 135.6777748
+    },
+    "categories": [
+      "Nature",
+      "Scenery",
+      "Outdoors",
+      "Landmark"
+    ],
+    "tags": [
+      "Nature",
+      "Scenery",
+      "Outdoors",
+      "Photography",
+      "Kyoto City"
+    ],
+    "description": "A western Kyoto landscape outing combining the Arashiyama bamboo grove, the Katsura River setting, and the Togetsukyo Bridge area.",
+    "highlights": [
+      "Arashiyama bamboo grove landscape",
+      "Togetsukyo Bridge and the Katsura River setting",
+      "A public landscape outing reached by several rail corridors"
+    ],
+    "content": {
+      "en": {
+        "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+        "description": "A western Kyoto landscape outing combining the Arashiyama bamboo grove, the Katsura River setting, and the Togetsukyo Bridge area.",
+        "highlights": [
+          "Arashiyama bamboo grove landscape",
+          "Togetsukyo Bridge and the Katsura River setting",
+          "A public landscape outing reached by several rail corridors"
+        ],
+        "notes": "The coordinate is the official Togetsukyo map anchor and is not a claim that the entire bamboo grove shares one point. Tenryu-ji is modeled separately as the independently visitable temple sibling.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "嵐山竹林・渡月橋",
+        "description": "嵐山の竹林と桂川、渡月橋周辺を一つの景観散策として楽しむ京都西部の代表的なアウトドア行き先です。",
+        "highlights": [
+          "嵐山の竹林",
+          "桂川と渡月橋の景観",
+          "複数の鉄道で訪ねられる景観散策"
+        ],
+        "notes": "座標は公式地図に示された渡月橋の基準点で、竹林全体の一点を示すものではありません。独立して拝観できる天龍寺は別の行き先として掲載しています。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Arashiyama_Bamboo_Grove.jpg/1280px-Arashiyama_Bamboo_Grove.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Mitchwandrew, CC BY 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Arashiyama_Bamboo_Grove.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'nature'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The coordinate is the official Togetsukyo map anchor and is not a claim that the entire bamboo grove shares one point. Tenryu-ji is modeled separately as the independently visitable temple sibling.",
+    "notesJa": "座標は公式地図に示された渡月橋の基準点で、竹林全体の一点を示すものではありません。独立して拝観できる天龍寺は別の行き先として掲載しています。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+          "title": "Kyoto Travel Saga and Arashiyama area",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/getting-around/comfortable-access-to-saga-arashiyama/",
+          "title": "Kyoto Travel Saga and Arashiyama access",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/destinations/togetsukyo-bridge/",
+          "title": "Kyoto Travel Togetsukyo Bridge map and destination page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama area",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama area",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama area",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama area",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/getting-around/comfortable-access-to-saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama area",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama area",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://kyoto.travel/en/getting-around/comfortable-access-to-saga-arashiyama/",
+            "title": "Kyoto Travel Saga and Arashiyama access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'nature'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 6h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 290,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 6h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "tenryu-ji-kyoto",
+    "officialWebsite": "https://www.tenryuji.com/en/visit/index.html",
+    "officialWebsiteRequirement": "required",
+    "name": "Tenryu-ji Temple",
+    "nameJa": "天龍寺",
+    "aliases": [
+      "Tenryu-ji",
+      "天龍寺"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "areaId": "arashiyama",
+    "coordinates": {
+      "lat": 35.015859,
+      "lng": 135.673685
+    },
+    "location": {
+      "address": "68 Susukinobaba-cho, Saga-Tenryuji, Ukyo-ku, Kyoto 616-8385",
+      "latitude": 35.015859,
+      "longitude": 135.673685
+    },
+    "categories": [
+      "Temple",
+      "History",
+      "Garden",
+      "Culture"
+    ],
+    "tags": [
+      "Temple",
+      "Garden",
+      "History",
+      "Culture",
+      "Kyoto City"
+    ],
+    "description": "A major Rinzai Zen temple in Arashiyama with a historic garden, temple buildings, and a separately visitable cultural complex.",
+    "highlights": [
+      "Sogenchi garden",
+      "Historic temple buildings",
+      "A cultural sibling to the Arashiyama landscape outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Tenryu-ji Temple",
+        "description": "A major Rinzai Zen temple in Arashiyama with a historic garden, temple buildings, and a separately visitable cultural complex.",
+        "highlights": [
+          "Sogenchi garden",
+          "Historic temple buildings",
+          "A cultural sibling to the Arashiyama landscape outing"
+        ],
+        "notes": "Buildings may close without notice and the operator does not accept parking reservations. The garden, buildings, and dragon painting remain one temple record.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "天龍寺",
+        "description": "嵐山を代表する臨済宗の禅寺。史跡・名勝の庭園と諸堂を備えた、独立して拝観できる文化施設です。",
+        "highlights": [
+          "曹源池庭園",
+          "歴史ある諸堂",
+          "嵐山景観散策と組み合わせやすい文化行き先"
+        ],
+        "notes": "諸堂は予告なく閉鎖される場合があり、駐車場の予約は受け付けていません。庭園・諸堂・雲龍図は一つの寺院記録として扱います。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Tenryu-ji_Temple_in_Kyoto.jpg/1280px-Tenryu-ji_Temple_in_Kyoto.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "TarnishedPath, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenryu-ji_Temple_in_Kyoto.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "Buildings may close without notice and the operator does not accept parking reservations. The garden, buildings, and dragon painting remain one temple record.",
+    "notesJa": "諸堂は予告なく閉鎖される場合があり、駐車場の予約は受け付けていません。庭園・諸堂・雲龍図は一つの寺院記録として扱います。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.tenryuji.com/en/visit/index.html",
+          "title": "Tenryu-ji official admission and access",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/areas/saga-arashiyama/",
+          "title": "Kyoto Travel Saga and Arashiyama area",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.tenryuji.com/en/visit/index.html",
+            "title": "Tenryu-ji official admission and access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "uzumasa-kyoto-village",
+    "officialWebsite": "https://en.eigamura.com/",
+    "officialWebsiteRequirement": "required",
+    "name": "UZUMASA KYOTO VILLAGE",
+    "nameJa": "太秦映画村",
+    "aliases": [
+      "Toei Kyoto Studio Park",
+      "Toei Uzumasa Eigamura",
+      "東映太秦映画村"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "theme_park",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "areaId": "arashiyama",
+    "coordinates": {
+      "lat": 35.016452,
+      "lng": 135.708023
+    },
+    "location": {
+      "address": "10 Higashi Hachiokacho, Uzumasa, Ukyo-ku, Kyoto",
+      "latitude": 35.016452,
+      "longitude": 135.708023
+    },
+    "categories": [
+      "Theme Park",
+      "Family",
+      "Entertainment",
+      "Culture"
+    ],
+    "tags": [
+      "Theme Park",
+      "Family",
+      "Entertainment",
+      "Culture",
+      "Kyoto City"
+    ],
+    "description": "A film-themed Kyoto attraction with Edo-period sets, live entertainment, and hands-on historical-film experiences under the current UZUMASA KYOTO VILLAGE brand.",
+    "highlights": [
+      "Edo-period film and television sets",
+      "Family-friendly live experiences",
+      "The current UZUMASA KYOTO VILLAGE renewal"
+    ],
+    "content": {
+      "en": {
+        "name": "UZUMASA KYOTO VILLAGE",
+        "description": "A film-themed Kyoto attraction with Edo-period sets, live entertainment, and hands-on historical-film experiences under the current UZUMASA KYOTO VILLAGE brand.",
+        "highlights": [
+          "Edo-period film and television sets",
+          "Family-friendly live experiences",
+          "The current UZUMASA KYOTO VILLAGE renewal"
+        ],
+        "notes": "The operator publishes different 2–3 hour, half-day, and full-day planning choices; no single visit duration is asserted here. Rides, sets, shows, and temporary events remain components of one park record.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "太秦映画村",
+        "description": "現在のUZUMASA KYOTO VILLAGEブランドで運営される映画・時代劇テーマパーク。江戸の町並みセットやショー、体験型の展示を楽しめます。",
+        "highlights": [
+          "時代劇の町並みセット",
+          "家族で楽しめる体験・ショー",
+          "UZUMASA KYOTO VILLAGEの新しい運営ブランド"
+        ],
+        "notes": "公式案内には2〜3時間・半日・1日など複数の過ごし方が示されるため、単一の滞在時間は掲載していません。アトラクション、セット、ショー、期間イベントは一つのパーク記録に含めます。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg/1280px-Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "Bykim2012, CC0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'theme_park'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The operator publishes different 2–3 hour, half-day, and full-day planning choices; no single visit duration is asserted here. Rides, sets, shows, and temporary events remain components of one park record.",
+    "notesJa": "公式案内には2〜3時間・半日・1日など複数の過ごし方が示されるため、単一の滞在時間は掲載していません。アトラクション、セット、ショー、期間イベントは一つのパーク記録に含めます。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official English site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://en.eigamura.com/access/",
+          "title": "UZUMASA KYOTO VILLAGE official access",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://eigamura.com/",
+          "title": "UZUMASA KYOTO VILLAGE official Japanese site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://global.toei-eigamura.com/",
+          "title": "Toei Kyoto Studio Park renewal information",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/",
+            "title": "UZUMASA KYOTO VILLAGE official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/",
+            "title": "UZUMASA KYOTO VILLAGE official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/",
+            "title": "UZUMASA KYOTO VILLAGE official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/",
+            "title": "UZUMASA KYOTO VILLAGE official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/access/",
+            "title": "UZUMASA KYOTO VILLAGE official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/",
+            "title": "UZUMASA KYOTO VILLAGE official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/",
+            "title": "UZUMASA KYOTO VILLAGE official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://en.eigamura.com/access/",
+            "title": "UZUMASA KYOTO VILLAGE official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'theme_park'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 8h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 240,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 8h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kurama-dera-kyoto",
+    "officialWebsite": "https://www.kuramadera.or.jp/access.html",
+    "officialWebsiteRequirement": "required",
+    "name": "Kurama-dera Temple",
+    "nameJa": "鞍馬寺",
+    "aliases": [
+      "Kurama-dera",
+      "Kuramadera"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "areaId": "northern-kyoto",
+    "coordinates": {
+      "lat": 35.1181404,
+      "lng": 135.7708892
+    },
+    "location": {
+      "address": "1074 Kurama Honmachi, Sakyo-ku, Kyoto 601-1111",
+      "latitude": 35.1181404,
+      "longitude": 135.7708892
+    },
+    "categories": [
+      "Temple",
+      "Mountain",
+      "Hiking",
+      "Nature"
+    ],
+    "tags": [
+      "Temple",
+      "Mountain",
+      "Hiking",
+      "Nature",
+      "Kyoto City"
+    ],
+    "description": "A mountain temple reached through Kurama's forested approach, with a cable option and a documented hiking connection toward Kibune.",
+    "highlights": [
+      "Mountain temple approach",
+      "Optional Kurama cable route",
+      "Hiking connection toward Kibune"
+    ],
+    "content": {
+      "en": {
+        "name": "Kurama-dera Temple",
+        "description": "A mountain temple reached through Kurama's forested approach, with a cable option and a documented hiking connection toward Kibune.",
+        "highlights": [
+          "Mountain temple approach",
+          "Optional Kurama cable route",
+          "Hiking connection toward Kibune"
+        ],
+        "notes": "The main hall, Niomon, cable, Mao-den, and trail are one Kurama-dera outing. The operator advises checking temporary suspensions; no own parking is asserted.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "鞍馬寺",
+        "description": "鞍馬の森に囲まれた山寺。ケーブルを利用する参道と、貴船へ続く山道の起点として知られます。",
+        "highlights": [
+          "山中の寺院参道",
+          "利用を選べる鞍馬ケーブル",
+          "貴船へ続く山道"
+        ],
+        "notes": "本殿金堂、仁王門、ケーブル、魔王殿、山道は一つの鞍馬寺行き先として扱います。運休等の臨時変更は公式案内をご確認ください。専用駐車場は掲載していません。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Kurama-dera_sanmon.jpg/1280px-Kurama-dera_sanmon.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "KENPEI, CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kurama-dera_sanmon.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The main hall, Niomon, cable, Mao-den, and trail are one Kurama-dera outing. The operator advises checking temporary suspensions; no own parking is asserted.",
+    "notesJa": "本殿金堂、仁王門、ケーブル、魔王殿、山道は一つの鞍馬寺行き先として扱います。運休等の臨時変更は公式案内をご確認ください。専用駐車場は掲載していません。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.kuramadera.or.jp/access.html",
+          "title": "Kurama-dera official access",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kuramadera.or.jp/",
+          "title": "Kurama-dera official site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/destinations/kuramadera-temple/",
+          "title": "Kyoto Travel Kurama-dera official tourism map anchor",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/areas/kurama-kibune/",
+          "title": "Kyoto Travel Kurama and Kibune area",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.kuramadera.or.jp/access.html",
+            "title": "Kurama-dera official access",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kifune-jinja-kyoto",
+    "officialWebsite": "https://kifunejinja.jp/en/contact/",
+    "officialWebsiteRequirement": "required",
+    "name": "Kifune-jinja Shrine",
+    "nameJa": "貴船神社",
+    "aliases": [
+      "Kibune",
+      "Kibune-jinja",
+      "貴船",
+      "貴船神社"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "shrine",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "areaId": "northern-kyoto",
+    "coordinates": {
+      "lat": 35.1220909,
+      "lng": 135.7629101
+    },
+    "location": {
+      "address": "180 Kurama Kibunecho, Sakyo-ku, Kyoto 601-1112",
+      "latitude": 35.1220909,
+      "longitude": 135.7629101
+    },
+    "categories": [
+      "Shrine",
+      "Culture",
+      "Nature",
+      "Walking"
+    ],
+    "tags": [
+      "Shrine",
+      "Nature",
+      "Culture",
+      "Walking",
+      "Kyoto City"
+    ],
+    "description": "A mountain shrine complex in the Kibune valley with a lantern-lined approach, water-luck tradition, and three related shrine sites.",
+    "highlights": [
+      "Lantern-lined shrine approach",
+      "Water-related shrine tradition",
+      "Kibune valley mountain setting"
+    ],
+    "content": {
+      "en": {
+        "name": "Kifune-jinja Shrine",
+        "description": "A mountain shrine complex in the Kibune valley with a lantern-lined approach, water-luck tradition, and three related shrine sites.",
+        "highlights": [
+          "Lantern-lined shrine approach",
+          "Water-related shrine tradition",
+          "Kibune valley mountain setting"
+        ],
+        "notes": "The three shrine sites, stone-lantern approach, river platforms, and nearby restaurants remain one Kifune-jinja record. Parking is limited and public transport is recommended.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "貴船神社",
+        "description": "貴船の谷間に鎮座する山の神社。灯籠が並ぶ参道、水にまつわる信仰、三つの社を含む境内で知られます。",
+        "highlights": [
+          "灯籠が並ぶ参道",
+          "水にまつわる信仰",
+          "貴船の谷の山間景観"
+        ],
+        "notes": "本宮・結社・奥宮、灯籠参道、川床、周辺飲食店は一つの貴船神社記録に含めます。駐車台数が限られるため公共交通機関が推奨されています。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Torii_and_Omoigawa_Bridge%2C_Kifune_Shrine_2022-08-27.jpg/1280px-Torii_and_Omoigawa_Bridge%2C_Kifune_Shrine_2022-08-27.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "inunami, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Torii_and_Omoigawa_Bridge,_Kifune_Shrine_2022-08-27.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'shrine'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The three shrine sites, stone-lantern approach, river platforms, and nearby restaurants remain one Kifune-jinja record. Parking is limited and public transport is recommended.",
+    "notesJa": "本宮・結社・奥宮、灯籠参道、川床、周辺飲食店は一つの貴船神社記録に含めます。駐車台数が限られるため公共交通機関が推奨されています。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://kifunejinja.jp/en/contact/",
+          "title": "Kifune Shrine official contact and FAQ",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/destinations/kifunejinja-shrine/",
+          "title": "Kyoto Travel Kifune-jinja Shrine",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/areas/kurama-kibune/",
+          "title": "Kyoto Travel Kurama and Kibune area",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://kifunejinja.jp/en/contact/",
+            "title": "Kifune Shrine official contact and FAQ",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'shrine'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "sanzen-in-ohara",
+    "officialWebsite": "https://www.sanzenin.or.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "name": "Sanzen-in Temple",
+    "nameJa": "三千院",
+    "aliases": [
+      "Sanzen-in",
+      "三千院門跡"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "areaId": "northern-kyoto",
+    "coordinates": {
+      "lat": 35.119355680329086,
+      "lng": 135.83215231524355
+    },
+    "location": {
+      "address": "540 Raigoin-cho, Ohara, Sakyo-ku, Kyoto 601-1242",
+      "latitude": 35.119355680329086,
+      "longitude": 135.83215231524355
+    },
+    "categories": [
+      "Temple",
+      "Garden",
+      "Nature",
+      "Culture"
+    ],
+    "tags": [
+      "Temple",
+      "Garden",
+      "Nature",
+      "Culture",
+      "Kyoto City"
+    ],
+    "description": "A temple-and-garden destination in rural Ohara, known for mossy grounds, seasonal scenery, and a quiet northern Kyoto setting.",
+    "highlights": [
+      "Mossy temple gardens",
+      "Rural Ohara setting",
+      "A distinct northern-rural Kyoto outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Sanzen-in Temple",
+        "description": "A temple-and-garden destination in rural Ohara, known for mossy grounds, seasonal scenery, and a quiet northern Kyoto setting.",
+        "highlights": [
+          "Mossy temple gardens",
+          "Rural Ohara setting",
+          "A distinct northern-rural Kyoto outing"
+        ],
+        "notes": "Sanzen-in is a child of Kyoto City for municipal containment, not of a generic Ohara destination. Ohara remains area context rather than an aggregate card.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "三千院",
+        "description": "京都北部の大原にある寺院・庭園。苔むした境内、四季の景観、山里の静かな環境を楽しめます。",
+        "highlights": [
+          "苔の庭園",
+          "大原の山里の景観",
+          "北部・郊外の京都散策"
+        ],
+        "notes": "三千院は自治体上の京都市の子行き先として扱い、汎用的な大原カードの子にはしていません。大原はエリア文脈として扱います。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fall_foliage_in_Sanzen-in.jpg/1280px-Fall_foliage_in_Sanzen-in.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Charlie fong, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fall_foliage_in_Sanzen-in.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "train"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "Sanzen-in is a child of Kyoto City for municipal containment, not of a generic Ohara destination. Ohara remains area context rather than an aggregate card.",
+    "notesJa": "三千院は自治体上の京都市の子行き先として扱い、汎用的な大原カードの子にはしていません。大原はエリア文脈として扱います。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sanzenin.or.jp/en/",
+          "title": "Sanzen-in official visitor information",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/areas/ohara/",
+          "title": "Kyoto Travel Ohara area",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.sanzenin.or.jp/en/",
+            "title": "Sanzen-in official visitor information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "jakko-in-ohara",
+    "officialWebsite": "https://www.jakkoin.jp/haikan/",
+    "officialWebsiteRequirement": "required",
+    "name": "Jakko-in Temple",
+    "nameJa": "寂光院",
+    "aliases": [
+      "Jakko-in",
+      "Jakkoji",
+      "寂光院"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "areaId": "northern-kyoto",
+    "coordinates": {
+      "lat": 35.1241,
+      "lng": 135.821045
+    },
+    "location": {
+      "address": "676 Ohara Kusao-cho, Sakyo-ku, Kyoto 601-1248",
+      "latitude": 35.1241,
+      "longitude": 135.821045
+    },
+    "categories": [
+      "Temple",
+      "History",
+      "Garden",
+      "Culture"
+    ],
+    "tags": [
+      "Temple",
+      "Garden",
+      "History",
+      "Culture",
+      "Kyoto City"
+    ],
+    "description": "A historic temple in rural Ohara with a garden, steep approach, and a quieter northern Kyoto cultural setting.",
+    "highlights": [
+      "Historic Ohara temple",
+      "Garden and steep approach",
+      "A sibling to Sanzen-in rather than a generic Ohara aggregate"
+    ],
+    "content": {
+      "en": {
+        "name": "Jakko-in Temple",
+        "description": "A historic temple in rural Ohara with a garden, steep approach, and a quieter northern Kyoto cultural setting.",
+        "highlights": [
+          "Historic Ohara temple",
+          "Garden and steep approach",
+          "A sibling to Sanzen-in rather than a generic Ohara aggregate"
+        ],
+        "notes": "Temporary closures and visitor hours should be rechecked before a trip. The temple, garden, gallery, and approach remain one canonical record.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "寂光院",
+        "description": "大原の山里にある歴史ある寺院。庭園と階段のある参道、静かな北部京都の文化景観を楽しめます。",
+        "highlights": [
+          "大原の歴史ある寺院",
+          "庭園と階段の参道",
+          "三千院と並ぶ個別の大原行き先"
+        ],
+        "notes": "臨時休観や拝観時間は訪問前に再確認してください。寺院・庭園・ギャラリー・参道は一つの記録として扱います。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jakko-Ji_Sadamitsuji_%28Sakyo-ku_Kyoto%29_hdsr_Sh%C5%8Dr%C5%8D_S5_01.jpg/1280px-Jakko-Ji_Sadamitsuji_%28Sakyo-ku_Kyoto%29_hdsr_Sh%C5%8Dr%C5%8D_S5_01.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Hyppolyte de Saint-Rambert, CC BY 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Jakko-Ji_Sadamitsuji_(Sakyo-ku_Kyoto)_hdsr_Sh%C5%8Dr%C5%8D_S5_01.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "train"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'temple'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "Temporary closures and visitor hours should be rechecked before a trip. The temple, garden, gallery, and approach remain one canonical record.",
+    "notesJa": "臨時休観や拝観時間は訪問前に再確認してください。寺院・庭園・ギャラリー・参道は一つの記録として扱います。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.jakkoin.jp/haikan/",
+          "title": "Jakko-in official visiting information",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kyoto.travel/en/destinations/jakkoin-temple/",
+          "title": "Kyoto Travel Jakko-in Temple",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://www.japan.travel/en/spot/1119/",
+          "title": "JNTO Jakko-in information",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.jakkoin.jp/haikan/",
+            "title": "Jakko-in official visiting information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'temple'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "gekkeikan-okura-sake-museum",
+    "officialWebsite": "https://www.gekkeikan.com/museum",
+    "officialWebsiteRequirement": "required",
+    "name": "Gekkeikan Okura Sake Museum",
+    "nameJa": "月桂冠大倉記念館",
+    "aliases": [
+      "Gekkeikan Okura Memorial Museum",
+      "月桂冠大倉記念館"
+    ],
+    "municipalityId": "Kyoto:kyoto",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "areaId": "fushimi",
+    "coordinates": {
+      "lat": 34.933582,
+      "lng": 135.766039
+    },
+    "location": {
+      "address": "247 Minamihama-cho, Fushimi-ku, Kyoto 612-8660",
+      "latitude": 34.933582,
+      "longitude": 135.766039
+    },
+    "categories": [
+      "Museum",
+      "Food",
+      "Sake",
+      "Culture",
+      "Indoor"
+    ],
+    "tags": [
+      "Museum",
+      "Sake",
+      "Food",
+      "Culture",
+      "Indoor",
+      "Kyoto City"
+    ],
+    "description": "A Fushimi museum documenting Gekkeikan's sake history, brewing culture, tools, and the local water-and-sake tradition.",
+    "highlights": [
+      "Fushimi sake history",
+      "Traditional brewing tools and exhibits",
+      "A compact indoor sibling to the wider Fushimi sake district"
+    ],
+    "content": {
+      "en": {
+        "name": "Gekkeikan Okura Sake Museum",
+        "description": "A Fushimi museum documenting Gekkeikan's sake history, brewing culture, tools, and the local water-and-sake tradition.",
+        "highlights": [
+          "Fushimi sake history",
+          "Traditional brewing tools and exhibits",
+          "A compact indoor sibling to the wider Fushimi sake district"
+        ],
+        "notes": "The operator currently recommends online reservation and describes a roughly 40–60 minute visit. Capacity, payment, tasting, and group rules can change; check the current visitor page.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "月桂冠大倉記念館",
+        "description": "伏見の酒造りの歴史、道具、仕込み文化、名水と酒の関わりを紹介する月桂冠の博物館です。",
+        "highlights": [
+          "伏見の酒造りの歴史",
+          "伝統的な酒造道具と展示",
+          "伏見酒どころ散策と組み合わせやすい屋内博物館"
+        ],
+        "notes": "公式案内ではオンライン予約が推奨され、所要時間は約40〜60分とされています。定員、支払、試飲、団体条件は変更される場合があります。",
+        "reservation": "予約・拝観条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "拝観時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Gekkeikan_Okura_Sake_Museum01nt3200.jpg/1280px-Gekkeikan_Okura_Sake_Museum01nt3200.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gekkeikan_Okura_Sake_Museum01nt3200.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unknown",
+      "confidence": "unknown",
+      "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+    },
+    "recommendedVisitHours": {
+      "min": 0.7,
+      "max": 1
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Official visitor information states an approximate 40–60 minute visit; converted to hours without adding travel time."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The operator currently recommends online reservation and describes a roughly 40–60 minute visit. Capacity, payment, tasting, and group rules can change; check the current visitor page.",
+    "notesJa": "公式案内ではオンライン予約が推奨され、所要時間は約40〜60分とされています。定員、支払、試飲、団体条件は変更される場合があります。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Kyoto City depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gekkeikan.com/museum",
+          "title": "Gekkeikan Okura Sake Museum official site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.gekkeikan.co.jp/enjoy/museum/access/",
+          "title": "Gekkeikan official visitor and access information",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.gekkeikan.com/museum/fushimi/",
+          "title": "Gekkeikan official Fushimi sake walk",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.com/museum",
+            "title": "Gekkeikan Okura Sake Museum official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.com/museum",
+            "title": "Gekkeikan Okura Sake Museum official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.com/museum",
+            "title": "Gekkeikan Okura Sake Museum official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.com/museum",
+            "title": "Gekkeikan Okura Sake Museum official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.co.jp/enjoy/museum/access/",
+            "title": "Gekkeikan official visitor and access information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.com/museum",
+            "title": "Gekkeikan Okura Sake Museum official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.com/museum",
+            "title": "Gekkeikan Okura Sake Museum official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.gekkeikan.co.jp/enjoy/museum/access/",
+            "title": "Gekkeikan official visitor and access information",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 1h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Kyoto City destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 30,
+    "walkingIntensity": "low",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 1h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   }
 ]

@@ -450,9 +450,11 @@ export default function Destinations() {
       allDestinations,
     );
     let weekendConsolidation: WeekendAreaConsolidation | null = null;
-    let result = allDestinations.map((destination) =>
-      buildRecommendationCandidate(destination, catalogContext),
-    );
+    let result = allDestinations
+      .filter((destination) => destination.recommendationEligible !== false)
+      .map((destination) =>
+        buildRecommendationCandidate(destination, catalogContext),
+      );
 
     // 0. Filter by Curated Collections (OR Semantics)
     if (selectedCollections.length > 0) {

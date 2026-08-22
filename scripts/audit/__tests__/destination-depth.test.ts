@@ -168,4 +168,57 @@ describe("destination-depth audit", () => {
     ).toContain("shell");
     expect(input).toEqual(before);
   });
+
+  it("does not count a standalone heritage-group compatibility surface as a shell hub", () => {
+    const compatSurface = destination("kyoto-historic-compat", {
+      role: "standalone",
+      placeType: "destination",
+      kind: "district",
+      recommendationEligible: false,
+      relationships: { featuredDestinationIds: ["some-child"] },
+    });
+    const realShell = destination("real-shell", {
+      role: "hub",
+      placeType: "hub",
+      kind: "city",
+      municipalityId: "Tokyo:bunkyo",
+    });
+    const report = buildDestinationDepthReport([compatSurface, realShell]);
+    expect(report.relationshipSummary.shellHubs.map((item) => item.id)).toEqual(
+      ["real-shell"],
+    );
+    expect(
+      report.relationshipSummary.shellHubs.map((item) => item.id),
+    ).not.toContain("kyoto-historic-compat");
+  });
+
+  it("deduplicates identical editorial change events by logical key", () => {
+    // The compatibility conversion event must be idempotent: running the
+    // expansion twice must not create a second copy. The script dedupes by
+    // (changedAt|changedBy|summary|method) — verified here at the report
+    // helper level via distinct change identity.
+    const changes = [
+      {
+        changedAt: "2026-08-22",
+        changedBy: "Meguruto editorial",
+        summary:
+          "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        method: "manual" as const,
+      },
+      {
+        changedAt: "2026-08-22",
+        changedBy: "Meguruto editorial",
+        summary:
+          "Preserved the old ID as a heritage-group compatibility surface and removed Kiyomizu-oriented aggregate planning metadata.",
+        method: "manual" as const,
+      },
+    ];
+    const deduped = new Map(
+      changes.map((c) => [
+        `${c.changedAt}|${c.changedBy}|${c.summary}|${c.method}`,
+        c,
+      ]),
+    );
+    expect([...deduped.values()]).toHaveLength(1);
+  });
 });

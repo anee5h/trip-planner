@@ -49,6 +49,7 @@
     "audit:major-city-coverage": "tsx scripts/audit-major-city-coverage.ts",
     "audit:destination-depth": "tsx scripts/audit-destination-depth.ts",
     "expand:kai-162-okinawa": "tsx scripts/kai-162-okinawa-expansion.ts",
+    "expand:kai-145-kyoto": "tsx scripts/kai-145-kyoto-city-expansion.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",
     "audit:kai-89-structured-templates": "tsx scripts/audit-kai-89-structured-templates.ts",

@@ -22,6 +22,7 @@ export const CLIENT_INDEX_FIELDS = [
   "role",
   "importance",
   "placeType",
+  "recommendationEligible",
   "municipalityId",
   "areaId",
   "aliases",

@@ -21117,18 +21117,18 @@
     "businessHours": "Open access",
     "relationships": {
       "featuredDestinationIds": [
-        "kyoto-historic",
-        "nijo-castle-kyoto",
+        "kiyomizu-dera",
+        "arashiyama-bamboo-togetsukyo",
+        "tenryu-ji-kyoto",
         "kinkaku-ji",
+        "nijo-castle-kyoto",
         "kyoto-railway-museum",
         "kyoto-international-manga-museum",
-        "philosopher-s-walk",
         "ginkaku-ji",
-        "nishiki-market",
-        "sanjusangen-do",
-        "nanzen-ji",
-        "yasaka-shrine",
-        "kennin-ji"
+        "kurama-dera-kyoto",
+        "sanzen-in-ohara",
+        "gekkeikan-okura-sake-museum",
+        "uzumasa-kyoto-village"
       ],
       "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["nara-city"]
@@ -21136,44 +21136,38 @@
   },
   {
     "id": "kyoto-historic",
-    "name": "Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-    "nameJa": "古都京都の文化財",
-    "role": "destination",
+    "name": "Historic Kyoto Cultural Heritage Area",
+    "nameJa": "古都京都の文化財（エリア案内）",
+    "kind": "district",
+    "role": "standalone",
+    "importance": "major",
     "placeType": "destination",
+    "recommendationEligible": false,
     "municipalityId": "Kyoto:kyoto",
-    "areaId": "higashiyama",
     "prefecture": "Kyoto",
     "region": "Kansai",
-    "categories": ["culture", "history", "sightseeing"],
+    "categories": ["Culture", "History", "Heritage"],
     "tags": [
       "UNESCO World Heritage",
-      "National Treasure",
-      "Golden Pavilion",
-      "Kiyomizu Stage"
+      "Historic Monuments of Ancient Kyoto",
+      "Kyoto City"
     ],
     "heroImage": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
     "image": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1280&auto=format&fit=crop",
-    "description": "Kyoto, Japan's imperial capital for over a millennium, encompasses 17 UNESCO World Heritage monuments including the wooden balcony of Kiyomizu-dera and the shimmering Golden Pavilion.",
+    "description": "A legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group. Use the standalone destination records for individual temples, castles, and other places rather than treating this page as one physical attraction.",
     "highlights": [
-      "Explore Historic Kyoto (Kiyomizu-dera & Kinkaku-ji)",
-      "Local Culture & Scenery"
+      "Distributed Historic Monuments of Ancient Kyoto heritage group",
+      "Standalone destination records for individual places",
+      "Kyoto-wide cultural context rather than one venue"
     ],
-    "coordinates": {
-      "lat": 34.9949,
-      "lng": 135.785
-    },
-    "officialWebsite": "https://kyoto-travel.kyoto/",
+    "officialWebsite": "https://whc.unesco.org/en/list/688/",
+    "officialWebsiteRequirement": "recommended",
     "status": "published",
-    "weatherDependence": "moderate",
-    "budgetMin": 3000,
-    "budgetRecommended": 9000,
-    "budgetMax": 15000,
-    "totalTripHours": 4,
-    "walkingMin": 150,
-    "indoorPercent": 20,
-    "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "A group page has no single admission, food, or access cost; individual destination records carry their own costs where known."
     },
     "collections": [],
     "ratings": {
@@ -21193,33 +21187,33 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 8,
+      "value": 8.3,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.6,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
-      "confidence": "high"
+      "confidence": "beta"
     },
-    "transportOptions": {
-      "shinkansen": 140,
-      "train": 170,
-      "car": 240
-    },
-    "walkingIntensity": "high",
-    "comfort": {
-      "heatTolerance": 5,
-      "rainFriendly": 4,
-      "walkingIntensity": 8
-    },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "transportOptions": {},
+    "transportZoneId": "unknown",
+    "localAccessModes": [],
+    "localAccessUnestimated": true,
     "relationships": {
-      "parentDestinationId": "kyoto-city"
+      "featuredDestinationIds": [
+        "kiyomizu-dera",
+        "kinkaku-ji",
+        "nijo-castle-kyoto",
+        "ginkaku-ji",
+        "sanjusangen-do",
+        "nanzen-ji",
+        "yasaka-shrine"
+      ]
     }
   },
   {
@@ -87309,6 +87303,740 @@
     "relationships": {
       "nearbyDestinationIds": ["naha-city"],
       "relatedDestinationIds": ["churaumi-aquarium-motobu"]
+    }
+  },
+  {
+    "id": "kiyomizu-dera",
+    "name": "Kiyomizu-dera Temple",
+    "nameJa": "清水寺",
+    "kind": "temple",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "higashiyama",
+    "aliases": ["Kiyomizu-dera", "Kiyomizudera"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Temple", "History", "Culture", "Sightseeing"],
+    "tags": ["Temple", "History", "Culture", "Photography", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg/1280px-Kiyomizu-dera%2C_Kyoto%2C_November_2016_-01.jpg",
+    "description": "A historic temple complex in eastern Kyoto known for its wooden Main Hall stage, hillside views, and Otowa waterfall.",
+    "highlights": [
+      "Kiyomizu-dera's wooden Main Hall stage",
+      "Otowa waterfall and the temple hillside",
+      "A core Higashiyama cultural outing"
+    ],
+    "coordinates": {
+      "lat": 34.994856,
+      "lng": 135.78505
+    },
+    "officialWebsite": "https://www.kiyomizudera.or.jp/en/location/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kyoto-city",
+      "nearbyDestinationIds": ["yasaka-shrine", "sanjusangen-do"]
+    }
+  },
+  {
+    "id": "arashiyama-bamboo-togetsukyo",
+    "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+    "nameJa": "嵐山竹林・渡月橋",
+    "kind": "nature",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "arashiyama",
+    "aliases": ["Arashiyama Bamboo Grove", "Togetsukyo Bridge", "渡月橋"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Nature", "Scenery", "Outdoors", "Landmark"],
+    "tags": ["Nature", "Scenery", "Outdoors", "Photography", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Arashiyama_Bamboo_Grove.jpg/1280px-Arashiyama_Bamboo_Grove.jpg",
+    "description": "A western Kyoto landscape outing combining the Arashiyama bamboo grove, the Katsura River setting, and the Togetsukyo Bridge area.",
+    "highlights": [
+      "Arashiyama bamboo grove landscape",
+      "Togetsukyo Bridge and the Katsura River setting",
+      "A public landscape outing reached by several rail corridors"
+    ],
+    "coordinates": {
+      "lat": 35.0128769,
+      "lng": 135.6777748
+    },
+    "officialWebsite": "https://kyoto.travel/en/areas/saga-arashiyama/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 290,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "tenryu-ji-kyoto",
+    "name": "Tenryu-ji Temple",
+    "nameJa": "天龍寺",
+    "kind": "temple",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "arashiyama",
+    "aliases": ["Tenryu-ji", "天龍寺"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Temple", "History", "Garden", "Culture"],
+    "tags": ["Temple", "Garden", "History", "Culture", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Tenryu-ji_Temple_in_Kyoto.jpg/1280px-Tenryu-ji_Temple_in_Kyoto.jpg",
+    "description": "A major Rinzai Zen temple in Arashiyama with a historic garden, temple buildings, and a separately visitable cultural complex.",
+    "highlights": [
+      "Sogenchi garden",
+      "Historic temple buildings",
+      "A cultural sibling to the Arashiyama landscape outing"
+    ],
+    "coordinates": {
+      "lat": 35.015859,
+      "lng": 135.673685
+    },
+    "officialWebsite": "https://www.tenryuji.com/en/visit/index.html",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "uzumasa-kyoto-village",
+    "name": "UZUMASA KYOTO VILLAGE",
+    "nameJa": "太秦映画村",
+    "kind": "theme_park",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "arashiyama",
+    "aliases": [
+      "Toei Kyoto Studio Park",
+      "Toei Uzumasa Eigamura",
+      "東映太秦映画村"
+    ],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Theme Park", "Family", "Entertainment", "Culture"],
+    "tags": ["Theme Park", "Family", "Entertainment", "Culture", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg/1280px-Rashomon_plate_displayed_at_Uzumasa_Kyoto_Village.jpg",
+    "description": "A film-themed Kyoto attraction with Edo-period sets, live entertainment, and hands-on historical-film experiences under the current UZUMASA KYOTO VILLAGE brand.",
+    "highlights": [
+      "Edo-period film and television sets",
+      "Family-friendly live experiences",
+      "The current UZUMASA KYOTO VILLAGE renewal"
+    ],
+    "coordinates": {
+      "lat": 35.016452,
+      "lng": 135.708023
+    },
+    "officialWebsite": "https://en.eigamura.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 240,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "kurama-dera-kyoto",
+    "name": "Kurama-dera Temple",
+    "nameJa": "鞍馬寺",
+    "kind": "temple",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "northern-kyoto",
+    "aliases": ["Kurama-dera", "Kuramadera"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Temple", "Mountain", "Hiking", "Nature"],
+    "tags": ["Temple", "Mountain", "Hiking", "Nature", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Kurama-dera_sanmon.jpg/1280px-Kurama-dera_sanmon.jpg",
+    "description": "A mountain temple reached through Kurama's forested approach, with a cable option and a documented hiking connection toward Kibune.",
+    "highlights": [
+      "Mountain temple approach",
+      "Optional Kurama cable route",
+      "Hiking connection toward Kibune"
+    ],
+    "coordinates": {
+      "lat": 35.1181404,
+      "lng": 135.7708892
+    },
+    "officialWebsite": "https://www.kuramadera.or.jp/access.html",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "kifune-jinja-kyoto",
+    "name": "Kifune-jinja Shrine",
+    "nameJa": "貴船神社",
+    "kind": "shrine",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "northern-kyoto",
+    "aliases": ["Kibune", "Kibune-jinja", "貴船", "貴船神社"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Shrine", "Culture", "Nature", "Walking"],
+    "tags": ["Shrine", "Nature", "Culture", "Walking", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Torii_and_Omoigawa_Bridge%2C_Kifune_Shrine_2022-08-27.jpg/1280px-Torii_and_Omoigawa_Bridge%2C_Kifune_Shrine_2022-08-27.jpg",
+    "description": "A mountain shrine complex in the Kibune valley with a lantern-lined approach, water-luck tradition, and three related shrine sites.",
+    "highlights": [
+      "Lantern-lined shrine approach",
+      "Water-related shrine tradition",
+      "Kibune valley mountain setting"
+    ],
+    "coordinates": {
+      "lat": 35.1220909,
+      "lng": 135.7629101
+    },
+    "officialWebsite": "https://kifunejinja.jp/en/contact/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "sanzen-in-ohara",
+    "name": "Sanzen-in Temple",
+    "nameJa": "三千院",
+    "kind": "temple",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "northern-kyoto",
+    "aliases": ["Sanzen-in", "三千院門跡"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Temple", "Garden", "Nature", "Culture"],
+    "tags": ["Temple", "Garden", "Nature", "Culture", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Fall_foliage_in_Sanzen-in.jpg/1280px-Fall_foliage_in_Sanzen-in.jpg",
+    "description": "A temple-and-garden destination in rural Ohara, known for mossy grounds, seasonal scenery, and a quiet northern Kyoto setting.",
+    "highlights": [
+      "Mossy temple gardens",
+      "Rural Ohara setting",
+      "A distinct northern-rural Kyoto outing"
+    ],
+    "coordinates": {
+      "lat": 35.119355680329086,
+      "lng": 135.83215231524355
+    },
+    "officialWebsite": "https://www.sanzenin.or.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "jakko-in-ohara",
+    "name": "Jakko-in Temple",
+    "nameJa": "寂光院",
+    "kind": "temple",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "northern-kyoto",
+    "aliases": ["Jakko-in", "Jakkoji", "寂光院"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Temple", "History", "Garden", "Culture"],
+    "tags": ["Temple", "Garden", "History", "Culture", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Jakko-Ji_Sadamitsuji_%28Sakyo-ku_Kyoto%29_hdsr_Sh%C5%8Dr%C5%8D_S5_01.jpg/1280px-Jakko-Ji_Sadamitsuji_%28Sakyo-ku_Kyoto%29_hdsr_Sh%C5%8Dr%C5%8D_S5_01.jpg",
+    "description": "A historic temple in rural Ohara with a garden, steep approach, and a quieter northern Kyoto cultural setting.",
+    "highlights": [
+      "Historic Ohara temple",
+      "Garden and steep approach",
+      "A sibling to Sanzen-in rather than a generic Ohara aggregate"
+    ],
+    "coordinates": {
+      "lat": 35.1241,
+      "lng": 135.821045
+    },
+    "officialWebsite": "https://www.jakkoin.jp/haikan/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "gekkeikan-okura-sake-museum",
+    "name": "Gekkeikan Okura Sake Museum",
+    "nameJa": "月桂冠大倉記念館",
+    "kind": "museum",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:kyoto",
+    "areaId": "fushimi",
+    "aliases": ["Gekkeikan Okura Memorial Museum", "月桂冠大倉記念館"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Museum", "Food", "Sake", "Culture", "Indoor"],
+    "tags": ["Museum", "Sake", "Food", "Culture", "Indoor", "Kyoto City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Gekkeikan_Okura_Sake_Museum01nt3200.jpg/1280px-Gekkeikan_Okura_Sake_Museum01nt3200.jpg",
+    "description": "A Fushimi museum documenting Gekkeikan's sake history, brewing culture, tools, and the local water-and-sake tradition.",
+    "highlights": [
+      "Fushimi sake history",
+      "Traditional brewing tools and exhibits",
+      "A compact indoor sibling to the wider Fushimi sake district"
+    ],
+    "coordinates": {
+      "lat": 34.933582,
+      "lng": 135.766039
+    },
+    "officialWebsite": "https://www.gekkeikan.com/museum",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 30,
+    "recommendedVisitHours": {
+      "min": 0.7,
+      "max": 1
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {
+      "parentDestinationId": "kyoto-city"
     }
   }
 ]
