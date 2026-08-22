@@ -35,6 +35,10 @@ import {
   serializeDestinationSearchParams,
 } from "../destinationSearchParams";
 
+const recommendationEligibleDestinations = destinations.filter(
+  (destination) => destination.recommendationEligible !== false,
+);
+
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 // ---------------------------------------------------------------------------
@@ -191,8 +195,8 @@ describe("KAI-91: Any budget option", () => {
 
     const container = await renderDestinations("/destinations");
     const count = getResultCount(container);
-    // Unfiltered catalogue is shown
-    expect(count).toBe(destinations.length);
+    // The unfiltered recommendation surface excludes compatibility-only shells.
+    expect(count).toBe(recommendationEligibleDestinations.length);
 
     // No active budget filter chip shown by default
     const budgetChip = Array.from(
@@ -249,7 +253,7 @@ describe("KAI-91: Any budget option", () => {
     const economyCount = getResultCount(containerEconomy);
 
     expect(anyCount).toBeGreaterThan(economyCount);
-    expect(anyCount).toBe(destinations.length);
+    expect(anyCount).toBe(recommendationEligibleDestinations.length);
   });
 
   it("budget=any survives reload / navigation round-trip", () => {
@@ -354,6 +358,6 @@ describe("KAI-91: Any budget option", () => {
     // Close modal / check count
     const restoredCount = getResultCount(container);
     expect(restoredCount).toBeGreaterThan(economyCount);
-    expect(restoredCount).toBe(destinations.length);
+    expect(restoredCount).toBe(recommendationEligibleDestinations.length);
   });
 });
