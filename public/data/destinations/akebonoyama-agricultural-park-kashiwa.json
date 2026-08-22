@@ -1,0 +1,268 @@
+{
+  "id": "akebonoyama-agricultural-park-kashiwa",
+  "officialWebsite": "https://akebonoyama-nougyoukouen.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Akebonoyama Agricultural Park",
+  "nameJa": "あけぼの山農業公園",
+  "aliases": ["Akebonoyama Park", "あけぼの山公園"],
+  "municipalityId": "Chiba:kashiwa",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 35.891518,
+    "lng": 139.992828
+  },
+  "location": {
+    "address": "2005-2 Fuse, Kashiwa, Chiba 277-0825",
+    "latitude": 35.891518,
+    "longitude": 139.992828
+  },
+  "categories": ["Park", "Nature", "Flowers", "Agriculture"],
+  "tags": ["Park", "Flowers", "Nature", "Agriculture", "Kashiwa"],
+  "description": "A municipal agricultural and flower park in Kashiwa with gardens, farm-themed facilities, nature, and recurring events.",
+  "highlights": [
+    "Flower and garden landscapes",
+    "Agricultural and nature-oriented facilities",
+    "A distinct Kashiwa outing outside the central Tokyo commuter corridor"
+  ],
+  "content": {
+    "en": {
+      "name": "Akebonoyama Agricultural Park",
+      "description": "A municipal agricultural and flower park in Kashiwa with gardens, farm-themed facilities, nature, and recurring events.",
+      "highlights": [
+        "Flower and garden landscapes",
+        "Agricultural and nature-oriented facilities",
+        "A distinct Kashiwa outing outside the central Tokyo commuter corridor"
+      ],
+      "notes": "The city treats Akebonoyama Park and the Agricultural Park as one adjacent public complex; this record intentionally does not split the zones. Flower timing is useful context but is not encoded as a numeric season score.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Kashiwa City and the operator publish car and parking guidance; check current capacity and event-day restrictions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "あけぼの山農業公園",
+      "description": "柏市北部にある農業と花をテーマにした公園。庭園、農業体験、自然、季節の催しを楽しめます。",
+      "highlights": [
+        "花と庭園の景観",
+        "農業・自然に触れる施設",
+        "柏北部の公園散策"
+      ],
+      "notes": "市の案内に合わせ、あけぼの山公園と農業公園を一つの隣接する公園群として扱っています。花の時期は参考情報にとどめ、数値の季節スコアは設定していません。",
+      "reservation": "予約・利用条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "利用時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Akebonoyama_Agricultural_Park.JPG/1280px-Akebonoyama_Agricultural_Park.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Abasaa, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akebonoyama_Agricultural_Park.JPG"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "Official sources verify available local modes, but no origin-specific journey time or fare is hard-coded; the origin-aware transport service remains authoritative."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "No official visit window was found; a conservative 2–3 hour park estimate is derived from the repository methodology, excluding travel time."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Kashiwa City and the operator publish car and parking guidance; check current capacity and event-day restrictions.",
+  "notes": "The city treats Akebonoyama Park and the Agricultural Park as one adjacent public complex; this record intentionally does not split the zones. Flower timing is useful context but is not encoded as a numeric season score.",
+  "notesJa": "市の案内に合わせ、あけぼの山公園と農業公園を一つの隣接する公園群として扱っています。花の時期は参考情報にとどめ、数値の季節スコアは設定していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Northern Chiba destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://akebonoyama-nougyoukouen.jp/",
+        "title": "Akebonoyama Agricultural Park official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.kashiwa.lg.jp/facilities/park/akebonoyama-nogyo.html",
+        "title": "Kashiwa City Akebonoyama facility page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://maruchiba.jp/spot/detail_10028.html",
+        "title": "Chiba official tourism Akebonoyama page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "government",
+        "url": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E5%8D%83%E8%91%89%E7%9C%8C%E6%9F%8F%E5%B8%82%E5%B8%83%E6%96%BD2005-2",
+        "title": "GSI Address Search coordinate for 千葉県柏市布施2005-2",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://akebonoyama-nougyoukouen.jp/",
+          "title": "Akebonoyama Agricultural Park official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E5%8D%83%E8%91%89%E7%9C%8C%E6%9F%8F%E5%B8%82%E5%B8%83%E6%96%BD2005-2",
+          "title": "GSI Address Search coordinate for 千葉県柏市布施2005-2",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Northern Chiba destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 145,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
