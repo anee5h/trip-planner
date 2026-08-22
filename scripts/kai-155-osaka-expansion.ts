@@ -65,8 +65,6 @@ type OsakaSpec = {
   notes: string;
   notesJa: string;
   localAccessModes: TransportMode[];
-  /** Legacy static minutes kept ONLY as display fallback (see header). */
-  transportOptions?: { train?: number; bus?: number; shinkansen?: number };
   sources: SourceReference[];
   image: NonNullable<Destination["imageMetadata"]> & { heroImage: string };
   duration?: {
@@ -114,13 +112,6 @@ const unknownSeason = {
   confidence: "unknown" as const,
   basis:
     "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved.",
-};
-
-const legacyTransport = {
-  method: "legacy-fallback" as const,
-  confidence: "low" as const,
-  basis:
-    "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated.",
 };
 
 const image = (
@@ -221,10 +212,15 @@ const makeRecord = (spec: OsakaSpec): DestinationWithLocation => {
       attribution: spec.image.attribution,
       sourceUrl: spec.image.sourceUrl,
     },
-    transportOptions: spec.transportOptions ?? {},
+    transportOptions: {},
     localAccessModes: spec.localAccessModes,
     localAccessUnestimated: true,
-    transportMetadata: legacyTransport,
+    transportMetadata: {
+      method: "unestimated",
+      confidence: "unknown",
+      basis:
+        "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers.",
+    },
     recommendedVisitHours: spec.duration?.hours,
     durationMetadata: spec.duration
       ? {
@@ -378,7 +374,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "境内は無料で参拝できます。宝物殿は別途料金です。南海本線住吉大社駅から徒歩3分、阪堺線住吉鳥居前駅からすぐ。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 35, bus: 45 },
     sources: [
       source(
         "official",
@@ -442,7 +437,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "日時指定のチケット制です。営業時間は季節により変わり、最終入場は閉館の約1時間前です。チームラボは市営の長居植物園内で運営されており、昼間の植物園とは別料金です。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 35, bus: 50 },
     sources: [
       source(
         "official",
@@ -511,7 +505,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "太陽の塔の内部見学は日時指定の予約制で、公園入園料とは別のチケットが必要です。大阪モノレール万博記念公園駅から直結、または千里中央駅から徒歩です。",
     localAccessModes: ["train", "bus", "shinkansen"],
-    transportOptions: { train: 50, bus: 70, shinkansen: 40 },
     sources: [
       source(
         "official",
@@ -576,7 +569,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "商店街は線状の地区であり、座標は天神橋筋6丁目駅付近の天神橋2丁目側の起点を示します。南端には大阪天満宮と天神祭の会場があります。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 15, bus: 25 },
     sources: [
       source(
         "tourism_board",
@@ -640,7 +632,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "入場料は大人300円（中学生以下無料）、月曜休館です。だんじり会館は徒歩圏にあり、まとめて岸和田の一日を楽しめます。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 55, bus: 80 },
     sources: [
       source(
         "government",
@@ -705,7 +696,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "入館料は大人600円、月曜休館です。南海本線蛸地蔵駅から徒歩約7分です。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 55, bus: 80 },
     sources: [
       source(
         "tourism_board",
@@ -770,7 +760,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "営業時間は季節により異なります（通常10:00〜17:00、夏期は延長）。入園料とフリーパスは別売りです。公式カレンダーをご確認ください。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 45, bus: 70 },
     sources: [
       source("official", hirakataHome, "Hirakata Park official site"),
       source("official", hirakataAccess, "Hirakata Park official access page"),
@@ -796,9 +785,37 @@ const reviewedCandidates: DestinationWithLocation[] = [
 
 // ── Enrichment: USJ (Super Nintendo World context, no new card) ────────────
 const usjNotes =
-  "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details.";
+  "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details.";
 const usjNotesJa =
-  "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。";
+  "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況やエリア入場方法（時間指定など）・ショーのスケジュールは変わることがあるため、公式サイトをご確認ください。";
+// USJ correction (KAI-155 review): the previous reservationJa/parkingJa were
+// stale shrine-visit template copy. Official USJ facts (checked 2026-08-22):
+// park hours vary by date without notice; dedicated paid parking exists
+// (official parking info page); tickets are date-specific and bought via the
+// official web ticket store. Durable wording only — no volatile daily values.
+const usjReservation =
+  "Park admission requires a ticket; date-specific Studio Pass and Express Pass options are sold through the official web ticket store. Park hours and timed-entry requirements for themed areas change by date — check the official site before visiting.";
+const usjReservationJa =
+  "入場にはチケットが必要です。日付指定のスタジオ・パスやエクスプレス・パスは公式WEBチケットストアで購入します。営業時間やエリアの時間指定入場は日によって変わるため、来場前に公式サイトをご確認ください。";
+const usjParking =
+  "Dedicated paid parking is available on site (fee varies by date; see the official parking calendar). Hours vary by date; public transport (JR Universal City Station) is the recommended access.";
+const usjParkingJa =
+  "専用の有料駐車場があります（料金は日によって変動し、公式の駐車料金カレンダーをご確認ください）。営業時間は日により異なります。公共交通機関（JRユニバーサルシティ駅）での来場が推奨されます。";
+const usjOfficialSource = source(
+  "official",
+  "https://www.usj.co.jp/web/ja/jp",
+  "Universal Studios Japan official website",
+);
+const usjParkingSource = source(
+  "official",
+  "https://www.usj.co.jp/web/ja/jp/access/parking",
+  "USJ official parking information page",
+);
+const usjHoursSource = source(
+  "official",
+  "https://www.usj.co.jp/web/ja/jp/park-guide/schedule/park-hour",
+  "USJ official park hours page",
+);
 
 // ── Enrichment: Minoh (existing outing notes, no micro-depth) ──────────────
 const minohNotes =
@@ -866,6 +883,24 @@ for (const candidate of reviewedCandidates) {
       if (existing.content?.en) existing.content.en.image = undefined;
       enrichedIds.push(candidate.id);
     }
+    // Transport correction (KAI-155 review): a newly verified destination
+    // must not carry static transportOptions minutes — those bypass the
+    // origin-aware guard and let a broad prefecture corridor masquerade as
+    // an attraction-level route. Clear any static values; availability now
+    // comes only from canonical origin-aware routes.
+    if (
+      existing.transportOptions &&
+      Object.keys(existing.transportOptions).length > 0
+    ) {
+      existing.transportOptions = {};
+      existing.transportMetadata = {
+        method: "unestimated",
+        confidence: "unknown",
+        basis:
+          "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers.",
+      };
+      enrichedIds.push(candidate.id);
+    }
     continue;
   }
   if (candidate.municipalityId?.split(":")[0] !== "Osaka") {
@@ -930,11 +965,63 @@ for (const candidate of reviewedCandidates) {
 // ── Enrichments ─────────────────────────────────────────────────────────────
 const usj = byId.get("universal-studios-japan");
 if (usj) {
+  let usjChanged = false;
   if (usj.notes !== usjNotes) {
     usj.notes = usjNotes;
     usj.notesJa = usjNotesJa;
     if (usj.content?.en) usj.content.en.notes = usjNotes;
     if (usj.content?.ja) usj.content.ja.notes = usjNotesJa;
+    usjChanged = true;
+  }
+  // Correct the stale shrine-visit template copy (reservationJa/parkingJa).
+  if (
+    usj.reservationJa !== usjReservationJa ||
+    usj.reservation !== usjReservation
+  ) {
+    usj.reservationJa = usjReservationJa;
+    usj.reservation = usjReservation;
+    if (usj.content?.en) usj.content.en.reservation = usjReservation;
+    if (usj.content?.ja) usj.content.ja.reservation = usjReservationJa;
+    usjChanged = true;
+  }
+  if (usj.parkingJa !== usjParkingJa || usj.parking !== usjParking) {
+    usj.parkingJa = usjParkingJa;
+    usj.parking = usjParking;
+    if (usj.content?.en) usj.content.en.parking = usjParking;
+    if (usj.content?.ja) usj.content.ja.parking = usjParkingJa;
+    usjChanged = true;
+  }
+  // Record provenance for the corrected fields (review requirement: the
+  // official source used for each newly added statement must be discoverable).
+  if (usjChanged) {
+    if (!usj.editorial) usj.editorial = {} as Destination["editorial"];
+    const existingSources = usj.editorial.sources ?? [];
+    const existingUrls = new Set(existingSources.map((s) => s.url));
+    const toAdd = [usjOfficialSource, usjParkingSource, usjHoursSource].filter(
+      (s) => !existingUrls.has(s.url),
+    );
+    if (toAdd.length > 0) {
+      usj.editorial.sources = [...existingSources, ...toAdd];
+    }
+    usj.editorial.fieldSources = {
+      ...(usj.editorial.fieldSources ?? {}),
+      reservation: [usjOfficialSource],
+      parking: [usjParkingSource],
+      openingHours: [usjHoursSource],
+      notes: [usjOfficialSource],
+    };
+    if (!usj.editorial.changes) usj.editorial.changes = [];
+    usj.editorial.changes = [
+      ...usj.editorial.changes,
+      {
+        changedAt: REVIEW_DATE,
+        changedBy: "Meguruto editorial",
+        summary:
+          "Corrected stale shrine-visit template copy in reservation/parking; verified current USJ parking, hours, and ticket semantics from the official site (durable wording only).",
+        method: "manual",
+      },
+    ];
+    usjChanged = true;
     enrichedIds.push("universal-studios-japan");
   }
 }

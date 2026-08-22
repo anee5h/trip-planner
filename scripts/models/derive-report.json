@@ -1837,26 +1837,56 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T14:07",
-    "changeCount": 2,
+    "at": "2026-08-22T17:40",
+    "changeCount": 7,
     "byModel": [
       [
-        "duration-model-v1",
-        2
+        "score-rubric-v2",
+        7
       ]
     ],
     "sample": [
       {
-        "id": "expo-70-commemorative-park",
-        "model": "duration-model-v1",
+        "id": "sumiyoshi-taisha",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'park'"
+        "reason": "estimated rubric score 7.1"
+      },
+      {
+        "id": "teamlab-botanical-garden-osaka",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 7.1"
+      },
+      {
+        "id": "expo-70-commemorative-park",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 7.1"
+      },
+      {
+        "id": "tenjinbashi-suji-shopping-street",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
+      },
+      {
+        "id": "kishiwada-castle",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
+      },
+      {
+        "id": "kishiwada-danjiri-kaikan",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       },
       {
         "id": "hirakata-park",
-        "model": "duration-model-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'amusement_park'"
+        "reason": "estimated rubric score 6.2"
       }
     ]
   }

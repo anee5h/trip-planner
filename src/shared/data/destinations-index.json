@@ -95716,7 +95716,9 @@
         "highlights": [
           "Theme Park"
         ],
-        "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details."
+        "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details.",
+        "reservation": "Park admission requires a ticket; date-specific Studio Pass and Express Pass options are sold through the official web ticket store. Park hours and timed-entry requirements for themed areas change by date — check the official site before visiting.",
+        "parking": "Dedicated paid parking is available on site (fee varies by date; see the official parking calendar). Hours vary by date; public transport (JR Universal City Station) is the recommended access."
       },
       "ja": {
         "name": "ユニバーサル・スタジオ・ジャパン",
@@ -95724,7 +95726,9 @@
         "highlights": [
           "テーマパーク"
         ],
-        "notes": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。"
+        "notes": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況やエリア入場方法（時間指定など）・ショーのスケジュールは変わることがあるため、公式サイトをご確認ください。",
+        "reservation": "入場にはチケットが必要です。日付指定のスタジオ・パスやエクスプレス・パスは公式WEBチケットストアで購入します。営業時間やエリアの時間指定入場は日によって変わるため、来場前に公式サイトをご確認ください。",
+        "parking": "専用の有料駐車場があります（料金は日によって変動し、公式の駐車料金カレンダーをご確認ください）。営業時間は日により異なります。公共交通機関（JRユニバーサルシティ駅）での来場が推奨されます。"
       }
     },
     "prefecture": "Osaka",
@@ -95818,8 +95822,8 @@
       11
     ],
     "weatherDependence": "moderate",
-    "reservation": "Check the official website before visiting.",
-    "parking": "Check local parking and public transport guidance.",
+    "reservation": "Park admission requires a ticket; date-specific Studio Pass and Express Pass options are sold through the official web ticket store. Park hours and timed-entry requirements for themed areas change by date — check the official site before visiting.",
+    "parking": "Dedicated paid parking is available on site (fee varies by date; see the official parking calendar). Hours vary by date; public transport (JR Universal City Station) is the recommended access.",
     "schemaVersion": 2,
     "status": "published",
     "travelEstimate": {
@@ -95844,6 +95848,24 @@
           "url": "https://www.usj.co.jp/",
           "title": "Universal Studios Japan official website",
           "accessedAt": "2026-07-29"
+        },
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp",
+          "title": "Universal Studios Japan official website",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp/access/parking",
+          "title": "USJ official parking information page",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp/park-guide/schedule/park-hour",
+          "title": "USJ official park hours page",
+          "accessedAt": "2026-08-22"
         }
       ],
       "reviewedAt": "2026-08-03T00:00:00Z",
@@ -95889,6 +95911,38 @@
             "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "reservation": [
+          {
+            "type": "official",
+            "url": "https://www.usj.co.jp/web/ja/jp",
+            "title": "Universal Studios Japan official website",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "parking": [
+          {
+            "type": "official",
+            "url": "https://www.usj.co.jp/web/ja/jp/access/parking",
+            "title": "USJ official parking information page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "openingHours": [
+          {
+            "type": "official",
+            "url": "https://www.usj.co.jp/web/ja/jp/park-guide/schedule/park-hour",
+            "title": "USJ official park hours page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "notes": [
+          {
+            "type": "official",
+            "url": "https://www.usj.co.jp/web/ja/jp",
+            "title": "Universal Studios Japan official website",
+            "accessedAt": "2026-08-22"
+          }
         ]
       },
       "changeSummary": "KAI-89 source-backed template-copy correction",
@@ -95898,6 +95952,12 @@
           "changedBy": "Meguruto editorial",
           "summary": "Replaced repeated template description with source-backed destination copy",
           "method": "assisted"
+        },
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Corrected stale shrine-visit template copy in reservation/parking; verified current USJ parking, hours, and ticket semantics from the official site (durable wording only).",
+          "method": "manual"
         }
       ]
     },
@@ -95910,9 +95970,9 @@
     "nearHubs": [
       "osaka-city"
     ],
-    "notesJa": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。",
-    "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
-    "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+    "notesJa": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況やエリア入場方法（時間指定など）・ショーのスケジュールは変わることがあるため、公式サイトをご確認ください。",
+    "reservationJa": "入場にはチケットが必要です。日付指定のスタジオ・パスやエクスプレス・パスは公式WEBチケットストアで購入します。営業時間やエリアの時間指定入場は日によって変わるため、来場前に公式サイトをご確認ください。",
+    "parkingJa": "専用の有料駐車場があります（料金は日によって変動し、公式の駐車料金カレンダーをご確認ください）。営業時間は日により異なります。公共交通機関（JRユニバーサルシティ駅）での来場が推奨されます。",
     "openingHoursJa": "08:30〜21:30（季節により変動）",
     "municipalityId": "Osaka:osaka",
     "transportMetadata": {
@@ -95945,7 +96005,7 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details."
+    "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details."
   },
   {
     "id": "urayasu-city",
@@ -198114,19 +198174,16 @@
       "attribution": "Immanuelle, CC BY 4.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha-24.jpg"
     },
-    "transportOptions": {
-      "train": 35,
-      "bus": 45
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -198310,13 +198367,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -198401,19 +198458,16 @@
       "attribution": "Laitche, CC BY-SA 4.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Promenade_at_Nagai_Botanical_Garden,_January_2024_-9762.jpg"
     },
-    "transportOptions": {
-      "train": 35,
-      "bus": 50
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -198594,13 +198648,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -198686,11 +198740,7 @@
       "attribution": "Flickr user (32413914@N05), CC BY-SA 2.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Expo'70_Festival_Plaza.jpg"
     },
-    "transportOptions": {
-      "train": 50,
-      "bus": 70,
-      "shinkansen": 40
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus",
@@ -198698,9 +198748,9 @@
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 2,
@@ -198888,13 +198938,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7.2,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-3\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -198979,19 +199029,16 @@
       "attribution": "Nesnad, CC BY 4.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg"
     },
-    "transportOptions": {
-      "train": 15,
-      "bus": 25
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -199169,10 +199216,10 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -199257,19 +199304,16 @@
       "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kishiwada_Castle_Kishiwada_Osaka_pref_Japan02s5.jpg"
     },
-    "transportOptions": {
-      "train": 55,
-      "bus": 80
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -199449,10 +199493,10 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -199537,19 +199581,16 @@
       "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:120513_Kishiwada_Danjiri_Kaikan_Kishiwada_Osaka_pref_Japan01bs5.jpg"
     },
-    "transportOptions": {
-      "train": 55,
-      "bus": 80
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -199729,10 +199770,10 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -199817,19 +199858,16 @@
       "attribution": "Jnn, CC BY-SA 3.0, via Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirakata_park_Osaka_prefecture_Wikivoyage_banner.jpg"
     },
-    "transportOptions": {
-      "train": 45,
-      "bus": 70
-    },
+    "transportOptions": {},
     "localAccessModes": [
       "train",
       "bus"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "legacy-fallback",
-      "confidence": "low",
-      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
     },
     "recommendedVisitHours": {
       "min": 4,
@@ -200014,10 +200052,10 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
