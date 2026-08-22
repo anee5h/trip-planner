@@ -738,7 +738,10 @@ function checkTiming(
   }
 
   // Published POI missing visit duration (kept separate from opening hours).
+  // Non-recommendable compatibility/group surfaces intentionally have no visit
+  // duration — they are not visitable POIs.
   for (const poi of publishedPois) {
+    if (poi.recommendationEligible === false) continue;
     if (!poi.recommendedVisitHours) {
       findings.push({
         code: "TIME_POI_MISSING_VISIT_HOURS",
