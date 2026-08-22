@@ -1,0 +1,317 @@
+{
+  "id": "dmm-kariyushi-aquarium",
+  "officialWebsite": "https://kariyushi-aquarium.com/access/",
+  "officialWebsiteRequirement": "required",
+  "name": "DMM KARIYUSHI AQUARIUM",
+  "nameJa": "DMMかりゆし水族館",
+  "aliases": ["かりゆし水族館"],
+  "municipalityId": "Okinawa:tomigusuku",
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "aquarium",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 26.1577349,
+    "lng": 127.6509771
+  },
+  "location": {
+    "latitude": 26.1577349,
+    "longitude": 127.6509771,
+    "address": "3-35 Toyosaki, Tomigusuku City, Okinawa Prefecture 901-0225"
+  },
+  "categories": ["Aquarium", "Family", "Indoor", "Leisure"],
+  "tags": ["Aquarium", "Family", "Indoor", "Rainy Day", "Okinawa"],
+  "description": "An indoor aquarium and immersive marine-life attraction in Toyosaki, Tomigusuku, near Naha Airport.",
+  "highlights": [
+    "Okinawan marine life and tropical aquarium exhibits",
+    "Indoor light-and-sound presentations and animal encounters",
+    "A compact, rain-friendly option for a southern Okinawa itinerary"
+  ],
+  "content": {
+    "en": {
+      "name": "DMM KARIYUSHI AQUARIUM",
+      "description": "An indoor aquarium and immersive marine-life attraction in Toyosaki, Tomigusuku, near Naha Airport.",
+      "highlights": [
+        "Okinawan marine life and tropical aquarium exhibits",
+        "Indoor light-and-sound presentations and animal encounters",
+        "A compact, rain-friendly option for a southern Okinawa itinerary"
+      ],
+      "reservation": "Online and same-day individual tickets are available; check current date-specific terms. Group reservations follow separate rules.",
+      "parking": "Free parking is available at iias Okinawa Toyosaki; check current operator access guidance.",
+      "openingHours": "Opening hours vary by date; check the official calendar before visiting.",
+      "notes": "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; Naha-area bus evidence is represented in the origin-aware registry, while rail and car door-to-door time are not asserted."
+    },
+    "ja": {
+      "name": "DMMかりゆし水族館",
+      "description": "那覇空港に近い豊見城市豊崎にある、沖縄の海をテーマにした屋内型の水族館・没入型エンターテインメント施設です。",
+      "highlights": [
+        "沖縄の海の生き物と熱帯の水槽展示",
+        "光と音の演出や動物とのふれあい体験",
+        "雨天時にも組み込みやすい南部沖縄の短時間スポット"
+      ],
+      "reservation": "個人はオンライン購入・当日購入に対応しています。日付指定等の条件は最新の公式案内をご確認ください。団体予約は別の扱いです。",
+      "parking": "イーアス沖縄豊崎の無料駐車場を利用できます。最新の利用条件は公式アクセス案内をご確認ください。",
+      "openingHours": "営業時間は日付により異なるため、来館前に公式カレンダーをご確認ください。",
+      "notes": "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されています。那覇周辺のバス情報は出発地対応の交通レジストリで扱い、鉄道や車のドアツードア所要時間は示していません。"
+    }
+  },
+  "transportOptions": {},
+  "transportZoneId": "okinawa-main",
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "source-verified",
+    "confidence": "high",
+    "basis": "Official access page verifies bus and private-vehicle modes; current Naha-area bus products are represented in the origin-aware registry, while fare and car door-to-door time remain unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative 1–3 hour editorial window derived from the official standard-ticket and Royal Plan product guidance."
+  },
+  "walkingMin": 60,
+  "walkingMetadata": {
+    "method": "manual",
+    "unit": "minutes",
+    "confidence": "medium",
+    "basis": "Conservative indoor walking estimate for the aquarium visit; no route distance is presented as an official fact."
+  },
+  "indoorPercent": 90,
+  "comfort": {
+    "heatTolerance": 8,
+    "rainFriendly": 10,
+    "walkingIntensity": 5
+  },
+  "comfortMetadata": {
+    "method": "model",
+    "modelVersion": "comfort-model-v1",
+    "confidence": "low",
+    "basis": "derived from indoorPercent=90, kind='aquarium', walkingMin=60"
+  },
+  "weatherDependence": "low",
+  "ratings": {
+    "overall": 8,
+    "couple": 7,
+    "summer": 7,
+    "winter": 8,
+    "rain": 9,
+    "food": 5,
+    "photography": 8,
+    "relaxation": 6,
+    "value": 7,
+    "uniqueness": 8,
+    "family": 9,
+    "accessibility": 8,
+    "walkability": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "medium"
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission and access costs are volatile or origin-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "reservation": "Online and same-day individual tickets are available; check current date-specific terms. Group reservations follow separate rules.",
+  "parking": "Free parking is available at iias Okinawa Toyosaki; check current operator access guidance.",
+  "businessHours": "Opening hours vary by date; check the official calendar before visiting.",
+  "notes": "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; Naha-area bus evidence is represented in the origin-aware registry, while rail and car door-to-door time are not asserted.",
+  "notesJa": "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されています。那覇周辺のバス情報は出発地対応の交通レジストリで扱い、鉄道や車のドアツードア所要時間は示していません。",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DMM_Kariyushi_Aquarium_202006.jpg/1920px-DMM_Kariyushi_Aquarium_202006.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kugel~commonswiki, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:DMM_Kariyushi_Aquarium_202006.jpg"
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "nearbyDestinationIds": ["naha-city"],
+    "relatedDestinationIds": ["churaumi-aquarium-motobu"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified DMM Kariyushi Aquarium coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kariyushi-aquarium.com/access/",
+        "title": "DMM KARIYUSHI AQUARIUM official access page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://kariyushi-aquarium.com/opening-hours/",
+        "title": "DMM KARIYUSHI AQUARIUM official hours calendar",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://kariyushi-aquarium.com/floor/",
+        "title": "DMM KARIYUSHI AQUARIUM official floor guide",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://book.kariyushi-aquarium.com/top/products/dd39bc1a-167a-5434-8222-f74d0b2fa84e?lng=ja-JP",
+        "title": "DMM KARIYUSHI AQUARIUM standard ticket product",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://book.kariyushi-aquarium.com/top/products/e41fb6bc-8e49-544e-8187-71b73c676d23?lng=ja-JP",
+        "title": "DMM KARIYUSHI AQUARIUM Royal Plan product",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "Official Japanese facility name",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "Official Japanese facility name",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/opening-hours/",
+          "title": "Current operator hours calendar",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "Official access/location guidance",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "Official access/location guidance",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "Official access map link",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "Official access page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "manual",
+          "url": "https://kariyushi-aquarium.com/access/",
+          "title": "South Okinawa itinerary relationship review",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "comfort": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "comfort-model-v1; derived from indoorPercent=90, kind='aquarium', walkingMin=60",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "season": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "bestMonths": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical attraction record after current operator verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22"
+}

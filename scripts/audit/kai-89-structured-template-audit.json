@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 978,
+  "totalRecords": 980,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 189,
-    "affectedRecordCount": 977,
+    "affectedRecordCount": 978,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -123,6 +123,7 @@
       "dewa-sanzan-yamagata",
       "disneyland",
       "disneysea",
+      "dmm-kariyushi-aquarium",
       "dogo-haikara-dori",
       "dogo-onsen-annex-asuka-no-yu",
       "dogo-onsen-ehime",
@@ -3501,7 +3502,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 24,
-      "affectedRecordCount": 944,
+      "affectedRecordCount": 945,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3614,6 +3615,7 @@
         "dazaifu-tenmangu",
         "dejima-nagasaki",
         "dewa-sanzan-yamagata",
+        "dmm-kariyushi-aquarium",
         "dogo-haikara-dori",
         "dogo-onsen-annex-asuka-no-yu",
         "dogo-onsen-ehime",
@@ -4452,7 +4454,7 @@
         {
           "id": "1cf659956fa2",
           "severity": "review",
-          "count": 172,
+          "count": 173,
           "ids": [
             "ameya-yokocho",
             "boso-no-mura",
@@ -4462,6 +4464,7 @@
             "chinatown-nagasaki",
             "chofu-historic-jindaiji-district",
             "dazaifu-tenmangu",
+            "dmm-kariyushi-aquarium",
             "dotonbori",
             "ehime-art-museum",
             "engakuji",
@@ -5707,7 +5710,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 945,
+      "affectedRecordCount": 946,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -5822,6 +5825,7 @@
         "dewa-sanzan-yamagata",
         "disneyland",
         "disneysea",
+        "dmm-kariyushi-aquarium",
         "dogo-haikara-dori",
         "dogo-onsen-annex-asuka-no-yu",
         "dogo-onsen-ehime",
@@ -6659,7 +6663,7 @@
         {
           "id": "2da3e147dbe3",
           "severity": "review",
-          "count": 167,
+          "count": 168,
           "ids": [
             "aizu-bukeyashiki",
             "akihabara-chiyoda",
@@ -6680,6 +6684,7 @@
             "daisho-in",
             "disneyland",
             "disneysea",
+            "dmm-kariyushi-aquarium",
             "dogo-haikara-dori",
             "engakuji",
             "enoshima-island",
@@ -7993,7 +7998,7 @@
       "category": "season",
       "severity": "review",
       "clusterCount": 4,
-      "affectedRecordCount": 129,
+      "affectedRecordCount": 130,
       "affectedIds": [
         "abeno-harukas-300-osaka",
         "aizu-bukeyashiki",
@@ -8013,6 +8018,7 @@
         "cup-noodles-museum-yokohama",
         "cupnoodles-museum-osaka-ikeda",
         "dejima-nagasaki",
+        "dmm-kariyushi-aquarium",
         "echizen-kaga-kaigan",
         "fukagawa-edo-museum",
         "fukuoka-city-museum",
@@ -8129,7 +8135,7 @@
         {
           "id": "248edaf45789",
           "severity": "review",
-          "count": 94,
+          "count": 95,
           "ids": [
             "abeno-harukas-300-osaka",
             "aizu-bukeyashiki",
@@ -8145,6 +8151,7 @@
             "cup-noodles-museum-yokohama",
             "cupnoodles-museum-osaka-ikeda",
             "dejima-nagasaki",
+            "dmm-kariyushi-aquarium",
             "fukagawa-edo-museum",
             "fukuoka-city-museum",
             "fukuoka-paypay-dome",

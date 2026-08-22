@@ -87116,5 +87116,199 @@
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
     "relationships": {}
+  },
+  {
+    "id": "junglia-okinawa",
+    "name": "JUNGLIA OKINAWA",
+    "nameJa": "ジャングリア沖縄",
+    "kind": "theme_park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Okinawa:nakijin",
+    "aliases": ["JUNGLIA"],
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "categories": ["Theme Park", "Family", "Nature", "Adventure"],
+    "tags": ["Theme Park", "Family", "Nature", "Adventure", "Okinawa"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg/1920px-Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg",
+    "description": "A large theme park in Nakijin's Yambaru area combining outdoor nature-adventure experiences with live entertainment, food, and a scenic spa.",
+    "highlights": [
+      "Nature-adventure attractions in the Yambaru area",
+      "Live entertainment and food in one independently ticketed park",
+      "A northern Okinawa outing that pairs with Nago, Kouri, or Churaumi"
+    ],
+    "coordinates": {
+      "lat": 26.6417419,
+      "lng": 127.9739612
+    },
+    "officialWebsite": "https://junglia.jp/en",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "weatherDependence": "high",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission and access costs are volatile or origin-dependent; no numeric budget is published here."
+    },
+    "indoorPercent": 35,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 7
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.5,
+      "couple": 7.5,
+      "summer": 8.5,
+      "winter": 7.5,
+      "rain": 4,
+      "food": 7,
+      "photography": 8.5,
+      "relaxation": 6,
+      "value": 6.5,
+      "uniqueness": 9,
+      "family": 9,
+      "nature": 8,
+      "walkability": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "medium"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "okinawa-main",
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "comfort": {
+      "heatTolerance": 4,
+      "rainFriendly": 3
+    },
+    "businessHours": "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
+    "relationships": {
+      "nearbyDestinationIds": [
+        "nago-city",
+        "yambaru",
+        "churaumi-aquarium-motobu"
+      ],
+      "relatedDestinationIds": ["nakijin-castle-ruins-motobu"]
+    }
+  },
+  {
+    "id": "dmm-kariyushi-aquarium",
+    "name": "DMM KARIYUSHI AQUARIUM",
+    "nameJa": "DMMかりゆし水族館",
+    "kind": "aquarium",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Okinawa:tomigusuku",
+    "aliases": ["かりゆし水族館"],
+    "prefecture": "Okinawa",
+    "region": "Okinawa",
+    "categories": ["Aquarium", "Family", "Indoor", "Leisure"],
+    "tags": ["Aquarium", "Family", "Indoor", "Rainy Day", "Okinawa"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DMM_Kariyushi_Aquarium_202006.jpg/1920px-DMM_Kariyushi_Aquarium_202006.jpg",
+    "description": "An indoor aquarium and immersive marine-life attraction in Toyosaki, Tomigusuku, near Naha Airport.",
+    "highlights": [
+      "Okinawan marine life and tropical aquarium exhibits",
+      "Indoor light-and-sound presentations and animal encounters",
+      "A compact, rain-friendly option for a southern Okinawa itinerary"
+    ],
+    "coordinates": {
+      "lat": 26.1577349,
+      "lng": 127.6509771
+    },
+    "officialWebsite": "https://kariyushi-aquarium.com/access/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "weatherDependence": "low",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission and access costs are volatile or origin-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "indoorPercent": 90,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8,
+      "couple": 7,
+      "summer": 7,
+      "winter": 8,
+      "rain": 9,
+      "food": 5,
+      "photography": 8,
+      "relaxation": 6,
+      "value": 7,
+      "uniqueness": 8,
+      "family": 9,
+      "accessibility": 8,
+      "walkability": 8
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "medium"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "okinawa-main",
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "comfort": {
+      "heatTolerance": 8,
+      "rainFriendly": 10,
+      "walkingIntensity": 5
+    },
+    "businessHours": "Opening hours vary by date; check the official calendar before visiting.",
+    "relationships": {
+      "nearbyDestinationIds": ["naha-city"],
+      "relatedDestinationIds": ["churaumi-aquarium-motobu"]
+    }
   }
 ]

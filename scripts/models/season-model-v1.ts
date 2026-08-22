@@ -70,6 +70,18 @@ export function seasonModel(
     },
   };
   if (!eligibleIds.has(dest.id)) return never;
+  if (dest.seasonMetadata?.method === "unknown") {
+    return {
+      action: "keep",
+      reason: "explicit unknown metadata is authoritative",
+      metadata: {
+        method: "unknown",
+        modelVersion: "season-model-v1",
+        confidence: "unknown",
+        basis: "explicit owner-declared unknown; no model replacement",
+      },
+    };
+  }
 
   const cats = (dest.categories ?? []).join(" ");
   const tags = (dest.tags ?? []).join(" ");

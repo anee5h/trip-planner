@@ -3,7 +3,7 @@ import { expect, test, type Page } from "./fixtures";
 // KAI-63: Bus-filter eligibility at the UI level. Exercises the real
 // StationInput origin flows (ZIP/postcode via mocked Nominatim, station via
 // the local station registry) and asserts Explore `?mode=bus` outcomes:
-//   - Naha postcode 900-8585 → 9 Okinawa-local results, zero mainland cards
+//   - Naha postcode 900-8585 → 10 Okinawa-local results, zero mainland cards
 //     (no fabricated mainland↔Okinawa bus connectivity).
 //   - Iwakuni postcode → 32 results (coordinate/postcode origin now resolves
 //     to mainland-honshu; previously the shikoku-box bug zeroed it).
@@ -139,6 +139,8 @@ test.describe("KAI-63 Explore Bus eligibility", () => {
       "nakijin-castle-ruins-motobu",
       "kouri-island-okinawa",
       "okinawa-kaigan",
+      "dmm-kariyushi-aquarium",
+      "junglia-okinawa",
     ]);
     const ids = await busResultCardIds(page);
     expect(ids.length).toBeGreaterThan(0);

@@ -251,7 +251,9 @@
       "nichinan-kaigan-drive",
       "akashi-kaikyo-bridge",
       "hakone-open-air-museum",
-      "kanazawa-21"
+      "kanazawa-21",
+      "junglia-okinawa",
+      "dmm-kariyushi-aquarium"
     ],
     "duration-model-v1": [
       "abeno-harukas-300-osaka",
@@ -1327,7 +1329,8 @@
       "nisshinkan",
       "sazae-do",
       "kitakata-kura-district",
-      "taketomi-island"
+      "taketomi-island",
+      "dmm-kariyushi-aquarium"
     ],
     "crowd-model-v1": [],
     "transport-access-v1": [
@@ -1709,7 +1712,9 @@
       "kaminoyama-castle-town",
       "aizu-bukeyashiki",
       "meiji-no-mori-takao",
-      "kongo-ikoma-kisen"
+      "kongo-ikoma-kisen",
+      "junglia-okinawa",
+      "dmm-kariyushi-aquarium"
     ]
   },
   "modelClusterIds": [
@@ -1759,164 +1764,26 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-14T16:07",
-    "changeCount": 570,
+    "at": "2026-08-21T22:50",
+    "changeCount": 2,
     "byModel": [
       [
-        "score-rubric-v2",
-        570
+        "duration-model-v1",
+        2
       ]
     ],
     "sample": [
       {
-        "id": "abashiri-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.9"
+        "id": "junglia-okinawa",
+        "model": "duration-model-v1",
+        "action": "clear",
+        "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "adachi-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.1"
-      },
-      {
-        "id": "aizuwakamatsu-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.1"
-      },
-      {
-        "id": "akasaka-minato",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.2"
-      },
-      {
-        "id": "akihabara-chiyoda",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.2"
-      },
-      {
-        "id": "akita-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.1"
-      },
-      {
-        "id": "akiu-onsen-miyagi",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 4.5"
-      },
-      {
-        "id": "ameya-yokocho",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.2"
-      },
-      {
-        "id": "aoba-castle-museum",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.3"
-      },
-      {
-        "id": "aomori-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.1"
-      },
-      {
-        "id": "arakawa-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.1"
-      },
-      {
-        "id": "arakurayama-sengen-park-yamanashi",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 4.5"
-      },
-      {
-        "id": "asago-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.1"
-      },
-      {
-        "id": "asahikawa-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.9"
-      },
-      {
-        "id": "asakusa-taito",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.2"
-      },
-      {
-        "id": "ashigara",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.3"
-      },
-      {
-        "id": "ashikaga-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.1"
-      },
-      {
-        "id": "aso-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.9"
-      },
-      {
-        "id": "atami-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.9"
-      },
-      {
-        "id": "beppu-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "biei-town",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "boso-no-mura",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 4.5"
-      },
-      {
-        "id": "boso-peninsula",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.5"
-      },
-      {
-        "id": "bunkyo-city",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "canal-city-hakata",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 4.5"
+        "id": "dmm-kariyushi-aquarium",
+        "model": "duration-model-v1",
+        "action": "clear",
+        "reason": "stale calculated duration source removed (no model metadata)"
       }
     ]
   }

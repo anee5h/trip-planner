@@ -47,6 +47,8 @@ export function resolveNearbyAccessHubs(options: {
   exactHubIds?: readonly string[];
   radiusKm: number;
   transportZoneId?: TransportZoneId;
+  /** When true, only explicitly named physical hubs may resolve. */
+  exactOnly?: boolean;
 }): ResolvedIntercityAccessHub[] {
   const locationZoneId =
     options.transportZoneId ??
@@ -99,7 +101,7 @@ export function resolveNearbyAccessHubs(options: {
     }
   }
 
-  if (!options.location) return resolved;
+  if (!options.location || options.exactOnly) return resolved;
 
   const nearby = candidates
     .filter((hub) => !resolved.some((candidate) => candidate.hub.id === hub.id))
@@ -116,7 +118,10 @@ export function resolveNearbyAccessHubs(options: {
     .sort((a, b) => a.distanceKm - b.distanceKm);
 
   for (const candidate of nearby) {
-    resolved.push({ ...candidate, usedCatchment: true });
+    resolved.push({
+      ...candidate,
+      usedCatchment: candidate.distanceKm > HUB_AT_STATION_NEAR_ZERO_KM,
+    });
   }
   return resolved;
 }

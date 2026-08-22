@@ -167,6 +167,7 @@ const japaneseLabels: Record<string, string> = {
   "Amusement Park": "遊園地",
   Animals: "動物",
   Anime: "アニメ",
+  Adventure: "アドベンチャー",
   "Anime Pilgrimage": "アニメ聖地",
   Aquarium: "水族館",
   "Arata Isozaki": "磯崎新",

@@ -117,6 +117,14 @@ export function walkingModel(
       modelVersion: "walking-model-v1",
     };
   }
+  if (dest.walkingMetadata?.method === "unknown") {
+    return {
+      action: "keep",
+      reason: "explicit unknown metadata is authoritative",
+      confidence: "unknown",
+      modelVersion: "walking-model-v1",
+    };
+  }
   const visitMax = dest.recommendedVisitHours?.max;
 
   // ---- Model-owned minutes: skip metre detection ----

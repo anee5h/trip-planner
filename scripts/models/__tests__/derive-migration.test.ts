@@ -55,6 +55,27 @@ function runApply(mutate: (idx: Array<Record<string, any>>) => void) {
 }
 
 describe("pre-metadata migration requires positive provenance (finishing pass)", () => {
+  it("explicit unknown season and walking metadata are not refilled", () => {
+    const out = runApply((idx) => {
+      const d = idx.find((x) => x.id === "junglia-okinawa")!;
+      expect(d.seasonMetadata?.method).toBe("unknown");
+      expect(d.walkingMetadata?.method).toBe("unknown");
+      delete d.season;
+      delete d.bestMonths;
+      delete d.bestSeason;
+      delete d.walkingMin;
+      delete d.comfort?.walkingIntensity;
+    });
+    const d = out.find((x) => x.id === "junglia-okinawa")!;
+    expect(d.season).toBeUndefined();
+    expect(d.bestMonths).toBeUndefined();
+    expect(d.bestSeason).toBeUndefined();
+    expect(d.seasonMetadata?.method).toBe("unknown");
+    expect(d.walkingMin).toBeUndefined();
+    expect(d.walkingMetadata?.method).toBe("unknown");
+    expect(d.comfort?.walkingIntensity).toBeUndefined();
+  });
+
   it("record with model-shaped values and NO calculated source is NEVER promoted", () => {
     // akasaka-minato: complete per-person budget (model-shaped) but no
     // calculated source and no budgetMetadata. Value shape alone must not

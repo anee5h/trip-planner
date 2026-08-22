@@ -1,0 +1,316 @@
+{
+  "id": "junglia-okinawa",
+  "officialWebsite": "https://junglia.jp/en",
+  "officialWebsiteRequirement": "required",
+  "name": "JUNGLIA OKINAWA",
+  "nameJa": "ジャングリア沖縄",
+  "aliases": ["JUNGLIA"],
+  "municipalityId": "Okinawa:nakijin",
+  "prefecture": "Okinawa",
+  "region": "Okinawa",
+  "kind": "theme_park",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 26.6417419,
+    "lng": 127.9739612
+  },
+  "location": {
+    "latitude": 26.6417419,
+    "longitude": 127.9739612,
+    "address": "553-1 Goyayama, Nakijin Village, Kunigami District, Okinawa Prefecture 905-0413"
+  },
+  "categories": ["Theme Park", "Family", "Nature", "Adventure"],
+  "tags": ["Theme Park", "Family", "Nature", "Adventure", "Okinawa"],
+  "description": "A large theme park in Nakijin's Yambaru area combining outdoor nature-adventure experiences with live entertainment, food, and a scenic spa.",
+  "highlights": [
+    "Nature-adventure attractions in the Yambaru area",
+    "Live entertainment and food in one independently ticketed park",
+    "A northern Okinawa outing that pairs with Nago, Kouri, or Churaumi"
+  ],
+  "content": {
+    "en": {
+      "name": "JUNGLIA OKINAWA",
+      "description": "A large theme park in Nakijin's Yambaru area combining outdoor nature-adventure experiences with live entertainment, food, and a scenic spa.",
+      "highlights": [
+        "Nature-adventure attractions in the Yambaru area",
+        "Live entertainment and food in one independently ticketed park",
+        "A northern Okinawa outing that pairs with Nago, Kouri, or Churaumi"
+      ],
+      "reservation": "Tickets are product and date dependent. Check the official site; some attractions use reservation-pass rules.",
+      "parking": "On-site parking is available; check the official access guidance for current terms.",
+      "openingHours": "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
+      "notes": "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer; current direct-bus evidence is kept in the origin-aware transport registry and schedules may be date-dependent."
+    },
+    "ja": {
+      "name": "ジャングリア沖縄",
+      "description": "やんばるの自然が広がる今帰仁村にある大型テーマパーク。自然を生かしたアドベンチャー、エンターテインメント、飲食、スパを一つの施設で楽しめます。",
+      "highlights": [
+        "やんばるの自然を舞台にしたアドベンチャー体験",
+        "ショーや飲食も含む一つの大型テーマパーク",
+        "名護・古宇利島・美ら海水族館と組み合わせやすい北部沖縄の行き先"
+      ],
+      "reservation": "チケットは商品・日付により条件が異なります。公式サイトをご確認ください。一部アトラクションは整理券等の対象です。",
+      "parking": "駐車場あり。料金・利用条件は来園前に公式アクセス案内をご確認ください。",
+      "openingHours": "営業時間やアトラクションの運営状況は日付・天候等により変わるため、公式カレンダーをご確認ください。",
+      "notes": "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討してください。現在確認できる直通バス情報は出発地対応の交通レジストリで扱い、運行日は最新の公式案内をご確認ください。"
+    }
+  },
+  "transportOptions": {},
+  "transportZoneId": "okinawa-main",
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "source-verified",
+    "confidence": "high",
+    "basis": "Official access pages verify bus and private-vehicle modes; current direct bus products are represented in the origin-aware registry, while date-specific schedules and car door-to-door time remain unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 7
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative 3–7 hour editorial window derived from the official approximately 3-hour Quick Visit product and the official 1Day sample itinerary."
+  },
+  "walkingMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "No authoritative on-site walking distance or defensible walking model was verified; intentionally left unknown."
+  },
+  "indoorPercent": 35,
+  "comfort": {
+    "heatTolerance": 4,
+    "rainFriendly": 3
+  },
+  "comfortMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Outdoor theme-park editorial fit assessment; attraction availability and conditions vary. No numeric walking estimate is asserted."
+  },
+  "weatherDependence": "high",
+  "ratings": {
+    "overall": 8.5,
+    "couple": 7.5,
+    "summer": 8.5,
+    "winter": 7.5,
+    "rain": 4,
+    "food": 7,
+    "photography": 8.5,
+    "relaxation": 6,
+    "value": 6.5,
+    "uniqueness": 9,
+    "family": 9,
+    "nature": 8,
+    "walkability": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "medium"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "The attraction is primarily outdoor and weather-dependent; no defensible four-season score model was verified from current authoritative material."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission and access costs are volatile or origin-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "reservation": "Tickets are product and date dependent; check the official site. Some attractions use reservation-pass rules.",
+  "parking": "On-site parking is available; check the official access guidance for current terms.",
+  "businessHours": "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
+  "notes": "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer; current direct-bus evidence is kept in the origin-aware transport registry and schedules may be date-dependent.",
+  "notesJa": "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討してください。現在確認できる直通バス情報は出発地対応の交通レジストリで扱い、運行日は最新の公式案内をご確認ください。",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg/1920px-Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kugel~commonswiki, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg"
+  },
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "nearbyDestinationIds": [
+      "nago-city",
+      "yambaru",
+      "churaumi-aquarium-motobu"
+    ],
+    "relatedDestinationIds": ["nakijin-castle-ruins-motobu"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Junglia Okinawa coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://junglia.jp/en",
+        "title": "JUNGLIA OKINAWA official English site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://junglia.jp/",
+        "title": "ジャングリア沖縄 official Japanese site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.junglia.jp/en/access",
+        "title": "JUNGLIA official access page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.junglia.jp/en/get-ready",
+        "title": "JUNGLIA official preparation and access guidance",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tokyobus.jp/okinawa/one-city-bus05/",
+        "title": "Tokyo Bus current JUNGLIA EXPRESS route",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.junglia.jp/en/opening-hours?section=shows",
+        "title": "JUNGLIA official hours and attraction calendar",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://junglia.jp/en/ticket/furatto-ticket?section=more-attractions",
+        "title": "JUNGLIA official quick-visit guidance",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.okinawastory.jp/spot/600022159",
+        "title": "Okinawa Convention & Visitors Bureau listing",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://junglia.jp/en",
+          "title": "Official English name",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://junglia.jp/",
+          "title": "Official Japanese name",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://junglia.jp/en",
+          "title": "Current operator site and notices",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://junglia.jp/en",
+          "title": "Official launch/location information",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.junglia.jp/en/access",
+          "title": "Official access/location guidance",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://www.city.nago.okinawa.jp/machidukuri/2023072800017/file_contents/20250602_siryou10-1.pdf",
+          "title": "Nago City official transport document",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.junglia.jp/en/access",
+          "title": "Official access page",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.junglia.jp/en/get-ready",
+          "title": "Official access guidance",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "manual",
+          "url": "https://www.okinawastory.jp/spot/600022159",
+          "title": "Northern Okinawa itinerary relationship review",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "seasonMetadata": [
+        {
+          "type": "manual",
+          "url": "https://www.junglia.jp/en/access",
+          "title": "Season vector intentionally omitted; current access guidance does not support a defensible structured season model",
+          "accessedAt": "2026-08-22"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical attraction record after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22"
+}
