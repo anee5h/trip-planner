@@ -87145,14 +87145,6 @@
     "officialWebsite": "https://junglia.jp/en",
     "officialWebsiteRequirement": "required",
     "status": "verified",
-    "season": {
-      "spring": 7,
-      "summer": 6,
-      "autumn": 7,
-      "winter": 7
-    },
-    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    "bestSeason": "All Year (indoor)",
     "weatherDependence": "high",
     "budgetMetadata": {
       "method": "unknown",
@@ -87160,7 +87152,6 @@
       "confidence": "unknown",
       "basis": "Current admission and access costs are volatile or origin-dependent; no numeric budget is published here."
     },
-    "walkingMin": 180,
     "indoorPercent": 35,
     "recommendedVisitHours": {
       "min": 3,
@@ -87208,8 +87199,7 @@
     "localAccessUnestimated": true,
     "comfort": {
       "heatTolerance": 4,
-      "rainFriendly": 3,
-      "walkingIntensity": 7
+      "rainFriendly": 3
     },
     "businessHours": "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
     "relationships": {

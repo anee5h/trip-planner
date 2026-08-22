@@ -43,7 +43,9 @@ const source = (
 
 const jungliaHome = "https://junglia.jp/en";
 const jungliaHomeJa = "https://junglia.jp/";
-const jungliaAccess = "https://junglia.jp/access";
+const jungliaAccess = "https://www.junglia.jp/en/access";
+const jungliaGetReady = "https://www.junglia.jp/en/get-ready";
+const jungliaBus = "https://www.tokyobus.jp/okinawa/one-city-bus05/";
 const jungliaHours = "https://www.junglia.jp/en/opening-hours?section=shows";
 const jungliaQuickVisit =
   "https://junglia.jp/en/ticket/furatto-ticket?section=more-attractions";
@@ -167,7 +169,7 @@ const junglia: DestinationWithLocation = {
       openingHours:
         "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
       notes:
-        "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer and current reserved direct-bus options; this record intentionally leaves route time and fare unestimated.",
+        "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer; current direct-bus evidence is kept in the origin-aware transport registry and schedules may be date-dependent.",
     },
     ja: {
       name: "ジャングリア沖縄",
@@ -185,7 +187,7 @@ const junglia: DestinationWithLocation = {
       openingHours:
         "営業時間やアトラクションの運営状況は日付・天候等により変わるため、公式カレンダーをご確認ください。",
       notes:
-        "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討し、バスの所要時間・運賃は固定値を掲載していません。",
+        "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討してください。現在確認できる直通バス情報は出発地対応の交通レジストリで扱い、運行日は最新の公式案内をご確認ください。",
     },
   },
   transportOptions: {},
@@ -193,23 +195,25 @@ const junglia: DestinationWithLocation = {
   localAccessModes: ["bus", "car", "my_car"],
   localAccessUnestimated: true,
   transportMetadata: {
-    method: "unknown",
-    confidence: "unknown",
+    method: "source-verified",
+    confidence: "high",
     basis:
-      "Official access pages verify bus and private-vehicle modes, but origin-specific journey times and fares are intentionally not hard-coded.",
+      "Official access pages verify bus and private-vehicle modes; current direct bus products are represented in the origin-aware registry, while date-specific schedules and car door-to-door time remain unestimated.",
   },
   recommendedVisitHours: { min: 3, max: 7 },
   durationMetadata: manualDuration(
     "Conservative 3–7 hour editorial window derived from the official approximately 3-hour Quick Visit product and the official 1Day sample itinerary.",
   ),
-  walkingMin: 180,
-  walkingMetadata: manualWalking(
-    "Conservative on-site walking estimate for a large outdoor theme park; no route distance is presented as an official fact.",
-  ),
+  walkingMetadata: {
+    method: "unknown",
+    confidence: "unknown",
+    basis:
+      "No authoritative on-site walking distance or defensible walking model was verified; intentionally left unknown.",
+  },
   indoorPercent: 35,
-  comfort: { heatTolerance: 4, rainFriendly: 3, walkingIntensity: 7 },
+  comfort: { heatTolerance: 4, rainFriendly: 3 },
   comfortMetadata: manualComfort(
-    "Outdoor theme-park editorial fit assessment; attraction availability and conditions vary.",
+    "Outdoor theme-park editorial fit assessment; attraction availability and conditions vary. No numeric walking estimate is asserted.",
   ),
   weatherDependence: "high",
   ratings: {
@@ -233,10 +237,12 @@ const junglia: DestinationWithLocation = {
     method: "manual",
     confidence: "medium",
   },
-  season: modelSeason,
-  bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  bestSeason: "All Year (indoor)",
-  seasonMetadata: modelSeasonMetadata,
+  seasonMetadata: {
+    method: "unknown",
+    confidence: "unknown",
+    basis:
+      "The attraction is primarily outdoor and weather-dependent; no defensible four-season score model was verified from current authoritative material.",
+  },
   budgetMetadata: unknownBudget,
   crowdMetadata: unknownCrowd,
   scoreMetadata: {
@@ -259,9 +265,9 @@ const junglia: DestinationWithLocation = {
   businessHours:
     "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
   notes:
-    "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer and current reserved direct-bus options; this record intentionally leaves route time and fare unestimated.",
+    "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer; current direct-bus evidence is kept in the origin-aware transport registry and schedules may be date-dependent.",
   notesJa:
-    "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討し、バスの所要時間・運賃は固定値を掲載していません。",
+    "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討してください。現在確認できる直通バス情報は出発地対応の交通レジストリで扱い、運行日は最新の公式案内をご確認ください。",
   heroImage: jungliaImage,
   imageMetadata: {
     source: "Wikimedia Commons",
@@ -292,6 +298,12 @@ const junglia: DestinationWithLocation = {
         "ジャングリア沖縄 official Japanese site",
       ),
       source("official", jungliaAccess, "JUNGLIA official access page"),
+      source(
+        "official",
+        jungliaGetReady,
+        "JUNGLIA official preparation and access guidance",
+      ),
+      source("official", jungliaBus, "Tokyo Bus current JUNGLIA EXPRESS route"),
       source(
         "official",
         jungliaHours,
@@ -329,6 +341,7 @@ const junglia: DestinationWithLocation = {
       ],
       localAccessModes: [
         source("official", jungliaAccess, "Official access page"),
+        source("official", jungliaGetReady, "Official access guidance"),
       ],
       relationships: [
         source(
@@ -337,8 +350,13 @@ const junglia: DestinationWithLocation = {
           "Northern Okinawa itinerary relationship review",
         ),
       ],
-      season: [modelSeasonSource()],
-      bestMonths: [modelSeasonSource()],
+      seasonMetadata: [
+        source(
+          "manual",
+          jungliaAccess,
+          "Season vector intentionally omitted; current access guidance does not support a defensible structured season model",
+        ),
+      ],
     },
     changes: [
       {
@@ -399,7 +417,7 @@ const dmm: DestinationWithLocation = {
       openingHours:
         "Opening hours vary by date; check the official calendar before visiting.",
       notes:
-        "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; no rail or fixed journey time is asserted here.",
+        "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; Naha-area bus evidence is represented in the origin-aware registry, while rail and car door-to-door time are not asserted.",
     },
     ja: {
       name: "DMMかりゆし水族館",
@@ -417,7 +435,7 @@ const dmm: DestinationWithLocation = {
       openingHours:
         "営業時間は日付により異なるため、来館前に公式カレンダーをご確認ください。",
       notes:
-        "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されていますが、鉄道や固定の所要時間は掲載していません。",
+        "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されています。那覇周辺のバス情報は出発地対応の交通レジストリで扱い、鉄道や車のドアツードア所要時間は示していません。",
     },
   },
   transportOptions: {},
@@ -425,10 +443,10 @@ const dmm: DestinationWithLocation = {
   localAccessModes: ["bus", "car", "my_car"],
   localAccessUnestimated: true,
   transportMetadata: {
-    method: "unknown",
-    confidence: "unknown",
+    method: "source-verified",
+    confidence: "high",
     basis:
-      "Official access page verifies bus and private-vehicle modes, but origin-specific journey times and fares are intentionally not hard-coded.",
+      "Official access page verifies bus and private-vehicle modes; current Naha-area bus products are represented in the origin-aware registry, while fare and car door-to-door time remain unestimated.",
   },
   recommendedVisitHours: { min: 1, max: 3 },
   durationMetadata: manualDuration(
@@ -494,9 +512,9 @@ const dmm: DestinationWithLocation = {
   businessHours:
     "Opening hours vary by date; check the official calendar before visiting.",
   notes:
-    "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; no rail or fixed journey time is asserted here.",
+    "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; Naha-area bus evidence is represented in the origin-aware registry, while rail and car door-to-door time are not asserted.",
   notesJa:
-    "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されていますが、鉄道や固定の所要時間は掲載していません。",
+    "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されています。那覇周辺のバス情報は出発地対応の交通レジストリで扱い、鉄道や車のドアツードア所要時間は示していません。",
   heroImage: dmmImage,
   imageMetadata: {
     source: "Wikimedia Commons",
@@ -646,6 +664,7 @@ const byId = new Map(
   catalog.map((destination) => [destination.id, destination]),
 );
 const addedIds: string[] = [];
+const updatedIds: string[] = [];
 
 for (const candidate of additions) {
   const existing = byId.get(candidate.id);
@@ -657,6 +676,18 @@ for (const candidate of additions) {
       throw new Error(
         `${candidate.id}: existing record conflicts with KAI-162 evidence`,
       );
+    }
+    const existingIndex = catalog.findIndex(
+      (destination) => destination.id === candidate.id,
+    );
+    if (JSON.stringify(existing) !== JSON.stringify(candidate)) {
+      // These IDs are owned by this expansion script. Replacing an existing
+      // copy keeps the correction pass deterministic and removes stale fields
+      // from the original KAI-162 records (notably Junglia season/walking
+      // metadata) without touching unrelated catalogue records.
+      catalog[existingIndex] = candidate;
+      byId.set(candidate.id, candidate);
+      updatedIds.push(candidate.id);
     }
     continue;
   }
@@ -678,12 +709,12 @@ for (const candidate of additions) {
   addedIds.push(candidate.id);
 }
 
-if (addedIds.length > 0) {
+if (addedIds.length > 0 || updatedIds.length > 0) {
   fs.writeFileSync(INDEX_PATH, `${JSON.stringify(catalog, null, 2)}\n`);
 }
 
 console.log(
-  addedIds.length > 0
-    ? `KAI-162: added ${addedIds.length} Okinawa destinations (${addedIds.join(", ")})`
+  addedIds.length > 0 || updatedIds.length > 0
+    ? `KAI-162: added ${addedIds.length} and updated ${updatedIds.length} Okinawa destinations${[...addedIds, ...updatedIds].length > 0 ? ` (${[...addedIds, ...updatedIds].join(", ")})` : ""}`
     : "KAI-162: catalogue already contains the verified records; no changes made",
 );

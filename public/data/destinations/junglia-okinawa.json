@@ -41,7 +41,7 @@
       "reservation": "Tickets are product and date dependent. Check the official site; some attractions use reservation-pass rules.",
       "parking": "On-site parking is available; check the official access guidance for current terms.",
       "openingHours": "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
-      "notes": "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer and current reserved direct-bus options; this record intentionally leaves route time and fare unestimated."
+      "notes": "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer; current direct-bus evidence is kept in the origin-aware transport registry and schedules may be date-dependent."
     },
     "ja": {
       "name": "ジャングリア沖縄",
@@ -54,7 +54,7 @@
       "reservation": "チケットは商品・日付により条件が異なります。公式サイトをご確認ください。一部アトラクションは整理券等の対象です。",
       "parking": "駐車場あり。料金・利用条件は来園前に公式アクセス案内をご確認ください。",
       "openingHours": "営業時間やアトラクションの運営状況は日付・天候等により変わるため、公式カレンダーをご確認ください。",
-      "notes": "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討し、バスの所要時間・運賃は固定値を掲載していません。"
+      "notes": "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討してください。現在確認できる直通バス情報は出発地対応の交通レジストリで扱い、運行日は最新の公式案内をご確認ください。"
     }
   },
   "transportOptions": {},
@@ -62,9 +62,9 @@
   "localAccessModes": ["bus", "car", "my_car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
-    "method": "unknown",
-    "confidence": "unknown",
-    "basis": "Official access pages verify bus and private-vehicle modes, but origin-specific journey times and fares are intentionally not hard-coded."
+    "method": "source-verified",
+    "confidence": "high",
+    "basis": "Official access pages verify bus and private-vehicle modes; current direct bus products are represented in the origin-aware registry, while date-specific schedules and car door-to-door time remain unestimated."
   },
   "recommendedVisitHours": {
     "min": 3,
@@ -75,23 +75,20 @@
     "confidence": "medium",
     "basis": "Conservative 3–7 hour editorial window derived from the official approximately 3-hour Quick Visit product and the official 1Day sample itinerary."
   },
-  "walkingMin": 180,
   "walkingMetadata": {
-    "method": "manual",
-    "unit": "minutes",
-    "confidence": "medium",
-    "basis": "Conservative on-site walking estimate for a large outdoor theme park; no route distance is presented as an official fact."
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "No authoritative on-site walking distance or defensible walking model was verified; intentionally left unknown."
   },
   "indoorPercent": 35,
   "comfort": {
     "heatTolerance": 4,
-    "rainFriendly": 3,
-    "walkingIntensity": 7
+    "rainFriendly": 3
   },
   "comfortMetadata": {
     "method": "manual",
     "confidence": "medium",
-    "basis": "Outdoor theme-park editorial fit assessment; attraction availability and conditions vary."
+    "basis": "Outdoor theme-park editorial fit assessment; attraction availability and conditions vary. No numeric walking estimate is asserted."
   },
   "weatherDependence": "high",
   "ratings": {
@@ -116,10 +113,9 @@
     "confidence": "medium"
   },
   "seasonMetadata": {
-    "method": "model",
-    "modelVersion": "season-model-v1",
-    "confidence": "low",
-    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "The attraction is primarily outdoor and weather-dependent; no defensible four-season score model was verified from current authoritative material."
   },
   "budgetMetadata": {
     "method": "unknown",
@@ -133,11 +129,23 @@
     "confidence": "unknown",
     "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
   },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
   "reservation": "Tickets are product and date dependent; check the official site. Some attractions use reservation-pass rules.",
   "parking": "On-site parking is available; check the official access guidance for current terms.",
   "businessHours": "Operating hours and attraction availability vary by date and conditions; check the official calendar.",
-  "notes": "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer and current reserved direct-bus options; this record intentionally leaves route time and fare unestimated.",
-  "notesJa": "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討し、バスの所要時間・運賃は固定値を掲載していません。",
+  "notes": "Junglia is in Nakijin, not Nago. No rail reaches the park. Naha-origin visitors should plan around the long northern-Okinawa transfer; current direct-bus evidence is kept in the origin-aware transport registry and schedules may be date-dependent.",
+  "notesJa": "所在地は名護市ではなく今帰仁村です。園内へ鉄道は乗り入れていません。那覇発は北部までの移動を含む日帰り計画として検討してください。現在確認できる直通バス情報は出発地対応の交通レジストリで扱い、運行日は最新の公式案内をご確認ください。",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg/1920px-Junglia_Okinawa_seen_from_Mount_Yae_202512.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -180,8 +188,20 @@
       },
       {
         "type": "official",
-        "url": "https://junglia.jp/access",
+        "url": "https://www.junglia.jp/en/access",
         "title": "JUNGLIA official access page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.junglia.jp/en/get-ready",
+        "title": "JUNGLIA official preparation and access guidance",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tokyobus.jp/okinawa/one-city-bus05/",
+        "title": "Tokyo Bus current JUNGLIA EXPRESS route",
         "accessedAt": "2026-08-22"
       },
       {
@@ -239,7 +259,7 @@
       "location": [
         {
           "type": "official",
-          "url": "https://junglia.jp/access",
+          "url": "https://www.junglia.jp/en/access",
           "title": "Official access/location guidance",
           "accessedAt": "2026-08-22"
         }
@@ -255,8 +275,14 @@
       "localAccessModes": [
         {
           "type": "official",
-          "url": "https://junglia.jp/access",
+          "url": "https://www.junglia.jp/en/access",
           "title": "Official access page",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.junglia.jp/en/get-ready",
+          "title": "Official access guidance",
           "accessedAt": "2026-08-22"
         }
       ],
@@ -268,20 +294,12 @@
           "accessedAt": "2026-08-22"
         }
       ],
-      "season": [
+      "seasonMetadata": [
         {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "bestMonths": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
-          "accessedAt": "2026-08-14"
+          "type": "manual",
+          "url": "https://www.junglia.jp/en/access",
+          "title": "Season vector intentionally omitted; current access guidance does not support a defensible structured season model",
+          "accessedAt": "2026-08-22"
         }
       ]
     },
@@ -294,25 +312,5 @@
       }
     ]
   },
-  "addedAt": "2026-08-22",
-  "season": {
-    "spring": 7,
-    "summer": 6,
-    "autumn": 7,
-    "winter": 7
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year (indoor)",
-  "scoreMetadata": {
-    "state": "estimated",
-    "value": 7.2,
-    "rubricVersion": "kai-89-overall-v2",
-    "confidence": "low",
-    "coverage": 0.9,
-    "provenance": {
-      "sourceClass": "model",
-      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
-    },
-    "noteKey": "destination.scoreEstimatedNote"
-  }
+  "addedAt": "2026-08-22"
 }

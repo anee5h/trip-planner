@@ -41,7 +41,7 @@
       "reservation": "Online and same-day individual tickets are available; check current date-specific terms. Group reservations follow separate rules.",
       "parking": "Free parking is available at iias Okinawa Toyosaki; check current operator access guidance.",
       "openingHours": "Opening hours vary by date; check the official calendar before visiting.",
-      "notes": "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; no rail or fixed journey time is asserted here."
+      "notes": "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; Naha-area bus evidence is represented in the origin-aware registry, while rail and car door-to-door time are not asserted."
     },
     "ja": {
       "name": "DMMかりゆし水族館",
@@ -54,7 +54,7 @@
       "reservation": "個人はオンライン購入・当日購入に対応しています。日付指定等の条件は最新の公式案内をご確認ください。団体予約は別の扱いです。",
       "parking": "イーアス沖縄豊崎の無料駐車場を利用できます。最新の利用条件は公式アクセス案内をご確認ください。",
       "openingHours": "営業時間は日付により異なるため、来館前に公式カレンダーをご確認ください。",
-      "notes": "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されていますが、鉄道や固定の所要時間は掲載していません。"
+      "notes": "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されています。那覇周辺のバス情報は出発地対応の交通レジストリで扱い、鉄道や車のドアツードア所要時間は示していません。"
     }
   },
   "transportOptions": {},
@@ -62,9 +62,9 @@
   "localAccessModes": ["bus", "car", "my_car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
-    "method": "unknown",
-    "confidence": "unknown",
-    "basis": "Official access page verifies bus and private-vehicle modes, but origin-specific journey times and fares are intentionally not hard-coded."
+    "method": "source-verified",
+    "confidence": "high",
+    "basis": "Official access page verifies bus and private-vehicle modes; current Naha-area bus products are represented in the origin-aware registry, while fare and car door-to-door time remain unestimated."
   },
   "recommendedVisitHours": {
     "min": 1,
@@ -116,6 +116,14 @@
     "method": "manual",
     "confidence": "medium"
   },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)",
   "seasonMetadata": {
     "method": "model",
     "modelVersion": "season-model-v1",
@@ -134,11 +142,23 @@
     "confidence": "unknown",
     "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
   },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
   "reservation": "Online and same-day individual tickets are available; check current date-specific terms. Group reservations follow separate rules.",
   "parking": "Free parking is available at iias Okinawa Toyosaki; check current operator access guidance.",
   "businessHours": "Opening hours vary by date; check the official calendar before visiting.",
-  "notes": "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; no rail or fixed journey time is asserted here.",
-  "notesJa": "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されていますが、鉄道や固定の所要時間は掲載していません。",
+  "notes": "This is in Tomigusuku, not Naha, and is distinct from Churaumi Aquarium. Official access lists bus and car options; Naha-area bus evidence is represented in the origin-aware registry, while rail and car door-to-door time are not asserted.",
+  "notesJa": "所在地は那覇市ではなく豊見城市で、美ら海水族館とは別の施設です。公式アクセスではバス・車が案内されています。那覇周辺のバス情報は出発地対応の交通レジストリで扱い、鉄道や車のドアツードア所要時間は示していません。",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/DMM_Kariyushi_Aquarium_202006.jpg/1920px-DMM_Kariyushi_Aquarium_202006.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -264,7 +284,7 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=90, kind='aquarium', walkingMin=60",
-          "accessedAt": "2026-08-14"
+          "accessedAt": "2026-08-22"
         }
       ],
       "season": [
@@ -293,25 +313,5 @@
       }
     ]
   },
-  "addedAt": "2026-08-22",
-  "season": {
-    "spring": 7,
-    "summer": 6,
-    "autumn": 7,
-    "winter": 7
-  },
-  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-  "bestSeason": "All Year (indoor)",
-  "scoreMetadata": {
-    "state": "estimated",
-    "value": 6.2,
-    "rubricVersion": "kai-89-overall-v2",
-    "confidence": "low",
-    "coverage": 0.9,
-    "provenance": {
-      "sourceClass": "model",
-      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
-    },
-    "noteKey": "destination.scoreEstimatedNote"
-  }
+  "addedAt": "2026-08-22"
 }

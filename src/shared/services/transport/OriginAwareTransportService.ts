@@ -14,6 +14,8 @@ import {
   BUS_ACCESS_HUBS,
   BUS_ACCESS_RADIUS_KM,
   BUS_ARRIVAL_RADIUS_KM,
+  BUS_DESTINATION_ACCESS_HUBS,
+  DESTINATION_BUS_SLUG,
   getBusRoutes,
   MUNICIPALITY_BUS_SLUG,
 } from "./BusRouteEstimator";
@@ -70,6 +72,11 @@ export interface OriginAwareTransportEstimate {
   /** Bus-only operating window of the corridor product (KAI-66). A
    *  night-only coach must not make a same-day day trip feasible. */
   servicePeriod?: "day" | "night" | "mixed";
+  /** Verified bus product metadata, retained so route evidence remains
+   *  visible to recommendation and planning consumers. */
+  serviceName?: string;
+  operator?: string;
+  reservationRequired?: boolean;
   /**
    * What the fare buys: seat product and fare basis (FARE_POLICY §0/§2).
    * Only present together with a fare — a basis without a price implies a
@@ -373,16 +380,20 @@ function getGroundEstimate(
       radiusKm: BUS_ACCESS_RADIUS_KM,
       transportZoneId: context.originZoneId,
     });
+    const destinationBusSlug = DESTINATION_BUS_SLUG[destination.id];
+    const destinationHubs = destinationBusSlug
+      ? BUS_DESTINATION_ACCESS_HUBS
+      : BUS_ACCESS_HUBS;
     const toHubs = resolveNearbyAccessHubs({
       location: destination.coordinates,
       mode: "bus",
-      hubs: BUS_ACCESS_HUBS,
-      exactHubIds: resolveExactHubIds(
-        destination.municipalityId,
-        MUNICIPALITY_BUS_SLUG,
-      ),
+      hubs: destinationHubs,
+      exactHubIds: destinationBusSlug
+        ? [destinationBusSlug]
+        : resolveExactHubIds(destination.municipalityId, MUNICIPALITY_BUS_SLUG),
       radiusKm: BUS_ARRIVAL_RADIUS_KM,
       transportZoneId: destinationZoneId,
+      exactOnly: Boolean(destinationBusSlug),
     });
     const selected = selectGroundCandidate({
       fromHubs,
@@ -417,6 +428,9 @@ function getGroundEstimate(
       fare: selected.route.fare,
       fareVariability: selected.route.fareVariability,
       servicePeriod: selected.route.servicePeriod,
+      serviceName: selected.route.serviceName,
+      operator: selected.route.operator,
+      reservationRequired: selected.route.reservationRequired,
     };
   }
   if (mode === "shinkansen") {

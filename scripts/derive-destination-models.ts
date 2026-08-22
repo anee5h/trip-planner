@@ -254,12 +254,20 @@ function main() {
     }
   }
   const seasonEligible = new Set(manualByField.season ?? []);
-  for (const d of destinations)
+  for (const d of destinations) {
     if (!d.season || !d.bestMonths?.length) seasonEligible.add(d.id);
+    // An explicit unknown marker is an owner decision, not missing data. It
+    // must prevent a later model run from manufacturing a replacement vector.
+    if (d.seasonMetadata?.method === "unknown") seasonEligible.delete(d.id);
+  }
   const durationEligible = new Set(manualByField.visitDuration ?? []);
   const walkingEligible = new Set(manualByField.walking ?? []);
-  for (const d of destinations)
+  for (const d of destinations) {
     if (d.walkingMin === undefined) walkingEligible.add(d.id);
+    // Same contract as seasonality: explicit unknown walking metadata is
+    // authoritative and must not be refilled from a kind/duration heuristic.
+    if (d.walkingMetadata?.method === "unknown") walkingEligible.delete(d.id);
+  }
   const comfortEligible = new Set(manualByField.comfort ?? []);
   const crowdEligible = new Set(manualByField.crowd ?? []);
   const transportEligible = new Set(manualByField.transport ?? []);

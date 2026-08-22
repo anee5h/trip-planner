@@ -76,6 +76,8 @@ export const BUS_TERMINAL_COORDS: Record<string, { lat: number; lng: number }> =
     nagano: { lat: 36.6431, lng: 138.1888 }, // Nagano
     niigata: { lat: 37.9121, lng: 139.0614 }, // Niigata
     naha: { lat: 26.2111, lng: 127.6759 }, // Naha Bus Terminal (Asahibashi)
+    "naha-airport": { lat: 26.1958, lng: 127.6461 }, // Naha Airport bus stop
+    "naha-city": { lat: 26.2145, lng: 127.6794 }, // Kokusai-dori entrance representative stop
     nago: { lat: 26.5915, lng: 127.9774 }, // Nago Bus Terminal
   };
 
@@ -161,6 +163,14 @@ export const MUNICIPALITY_BUS_SLUG: Record<string, string> = {
   "Okinawa:nago": "nago",
 };
 
+/** Destination-specific bus endpoints whose physical access is not a
+ * municipality-level claim. They stay out of the general hub catchment so a
+ * nearby attraction cannot inherit a direct Junglia/DMM route accidentally. */
+export const DESTINATION_BUS_SLUG: Record<string, string> = {
+  "junglia-okinawa": "junglia",
+  "dmm-kariyushi-aquarium": "dmm",
+};
+
 /**
  * Bus terminal registry expressed in the shared access-hub shape. The
  * corridor endpoint is still the verified bus-routes.json city slug.
@@ -174,6 +184,23 @@ export const BUS_ACCESS_HUBS: readonly IntercityAccessHub[] = Object.entries(
   transportZoneId: resolveOriginTransportZone({ coordinates }),
   corridorEndpoint: id,
 }));
+
+export const BUS_DESTINATION_ACCESS_HUBS: readonly IntercityAccessHub[] = [
+  {
+    id: "junglia",
+    mode: "bus",
+    coordinates: { lat: 26.6417419, lng: 127.9739612 },
+    transportZoneId: "okinawa-main",
+    corridorEndpoint: "junglia",
+  },
+  {
+    id: "dmm",
+    mode: "bus",
+    coordinates: { lat: 26.1577349, lng: 127.6509771 },
+    transportZoneId: "okinawa-main",
+    corridorEndpoint: "dmm",
+  },
+];
 
 /**
  * Verified intercity/highway-bus corridor lookup, keyed on municipality
