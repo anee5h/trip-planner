@@ -90353,23 +90353,20 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 45,
-      "bus": 70
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
@@ -90439,21 +90436,17 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "ferry": 60,
-      "bus": 75
-    },
-    "transportZoneId": "mainland-kyushu",
+    "transportOptions": {},
     "localAccessModes": ["bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
@@ -90573,8 +90566,8 @@
     },
     "walkingMin": 150,
     "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+      "min": 2,
+      "max": 3
     },
     "collections": [],
     "ratings": {
@@ -90599,20 +90592,17 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 55,
-      "bus": 80
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",

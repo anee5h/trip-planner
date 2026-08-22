@@ -1872,7 +1872,7 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T15:10",
+    "at": "2026-08-22T18:07",
     "changeCount": 1,
     "byModel": [
       [

@@ -6,7 +6,7 @@
   "totalRecords": 1021,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 192,
+    "clusterCount": 191,
     "affectedRecordCount": 1018,
     "affectedIds": [
       "abashiri",
@@ -1389,9 +1389,9 @@
       "confidence-gated": 31,
       "model-estimate": 43,
       "manual-review": 93,
-      "legitimate": 11
+      "legitimate": 10
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 11, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 10, "E": 31 }
   },
   "categories": [
     {
@@ -3647,8 +3647,8 @@
     {
       "category": "visitDuration",
       "severity": "review",
-      "clusterCount": 24,
-      "affectedRecordCount": 980,
+      "clusterCount": 25,
+      "affectedRecordCount": 982,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3662,6 +3662,7 @@
         "akasaka-minato",
         "akashi-castle",
         "akashi-kaikyo-bridge",
+        "akebonoyama-agricultural-park-kashiwa",
         "akihabara-chiyoda",
         "akita-city",
         "akita-museum-of-art",
@@ -3962,6 +3963,7 @@
         "jogashima",
         "jomon-sugi-yakushima",
         "joshinetsu-kogen",
+        "joypolis",
         "jozenji-dori",
         "kabira-bay-ishigaki",
         "kabukicho",
@@ -5146,7 +5148,7 @@
         {
           "id": "e7d3c053b289",
           "severity": "review",
-          "count": 66,
+          "count": 65,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -5212,8 +5214,7 @@
             "tokyo-skytree-sumida",
             "tottori-sand-dunes",
             "tsunoshima-bridge-yamaguchi",
-            "uwajima-castle",
-            "yanagawa-canal-cruise"
+            "uwajima-castle"
           ],
           "value": { "max": 5, "min": 3 },
           "disposition": {
@@ -5918,6 +5919,22 @@
             "category": "C",
             "action": "manual-review",
             "reason": "Plausible."
+          }
+        },
+        {
+          "id": "b745c8933575",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "akebonoyama-agricultural-park-kashiwa",
+            "joypolis",
+            "yanagawa-canal-cruise"
+          ],
+          "value": { "max": 3, "min": 2 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
           }
         }
       ]
@@ -8633,8 +8650,8 @@
     {
       "category": "transport",
       "severity": "review",
-      "clusterCount": 61,
-      "affectedRecordCount": 430,
+      "clusterCount": 59,
+      "affectedRecordCount": 424,
       "affectedIds": [
         "abukuma-cave-fukushima",
         "adachi-city",
@@ -8794,8 +8811,6 @@
         "kinrin-lake-yufuin",
         "kintai-bridge-yamaguchi",
         "kisarazu-city",
-        "kishiwada-castle",
-        "kishiwada-danjiri-kaikan",
         "kita-city",
         "kita-in",
         "kitakyushu-city",
@@ -8896,7 +8911,6 @@
         "nijo-market",
         "niseko-town",
         "nishiki-market",
-        "noritake-garden",
         "nozuta-park",
         "numazu-city",
         "nunobiki-falls",
@@ -8968,7 +8982,6 @@
         "shitennoji",
         "shonan-kaigan-park",
         "soji-ji-yokohama",
-        "sorakuen-garden",
         "sugamo-jizo-dori",
         "suginami-city",
         "sumida-city",
@@ -9001,7 +9014,6 @@
         "teamlab-planets",
         "tempozan-ferris-wheel",
         "tenjin",
-        "tenjinbashi-suji-shopping-street",
         "tennoji-park",
         "tenshaen-garden-uwajima",
         "tojinbo-cliffs-fukui",
@@ -9045,7 +9057,6 @@
         "yakusugi-land-yakushima",
         "yamagata-city",
         "yamashita-park-yokohama",
-        "yanagawa-canal-cruise",
         "yanaka",
         "yashima-takamatsu",
         "yobuko-morning-market",
@@ -10133,38 +10144,6 @@
             "category": "E",
             "action": "manual-review",
             "reason": "mixed"
-          }
-        },
-        {
-          "id": "a9917329fab1",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "kishiwada-castle",
-            "kishiwada-danjiri-kaikan",
-            "yanagawa-canal-cruise"
-          ],
-          "value": { "bus": 80, "train": 55 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "New Fukuoka destinations sharing a legacy-fallback transportOptions profile {bus:80, train:55} (Marine World Uminonakamichi, Nokonoshima Island Park, Yanagawa Canal Cruise) with low-confidence provenance per transportMetadata; display fallbacks, not origin-aware corridor claims."
-          }
-        },
-        {
-          "id": "b6f0b5b82a44",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "noritake-garden",
-            "sorakuen-garden",
-            "tenjinbashi-suji-shopping-street"
-          ],
-          "value": { "bus": 25, "train": 15 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "Three new Kobe destinations (Ikuta Shrine, Sorakuen Garden, Hakutsuru Sake Brewery Museum) share a legacy-fallback transportOptions profile {bus:25, train:15} with low-confidence provenance per transportMetadata; these are display fallbacks, not origin-aware corridor claims."
           }
         },
         {

@@ -59,6 +59,11 @@ const ISLAND_BOUNDS: Record<
   // KAI-87: lng floor 132.312 keeps the mainland ferry port (Miyajimaguchi,
   // ~132.308) out of the island zone; the island spans ~132.315-132.325.
   miyajima: { latRange: [34.27, 34.32], lngRange: [132.312, 132.33] },
+  // Nokonoshima (能古島) in Hakata Bay, off Fukuoka's Nishi-ku coast. The
+  // island spans ~33.60-33.66 lat, ~130.26-130.32 lng; the box keeps the
+  // mainland Meinohama ferry terminal (Atago-hama, ~33.585/130.325) out of
+  // the island zone. Ferry-only: no rail reaches the island.
+  nokonoshima: { latRange: [33.6, 33.66], lngRange: [130.25, 130.33] },
   gunkanjima: { latRange: [32.62, 32.64], lngRange: [129.73, 129.75] },
 };
 

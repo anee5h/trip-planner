@@ -62,8 +62,6 @@ type FukuokaSpec = {
   notes: string;
   notesJa: string;
   localAccessModes: TransportMode[];
-  transportOptions?: { train?: number; bus?: number; ferry?: number };
-  transportZoneId?: string;
   sources: SourceReference[];
   image: NonNullable<Destination["imageMetadata"]> & { heroImage: string };
   duration?: {
@@ -111,13 +109,6 @@ const unknownSeason = {
   confidence: "unknown" as const,
   basis:
     "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved.",
-};
-
-const legacyTransport = {
-  method: "legacy-fallback" as const,
-  confidence: "low" as const,
-  basis:
-    "Static minutes are retained only as a legacy display fallback matching existing Fukuoka records; origin-aware transport remains authoritative and is never fabricated.",
 };
 
 const image = (
@@ -255,11 +246,15 @@ const makeRecord = (spec: FukuokaSpec): DestinationWithLocation => {
       attribution: spec.image.attribution,
       sourceUrl: spec.image.sourceUrl,
     },
-    transportOptions: spec.transportOptions ?? {},
-    ...(spec.transportZoneId ? { transportZoneId: spec.transportZoneId } : {}),
+    transportOptions: {},
     localAccessModes: spec.localAccessModes,
     localAccessUnestimated: true,
-    transportMetadata: legacyTransport,
+    transportMetadata: {
+      method: "unestimated",
+      confidence: "unknown",
+      basis:
+        "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers.",
+    },
     recommendedVisitHours: spec.duration?.hours,
     durationMetadata: spec.duration
       ? {
@@ -360,7 +355,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "JR海の中道駅（香椎線）から徒歩約5分です。隣接する国営海の中道海浜公園は別施設で、本レコードは水族館を中心とした海辺の定番スポットとして扱います。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 45, bus: 70 },
     sources: [
       source(
         "official",
@@ -428,8 +422,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "アクセスは姪浜フェリー乗り場からフェリー（約10分）で能古島へ渡り、さらに西鉄バスで約13分で公園に到着します。島へ直通の鉄道はありません。日帰りの場合は最終便の時間に注意が必要です。",
     localAccessModes: ["bus"],
-    transportOptions: { ferry: 60, bus: 75 },
-    transportZoneId: "mainland-kyushu",
     sources: [
       source(
         "official",
@@ -449,10 +441,11 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "663highland, CC BY-SA 4.0, via Wikimedia Commons",
     ),
     duration: {
-      hours: { min: 3, max: 5 },
+      hours: { min: 2, max: 3 },
       source: durationMethodologySource,
       confidence: "medium",
-      basis: "Ferry + island + park visit band; a day trip is 3–5 hours.",
+      basis:
+        "Time spent at the island park itself (flower fields, walks, views); the ferry crossing and island bus are transport, not visit time.",
     },
     reservation:
       "Check current ferry schedules and park hours; no advance park admission is modeled.",
@@ -561,7 +554,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "川下りは一つの定番の体験として扱います。松月乗船場は運航会社の一つで、城下町の掘割クルーズが安定した訪問体験です。西鉄天神大牟田線の西鉄柳川駅からアクセスします。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 55, bus: 80 },
     sources: [
       source(
         "official",
@@ -581,11 +573,11 @@ const reviewedCandidates: DestinationWithLocation[] = [
       "663highland, CC BY-SA 4.0, via Wikimedia Commons",
     ),
     duration: {
-      hours: { min: 3, max: 5 },
+      hours: { min: 2, max: 3 },
       source: durationMethodologySource,
       confidence: "medium",
       basis:
-        "Train + cruise + town visit band; a half-day to full day from Fukuoka.",
+        "Destination experience time: the ~60-minute canal cruise plus time in the water-town streets and for eel lunch. The train from Fukuoka is transport, not visit time.",
     },
     reservation:
       "Boats depart on a schedule; check current times. The cruise operator (Yanagawa Kanko Kaihatsu) runs the Shogetsu boarding area.",
@@ -648,6 +640,45 @@ for (const candidate of reviewedCandidates) {
       existing.heroImage = candidate.heroImage;
       existing.imageMetadata = candidate.imageMetadata;
       if (existing.content?.en) existing.content.en.image = undefined;
+      enrichedIds.push(candidate.id);
+    }
+    // Transport correction (KAI-157 review): static transportOptions minutes
+    // bypass the origin-aware guard. Nokonoshima's mainland-kyushu zone was
+    // also invalid (island requires ferry). Both are corrected here: static
+    // values cleared; transportZoneId removed so the island box resolves
+    // Nokonoshima to its own ferry-only zone.
+    if (
+      existing.transportOptions &&
+      Object.keys(existing.transportOptions).length > 0
+    ) {
+      existing.transportOptions = {};
+      existing.transportMetadata = {
+        method: "unestimated",
+        confidence: "unknown",
+        basis:
+          "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers.",
+      };
+      enrichedIds.push(candidate.id);
+    }
+    if (existing.transportZoneId && existing.transportZoneId !== "unknown") {
+      delete existing.transportZoneId;
+      enrichedIds.push(candidate.id);
+    }
+    // Duration correction (KAI-157 review): recommendedVisitHours must mean
+    // time spent at/within the destination, not origin-to-destination travel.
+    // The corrected candidates carry pure destination-time bands.
+    if (
+      candidate.recommendedVisitHours &&
+      JSON.stringify(existing.recommendedVisitHours) !==
+        JSON.stringify(candidate.recommendedVisitHours)
+    ) {
+      existing.recommendedVisitHours = candidate.recommendedVisitHours;
+      existing.durationMetadata = {
+        method: "manual",
+        confidence: "medium",
+        basis:
+          "Destination experience time (visit at/within the destination); origin-to-destination travel is modeled separately in transport.",
+      };
       enrichedIds.push(candidate.id);
     }
     continue;

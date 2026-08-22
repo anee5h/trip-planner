@@ -25,6 +25,7 @@ export type TransportZoneId =
   | "naoshima"
   | "teshima"
   | "tomogashima"
+  | "nokonoshima"
   | "unknown";
 
 export interface TransportZone {

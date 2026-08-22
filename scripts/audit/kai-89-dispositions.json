@@ -968,6 +968,11 @@
       "category": "A",
       "action": "legitimate",
       "reason": "New Fukuoka destinations sharing a legacy-fallback transportOptions profile {bus:80, train:55} (Marine World Uminonakamichi, Nokonoshima Island Park, Yanagawa Canal Cruise) with low-confidence provenance per transportMetadata; display fallbacks, not origin-aware corridor claims."
+    },
+    "visitDuration:b745c8933575": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
     }
   }
 }
