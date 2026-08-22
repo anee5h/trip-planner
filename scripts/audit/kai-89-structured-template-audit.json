@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1000,
+  "totalRecords": 1007,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 190,
-    "affectedRecordCount": 997,
+    "affectedRecordCount": 1004,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -145,6 +145,7 @@
       "enoshima-shrine",
       "enryaku-ji-mount-hiei",
       "entsuin",
+      "expo-70-commemorative-park",
       "farm-tomita",
       "former-hokkaido-government-office",
       "fudaten-shrine",
@@ -250,6 +251,7 @@
       "hinomisaki-lighthouse-izumo",
       "hirado-castle",
       "hiraizumi-chusonji-iwate",
+      "hirakata-park",
       "hirome-market-kochi",
       "hirosaki-castle",
       "hirosaki-city",
@@ -400,6 +402,8 @@
       "kirishima-kinkowan",
       "kisarazu-city",
       "kishi-station-tama-cat",
+      "kishiwada-castle",
+      "kishiwada-danjiri-kaikan",
       "kiso",
       "kita-city",
       "kita-in",
@@ -823,6 +827,7 @@
       "sumida-city",
       "sumida-hokusai-museum",
       "sumida-river-walk",
+      "sumiyoshi-taisha",
       "sun-messe-nichinan",
       "sunamushi-onsen-saraku",
       "sunpu-castle",
@@ -870,9 +875,11 @@
       "taro-okamoto-museum-of-art",
       "tatehana-wharf-morning-market",
       "teamlab-borderless-azabudai",
+      "teamlab-botanical-garden-osaka",
       "teamlab-planets",
       "tempozan-ferris-wheel",
       "tenjin",
+      "tenjinbashi-suji-shopping-street",
       "tennoji-park",
       "tenryu-ji-kyoto",
       "tenryu-okumikawa",
@@ -1370,14 +1377,14 @@
       "manual-review": 93,
       "legitimate": 9
     },
-    "categoryCounts": { "D": 6, "B": 63, "C": 81, "A": 9, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 9, "E": 31 }
   },
   "categories": [
     {
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 437,
+      "affectedRecordCount": 444,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1442,6 +1449,7 @@
         "edogawa-city",
         "engyo-ji-mount-shosha",
         "enryaku-ji-mount-hiei",
+        "expo-70-commemorative-park",
         "farm-tomita",
         "fudaten-shrine",
         "fuefukigawa-fruit-park",
@@ -1486,6 +1494,7 @@
         "hino-city",
         "hirado-castle",
         "hiraizumi-chusonji-iwate",
+        "hirakata-park",
         "hirosaki-city",
         "hiroshima-city",
         "hiroshima-museum-art",
@@ -1549,6 +1558,8 @@
         "kirishima-kinkowan",
         "kisarazu-city",
         "kishi-station-tama-cat",
+        "kishiwada-castle",
+        "kishiwada-danjiri-kaikan",
         "kita-city",
         "kita-nagato-kaigan",
         "kitakyushu",
@@ -1740,6 +1751,7 @@
         "suigo-tsukuba",
         "sumida-city",
         "sumida-hokusai-museum",
+        "sumiyoshi-taisha",
         "sunpu-castle",
         "suzuka",
         "tachikawa-manga-park",
@@ -1758,6 +1770,8 @@
         "tama-forest-science-garden",
         "tango-amanohashidate-oeyama",
         "tanzawa-oyama",
+        "teamlab-botanical-garden-osaka",
+        "tenjinbashi-suji-shopping-street",
         "tenryu-ji-kyoto",
         "tenryu-okumikawa",
         "teshima-island-kagawa",
@@ -1957,6 +1971,57 @@
           }
         },
         {
+          "id": "7d6449898a3b",
+          "severity": "warning",
+          "count": 27,
+          "ids": [
+            "akebonoyama-agricultural-park-kashiwa",
+            "arashiyama-bamboo-togetsukyo",
+            "byobugaura-choshi",
+            "expo-70-commemorative-park",
+            "funabashi-andersen-park",
+            "gekkeikan-okura-sake-museum",
+            "hirakata-park",
+            "inubosaki-lighthouse-choshi",
+            "jakko-in-ohara",
+            "kifune-jinja-kyoto",
+            "kikkoman-soy-sauce-museum-noda",
+            "kishiwada-castle",
+            "kishiwada-danjiri-kaikan",
+            "kiyomizu-dera",
+            "kurama-dera-kyoto",
+            "nakayama-hokekyoji-ichikawa",
+            "national-museum-japanese-history-sakura",
+            "sanzen-in-ohara",
+            "shimizu-park-noda",
+            "spa-metsa-ootaka-nagareyama",
+            "sumiyoshi-taisha",
+            "teamlab-botanical-garden-osaka",
+            "tenjinbashi-suji-shopping-street",
+            "tenryu-ji-kyoto",
+            "tojo-tei-matsudo",
+            "uzumasa-kyoto-village",
+            "yagiri-no-watashi-matsudo"
+          ],
+          "value": {
+            "couple": 5,
+            "food": 5,
+            "overall": 5,
+            "photography": 5,
+            "rain": 5,
+            "relaxation": 5,
+            "summer": 5,
+            "uniqueness": 5,
+            "value": 5,
+            "winter": 5
+          },
+          "disposition": {
+            "category": "C",
+            "action": "confidence-gated",
+            "reason": "Nine newly reviewed Kyoto records deliberately use the neutral {5,5,...} placeholder while destination-specific ratings remain unverified; these values are not a positive quality claim."
+          }
+        },
+        {
           "id": "f98cf1399e01",
           "severity": "warning",
           "count": 27,
@@ -2098,50 +2163,6 @@
             "category": "D",
             "action": "corrected",
             "reason": "Hub-city template: identical vector incl. rain 5.5 across 22 climatically disparate cities (Aomori, Akita, Ise, Koriyama...). 4 records (ashikaga-city, choshi-city, hino-city, katori-city) laundered {manual,high}. Hubs scored like attractions."
-          }
-        },
-        {
-          "id": "7d6449898a3b",
-          "severity": "warning",
-          "count": 20,
-          "ids": [
-            "akebonoyama-agricultural-park-kashiwa",
-            "arashiyama-bamboo-togetsukyo",
-            "byobugaura-choshi",
-            "funabashi-andersen-park",
-            "gekkeikan-okura-sake-museum",
-            "inubosaki-lighthouse-choshi",
-            "jakko-in-ohara",
-            "kifune-jinja-kyoto",
-            "kikkoman-soy-sauce-museum-noda",
-            "kiyomizu-dera",
-            "kurama-dera-kyoto",
-            "nakayama-hokekyoji-ichikawa",
-            "national-museum-japanese-history-sakura",
-            "sanzen-in-ohara",
-            "shimizu-park-noda",
-            "spa-metsa-ootaka-nagareyama",
-            "tenryu-ji-kyoto",
-            "tojo-tei-matsudo",
-            "uzumasa-kyoto-village",
-            "yagiri-no-watashi-matsudo"
-          ],
-          "value": {
-            "couple": 5,
-            "food": 5,
-            "overall": 5,
-            "photography": 5,
-            "rain": 5,
-            "relaxation": 5,
-            "summer": 5,
-            "uniqueness": 5,
-            "value": 5,
-            "winter": 5
-          },
-          "disposition": {
-            "category": "C",
-            "action": "confidence-gated",
-            "reason": "Nine newly reviewed Kyoto records deliberately use the neutral {5,5,...} placeholder while destination-specific ratings remain unverified; these values are not a positive quality claim."
           }
         },
         {
@@ -3585,7 +3606,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 24,
-      "affectedRecordCount": 961,
+      "affectedRecordCount": 968,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3719,6 +3740,7 @@
         "enoshima-shrine",
         "enryaku-ji-mount-hiei",
         "entsuin",
+        "expo-70-commemorative-park",
         "farm-tomita",
         "former-hokkaido-government-office",
         "fudaten-shrine",
@@ -3817,6 +3839,7 @@
         "hinomisaki-lighthouse-izumo",
         "hirado-castle",
         "hiraizumi-chusonji-iwate",
+        "hirakata-park",
         "hirome-market-kochi",
         "hirosaki-castle",
         "hirosaki-city",
@@ -3961,6 +3984,8 @@
         "kirishima-kinkowan",
         "kisarazu-city",
         "kishi-station-tama-cat",
+        "kishiwada-castle",
+        "kishiwada-danjiri-kaikan",
         "kiso",
         "kita-city",
         "kita-in",
@@ -4373,6 +4398,7 @@
         "sumida-city",
         "sumida-hokusai-museum",
         "sumida-river-walk",
+        "sumiyoshi-taisha",
         "sun-messe-nichinan",
         "sunamushi-onsen-saraku",
         "sunpu-castle",
@@ -4418,9 +4444,11 @@
         "taro-okamoto-museum-of-art",
         "tatehana-wharf-morning-market",
         "teamlab-borderless-azabudai",
+        "teamlab-botanical-garden-osaka",
         "teamlab-planets",
         "tempozan-ferris-wheel",
         "tenjin",
+        "tenjinbashi-suji-shopping-street",
         "tennoji-park",
         "tenryu-ji-kyoto",
         "tenryu-okumikawa",
@@ -4553,7 +4581,7 @@
         {
           "id": "1cf659956fa2",
           "severity": "review",
-          "count": 173,
+          "count": 174,
           "ids": [
             "ameya-yokocho",
             "boso-no-mura",
@@ -4709,6 +4737,7 @@
             "tanukikoji-shopping-street",
             "tempozan-ferris-wheel",
             "tenjin",
+            "tenjinbashi-suji-shopping-street",
             "tochoji",
             "todoroki-ryokuchi",
             "toki-no-kane",
@@ -4739,7 +4768,7 @@
         {
           "id": "1c84ff3f729a",
           "severity": "review",
-          "count": 108,
+          "count": 112,
           "ids": [
             "aizu-bukeyashiki",
             "akita-museum-of-art",
@@ -4789,6 +4818,8 @@
             "kibitsu-shrine",
             "kifune-jinja-kyoto",
             "kikkoman-soy-sauce-museum-noda",
+            "kishiwada-castle",
+            "kishiwada-danjiri-kaikan",
             "kiyomizu-dera",
             "kojima-denim-street",
             "kurama-dera-kyoto",
@@ -4827,11 +4858,13 @@
             "senjokaku",
             "shirahama-beach-adventure-world",
             "shoryu-cave",
+            "sumiyoshi-taisha",
             "sunamushi-onsen-saraku",
             "takachiho-kagura-dance",
             "takayama-sanmachi",
             "tamatorizaki-viewpoint-ishigaki",
             "tatehana-wharf-morning-market",
+            "teamlab-botanical-garden-osaka",
             "tennoji-park",
             "tenryu-ji-kyoto",
             "tenshaen-garden-uwajima",
@@ -4860,7 +4893,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 92,
+          "count": 93,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -4875,6 +4908,7 @@
             "danjo-garan-koyasan",
             "enoshima-aquarium",
             "enryaku-ji-mount-hiei",
+            "expo-70-commemorative-park",
             "fuji-5-lake",
             "fukiya-village",
             "geibikei-gorge-iwate",
@@ -5409,7 +5443,7 @@
         {
           "id": "afa8461550d9",
           "severity": "review",
-          "count": 43,
+          "count": 44,
           "ids": [
             "akan-mashu",
             "amami-gunto",
@@ -5423,6 +5457,7 @@
             "hakusan",
             "hayachine",
             "hidakasanmyaku-erimo-tokachi",
+            "hirakata-park",
             "huis-ten-bosch",
             "iriomote-ishigaki",
             "jomon-sugi-yakushima",
@@ -5825,7 +5860,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 964,
+      "affectedRecordCount": 971,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -5962,6 +5997,7 @@
         "enoshima-shrine",
         "enryaku-ji-mount-hiei",
         "entsuin",
+        "expo-70-commemorative-park",
         "farm-tomita",
         "former-hokkaido-government-office",
         "fudaten-shrine",
@@ -6060,6 +6096,7 @@
         "hinomisaki-lighthouse-izumo",
         "hirado-castle",
         "hiraizumi-chusonji-iwate",
+        "hirakata-park",
         "hirome-market-kochi",
         "hirosaki-castle",
         "hirosaki-city",
@@ -6203,6 +6240,8 @@
         "kirishima-kinkowan",
         "kisarazu-city",
         "kishi-station-tama-cat",
+        "kishiwada-castle",
+        "kishiwada-danjiri-kaikan",
         "kiso",
         "kita-city",
         "kita-in",
@@ -6611,6 +6650,7 @@
         "sumida-city",
         "sumida-hokusai-museum",
         "sumida-river-walk",
+        "sumiyoshi-taisha",
         "sun-messe-nichinan",
         "sunamushi-onsen-saraku",
         "sunpu-castle",
@@ -6656,9 +6696,11 @@
         "taro-okamoto-museum-of-art",
         "tatehana-wharf-morning-market",
         "teamlab-borderless-azabudai",
+        "teamlab-botanical-garden-osaka",
         "teamlab-planets",
         "tempozan-ferris-wheel",
         "tenjin",
+        "tenjinbashi-suji-shopping-street",
         "tennoji-park",
         "tenryu-ji-kyoto",
         "tenryu-okumikawa",
@@ -6796,7 +6838,7 @@
         {
           "id": "2da3e147dbe3",
           "severity": "review",
-          "count": 171,
+          "count": 172,
           "ids": [
             "aizu-bukeyashiki",
             "akihabara-chiyoda",
@@ -6874,6 +6916,7 @@
             "keio-rail-land",
             "kikkoman-soy-sauce-museum-noda",
             "kinugawa-onsen",
+            "kishiwada-danjiri-kaikan",
             "kita-in",
             "kitaro-chaya",
             "kiyosumi-gardens",
@@ -7077,7 +7120,7 @@
         {
           "id": "b02b173faa86",
           "severity": "review",
-          "count": 74,
+          "count": 76,
           "ids": [
             "abeno-harukas-300-osaka",
             "aizuwakamatsu-city",
@@ -7120,6 +7163,7 @@
             "kibitsu-shrine",
             "kifune-jinja-kyoto",
             "kinrin-lake-yufuin",
+            "kishiwada-castle",
             "kiyomizu-dera",
             "koko-en-garden",
             "koriyama-city",
@@ -7140,6 +7184,7 @@
             "sendai-umino-mori-aquarium",
             "shiraito-falls",
             "shomyo-falls",
+            "sumiyoshi-taisha",
             "takahashi-city",
             "takeda-castle-yamanashi",
             "tennoji-park",
@@ -7164,7 +7209,7 @@
         {
           "id": "3d368f449db1",
           "severity": "review",
-          "count": 68,
+          "count": 69,
           "ids": [
             "aomori-museum-of-art",
             "canal-city-hakata",
@@ -7227,6 +7272,7 @@
             "susukino",
             "tanukikoji-shopping-street",
             "tenjin",
+            "tenjinbashi-suji-shopping-street",
             "tokyo-hinohara",
             "towada-art-center",
             "tsutenkaku",
@@ -7245,7 +7291,7 @@
         {
           "id": "a5c2919dfbb8",
           "severity": "review",
-          "count": 66,
+          "count": 67,
           "ids": [
             "abashiri",
             "aichi-kogen",
@@ -7259,6 +7305,7 @@
             "chuo-alps",
             "daisen-oki",
             "echizen-kaga-kaigan",
+            "expo-70-commemorative-park",
             "genkai",
             "hiba-dogo-taishaku",
             "hida-kisogawa",
@@ -7720,7 +7767,7 @@
         {
           "id": "47f1236f5181",
           "severity": "review",
-          "count": 23,
+          "count": 24,
           "ids": [
             "bizan-ropeway-tokushima",
             "fujita-memorial-garden",
@@ -7742,6 +7789,7 @@
             "ritsuunkyo-viewpoint",
             "shirahama-beach-adventure-world",
             "shoryu-cave",
+            "teamlab-botanical-garden-osaka",
             "tenshaen-garden-uwajima",
             "usuzumi-zakura",
             "yuzuki-castle-ruins-matsuyama"
@@ -7935,6 +7983,31 @@
           }
         },
         {
+          "id": "9360e7c9bb23",
+          "severity": "review",
+          "count": 12,
+          "ids": [
+            "bitchu-matsuyama-castle",
+            "hirakata-park",
+            "iwakuni-castle",
+            "kitakata-kura-district",
+            "lake-towada-aomori",
+            "mount-zao-yamagata",
+            "nagano-kamikochi",
+            "obi-castle",
+            "sendai-yagiyama-zoo",
+            "takatori-castle",
+            "yambaru",
+            "yufuin-onsen-ryokan-district"
+          ],
+          "value": { "walkingMin": 180 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "caace1894bbc",
           "severity": "review",
           "count": 12,
@@ -7953,30 +8026,6 @@
             "uradome-coast"
           ],
           "value": { "walkingMin": 290 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "9360e7c9bb23",
-          "severity": "review",
-          "count": 11,
-          "ids": [
-            "bitchu-matsuyama-castle",
-            "iwakuni-castle",
-            "kitakata-kura-district",
-            "lake-towada-aomori",
-            "mount-zao-yamagata",
-            "nagano-kamikochi",
-            "obi-castle",
-            "sendai-yagiyama-zoo",
-            "takatori-castle",
-            "yambaru",
-            "yufuin-onsen-ryokan-district"
-          ],
-          "value": { "walkingMin": 180 },
           "disposition": {
             "category": "E",
             "action": "manual-review",

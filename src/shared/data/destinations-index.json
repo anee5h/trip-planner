@@ -69129,25 +69129,21 @@
     ],
     "relationships": {
       "featuredDestinationIds": [
-        "abeno-harukas-300-osaka",
-        "dotonbori",
-        "kuromon-market",
-        "osaka-aquarium-kaiyukan",
         "osaka-castle",
-        "osaka-castle-park",
-        "osaka-museum-of-housing-and-living",
-        "osaka-station-city",
+        "osaka-aquarium-kaiyukan",
+        "dotonbori",
         "shinsaibashi",
-        "shinsekai",
-        "tempozan-ferris-wheel",
-        "tennoji-park",
-        "the-national-museum-of-art-osaka",
-        "tsutenkaku",
+        "kuromon-market",
         "umeda-sky-building",
         "universal-studios-japan",
-        "shitennoji",
+        "tsutenkaku",
+        "shinsekai",
+        "sumiyoshi-taisha",
+        "teamlab-botanical-garden-osaka",
+        "tenjinbashi-suji-shopping-street",
+        "osaka-station-city",
         "nakanoshima-museum-art-osaka",
-        "osaka-central-public-hall"
+        "the-national-museum-of-art-osaka"
       ],
       "nearbyDestinationIds": [
         "kyoto-city",
@@ -69191,7 +69187,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance major, 19 children, metro=true",
+            "title": "hub-window-model-v1; hub exploration window: importance major, 22 children, metro=true",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -69209,6 +69205,14 @@
             "url": "catalogue-model://kai-89",
             "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 30% of 12h visit",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-155",
+            "title": "KAI-155 curated Osaka City children; structural children remain authoritative",
+            "accessedAt": "2026-08-22"
           }
         ]
       }
@@ -69258,7 +69262,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance major, 19 children, metro=true"
+      "basis": "hub exploration window: importance major, 22 children, metro=true"
     },
     "comfortMetadata": {
       "method": "model",
@@ -95711,14 +95715,16 @@
         "description": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
         "highlights": [
           "Theme Park"
-        ]
+        ],
+        "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details."
       },
       "ja": {
         "name": "ユニバーサル・スタジオ・ジャパン",
         "description": "ユニバーサル・スタジオ・ジャパンは、映画をテーマにしたライドやショー、キャラクター、季節のイベントを楽しめる大阪のテーマパークです。",
         "highlights": [
           "テーマパーク"
-        ]
+        ],
+        "notes": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。"
       }
     },
     "prefecture": "Osaka",
@@ -95904,7 +95910,7 @@
     "nearHubs": [
       "osaka-city"
     ],
-    "notesJa": "【見どころ】ユニバーサル・スタジオ・ジャパンは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+    "notesJa": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。",
     "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
     "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
     "openingHoursJa": "08:30〜21:30（季節により変動）",
@@ -95938,7 +95944,8 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    }
+    },
+    "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details."
   },
   {
     "id": "urayasu-city",
@@ -182275,7 +182282,7 @@
       "Autumn maples",
       "Wild monkeys"
     ],
-    "notes": "Managed by Osaka. A short hike from Hankyu Minoo station reaches the falls.",
+    "notes": "The existing Meiji no Mori Mino Quasi-National Park record covers the Minoh outing. Minoo Falls (33 m) is the main natural attraction, reached by a roughly 40-minute one-way walk from Hankyu Minoo Station. This KAI-155 pass intentionally adds no separate Minoh micro-destinations.",
     "transportOptions": {},
     "recommendedVisitHours": {
       "min": 2,
@@ -182328,7 +182335,7 @@
           "Autumn maples",
           "Wild monkeys"
         ],
-        "notes": "Managed by Osaka. A short hike from Hankyu Minoo station reaches the falls.",
+        "notes": "The existing Meiji no Mori Mino Quasi-National Park record covers the Minoh outing. Minoo Falls (33 m) is the main natural attraction, reached by a roughly 40-minute one-way walk from Hankyu Minoo Station. This KAI-155 pass intentionally adds no separate Minoh micro-destinations.",
         "reservation": "None required",
         "parking": "Parking available at major visitor areas (fee varies)",
         "openingHours": "Open access (park; facility hours vary by season and area)"
@@ -182341,7 +182348,7 @@
           "紅葉",
           "野生の猿"
         ],
-        "notes": "大阪が管理。阪急箕面駅から徒歩ですぐのハイキングコースで滝に到着。",
+        "notes": "明治の森箕面国定公園の既存レコードが箕面の行き先をカバーしています。箕面大滝（落差33m）が主役で、阪急箕面駅から片道約40分の遊歩道で到達します。KAI-155では箕面の細分化は意図的に追加しません。",
         "reservation": "予約不要",
         "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
         "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
@@ -182409,7 +182416,8 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    }
+    },
+    "notesJa": "明治の森箕面国定公園の既存レコードが箕面の行き先をカバーしています。箕面大滝（落差33m）が主役で、阪急箕面駅から片道約40分の遊歩道で到達します。KAI-155では箕面の細分化は意図的に追加しません。"
   },
   {
     "id": "kongo-ikoma-kisen",
@@ -198022,6 +198030,1994 @@
       "provenance": {
         "sourceClass": "model",
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "sumiyoshi-taisha",
+    "officialWebsite": "https://www.sumiyoshitaisha.net/en/",
+    "officialWebsiteRequirement": "required",
+    "name": "Sumiyoshi Taisha Grand Shrine",
+    "nameJa": "住吉大社",
+    "aliases": [
+      "Sumiyoshi Taisha",
+      "Sumiyoshi Grand Shrine"
+    ],
+    "municipalityId": "Osaka:osaka",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "shrine",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "coordinates": {
+      "lat": 34.6128,
+      "lng": 135.4933
+    },
+    "location": {
+      "address": "2-9-89 Sumiyoshi, Sumiyoshi-ku, Osaka 558-0045",
+      "latitude": 34.6128,
+      "longitude": 135.4933
+    },
+    "categories": [
+      "Shrine",
+      "History",
+      "Culture",
+      "Sightseeing"
+    ],
+    "tags": [
+      "Shrine",
+      "History",
+      "Culture",
+      "Photography",
+      "Osaka City"
+    ],
+    "description": "One of Japan's oldest shrines and the head shrine of all Sumiyoshi shrines nationwide, known for its distinctive Sumiyoshi-zukuri main halls and the iconic red Soribashi bridge.",
+    "highlights": [
+      "The Sumiyoshi-zukuri National Treasure main halls",
+      "The red arched Soribashi bridge and garden",
+      "A distinctive southern Osaka heritage outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Sumiyoshi Taisha Grand Shrine",
+        "description": "One of Japan's oldest shrines and the head shrine of all Sumiyoshi shrines nationwide, known for its distinctive Sumiyoshi-zukuri main halls and the iconic red Soribashi bridge.",
+        "highlights": [
+          "The Sumiyoshi-zukuri National Treasure main halls",
+          "The red arched Soribashi bridge and garden",
+          "A distinctive southern Osaka heritage outing"
+        ],
+        "notes": "The shrine is free to enter; the treasure hall has a separate fee. Approach by Nankai Main Line Sumiyoshitaisha Station (3 min walk) or Hankai Tram. No rail line reaches the shrine gate itself.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "住吉大社",
+        "description": "全国の住吉神社の総本社で、日本最古級の神社の一つ。住吉造の本殿と朱塗りの反橋が有名です。",
+        "highlights": [
+          "国宝の住吉造本殿",
+          "朱塗りの反橋と境内",
+          "大阪南部を代表する歴史散策"
+        ],
+        "notes": "境内は無料で参拝できます。宝物殿は別途料金です。南海本線住吉大社駅から徒歩3分、阪堺線住吉鳥居前駅からすぐ。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Sumiyoshi_Taisha-24.jpg/1280px-Sumiyoshi_Taisha-24.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Immanuelle, CC BY 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha-24.jpg"
+    },
+    "transportOptions": {
+      "train": 35,
+      "bus": 45
+    },
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'shrine'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The shrine is free to enter; the treasure hall has a separate fee. Approach by Nankai Main Line Sumiyoshitaisha Station (3 min walk) or Hankai Tram. No rail line reaches the shrine gate itself.",
+    "notesJa": "境内は無料で参拝できます。宝物殿は別途料金です。南海本線住吉大社駅から徒歩3分、阪堺線住吉鳥居前駅からすぐ。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/access/",
+          "title": "Sumiyoshi Taisha official access page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/en/",
+            "title": "Sumiyoshi Taisha official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/en/",
+            "title": "Sumiyoshi Taisha official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/en/",
+            "title": "Sumiyoshi Taisha official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/en/",
+            "title": "Sumiyoshi Taisha official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/access/",
+            "title": "Sumiyoshi Taisha official access page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/en/",
+            "title": "Sumiyoshi Taisha official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/en/",
+            "title": "Sumiyoshi Taisha official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.sumiyoshitaisha.net/access/",
+            "title": "Sumiyoshi Taisha official access page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'shrine'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "teamlab-botanical-garden-osaka",
+    "officialWebsite": "https://www.teamlab.art/e/botanicalgarden/",
+    "officialWebsiteRequirement": "required",
+    "name": "teamLab Botanical Garden Osaka",
+    "nameJa": "チームラボ ボタニカルガーデン大阪",
+    "aliases": [
+      "teamLab Botanical Garden",
+      "Nagai Botanical Garden Night"
+    ],
+    "municipalityId": "Osaka:osaka",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "garden",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "coordinates": {
+      "lat": 34.6109,
+      "lng": 135.5312
+    },
+    "location": {
+      "address": "1-23 Nagaikoen, Higashisumiyoshi-ku, Osaka 546-0034",
+      "latitude": 34.6109,
+      "longitude": 135.5312
+    },
+    "categories": [
+      "Art",
+      "Garden",
+      "Modern",
+      "Nightlife"
+    ],
+    "tags": [
+      "Art",
+      "Garden",
+      "Modern",
+      "Night",
+      "Osaka City"
+    ],
+    "description": "A permanent nighttime open-air museum inside Nagai Botanical Garden, where interactive light artworks transform the plants, lake, and trees of the 240,000-sqm garden.",
+    "highlights": [
+      "Permanent nighttime light-art installations across the garden",
+      "The garden's plants and lake as living canvases",
+      "A modern southern Osaka evening outing"
+    ],
+    "content": {
+      "en": {
+        "name": "teamLab Botanical Garden Osaka",
+        "description": "A permanent nighttime open-air museum inside Nagai Botanical Garden, where interactive light artworks transform the plants, lake, and trees of the 240,000-sqm garden.",
+        "highlights": [
+          "Permanent nighttime light-art installations across the garden",
+          "The garden's plants and lake as living canvases",
+          "A modern southern Osaka evening outing"
+        ],
+        "notes": "Entry is by dated ticket with reserved time slots; hours vary seasonally and last entry is usually about one hour before close. teamLab operates inside the city-run Nagai Botanical Garden, which itself has separate daytime admission.",
+        "reservation": "Dated, time-slot tickets are required; check the official site for the current calendar.",
+        "parking": "No dedicated on-site parking is asserted; use Osaka Metro Nagai Station (approx. 10 min walk) or JR Hanwa Line Nagai Station.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "チームラボ ボタニカルガーデン大阪",
+        "description": "長居植物園内に常設された夜間野外ミュージアム。園内の植物や池、樹木を使ったインタラクティブな光のアート作品が広がります。",
+        "highlights": [
+          "園内に広がる常設の夜間アート",
+          "植物と池を舞台にした作品群",
+          "大阪南部のモダンな夜の散策"
+        ],
+        "notes": "日時指定のチケット制です。営業時間は季節により変わり、最終入場は閉館の約1時間前です。チームラボは市営の長居植物園内で運営されており、昼間の植物園とは別料金です。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Promenade_at_Nagai_Botanical_Garden%2C_January_2024_-9762.jpg/1280px-Promenade_at_Nagai_Botanical_Garden%2C_January_2024_-9762.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Laitche, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Promenade_at_Nagai_Botanical_Garden,_January_2024_-9762.jpg"
+    },
+    "transportOptions": {
+      "train": 35,
+      "bus": 50
+    },
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Night garden walk; the self-paced loop supports 1–2 hours."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Dated, time-slot tickets are required; check the official site for the current calendar.",
+    "parking": "No dedicated on-site parking is asserted; use Osaka Metro Nagai Station (approx. 10 min walk) or JR Hanwa Line Nagai Station.",
+    "notes": "Entry is by dated ticket with reserved time slots; hours vary seasonally and last entry is usually about one hour before close. teamLab operates inside the city-run Nagai Botanical Garden, which itself has separate daytime admission.",
+    "notesJa": "日時指定のチケット制です。営業時間は季節により変わり、最終入場は閉館の約1時間前です。チームラボは市営の長居植物園内で運営されており、昼間の植物園とは別料金です。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/faq/botanicalgarden/",
+          "title": "teamLab Botanical Garden official FAQ",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://botanical-garden.nagai-park.jp/",
+          "title": "Osaka City Nagai Botanical Garden official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.teamlab.art/e/botanicalgarden/",
+            "title": "teamLab Botanical Garden Osaka official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 95,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "expo-70-commemorative-park",
+    "officialWebsite": "https://www.expo70-park.jp/languages/english/",
+    "officialWebsiteRequirement": "required",
+    "name": "Expo '70 Commemorative Park",
+    "nameJa": "万博記念公園",
+    "aliases": [
+      "Expo 70 Park",
+      "Banpaku Kinen Koen",
+      "Expo'70 Park"
+    ],
+    "municipalityId": "Osaka:suita",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "coordinates": {
+      "lat": 34.8093,
+      "lng": 135.5359
+    },
+    "location": {
+      "address": "1-1 Senri Expo Park, Suita, Osaka 565-0826",
+      "latitude": 34.8093,
+      "longitude": 135.5359
+    },
+    "categories": [
+      "Park",
+      "History",
+      "Culture",
+      "Sightseeing"
+    ],
+    "tags": [
+      "Park",
+      "History",
+      "Culture",
+      "Photography",
+      "Suita"
+    ],
+    "description": "The 260-hectare park built on the site of Expo '70, anchored by Taro Okamoto's Tower of the Sun and featuring the Natural and Cultural Gardens, a Japanese garden, and seasonal flowers.",
+    "highlights": [
+      "Taro Okamoto's Tower of the Sun landmark",
+      "The Japanese Garden and seasonal flower fields",
+      "A Suita metropolitan-ring heritage and nature outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Expo '70 Commemorative Park",
+        "description": "The 260-hectare park built on the site of Expo '70, anchored by Taro Okamoto's Tower of the Sun and featuring the Natural and Cultural Gardens, a Japanese garden, and seasonal flowers.",
+        "highlights": [
+          "Taro Okamoto's Tower of the Sun landmark",
+          "The Japanese Garden and seasonal flower fields",
+          "A Suita metropolitan-ring heritage and nature outing"
+        ],
+        "notes": "The Tower of the Sun interior requires a separate dated reservation and a different ticket from the park admission. Park access is via Osaka Monorail Bampaku-kinen-koen Station (direct) or Senri-Chuo Station + walk.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "万博記念公園",
+        "description": "1970年大阪万博の会場跡地に開かれた約260ヘクタールの公園。岡本太郎作の太陽の塔を中心に、自然文化園や日本庭園、四季の花々が楽しめます。",
+        "highlights": [
+          "岡本太郎の太陽の塔",
+          "日本庭園と四季の花畑",
+          "北大阪・吹田の歴史と自然"
+        ],
+        "notes": "太陽の塔の内部見学は日時指定の予約制で、公園入園料とは別のチケットが必要です。大阪モノレール万博記念公園駅から直結、または千里中央駅から徒歩です。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Osaka_Expo%2770_Festival_Plaza.jpg/1280px-Osaka_Expo%2770_Festival_Plaza.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "Flickr user (32413914@N05), CC BY-SA 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Osaka_Expo'70_Festival_Plaza.jpg"
+    },
+    "transportOptions": {
+      "train": 50,
+      "bus": 70,
+      "shinkansen": 40
+    },
+    "localAccessModes": [
+      "train",
+      "bus",
+      "shinkansen"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'park'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The Tower of the Sun interior requires a separate dated reservation and a different ticket from the park admission. Park access is via Osaka Monorail Bampaku-kinen-koen Station (direct) or Senri-Chuo Station + walk.",
+    "notesJa": "太陽の塔の内部見学は日時指定の予約制で、公園入園料とは別のチケットが必要です。大阪モノレール万博記念公園駅から直結、または千里中央駅から徒歩です。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.expo70-park.jp/languages/english/",
+          "title": "Expo '70 Commemorative Park official English site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.expo70-park.jp/guide/access/",
+          "title": "Expo '70 Commemorative Park official access page",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://taiyounotou-expo70.jp/en/guide/",
+          "title": "Tower of the Sun official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/languages/english/",
+            "title": "Expo '70 Commemorative Park official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/languages/english/",
+            "title": "Expo '70 Commemorative Park official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/languages/english/",
+            "title": "Expo '70 Commemorative Park official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/languages/english/",
+            "title": "Expo '70 Commemorative Park official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/guide/access/",
+            "title": "Expo '70 Commemorative Park official access page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/languages/english/",
+            "title": "Expo '70 Commemorative Park official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/languages/english/",
+            "title": "Expo '70 Commemorative Park official English site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.expo70-park.jp/guide/access/",
+            "title": "Expo '70 Commemorative Park official access page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'park'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 240,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 5h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "tenjinbashi-suji-shopping-street",
+    "officialWebsite": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+    "officialWebsiteRequirement": "recommended",
+    "name": "Tenjinbashi-suji Shopping Street",
+    "nameJa": "天神橋筋商店街",
+    "aliases": [
+      "Tenjinbashi-suji",
+      "Tenjinbashisuji"
+    ],
+    "municipalityId": "Osaka:osaka",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "street",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "coordinates": {
+      "lat": 34.7038,
+      "lng": 135.5166
+    },
+    "location": {
+      "address": "Tenjinbashi, Kita-ku, Osaka 530-0041",
+      "latitude": 34.7038,
+      "longitude": 135.5166
+    },
+    "categories": [
+      "Shopping",
+      "Food",
+      "Culture",
+      "Street"
+    ],
+    "tags": [
+      "Shopping",
+      "Food",
+      "Culture",
+      "Street",
+      "Osaka City"
+    ],
+    "description": "Japan's longest shopping street at approximately 2.6 km, lined with over 600 shops, eateries, and everyday Osaka commerce running from Tenjinbashi north through Tenjinbashisuji 7-chome.",
+    "highlights": [
+      "Japan's longest covered shopping street (~2.6 km)",
+      "Over 600 shops, food stalls, and daily-life Osaka commerce",
+      "A free, rain-friendly central Osaka browsing outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Tenjinbashi-suji Shopping Street",
+        "description": "Japan's longest shopping street at approximately 2.6 km, lined with over 600 shops, eateries, and everyday Osaka commerce running from Tenjinbashi north through Tenjinbashisuji 7-chome.",
+        "highlights": [
+          "Japan's longest covered shopping street (~2.6 km)",
+          "Over 600 shops, food stalls, and daily-life Osaka commerce",
+          "A free, rain-friendly central Osaka browsing outing"
+        ],
+        "notes": "The street is a linear district rather than a point POI; the coordinates anchor the Tenjinbashi 2-chome end near Tenjimbashisuji 6-chome Station. Osaka Tenmangu Shrine and the Tenjin Festival site sit at the southern end.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "天神橋筋商店街",
+        "description": "全長約2.6km、約600軒の店舗が連なる日本一長い商店街。天神橋から天神橋筋7丁目まで、大阪の日常が詰まった買い物と食の通りです。",
+        "highlights": [
+          "全長約2.6kmの日本一長い商店街",
+          "約600軒の店と飲食、大阪の日常",
+          "雨でも楽しめる中央大阪の散策"
+        ],
+        "notes": "商店街は線状の地区であり、座標は天神橋筋6丁目駅付近の天神橋2丁目側の起点を示します。南端には大阪天満宮と天神祭の会場があります。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg/1280px-Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "attribution": "Nesnad, CC BY 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg"
+    },
+    "transportOptions": {
+      "train": 15,
+      "bus": 25
+    },
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Longest-street browse band; a full walk with stops is 1–3 hours."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "The street is a linear district rather than a point POI; the coordinates anchor the Tenjinbashi 2-chome end near Tenjimbashisuji 6-chome Station. Osaka Tenmangu Shrine and the Tenjin Festival site sit at the southern end.",
+    "notesJa": "商店街は線状の地区であり、座標は天神橋筋6丁目駅付近の天神橋2丁目側の起点を示します。南端には大阪天満宮と天神祭の会場があります。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.tenjin123.com/",
+          "title": "Tenjinbashi-suji 1-3 chome official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+            "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 90,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 3h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kishiwada-castle",
+    "officialWebsite": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+    "officialWebsiteRequirement": "required",
+    "name": "Kishiwada Castle",
+    "nameJa": "岸和田城",
+    "aliases": [
+      "Kishiwada-jo",
+      "Kishiwada Castle & Chikiri Park"
+    ],
+    "municipalityId": "Osaka:kishiwada",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "castle",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "coordinates": {
+      "lat": 34.4376,
+      "lng": 135.3707
+    },
+    "location": {
+      "address": "9-1 Kishikicho, Kishiwada, Osaka 596-0073",
+      "latitude": 34.4376,
+      "longitude": 135.3707
+    },
+    "categories": [
+      "Castle",
+      "History",
+      "Culture",
+      "Sightseeing"
+    ],
+    "tags": [
+      "Castle",
+      "History",
+      "Culture",
+      "Photography",
+      "Kishiwada"
+    ],
+    "description": "A reconstructed castle in the historic Kishiwada castle-town district, home to the famous Kishiwada Danjiri Festival and surrounded by Chikiri Park with its moat and stone walls.",
+    "highlights": [
+      "The reconstructed keep and Chikiri Park moat setting",
+      "A base for the Kishiwada Danjiri Festival district",
+      "A southern Osaka castle-town heritage outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Kishiwada Castle",
+        "description": "A reconstructed castle in the historic Kishiwada castle-town district, home to the famous Kishiwada Danjiri Festival and surrounded by Chikiri Park with its moat and stone walls.",
+        "highlights": [
+          "The reconstructed keep and Chikiri Park moat setting",
+          "A base for the Kishiwada Danjiri Festival district",
+          "A southern Osaka castle-town heritage outing"
+        ],
+        "notes": "Admission is 300 yen (free for junior high and under); closed Mondays. The Danjiri Kaikan museum is a short walk away and can be combined into one Kishiwada outing.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "岸和田城",
+        "description": "岸和田だんじり祭で知られる城下町・岸和田のシンボル。再建された天守閣は千亀利公園の堀と石垣に囲まれています。",
+        "highlights": [
+          "再建天守と千亀利公園の堀",
+          "岸和田だんじり祭のまち歩き拠点",
+          "大阪南部の城下町散策"
+        ],
+        "notes": "入場料は大人300円（中学生以下無料）、月曜休館です。だんじり会館は徒歩圏にあり、まとめて岸和田の一日を楽しめます。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kishiwada_Castle_Kishiwada_Osaka_pref_Japan02s5.jpg/1280px-Kishiwada_Castle_Kishiwada_Osaka_pref_Japan02s5.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "attribution": "663highland, CC BY 2.5, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kishiwada_Castle_Kishiwada_Osaka_pref_Japan02s5.jpg"
+    },
+    "transportOptions": {
+      "train": 55,
+      "bus": 80
+    },
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Castle keep + park walk band."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "Admission is 300 yen (free for junior high and under); closed Mondays. The Danjiri Kaikan museum is a short walk away and can be combined into one Kishiwada outing.",
+    "notesJa": "入場料は大人300円（中学生以下無料）、月曜休館です。だんじり会館は徒歩圏にあり、まとめて岸和田の一日を楽しめます。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "nearbyDestinationIds": [
+        "kishiwada-danjiri-kaikan"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+          "title": "Kishiwada City official castle page",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/spot/kishiwada-castle/",
+          "title": "Osaka Convention & Tourism Bureau Kishiwada Castle listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "government",
+            "url": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+            "title": "Kishiwada City official castle page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kishiwada-danjiri-kaikan",
+    "officialWebsite": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+    "officialWebsiteRequirement": "required",
+    "name": "Kishiwada Danjiri Kaikan",
+    "nameJa": "岸和田だんじり会館",
+    "aliases": [
+      "Kishiwada Danjiri Museum",
+      "Danjiri Kaikan"
+    ],
+    "municipalityId": "Osaka:kishiwada",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "museum",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "coordinates": {
+      "lat": 34.4389,
+      "lng": 135.3742
+    },
+    "location": {
+      "address": "11-23 Honmachi, Kishiwada, Osaka 596-0074",
+      "latitude": 34.4389,
+      "longitude": 135.3742
+    },
+    "categories": [
+      "Museum",
+      "History",
+      "Culture",
+      "Festival"
+    ],
+    "tags": [
+      "Museum",
+      "History",
+      "Culture",
+      "Festival",
+      "Kishiwada"
+    ],
+    "description": "A museum devoted to the Kishiwada Danjiri Festival, with festival floats, dashi models, and audio-visual exhibits explaining the high-speed danjiri tradition.",
+    "highlights": [
+      "Real festival floats and historical danjiri exhibits",
+      "Festival audiovisual content for the Kishiwada Danjiri tradition",
+      "Pairs naturally with Kishiwada Castle for a district outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Kishiwada Danjiri Kaikan",
+        "description": "A museum devoted to the Kishiwada Danjiri Festival, with festival floats, dashi models, and audio-visual exhibits explaining the high-speed danjiri tradition.",
+        "highlights": [
+          "Real festival floats and historical danjiri exhibits",
+          "Festival audiovisual content for the Kishiwada Danjiri tradition",
+          "Pairs naturally with Kishiwada Castle for a district outing"
+        ],
+        "notes": "Admission is 600 yen for adults; closed Mondays. The museum is about a 7-minute walk from Takatsukiji Station on the Nankai Main Line.",
+        "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+        "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "岸和田だんじり会館",
+        "description": "岸和田だんじり祭に特化したミュージアム。実物のだんじりや模型、映像で高速で駆けるだんじり祭の世界を紹介します。",
+        "highlights": [
+          "実物のだんじりと歴史展示",
+          "岸和田だんじり祭の映像体験",
+          "岸和田城と組み合わせた城下町巡り"
+        ],
+        "notes": "入館料は大人600円、月曜休館です。南海本線蛸地蔵駅から徒歩約7分です。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/120513_Kishiwada_Danjiri_Kaikan_Kishiwada_Osaka_pref_Japan01bs5.jpg/1280px-120513_Kishiwada_Danjiri_Kaikan_Kishiwada_Osaka_pref_Japan01bs5.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:120513_Kishiwada_Danjiri_Kaikan_Kishiwada_Osaka_pref_Japan01bs5.jpg"
+    },
+    "transportOptions": {
+      "train": 55,
+      "bus": 80
+    },
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Museum visit band with audiovisual content."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+    "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+    "notes": "Admission is 600 yen for adults; closed Mondays. The museum is about a 7-minute walk from Takatsukiji Station on the Nankai Main Line.",
+    "notesJa": "入館料は大人600円、月曜休館です。南海本線蛸地蔵駅から徒歩約7分です。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "nearbyDestinationIds": [
+        "kishiwada-castle"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+          "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.city.kishiwada.lg.jp/",
+          "title": "Kishiwada City official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+            "title": "Osaka Convention & Tourism Bureau Kishiwada Danjiri Kaikan listing",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 60,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "hirakata-park",
+    "officialWebsite": "https://www.hirakatapark.co.jp/",
+    "officialWebsiteRequirement": "required",
+    "name": "Hirakata Park",
+    "nameJa": "ひらかたパーク",
+    "aliases": [
+      "Hirakata Park (Hira-Pa)",
+      "Hira-Pa"
+    ],
+    "municipalityId": "Osaka:hirakata",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "kind": "amusement_park",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "coordinates": {
+      "lat": 34.8129,
+      "lng": 135.6489
+    },
+    "location": {
+      "address": "1-1 Hirakata Koen-cho, Hirakata, Osaka 573-0054",
+      "latitude": 34.8129,
+      "longitude": 135.6489
+    },
+    "categories": [
+      "Theme Park",
+      "Family",
+      "Amusement",
+      "Entertainment"
+    ],
+    "tags": [
+      "Theme Park",
+      "Family",
+      "Amusement",
+      "Entertainment",
+      "Hirakata"
+    ],
+    "description": "A long-running family amusement park in northern Osaka operated by Keihan, with roughly 40 rides and seasonal events, about 3 minutes on foot from Keihan Hirakata-koen Station.",
+    "highlights": [
+      "A classic family amusement park with ~40 rides",
+      "Seasonal events and evening openings in summer",
+      "A distinct northern Osaka ring family outing"
+    ],
+    "content": {
+      "en": {
+        "name": "Hirakata Park",
+        "description": "A long-running family amusement park in northern Osaka operated by Keihan, with roughly 40 rides and seasonal events, about 3 minutes on foot from Keihan Hirakata-koen Station.",
+        "highlights": [
+          "A classic family amusement park with ~40 rides",
+          "Seasonal events and evening openings in summer",
+          "A distinct northern Osaka ring family outing"
+        ],
+        "notes": "Operating hours vary by season (typically 10:00–17:00, later in summer). Admission and ride passes are sold separately; check the official calendar.",
+        "reservation": "Check the official site for current admission and all-access pass options; hours vary by date.",
+        "parking": "Car parking is available; check the official access guidance for current terms.",
+        "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "ひらかたパーク",
+        "description": "京阪グループが運営する大阪北部の老舗ファミリー遊園地。約40のアトラクションと季節イベントを楽しめ、京阪枚方公園駅から徒歩約3分です。",
+        "highlights": [
+          "約40のアトラクションがある老舗遊園地",
+          "季節イベントと夏の夜間営業",
+          "北大阪エリアのファミリー向け行き先"
+        ],
+        "notes": "営業時間は季節により異なります（通常10:00〜17:00、夏期は延長）。入園料とフリーパスは別売りです。公式カレンダーをご確認ください。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hirakata_park_Osaka_prefecture_Wikivoyage_banner.jpg/1280px-Hirakata_park_Osaka_prefecture_Wikivoyage_banner.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Jnn, CC BY-SA 3.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirakata_park_Osaka_prefecture_Wikivoyage_banner.jpg"
+    },
+    "transportOptions": {
+      "train": 45,
+      "bus": 70
+    },
+    "localAccessModes": [
+      "train",
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "confidence": "low",
+      "basis": "Static minutes are retained only as a legacy display fallback matching existing Osaka records; origin-aware transport remains authoritative and is never fabricated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'amusement_park'"
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Check the official site for current admission and all-access pass options; hours vary by date.",
+    "parking": "Car parking is available; check the official access guidance for current terms.",
+    "notes": "Operating hours vary by season (typically 10:00–17:00, later in summer). Admission and ride passes are sold separately; check the official calendar.",
+    "notesJa": "営業時間は季節により異なります（通常10:00〜17:00、夏期は延長）。入園料とフリーパスは別売りです。公式カレンダーをご確認ください。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-22",
+      "reviewedAt": "2026-08-22",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.hirakatapark.co.jp/",
+          "title": "Hirakata Park official site",
+          "accessedAt": "2026-08-22"
+        },
+        {
+          "type": "official",
+          "url": "https://www.hirakatapark.co.jp/information/access/",
+          "title": "Hirakata Park official access page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/",
+            "title": "Hirakata Park official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/",
+            "title": "Hirakata Park official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/",
+            "title": "Hirakata Park official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/",
+            "title": "Hirakata Park official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/information/access/",
+            "title": "Hirakata Park official access page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/",
+            "title": "Hirakata Park official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/",
+            "title": "Hirakata Park official site",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.hirakatapark.co.jp/information/access/",
+            "title": "Hirakata Park official access page",
+            "accessedAt": "2026-08-22"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 6h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'amusement_park'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-22",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-22",
+    "walkingMin": 180,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 6h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 1,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }

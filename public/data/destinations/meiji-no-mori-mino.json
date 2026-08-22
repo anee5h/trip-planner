@@ -16,7 +16,7 @@
   "tags": ["Quasi-National Park", "国定公園", "Nature", "Osaka"],
   "description": "Quasi-national park commemorating Emperor Meiji, centered on the Minoo waterfall and forest on Osaka's northern edge — famous for autumn maples and wild monkeys.",
   "highlights": ["Minoo waterfall", "Autumn maples", "Wild monkeys"],
-  "notes": "Managed by Osaka. A short hike from Hankyu Minoo station reaches the falls.",
+  "notes": "The existing Meiji no Mori Mino Quasi-National Park record covers the Minoh outing. Minoo Falls (33 m) is the main natural attraction, reached by a roughly 40-minute one-way walk from Hankyu Minoo Station. This KAI-155 pass intentionally adds no separate Minoh micro-destinations.",
   "transportOptions": {},
   "recommendedVisitHours": {
     "min": 2,
@@ -65,7 +65,7 @@
       "name": "Meiji no Mori Mino Quasi-National Park",
       "description": "Quasi-national park commemorating Emperor Meiji, centered on the Minoo waterfall and forest on Osaka's northern edge — famous for autumn maples and wild monkeys.",
       "highlights": ["Minoo waterfall", "Autumn maples", "Wild monkeys"],
-      "notes": "Managed by Osaka. A short hike from Hankyu Minoo station reaches the falls.",
+      "notes": "The existing Meiji no Mori Mino Quasi-National Park record covers the Minoh outing. Minoo Falls (33 m) is the main natural attraction, reached by a roughly 40-minute one-way walk from Hankyu Minoo Station. This KAI-155 pass intentionally adds no separate Minoh micro-destinations.",
       "reservation": "None required",
       "parking": "Parking available at major visitor areas (fee varies)",
       "openingHours": "Open access (park; facility hours vary by season and area)"
@@ -74,7 +74,7 @@
       "name": "明治の森箕面国定公園",
       "description": "明治天皇を記念した国定公園。大阪北部の箕面の滝と森林を中心とし、紅葉と野生の猿で有名。",
       "highlights": ["箕面の滝", "紅葉", "野生の猿"],
-      "notes": "大阪が管理。阪急箕面駅から徒歩ですぐのハイキングコースで滝に到着。",
+      "notes": "明治の森箕面国定公園の既存レコードが箕面の行き先をカバーしています。箕面大滝（落差33m）が主役で、阪急箕面駅から片道約40分の遊歩道で到達します。KAI-155では箕面の細分化は意図的に追加しません。",
       "reservation": "予約不要",
       "parking": "主要なビジターエリアに駐車場あり（料金は場所により異なる）",
       "openingHours": "公園は基本的に自由に訪れられます（施設により季節・時間が異なります）"
@@ -142,5 +142,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  }
+  },
+  "notesJa": "明治の森箕面国定公園の既存レコードが箕面の行き先をカバーしています。箕面大滝（落差33m）が主役で、阪急箕面駅から片道約40分の遊歩道で到達します。KAI-155では箕面の細分化は意図的に追加しません。"
 }

@@ -1692,6 +1692,16 @@
     }
   },
   {
+    "id": "expo-70-commemorative-park",
+    "name": "Expo '70 Commemorative Park",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "farm-tomita",
     "name": "Farm Tomita",
     "prefecture": "Hokkaido",
@@ -3039,6 +3049,16 @@
     "relationships": {
       "gatewayHubId": "morioka-city"
     }
+  },
+  {
+    "id": "hirakata-park",
+    "name": "Hirakata Park",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "amusement_park",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "hirome-market-kochi",
@@ -4940,6 +4960,30 @@
     "status": "published",
     "relationships": {
       "gatewayHubId": "wakayama-city"
+    }
+  },
+  {
+    "id": "kishiwada-castle",
+    "name": "Kishiwada Castle",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": ["kishiwada-danjiri-kaikan"]
+    }
+  },
+  {
+    "id": "kishiwada-danjiri-kaikan",
+    "name": "Kishiwada Danjiri Kaikan",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": ["kishiwada-castle"]
     }
   },
   {
@@ -8633,25 +8677,21 @@
     "status": "published",
     "relationships": {
       "featuredDestinationIds": [
-        "abeno-harukas-300-osaka",
-        "dotonbori",
-        "kuromon-market",
-        "osaka-aquarium-kaiyukan",
         "osaka-castle",
-        "osaka-castle-park",
-        "osaka-museum-of-housing-and-living",
-        "osaka-station-city",
+        "osaka-aquarium-kaiyukan",
+        "dotonbori",
         "shinsaibashi",
-        "shinsekai",
-        "tempozan-ferris-wheel",
-        "tennoji-park",
-        "the-national-museum-of-art-osaka",
-        "tsutenkaku",
+        "kuromon-market",
         "umeda-sky-building",
         "universal-studios-japan",
-        "shitennoji",
+        "tsutenkaku",
+        "shinsekai",
+        "sumiyoshi-taisha",
+        "teamlab-botanical-garden-osaka",
+        "tenjinbashi-suji-shopping-street",
+        "osaka-station-city",
         "nakanoshima-museum-art-osaka",
-        "osaka-central-public-hall"
+        "the-national-museum-of-art-osaka"
       ],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["fukuoka-city"]
@@ -10324,6 +10364,18 @@
     }
   },
   {
+    "id": "sumiyoshi-taisha",
+    "name": "Sumiyoshi Taisha Grand Shrine",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
     "id": "sun-messe-nichinan",
     "name": "Sun Messe Nichinan",
     "prefecture": "Miyazaki",
@@ -10909,6 +10961,18 @@
     }
   },
   {
+    "id": "teamlab-botanical-garden-osaka",
+    "name": "teamLab Botanical Garden Osaka",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "garden",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
     "id": "teamlab-planets",
     "name": "teamLab Planets",
     "prefecture": "Tokyo",
@@ -10942,6 +11006,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "fukuoka-city"
+    }
+  },
+  {
+    "id": "tenjinbashi-suji-shopping-street",
+    "name": "Tenjinbashi-suji Shopping Street",
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "street",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
     }
   },
   {

@@ -7,12 +7,14 @@
     "en": {
       "name": "Universal Studios Japan",
       "description": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
-      "highlights": ["Theme Park"]
+      "highlights": ["Theme Park"],
+      "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details."
     },
     "ja": {
       "name": "ユニバーサル・スタジオ・ジャパン",
       "description": "ユニバーサル・スタジオ・ジャパンは、映画をテーマにしたライドやショー、キャラクター、季節のイベントを楽しめる大阪のテーマパークです。",
-      "highlights": ["テーマパーク"]
+      "highlights": ["テーマパーク"],
+      "notes": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。"
     }
   },
   "prefecture": "Osaka",
@@ -181,7 +183,7 @@
   },
   "businessHours": "08:30 - 21:30 (Varies seasonally)",
   "nearHubs": ["osaka-city"],
-  "notesJa": "【見どころ】ユニバーサル・スタジオ・ジャパンは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
+  "notesJa": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況や入場方法は変わることがあるため、公式サイトをご確認ください。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "08:30〜21:30（季節により変動）",
@@ -215,5 +217,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  }
+  },
+  "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules change; check the official site rather than relying on stored ride details."
 }
