@@ -63,7 +63,6 @@ type AichiSpec = {
   notes: string;
   notesJa: string;
   localAccessModes: TransportMode[];
-  transportOptions?: { train?: number; bus?: number; shinkansen?: number };
   sources: SourceReference[];
   image: NonNullable<Destination["imageMetadata"]> & { heroImage: string };
   duration?: {
@@ -111,13 +110,6 @@ const unknownSeason = {
   confidence: "unknown" as const,
   basis:
     "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved.",
-};
-
-const legacyTransport = {
-  method: "legacy-fallback" as const,
-  confidence: "low" as const,
-  basis:
-    "Static minutes are retained only as a legacy display fallback matching existing Nagoya records; origin-aware transport remains authoritative and is never fabricated.",
 };
 
 const image = (
@@ -261,10 +253,15 @@ const makeRecord = (spec: AichiSpec): DestinationWithLocation => {
       attribution: spec.image.attribution,
       sourceUrl: spec.image.sourceUrl,
     },
-    transportOptions: spec.transportOptions ?? {},
+    transportOptions: {},
     localAccessModes: spec.localAccessModes,
     localAccessUnestimated: true,
-    transportMetadata: legacyTransport,
+    transportMetadata: {
+      method: "unestimated",
+      confidence: "unknown",
+      basis:
+        "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers.",
+    },
     recommendedVisitHours: spec.duration?.hours,
     durationMetadata: spec.duration
       ? {
@@ -365,7 +362,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "所在地は名古屋市ではなく長久手市です。全チケットが日時指定予約制で、大倉庫は入場時間の指定があります。リニモ（愛知高速交通）愛・地球博記念公園駅からアクセスします。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 50, bus: 70 },
     sources: [
       source("official", ghibliHome, "Ghibli Park official English site"),
       source("official", ghibliTicket, "Ghibli Park official ticket page"),
@@ -426,7 +422,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "シーライフ名古屋水族館はレゴランド・ジャパン・リゾートの一部で、本レコードの補足情報として扱い、別カードにはしません。入場料・時間は日によって異なります。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 40, bus: 60 },
     sources: [
       source("official", legoHome, "LEGOLAND Japan official English site"),
       source(
@@ -490,7 +485,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "動物園と植物園は同一入場・同一レコードとして扱います。東山スカイタワーは既存の別レコードです。月曜休園です。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 30, bus: 45 },
     sources: [
       source(
         "official",
@@ -557,7 +551,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "庭園とミュージアムは一つの散策として楽しめます。庭園は無料、ミュージアムは有料です。隣接するイオンモールNagoya Noritake Gardenと同じ敷地です。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 15, bus: 25 },
     sources: [
       source("official", noritakeHome, "Noritake Garden official English site"),
       source(
@@ -616,7 +609,6 @@ const reviewedCandidates: DestinationWithLocation[] = [
     notesJa:
       "入園料は300円、月曜と年末年始は休園です。近隣の熱田神宮と合わせて訪れるのがおすすめです。",
     localAccessModes: ["train", "bus"],
-    transportOptions: { train: 25, bus: 35 },
     sources: [
       source(
         "official",
@@ -701,6 +693,24 @@ for (const candidate of reviewedCandidates) {
       existing.heroImage = candidate.heroImage;
       existing.imageMetadata = candidate.imageMetadata;
       if (existing.content?.en) existing.content.en.image = undefined;
+      enrichedIds.push(candidate.id);
+    }
+    // Transport correction (KAI-158 review): a newly verified destination
+    // must not carry static transportOptions minutes — those bypass the
+    // origin-aware guard and let a broad prefecture corridor masquerade as
+    // an attraction-level route. Clear any static values; availability now
+    // comes only from canonical origin-aware routes.
+    if (
+      existing.transportOptions &&
+      Object.keys(existing.transportOptions).length > 0
+    ) {
+      existing.transportOptions = {};
+      existing.transportMetadata = {
+        method: "unestimated",
+        confidence: "unknown",
+        basis:
+          "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers.",
+      };
       enrichedIds.push(candidate.id);
     }
     continue;

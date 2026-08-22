@@ -1850,32 +1850,44 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T14:25",
-    "changeCount": 3,
+    "at": "2026-08-22T17:51",
+    "changeCount": 5,
     "byModel": [
       [
-        "duration-model-v1",
-        3
+        "score-rubric-v2",
+        5
       ]
     ],
     "sample": [
       {
         "id": "ghibli-park-nagakute",
-        "model": "duration-model-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'theme_park'"
+        "reason": "estimated rubric score 7.1"
       },
       {
         "id": "legoland-japan-nagoya",
-        "model": "duration-model-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'theme_park'"
+        "reason": "estimated rubric score 7.1"
       },
       {
         "id": "higashiyama-zoo-and-botanical-gardens",
-        "model": "duration-model-v1",
+        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "kind band 'zoo'"
+        "reason": "estimated rubric score 7.1"
+      },
+      {
+        "id": "noritake-garden",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
+      },
+      {
+        "id": "shirotori-garden",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       }
     ]
   }

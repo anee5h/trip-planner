@@ -89548,23 +89548,20 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 50,
-      "bus": 70
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
@@ -89629,23 +89626,20 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 40,
-      "bus": 60
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
@@ -89712,23 +89706,20 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 7,
+      "value": 7.1,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 30,
-      "bus": 45
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
@@ -89798,20 +89789,17 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 15,
-      "bus": 25
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
@@ -89881,20 +89869,17 @@
       "value": 6.2,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 1,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {
-      "train": 25,
-      "bus": 35
-    },
+    "transportOptions": {},
     "localAccessModes": ["train", "bus"],
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
