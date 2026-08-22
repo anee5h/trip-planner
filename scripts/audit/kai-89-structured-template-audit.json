@@ -4953,7 +4953,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 97,
+          "count": 96,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -5005,7 +5005,6 @@
             "nagoya-port-tower",
             "naritasan-park",
             "nikko-toshogu-shrine-tochigi",
-            "nokonoshima-island-park",
             "oarai-marine-tower",
             "odaiba-minato",
             "odori-park",
@@ -5876,6 +5875,23 @@
           }
         },
         {
+          "id": "b745c8933575",
+          "severity": "review",
+          "count": 4,
+          "ids": [
+            "akebonoyama-agricultural-park-kashiwa",
+            "joypolis",
+            "nokonoshima-island-park",
+            "yanagawa-canal-cruise"
+          ],
+          "value": { "max": 3, "min": 2 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+          }
+        },
+        {
           "id": "e229b7d66d77",
           "severity": "review",
           "count": 4,
@@ -5919,22 +5935,6 @@
             "category": "C",
             "action": "manual-review",
             "reason": "Plausible."
-          }
-        },
-        {
-          "id": "b745c8933575",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "akebonoyama-agricultural-park-kashiwa",
-            "joypolis",
-            "yanagawa-canal-cruise"
-          ],
-          "value": { "max": 3, "min": 2 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
           }
         }
       ]
@@ -7389,7 +7389,7 @@
         {
           "id": "a5c2919dfbb8",
           "severity": "review",
-          "count": 68,
+          "count": 67,
           "ids": [
             "abashiri",
             "aichi-kogen",
@@ -7436,7 +7436,6 @@
             "nippo-kaigan",
             "niseko-shakotan-otaru-kaigan",
             "nishi-chugoku-sanchi",
-            "nokonoshima-island-park",
             "noto-hanto",
             "oga",
             "onuma",
@@ -7910,7 +7909,7 @@
         {
           "id": "1e4109ee1e47",
           "severity": "review",
-          "count": 19,
+          "count": 20,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "danjo-garan-koyasan",
@@ -7919,6 +7918,7 @@
             "kashima-jingu",
             "makino-botanical-garden",
             "nakadake-crater-aso",
+            "nokonoshima-island-park",
             "noritake-garden",
             "nunobiki-herb-gardens",
             "orizuru-tower",

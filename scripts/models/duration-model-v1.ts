@@ -98,6 +98,17 @@ export function durationModel(
   eligibleIds: Set<string>,
   childCountById: Map<string, number>,
 ): DurationModelOutput {
+  // An explicit manual duration is an owner decision (KAI-157 review: a
+  // corrected destination-time band). The model must not override it —
+  // same pattern as budgetMetadata.method === "manual" in the derive pass.
+  if (dest.durationMetadata?.method === "manual") {
+    return {
+      action: "keep",
+      reason: "manual duration override (owner decision)",
+      confidence: dest.durationMetadata.confidence ?? "medium",
+      modelVersion: "duration-model-v1",
+    };
+  }
   if (!eligibleIds.has(dest.id)) {
     return {
       action: "keep",

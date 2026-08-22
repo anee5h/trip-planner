@@ -74,13 +74,12 @@
   },
   "recommendedVisitHours": {
     "min": 2,
-    "max": 4
+    "max": 3
   },
   "durationMetadata": {
-    "method": "model",
-    "modelVersion": "duration-model-v1",
+    "method": "manual",
     "confidence": "medium",
-    "basis": "kind band 'park'"
+    "basis": "Destination experience time (visit at/within the destination); origin-to-destination travel is modeled separately in transport."
   },
   "ratings": {
     "overall": 5,
@@ -218,15 +217,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "recommendedVisitHours": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "duration-model-v1; kind band 'park'",
+          "title": "walking-model-v1; walk-share estimate: 80% of 3h visit",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -241,15 +232,6 @@
     ]
   },
   "addedAt": "2026-08-22",
-  "walkingMin": 240,
-  "walkingIntensity": "high",
-  "walkingMetadata": {
-    "method": "model",
-    "unit": "minutes",
-    "modelVersion": "walking-model-v1",
-    "confidence": "low",
-    "basis": "walk-share estimate: 80% of 5h visit"
-  },
   "scoreMetadata": {
     "state": "estimated",
     "value": 6.2,
@@ -261,5 +243,14 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "walkingMin": 145,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 3h visit"
   }
 }

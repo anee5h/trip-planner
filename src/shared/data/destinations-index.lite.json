@@ -90408,10 +90408,10 @@
       "confidence": "unknown",
       "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
     },
-    "walkingMin": 240,
+    "walkingMin": 145,
     "recommendedVisitHours": {
       "min": 2,
-      "max": 4
+      "max": 3
     },
     "collections": [],
     "ratings": {

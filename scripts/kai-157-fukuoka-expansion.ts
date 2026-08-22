@@ -679,6 +679,14 @@ for (const candidate of reviewedCandidates) {
         basis:
           "Destination experience time (visit at/within the destination); origin-to-destination travel is modeled separately in transport.",
       };
+      // A duration change invalidates any previously model-derived walking
+      // minutes (they were computed from the old visit band). Clear them so
+      // the derive pass regenerates from the corrected duration.
+      if (existing.walkingMin !== undefined) {
+        delete existing.walkingMin;
+        delete existing.walkingIntensity;
+        delete existing.walkingMetadata;
+      }
       enrichedIds.push(candidate.id);
     }
     continue;

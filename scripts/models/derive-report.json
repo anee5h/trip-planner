@@ -490,8 +490,7 @@
       "higashiyama-zoo-and-botanical-gardens",
       "mt-rokko-kobe",
       "kobe-suma-sea-world",
-      "marine-world-uminonakamichi",
-      "nokonoshima-island-park"
+      "marine-world-uminonakamichi"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -1872,9 +1871,13 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T18:07",
-    "changeCount": 1,
+    "at": "2026-08-22T18:38",
+    "changeCount": 2,
     "byModel": [
+      [
+        "walking-model-v1",
+        1
+      ],
       [
         "duration-model-v1",
         1
@@ -1883,9 +1886,15 @@
     "sample": [
       {
         "id": "nokonoshima-island-park",
+        "model": "walking-model-v1",
+        "action": "fill",
+        "reason": "walk-share estimate: 80% of 3h visit"
+      },
+      {
+        "id": "nokonoshima-island-park",
         "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'park'"
+        "action": "clear",
+        "reason": "stale calculated duration source removed (no model metadata)"
       }
     ]
   }
