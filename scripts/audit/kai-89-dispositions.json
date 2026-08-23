@@ -973,6 +973,11 @@
       "category": "A",
       "action": "legitimate",
       "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+    },
+    "visitDuration:9bf072f0ba51": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Maizuru Red Brick Park shares the reviewed {1.5,2.5}h pure-destination-time band with existing Ine Funaya and Okunoin Cemetery; the band covers a coherent warehouse-park/museum outing and excludes rail, bus, and origin travel. Manual, medium confidence."
     }
   }
 }

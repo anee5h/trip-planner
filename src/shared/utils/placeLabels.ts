@@ -447,6 +447,7 @@ const japaneseLabels: Record<string, string> = {
   Industry: "産業",
   Insectarium: "昆虫館",
   "Interactive Museum": "体験型ミュージアム",
+  Interactive: "インタラクティブ",
   Island: "島",
   Islands: "島々",
   "Islands & Beaches": "島とビーチ",

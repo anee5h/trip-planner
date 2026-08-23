@@ -813,7 +813,10 @@
       "koka-ninja-house",
       "makino-metasequoia-avenue",
       "eigenji-higashiomi",
-      "taga-taisha"
+      "taga-taisha",
+      "nintendo-museum-uji",
+      "miyama-kayabuki-no-sato",
+      "maizuru-red-brick-park"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1833,7 +1836,10 @@
       "koka-ninja-house",
       "makino-metasequoia-avenue",
       "eigenji-higashiomi",
-      "taga-taisha"
+      "taga-taisha",
+      "nintendo-museum-uji",
+      "miyama-kayabuki-no-sato",
+      "maizuru-red-brick-park"
     ]
   },
   "modelClusterIds": [
@@ -1883,127 +1889,83 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-23T03:06",
-    "changeCount": 18,
+    "at": "2026-08-23T03:58",
+    "changeCount": 10,
     "byModel": [
       [
         "walking-model-v1",
-        6
+        3
       ],
       [
         "score-rubric-v2",
-        6
+        3
       ],
       [
         "duration-model-v1",
-        6
+        3
+      ],
+      [
+        "hub-window-model-v1",
+        1
       ]
     ],
     "sample": [
       {
-        "id": "kurokabe-square-nagahama",
+        "id": "uji-city",
+        "model": "hub-window-model-v1",
+        "action": "set",
+        "reason": "hub exploration window: importance notable, 4 children, metro=false"
+      },
+      {
+        "id": "nintendo-museum-uji",
         "model": "walking-model-v1",
         "action": "fill",
         "reason": "walk-share estimate: 50% of 3h visit"
       },
       {
-        "id": "chikubushima-island",
+        "id": "miyama-kayabuki-no-sato",
         "model": "walking-model-v1",
         "action": "fill",
-        "reason": "walk-share estimate: 80% of 2h visit"
+        "reason": "walk-share estimate: 50% of 3h visit"
       },
       {
-        "id": "koka-ninja-house",
+        "id": "maizuru-red-brick-park",
         "model": "walking-model-v1",
         "action": "fill",
-        "reason": "walk-share estimate: 50% of 2h visit"
+        "reason": "walk-share estimate: 50% of 2.5h visit"
       },
       {
-        "id": "makino-metasequoia-avenue",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 2h visit"
-      },
-      {
-        "id": "eigenji-higashiomi",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "taga-taisha",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "kurokabe-square-nagahama",
+        "id": "nintendo-museum-uji",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 7.1"
+        "reason": "estimated rubric score 6.7"
       },
       {
-        "id": "chikubushima-island",
+        "id": "miyama-kayabuki-no-sato",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 7.1"
+        "reason": "estimated rubric score 7.3"
       },
       {
-        "id": "koka-ninja-house",
+        "id": "maizuru-red-brick-park",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 6.2"
+        "reason": "estimated rubric score 7.8"
       },
       {
-        "id": "makino-metasequoia-avenue",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "eigenji-higashiomi",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "taga-taisha",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 7.1"
-      },
-      {
-        "id": "kurokabe-square-nagahama",
+        "id": "nintendo-museum-uji",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "chikubushima-island",
+        "id": "miyama-kayabuki-no-sato",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "koka-ninja-house",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "makino-metasequoia-avenue",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "eigenji-higashiomi",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "taga-taisha",
+        "id": "maizuru-red-brick-park",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"

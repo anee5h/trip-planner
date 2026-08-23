@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1027,
+  "totalRecords": 1030,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 191,
-    "affectedRecordCount": 1024,
+    "clusterCount": 192,
+    "affectedRecordCount": 1027,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -491,6 +491,7 @@
       "machida-graphic-arts-museum",
       "machida-tokyo",
       "maizuru-park",
+      "maizuru-red-brick-park",
       "makino-botanical-garden",
       "makino-metasequoia-avenue",
       "makuhari-seaside-park",
@@ -542,6 +543,7 @@
       "miyajima-itsukushima",
       "miyajima-omotesando",
       "miyakojima-city",
+      "miyama-kayabuki-no-sato",
       "miyazaki-city",
       "miyazaki-jingu-shrine",
       "miyazu-city",
@@ -640,6 +642,7 @@
       "nikko-national-park",
       "nikko-toshogu-shrine-tochigi",
       "ninna-ji",
+      "nintendo-museum-uji",
       "nippara-cave",
       "nippo-kaigan",
       "niseko-shakotan-otaru-kaigan",
@@ -1395,16 +1398,16 @@
       "confidence-gated": 31,
       "model-estimate": 43,
       "manual-review": 93,
-      "legitimate": 10
+      "legitimate": 11
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 10, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 11, "E": 31 }
   },
   "categories": [
     {
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 464,
+      "affectedRecordCount": 467,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1622,6 +1625,7 @@
         "kyushu-chuo-sanchi",
         "lake-biwa-shiga",
         "legoland-japan-nagoya",
+        "maizuru-red-brick-park",
         "makino-metasequoia-avenue",
         "marine-world-uminonakamichi",
         "marugame-city",
@@ -1648,6 +1652,7 @@
         "minowa-castle",
         "mito-city",
         "miyakojima-city",
+        "miyama-kayabuki-no-sato",
         "miyazaki-city",
         "miyazu-city",
         "morioka-city",
@@ -1686,6 +1691,7 @@
         "nichinan-kaigan-drive",
         "nihonbashi",
         "nikko-city",
+        "nintendo-museum-uji",
         "nippara-cave",
         "nippo-kaigan",
         "niseko-shakotan-otaru-kaigan",
@@ -2013,7 +2019,7 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 47,
+          "count": 50,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
@@ -2040,11 +2046,14 @@
             "kurama-dera-kyoto",
             "kurokabe-square-nagahama",
             "legoland-japan-nagoya",
+            "maizuru-red-brick-park",
             "makino-metasequoia-avenue",
             "marine-world-uminonakamichi",
+            "miyama-kayabuki-no-sato",
             "mt-rokko-kobe",
             "nakayama-hokekyoji-ichikawa",
             "national-museum-japanese-history-sakura",
+            "nintendo-museum-uji",
             "nokonoshima-island-park",
             "noritake-garden",
             "sakurai-futamigaura-itoshima",
@@ -3665,8 +3674,8 @@
     {
       "category": "visitDuration",
       "severity": "review",
-      "clusterCount": 25,
-      "affectedRecordCount": 988,
+      "clusterCount": 26,
+      "affectedRecordCount": 993,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3949,6 +3958,7 @@
         "imperial-palace-chiyoda",
         "inage-seaside-park",
         "inamuragasaki",
+        "ine-funaya-boathouses",
         "inubosaki-lighthouse-choshi",
         "inujima",
         "inuyama-castle-aichi",
@@ -4134,6 +4144,7 @@
         "machida-graphic-arts-museum",
         "machida-tokyo",
         "maizuru-park",
+        "maizuru-red-brick-park",
         "makino-botanical-garden",
         "makino-metasequoia-avenue",
         "makuhari-seaside-park",
@@ -4183,6 +4194,7 @@
         "miyajima-itsukushima",
         "miyajima-omotesando",
         "miyakojima-city",
+        "miyama-kayabuki-no-sato",
         "miyazaki-city",
         "miyazaki-jingu-shrine",
         "miyazu-city",
@@ -4279,6 +4291,7 @@
         "nikko-national-park",
         "nikko-toshogu-shrine-tochigi",
         "ninna-ji",
+        "nintendo-museum-uji",
         "nippara-cave",
         "nippo-kaigan",
         "niseko-shakotan-otaru-kaigan",
@@ -4324,6 +4337,7 @@
         "okinoshima-munakata-fukuoka",
         "okonomimura",
         "okuhida",
+        "okunoin-cemetery-koyasan",
         "ome-railway-park",
         "ome-retro-town",
         "ome-tokyo",
@@ -5869,6 +5883,26 @@
           }
         },
         {
+          "id": "b745c8933575",
+          "severity": "review",
+          "count": 7,
+          "ids": [
+            "akebonoyama-agricultural-park-kashiwa",
+            "joypolis",
+            "kurokabe-square-nagahama",
+            "miyama-kayabuki-no-sato",
+            "nintendo-museum-uji",
+            "nokonoshima-island-park",
+            "yanagawa-canal-cruise"
+          ],
+          "value": { "max": 3, "min": 2 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+          }
+        },
+        {
           "id": "99843a89b1e2",
           "severity": "review",
           "count": 5,
@@ -5884,24 +5918,6 @@
             "category": "E",
             "action": "manual-review",
             "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "b745c8933575",
-          "severity": "review",
-          "count": 5,
-          "ids": [
-            "akebonoyama-agricultural-park-kashiwa",
-            "joypolis",
-            "kurokabe-square-nagahama",
-            "nokonoshima-island-park",
-            "yanagawa-canal-cruise"
-          ],
-          "value": { "max": 3, "min": 2 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
           }
         },
         {
@@ -5966,6 +5982,22 @@
             "action": "manual-review",
             "reason": "Plausible."
           }
+        },
+        {
+          "id": "9bf072f0ba51",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "ine-funaya-boathouses",
+            "maizuru-red-brick-park",
+            "okunoin-cemetery-koyasan"
+          ],
+          "value": { "max": 2.5, "min": 1.5 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "Maizuru Red Brick Park shares the reviewed {1.5,2.5}h pure-destination-time band with existing Ine Funaya and Okunoin Cemetery; the band covers a coherent warehouse-park/museum outing and excludes rail, bus, and origin travel. Manual, medium confidence."
+          }
         }
       ]
     },
@@ -5973,7 +6005,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 991,
+      "affectedRecordCount": 994,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6441,6 +6473,7 @@
         "machida-graphic-arts-museum",
         "machida-tokyo",
         "maizuru-park",
+        "maizuru-red-brick-park",
         "makino-botanical-garden",
         "makino-metasequoia-avenue",
         "makuhari-seaside-park",
@@ -6489,6 +6522,7 @@
         "mito-city",
         "miyajima-itsukushima",
         "miyakojima-city",
+        "miyama-kayabuki-no-sato",
         "miyazaki-city",
         "miyazaki-jingu-shrine",
         "miyazu-city",
@@ -6585,6 +6619,7 @@
         "nikko-national-park",
         "nikko-toshogu-shrine-tochigi",
         "ninna-ji",
+        "nintendo-museum-uji",
         "nippara-cave",
         "nippo-kaigan",
         "niseko-shakotan-otaru-kaigan",
@@ -7346,7 +7381,7 @@
         {
           "id": "3d368f449db1",
           "severity": "review",
-          "count": 70,
+          "count": 72,
           "ids": [
             "aomori-museum-of-art",
             "canal-city-hakata",
@@ -7377,6 +7412,7 @@
             "kuromon-market",
             "kyoto-imperial-palace",
             "miho-museum-koka",
+            "miyama-kayabuki-no-sato",
             "mount-moiwa",
             "nakagusuku-castle",
             "nakanoshima-museum-art-osaka",
@@ -7385,6 +7421,7 @@
             "national-museum-japanese-history-sakura",
             "niigata-city",
             "nijo-market",
+            "nintendo-museum-uji",
             "nishiki-market",
             "nunobiki-falls",
             "nunobiki-ropeway",
@@ -8285,6 +8322,23 @@
           }
         },
         {
+          "id": "b7e9721e1e32",
+          "severity": "review",
+          "count": 4,
+          "ids": [
+            "ine-funaya-boathouses",
+            "maizuru-red-brick-park",
+            "okunoin-cemetery-koyasan",
+            "yufuin-floral-village"
+          ],
+          "value": { "walkingMin": 75 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "da386b1ae837",
           "severity": "review",
           "count": 4,
@@ -8323,22 +8377,6 @@
           "count": 3,
           "ids": ["miyajima-itsukushima", "mount-fuji", "sado-island"],
           "value": { "walkingMin": 480 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "b7e9721e1e32",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "ine-funaya-boathouses",
-            "okunoin-cemetery-koyasan",
-            "yufuin-floral-village"
-          ],
-          "value": { "walkingMin": 75 },
           "disposition": {
             "category": "E",
             "action": "manual-review",
