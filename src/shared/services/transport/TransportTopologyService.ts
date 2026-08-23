@@ -55,6 +55,10 @@ const ISLAND_BOUNDS: Record<
   tsushima: { latRange: [34.0, 34.7], lngRange: [129.1, 129.5] },
   naoshima: { latRange: [34.42, 34.49], lngRange: [133.93, 134.02] },
   teshima: { latRange: [34.45, 34.51], lngRange: [134.05, 134.12] },
+  // Awaji Island spans roughly 34.1–34.6N and 134.6–135.1E. This explicit
+  // island box prevents its coordinates from falling into the overlapping
+  // Tomogashima fallback and models bridge/highway-bus connectivity separately.
+  "awaji-island": { latRange: [34.08, 34.65], lngRange: [134.55, 134.96] },
   tomogashima: { latRange: [34.2, 34.4], lngRange: [134.9, 135.1] },
   // KAI-87: lng floor 132.312 keeps the mainland ferry port (Miyajimaguchi,
   // ~132.308) out of the island zone; the island spans ~132.315-132.325.

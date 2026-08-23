@@ -21,6 +21,9 @@ const ISLAND_BOUNDS: Record<
   tsushima: { latRange: [34.0, 34.7], lngRange: [129.1, 129.5] },
   naoshima: { latRange: [34.42, 34.49], lngRange: [133.93, 134.02] },
   teshima: { latRange: [34.45, 34.51], lngRange: [134.05, 134.12] },
+  // Awaji Island is road-connected to Honshu by bridge/highway bus; it is
+  // still a distinct island zone and must not resolve to Tomogashima.
+  "awaji-island": { latRange: [34.08, 34.65], lngRange: [134.55, 134.96] },
   tomogashima: { latRange: [34.2, 34.4], lngRange: [134.9, 135.1] },
   miyajima: { latRange: [34.27, 34.32], lngRange: [132.312, 132.33] },
   nokonoshima: { latRange: [33.6, 33.66], lngRange: [130.25, 130.33] },
