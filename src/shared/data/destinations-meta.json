@@ -1114,6 +1114,16 @@
     "relationships": {}
   },
   {
+    "id": "chikubushima-island",
+    "name": "Chikubu Island (Chikubushima)",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "island",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "chikurin-ji-kochi",
     "name": "Chikurin-ji",
     "prefecture": "Kochi",
@@ -1582,6 +1592,16 @@
     "relationships": {
       "parentDestinationId": "matsuyama-city"
     }
+  },
+  {
+    "id": "eigenji-higashiomi",
+    "name": "Eigen-ji",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "engakuji",
@@ -5392,6 +5412,16 @@
     }
   },
   {
+    "id": "koka-ninja-house",
+    "name": "Koka Ninja House",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "koko-en-garden",
     "name": "Koko-en Garden",
     "prefecture": "Hyogo",
@@ -5711,6 +5741,16 @@
     "region": "Chubu",
     "role": "standalone",
     "kind": "nature",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "kurokabe-square-nagahama",
+    "name": "Kurokabe Square",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "historic_town",
     "status": "verified",
     "relationships": {}
   },
@@ -6097,6 +6137,16 @@
     "relationships": {
       "parentDestinationId": "kochi-city"
     }
+  },
+  {
+    "id": "makino-metasequoia-avenue",
+    "name": "Makino Metasequoia Avenue",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "makuhari-seaside-park",
@@ -10674,6 +10724,16 @@
     "role": "standalone",
     "kind": "historic",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "taga-taisha",
+    "name": "Taga Taisha",
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
     "relationships": {}
   },
   {

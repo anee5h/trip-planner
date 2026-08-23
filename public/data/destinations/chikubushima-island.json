@@ -1,0 +1,262 @@
+{
+  "id": "chikubushima-island",
+  "officialWebsite": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+  "officialWebsiteRequirement": "required",
+  "name": "Chikubu Island (Chikubushima)",
+  "nameJa": "竹生島",
+  "aliases": ["Chikubushima", "Chikubu Island", "Tsukubusuma Island"],
+  "municipalityId": "Shiga:nagahama",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 35.4228,
+    "lng": 136.1378
+  },
+  "location": {
+    "address": "Chikubushima, Nagahama, Shiga 529-0713",
+    "latitude": 35.4228,
+    "longitude": 136.1378
+  },
+  "categories": ["Island", "Temple", "Shrine", "Nature"],
+  "tags": ["Island", "Temple", "Shrine", "Ferry", "Shiga"],
+  "description": "A small sacred island in northern Lake Biwa, home to Hogon-ji Temple and Tsukubusuma Shrine, reached only by Biwako Kisen ferry from Nagahama or Imazu with scenic crossings across the lake.",
+  "highlights": [
+    "Hogon-ji Temple and Tsukubusuma Shrine on a forested lake island",
+    "The kawarake clay-plate throwing rite",
+    "Scenic ferry crossing across northern Lake Biwa"
+  ],
+  "content": {
+    "en": {
+      "name": "Chikubu Island (Chikubushima)",
+      "description": "A small sacred island in northern Lake Biwa, home to Hogon-ji Temple and Tsukubusuma Shrine, reached only by Biwako Kisen ferry from Nagahama or Imazu with scenic crossings across the lake.",
+      "highlights": [
+        "Hogon-ji Temple and Tsukubusuma Shrine on a forested lake island",
+        "The kawarake clay-plate throwing rite",
+        "Scenic ferry crossing across northern Lake Biwa"
+      ],
+      "notes": "FERRY ONLY: no road or rail reaches the island. Biwako Kisen runs the Nagahama route (~35 min each way, adult round trip ¥3,800) and the Imazu route (~25–30 min, ¥3,600), with roughly 85–90-minute landings; schedules vary by season and weather, and an island admission fee applies. The recommendedVisitHours cover time ON the island only — the crossing and any train to the port are transport.",
+      "reservation": "Ferries run on fixed daily schedules that change by season; check the Biwako Kisen timetable before visiting.",
+      "parking": "Use the ferry from Nagahama or Imazu; check the operator's port-access guidance for current parking.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "竹生島",
+      "description": "琵琶湖北部に浮かぶ小島。宝厳寺と竹生島神社があり、長浜港または今津港から琵琶湖汽船の遊覧船で渡ります。",
+      "highlights": [
+        "宝厳寺と竹生島神社",
+        "かわらけ投げの神事",
+        "琵琶湖を横断する遊覧船の旅"
+      ],
+      "notes": "島へはフェリーでのみアクセスできます（道路・鉄道なし）。琵琶湖汽船が長浜航路（片道約35分、大人往復3,800円）と今津航路（約25〜30分、3,600円）を運航し、上陸時間は約85〜90分。時期・天候によりダイヤが変わり、入島料が別途必要です。滞在時間は島内の体験時間のみで、航路や港までの移動は含みません。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Chikubushima_aerial_shoot.jpg/1280px-Chikubushima_aerial_shoot.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "ブルーノ・プラス, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chikubushima_aerial_shoot.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": [],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "high",
+    "basis": "Biwako Kisen schedules give ~85–90-minute landings per round-trip sailing; this is island experience time only (temple, shrine, rite). Ferry crossing and port access are transport, not visit time."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Ferries run on fixed daily schedules that change by season; check the Biwako Kisen timetable before visiting.",
+  "parking": "Use the ferry from Nagahama or Imazu; check the operator's port-access guidance for current parking.",
+  "notes": "FERRY ONLY: no road or rail reaches the island. Biwako Kisen runs the Nagahama route (~35 min each way, adult round trip ¥3,800) and the Imazu route (~25–30 min, ¥3,600), with roughly 85–90-minute landings; schedules vary by season and weather, and an island admission fee applies. The recommendedVisitHours cover time ON the island only — the crossing and any train to the port are transport.",
+  "notesJa": "島へはフェリーでのみアクセスできます（道路・鉄道なし）。琵琶湖汽船が長浜航路（片道約35分、大人往復3,800円）と今津航路（約25〜30分、3,600円）を運航し、上陸時間は約85〜90分。時期・天候によりダイヤが変わり、入島料が別途必要です。滞在時間は島内の体験時間のみで、航路や港までの移動は含みません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Shiga east/north Lake Biwa destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+        "title": "Biwako Kisen Chikubushima cruise official page",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.biwakokisen.co.jp/cruise/chikubu/price_time/",
+        "title": "Biwako Kisen Chikubushima fare and timetable page",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.biwakokisen.co.jp/access/nagahama/",
+        "title": "Biwako Kisen Nagahama Port access page",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+          "title": "Biwako Kisen Chikubushima cruise official page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/access/nagahama/",
+          "title": "Biwako Kisen Nagahama Port access page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Shiga destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

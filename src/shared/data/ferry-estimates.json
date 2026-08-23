@@ -240,6 +240,42 @@
         "lat": 33.622,
         "lng": 130.296
       }
+    },
+    {
+      "id": "NAGAHAMA-PORT",
+      "name": "Nagahama Port (Biwako Kisen)",
+      "nameJa": "長浜港（琵琶湖汽船）",
+      "city": "Nagahama",
+      "prefecture": "Shiga",
+      "zoneId": "mainland-honshu",
+      "coordinates": {
+        "lat": 35.3873,
+        "lng": 136.2678
+      }
+    },
+    {
+      "id": "IMAZU-PORT",
+      "name": "Imazu Port (Biwako Kisen)",
+      "nameJa": "今津港（琵琶湖汽船）",
+      "city": "Takashima",
+      "prefecture": "Shiga",
+      "zoneId": "mainland-honshu",
+      "coordinates": {
+        "lat": 35.4864,
+        "lng": 136.0306
+      }
+    },
+    {
+      "id": "CHIKUBUSHIMA",
+      "name": "Chikubushima Port",
+      "nameJa": "竹生島港",
+      "city": "Nagahama",
+      "prefecture": "Shiga",
+      "zoneId": "chikubushima",
+      "coordinates": {
+        "lat": 35.4228,
+        "lng": 136.1378
+      }
     }
   ],
   "services": [
@@ -523,6 +559,42 @@
       "fareSourceUrl": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
       "checkedAt": "2026-08-22",
       "notes": "Fukuoka City municipal ferry; ~10 min crossing, adult one-way ¥230, child ¥120. Sails roughly hourly with extra peak services; check the current timetable."
+    },
+    {
+      "id": "NAGAHAMA-CHIKUBUSHIMA",
+      "fromPort": "NAGAHAMA-PORT",
+      "toPort": "CHIKUBUSHIMA",
+      "operator": "Biwako Kisen (琵琶湖汽船)",
+      "serviceName": "Chikubushima cruise — Nagahama route (長浜航路)",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [35, 35],
+      "fare": [3800, 3800],
+      "fareBasis": "round-trip",
+      "fareStatus": "verified",
+      "sourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/price_time/",
+      "fareSourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/price_time/",
+      "checkedAt": "2026-08-23",
+      "notes": "Biwako Kisen sightseeing ferry; ~35 min each way Nagahama–Chikubushima with ~85–90-minute island landings per sailing. Adult round trip ¥3,800 (child ¥1,900); separate ¥600 island admission on landing. Schedule varies by season/day type and weather; check the current timetable."
+    },
+    {
+      "id": "IMAZU-CHIKUBUSHIMA",
+      "fromPort": "IMAZU-PORT",
+      "toPort": "CHIKUBUSHIMA",
+      "operator": "Biwako Kisen (琵琶湖汽船)",
+      "serviceName": "Chikubushima cruise — Imazu route (今津航路)",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [25, 30],
+      "fare": [3600, 3600],
+      "fareBasis": "round-trip",
+      "fareStatus": "verified",
+      "sourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/price_time/",
+      "fareSourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/price_time/",
+      "checkedAt": "2026-08-23",
+      "notes": "Biwako Kisen sightseeing ferry; ~25 min out / ~30 min return Imazu–Chikubushima with ~50–100-minute island landings depending on sailing. Adult round trip ¥3,600 (child ¥1,800); separate ¥600 island admission on landing. A cross-lake one-way (Imazu→Chikubushima→Nagahama) also exists. Schedule varies by season and weather."
     }
   ]
 }

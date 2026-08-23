@@ -90607,5 +90607,481 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "relationships": {}
+  },
+  {
+    "id": "kurokabe-square-nagahama",
+    "name": "Kurokabe Square",
+    "nameJa": "黒壁スクエア",
+    "kind": "historic_town",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Shiga:nagahama",
+    "aliases": ["Kurokabe", "Nagahama Kurokabe Square", "Kurokabe Glass House"],
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "categories": ["Historic District", "Shopping", "Culture", "History"],
+    "tags": ["Historic District", "Shopping", "Culture", "History", "Nagahama"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kurokabe_Square_Nagahama_City_Shiga_Prefecture_2023.jpg/1280px-Kurokabe_Square_Nagahama_City_Shiga_Prefecture_2023.jpg",
+    "description": "A preserved merchant quarter around the Meiji-era Kurokabe Bank building in central Nagahama, with glass shops, craft studios, cafes and galleries — turning Nagahama into more than a castle-only stop.",
+    "highlights": [
+      "The Meiji-era Kurokabe Bank building and glass shops",
+      "Preserved old-town streets of former castle-town Nagahama",
+      "Craft and glass-blowing experiences in converted storehouses"
+    ],
+    "coordinates": {
+      "lat": 35.3845,
+      "lng": 136.2689
+    },
+    "officialWebsite": "https://www.kurokabe.co.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "chikubushima-island",
+    "name": "Chikubu Island (Chikubushima)",
+    "nameJa": "竹生島",
+    "kind": "island",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Shiga:nagahama",
+    "aliases": ["Chikubushima", "Chikubu Island", "Tsukubusuma Island"],
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "categories": ["Island", "Temple", "Shrine", "Nature"],
+    "tags": ["Island", "Temple", "Shrine", "Ferry", "Shiga"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Chikubushima_aerial_shoot.jpg/1280px-Chikubushima_aerial_shoot.jpg",
+    "description": "A small sacred island in northern Lake Biwa, home to Hogon-ji Temple and Tsukubusuma Shrine, reached only by Biwako Kisen ferry from Nagahama or Imazu with scenic crossings across the lake.",
+    "highlights": [
+      "Hogon-ji Temple and Tsukubusuma Shrine on a forested lake island",
+      "The kawarake clay-plate throwing rite",
+      "Scenic ferry crossing across northern Lake Biwa"
+    ],
+    "coordinates": {
+      "lat": 35.4228,
+      "lng": 136.1378
+    },
+    "officialWebsite": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": [],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "koka-ninja-house",
+    "name": "Koka Ninja House",
+    "nameJa": "甲賀流忍術屋敷",
+    "kind": "museum",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Shiga:koka",
+    "aliases": [
+      "Koga Ninja House",
+      "Koka-ryu Ninjutsu Yashiki",
+      "Former Mochizuki Residence"
+    ],
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "categories": ["Museum", "History", "Family", "Experience"],
+    "tags": ["Museum", "History", "Family", "Experience", "Koka"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Koka_Ninja_House_20090823.jpg/1280px-Koka_Ninja_House_20090823.jpg",
+    "description": "The surviving residence of the Mochizuki family — one genuine Koka ninja house with revolving walls, trapdoors and hidden passages, offering guided tours through authentic ninja architecture.",
+    "highlights": [
+      "Authentic ninja-house tricks: revolving doors and hidden staircases",
+      "Guided tours explaining real Koka ninja history",
+      "One canonical Koka ninja anchor (not a theme park)"
+    ],
+    "coordinates": {
+      "lat": 34.9717,
+      "lng": 136.1836
+    },
+    "officialWebsite": "https://www.kouka-ninjya.com/la_en/info/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "makino-metasequoia-avenue",
+    "name": "Makino Metasequoia Avenue",
+    "nameJa": "マキノ高原 メタセコイア並木",
+    "kind": "nature",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Shiga:takashima",
+    "aliases": [
+      "Metasequoia Namiki",
+      "Makino Pickland Metasequoia Road",
+      "メタセコイア並木"
+    ],
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "categories": ["Nature", "Viewpoint", "Photography", "Scenic Drive"],
+    "tags": ["Nature", "Viewpoint", "Photography", "Scenic Drive", "Takashima"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/A_row_of_Metasequoia_trees_Makino_20200919.jpg/1280px-A_row_of_Metasequoia_trees_Makino_20200919.jpg",
+    "description": "A straight 2.4 km avenue of some 500 metasequoia trees along a prefectural road on the Makino highland plateau in western Lake Biwa — a linear scenic drive-and-walk landmark.",
+    "highlights": [
+      "2.4 km of towering metasequoia along a single prefectural road",
+      "Distinct seasonal faces (fresh green, deep green, winter hoarfrost)",
+      "Pairs naturally with Makino highland and northern-lake drives"
+    ],
+    "coordinates": {
+      "lat": 35.5453,
+      "lng": 135.9961
+    },
+    "officialWebsite": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "eigenji-higashiomi",
+    "name": "Eigen-ji",
+    "nameJa": "永源寺",
+    "kind": "temple",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Shiga:higashiomi",
+    "aliases": ["Eigenji Temple", "Zuisekizan Eigen-ji", "Eigen-ji Monastery"],
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "categories": ["Temple", "Culture", "History", "Garden"],
+    "tags": ["Temple", "Culture", "History", "Garden", "Higashiomi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Zuisekizan_Eigen-ji_Temple_20211121_05.jpg/1280px-Zuisekizan_Eigen-ji_Temple_20211121_05.jpg",
+    "description": "Head temple of the Eigen-ji branch of Rinzai Zen, set above the Echi River gorge in eastern Shiga, known for its Zen gardens, bell tower and riverside teahouses.",
+    "highlights": [
+      "Rinzai Zen head temple in the Echi River gorge",
+      "Classical Zen gardens and the great temple bell",
+      "An eastern-Shiga culture anchor away from the lake shore"
+    ],
+    "coordinates": {
+      "lat": 35.0533,
+      "lng": 136.2283
+    },
+    "officialWebsite": "https://eigenji-t.jp/contact/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "taga-taisha",
+    "name": "Taga Taisha",
+    "nameJa": "多賀大社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Shiga:taga",
+    "aliases": ["Taga Taisha Shrine", "Oga-san", "Taga Grand Shrine"],
+    "prefecture": "Shiga",
+    "region": "Kansai",
+    "categories": ["Shrine", "Culture", "History", "Spiritual"],
+    "tags": ["Shrine", "Culture", "History", "Spiritual", "Taga"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Taga-taisha_Haiden-b.jpg/1280px-Taga-taisha_Haiden-b.jpg",
+    "description": "One of Japan's great shrines dedicated to Izanagi and Izanami, famed for longevity blessings and its lantern-lined approach, anchoring a distinct eastern-Shiga heritage outing on the Ohmi Railway Main Line.",
+    "highlights": [
+      "Grand vermilion halls and a lantern-lined sandō approach",
+      "Longevity blessings at one of eastern Japan's major shrines",
+      "A distinct Ohmi-Railway heritage outing separate from the lake shore"
+    ],
+    "coordinates": {
+      "lat": 35.2264,
+      "lng": 136.2833
+    },
+    "officialWebsite": "https://global.biwako-visitors.jp/things-to-do/22084/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
   }
 ]

@@ -64,6 +64,10 @@ const ISLAND_BOUNDS: Record<
   // mainland Meinohama ferry terminal (Atago-hama, ~33.585/130.325) out of
   // the island zone. Ferry-only: no rail reaches the island.
   nokonoshima: { latRange: [33.6, 33.66], lngRange: [130.25, 130.33] },
+  // Chikubushima (竹生島) in northern Lake Biwa; the box keeps the mainland
+  // Nagahama/Imazu ferry terminals out of the island zone. Ferry-only: no
+  // road or rail reaches the island (KAI-154).
+  chikubushima: { latRange: [35.415, 35.43], lngRange: [136.13, 136.147] },
   gunkanjima: { latRange: [32.62, 32.64], lngRange: [129.73, 129.75] },
 };
 

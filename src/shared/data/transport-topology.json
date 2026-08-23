@@ -143,6 +143,14 @@
       "isIsland": true,
       "isRemote": false,
       "localModes": ["bus", "car", "my_car"]
+    },
+    {
+      "id": "chikubushima",
+      "name": "Chikubu Island (Chikubushima)",
+      "nameJa": "竹生島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": []
     }
   ],
   "edges": [
