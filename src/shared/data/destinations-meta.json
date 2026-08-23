@@ -732,6 +732,16 @@
     }
   },
   {
+    "id": "besshi-copper-mine-memorial-museum",
+    "name": "Besshi Copper Mine Memorial Museum",
+    "prefecture": "Ehime",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "biei-town",
     "name": "Biei Town",
     "prefecture": "Hokkaido",
@@ -5581,6 +5591,16 @@
     }
   },
   {
+    "id": "kotohira-gu-kagawa",
+    "name": "Kotohira-gu Shrine",
+    "prefecture": "Kagawa",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "kotoku-in-great-buddha",
     "name": "Kotoku-in Great Buddha",
     "prefecture": "Kanagawa",
@@ -7596,6 +7616,16 @@
     "relationships": {
       "parentDestinationId": "fukuoka-city"
     }
+  },
+  {
+    "id": "nakatsu-gorge-kochi",
+    "name": "Nakatsu Gorge",
+    "prefecture": "Kochi",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "nakayama-hokekyoji-ichikawa",
@@ -10094,6 +10124,16 @@
     "relationships": {}
   },
   {
+    "id": "shikoku-karst-kochi",
+    "name": "Shikoku Karst",
+    "prefecture": "Kochi",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "shikoku-mura",
     "name": "Shikoku Mura",
     "prefecture": "Kagawa",
@@ -11989,6 +12029,16 @@
     "role": "standalone",
     "kind": "castle",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "uchiko-za-ehime",
+    "name": "Uchiko-za Theater",
+    "prefecture": "Ehime",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "verified",
     "relationships": {}
   },
   {

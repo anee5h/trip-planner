@@ -82,7 +82,8 @@
     "check:pwa": "node scripts/check-pwa.cjs",
     "expand:kai-154-shiga": "tsx scripts/kai-154-shiga-expansion.ts",
     "expand:kai-161-uji-northern-kyoto": "tsx scripts/kai-161-uji-northern-kyoto-expansion.ts",
-    "expand:kai-149-awaji-southern-nara": "tsx scripts/kai-149-awaji-southern-nara-expansion.ts"
+    "expand:kai-149-awaji-southern-nara": "tsx scripts/kai-149-awaji-southern-nara-expansion.ts",
+    "expand:kai-148-shikoku-interior": "tsx scripts/kai-148-shikoku-interior-expansion.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

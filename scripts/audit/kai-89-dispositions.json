@@ -974,6 +974,11 @@
       "action": "legitimate",
       "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
     },
+    "visitDuration:9d14d0c7aff9": {
+      "category": "A",
+      "action": "legitimate",
+      "reason": "Three distinct shrine/theater/academy visits (Izanagi Shrine, Uchiko-za, and Kangien Academy) share a reviewed {1,1.5}h pure-destination-time band; the band excludes intercity travel and remains subject to current opening or renovation status."
+    },
     "visitDuration:9bf072f0ba51": {
       "category": "A",
       "action": "legitimate",
