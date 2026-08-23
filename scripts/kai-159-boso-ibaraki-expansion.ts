@@ -312,9 +312,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Tateyama City Tourist Information Office: Shiroyama Park",
       ),
       source(
+        "government",
+        "https://maruchiba.jp/spot/detail_10428.html",
+        "Chiba Prefecture official tourism site (Chiba Kanko Navi): Shiroyama Park map pin",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/way/265358058",
-        "OpenStreetMap: Shiroyama Park coordinate",
+        "OpenStreetMap auxiliary cross-check: Shiroyama Park coordinate",
       ),
     ],
     image: {
@@ -392,9 +397,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Tateyama City Tourist Information Office: Awa Shrine visitor information",
       ),
       source(
+        "government",
+        "https://maruchiba.jp/spot/detail_10587.html",
+        "Chiba Prefecture official tourism site (Chiba Kanko Navi): Awa Shrine map pin",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/way/727172519",
-        "OpenStreetMap: Awa Shrine coordinate",
+        "OpenStreetMap: Awa Shrine coordinate (auxiliary)",
       ),
     ],
     image: {
@@ -472,9 +482,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Kamogawa Sea World official access and shuttle guidance",
       ),
       source(
+        "government",
+        "https://maruchiba.jp/spot/detail_10373.html",
+        "Chiba Prefecture official tourism site (Chiba Kanko Navi): Kamogawa Sea World map pin",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/way/1050545416",
-        "OpenStreetMap: Kamogawa Sea World coordinate",
+        "OpenStreetMap: Kamogawa Sea World coordinate (auxiliary)",
       ),
     ],
     image: {
@@ -552,9 +567,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Onjuku Town Tourism Association: Onjuku Beach access",
       ),
       source(
+        "government",
+        "https://maruchiba.jp/spot/detail_10690.html",
+        "Chiba Prefecture official tourism site (Chiba Kanko Navi): Onjuku Central Beach map pin",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/node/2715131038",
-        "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+        "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
       ),
     ],
     image: {
@@ -625,9 +645,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
       ),
       source(
+        "official",
+        "http://www.kasama.or.jp/access/index.html",
+        "Kasama Inari Shrine official access page map pin",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/node/745550349",
-        "OpenStreetMap: Kasama Inari Shrine coordinate",
+        "OpenStreetMap: Kasama Inari Shrine coordinate (auxiliary)",
       ),
     ],
     image: {
@@ -704,9 +729,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Ibaraki Prefectural Government: Ibaraki Ceramic Art Museum visitor information",
       ),
       source(
+        "official",
+        "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+        "Ibaraki Ceramic Art Museum official access guide map marker",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/node/4191897333",
-        "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+        "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
       ),
     ],
     image: {
@@ -783,9 +813,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Ibaraki Prefectural Government: Hitachi Kamine Park visitor information",
       ),
       source(
+        "government",
+        "https://www.ibarakiguide.jp/spot.php?mode=detail&code=311",
+        "Ibaraki Prefecture official tourism (Kanko Ibaraki): Kamine Park map pin",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/way/458491018",
-        "OpenStreetMap: Hitachi Kamine Park coordinate",
+        "OpenStreetMap: Hitachi Kamine Park coordinate (auxiliary)",
       ),
     ],
     image: {
@@ -863,9 +898,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Hitachinokuni Soshagu Shrine official current notices and access page",
       ),
       source(
+        "official",
+        "https://sosyagu.jp/access/",
+        "Hitachinokuni Soshagu official access page map pin",
+      ),
+      source(
         "manual",
         "https://www.wikidata.org/wiki/Q11481689",
-        "Wikidata: Hitachinokuni Soshagu coordinate",
+        "Wikidata: Hitachinokuni Soshagu coordinate (auxiliary)",
       ),
     ],
     image: {

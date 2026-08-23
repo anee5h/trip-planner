@@ -211057,9 +211057,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10428.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Shiroyama Park map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/way/265358058",
-          "title": "OpenStreetMap: Shiroyama Park coordinate",
+          "title": "OpenStreetMap auxiliary cross-check: Shiroyama Park coordinate",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -211100,7 +211106,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/265358058",
-            "title": "OpenStreetMap: Shiroyama Park coordinate",
+            "title": "OpenStreetMap auxiliary cross-check: Shiroyama Park coordinate",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211108,7 +211114,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/265358058",
-            "title": "OpenStreetMap: Shiroyama Park coordinate",
+            "title": "OpenStreetMap auxiliary cross-check: Shiroyama Park coordinate",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211336,9 +211342,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10587.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Awa Shrine map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/way/727172519",
-          "title": "OpenStreetMap: Awa Shrine coordinate",
+          "title": "OpenStreetMap: Awa Shrine coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -211379,7 +211391,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/727172519",
-            "title": "OpenStreetMap: Awa Shrine coordinate",
+            "title": "OpenStreetMap: Awa Shrine coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211387,7 +211399,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/727172519",
-            "title": "OpenStreetMap: Awa Shrine coordinate",
+            "title": "OpenStreetMap: Awa Shrine coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211616,9 +211628,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10373.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Kamogawa Sea World map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/way/1050545416",
-          "title": "OpenStreetMap: Kamogawa Sea World coordinate",
+          "title": "OpenStreetMap: Kamogawa Sea World coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -211659,7 +211677,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/1050545416",
-            "title": "OpenStreetMap: Kamogawa Sea World coordinate",
+            "title": "OpenStreetMap: Kamogawa Sea World coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211667,7 +211685,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/1050545416",
-            "title": "OpenStreetMap: Kamogawa Sea World coordinate",
+            "title": "OpenStreetMap: Kamogawa Sea World coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211895,9 +211913,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10690.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Onjuku Central Beach map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/2715131038",
-          "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+          "title": "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -211938,7 +211962,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/node/2715131038",
-            "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+            "title": "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -211946,7 +211970,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/node/2715131038",
-            "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+            "title": "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -212169,9 +212193,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "official",
+          "url": "http://www.kasama.or.jp/access/index.html",
+          "title": "Kasama Inari Shrine official access page map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/745550349",
-          "title": "OpenStreetMap: Kasama Inari Shrine coordinate",
+          "title": "OpenStreetMap: Kasama Inari Shrine coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -212212,7 +212242,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/node/745550349",
-            "title": "OpenStreetMap: Kasama Inari Shrine coordinate",
+            "title": "OpenStreetMap: Kasama Inari Shrine coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -212220,23 +212250,23 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/node/745550349",
-            "title": "OpenStreetMap: Kasama Inari Shrine coordinate",
+            "title": "OpenStreetMap: Kasama Inari Shrine coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
         "localAccessModes": [
           {
-            "type": "government",
-            "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
-            "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+            "type": "official",
+            "url": "http://www.kasama.or.jp/access/index.html",
+            "title": "Kasama Inari Shrine official access page map pin",
             "accessedAt": "2026-08-23"
           }
         ],
         "transportOptions": [
           {
-            "type": "government",
-            "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
-            "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+            "type": "official",
+            "url": "http://www.kasama.or.jp/access/index.html",
+            "title": "Kasama Inari Shrine official access page map pin",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -212448,9 +212478,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+          "title": "Ibaraki Ceramic Art Museum official access guide map marker",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/4191897333",
-          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -212491,7 +212527,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/node/4191897333",
-            "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+            "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -212499,23 +212535,23 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/node/4191897333",
-            "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+            "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
         "localAccessModes": [
           {
             "type": "official",
-            "url": "https://www.tougei.museum.ibk.ed.jp/",
-            "title": "Ibaraki Ceramic Art Museum official site",
+            "url": "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+            "title": "Ibaraki Ceramic Art Museum official access guide map marker",
             "accessedAt": "2026-08-23"
           }
         ],
         "transportOptions": [
           {
             "type": "official",
-            "url": "https://www.tougei.museum.ibk.ed.jp/",
-            "title": "Ibaraki Ceramic Art Museum official site",
+            "url": "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+            "title": "Ibaraki Ceramic Art Museum official access guide map marker",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -212727,9 +212763,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "government",
+          "url": "https://www.ibarakiguide.jp/spot.php?mode=detail&code=311",
+          "title": "Ibaraki Prefecture official tourism (Kanko Ibaraki): Kamine Park map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.openstreetmap.org/way/458491018",
-          "title": "OpenStreetMap: Hitachi Kamine Park coordinate",
+          "title": "OpenStreetMap: Hitachi Kamine Park coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -212770,7 +212812,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/458491018",
-            "title": "OpenStreetMap: Hitachi Kamine Park coordinate",
+            "title": "OpenStreetMap: Hitachi Kamine Park coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -212778,7 +212820,7 @@
           {
             "type": "manual",
             "url": "https://www.openstreetmap.org/way/458491018",
-            "title": "OpenStreetMap: Hitachi Kamine Park coordinate",
+            "title": "OpenStreetMap: Hitachi Kamine Park coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -213007,9 +213049,15 @@
           "accessedAt": "2026-08-23"
         },
         {
+          "type": "official",
+          "url": "https://sosyagu.jp/access/",
+          "title": "Hitachinokuni Soshagu official access page map pin",
+          "accessedAt": "2026-08-23"
+        },
+        {
           "type": "manual",
           "url": "https://www.wikidata.org/wiki/Q11481689",
-          "title": "Wikidata: Hitachinokuni Soshagu coordinate",
+          "title": "Wikidata: Hitachinokuni Soshagu coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -213050,7 +213098,7 @@
           {
             "type": "manual",
             "url": "https://www.wikidata.org/wiki/Q11481689",
-            "title": "Wikidata: Hitachinokuni Soshagu coordinate",
+            "title": "Wikidata: Hitachinokuni Soshagu coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],
@@ -213058,7 +213106,7 @@
           {
             "type": "manual",
             "url": "https://www.wikidata.org/wiki/Q11481689",
-            "title": "Wikidata: Hitachinokuni Soshagu coordinate",
+            "title": "Wikidata: Hitachinokuni Soshagu coordinate (auxiliary)",
             "accessedAt": "2026-08-23"
           }
         ],

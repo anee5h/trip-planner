@@ -148,9 +148,15 @@
         "accessedAt": "2026-08-23"
       },
       {
+        "type": "official",
+        "url": "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+        "title": "Ibaraki Ceramic Art Museum official access guide map marker",
+        "accessedAt": "2026-08-23"
+      },
+      {
         "type": "manual",
         "url": "https://www.openstreetmap.org/node/4191897333",
-        "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+        "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
         "accessedAt": "2026-08-23"
       }
     ],
@@ -191,7 +197,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/4191897333",
-          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -199,23 +205,23 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/4191897333",
-          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
       "localAccessModes": [
         {
           "type": "official",
-          "url": "https://www.tougei.museum.ibk.ed.jp/",
-          "title": "Ibaraki Ceramic Art Museum official site",
+          "url": "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+          "title": "Ibaraki Ceramic Art Museum official access guide map marker",
           "accessedAt": "2026-08-23"
         }
       ],
       "transportOptions": [
         {
           "type": "official",
-          "url": "https://www.tougei.museum.ibk.ed.jp/",
-          "title": "Ibaraki Ceramic Art Museum official site",
+          "url": "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?id=5",
+          "title": "Ibaraki Ceramic Art Museum official access guide map marker",
           "accessedAt": "2026-08-23"
         }
       ],

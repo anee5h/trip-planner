@@ -148,9 +148,15 @@
         "accessedAt": "2026-08-23"
       },
       {
+        "type": "government",
+        "url": "https://maruchiba.jp/spot/detail_10690.html",
+        "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Onjuku Central Beach map pin",
+        "accessedAt": "2026-08-23"
+      },
+      {
         "type": "manual",
         "url": "https://www.openstreetmap.org/node/2715131038",
-        "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+        "title": "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
         "accessedAt": "2026-08-23"
       }
     ],
@@ -191,7 +197,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/2715131038",
-          "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+          "title": "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -199,7 +205,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/2715131038",
-          "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+          "title": "OpenStreetMap auxiliary cross-check: Moon Desert Memorial at Onjuku Central Beach frontage",
           "accessedAt": "2026-08-23"
         }
       ],
