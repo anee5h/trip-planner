@@ -6,7 +6,7 @@
   "totalRecords": 1057,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 193,
+    "clusterCount": 194,
     "affectedRecordCount": 1054,
     "affectedIds": [
       "abashiri",
@@ -1423,10 +1423,10 @@
       "corrected": 14,
       "confidence-gated": 31,
       "model-estimate": 43,
-      "manual-review": 93,
+      "manual-review": 94,
       "legitimate": 12
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 12, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 12, "E": 32 }
   },
   "categories": [
     {
@@ -3754,8 +3754,8 @@
     {
       "category": "visitDuration",
       "severity": "review",
-      "clusterCount": 27,
-      "affectedRecordCount": 1017,
+      "clusterCount": 28,
+      "affectedRecordCount": 1020,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3810,6 +3810,7 @@
         "atami-city",
         "atsuta-shrine-nagoya",
         "awa-odori-kaikan",
+        "awa-shrine-tateyama",
         "awaji-farm-park-england-hill",
         "azuchi-castle",
         "bandai-asahi",
@@ -3929,6 +3930,7 @@
         "gala-yuzawa",
         "gassantoda-castle",
         "geibikei-gorge-iwate",
+        "gekkeikan-okura-sake-museum",
         "genbaku-dome",
         "genbudo-cave-park",
         "genkai",
@@ -4199,6 +4201,7 @@
         "kumamoto-castle",
         "kumamoto-city",
         "kumamoto-prefectural-art-museum",
+        "kumano-hayatama-taisha-shingu",
         "kumano-hongu-taisha-oyunohara",
         "kumano-kodo-koya-wakayama",
         "kumano-kodo-takijiri-takahara",
@@ -6138,6 +6141,22 @@
             "category": "C",
             "action": "manual-review",
             "reason": "Plausible."
+          }
+        },
+        {
+          "id": "882310a4846f",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "awa-shrine-tateyama",
+            "gekkeikan-okura-sake-museum",
+            "kumano-hayatama-taisha-shingu"
+          ],
+          "value": { "max": 1, "min": 0.7 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified — requires editorial review"
           }
         }
       ]
