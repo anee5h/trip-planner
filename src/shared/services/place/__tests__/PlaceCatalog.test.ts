@@ -31,9 +31,9 @@ describe("PlaceCatalog", () => {
     const summary = await loadCatalogue("summary");
     const full = await loadCatalogue("full");
 
-    // KAI-159 adds eight canonical records; keep this tied to the current index.
-    expect(summary).toHaveLength(1053);
-    expect(full).toHaveLength(1053);
+    // KAI-147 adds four canonical records; keep this tied to the current index.
+    expect(summary).toHaveLength(1057);
+    expect(full).toHaveLength(1057);
     expect(summary[0].placeType).toBeTruthy();
     expect(full[0].content.en.name).toBeTruthy();
   });
@@ -46,14 +46,14 @@ describe("PlaceCatalog", () => {
 
   it("creates canonical records for the complete catalog (full index)", () => {
     const places = getFullPlaces();
-    expect(places).toHaveLength(1053);
+    expect(places).toHaveLength(1057);
     expect(places.every((place) => place.placeType)).toBe(true);
     expect(places.every((place) => Array.isArray(place.tags))).toBe(true);
   });
 
-  it("summary catalogue is complete for list surfaces (1053 records)", () => {
+  it("summary catalogue is complete for list surfaces (1057 records)", () => {
     const summary = getLoadedLitePlaces();
-    expect(summary).toHaveLength(1053);
+    expect(summary).toHaveLength(1057);
     expect(summary.every((place) => place.id)).toBe(true);
     expect(summary.every((place) => place.name)).toBe(true);
     expect(summary.every((place) => place.prefecture)).toBe(true);
@@ -74,7 +74,7 @@ describe("PlaceCatalog", () => {
     );
     expect(
       places.filter((place) => place.placeType === "destination"),
-    ).toHaveLength(890);
+    ).toHaveLength(894);
     expect(
       places
         .filter(
@@ -133,8 +133,8 @@ describe("PlaceCatalog", () => {
     const enPlaces = getAvailablePlaces("en");
     const jaPlaces = getAvailablePlaces("ja");
 
-    expect(enPlaces).toHaveLength(1053);
-    expect(jaPlaces).toHaveLength(1053);
+    expect(enPlaces).toHaveLength(1057);
+    expect(jaPlaces).toHaveLength(1057);
 
     const enIds = enPlaces.map((place) => place.id).sort();
     const jaIds = jaPlaces.map((place) => place.id).sort();

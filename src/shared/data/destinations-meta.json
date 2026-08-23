@@ -5789,6 +5789,26 @@
     }
   },
   {
+    "id": "kumano-hayatama-taisha-shingu",
+    "name": "Kumano Hayatama Taisha",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "kumano-hongu-taisha-oyunohara",
+    "name": "Kumano Hongu Taisha & Oyunohara",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "kumano-kodo-koya-wakayama",
     "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
     "prefecture": "Wakayama",
@@ -5799,6 +5819,16 @@
     "relationships": {
       "parentDestinationId": "koya-town"
     }
+  },
+  {
+    "id": "kumano-kodo-takijiri-takahara",
+    "name": "Kumano Kodo: Takijiri-oji to Takahara",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "kurama-dera-kyoto",
@@ -13044,6 +13074,16 @@
     "relationships": {
       "parentDestinationId": "kamakura-city"
     }
+  },
+  {
+    "id": "yunomine-onsen",
+    "name": "Yunomine Onsen",
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "yuzuki-castle-ruins-matsuyama",

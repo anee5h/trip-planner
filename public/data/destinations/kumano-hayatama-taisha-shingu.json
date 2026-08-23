@@ -1,0 +1,274 @@
+{
+  "id": "kumano-hayatama-taisha-shingu",
+  "officialWebsite": "https://www.shinguu.jp/en/spots/detail/A0001",
+  "officialWebsiteRequirement": "required",
+  "name": "Kumano Hayatama Taisha",
+  "nameJa": "熊野速玉大社",
+  "aliases": ["Kumano Hayatama Grand Shrine", "熊野速玉大社", "速玉大社"],
+  "municipalityId": "Wakayama:shingu",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 33.7322978,
+    "lng": 135.9836823
+  },
+  "location": {
+    "address": "1-13-8 Minato, Shingu, Wakayama 647-0080, Japan",
+    "latitude": 33.7322978,
+    "longitude": 135.9836823
+  },
+  "categories": ["Shrine", "History", "Spiritual"],
+  "tags": [
+    "History",
+    "Heritage",
+    "Traditional",
+    "Spiritual",
+    "Wakayama Travel"
+  ],
+  "description": "One of the three Kumano Sanzan grand shrines, standing at the mouth of the Kumano River with vivid vermillion buildings, a thousand-year-old sacred nagi tree, and the Kumano Shimpokan treasure museum. The shrine fills Shingu as the catalogue's missing Sanzan anchor.",
+  "highlights": [
+    "Kumano Sanzan grand-shrine worship",
+    "Thousand-year sacred nagi tree",
+    "Kumano Shimpokan treasure museum (500 yen)"
+  ],
+  "content": {
+    "en": {
+      "name": "Kumano Hayatama Taisha",
+      "description": "One of the three Kumano Sanzan grand shrines, standing at the mouth of the Kumano River with vivid vermillion buildings, a thousand-year-old sacred nagi tree, and the Kumano Shimpokan treasure museum. The shrine fills Shingu as the catalogue's missing Sanzan anchor.",
+      "highlights": [
+        "Kumano Sanzan grand-shrine worship",
+        "Thousand-year sacred nagi tree",
+        "Kumano Shimpokan treasure museum (500 yen)"
+      ],
+      "notes": "The Shingu City Tourist Association lists grounds open sunrise to 17:00, the amulet office 8:00–17:00, and the Shimpokan 9:00–16:00, open year-round; the shrine is about 15 minutes on foot from JR Shingu Station.",
+      "reservation": "Ordinary worship needs no reservation; check festival schedules before visiting.",
+      "parking": "Free parking is available near the grounds per the city tourist association; confirm current lots on arrival.",
+      "openingHours": "Grounds sunrise–17:00; amulet office 8:00–17:00; Kumano Shimpokan 9:00–16:00; open year-round."
+    },
+    "ja": {
+      "name": "熊野速玉大社",
+      "description": "熊野川河口に立つ熊野三山の一つ。朱色の社殿、樹齢千年の御神木ナギ、神宝館を擁し、カタログに欠けていた新宮の熊野拠点として整備しました。",
+      "highlights": [
+        "熊野三山の参拝",
+        "樹齢千年のご神木ナギ",
+        "神宝館（500円）"
+      ],
+      "notes": "新宮市観光協会は境内を日の出〜17:00、授与所を8:00〜17:00、神宝館を9:00〜16:00（年中無休）、JR新宮駅から徒歩約15分と案内しています。",
+      "reservation": "通常の参拝に予約は不要です。祭事日程は訪問前にご確認ください。",
+      "parking": "観光協会の案内では境内近くに無料駐車場があります。到着時に最新の駐車場をご確認ください。",
+      "openingHours": "境内は日の出〜17:00、授与所は8:00〜17:00、神宝館は9:00〜16:00。年中無休。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shingu_Kumano_Hayatama-taisha_Courtyard_2.jpg/1280px-Shingu_Kumano_Hayatama-taisha_Courtyard_2.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Zairon, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shingu_Kumano_Hayatama-taisha_Courtyard_2.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 0.7,
+    "max": 1
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative band for grounds worship plus the treasure museum; excludes JR approach and Kamikura-jinja climb."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, bathing, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Ordinary worship needs no reservation; check festival schedules before visiting.",
+  "parking": "Free parking is available near the grounds per the city tourist association; confirm current lots on arrival.",
+  "notes": "The Shingu City Tourist Association lists grounds open sunrise to 17:00, the amulet office 8:00–17:00, and the Shimpokan 9:00–16:00, open year-round; the shrine is about 15 minutes on foot from JR Shingu Station.",
+  "notesJa": "新宮市観光協会は境内を日の出〜17:00、授与所を8:00〜17:00、神宝館を9:00〜16:00（年中無休）、JR新宮駅から徒歩約15分と案内しています。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "KAI-147 recovery: added source-verified Kumano core propositions after the issue had been closed by unrelated performance work.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+        "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "http://kumanohayatama.jp/",
+        "title": "Kumano Hayatama Taisha official site (Japanese)",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://www.shinguu.jp/spots/detail/A0001",
+        "title": "Kumano Hayatama Taisha — Shingu City official site coordinate-bearing map link",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/211578006",
+        "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates (auxiliary)",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://www.shinguu.jp/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha — Shingu City official site coordinate-bearing map link",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "government",
+          "url": "https://www.shinguu.jp/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha — Shingu City official site coordinate-bearing map link",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.shinguu.jp/en/spots/detail/A0001",
+          "title": "Kumano Hayatama Taisha Grand Shrine — Shingu City Tourist Association (hours, access, Shimpokan)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 1h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-147 Kumano core destination from current first-party evidence after the issue had been closed by unrelated performance work.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 35,
+  "walkingIntensity": "low",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 1h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
