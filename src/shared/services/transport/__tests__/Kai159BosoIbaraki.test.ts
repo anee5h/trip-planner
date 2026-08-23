@@ -26,7 +26,7 @@ const expectedMunicipalities: Record<(typeof KAI159_IDS)[number], string> = {
 const expectedConservativeVisitHours: Partial<
   Record<(typeof KAI159_IDS)[number], { min: number; max: number }>
 > = {
-  "awa-shrine-tateyama": { min: 0.75, max: 1 },
+  "awa-shrine-tateyama": { min: 0.7, max: 1 },
   "onjuku-beach": { min: 1, max: 1.5 },
   "kasama-inari-shrine": { min: 0.5, max: 1 },
   "ibaraki-ceramic-art-museum": { min: 1, max: 1.5 },

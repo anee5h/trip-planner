@@ -383,7 +383,7 @@ const reviewedRecords: DestinationWithLocation[] = [
       "安房神社の最新案内では、御朱印・神符授与は8:30〜16:30、祈祷などは9:00〜16:00です。",
     localAccessModes: ["bus", "car", "my_car"],
     duration: {
-      hours: { min: 0.75, max: 1 },
+      hours: { min: 0.7, max: 1 },
       confidence: "medium",
       basis:
         "Conservative precinct, approach, and worship band; Tateyama Station access is excluded.",
