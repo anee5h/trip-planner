@@ -402,7 +402,7 @@ const reviewedRecords: DestinationWithLocation[] = [
       "境内は日の出〜17:00、授与所は8:00〜17:00、神宝館は9:00〜16:00。年中無休。",
     localAccessModes: ["train", "bus", "car", "my_car"],
     duration: {
-      hours: { min: 0.75, max: 1 },
+      hours: { min: 0.7, max: 1 },
       confidence: "medium",
       basis:
         "Conservative band for grounds worship plus the treasure museum; excludes JR approach and Kamikura-jinja climb.",

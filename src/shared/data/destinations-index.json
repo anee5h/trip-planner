@@ -213548,7 +213548,7 @@
       "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
     },
     "recommendedVisitHours": {
-      "min": 0.75,
+      "min": 0.7,
       "max": 1
     },
     "durationMetadata": {
