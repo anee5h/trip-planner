@@ -292,7 +292,7 @@ const reviewedRecords: DestinationWithLocation[] = [
     highlights: [
       "Head shrine of the Kumano Sanzan",
       "Oyunohara's giant Otorii gate",
-      "Harest spring and autumn festival traditions",
+      "Spring and autumn festival traditions",
     ],
     highlightsJa: [
       "熊野三山の総本宮",
@@ -558,9 +558,9 @@ const reviewedRecords: DestinationWithLocation[] = [
     parkingJa:
       "滝尻王子および熊野古道館の駐車場をご利用ください。栗栖川の路肩駐車は避けてください。",
     openingHours:
-      "Trail is always open; the Kumano Kodo Kan pilgrimage center has its own posted hours.",
+      "No fixed admission hours; trail access is subject to weather, maintenance, and temporary closures. Check current Kumano Kodo guidance before hiking.",
     openingHoursJa:
-      "古道は常時通行可能です。熊野古道館の開館時間は別途ご確認ください。",
+      "入場時間の設定はありません。古道への立ち入りは天候・保全工事・臨時閉鎖の影響を受けます。歩行前に熊野古道の最新案内をご確認ください。",
     localAccessModes: ["bus", "car", "my_car"],
     duration: {
       hours: { min: 2, max: 3 },
