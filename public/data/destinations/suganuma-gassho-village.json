@@ -1,0 +1,259 @@
+{
+  "id": "suganuma-gassho-village",
+  "officialWebsite": "https://gokayama-info.jp/en/archives/1270",
+  "officialWebsiteRequirement": "required",
+  "name": "Suganuma Gassho-zukuri Village",
+  "nameJa": "菅沼合掌造り集落",
+  "aliases": [
+    "The Gassho-zukuri Village of Suganuma",
+    "Suganuma Village",
+    "Suganuma",
+    "菅沼"
+  ],
+  "municipalityId": "Toyama:nanto",
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "kind": "village",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.405556,
+    "lng": 136.886111
+  },
+  "location": {
+    "address": "578 Suganuma, Nanto, Toyama 939-1973",
+    "latitude": 36.405556,
+    "longitude": 136.886111
+  },
+  "categories": ["Village", "UNESCO", "Heritage", "Architecture", "Culture"],
+  "tags": ["Gokayama", "Gassho-zukuri", "UNESCO", "Nanto", "Mountain Village"],
+  "description": "A small, separately mapped UNESCO gassho-zukuri village in Gokayama, where nine surviving thatched houses form a compact mountain-valley heritage stop distinct from nearby Ainokura.",
+  "highlights": [
+    "A separate UNESCO component with a compact cluster of nine surviving gassho houses",
+    "A smaller, quieter heritage-village outing than Ainokura",
+    "Gokayama culture museums and valley scenery beside the World Heritage Bus stop"
+  ],
+  "content": {
+    "en": {
+      "name": "Suganuma Gassho-zukuri Village",
+      "description": "A small, separately mapped UNESCO gassho-zukuri village in Gokayama, where nine surviving thatched houses form a compact mountain-valley heritage stop distinct from nearby Ainokura.",
+      "highlights": [
+        "A separate UNESCO component with a compact cluster of nine surviving gassho houses",
+        "A smaller, quieter heritage-village outing than Ainokura",
+        "Gokayama culture museums and valley scenery beside the World Heritage Bus stop"
+      ],
+      "notes": "Suganuma is not an Ainokura sub-feature: UNESCO maps it as a separate component, with its own visitor conditions and World Heritage Bus stop about a 1-minute walk from the village. Seasonal hours and mountain-road transport can change; verify the official guidance before travel.",
+      "reservation": "Village access is generally open; check official visitor guidance for seasonal access and individual facility arrangements.",
+      "parking": "Use designated local parking or the World Heritage Bus; do not treat small village roads as general parking.",
+      "openingHours": "Official visitor guidance: 08:00–17:00 Apr–Nov; 09:00–17:00 Dec–Mar; closed Dec 31–Jan 1. Individual facilities vary."
+    },
+    "ja": {
+      "name": "菅沼合掌造り集落",
+      "description": "五箇山にある小規模な世界遺産の合掌造り集落。現存する9棟の茅葺き家屋が山あいに集まり、近隣の相倉とは別の構成資産・立ち寄り先です。",
+      "highlights": [
+        "9棟の合掌造りが残る独立した世界遺産構成資産",
+        "相倉とは異なる、コンパクトで静かな集落散策",
+        "世界遺産バスでつながる五箇山文化と山里の景観"
+      ],
+      "notes": "菅沼は相倉の付属施設ではありません。ユネスコでは別の構成資産として地図化され、独自の見学条件と世界遺産バス停（集落まで公式案内で徒歩約1分）があります。季節の見学時間・山間部の交通は変わるため、出発前に公式案内を確認してください。",
+      "reservation": "集落への立ち入りは原則自由ですが、季節の交通・各施設の利用条件は公式案内を確認してください。",
+      "parking": "指定駐車場または世界遺産バスを利用し、集落内の狭い道路を一般駐車場として扱わないでください。",
+      "openingHours": "公式案内では4〜11月は8:00〜17:00、12〜3月は9:00〜17:00、12月31日〜1月1日は休み。個別施設の時間は異なります。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Suganuma_Gassho_village_-_Flickr_-_tsuda.jpg/1280px-Suganuma_Gassho_village_-_Flickr_-_tsuda.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "attribution": "tsuda from Tsushima, Aichi, Japan, CC BY-SA 2.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suganuma_Gassho_village_-_Flickr_-_tsuda.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative compact-village and museum/walk band; bus approach time and any onward Gokayama itinerary are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Village access is generally open; check official visitor guidance for seasonal access and individual facility arrangements.",
+  "parking": "Use designated local parking or the World Heritage Bus; do not treat small village roads as general parking.",
+  "notes": "Suganuma is not an Ainokura sub-feature: UNESCO maps it as a separate component, with its own visitor conditions and World Heritage Bus stop about a 1-minute walk from the village. Seasonal hours and mountain-road transport can change; verify the official guidance before travel.",
+  "notesJa": "菅沼は相倉の付属施設ではありません。ユネスコでは別の構成資産として地図化され、独自の見学条件と世界遺産バス停（集落まで公式案内で徒歩約1分）があります。季節の見学時間・山間部の交通は変わるため、出発前に公式案内を確認してください。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "nearbyDestinationIds": ["ainokura-gassho-village"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://gokayama-info.jp/en/archives/1270",
+        "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://culture-archives.city.nanto.toyama.jp/heritages/sekai0001/",
+        "title": "Nanto City cultural archive: Historic Villages of Shirakawa-go and Gokayama",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+        "title": "Kaetsuno Bus World Heritage Bus timetable",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://whc.unesco.org/en/list/734/maps/",
+        "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1270",
+          "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1270",
+          "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1270",
+          "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1270",
+          "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+          "title": "Kaetsuno Bus World Heritage Bus timetable",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+          "title": "Kaetsuno Bus World Heritage Bus timetable",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 75,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.9,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

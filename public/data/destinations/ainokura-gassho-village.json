@@ -1,0 +1,259 @@
+{
+  "id": "ainokura-gassho-village",
+  "officialWebsite": "https://gokayama-info.jp/en/archives/1306",
+  "officialWebsiteRequirement": "required",
+  "name": "Ainokura Gassho-zukuri Village",
+  "nameJa": "相倉合掌造り集落",
+  "aliases": [
+    "The Gassho-zukuri Village of Ainokura",
+    "Ainokura Village",
+    "Ainokura",
+    "相倉"
+  ],
+  "municipalityId": "Toyama:nanto",
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "kind": "village",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 36.425,
+    "lng": 136.933333
+  },
+  "location": {
+    "address": "611 Ainokura, Nanto, Toyama 939-1915",
+    "latitude": 36.425,
+    "longitude": 136.933333
+  },
+  "categories": ["Village", "UNESCO", "Heritage", "Architecture", "Culture"],
+  "tags": ["Gokayama", "Gassho-zukuri", "UNESCO", "Nanto", "Minshuku"],
+  "description": "An inhabited UNESCO World Heritage gassho-zukuri village in Gokayama, with steep thatched houses, small museums and traditional inns among the Shogawa valley mountains.",
+  "highlights": [
+    "A distinct UNESCO component with inhabited 100–350-year-old gassho houses",
+    "Village museums, washi-making context and traditional minshuku stays",
+    "Mountain-valley scenery that is especially immersive as an overnight stop"
+  ],
+  "content": {
+    "en": {
+      "name": "Ainokura Gassho-zukuri Village",
+      "description": "An inhabited UNESCO World Heritage gassho-zukuri village in Gokayama, with steep thatched houses, small museums and traditional inns among the Shogawa valley mountains.",
+      "highlights": [
+        "A distinct UNESCO component with inhabited 100–350-year-old gassho houses",
+        "Village museums, washi-making context and traditional minshuku stays",
+        "Mountain-valley scenery that is especially immersive as an overnight stop"
+      ],
+      "notes": "Ainokura is a distinct World Heritage component, not a generic Gokayama label or a duplicate of Suganuma. The World Heritage Bus serves Ainokuraguchi; the official village guidance says the stop is about a 5-minute walk away. Bus schedules and mountain-road conditions are variable, so check the operator before travel.",
+      "reservation": "Village access is generally open; reserve minshuku or experiences directly and check the official village guidance for current arrangements.",
+      "parking": "Use the designated village parking or the World Heritage Bus; check local guidance for current access conditions.",
+      "openingHours": "Village access: 08:30–17:00 daily per official visitor guidance; individual houses, museums and inns set their own hours."
+    },
+    "ja": {
+      "name": "相倉合掌造り集落",
+      "description": "五箇山にある世界遺産の合掌造り集落。急勾配の茅葺き家屋が残り、民家園ではなく今も住民が暮らす集落の中に資料館や民宿があります。",
+      "highlights": [
+        "住民が暮らす世界遺産の合掌造り集落",
+        "資料館・和紙文化・民宿に触れる滞在",
+        "山あいの景観を泊まりで味わえる五箇山の拠点"
+      ],
+      "notes": "相倉は菅沼とは別の世界遺産構成資産で、「五箇山」という地域名の重複カードではありません。世界遺産バスの相倉口から集落までは公式案内で徒歩約5分。山間部のバス時刻・道路状況は変動するため、出発前に運行会社で確認してください。",
+      "reservation": "集落への立ち入りは原則自由ですが、民宿・体験は各施設へ予約し、最新の案内を公式サイトで確認してください。",
+      "parking": "指定駐車場または世界遺産バスを利用し、最新の交通案内を確認してください。",
+      "openingHours": "公式案内では集落の見学時間は毎日8:30〜17:00。民家・資料館・民宿の営業時間は各施設で異なります。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Gokayama_Ainokura_Gassho-zukuri_09.jpg/1280px-Gokayama_Ainokura_Gassho-zukuri_09.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Zairon, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gokayama_Ainokura_Gassho-zukuri_09.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative on-site village, museum, and walking band; overnight accommodation is optional and intercity bus travel is excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Village access is generally open; reserve minshuku or experiences directly and check the official village guidance for current arrangements.",
+  "parking": "Use the designated village parking or the World Heritage Bus; check local guidance for current access conditions.",
+  "notes": "Ainokura is a distinct World Heritage component, not a generic Gokayama label or a duplicate of Suganuma. The World Heritage Bus serves Ainokuraguchi; the official village guidance says the stop is about a 5-minute walk away. Bus schedules and mountain-road conditions are variable, so check the operator before travel.",
+  "notesJa": "相倉は菅沼とは別の世界遺産構成資産で、「五箇山」という地域名の重複カードではありません。世界遺産バスの相倉口から集落までは公式案内で徒歩約5分。山間部のバス時刻・道路状況は変動するため、出発前に運行会社で確認してください。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "nearbyDestinationIds": ["suganuma-gassho-village"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://gokayama-info.jp/en/archives/1306",
+        "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://culture-archives.city.nanto.toyama.jp/heritages/sekai0001/",
+        "title": "Nanto City cultural archive: Historic Villages of Shirakawa-go and Gokayama",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+        "title": "Kaetsuno Bus World Heritage Bus timetable",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://whc.unesco.org/en/list/734/maps/",
+        "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+          "title": "Kaetsuno Bus World Heritage Bus timetable",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+          "title": "Kaetsuno Bus World Heritage Bus timetable",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 8.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

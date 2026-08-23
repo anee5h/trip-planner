@@ -1,0 +1,246 @@
+{
+  "id": "fukui-prefectural-dinosaur-museum",
+  "officialWebsite": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+  "officialWebsiteRequirement": "required",
+  "name": "Fukui Prefectural Dinosaur Museum",
+  "nameJa": "福井県立恐竜博物館",
+  "aliases": ["FPDM", "Fukui Dinosaur Museum", "恐竜博物館"],
+  "municipalityId": "Fukui:katsuyama",
+  "prefecture": "Fukui",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 36.082679,
+    "lng": 136.506355
+  },
+  "location": {
+    "address": "51-11 Terao, Muroko-cho, Katsuyama, Fukui 911-8601",
+    "latitude": 36.082679,
+    "longitude": 136.506355
+  },
+  "categories": ["Museum", "Science", "Natural History", "Family"],
+  "tags": ["Dinosaurs", "Fossils", "Natural History", "Katsuyama", "Family"],
+  "description": "Japan’s principal dinosaur museum in Katsuyama, with major fossil and natural-history galleries, a large reconstructed museum complex and seasonal field-station activities.",
+  "highlights": [
+    "Large-scale dinosaur, fossil and earth-history galleries",
+    "A destination-scale museum rather than a small local collection",
+    "Seasonal field-station and fossil-programme context"
+  ],
+  "content": {
+    "en": {
+      "name": "Fukui Prefectural Dinosaur Museum",
+      "description": "Japan’s principal dinosaur museum in Katsuyama, with major fossil and natural-history galleries, a large reconstructed museum complex and seasonal field-station activities.",
+      "highlights": [
+        "Large-scale dinosaur, fossil and earth-history galleries",
+        "A destination-scale museum rather than a small local collection",
+        "Seasonal field-station and fossil-programme context"
+      ],
+      "notes": "From JR Fukui, the official route uses the Echizen Railway to Katsuyama (about 1 hour), then a taxi (about 10 minutes) or community bus. Current ticket guidance makes advance time-specific purchase the principle; same-day admission depends on remaining inventory. Check the museum before travel for special exhibitions and closures.",
+      "reservation": "Advance time-specific ticket purchase is the principle; same-day admission is only available when inventory remains. Check the official ticket page before travel.",
+      "parking": "Large on-site parking is available; use rail plus the community bus or taxi when practical and check current event-day guidance.",
+      "openingHours": "Normally 09:00–17:00 (entry to 16:30); the second and fourth Wednesdays and year-end/New Year are closed except as announced. Check the official calendar for seasonal changes."
+    },
+    "ja": {
+      "name": "福井県立恐竜博物館",
+      "description": "勝山市にある国内有数の恐竜・古生物博物館。恐竜化石や地球史の展示を中心に、大規模な展示空間と季節のフィールドステーション活動を備えます。",
+      "highlights": [
+        "恐竜・化石・地球史を扱う大規模展示",
+        "地域資料館ではない、目的地となる博物館体験",
+        "季節のフィールドステーション・化石プログラム"
+      ],
+      "notes": "JR福井駅からえちぜん鉄道で勝山駅まで約1時間、駅からタクシー約10分またはコミュニティバスを利用します。現行のチケット案内では事前の日時指定購入が原則で、当日券は残数がある場合のみです。企画展・休館日は訪問前に博物館で確認してください。",
+      "reservation": "事前の日時指定チケット購入が原則です。当日入場は残数がある場合のみのため、訪問前に公式チケット案内を確認してください。",
+      "parking": "大型駐車場があります。状況に応じて鉄道とコミュニティバスまたはタクシーを利用し、イベント日の案内を確認してください。",
+      "openingHours": "通常9:00〜17:00（入館は16:30まで）。夏休み期間等を除き第2・第4水曜と年末年始は休館です。季節・企画展の変更は公式案内を確認してください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Fukui_Prefectural_Dinosaur_Museum_20210504_59.jpg/1280px-Fukui_Prefectural_Dinosaur_Museum_20210504_59.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "先従隗始, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Prefectural_Dinosaur_Museum_20210504_59.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 4
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative large-museum gallery band; optional field-station activities and the Katsuyama approach are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Advance time-specific ticket purchase is the principle; same-day admission is only available when inventory remains. Check the official ticket page before travel.",
+  "parking": "Large on-site parking is available; use rail plus the community bus or taxi when practical and check current event-day guidance.",
+  "notes": "From JR Fukui, the official route uses the Echizen Railway to Katsuyama (about 1 hour), then a taxi (about 10 minutes) or community bus. Current ticket guidance makes advance time-specific purchase the principle; same-day admission depends on remaining inventory. Check the museum before travel for special exhibitions and closures.",
+  "notesJa": "JR福井駅からえちぜん鉄道で勝山駅まで約1時間、駅からタクシー約10分またはコミュニティバスを利用します。現行のチケット案内では事前の日時指定購入が原則で、当日券は残数がある場合のみです。企画展・休館日は訪問前に博物館で確認してください。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+        "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.dinosaur.pref.fukui.jp/guide/ticket.html",
+        "title": "Fukui Prefectural Dinosaur Museum current ticket guidance",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.dinosaur.pref.fukui.jp/guide/access.html",
+        "title": "Fukui Prefectural Dinosaur Museum current Japanese access guidance",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 120,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1041,
+  "totalRecords": 1045,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 192,
-    "affectedRecordCount": 1038,
+    "affectedRecordCount": 1042,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -15,6 +15,7 @@
       "abukuma-cave-fukushima",
       "adachi-city",
       "aichi-kogen",
+      "ainokura-gassho-village",
       "aizu-bukeyashiki",
       "aizuwakamatsu-city",
       "akan-mashu",
@@ -165,6 +166,7 @@
       "fukagawa-edo-museum",
       "fukiya-village",
       "fukui",
+      "fukui-prefectural-dinosaur-museum",
       "fukuoka-art-museum",
       "fukuoka-castle-ruins",
       "fukuoka-city",
@@ -852,6 +854,7 @@
       "sorakuen-garden",
       "spa-metsa-ootaka-nagareyama",
       "sugamo-jizo-dori",
+      "suganuma-gassho-village",
       "suginami-city",
       "suigo-tsukuba",
       "suizenji-garden-kumamoto",
@@ -952,6 +955,7 @@
       "towada-art-center",
       "towada-hachimantai",
       "toyama-alpine",
+      "toyama-glass-art-museum",
       "toyooka-city",
       "toyosu-market",
       "toyota-city",
@@ -1049,8 +1053,8 @@
       "zushi"
     ],
     "ratingConfidenceGate": {
-      "missingMetadataRecordCount": 336,
-      "implicitFullTrustBefore": 336,
+      "missingMetadataRecordCount": 335,
+      "implicitFullTrustBefore": 335,
       "implicitFullTrustAfter": 0,
       "appliedReliability": 0.5,
       "affectedIds": [
@@ -1353,7 +1357,6 @@
         "takegawara-onsen-beppu",
         "tamatorizaki-viewpoint-ishigaki",
         "teshima-island-kagawa",
-        "tojinbo-cliffs-fukui",
         "toki-messe-tower-niigata",
         "tokushima-city",
         "tomogashima-islands",
@@ -1418,13 +1421,14 @@
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 478,
+      "affectedRecordCount": 482,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
         "abukuma-cave-fukushima",
         "adachi-city",
         "aichi-kogen",
+        "ainokura-gassho-village",
         "aizuwakamatsu-city",
         "akashi-castle",
         "akashi-kaikyo-bridge",
@@ -1495,6 +1499,7 @@
         "fujinomiya-city",
         "fujisawa-city",
         "fujiyoshida-city",
+        "fukui-prefectural-dinosaur-museum",
         "fukuoka-city",
         "fukushima-city",
         "fukuyama-castle",
@@ -1812,6 +1817,7 @@
         "sorakuen-garden",
         "spa-metsa-ootaka-nagareyama",
         "sugamo-jizo-dori",
+        "suganuma-gassho-village",
         "suginami-city",
         "suigo-tsukuba",
         "sumida-city",
@@ -1856,6 +1862,7 @@
         "tottori-city",
         "tottori-sand-dunes",
         "towada-hachimantai",
+        "toyama-glass-art-museum",
         "toyooka-city",
         "toyota-city",
         "tsugaru",
@@ -2041,8 +2048,9 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 61,
+          "count": 66,
           "ids": [
+            "ainokura-gassho-village",
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
             "awaji-farm-park-england-hill",
@@ -2051,6 +2059,7 @@
             "dorogawa-onsen-tenkawa",
             "eigenji-higashiomi",
             "expo-70-commemorative-park",
+            "fukui-prefectural-dinosaur-museum",
             "funabashi-andersen-park",
             "gekkeikan-okura-sake-museum",
             "ghibli-park-nagakute",
@@ -2094,13 +2103,16 @@
             "shirotori-garden",
             "sorakuen-garden",
             "spa-metsa-ootaka-nagareyama",
+            "suganuma-gassho-village",
             "sumiyoshi-taisha",
             "sumoto-castle-awaji",
             "taga-taisha",
             "teamlab-botanical-garden-osaka",
             "tenjinbashi-suji-shopping-street",
             "tenryu-ji-kyoto",
+            "tojinbo-cliffs-fukui",
             "tojo-tei-matsudo",
+            "toyama-glass-art-museum",
             "uzumasa-kyoto-village",
             "yagiri-no-watashi-matsudo",
             "yanagawa-canal-cruise"
@@ -2175,53 +2187,6 @@
           }
         },
         {
-          "id": "3bc1000f8f4f",
-          "severity": "warning",
-          "count": 23,
-          "ids": [
-            "abukuma-cave-fukushima",
-            "akiyoshido-cave-yamaguchi",
-            "arakurayama-sengen-park-yamanashi",
-            "ashikaga-flower-park-tochigi",
-            "beppu-hells-oita",
-            "dewa-sanzan-yamagata",
-            "dogo-onsen-ehime",
-            "ginzan-onsen-yamagata",
-            "iya-valley-tokushima",
-            "kakunodate-samurai-district-akita",
-            "kintai-bridge-yamaguchi",
-            "kiyotsu-gorge-niigata",
-            "motonosumi-shrine-yamaguchi",
-            "mount-aso-kumamoto",
-            "naoshima-art-island-kagawa",
-            "oirase-gorge-aomori",
-            "ryugado-cave-kochi",
-            "sakurajima-volcano-kagoshima",
-            "takeda-castle-ruins-hyogo",
-            "teshima-island-kagawa",
-            "tojinbo-cliffs-fukui",
-            "tottori-sand-dunes",
-            "tsunoshima-bridge-yamaguchi"
-          ],
-          "value": {
-            "couple": 9,
-            "food": 9,
-            "overall": 9,
-            "photography": 9.2,
-            "rain": 8.5,
-            "relaxation": 8.8,
-            "summer": 8.8,
-            "uniqueness": 9.2,
-            "value": 9,
-            "winter": 8.8
-          },
-          "disposition": {
-            "category": "C",
-            "action": "corrected",
-            "reason": "'Famous attraction' near-flat template (offsets ~0, rain -0.5, photo +0.2) at base 9.0. Sites genuinely notable (Tottori Sand Dunes, Naoshima, Sakurajima) with official sources on ~12/23, so base value plausible; but 21/23 lack metadata and vector is template. Values plausible, unverified."
-          }
-        },
-        {
           "id": "06be054374c3",
           "severity": "warning",
           "count": 22,
@@ -2265,6 +2230,52 @@
             "category": "D",
             "action": "corrected",
             "reason": "Hub-city template: identical vector incl. rain 5.5 across 22 climatically disparate cities (Aomori, Akita, Ise, Koriyama...). 4 records (ashikaga-city, choshi-city, hino-city, katori-city) laundered {manual,high}. Hubs scored like attractions."
+          }
+        },
+        {
+          "id": "3bc1000f8f4f",
+          "severity": "warning",
+          "count": 22,
+          "ids": [
+            "abukuma-cave-fukushima",
+            "akiyoshido-cave-yamaguchi",
+            "arakurayama-sengen-park-yamanashi",
+            "ashikaga-flower-park-tochigi",
+            "beppu-hells-oita",
+            "dewa-sanzan-yamagata",
+            "dogo-onsen-ehime",
+            "ginzan-onsen-yamagata",
+            "iya-valley-tokushima",
+            "kakunodate-samurai-district-akita",
+            "kintai-bridge-yamaguchi",
+            "kiyotsu-gorge-niigata",
+            "motonosumi-shrine-yamaguchi",
+            "mount-aso-kumamoto",
+            "naoshima-art-island-kagawa",
+            "oirase-gorge-aomori",
+            "ryugado-cave-kochi",
+            "sakurajima-volcano-kagoshima",
+            "takeda-castle-ruins-hyogo",
+            "teshima-island-kagawa",
+            "tottori-sand-dunes",
+            "tsunoshima-bridge-yamaguchi"
+          ],
+          "value": {
+            "couple": 9,
+            "food": 9,
+            "overall": 9,
+            "photography": 9.2,
+            "rain": 8.5,
+            "relaxation": 8.8,
+            "summer": 8.8,
+            "uniqueness": 9.2,
+            "value": 9,
+            "winter": 8.8
+          },
+          "disposition": {
+            "category": "C",
+            "action": "corrected",
+            "reason": "'Famous attraction' near-flat template (offsets ~0, rain -0.5, photo +0.2) at base 9.0. Sites genuinely notable (Tottori Sand Dunes, Naoshima, Sakurajima) with official sources on ~12/23, so base value plausible; but 21/23 lack metadata and vector is template. Values plausible, unverified."
           }
         },
         {
@@ -3708,7 +3719,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 26,
-      "affectedRecordCount": 1003,
+      "affectedRecordCount": 1006,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3716,6 +3727,7 @@
         "abukuma-cave-fukushima",
         "adachi-city",
         "aichi-kogen",
+        "ainokura-gassho-village",
         "aizu-bukeyashiki",
         "aizuwakamatsu-city",
         "akan-mashu",
@@ -4526,6 +4538,7 @@
         "soji-ji-yokohama",
         "spa-metsa-ootaka-nagareyama",
         "sugamo-jizo-dori",
+        "suganuma-gassho-village",
         "suginami-city",
         "suigo-tsukuba",
         "suizenji-garden-kumamoto",
@@ -4623,6 +4636,7 @@
         "towada-art-center",
         "towada-hachimantai",
         "toyama-alpine",
+        "toyama-glass-art-museum",
         "toyooka-city",
         "toyosu-market",
         "toyota-city",
@@ -5238,7 +5252,7 @@
         {
           "id": "e7d3c053b289",
           "severity": "review",
-          "count": 67,
+          "count": 66,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -5302,7 +5316,6 @@
             "takeda-castle-ruins-hyogo",
             "teamlab-planets",
             "teshima-island-kagawa",
-            "tojinbo-cliffs-fukui",
             "tokyo-skytree-sumida",
             "tottori-sand-dunes",
             "tsunoshima-bridge-yamaguchi",
@@ -5915,6 +5928,28 @@
           }
         },
         {
+          "id": "b745c8933575",
+          "severity": "review",
+          "count": 9,
+          "ids": [
+            "ainokura-gassho-village",
+            "akebonoyama-agricultural-park-kashiwa",
+            "joypolis",
+            "kurokabe-square-nagahama",
+            "miyama-kayabuki-no-sato",
+            "nintendo-museum-uji",
+            "nokonoshima-island-park",
+            "tojinbo-cliffs-fukui",
+            "yanagawa-canal-cruise"
+          ],
+          "value": { "max": 3, "min": 2 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+          }
+        },
+        {
           "id": "b2a5eb034cbe",
           "severity": "review",
           "count": 7,
@@ -5935,23 +5970,22 @@
           }
         },
         {
-          "id": "b745c8933575",
+          "id": "9bf072f0ba51",
           "severity": "review",
-          "count": 7,
+          "count": 6,
           "ids": [
-            "akebonoyama-agricultural-park-kashiwa",
-            "joypolis",
-            "kurokabe-square-nagahama",
-            "miyama-kayabuki-no-sato",
-            "nintendo-museum-uji",
-            "nokonoshima-island-park",
-            "yanagawa-canal-cruise"
+            "ine-funaya-boathouses",
+            "maizuru-red-brick-park",
+            "okunoin-cemetery-koyasan",
+            "suganuma-gassho-village",
+            "sumoto-castle-awaji",
+            "toyama-glass-art-museum"
           ],
-          "value": { "max": 3, "min": 2 },
+          "value": { "max": 2.5, "min": 1.5 },
           "disposition": {
             "category": "A",
             "action": "legitimate",
-            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+            "reason": "Maizuru Red Brick Park shares the reviewed {1.5,2.5}h pure-destination-time band with existing Ine Funaya and Okunoin Cemetery; the band covers a coherent warehouse-park/museum outing and excludes rail, bus, and origin travel. Manual, medium confidence."
           }
         },
         {
@@ -5987,23 +6021,6 @@
             "category": "C",
             "action": "manual-review",
             "reason": "Historic towns/onsen full-day."
-          }
-        },
-        {
-          "id": "9bf072f0ba51",
-          "severity": "review",
-          "count": 4,
-          "ids": [
-            "ine-funaya-boathouses",
-            "maizuru-red-brick-park",
-            "okunoin-cemetery-koyasan",
-            "sumoto-castle-awaji"
-          ],
-          "value": { "max": 2.5, "min": 1.5 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "Maizuru Red Brick Park shares the reviewed {1.5,2.5}h pure-destination-time band with existing Ine Funaya and Okunoin Cemetery; the band covers a coherent warehouse-park/museum outing and excludes rail, bus, and origin travel. Manual, medium confidence."
           }
         },
         {
@@ -6058,7 +6075,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 1005,
+      "affectedRecordCount": 1009,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6066,6 +6083,7 @@
         "abukuma-cave-fukushima",
         "adachi-city",
         "aichi-kogen",
+        "ainokura-gassho-village",
         "aizu-bukeyashiki",
         "aizuwakamatsu-city",
         "akan-mashu",
@@ -6215,6 +6233,7 @@
         "fukagawa-edo-museum",
         "fukiya-village",
         "fukui",
+        "fukui-prefectural-dinosaur-museum",
         "fukuoka-art-museum",
         "fukuoka-castle-ruins",
         "fukuoka-city",
@@ -6873,6 +6892,7 @@
         "sorakuen-garden",
         "spa-metsa-ootaka-nagareyama",
         "sugamo-jizo-dori",
+        "suganuma-gassho-village",
         "suginami-city",
         "suigo-tsukuba",
         "suizenji-garden-kumamoto",
@@ -6971,6 +6991,7 @@
         "towada-art-center",
         "towada-hachimantai",
         "toyama-alpine",
+        "toyama-glass-art-museum",
         "toyooka-city",
         "toyosu-market",
         "toyota-city",
@@ -7447,8 +7468,9 @@
         {
           "id": "3d368f449db1",
           "severity": "review",
-          "count": 73,
+          "count": 74,
           "ids": [
+            "ainokura-gassho-village",
             "aomori-museum-of-art",
             "canal-city-hakata",
             "chinatown-nagasaki",
@@ -7689,7 +7711,7 @@
         {
           "id": "52b14c9c17b9",
           "severity": "review",
-          "count": 60,
+          "count": 59,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -7746,7 +7768,6 @@
             "takeda-castle-ruins-hyogo",
             "taketomi-island",
             "teshima-island-kagawa",
-            "tojinbo-cliffs-fukui",
             "tottori-sand-dunes",
             "tsunoshima-bridge-yamaguchi",
             "uwajima-castle",
@@ -7828,7 +7849,7 @@
         {
           "id": "8184feae45ad",
           "severity": "review",
-          "count": 43,
+          "count": 44,
           "ids": [
             "amami-iriomote-natural-site",
             "asuka-fujiwara-nara",
@@ -7836,6 +7857,7 @@
             "dakigaeri-valley-akita",
             "dorogawa-onsen-tenkawa",
             "fukiya-village",
+            "fukui-prefectural-dinosaur-museum",
             "geibikei-gorge-iwate",
             "goshikinuma-ponds-fukushima",
             "gunkanjima-hashima-nagasaki",
@@ -8059,7 +8081,7 @@
         {
           "id": "1e4109ee1e47",
           "severity": "review",
-          "count": 21,
+          "count": 22,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "danjo-garan-koyasan",
@@ -8080,6 +8102,7 @@
             "suizenji-garden-kumamoto",
             "takkoku-no-iwa",
             "tempozan-ferris-wheel",
+            "tojinbo-cliffs-fukui",
             "tokugawa-garden",
             "toshodai-ji-temple"
           ],
@@ -8399,11 +8422,13 @@
         {
           "id": "b7e9721e1e32",
           "severity": "review",
-          "count": 4,
+          "count": 6,
           "ids": [
             "ine-funaya-boathouses",
             "maizuru-red-brick-park",
             "okunoin-cemetery-koyasan",
+            "suganuma-gassho-village",
+            "toyama-glass-art-museum",
             "yufuin-floral-village"
           ],
           "value": { "walkingMin": 75 },
@@ -8464,7 +8489,7 @@
       "category": "season",
       "severity": "review",
       "clusterCount": 4,
-      "affectedRecordCount": 134,
+      "affectedRecordCount": 133,
       "affectedIds": [
         "abeno-harukas-300-osaka",
         "aizu-bukeyashiki",
@@ -8582,7 +8607,6 @@
         "teamlab-borderless-azabudai",
         "teamlab-planets",
         "todoroki-ryokuchi",
-        "tojinbo-cliffs-fukui",
         "tokiwaso-manga-museum",
         "tokyo-metropolitan-government-building-shinjuku",
         "tokyo-skytree-sumida",
@@ -8718,7 +8742,7 @@
         {
           "id": "96690f810f73",
           "severity": "review",
-          "count": 30,
+          "count": 29,
           "ids": [
             "akashi-kaikyo-bridge",
             "ashizuri-uwakai",
@@ -8747,7 +8771,6 @@
             "sanin-kaigan",
             "setonaikai",
             "shirahama-beach-adventure-world",
-            "tojinbo-cliffs-fukui",
             "yuigahama-beach",
             "zushi"
           ],
@@ -8806,7 +8829,7 @@
       "category": "transport",
       "severity": "review",
       "clusterCount": 59,
-      "affectedRecordCount": 424,
+      "affectedRecordCount": 423,
       "affectedIds": [
         "abukuma-cave-fukushima",
         "adachi-city",
@@ -9171,7 +9194,6 @@
         "tenjin",
         "tennoji-park",
         "tenshaen-garden-uwajima",
-        "tojinbo-cliffs-fukui",
         "toki-no-kane",
         "tokiwaso-manga-museum",
         "tokorozawa-city",
@@ -9306,38 +9328,6 @@
           }
         },
         {
-          "id": "bfbeeffa6890",
-          "severity": "review",
-          "count": 19,
-          "ids": [
-            "abukuma-cave-fukushima",
-            "akiyoshido-cave-yamaguchi",
-            "arakurayama-sengen-park-yamanashi",
-            "ashikaga-flower-park-tochigi",
-            "beppu-hells-oita",
-            "dewa-sanzan-yamagata",
-            "dogo-onsen-ehime",
-            "ginzan-onsen-yamagata",
-            "iya-valley-tokushima",
-            "kakunodate-samurai-district-akita",
-            "kintai-bridge-yamaguchi",
-            "kiyotsu-gorge-niigata",
-            "motonosumi-shrine-yamaguchi",
-            "mount-aso-kumamoto",
-            "oirase-gorge-aomori",
-            "ryugado-cave-kochi",
-            "takeda-castle-ruins-hyogo",
-            "tojinbo-cliffs-fukui",
-            "tottori-sand-dunes"
-          ],
-          "value": { "train": 180 },
-          "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "template"
-          }
-        },
-        {
           "id": "7400a209eda9",
           "severity": "review",
           "count": 18,
@@ -9366,6 +9356,37 @@
             "category": "C",
             "action": "manual-review",
             "reason": "estimated"
+          }
+        },
+        {
+          "id": "bfbeeffa6890",
+          "severity": "review",
+          "count": 18,
+          "ids": [
+            "abukuma-cave-fukushima",
+            "akiyoshido-cave-yamaguchi",
+            "arakurayama-sengen-park-yamanashi",
+            "ashikaga-flower-park-tochigi",
+            "beppu-hells-oita",
+            "dewa-sanzan-yamagata",
+            "dogo-onsen-ehime",
+            "ginzan-onsen-yamagata",
+            "iya-valley-tokushima",
+            "kakunodate-samurai-district-akita",
+            "kintai-bridge-yamaguchi",
+            "kiyotsu-gorge-niigata",
+            "motonosumi-shrine-yamaguchi",
+            "mount-aso-kumamoto",
+            "oirase-gorge-aomori",
+            "ryugado-cave-kochi",
+            "takeda-castle-ruins-hyogo",
+            "tottori-sand-dunes"
+          ],
+          "value": { "train": 180 },
+          "disposition": {
+            "category": "B",
+            "action": "manual-review",
+            "reason": "template"
           }
         },
         {
@@ -10399,7 +10420,7 @@
       "category": "comfort",
       "severity": "review",
       "clusterCount": 28,
-      "affectedRecordCount": 602,
+      "affectedRecordCount": 601,
       "affectedIds": [
         "abashiri-city",
         "abeno-harukas-300-osaka",
@@ -10933,7 +10954,6 @@
         "the-national-museum-of-art-osaka",
         "tochoji",
         "todoroki-ryokuchi",
-        "tojinbo-cliffs-fukui",
         "toki-no-kane",
         "tokiwaso-manga-museum",
         "tokorozawa-city",
@@ -11517,7 +11537,7 @@
         {
           "id": "b1c1966d7620",
           "severity": "review",
-          "count": 31,
+          "count": 30,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -11547,7 +11567,6 @@
             "sendai-castle-ruins-miyagi",
             "takeda-castle-ruins-hyogo",
             "teshima-island-kagawa",
-            "tojinbo-cliffs-fukui",
             "tottori-sand-dunes",
             "tsunoshima-bridge-yamaguchi"
           ],

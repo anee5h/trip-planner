@@ -75,6 +75,18 @@
     "relationships": {}
   },
   {
+    "id": "ainokura-gassho-village",
+    "name": "Ainokura Gassho-zukuri Village",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "village",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": ["suganuma-gassho-village"]
+    }
+  },
+  {
     "id": "aizu-bukeyashiki",
     "name": "Aizu Bukeyashiki",
     "prefecture": "Fukushima",
@@ -1936,6 +1948,16 @@
     "region": "Chubu",
     "role": "standalone",
     "kind": "city",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "fukui-prefectural-dinosaur-museum",
+    "name": "Fukui Prefectural Dinosaur Museum",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "museum",
     "status": "verified",
     "relationships": {}
   },
@@ -10620,6 +10642,18 @@
     }
   },
   {
+    "id": "suganuma-gassho-village",
+    "name": "Suganuma Gassho-zukuri Village",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "village",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": ["ainokura-gassho-village"]
+    }
+  },
+  {
     "id": "suginami-city",
     "name": "Suginami City",
     "prefecture": "Tokyo",
@@ -11487,12 +11521,12 @@
   },
   {
     "id": "tojinbo-cliffs-fukui",
-    "name": "Tojinbo Basalt Sea Cliffs",
+    "name": "Tojinbo Cliffs",
     "prefecture": "Fukui",
     "region": "Chubu",
     "role": "standalone",
-    "kind": "attraction",
-    "status": "beta",
+    "kind": "nature",
+    "status": "verified",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
@@ -11857,6 +11891,16 @@
     "region": "Chubu",
     "role": "standalone",
     "kind": "nature",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "toyama-glass-art-museum",
+    "name": "Toyama Glass Art Museum",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "museum",
     "status": "verified",
     "relationships": {}
   },
