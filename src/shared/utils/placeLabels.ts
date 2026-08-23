@@ -173,6 +173,7 @@ const japaneseLabels: Record<string, string> = {
   Uchiko: "内子",
   Niihama: "新居浜",
   Mining: "鉱業",
+  Miyoshi: "三好",
   Niyodogawa: "仁淀川",
   Tsuno: "津野",
   Action: "体験",
