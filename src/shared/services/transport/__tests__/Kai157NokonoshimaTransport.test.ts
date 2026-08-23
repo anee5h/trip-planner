@@ -44,15 +44,18 @@ describe("KAI-157 Nokonoshima transport topology", () => {
     // zone has no rail/road edge to the mainland. getOriginAwareTransportEstimate
     // with train/bus returns null because the destination zone's localModes
     // (bus/car) plus edges exclude train, and the ferry is the only route.
-    const train = getOriginAwareTransportEstimate(
-      NOKONOSHIMA_PARK,
-      {
-        homeStationCoords: FUKUOKA_ORIGIN,
-        originMunicipalityId: "Fukuoka:fukuoka",
-      },
-      ["train"],
-    );
+    const origin = {
+      homeStationCoords: FUKUOKA_ORIGIN,
+      originMunicipalityId: "Fukuoka:fukuoka",
+    };
+    const train = getOriginAwareTransportEstimate(NOKONOSHIMA_PARK, origin, [
+      "train",
+    ]);
+    const bus = getOriginAwareTransportEstimate(NOKONOSHIMA_PARK, origin, [
+      "bus",
+    ]);
     expect(train).toBeNull();
+    expect(bus).toBeNull();
   });
 
   it("no direct train route appears for the island", () => {

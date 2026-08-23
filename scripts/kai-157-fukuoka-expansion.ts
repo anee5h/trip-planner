@@ -11,8 +11,15 @@
  * enriched under the existing fukuoka-paypay-dome record (venue-within-venue,
  * no new card). The script is idempotent.
  *
- * Transport honesty: ferry semantics are explicit in localAccessModes and
- * notes; legacy static minutes are display fallback only (low confidence).
+ * Transport honesty: Nokonoshima is a ferry-only island modeled with a
+ * dedicated nokonoshima transport zone (Meinohama/Nokonoshima ferry ports
+ * + the municipal ferry service); mainland ground cannot reach it. New
+ * unestimated records deliberately carry NO static transportOptions
+ * minutes: their presence would affect origin-aware fallback eligibility
+ * (the guard treats a static transportOptions[mode] as route evidence).
+ * Records use transportOptions: {} + localAccessUnestimated: true +
+ * transportMetadata.method "unestimated"; recommendation availability
+ * comes only from canonical origin-aware routes.
  *
  * Usage: tsx scripts/kai-157-fukuoka-expansion.ts
  */
