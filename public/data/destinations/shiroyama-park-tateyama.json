@@ -1,0 +1,256 @@
+{
+  "id": "shiroyama-park-tateyama",
+  "officialWebsite": "https://tateyamacity.com/en/attractions/",
+  "officialWebsiteRequirement": "required",
+  "name": "Shiroyama Park (Tateyama)",
+  "nameJa": "城山公園（館山）",
+  "aliases": ["Tateyama Castle Park", "Tateyama Castle", "館山城"],
+  "municipalityId": "Chiba:tateyama",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 34.980753,
+    "lng": 139.8565053
+  },
+  "location": {
+    "address": "Tateyama, Chiba, Japan",
+    "latitude": 34.980753,
+    "longitude": 139.8565053
+  },
+  "categories": ["Park", "Castle", "History", "Viewpoint"],
+  "tags": ["Park", "Castle", "History", "Tateyama"],
+  "description": "A hilltop park in Tateyama combining the Hakkenden Museum in Tateyama Castle, the city museum, seasonal flower trails and broad views over Tateyama Bay; it is one coherent historic-city outing rather than separate component cards.",
+  "highlights": [
+    "Tateyama Castle's Hakkenden Museum within Shiroyama Park",
+    "Seasonal flowers along the hill trails, including spring cherry blossom",
+    "Panoramic Tateyama Bay and occasional Mt. Fuji views"
+  ],
+  "content": {
+    "en": {
+      "name": "Shiroyama Park (Tateyama)",
+      "description": "A hilltop park in Tateyama combining the Hakkenden Museum in Tateyama Castle, the city museum, seasonal flower trails and broad views over Tateyama Bay; it is one coherent historic-city outing rather than separate component cards.",
+      "highlights": [
+        "Tateyama Castle's Hakkenden Museum within Shiroyama Park",
+        "Seasonal flowers along the hill trails, including spring cherry blossom",
+        "Panoramic Tateyama Bay and occasional Mt. Fuji views"
+      ],
+      "notes": "This is the single Tateyama castle-and-park proposition. Do not split its castle museum, city museum, or individual flower areas into separate cards. Check Tateyama City Tourist Information Office guidance for current museum arrangements.",
+      "reservation": "No advance booking is stated for park access; check the official Tateyama visitor guidance for museum arrangements.",
+      "parking": "Use designated park or city parking where available; check local guidance before driving during flower seasons.",
+      "openingHours": "Park grounds and the individual museum facilities have different visitor arrangements; check the Tateyama City Tourist Information Office before visiting."
+    },
+    "ja": {
+      "name": "城山公園（館山）",
+      "description": "館山城（八犬伝博物館）と館山市立博物館、四季の花が咲く散策路、館山湾を望む眺望をあわせて楽しめる丘陵公園。城・博物館・展望を一つの館山の歴史散策として扱います。",
+      "highlights": [
+        "城山公園内の館山城・八犬伝博物館",
+        "桜など四季の花を楽しめる丘の散策路",
+        "館山湾と、条件が良ければ富士山を望む眺望"
+      ],
+      "notes": "館山城・八犬伝博物館・市立博物館・園内の花景色をまとめた一つの館山の立ち寄り先です。各要素を別カードには分けません。博物館の最新の利用条件は館山市観光案内で確認してください。",
+      "reservation": "公園利用に事前予約の案内はありません。博物館の利用条件は館山の公式観光案内で確認してください。",
+      "parking": "指定駐車場を利用し、花の時期に車で訪れる場合は最新の現地案内を確認してください。",
+      "openingHours": "公園と館内施設では利用条件が異なります。訪問前に館山市観光案内で最新情報を確認してください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tateyama_Castle%2C_tenshu.JPG/1280px-Tateyama_Castle%2C_tenshu.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tateyama_Castle,_tenshu.JPG"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative park, museum, and hill-view walking band; travel from any origin is excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "No advance booking is stated for park access; check the official Tateyama visitor guidance for museum arrangements.",
+  "parking": "Use designated park or city parking where available; check local guidance before driving during flower seasons.",
+  "notes": "This is the single Tateyama castle-and-park proposition. Do not split its castle museum, city museum, or individual flower areas into separate cards. Check Tateyama City Tourist Information Office guidance for current museum arrangements.",
+  "notesJa": "館山城・八犬伝博物館・市立博物館・園内の花景色をまとめた一つの館山の立ち寄り先です。各要素を別カードには分けません。博物館の最新の利用条件は館山市観光案内で確認してください。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://tateyamacity.com/en/attractions/",
+        "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/265358058",
+        "title": "OpenStreetMap: Shiroyama Park coordinate",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://tateyamacity.com/en/attractions/",
+          "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://tateyamacity.com/en/attractions/",
+          "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://tateyamacity.com/en/attractions/",
+          "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://tateyamacity.com/en/attractions/",
+          "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/265358058",
+          "title": "OpenStreetMap: Shiroyama Park coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/265358058",
+          "title": "OpenStreetMap: Shiroyama Park coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "tourism_board",
+          "url": "https://tateyamacity.com/en/attractions/",
+          "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "tourism_board",
+          "url": "https://tateyamacity.com/en/attractions/",
+          "title": "Tateyama City Tourist Information Office: Shiroyama Park",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 120,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 2.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

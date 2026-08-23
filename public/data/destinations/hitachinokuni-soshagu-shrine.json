@@ -1,0 +1,262 @@
+{
+  "id": "hitachinokuni-soshagu-shrine",
+  "officialWebsite": "https://sosyagu.jp/en/",
+  "officialWebsiteRequirement": "required",
+  "name": "Hitachinokuni Soshagu Shrine",
+  "nameJa": "常陸國總社宮",
+  "aliases": ["Hitachinokuni Sōshagū", "Soshagu Shrine", "総社宮"],
+  "municipalityId": "Ibaraki:ishioka",
+  "prefecture": "Ibaraki",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.187864,
+    "lng": 140.269072
+  },
+  "location": {
+    "address": "Ishioka, Ibaraki, Japan",
+    "latitude": 36.187864,
+    "longitude": 140.269072
+  },
+  "categories": ["Shrine", "History", "Festival", "Culture"],
+  "tags": ["Shrine", "Festival", "History", "Ishioka"],
+  "description": "An Ishioka shrine whose main sanctuary dates to 1627 and which anchors the September Ishioka Festival, a major procession of lion dances, floats and portable shrines; it provides a distinct historic-and-festival zone beyond Mito and Tsukuba.",
+  "highlights": [
+    "A main sanctuary built in 1627, the oldest building in the grounds",
+    "The September Ishioka Festival with lion dances, floats, and mikoshi",
+    "Omamori, goshuin, and experience programs tied to the shrine"
+  ],
+  "content": {
+    "en": {
+      "name": "Hitachinokuni Soshagu Shrine",
+      "description": "An Ishioka shrine whose main sanctuary dates to 1627 and which anchors the September Ishioka Festival, a major procession of lion dances, floats and portable shrines; it provides a distinct historic-and-festival zone beyond Mito and Tsukuba.",
+      "highlights": [
+        "A main sanctuary built in 1627, the oldest building in the grounds",
+        "The September Ishioka Festival with lion dances, floats, and mikoshi",
+        "Omamori, goshuin, and experience programs tied to the shrine"
+      ],
+      "notes": "This is Ishioka's one canonical shrine-and-festival proposition. The official site identifies access from JR Ishioka Station and publishes current festival notices; confirm special event transport restrictions before visiting. No static Tokyo or airport duration is inferred.",
+      "reservation": "General worship does not require a reservation; confirm experience programs, prayers, and festival access directly with the shrine.",
+      "parking": "Check current official festival notices and shrine guidance before driving, especially in September.",
+      "openingHours": "Shrine visiting and office arrangements vary; use the official current notices, particularly around the September festival."
+    },
+    "ja": {
+      "name": "常陸國總社宮",
+      "description": "1627年建立の本殿を持つ石岡の神社。9月の石岡のおまつり（例大祭）では獅子舞・山車・神輿が町を巡り、水戸・つくば以外の茨城で歴史と祭礼を体験する核になります。",
+      "highlights": [
+        "境内最古の建物である1627年建立の本殿",
+        "獅子舞・山車・神輿が巡る9月の石岡のおまつり",
+        "お守り・御朱印と神社に結びつく体験プログラム"
+      ],
+      "notes": "石岡の神社・祭礼を代表する一つの立ち寄り先として扱います。公式サイトはJR石岡駅からのアクセスと祭礼の最新情報を案内しています。祭礼時の交通規制などは出発前に確認してください。東京や空港からの固定所要時間は設定しません。",
+      "reservation": "通常の参拝に予約は不要です。体験、祈祷、祭礼時の利用条件は神社の公式案内で確認してください。",
+      "parking": "特に9月の祭礼時に車で訪れる場合は、神社の最新案内と交通規制情報を確認してください。",
+      "openingHours": "参拝・授与所の利用条件は変わる場合があります。特に9月の祭礼前後は公式の最新案内を確認してください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/41/Soshagu_%28Ishioka%29_haiden.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Saigen Jiro, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Soshagu_(Ishioka)_haiden.JPG"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative precinct, worship, and cultural-program band; festival attendance and all origin travel are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "General worship does not require a reservation; confirm experience programs, prayers, and festival access directly with the shrine.",
+  "parking": "Check current official festival notices and shrine guidance before driving, especially in September.",
+  "notes": "This is Ishioka's one canonical shrine-and-festival proposition. The official site identifies access from JR Ishioka Station and publishes current festival notices; confirm special event transport restrictions before visiting. No static Tokyo or airport duration is inferred.",
+  "notesJa": "石岡の神社・祭礼を代表する一つの立ち寄り先として扱います。公式サイトはJR石岡駅からのアクセスと祭礼の最新情報を案内しています。祭礼時の交通規制などは出発前に確認してください。東京や空港からの固定所要時間は設定しません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sosyagu.jp/en/",
+        "title": "Hitachinokuni Soshagu Shrine official English visitor guide",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://sosyagu.jp/en/access/",
+        "title": "Hitachinokuni Soshagu Shrine official current notices and access page",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.wikidata.org/wiki/Q11481689",
+        "title": "Wikidata: Hitachinokuni Soshagu coordinate",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://sosyagu.jp/en/",
+          "title": "Hitachinokuni Soshagu Shrine official English visitor guide",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://sosyagu.jp/en/",
+          "title": "Hitachinokuni Soshagu Shrine official English visitor guide",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://sosyagu.jp/en/",
+          "title": "Hitachinokuni Soshagu Shrine official English visitor guide",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://sosyagu.jp/en/",
+          "title": "Hitachinokuni Soshagu Shrine official English visitor guide",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.wikidata.org/wiki/Q11481689",
+          "title": "Wikidata: Hitachinokuni Soshagu coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.wikidata.org/wiki/Q11481689",
+          "title": "Wikidata: Hitachinokuni Soshagu coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://sosyagu.jp/en/access/",
+          "title": "Hitachinokuni Soshagu Shrine official current notices and access page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://sosyagu.jp/en/access/",
+          "title": "Hitachinokuni Soshagu Shrine official current notices and access page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

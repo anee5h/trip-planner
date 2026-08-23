@@ -1,0 +1,262 @@
+{
+  "id": "onjuku-beach",
+  "officialWebsite": "https://onjuku-kankou.com/event/kaisuiyoku/",
+  "officialWebsiteRequirement": "required",
+  "name": "Onjuku Beach",
+  "nameJa": "御宿海岸",
+  "aliases": ["Onjuku Central Beach", "御宿中央海水浴場"],
+  "municipalityId": "Chiba:onjuku",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "beach",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 35.1833577,
+    "lng": 140.3569834
+  },
+  "location": {
+    "address": "Central Beach, Onjuku, Chiba, Japan",
+    "latitude": 35.1833577,
+    "longitude": 140.3569834
+  },
+  "categories": ["Beach", "Nature", "Family", "Photography"],
+  "tags": ["Beach", "Swimming", "Coast", "Onjuku"],
+  "description": "A broad, white-sand Pacific beach in Onjuku, represented by the Central Beach and Moon Desert Memorial frontage; its shallow, comparatively calm Ajiro Bay shore is a distinct east-Boso coastal day-outing.",
+  "highlights": [
+    "Around two kilometres of white sand along Onjuku's Pacific shore",
+    "Central Beach's Moon Desert Memorial frontage",
+    "Three lifeguarded beach areas in the published summer opening season"
+  ],
+  "content": {
+    "en": {
+      "name": "Onjuku Beach",
+      "description": "A broad, white-sand Pacific beach in Onjuku, represented by the Central Beach and Moon Desert Memorial frontage; its shallow, comparatively calm Ajiro Bay shore is a distinct east-Boso coastal day-outing.",
+      "highlights": [
+        "Around two kilometres of white sand along Onjuku's Pacific shore",
+        "Central Beach's Moon Desert Memorial frontage",
+        "Three lifeguarded beach areas in the published summer opening season"
+      ],
+      "notes": "This is one coast proposition, not a set of separate monument and beach cards. The 2026 lifeguarded beach opening was July 18–August 23, 08:30–17:00; sea conditions and seasonal services must be checked before swimming. The tourism association identifies the beach frontage as about a 7-minute walk from Onjuku Station.",
+      "reservation": "No reservation is stated for the shoreline; check the tourism association's current swimming and event guidance.",
+      "parking": "Paid parking is listed near the three summer beach areas; check current local guidance before driving.",
+      "openingHours": "The 2026 lifeguarded beach opening was July 18–August 23, 08:30–17:00; the shore is a year-round landscape but swimming services are seasonal."
+    },
+    "ja": {
+      "name": "御宿海岸",
+      "description": "御宿の太平洋側に広がる白砂の海岸。中央海水浴場と月の沙漠記念像周辺を軸に、遠浅で比較的穏やかな網代湾の海辺を楽しむ外房の独立した海岸散策・海水浴の立ち寄り先です。",
+      "highlights": [
+        "御宿の太平洋岸に続く約2kmの白砂の海岸",
+        "中央海岸の月の沙漠記念像周辺",
+        "公式に案内される夏季の3つの海水浴場"
+      ],
+      "notes": "記念像と各海水浴場を別カードにはせず、一つの御宿海岸の体験として扱います。2026年の海水浴場開設は7月18日〜8月23日、8:30〜17:00で、遊泳前に海況と季節サービスを確認してください。観光協会は御宿駅から海岸まで徒歩約7分と案内しています。",
+      "reservation": "海岸利用に予約の案内はありません。遊泳・イベントは観光協会の最新案内を確認してください。",
+      "parking": "夏季の3海水浴場周辺には有料駐車場の案内があります。車で訪れる前に最新の現地情報を確認してください。",
+      "openingHours": "2026年の海水浴場開設は7月18日〜8月23日、8:30〜17:00です。海岸景観は通年ですが、遊泳サービスは季節限定です。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Onjuku_Beach.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Zeimusu, public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Onjuku_Beach.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative beach walk, memorial frontage, and seasonal swimming band; rail or driving approach is excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "No reservation is stated for the shoreline; check the tourism association's current swimming and event guidance.",
+  "parking": "Paid parking is listed near the three summer beach areas; check current local guidance before driving.",
+  "notes": "This is one coast proposition, not a set of separate monument and beach cards. The 2026 lifeguarded beach opening was July 18–August 23, 08:30–17:00; sea conditions and seasonal services must be checked before swimming. The tourism association identifies the beach frontage as about a 7-minute walk from Onjuku Station.",
+  "notesJa": "記念像と各海水浴場を別カードにはせず、一つの御宿海岸の体験として扱います。2026年の海水浴場開設は7月18日〜8月23日、8:30〜17:00で、遊泳前に海況と季節サービスを確認してください。観光協会は御宿駅から海岸まで徒歩約7分と案内しています。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://onjuku-kankou.com/event/kaisuiyoku/",
+        "title": "Onjuku Town Tourism Association: 2026 beach opening and facilities",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://onjuku-kankou.com/photospot/pg-kaigan/",
+        "title": "Onjuku Town Tourism Association: Onjuku Beach access",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/node/2715131038",
+        "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://onjuku-kankou.com/event/kaisuiyoku/",
+          "title": "Onjuku Town Tourism Association: 2026 beach opening and facilities",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://onjuku-kankou.com/event/kaisuiyoku/",
+          "title": "Onjuku Town Tourism Association: 2026 beach opening and facilities",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://onjuku-kankou.com/event/kaisuiyoku/",
+          "title": "Onjuku Town Tourism Association: 2026 beach opening and facilities",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://onjuku-kankou.com/event/kaisuiyoku/",
+          "title": "Onjuku Town Tourism Association: 2026 beach opening and facilities",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/2715131038",
+          "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/2715131038",
+          "title": "OpenStreetMap: Moon Desert Memorial at Onjuku Central Beach frontage",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "tourism_board",
+          "url": "https://onjuku-kankou.com/photospot/pg-kaigan/",
+          "title": "Onjuku Town Tourism Association: Onjuku Beach access",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "tourism_board",
+          "url": "https://onjuku-kankou.com/photospot/pg-kaigan/",
+          "title": "Onjuku Town Tourism Association: Onjuku Beach access",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 1.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 1.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

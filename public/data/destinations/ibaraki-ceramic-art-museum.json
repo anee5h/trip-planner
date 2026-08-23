@@ -1,0 +1,262 @@
+{
+  "id": "ibaraki-ceramic-art-museum",
+  "officialWebsite": "https://www.tougei.museum.ibk.ed.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Ibaraki Ceramic Art Museum",
+  "nameJa": "茨城県陶芸美術館",
+  "aliases": ["Ibaraki Prefectural Ceramic Art Museum", "Togei Museum Ibaraki"],
+  "municipalityId": "Ibaraki:kasama",
+  "prefecture": "Ibaraki",
+  "region": "Kanto",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.3723876,
+    "lng": 140.2630038
+  },
+  "location": {
+    "address": "2345 Kasama, Kasama, Ibaraki, Japan",
+    "latitude": 36.3723876,
+    "longitude": 140.2630038
+  },
+  "categories": ["Museum", "Art", "Ceramics", "Culture"],
+  "tags": ["Museum", "Ceramics", "Art", "Kasama"],
+  "description": "Eastern Japan's first museum devoted solely to ceramic art, in Kasama with permanent works by Japanese master ceramists and changing exhibitions; it provides the region's clear craft-and-art counterpoint to Kasama Inari.",
+  "highlights": [
+    "Eastern Japan's first museum focused solely on ceramic art",
+    "Permanent works by Hazan Itaya and Kosei Matsui",
+    "Changing exhibitions from Japan and abroad"
+  ],
+  "content": {
+    "en": {
+      "name": "Ibaraki Ceramic Art Museum",
+      "description": "Eastern Japan's first museum devoted solely to ceramic art, in Kasama with permanent works by Japanese master ceramists and changing exhibitions; it provides the region's clear craft-and-art counterpoint to Kasama Inari.",
+      "highlights": [
+        "Eastern Japan's first museum focused solely on ceramic art",
+        "Permanent works by Hazan Itaya and Kosei Matsui",
+        "Changing exhibitions from Japan and abroad"
+      ],
+      "notes": "This is the one Kasama ceramic-art institution in the catalogue. Crafthills and individual gallery/shop stops are part of the surrounding craft itinerary, not duplicate museum cards. The prefectural guide lists a 25-minute walk from Kasama Station or short taxi access.",
+      "reservation": "Check the official museum site for exhibition-specific ticketing and reservation arrangements.",
+      "parking": "Check official museum guidance for current car and parking arrangements.",
+      "openingHours": "09:30–17:00 (last entry 16:30); closed Mondays except public-holiday Mondays, then Tuesday, and over New Year, per the prefectural visitor guide."
+    },
+    "ja": {
+      "name": "茨城県陶芸美術館",
+      "description": "陶芸を専門とする東日本初の美術館。笠間で板谷波山・松井康成などの作品を常設展示し、多彩な企画展も行います。笠間稲荷とは異なる、工芸と美術を主題にした立ち寄り先です。",
+      "highlights": [
+        "陶芸を専門とする東日本初の美術館",
+        "板谷波山・松井康成などの常設展示",
+        "国内外の多彩な企画展"
+      ],
+      "notes": "笠間の陶芸美術を代表する一館として扱います。クラフトヒルズや個々のギャラリー・店舗は周辺の工芸散策の一部であり、重複する美術館カードにはしません。県の案内では笠間駅から徒歩約25分またはタクシー利用です。",
+      "reservation": "企画展ごとの入館・予約条件は美術館公式サイトで確認してください。",
+      "parking": "車・駐車場の利用条件は美術館の公式案内で確認してください。",
+      "openingHours": "県の観光案内では9:30〜17:00（最終入館16:30）。月曜休館（祝日の場合は開館し翌火曜休館）、年末年始休館です。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Ibaraki_Ceramic_Art_Museum.JPG",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "Abasaa, public domain, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ibaraki_Ceramic_Art_Museum.JPG"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative permanent-collection and temporary-exhibition band; station and road travel are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Check the official museum site for exhibition-specific ticketing and reservation arrangements.",
+  "parking": "Check official museum guidance for current car and parking arrangements.",
+  "notes": "This is the one Kasama ceramic-art institution in the catalogue. Crafthills and individual gallery/shop stops are part of the surrounding craft itinerary, not duplicate museum cards. The prefectural guide lists a 25-minute walk from Kasama Station or short taxi access.",
+  "notesJa": "笠間の陶芸美術を代表する一館として扱います。クラフトヒルズや個々のギャラリー・店舗は周辺の工芸散策の一部であり、重複する美術館カードにはしません。県の案内では笠間駅から徒歩約25分またはタクシー利用です。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tougei.museum.ibk.ed.jp/",
+        "title": "Ibaraki Ceramic Art Museum official site",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://visit.ibarakiguide.jp/en/sightseeing/22291/",
+        "title": "Ibaraki Prefectural Government: Ibaraki Ceramic Art Museum visitor information",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/node/4191897333",
+        "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/",
+          "title": "Ibaraki Ceramic Art Museum official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/",
+          "title": "Ibaraki Ceramic Art Museum official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/",
+          "title": "Ibaraki Ceramic Art Museum official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/",
+          "title": "Ibaraki Ceramic Art Museum official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/4191897333",
+          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/4191897333",
+          "title": "OpenStreetMap: Ibaraki Ceramic Art Museum coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/",
+          "title": "Ibaraki Ceramic Art Museum official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.tougei.museum.ibk.ed.jp/",
+          "title": "Ibaraki Ceramic Art Museum official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 1.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 45,
+  "walkingIntensity": "low",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 1.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

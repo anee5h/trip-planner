@@ -1,0 +1,262 @@
+{
+  "id": "awa-shrine-tateyama",
+  "officialWebsite": "http://www.awajinjya.org/",
+  "officialWebsiteRequirement": "required",
+  "name": "Awa Shrine",
+  "nameJa": "安房神社",
+  "aliases": ["Awa Jinja", "安房神社（館山）"],
+  "municipalityId": "Chiba:tateyama",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 34.9227089,
+    "lng": 139.8370131
+  },
+  "location": {
+    "address": "589 Daijingu, Tateyama, Chiba, Japan",
+    "latitude": 34.9227089,
+    "longitude": 139.8370131
+  },
+  "categories": ["Shrine", "History", "Culture", "Nature"],
+  "tags": ["Shrine", "History", "Tateyama", "Cherry Blossoms"],
+  "description": "A long-standing shrine in southern Tateyama, approached through mature trees and a large white torii; it is a distinct spiritual and seasonal stop from the nearby city-and-castle outing.",
+  "highlights": [
+    "A large white torii and wooded approach to the main sanctuary",
+    "A distinct southern-Tateyama shrine experience",
+    "Cherry blossoms along the approach in early April"
+  ],
+  "content": {
+    "en": {
+      "name": "Awa Shrine",
+      "description": "A long-standing shrine in southern Tateyama, approached through mature trees and a large white torii; it is a distinct spiritual and seasonal stop from the nearby city-and-castle outing.",
+      "highlights": [
+        "A large white torii and wooded approach to the main sanctuary",
+        "A distinct southern-Tateyama shrine experience",
+        "Cherry blossoms along the approach in early April"
+      ],
+      "notes": "The shrine is not a Shiroyama Park component. The Tateyama City visitor page lists a 20-minute JR bus approach from Tateyama Station; this final-leg fact does not model an origin-to-destination duration.",
+      "reservation": "General worship does not require a reservation; verify prayer or special-service arrangements directly with the shrine.",
+      "parking": "Check official shrine or Tateyama visitor guidance for current parking conditions.",
+      "openingHours": "Current Awa Shrine guidance: talismans and goshuin 08:30–16:30; specific prayers 09:00–16:00."
+    },
+    "ja": {
+      "name": "安房神社",
+      "description": "南館山にある古社。大きな白い鳥居と古木の参道が印象的で、館山の城山公園とは異なる、信仰と季節の景観を楽しむ立ち寄り先です。",
+      "highlights": [
+        "大きな白い鳥居と木立に包まれた参道",
+        "館山南部で楽しむ独立した神社参拝",
+        "4月上旬に参道を彩る桜"
+      ],
+      "notes": "城山公園の付属施設ではなく、独立した館山南部の神社です。館山市の案内では館山駅からJRバスで約20分ですが、この最終アクセス情報を出発地からの所要時間として扱いません。",
+      "reservation": "通常の参拝に予約は不要です。祈祷など特別な利用は神社へ直接確認してください。",
+      "parking": "駐車場の最新状況は神社または館山の公式観光案内で確認してください。",
+      "openingHours": "安房神社の最新案内では、御朱印・神符授与は8:30〜16:30、祈祷などは9:00〜16:00です。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/%E5%AE%89%E6%88%BF%E7%A5%9E%E7%A4%BE%EF%BC%88%E5%8D%83%E8%91%89%E7%9C%8C%E9%A4%A8%E5%B1%B1%E5%B8%82%EF%BC%8920250223-IMG_3414.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "くろふね, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E5%AE%89%E6%88%BF%E7%A5%9E%E7%A4%BE%EF%BC%88%E5%8D%83%E8%91%89%E7%9C%8C%E9%A4%A8%E5%B1%B1%E5%B8%82%EF%BC%8920250223-IMG_3414.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 0.75,
+    "max": 1
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative precinct, approach, and worship band; Tateyama Station access is excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "General worship does not require a reservation; verify prayer or special-service arrangements directly with the shrine.",
+  "parking": "Check official shrine or Tateyama visitor guidance for current parking conditions.",
+  "notes": "The shrine is not a Shiroyama Park component. The Tateyama City visitor page lists a 20-minute JR bus approach from Tateyama Station; this final-leg fact does not model an origin-to-destination duration.",
+  "notesJa": "城山公園の付属施設ではなく、独立した館山南部の神社です。館山市の案内では館山駅からJRバスで約20分ですが、この最終アクセス情報を出発地からの所要時間として扱いません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "http://www.awajinjya.org/",
+        "title": "Awa Shrine official site",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://tateyamacity.com/en/shrines-temples/awa-shrine/",
+        "title": "Tateyama City Tourist Information Office: Awa Shrine visitor information",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/727172519",
+        "title": "OpenStreetMap: Awa Shrine coordinate",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "http://www.awajinjya.org/",
+          "title": "Awa Shrine official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "http://www.awajinjya.org/",
+          "title": "Awa Shrine official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "http://www.awajinjya.org/",
+          "title": "Awa Shrine official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "http://www.awajinjya.org/",
+          "title": "Awa Shrine official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/727172519",
+          "title": "OpenStreetMap: Awa Shrine coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/727172519",
+          "title": "OpenStreetMap: Awa Shrine coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "http://www.awajinjya.org/",
+          "title": "Awa Shrine official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "http://www.awajinjya.org/",
+          "title": "Awa Shrine official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 1h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 35,
+  "walkingIntensity": "low",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 1h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

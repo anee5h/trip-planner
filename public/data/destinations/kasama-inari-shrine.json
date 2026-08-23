@@ -1,0 +1,256 @@
+{
+  "id": "kasama-inari-shrine",
+  "officialWebsite": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+  "officialWebsiteRequirement": "required",
+  "name": "Kasama Inari Shrine",
+  "nameJa": "笠間稲荷神社",
+  "aliases": ["Kasama Inari", "Kasama Inari Jinja"],
+  "municipalityId": "Ibaraki:kasama",
+  "prefecture": "Ibaraki",
+  "region": "Kanto",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 36.3854725,
+    "lng": 140.2543843
+  },
+  "location": {
+    "address": "1 Kasama, Kasama, Ibaraki, Japan",
+    "latitude": 36.3854725,
+    "longitude": 140.2543843
+  },
+  "categories": ["Shrine", "History", "Food", "Culture"],
+  "tags": ["Shrine", "Inari", "Kasama", "Pottery"],
+  "description": "A major Inari shrine in Kasama, established in 651, with a lively approach of soba shops, cafes, sake-brewery conversions and pottery galleries; it is the historic core of a broader Kasama craft day.",
+  "highlights": [
+    "One of Japan's major Inari shrines, established in 651",
+    "Kasama Inari Sushi and seasonal street food context",
+    "Wisteria in late spring and the autumn chrysanthemum festival"
+  ],
+  "content": {
+    "en": {
+      "name": "Kasama Inari Shrine",
+      "description": "A major Inari shrine in Kasama, established in 651, with a lively approach of soba shops, cafes, sake-brewery conversions and pottery galleries; it is the historic core of a broader Kasama craft day.",
+      "highlights": [
+        "One of Japan's major Inari shrines, established in 651",
+        "Kasama Inari Sushi and seasonal street food context",
+        "Wisteria in late spring and the autumn chrysanthemum festival"
+      ],
+      "notes": "Kasama Inari is distinct from the regional ceramic-art museum, while the small Inari Art Museum is a component of the shrine grounds and is intentionally not a second card. The Ibaraki guide lists a 5-minute bus ride or 20-minute walk from Kasama Station; no intercity duration is inferred.",
+      "reservation": "General worship does not require a reservation; check official festival and prayer guidance for special arrangements.",
+      "parking": "The Ibaraki guide lists 250 parking spaces; confirm current conditions with the shrine before driving during festivals.",
+      "openingHours": "06:00 to sunset, per the Ibaraki Prefectural Government visitor guide."
+    },
+    "ja": {
+      "name": "笠間稲荷神社",
+      "description": "651年創建と伝わる笠間の代表的な稲荷神社。参道にはそば店、カフェ、酒蔵を活用した店、陶芸ギャラリーが並び、笠間の歴史と工芸を巡る一日の核になります。",
+      "highlights": [
+        "651年創建と伝わる全国有数の稲荷神社",
+        "笠間いなり寿司と参道の食文化",
+        "晩春の藤と秋の菊まつり"
+      ],
+      "notes": "笠間稲荷は県陶芸美術館とは異なる歴史・参道の体験です。一方、境内の小さな稲荷美術館は神社体験の一部として別カードにしません。茨城県の案内では笠間駅からバス約5分または徒歩約20分ですが、これを都市間の所要時間として扱いません。",
+      "reservation": "通常の参拝に予約は不要です。祭礼・祈祷などは公式案内で確認してください。",
+      "parking": "茨城県の案内では駐車場250台です。祭礼時に車で訪れる場合は、神社の最新案内を確認してください。",
+      "openingHours": "茨城県の観光案内では6:00〜日没です。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/61/%E7%AC%A0%E9%96%93%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Akeiro Torii, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%AC%A0%E9%96%93%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE_-_panoramio.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 0.5,
+    "max": 1
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative shrine, approach-street, and food-stop band; station and road travel are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "General worship does not require a reservation; check official festival and prayer guidance for special arrangements.",
+  "parking": "The Ibaraki guide lists 250 parking spaces; confirm current conditions with the shrine before driving during festivals.",
+  "notes": "Kasama Inari is distinct from the regional ceramic-art museum, while the small Inari Art Museum is a component of the shrine grounds and is intentionally not a second card. The Ibaraki guide lists a 5-minute bus ride or 20-minute walk from Kasama Station; no intercity duration is inferred.",
+  "notesJa": "笠間稲荷は県陶芸美術館とは異なる歴史・参道の体験です。一方、境内の小さな稲荷美術館は神社体験の一部として別カードにしません。茨城県の案内では笠間駅からバス約5分または徒歩約20分ですが、これを都市間の所要時間として扱いません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "government",
+        "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+        "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/node/745550349",
+        "title": "OpenStreetMap: Kasama Inari Shrine coordinate",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "government",
+          "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+          "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "government",
+          "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+          "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "government",
+          "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+          "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "government",
+          "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+          "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/745550349",
+          "title": "OpenStreetMap: Kasama Inari Shrine coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/745550349",
+          "title": "OpenStreetMap: Kasama Inari Shrine coordinate",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "government",
+          "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+          "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "government",
+          "url": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+          "title": "Ibaraki Prefectural Government: Kasama Inari Shrine visitor information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 1h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 35,
+  "walkingIntensity": "low",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 1h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
