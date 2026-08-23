@@ -31,9 +31,9 @@ describe("PlaceCatalog", () => {
     const summary = await loadCatalogue("summary");
     const full = await loadCatalogue("full");
 
-    // KAI-154 adds six verified records; keep this count tied to the current catalogue.
-    expect(summary).toHaveLength(1036);
-    expect(full).toHaveLength(1036);
+    // Batch 3 adds and corrects the current catalogue; keep this count tied to the current index.
+    expect(summary).toHaveLength(1041);
+    expect(full).toHaveLength(1041);
     expect(summary[0].placeType).toBeTruthy();
     expect(full[0].content.en.name).toBeTruthy();
   });
@@ -46,14 +46,14 @@ describe("PlaceCatalog", () => {
 
   it("creates canonical records for the complete catalog (full index)", () => {
     const places = getFullPlaces();
-    expect(places).toHaveLength(1036);
+    expect(places).toHaveLength(1041);
     expect(places.every((place) => place.placeType)).toBe(true);
     expect(places.every((place) => Array.isArray(place.tags))).toBe(true);
   });
 
-  it("summary catalogue is complete for list surfaces (1036 records)", () => {
+  it("summary catalogue is complete for list surfaces (1041 records)", () => {
     const summary = getLoadedLitePlaces();
-    expect(summary).toHaveLength(1036);
+    expect(summary).toHaveLength(1041);
     expect(summary.every((place) => place.id)).toBe(true);
     expect(summary.every((place) => place.name)).toBe(true);
     expect(summary.every((place) => place.prefecture)).toBe(true);
@@ -74,7 +74,7 @@ describe("PlaceCatalog", () => {
     );
     expect(
       places.filter((place) => place.placeType === "destination"),
-    ).toHaveLength(873);
+    ).toHaveLength(878);
     expect(
       places
         .filter(
@@ -133,8 +133,8 @@ describe("PlaceCatalog", () => {
     const enPlaces = getAvailablePlaces("en");
     const jaPlaces = getAvailablePlaces("ja");
 
-    expect(enPlaces).toHaveLength(1036);
-    expect(jaPlaces).toHaveLength(1036);
+    expect(enPlaces).toHaveLength(1041);
+    expect(jaPlaces).toHaveLength(1041);
 
     const enIds = enPlaces.map((place) => place.id).sort();
     const jaIds = jaPlaces.map((place) => place.id).sort();
