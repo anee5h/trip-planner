@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1036,
+  "totalRecords": 1040,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 192,
-    "affectedRecordCount": 1033,
+    "clusterCount": 193,
+    "affectedRecordCount": 1037,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -69,6 +69,7 @@
       "beppu-city",
       "beppu-hells-oita",
       "beppu-tower",
+      "besshi-copper-mine-memorial-museum",
       "biei-town",
       "bikan-historical-quarter",
       "bise-fukugi-tree-road-motobu",
@@ -450,6 +451,7 @@
       "koriyama-city",
       "koshikijima",
       "koto-city",
+      "kotohira-gu-kagawa",
       "kotoku-in-great-buddha",
       "kouri-island-okinawa",
       "koya-ryujin",
@@ -606,6 +608,7 @@
       "nakano-city",
       "nakanoshima-museum-art-osaka",
       "nakasu",
+      "nakatsu-gorge-kochi",
       "nakayama-hokekyoji-ichikawa",
       "nakazu-banshoen-marugame",
       "nakijin-castle-ruins-motobu",
@@ -639,7 +642,6 @@
       "nihonbashi",
       "nihonmatsu-castle",
       "niigata-city",
-      "nijigen-no-mori-awaji",
       "nijinomatsubara-pine-grove",
       "nijo-castle-kyoto",
       "nijo-market",
@@ -809,6 +811,7 @@
       "shibuya-sky-shibuya",
       "shikisai-no-oka",
       "shikoku-henro",
+      "shikoku-karst-kochi",
       "shikoku-mura",
       "shikotsu-toya",
       "shimabara-castle",
@@ -962,6 +965,7 @@
       "tsutenkaku",
       "tsuwano-castle",
       "tsuyama-castle",
+      "uchiko-za-ehime",
       "udo-jingu",
       "ueda-castle-nagano",
       "ueno-park",
@@ -1404,16 +1408,16 @@
       "confidence-gated": 31,
       "model-estimate": 43,
       "manual-review": 93,
-      "legitimate": 11
+      "legitimate": 12
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 11, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 12, "E": 31 }
   },
   "categories": [
     {
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 473,
+      "affectedRecordCount": 477,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1449,6 +1453,7 @@
         "bandai-asahi",
         "beppu-city",
         "beppu-hells-oita",
+        "besshi-copper-mine-memorial-museum",
         "biei-town",
         "biwako",
         "buaiso",
@@ -1617,6 +1622,7 @@
         "koriyama-city",
         "koshikijima",
         "koto-city",
+        "kotohira-gu-kagawa",
         "koya-ryujin",
         "koya-town",
         "kubota-castle",
@@ -1683,6 +1689,7 @@
         "nago-city",
         "naha-city",
         "nakano-city",
+        "nakatsu-gorge-kochi",
         "nakayama-hokekyoji-ichikawa",
         "nanao-castle",
         "nanatsugama-cave",
@@ -1700,7 +1707,6 @@
         "nichinan-kaigan",
         "nichinan-kaigan-drive",
         "nihonbashi",
-        "nijigen-no-mori-awaji",
         "nikko-city",
         "nintendo-museum-uji",
         "nippara-cave",
@@ -1774,6 +1780,7 @@
         "shibata-castle",
         "shikisai-no-oka",
         "shikoku-henro",
+        "shikoku-karst-kochi",
         "shikotsu-toya",
         "shimabara-castle",
         "shimizu-park-noda",
@@ -1855,6 +1862,7 @@
         "tsurugisan",
         "tsuwano-castle",
         "tsuyama-castle",
+        "uchiko-za-ehime",
         "uji-city",
         "uji-tea-culture-center",
         "ukimido-mangetsu-ji",
@@ -2031,11 +2039,12 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 56,
+          "count": 60,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
             "awaji-farm-park-england-hill",
+            "besshi-copper-mine-memorial-museum",
             "byobugaura-choshi",
             "chikubushima-island",
             "dorogawa-onsen-tenkawa",
@@ -2058,6 +2067,7 @@
             "kiyomizu-dera",
             "kobe-suma-sea-world",
             "koka-ninja-house",
+            "kotohira-gu-kagawa",
             "kurama-dera-kyoto",
             "kurokabe-square-nagahama",
             "legoland-japan-nagoya",
@@ -2067,14 +2077,15 @@
             "mitarai-valley-tenkawa",
             "miyama-kayabuki-no-sato",
             "mt-rokko-kobe",
+            "nakatsu-gorge-kochi",
             "nakayama-hokekyoji-ichikawa",
             "national-museum-japanese-history-sakura",
-            "nijigen-no-mori-awaji",
             "nintendo-museum-uji",
             "nokonoshima-island-park",
             "noritake-garden",
             "sakurai-futamigaura-itoshima",
             "sanzen-in-ohara",
+            "shikoku-karst-kochi",
             "shimizu-park-noda",
             "shirotori-garden",
             "sorakuen-garden",
@@ -2086,6 +2097,7 @@
             "tenjinbashi-suji-shopping-street",
             "tenryu-ji-kyoto",
             "tojo-tei-matsudo",
+            "uchiko-za-ehime",
             "uzumasa-kyoto-village",
             "yagiri-no-watashi-matsudo",
             "yanagawa-canal-cruise"
@@ -3692,8 +3704,8 @@
     {
       "category": "visitDuration",
       "severity": "review",
-      "clusterCount": 26,
-      "affectedRecordCount": 998,
+      "clusterCount": 27,
+      "affectedRecordCount": 1004,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3755,6 +3767,7 @@
         "beppu-city",
         "beppu-hells-oita",
         "beppu-tower",
+        "besshi-copper-mine-memorial-museum",
         "biei-town",
         "bikan-historical-quarter",
         "bise-fukugi-tree-road-motobu",
@@ -4000,6 +4013,7 @@
         "iwate-park-morioka-castle-ruins",
         "iwatsuki-ningyo-museum",
         "iya-valley-tokushima",
+        "izanagi-jingu-awaji",
         "izu",
         "izumo-city",
         "izumo-taisha",
@@ -4034,6 +4048,7 @@
         "kanazawa",
         "kanazawa-21",
         "kanazawa-castle-ishikawa",
+        "kangien-academy",
         "kannai-yokohama",
         "kannawa-onsen-district",
         "kannonji-castle",
@@ -4120,6 +4135,7 @@
         "koriyama-city",
         "koshikijima",
         "koto-city",
+        "kotohira-gu-kagawa",
         "kotoku-in-great-buddha",
         "kouri-island-okinawa",
         "koya-ryujin",
@@ -4273,6 +4289,7 @@
         "nakano-city",
         "nakanoshima-museum-art-osaka",
         "nakasu",
+        "nakatsu-gorge-kochi",
         "nakayama-hokekyoji-ichikawa",
         "nakazu-banshoen-marugame",
         "nakijin-castle-ruins-motobu",
@@ -4305,7 +4322,6 @@
         "nihon-minka-en",
         "nihonbashi",
         "nihonmatsu-castle",
-        "nijigen-no-mori-awaji",
         "nijinomatsubara-pine-grove",
         "nijo-castle-kyoto",
         "nijo-market",
@@ -4469,6 +4485,7 @@
         "shibuya-crossing-hachiko",
         "shibuya-sky-shibuya",
         "shikisai-no-oka",
+        "shikoku-karst-kochi",
         "shikoku-mura",
         "shikotsu-toya",
         "shimabara-castle",
@@ -4618,6 +4635,7 @@
         "tsutenkaku",
         "tsuwano-castle",
         "tsuyama-castle",
+        "uchiko-za-ehime",
         "udo-jingu",
         "ueda-castle-nagano",
         "ueno-park",
@@ -4886,7 +4904,7 @@
         {
           "id": "1c84ff3f729a",
           "severity": "review",
-          "count": 120,
+          "count": 121,
           "ids": [
             "aizu-bukeyashiki",
             "akita-museum-of-art",
@@ -4894,6 +4912,7 @@
             "awa-odori-kaikan",
             "bank-of-iwate-red-brick",
             "bansuiso-matsuyama",
+            "besshi-copper-mine-memorial-museum",
             "bise-fukugi-tree-road-motobu",
             "bizan-ropeway-tokushima",
             "botchan-train-matsuyama",
@@ -5019,7 +5038,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 97,
+          "count": 99,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -5054,6 +5073,7 @@
             "kawagoe-castle-saitama",
             "kobe-suma-sea-world",
             "kokusai-dori-naha",
+            "kotohira-gu-kagawa",
             "kujukushima-pearl-sea-resort",
             "lake-hamanako",
             "lake-sagami",
@@ -5087,6 +5107,7 @@
             "scmaglev-and-railway-park",
             "sendai-umino-mori-aquarium",
             "shibuya-sky-shibuya",
+            "shikoku-karst-kochi",
             "shimizu-park-noda",
             "shin-yokohama-ramen-museum",
             "shonan-kaigan-park",
@@ -5371,7 +5392,7 @@
         {
           "id": "807f7cbc4b49",
           "severity": "review",
-          "count": 57,
+          "count": 58,
           "ids": [
             "aoba-castle-museum",
             "chiba-city-folk-museum",
@@ -5402,6 +5423,7 @@
             "museum-of-aeronautical-sciences",
             "nagoya-city-art-museum",
             "nagoya-city-science-museum",
+            "nakatsu-gorge-kochi",
             "national-museum-japanese-history-sakura",
             "national-museum-of-nature-and-science",
             "nunobiki-falls",
@@ -5575,7 +5597,7 @@
         {
           "id": "afa8461550d9",
           "severity": "review",
-          "count": 48,
+          "count": 47,
           "ids": [
             "akan-mashu",
             "amami-gunto",
@@ -5604,7 +5626,6 @@
             "myoko-togakushi",
             "nago-pineapple-park",
             "nichinan-kaigan-drive",
-            "nijigen-no-mori-awaji",
             "nikko-national-park",
             "oze-national-park",
             "rishiri-rebun-sarobetsu",
@@ -6026,6 +6047,18 @@
             "action": "manual-review",
             "reason": "Plausible."
           }
+        },
+        {
+          "id": "9d14d0c7aff9",
+          "severity": "review",
+          "count": 3,
+          "ids": ["izanagi-jingu-awaji", "kangien-academy", "uchiko-za-ehime"],
+          "value": { "max": 1.5, "min": 1 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "Three distinct shrine/theater/academy visits (Izanagi Shrine, Uchiko-za, and Kangien Academy) share a reviewed {1,1.5}h pure-destination-time band; the band excludes intercity travel and remains subject to current opening or renovation status."
+          }
         }
       ]
     },
@@ -6033,7 +6066,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 1000,
+      "affectedRecordCount": 1004,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6095,6 +6128,7 @@
         "beppu-city",
         "beppu-hells-oita",
         "beppu-tower",
+        "besshi-copper-mine-memorial-museum",
         "biei-town",
         "bikan-historical-quarter",
         "bise-fukugi-tree-road-motobu",
@@ -6461,6 +6495,7 @@
         "koriyama-city",
         "koshikijima",
         "koto-city",
+        "kotohira-gu-kagawa",
         "kotoku-in-great-buddha",
         "kouri-island-okinawa",
         "koya-ryujin",
@@ -6611,6 +6646,7 @@
         "nakano-city",
         "nakanoshima-museum-art-osaka",
         "nakasu",
+        "nakatsu-gorge-kochi",
         "nakayama-hokekyoji-ichikawa",
         "nakazu-banshoen-marugame",
         "nakijin-castle-ruins-motobu",
@@ -6644,7 +6680,6 @@
         "nihonbashi",
         "nihonmatsu-castle",
         "niigata-city",
-        "nijigen-no-mori-awaji",
         "nijinomatsubara-pine-grove",
         "nijo-castle-kyoto",
         "nijo-market",
@@ -6806,6 +6841,7 @@
         "shibuya-crossing-hachiko",
         "shibuya-sky-shibuya",
         "shikisai-no-oka",
+        "shikoku-karst-kochi",
         "shikoku-mura",
         "shikotsu-toya",
         "shimabara-castle",
@@ -6956,6 +6992,7 @@
         "tsutenkaku",
         "tsuwano-castle",
         "tsuyama-castle",
+        "uchiko-za-ehime",
         "udo-jingu",
         "ueda-castle-nagano",
         "ueno-park",
@@ -7040,13 +7077,14 @@
         {
           "id": "2da3e147dbe3",
           "severity": "review",
-          "count": 174,
+          "count": 175,
           "ids": [
             "aizu-bukeyashiki",
             "akihabara-chiyoda",
             "ameya-yokocho",
             "asakusa-taito",
             "ashigara",
+            "besshi-copper-mine-memorial-museum",
             "boso-no-mura",
             "botchan-train-matsuyama",
             "buaiso",
@@ -8027,15 +8065,17 @@
         {
           "id": "1e4109ee1e47",
           "severity": "review",
-          "count": 20,
+          "count": 22,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "danjo-garan-koyasan",
             "enryaku-ji-mount-hiei",
             "hokki-ji-pagoda",
             "kashima-jingu",
+            "kotohira-gu-kagawa",
             "makino-botanical-garden",
             "nakadake-crater-aso",
+            "nakatsu-gorge-kochi",
             "nokonoshima-island-park",
             "noritake-garden",
             "nunobiki-herb-gardens",
@@ -8060,7 +8100,7 @@
         {
           "id": "ecb6b523936d",
           "severity": "review",
-          "count": 19,
+          "count": 20,
           "ids": [
             "akashi-kaikyo-bridge",
             "byobugaura-choshi",
@@ -8079,41 +8119,11 @@
             "seto-ohashi-bridge",
             "shibuya-city",
             "tokyo-skytree-sumida",
+            "uchiko-za-ehime",
             "ukimido-mangetsu-ji",
             "yagiri-no-watashi-matsudo"
           ],
           "value": { "walkingMin": 45 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "43314730306e",
-          "severity": "review",
-          "count": 18,
-          "ids": [
-            "amami-gunto",
-            "chokai",
-            "echigo-sanzan-tadami",
-            "hayachine",
-            "kurikoma",
-            "kurobe-gorge",
-            "kyushu-chuo-sanchi",
-            "mount-tsurugi-miyoshi",
-            "nichinan-kaigan-drive",
-            "nijigen-no-mori-awaji",
-            "ontakesan",
-            "oze-national-park",
-            "sado-yahiko-yoneyama",
-            "shimokita-hanto",
-            "shokanbetsu-teuri-yagishiri",
-            "sobo-katamuki",
-            "takachiho-gorge",
-            "yashima-takamatsu"
-          ],
-          "value": { "walkingMin": 385 },
           "disposition": {
             "category": "E",
             "action": "manual-review",
@@ -8183,6 +8193,63 @@
           }
         },
         {
+          "id": "43314730306e",
+          "severity": "review",
+          "count": 17,
+          "ids": [
+            "amami-gunto",
+            "chokai",
+            "echigo-sanzan-tadami",
+            "hayachine",
+            "kurikoma",
+            "kurobe-gorge",
+            "kyushu-chuo-sanchi",
+            "mount-tsurugi-miyoshi",
+            "nichinan-kaigan-drive",
+            "ontakesan",
+            "oze-national-park",
+            "sado-yahiko-yoneyama",
+            "shimokita-hanto",
+            "shokanbetsu-teuri-yagishiri",
+            "sobo-katamuki",
+            "takachiho-gorge",
+            "yashima-takamatsu"
+          ],
+          "value": { "walkingMin": 385 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
+          "id": "dd90a22e6ec0",
+          "severity": "review",
+          "count": 14,
+          "ids": [
+            "fuji-5-lake",
+            "kataonami-beach-wakanoura",
+            "lake-hamanako",
+            "maizuru-park",
+            "maruyama-park",
+            "meriken-park",
+            "mount-hakkoda-ropeway",
+            "odori-park",
+            "ohori-park",
+            "osaka-castle-park",
+            "rakuten-mobile-park-miyagi",
+            "scmaglev-and-railway-park",
+            "shikoku-karst-kochi",
+            "shimizu-park-noda"
+          ],
+          "value": { "walkingMin": 190 },
+          "disposition": {
+            "category": "B",
+            "action": "manual-review",
+            "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
+          }
+        },
+        {
           "id": "9360e7c9bb23",
           "severity": "review",
           "count": 13,
@@ -8232,32 +8299,6 @@
             "category": "E",
             "action": "manual-review",
             "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "dd90a22e6ec0",
-          "severity": "review",
-          "count": 13,
-          "ids": [
-            "fuji-5-lake",
-            "kataonami-beach-wakanoura",
-            "lake-hamanako",
-            "maizuru-park",
-            "maruyama-park",
-            "meriken-park",
-            "mount-hakkoda-ropeway",
-            "odori-park",
-            "ohori-park",
-            "osaka-castle-park",
-            "rakuten-mobile-park-miyagi",
-            "scmaglev-and-railway-park",
-            "shimizu-park-noda"
-          ],
-          "value": { "walkingMin": 190 },
-          "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "expand-major-city-catalog.ts outdoor-POI formula (indoor<70 -> 6500/4000/2500), metres; all 74 assisted."
           }
         },
         {

@@ -1,0 +1,255 @@
+{
+  "id": "shikoku-karst-kochi",
+  "officialWebsite": "https://okushimanto.jp/en/special/content1",
+  "officialWebsiteRequirement": "required",
+  "name": "Shikoku Karst",
+  "nameJa": "四国カルスト",
+  "aliases": ["Tengu Highlands", "Shikoku Karst Natural Park"],
+  "municipalityId": "Kochi:tsuno",
+  "transportZoneId": "mainland-shikoku",
+  "prefecture": "Kochi",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 33.4699,
+    "lng": 133.0151
+  },
+  "location": {
+    "address": "Tengu Highlands, Tsuno, Takaoka-gun, Kochi, Japan"
+  },
+  "categories": ["Nature", "Outdoors", "Mountain"],
+  "tags": ["Kochi", "Tsuno", "Ehime", "Nature", "Mountain", "Scenic"],
+  "description": "A high limestone plateau spanning Tsuno and Yusuhara in Kochi and Ehime, with ridge-top grasslands, exposed karst, grazing landscapes, mountain views, and linked highland walks.",
+  "highlights": [
+    "Ridge-top grasslands and limestone outcrops",
+    "Tengu Highlands and highland viewpoints",
+    "4.5-kilometre forest therapy road"
+  ],
+  "content": {
+    "en": {
+      "name": "Shikoku Karst",
+      "description": "A high limestone plateau spanning Tsuno and Yusuhara in Kochi and Ehime, with ridge-top grasslands, exposed karst, grazing landscapes, mountain views, and linked highland walks.",
+      "highlights": [
+        "Ridge-top grasslands and limestone outcrops",
+        "Tengu Highlands and highland viewpoints",
+        "4.5-kilometre forest therapy road"
+      ],
+      "notes": "The official Oku Shimanto guide describes the karst as spanning Tsuno and Yusuhara in Kochi and Ehime, extending about 25 kilometres, and recommends a scenic drive. The card represents the landscape corridor rather than a fabricated single viewpoint; weather and seasonal road closures matter.",
+      "reservation": "Ordinary landscape access does not require a reservation; guided therapy walks may require advance application according to official guidance.",
+      "parking": "Use marked highland parking only and check current road, weather, and seasonal closure notices.",
+      "openingHours": "Hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "四国カルスト",
+      "description": "高知県津野町から愛媛県久万高原町・梼原町方面へ広がる石灰岩台地で、稜線の草原、カルスト地形、放牧風景、山岳展望、森林散策を楽しめます。",
+      "highlights": [
+        "稜線の草原と石灰岩の露頭",
+        "天狗高原の展望",
+        "約4.5kmの森林セラピーロード"
+      ],
+      "notes": "奥四万十の公式案内が示す高知・愛媛にまたがる約25kmのカルスト景観と天狗高原を一つの景観回廊として扱います。季節・天候による道路規制をご確認ください。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "駐車場・アクセス条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Shikoku_Karst_2023-08-02_1706.jpg/1280px-Shikoku_Karst_2023-08-02_1706.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "Photos of Japan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shikoku_Karst_2023-08-02_1706.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["car", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Destination-only estimate for highland viewpoints, short walks, and a selected section of the 4.5-kilometre therapy road; excludes the intercity drive across the plateau."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Ordinary landscape access does not require a reservation; guided therapy walks may require advance application according to official guidance.",
+  "parking": "Use marked highland parking only and check current road, weather, and seasonal closure notices.",
+  "notes": "The official Oku Shimanto guide describes the karst as spanning Tsuno and Yusuhara in Kochi and Ehime, extending about 25 kilometres, and recommends a scenic drive. The card represents the landscape corridor rather than a fabricated single viewpoint; weather and seasonal road closures matter.",
+  "notesJa": "奥四万十の公式案内が示す高知・愛媛にまたがる約25kmのカルスト景観と天狗高原を一つの景観回廊として扱います。季節・天候による道路規制をご確認ください。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Shikoku interior destination depth coverage.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://okushimanto.jp/en/special/content1",
+        "title": "Oku Shimanto official tourism — Shikoku Karst",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://www.japan.travel/en/spot/816/",
+        "title": "JNTO — Shikoku Karst",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "tourism_board",
+          "url": "https://okushimanto.jp/en/special/content1",
+          "title": "Oku Shimanto official tourism — Shikoku Karst",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 190,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
