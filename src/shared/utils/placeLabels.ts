@@ -272,6 +272,7 @@ const japaneseLabels: Record<string, string> = {
   Karst: "カルスト",
   "Kenrokuen Adjacent": "兼六園隣接",
   "Kobe Skyline": "神戸のスカイライン",
+  Kobe: "神戸",
   "Momiji manju": "もみじ饅頭",
   "Nagoya Meshi": "名古屋めし",
   Nagoya: "名古屋",

@@ -18896,18 +18896,22 @@
     "businessHours": "Open access",
     "relationships": {
       "featuredDestinationIds": [
-        "kobe-maya-night-view",
-        "arima-onsen",
-        "nunobiki-herb-gardens",
         "meriken-park",
         "kobe-port-tower",
-        "nunobiki-falls",
         "kobe-harborland",
-        "kobe-animal-kingdom",
-        "nunobiki-ropeway",
-        "kobe-maritime-museum",
+        "nankinmachi-chinatown",
         "kitano-ijinkan",
-        "nankinmachi-chinatown"
+        "nunobiki-falls",
+        "nunobiki-herb-gardens",
+        "nunobiki-ropeway",
+        "arima-onsen",
+        "kobe-maya-night-view",
+        "kobe-animal-kingdom",
+        "kobe-maritime-museum",
+        "ikuta-shrine-kobe",
+        "sorakuen-garden",
+        "hakutsuru-sake-brewery-museum",
+        "kobe-suma-sea-world"
       ],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
@@ -89886,6 +89890,405 @@
     "relationships": {
       "nearbyDestinationIds": ["atsuta-shrine-nagoya"],
       "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "mt-rokko-kobe",
+    "name": "Mt. Rokko",
+    "nameJa": "六甲山",
+    "kind": "mountain",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:kobe",
+    "aliases": ["Mount Rokko", "Rokko-san"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Mountain", "Nature", "Viewpoint", "Sightseeing"],
+    "tags": ["Mountain", "Nature", "Viewpoint", "Sightseeing", "Kobe"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Mt_rokko01s2816.jpg/1280px-Mt_rokko01s2816.jpg",
+    "description": "The mountain range above Kobe with panoramic views over Osaka Bay, reached by the Rokko Cable and mountain buses, with the Rokko Garden Terrace observation complex and seasonal nature trails.",
+    "highlights": [
+      "Panoramic Osaka Bay views from the summit area",
+      "Rokko Garden Terrace and Rokko Shidare observatory",
+      "A mountain outing reached by cable car and mountain bus (no direct train)"
+    ],
+    "coordinates": {
+      "lat": 34.7625,
+      "lng": 135.257
+    },
+    "officialWebsite": "https://www.rokkosan.com/gt/?lang=en",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 290,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "hakutsuru-sake-brewery-museum",
+    "name": "Hakutsuru Sake Brewery Museum",
+    "nameJa": "白鶴酒造資料館",
+    "kind": "museum",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:kobe",
+    "aliases": ["Hakutsuru Sake Museum", "Hakutsuru Shiryo-kan"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Museum", "Culture", "Food", "History"],
+    "tags": ["Museum", "Culture", "Food", "History", "Kobe"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hakuturu-sake-museum.jpg/1280px-Hakuturu-sake-museum.jpg",
+    "description": "A free sake museum in the Nada brewing district, set in a restored Taisho-era brewery, with exhibits on the traditional sake-making process and tasting opportunities.",
+    "highlights": [
+      "Free admission in the historic Nada brewing district",
+      "Restored Taisho-era brewery with sake-making exhibits",
+      "A cultural anchor for the Nada sake area"
+    ],
+    "coordinates": {
+      "lat": 34.7039,
+      "lng": 135.2655
+    },
+    "officialWebsite": "https://www.hakutsuru.co.jp/community/shiryo/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    }
+  },
+  {
+    "id": "ikuta-shrine-kobe",
+    "name": "Ikuta Shrine",
+    "nameJa": "生田神社",
+    "kind": "shrine",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:kobe",
+    "aliases": ["Ikuta Jinja"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Shrine", "Culture", "History", "Sightseeing"],
+    "tags": ["Shrine", "Culture", "History", "Sightseeing", "Kobe"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Ikuta_Shrine_honden.jpg/1280px-Ikuta_Shrine_honden.jpg",
+    "description": "One of Japan's oldest shrines, in central Kobe near Sannomiya, historically linked to the name 'Kobe' itself and a short walk from the city's main transport hub.",
+    "highlights": [
+      "One of Japan's oldest shrines, a 10-minute walk from Sannomiya",
+      "Historically tied to the origin of the name 'Kobe'",
+      "A heritage counterpoint to the harbor district"
+    ],
+    "coordinates": {
+      "lat": 34.7006,
+      "lng": 135.1911
+    },
+    "officialWebsite": "https://ikutajinja.or.jp/access",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 35,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    }
+  },
+  {
+    "id": "sorakuen-garden",
+    "name": "Sorakuen Garden",
+    "nameJa": "相楽園",
+    "kind": "garden",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:kobe",
+    "aliases": ["Kobe Sorakuen Garden", "Sorakuen"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Garden", "Nature", "Culture", "History"],
+    "tags": ["Garden", "Nature", "Culture", "History", "Kobe"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sorakuen08st3200.jpg/1280px-Sorakuen08st3200.jpg",
+    "description": "A Japanese garden in central Kobe with a teahouse, pond, and the Hassam-an tea room, offering a quiet green retreat within walking distance of Sannomiya.",
+    "highlights": [
+      "A landscaped Japanese garden in central Kobe",
+      "Tea house and seasonal plantings",
+      "A short walk from Sannomiya"
+    ],
+    "coordinates": {
+      "lat": 34.6969,
+      "lng": 135.1874
+    },
+    "officialWebsite": "https://sorakuen.com/english/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 50,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kobe-city"
+    }
+  },
+  {
+    "id": "kobe-suma-sea-world",
+    "name": "Kobe Suma Sea World",
+    "nameJa": "神戸須磨シーワールド",
+    "kind": "aquarium",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:kobe",
+    "aliases": ["Suma Sea World", "Kobe Suma Seaworld"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Aquarium", "Family", "Nature", "Entertainment"],
+    "tags": ["Aquarium", "Family", "Nature", "Entertainment", "Kobe"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/%E7%A5%9E%E6%88%B8%E9%A0%88%E7%A3%A8%E3%82%B7%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89_%E3%82%B7%E3%83%A3%E3%83%81%E3%81%AE%E3%83%A2%E3%83%8B%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88.jpg/1280px-%E7%A5%9E%E6%88%B8%E9%A0%88%E7%A3%A8%E3%82%B7%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89_%E3%82%B7%E3%83%A3%E3%83%81%E3%81%AE%E3%83%A2%E3%83%8B%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88.jpg",
+    "description": "The current aquarium on Suma's coast (reopened June 2024 after Suma Aqualife Park closed in 2023), with dolphin and orca shows plus the adjacent Suma Beach.",
+    "highlights": [
+      "Dolphin and orca shows on the Suma coast",
+      "Adjacent Suma Beach and family outing",
+      "The current successor to Suma Aqualife Park (reopened June 2024)"
+    ],
+    "coordinates": {
+      "lat": 34.6417,
+      "lng": 135.1189
+    },
+    "officialWebsite": "https://www.kobesuma-seaworld.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 150,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "nearbyDestinationIds": [],
+      "parentDestinationId": "kobe-city"
     }
   }
 ]

@@ -1,0 +1,258 @@
+{
+  "id": "hakutsuru-sake-brewery-museum",
+  "officialWebsite": "https://www.hakutsuru.co.jp/community/shiryo/",
+  "officialWebsiteRequirement": "required",
+  "name": "Hakutsuru Sake Brewery Museum",
+  "nameJa": "白鶴酒造資料館",
+  "aliases": ["Hakutsuru Sake Museum", "Hakutsuru Shiryo-kan"],
+  "municipalityId": "Hyogo:kobe",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 34.7039,
+    "lng": 135.2655
+  },
+  "location": {
+    "address": "4-5-5 Sumiyoshi Minamimachi, Higashinada-ku, Kobe, Hyogo 658-0041",
+    "latitude": 34.7039,
+    "longitude": 135.2655
+  },
+  "categories": ["Museum", "Culture", "Food", "History"],
+  "tags": ["Museum", "Culture", "Food", "History", "Kobe"],
+  "description": "A free sake museum in the Nada brewing district, set in a restored Taisho-era brewery, with exhibits on the traditional sake-making process and tasting opportunities.",
+  "highlights": [
+    "Free admission in the historic Nada brewing district",
+    "Restored Taisho-era brewery with sake-making exhibits",
+    "A cultural anchor for the Nada sake area"
+  ],
+  "content": {
+    "en": {
+      "name": "Hakutsuru Sake Brewery Museum",
+      "description": "A free sake museum in the Nada brewing district, set in a restored Taisho-era brewery, with exhibits on the traditional sake-making process and tasting opportunities.",
+      "highlights": [
+        "Free admission in the historic Nada brewing district",
+        "Restored Taisho-era brewery with sake-making exhibits",
+        "A cultural anchor for the Nada sake area"
+      ],
+      "notes": "Free admission; open 9:30–16:30 (entry until 16:00). About 5 minutes on foot from Hanshin Sumiyoshi Station. Construction at the adjacent Hakutsuru headquarters may affect parking.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "白鶴酒造資料館",
+      "description": "灘の酒蔵・白鶴が大正時代の酒蔵を利用して開設した無料の資料館。伝統的な酒造りの工程を立体展示で紹介し、試飲も楽しめます。",
+      "highlights": [
+        "灘の酒蔵で無料見学",
+        "大正時代の酒蔵を活用した展示",
+        "灘エリアの文化スポット"
+      ],
+      "notes": "入館無料、開館9:30〜16:30（入館は16:00まで）。阪神住吉駅から徒歩約5分です。隣接する本社敷地内の工事で駐車場の一部が利用できない場合があります。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hakuturu-sake-museum.jpg/1280px-Hakuturu-sake-museum.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Kakidai, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hakuturu-sake-museum.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Museum visit band with tasting."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "Free admission; open 9:30–16:30 (entry until 16:00). About 5 minutes on foot from Hanshin Sumiyoshi Station. Construction at the adjacent Hakutsuru headquarters may affect parking.",
+  "notesJa": "入館無料、開館9:30〜16:30（入館は16:00まで）。阪神住吉駅から徒歩約5分です。隣接する本社敷地内の工事で駐車場の一部が利用できない場合があります。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Kobe and Hanshin destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+        "title": "Hakutsuru Sake Brewery Museum official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.hakutsuru.co.jp/",
+        "title": "Hakutsuru Sake Brewery official site",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.hakutsuru.co.jp/community/shiryo/",
+          "title": "Hakutsuru Sake Brewery Museum official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Kobe destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

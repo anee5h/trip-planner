@@ -1,0 +1,258 @@
+{
+  "id": "sorakuen-garden",
+  "officialWebsite": "https://sorakuen.com/english/",
+  "officialWebsiteRequirement": "required",
+  "name": "Sorakuen Garden",
+  "nameJa": "相楽園",
+  "aliases": ["Kobe Sorakuen Garden", "Sorakuen"],
+  "municipalityId": "Hyogo:kobe",
+  "prefecture": "Hyogo",
+  "region": "Kansai",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 34.6969,
+    "lng": 135.1874
+  },
+  "location": {
+    "address": "5-3-1 Nakayamatedori, Chuo-ku, Kobe, Hyogo 650-0004",
+    "latitude": 34.6969,
+    "longitude": 135.1874
+  },
+  "categories": ["Garden", "Nature", "Culture", "History"],
+  "tags": ["Garden", "Nature", "Culture", "History", "Kobe"],
+  "description": "A Japanese garden in central Kobe with a teahouse, pond, and the Hassam-an tea room, offering a quiet green retreat within walking distance of Sannomiya.",
+  "highlights": [
+    "A landscaped Japanese garden in central Kobe",
+    "Tea house and seasonal plantings",
+    "A short walk from Sannomiya"
+  ],
+  "content": {
+    "en": {
+      "name": "Sorakuen Garden",
+      "description": "A Japanese garden in central Kobe with a teahouse, pond, and the Hassam-an tea room, offering a quiet green retreat within walking distance of Sannomiya.",
+      "highlights": [
+        "A landscaped Japanese garden in central Kobe",
+        "Tea house and seasonal plantings",
+        "A short walk from Sannomiya"
+      ],
+      "notes": "Open 9:00–17:00 (entry until 16:30); closed Thursdays and year-end holidays. Admission is 300 yen. The Hassam-an teahouse and formal garden are the highlights.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "相楽園",
+      "description": "神戸市中心部にある日本庭園。茶室や池を配し、三宮から徒歩圏で静かな緑のひとときを過ごせます。",
+      "highlights": [
+        "神戸中心部の日本庭園",
+        "茶室と四季の植栽",
+        "三宮から徒歩圏"
+      ],
+      "notes": "開園9:00〜17:00（入園は16:30まで）。木曜と年末年始は休園。入園料300円。茶室「八三庵」と庭園が見どころです。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sorakuen08st3200.jpg/1280px-Sorakuen08st3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sorakuen08st3200.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Japanese garden visit band."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "Open 9:00–17:00 (entry until 16:30); closed Thursdays and year-end holidays. Admission is 300 yen. The Hassam-an teahouse and formal garden are the highlights.",
+  "notesJa": "開園9:00〜17:00（入園は16:30まで）。木曜と年末年始は休園。入園料300円。茶室「八三庵」と庭園が見どころです。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "kobe-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Kobe and Hanshin destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://sorakuen.com/english/",
+        "title": "Kobe Sorakuen Garden official English site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.feel-kobe.jp/facilities/0000000006/",
+        "title": "Kobe Tourism Bureau Sorakuen listing",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://sorakuen.com/english/",
+          "title": "Kobe Sorakuen Garden official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 1h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Kobe destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 50,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 1h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
