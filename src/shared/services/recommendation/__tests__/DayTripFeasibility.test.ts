@@ -379,13 +379,13 @@ describe("day-trip travel evidence", () => {
       );
     });
 
-    // Current Shikoku catalogue keeps the bounded set at 37. The point of
-    // this test is the evidence state, not the exact inventory; keep it
-    // deterministic.
+    // Miyoshi/Oboke and other current Shikoku records keep the bounded set at
+    // 39. The point of this test is the evidence state, not the exact inventory;
+    // keep it deterministic.
     // Entries without a public ground mode (e.g. omishima-bridge, reached
     // only by car/ferry from Takamatsu) legitimately stay "unknown" — the
     // invariant applies to the estimable subset with rail/bus options.
-    expect(nearbySameZone).toHaveLength(37);
+    expect(nearbySameZone).toHaveLength(39);
     const publicGroundEntries = nearbySameZone.filter(
       (result) =>
         result.transportOptions?.train !== undefined ||
