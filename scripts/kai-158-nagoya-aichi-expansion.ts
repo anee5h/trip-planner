@@ -11,9 +11,14 @@
  * are appended once, conflicting identities fail fast, and a second run
  * produces zero diff.
  *
- * Transport honesty: records carry legacy static minutes as display
- * fallback only (transportMetadata.method "legacy-fallback", low
- * confidence); origin-aware transport remains authoritative.
+ * Transport honesty: new unestimated records deliberately carry NO static
+ * transportOptions minutes. Their presence would affect origin-aware
+ * fallback eligibility (the OriginAwareTransportService guard treats a
+ * static transportOptions[mode] as route evidence, letting a broad
+ * prefecture corridor masquerade as an attraction-level route). Records
+ * use transportOptions: {} + localAccessUnestimated: true +
+ * transportMetadata.method "unestimated"; recommendation availability
+ * comes only from canonical origin-aware routes.
  *
  * Usage: tsx scripts/kai-158-nagoya-aichi-expansion.ts
  */
