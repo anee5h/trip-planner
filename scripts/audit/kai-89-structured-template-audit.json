@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1053,
+  "totalRecords": 1057,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 193,
-    "affectedRecordCount": 1050,
+    "affectedRecordCount": 1054,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -468,7 +468,10 @@
       "kumamoto-castle",
       "kumamoto-city",
       "kumamoto-prefectural-art-museum",
+      "kumano-hayatama-taisha-shingu",
+      "kumano-hongu-taisha-oyunohara",
       "kumano-kodo-koya-wakayama",
+      "kumano-kodo-takijiri-takahara",
       "kurama-dera-kyoto",
       "kurashiki-city",
       "kurashiki-museum-of-folkcraft",
@@ -1051,6 +1054,7 @@
       "yufuin-onsen-ryokan-district",
       "yugyo-ji",
       "yuigahama-beach",
+      "yunomine-onsen",
       "yuzuki-castle-ruins-matsuyama",
       "zao",
       "zao-fox-village-miyagi",
@@ -1429,7 +1433,7 @@
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 490,
+      "affectedRecordCount": 494,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1646,7 +1650,10 @@
         "koya-town",
         "kubota-castle",
         "kumamoto-city",
+        "kumano-hayatama-taisha-shingu",
+        "kumano-hongu-taisha-oyunohara",
         "kumano-kodo-koya-wakayama",
+        "kumano-kodo-takijiri-takahara",
         "kurama-dera-kyoto",
         "kurashiki-city",
         "kurikoma",
@@ -1920,6 +1927,7 @@
         "yoshino-kumano",
         "yoyogi-park",
         "yufu-city",
+        "yunomine-onsen",
         "zao"
       ],
       "clusters": [
@@ -2064,7 +2072,7 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 74,
+          "count": 78,
           "ids": [
             "ainokura-gassho-village",
             "akebonoyama-agricultural-park-kashiwa",
@@ -2100,6 +2108,9 @@
             "kiyomizu-dera",
             "kobe-suma-sea-world",
             "koka-ninja-house",
+            "kumano-hayatama-taisha-shingu",
+            "kumano-hongu-taisha-oyunohara",
+            "kumano-kodo-takijiri-takahara",
             "kurama-dera-kyoto",
             "kurokabe-square-nagahama",
             "legoland-japan-nagoya",
@@ -2139,7 +2150,8 @@
             "toyama-glass-art-museum",
             "uzumasa-kyoto-village",
             "yagiri-no-watashi-matsudo",
-            "yanagawa-canal-cruise"
+            "yanagawa-canal-cruise",
+            "yunomine-onsen"
           ],
           "value": {
             "couple": 5,
@@ -3743,7 +3755,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 27,
-      "affectedRecordCount": 1014,
+      "affectedRecordCount": 1017,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -4187,7 +4199,9 @@
         "kumamoto-castle",
         "kumamoto-city",
         "kumamoto-prefectural-art-museum",
+        "kumano-hongu-taisha-oyunohara",
         "kumano-kodo-koya-wakayama",
+        "kumano-kodo-takijiri-takahara",
         "kurama-dera-kyoto",
         "kurashiki-city",
         "kurashiki-museum-of-folkcraft",
@@ -4751,6 +4765,7 @@
         "yufu-city",
         "yugyo-ji",
         "yuigahama-beach",
+        "yunomine-onsen",
         "yuzuki-castle-ruins-matsuyama",
         "zao",
         "zao-fox-village-miyagi",
@@ -5443,7 +5458,7 @@
         {
           "id": "807f7cbc4b49",
           "severity": "review",
-          "count": 58,
+          "count": 59,
           "ids": [
             "aoba-castle-museum",
             "chiba-city-folk-museum",
@@ -5502,7 +5517,8 @@
             "tokugawa-garden",
             "tokyo-national-museum",
             "toto-museum-kitakyushu",
-            "toyota-commemorative-museum-of-industry-and-technology"
+            "toyota-commemorative-museum-of-industry-and-technology",
+            "yunomine-onsen"
           ],
           "value": { "max": 3, "min": 1.5 },
           "disposition": {
@@ -5941,6 +5957,29 @@
           }
         },
         {
+          "id": "b745c8933575",
+          "severity": "review",
+          "count": 10,
+          "ids": [
+            "ainokura-gassho-village",
+            "akebonoyama-agricultural-park-kashiwa",
+            "joypolis",
+            "kumano-kodo-takijiri-takahara",
+            "kurokabe-square-nagahama",
+            "miyama-kayabuki-no-sato",
+            "nintendo-museum-uji",
+            "nokonoshima-island-park",
+            "tojinbo-cliffs-fukui",
+            "yanagawa-canal-cruise"
+          ],
+          "value": { "max": 3, "min": 2 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+          }
+        },
+        {
           "id": "480983978476",
           "severity": "review",
           "count": 9,
@@ -5960,28 +5999,6 @@
             "category": "C",
             "action": "model-estimate",
             "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
-          }
-        },
-        {
-          "id": "b745c8933575",
-          "severity": "review",
-          "count": 9,
-          "ids": [
-            "ainokura-gassho-village",
-            "akebonoyama-agricultural-park-kashiwa",
-            "joypolis",
-            "kurokabe-square-nagahama",
-            "miyama-kayabuki-no-sato",
-            "nintendo-museum-uji",
-            "nokonoshima-island-park",
-            "tojinbo-cliffs-fukui",
-            "yanagawa-canal-cruise"
-          ],
-          "value": { "max": 3, "min": 2 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
           }
         },
         {
@@ -6043,6 +6060,24 @@
           }
         },
         {
+          "id": "9d14d0c7aff9",
+          "severity": "review",
+          "count": 5,
+          "ids": [
+            "ibaraki-ceramic-art-museum",
+            "izanagi-jingu-awaji",
+            "kangien-academy",
+            "kumano-hongu-taisha-oyunohara",
+            "onjuku-beach"
+          ],
+          "value": { "max": 1.5, "min": 1 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "Three distinct shrine/theater/academy visits (Izanagi Shrine, Uchiko-za, and Kangien Academy) share a reviewed {1,1.5}h pure-destination-time band; the band excludes intercity travel and remains subject to current opening or renovation status."
+          }
+        },
+        {
           "id": "768f833d8371",
           "severity": "review",
           "count": 4,
@@ -6057,23 +6092,6 @@
             "category": "C",
             "action": "manual-review",
             "reason": "Historic towns/onsen full-day."
-          }
-        },
-        {
-          "id": "9d14d0c7aff9",
-          "severity": "review",
-          "count": 4,
-          "ids": [
-            "ibaraki-ceramic-art-museum",
-            "izanagi-jingu-awaji",
-            "kangien-academy",
-            "onjuku-beach"
-          ],
-          "value": { "max": 1.5, "min": 1 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "Three distinct shrine/theater/academy visits (Izanagi Shrine, Uchiko-za, and Kangien Academy) share a reviewed {1,1.5}h pure-destination-time band; the band excludes intercity travel and remains subject to current opening or renovation status."
           }
         },
         {
@@ -6128,7 +6146,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 1017,
+      "affectedRecordCount": 1021,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6574,7 +6592,10 @@
         "kumamoto-castle",
         "kumamoto-city",
         "kumamoto-prefectural-art-museum",
+        "kumano-hayatama-taisha-shingu",
+        "kumano-hongu-taisha-oyunohara",
         "kumano-kodo-koya-wakayama",
+        "kumano-kodo-takijiri-takahara",
         "kurama-dera-kyoto",
         "kurashiki-city",
         "kurikoma",
@@ -7139,6 +7160,7 @@
         "yufuin-onsen-ryokan-district",
         "yugyo-ji",
         "yuigahama-beach",
+        "yunomine-onsen",
         "yuzuki-castle-ruins-matsuyama",
         "zao",
         "zao-fox-village-miyagi",
@@ -7531,7 +7553,7 @@
         {
           "id": "3d368f449db1",
           "severity": "review",
-          "count": 74,
+          "count": 75,
           "ids": [
             "ainokura-gassho-village",
             "aomori-museum-of-art",
@@ -7605,6 +7627,7 @@
             "tsutenkaku",
             "umeda-sky-building",
             "universal-studios-japan",
+            "yunomine-onsen",
             "zao-fox-village-miyagi",
             "zuihoden"
           ],
@@ -7971,7 +7994,7 @@
         {
           "id": "0e42a5221c6a",
           "severity": "review",
-          "count": 39,
+          "count": 40,
           "ids": [
             "amanoiwato-shrine",
             "aoba-castle-museum",
@@ -7986,6 +8009,7 @@
             "kobe-maritime-museum",
             "komyozenji-temple-dazaifu",
             "kumamoto-prefectural-art-museum",
+            "kumano-hongu-taisha-oyunohara",
             "kyoto-international-manga-museum",
             "kyoto-national-museum",
             "kyoto-railway-museum",
@@ -8023,7 +8047,7 @@
         {
           "id": "154a4586dc2f",
           "severity": "review",
-          "count": 34,
+          "count": 35,
           "ids": [
             "akita-museum-of-art",
             "art-tower-mito",
@@ -8043,6 +8067,7 @@
             "kasama-inari-shrine",
             "kawagoe-castle-saitama",
             "kouri-island-okinawa",
+            "kumano-hayatama-taisha-shingu",
             "lafcadio-hearn-memorial-museum",
             "marugame-uchiwa-museum",
             "naruto-german-house",
@@ -8148,13 +8173,14 @@
         {
           "id": "1e4109ee1e47",
           "severity": "review",
-          "count": 22,
+          "count": 23,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "danjo-garan-koyasan",
             "enryaku-ji-mount-hiei",
             "hokki-ji-pagoda",
             "kashima-jingu",
+            "kumano-kodo-takijiri-takahara",
             "makino-botanical-garden",
             "nakadake-crater-aso",
             "nakatsu-gorge-kochi",

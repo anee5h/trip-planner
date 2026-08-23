@@ -93173,5 +93173,347 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
     "relationships": {}
+  },
+  {
+    "id": "kumano-hongu-taisha-oyunohara",
+    "name": "Kumano Hongu Taisha & Oyunohara",
+    "nameJa": "熊野本宮大社・大斎原",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Wakayama:tanabe",
+    "aliases": ["Kumano Hongu Taisha", "Oyunohara", "熊野本宮大社", "大斎原"],
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "categories": ["Shrine", "History", "Spiritual"],
+    "tags": [
+      "History",
+      "Heritage",
+      "Traditional",
+      "Spiritual",
+      "Wakayama Travel"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kumano-hong%C3%BB-taisha_Shrine_-_Torii_at_%C3%94yunohara.jpg/1280px-Kumano-hong%C3%BB-taisha_Shrine_-_Torii_at_%C3%94yunohara.jpg",
+    "description": "The head shrine of all Kumano shrines sits on a wooded hill above the Otorii — one of the largest torii gates in the world — marking Oyunohara, the sandbank where the shrine stood before floodwaters. Shrine grounds and the giant torii form one pilgrimage visit.",
+    "highlights": [
+      "Head shrine of the Kumano Sanzan",
+      "Oyunohara's giant Otorii gate",
+      "Harest spring and autumn festival traditions"
+    ],
+    "coordinates": {
+      "lat": 33.8403512,
+      "lng": 135.7736333
+    },
+    "officialWebsite": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, bathing, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 55,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "kumano-hayatama-taisha-shingu",
+    "name": "Kumano Hayatama Taisha",
+    "nameJa": "熊野速玉大社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Wakayama:shingu",
+    "aliases": ["Kumano Hayatama Grand Shrine", "熊野速玉大社", "速玉大社"],
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "categories": ["Shrine", "History", "Spiritual"],
+    "tags": [
+      "History",
+      "Heritage",
+      "Traditional",
+      "Spiritual",
+      "Wakayama Travel"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shingu_Kumano_Hayatama-taisha_Courtyard_2.jpg/1280px-Shingu_Kumano_Hayatama-taisha_Courtyard_2.jpg",
+    "description": "One of the three Kumano Sanzan grand shrines, standing at the mouth of the Kumano River with vivid vermillion buildings, a thousand-year-old sacred nagi tree, and the Kumano Shimpokan treasure museum. The shrine fills Shingu as the catalogue's missing Sanzan anchor.",
+    "highlights": [
+      "Kumano Sanzan grand-shrine worship",
+      "Thousand-year sacred nagi tree",
+      "Kumano Shimpokan treasure museum (500 yen)"
+    ],
+    "coordinates": {
+      "lat": 33.7322978,
+      "lng": 135.9836823
+    },
+    "officialWebsite": "https://www.shinguu.jp/en/spots/detail/A0001",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, bathing, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 35,
+    "recommendedVisitHours": {
+      "min": 0.75,
+      "max": 1
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {}
+  },
+  {
+    "id": "yunomine-onsen",
+    "name": "Yunomine Onsen",
+    "nameJa": "湯の峰温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Wakayama:tanabe",
+    "aliases": ["Yunomine Hot Spring", "Tsuboyu", "湯の峰温泉", "つぼ湯"],
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "categories": ["Onsen", "Culture", "Relaxation"],
+    "tags": [
+      "Onsen",
+      "Relaxation",
+      "Heritage",
+      "Traditional",
+      "Wakayama Travel"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Kumano_Kodo_pilgrimage_route_Yunomine_Onsen_World_heritage_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E6%B9%AF%E3%81%AE%E5%B3%B0%E6%B8%A9%E6%B3%89116.JPG/1280px-Kumano_Kodo_pilgrimage_route_Yunomine_Onsen_World_heritage_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E6%B9%AF%E3%81%AE%E5%B3%B0%E6%B8%A9%E6%B3%89116.JPG",
+    "description": "An 1,800-year-old pilgrimage hot-spring village in a narrow valley, where worshippers purified themselves before Kumano Hongu Taisha. Tsuboyu — a UNESCO-registered wooden bathhouse — and the Yuzutsu cooking basin sit beside the steaming creek; trailheads for the Dainichi-goe and Akagi-goe walks start here.",
+    "highlights": [
+      "Tsuboyu, a UNESCO-registered bathhouse",
+      "Onsen tamago at the Yuzutsu basin",
+      "Dainichi-goe and Akagi-goe trailheads"
+    ],
+    "coordinates": {
+      "lat": 33.8288351,
+      "lng": 135.7575842
+    },
+    "officialWebsite": "https://www.tb-kumano.jp/en/places/yunomine/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, bathing, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "kumano-kodo-takijiri-takahara",
+    "name": "Kumano Kodo: Takijiri-oji to Takahara",
+    "nameJa": "熊野古道 中辺路 滝尻王子〜高原",
+    "kind": "nature",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Wakayama:tanabe",
+    "aliases": [
+      "Takijiri-oji to Takahara",
+      "Nakahechi Takijiri Takahara",
+      "滝尻王子",
+      "高原"
+    ],
+    "prefecture": "Wakayama",
+    "region": "Kansai",
+    "categories": ["Nature", "Hiking", "History"],
+    "tags": [
+      "Hiking",
+      "Nature",
+      "Scenic",
+      "Heritage",
+      "Active Hiking",
+      "Wakayama Travel"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Takijiri-oji_shrine_2.jpg",
+    "description": "The classic first-day Nakahechi segment: from the Takijiri-oji trailhead beside the Kumano Kodo Kan pilgrimage center, a steep forested climb past boulders and caves rises to the ridge-top village of Takahara, with panoramic Hatenashi-range views and the old camphor-shaded Takahara Kumano-jinja.",
+    "highlights": [
+      "Official Nakahechi entry segment",
+      "Tainai-kuguri cave and Chichi-iwa rock",
+      "Panoramic Takahara village views"
+    ],
+    "coordinates": {
+      "lat": 33.7755327,
+      "lng": 135.5036869
+    },
+    "officialWebsite": "https://www.tb-kumano.jp/en/kumano-kodo/nakahechi/takijiri-oji-to-tsugizakura-oji/takijiri-oji-to-takahara/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, bathing, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 145,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

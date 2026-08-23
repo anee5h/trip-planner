@@ -1,0 +1,268 @@
+{
+  "id": "kumano-hongu-taisha-oyunohara",
+  "officialWebsite": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+  "officialWebsiteRequirement": "required",
+  "name": "Kumano Hongu Taisha & Oyunohara",
+  "nameJa": "熊野本宮大社・大斎原",
+  "aliases": ["Kumano Hongu Taisha", "Oyunohara", "熊野本宮大社", "大斎原"],
+  "municipalityId": "Wakayama:tanabe",
+  "prefecture": "Wakayama",
+  "region": "Kansai",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 33.8403512,
+    "lng": 135.7736333
+  },
+  "location": {
+    "address": "Hongu-cho Kumanou, Tanabe, Wakayama 646-1355, Japan",
+    "latitude": 33.8403512,
+    "longitude": 135.7736333
+  },
+  "categories": ["Shrine", "History", "Spiritual"],
+  "tags": [
+    "History",
+    "Heritage",
+    "Traditional",
+    "Spiritual",
+    "Wakayama Travel"
+  ],
+  "description": "The head shrine of all Kumano shrines sits on a wooded hill above the Otorii — one of the largest torii gates in the world — marking Oyunohara, the sandbank where the shrine stood before floodwaters. Shrine grounds and the giant torii form one pilgrimage visit.",
+  "highlights": [
+    "Head shrine of the Kumano Sanzan",
+    "Oyunohara's giant Otorii gate",
+    "Harest spring and autumn festival traditions"
+  ],
+  "content": {
+    "en": {
+      "name": "Kumano Hongu Taisha & Oyunohara",
+      "description": "The head shrine of all Kumano shrines sits on a wooded hill above the Otorii — one of the largest torii gates in the world — marking Oyunohara, the sandbank where the shrine stood before floodwaters. Shrine grounds and the giant torii form one pilgrimage visit.",
+      "highlights": [
+        "Head shrine of the Kumano Sanzan",
+        "Oyunohara's giant Otorii gate",
+        "Harest spring and autumn festival traditions"
+      ],
+      "notes": "The Tanabe City Kumano Tourism Bureau lists shrine hours of 8:00–17:00 and its Homotsuden treasure museum at 9:00–16:00 with a 300 yen adult admission. Buses connect Hongu with Kii-Tanabe, Shirahama, Shingu, and Koyasan.",
+      "reservation": "Ordinary worship needs no reservation; group ceremonies follow shrine guidance.",
+      "parking": "Use the shrine and Oyunohara visitor parking; check current operator signage for lot locations.",
+      "openingHours": "Precincts 8:00–17:00; Homotsuden treasure museum 9:00–16:00 (adults 300 yen)."
+    },
+    "ja": {
+      "name": "熊野本宮大社・大斎原",
+      "description": "熊野三山の一本社。世界最大級の大鳥居が立つ旧社地・大斎原を見下ろす丘の上に鎮座し、現在の社地と大鳥居を一つの参拝体験として扱います。",
+      "highlights": [
+        "熊野三山の総本宮",
+        "大斎原の大鳥居",
+        "春季・秋季大祭の伝統"
+      ],
+      "notes": "田辺市熊野ツーリズムビューローは本殿参拝を8:00〜17:00、宝物殿を9:00〜16:00（大人300円）と案内しています。紀伊田辺・白浜・新宮・高野山からバスで結ばれています。",
+      "reservation": "通常の参拝に予約は不要です。団体祈願は神社の案内に従ってください。",
+      "parking": "境内および大斎原周辺の来訪者用駐車場をご利用ください。最新の案内表示をご確認ください。",
+      "openingHours": "境内は8:00〜17:00、宝物殿は9:00〜16:00（大人300円）。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Kumano-hong%C3%BB-taisha_Shrine_-_Torii_at_%C3%94yunohara.jpg/1280px-Kumano-hong%C3%BB-taisha_Shrine_-_Torii_at_%C3%94yunohara.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Yanajin33, CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kumano-hongû-taisha_Shrine_-_Torii_at_Ôyunohara.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 1.5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative band for shrine worship plus the walk between the hillside precincts and the Otorii at Oyunohara; excludes bus approach and museum browsing beyond the standard circuit."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, bathing, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Ordinary worship needs no reservation; group ceremonies follow shrine guidance.",
+  "parking": "Use the shrine and Oyunohara visitor parking; check current operator signage for lot locations.",
+  "notes": "The Tanabe City Kumano Tourism Bureau lists shrine hours of 8:00–17:00 and its Homotsuden treasure museum at 9:00–16:00 with a 300 yen adult admission. Buses connect Hongu with Kii-Tanabe, Shirahama, Shingu, and Koyasan.",
+  "notesJa": "田辺市熊野ツーリズムビューローは本殿参拝を8:00〜17:00、宝物殿を9:00〜16:00（大人300円）と案内しています。紀伊田辺・白浜・新宮・高野山からバスで結ばれています。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "KAI-147 recovery: added source-verified Kumano core propositions after the issue had been closed by unrelated performance work.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+        "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (hours and Homotsuden)",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://www.tb-kumano.jp/en/",
+        "title": "Tanabe City Kumano Tourism Bureau — Hongu area identity and bus network",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/797748245",
+        "title": "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+          "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (hours and Homotsuden)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+          "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (hours and Homotsuden)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+          "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (hours and Homotsuden)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+          "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (hours and Homotsuden)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/797748245",
+          "title": "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/797748245",
+          "title": "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.tb-kumano.jp/en/",
+          "title": "Tanabe City Kumano Tourism Bureau — Hongu area identity and bus network",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "tourism_board",
+          "url": "https://www.tb-kumano.jp/en/",
+          "title": "Tanabe City Kumano Tourism Bureau — Hongu area identity and bus network",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 1.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-147 Kumano core destination from current first-party evidence after the issue had been closed by unrelated performance work.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 55,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 1.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
