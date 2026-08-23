@@ -11,14 +11,26 @@ const KAI148_IDS = [
 
 describe("KAI-148 Shikoku interior records", () => {
   it("keeps the wave focused on Iya, Oboke–Koboke, Shimanto, and aligned supports", () => {
-    const records = KAI148_IDS.map((id) => destinations.find((destination) => destination.id === id));
+    const records = KAI148_IDS.map((id) =>
+      destinations.find((destination) => destination.id === id),
+    );
     expect(records.every(Boolean)).toBe(true);
-    expect(records.map((record) => record?.region)).toEqual(["Shikoku", "Shikoku", "Shikoku", "Shikoku", "Shikoku"]);
-    expect(destinations.some((destination) => [
-      "kotohira-gu-kagawa",
-      "uchiko-za-ehime",
-      "besshi-copper-mine-memorial-museum",
-    ].includes(destination.id))).toBe(false);
+    expect(records.map((record) => record?.region)).toEqual([
+      "Shikoku",
+      "Shikoku",
+      "Shikoku",
+      "Shikoku",
+      "Shikoku",
+    ]);
+    expect(
+      destinations.some((destination) =>
+        [
+          "kotohira-gu-kagawa",
+          "uchiko-za-ehime",
+          "besshi-copper-mine-memorial-museum",
+        ].includes(destination.id),
+      ),
+    ).toBe(false);
   });
 
   it("does not fabricate origin-aware durations for remote interior destinations", () => {
