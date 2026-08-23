@@ -187,6 +187,22 @@
           "accessedAt": "2026-08-23"
         }
       ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        }
+      ],
       "localAccessModes": [
         {
           "type": "official",

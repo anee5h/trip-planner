@@ -193,6 +193,22 @@
           "accessedAt": "2026-08-23"
         }
       ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
       "localAccessModes": [
         {
           "type": "official",

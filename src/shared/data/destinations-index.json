@@ -88849,6 +88849,22 @@
             "accessedAt": "2026-08-23"
           }
         ],
+        "coordinates": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
         "localAccessModes": [
           {
             "type": "tourism_board",
@@ -209925,6 +209941,22 @@
             "accessedAt": "2026-08-23"
           }
         ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
         "localAccessModes": [
           {
             "type": "official",
@@ -210202,6 +210234,22 @@
             "accessedAt": "2026-08-23"
           }
         ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
         "localAccessModes": [
           {
             "type": "official",
@@ -210468,6 +210516,22 @@
             "accessedAt": "2026-08-23"
           }
         ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
         "localAccessModes": [
           {
             "type": "official",
@@ -210727,6 +210791,22 @@
           }
         ],
         "status": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
           {
             "type": "official",
             "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",

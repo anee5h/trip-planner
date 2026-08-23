@@ -200,6 +200,22 @@
           "accessedAt": "2026-08-23"
         }
       ],
+      "coordinates": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        }
+      ],
       "localAccessModes": [
         {
           "type": "official",

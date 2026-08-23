@@ -206,6 +206,22 @@
           "accessedAt": "2026-08-23"
         }
       ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+          "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "government",
+          "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+          "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+          "accessedAt": "2026-08-23"
+        }
+      ],
       "localAccessModes": [
         {
           "type": "tourism_board",

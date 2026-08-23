@@ -135,6 +135,9 @@ const makeRecord = (spec: RecordSpec): DestinationWithLocation => {
     spec.sources.find((candidate) =>
       /access|bus|tram|railway|transport|route/i.test(candidate.title),
     ) ?? primarySource;
+  const coordinateSource =
+    spec.sources.find((candidate) => candidate.type === "manual") ??
+    primarySource;
 
   return {
     id: spec.id,
@@ -225,6 +228,8 @@ const makeRecord = (spec: RecordSpec): DestinationWithLocation => {
         nameJa: [primarySource],
         municipalityId: [primarySource],
         status: [primarySource],
+        coordinates: [coordinateSource],
+        location: [coordinateSource],
         localAccessModes: [accessSource],
         transportOptions: [accessSource],
       },
