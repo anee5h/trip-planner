@@ -407,10 +407,10 @@ const records: DestinationWithLocation[] = [
       source("official", nijigenPrice, "Nijigen no Mori official prices and business information — free park admission, paid attractions, advance and same-day tickets"),
       source("official", nijigenAccess, "Nijigen no Mori official access — address, Awajishima Park location, car/highway-bus access, and official map coordinates"),
     ],
-    heroImage: "https://nijigennomori-s3-loadbalancer.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2025/01/7f751da5777f64dc36cb72ff26dc04bf-321x225.jpg",
-    imageSourceUrl: nijigenHome,
-    imageLicense: "Official website image; all rights reserved",
-    imageAttribution: "Nijigen no Mori official website",
+    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Awaji_land_park_Hyogopref_forest_zone.JPG/1280px-Awaji_land_park_Hyogopref_forest_zone.JPG",
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Awaji_land_park_Hyogopref_forest_zone.JPG",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution: "Mti",
     duration: { min: 4, max: 8, confidence: "medium", basis: "Manual destination-only estimate for selecting and experiencing multiple attraction areas in the park; excludes the Awaji Island approach and does not imply every franchise area must be visited." },
     reservation: "Admission to the prefectural park is free, but each attraction requires a paid ticket. The official site supports advance tickets with time slots and same-day tickets at attraction reception; availability and attraction schedules vary by date, so check the official ticket page before visiting.",
     parking: "The official access and pricing pages list free parking lots near different attraction areas, including Lots E and F; the nearest lot varies by selected attraction. Highway bus and car access are supported; do not infer a rail station on Awaji Island.",
@@ -426,6 +426,9 @@ for (const record of records) {
     byId.set(record.id, {
       ...existing,
       transportZoneId: record.transportZoneId,
+      ...(record.id === "nijigen-no-mori-awaji"
+        ? { heroImage: record.heroImage, imageMetadata: record.imageMetadata }
+        : {}),
       editorial: existing.editorial
         ? { ...existing.editorial, changeSummary: CHANGE_SUMMARY }
         : existing.editorial,

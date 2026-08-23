@@ -207999,12 +207999,12 @@
         "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
       }
     },
-    "heroImage": "https://nijigennomori-s3-loadbalancer.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2025/01/7f751da5777f64dc36cb72ff26dc04bf-321x225.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Awaji_land_park_Hyogopref_forest_zone.JPG/1280px-Awaji_land_park_Hyogopref_forest_zone.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
-      "license": "Official website image; all rights reserved",
-      "attribution": "Nijigen no Mori official website",
-      "sourceUrl": "https://nijigennomori.com/en/"
+      "license": "CC BY-SA 3.0",
+      "attribution": "Mti",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Awaji_land_park_Hyogopref_forest_zone.JPG"
     },
     "transportOptions": {},
     "localAccessModes": [
