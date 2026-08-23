@@ -12,9 +12,14 @@
  * produces zero diff.
  *
  * Transport honesty: Mt Rokko access REQUIRES the Rokko Cable + mountain
- * bus — no direct train reaches the summit. Records carry legacy static
- * minutes as display fallback only (low confidence); origin-aware transport
- * remains authoritative.
+ * bus — no direct train reaches the summit; its cable/bus journey is
+ * described in notes, never invented as a static bus duration. New
+ * unestimated records deliberately carry NO static transportOptions
+ * minutes: their presence would affect origin-aware fallback eligibility
+ * (the guard treats a static transportOptions[mode] as route evidence).
+ * Records use transportOptions: {} + localAccessUnestimated: true +
+ * transportMetadata.method "unestimated"; recommendation availability
+ * comes only from canonical origin-aware routes.
  *
  * Usage: tsx scripts/kai-156-kobe-expansion.ts
  */
