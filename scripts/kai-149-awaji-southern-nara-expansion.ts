@@ -206,6 +206,10 @@ const sumotoGuide = "https://www.japan.travel/en/spot/1047/";
 const naraDorogawa = "https://www.visitnara.jp/destinations/area/dorogawa/";
 const naraMitarai = "https://www.visitnara.jp/destinations/destination/mitarai-valley/";
 const naraAccess = "https://www.japan.travel/en/spot/995/";
+const nijigenHome = "https://nijigennomori.com/en/";
+const nijigenPrice = "https://nijigennomori.com/en/price/";
+const nijigenAccess = "https://nijigennomori.com/en/access/";
+const nijigenAugust = "https://nijigennomori.com/en/2026/08/21/nijigennomori-185/";
 
 const records: DestinationWithLocation[] = [
   makeRecord({
@@ -372,6 +376,44 @@ const records: DestinationWithLocation[] = [
     duration: { min: 3, max: 5, confidence: "medium", basis: "Manual destination-only estimate for a meaningful valley hike; excludes Nara/Shimoichiguchi bus travel and is not a promise of a full trail completion time." },
     reservation: "No general timed admission is represented; check current trail, weather, and local safety guidance before hiking.",
     parking: "Use designated local parking only. Public transport uses Kintetsu to Shimoichiguchi and the local bus corridor; do not infer a train-to-trailhead journey.",
+  }),
+  makeRecord({
+    id: "nijigen-no-mori-awaji",
+    name: "Nijigen no Mori",
+    nameJa: "ニジゲンノモリ",
+    aliases: ["Nijigen no Mori Theme Park", "Awaji Island anime park"],
+    officialWebsite: nijigenHome,
+    officialWebsiteRequirement: "required",
+    kind: "park",
+    importance: "major",
+    role: "standalone",
+    municipalityId: "Hyogo:awaji",
+    transportZoneId: "awaji-island",
+    prefecture: "Hyogo",
+    coordinates: { lat: 34.5804495, lng: 135.0131136 },
+    location: { address: "2425-2 Kusumoto, Awaji, Hyogo 656-2301, Japan" },
+    categories: ["Nature", "Culture", "Family"],
+    tags: ["Family", "Anime", "Adventure", "Nature", "Hyogo Travel"],
+    description: "A park-level anime, manga, and game experience inside Hyogo Prefectural Awajishima Park. Nijigen no Mori is one selectable destination; Dragon Quest Island, Godzilla Interception Operation, NARUTO & BORUTO Shinobi-Zato, Crayon Shin-chan Adventure Park, Attack on Titan, and other franchise areas are structured highlights rather than duplicate destination cards.",
+    descriptionJa: "兵庫県立淡路島公園内でアニメ・漫画・ゲームを自然の中で体験できるパークです。ニジゲンノモリを一つの選択可能な目的地として扱い、ドラゴンクエスト アイランド、ゴジラ迎撃作戦、NARUTO＆BORUTO忍里、クレヨンしんちゃんアドベンチャーパーク、進撃の巨人などは重複カードではなく構造化した見どころとして扱います。",
+    highlights: ["Park-wide anime, manga, and game experiences", "Multiple current attraction areas in one Awajishima Park setting", "Seasonal and current 2026 programs, including Attack on Titan"],
+    highlightsJa: ["アニメ・漫画・ゲームを横断するパーク体験", "淡路島公園内の複数アトラクションエリア", "進撃の巨人など2026年の現行プログラムと季節イベント"],
+    notes: "The official August 2026 business notice confirms current operating hours and attraction schedules. The park is open within the prefectural park, while each attraction requires its own paid ticket; attraction areas are not separate catalogue cards.",
+    notesJa: "公式の2026年8月営業案内で現在の営業時間とアトラクション日程を確認できます。県立公園内への入園は無料ですが、各アトラクションには有料チケットが必要です。アトラクションエリアは別カードに分割しません。",
+    localAccessModes: ["bus", "car"],
+    sources: [
+      source("official", nijigenHome, "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs"),
+      source("official", nijigenAugust, "Nijigen no Mori official August 2026 business notice — current operating hours and schedules"),
+      source("official", nijigenPrice, "Nijigen no Mori official prices and business information — free park admission, paid attractions, advance and same-day tickets"),
+      source("official", nijigenAccess, "Nijigen no Mori official access — address, Awajishima Park location, car/highway-bus access, and official map coordinates"),
+    ],
+    heroImage: "https://nijigennomori-s3-loadbalancer.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2025/01/7f751da5777f64dc36cb72ff26dc04bf-321x225.jpg",
+    imageSourceUrl: nijigenHome,
+    imageLicense: "Official website image; all rights reserved",
+    imageAttribution: "Nijigen no Mori official website",
+    duration: { min: 4, max: 8, confidence: "medium", basis: "Manual destination-only estimate for selecting and experiencing multiple attraction areas in the park; excludes the Awaji Island approach and does not imply every franchise area must be visited." },
+    reservation: "Admission to the prefectural park is free, but each attraction requires a paid ticket. The official site supports advance tickets with time slots and same-day tickets at attraction reception; availability and attraction schedules vary by date, so check the official ticket page before visiting.",
+    parking: "The official access and pricing pages list free parking lots near different attraction areas, including Lots E and F; the nearest lot varies by selected attraction. Highway bus and car access are supported; do not infer a rail station on Awaji Island.",
   }),
 ];
 

@@ -91721,5 +91721,84 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "relationships": {}
+  },
+  {
+    "id": "nijigen-no-mori-awaji",
+    "name": "Nijigen no Mori",
+    "nameJa": "ニジゲンノモリ",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:awaji",
+    "aliases": ["Nijigen no Mori Theme Park", "Awaji Island anime park"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Nature", "Culture", "Family"],
+    "tags": ["Family", "Anime", "Adventure", "Nature", "Hyogo Travel"],
+    "heroImage": "https://nijigennomori-s3-loadbalancer.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2025/01/7f751da5777f64dc36cb72ff26dc04bf-321x225.jpg",
+    "description": "A park-level anime, manga, and game experience inside Hyogo Prefectural Awajishima Park. Nijigen no Mori is one selectable destination; Dragon Quest Island, Godzilla Interception Operation, NARUTO & BORUTO Shinobi-Zato, Crayon Shin-chan Adventure Park, Attack on Titan, and other franchise areas are structured highlights rather than duplicate destination cards.",
+    "highlights": [
+      "Park-wide anime, manga, and game experiences",
+      "Multiple current attraction areas in one Awajishima Park setting",
+      "Seasonal and current 2026 programs, including Attack on Titan"
+    ],
+    "coordinates": {
+      "lat": 34.5804495,
+      "lng": 135.0131136
+    },
+    "officialWebsite": "https://nijigennomori.com/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 385,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "awaji-island",
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

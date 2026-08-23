@@ -8002,6 +8002,16 @@
     "relationships": {}
   },
   {
+    "id": "nijigen-no-mori-awaji",
+    "name": "Nijigen no Mori",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "nijinomatsubara-pine-grove",
     "name": "Nijinomatsubara Pine Grove",
     "prefecture": "Saga",

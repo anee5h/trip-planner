@@ -821,7 +821,8 @@
       "awaji-farm-park-england-hill",
       "sumoto-castle-awaji",
       "dorogawa-onsen-tenkawa",
-      "mitarai-valley-tenkawa"
+      "mitarai-valley-tenkawa",
+      "nijigen-no-mori-awaji"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1849,7 +1850,8 @@
       "awaji-farm-park-england-hill",
       "sumoto-castle-awaji",
       "dorogawa-onsen-tenkawa",
-      "mitarai-valley-tenkawa"
+      "mitarai-valley-tenkawa",
+      "nijigen-no-mori-awaji"
     ]
   },
   "modelClusterIds": [
@@ -1899,109 +1901,37 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-23T04:12",
-    "changeCount": 15,
+    "at": "2026-08-23T05:07",
+    "changeCount": 3,
     "byModel": [
       [
         "walking-model-v1",
-        5
+        1
       ],
       [
         "score-rubric-v2",
-        5
+        1
       ],
       [
         "duration-model-v1",
-        5
+        1
       ]
     ],
     "sample": [
       {
-        "id": "izanagi-jingu-awaji",
+        "id": "nijigen-no-mori-awaji",
         "model": "walking-model-v1",
         "action": "fill",
-        "reason": "walk-share estimate: 60% of 1.5h visit"
+        "reason": "walk-share estimate: 80% of 8h visit"
       },
       {
-        "id": "awaji-farm-park-england-hill",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 5h visit"
-      },
-      {
-        "id": "sumoto-castle-awaji",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2.5h visit"
-      },
-      {
-        "id": "dorogawa-onsen-tenkawa",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 50% of 4h visit"
-      },
-      {
-        "id": "mitarai-valley-tenkawa",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 5h visit"
-      },
-      {
-        "id": "izanagi-jingu-awaji",
+        "id": "nijigen-no-mori-awaji",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.7"
       },
       {
-        "id": "awaji-farm-park-england-hill",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "sumoto-castle-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "dorogawa-onsen-tenkawa",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "mitarai-valley-tenkawa",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "izanagi-jingu-awaji",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "awaji-farm-park-england-hill",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "sumoto-castle-awaji",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "dorogawa-onsen-tenkawa",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
-      },
-      {
-        "id": "mitarai-valley-tenkawa",
+        "id": "nijigen-no-mori-awaji",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"

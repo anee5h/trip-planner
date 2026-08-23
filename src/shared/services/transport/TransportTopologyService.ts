@@ -55,9 +55,10 @@ const ISLAND_BOUNDS: Record<
   tsushima: { latRange: [34.0, 34.7], lngRange: [129.1, 129.5] },
   naoshima: { latRange: [34.42, 34.49], lngRange: [133.93, 134.02] },
   teshima: { latRange: [34.45, 34.51], lngRange: [134.05, 134.12] },
-  // Awaji Island spans roughly 34.1–34.6N and 134.6–135.1E. This explicit
-  // island box prevents its coordinates from falling into the overlapping
-  // Tomogashima fallback and models bridge/highway-bus connectivity separately.
+  // Awaji Island spans roughly 34.1–34.6N and 134.6–135.1E. The main box
+  // deliberately stops short of the strait-side mainland overlap; the
+  // northern Awajishima Park pocket below covers the official Nijigen access
+  // coordinate separately.
   "awaji-island": { latRange: [34.08, 34.65], lngRange: [134.55, 134.96] },
   tomogashima: { latRange: [34.2, 34.4], lngRange: [134.9, 135.1] },
   // KAI-87: lng floor 132.312 keeps the mainland ferry port (Miyajimaguchi,
@@ -250,10 +251,18 @@ function pointInBox(
   );
 }
 
+const AWAJI_NORTH_PARK_BOX = {
+  latRange: [34.56, 34.6] as [number, number],
+  lngRange: [135.0, 135.02] as [number, number],
+};
+
 function resolveFromIslandBoxes(coordinates: {
   lat: number;
   lng: number;
 }): TransportZoneId | null {
+  if (pointInBox(coordinates, AWAJI_NORTH_PARK_BOX)) {
+    return "awaji-island";
+  }
   for (const [zoneId, box] of Object.entries(ISLAND_BOUNDS)) {
     if (pointInBox(coordinates, box)) {
       return zoneId as TransportZoneId;

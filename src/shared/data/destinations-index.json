@@ -207927,5 +207927,288 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "transportZoneId": "mainland-honshu"
+  },
+  {
+    "id": "nijigen-no-mori-awaji",
+    "officialWebsite": "https://nijigennomori.com/en/",
+    "officialWebsiteRequirement": "required",
+    "name": "Nijigen no Mori",
+    "nameJa": "ニジゲンノモリ",
+    "aliases": [
+      "Nijigen no Mori Theme Park",
+      "Awaji Island anime park"
+    ],
+    "municipalityId": "Hyogo:awaji",
+    "transportZoneId": "awaji-island",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "kind": "park",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "coordinates": {
+      "lat": 34.5804495,
+      "lng": 135.0131136
+    },
+    "location": {
+      "address": "2425-2 Kusumoto, Awaji, Hyogo 656-2301, Japan"
+    },
+    "categories": [
+      "Nature",
+      "Culture",
+      "Family"
+    ],
+    "tags": [
+      "Family",
+      "Anime",
+      "Adventure",
+      "Nature",
+      "Hyogo Travel"
+    ],
+    "description": "A park-level anime, manga, and game experience inside Hyogo Prefectural Awajishima Park. Nijigen no Mori is one selectable destination; Dragon Quest Island, Godzilla Interception Operation, NARUTO & BORUTO Shinobi-Zato, Crayon Shin-chan Adventure Park, Attack on Titan, and other franchise areas are structured highlights rather than duplicate destination cards.",
+    "highlights": [
+      "Park-wide anime, manga, and game experiences",
+      "Multiple current attraction areas in one Awajishima Park setting",
+      "Seasonal and current 2026 programs, including Attack on Titan"
+    ],
+    "content": {
+      "en": {
+        "name": "Nijigen no Mori",
+        "description": "A park-level anime, manga, and game experience inside Hyogo Prefectural Awajishima Park. Nijigen no Mori is one selectable destination; Dragon Quest Island, Godzilla Interception Operation, NARUTO & BORUTO Shinobi-Zato, Crayon Shin-chan Adventure Park, Attack on Titan, and other franchise areas are structured highlights rather than duplicate destination cards.",
+        "highlights": [
+          "Park-wide anime, manga, and game experiences",
+          "Multiple current attraction areas in one Awajishima Park setting",
+          "Seasonal and current 2026 programs, including Attack on Titan"
+        ],
+        "notes": "The official August 2026 business notice confirms current operating hours and attraction schedules. The park is open within the prefectural park, while each attraction requires its own paid ticket; attraction areas are not separate catalogue cards.",
+        "reservation": "Admission to the prefectural park is free, but each attraction requires a paid ticket. The official site supports advance tickets with time slots and same-day tickets at attraction reception; availability and attraction schedules vary by date, so check the official ticket page before visiting.",
+        "parking": "The official access and pricing pages list free parking lots near different attraction areas, including Lots E and F; the nearest lot varies by selected attraction. Highway bus and car access are supported; do not infer a rail station on Awaji Island.",
+        "openingHours": "Hours and closures vary by date; check the official visitor guidance before visiting."
+      },
+      "ja": {
+        "name": "ニジゲンノモリ",
+        "description": "兵庫県立淡路島公園内でアニメ・漫画・ゲームを自然の中で体験できるパークです。ニジゲンノモリを一つの選択可能な目的地として扱い、ドラゴンクエスト アイランド、ゴジラ迎撃作戦、NARUTO＆BORUTO忍里、クレヨンしんちゃんアドベンチャーパーク、進撃の巨人などは重複カードではなく構造化した見どころとして扱います。",
+        "highlights": [
+          "アニメ・漫画・ゲームを横断するパーク体験",
+          "淡路島公園内の複数アトラクションエリア",
+          "進撃の巨人など2026年の現行プログラムと季節イベント"
+        ],
+        "notes": "公式の2026年8月営業案内で現在の営業時間とアトラクション日程を確認できます。県立公園内への入園は無料ですが、各アトラクションには有料チケットが必要です。アトラクションエリアは別カードに分割しません。",
+        "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "parking": "駐車場・アクセス条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+        "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+      }
+    },
+    "heroImage": "https://nijigennomori-s3-loadbalancer.s3.ap-northeast-1.amazonaws.com/wp-content/uploads/2025/01/7f751da5777f64dc36cb72ff26dc04bf-321x225.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "Official website image; all rights reserved",
+      "attribution": "Nijigen no Mori official website",
+      "sourceUrl": "https://nijigennomori.com/en/"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Manual destination-only estimate for selecting and experiencing multiple attraction areas in the park; excludes the Awaji Island approach and does not imply every franchise area must be visited."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+    },
+    "reservation": "Admission to the prefectural park is free, but each attraction requires a paid ticket. The official site supports advance tickets with time slots and same-day tickets at attraction reception; availability and attraction schedules vary by date, so check the official ticket page before visiting.",
+    "parking": "The official access and pricing pages list free parking lots near different attraction areas, including Lots E and F; the nearest lot varies by selected attraction. Highway bus and car access are supported; do not infer a rail station on Awaji Island.",
+    "notes": "The official August 2026 business notice confirms current operating hours and attraction schedules. The park is open within the prefectural park, while each attraction requires its own paid ticket; attraction areas are not separate catalogue cards.",
+    "notesJa": "公式の2026年8月営業案内で現在の営業時間とアトラクション日程を確認できます。県立公園内への入園は無料ですが、各アトラクションには有料チケットが必要です。アトラクションエリアは別カードに分割しません。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-23",
+      "reviewedAt": "2026-08-23",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added current, source-verified Awaji Island and southern Nara destination depth coverage.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://nijigennomori.com/en/",
+          "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://nijigennomori.com/en/2026/08/21/nijigennomori-185/",
+          "title": "Nijigen no Mori official August 2026 business notice — current operating hours and schedules",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://nijigennomori.com/en/price/",
+          "title": "Nijigen no Mori official prices and business information — free park admission, paid attractions, advance and same-day tickets",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://nijigennomori.com/en/access/",
+          "title": "Nijigen no Mori official access — address, Awajishima Park location, car/highway-bus access, and official map coordinates",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/",
+            "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/",
+            "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/",
+            "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/",
+            "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/2026/08/21/nijigennomori-185/",
+            "title": "Nijigen no Mori official August 2026 business notice — current operating hours and schedules",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/",
+            "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/2026/08/21/nijigennomori-185/",
+            "title": "Nijigen no Mori official August 2026 business notice — current operating hours and schedules",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://nijigennomori.com/en/",
+            "title": "Nijigen no Mori official home — park identity, current attraction list, and 2026 programs",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-23",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-23",
+    "walkingMin": 385,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 8h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
   }
 ]
