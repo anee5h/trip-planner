@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1035,
+  "totalRecords": 1036,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 192,
-    "affectedRecordCount": 1032,
+    "affectedRecordCount": 1033,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -639,6 +639,7 @@
       "nihonbashi",
       "nihonmatsu-castle",
       "niigata-city",
+      "nijigen-no-mori-awaji",
       "nijinomatsubara-pine-grove",
       "nijo-castle-kyoto",
       "nijo-market",
@@ -1412,7 +1413,7 @@
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 472,
+      "affectedRecordCount": 473,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1699,6 +1700,7 @@
         "nichinan-kaigan",
         "nichinan-kaigan-drive",
         "nihonbashi",
+        "nijigen-no-mori-awaji",
         "nikko-city",
         "nintendo-museum-uji",
         "nippara-cave",
@@ -2029,7 +2031,7 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 55,
+          "count": 56,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
@@ -2067,6 +2069,7 @@
             "mt-rokko-kobe",
             "nakayama-hokekyoji-ichikawa",
             "national-museum-japanese-history-sakura",
+            "nijigen-no-mori-awaji",
             "nintendo-museum-uji",
             "nokonoshima-island-park",
             "noritake-garden",
@@ -3690,7 +3693,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 26,
-      "affectedRecordCount": 997,
+      "affectedRecordCount": 998,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -4302,6 +4305,7 @@
         "nihon-minka-en",
         "nihonbashi",
         "nihonmatsu-castle",
+        "nijigen-no-mori-awaji",
         "nijinomatsubara-pine-grove",
         "nijo-castle-kyoto",
         "nijo-market",
@@ -5571,7 +5575,7 @@
         {
           "id": "afa8461550d9",
           "severity": "review",
-          "count": 47,
+          "count": 48,
           "ids": [
             "akan-mashu",
             "amami-gunto",
@@ -5600,6 +5604,7 @@
             "myoko-togakushi",
             "nago-pineapple-park",
             "nichinan-kaigan-drive",
+            "nijigen-no-mori-awaji",
             "nikko-national-park",
             "oze-national-park",
             "rishiri-rebun-sarobetsu",
@@ -6028,7 +6033,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 999,
+      "affectedRecordCount": 1000,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6639,6 +6644,7 @@
         "nihonbashi",
         "nihonmatsu-castle",
         "niigata-city",
+        "nijigen-no-mori-awaji",
         "nijinomatsubara-pine-grove",
         "nijo-castle-kyoto",
         "nijo-market",
@@ -8084,6 +8090,37 @@
           }
         },
         {
+          "id": "43314730306e",
+          "severity": "review",
+          "count": 18,
+          "ids": [
+            "amami-gunto",
+            "chokai",
+            "echigo-sanzan-tadami",
+            "hayachine",
+            "kurikoma",
+            "kurobe-gorge",
+            "kyushu-chuo-sanchi",
+            "mount-tsurugi-miyoshi",
+            "nichinan-kaigan-drive",
+            "nijigen-no-mori-awaji",
+            "ontakesan",
+            "oze-national-park",
+            "sado-yahiko-yoneyama",
+            "shimokita-hanto",
+            "shokanbetsu-teuri-yagishiri",
+            "sobo-katamuki",
+            "takachiho-gorge",
+            "yashima-takamatsu"
+          ],
+          "value": { "walkingMin": 385 },
+          "disposition": {
+            "category": "E",
+            "action": "manual-review",
+            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
+          }
+        },
+        {
           "id": "89873aec239d",
           "severity": "review",
           "count": 18,
@@ -8139,36 +8176,6 @@
             "yakushima-national-park"
           ],
           "value": { "walkingMin": 5 },
-          "disposition": {
-            "category": "E",
-            "action": "manual-review",
-            "reason": "unclassified by KAI-89 audit agents; requires editorial review"
-          }
-        },
-        {
-          "id": "43314730306e",
-          "severity": "review",
-          "count": 17,
-          "ids": [
-            "amami-gunto",
-            "chokai",
-            "echigo-sanzan-tadami",
-            "hayachine",
-            "kurikoma",
-            "kurobe-gorge",
-            "kyushu-chuo-sanchi",
-            "mount-tsurugi-miyoshi",
-            "nichinan-kaigan-drive",
-            "ontakesan",
-            "oze-national-park",
-            "sado-yahiko-yoneyama",
-            "shimokita-hanto",
-            "shokanbetsu-teuri-yagishiri",
-            "sobo-katamuki",
-            "takachiho-gorge",
-            "yashima-takamatsu"
-          ],
-          "value": { "walkingMin": 385 },
           "disposition": {
             "category": "E",
             "action": "manual-review",
