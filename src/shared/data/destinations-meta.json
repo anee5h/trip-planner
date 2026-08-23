@@ -2268,6 +2268,16 @@
     "relationships": {}
   },
   {
+    "id": "ghibli-park-nagakute",
+    "name": "Ghibli Park",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "theme_park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "gifu-castle-gifu",
     "name": "Gifu Castle (Mt. Kinka)",
     "prefecture": "Gifu",
@@ -2929,6 +2939,18 @@
     "region": "Chubu",
     "role": "poi",
     "kind": "attraction",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
+    "id": "higashiyama-zoo-and-botanical-gardens",
+    "name": "Higashiyama Zoo and Botanical Gardens",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "zoo",
     "status": "verified",
     "relationships": {
       "parentDestinationId": "nagoya-city"
@@ -5967,6 +5989,18 @@
     }
   },
   {
+    "id": "legoland-japan-nagoya",
+    "name": "LEGOLAND Japan",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "theme_park",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
+    }
+  },
+  {
     "id": "machida-graphic-arts-museum",
     "name": "Machida City Museum of Graphic Arts",
     "prefecture": "Tokyo",
@@ -7255,16 +7289,16 @@
       "featuredDestinationIds": [
         "nagoya-castle-aichi",
         "atsuta-shrine-nagoya",
-        "mirai-tower-nagoya",
+        "osu-shopping-district",
         "nagoya-city-science-museum",
         "tokugawa-art-museum",
-        "higashiyama-sky-tower-nagoya",
-        "osu-shopping-district",
-        "nagoya-port-tower",
         "scmaglev-and-railway-park",
         "nagoya-city-art-museum",
         "toyota-commemorative-museum-of-industry-and-technology",
-        "honmaru-palace"
+        "legoland-japan-nagoya",
+        "higashiyama-zoo-and-botanical-gardens",
+        "noritake-garden",
+        "shirotori-garden"
       ],
       "nearbyDestinationIds": [
         "shirakawa-village",
@@ -7954,6 +7988,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "aizuwakamatsu-city"
+    }
+  },
+  {
+    "id": "noritake-garden",
+    "name": "Noritake Garden",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "garden",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "nagoya-city"
     }
   },
   {
@@ -10116,6 +10162,19 @@
     "status": "verified",
     "relationships": {
       "gatewayHubId": "abashiri-city"
+    }
+  },
+  {
+    "id": "shirotori-garden",
+    "name": "Shirotori Garden",
+    "prefecture": "Aichi",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "garden",
+    "status": "verified",
+    "relationships": {
+      "nearbyDestinationIds": ["atsuta-shrine-nagoya"],
+      "parentDestinationId": "nagoya-city"
     }
   },
   {

@@ -31,8 +31,8 @@ describe("PlaceCatalog", () => {
     const summary = await loadCatalogue("summary");
     const full = await loadCatalogue("full");
 
-    expect(summary).toHaveLength(1007);
-    expect(full).toHaveLength(1007);
+    expect(summary).toHaveLength(1012);
+    expect(full).toHaveLength(1012);
     expect(summary[0].placeType).toBeTruthy();
     expect(full[0].content.en.name).toBeTruthy();
   });
@@ -45,14 +45,14 @@ describe("PlaceCatalog", () => {
 
   it("creates canonical records for the complete catalog (full index)", () => {
     const places = getFullPlaces();
-    expect(places).toHaveLength(1007);
+    expect(places).toHaveLength(1012);
     expect(places.every((place) => place.placeType)).toBe(true);
     expect(places.every((place) => Array.isArray(place.tags))).toBe(true);
   });
 
-  it("summary catalogue is complete for list surfaces (1007 records)", () => {
+  it("summary catalogue is complete for list surfaces (1012 records)", () => {
     const summary = getLoadedLitePlaces();
-    expect(summary).toHaveLength(1007);
+    expect(summary).toHaveLength(1012);
     expect(summary.every((place) => place.id)).toBe(true);
     expect(summary.every((place) => place.name)).toBe(true);
     expect(summary.every((place) => place.prefecture)).toBe(true);
@@ -73,7 +73,7 @@ describe("PlaceCatalog", () => {
     );
     expect(
       places.filter((place) => place.placeType === "destination"),
-    ).toHaveLength(844);
+    ).toHaveLength(849);
     expect(
       places
         .filter(
@@ -132,8 +132,8 @@ describe("PlaceCatalog", () => {
     const enPlaces = getAvailablePlaces("en");
     const jaPlaces = getAvailablePlaces("ja");
 
-    expect(enPlaces).toHaveLength(1007);
-    expect(jaPlaces).toHaveLength(1007);
+    expect(enPlaces).toHaveLength(1012);
+    expect(jaPlaces).toHaveLength(1012);
 
     const enIds = enPlaces.map((place) => place.id).sort();
     const jaIds = jaPlaces.map((place) => place.id).sort();
