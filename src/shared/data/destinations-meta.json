@@ -647,6 +647,16 @@
     }
   },
   {
+    "id": "awa-shrine-tateyama",
+    "name": "Awa Shrine",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "awaji-farm-park-england-hill",
     "name": "Awaji Farm Park England Hill",
     "prefecture": "Hyogo",
@@ -3335,6 +3345,26 @@
     }
   },
   {
+    "id": "hitachi-kamine-park",
+    "name": "Hitachi Kamine Park",
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "hitachinokuni-soshagu-shrine",
+    "name": "Hitachinokuni Soshagu Shrine",
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "hitoyoshi-castle",
     "name": "Hitoyoshi Castle",
     "prefecture": "Kumamoto",
@@ -3482,6 +3512,16 @@
     "role": "standalone",
     "kind": "nature",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "ibaraki-ceramic-art-museum",
+    "name": "Ibaraki Ceramic Art Museum",
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
     "relationships": {}
   },
   {
@@ -4414,6 +4454,16 @@
     }
   },
   {
+    "id": "kamogawa-sea-world",
+    "name": "Kamogawa Sea World",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "aquarium",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "kanayama-castle",
     "name": "Kanayama Castle (Nitta Kanayama)",
     "prefecture": "Gunma",
@@ -4580,6 +4630,16 @@
         "nagano-city"
       ]
     }
+  },
+  {
+    "id": "kasama-inari-shrine",
+    "name": "Kasama Inari Shrine",
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "kasamatsu-park-view",
@@ -8844,6 +8904,16 @@
     }
   },
   {
+    "id": "onjuku-beach",
+    "name": "Onjuku Beach",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "beach",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "ono-castle-dazaifu",
     "name": "Ono Castle (Onojo)",
     "prefecture": "Fukuoka",
@@ -10466,6 +10536,16 @@
       "nearbyDestinationIds": ["atsuta-shrine-nagoya"],
       "parentDestinationId": "nagoya-city"
     }
+  },
+  {
+    "id": "shiroyama-park-tateyama",
+    "name": "Shiroyama Park (Tateyama)",
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "shitennoji",

@@ -1,0 +1,268 @@
+{
+  "id": "kamogawa-sea-world",
+  "officialWebsite": "https://www.kamogawa-seaworld.jp/english/",
+  "officialWebsiteRequirement": "required",
+  "name": "Kamogawa Sea World",
+  "nameJa": "鴨川シーワールド",
+  "aliases": ["Kamogawa Seaworld", "Kamosea"],
+  "municipalityId": "Chiba:kamogawa",
+  "prefecture": "Chiba",
+  "region": "Kanto",
+  "kind": "aquarium",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 35.1152464,
+    "lng": 140.1190315
+  },
+  "location": {
+    "address": "Kamogawa, Chiba 296-0041, Japan",
+    "latitude": 35.1152464,
+    "longitude": 140.1190315
+  },
+  "categories": ["Aquarium", "Animals", "Family", "Entertainment"],
+  "tags": ["Aquarium", "Orca", "Animals", "Kamogawa"],
+  "description": "A full-scale marine-life park on Kamogawa's Pacific shore, with orca, beluga, dolphin and sea-lion programs plus themed aquatic habitats; it is the region's distinct family marine-life anchor.",
+  "highlights": [
+    "Orca, beluga, dolphin, and sea-lion programs with daily schedules",
+    "Multiple themed marine habitats across a full-scale aquarium park",
+    "A distinct family outing on the Pacific coast"
+  ],
+  "content": {
+    "en": {
+      "name": "Kamogawa Sea World",
+      "description": "A full-scale marine-life park on Kamogawa's Pacific shore, with orca, beluga, dolphin and sea-lion programs plus themed aquatic habitats; it is the region's distinct family marine-life anchor.",
+      "highlights": [
+        "Orca, beluga, dolphin, and sea-lion programs with daily schedules",
+        "Multiple themed marine habitats across a full-scale aquarium park",
+        "A distinct family outing on the Pacific coast"
+      ],
+      "notes": "The official operator publishes a date-specific schedule and current access guidance. Its free shuttle from JR Awa-Kamogawa Station takes about 10 minutes, but this local connection is not an origin-duration claim.",
+      "reservation": "Admission products and program arrangements vary by date; check the official calendar and ticket guidance before visiting.",
+      "parking": "Check the official operator access page for current car and parking guidance.",
+      "openingHours": "Hours and programs vary by date; the official published daily calendar is authoritative."
+    },
+    "ja": {
+      "name": "鴨川シーワールド",
+      "description": "鴨川の太平洋岸にある大規模な海洋レジャー施設。シャチ、ベルーガ、イルカ、アシカのプログラムと多彩な展示エリアを備え、房総南東部の家族向け海洋体験の核です。",
+      "highlights": [
+        "日別スケジュールで案内されるシャチ・ベルーガ・イルカ・アシカのプログラム",
+        "多様な海洋生物を楽しめるテーマ別展示エリア",
+        "太平洋岸で過ごす房総の家族向け一日レジャー"
+      ],
+      "notes": "運営者が日別のスケジュールと最新アクセスを公開しています。JR安房鴨川駅から無料送迎バスで約10分ですが、この最終アクセス情報を出発地からの所要時間として扱いません。",
+      "reservation": "入場券・プログラムの利用条件は日程により異なります。訪問前に公式カレンダーとチケット案内を確認してください。",
+      "parking": "車・駐車場の最新案内は運営者の公式アクセスページで確認してください。",
+      "openingHours": "営業時間とプログラムは日付により異なります。公式の日別カレンダーを確認してください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/87/%E9%B4%A8%E5%B7%9D%E3%82%B7%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E5%85%A5%E5%8F%A3_-_panoramio.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "attribution": "ger531, CC BY 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E9%B4%A8%E5%B7%9D%E3%82%B7%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E5%85%A5%E5%8F%A3_-_panoramio.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative full aquarium-park program band; arrival travel and optional hotel stay are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Admission products and program arrangements vary by date; check the official calendar and ticket guidance before visiting.",
+  "parking": "Check the official operator access page for current car and parking guidance.",
+  "notes": "The official operator publishes a date-specific schedule and current access guidance. Its free shuttle from JR Awa-Kamogawa Station takes about 10 minutes, but this local connection is not an origin-duration claim.",
+  "notesJa": "運営者が日別のスケジュールと最新アクセスを公開しています。JR安房鴨川駅から無料送迎バスで約10分ですが、この最終アクセス情報を出発地からの所要時間として扱いません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kamogawa-seaworld.jp/english/",
+        "title": "Kamogawa Sea World official current hours and programs",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.kamogawa-seaworld.jp/english/access/route/",
+        "title": "Kamogawa Sea World official access and shuttle guidance",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://maruchiba.jp/spot/detail_10373.html",
+        "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Kamogawa Sea World map pin",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/1050545416",
+        "title": "OpenStreetMap: Kamogawa Sea World coordinate (auxiliary)",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.kamogawa-seaworld.jp/english/",
+          "title": "Kamogawa Sea World official current hours and programs",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.kamogawa-seaworld.jp/english/",
+          "title": "Kamogawa Sea World official current hours and programs",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.kamogawa-seaworld.jp/english/",
+          "title": "Kamogawa Sea World official current hours and programs",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.kamogawa-seaworld.jp/english/",
+          "title": "Kamogawa Sea World official current hours and programs",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10373.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Kamogawa Sea World map pin",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10373.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Kamogawa Sea World map pin",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.kamogawa-seaworld.jp/english/access/route/",
+          "title": "Kamogawa Sea World official access and shuttle guidance",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.kamogawa-seaworld.jp/english/access/route/",
+          "title": "Kamogawa Sea World official access and shuttle guidance",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 150,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

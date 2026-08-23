@@ -92546,5 +92546,632 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "relationships": {}
+  },
+  {
+    "id": "shiroyama-park-tateyama",
+    "name": "Shiroyama Park (Tateyama)",
+    "nameJa": "城山公園（館山）",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:tateyama",
+    "aliases": ["Tateyama Castle Park", "Tateyama Castle", "館山城"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Park", "Castle", "History", "Viewpoint"],
+    "tags": ["Park", "Castle", "History", "Tateyama"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Tateyama_Castle%2C_tenshu.JPG/1280px-Tateyama_Castle%2C_tenshu.JPG",
+    "description": "A hilltop park in Tateyama combining the Hakkenden Museum in Tateyama Castle, the city museum, seasonal flower trails and broad views over Tateyama Bay; it is one coherent historic-city outing rather than separate component cards.",
+    "highlights": [
+      "Tateyama Castle's Hakkenden Museum within Shiroyama Park",
+      "Seasonal flowers along the hill trails, including spring cherry blossom",
+      "Panoramic Tateyama Bay and occasional Mt. Fuji views"
+    ],
+    "coordinates": {
+      "lat": 34.980753,
+      "lng": 139.8565053
+    },
+    "officialWebsite": "https://tateyamacity.com/en/attractions/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "awa-shrine-tateyama",
+    "name": "Awa Shrine",
+    "nameJa": "安房神社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:tateyama",
+    "aliases": ["Awa Jinja", "安房神社（館山）"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Shrine", "History", "Culture", "Nature"],
+    "tags": ["Shrine", "History", "Tateyama", "Cherry Blossoms"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/%E5%AE%89%E6%88%BF%E7%A5%9E%E7%A4%BE%EF%BC%88%E5%8D%83%E8%91%89%E7%9C%8C%E9%A4%A8%E5%B1%B1%E5%B8%82%EF%BC%8920250223-IMG_3414.jpg",
+    "description": "A long-standing shrine in southern Tateyama, approached through mature trees and a large white torii; it is a distinct spiritual and seasonal stop from the nearby city-and-castle outing.",
+    "highlights": [
+      "A large white torii and wooded approach to the main sanctuary",
+      "A distinct southern-Tateyama shrine experience",
+      "Cherry blossoms along the approach in early April"
+    ],
+    "coordinates": {
+      "lat": 34.9227089,
+      "lng": 139.8370131
+    },
+    "officialWebsite": "http://www.awajinjya.org/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 35,
+    "recommendedVisitHours": {
+      "min": 0.7,
+      "max": 1
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {}
+  },
+  {
+    "id": "kamogawa-sea-world",
+    "name": "Kamogawa Sea World",
+    "nameJa": "鴨川シーワールド",
+    "kind": "aquarium",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Chiba:kamogawa",
+    "aliases": ["Kamogawa Seaworld", "Kamosea"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Aquarium", "Animals", "Family", "Entertainment"],
+    "tags": ["Aquarium", "Orca", "Animals", "Kamogawa"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/87/%E9%B4%A8%E5%B7%9D%E3%82%B7%E3%83%BC%E3%83%AF%E3%83%BC%E3%83%AB%E3%83%89%E5%85%A5%E5%8F%A3_-_panoramio.jpg",
+    "description": "A full-scale marine-life park on Kamogawa's Pacific shore, with orca, beluga, dolphin and sea-lion programs plus themed aquatic habitats; it is the region's distinct family marine-life anchor.",
+    "highlights": [
+      "Orca, beluga, dolphin, and sea-lion programs with daily schedules",
+      "Multiple themed marine habitats across a full-scale aquarium park",
+      "A distinct family outing on the Pacific coast"
+    ],
+    "coordinates": {
+      "lat": 35.1152464,
+      "lng": 140.1190315
+    },
+    "officialWebsite": "https://www.kamogawa-seaworld.jp/english/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 150,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "onjuku-beach",
+    "name": "Onjuku Beach",
+    "nameJa": "御宿海岸",
+    "kind": "beach",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Chiba:onjuku",
+    "aliases": ["Onjuku Central Beach", "御宿中央海水浴場"],
+    "prefecture": "Chiba",
+    "region": "Kanto",
+    "categories": ["Beach", "Nature", "Family", "Photography"],
+    "tags": ["Beach", "Swimming", "Coast", "Onjuku"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Onjuku_Beach.jpg",
+    "description": "A broad, white-sand Pacific beach in Onjuku, represented by the Central Beach and Moon Desert Memorial frontage; its shallow, comparatively calm Ajiro Bay shore is a distinct east-Boso coastal day-outing.",
+    "highlights": [
+      "Around two kilometres of white sand along Onjuku's Pacific shore",
+      "Central Beach's Moon Desert Memorial frontage",
+      "Three lifeguarded beach areas in the published summer opening season"
+    ],
+    "coordinates": {
+      "lat": 35.1833577,
+      "lng": 140.3569834
+    },
+    "officialWebsite": "https://onjuku-kankou.com/event/kaisuiyoku/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "kasama-inari-shrine",
+    "name": "Kasama Inari Shrine",
+    "nameJa": "笠間稲荷神社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Ibaraki:kasama",
+    "aliases": ["Kasama Inari", "Kasama Inari Jinja"],
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "categories": ["Shrine", "History", "Food", "Culture"],
+    "tags": ["Shrine", "Inari", "Kasama", "Pottery"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/61/%E7%AC%A0%E9%96%93%E7%A8%B2%E8%8D%B7%E7%A5%9E%E7%A4%BE_-_panoramio.jpg",
+    "description": "A major Inari shrine in Kasama, established in 651, with a lively approach of soba shops, cafes, sake-brewery conversions and pottery galleries; it is the historic core of a broader Kasama craft day.",
+    "highlights": [
+      "One of Japan's major Inari shrines, established in 651",
+      "Kasama Inari Sushi and seasonal street food context",
+      "Wisteria in late spring and the autumn chrysanthemum festival"
+    ],
+    "coordinates": {
+      "lat": 36.3854725,
+      "lng": 140.2543843
+    },
+    "officialWebsite": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 35,
+    "recommendedVisitHours": {
+      "min": 0.5,
+      "max": 1
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {}
+  },
+  {
+    "id": "ibaraki-ceramic-art-museum",
+    "name": "Ibaraki Ceramic Art Museum",
+    "nameJa": "茨城県陶芸美術館",
+    "kind": "museum",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Ibaraki:kasama",
+    "aliases": [
+      "Ibaraki Prefectural Ceramic Art Museum",
+      "Togei Museum Ibaraki"
+    ],
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "categories": ["Museum", "Art", "Ceramics", "Culture"],
+    "tags": ["Museum", "Ceramics", "Art", "Kasama"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e8/Ibaraki_Ceramic_Art_Museum.JPG",
+    "description": "Eastern Japan's first museum devoted solely to ceramic art, in Kasama with permanent works by Japanese master ceramists and changing exhibitions; it provides the region's clear craft-and-art counterpoint to Kasama Inari.",
+    "highlights": [
+      "Eastern Japan's first museum focused solely on ceramic art",
+      "Permanent works by Hazan Itaya and Kosei Matsui",
+      "Changing exhibitions from Japan and abroad"
+    ],
+    "coordinates": {
+      "lat": 36.3723876,
+      "lng": 140.2630038
+    },
+    "officialWebsite": "https://www.tougei.museum.ibk.ed.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 45,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "low",
+    "relationships": {}
+  },
+  {
+    "id": "hitachi-kamine-park",
+    "name": "Hitachi Kamine Park",
+    "nameJa": "かみね公園",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Ibaraki:hitachi",
+    "aliases": ["Kamine Park", "Kamine Zoo and Amusement Park"],
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "categories": ["Park", "Zoo", "Amusement Park", "Family"],
+    "tags": ["Park", "Zoo", "Amusement Park", "Hitachi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kamine_Park%2C_Ibaraki_01.jpg",
+    "description": "A large hillside family park above Hitachi and the Pacific, uniting a zoo, amusement park and children's play area; it is one integrated northern-Ibaraki family proposition rather than three adjacent facility cards.",
+    "highlights": [
+      "Zoo, amusement park, and children's play area in one hillside park",
+      "Views over Hitachi City and the Pacific coast",
+      "Around 1,000 cherry trees from early April"
+    ],
+    "coordinates": {
+      "lat": 36.6088294,
+      "lng": 140.6578191
+    },
+    "officialWebsite": "https://kaminepark.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "hitachinokuni-soshagu-shrine",
+    "name": "Hitachinokuni Soshagu Shrine",
+    "nameJa": "常陸國總社宮",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Ibaraki:ishioka",
+    "aliases": ["Hitachinokuni Sōshagū", "Soshagu Shrine", "総社宮"],
+    "prefecture": "Ibaraki",
+    "region": "Kanto",
+    "categories": ["Shrine", "History", "Festival", "Culture"],
+    "tags": ["Shrine", "Festival", "History", "Ishioka"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/41/Soshagu_%28Ishioka%29_haiden.JPG",
+    "description": "An Ishioka shrine whose main sanctuary dates to 1627 and which anchors the September Ishioka Festival, a major procession of lion dances, floats and portable shrines; it provides a distinct historic-and-festival zone beyond Mito and Tsukuba.",
+    "highlights": [
+      "A main sanctuary built in 1627, the oldest building in the grounds",
+      "The September Ishioka Festival with lion dances, floats, and mikoshi",
+      "Omamori, goshuin, and experience programs tied to the shrine"
+    ],
+    "coordinates": {
+      "lat": 36.187864,
+      "lng": 140.269072
+    },
+    "officialWebsite": "https://sosyagu.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
   }
 ]

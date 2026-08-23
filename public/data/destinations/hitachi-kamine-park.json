@@ -1,0 +1,268 @@
+{
+  "id": "hitachi-kamine-park",
+  "officialWebsite": "https://kaminepark.or.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Hitachi Kamine Park",
+  "nameJa": "かみね公園",
+  "aliases": ["Kamine Park", "Kamine Zoo and Amusement Park"],
+  "municipalityId": "Ibaraki:hitachi",
+  "prefecture": "Ibaraki",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.6088294,
+    "lng": 140.6578191
+  },
+  "location": {
+    "address": "5-2-22 Miyatacho, Hitachi, Ibaraki, Japan",
+    "latitude": 36.6088294,
+    "longitude": 140.6578191
+  },
+  "categories": ["Park", "Zoo", "Amusement Park", "Family"],
+  "tags": ["Park", "Zoo", "Amusement Park", "Hitachi"],
+  "description": "A large hillside family park above Hitachi and the Pacific, uniting a zoo, amusement park and children's play area; it is one integrated northern-Ibaraki family proposition rather than three adjacent facility cards.",
+  "highlights": [
+    "Zoo, amusement park, and children's play area in one hillside park",
+    "Views over Hitachi City and the Pacific coast",
+    "Around 1,000 cherry trees from early April"
+  ],
+  "content": {
+    "en": {
+      "name": "Hitachi Kamine Park",
+      "description": "A large hillside family park above Hitachi and the Pacific, uniting a zoo, amusement park and children's play area; it is one integrated northern-Ibaraki family proposition rather than three adjacent facility cards.",
+      "highlights": [
+        "Zoo, amusement park, and children's play area in one hillside park",
+        "Views over Hitachi City and the Pacific coast",
+        "Around 1,000 cherry trees from early April"
+      ],
+      "notes": "Kamine's zoo, rides and children's area are deliberately one integrated destination. The Ibaraki guide lists a 30-minute walk from JR Hitachi Station and a 10-minute drive from Hitachi-Chuo IC; these local legs do not establish an origin-duration estimate.",
+      "reservation": "Check the official park site for current facility hours, ticketing, and group arrangements.",
+      "parking": "Check the official park access page for current car and parking arrangements.",
+      "openingHours": "Hours differ by area and season; the prefectural guide publishes March–October and November–February schedules plus closure dates."
+    },
+    "ja": {
+      "name": "かみね公園",
+      "description": "日立市と太平洋を見下ろす丘陵の大型ファミリー公園。動物園・遊園地・子どもの遊び場を一体で楽しめる、茨城北部の家族向けレジャーの核です。",
+      "highlights": [
+        "動物園・遊園地・子どもの遊び場を一体で楽しめる公園",
+        "日立市街と太平洋を見下ろす眺望",
+        "4月上旬から見頃を迎える約1,000本の桜"
+      ],
+      "notes": "動物園・遊園地・子どもの遊び場を別カードに分けず、かみね公園として一体で扱います。県の案内ではJR日立駅から徒歩約30分、日立中央ICから車で約10分ですが、これらを出発地からの所要時間として扱いません。",
+      "reservation": "各施設の営業時間・券種・団体利用はかみね公園の公式案内で確認してください。",
+      "parking": "車・駐車場の最新案内はかみね公園公式サイトで確認してください。",
+      "openingHours": "エリア・季節で営業時間が異なります。茨城県の案内で3〜10月、11〜2月の時間と休園日を確認してください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Kamine_Park%2C_Ibaraki_01.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Σ64, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kamine_Park,_Ibaraki_01.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative multi-facility zoo, rides, and play-area band; station and motorway approach are excluded."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "Check the official park site for current facility hours, ticketing, and group arrangements.",
+  "parking": "Check the official park access page for current car and parking arrangements.",
+  "notes": "Kamine's zoo, rides and children's area are deliberately one integrated destination. The Ibaraki guide lists a 30-minute walk from JR Hitachi Station and a 10-minute drive from Hitachi-Chuo IC; these local legs do not establish an origin-duration estimate.",
+  "notesJa": "動物園・遊園地・子どもの遊び場を別カードに分けず、かみね公園として一体で扱います。県の案内ではJR日立駅から徒歩約30分、日立中央ICから車で約10分ですが、これらを出発地からの所要時間として扱いません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added after KAI-159 first-party operational, identity, municipality, coordinate, and local-access verification.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://kaminepark.or.jp/",
+        "title": "Kamine Park official site",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://visit.ibarakiguide.jp/en/sightseeing/22371/",
+        "title": "Ibaraki Prefectural Government: Hitachi Kamine Park visitor information",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://www.ibarakiguide.jp/spot.php?mode=detail&code=311",
+        "title": "Ibaraki Prefecture official tourism (Kanko Ibaraki): Kamine Park map pin",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/458491018",
+        "title": "OpenStreetMap: Hitachi Kamine Park coordinate (auxiliary)",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://kaminepark.or.jp/",
+          "title": "Kamine Park official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://kaminepark.or.jp/",
+          "title": "Kamine Park official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://kaminepark.or.jp/",
+          "title": "Kamine Park official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://kaminepark.or.jp/",
+          "title": "Kamine Park official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "government",
+          "url": "https://www.ibarakiguide.jp/spot.php?mode=detail&code=311",
+          "title": "Ibaraki Prefecture official tourism (Kanko Ibaraki): Kamine Park map pin",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "government",
+          "url": "https://www.ibarakiguide.jp/spot.php?mode=detail&code=311",
+          "title": "Ibaraki Prefecture official tourism (Kanko Ibaraki): Kamine Park map pin",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://kaminepark.or.jp/",
+          "title": "Kamine Park official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://kaminepark.or.jp/",
+          "title": "Kamine Park official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical KAI-159 Boso/Ibaraki destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 190,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

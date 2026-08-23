@@ -831,7 +831,15 @@
       "ainokura-gassho-village",
       "suganuma-gassho-village",
       "toyama-glass-art-museum",
-      "fukui-prefectural-dinosaur-museum"
+      "fukui-prefectural-dinosaur-museum",
+      "shiroyama-park-tateyama",
+      "awa-shrine-tateyama",
+      "kamogawa-sea-world",
+      "onjuku-beach",
+      "kasama-inari-shrine",
+      "ibaraki-ceramic-art-museum",
+      "hitachi-kamine-park",
+      "hitachinokuni-soshagu-shrine"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1868,7 +1876,15 @@
       "ainokura-gassho-village",
       "suganuma-gassho-village",
       "toyama-glass-art-museum",
-      "fukui-prefectural-dinosaur-museum"
+      "fukui-prefectural-dinosaur-museum",
+      "shiroyama-park-tateyama",
+      "awa-shrine-tateyama",
+      "kamogawa-sea-world",
+      "onjuku-beach",
+      "kasama-inari-shrine",
+      "ibaraki-ceramic-art-museum",
+      "hitachi-kamine-park",
+      "hitachinokuni-soshagu-shrine"
     ]
   },
   "modelClusterIds": [
@@ -1917,7 +1933,7 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-23T08:59",
+    "at": "2026-08-23T10:17",
     "changeCount": 10,
     "byModel": [
       [
@@ -1925,70 +1941,70 @@
         5
       ],
       [
-        "duration-model-v1",
+        "score-rubric-v2",
         5
       ]
     ],
     "sample": [
       {
-        "id": "tojinbo-cliffs-fukui",
+        "id": "awa-shrine-tateyama",
         "model": "walking-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "fill",
+        "reason": "walk-share estimate: 60% of 1h visit"
       },
       {
-        "id": "ainokura-gassho-village",
+        "id": "onjuku-beach",
         "model": "walking-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "fill",
+        "reason": "walk-share estimate: 80% of 1.5h visit"
       },
       {
-        "id": "suganuma-gassho-village",
+        "id": "kasama-inari-shrine",
         "model": "walking-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "fill",
+        "reason": "walk-share estimate: 60% of 1h visit"
       },
       {
-        "id": "toyama-glass-art-museum",
+        "id": "ibaraki-ceramic-art-museum",
         "model": "walking-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "fill",
+        "reason": "walk-share estimate: 50% of 1.5h visit"
       },
       {
-        "id": "fukui-prefectural-dinosaur-museum",
+        "id": "hitachi-kamine-park",
         "model": "walking-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "fill",
+        "reason": "walk-share estimate: 80% of 4h visit"
       },
       {
-        "id": "tojinbo-cliffs-fukui",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "id": "awa-shrine-tateyama",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       },
       {
-        "id": "ainokura-gassho-village",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "id": "onjuku-beach",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       },
       {
-        "id": "suganuma-gassho-village",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "id": "kasama-inari-shrine",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 7.1"
       },
       {
-        "id": "toyama-glass-art-museum",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "id": "ibaraki-ceramic-art-museum",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       },
       {
-        "id": "fukui-prefectural-dinosaur-museum",
-        "model": "duration-model-v1",
-        "action": "clear",
-        "reason": "stale calculated duration source removed (no model metadata)"
+        "id": "hitachi-kamine-park",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.2"
       }
     ]
   }
