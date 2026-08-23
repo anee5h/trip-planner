@@ -207,17 +207,17 @@
       ],
       "coordinates": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/node/3207246310",
-          "title": "OpenStreetMap node 3207246310: Takijiri-oji coordinates (auxiliary)",
+          "type": "tourism_board",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/takijiri-oji/",
+          "title": "Takijiri-oji — Tanabe City Kumano Tourism Bureau (official site pin)",
           "accessedAt": "2026-08-23"
         }
       ],
       "location": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/node/3207246310",
-          "title": "OpenStreetMap node 3207246310: Takijiri-oji coordinates (auxiliary)",
+          "type": "tourism_board",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/takijiri-oji/",
+          "title": "Takijiri-oji — Tanabe City Kumano Tourism Bureau (official site pin)",
           "accessedAt": "2026-08-23"
         }
       ],

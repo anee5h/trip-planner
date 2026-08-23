@@ -201,17 +201,17 @@
       ],
       "coordinates": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/way/797748245",
-          "title": "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates (auxiliary)",
+          "type": "tourism_board",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+          "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (official site pin)",
           "accessedAt": "2026-08-23"
         }
       ],
       "location": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/way/797748245",
-          "title": "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates (auxiliary)",
+          "type": "tourism_board",
+          "url": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+          "title": "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (official site pin)",
           "accessedAt": "2026-08-23"
         }
       ],
