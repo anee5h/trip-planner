@@ -1,0 +1,274 @@
+{
+  "id": "toyama-glass-art-museum",
+  "officialWebsite": "https://toyama-glass-art-museum.jp/en/",
+  "officialWebsiteRequirement": "required",
+  "name": "Toyama Glass Art Museum",
+  "nameJa": "富山市ガラス美術館",
+  "aliases": ["Toyama Kirari", "Toyama City Glass Art Museum", "富山キラリ"],
+  "municipalityId": "Toyama:toyama",
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.6886084,
+    "lng": 137.2151316
+  },
+  "location": {
+    "address": "5-1 Nishicho, Toyama, Toyama 930-0062",
+    "latitude": 36.6886084,
+    "longitude": 137.2151316
+  },
+  "categories": ["Museum", "Contemporary Art", "Architecture", "Culture"],
+  "tags": [
+    "Glass Art",
+    "Toyama Kirari",
+    "Museum",
+    "Toyama City",
+    "Architecture"
+  ],
+  "description": "A contemporary glass museum in the timber-and-glass Toyama Kirari building, with permanent and changing exhibitions plus the site-specific Glass Art Garden in central Toyama City.",
+  "highlights": [
+    "Contemporary glass exhibitions and the site-specific Glass Art Garden",
+    "The distinctive Toyama Kirari architecture in central Toyama",
+    "An urban culture anchor complementary to Toyama’s mountain and village outings"
+  ],
+  "content": {
+    "en": {
+      "name": "Toyama Glass Art Museum",
+      "description": "A contemporary glass museum in the timber-and-glass Toyama Kirari building, with permanent and changing exhibitions plus the site-specific Glass Art Garden in central Toyama City.",
+      "highlights": [
+        "Contemporary glass exhibitions and the site-specific Glass Art Garden",
+        "The distinctive Toyama Kirari architecture in central Toyama",
+        "An urban culture anchor complementary to Toyama’s mountain and village outings"
+      ],
+      "notes": "The museum is in central Toyama City: from Toyama Station, use the tram to Grand Plaza-mae (then about 2 minutes on foot) or Nishicho (about 1 minute). Exhibition changes and closures affect access, so check the official calendar; the museum has no visitor parking.",
+      "reservation": "No general reservation is stated; check the official calendar and ticket guidance because exhibition access and closures can vary.",
+      "parking": "No visitor parking. Use tram or nearby public parking at your own arrangement.",
+      "openingHours": "Normally 09:30–18:00 (admission to 17:30); the official calendar and exhibition notices govern special hours and closures."
+    },
+    "ja": {
+      "name": "富山市ガラス美術館",
+      "description": "富山市中心部の複合施設「富山キラリ」にある現代ガラス美術館。常設・企画展示と、空間全体を生かしたグラス・アート・ガーデンを楽しめます。",
+      "highlights": [
+        "現代ガラス作品とグラス・アート・ガーデン",
+        "富山キラリの建築空間",
+        "山岳・山里観光と異なる富山市中心部の文化拠点"
+      ],
+      "notes": "富山駅から市内電車でグランドプラザ前下車徒歩約2分、または西町下車徒歩約1分。展示替え・休館日は公式カレンダーで確認してください。来館者用駐車場はありません。",
+      "reservation": "一般的な予約案内はありませんが、展示・休館日により利用条件が変わるため公式カレンダーとチケット案内を確認してください。",
+      "parking": "来館者用駐車場はありません。市内電車または周辺の公共駐車場を利用してください。",
+      "openingHours": "通常9:30〜18:00（入場は17:30まで）。特別時間・休館日は公式カレンダーと展示案内を確認してください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/TOYAMA_KIRARI_Toyama_Glass_Art_Museum_ac_%281%29.jpg/1280px-TOYAMA_KIRARI_Toyama_Glass_Art_Museum_ac_%281%29.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Asturio Cantabrio, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:TOYAMA_KIRARI_Toyama_Glass_Art_Museum_ac_(1).jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+  },
+  "recommendedVisitHours": {
+    "min": 1.5,
+    "max": 2.5
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Conservative single-museum band covering permanent/gallery viewing; special exhibitions may change the appropriate dwell time."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+  },
+  "reservation": "No general reservation is stated; check the official calendar and ticket guidance because exhibition access and closures can vary.",
+  "parking": "No visitor parking. Use tram or nearby public parking at your own arrangement.",
+  "notes": "The museum is in central Toyama City: from Toyama Station, use the tram to Grand Plaza-mae (then about 2 minutes on foot) or Nishicho (about 1 minute). Exhibition changes and closures affect access, so check the official calendar; the museum has no visitor parking.",
+  "notesJa": "富山駅から市内電車でグランドプラザ前下車徒歩約2分、または西町下車徒歩約1分。展示替え・休館日は公式カレンダーで確認してください。来館者用駐車場はありません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://toyama-glass-art-museum.jp/en/",
+        "title": "Toyama Glass Art Museum official English site and current calendar",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://toyama-glass-art-museum.jp/en/visitor/",
+        "title": "Toyama Glass Art Museum official visitor and access information",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://visit-toyama-japan.com/en/places-to-go/80267",
+        "title": "Visit Toyama official: Toyama Glass Art Museum",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://toyama-glass-art-museum.jp/visitor/",
+        "title": "Toyama Glass Art Museum official visitor guide map (confirms catalogue coordinates)",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/visitor/",
+          "title": "Toyama Glass Art Museum official visitor and access information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/visitor/",
+          "title": "Toyama Glass Art Museum official visitor and access information",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2.5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 75,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2.5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

@@ -159,7 +159,6 @@
       "teamlab-borderless-azabudai",
       "teamlab-planets",
       "todoroki-ryokuchi",
-      "tojinbo-cliffs-fukui",
       "tokyo-metropolitan-government-building-shinjuku",
       "tokyo-skytree-sumida",
       "tokyo-station-chiyoda",
@@ -717,6 +716,7 @@
       "takamatsu-city",
       "takaoka",
       "takayama-city",
+      "tojinbo-cliffs-fukui",
       "tokushima-city",
       "tottori-city",
       "toyota-city",
@@ -827,7 +827,11 @@
       "oboke-koboke-gorges-tokushima",
       "shimanto-river-yakatabune-nattoku",
       "nakatsu-gorge-kochi",
-      "shikoku-karst-kochi"
+      "shikoku-karst-kochi",
+      "ainokura-gassho-village",
+      "suganuma-gassho-village",
+      "toyama-glass-art-museum",
+      "fukui-prefectural-dinosaur-museum"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1203,7 +1207,6 @@
       "teshima-island-kagawa",
       "tochoji",
       "todoroki-ryokuchi",
-      "tojinbo-cliffs-fukui",
       "toki-no-kane",
       "tokorozawa-city",
       "tokugawa-garden",
@@ -1861,7 +1864,11 @@
       "oboke-koboke-gorges-tokushima",
       "shimanto-river-yakatabune-nattoku",
       "nakatsu-gorge-kochi",
-      "shikoku-karst-kochi"
+      "shikoku-karst-kochi",
+      "ainokura-gassho-village",
+      "suganuma-gassho-village",
+      "toyama-glass-art-museum",
+      "fukui-prefectural-dinosaur-museum"
     ]
   },
   "modelClusterIds": [
@@ -1910,15 +1917,11 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-23T05:24",
-    "changeCount": 15,
+    "at": "2026-08-23T08:59",
+    "changeCount": 10,
     "byModel": [
       [
         "walking-model-v1",
-        5
-      ],
-      [
-        "score-rubric-v2",
         5
       ],
       [
@@ -1928,91 +1931,61 @@
     ],
     "sample": [
       {
-        "id": "iya-no-kazurabashi-tokushima",
+        "id": "tojinbo-cliffs-fukui",
         "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 50% of 2h visit"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "oboke-koboke-gorges-tokushima",
+        "id": "ainokura-gassho-village",
         "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 4h visit"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "shimanto-river-yakatabune-nattoku",
+        "id": "suganuma-gassho-village",
         "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 50% of 2h visit"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "nakatsu-gorge-kochi",
+        "id": "toyama-glass-art-museum",
         "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 3h visit"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "shikoku-karst-kochi",
+        "id": "fukui-prefectural-dinosaur-museum",
         "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 4h visit"
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "iya-no-kazurabashi-tokushima",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "oboke-koboke-gorges-tokushima",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "shimanto-river-yakatabune-nattoku",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "nakatsu-gorge-kochi",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "shikoku-karst-kochi",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.7"
-      },
-      {
-        "id": "iya-no-kazurabashi-tokushima",
+        "id": "tojinbo-cliffs-fukui",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "oboke-koboke-gorges-tokushima",
+        "id": "ainokura-gassho-village",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "shimanto-river-yakatabune-nattoku",
+        "id": "suganuma-gassho-village",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "nakatsu-gorge-kochi",
+        "id": "toyama-glass-art-museum",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "shikoku-karst-kochi",
+        "id": "fukui-prefectural-dinosaur-museum",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"

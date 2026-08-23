@@ -88627,32 +88627,151 @@
   },
   {
     "id": "tojinbo-cliffs-fukui",
-    "name": "Tojinbo Basalt Sea Cliffs",
+    "officialWebsite": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+    "officialWebsiteRequirement": "required",
+    "name": "Tojinbo Cliffs",
     "nameJa": "東尋坊",
+    "aliases": [
+      "Tojinbo Basalt Sea Cliffs",
+      "Tojinbo",
+      "東尋坊の断崖",
+      "東尋坊観光遊覧船"
+    ],
+    "municipalityId": "Fukui:sakai",
     "prefecture": "Fukui",
-    "category": "Nature & Parks",
-    "description": "Dramatic one-kilometer stretch of precipitous hexagonal basalt sea cliffs carved by the raging waves of the Sea of Japan.",
+    "region": "Chubu",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
     "coordinates": {
-      "lat": 36.2372,
-      "lng": 136.1264
+      "lat": 36.25147269,
+      "lng": 136.12033106
     },
-    "nearestStation": "Mikuni-Minato Station",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japan_Tojinbo02n4592.jpg/1920px-Japan_Tojinbo02n4592.jpg",
+    "location": {
+      "address": "Mikuni-cho Anto, Sakai, Fukui",
+      "latitude": 36.25147269,
+      "longitude": 136.12033106
+    },
+    "categories": [
+      "Nature",
+      "Geology",
+      "Coast",
+      "Scenic Walk"
+    ],
     "tags": [
-      "cliffs",
-      "nature",
-      "coastal",
-      "fukui",
-      "sea"
+      "Cliffs",
+      "Columnar Joints",
+      "Coast",
+      "Sakai",
+      "Fukui"
     ],
-    "rating": 4.6,
-    "bestSeasons": [
-      "Spring",
-      "Autumn"
+    "description": "A designated coastal cliffscape in Sakai, where rare coarse columnar-jointed volcanic rock forms a dramatic Sea of Japan shoreline with cliff walks and an optional weather-dependent sightseeing cruise.",
+    "highlights": [
+      "Designated cliffscape with rare columnar-jointed volcanic formations",
+      "Coastal walks and viewpoints along the Sea of Japan",
+      "Optional sightseeing boat as a weather-dependent activity, not a separate destination"
     ],
+    "content": {
+      "en": {
+        "name": "Tojinbo Cliffs",
+        "description": "A designated coastal cliffscape in Sakai, where rare coarse columnar-jointed volcanic rock forms a dramatic Sea of Japan shoreline with cliff walks and an optional weather-dependent sightseeing cruise.",
+        "highlights": [
+          "Designated cliffscape with rare columnar-jointed volcanic formations",
+          "Coastal walks and viewpoints along the Sea of Japan",
+          "Optional sightseeing boat as a weather-dependent activity, not a separate destination"
+        ],
+        "notes": "Tojinbo is the canonical cliff destination; the sightseeing boat is an optional operator activity, not a duplicate place card. From Mikuni Station, the operator describes a local bus final leg of about 10 minutes; boat departures, boarding point and cancellations depend on sea conditions, so verify same-day status. The current Tojinbo area redevelopment is scheduled through 2027.",
+        "reservation": "Cliff access does not require a reservation. Check the sightseeing-boat operator on the day of travel because departures and boarding location depend on weather and sea conditions.",
+        "parking": "Use designated Tojinbo-area parking or public transport. Check the current area and boat-operator guidance while redevelopment is in progress.",
+        "openingHours": "Cliff access is an outdoor visit. The sightseeing boat’s published seasonal schedule and actual operation are weather- and sea-condition-dependent; verify on the day."
+      },
+      "ja": {
+        "name": "東尋坊",
+        "description": "坂井市の日本海岸にある名勝・天然記念物の断崖景勝地。粗い柱状節理の火山岩が連なる海岸を歩け、天候・海況次第で遊覧船も利用できます。",
+        "highlights": [
+          "柱状節理の火山岩が連なる名勝・天然記念物の断崖",
+          "日本海を望む海岸散策と展望",
+          "天候・海況に左右される遊覧船は別カードではなく任意の体験"
+        ],
+        "notes": "東尋坊は断崖そのものを表す正規の目的地です。遊覧船は別の場所カードではなく任意の事業者体験です。三国駅からの最終区間は事業者案内で路線バス約10分。出航・乗船場所・欠航は海況に左右されるため当日確認してください。東尋坊エリアは2027年完成予定の整備が進行中です。",
+        "reservation": "断崖の見学に予約は不要です。遊覧船は天候・海況で出航と乗船場所が変わるため、当日に事業者案内を確認してください。",
+        "parking": "東尋坊エリアの指定駐車場または公共交通を利用してください。整備期間中は現地と遊覧船事業者の最新案内を確認してください。",
+        "openingHours": "断崖は屋外の見学地です。遊覧船の季節運航時間と実際の出航は天候・海況に左右されるため、当日確認してください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Tojinbo_cliffs%2C_Fukui_Prefecture%3B_September_2019_%2801%29.jpg/1280px-Tojinbo_cliffs%2C_Fukui_Prefecture%3B_September_2019_%2801%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "attribution": "雷太, CC BY 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tojinbo_cliffs,_Fukui_Prefecture;_September_2019_(01).jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Conservative on-foot cliff and promenade band; optional 30-minute cruise and all station approach time are excluded."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+    },
+    "reservation": "Cliff access does not require a reservation. Check the sightseeing-boat operator on the day of travel because departures and boarding location depend on weather and sea conditions.",
+    "parking": "Use designated Tojinbo-area parking or public transport. Check the current area and boat-operator guidance while redevelopment is in progress.",
+    "notes": "Tojinbo is the canonical cliff destination; the sightseeing boat is an optional operator activity, not a duplicate place card. From Mikuni Station, the operator describes a local bus final leg of about 10 minutes; boat departures, boarding point and cancellations depend on sea conditions, so verify same-day status. The current Tojinbo area redevelopment is scheduled through 2027.",
+    "notesJa": "東尋坊は断崖そのものを表す正規の目的地です。遊覧船は別の場所カードではなく任意の事業者体験です。三国駅からの最終区間は事業者案内で路線バス約10分。出航・乗船場所・欠航は海況に左右されるため当日確認してください。東尋坊エリアは2027年完成予定の整備が進行中です。",
+    "status": "verified",
     "travelEstimate": {
-      "minutesFromBase": 190,
-      "confidence": "high"
+      "confidence": "beta"
     },
     "collections": [
       {
@@ -88660,100 +88779,145 @@
         "sortOrder": 6
       }
     ],
-    "region": "Chubu",
-    "categories": [
-      "Nature & Parks"
-    ],
-    "transportOptions": {
-      "train": 180
-    },
-    "ratings": {
-      "overall": 9,
-      "couple": 9,
-      "summer": 8.8,
-      "winter": 8.8,
-      "rain": 8.5,
-      "food": 9,
-      "photography": 9.2,
-      "relaxation": 8.8,
-      "value": 9,
-      "uniqueness": 9.2
-    },
-    "highlights": [
-      "Explore Tojinbo Basalt Sea Cliffs",
-      "Local Culture & Scenery"
-    ],
-    "totalTripHours": 4,
-    "walkingMin": 150,
-    "indoorPercent": 30,
-    "season": {
-      "spring": 7,
-      "summer": 10,
-      "autumn": 6,
-      "winter": 3
-    },
-    "bestMonths": [
-      7,
-      8
-    ],
-    "bestSeason": "Summer",
-    "weatherDependence": "moderate",
-    "comfort": {
-      "heatTolerance": 5,
-      "rainFriendly": 5,
-      "walkingIntensity": 8
-    },
-    "reservation": "None required",
-    "parking": "Available on site",
-    "status": "beta",
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japan_Tojinbo02n4592.jpg/1920px-Japan_Tojinbo02n4592.jpg",
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-23",
+      "reviewedAt": "2026-08-23",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+      "sources": [
+        {
+          "type": "government",
+          "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+          "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://kanko-sakai.com/en/feature/tojinbo_oshima/",
+          "title": "Sakai City Tourism Guide: Tojinbo and Oshima access and coastal walks",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.toujinbou-yuransen.jp/access/",
+          "title": "Tojinbo Cliffs Sightseeing Boats official access guidance",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.toujinbou-yuransen.jp/",
+          "title": "Tojinbo Cliffs Sightseeing Boats current operation status",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "status": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "government",
+            "url": "https://kunishitei.bunka.go.jp/heritage/detail/401/1050",
+            "title": "Agency for Cultural Affairs: Tojinbo designated heritage record",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "tourism_board",
+            "url": "https://kanko-sakai.com/en/feature/tojinbo_oshima/",
+            "title": "Sakai City Tourism Guide: Tojinbo and Oshima access and coastal walks",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "tourism_board",
+            "url": "https://kanko-sakai.com/en/feature/tojinbo_oshima/",
+            "title": "Sakai City Tourism Guide: Tojinbo and Oshima access and coastal walks",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 3h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-23",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-23",
+    "walkingMin": 145,
     "walkingIntensity": "high",
-    "role": "standalone",
-    "placeType": "destination",
-    "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
-    },
-    "officialWebsite": "https://kankou-sakai.com/tojinbo/",
-    "businessHours": "09:00 - 17:00 (Daily)",
-    "ratingsSchemaVersion": 2,
-    "seasonMetadata": {
+    "walkingMetadata": {
       "method": "model",
-      "modelVersion": "season-model-v1",
-      "confidence": "medium",
-      "basis": "temperate latitude band; calibrated beach peaks"
-    },
-    "transportMetadata": {
-      "method": "legacy-fallback",
-      "modelVersion": "transport-access-v1",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
       "confidence": "low",
-      "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
-    },
-    "comfortMetadata": {
-      "method": "model",
-      "modelVersion": "comfort-model-v1",
-      "confidence": "low",
-      "basis": "derived from indoorPercent=30, kind='', walkingMin=150"
-    },
-    "crowdMetadata": {
-      "method": "unknown",
-      "modelVersion": "crowd-model-v1",
-      "confidence": "unknown",
-      "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
+      "basis": "walk-share estimate: 80% of 3h visit"
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 5.5,
+      "value": 7.8,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.6,
+      "coverage": 0.9,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
@@ -209553,6 +209717,1180 @@
       "provenance": {
         "sourceClass": "model",
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "ainokura-gassho-village",
+    "officialWebsite": "https://gokayama-info.jp/en/archives/1306",
+    "officialWebsiteRequirement": "required",
+    "name": "Ainokura Gassho-zukuri Village",
+    "nameJa": "相倉合掌造り集落",
+    "aliases": [
+      "The Gassho-zukuri Village of Ainokura",
+      "Ainokura Village",
+      "Ainokura",
+      "相倉"
+    ],
+    "municipalityId": "Toyama:nanto",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "kind": "village",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "coordinates": {
+      "lat": 36.426006,
+      "lng": 136.935478
+    },
+    "location": {
+      "address": "611 Ainokura, Nanto, Toyama 939-1915",
+      "latitude": 36.426006,
+      "longitude": 136.935478
+    },
+    "categories": [
+      "Village",
+      "UNESCO",
+      "Heritage",
+      "Architecture",
+      "Culture"
+    ],
+    "tags": [
+      "Gokayama",
+      "Gassho-zukuri",
+      "UNESCO",
+      "Nanto",
+      "Minshuku"
+    ],
+    "description": "An inhabited UNESCO World Heritage gassho-zukuri village in Gokayama, with steep thatched houses, small museums and traditional inns among the Shogawa valley mountains.",
+    "highlights": [
+      "A distinct UNESCO component with inhabited 100–350-year-old gassho houses",
+      "Village museums, washi-making context and traditional minshuku stays",
+      "Mountain-valley scenery that is especially immersive as an overnight stop"
+    ],
+    "content": {
+      "en": {
+        "name": "Ainokura Gassho-zukuri Village",
+        "description": "An inhabited UNESCO World Heritage gassho-zukuri village in Gokayama, with steep thatched houses, small museums and traditional inns among the Shogawa valley mountains.",
+        "highlights": [
+          "A distinct UNESCO component with inhabited 100–350-year-old gassho houses",
+          "Village museums, washi-making context and traditional minshuku stays",
+          "Mountain-valley scenery that is especially immersive as an overnight stop"
+        ],
+        "notes": "Ainokura is a distinct World Heritage component, not a generic Gokayama label or a duplicate of Suganuma. The World Heritage Bus serves Ainokuraguchi; the official village guidance says the stop is about a 5-minute walk away. Bus schedules and mountain-road conditions are variable, so check the operator before travel.",
+        "reservation": "Village access is generally open; reserve minshuku or experiences directly and check the official village guidance for current arrangements.",
+        "parking": "Use the designated village parking or the World Heritage Bus; check local guidance for current access conditions.",
+        "openingHours": "Village access: 08:30–17:00 daily per official visitor guidance; individual houses, museums and inns set their own hours."
+      },
+      "ja": {
+        "name": "相倉合掌造り集落",
+        "description": "五箇山にある世界遺産の合掌造り集落。急勾配の茅葺き家屋が残り、民家園ではなく今も住民が暮らす集落の中に資料館や民宿があります。",
+        "highlights": [
+          "住民が暮らす世界遺産の合掌造り集落",
+          "資料館・和紙文化・民宿に触れる滞在",
+          "山あいの景観を泊まりで味わえる五箇山の拠点"
+        ],
+        "notes": "相倉は菅沼とは別の世界遺産構成資産で、「五箇山」という地域名の重複カードではありません。世界遺産バスの相倉口から集落までは公式案内で徒歩約5分。山間部のバス時刻・道路状況は変動するため、出発前に運行会社で確認してください。",
+        "reservation": "集落への立ち入りは原則自由ですが、民宿・体験は各施設へ予約し、最新の案内を公式サイトで確認してください。",
+        "parking": "指定駐車場または世界遺産バスを利用し、最新の交通案内を確認してください。",
+        "openingHours": "公式案内では集落の見学時間は毎日8:30〜17:00。民家・資料館・民宿の営業時間は各施設で異なります。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Gokayama_Ainokura_Gassho-zukuri_09.jpg/1280px-Gokayama_Ainokura_Gassho-zukuri_09.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Zairon, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gokayama_Ainokura_Gassho-zukuri_09.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Conservative on-site village, museum, and walking band; overnight accommodation is optional and intercity bus travel is excluded."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+    },
+    "reservation": "Village access is generally open; reserve minshuku or experiences directly and check the official village guidance for current arrangements.",
+    "parking": "Use the designated village parking or the World Heritage Bus; check local guidance for current access conditions.",
+    "notes": "Ainokura is a distinct World Heritage component, not a generic Gokayama label or a duplicate of Suganuma. The World Heritage Bus serves Ainokuraguchi; the official village guidance says the stop is about a 5-minute walk away. Bus schedules and mountain-road conditions are variable, so check the operator before travel.",
+    "notesJa": "相倉は菅沼とは別の世界遺産構成資産で、「五箇山」という地域名の重複カードではありません。世界遺産バスの相倉口から集落までは公式案内で徒歩約5分。山間部のバス時刻・道路状況は変動するため、出発前に運行会社で確認してください。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "nearbyDestinationIds": [
+        "suganuma-gassho-village"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-23",
+      "reviewedAt": "2026-08-23",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1306",
+          "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://culture-archives.city.nanto.toyama.jp/heritages/sekai0001/",
+          "title": "Nanto City cultural archive: Historic Villages of Shirakawa-go and Gokayama",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+          "title": "Kaetsuno Bus World Heritage Bus timetable",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://whc.unesco.org/en/list/734/maps/",
+          "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://www.tabi-nanto.jp/archives/4517",
+          "title": "Gokayama NANTO Tourism Organization (Nanto City official): Ainokura village map pin",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "status": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1306",
+            "title": "Gokayama official: The Gassho-zukuri Village of Ainokura",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+            "title": "Kaetsuno Bus World Heritage Bus timetable",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+            "title": "Kaetsuno Bus World Heritage Bus timetable",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-23",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-23",
+    "walkingMin": 90,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 3h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 8.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "suganuma-gassho-village",
+    "officialWebsite": "https://gokayama-info.jp/en/archives/1270",
+    "officialWebsiteRequirement": "required",
+    "name": "Suganuma Gassho-zukuri Village",
+    "nameJa": "菅沼合掌造り集落",
+    "aliases": [
+      "The Gassho-zukuri Village of Suganuma",
+      "Suganuma Village",
+      "Suganuma",
+      "菅沼"
+    ],
+    "municipalityId": "Toyama:nanto",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "kind": "village",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "coordinates": {
+      "lat": 36.404163,
+      "lng": 136.886581
+    },
+    "location": {
+      "address": "578 Suganuma, Nanto, Toyama 939-1973",
+      "latitude": 36.404163,
+      "longitude": 136.886581
+    },
+    "categories": [
+      "Village",
+      "UNESCO",
+      "Heritage",
+      "Architecture",
+      "Culture"
+    ],
+    "tags": [
+      "Gokayama",
+      "Gassho-zukuri",
+      "UNESCO",
+      "Nanto",
+      "Mountain Village"
+    ],
+    "description": "A small, separately mapped UNESCO gassho-zukuri village in Gokayama, where nine surviving thatched houses form a compact mountain-valley heritage stop distinct from nearby Ainokura.",
+    "highlights": [
+      "A separate UNESCO component with a compact cluster of nine surviving gassho houses",
+      "A smaller, quieter heritage-village outing than Ainokura",
+      "Gokayama culture museums and valley scenery beside the World Heritage Bus stop"
+    ],
+    "content": {
+      "en": {
+        "name": "Suganuma Gassho-zukuri Village",
+        "description": "A small, separately mapped UNESCO gassho-zukuri village in Gokayama, where nine surviving thatched houses form a compact mountain-valley heritage stop distinct from nearby Ainokura.",
+        "highlights": [
+          "A separate UNESCO component with a compact cluster of nine surviving gassho houses",
+          "A smaller, quieter heritage-village outing than Ainokura",
+          "Gokayama culture museums and valley scenery beside the World Heritage Bus stop"
+        ],
+        "notes": "Suganuma is not an Ainokura sub-feature: UNESCO maps it as a separate component, with its own visitor conditions and World Heritage Bus stop about a 1-minute walk from the village. Seasonal hours and mountain-road transport can change; verify the official guidance before travel.",
+        "reservation": "Village access is generally open; check official visitor guidance for seasonal access and individual facility arrangements.",
+        "parking": "Use designated local parking or the World Heritage Bus; do not treat small village roads as general parking.",
+        "openingHours": "Official visitor guidance: 08:00–17:00 Apr–Nov; 09:00–17:00 Dec–Mar; closed Dec 31–Jan 1. Individual facilities vary."
+      },
+      "ja": {
+        "name": "菅沼合掌造り集落",
+        "description": "五箇山にある小規模な世界遺産の合掌造り集落。現存する9棟の茅葺き家屋が山あいに集まり、近隣の相倉とは別の構成資産・立ち寄り先です。",
+        "highlights": [
+          "9棟の合掌造りが残る独立した世界遺産構成資産",
+          "相倉とは異なる、コンパクトで静かな集落散策",
+          "世界遺産バスでつながる五箇山文化と山里の景観"
+        ],
+        "notes": "菅沼は相倉の付属施設ではありません。ユネスコでは別の構成資産として地図化され、独自の見学条件と世界遺産バス停（集落まで公式案内で徒歩約1分）があります。季節の見学時間・山間部の交通は変わるため、出発前に公式案内を確認してください。",
+        "reservation": "集落への立ち入りは原則自由ですが、季節の交通・各施設の利用条件は公式案内を確認してください。",
+        "parking": "指定駐車場または世界遺産バスを利用し、集落内の狭い道路を一般駐車場として扱わないでください。",
+        "openingHours": "公式案内では4〜11月は8:00〜17:00、12〜3月は9:00〜17:00、12月31日〜1月1日は休み。個別施設の時間は異なります。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Suganuma_Gassho_village_-_Flickr_-_tsuda.jpg/1280px-Suganuma_Gassho_village_-_Flickr_-_tsuda.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "attribution": "tsuda from Tsushima, Aichi, Japan, CC BY-SA 2.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suganuma_Gassho_village_-_Flickr_-_tsuda.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+    },
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Conservative compact-village and museum/walk band; bus approach time and any onward Gokayama itinerary are excluded."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+    },
+    "reservation": "Village access is generally open; check official visitor guidance for seasonal access and individual facility arrangements.",
+    "parking": "Use designated local parking or the World Heritage Bus; do not treat small village roads as general parking.",
+    "notes": "Suganuma is not an Ainokura sub-feature: UNESCO maps it as a separate component, with its own visitor conditions and World Heritage Bus stop about a 1-minute walk from the village. Seasonal hours and mountain-road transport can change; verify the official guidance before travel.",
+    "notesJa": "菅沼は相倉の付属施設ではありません。ユネスコでは別の構成資産として地図化され、独自の見学条件と世界遺産バス停（集落まで公式案内で徒歩約1分）があります。季節の見学時間・山間部の交通は変わるため、出発前に公式案内を確認してください。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {
+      "nearbyDestinationIds": [
+        "ainokura-gassho-village"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-23",
+      "reviewedAt": "2026-08-23",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+      "sources": [
+        {
+          "type": "tourism_board",
+          "url": "https://gokayama-info.jp/en/archives/1270",
+          "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://culture-archives.city.nanto.toyama.jp/heritages/sekai0001/",
+          "title": "Nanto City cultural archive: Historic Villages of Shirakawa-go and Gokayama",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+          "title": "Kaetsuno Bus World Heritage Bus timetable",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://whc.unesco.org/en/list/734/maps/",
+          "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://www.tabi-nanto.jp/archives/4497",
+          "title": "Gokayama NANTO Tourism Organization (Nanto City official): Suganuma village map pin",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "status": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "tourism_board",
+            "url": "https://gokayama-info.jp/en/archives/1270",
+            "title": "Gokayama official: The Gassho-zukuri Village of Suganuma",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+            "title": "Kaetsuno Bus World Heritage Bus timetable",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.kaetsunou.co.jp/company/sekaiisan/",
+            "title": "Kaetsuno Bus World Heritage Bus timetable",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2.5h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-23",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-23",
+    "walkingMin": 75,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2.5h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.9,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "toyama-glass-art-museum",
+    "officialWebsite": "https://toyama-glass-art-museum.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "name": "Toyama Glass Art Museum",
+    "nameJa": "富山市ガラス美術館",
+    "aliases": [
+      "Toyama Kirari",
+      "Toyama City Glass Art Museum",
+      "富山キラリ"
+    ],
+    "municipalityId": "Toyama:toyama",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "kind": "museum",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "coordinates": {
+      "lat": 36.6886084,
+      "lng": 137.2151316
+    },
+    "location": {
+      "address": "5-1 Nishicho, Toyama, Toyama 930-0062",
+      "latitude": 36.6886084,
+      "longitude": 137.2151316
+    },
+    "categories": [
+      "Museum",
+      "Contemporary Art",
+      "Architecture",
+      "Culture"
+    ],
+    "tags": [
+      "Glass Art",
+      "Toyama Kirari",
+      "Museum",
+      "Toyama City",
+      "Architecture"
+    ],
+    "description": "A contemporary glass museum in the timber-and-glass Toyama Kirari building, with permanent and changing exhibitions plus the site-specific Glass Art Garden in central Toyama City.",
+    "highlights": [
+      "Contemporary glass exhibitions and the site-specific Glass Art Garden",
+      "The distinctive Toyama Kirari architecture in central Toyama",
+      "An urban culture anchor complementary to Toyama’s mountain and village outings"
+    ],
+    "content": {
+      "en": {
+        "name": "Toyama Glass Art Museum",
+        "description": "A contemporary glass museum in the timber-and-glass Toyama Kirari building, with permanent and changing exhibitions plus the site-specific Glass Art Garden in central Toyama City.",
+        "highlights": [
+          "Contemporary glass exhibitions and the site-specific Glass Art Garden",
+          "The distinctive Toyama Kirari architecture in central Toyama",
+          "An urban culture anchor complementary to Toyama’s mountain and village outings"
+        ],
+        "notes": "The museum is in central Toyama City: from Toyama Station, use the tram to Grand Plaza-mae (then about 2 minutes on foot) or Nishicho (about 1 minute). Exhibition changes and closures affect access, so check the official calendar; the museum has no visitor parking.",
+        "reservation": "No general reservation is stated; check the official calendar and ticket guidance because exhibition access and closures can vary.",
+        "parking": "No visitor parking. Use tram or nearby public parking at your own arrangement.",
+        "openingHours": "Normally 09:30–18:00 (admission to 17:30); the official calendar and exhibition notices govern special hours and closures."
+      },
+      "ja": {
+        "name": "富山市ガラス美術館",
+        "description": "富山市中心部の複合施設「富山キラリ」にある現代ガラス美術館。常設・企画展示と、空間全体を生かしたグラス・アート・ガーデンを楽しめます。",
+        "highlights": [
+          "現代ガラス作品とグラス・アート・ガーデン",
+          "富山キラリの建築空間",
+          "山岳・山里観光と異なる富山市中心部の文化拠点"
+        ],
+        "notes": "富山駅から市内電車でグランドプラザ前下車徒歩約2分、または西町下車徒歩約1分。展示替え・休館日は公式カレンダーで確認してください。来館者用駐車場はありません。",
+        "reservation": "一般的な予約案内はありませんが、展示・休館日により利用条件が変わるため公式カレンダーとチケット案内を確認してください。",
+        "parking": "来館者用駐車場はありません。市内電車または周辺の公共駐車場を利用してください。",
+        "openingHours": "通常9:30〜18:00（入場は17:30まで）。特別時間・休館日は公式カレンダーと展示案内を確認してください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/TOYAMA_KIRARI_Toyama_Glass_Art_Museum_ac_%281%29.jpg/1280px-TOYAMA_KIRARI_Toyama_Glass_Art_Museum_ac_%281%29.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Asturio Cantabrio, CC BY-SA 4.0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:TOYAMA_KIRARI_Toyama_Glass_Art_Museum_ac_(1).jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+    },
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Conservative single-museum band covering permanent/gallery viewing; special exhibitions may change the appropriate dwell time."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+    },
+    "reservation": "No general reservation is stated; check the official calendar and ticket guidance because exhibition access and closures can vary.",
+    "parking": "No visitor parking. Use tram or nearby public parking at your own arrangement.",
+    "notes": "The museum is in central Toyama City: from Toyama Station, use the tram to Grand Plaza-mae (then about 2 minutes on foot) or Nishicho (about 1 minute). Exhibition changes and closures affect access, so check the official calendar; the museum has no visitor parking.",
+    "notesJa": "富山駅から市内電車でグランドプラザ前下車徒歩約2分、または西町下車徒歩約1分。展示替え・休館日は公式カレンダーで確認してください。来館者用駐車場はありません。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-23",
+      "reviewedAt": "2026-08-23",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/",
+          "title": "Toyama Glass Art Museum official English site and current calendar",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/en/visitor/",
+          "title": "Toyama Glass Art Museum official visitor and access information",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "tourism_board",
+          "url": "https://visit-toyama-japan.com/en/places-to-go/80267",
+          "title": "Visit Toyama official: Toyama Glass Art Museum",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/visitor/",
+          "title": "Toyama Glass Art Museum official visitor guide map (confirms catalogue coordinates)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/",
+            "title": "Toyama Glass Art Museum official English site and current calendar",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/visitor/",
+            "title": "Toyama Glass Art Museum official visitor and access information",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://toyama-glass-art-museum.jp/en/visitor/",
+            "title": "Toyama Glass Art Museum official visitor and access information",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2.5h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-23",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-23",
+    "walkingMin": 75,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2.5h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "fukui-prefectural-dinosaur-museum",
+    "officialWebsite": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+    "officialWebsiteRequirement": "required",
+    "name": "Fukui Prefectural Dinosaur Museum",
+    "nameJa": "福井県立恐竜博物館",
+    "aliases": [
+      "FPDM",
+      "Fukui Dinosaur Museum",
+      "恐竜博物館"
+    ],
+    "municipalityId": "Fukui:katsuyama",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "kind": "museum",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "coordinates": {
+      "lat": 36.082679,
+      "lng": 136.506355
+    },
+    "location": {
+      "address": "51-11 Terao, Muroko-cho, Katsuyama, Fukui 911-8601",
+      "latitude": 36.082679,
+      "longitude": 136.506355
+    },
+    "categories": [
+      "Museum",
+      "Science",
+      "Natural History",
+      "Family"
+    ],
+    "tags": [
+      "Dinosaurs",
+      "Fossils",
+      "Natural History",
+      "Katsuyama",
+      "Family"
+    ],
+    "description": "Japan’s principal dinosaur museum in Katsuyama, with major fossil and natural-history galleries, a large reconstructed museum complex and seasonal field-station activities.",
+    "highlights": [
+      "Large-scale dinosaur, fossil and earth-history galleries",
+      "A destination-scale museum rather than a small local collection",
+      "Seasonal field-station and fossil-programme context"
+    ],
+    "content": {
+      "en": {
+        "name": "Fukui Prefectural Dinosaur Museum",
+        "description": "Japan’s principal dinosaur museum in Katsuyama, with major fossil and natural-history galleries, a large reconstructed museum complex and seasonal field-station activities.",
+        "highlights": [
+          "Large-scale dinosaur, fossil and earth-history galleries",
+          "A destination-scale museum rather than a small local collection",
+          "Seasonal field-station and fossil-programme context"
+        ],
+        "notes": "From JR Fukui, the official route uses the Echizen Railway to Katsuyama (about 1 hour), then a taxi (about 10 minutes) or community bus. Current ticket guidance makes advance time-specific purchase the principle; same-day admission depends on remaining inventory. Check the museum before travel for special exhibitions and closures.",
+        "reservation": "Advance time-specific ticket purchase is the principle; same-day admission is only available when inventory remains. Check the official ticket page before travel.",
+        "parking": "Large on-site parking is available; use rail plus the community bus or taxi when practical and check current event-day guidance.",
+        "openingHours": "Normally 09:00–17:00 (entry to 16:30); the second and fourth Wednesdays and year-end/New Year are closed except as announced. Check the official calendar for seasonal changes."
+      },
+      "ja": {
+        "name": "福井県立恐竜博物館",
+        "description": "勝山市にある国内有数の恐竜・古生物博物館。恐竜化石や地球史の展示を中心に、大規模な展示空間と季節のフィールドステーション活動を備えます。",
+        "highlights": [
+          "恐竜・化石・地球史を扱う大規模展示",
+          "地域資料館ではない、目的地となる博物館体験",
+          "季節のフィールドステーション・化石プログラム"
+        ],
+        "notes": "JR福井駅からえちぜん鉄道で勝山駅まで約1時間、駅からタクシー約10分またはコミュニティバスを利用します。現行のチケット案内では事前の日時指定購入が原則で、当日券は残数がある場合のみです。企画展・休館日は訪問前に博物館で確認してください。",
+        "reservation": "事前の日時指定チケット購入が原則です。当日入場は残数がある場合のみのため、訪問前に公式チケット案内を確認してください。",
+        "parking": "大型駐車場があります。状況に応じて鉄道とコミュニティバスまたはタクシーを利用し、イベント日の案内を確認してください。",
+        "openingHours": "通常9:00〜17:00（入館は16:30まで）。夏休み期間等を除き第2・第4水曜と年末年始は休館です。季節・企画展の変更は公式案内を確認してください。"
+      }
+    },
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Fukui_Prefectural_Dinosaur_Museum_20210504_59.jpg/1280px-Fukui_Prefectural_Dinosaur_Museum_20210504_59.jpg",
+    "imageMetadata": {
+      "source": "Wikimedia Commons",
+      "license": "CC0",
+      "attribution": "先従隗始, CC0, via Wikimedia Commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukui_Prefectural_Dinosaur_Museum_20210504_59.jpg"
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car",
+      "my_car"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "unestimated",
+      "confidence": "unknown",
+      "basis": "Local access is documented, but no complete origin-aware corridor duration is modeled. Static transportOptions are deliberately empty so local-leg facts never become origin-route fallbacks."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 4
+    },
+    "durationMetadata": {
+      "method": "manual",
+      "confidence": "medium",
+      "basis": "Conservative large-museum gallery band; optional field-station activities and the Katsuyama approach are excluded."
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are destination- and date-dependent; no numeric budget is published here."
+    },
+    "crowdMetadata": {
+      "method": "unknown",
+      "modelVersion": "crowd-model-v1",
+      "confidence": "unknown",
+      "basis": "No stable crowd vector was verified from first-party sources; it is not inferred from attraction type."
+    },
+    "reservation": "Advance time-specific ticket purchase is the principle; same-day admission is only available when inventory remains. Check the official ticket page before travel.",
+    "parking": "Large on-site parking is available; use rail plus the community bus or taxi when practical and check current event-day guidance.",
+    "notes": "From JR Fukui, the official route uses the Echizen Railway to Katsuyama (about 1 hour), then a taxi (about 10 minutes) or community bus. Current ticket guidance makes advance time-specific purchase the principle; same-day admission depends on remaining inventory. Check the museum before travel for special exhibitions and closures.",
+    "notesJa": "JR福井駅からえちぜん鉄道で勝山駅まで約1時間、駅からタクシー約10分またはコミュニティバスを利用します。現行のチケット案内では事前の日時指定購入が原則で、当日券は残数がある場合のみです。企画展・休館日は訪問前に博物館で確認してください。",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "freshness": "current",
+      "checkedAt": "2026-08-23",
+      "reviewedAt": "2026-08-23",
+      "reviewedBy": "Meguruto editorial",
+      "changeSummary": "Added or refreshed after first-party operational, identity, and local-access verification for KAI-58 Chubu/Hokuriku regional depth.",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+          "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/guide/ticket.html",
+          "title": "Fukui Prefectural Dinosaur Museum current ticket guidance",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/guide/access.html",
+          "title": "Fukui Prefectural Dinosaur Museum current Japanese access guidance",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/",
+          "title": "Fukui Prefectural Dinosaur Museum official site map (embedded map within ~33 m of record)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "nameJa": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "municipalityId": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "status": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "location": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.dinosaur.pref.fukui.jp/en/info.html",
+            "title": "Fukui Prefectural Dinosaur Museum official access, hours and fees",
+            "accessedAt": "2026-08-23"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-08-23",
+          "changedBy": "Meguruto editorial",
+          "summary": "Added or refreshed one canonical KAI-58 Chubu/Hokuriku destination from current first-party evidence.",
+          "method": "manual"
+        }
+      ]
+    },
+    "addedAt": "2026-08-23",
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }
