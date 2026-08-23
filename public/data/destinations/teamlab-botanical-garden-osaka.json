@@ -1,0 +1,264 @@
+{
+  "id": "teamlab-botanical-garden-osaka",
+  "officialWebsite": "https://www.teamlab.art/e/botanicalgarden/",
+  "officialWebsiteRequirement": "required",
+  "name": "teamLab Botanical Garden Osaka",
+  "nameJa": "チームラボ ボタニカルガーデン大阪",
+  "aliases": ["teamLab Botanical Garden", "Nagai Botanical Garden Night"],
+  "municipalityId": "Osaka:osaka",
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "garden",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 34.6109,
+    "lng": 135.5312
+  },
+  "location": {
+    "address": "1-23 Nagaikoen, Higashisumiyoshi-ku, Osaka 546-0034",
+    "latitude": 34.6109,
+    "longitude": 135.5312
+  },
+  "categories": ["Art", "Garden", "Modern", "Nightlife"],
+  "tags": ["Art", "Garden", "Modern", "Night", "Osaka City"],
+  "description": "A permanent nighttime open-air museum inside Nagai Botanical Garden, where interactive light artworks transform the plants, lake, and trees of the 240,000-sqm garden.",
+  "highlights": [
+    "Permanent nighttime light-art installations across the garden",
+    "The garden's plants and lake as living canvases",
+    "A modern southern Osaka evening outing"
+  ],
+  "content": {
+    "en": {
+      "name": "teamLab Botanical Garden Osaka",
+      "description": "A permanent nighttime open-air museum inside Nagai Botanical Garden, where interactive light artworks transform the plants, lake, and trees of the 240,000-sqm garden.",
+      "highlights": [
+        "Permanent nighttime light-art installations across the garden",
+        "The garden's plants and lake as living canvases",
+        "A modern southern Osaka evening outing"
+      ],
+      "notes": "Entry is by dated ticket with reserved time slots; hours vary seasonally and last entry is usually about one hour before close. teamLab operates inside the city-run Nagai Botanical Garden, which itself has separate daytime admission.",
+      "reservation": "Dated, time-slot tickets are required; check the official site for the current calendar.",
+      "parking": "No dedicated on-site parking is asserted; use Osaka Metro Nagai Station (approx. 10 min walk) or JR Hanwa Line Nagai Station.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "チームラボ ボタニカルガーデン大阪",
+      "description": "長居植物園内に常設された夜間野外ミュージアム。園内の植物や池、樹木を使ったインタラクティブな光のアート作品が広がります。",
+      "highlights": [
+        "園内に広がる常設の夜間アート",
+        "植物と池を舞台にした作品群",
+        "大阪南部のモダンな夜の散策"
+      ],
+      "notes": "日時指定のチケット制です。営業時間は季節により変わり、最終入場は閉館の約1時間前です。チームラボは市営の長居植物園内で運営されており、昼間の植物園とは別料金です。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Promenade_at_Nagai_Botanical_Garden%2C_January_2024_-9762.jpg/1280px-Promenade_at_Nagai_Botanical_Garden%2C_January_2024_-9762.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Laitche, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Promenade_at_Nagai_Botanical_Garden,_January_2024_-9762.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Night garden walk; the self-paced loop supports 1–2 hours."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Dated, time-slot tickets are required; check the official site for the current calendar.",
+  "parking": "No dedicated on-site parking is asserted; use Osaka Metro Nagai Station (approx. 10 min walk) or JR Hanwa Line Nagai Station.",
+  "notes": "Entry is by dated ticket with reserved time slots; hours vary seasonally and last entry is usually about one hour before close. teamLab operates inside the city-run Nagai Botanical Garden, which itself has separate daytime admission.",
+  "notesJa": "日時指定のチケット制です。営業時間は季節により変わり、最終入場は閉館の約1時間前です。チームラボは市営の長居植物園内で運営されており、昼間の植物園とは別料金です。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.teamlab.art/e/botanicalgarden/",
+        "title": "teamLab Botanical Garden Osaka official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.teamlab.art/faq/botanicalgarden/",
+        "title": "teamLab Botanical Garden official FAQ",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://botanical-garden.nagai-park.jp/",
+        "title": "Osaka City Nagai Botanical Garden official site",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.teamlab.art/e/botanicalgarden/",
+          "title": "teamLab Botanical Garden Osaka official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

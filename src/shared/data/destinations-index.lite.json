@@ -32299,25 +32299,21 @@
     "businessHours": "Open access",
     "relationships": {
       "featuredDestinationIds": [
-        "abeno-harukas-300-osaka",
-        "dotonbori",
-        "kuromon-market",
-        "osaka-aquarium-kaiyukan",
         "osaka-castle",
-        "osaka-castle-park",
-        "osaka-museum-of-housing-and-living",
-        "osaka-station-city",
+        "osaka-aquarium-kaiyukan",
+        "dotonbori",
         "shinsaibashi",
-        "shinsekai",
-        "tempozan-ferris-wheel",
-        "tennoji-park",
-        "the-national-museum-of-art-osaka",
-        "tsutenkaku",
+        "kuromon-market",
         "umeda-sky-building",
         "universal-studios-japan",
-        "shitennoji",
+        "tsutenkaku",
+        "shinsekai",
+        "sumiyoshi-taisha",
+        "teamlab-botanical-garden-osaka",
+        "tenjinbashi-suji-shopping-street",
+        "osaka-station-city",
         "nakanoshima-museum-art-osaka",
-        "osaka-central-public-hall"
+        "the-national-museum-of-art-osaka"
       ],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["fukuoka-city"]
@@ -88936,5 +88932,561 @@
     "relationships": {
       "parentDestinationId": "choshi-city"
     }
+  },
+  {
+    "id": "sumiyoshi-taisha",
+    "name": "Sumiyoshi Taisha Grand Shrine",
+    "nameJa": "住吉大社",
+    "kind": "shrine",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Osaka:osaka",
+    "aliases": ["Sumiyoshi Taisha", "Sumiyoshi Grand Shrine"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Shrine", "History", "Culture", "Sightseeing"],
+    "tags": ["Shrine", "History", "Culture", "Photography", "Osaka City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Sumiyoshi_Taisha-24.jpg/1280px-Sumiyoshi_Taisha-24.jpg",
+    "description": "One of Japan's oldest shrines and the head shrine of all Sumiyoshi shrines nationwide, known for its distinctive Sumiyoshi-zukuri main halls and the iconic red Soribashi bridge.",
+    "highlights": [
+      "The Sumiyoshi-zukuri National Treasure main halls",
+      "The red arched Soribashi bridge and garden",
+      "A distinctive southern Osaka heritage outing"
+    ],
+    "coordinates": {
+      "lat": 34.6128,
+      "lng": 135.4933
+    },
+    "officialWebsite": "https://www.sumiyoshitaisha.net/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
+    "id": "teamlab-botanical-garden-osaka",
+    "name": "teamLab Botanical Garden Osaka",
+    "nameJa": "チームラボ ボタニカルガーデン大阪",
+    "kind": "garden",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Osaka:osaka",
+    "aliases": ["teamLab Botanical Garden", "Nagai Botanical Garden Night"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Art", "Garden", "Modern", "Nightlife"],
+    "tags": ["Art", "Garden", "Modern", "Night", "Osaka City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Promenade_at_Nagai_Botanical_Garden%2C_January_2024_-9762.jpg/1280px-Promenade_at_Nagai_Botanical_Garden%2C_January_2024_-9762.jpg",
+    "description": "A permanent nighttime open-air museum inside Nagai Botanical Garden, where interactive light artworks transform the plants, lake, and trees of the 240,000-sqm garden.",
+    "highlights": [
+      "Permanent nighttime light-art installations across the garden",
+      "The garden's plants and lake as living canvases",
+      "A modern southern Osaka evening outing"
+    ],
+    "coordinates": {
+      "lat": 34.6109,
+      "lng": 135.5312
+    },
+    "officialWebsite": "https://www.teamlab.art/e/botanicalgarden/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
+    "id": "expo-70-commemorative-park",
+    "name": "Expo '70 Commemorative Park",
+    "nameJa": "万博記念公園",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Osaka:suita",
+    "aliases": ["Expo 70 Park", "Banpaku Kinen Koen", "Expo'70 Park"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Park", "History", "Culture", "Sightseeing"],
+    "tags": ["Park", "History", "Culture", "Photography", "Suita"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Osaka_Expo%2770_Festival_Plaza.jpg/1280px-Osaka_Expo%2770_Festival_Plaza.jpg",
+    "description": "The 260-hectare park built on the site of Expo '70, anchored by Taro Okamoto's Tower of the Sun and featuring the Natural and Cultural Gardens, a Japanese garden, and seasonal flowers.",
+    "highlights": [
+      "Taro Okamoto's Tower of the Sun landmark",
+      "The Japanese Garden and seasonal flower fields",
+      "A Suita metropolitan-ring heritage and nature outing"
+    ],
+    "coordinates": {
+      "lat": 34.8093,
+      "lng": 135.5359
+    },
+    "officialWebsite": "https://www.expo70-park.jp/languages/english/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 240,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "shinkansen"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "tenjinbashi-suji-shopping-street",
+    "name": "Tenjinbashi-suji Shopping Street",
+    "nameJa": "天神橋筋商店街",
+    "kind": "street",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Osaka:osaka",
+    "aliases": ["Tenjinbashi-suji", "Tenjinbashisuji"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Shopping", "Food", "Culture", "Street"],
+    "tags": ["Shopping", "Food", "Culture", "Street", "Osaka City"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg/1280px-Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg",
+    "description": "Japan's longest shopping street at approximately 2.6 km, lined with over 600 shops, eateries, and everyday Osaka commerce running from Tenjinbashi north through Tenjinbashisuji 7-chome.",
+    "highlights": [
+      "Japan's longest covered shopping street (~2.6 km)",
+      "Over 600 shops, food stalls, and daily-life Osaka commerce",
+      "A free, rain-friendly central Osaka browsing outing"
+    ],
+    "coordinates": {
+      "lat": 34.7038,
+      "lng": 135.5166
+    },
+    "officialWebsite": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "osaka-city"
+    }
+  },
+  {
+    "id": "kishiwada-castle",
+    "name": "Kishiwada Castle",
+    "nameJa": "岸和田城",
+    "kind": "castle",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Osaka:kishiwada",
+    "aliases": ["Kishiwada-jo", "Kishiwada Castle & Chikiri Park"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Castle", "History", "Culture", "Sightseeing"],
+    "tags": ["Castle", "History", "Culture", "Photography", "Kishiwada"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kishiwada_Castle_Kishiwada_Osaka_pref_Japan02s5.jpg/1280px-Kishiwada_Castle_Kishiwada_Osaka_pref_Japan02s5.jpg",
+    "description": "A reconstructed castle in the historic Kishiwada castle-town district, home to the famous Kishiwada Danjiri Festival and surrounded by Chikiri Park with its moat and stone walls.",
+    "highlights": [
+      "The reconstructed keep and Chikiri Park moat setting",
+      "A base for the Kishiwada Danjiri Festival district",
+      "A southern Osaka castle-town heritage outing"
+    ],
+    "coordinates": {
+      "lat": 34.4376,
+      "lng": 135.3707
+    },
+    "officialWebsite": "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "nearbyDestinationIds": ["kishiwada-danjiri-kaikan"]
+    }
+  },
+  {
+    "id": "kishiwada-danjiri-kaikan",
+    "name": "Kishiwada Danjiri Kaikan",
+    "nameJa": "岸和田だんじり会館",
+    "kind": "museum",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Osaka:kishiwada",
+    "aliases": ["Kishiwada Danjiri Museum", "Danjiri Kaikan"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Museum", "History", "Culture", "Festival"],
+    "tags": ["Museum", "History", "Culture", "Festival", "Kishiwada"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/120513_Kishiwada_Danjiri_Kaikan_Kishiwada_Osaka_pref_Japan01bs5.jpg/1280px-120513_Kishiwada_Danjiri_Kaikan_Kishiwada_Osaka_pref_Japan01bs5.jpg",
+    "description": "A museum devoted to the Kishiwada Danjiri Festival, with festival floats, dashi models, and audio-visual exhibits explaining the high-speed danjiri tradition.",
+    "highlights": [
+      "Real festival floats and historical danjiri exhibits",
+      "Festival audiovisual content for the Kishiwada Danjiri tradition",
+      "Pairs naturally with Kishiwada Castle for a district outing"
+    ],
+    "coordinates": {
+      "lat": 34.4389,
+      "lng": 135.3742
+    },
+    "officialWebsite": "https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "nearbyDestinationIds": ["kishiwada-castle"]
+    }
+  },
+  {
+    "id": "hirakata-park",
+    "name": "Hirakata Park",
+    "nameJa": "ひらかたパーク",
+    "kind": "amusement_park",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Osaka:hirakata",
+    "aliases": ["Hirakata Park (Hira-Pa)", "Hira-Pa"],
+    "prefecture": "Osaka",
+    "region": "Kansai",
+    "categories": ["Theme Park", "Family", "Amusement", "Entertainment"],
+    "tags": ["Theme Park", "Family", "Amusement", "Entertainment", "Hirakata"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Hirakata_park_Osaka_prefecture_Wikivoyage_banner.jpg/1280px-Hirakata_park_Osaka_prefecture_Wikivoyage_banner.jpg",
+    "description": "A long-running family amusement park in northern Osaka operated by Keihan, with roughly 40 rides and seasonal events, about 3 minutes on foot from Keihan Hirakata-koen Station.",
+    "highlights": [
+      "A classic family amusement park with ~40 rides",
+      "Seasonal events and evening openings in summer",
+      "A distinct northern Osaka ring family outing"
+    ],
+    "coordinates": {
+      "lat": 34.8129,
+      "lng": 135.6489
+    },
+    "officialWebsite": "https://www.hirakatapark.co.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 180,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

@@ -51,6 +51,7 @@
     "expand:kai-162-okinawa": "tsx scripts/kai-162-okinawa-expansion.ts",
     "expand:kai-145-kyoto": "tsx scripts/kai-145-kyoto-city-expansion.ts",
     "expand:kai-146-chiba": "tsx scripts/kai-146-northern-chiba-expansion.ts",
+    "expand:kai-155-osaka": "tsx scripts/kai-155-osaka-expansion.ts",
     "expand:major-city-catalog": "tsx scripts/expand-major-city-catalog.ts",
     "audit:v192-expansion-data": "tsx scripts/audit-v192-expansion-data.ts",
     "audit:kai-89-structured-templates": "tsx scripts/audit-kai-89-structured-templates.ts",

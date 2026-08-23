@@ -220,4 +220,62 @@ describe("KAI-66 verified corridor additions (review revisions)", () => {
     expect(estimate!.timeRange[0]).toBeGreaterThanOrEqual(25);
     expect(estimate!.timeRange[1]).toBeLessThanOrEqual(45);
   });
+
+  // KAI-155 review regression: a newly verified destination with
+  // localAccessUnestimated: true and NO static transportOptions must NOT
+  // inherit a broad prefecture corridor. The guard (OriginAwareTransportService
+  // lines ~544-550) returns null unless an exact municipality corridor exists.
+  // Without this guard, the record would present a prefecture-pair time as an
+  // attraction-level route — the exact anti-pattern batch 2 removed.
+  it("unestimated local access without static transportOptions never inherits a prefecture corridor", () => {
+    const kyotoDest = dest({
+      id: "new-destination-kyoto",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 35.004, lng: 135.675 },
+      localAccessModes: ["train", "bus"],
+      localAccessUnestimated: true,
+      transportOptions: {},
+    });
+    // Osaka → Kyoto has a prefecture-pair corridor, but this destination's
+    // local access is unestimated with no static mode value and no exact
+    // Kyoto:kyoto → Osaka:osaka municipality row. It must resolve null.
+    const estimate = getOriginAwareTransportEstimate(
+      kyotoDest,
+      {
+        homeStationCoords: { lat: 34.7025, lng: 135.4959 },
+        originMunicipalityId: "Osaka:osaka",
+      },
+      ["train"],
+    );
+    expect(estimate).toBeNull();
+  });
+
+  it("a corrected batch-2 record (empty transportOptions) is not falsely recommendable via origin-aware train", () => {
+    // Batch-2 correction: newly verified records carry transportOptions: {} and
+    // localAccessUnestimated: true. The personalized recommendation gate
+    // (RecommendationScorer lines ~201-227) sees transportOptions.train ===
+    // undefined and consults getOriginAwareTransportEstimate, which returns
+    // null for a destination with no exact municipality corridor — so train is
+    // correctly unsupported. A static number would have bypassed this and made
+    // the destination falsely routable via a broad prefecture corridor.
+    const corrected = dest({
+      id: "batch2-corrected-dest",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 35.004, lng: 135.675 },
+      localAccessModes: ["train", "bus"],
+      localAccessUnestimated: true,
+      transportOptions: {},
+    });
+    const estimate = getOriginAwareTransportEstimate(
+      corrected,
+      {
+        homeStationCoords: { lat: 34.7025, lng: 135.4959 },
+        originMunicipalityId: "Osaka:osaka",
+      },
+      ["train"],
+    );
+    expect(estimate).toBeNull();
+  });
 });

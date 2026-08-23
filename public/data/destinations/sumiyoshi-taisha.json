@@ -1,0 +1,267 @@
+{
+  "id": "sumiyoshi-taisha",
+  "officialWebsite": "https://www.sumiyoshitaisha.net/en/",
+  "officialWebsiteRequirement": "required",
+  "name": "Sumiyoshi Taisha Grand Shrine",
+  "nameJa": "住吉大社",
+  "aliases": ["Sumiyoshi Taisha", "Sumiyoshi Grand Shrine"],
+  "municipalityId": "Osaka:osaka",
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "shrine",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 34.6128,
+    "lng": 135.4933
+  },
+  "location": {
+    "address": "2-9-89 Sumiyoshi, Sumiyoshi-ku, Osaka 558-0045",
+    "latitude": 34.6128,
+    "longitude": 135.4933
+  },
+  "categories": ["Shrine", "History", "Culture", "Sightseeing"],
+  "tags": ["Shrine", "History", "Culture", "Photography", "Osaka City"],
+  "description": "One of Japan's oldest shrines and the head shrine of all Sumiyoshi shrines nationwide, known for its distinctive Sumiyoshi-zukuri main halls and the iconic red Soribashi bridge.",
+  "highlights": [
+    "The Sumiyoshi-zukuri National Treasure main halls",
+    "The red arched Soribashi bridge and garden",
+    "A distinctive southern Osaka heritage outing"
+  ],
+  "content": {
+    "en": {
+      "name": "Sumiyoshi Taisha Grand Shrine",
+      "description": "One of Japan's oldest shrines and the head shrine of all Sumiyoshi shrines nationwide, known for its distinctive Sumiyoshi-zukuri main halls and the iconic red Soribashi bridge.",
+      "highlights": [
+        "The Sumiyoshi-zukuri National Treasure main halls",
+        "The red arched Soribashi bridge and garden",
+        "A distinctive southern Osaka heritage outing"
+      ],
+      "notes": "The shrine is free to enter; the treasure hall has a separate fee. Approach by Nankai Main Line Sumiyoshitaisha Station (3 min walk) or Hankai Tram. No rail line reaches the shrine gate itself.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "住吉大社",
+      "description": "全国の住吉神社の総本社で、日本最古級の神社の一つ。住吉造の本殿と朱塗りの反橋が有名です。",
+      "highlights": [
+        "国宝の住吉造本殿",
+        "朱塗りの反橋と境内",
+        "大阪南部を代表する歴史散策"
+      ],
+      "notes": "境内は無料で参拝できます。宝物殿は別途料金です。南海本線住吉大社駅から徒歩3分、阪堺線住吉鳥居前駅からすぐ。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Sumiyoshi_Taisha-24.jpg/1280px-Sumiyoshi_Taisha-24.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Immanuelle, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumiyoshi_Taisha-24.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'shrine'"
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "The shrine is free to enter; the treasure hall has a separate fee. Approach by Nankai Main Line Sumiyoshitaisha Station (3 min walk) or Hankai Tram. No rail line reaches the shrine gate itself.",
+  "notesJa": "境内は無料で参拝できます。宝物殿は別途料金です。南海本線住吉大社駅から徒歩3分、阪堺線住吉鳥居前駅からすぐ。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.sumiyoshitaisha.net/en/",
+        "title": "Sumiyoshi Taisha official English site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.sumiyoshitaisha.net/access/",
+        "title": "Sumiyoshi Taisha official access page",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/access/",
+          "title": "Sumiyoshi Taisha official access page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/en/",
+          "title": "Sumiyoshi Taisha official English site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.sumiyoshitaisha.net/access/",
+          "title": "Sumiyoshi Taisha official access page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'shrine'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

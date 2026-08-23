@@ -481,7 +481,10 @@
       "shimizu-park-noda",
       "spa-metsa-ootaka-nagareyama",
       "national-museum-japanese-history-sakura",
-      "inubosaki-lighthouse-choshi"
+      "inubosaki-lighthouse-choshi",
+      "sumiyoshi-taisha",
+      "expo-70-commemorative-park",
+      "hirakata-park"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -777,7 +780,14 @@
       "spa-metsa-ootaka-nagareyama",
       "national-museum-japanese-history-sakura",
       "inubosaki-lighthouse-choshi",
-      "byobugaura-choshi"
+      "byobugaura-choshi",
+      "sumiyoshi-taisha",
+      "teamlab-botanical-garden-osaka",
+      "expo-70-commemorative-park",
+      "tenjinbashi-suji-shopping-street",
+      "kishiwada-castle",
+      "kishiwada-danjiri-kaikan",
+      "hirakata-park"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1770,7 +1780,14 @@
       "spa-metsa-ootaka-nagareyama",
       "national-museum-japanese-history-sakura",
       "inubosaki-lighthouse-choshi",
-      "byobugaura-choshi"
+      "byobugaura-choshi",
+      "sumiyoshi-taisha",
+      "teamlab-botanical-garden-osaka",
+      "expo-70-commemorative-park",
+      "tenjinbashi-suji-shopping-street",
+      "kishiwada-castle",
+      "kishiwada-danjiri-kaikan",
+      "hirakata-park"
     ]
   },
   "modelClusterIds": [
@@ -1820,176 +1837,56 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T01:47",
-    "changeCount": 28,
+    "at": "2026-08-22T17:40",
+    "changeCount": 7,
     "byModel": [
       [
         "score-rubric-v2",
-        10
-      ],
-      [
-        "walking-model-v1",
-        9
-      ],
-      [
-        "duration-model-v1",
-        8
-      ],
-      [
-        "hub-window-model-v1",
-        1
+        7
       ]
     ],
     "sample": [
       {
-        "id": "kyoto-city",
-        "model": "hub-window-model-v1",
-        "action": "set",
-        "reason": "hub exploration window: importance major, 26 children, metro=true"
-      },
-      {
-        "id": "kiyomizu-dera",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "arashiyama-bamboo-togetsukyo",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'nature'"
-      },
-      {
-        "id": "arashiyama-bamboo-togetsukyo",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 80% of 6h visit"
-      },
-      {
-        "id": "tenryu-ji-kyoto",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "uzumasa-kyoto-village",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'theme_park'"
-      },
-      {
-        "id": "uzumasa-kyoto-village",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 50% of 8h visit"
-      },
-      {
-        "id": "kurama-dera-kyoto",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "kifune-jinja-kyoto",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "sanzen-in-ohara",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "jakko-in-ohara",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 60% of 2h visit"
-      },
-      {
-        "id": "gekkeikan-okura-sake-museum",
-        "model": "walking-model-v1",
-        "action": "fill",
-        "reason": "walk-share estimate: 50% of 1h visit"
-      },
-      {
-        "id": "kyoto-historic",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 8.3"
-      },
-      {
-        "id": "kiyomizu-dera",
+        "id": "sumiyoshi-taisha",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 7.1"
       },
       {
-        "id": "arashiyama-bamboo-togetsukyo",
+        "id": "teamlab-botanical-garden-osaka",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 7.1"
       },
       {
-        "id": "tenryu-ji-kyoto",
+        "id": "expo-70-commemorative-park",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 7.1"
       },
       {
-        "id": "uzumasa-kyoto-village",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 7.1"
-      },
-      {
-        "id": "kurama-dera-kyoto",
+        "id": "tenjinbashi-suji-shopping-street",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.2"
       },
       {
-        "id": "kifune-jinja-kyoto",
+        "id": "kishiwada-castle",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.2"
       },
       {
-        "id": "sanzen-in-ohara",
+        "id": "kishiwada-danjiri-kaikan",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.2"
       },
       {
-        "id": "jakko-in-ohara",
+        "id": "hirakata-park",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "gekkeikan-okura-sake-museum",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "kiyomizu-dera",
-        "model": "duration-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "tenryu-ji-kyoto",
-        "model": "duration-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
-      },
-      {
-        "id": "kurama-dera-kyoto",
-        "model": "duration-model-v1",
-        "action": "migrate",
-        "reason": "pre-metadata leftover migrated to structured metadata"
       }
     ]
   }

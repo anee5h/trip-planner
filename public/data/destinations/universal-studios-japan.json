@@ -7,12 +7,18 @@
     "en": {
       "name": "Universal Studios Japan",
       "description": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
-      "highlights": ["Theme Park"]
+      "highlights": ["Theme Park"],
+      "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details.",
+      "reservation": "Park admission requires a ticket; date-specific Studio Pass and Express Pass options are sold through the official web ticket store. Park hours and timed-entry requirements for themed areas change by date — check the official site before visiting.",
+      "parking": "Dedicated paid parking is available on site (fee varies by date; see the official parking calendar). Hours vary by date; public transport (JR Universal City Station) is the recommended access."
     },
     "ja": {
       "name": "ユニバーサル・スタジオ・ジャパン",
       "description": "ユニバーサル・スタジオ・ジャパンは、映画をテーマにしたライドやショー、キャラクター、季節のイベントを楽しめる大阪のテーマパークです。",
-      "highlights": ["テーマパーク"]
+      "highlights": ["テーマパーク"],
+      "notes": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況やエリア入場方法（時間指定など）・ショーのスケジュールは変わることがあるため、公式サイトをご確認ください。",
+      "reservation": "入場にはチケットが必要です。日付指定のスタジオ・パスやエクスプレス・パスは公式WEBチケットストアで購入します。営業時間やエリアの時間指定入場は日によって変わるため、来場前に公式サイトをご確認ください。",
+      "parking": "専用の有料駐車場があります（料金は日によって変動し、公式の駐車料金カレンダーをご確認ください）。営業時間は日により異なります。公共交通機関（JRユニバーサルシティ駅）での来場が推奨されます。"
     }
   },
   "prefecture": "Osaka",
@@ -91,8 +97,8 @@
   },
   "bestMonths": [3, 4, 5, 9, 10, 11],
   "weatherDependence": "moderate",
-  "reservation": "Check the official website before visiting.",
-  "parking": "Check local parking and public transport guidance.",
+  "reservation": "Park admission requires a ticket; date-specific Studio Pass and Express Pass options are sold through the official web ticket store. Park hours and timed-entry requirements for themed areas change by date — check the official site before visiting.",
+  "parking": "Dedicated paid parking is available on site (fee varies by date; see the official parking calendar). Hours vary by date; public transport (JR Universal City Station) is the recommended access.",
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -117,6 +123,24 @@
         "url": "https://www.usj.co.jp/",
         "title": "Universal Studios Japan official website",
         "accessedAt": "2026-07-29"
+      },
+      {
+        "type": "official",
+        "url": "https://www.usj.co.jp/web/ja/jp",
+        "title": "Universal Studios Japan official website",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.usj.co.jp/web/ja/jp/access/parking",
+        "title": "USJ official parking information page",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.usj.co.jp/web/ja/jp/park-guide/schedule/park-hour",
+        "title": "USJ official park hours page",
+        "accessedAt": "2026-08-22"
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
@@ -162,6 +186,38 @@
           "title": "walking-model-v1; template metre value 6500 replaced by walk-share estimate (FIX_UNIT): 50% of 3h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "reservation": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp",
+          "title": "Universal Studios Japan official website",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "parking": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp/access/parking",
+          "title": "USJ official parking information page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "openingHours": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp/park-guide/schedule/park-hour",
+          "title": "USJ official park hours page",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "notes": [
+        {
+          "type": "official",
+          "url": "https://www.usj.co.jp/web/ja/jp",
+          "title": "Universal Studios Japan official website",
+          "accessedAt": "2026-08-22"
+        }
       ]
     },
     "changeSummary": "KAI-89 source-backed template-copy correction",
@@ -171,6 +227,12 @@
         "changedBy": "Meguruto editorial",
         "summary": "Replaced repeated template description with source-backed destination copy",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Corrected stale shrine-visit template copy in reservation/parking; verified current USJ parking, hours, and ticket semantics from the official site (durable wording only).",
+        "method": "manual"
       }
     ]
   },
@@ -181,9 +243,9 @@
   },
   "businessHours": "08:30 - 21:30 (Varies seasonally)",
   "nearHubs": ["osaka-city"],
-  "notesJa": "【見どころ】ユニバーサル・スタジオ・ジャパンは近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
-  "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
-  "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
+  "notesJa": "スーパー・ニンテンドー・ワールド（2024年12月開業のドンキーコング・カントリーを含む）はユニバーサル・スタジオ・ジャパンという一つのテーマパーク内にあります。アトラクションの運営状況やエリア入場方法（時間指定など）・ショーのスケジュールは変わることがあるため、公式サイトをご確認ください。",
+  "reservationJa": "入場にはチケットが必要です。日付指定のスタジオ・パスやエクスプレス・パスは公式WEBチケットストアで購入します。営業時間やエリアの時間指定入場は日によって変わるため、来場前に公式サイトをご確認ください。",
+  "parkingJa": "専用の有料駐車場があります（料金は日によって変動し、公式の駐車料金カレンダーをご確認ください）。営業時間は日により異なります。公共交通機関（JRユニバーサルシティ駅）での来場が推奨されます。",
   "openingHoursJa": "08:30〜21:30（季節により変動）",
   "municipalityId": "Osaka:osaka",
   "transportMetadata": {
@@ -215,5 +277,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  }
+  },
+  "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details."
 }

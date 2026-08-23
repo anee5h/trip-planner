@@ -62,25 +62,21 @@
   ],
   "relationships": {
     "featuredDestinationIds": [
-      "abeno-harukas-300-osaka",
-      "dotonbori",
-      "kuromon-market",
-      "osaka-aquarium-kaiyukan",
       "osaka-castle",
-      "osaka-castle-park",
-      "osaka-museum-of-housing-and-living",
-      "osaka-station-city",
+      "osaka-aquarium-kaiyukan",
+      "dotonbori",
       "shinsaibashi",
-      "shinsekai",
-      "tempozan-ferris-wheel",
-      "tennoji-park",
-      "the-national-museum-of-art-osaka",
-      "tsutenkaku",
+      "kuromon-market",
       "umeda-sky-building",
       "universal-studios-japan",
-      "shitennoji",
+      "tsutenkaku",
+      "shinsekai",
+      "sumiyoshi-taisha",
+      "teamlab-botanical-garden-osaka",
+      "tenjinbashi-suji-shopping-street",
+      "osaka-station-city",
       "nakanoshima-museum-art-osaka",
-      "osaka-central-public-hall"
+      "the-national-museum-of-art-osaka"
     ],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["fukuoka-city"]
@@ -118,7 +114,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance major, 19 children, metro=true",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 22 children, metro=true",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -136,6 +132,14 @@
           "url": "catalogue-model://kai-89",
           "title": "walking-model-v1; template metre value 5000 replaced by walk-share estimate (FIX_UNIT): 30% of 12h visit",
           "accessedAt": "2026-08-14"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-155",
+          "title": "KAI-155 curated Osaka City children; structural children remain authoritative",
+          "accessedAt": "2026-08-22"
         }
       ]
     }
@@ -185,7 +189,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 19 children, metro=true"
+    "basis": "hub exploration window: importance major, 22 children, metro=true"
   },
   "comfortMetadata": {
     "method": "model",

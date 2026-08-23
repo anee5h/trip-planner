@@ -1,0 +1,258 @@
+{
+  "id": "tenjinbashi-suji-shopping-street",
+  "officialWebsite": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+  "officialWebsiteRequirement": "recommended",
+  "name": "Tenjinbashi-suji Shopping Street",
+  "nameJa": "天神橋筋商店街",
+  "aliases": ["Tenjinbashi-suji", "Tenjinbashisuji"],
+  "municipalityId": "Osaka:osaka",
+  "prefecture": "Osaka",
+  "region": "Kansai",
+  "kind": "street",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 34.7038,
+    "lng": 135.5166
+  },
+  "location": {
+    "address": "Tenjinbashi, Kita-ku, Osaka 530-0041",
+    "latitude": 34.7038,
+    "longitude": 135.5166
+  },
+  "categories": ["Shopping", "Food", "Culture", "Street"],
+  "tags": ["Shopping", "Food", "Culture", "Street", "Osaka City"],
+  "description": "Japan's longest shopping street at approximately 2.6 km, lined with over 600 shops, eateries, and everyday Osaka commerce running from Tenjinbashi north through Tenjinbashisuji 7-chome.",
+  "highlights": [
+    "Japan's longest covered shopping street (~2.6 km)",
+    "Over 600 shops, food stalls, and daily-life Osaka commerce",
+    "A free, rain-friendly central Osaka browsing outing"
+  ],
+  "content": {
+    "en": {
+      "name": "Tenjinbashi-suji Shopping Street",
+      "description": "Japan's longest shopping street at approximately 2.6 km, lined with over 600 shops, eateries, and everyday Osaka commerce running from Tenjinbashi north through Tenjinbashisuji 7-chome.",
+      "highlights": [
+        "Japan's longest covered shopping street (~2.6 km)",
+        "Over 600 shops, food stalls, and daily-life Osaka commerce",
+        "A free, rain-friendly central Osaka browsing outing"
+      ],
+      "notes": "The street is a linear district rather than a point POI; the coordinates anchor the Tenjinbashi 2-chome end near Tenjimbashisuji 6-chome Station. Osaka Tenmangu Shrine and the Tenjin Festival site sit at the southern end.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "天神橋筋商店街",
+      "description": "全長約2.6km、約600軒の店舗が連なる日本一長い商店街。天神橋から天神橋筋7丁目まで、大阪の日常が詰まった買い物と食の通りです。",
+      "highlights": [
+        "全長約2.6kmの日本一長い商店街",
+        "約600軒の店と飲食、大阪の日常",
+        "雨でも楽しめる中央大阪の散策"
+      ],
+      "notes": "商店街は線状の地区であり、座標は天神橋筋6丁目駅付近の天神橋2丁目側の起点を示します。南端には大阪天満宮と天神祭の会場があります。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg/1280px-Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "attribution": "Nesnad, CC BY 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tenjinbashisuji_Shopping_Street_2024_Dec_31_various.jpeg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Longest-street browse band; a full walk with stops is 1–3 hours."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "The street is a linear district rather than a point POI; the coordinates anchor the Tenjinbashi 2-chome end near Tenjimbashisuji 6-chome Station. Osaka Tenmangu Shrine and the Tenjin Festival site sit at the southern end.",
+  "notesJa": "商店街は線状の地区であり、座標は天神橋筋6丁目駅付近の天神橋2丁目側の起点を示します。南端には大阪天満宮と天神祭の会場があります。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "osaka-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Osaka City and metropolitan-ring depth coverage.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+        "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.tenjin123.com/",
+        "title": "Tenjinbashi-suji 1-3 chome official site",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "tourism_board",
+          "url": "https://osaka-info.jp/en/spot/tenjimbashisuji-shopping-street/",
+          "title": "Osaka Convention & Tourism Bureau Tenjinbashisuji listing",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Osaka destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
