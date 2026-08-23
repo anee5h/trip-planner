@@ -30,7 +30,9 @@ describe("KAI-149 Awaji Island transport topology", () => {
   });
 
   it("does not resolve Awaji coordinates to Tomogashima", () => {
-    const resolved = resolveOriginTransportZone({ coordinates: AWAJI_RECORDS[2].coordinates! });
+    const resolved = resolveOriginTransportZone({
+      coordinates: AWAJI_RECORDS[2].coordinates!,
+    });
     expect(resolved).toBe("awaji-island");
     expect(resolved).not.toBe("tomogashima");
   });
@@ -47,6 +49,10 @@ describe("KAI-149 Awaji Island transport topology", () => {
   });
 
   it("keeps ferry out of the destination’s local modes", () => {
-    expect(AWAJI_RECORDS.every((record) => !record.localAccessModes?.includes("ferry"))).toBe(true);
+    expect(
+      AWAJI_RECORDS.every(
+        (record) => !record.localAccessModes?.includes("ferry"),
+      ),
+    ).toBe(true);
   });
 });
