@@ -6127,6 +6127,16 @@
     }
   },
   {
+    "id": "maizuru-red-brick-park",
+    "name": "Maizuru Red Brick Park",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "makino-botanical-garden",
     "name": "Kochi Prefectural Makino Botanical Garden",
     "prefecture": "Kochi",
@@ -6788,6 +6798,16 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
     }
+  },
+  {
+    "id": "miyama-kayabuki-no-sato",
+    "name": "Miyama Kayabuki no Sato",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "historic_town",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "miyazaki-city",
@@ -8027,6 +8047,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kyoto-city"
+    }
+  },
+  {
+    "id": "nintendo-museum-uji",
+    "name": "Nintendo Museum",
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "role": "poi",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "uji-city"
     }
   },
   {

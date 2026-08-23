@@ -1,0 +1,262 @@
+{
+  "id": "nintendo-museum-uji",
+  "officialWebsite": "https://museum.nintendo.com/en/index.html",
+  "officialWebsiteRequirement": "required",
+  "name": "Nintendo Museum",
+  "nameJa": "ニンテンドーミュージアム",
+  "aliases": ["Nintendo Museum Uji", "Nintendo Uji Museum"],
+  "municipalityId": "Kyoto:uji",
+  "prefecture": "Kyoto",
+  "region": "Kansai",
+  "kind": "museum",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 34.8997,
+    "lng": 135.7814
+  },
+  "location": {
+    "address": "56 Kaguraden, Ogura-cho, Uji-shi, Kyoto 611-0042, Japan"
+  },
+  "categories": ["Culture", "Museum", "Family"],
+  "tags": ["Education", "Family", "Museum", "Interactive", "Kyoto Travel"],
+  "description": "Nintendo's Uji museum traces the company's entertainment history from Hanafuda to Nintendo Switch and adds hands-on play experiences, a café, and a shop. It is one ticketed museum proposition rather than separate cards for its internal spaces.",
+  "highlights": [
+    "Nintendo product history displays",
+    "Interactive play experiences",
+    "Hanafuda Craft & Play workshop"
+  ],
+  "content": {
+    "en": {
+      "name": "Nintendo Museum",
+      "description": "Nintendo's Uji museum traces the company's entertainment history from Hanafuda to Nintendo Switch and adds hands-on play experiences, a café, and a shop. It is one ticketed museum proposition rather than separate cards for its internal spaces.",
+      "highlights": [
+        "Nintendo product history displays",
+        "Interactive play experiences",
+        "Hanafuda Craft & Play workshop"
+      ],
+      "notes": "Tickets are date/time-specific. The official site currently uses a drawing process with possible first-come/first-served releases after the drawing; the café and shop are inside the museum and require admission.",
+      "reservation": "Advance date/time-specific tickets are required. The official process uses a Nintendo Account and a drawing, with possible first-come/first-served releases; Craft & Play requires a same-day reservation and separate fee.",
+      "parking": "The official access page says not to arrive by car, motorcycle, bicycle, or taxi, except accessibility arrangements; use public transport.",
+      "openingHours": "Hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "ニンテンドーミュージアム",
+      "description": "花札からNintendo Switchまで任天堂のエンターテインメントの歴史をたどり、現代的な遊びの体験も楽しめる宇治のミュージアムです。館内の展示・カフェ・ショップは一つの入館体験として扱います。",
+      "highlights": [
+        "任天堂製品の歴史展示",
+        "インタラクティブな遊びの体験",
+        "花札づくり・遊び体験"
+      ],
+      "notes": "日時指定のチケット制です。公式案内では抽選を基本とし、空きが出た場合に先着販売が行われます。カフェとショップも入館者向けです。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "駐車場・アクセス条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Nintendo_Museum_Entrance.jpg/1280px-Nintendo_Museum_Entrance.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Wikimedia Commons contributor; File:Nintendo Museum Entrance.jpg",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nintendo_Museum_Entrance.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Manual destination-only estimate for the museum exhibits and one optional hands-on experience; excludes approach travel, ticketing, and queue time."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Advance date/time-specific tickets are required. The official process uses a Nintendo Account and a drawing, with possible first-come/first-served releases; Craft & Play requires a same-day reservation and separate fee.",
+  "parking": "The official access page says not to arrive by car, motorcycle, bicycle, or taxi, except accessibility arrangements; use public transport.",
+  "notes": "Tickets are date/time-specific. The official site currently uses a drawing process with possible first-come/first-served releases after the drawing; the café and shop are inside the museum and require admission.",
+  "notesJa": "日時指定のチケット制です。公式案内では抽選を基本とし、空きが出た場合に先着販売が行われます。カフェとショップも入館者向けです。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "uji-city"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Uji/northern Kyoto destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://museum.nintendo.com/en/index.html",
+        "title": "Nintendo Museum official home and current notices",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://museum.nintendo.com/en/access/index.html",
+        "title": "Nintendo Museum official access (Ogura stations, bus, parking restrictions)",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://museum.nintendo.com/en/guide/visit-flow/index.html",
+        "title": "Nintendo Museum official ticket reservation and visit flow",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/index.html",
+          "title": "Nintendo Museum official home and current notices",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/index.html",
+          "title": "Nintendo Museum official home and current notices",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/index.html",
+          "title": "Nintendo Museum official home and current notices",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/index.html",
+          "title": "Nintendo Museum official home and current notices",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/access/index.html",
+          "title": "Nintendo Museum official access (Ogura stations, bus, parking restrictions)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/index.html",
+          "title": "Nintendo Museum official home and current notices",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/access/index.html",
+          "title": "Nintendo Museum official access (Ogura stations, bus, parking restrictions)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://museum.nintendo.com/en/index.html",
+          "title": "Nintendo Museum official home and current notices",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

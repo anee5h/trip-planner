@@ -52899,7 +52899,7 @@
     "categories": ["Culture", "History", "Nature"],
     "category": "Culture",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Michinoeki_Funayanosato_Ine_2017-04_ac_%281%29.jpg/1920px-Michinoeki_Funayanosato_Ine_2017-04_ac_%281%29.jpg",
-    "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
+    "description": "A living coastal village of traditional wooden boathouses built directly over Ine Bay. Visitors can view the streetscape respectfully, take a current-status-checked sea-taxi tour, or choose guided walking/cruising experiences; private homes remain off-limits without permission.",
     "coordinates": {
       "lat": 35.6741,
       "lng": 135.2891
@@ -91080,6 +91080,249 @@
     },
     "transportOptions": {},
     "localAccessModes": ["train"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "nintendo-museum-uji",
+    "name": "Nintendo Museum",
+    "nameJa": "ニンテンドーミュージアム",
+    "kind": "museum",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:uji",
+    "aliases": ["Nintendo Museum Uji", "Nintendo Uji Museum"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Culture", "Museum", "Family"],
+    "tags": ["Education", "Family", "Museum", "Interactive", "Kyoto Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Nintendo_Museum_Entrance.jpg/1280px-Nintendo_Museum_Entrance.jpg",
+    "description": "Nintendo's Uji museum traces the company's entertainment history from Hanafuda to Nintendo Switch and adds hands-on play experiences, a café, and a shop. It is one ticketed museum proposition rather than separate cards for its internal spaces.",
+    "highlights": [
+      "Nintendo product history displays",
+      "Interactive play experiences",
+      "Hanafuda Craft & Play workshop"
+    ],
+    "coordinates": {
+      "lat": 34.8997,
+      "lng": 135.7814
+    },
+    "officialWebsite": "https://museum.nintendo.com/en/index.html",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "uji-city"
+    }
+  },
+  {
+    "id": "miyama-kayabuki-no-sato",
+    "name": "Miyama Kayabuki no Sato",
+    "nameJa": "美山かやぶきの里",
+    "kind": "historic_town",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:nantan",
+    "aliases": ["Kayabuki no Sato", "Miyama Thatched Village"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Culture", "History", "Nature"],
+    "tags": [
+      "Heritage",
+      "Historic Site",
+      "Nature",
+      "Scenic",
+      "Village",
+      "Kyoto Travel"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Miyama_Kayabuki%28Thatched%29_Museum.jpg/1280px-Miyama_Kayabuki%28Thatched%29_Museum.jpg",
+    "description": "A preserved Miyama mountain village of traditional thatched houses, small cultural facilities, and rural scenery. The village itself is the experience; its houses, museum context, shrine, and seasonal events are not split into synthetic destination cards.",
+    "highlights": [
+      "Preserved thatched-house streetscape",
+      "Miyama Thatched Museum context",
+      "Mountain-village scenery and local food"
+    ],
+    "coordinates": {
+      "lat": 35.2733,
+      "lng": 135.5594
+    },
+    "officialWebsite": "https://kayabukinosato.jp/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "maizuru-red-brick-park",
+    "name": "Maizuru Red Brick Park",
+    "nameJa": "舞鶴赤れんがパーク",
+    "kind": "historic",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Kyoto:maizuru",
+    "aliases": ["Maizuru Red Brick Warehouse Park", "Akarenga Park"],
+    "prefecture": "Kyoto",
+    "region": "Kansai",
+    "categories": ["Culture", "History", "Museum", "Nature"],
+    "tags": ["Heritage", "Historic Site", "Museum", "Scenic", "Kyoto Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Maizuru_Red_Brick_Warehouses_2021-03_ac_%282%29.jpg/1280px-Maizuru_Red_Brick_Warehouses_2021-03_ac_%282%29.jpg",
+    "description": "A waterfront group of former Maizuru Naval District red-brick warehouses, now a cultural park with museum, café, exhibition, and event spaces. The warehouse group is one coherent historic-park outing, not seven separate cards.",
+    "highlights": [
+      "Former naval warehouse architecture",
+      "Red Brick Museum and exhibition spaces",
+      "Waterfront café and event setting"
+    ],
+    "coordinates": {
+      "lat": 35.474666,
+      "lng": 135.385435
+    },
+    "officialWebsite": "https://akarenga-park.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 75,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
     "relationships": {}

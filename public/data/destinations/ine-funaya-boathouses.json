@@ -9,10 +9,10 @@
   "kind": "historic_town",
   "category": "Culture",
   "categories": ["Culture", "History", "Nature"],
-  "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
-  "notes": "Sea taxi boat tours operate daily from Ine port.",
-  "notesJa": "【見どころ】海に直接浮かんでいるように見える230軒の伝統的舟屋群です。",
-  "reservation": "Sea taxi tours available on site",
+  "description": "A living coastal village of traditional wooden boathouses built directly over Ine Bay. Visitors can view the streetscape respectfully, take a current-status-checked sea-taxi tour, or choose guided walking/cruising experiences; private homes remain off-limits without permission.",
+  "notes": "Ine Tourist Information currently lists sea taxi, walking/cruising, and other local activities. Check the operating-status link and respect private homes: visitors must not enter a Funaya without permission.",
+  "notesJa": "伊根町観光協会は海上タクシー、まち歩き・クルージングなどを案内しています。運航状況を確認し、許可なく舟屋へ立ち入らないでください。",
+  "reservation": "Sea taxi and guided activities follow operator availability; check the current operating-status and activity pages before visiting.",
   "reservationJa": "【予約】海上タクシー遊覧は現地随時受け付けです。",
   "parking": "Paid public parking in Ine Town",
   "parkingJa": "【駐車場】伊根町内に有料駐車場あり。",
@@ -35,10 +35,22 @@
         "url": "https://www.ine-kankou.jp/en/",
         "title": "Ine Funaya Boathouses",
         "accessedAt": "2026-08-13"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ine-kankou.jp/en/actives",
+        "title": "Ine Tourist Information current activities index (sea taxi, walking/cruising, local activities)",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.ine-kankou.jp/seataxi/",
+        "title": "Ine Tourist Information current sea-taxi operating-status link",
+        "accessedAt": "2026-08-23"
       }
     ],
-    "reviewedAt": "2026-08-03T00:00:00Z",
-    "checkedAt": "2026-08-03T00:00:00Z",
+    "reviewedAt": "2026-08-23",
+    "checkedAt": "2026-08-23",
     "freshness": "current",
     "fieldSources": {
       "walkingMin": [
@@ -48,23 +60,76 @@
           "title": "walking-model-v1; walk-share estimate: 50% of 2.5h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "content": [
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/en/actives",
+          "title": "Ine Tourist Information current activities index (sea taxi, walking/cruising, local activities)",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/seataxi/",
+          "title": "Ine Tourist Information current sea-taxi operating-status link",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "notes": [
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/en/actives",
+          "title": "Ine Tourist Information current activities index (sea taxi, walking/cruising, local activities)",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/seataxi/",
+          "title": "Ine Tourist Information current sea-taxi operating-status link",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "reservation": [
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/en/actives",
+          "title": "Ine Tourist Information current activities index (sea taxi, walking/cruising, local activities)",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.ine-kankou.jp/seataxi/",
+          "title": "Ine Tourist Information current sea-taxi operating-status link",
+          "accessedAt": "2026-08-23"
+        }
       ]
-    }
+    },
+    "changeSummary": "Enriched existing Ine Funaya record with current official visitor-conduct, sea-taxi, and guided-activity evidence; no duplicate cruise card added.",
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Refreshed Ine visitor and activity guidance from current Ine Tourist Information pages.",
+        "method": "manual"
+      }
+    ]
   },
   "content": {
     "en": {
       "name": "Ine Funaya Boathouses",
-      "description": "A unique coastal village featuring 230 traditional wooden boathouses built directly over Ine Bay's water level. Often called 'the Venice of Japan', visitors can take sea taxi boat tours.",
+      "description": "A living coastal village of traditional wooden boathouses built directly over Ine Bay. Visitors can view the streetscape respectfully, take a current-status-checked sea-taxi tour, or choose guided walking/cruising experiences; private homes remain off-limits without permission.",
       "highlights": [
         "Funaya Water Architecture",
         "Ine Bay Sea Taxi",
         "Mukai Sake Brewery"
-      ]
+      ],
+      "notes": "Sea taxi and guided walking/cruising options are listed by current Ine Tourist Information. Check operator status and respect residents' privacy."
     },
     "ja": {
       "name": "伊根の舟屋",
-      "description": "伊根湾の波静かな海辺に約230軒の舟屋が連続して建ち並ぶ、日本で最も海に近いノスタルジックな集落です。海上タクシーでの周遊や、舟屋見学・地酒蔵元巡りが人気です。",
-      "highlights": ["舟屋群の町並み", "伊根湾海上タクシー", "向井酒造の地酒"]
+      "description": "伊根湾に面して舟屋が連なる、今も住民が暮らす海辺の集落です。町並みを節度をもって散策し、運航状況を確認した海上タクシーやガイド付きのまち歩き・クルージングを楽しめます。許可なく舟屋へ立ち入らないでください。",
+      "highlights": ["舟屋群の町並み", "伊根湾海上タクシー", "向井酒造の地酒"],
+      "notes": "伊根町観光協会の最新案内で海上タクシーやガイドツアーの運航状況を確認し、住民の暮らしに配慮してください。"
     }
   },
   "relationships": {
