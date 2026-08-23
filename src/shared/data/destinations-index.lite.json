@@ -91326,5 +91326,400 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "medium",
     "relationships": {}
+  },
+  {
+    "id": "izanagi-jingu-awaji",
+    "name": "Izanagi Shrine",
+    "nameJa": "伊弉諾神宮",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:awaji",
+    "aliases": ["Izanagi Jingū", "Awaji Ichinomiya"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Culture", "History", "Nature"],
+    "tags": ["History", "Heritage", "Nature", "Traditional", "Hyogo Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Izanagi-jingu_Haiden.JPG/1280px-Izanagi-jingu_Haiden.JPG",
+    "description": "Awaji's principal shrine dedicated to Izanagi and Izanami, surrounded by evergreen grounds and known for its sacred husband-and-wife camphor trees. It is one shrine outing, not a split mythology card.",
+    "highlights": [
+      "Izanagi and Izanami worship",
+      "Sacred husband-and-wife camphor trees",
+      "Quiet evergreen shrine grounds"
+    ],
+    "coordinates": {
+      "lat": 34.4657,
+      "lng": 134.8537
+    },
+    "officialWebsite": "https://izanagi-jingu.jp/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 55,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 1.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "awaji-island",
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "awaji-farm-park-england-hill",
+    "name": "Awaji Farm Park England Hill",
+    "nameJa": "淡路ファームパーク イングランドの丘",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:minamiawaji",
+    "aliases": ["England Hill", "Awaji England Hill"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["Nature", "Family", "Food"],
+    "tags": ["Family", "Animals", "Nature", "Education", "Hyogo Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Awaji_England_Hill%2C_Hyogo%2C_Japan_%2826554568782%29.jpg/1280px-Awaji_England_Hill%2C_Hyogo%2C_Japan_%2826554568782%29.jpg",
+    "description": "A large agricultural family park in southern Awaji with animals, seasonal flowers, harvest and craft experiences, playgrounds, food, and a Peter Rabbit garden. These internal activities remain one destination card.",
+    "highlights": [
+      "Animal encounters and koalas",
+      "Seasonal flower and Peter Rabbit garden",
+      "Harvest, craft, and playground experiences"
+    ],
+    "coordinates": {
+      "lat": 34.2629,
+      "lng": 134.7562
+    },
+    "officialWebsite": "https://www.england-hill.com/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 240,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "awaji-island",
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "sumoto-castle-awaji",
+    "name": "Sumoto Castle",
+    "nameJa": "洲本城",
+    "kind": "castle",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Hyogo:sumoto",
+    "aliases": ["Sumoto Castle Ruins", "Mikumayama Castle"],
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "categories": ["History", "Nature", "Photography"],
+    "tags": ["Castle", "History", "Scenic", "Heritage", "Hyogo Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Sumoto_Castle_Awaji_Island_Japan03n.jpg/1280px-Sumoto_Castle_Awaji_Island_Japan03n.jpg",
+    "description": "A mountain castle ruin on Mt. Mikuma overlooking Sumoto and the Kii Channel, with a reconstructed stone-and-timber tower and panoramic island views. The ruins and viewpoint form one outing.",
+    "highlights": [
+      "Mikumayama castle ruins",
+      "Reconstructed tower and stonework",
+      "Panoramic Sumoto and Kii Channel views"
+    ],
+    "coordinates": {
+      "lat": 34.3398,
+      "lng": 134.9022
+    },
+    "officialWebsite": "https://www.awajishima-kanko.jp/en/spot/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 1.5,
+      "max": 2.5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "awaji-island",
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "dorogawa-onsen-tenkawa",
+    "name": "Dorogawa Onsen Town",
+    "nameJa": "洞川温泉街",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nara:tenkawa",
+    "aliases": ["Dorogawa Onsen", "Dorogawa Hot Spring Town"],
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "categories": ["Culture", "Nature", "Food"],
+    "tags": ["Onsen", "Historic Street", "Nature", "Relaxation", "Nara Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/2016-09-09_Dorogawa-Onsen%2C_Tenkawa%2C_Nara%2C%E6%B4%9E%E5%B7%9D%E6%B8%A9%E6%B3%89_DSCF0430.jpg/1280px-2016-09-09_Dorogawa-Onsen%2C_Tenkawa%2C_Nara%2C%E6%B4%9E%E5%B7%9D%E6%B8%A9%E6%B3%89_DSCF0430.jpg",
+    "description": "A traditional hot-spring town deep in southern Nara's sacred mountains, with ryokan, mountain spring water, local food, and a spiritual Shugendo atmosphere. The town is one slow-travel proposition rather than separate lodging cards.",
+    "highlights": [
+      "Traditional onsen-town streetscape",
+      "Ryokan bathing and local cuisine",
+      "Mt. Omine spiritual mountain setting"
+    ],
+    "coordinates": {
+      "lat": 34.2702,
+      "lng": 135.8818
+    },
+    "officialWebsite": "https://www.visitnara.jp/destinations/area/dorogawa/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "mainland-honshu",
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "mitarai-valley-tenkawa",
+    "name": "Mitarai Valley",
+    "nameJa": "みたらい渓谷",
+    "kind": "nature",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nara:tenkawa",
+    "aliases": ["Mitarai Gorge", "Mitarai Ravine"],
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "categories": ["Nature", "Photography", "Active"],
+    "tags": ["Nature", "Scenic", "Active Hiking", "Waterfall", "Nara Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Mitaraikeikoku201811b.jpg/1280px-Mitaraikeikoku201811b.jpg",
+    "description": "A mountain valley of hiking trails, waterfalls, emerald river pools, and a suspension bridge in Tenkawa. It is a single hiking anchor; individual falls and bridges are highlights, not duplicate cards.",
+    "highlights": [
+      "Waterfalls and emerald river pools",
+      "Suspension bridge and mountain trail",
+      "Autumn foliage and summer mountain air"
+    ],
+    "coordinates": {
+      "lat": 34.2548,
+      "lng": 135.8732
+    },
+    "officialWebsite": "https://www.visitnara.jp/destinations/destination/mitarai-valley/",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 240,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "transportZoneId": "mainland-honshu",
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

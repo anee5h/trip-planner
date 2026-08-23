@@ -816,7 +816,12 @@
       "taga-taisha",
       "nintendo-museum-uji",
       "miyama-kayabuki-no-sato",
-      "maizuru-red-brick-park"
+      "maizuru-red-brick-park",
+      "izanagi-jingu-awaji",
+      "awaji-farm-park-england-hill",
+      "sumoto-castle-awaji",
+      "dorogawa-onsen-tenkawa",
+      "mitarai-valley-tenkawa"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1839,7 +1844,12 @@
       "taga-taisha",
       "nintendo-museum-uji",
       "miyama-kayabuki-no-sato",
-      "maizuru-red-brick-park"
+      "maizuru-red-brick-park",
+      "izanagi-jingu-awaji",
+      "awaji-farm-park-england-hill",
+      "sumoto-castle-awaji",
+      "dorogawa-onsen-tenkawa",
+      "mitarai-valley-tenkawa"
     ]
   },
   "modelClusterIds": [
@@ -1889,83 +1899,109 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-23T03:58",
-    "changeCount": 10,
+    "at": "2026-08-23T04:12",
+    "changeCount": 15,
     "byModel": [
       [
         "walking-model-v1",
-        3
+        5
       ],
       [
         "score-rubric-v2",
-        3
+        5
       ],
       [
         "duration-model-v1",
-        3
-      ],
-      [
-        "hub-window-model-v1",
-        1
+        5
       ]
     ],
     "sample": [
       {
-        "id": "uji-city",
-        "model": "hub-window-model-v1",
-        "action": "set",
-        "reason": "hub exploration window: importance notable, 4 children, metro=false"
-      },
-      {
-        "id": "nintendo-museum-uji",
+        "id": "izanagi-jingu-awaji",
         "model": "walking-model-v1",
         "action": "fill",
-        "reason": "walk-share estimate: 50% of 3h visit"
+        "reason": "walk-share estimate: 60% of 1.5h visit"
       },
       {
-        "id": "miyama-kayabuki-no-sato",
+        "id": "awaji-farm-park-england-hill",
         "model": "walking-model-v1",
         "action": "fill",
-        "reason": "walk-share estimate: 50% of 3h visit"
+        "reason": "walk-share estimate: 80% of 5h visit"
       },
       {
-        "id": "maizuru-red-brick-park",
+        "id": "sumoto-castle-awaji",
         "model": "walking-model-v1",
         "action": "fill",
-        "reason": "walk-share estimate: 50% of 2.5h visit"
+        "reason": "walk-share estimate: 60% of 2.5h visit"
       },
       {
-        "id": "nintendo-museum-uji",
+        "id": "dorogawa-onsen-tenkawa",
+        "model": "walking-model-v1",
+        "action": "fill",
+        "reason": "walk-share estimate: 50% of 4h visit"
+      },
+      {
+        "id": "mitarai-valley-tenkawa",
+        "model": "walking-model-v1",
+        "action": "fill",
+        "reason": "walk-share estimate: 80% of 5h visit"
+      },
+      {
+        "id": "izanagi-jingu-awaji",
         "model": "score-rubric-v2",
         "action": "set",
         "reason": "estimated rubric score 6.7"
       },
       {
-        "id": "miyama-kayabuki-no-sato",
+        "id": "awaji-farm-park-england-hill",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 7.3"
+        "reason": "estimated rubric score 6.7"
       },
       {
-        "id": "maizuru-red-brick-park",
+        "id": "sumoto-castle-awaji",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 7.8"
+        "reason": "estimated rubric score 6.7"
       },
       {
-        "id": "nintendo-museum-uji",
+        "id": "dorogawa-onsen-tenkawa",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "mitarai-valley-tenkawa",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.7"
+      },
+      {
+        "id": "izanagi-jingu-awaji",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "miyama-kayabuki-no-sato",
+        "id": "awaji-farm-park-england-hill",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"
       },
       {
-        "id": "maizuru-red-brick-park",
+        "id": "sumoto-castle-awaji",
+        "model": "duration-model-v1",
+        "action": "clear",
+        "reason": "stale calculated duration source removed (no model metadata)"
+      },
+      {
+        "id": "dorogawa-onsen-tenkawa",
+        "model": "duration-model-v1",
+        "action": "clear",
+        "reason": "stale calculated duration source removed (no model metadata)"
+      },
+      {
+        "id": "mitarai-valley-tenkawa",
         "model": "duration-model-v1",
         "action": "clear",
         "reason": "stale calculated duration source removed (no model metadata)"

@@ -635,6 +635,16 @@
     }
   },
   {
+    "id": "awaji-farm-park-england-hill",
+    "name": "Awaji Farm Park England Hill",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "azuchi-castle",
     "name": "Azuchi Castle",
     "prefecture": "Shiga",
@@ -1518,6 +1528,16 @@
       "nearbyDestinationIds": [],
       "parentDestinationId": "matsuyama-city"
     }
+  },
+  {
+    "id": "dorogawa-onsen-tenkawa",
+    "name": "Dorogawa Onsen Town",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "dotonbori",
@@ -3954,6 +3974,16 @@
       "featuredDestinationIds": [],
       "nearbyDestinationIds": []
     }
+  },
+  {
+    "id": "izanagi-jingu-awaji",
+    "name": "Izanagi Shrine",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "izu",
@@ -6718,6 +6748,16 @@
     "relationships": {
       "parentDestinationId": "hiroshima-city"
     }
+  },
+  {
+    "id": "mitarai-valley-tenkawa",
+    "name": "Mitarai Valley",
+    "prefecture": "Nara",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "mito-castle-ibaraki",
@@ -10613,6 +10653,16 @@
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
+  },
+  {
+    "id": "sumoto-castle-awaji",
+    "name": "Sumoto Castle",
+    "prefecture": "Hyogo",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "castle",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "sun-messe-nichinan",

@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1030,
+  "totalRecords": 1035,
   "summary": {
     "categoryCount": 8,
     "clusterCount": 192,
-    "affectedRecordCount": 1027,
+    "affectedRecordCount": 1032,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -61,6 +61,7 @@
       "atami-city",
       "atsuta-shrine-nagoya",
       "awa-odori-kaikan",
+      "awaji-farm-park-england-hill",
       "azuchi-castle",
       "bandai-asahi",
       "bank-of-iwate-red-brick",
@@ -131,6 +132,7 @@
       "dogo-haikara-dori",
       "dogo-onsen-annex-asuka-no-yu",
       "dogo-onsen-ehime",
+      "dorogawa-onsen-tenkawa",
       "dotonbori",
       "echigo-sanzan-tadami",
       "echizen-kaga-kaigan",
@@ -325,6 +327,7 @@
       "iwate-park-morioka-castle-ruins",
       "iwatsuki-ningyo-museum",
       "iya-valley-tokushima",
+      "izanagi-jingu-awaji",
       "izu",
       "izumo-city",
       "izumo-taisha",
@@ -537,6 +540,7 @@
       "mirai-tower-nagoya",
       "miraikan",
       "mitaki-dera",
+      "mitarai-valley-tenkawa",
       "mito-castle-ibaraki",
       "mito-city",
       "miyajima-gojunoto",
@@ -849,6 +853,7 @@
       "sumida-hokusai-museum",
       "sumida-river-walk",
       "sumiyoshi-taisha",
+      "sumoto-castle-awaji",
       "sun-messe-nichinan",
       "sunamushi-onsen-saraku",
       "sunpu-castle",
@@ -1407,7 +1412,7 @@
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 467,
+      "affectedRecordCount": 472,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1439,6 +1444,7 @@
         "aso-kuju",
         "asuka-fujiwara-nara",
         "atami-city",
+        "awaji-farm-park-england-hill",
         "bandai-asahi",
         "beppu-city",
         "beppu-hells-oita",
@@ -1468,6 +1474,7 @@
         "dazaifu-city",
         "dewa-sanzan-yamagata",
         "dogo-onsen-ehime",
+        "dorogawa-onsen-tenkawa",
         "echigo-sanzan-tadami",
         "echizen-kaga-kaigan",
         "edogawa-city",
@@ -1555,6 +1562,7 @@
         "iwami-ginzan-shimane",
         "iwamura-castle",
         "iya-valley-tokushima",
+        "izanagi-jingu-awaji",
         "izumo-city",
         "izushi-castle-town",
         "jakko-in-ohara",
@@ -1650,6 +1658,7 @@
         "minato-mirai-yokohama",
         "mine-city",
         "minowa-castle",
+        "mitarai-valley-tenkawa",
         "mito-city",
         "miyakojima-city",
         "miyama-kayabuki-no-sato",
@@ -1796,6 +1805,7 @@
         "sumida-city",
         "sumida-hokusai-museum",
         "sumiyoshi-taisha",
+        "sumoto-castle-awaji",
         "sunpu-castle",
         "suzuka",
         "tachikawa-manga-park",
@@ -2019,12 +2029,14 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 50,
+          "count": 55,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
+            "awaji-farm-park-england-hill",
             "byobugaura-choshi",
             "chikubushima-island",
+            "dorogawa-onsen-tenkawa",
             "eigenji-higashiomi",
             "expo-70-commemorative-park",
             "funabashi-andersen-park",
@@ -2035,6 +2047,7 @@
             "hirakata-park",
             "ikuta-shrine-kobe",
             "inubosaki-lighthouse-choshi",
+            "izanagi-jingu-awaji",
             "jakko-in-ohara",
             "kifune-jinja-kyoto",
             "kikkoman-soy-sauce-museum-noda",
@@ -2049,6 +2062,7 @@
             "maizuru-red-brick-park",
             "makino-metasequoia-avenue",
             "marine-world-uminonakamichi",
+            "mitarai-valley-tenkawa",
             "miyama-kayabuki-no-sato",
             "mt-rokko-kobe",
             "nakayama-hokekyoji-ichikawa",
@@ -2063,6 +2077,7 @@
             "sorakuen-garden",
             "spa-metsa-ootaka-nagareyama",
             "sumiyoshi-taisha",
+            "sumoto-castle-awaji",
             "taga-taisha",
             "teamlab-botanical-garden-osaka",
             "tenjinbashi-suji-shopping-street",
@@ -3675,7 +3690,7 @@
       "category": "visitDuration",
       "severity": "review",
       "clusterCount": 26,
-      "affectedRecordCount": 993,
+      "affectedRecordCount": 997,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3729,6 +3744,7 @@
         "atami-city",
         "atsuta-shrine-nagoya",
         "awa-odori-kaikan",
+        "awaji-farm-park-england-hill",
         "azuchi-castle",
         "bandai-asahi",
         "bank-of-iwate-red-brick",
@@ -3796,6 +3812,7 @@
         "dogo-haikara-dori",
         "dogo-onsen-annex-asuka-no-yu",
         "dogo-onsen-ehime",
+        "dorogawa-onsen-tenkawa",
         "dotonbori",
         "echigo-sanzan-tadami",
         "echizen-kaga-kaigan",
@@ -4188,6 +4205,7 @@
         "mirai-tower-nagoya",
         "miraikan",
         "mitaki-dera",
+        "mitarai-valley-tenkawa",
         "mito-castle-ibaraki",
         "mito-city",
         "miyajima-gojunoto",
@@ -4491,6 +4509,7 @@
         "sumida-hokusai-museum",
         "sumida-river-walk",
         "sumiyoshi-taisha",
+        "sumoto-castle-awaji",
         "sun-messe-nichinan",
         "sunamushi-onsen-saraku",
         "sunpu-castle",
@@ -4996,7 +5015,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 96,
+          "count": 97,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -5009,6 +5028,7 @@
             "cup-noodles-museum-yokohama",
             "dakigaeri-valley-akita",
             "danjo-garan-koyasan",
+            "dorogawa-onsen-tenkawa",
             "enoshima-aquarium",
             "enryaku-ji-mount-hiei",
             "expo-70-commemorative-park",
@@ -5190,7 +5210,7 @@
         {
           "id": "e7d3c053b289",
           "severity": "review",
-          "count": 65,
+          "count": 67,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -5199,6 +5219,7 @@
             "arima-onsen",
             "ashikaga-flower-park-tochigi",
             "atsuta-shrine-nagoya",
+            "awaji-farm-park-england-hill",
             "beppu-hells-oita",
             "dewa-sanzan-yamagata",
             "dogo-onsen-ehime",
@@ -5232,6 +5253,7 @@
             "matsue-castle",
             "matsushima-bay",
             "matsuyama-castle-ehime",
+            "mitarai-valley-tenkawa",
             "mito-castle-ibaraki",
             "motonosumi-shrine-yamaguchi",
             "mount-aso-kumamoto",
@@ -5938,6 +5960,23 @@
           }
         },
         {
+          "id": "9bf072f0ba51",
+          "severity": "review",
+          "count": 4,
+          "ids": [
+            "ine-funaya-boathouses",
+            "maizuru-red-brick-park",
+            "okunoin-cemetery-koyasan",
+            "sumoto-castle-awaji"
+          ],
+          "value": { "max": 2.5, "min": 1.5 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "Maizuru Red Brick Park shares the reviewed {1.5,2.5}h pure-destination-time band with existing Ine Funaya and Okunoin Cemetery; the band covers a coherent warehouse-park/museum outing and excludes rail, bus, and origin travel. Manual, medium confidence."
+          }
+        },
+        {
           "id": "e229b7d66d77",
           "severity": "review",
           "count": 4,
@@ -5982,22 +6021,6 @@
             "action": "manual-review",
             "reason": "Plausible."
           }
-        },
-        {
-          "id": "9bf072f0ba51",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "ine-funaya-boathouses",
-            "maizuru-red-brick-park",
-            "okunoin-cemetery-koyasan"
-          ],
-          "value": { "max": 2.5, "min": 1.5 },
-          "disposition": {
-            "category": "A",
-            "action": "legitimate",
-            "reason": "Maizuru Red Brick Park shares the reviewed {1.5,2.5}h pure-destination-time band with existing Ine Funaya and Okunoin Cemetery; the band covers a coherent warehouse-park/museum outing and excludes rail, bus, and origin travel. Manual, medium confidence."
-          }
         }
       ]
     },
@@ -6005,7 +6028,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 994,
+      "affectedRecordCount": 999,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6059,6 +6082,7 @@
         "atami-city",
         "atsuta-shrine-nagoya",
         "awa-odori-kaikan",
+        "awaji-farm-park-england-hill",
         "azuchi-castle",
         "bandai-asahi",
         "bank-of-iwate-red-brick",
@@ -6128,6 +6152,7 @@
         "dogo-haikara-dori",
         "dogo-onsen-annex-asuka-no-yu",
         "dogo-onsen-ehime",
+        "dorogawa-onsen-tenkawa",
         "dotonbori",
         "echigo-sanzan-tadami",
         "echizen-kaga-kaigan",
@@ -6312,6 +6337,7 @@
         "iwate-park-morioka-castle-ruins",
         "iwatsuki-ningyo-museum",
         "iya-valley-tokushima",
+        "izanagi-jingu-awaji",
         "izu",
         "izumo-city",
         "izumo-taisha",
@@ -6518,6 +6544,7 @@
         "mirai-tower-nagoya",
         "miraikan",
         "mitaki-dera",
+        "mitarai-valley-tenkawa",
         "mito-castle-ibaraki",
         "mito-city",
         "miyajima-itsukushima",
@@ -6817,6 +6844,7 @@
         "sumida-hokusai-museum",
         "sumida-river-walk",
         "sumiyoshi-taisha",
+        "sumoto-castle-awaji",
         "sun-messe-nichinan",
         "sunamushi-onsen-saraku",
         "sunpu-castle",
@@ -7381,7 +7409,7 @@
         {
           "id": "3d368f449db1",
           "severity": "review",
-          "count": 72,
+          "count": 73,
           "ids": [
             "aomori-museum-of-art",
             "canal-city-hakata",
@@ -7443,6 +7471,7 @@
             "shikoku-mura",
             "shinsaibashi",
             "shinsekai",
+            "sumoto-castle-awaji",
             "sun-messe-nichinan",
             "susukino",
             "tanukikoji-shopping-street",
@@ -7466,7 +7495,7 @@
         {
           "id": "a5c2919dfbb8",
           "severity": "review",
-          "count": 67,
+          "count": 69,
           "ids": [
             "abashiri",
             "aichi-kogen",
@@ -7474,6 +7503,7 @@
             "akkeshi-kiritappu-konbumori",
             "ashizuri-uwakai",
             "aso-kuju",
+            "awaji-farm-park-england-hill",
             "bandai-asahi",
             "biwako",
             "chichibu-tama-kai",
@@ -7505,6 +7535,7 @@
             "meiji-no-mori-takao",
             "mikawa-wan",
             "minami-boso",
+            "mitarai-valley-tenkawa",
             "momijidani-park",
             "muro-akame-aoyama",
             "muroto-anan-kaigan",
@@ -7759,12 +7790,13 @@
         {
           "id": "8184feae45ad",
           "severity": "review",
-          "count": 42,
+          "count": 43,
           "ids": [
             "amami-iriomote-natural-site",
             "asuka-fujiwara-nara",
             "bikan-historical-quarter",
             "dakigaeri-valley-akita",
+            "dorogawa-onsen-tenkawa",
             "fukiya-village",
             "geibikei-gorge-iwate",
             "goshikinuma-ponds-fukushima",
@@ -7814,7 +7846,7 @@
         {
           "id": "0e42a5221c6a",
           "severity": "review",
-          "count": 38,
+          "count": 39,
           "ids": [
             "amanoiwato-shrine",
             "aoba-castle-museum",
@@ -7824,6 +7856,7 @@
             "hakata-machiya-folk-museum",
             "hita-gion-yamahoko-museum",
             "hokkaido-museum-of-modern-art",
+            "izanagi-jingu-awaji",
             "kitakyushu-manga-museum",
             "kobe-maritime-museum",
             "komyozenji-temple-dazaifu",

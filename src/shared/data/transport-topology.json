@@ -145,6 +145,14 @@
       "localModes": ["bus", "car", "my_car"]
     },
     {
+      "id": "awaji-island",
+      "name": "Awaji Island",
+      "nameJa": "淡路島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": ["car", "my_car", "bus"]
+    },
+    {
       "id": "chikubushima",
       "name": "Chikubu Island (Chikubushima)",
       "nameJa": "竹生島",
@@ -158,6 +166,12 @@
       "from": "mainland-honshu",
       "to": "mainland-kyushu",
       "modes": ["train", "shinkansen", "car", "bus"],
+      "bidirectional": true
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "awaji-island",
+      "modes": ["car", "bus"],
       "bidirectional": true
     },
     {
