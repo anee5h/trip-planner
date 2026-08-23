@@ -154,9 +154,15 @@
         "accessedAt": "2026-08-23"
       },
       {
+        "type": "government",
+        "url": "https://www.shinguu.jp/spots/detail/A0001",
+        "title": "Kumano Hayatama Taisha — Shingu City official site coordinate-bearing map link",
+        "accessedAt": "2026-08-23"
+      },
+      {
         "type": "manual",
         "url": "https://www.openstreetmap.org/way/211578006",
-        "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates",
+        "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates (auxiliary)",
         "accessedAt": "2026-08-23"
       }
     ],
@@ -197,7 +203,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/way/211578006",
-          "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates",
+          "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -205,7 +211,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/way/211578006",
-          "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates",
+          "title": "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],

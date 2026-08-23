@@ -148,9 +148,15 @@
         "accessedAt": "2026-08-23"
       },
       {
+        "type": "tourism_board",
+        "url": "https://www.tb-kumano.jp/en/places/yunomine/",
+        "title": "Yunomine Onsen — Tanabe City Kumano Tourism Bureau (official area map)",
+        "accessedAt": "2026-08-23"
+      },
+      {
         "type": "manual",
         "url": "https://www.openstreetmap.org/node/2822838506",
-        "title": "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates",
+        "title": "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates (auxiliary)",
         "accessedAt": "2026-08-23"
       }
     ],
@@ -191,7 +197,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/2822838506",
-          "title": "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates",
+          "title": "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -199,7 +205,7 @@
         {
           "type": "manual",
           "url": "https://www.openstreetmap.org/node/2822838506",
-          "title": "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates",
+          "title": "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates (auxiliary)",
           "accessedAt": "2026-08-23"
         }
       ],

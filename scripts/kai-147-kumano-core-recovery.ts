@@ -329,9 +329,14 @@ const reviewedRecords: DestinationWithLocation[] = [
       ),
       tanabeKumanoBureau,
       source(
+        "tourism_board",
+        "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+        "Kumano Hongu Taisha — Tanabe City Kumano Tourism Bureau (official site pin)",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/way/797748245",
-        "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates",
+        "OpenStreetMap way 797748245: Kumano Hongu Taisha coordinates (auxiliary)",
       ),
     ],
     image: {
@@ -411,9 +416,14 @@ const reviewedRecords: DestinationWithLocation[] = [
         "Kumano Hayatama Taisha official site (Japanese)",
       ),
       source(
+        "government",
+        "https://www.shinguu.jp/spots/detail/A0001",
+        "Kumano Hayatama Taisha — Shingu City official site coordinate-bearing map link",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/way/211578006",
-        "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates",
+        "OpenStreetMap way 211578006: Kumano Hayatama Taisha coordinates (auxiliary)",
       ),
     ],
     image: {
@@ -487,9 +497,14 @@ const reviewedRecords: DestinationWithLocation[] = [
       ),
       tanabeKumanoBureau,
       source(
+        "tourism_board",
+        "https://www.tb-kumano.jp/en/places/yunomine/",
+        "Yunomine Onsen — Tanabe City Kumano Tourism Bureau (official area map)",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/node/2822838506",
-        "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates",
+        "OpenStreetMap node 2822838506: Yunomine Onsen locality coordinates (auxiliary)",
       ),
     ],
     image: {
@@ -576,9 +591,14 @@ const reviewedRecords: DestinationWithLocation[] = [
       ),
       tanabeKumanoBureau,
       source(
+        "tourism_board",
+        "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/takijiri-oji/",
+        "Takijiri-oji — Tanabe City Kumano Tourism Bureau (official site pin)",
+      ),
+      source(
         "manual",
         "https://www.openstreetmap.org/node/3207246310",
-        "OpenStreetMap node 3207246310: Takijiri-oji coordinates",
+        "OpenStreetMap node 3207246310: Takijiri-oji coordinates (auxiliary)",
       ),
     ],
     image: {
