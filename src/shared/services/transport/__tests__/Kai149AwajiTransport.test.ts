@@ -11,6 +11,7 @@ const AWAJI_RECORDS = [
   { id: "izanagi-jingu-awaji", lat: 34.4657, lng: 134.8537 },
   { id: "awaji-farm-park-england-hill", lat: 34.2629, lng: 134.7562 },
   { id: "sumoto-castle-awaji", lat: 34.3398, lng: 134.9022 },
+  { id: "nijigen-no-mori-awaji", lat: 34.5804495, lng: 135.0131136 },
 ].map(({ id, lat, lng }) => ({
   id,
   name: id,
