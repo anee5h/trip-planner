@@ -13,7 +13,7 @@ import { getOriginAwareTransportEstimate } from "../OriginAwareTransportService"
 
 // KAI-154 regression: Chikubushima is a ferry-only island in northern Lake
 // Biwa. It must resolve to its own `chikubushima` transport zone — never
-// `mainland-honshu` — and ground corridors (train/car/bus) must not reach it
+// `mainland-honshu` — and ground corridors (train/bus) must not reach it
 // without the Biwako Kisen ferry.
 
 const CHIKUBUSHIMA_ISLAND = {
@@ -24,7 +24,7 @@ const CHIKUBUSHIMA_ISLAND = {
   coordinates: { lat: 35.4228, lng: 136.1378 },
   kind: "island",
   tags: ["Island", "Temple", "Shrine", "Ferry", "Shiga"],
-  localAccessModes: ["ferry"],
+  localAccessModes: [],
   localAccessUnestimated: true,
   transportOptions: {},
 } as unknown as Destination;
@@ -38,7 +38,7 @@ describe("KAI-154 Chikubushima transport topology", () => {
     );
   });
 
-  it("mainland train/car cannot reach the island without a ferry", () => {
+  it("mainland train/bus cannot reach the island without a ferry", () => {
     const origin = {
       homeStationCoords: KYOTO_ORIGIN,
       originMunicipalityId: "Kyoto:kyoto",
@@ -54,7 +54,7 @@ describe("KAI-154 Chikubushima transport topology", () => {
   });
 
   it("the record carries no static train/car fallback minutes", () => {
-    expect(CHIKUBUSHIMA_ISLAND.localAccessModes).toEqual(["ferry"]);
+    expect(CHIKUBUSHIMA_ISLAND.localAccessModes).toEqual([]);
     expect(CHIKUBUSHIMA_ISLAND.transportOptions?.train).toBeUndefined();
     expect(CHIKUBUSHIMA_ISLAND.transportOptions?.car).toBeUndefined();
   });
