@@ -8,7 +8,7 @@
   "municipalityId": "Kochi:niyodogawa",
   "transportZoneId": "mainland-shikoku",
   "prefecture": "Kochi",
-  "region": "Kansai",
+  "region": "Shikoku",
   "kind": "nature",
   "role": "standalone",
   "placeType": "destination",
@@ -132,7 +132,7 @@
     "checkedAt": "2026-08-23",
     "reviewedAt": "2026-08-23",
     "reviewedBy": "Meguruto editorial",
-    "changeSummary": "Added current, source-verified Shikoku interior destination depth coverage.",
+    "changeSummary": "Re-centered KAI-148 on current Iya, Oboke–Koboke, and Shimanto interior depth.",
     "sources": [
       {
         "type": "tourism_board",
@@ -219,7 +219,7 @@
       {
         "changedAt": "2026-08-23",
         "changedBy": "Meguruto editorial",
-        "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+        "summary": "Added or retained one canonical destination after current operator, government, and official tourism verification.",
         "method": "manual"
       }
     ]

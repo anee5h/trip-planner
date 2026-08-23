@@ -1,0 +1,252 @@
+{
+  "id": "shimanto-river-yakatabune-nattoku",
+  "officialWebsite": "https://visitkochijapan.com/en/activities/10152",
+  "officialWebsiteRequirement": "required",
+  "name": "Shimanto River Yakatabune Nattoku",
+  "nameJa": "四万十川屋形船 なっとく",
+  "aliases": [
+    "Yakatabune Nattoku",
+    "Shimanto River Sightseeing Houseboat Nattoku"
+  ],
+  "municipalityId": "Kochi:shimanto",
+  "transportZoneId": "mainland-shikoku",
+  "prefecture": "Kochi",
+  "region": "Shikoku",
+  "kind": "cruise",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 33.041728,
+    "lng": 132.841747
+  },
+  "location": {
+    "address": "846-1 Tadenokawa, Shimanto, Kochi Prefecture, Japan"
+  },
+  "categories": ["Nature", "Outdoors", "River"],
+  "tags": ["Kochi", "Shimanto", "River", "Cruise", "Boat", "Scenic"],
+  "description": "A year-round 40–50-minute traditional houseboat cruise on an upper Shimanto River stretch, with clear water, mountain scenery, and views toward iconic chinkabashi submersible bridges.",
+  "highlights": [
+    "40–50-minute traditional houseboat cruise",
+    "Upper Shimanto scenery and chinkabashi views",
+    "Optional river-food bento during the cruise"
+  ],
+  "content": {
+    "en": {
+      "name": "Shimanto River Yakatabune Nattoku",
+      "description": "A year-round 40–50-minute traditional houseboat cruise on an upper Shimanto River stretch, with clear water, mountain scenery, and views toward iconic chinkabashi submersible bridges.",
+      "highlights": [
+        "40–50-minute traditional houseboat cruise",
+        "Upper Shimanto scenery and chinkabashi views",
+        "Optional river-food bento during the cruise"
+      ],
+      "notes": "VISIT KOCHI JAPAN identifies Nattoku as the furthest-upriver regular yakatabune service, with departures on the hour from 9:00 to 16:00 subject to weather. The official listing gives the Tadenokawa address, 2,200-yen adult fare, and weekend/holiday reservation recommendation. This concrete operator experience is used instead of an arbitrary point labelled only Shimanto River.",
+      "reservation": "Reservations are not required for ordinary cruises but are recommended on weekends and holidays; meal bento orders require reservation. Weather can change departures.",
+      "parking": "Parking is available at the Nattoku office on Route 441 beside the riverside jetty; follow the current operator guidance.",
+      "openingHours": "Hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "四万十川屋形船 なっとく",
+      "description": "清流と山並み、沈下橋の景観を眺めながら四万十川上流を屋形船で巡る、通年運航の40〜50分の具体的な訪問体験です。",
+      "highlights": [
+        "40〜50分の伝統的な屋形船",
+        "四万十川上流と沈下橋の景観",
+        "川の食材を使った弁当の追加注文"
+      ],
+      "notes": "VISIT KOCHI JAPANが紹介する上流側の定期屋形船で、天候により変更されますが9時〜16時の毎時出航です。公式案内の田出ノ川住所、一般大人2200円、週末・繁忙期は予約推奨に基づきます。単なる四万十川の任意地点ではなく、具体的な事業者体験を登録します。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "駐車場・アクセス条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Shimanto_River_And_Iwama_Bridge_1.jpg/1280px-Shimanto_River_And_Iwama_Bridge_1.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "京浜にけ",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shimanto_River_And_Iwama_Bridge_1.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "high",
+    "basis": "The operator listing gives a 40–50-minute cruise; the destination-only range includes boarding and disembarkation but excludes the remote drive."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Reservations are not required for ordinary cruises but are recommended on weekends and holidays; meal bento orders require reservation. Weather can change departures.",
+  "parking": "Parking is available at the Nattoku office on Route 441 beside the riverside jetty; follow the current operator guidance.",
+  "notes": "VISIT KOCHI JAPAN identifies Nattoku as the furthest-upriver regular yakatabune service, with departures on the hour from 9:00 to 16:00 subject to weather. The official listing gives the Tadenokawa address, 2,200-yen adult fare, and weekend/holiday reservation recommendation. This concrete operator experience is used instead of an arbitrary point labelled only Shimanto River.",
+  "notesJa": "VISIT KOCHI JAPANが紹介する上流側の定期屋形船で、天候により変更されますが9時〜16時の毎時出航です。公式案内の田出ノ川住所、一般大人2200円、週末・繁忙期は予約推奨に基づきます。単なる四万十川の任意地点ではなく、具体的な事業者体験を登録します。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Re-centered KAI-148 on current Iya, Oboke–Koboke, and Shimanto interior depth.",
+    "sources": [
+      {
+        "type": "tourism_board",
+        "url": "https://visitkochijapan.com/en/activities/10152",
+        "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "tourism_board",
+          "url": "https://visitkochijapan.com/en/activities/10152",
+          "title": "VISIT KOCHI JAPAN — Yakatabune Nattoku",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added or retained one canonical destination after current operator, government, and official tourism verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

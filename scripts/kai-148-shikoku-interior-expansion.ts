@@ -1,12 +1,16 @@
 /**
- * KAI-148 — verified Shikoku interior depth.
+ * KAI-148 — Shikoku interior: Iya / Oboke–Koboke / Shimanto.
  *
- * Adds one canonical proposition each for Kotohira-gu, Uchiko-za, the Besshi
- * Copper Mine Memorial Museum, Nakatsu Gorge, and the Shikoku Karst. It does
- * not split a single shrine, theater, gorge, or plateau into synthetic cards.
+ * Adds independently selectable visitor propositions for Iya-no-Kazurabashi,
+ * the connected Oboke–Koboke gorge corridor, and the Shimanto River's
+ * Yakatabune Nattoku experience. Nakatsu Gorge and Shikoku Karst remain as
+ * coherent supporting interior records. Uchiko-za, Kotohira-gu, and Besshi
+ * are removed from this ticket wave: Uchiko-za's main theater is currently
+ * closed for renovation, while the other two do not serve the ticket's
+ * Iya/Oboke-Koboke/Shimanto objective.
  *
  * New records deliberately use transportOptions: {} + localAccessUnestimated:
- * true + transportMetadata.method "unestimated". The official sources verify
+ * true + transportMetadata.method "unestimated". Official sources verify
  * local access and destination identity, not complete origin-aware corridors.
  * recommendedVisitHours is destination time only.
  *
@@ -20,7 +24,13 @@ import type { Destination, SourceReference } from "../src/shared/types/destinati
 
 const INDEX_PATH = path.join(process.cwd(), "src/shared/data/destinations-index.json");
 const REVIEW_DATE = "2026-08-23";
-const CHANGE_SUMMARY = "Added current, source-verified Shikoku interior destination depth coverage.";
+const CHANGE_SUMMARY = "Re-centered KAI-148 on current Iya, Oboke–Koboke, and Shimanto interior depth.";
+
+const REMOVED_IDS = new Set([
+  "kotohira-gu-kagawa",
+  "uchiko-za-ehime",
+  "besshi-copper-mine-memorial-museum",
+]);
 
 type DestinationWithLocation = Destination & {
   location?: { address: string; latitude?: number; longitude?: number };
@@ -97,7 +107,7 @@ const durationMethodologySource = source(
 
 const makeRecord = (spec: RegionSpec): DestinationWithLocation => {
   const primarySource = spec.sources[0];
-  const accessSource = spec.sources.find((item) => /access|route|transport|walk|parking|bus/i.test(item.title)) ?? primarySource;
+  const accessSource = spec.sources.find((item) => /access|route|transport|walk|parking|bus|directions/i.test(item.title)) ?? primarySource;
   const fieldSources: Record<string, SourceReference[]> = {
     name: [primarySource], nameJa: [primarySource], status: [primarySource],
     municipalityId: [primarySource], localAccessModes: [accessSource], relationships: [primarySource],
@@ -114,7 +124,7 @@ const makeRecord = (spec: RegionSpec): DestinationWithLocation => {
     municipalityId: spec.municipalityId,
     transportZoneId: spec.transportZoneId,
     prefecture: spec.prefecture,
-    region: "Kansai",
+    region: "Shikoku",
     kind: spec.kind,
     role: spec.role ?? "standalone",
     placeType: "destination",
@@ -188,7 +198,7 @@ const makeRecord = (spec: RegionSpec): DestinationWithLocation => {
       changes: [{
         changedAt: REVIEW_DATE,
         changedBy: "Meguruto editorial",
-        summary: "Added one canonical destination after current operator, government, and official tourism verification.",
+        summary: "Added or retained one canonical destination after current operator, government, and official tourism verification.",
         method: "manual",
       }],
     },
@@ -196,113 +206,112 @@ const makeRecord = (spec: RegionSpec): DestinationWithLocation => {
   } as unknown as DestinationWithLocation;
 };
 
-const kotohiraHome = "https://www.konpira.or.jp/";
-const kotohiraGuide = "https://www.konpira.or.jp/articles_2023/20231130_KOTOHIRA-Gu_Official-Guide_in_English/article.html";
-const uchikoHome = "https://uchikogenic.com/en/visit/uchikoza/";
-const besshiHome = "https://www.sumitomo.gr.jp/english/history/related/besshidouzan/";
-const besshiGuide = "https://visit.city.niihama.ehime.jp/spot/68?loc=en";
+const iyaKazurabashi = "https://miyoshi-tourism.jp/en/spot/46/";
+const obokeKoboke = "https://miyoshi-tourism.jp/en/spot/53/";
+const obokeCruise = "https://miyoshi-tourism.jp/en/spot/24284/";
 const nakatsuHome = "https://visitkochijapan.com/en/see-and-do/10014";
 const karstGuide = "https://okushimanto.jp/en/special/content1";
+const shimantoNattoku = "https://visitkochijapan.com/en/activities/10152";
 
 const records: DestinationWithLocation[] = [
   makeRecord({
-    id: "kotohira-gu-kagawa",
-    name: "Kotohira-gu Shrine",
-    nameJa: "金刀比羅宮",
-    aliases: ["Kompira-san", "Kotohiragu"],
-    officialWebsite: kotohiraHome,
+    id: "iya-no-kazurabashi-tokushima",
+    name: "Iya-no-Kazurabashi",
+    nameJa: "祖谷のかずら橋",
+    aliases: ["Iya Vine Bridge", "Kazurabashi Bridge", "Iya-no-Kazura-bashi"],
+    officialWebsite: iyaKazurabashi,
     officialWebsiteRequirement: "required",
-    kind: "shrine",
+    kind: "bridge",
     importance: "major",
     role: "standalone",
-    municipalityId: "Kagawa:kotohira",
+    municipalityId: "Tokushima:miyoshi",
     transportZoneId: "mainland-shikoku",
-    prefecture: "Kagawa",
-    coordinates: { lat: 34.1847, lng: 133.8174 },
-    location: { address: "892-1 Kotohira, Nakatado-gun, Kagawa 766-8501, Japan" },
-    categories: ["Shrine", "Culture", "History"],
-    tags: ["Kagawa", "Kotohira", "Shrine", "Historic", "Mountain"],
-    description: "A major Shikoku pilgrimage shrine on the eastern slope of Mount Zozu, reached by a long stone-step approach and layered with worship halls, historic architecture, art, and sea-guardian traditions.",
-    descriptionJa: "象頭山の東斜面に鎮座し、長い石段の参道、社殿、歴史的建築、芸術、海の守護神信仰が重なる四国を代表する巡礼社です。",
-    highlights: ["785-step approach to the main shrine", "Historic shrine architecture and art", "Kompira-san pilgrimage tradition"],
-    highlightsJa: ["本宮まで続く785段の石段", "歴史ある社殿と美術", "こんぴら参りの巡礼文化"],
-    notes: "The official guide describes the shrine’s sea-guardian tradition, 785 stone steps to the Gohon-gu, secondary shrines, and art spaces. The climb is the destination experience; intercity travel is excluded from the visit duration.",
-    notesJa: "公式案内が示す海の守護神信仰、本宮までの785段、摂社や美術空間を一つの境内体験として扱います。訪問時間に四国内の移動時間は含めません。",
-    localAccessModes: ["train", "bus", "car"],
-    sources: [source("official", kotohiraHome, "KOTOHIRA-Gu official site"), source("official", kotohiraGuide, "KOTOHIRA-Gu Official Guide in English")],
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Kotohira-gu_shrine_%2852005829370%29.jpg/1280px-Kotohira-gu_shrine_%2852005829370%29.jpg",
-    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Kotohira-gu_shrine_(52005829370).jpg",
-    imageLicense: "CC BY 2.0",
-    imageAttribution: "Raita Futo",
-    duration: { min: 2, max: 4, confidence: "medium", basis: "Destination-only estimate for the stone-step climb, worship halls, secondary shrines, and art spaces described by the official guide; excludes intercity travel." },
-    reservation: "Ordinary worship does not require a timed reservation; check current shrine events and special-opening guidance.",
-    parking: "Use current official shrine and Kotohira visitor guidance for parking and the station-to-approach walk.",
-  }),
-  makeRecord({
-    id: "uchiko-za-ehime",
-    name: "Uchiko-za Theater",
-    nameJa: "内子座",
-    aliases: ["Uchiko-za Kabuki Theater"],
-    officialWebsite: uchikoHome,
-    officialWebsiteRequirement: "required",
-    kind: "historic",
-    importance: "major",
-    role: "standalone",
-    municipalityId: "Ehime:uchiko",
-    transportZoneId: "mainland-shikoku",
-    prefecture: "Ehime",
-    coordinates: { lat: 33.5484, lng: 132.6521 },
-    location: { address: "2102 Uchiko, Uchiko-cho, Kita-gun, Ehime, Japan" },
-    categories: ["History", "Culture", "Theater"],
-    tags: ["Ehime", "Uchiko", "Historic", "Culture", "Theater"],
-    description: "A preserved Taisho-era kabuki-style theater in Uchiko with a revolving stage, hanamichi runway, box seating, backstage spaces, and a community-preservation story.",
-    descriptionJa: "内子の町並みに残る大正期の芝居小屋で、回り舞台、花道、升席、奈落などの舞台機構と地域による保存の歩みを体感できます。",
-    highlights: ["Taisho-era wooden theater", "Revolving stage and hanamichi", "Backstage and under-stage spaces"],
-    highlightsJa: ["大正期の木造芝居小屋", "回り舞台と花道", "舞台裏と奈落の空間"],
-    notes: "The current official visitor page states that the theater is undergoing large-scale renovation and seismic reinforcement, with the main theater closed for approximately four years while backstage areas may remain visitable. Check current status before travel.",
-    notesJa: "現行の公式案内では大規模改修・耐震補強のため本体が約4年間休館中で、舞台裏を見学できる場合があります。訪問前に最新状況をご確認ください。",
-    localAccessModes: ["train", "bus", "car"],
-    sources: [source("official", uchikoHome, "Uchikogenic / Uchiko Tourism Association — Uchiko-za current visitor status")],
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Uchiko-za_20170611.jpg/1280px-Uchiko-za_20170611.jpg",
-    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Uchiko-za_20170611.jpg",
-    imageLicense: "CC BY-SA 4.0",
-    imageAttribution: "Suicasmo",
-    duration: { min: 1, max: 1.5, confidence: "medium", basis: "Destination-only estimate for the theater and backstage visit; current renovation restrictions may shorten or change the visit." },
-    reservation: "Performances and special tours may require advance reservation; current renovation access is subject to official guidance.",
-    parking: "The official visitor page lists limited free parking; verify availability before arrival.",
-  }),
-  makeRecord({
-    id: "besshi-copper-mine-memorial-museum",
-    name: "Besshi Copper Mine Memorial Museum",
-    nameJa: "別子銅山記念館",
-    aliases: ["Besshi Copper Mine Museum"],
-    officialWebsite: besshiHome,
-    officialWebsiteRequirement: "required",
-    kind: "museum",
-    importance: "major",
-    role: "standalone",
-    municipalityId: "Ehime:niihama",
-    transportZoneId: "mainland-shikoku",
-    prefecture: "Ehime",
-    coordinates: { lat: 33.8701, lng: 133.2884 },
-    location: { address: "654-3 Kannonbara, Niihama, Ehime, Japan" },
-    categories: ["Museum", "History", "Industry"],
-    tags: ["Ehime", "Niihama", "Museum", "History", "Mining"],
-    description: "A memorial museum on the grounds of Oyamazumi Shrine that presents the 283-year history of the Besshi Copper Mine through geology, mining technology, documents, models, and working life.",
-    descriptionJa: "大山積神社の境内にあり、283年続いた別子銅山の歴史を地質、採鉱技術、史料、模型、鉱山労働者の暮らしから伝える記念館です。",
-    highlights: ["283 years of mining history", "Geology and mining-technique exhibits", "Mine railway and historical models"],
-    highlightsJa: ["283年に及ぶ銅山史", "地質と採鉱技術の展示", "鉱山鉄道や歴史模型"],
-    notes: "Sumitomo’s official history page describes five exhibition corners and the museum’s setting at Oyamazumi Shrine. The museum visit is distinct from the higher-altitude Tonaru mine ruins and does not include that separate excursion.",
-    notesJa: "住友グループの公式史料が示す5つの展示コーナーと大山積神社境内の立地を一つの博物館体験として扱います。東平の遺構訪問は別の行程で、所要時間に含めません。",
+    prefecture: "Tokushima",
+    coordinates: { lat: 33.8854986, lng: 133.8360303 },
+    location: { address: "162-2 Zentoku, Nishi-Iyayamamura, Miyoshi, Tokushima, Japan" },
+    categories: ["Nature", "Outdoors", "Culture"],
+    tags: ["Tokushima", "Miyoshi", "Iya", "Bridge", "Nature", "Hiking"],
+    description: "A 45-metre vine suspension bridge over the Iya River and the independently selectable signature visitor experience of the remote Iya Valley, with the Biwa Waterfall and illuminated night view nearby.",
+    descriptionJa: "祖谷川に架かる全長45mのかずら橋で、秘境・祖谷を代表する独立した訪問体験です。近くの琵琶の滝や夜間ライトアップも楽しめます。",
+    highlights: ["45-metre vine suspension bridge", "National Important Tangible Folk Cultural Property", "Biwa Waterfall and evening illumination nearby"],
+    highlightsJa: ["全長45mのかずら橋", "国指定重要有形民俗文化財", "近くの琵琶の滝と夜間ライトアップ"],
+    notes: "Miyoshi City's current tourism page gives seasonal hours, a 550-yen adult admission, a five-minute walk from Kazurabashi Yumebutai parking, and bus access from JR Oboke Station. Heavy rain warnings can cause temporary closure; the bridge is the canonical card, not a duplicate generic Iya Valley record.",
+    notesJa: "三好市公式観光案内の季節別営業時間、一般大人550円、かずら橋夢舞台駐車場から徒歩約5分、JR大歩危駅からのバスアクセスに基づきます。大雨警報時は一時閉鎖の可能性があります。祖谷全域とは別の橋体験として扱います。",
     localAccessModes: ["bus", "car"],
-    sources: [source("operator", besshiHome, "Sumitomo Group — Besshi Copper Mine Memorial Museum"), source("tourism_board", besshiGuide, "Niihama official tourism listing")],
-    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Besshi_dozan_kinenkan_museum.jpg/1280px-Besshi_dozan_kinenkan_museum.jpg",
-    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Besshi_dozan_kinenkan_museum.jpg",
-    imageLicense: "Public domain",
-    imageAttribution: "As6022014",
-    duration: { min: 1, max: 2, confidence: "medium", basis: "Destination-only museum estimate based on the five official exhibition areas; excludes any separate mountain-mine excursion." },
-    reservation: "Check current opening and group-visit guidance with the operator.",
-    parking: "Use current museum and Niihama tourism access guidance for parking and local road conditions.",
+    sources: [source("tourism_board", iyaKazurabashi, "Miyoshi City official tourism — Iya-no-Kazurabashi")],
+    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Iya_Kazurabashi-4.jpg/1280px-Iya_Kazurabashi-4.jpg",
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Iya_Kazurabashi-4.jpg",
+    imageLicense: "CC BY 2.0",
+    imageAttribution: "ume-y",
+    duration: { min: 1, max: 2, confidence: "medium", basis: "Destination-only estimate for crossing the bridge, the nearby Biwa Waterfall, and the official site experience; excludes the remote intercity journey." },
+    reservation: "No reservation is required for ordinary bridge admission; pay at the ticket counter. Check severe-weather closure notices before departure.",
+    parking: "Kazurabashi Yumebutai municipal parking has paid spaces; the official page lists a five-minute walk and no parking reservations.",
+  }),
+  makeRecord({
+    id: "oboke-koboke-gorges-tokushima",
+    name: "Oboke–Koboke Gorges",
+    nameJa: "大歩危・小歩危峡",
+    aliases: ["Oboke Gorge", "Koboke Gorge", "Oboke-kyo & Koboke-kyo"],
+    officialWebsite: obokeKoboke,
+    officialWebsiteRequirement: "required",
+    kind: "nature",
+    importance: "major",
+    role: "standalone",
+    municipalityId: "Tokushima:miyoshi",
+    transportZoneId: "mainland-shikoku",
+    prefecture: "Tokushima",
+    coordinates: { lat: 33.8765375, lng: 133.7672057 },
+    location: { address: "Yamashirocho Shigemi–Uenami, Miyoshi, Tokushima, Japan" },
+    categories: ["Nature", "Outdoors", "Scenic"],
+    tags: ["Tokushima", "Miyoshi", "Oboke", "Koboke", "Gorge", "River", "Scenic"],
+    description: "A connected Yoshino River gorge corridor where Oboke's dramatic schist formations and Koboke's downstream rock scenery form one selectable interior landscape proposition; the official pleasure cruise is a structured highlight, not a duplicate card.",
+    descriptionJa: "吉野川が刻んだ大歩危・小歩危の渓谷回廊で、大歩危の結晶片岩の岩壁と下流の小歩危の景観を一つの訪問体験として扱います。公式遊覧船は独立カードではなく構造化ハイライトです。",
+    highlights: ["Oboke's natural-monument schist formations", "Koboke Gorge three kilometres downstream", "Optional 30-minute Yoshino River pleasure cruise"],
+    highlightsJa: ["天然記念物の結晶片岩による大歩危の岩壁", "約3km下流の小歩危峡", "任意で楽しめる約30分の吉野川遊覧船"],
+    notes: "The official Miyoshi tourism site describes Oboke and Koboke as one river-shaped geological landscape, with Koboke about three kilometres downstream. JR Oboke Station is the practical rail anchor; road access and the cruise terminal cover the wider corridor. Intercity time is excluded from the visit duration.",
+    notesJa: "三好市公式観光案内が示す大歩危・小歩危の一体的な地質景観と、約3km下流の小歩危を一つの回廊として扱います。JR大歩危駅が鉄道の基点で、周辺道路と遊覧船乗り場を含めます。四国内の移動時間は訪問時間に含めません。",
+    localAccessModes: ["train", "bus", "car"],
+    sources: [source("tourism_board", obokeKoboke, "Miyoshi City official tourism — Oboke-kyo & Koboke-kyo"), source("tourism_board", obokeCruise, "Miyoshi City official tourism — Oboke Gorge Pleasure Cruise")],
+    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Oboke_gorge_pleasure_boat_2106_August_13.B.jpg/1280px-Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Oboke_gorge_pleasure_boat_2106_August_13.B.jpg",
+    imageLicense: "CC BY-SA 4.0",
+    imageAttribution: "さかおり",
+    duration: { min: 2, max: 4, confidence: "medium", basis: "Destination-only estimate for selected gorge viewpoints, riverside stops, and the optional 30-minute cruise; excludes the interior Shikoku journey." },
+    reservation: "The official cruise page directs visitors to the terminal and publishes same-location boarding; weather or rising water can cancel departures. No blanket reservation claim is made for the gorge corridor.",
+    parking: "The official cruise listing says parking is available; use marked parking and current river-condition guidance for the wider gorge corridor.",
+  }),
+  makeRecord({
+    id: "shimanto-river-yakatabune-nattoku",
+    name: "Shimanto River Yakatabune Nattoku",
+    nameJa: "四万十川屋形船 なっとく",
+    aliases: ["Yakatabune Nattoku", "Shimanto River Sightseeing Houseboat Nattoku"],
+    officialWebsite: shimantoNattoku,
+    officialWebsiteRequirement: "required",
+    kind: "cruise",
+    importance: "major",
+    role: "standalone",
+    municipalityId: "Kochi:shimanto",
+    transportZoneId: "mainland-shikoku",
+    prefecture: "Kochi",
+    coordinates: { lat: 33.041728, lng: 132.841747 },
+    location: { address: "846-1 Tadenokawa, Shimanto, Kochi Prefecture, Japan" },
+    categories: ["Nature", "Outdoors", "River"],
+    tags: ["Kochi", "Shimanto", "River", "Cruise", "Boat", "Scenic"],
+    description: "A year-round 40–50-minute traditional houseboat cruise on an upper Shimanto River stretch, with clear water, mountain scenery, and views toward iconic chinkabashi submersible bridges.",
+    descriptionJa: "清流と山並み、沈下橋の景観を眺めながら四万十川上流を屋形船で巡る、通年運航の40〜50分の具体的な訪問体験です。",
+    highlights: ["40–50-minute traditional houseboat cruise", "Upper Shimanto scenery and chinkabashi views", "Optional river-food bento during the cruise"],
+    highlightsJa: ["40〜50分の伝統的な屋形船", "四万十川上流と沈下橋の景観", "川の食材を使った弁当の追加注文"],
+    notes: "VISIT KOCHI JAPAN identifies Nattoku as the furthest-upriver regular yakatabune service, with departures on the hour from 9:00 to 16:00 subject to weather. The official listing gives the Tadenokawa address, 2,200-yen adult fare, and weekend/holiday reservation recommendation. This concrete operator experience is used instead of an arbitrary point labelled only Shimanto River.",
+    notesJa: "VISIT KOCHI JAPANが紹介する上流側の定期屋形船で、天候により変更されますが9時〜16時の毎時出航です。公式案内の田出ノ川住所、一般大人2200円、週末・繁忙期は予約推奨に基づきます。単なる四万十川の任意地点ではなく、具体的な事業者体験を登録します。",
+    localAccessModes: ["bus", "car"],
+    sources: [source("tourism_board", shimantoNattoku, "VISIT KOCHI JAPAN — Yakatabune Nattoku")],
+    heroImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Shimanto_River_And_Iwama_Bridge_1.jpg/1280px-Shimanto_River_And_Iwama_Bridge_1.jpg",
+    imageSourceUrl: "https://commons.wikimedia.org/wiki/File:Shimanto_River_And_Iwama_Bridge_1.jpg",
+    imageLicense: "CC BY-SA 3.0",
+    imageAttribution: "京浜にけ",
+    duration: { min: 1, max: 2, confidence: "high", basis: "The operator listing gives a 40–50-minute cruise; the destination-only range includes boarding and disembarkation but excludes the remote drive." },
+    reservation: "Reservations are not required for ordinary cruises but are recommended on weekends and holidays; meal bento orders require reservation. Weather can change departures.",
+    parking: "Parking is available at the Nattoku office on Route 441 beside the riverside jetty; follow the current operator guidance.",
   }),
   makeRecord({
     id: "nakatsu-gorge-kochi",
@@ -373,17 +382,19 @@ const records: DestinationWithLocation[] = [
 ];
 
 const index = JSON.parse(fs.readFileSync(INDEX_PATH, "utf8")) as DestinationWithLocation[];
-const byId = new Map(index.map((item) => [item.id, item]));
+const byId = new Map(index.filter((item) => !REMOVED_IDS.has(item.id)).map((item) => [item.id, item]));
 for (const record of records) {
   const existing = byId.get(record.id);
   if (existing) {
     if (existing.name !== record.name || existing.nameJa !== record.nameJa) throw new Error(`KAI-148 identity conflict: ${record.id}`);
     byId.set(record.id, {
       ...existing,
+      region: "Shikoku",
+      prefecture: record.prefecture,
       transportZoneId: record.transportZoneId,
       editorial: existing.editorial
-        ? { ...existing.editorial, changeSummary: CHANGE_SUMMARY }
-        : existing.editorial,
+        ? { ...existing.editorial, changeSummary: CHANGE_SUMMARY, checkedAt: REVIEW_DATE, reviewedAt: REVIEW_DATE }
+        : record.editorial,
     });
     continue;
   }
@@ -391,4 +402,4 @@ for (const record of records) {
 }
 const next = Array.from(byId.values());
 fs.writeFileSync(INDEX_PATH, `${JSON.stringify(next, null, 2)}\n`);
-console.log(`KAI-148 processed ${records.length} canonical records; total=${next.length}`);
+console.log(`KAI-148 removed ${REMOVED_IDS.size} out-of-objective records and processed ${records.length} canonical records; total=${next.length}`);

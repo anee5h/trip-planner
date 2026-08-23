@@ -732,16 +732,6 @@
     }
   },
   {
-    "id": "besshi-copper-mine-memorial-museum",
-    "name": "Besshi Copper Mine Memorial Museum",
-    "prefecture": "Ehime",
-    "region": "Kansai",
-    "role": "standalone",
-    "kind": "museum",
-    "status": "verified",
-    "relationships": {}
-  },
-  {
     "id": "biei-town",
     "name": "Biei Town",
     "prefecture": "Hokkaido",
@@ -3972,6 +3962,16 @@
     }
   },
   {
+    "id": "iya-no-kazurabashi-tokushima",
+    "name": "Iya-no-Kazurabashi",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "iya-valley-tokushima",
     "name": "Iya Valley & Vine Bridges",
     "prefecture": "Tokushima",
@@ -5589,16 +5589,6 @@
         "taito-city"
       ]
     }
-  },
-  {
-    "id": "kotohira-gu-kagawa",
-    "name": "Kotohira-gu Shrine",
-    "prefecture": "Kagawa",
-    "region": "Kansai",
-    "role": "standalone",
-    "kind": "shrine",
-    "status": "verified",
-    "relationships": {}
   },
   {
     "id": "kotoku-in-great-buddha",
@@ -7621,7 +7611,7 @@
     "id": "nakatsu-gorge-kochi",
     "name": "Nakatsu Gorge",
     "prefecture": "Kochi",
-    "region": "Kansai",
+    "region": "Shikoku",
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
@@ -8378,6 +8368,16 @@
     "relationships": {
       "parentDestinationId": "miyoshi-city"
     }
+  },
+  {
+    "id": "oboke-koboke-gorges-tokushima",
+    "name": "Oboke–Koboke Gorges",
+    "prefecture": "Tokushima",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "ochiai-folk-village",
@@ -10127,7 +10127,7 @@
     "id": "shikoku-karst-kochi",
     "name": "Shikoku Karst",
     "prefecture": "Kochi",
-    "region": "Kansai",
+    "region": "Shikoku",
     "role": "standalone",
     "kind": "nature",
     "status": "verified",
@@ -10163,6 +10163,16 @@
     "role": "standalone",
     "kind": "castle",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "shimanto-river-yakatabune-nattoku",
+    "name": "Shimanto River Yakatabune Nattoku",
+    "prefecture": "Kochi",
+    "region": "Shikoku",
+    "role": "standalone",
+    "kind": "cruise",
+    "status": "verified",
     "relationships": {}
   },
   {
@@ -12029,16 +12039,6 @@
     "role": "standalone",
     "kind": "castle",
     "status": "published",
-    "relationships": {}
-  },
-  {
-    "id": "uchiko-za-ehime",
-    "name": "Uchiko-za Theater",
-    "prefecture": "Ehime",
-    "region": "Kansai",
-    "role": "standalone",
-    "kind": "historic",
-    "status": "verified",
     "relationships": {}
   },
   {
