@@ -209741,13 +209741,13 @@
     "placeType": "destination",
     "importance": "major",
     "coordinates": {
-      "lat": 36.425,
-      "lng": 136.933333
+      "lat": 36.426006,
+      "lng": 136.935478
     },
     "location": {
       "address": "611 Ainokura, Nanto, Toyama 939-1915",
-      "latitude": 36.425,
-      "longitude": 136.933333
+      "latitude": 36.426006,
+      "longitude": 136.935478
     },
     "categories": [
       "Village",
@@ -209906,6 +209906,12 @@
           "url": "https://whc.unesco.org/en/list/734/maps/",
           "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
           "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://www.tabi-nanto.jp/archives/4517",
+          "title": "Gokayama NANTO Tourism Organization (Nanto City official): Ainokura village map pin",
+          "accessedAt": "2026-08-23"
         }
       ],
       "fieldSources": {
@@ -210034,13 +210040,13 @@
     "placeType": "destination",
     "importance": "notable",
     "coordinates": {
-      "lat": 36.405556,
-      "lng": 136.886111
+      "lat": 36.404163,
+      "lng": 136.886581
     },
     "location": {
       "address": "578 Suganuma, Nanto, Toyama 939-1973",
-      "latitude": 36.405556,
-      "longitude": 136.886111
+      "latitude": 36.404163,
+      "longitude": 136.886581
     },
     "categories": [
       "Village",
@@ -210198,6 +210204,12 @@
           "type": "government",
           "url": "https://whc.unesco.org/en/list/734/maps/",
           "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "government",
+          "url": "https://www.tabi-nanto.jp/archives/4497",
+          "title": "Gokayama NANTO Tourism Organization (Nanto City official): Suganuma village map pin",
           "accessedAt": "2026-08-23"
         }
       ],
@@ -210481,6 +210493,12 @@
           "url": "https://visit-toyama-japan.com/en/places-to-go/80267",
           "title": "Visit Toyama official: Toyama Glass Art Museum",
           "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://toyama-glass-art-museum.jp/visitor/",
+          "title": "Toyama Glass Art Museum official visitor guide map (confirms catalogue coordinates)",
+          "accessedAt": "2026-08-23"
         }
       ],
       "fieldSources": {
@@ -210762,6 +210780,12 @@
           "type": "official",
           "url": "https://www.dinosaur.pref.fukui.jp/guide/access.html",
           "title": "Fukui Prefectural Dinosaur Museum current Japanese access guidance",
+          "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://www.dinosaur.pref.fukui.jp/",
+          "title": "Fukui Prefectural Dinosaur Museum official site map (embedded map within ~33 m of record)",
           "accessedAt": "2026-08-23"
         }
       ],

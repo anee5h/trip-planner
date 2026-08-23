@@ -18,13 +18,13 @@
   "placeType": "destination",
   "importance": "major",
   "coordinates": {
-    "lat": 36.425,
-    "lng": 136.933333
+    "lat": 36.426006,
+    "lng": 136.935478
   },
   "location": {
     "address": "611 Ainokura, Nanto, Toyama 939-1915",
-    "latitude": 36.425,
-    "longitude": 136.933333
+    "latitude": 36.426006,
+    "longitude": 136.935478
   },
   "categories": ["Village", "UNESCO", "Heritage", "Architecture", "Culture"],
   "tags": ["Gokayama", "Gassho-zukuri", "UNESCO", "Nanto", "Minshuku"],
@@ -164,6 +164,12 @@
         "type": "government",
         "url": "https://whc.unesco.org/en/list/734/maps/",
         "title": "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://www.tabi-nanto.jp/archives/4517",
+        "title": "Gokayama NANTO Tourism Organization (Nanto City official): Ainokura village map pin",
         "accessedAt": "2026-08-23"
       }
     ],

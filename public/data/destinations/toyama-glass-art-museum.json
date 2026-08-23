@@ -158,6 +158,12 @@
         "url": "https://visit-toyama-japan.com/en/places-to-go/80267",
         "title": "Visit Toyama official: Toyama Glass Art Museum",
         "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://toyama-glass-art-museum.jp/visitor/",
+        "title": "Toyama Glass Art Museum official visitor guide map (confirms catalogue coordinates)",
+        "accessedAt": "2026-08-23"
       }
     ],
     "fieldSources": {

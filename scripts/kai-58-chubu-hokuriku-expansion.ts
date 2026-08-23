@@ -261,11 +261,11 @@ const ainokura = makeRecord({
   municipalityId: "Toyama:nanto",
   kind: "village",
   importance: "major",
-  coordinates: { lat: 36.425, lng: 136.933333 },
+  coordinates: { lat: 36.426006, lng: 136.935478 },
   location: {
     address: "611 Ainokura, Nanto, Toyama 939-1915",
-    latitude: 36.425,
-    longitude: 136.933333,
+    latitude: 36.426006,
+    longitude: 136.935478,
   },
   categories: ["Village", "UNESCO", "Heritage", "Architecture", "Culture"],
   tags: ["Gokayama", "Gassho-zukuri", "UNESCO", "Nanto", "Minshuku"],
@@ -327,6 +327,11 @@ const ainokura = makeRecord({
       "https://whc.unesco.org/en/list/734/maps/",
       "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
     ),
+    source(
+      "government",
+      "https://www.tabi-nanto.jp/archives/4517",
+      "Gokayama NANTO Tourism Organization (Nanto City official): Ainokura village map pin",
+    ),
   ],
   image: {
     heroImage:
@@ -352,11 +357,11 @@ const suganuma = makeRecord({
   municipalityId: "Toyama:nanto",
   kind: "village",
   importance: "notable",
-  coordinates: { lat: 36.405556, lng: 136.886111 },
+  coordinates: { lat: 36.404163, lng: 136.886581 },
   location: {
     address: "578 Suganuma, Nanto, Toyama 939-1973",
-    latitude: 36.405556,
-    longitude: 136.886111,
+    latitude: 36.404163,
+    longitude: 136.886581,
   },
   categories: ["Village", "UNESCO", "Heritage", "Architecture", "Culture"],
   tags: ["Gokayama", "Gassho-zukuri", "UNESCO", "Nanto", "Mountain Village"],
@@ -417,6 +422,11 @@ const suganuma = makeRecord({
       "government",
       "https://whc.unesco.org/en/list/734/maps/",
       "UNESCO Historic Villages of Shirakawa-go and Gokayama component map",
+    ),
+    source(
+      "government",
+      "https://www.tabi-nanto.jp/archives/4497",
+      "Gokayama NANTO Tourism Organization (Nanto City official): Suganuma village map pin",
     ),
   ],
   image: {
@@ -500,6 +510,11 @@ const toyamaGlass = makeRecord({
       "https://visit-toyama-japan.com/en/places-to-go/80267",
       "Visit Toyama official: Toyama Glass Art Museum",
     ),
+    source(
+      "official",
+      "https://toyama-glass-art-museum.jp/visitor/",
+      "Toyama Glass Art Museum official visitor guide map (confirms catalogue coordinates)",
+    ),
   ],
   image: {
     heroImage:
@@ -580,6 +595,11 @@ const dinosaurMuseum = makeRecord({
       "official",
       "https://www.dinosaur.pref.fukui.jp/guide/access.html",
       "Fukui Prefectural Dinosaur Museum current Japanese access guidance",
+    ),
+    source(
+      "official",
+      "https://www.dinosaur.pref.fukui.jp/",
+      "Fukui Prefectural Dinosaur Museum official site map (embedded map within ~33 m of record)",
     ),
   ],
   image: {
