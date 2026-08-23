@@ -379,21 +379,19 @@ describe("day-trip travel evidence", () => {
       );
     });
 
-    // KAI-31: Takamatsu's Shikoku cluster was expanded with source-backed
-    // POIs (gardens, castle, art museum, Naruto/Tokushima/Kochi/Marugame/
-    // Miyoshi entries) inside the same mainland-shikoku zone, so the
-    // bounded set grew from 9 to 41. The point of this test is the
-    // evidence state, not the exact inventory; keep it deterministic.
+    // Current Shikoku catalogue keeps the bounded set at 37. The point of
+    // this test is the evidence state, not the exact inventory; keep it
+    // deterministic.
     // Entries without a public ground mode (e.g. omishima-bridge, reached
     // only by car/ferry from Takamatsu) legitimately stay "unknown" — the
     // invariant applies to the estimable subset with rail/bus options.
-    expect(nearbySameZone).toHaveLength(41);
+    expect(nearbySameZone).toHaveLength(37);
     const publicGroundEntries = nearbySameZone.filter(
       (result) =>
         result.transportOptions?.train !== undefined ||
         result.transportOptions?.bus !== undefined,
     );
-    expect(publicGroundEntries).toHaveLength(40);
+    expect(publicGroundEntries).toHaveLength(36);
     expect(
       publicGroundEntries.every(
         (result) =>
