@@ -489,7 +489,8 @@
       "legoland-japan-nagoya",
       "higashiyama-zoo-and-botanical-gardens",
       "mt-rokko-kobe",
-      "kobe-suma-sea-world"
+      "kobe-suma-sea-world",
+      "marine-world-uminonakamichi"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -802,7 +803,11 @@
       "hakutsuru-sake-brewery-museum",
       "ikuta-shrine-kobe",
       "sorakuen-garden",
-      "kobe-suma-sea-world"
+      "kobe-suma-sea-world",
+      "marine-world-uminonakamichi",
+      "nokonoshima-island-park",
+      "sakurai-futamigaura-itoshima",
+      "yanagawa-canal-cruise"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1812,7 +1817,11 @@
       "hakutsuru-sake-brewery-museum",
       "ikuta-shrine-kobe",
       "sorakuen-garden",
-      "kobe-suma-sea-world"
+      "kobe-suma-sea-world",
+      "marine-world-uminonakamichi",
+      "nokonoshima-island-park",
+      "sakurai-futamigaura-itoshima",
+      "yanagawa-canal-cruise"
     ]
   },
   "modelClusterIds": [
@@ -1862,44 +1871,30 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-22T18:00",
-    "changeCount": 5,
+    "at": "2026-08-22T18:38",
+    "changeCount": 2,
     "byModel": [
       [
-        "score-rubric-v2",
-        5
+        "walking-model-v1",
+        1
+      ],
+      [
+        "duration-model-v1",
+        1
       ]
     ],
     "sample": [
       {
-        "id": "mt-rokko-kobe",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 7.1"
+        "id": "nokonoshima-island-park",
+        "model": "walking-model-v1",
+        "action": "fill",
+        "reason": "walk-share estimate: 80% of 3h visit"
       },
       {
-        "id": "hakutsuru-sake-brewery-museum",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "ikuta-shrine-kobe",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "sorakuen-garden",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.2"
-      },
-      {
-        "id": "kobe-suma-sea-world",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 7.1"
+        "id": "nokonoshima-island-park",
+        "model": "duration-model-v1",
+        "action": "clear",
+        "reason": "stale calculated duration source removed (no model metadata)"
       }
     ]
   }

@@ -216,6 +216,30 @@
         "lat": 32.6277,
         "lng": 129.7384
       }
+    },
+    {
+      "id": "MEINOHAMA",
+      "name": "Meinohama Ferry Terminal",
+      "nameJa": "姪浜渡船場",
+      "city": "Fukuoka",
+      "prefecture": "Fukuoka",
+      "zoneId": "mainland-kyushu",
+      "coordinates": {
+        "lat": 33.585,
+        "lng": 130.325
+      }
+    },
+    {
+      "id": "NOKONOSHIMA",
+      "name": "Nokonoshima Ferry Terminal",
+      "nameJa": "能古島渡船場",
+      "city": "Fukuoka",
+      "prefecture": "Fukuoka",
+      "zoneId": "nokonoshima",
+      "coordinates": {
+        "lat": 33.622,
+        "lng": 130.296
+      }
     }
   ],
   "services": [
@@ -481,6 +505,24 @@
       "fareSourceUrl": "https://www.gunkan-jima.net/en/",
       "checkedAt": "2026-08-13",
       "notes": "Round-trip landing tour (reservation-only) from Nagasaki Tokiwa Terminal; adult 4,500 yen boarding fee + 650 yen Gunkanjima entrance fee (charged by Nagasaki City, separate, cash); ~40 min each way; landing subject to weather (entrance fee refunded if landing impossible)."
+    },
+    {
+      "id": "MEINOHAMA-NOKONOSHIMA",
+      "fromPort": "MEINOHAMA",
+      "toPort": "NOKONOSHIMA",
+      "operator": "Fukuoka City Municipal Ferry (福岡市営渡船)",
+      "serviceName": "Meinohama–Nokonoshima city ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [10, 10],
+      "fare": [230, 230],
+      "fareBasis": "one-way",
+      "fareStatus": "verified",
+      "sourceUrl": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
+      "fareSourceUrl": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
+      "checkedAt": "2026-08-22",
+      "notes": "Fukuoka City municipal ferry; ~10 min crossing, adult one-way ¥230, child ¥120. Sails roughly hourly with extra peak services; check the current timetable."
     }
   ]
 }

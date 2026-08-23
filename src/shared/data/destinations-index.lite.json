@@ -7313,17 +7313,20 @@
     "relationships": {
       "featuredDestinationIds": [
         "tenjin",
-        "fukuoka-art-museum",
+        "canal-city-hakata",
+        "ohori-park",
         "kushida-shrine",
         "fukuoka-castle-ruins",
+        "fukuoka-tower",
         "fukuoka-yatai",
         "nakasu",
         "tochoji",
-        "fukuoka-tower",
-        "ohori-park",
-        "canal-city-hakata",
         "hakata-machiya-folk-museum",
-        "maizuru-park"
+        "maizuru-park",
+        "fukuoka-art-museum",
+        "fukuoka-city-museum",
+        "fukuoka-paypay-dome",
+        "marine-world-uminonakamichi"
       ],
       "nearbyDestinationIds": [
         "kitakyushu-city",
@@ -90290,5 +90293,319 @@
       "nearbyDestinationIds": [],
       "parentDestinationId": "kobe-city"
     }
+  },
+  {
+    "id": "marine-world-uminonakamichi",
+    "name": "Marine World Uminonakamichi",
+    "nameJa": "マリンワールド海の中道",
+    "kind": "aquarium",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Fukuoka:fukuoka",
+    "aliases": ["Marine World Uminonakamichi", "Uminonakamichi Aquarium"],
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "categories": ["Aquarium", "Family", "Nature", "Entertainment"],
+    "tags": ["Aquarium", "Family", "Nature", "Entertainment", "Fukuoka"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Marine_World_Uminonakamichi_2.JPG/1280px-Marine_World_Uminonakamichi_2.JPG",
+    "description": "A large aquarium on the Uminonakamichi peninsula with dolphin and sea lion shows, a Kuroshio tank, and the adjacent Uminonakamichi Seaside Park for a full bay day out.",
+    "highlights": [
+      "Dolphin and sea lion shows in a bayfront setting",
+      "Kuroshio current tank and diverse marine life",
+      "Pairs with Uminonakamichi Seaside Park for a full bay outing"
+    ],
+    "coordinates": {
+      "lat": 33.6611,
+      "lng": 130.3658
+    },
+    "officialWebsite": "https://marine-world.jp/for-foreigners/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.1,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "fukuoka-city"
+    }
+  },
+  {
+    "id": "nokonoshima-island-park",
+    "name": "Nokonoshima Island Park",
+    "nameJa": "能古島アイランドパーク",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Fukuoka:fukuoka",
+    "aliases": ["Noko Island Park", "Nokonoshima"],
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "categories": ["Park", "Nature", "Family", "Island"],
+    "tags": ["Park", "Nature", "Family", "Island", "Fukuoka"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Nokonoshima_Island%2C_enkei.jpg/1280px-Nokonoshima_Island%2C_enkei.jpg",
+    "description": "A flower park on Nokonoshima Island, reached by a 10-minute ferry from Meinohama, with seasonal blooms (cosmos, narcissus, cherry blossom) and views across Hakata Bay.",
+    "highlights": [
+      "Seasonal flower fields (cosmos, narcissus, cherry blossom)",
+      "A 10-minute ferry ride from Meinohama to the island",
+      "Hakata Bay views from the island"
+    ],
+    "coordinates": {
+      "lat": 33.63,
+      "lng": 130.29
+    },
+    "officialWebsite": "https://nokonoshima.com/en",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 145,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "sakurai-futamigaura-itoshima",
+    "name": "Sakurai Futamigaura",
+    "nameJa": "桜井二見ヶ浦",
+    "kind": "nature",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Fukuoka:itoshima",
+    "aliases": ["Futamigaura Itoshima", "Sakurai Futamigaura White Torii"],
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "categories": ["Nature", "Viewpoint", "Coast", "Photography"],
+    "tags": ["Nature", "Viewpoint", "Coast", "Photography", "Itoshima"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Futamigaura_Beach_from_observation_deck_of_Futamigaura_Cemetery_1.JPG/1280px-Futamigaura_Beach_from_observation_deck_of_Futamigaura_Cemetery_1.JPG",
+    "description": "A celebrated west-coast viewpoint in Itoshima where a white torii gate stands before the Meoto Iwa (married-couple rocks) in the sea, popular for sunsets and photography.",
+    "highlights": [
+      "The white torii gate and Meoto Iwa offshore",
+      "A sunset and photography spot on the Itoshima coast",
+      "A canonical west-coast anchor (not a catch-all district)"
+    ],
+    "coordinates": {
+      "lat": 33.5564,
+      "lng": 130.1739
+    },
+    "officialWebsite": "https://www.crossroadfukuoka.jp/en/spot/12456",
+    "officialWebsiteRequirement": "recommended",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["car", "my_car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "yanagawa-canal-cruise",
+    "name": "Yanagawa Canal Cruise",
+    "nameJa": "柳川川下り",
+    "kind": "cruise",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Fukuoka:yanagawa",
+    "aliases": ["Yanagawa River Cruise", "Yanagawa Kawakudari"],
+    "prefecture": "Fukuoka",
+    "region": "Kyushu",
+    "categories": ["Experience", "Culture", "History", "Boat"],
+    "tags": ["Experience", "Culture", "History", "Boat", "Yanagawa"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Yanagawa-kawakudari.jpg/1280px-Yanagawa-kawakudari.jpg",
+    "description": "A punt-boat cruise through the canal town of Yanagawa, a 60-minute ride along the moat of the former castle town, famous for its water-town scenery and eel cuisine.",
+    "highlights": [
+      "A 60-minute punt-boat ride through the canal town",
+      "The moat of the former castle town of Yanagawa",
+      "A classic rail day-trip from Fukuoka (Nishitetsu)"
+    ],
+    "coordinates": {
+      "lat": 33.1625,
+      "lng": 130.4019
+    },
+    "officialWebsite": "https://www.yanagawakk.co.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+    },
+    "walkingMin": 150,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.2,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

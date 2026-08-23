@@ -3,11 +3,11 @@
   "schemaVersion": 1,
   "auditedAt": "2026-08-13",
   "rule": "Exact canonical-value clusters with at least 3 records; absent values are excluded (empty transportOptions {} is excluded as the honest no-data state). Clusters indicate review risk, not proof that every repeated value is wrong. Disposition per cluster is reviewed in scripts/audit/kai-89-dispositions.json.",
-  "totalRecords": 1017,
+  "totalRecords": 1021,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 190,
-    "affectedRecordCount": 1014,
+    "clusterCount": 191,
+    "affectedRecordCount": 1018,
     "affectedIds": [
       "abashiri",
       "abashiri-city",
@@ -490,6 +490,7 @@
       "makino-botanical-garden",
       "makuhari-seaside-park",
       "mameda-historic-district",
+      "marine-world-uminonakamichi",
       "marugame-castle",
       "marugame-city",
       "marugame-uchiwa-museum",
@@ -641,6 +642,7 @@
       "nishi-chugoku-sanchi",
       "nishiki-market",
       "nisshinkan",
+      "nokonoshima-island-park",
       "noritake-garden",
       "noto",
       "noto-hanto",
@@ -749,6 +751,7 @@
       "sakai-city-museum",
       "sakamoto-ryoma-memorial-museum",
       "sakura-castle-chiba",
+      "sakurai-futamigaura-itoshima",
       "sakurajima-volcano-kagoshima",
       "samuel-cocking-garden",
       "sanin-kaigan",
@@ -990,6 +993,7 @@
       "yamashita-park-yokohama",
       "yamato-aogaki",
       "yambaru",
+      "yanagawa-canal-cruise",
       "yanaka",
       "yasaka-shrine",
       "yashima-takamatsu",
@@ -1385,16 +1389,16 @@
       "confidence-gated": 31,
       "model-estimate": 43,
       "manual-review": 93,
-      "legitimate": 9
+      "legitimate": 10
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 9, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 10, "E": 31 }
   },
   "categories": [
     {
       "category": "ratings",
       "severity": "warning",
       "clusterCount": 37,
-      "affectedRecordCount": 454,
+      "affectedRecordCount": 458,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -1608,6 +1612,7 @@
         "kyushu-chuo-sanchi",
         "lake-biwa-shiga",
         "legoland-japan-nagoya",
+        "marine-world-uminonakamichi",
         "marugame-city",
         "matsudo-city",
         "matsue-city",
@@ -1675,6 +1680,7 @@
         "niseko-shakotan-otaru-kaigan",
         "niseko-town",
         "nishi-chugoku-sanchi",
+        "nokonoshima-island-park",
         "noritake-garden",
         "noto-hanto",
         "nozuta-park",
@@ -1719,6 +1725,7 @@
         "saikai",
         "sakai-city",
         "sakai-city-museum",
+        "sakurai-futamigaura-itoshima",
         "sakurajima-volcano-kagoshima",
         "sanin-kaigan",
         "sannai-maruyama-jomon-aomori",
@@ -1839,6 +1846,7 @@
         "yamanaka-castle",
         "yamashita-park-yokohama",
         "yamato-aogaki",
+        "yanagawa-canal-cruise",
         "yatsugatake-chushin-kogen",
         "yokohama-chinatown",
         "yokohama-cosmo-world",
@@ -1993,7 +2001,7 @@
         {
           "id": "7d6449898a3b",
           "severity": "warning",
-          "count": 37,
+          "count": 41,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "arashiyama-bamboo-togetsukyo",
@@ -2016,10 +2024,13 @@
             "kobe-suma-sea-world",
             "kurama-dera-kyoto",
             "legoland-japan-nagoya",
+            "marine-world-uminonakamichi",
             "mt-rokko-kobe",
             "nakayama-hokekyoji-ichikawa",
             "national-museum-japanese-history-sakura",
+            "nokonoshima-island-park",
             "noritake-garden",
+            "sakurai-futamigaura-itoshima",
             "sanzen-in-ohara",
             "shimizu-park-noda",
             "shirotori-garden",
@@ -2031,7 +2042,8 @@
             "tenryu-ji-kyoto",
             "tojo-tei-matsudo",
             "uzumasa-kyoto-village",
-            "yagiri-no-watashi-matsudo"
+            "yagiri-no-watashi-matsudo",
+            "yanagawa-canal-cruise"
           ],
           "value": {
             "couple": 5,
@@ -3635,8 +3647,8 @@
     {
       "category": "visitDuration",
       "severity": "review",
-      "clusterCount": 24,
-      "affectedRecordCount": 976,
+      "clusterCount": 25,
+      "affectedRecordCount": 982,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -3650,6 +3662,7 @@
         "akasaka-minato",
         "akashi-castle",
         "akashi-kaikyo-bridge",
+        "akebonoyama-agricultural-park-kashiwa",
         "akihabara-chiyoda",
         "akita-city",
         "akita-museum-of-art",
@@ -3950,6 +3963,7 @@
         "jogashima",
         "jomon-sugi-yakushima",
         "joshinetsu-kogen",
+        "joypolis",
         "jozenji-dori",
         "kabira-bay-ishigaki",
         "kabukicho",
@@ -4101,6 +4115,7 @@
         "makino-botanical-garden",
         "makuhari-seaside-park",
         "mameda-historic-district",
+        "marine-world-uminonakamichi",
         "marugame-castle",
         "marugame-city",
         "marugame-uchiwa-museum",
@@ -4248,6 +4263,7 @@
         "nishi-chugoku-sanchi",
         "nishiki-market",
         "nisshinkan",
+        "nokonoshima-island-park",
         "noritake-garden",
         "noto",
         "noto-hanto",
@@ -4351,6 +4367,7 @@
         "sakai-city-museum",
         "sakamoto-ryoma-memorial-museum",
         "sakura-castle-chiba",
+        "sakurai-futamigaura-itoshima",
         "sakurajima-volcano-kagoshima",
         "samuel-cocking-garden",
         "sanin-kaigan",
@@ -4583,6 +4600,7 @@
         "yamashita-park-yokohama",
         "yamato-aogaki",
         "yambaru",
+        "yanagawa-canal-cruise",
         "yanaka",
         "yasaka-shrine",
         "yashima-takamatsu",
@@ -4807,7 +4825,7 @@
         {
           "id": "1c84ff3f729a",
           "severity": "review",
-          "count": 114,
+          "count": 115,
           "ids": [
             "aizu-bukeyashiki",
             "akita-museum-of-art",
@@ -4891,6 +4909,7 @@
             "orient-museum",
             "ritsuunkyo-viewpoint",
             "ryozen-ji-naruto",
+            "sakurai-futamigaura-itoshima",
             "sanzen-in-ohara",
             "sasebo-naval-port-cruise",
             "sendai-daikannon",
@@ -4934,7 +4953,7 @@
         {
           "id": "bb109b6c5b53",
           "severity": "review",
-          "count": 95,
+          "count": 96,
           "ids": [
             "abeno-harukas-300-osaka",
             "art-tower-mito",
@@ -4974,6 +4993,7 @@
             "maizuru-park",
             "makuhari-seaside-park",
             "mameda-historic-district",
+            "marine-world-uminonakamichi",
             "maruoka-castle-fukui",
             "maruyama-park",
             "matsue-vogel-park",
@@ -5855,6 +5875,23 @@
           }
         },
         {
+          "id": "b745c8933575",
+          "severity": "review",
+          "count": 4,
+          "ids": [
+            "akebonoyama-agricultural-park-kashiwa",
+            "joypolis",
+            "nokonoshima-island-park",
+            "yanagawa-canal-cruise"
+          ],
+          "value": { "max": 3, "min": 2 },
+          "disposition": {
+            "category": "A",
+            "action": "legitimate",
+            "reason": "KAI-157 duration correction: Nokonoshima Island Park, Sakurai Futamigaura, and Yanagawa Canal Cruise share a corrected pure-destination-time band {2,3}h (visit at/within the destination; origin-to-destination travel is modeled separately in transport). Manual, medium confidence."
+          }
+        },
+        {
           "id": "e229b7d66d77",
           "severity": "review",
           "count": 4,
@@ -5906,7 +5943,7 @@
       "category": "walking",
       "severity": "review",
       "clusterCount": 30,
-      "affectedRecordCount": 981,
+      "affectedRecordCount": 985,
       "affectedIds": [
         "abashiri",
         "abashiri-city",
@@ -6373,6 +6410,7 @@
         "makino-botanical-garden",
         "makuhari-seaside-park",
         "mameda-historic-district",
+        "marine-world-uminonakamichi",
         "marugame-castle",
         "marugame-city",
         "marugame-uchiwa-museum",
@@ -6519,6 +6557,7 @@
         "nishi-chugoku-sanchi",
         "nishiki-market",
         "nisshinkan",
+        "nokonoshima-island-park",
         "noritake-garden",
         "noto",
         "noto-hanto",
@@ -6621,6 +6660,7 @@
         "sakai-city-museum",
         "sakamoto-ryoma-memorial-museum",
         "sakura-castle-chiba",
+        "sakurai-futamigaura-itoshima",
         "sakurajima-volcano-kagoshima",
         "samuel-cocking-garden",
         "sanin-kaigan",
@@ -6856,6 +6896,7 @@
         "yamashita-park-yokohama",
         "yamato-aogaki",
         "yambaru",
+        "yanagawa-canal-cruise",
         "yanaka",
         "yasaka-shrine",
         "yashima-takamatsu",
@@ -7502,7 +7543,7 @@
         {
           "id": "52b14c9c17b9",
           "severity": "review",
-          "count": 59,
+          "count": 60,
           "ids": [
             "abukuma-cave-fukushima",
             "akiyoshido-cave-yamaguchi",
@@ -7562,7 +7603,8 @@
             "tojinbo-cliffs-fukui",
             "tottori-sand-dunes",
             "tsunoshima-bridge-yamaguchi",
-            "uwajima-castle"
+            "uwajima-castle",
+            "yanagawa-canal-cruise"
           ],
           "value": { "walkingMin": 150 },
           "disposition": {
@@ -7640,7 +7682,7 @@
         {
           "id": "8184feae45ad",
           "severity": "review",
-          "count": 41,
+          "count": 42,
           "ids": [
             "amami-iriomote-natural-site",
             "asuka-fujiwara-nara",
@@ -7658,6 +7700,7 @@
             "kujukushima-pearl-sea-resort",
             "kumano-kodo-koya-wakayama",
             "mameda-historic-district",
+            "marine-world-uminonakamichi",
             "matsue-vogel-park",
             "matsumoto-castle-nagano",
             "mojiko-retro-district",
@@ -7790,7 +7833,7 @@
         {
           "id": "47f1236f5181",
           "severity": "review",
-          "count": 25,
+          "count": 26,
           "ids": [
             "bizan-ropeway-tokushima",
             "fujita-memorial-garden",
@@ -7810,6 +7853,7 @@
             "nippara-cave",
             "oboke-koboke-gorge",
             "ritsuunkyo-viewpoint",
+            "sakurai-futamigaura-itoshima",
             "shirahama-beach-adventure-world",
             "shirotori-garden",
             "shoryu-cave",
@@ -7865,7 +7909,7 @@
         {
           "id": "1e4109ee1e47",
           "severity": "review",
-          "count": 19,
+          "count": 20,
           "ids": [
             "akebonoyama-agricultural-park-kashiwa",
             "danjo-garan-koyasan",
@@ -7874,6 +7918,7 @@
             "kashima-jingu",
             "makino-botanical-garden",
             "nakadake-crater-aso",
+            "nokonoshima-island-park",
             "noritake-garden",
             "nunobiki-herb-gardens",
             "orizuru-tower",

@@ -1,0 +1,256 @@
+{
+  "id": "yanagawa-canal-cruise",
+  "officialWebsite": "https://www.yanagawakk.co.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Yanagawa Canal Cruise",
+  "nameJa": "柳川川下り",
+  "aliases": ["Yanagawa River Cruise", "Yanagawa Kawakudari"],
+  "municipalityId": "Fukuoka:yanagawa",
+  "prefecture": "Fukuoka",
+  "region": "Kyushu",
+  "kind": "cruise",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 33.1625,
+    "lng": 130.4019
+  },
+  "location": {
+    "address": "536-7 Mitsuhashimachi Fujiyoshi, Yanagawa, Fukuoka 832-0826",
+    "latitude": 33.1625,
+    "longitude": 130.4019
+  },
+  "categories": ["Experience", "Culture", "History", "Boat"],
+  "tags": ["Experience", "Culture", "History", "Boat", "Yanagawa"],
+  "description": "A punt-boat cruise through the canal town of Yanagawa, a 60-minute ride along the moat of the former castle town, famous for its water-town scenery and eel cuisine.",
+  "highlights": [
+    "A 60-minute punt-boat ride through the canal town",
+    "The moat of the former castle town of Yanagawa",
+    "A classic rail day-trip from Fukuoka (Nishitetsu)"
+  ],
+  "content": {
+    "en": {
+      "name": "Yanagawa Canal Cruise",
+      "description": "A punt-boat cruise through the canal town of Yanagawa, a 60-minute ride along the moat of the former castle town, famous for its water-town scenery and eel cuisine.",
+      "highlights": [
+        "A 60-minute punt-boat ride through the canal town",
+        "The moat of the former castle town of Yanagawa",
+        "A classic rail day-trip from Fukuoka (Nishitetsu)"
+      ],
+      "notes": "A single canonical canal-cruise outing: the Shogetsu boarding area is one operator's product, and the town's moat cruise is the stable visitor proposition. Reached by Nishitetsu Tenjin Omuta Line to Nishitetsu Yanagawa Station.",
+      "reservation": "Boats depart on a schedule; check current times. The cruise operator (Yanagawa Kanko Kaihatsu) runs the Shogetsu boarding area.",
+      "parking": "Free parking is available at the boarding-area lots; shuttle buses return from the endpoint.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "柳川川下り",
+      "description": "柳川の掘割を小船で巡る川下り。かつての城下町の内堀を約60分かけて進み、水郷の風景と名物のうなぎを楽しめます。",
+      "highlights": [
+        "掘割を小船で60分の川下り",
+        "かつての城下町・柳川の内堀",
+        "西鉄で福岡から日帰りできる定番"
+      ],
+      "notes": "川下りは一つの定番の体験として扱います。松月乗船場は運航会社の一つで、城下町の掘割クルーズが安定した訪問体験です。西鉄天神大牟田線の西鉄柳川駅からアクセスします。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Yanagawa-kawakudari.jpg/1280px-Yanagawa-kawakudari.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland, CC BY-SA 4.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yanagawa-kawakudari.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Destination experience time (visit at/within the destination); origin-to-destination travel is modeled separately in transport."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Boats depart on a schedule; check current times. The cruise operator (Yanagawa Kanko Kaihatsu) runs the Shogetsu boarding area.",
+  "parking": "Free parking is available at the boarding-area lots; shuttle buses return from the endpoint.",
+  "notes": "A single canonical canal-cruise outing: the Shogetsu boarding area is one operator's product, and the town's moat cruise is the stable visitor proposition. Reached by Nishitetsu Tenjin Omuta Line to Nishitetsu Yanagawa Station.",
+  "notesJa": "川下りは一つの定番の体験として扱います。松月乗船場は運航会社の一つで、城下町の掘割クルーズが安定した訪問体験です。西鉄天神大牟田線の西鉄柳川駅からアクセスします。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-22",
+    "reviewedAt": "2026-08-22",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Fukuoka bay and west-coast destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.yanagawakk.co.jp/",
+        "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+        "accessedAt": "2026-08-22"
+      },
+      {
+        "type": "official",
+        "url": "https://www.yanagawa-net.com/ohori/",
+        "title": "Yanagawa City official canal-cruise page",
+        "accessedAt": "2026-08-22"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.yanagawakk.co.jp/",
+          "title": "Yanagawa Kanko Kaihatsu (Shogetsu) official site",
+          "accessedAt": "2026-08-22"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 5h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-22",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Fukuoka destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-22",
+  "walkingMin": 150,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 5h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

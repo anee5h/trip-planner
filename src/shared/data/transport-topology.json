@@ -135,6 +135,14 @@
       "isIsland": true,
       "isRemote": true,
       "localModes": []
+    },
+    {
+      "id": "nokonoshima",
+      "name": "Nokonoshima",
+      "nameJa": "能古島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": ["bus", "car", "my_car"]
     }
   ],
   "edges": [

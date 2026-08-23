@@ -125,6 +125,13 @@
       "passengerService": true,
       "sourceUrl": "https://www.gunkan-jima.net/en/",
       "checkedAt": "2026-08-13"
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "nokonoshima",
+      "passengerService": true,
+      "sourceUrl": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
+      "checkedAt": "2026-08-22"
     }
   ]
 }
