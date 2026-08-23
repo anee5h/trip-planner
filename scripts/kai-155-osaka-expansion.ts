@@ -11,11 +11,14 @@
  * idempotent: missing IDs are appended once, conflicting identities fail
  * fast, and a second run produces zero diff.
  *
- * Transport honesty: same-city records carry legacy static minutes as the
- * existing Osaka catalogue does (osaka-city train:190 etc.). These are
- * display/fallback provenance only (transportMetadata.method
- * "legacy-fallback", confidence low); origin-aware transport remains
- * authoritative and is never fabricated.
+ * Transport honesty: new unestimated records deliberately carry NO static
+ * transportOptions minutes. Their presence would affect origin-aware
+ * fallback eligibility (the OriginAwareTransportService guard treats a
+ * static transportOptions[mode] as route evidence, letting a broad
+ * prefecture corridor masquerade as an attraction-level route). Records
+ * use transportOptions: {} + localAccessUnestimated: true +
+ * transportMetadata.method "unestimated"; recommendation availability
+ * comes only from canonical origin-aware routes.
  *
  * Usage: tsx scripts/kai-155-osaka-expansion.ts
  */
