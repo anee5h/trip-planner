@@ -1,0 +1,256 @@
+{
+  "id": "kurokabe-square-nagahama",
+  "officialWebsite": "https://www.kurokabe.co.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Kurokabe Square",
+  "nameJa": "黒壁スクエア",
+  "aliases": ["Kurokabe", "Nagahama Kurokabe Square", "Kurokabe Glass House"],
+  "municipalityId": "Shiga:nagahama",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "historic_town",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 35.3845,
+    "lng": 136.2689
+  },
+  "location": {
+    "address": "12-38 Motohama-cho, Nagahama, Shiga 526-0059",
+    "latitude": 35.3845,
+    "longitude": 136.2689
+  },
+  "categories": ["Historic District", "Shopping", "Culture", "History"],
+  "tags": ["Historic District", "Shopping", "Culture", "History", "Nagahama"],
+  "description": "A preserved merchant quarter around the Meiji-era Kurokabe Bank building in central Nagahama, with glass shops, craft studios, cafes and galleries — turning Nagahama into more than a castle-only stop.",
+  "highlights": [
+    "The Meiji-era Kurokabe Bank building and glass shops",
+    "Preserved old-town streets of former castle-town Nagahama",
+    "Craft and glass-blowing experiences in converted storehouses"
+  ],
+  "content": {
+    "en": {
+      "name": "Kurokabe Square",
+      "description": "A preserved merchant quarter around the Meiji-era Kurokabe Bank building in central Nagahama, with glass shops, craft studios, cafes and galleries — turning Nagahama into more than a castle-only stop.",
+      "highlights": [
+        "The Meiji-era Kurokabe Bank building and glass shops",
+        "Preserved old-town streets of former castle-town Nagahama",
+        "Craft and glass-blowing experiences in converted storehouses"
+      ],
+      "notes": "About 5–10 minutes on foot from JR Nagahama Station. One canonical heritage-town proposition: Nagahama Castle, Kurokabe Museum, and individual galleries are part of this district experience, not separate cards. Nearby Nagahama Port is the mainland terminal for Chikubushima ferries.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "黒壁スクエア",
+      "description": "明治築の黒壁銀行を中心にガラス店や工房、カフェ、ギャラリーが並ぶ長浜の伝統的建造物群。城下町散策の核となるエリアです。",
+      "highlights": [
+        "黒壁銀行の洋館とガラスショップ",
+        "旧北国街道の古い街並み",
+        "蔵造りを活かしたガラス体験・工房"
+      ],
+      "notes": "JR長浜駅から徒歩約5〜10分。長浜城・黒壁美術館・個々のギャラリーは地区体験の一部として扱い、別カードにはしません。近くの長浜港は竹生島クルーズの発着港です。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Kurokabe_Square_Nagahama_City_Shiga_Prefecture_2023.jpg/1280px-Kurokabe_Square_Nagahama_City_Shiga_Prefecture_2023.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "attribution": "ウィキ太郎, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kurokabe_Square_Nagahama_City_Shiga_Prefecture_2023.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Old-town browsing band (shops, galleries, cafe stops); pairing with Nagahama Castle extends the visit."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "About 5–10 minutes on foot from JR Nagahama Station. One canonical heritage-town proposition: Nagahama Castle, Kurokabe Museum, and individual galleries are part of this district experience, not separate cards. Nearby Nagahama Port is the mainland terminal for Chikubushima ferries.",
+  "notesJa": "JR長浜駅から徒歩約5〜10分。長浜城・黒壁美術館・個々のギャラリーは地区体験の一部として扱い、別カードにはしません。近くの長浜港は竹生島クルーズの発着港です。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Shiga east/north Lake Biwa destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kurokabe.co.jp/",
+        "title": "Kurokabe Square official site",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "official",
+        "url": "https://www.biwakokisen.co.jp/access/nagahama/",
+        "title": "Biwako Kisen Nagahama Port access page",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.kurokabe.co.jp/",
+          "title": "Kurokabe Square official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://www.kurokabe.co.jp/",
+          "title": "Kurokabe Square official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://www.kurokabe.co.jp/",
+          "title": "Kurokabe Square official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://www.kurokabe.co.jp/",
+          "title": "Kurokabe Square official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/access/nagahama/",
+          "title": "Biwako Kisen Nagahama Port access page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.kurokabe.co.jp/",
+          "title": "Kurokabe Square official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://www.kurokabe.co.jp/",
+          "title": "Kurokabe Square official site",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://www.biwakokisen.co.jp/access/nagahama/",
+          "title": "Biwako Kisen Nagahama Port access page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Shiga destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

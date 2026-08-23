@@ -132,6 +132,15 @@
       "passengerService": true,
       "sourceUrl": "https://www.city.fukuoka.lg.jp/kowan/kyakusen/hakata-port/hyo.html",
       "checkedAt": "2026-08-22"
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "chikubushima",
+      "operator": "Biwako Kisen (琵琶湖汽船)",
+      "ports": ["Nagahama", "Imazu", "Chikubushima"],
+      "passengerService": true,
+      "sourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/",
+      "checkedAt": "2026-08-23"
     }
   ]
 }

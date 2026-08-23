@@ -1,0 +1,256 @@
+{
+  "id": "taga-taisha",
+  "officialWebsite": "https://global.biwako-visitors.jp/things-to-do/22084/",
+  "officialWebsiteRequirement": "recommended",
+  "name": "Taga Taisha",
+  "nameJa": "多賀大社",
+  "aliases": ["Taga Taisha Shrine", "Oga-san", "Taga Grand Shrine"],
+  "municipalityId": "Shiga:taga",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 35.2264,
+    "lng": 136.2833
+  },
+  "location": {
+    "address": "1322 Taga, Taga-cho, Inukami-gun, Shiga 522-0341",
+    "latitude": 35.2264,
+    "longitude": 136.2833
+  },
+  "categories": ["Shrine", "Culture", "History", "Spiritual"],
+  "tags": ["Shrine", "Culture", "History", "Spiritual", "Taga"],
+  "description": "One of Japan's great shrines dedicated to Izanagi and Izanami, famed for longevity blessings and its lantern-lined approach, anchoring a distinct eastern-Shiga heritage outing on the Ohmi Railway Main Line.",
+  "highlights": [
+    "Grand vermilion halls and a lantern-lined sandō approach",
+    "Longevity blessings at one of eastern Japan's major shrines",
+    "A distinct Ohmi-Railway heritage outing separate from the lake shore"
+  ],
+  "content": {
+    "en": {
+      "name": "Taga Taisha",
+      "description": "One of Japan's great shrines dedicated to Izanagi and Izanami, famed for longevity blessings and its lantern-lined approach, anchoring a distinct eastern-Shiga heritage outing on the Ohmi Railway Main Line.",
+      "highlights": [
+        "Grand vermilion halls and a lantern-lined sandō approach",
+        "Longevity blessings at one of eastern Japan's major shrines",
+        "A distinct Ohmi-Railway heritage outing separate from the lake shore"
+      ],
+      "notes": "About a 10-minute walk from Ohmi Railway Taga Taisha-mae Station (branch line from Toyosato on the Main Line). This creates a genuinely distinct eastern-Shiga pattern when paired with Hikone or Eigen-ji, not just another lakeside stop.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "多賀大社",
+      "description": "伊邪那岐命・伊邪那美命を祀る大社。長寿のご利益と参道の灯籠で知られ、近江鉄道沿線の湖東地方の文化的な拠点です。",
+      "highlights": [
+        "朱色の社殿と灯籠が並ぶ参道",
+        "長寿祈願で知られる大社",
+        "近江鉄道沿線の湖東地方を代表する参拝地"
+      ],
+      "notes": "近江鉄道多賀大社前駅から徒歩約10分（本線豊郷駅から支線）。彦根や永源寺と組み合わせると湖岸とは異なる湖東の旅になります。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Taga-taisha_Haiden-b.jpg/1280px-Taga-taisha_Haiden-b.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Yanajin33 (edited by 663highland), CC BY-SA 3.0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taga-taisha_Haiden-b.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Shrine grounds and approach street; a focused heritage stop that pairs with nearby eastern-Shiga sites."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "About a 10-minute walk from Ohmi Railway Taga Taisha-mae Station (branch line from Toyosato on the Main Line). This creates a genuinely distinct eastern-Shiga pattern when paired with Hikone or Eigen-ji, not just another lakeside stop.",
+  "notesJa": "近江鉄道多賀大社前駅から徒歩約10分（本線豊郷駅から支線）。彦根や永源寺と組み合わせると湖岸とは異なる湖東の旅になります。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Shiga east/north Lake Biwa destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+        "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+        "title": "Lake Biwa Visit Shiga official listing for Taga Taisha (address and access)",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "tourism_board",
+          "url": "https://global.biwako-visitors.jp/things-to-do/22084/",
+          "title": "Lake Biwa Visit Shiga official listing for Taga Taisha (address and access)",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Shiga destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

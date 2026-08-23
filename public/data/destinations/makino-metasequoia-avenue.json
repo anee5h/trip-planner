@@ -1,0 +1,260 @@
+{
+  "id": "makino-metasequoia-avenue",
+  "officialWebsite": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+  "officialWebsiteRequirement": "recommended",
+  "name": "Makino Metasequoia Avenue",
+  "nameJa": "マキノ高原 メタセコイア並木",
+  "aliases": [
+    "Metasequoia Namiki",
+    "Makino Pickland Metasequoia Road",
+    "メタセコイア並木"
+  ],
+  "municipalityId": "Shiga:takashima",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 35.5453,
+    "lng": 135.9961
+  },
+  "location": {
+    "address": "Makino, Takashima, Shiga 520-1822",
+    "latitude": 35.5453,
+    "longitude": 135.9961
+  },
+  "categories": ["Nature", "Viewpoint", "Photography", "Scenic Drive"],
+  "tags": ["Nature", "Viewpoint", "Photography", "Scenic Drive", "Takashima"],
+  "description": "A straight 2.4 km avenue of some 500 metasequoia trees along a prefectural road on the Makino highland plateau in western Lake Biwa — a linear scenic drive-and-walk landmark.",
+  "highlights": [
+    "2.4 km of towering metasequoia along a single prefectural road",
+    "Distinct seasonal faces (fresh green, deep green, winter hoarfrost)",
+    "Pairs naturally with Makino highland and northern-lake drives"
+  ],
+  "content": {
+    "en": {
+      "name": "Makino Metasequoia Avenue",
+      "description": "A straight 2.4 km avenue of some 500 metasequoia trees along a prefectural road on the Makino highland plateau in western Lake Biwa — a linear scenic drive-and-walk landmark.",
+      "highlights": [
+        "2.4 km of towering metasequoia along a single prefectural road",
+        "Distinct seasonal faces (fresh green, deep green, winter hoarfrost)",
+        "Pairs naturally with Makino highland and northern-lake drives"
+      ],
+      "notes": "This is a LINEAR roadside attraction: from JR Makino Station take the Makino-kogen bus (~10 min) to Makino Pickland, then walk back along the avenue; by car use the free Pickland lot. No seasonal score is asserted despite its famous winter/autumn imagery — seasonMetadata stays unknown.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "マキノ高原 メタセコイア並木",
+      "description": "高島市マキノ高原の府県道沿いに約500本のメタセコイアが約2.4kmにわたって並ぶ直線的な並木道です。",
+      "highlights": [
+        "約2.4kmにわたるメタセコイアの並木",
+        "新緑・深緑・冬の霧氷と季節ごとの表情",
+        "マキノ高原・湖北ドライブと合わせて楽しむ景勝地"
+      ],
+      "notes": "線状の並木道スポットです。JRマキノ駅からマキノ高原線バスで約10分、マキノピックランド下車後に並木を散策。車の場合はピックランドの無料駐車場を利用します。季節の有名な景観でも、季節スコアは推定せず unknown を維持します。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/A_row_of_Metasequoia_trees_Makino_20200919.jpg/1280px-A_row_of_Metasequoia_trees_Makino_20200919.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "先従隗始, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_row_of_Metasequoia_trees_Makino_20200919.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car", "my_car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Walk/drive the avenue plus photo stops; a compact nature stop, not a full-day park."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "This is a LINEAR roadside attraction: from JR Makino Station take the Makino-kogen bus (~10 min) to Makino Pickland, then walk back along the avenue; by car use the free Pickland lot. No seasonal score is asserted despite its famous winter/autumn imagery — seasonMetadata stays unknown.",
+  "notesJa": "線状の並木道スポットです。JRマキノ駅からマキノ高原線バスで約10分、マキノピックランド下車後に並木を散策。車の場合はピックランドの無料駐車場を利用します。季節の有名な景観でも、季節スコアは推定せず unknown を維持します。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Shiga east/north Lake Biwa destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+        "title": "Takashima City Tourism Association Metasequoia avenue page",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "government",
+        "url": "https://www.city.takashima.lg.jp/soshiki/seisakubu/kikakukohoka/10/3/3/525.html",
+        "title": "Takashima City Metasequoia preservation page",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://takashima-kanko.jp/spot/2018/06/post_155.html",
+          "title": "Takashima City Tourism Association Metasequoia avenue page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Shiga destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

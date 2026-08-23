@@ -1,0 +1,256 @@
+{
+  "id": "eigenji-higashiomi",
+  "officialWebsite": "https://eigenji-t.jp/contact/",
+  "officialWebsiteRequirement": "recommended",
+  "name": "Eigen-ji",
+  "nameJa": "永源寺",
+  "aliases": ["Eigenji Temple", "Zuisekizan Eigen-ji", "Eigen-ji Monastery"],
+  "municipalityId": "Shiga:higashiomi",
+  "prefecture": "Shiga",
+  "region": "Kansai",
+  "kind": "temple",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 35.0533,
+    "lng": 136.2283
+  },
+  "location": {
+    "address": "Eigenji-takanocho, Higashiomi, Shiga 527-0211",
+    "latitude": 35.0533,
+    "longitude": 136.2283
+  },
+  "categories": ["Temple", "Culture", "History", "Garden"],
+  "tags": ["Temple", "Culture", "History", "Garden", "Higashiomi"],
+  "description": "Head temple of the Eigen-ji branch of Rinzai Zen, set above the Echi River gorge in eastern Shiga, known for its Zen gardens, bell tower and riverside teahouses.",
+  "highlights": [
+    "Rinzai Zen head temple in the Echi River gorge",
+    "Classical Zen gardens and the great temple bell",
+    "An eastern-Shiga culture anchor away from the lake shore"
+  ],
+  "content": {
+    "en": {
+      "name": "Eigen-ji",
+      "description": "Head temple of the Eigen-ji branch of Rinzai Zen, set above the Echi River gorge in eastern Shiga, known for its Zen gardens, bell tower and riverside teahouses.",
+      "highlights": [
+        "Rinzai Zen head temple in the Echi River gorge",
+        "Classical Zen gardens and the great temple bell",
+        "An eastern-Shiga culture anchor away from the lake shore"
+      ],
+      "notes": "In Higashiomi municipality; reach via JR/Omi-Hachiman area then a bus toward Eigenji (Eigenjimae stop), followed by a walk. Hours 9:00–16:00 (extended during foliage season); admission ¥600 adults. Individual sub-temples are part of the precinct experience, not separate cards.",
+      "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+      "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "永源寺",
+      "description": "臨済宗永源寺派大本山。愛知川の峡谷を見下ろす禅寺で、禅庭や鐘楼、塔頭の茶屋が訪れる人を迎えます。",
+      "highlights": [
+        "愛知川峡に建つ臨済宗の大本山",
+        "禅庭と名物の梵鐘",
+        "湖岸を離れた湖東文化の拠点"
+      ],
+      "notes": "東近江市にあります。JR近江八幡方面から永源寺行きバス（永源寺前停下車）＋徒歩でアクセス。9:00〜16:00（紅葉期は延長あり）、拝観料600円。塔頭は境内体験の一部として扱い、別カードにはしません。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
+      "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Zuisekizan_Eigen-ji_Temple_20211121_05.jpg/1280px-Zuisekizan_Eigen-ji_Temple_20211121_05.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "attribution": "先従隗始, CC0, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Zuisekizan_Eigen-ji_Temple_20211121_05.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "train"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unestimated",
+    "confidence": "unknown",
+    "basis": "No origin-aware corridor duration is modeled for this destination. Local access exists (localAccessModes) but a complete origin-to-destination duration is not verified; recommendation availability comes only from canonical origin-aware routes (ferry infrastructure for island access), never from static transportOptions numbers."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "manual",
+    "confidence": "medium",
+    "basis": "Main hall, gardens, and river-side stroll; foliage season can extend the stay."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Check the official visitor guidance for current reservation and admission rules.",
+  "parking": "Use public transport where possible; check the official visitor guidance for current parking conditions.",
+  "notes": "In Higashiomi municipality; reach via JR/Omi-Hachiman area then a bus toward Eigenji (Eigenjimae stop), followed by a walk. Hours 9:00–16:00 (extended during foliage season); admission ¥600 adults. Individual sub-temples are part of the precinct experience, not separate cards.",
+  "notesJa": "東近江市にあります。JR近江八幡方面から永源寺行きバス（永源寺前停下車）＋徒歩でアクセス。9:00〜16:00（紅葉期は延長あり）、拝観料600円。塔頭は境内体験の一部として扱い、別カードにはしません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-23",
+    "reviewedAt": "2026-08-23",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added current, source-verified Shiga east/north Lake Biwa destination depth coverage.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://eigenji-t.jp/contact/",
+        "title": "Eigen-ji head temple official contact/admission page",
+        "accessedAt": "2026-08-23"
+      },
+      {
+        "type": "tourism_board",
+        "url": "https://global.biwako-visitors.jp/things-to-do/22360/",
+        "title": "Lake Biwa Visit Shiga official listing for Eigenji Temple",
+        "accessedAt": "2026-08-23"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "location": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "official",
+          "url": "https://eigenji-t.jp/contact/",
+          "title": "Eigen-ji head temple official contact/admission page",
+          "accessedAt": "2026-08-23"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-23",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added one canonical Shiga destination after current operator, government, and tourism-board verification.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-23",
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.2,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

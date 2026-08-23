@@ -24,6 +24,11 @@ const ISLAND_BOUNDS: Record<
   tomogashima: { latRange: [34.2, 34.4], lngRange: [134.9, 135.1] },
   miyajima: { latRange: [34.27, 34.32], lngRange: [132.312, 132.33] },
   nokonoshima: { latRange: [33.6, 33.66], lngRange: [130.25, 130.33] },
+  // Chikubushima (竹生島) in northern Lake Biwa. The island spans ~35.418-35.428
+  // lat, ~136.132-136.144 lng; the box keeps the mainland ferry ports
+  // (Nagahama ~35.387/136.268 and Imazu ~35.486/136.031) out of the island
+  // zone. Ferry-only: no road or rail reaches the island.
+  chikubushima: { latRange: [35.415, 35.43], lngRange: [136.13, 136.147] },
   gunkanjima: { latRange: [32.62, 32.64], lngRange: [129.73, 129.75] },
 };
 
