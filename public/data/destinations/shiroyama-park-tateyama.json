@@ -189,17 +189,17 @@
       ],
       "coordinates": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/way/265358058",
-          "title": "OpenStreetMap auxiliary cross-check: Shiroyama Park coordinate",
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10428.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Shiroyama Park map pin",
           "accessedAt": "2026-08-23"
         }
       ],
       "location": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/way/265358058",
-          "title": "OpenStreetMap auxiliary cross-check: Shiroyama Park coordinate",
+          "type": "government",
+          "url": "https://maruchiba.jp/spot/detail_10428.html",
+          "title": "Chiba Prefecture official tourism site (Chiba Kanko Navi): Shiroyama Park map pin",
           "accessedAt": "2026-08-23"
         }
       ],

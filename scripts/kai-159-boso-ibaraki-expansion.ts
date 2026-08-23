@@ -139,8 +139,11 @@ const makeRecord = (spec: RecordSpec): DestinationWithLocation => {
       /access|bus|rail|train|route|transport/i.test(candidate.title),
     ) ?? primarySource;
   const coordinateSource =
-    spec.sources.find((candidate) => candidate.type === "manual") ??
-    primarySource;
+    spec.sources.find(
+      (candidate) =>
+        candidate.type !== "manual" &&
+        /pin|map|coordinate/i.test(candidate.title),
+    ) ?? primarySource;
 
   return {
     id: spec.id,

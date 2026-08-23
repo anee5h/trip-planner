@@ -189,17 +189,17 @@
       ],
       "coordinates": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/node/745550349",
-          "title": "OpenStreetMap: Kasama Inari Shrine coordinate (auxiliary)",
+          "type": "official",
+          "url": "http://www.kasama.or.jp/access/index.html",
+          "title": "Kasama Inari Shrine official access page map pin",
           "accessedAt": "2026-08-23"
         }
       ],
       "location": [
         {
-          "type": "manual",
-          "url": "https://www.openstreetmap.org/node/745550349",
-          "title": "OpenStreetMap: Kasama Inari Shrine coordinate (auxiliary)",
+          "type": "official",
+          "url": "http://www.kasama.or.jp/access/index.html",
+          "title": "Kasama Inari Shrine official access page map pin",
           "accessedAt": "2026-08-23"
         }
       ],

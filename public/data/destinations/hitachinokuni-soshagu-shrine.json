@@ -195,17 +195,17 @@
       ],
       "coordinates": [
         {
-          "type": "manual",
-          "url": "https://www.wikidata.org/wiki/Q11481689",
-          "title": "Wikidata: Hitachinokuni Soshagu coordinate (auxiliary)",
+          "type": "official",
+          "url": "https://sosyagu.jp/access/",
+          "title": "Hitachinokuni Soshagu official access page map pin",
           "accessedAt": "2026-08-23"
         }
       ],
       "location": [
         {
-          "type": "manual",
-          "url": "https://www.wikidata.org/wiki/Q11481689",
-          "title": "Wikidata: Hitachinokuni Soshagu coordinate (auxiliary)",
+          "type": "official",
+          "url": "https://sosyagu.jp/access/",
+          "title": "Hitachinokuni Soshagu official access page map pin",
           "accessedAt": "2026-08-23"
         }
       ],
