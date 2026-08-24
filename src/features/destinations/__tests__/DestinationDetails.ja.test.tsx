@@ -8,6 +8,7 @@ import { afterEach, describe, it, expect, vi } from "vitest";
 import DestinationDetails from "../DestinationDetails";
 import destinationIndex from "@/shared/data/destinations-index.json";
 import { WikipediaService } from "@/shared/services/wikipedia/WikipediaService";
+import { getWikimediaResponsiveImage } from "@/shared/utils/wikimediaImages";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -236,6 +237,34 @@ describe("DestinationDetails Japanese Localization Regression", () => {
     expect(wikiLink).not.toBeNull();
   });
 
+  it("renders the responsive Wikimedia hero contract in hydrated JA detail HTML", async () => {
+    const heroImage = (records.get("kyoto-city") as any).heroImage as string;
+    const attrs = getWikimediaResponsiveImage(heroImage);
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+
+    await act(async () => {
+      root!.render(
+        <MemoryRouter initialEntries={["/destinations/kyoto-city"]}>
+          <Routes>
+            <Route path="/destinations/:id" element={<DestinationDetails />} />
+          </Routes>
+        </MemoryRouter>,
+      );
+      await flush(100);
+    });
+
+    const image = host.querySelector("picture > img");
+    expect(image).not.toBeNull();
+    expect(image?.getAttribute("src")).toBe(attrs.src);
+    expect(image?.getAttribute("srcset")).toBe(attrs.srcSet);
+    expect(image?.getAttribute("sizes")).toBe(attrs.sizes);
+    expect(image?.getAttribute("alt")).toBeTruthy();
+    expect(host.querySelectorAll("picture > source")).toHaveLength(
+      attrs.sources?.length ?? 0,
+    );
+  });
   it("renders localized Wikipedia unavailable message when summary not found", async () => {
     vi.spyOn(WikipediaService, "fetchSummary").mockResolvedValue(null);
 

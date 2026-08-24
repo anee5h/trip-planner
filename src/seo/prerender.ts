@@ -31,6 +31,7 @@ import {
 } from "../shared/services/place/PlaceCatalog";
 import destinationsIndex from "../shared/data/destinations-index.json";
 import type { Destination } from "../shared/types/destination";
+import { getWikimediaResponsiveImage } from "../shared/utils/wikimediaImages";
 import {
   HOME_TITLE,
   MAX_META_DESCRIPTION_LENGTH,
@@ -86,6 +87,25 @@ function absoluteImage(image: string): string {
   return /^https?:\/\//i.test(image) ? image : `${SITE_URL}${image}`;
 }
 
+/**
+ * Render the same destination hero image contract used by hydrated React.
+ * Keep the source model in the shared Wikimedia helper so the browser sees
+ * identical src/srcset/sizes/source attributes before and after hydration.
+ */
+function prerenderedHeroImage(image: string, alt: string): string {
+  const responsive = getWikimediaResponsiveImage(image);
+  const sources = (responsive.sources ?? [])
+    .map(
+      (source) =>
+        `<source media="${escapeHtml(source.media)}" srcset="${escapeHtml(source.srcSet)}" sizes="${escapeHtml(source.sizes)}" />`,
+    )
+    .join("");
+  const srcSet = responsive.srcSet
+    ? ` srcset="${escapeHtml(responsive.srcSet)}" sizes="${escapeHtml(responsive.sizes ?? "100vw")}"`
+    : "";
+  return `<picture class="absolute inset-0 block">${sources}<img src="${escapeHtml(responsive.src)}"${srcSet} alt="${escapeHtml(alt)}" decoding="async" class="absolute inset-0 w-full h-full object-cover" /></picture>`;
+}
+
 /** schema.org TouristDestination JSON-LD. Ratings/reviews/prices are never
  *  emitted: the visible page has no rating UI (KAI-89 hides the overall
  *  score), so no aggregateRating is invented. Canonical English copy is used
@@ -129,7 +149,7 @@ function prerenderedBody(destination: Destination, locale: PageLocale): string {
   return [
     `<div class="bg-slate-50 dark:bg-background min-h-screen pb-20">`,
     `<div class="relative min-h-[380px] sm:min-h-[400px] md:min-h-[440px] w-full overflow-hidden flex flex-col justify-between">`,
-    `<img src="${escapeHtml(absoluteImage(canonical.heroImage))}" alt="${escapeHtml(localized.name)}" decoding="async" class="absolute inset-0 w-full h-full object-cover" />`,
+    prerenderedHeroImage(absoluteImage(canonical.heroImage), localized.name),
     `<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/20"></div>`,
     `<div class="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">`,
     `<h1 class="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md"><span>${escapeHtml(localized.name)}</span></h1>`,

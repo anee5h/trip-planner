@@ -8,6 +8,7 @@ import {
   renderPublicManifest,
   renderSitemap,
 } from "@/seo/prerender";
+import { getWikimediaResponsiveImage } from "@/shared/utils/wikimediaImages";
 import { SITE_URL, TITLE_SUFFIX } from "@/seo/meta";
 import type { Destination } from "@/shared/types/destination";
 
@@ -106,6 +107,36 @@ describe("KAI-68 prerender: destination HTML", () => {
     expect(html).toContain(`${SITE_URL}/images/hero.jpg`);
   });
 
+  it("emits the canonical Wikimedia responsive hero contract in EN and JA HTML", () => {
+    const heroImage =
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/1280px-Kiyomizu-dera%2C_Kyoto.jpg";
+    const attrs = getWikimediaResponsiveImage(heroImage);
+    const en = injectHead(SHELL, makeDestination({ heroImage }), "en").html;
+    const ja = injectHead(SHELL, makeDestination({ heroImage }), "ja").html;
+
+    expect(attrs.srcSet).toBeDefined();
+    expect(attrs.sources).toHaveLength(2);
+    for (const source of attrs.sources ?? []) {
+      expect(en).toContain(
+        `<source media="${source.media}" srcset="${source.srcSet}" sizes="${source.sizes}" />`,
+      );
+      expect(ja).toContain(
+        `<source media="${source.media}" srcset="${source.srcSet}" sizes="${source.sizes}" />`,
+      );
+    }
+    expect(en).toContain(
+      `<img src="${attrs.src}" srcset="${attrs.srcSet}" sizes="${attrs.sizes}"`,
+    );
+    expect(ja).toContain(
+      `<img src="${attrs.src}" srcset="${attrs.srcSet}" sizes="${attrs.sizes}"`,
+    );
+
+    const picture = (html: string) =>
+      html
+        .match(/<picture[\s\S]*?<\/picture>/)?.[0]
+        .replace(/alt="[^"]*"/, 'alt=""');
+    expect(picture(en)).toBe(picture(ja));
+  });
   it("keeps the app mount + module script so SPA hydration still works", () => {
     const { html } = injectHead(SHELL, makeDestination({}));
     expect(html).toContain(`<div id="root">`);
