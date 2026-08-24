@@ -227,6 +227,13 @@ export interface Destination {
   /** Stable intra-city grouping used for discovery and diversification. */
   areaId?: string;
   aliases?: string[];
+  /** Optional deterministic Wikipedia identity. Search is never used to
+   * override these fields; a stale/invalid mapping fails closed. */
+  wikipediaTitle?: string;
+  wikipediaLanguage?: "en" | "ja";
+  wikipediaUrl?: string;
+  wikipediaPageId?: number;
+  wikidataId?: string;
   relationships?: DestinationRelationships;
   prefecture: string;
   region: string;

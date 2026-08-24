@@ -25,6 +25,7 @@
     "validate-all": "tsx scripts/validate-all.ts",
     "check:bundle-budget": "node scripts/check-bundle-budget.mjs",
     "audit:catalog-integrity": "tsx scripts/audit-catalog-integrity.ts",
+    "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "check:catalog-warnings": "tsx scripts/check-catalog-warnings.ts",
     "check:catalog-warnings:update": "tsx scripts/check-catalog-warnings.ts --update",
     "check:catalog-sync": "tsx scripts/check-catalog-sync.ts",
