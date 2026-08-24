@@ -10,6 +10,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { onRequest } from "../../functions/api/feedback.js";
+import { __resetRequestGuardState } from "../../functions/_request-guards.js";
 
 const BASE = "https://example.com/api/feedback";
 const TEST_ENV = {
@@ -68,8 +69,12 @@ function postContext({
   env = TEST_ENV,
   authHeader = null,
   body = { type: "general", message: "Hello from a test" },
+  ip = "feedback-test-ip",
 } = {}) {
-  const headers = { "Content-Type": "application/json" };
+  const headers = {
+    "Content-Type": "application/json",
+    "CF-Connecting-IP": ip,
+  };
   if (authHeader) headers.Authorization = authHeader;
   return {
     request: new Request(BASE, {
@@ -87,6 +92,7 @@ const insertCall = (calls) =>
 const authCall = (calls) => calls.find((c) => c.url.includes("/auth/v1/user"));
 
 beforeEach(() => {
+  __resetRequestGuardState();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
@@ -127,6 +133,14 @@ describe("POST /api/feedback — validation", () => {
     );
     expect(res.status).toBe(400);
     expect((await res.json()).error).toBe("invalid_message");
+  });
+
+  it("rejects oversized request bodies before parsing or backend work", async () => {
+    const res = await onRequest(
+      postContext({ body: { type: "general", message: "x".repeat(9000) } }),
+    );
+    expect(res.status).toBe(413);
+    expect((await res.json()).error).toBe("payload_too_large");
   });
 
   it("fails closed with 500 when the secret key env is missing", async () => {
@@ -220,6 +234,21 @@ describe("POST /api/feedback — backend failure", () => {
     const res = await onRequest(postContext());
     expect(res.status).toBe(502);
     expect((await res.json()).error).toBe("storage_failed");
+  });
+});
+
+describe("POST /api/feedback — abuse guard", () => {
+  it("rejects repeated submissions before another Supabase insert", async () => {
+    const { calls } = mockSupabase();
+    for (let i = 0; i < 3; i += 1) {
+      expect((await onRequest(postContext())).status).toBe(201);
+    }
+    const blocked = await onRequest(postContext());
+    expect(blocked.status).toBe(429);
+    expect(blocked.headers.get("Retry-After")).toBe("600");
+    expect(
+      calls.filter((call) => call.url.includes("/rest/v1/feedback")),
+    ).toHaveLength(3);
   });
 });
 

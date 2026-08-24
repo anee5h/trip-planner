@@ -13,6 +13,7 @@
  * scrubbing. Client-supplied user ids are never trusted.
  */
 import { redactSensitiveValues } from "../../src/shared/utils/redact.js";
+import { isRateLimited } from "../_request-guards.js";
 
 const MAX_MESSAGE = 2000;
 const MAX_BODY_BYTES = 16_384;
@@ -24,15 +25,10 @@ const CLEANUP_INTERVAL_MS = 60 * 60 * 1000; // at most hourly per isolate
 const cap = (value, limit) =>
   typeof value === "string" ? value.slice(0, limit) : null;
 
-/** Server-side abuse counter (in-isolate fallback; KV makes it durable). */
-let sentThisMinute = 0;
-let windowStart = Date.now();
 let lastCleanupAt = 0;
 
 /** Test-only: reset module state between test cases. */
 export function __resetServerState() {
-  sentThisMinute = 0;
-  windowStart = Date.now();
   lastCleanupAt = 0;
 }
 
@@ -46,7 +42,8 @@ const badRequest = (error) =>
  *  concurrent requests (the in-isolate guard still bounds per-instance
  *  bursts, and the combination is a substantial improvement over
  *  client-only throttling). */
-async function rateLimited(env, ip) {
+async function rateLimited(env, request) {
+  const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
   const minute = Math.floor(Date.now() / 60_000);
   if (env.ERROR_RATE_KV) {
     try {
@@ -60,12 +57,11 @@ async function rateLimited(env, ip) {
       // KV unavailable — fall through to the in-isolate guard.
     }
   }
-  if (Date.now() - windowStart > 60_000) {
-    windowStart = Date.now();
-    sentThisMinute = 0;
-  }
-  sentThisMinute += 1;
-  return sentThisMinute > RATE_LIMIT_PER_MINUTE;
+  return isRateLimited(request, {
+    scope: "errors",
+    limit: RATE_LIMIT_PER_MINUTE,
+    windowMs: 60_000,
+  });
 }
 
 /** Best-effort retention cleanup: delete rows older than 90 days, at most
@@ -112,14 +108,16 @@ export const onRequest = async (context) => {
     );
   }
 
-  const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
-  if (await rateLimited(env, ip)) {
-    return Response.json({ ok: false, error: "rate_limited" }, { status: 429 });
+  if (await rateLimited(env, request)) {
+    return Response.json(
+      { ok: false, error: "rate_limited" },
+      { status: 429, headers: { "Retry-After": "60" } },
+    );
   }
 
   // Size cap BEFORE parsing: a huge body must not reach JSON.parse.
   const raw = await request.text();
-  if (raw.length > MAX_BODY_BYTES) {
+  if (new TextEncoder().encode(raw).byteLength > MAX_BODY_BYTES) {
     return Response.json(
       { ok: false, error: "payload_too_large" },
       { status: 413 },

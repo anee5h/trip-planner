@@ -45,30 +45,27 @@ export function createDestinationHandler(locale) {
     const { id } = context.params;
     const requestUrl = context.request.url;
     if (typeof id !== "string" || !/^[a-z0-9-]{1,128}$/.test(id)) {
+      const headers = new Headers(SECURITY_HEADERS);
+      headers.set("X-Robots-Tag", "noindex, follow");
       return new Response("Not Found", {
         status: 404,
-        headers: SECURITY_HEADERS,
+        headers,
       });
     }
 
     const manifest = await loadManifest(context.env, requestUrl);
     if (!manifest) {
-      // Manifest missing: fail open to the locale's SPA shell so valid
-      // destinations keep working even if the build step was skipped — but
-      // without the manifest we cannot distinguish valid from unknown
-      // destination ids, so every destination response is de-indexed until
-      // the manifest exists.
-      const shell = await context.env.ASSETS.fetch(
-        assetUrl(requestUrl, `/${locale === "ja" ? "ja/" : ""}index.html`),
+      // Fail closed when the generated manifest is unavailable. Without it,
+      // every arbitrary destination id would receive a Function-rendered SPA
+      // shell and scanners could amplify ASSETS work during a bad deploy.
+      const headers = new Headers(SECURITY_HEADERS);
+      headers.set("Content-Type", "application/json; charset=utf-8");
+      headers.set("X-Robots-Tag", "noindex, nofollow");
+      headers.set("Retry-After", "60");
+      return Response.json(
+        { ok: false, error: "destination_manifest_unavailable" },
+        { status: 503, headers },
       );
-      return new Response(shell.body, {
-        status: 200,
-        headers: {
-          ...SECURITY_HEADERS,
-          "Content-Type": "text/html; charset=utf-8",
-          "X-Robots-Tag": "noindex, follow",
-        },
-      });
     }
 
     const result = await routeDestinationRequest({

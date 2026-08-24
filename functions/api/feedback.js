@@ -18,10 +18,17 @@
  * Schema: run supabase/migrations/001_feedback.sql in the Supabase SQL editor
  * before deploying (rollback: DROP TABLE feedback).
  */
+import { isRateLimited, rateLimitResponse } from "../_request-guards.js";
 
 const VALID_TYPES = new Set(["general", "feature", "bug"]);
 const MAX_MESSAGE = 2000;
 const MAX_FIELD = 200;
+const MAX_BODY_BYTES = 8192;
+const FEEDBACK_RATE_LIMIT = {
+  scope: "feedback",
+  limit: 3,
+  windowMs: 10 * 60 * 1000,
+};
 
 const cap = (value, limit) =>
   typeof value === "string" ? value.slice(0, limit) : null;
@@ -84,9 +91,25 @@ export const onRequest = async (context) => {
     );
   }
 
+  if (isRateLimited(request, FEEDBACK_RATE_LIMIT)) {
+    return rateLimitResponse(600);
+  }
+
   let body;
+  let raw;
   try {
-    body = await request.json();
+    raw = await request.text();
+  } catch {
+    return badRequest("invalid_json");
+  }
+  if (new TextEncoder().encode(raw).byteLength > MAX_BODY_BYTES) {
+    return Response.json(
+      { ok: false, error: "payload_too_large" },
+      { status: 413 },
+    );
+  }
+  try {
+    body = JSON.parse(raw);
   } catch {
     return badRequest("invalid_json");
   }
