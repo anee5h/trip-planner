@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   getWikimediaSrcSet,
   getWikimediaThumb,
+  getWikimediaResponsiveImage,
 } from "@/shared/utils/wikimediaImages";
 
 const W = "https://upload.wikimedia.org";
@@ -130,6 +131,59 @@ describe("getWikimediaSrcSet", () => {
   });
 });
 
+describe("getWikimediaResponsiveImage", () => {
+  it("builds one shared mobile/tablet/desktop contract for a Wikimedia hero", () => {
+    const url = `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/1280px-Kiyomizu-dera%2C_Kyoto.jpg`;
+    const image = getWikimediaResponsiveImage(url);
+
+    expect(image).toEqual({
+      src: `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/1280px-Kiyomizu-dera%2C_Kyoto.jpg`,
+      srcSet:
+        `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/500px-Kiyomizu-dera%2C_Kyoto.jpg 500w, ` +
+        `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/960px-Kiyomizu-dera%2C_Kyoto.jpg 960w, ` +
+        `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/1280px-Kiyomizu-dera%2C_Kyoto.jpg 1280w`,
+      sizes: "100vw",
+      sources: [
+        {
+          media: "(max-width: 767px)",
+          srcSet: `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/500px-Kiyomizu-dera%2C_Kyoto.jpg 500w`,
+          sizes: "100vw",
+        },
+        {
+          media: "(max-width: 1199px)",
+          srcSet: `${W}/wikipedia/commons/thumb/a/ae/Kiyomizu-dera%2C_Kyoto.jpg/960px-Kiyomizu-dera%2C_Kyoto.jpg 960w`,
+          sizes: "100vw",
+        },
+      ],
+    });
+  });
+
+  it("does not upscale a Wikimedia thumbnail whose source width is known", () => {
+    const url = `${W}/wikipedia/commons/thumb/a/ae/Lake_Saroma.jpg/330px-Lake_Saroma.jpg`;
+    const image = getWikimediaResponsiveImage(url);
+
+    expect(image.src).toContain("330px-Lake_Saroma.jpg");
+    expect(image.srcSet).toBe(
+      `${W}/wikipedia/commons/thumb/a/ae/Lake_Saroma.jpg/330px-Lake_Saroma.jpg 330w`,
+    );
+    expect(image.sources).toEqual([
+      {
+        media: "(max-width: 767px)",
+        srcSet: `${W}/wikipedia/commons/thumb/a/ae/Lake_Saroma.jpg/330px-Lake_Saroma.jpg 330w`,
+        sizes: "100vw",
+      },
+    ]);
+  });
+
+  it("passes through non-Wikimedia and malformed hero URLs unchanged", () => {
+    const unsplash = "https://images.unsplash.com/photo-1?w=1200";
+    expect(getWikimediaResponsiveImage(unsplash)).toEqual({ src: unsplash });
+    expect(getWikimediaResponsiveImage("not-a-url")).toEqual({
+      src: "not-a-url",
+    });
+    expect(getWikimediaResponsiveImage("")).toEqual({ src: "" });
+  });
+});
 describe("getWikimediaThumb", () => {
   it("returns a single thumb for an original", () => {
     expect(

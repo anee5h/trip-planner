@@ -127,6 +127,7 @@ import {
   localizeRecommendationPreference,
   localizeRecommendationReason,
 } from "@/shared/utils/recommendationLabels";
+import { getWikimediaResponsiveImage } from "@/shared/utils/wikimediaImages";
 
 import { toast } from "sonner";
 import {
@@ -882,6 +883,7 @@ export default function DestinationDetails() {
   // is the LEGACY ratings evidence family, gated by rating-vector confidence
   // (isRatingVerified), independent of the hidden overall-score state.
   const showRatingsTab = isRatingVerified(destination);
+  const heroImage = getWikimediaResponsiveImage(destination.heroImage);
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {/* Hero Image Header */}
@@ -897,17 +899,35 @@ export default function DestinationDetails() {
           </Link>
         </div>
 
-        <img
-          src={destination.heroImage}
-          alt={formatPlaceName(localizedDestination || destination, locale)}
-          decoding="async"
-          onError={(e) => {
-            if (wikiSummary?.leadImage) {
-              (e.currentTarget as HTMLImageElement).src = wikiSummary.leadImage;
-            }
-          }}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <picture className="absolute inset-0 block">
+          {heroImage.sources?.map((source) => (
+            <source
+              key={source.media}
+              media={source.media}
+              srcSet={source.srcSet}
+              sizes={source.sizes}
+            />
+          ))}
+          <img
+            src={heroImage.src}
+            srcSet={heroImage.srcSet}
+            sizes={heroImage.sizes}
+            alt={formatPlaceName(localizedDestination || destination, locale)}
+            decoding="async"
+            onError={(e) => {
+              if (wikiSummary?.leadImage) {
+                const image = e.currentTarget;
+                image.parentElement
+                  ?.querySelectorAll("source")
+                  .forEach((source) => source.removeAttribute("srcset"));
+                image.removeAttribute("srcset");
+                image.removeAttribute("sizes");
+                image.src = wikiSummary.leadImage;
+              }
+            }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/20" />
 
         <div className="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">

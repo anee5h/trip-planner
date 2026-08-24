@@ -64,6 +64,8 @@ interface WikimediaFile {
   filename: string;
   /** true when the input was a /thumb/ URL (filename was thumb-stripped) */
   wasThumb: boolean;
+  /** Declared thumbnail width, when the input already identifies one. */
+  sourceWidth: number | null;
 }
 
 /**
@@ -82,7 +84,16 @@ function parseWikimediaUrl(url: string): WikimediaFile | null {
     if (u.host === COMMONS_HOST) {
       const m = url.match(COMMONS_REDIRECT_RE);
       if (!m) return null;
-      return { hash: "", filename: decodeFilename(m[1]), wasThumb: false };
+      const requestedWidth = Number(u.searchParams.get("width"));
+      return {
+        hash: "",
+        filename: decodeFilename(m[1]),
+        wasThumb: false,
+        sourceWidth:
+          Number.isInteger(requestedWidth) && requestedWidth > 0
+            ? requestedWidth
+            : null,
+      };
     }
     if (u.host !== UPLOAD_HOST) return null;
     const path = u.pathname;
@@ -102,6 +113,9 @@ function parseWikimediaUrl(url: string): WikimediaFile | null {
     const file = segs[i++];
     if (!h1 || !h2 || !file) return null;
     let filename = file;
+    const declaredWidth = wasThumb
+      ? /^([0-9]+)px-/.exec(segs[i] ?? "")?.[1]
+      : undefined;
     if (wasThumb && /^\d+px-/.test(file)) {
       // strip "<Wpx>-" prefix to recover the original filename
       filename = file.replace(/^\d+px-/, "");
@@ -110,6 +124,7 @@ function parseWikimediaUrl(url: string): WikimediaFile | null {
       hash: `${h1}/${h2}`,
       filename: decodeFilename(filename),
       wasThumb,
+      sourceWidth: declaredWidth ? Number(declaredWidth) : null,
     };
   } catch {
     return null;
@@ -205,4 +220,102 @@ export function getWikimediaThumb(url: string, width: number): string | null {
   return `https://${UPLOAD_HOST}/wikipedia/commons/thumb/${parsed.hash}/${encodeFilename(
     parsed.filename,
   )}/${thumbFilename(parsed.filename, width)}`;
+}
+
+/** A media-specific source in the shared destination-hero contract. */
+export interface ResponsiveImageSource {
+  media: string;
+  srcSet: string;
+  sizes: string;
+}
+
+/**
+ * The image attributes used by both the SEO prerender and hydrated detail
+ * page. `sources` deliberately caps the mobile and tablet source sets to one
+ * Wikimedia-valid thumbnail each: this keeps a high-DPR phone from selecting
+ * the 1280px fallback and downloading the same oversized hero that KAI-168
+ * measured. The full srcSet remains on the fallback <img> for desktop and
+ * user agents without <picture> media-source support.
+ */
+export interface ResponsiveImageAttributes {
+  src: string;
+  srcSet?: string;
+  sizes?: string;
+  sources?: ResponsiveImageSource[];
+}
+
+const DESTINATION_HERO_WIDTHS = [500, 960, 1280] as const;
+const DESTINATION_HERO_SIZES = "100vw";
+const DESTINATION_HERO_MOBILE_MEDIA = "(max-width: 767px)";
+const DESTINATION_HERO_TABLET_MEDIA = "(max-width: 1199px)";
+
+/**
+ * Build the canonical responsive destination-detail hero contract.
+ *
+ * Wikimedia thumbnail URLs are generated only for Wikimedia URLs. Other
+ * providers, malformed URLs, and missing values pass through unchanged so a
+ * non-Wikimedia hero never receives an invalid Wikimedia transformation.
+ * When the input is already a thumbnail, no candidate exceeds its declared
+ * width; this avoids asking Wikimedia to upscale a known-small source.
+ */
+export function getWikimediaResponsiveImage(
+  url: string,
+): ResponsiveImageAttributes {
+  if (!url) return { src: url };
+
+  let parsedUrl: URL;
+  try {
+    parsedUrl = new URL(url);
+  } catch {
+    return { src: url };
+  }
+  if (parsedUrl.host !== UPLOAD_HOST && parsedUrl.host !== COMMONS_HOST) {
+    return { src: url };
+  }
+
+  const parsed = parseWikimediaUrl(url);
+  if (!parsed) return { src: url };
+
+  const widths: number[] = DESTINATION_HERO_WIDTHS.filter(
+    (width) => parsed.sourceWidth === null || width <= parsed.sourceWidth,
+  );
+  // A thumbnail can be narrower than the supported hero ladder. Keep that
+  // source usable without upscaling it or crashing the render path.
+  if (widths.length === 0 && parsed.sourceWidth !== null) {
+    widths.push(parsed.sourceWidth);
+  }
+
+  const variants = widths.map((width) => ({
+    width,
+    url: getWikimediaThumb(url, width) ?? url,
+  }));
+  const largest = variants.at(-1);
+  if (!largest) return { src: url };
+
+  const srcSet = variants
+    .map(({ width, url: variantUrl }) => `${variantUrl} ${width}w`)
+    .join(", ");
+  const mobile = variants.find(({ width }) => width >= 500) ?? largest;
+  const tablet = variants.find(({ width }) => width >= 960);
+  const sources: ResponsiveImageSource[] = [
+    {
+      media: DESTINATION_HERO_MOBILE_MEDIA,
+      srcSet: `${mobile.url} ${mobile.width}w`,
+      sizes: DESTINATION_HERO_SIZES,
+    },
+  ];
+  if (tablet && tablet.width !== mobile.width) {
+    sources.push({
+      media: DESTINATION_HERO_TABLET_MEDIA,
+      srcSet: `${tablet.url} ${tablet.width}w`,
+      sizes: DESTINATION_HERO_SIZES,
+    });
+  }
+
+  return {
+    src: largest.url,
+    srcSet,
+    sizes: DESTINATION_HERO_SIZES,
+    sources,
+  };
 }
