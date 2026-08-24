@@ -104,23 +104,8 @@ const DEFAULT_TOKYO_COORDS = { lat: 35.6812, lng: 139.7671 };
 
 // KAI-147: prefecture lookup from the runtime-lazy metadata chunk (id →
 // prefecture). The map is filled when the chunk resolves; until then it is
-// empty and deriveVisitedPrefectures() relies on the persisted list. The
-// module-level promise keeps the chunk warm for useTripStore too.
+// empty and deriveVisitedPrefectures() relies on the persisted list.
 let destinationPrefectureById = new Map<string, string>();
-void loadDestinationsMeta()
-  .then((meta) => {
-    destinationPrefectureById = new Map<string, string>(
-      (meta as Array<{ id: string; prefecture?: string }>).map(
-        (destination) => [destination.id, destination.prefecture ?? ""],
-      ),
-    );
-  })
-  .catch((error: unknown) => {
-    console.warn(
-      "[Meguruto Sync] destinations-meta chunk failed to load:",
-      error,
-    );
-  });
 
 function uniqueStrings(values: Iterable<unknown>): string[] {
   const result = new Set<string>();
@@ -411,6 +396,25 @@ export function useTripSync({
   destinationRatings,
   setDestinationRatings,
 }: UseTripSyncProps): UseTripSyncReturn {
+  useEffect(() => {
+    if (visited.length === 0) return;
+
+    loadDestinationsMeta()
+      .then((meta) => {
+        destinationPrefectureById = new Map<string, string>(
+          (meta as Array<{ id: string; prefecture?: string }>).map(
+            (destination) => [destination.id, destination.prefecture ?? ""],
+          ),
+        );
+      })
+      .catch((error: unknown) => {
+        console.warn(
+          "[Meguruto Sync] destinations-meta chunk failed to load:",
+          error,
+        );
+      });
+  }, [visited.length]);
+
   const [profileSyncStatus, setProfileSyncStatus] =
     useState<ProfileSyncStatus>("idle");
   const [profileStatusUserId, setProfileStatusUserId] = useState<string | null>(

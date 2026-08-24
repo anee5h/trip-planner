@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Compass, Layers } from "lucide-react";
 import { getCollections } from "@/shared/data/collections";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
-import { getDestinationsForCollection } from "@/shared/utils/collections";
 import type { Collection } from "@/shared/types/collection";
 import type { Destination } from "@/shared/types/destination";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -144,7 +143,13 @@ function translateRequired(
   return value === key ? "" : value;
 }
 
-export const CollectionsRail: React.FC = () => {
+interface CollectionsRailProps {
+  destinations: readonly Destination[];
+}
+
+export const CollectionsRail: React.FC<CollectionsRailProps> = ({
+  destinations,
+}) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
   const translate = t as (
@@ -153,7 +158,11 @@ export const CollectionsRail: React.FC = () => {
   ) => string;
   const candidates = getCollections().map((collection) => ({
     collection,
-    members: getDestinationsForCollection(collection.id, locale),
+    members: destinations.filter((destination) =>
+      destination.collections?.some(
+        (membership) => membership.collectionId === collection.id,
+      ),
+    ),
   }));
   const featuredCollections = getFeaturedCollectionCards(candidates);
   const railTitle = translateRequired(translate, "home.featuredCollections");
