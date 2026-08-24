@@ -25,6 +25,30 @@ import {
 } from "./TripDurationService";
 import type { DayTripTravelEfficiency } from "./TripDurationService";
 
+const MAX_VALID_MODES_CONTEXTS_PER_DESTINATION = 8;
+// Catalogue records are immutable after load, so object identity is a valid
+// destination component of this bounded semantic cache key.
+const validModesCache = new WeakMap<Destination, Map<string, string[]>>();
+
+function buildValidModesCacheKey(
+  carMode: string,
+  publicModes: string[],
+  homeCoords: { lat: number; lng: number } | undefined,
+  budgetTier: BudgetTier | undefined,
+  originZoneId: TransportZoneId | undefined,
+  ferryTemporal: FerryTemporalContext | undefined,
+): string {
+  return [
+    carMode,
+    publicModes.join(","),
+    homeCoords ? `${homeCoords.lat},${homeCoords.lng}` : "",
+    budgetTier ?? "",
+    originZoneId ?? "",
+    ferryTemporal?.travelDate?.getTime() ?? "",
+    ferryTemporal?.season ?? "",
+  ].join("|");
+}
+
 export const SCORING_WEIGHTS = {
   // Base & Ratings
   BASE_SCORE: 20,
@@ -125,7 +149,7 @@ export {
   getScorePresentation,
 } from "./scoreRubric";
 
-export function getValidModes(
+function getValidModesUncached(
   dest: Destination,
   carMode: string = "none",
   publicModes: string[] = [],
@@ -280,6 +304,46 @@ export function getValidModes(
   // must survive for travel-time evaluation and for per-mode affordability.
   // Budget tiers influence ranking and the affordability gate, never which
   // authorized modes are evaluated.
+  return validModes;
+}
+
+export function getValidModes(
+  dest: Destination,
+  carMode: string = "none",
+  publicModes: string[] = [],
+  homeCoords?: { lat: number; lng: number },
+  budgetTier?: BudgetTier,
+  originZoneId?: TransportZoneId,
+  ferryTemporal?: FerryTemporalContext,
+): string[] {
+  const key = buildValidModesCacheKey(
+    carMode,
+    publicModes,
+    homeCoords,
+    budgetTier,
+    originZoneId,
+    ferryTemporal,
+  );
+  const cachedByContext = validModesCache.get(dest);
+  const cached = cachedByContext?.get(key);
+  if (cached) return [...cached];
+
+  const validModes = getValidModesUncached(
+    dest,
+    carMode,
+    publicModes,
+    homeCoords,
+    budgetTier,
+    originZoneId,
+    ferryTemporal,
+  );
+  const nextCache = cachedByContext ?? new Map<string, string[]>();
+  if (nextCache.size >= MAX_VALID_MODES_CONTEXTS_PER_DESTINATION) {
+    const oldestKey = nextCache.keys().next().value;
+    if (oldestKey !== undefined) nextCache.delete(oldestKey);
+  }
+  nextCache.set(key, [...validModes]);
+  validModesCache.set(dest, nextCache);
   return validModes;
 }
 
