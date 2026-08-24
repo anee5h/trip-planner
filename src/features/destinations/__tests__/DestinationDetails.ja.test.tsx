@@ -197,6 +197,10 @@ describe("DestinationDetails Japanese Localization Regression", () => {
     vi.spyOn(WikipediaService, "fetchSummary").mockResolvedValue({
       extract: "京都は日本の古都です。",
       url: "https://ja.wikipedia.org/wiki/%E4%BA%AC%E9%83%BD",
+      title: "京都",
+      language: "ja",
+      confidence: "high",
+      matchMethod: "exact-title",
     });
 
     host = document.createElement("div");
@@ -265,7 +269,7 @@ describe("DestinationDetails Japanese Localization Regression", () => {
       attrs.sources?.length ?? 0,
     );
   });
-  it("renders localized Wikipedia unavailable message when summary not found", async () => {
+  it("omits the Wikipedia section when the resolver returns no article", async () => {
     vi.spyOn(WikipediaService, "fetchSummary").mockResolvedValue(null);
 
     host = document.createElement("div");
@@ -294,11 +298,14 @@ describe("DestinationDetails Japanese Localization Regression", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).toContain(
+    expect(text).not.toContain("Wikipedia概要");
+    expect(text).not.toContain(
       "この目的地のWikipedia追加概要は見つかりませんでした。",
     );
-    expect(text).not.toContain(
-      "No additional Wikipedia article summary found for this destination.",
-    );
+    expect(
+      Array.from(host.querySelectorAll("button")).find((b) =>
+        b.textContent?.includes("続きを読む"),
+      ),
+    ).toBeUndefined();
   });
 });

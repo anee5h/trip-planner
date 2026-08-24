@@ -398,7 +398,7 @@ export default function DestinationDetails() {
     setIsWikiExpanded(false);
     setIsWikiLoading(false);
     setWikiFetched(false);
-  }, [destination?.id]);
+  }, [destination?.id, locale]);
 
   const handleToggleWikipedia = async () => {
     if (isWikiExpanded) {
@@ -411,12 +411,9 @@ export default function DestinationDetails() {
     if (!wikiFetched && !isWikiLoading && destination) {
       setIsWikiLoading(true);
       try {
-        const res = await WikipediaService.fetchSummary(
-          destination.name,
-          destination.prefecture,
-          locale,
-        );
+        const res = await WikipediaService.fetchSummary(destination, locale);
         setWikiSummary(res);
+        if (!res) setIsWikiExpanded(false);
       } catch (err) {
         console.warn("Lazy Wikipedia fetch error:", err);
       } finally {
@@ -1227,29 +1224,31 @@ export default function DestinationDetails() {
                 </p>
               )}
               {/* Read More Wikipedia Button Trigger directly below custom overview text */}
-              <div className="mb-5">
-                <button
-                  type="button"
-                  onClick={handleToggleWikipedia}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
-                >
-                  <BookOpen className="w-3.5 h-3.5" />
-                  <span>
-                    {isWikiExpanded
-                      ? locale === "ja"
-                        ? "閉じる"
-                        : "Show less"
-                      : locale === "ja"
-                        ? "続きを読む"
-                        : "Read more"}
-                  </span>
-                  {isWikiExpanded ? (
-                    <ChevronUp className="w-3.5 h-3.5" />
-                  ) : (
-                    <ChevronDown className="w-3.5 h-3.5" />
-                  )}
-                </button>
-              </div>
+              {(!wikiFetched || wikiSummary) && (
+                <div className="mb-5">
+                  <button
+                    type="button"
+                    onClick={handleToggleWikipedia}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
+                  >
+                    <BookOpen className="w-3.5 h-3.5" />
+                    <span>
+                      {isWikiExpanded
+                        ? locale === "ja"
+                          ? "閉じる"
+                          : "Show less"
+                        : locale === "ja"
+                          ? "続きを読む"
+                          : "Read more"}
+                    </span>
+                    {isWikiExpanded ? (
+                      <ChevronUp className="w-3.5 h-3.5" />
+                    ) : (
+                      <ChevronDown className="w-3.5 h-3.5" />
+                    )}
+                  </button>
+                </div>
+              )}
 
               <div className="border-t border-slate-100 pt-4 dark:border-slate-800">
                 <RecommendationFeedbackControl
@@ -1267,53 +1266,54 @@ export default function DestinationDetails() {
               )}
 
               {/* Wikipedia Reference Box */}
-              <div
-                className={`grid transition-[grid-template-rows,opacity,margin-bottom] duration-200 ease-out motion-reduce:transition-none ${
-                  isWikiExpanded
-                    ? "grid-rows-[1fr] opacity-100 mb-6"
-                    : "grid-rows-[0fr] opacity-0 mb-0 pointer-events-none"
-                }`}
-                aria-hidden={!isWikiExpanded}
-                inert={!isWikiExpanded}
-              >
-                <div className="min-h-0 overflow-hidden">
-                  {isWikiLoading ? (
-                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300 flex items-center gap-2 animate-in fade-in duration-150 motion-reduce:animate-none">
-                      <BookOpen className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                      <span>{t("destination.wikipediaLoading")}</span>
-                    </div>
-                  ) : wikiSummary ? (
-                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 space-y-2 animate-in fade-in duration-150">
-                      <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-300 border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
-                        <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
-                          <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
-                          <span>{t("destination.wikipediaSummary")}</span>
-                        </div>
-                        <a
-                          href={wikiSummary.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
-                          title={t("destination.wikipediaAttributionTooltip", {
-                            source: "Wikipedia",
-                            license: "CC BY-SA 4.0",
-                          })}
-                        >
-                          <ExternalLink className="w-3 h-3" /> Wikipedia (CC
-                          BY-SA 4.0)
-                        </a>
+              {(isWikiExpanded || isWikiLoading || wikiSummary) && (
+                <div
+                  className={`grid transition-[grid-template-rows,opacity,margin-bottom] duration-200 ease-out motion-reduce:transition-none ${
+                    isWikiExpanded
+                      ? "grid-rows-[1fr] opacity-100 mb-6"
+                      : "grid-rows-[0fr] opacity-0 mb-0 pointer-events-none"
+                  }`}
+                  aria-hidden={!isWikiExpanded}
+                  inert={!isWikiExpanded}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    {isWikiLoading ? (
+                      <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300 flex items-center gap-2 animate-in fade-in duration-150 motion-reduce:animate-none">
+                        <BookOpen className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                        <span>{t("destination.wikipediaLoading")}</span>
                       </div>
-                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
-                        {wikiSummary.extract}
-                      </p>
-                    </div>
-                  ) : wikiFetched ? (
-                    <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300 italic">
-                      {t("destination.wikipediaUnavailable")}
-                    </div>
-                  ) : null}
+                    ) : wikiSummary ? (
+                      <div className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 space-y-2 animate-in fade-in duration-150">
+                        <div className="flex items-center justify-between font-semibold text-xs text-slate-500 dark:text-slate-300 border-b border-slate-200/60 dark:border-slate-700/60 pb-2">
+                          <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-300">
+                            <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
+                            <span>{t("destination.wikipediaSummary")}</span>
+                          </div>
+                          <a
+                            href={wikiSummary.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors"
+                            title={t(
+                              "destination.wikipediaAttributionTooltip",
+                              {
+                                source: "Wikipedia",
+                                license: "CC BY-SA 4.0",
+                              },
+                            )}
+                          >
+                            <ExternalLink className="w-3 h-3" /> Wikipedia (CC
+                            BY-SA 4.0)
+                          </a>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
+                          {wikiSummary.extract}
+                        </p>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div className="flex flex-wrap gap-2">
                 {destination.tags
