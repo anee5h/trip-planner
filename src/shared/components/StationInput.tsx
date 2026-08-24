@@ -86,6 +86,7 @@ export default function StationInput({
   const [stationsByPref, setStationsByPref] = useState<
     Record<string, StationData[]>
   >({});
+  const [stationsLoaded, setStationsLoaded] = useState(false);
 
   const [isEditing, setIsEditing] = useState<boolean>(
     embedded || !savedOriginLabel,
@@ -115,11 +116,21 @@ export default function StationInput({
   }, [embedded, isEditing]);
 
   useEffect(() => {
+    if ((!embedded && !isEditing) || stationsLoaded) {
+      return;
+    }
+
     fetch("/data/stations-by-prefecture.json")
-      .then((res) => res.json())
-      .then((data) => setStationsByPref(data))
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        setStationsByPref(data);
+        setStationsLoaded(true);
+      })
       .catch((err) => console.error("Failed to load stations", err));
-  }, []);
+  }, [embedded, isEditing, stationsLoaded]);
 
   useEffect(() => {
     if (!savedOriginLabel) return;

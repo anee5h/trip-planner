@@ -16,10 +16,10 @@
  *
  * CONSUMERS:
  *  - useTripStore: prefecture/relationship lookups for visited-prefecture
- *    derivation. The provider kicks off loadDestinationsMeta() at mount;
- *    until resolved, lookups return "not found" and the visited-prefectures
- *    effect re-runs once data arrives (state dependency), preserving
- *    KAI-134 semantics.
+ *    derivation. The provider starts the load when visited state becomes
+ *    non-empty; untouched guest home never imports this chunk. Mutation
+ *    handlers also consult the resolved snapshot before React state catches
+ *    up, preserving synchronous-era cascade semantics.
  *  - useTripSync: deriveVisitedPrefectures() falls back to the
  *    server-persisted visited_prefectures list when meta has not loaded
  *    yet — the authoritative list still round-trips; derivation only adds
@@ -28,6 +28,7 @@
 import type { Destination } from "@/shared/types/destination";
 
 let destinationsMetaPromise: Promise<Destination[]> | null = null;
+let destinationsMetaSnapshot: Destination[] | null = null;
 
 /**
  * Test-only override seam (KAI-147 review): lets tests hold the metadata
@@ -38,9 +39,17 @@ type MetaOverride = () => Promise<Destination[]>;
 let metaOverride: MetaOverride | null = null;
 
 export function installMetaOverride(override: MetaOverride | null): void {
+  const wasOverridden = metaOverride !== null;
   metaOverride = override;
-  // A new override invalidates any cached load so tests start clean.
-  if (override) destinationsMetaPromise = null;
+  // Any override transition invalidates cached state so tests start clean.
+  if (override !== null || wasOverridden) {
+    destinationsMetaPromise = null;
+    destinationsMetaSnapshot = null;
+  }
+}
+
+export function getDestinationsMetaSnapshot(): Destination[] | null {
+  return destinationsMetaSnapshot;
 }
 
 /** Loads the lightweight destination metadata index exactly once per
@@ -55,11 +64,16 @@ export function loadDestinationsMeta(): Promise<Destination[]> {
         : import(
             /* webpackChunkName: "destinations-meta" */ "@/shared/data/destinations-meta.json"
           ).then((module) => module.default as Destination[])
-    ).catch((error) => {
-      // Do not poison the singleton: clear so the next call retries.
-      destinationsMetaPromise = null;
-      throw error;
-    });
+    )
+      .then((meta) => {
+        destinationsMetaSnapshot = meta;
+        return meta;
+      })
+      .catch((error) => {
+        // Do not poison the singleton: clear so the next call retries.
+        destinationsMetaPromise = null;
+        throw error;
+      });
   }
   return destinationsMetaPromise;
 }

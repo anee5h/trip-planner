@@ -19,8 +19,12 @@ import { clearLegacyAccountStorage } from "@/shared/utils/clearLegacyAccountStor
 // LocaleContext chunk that the entry HTML modulepreloads — production
 // mobile FCP/LCP measured ~3.8 s/~5.0 s with the H1 as sole LCP candidate.
 // It is now a runtime-lazy chunk (see destinationsMetaLoader.ts, KAI-121
-// pattern): loaded after mount; lookups return "not found" until resolved.
-import { loadDestinationsMeta } from "@/shared/data/destinationsMetaLoader";
+// pattern): loaded when visited state becomes non-empty; mutation handlers
+// use the resolved snapshot before React state catches up.
+import {
+  getDestinationsMetaSnapshot,
+  loadDestinationsMeta,
+} from "@/shared/data/destinationsMetaLoader";
 import type { Trip, TripStop } from "@/shared/types/trip";
 import type { Destination } from "@/shared/types/destination";
 import * as TripService from "@/shared/services/trips/TripService";
@@ -267,23 +271,6 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   );
 
   useEffect(() => {
-    let cancelled = false;
-    loadDestinationsMeta()
-      .then((meta) => {
-        if (!cancelled) setDestinationsIndex(meta);
-      })
-      .catch((error: unknown) => {
-        console.warn(
-          "[Meguruto Store] destinations-meta chunk failed to load:",
-          error,
-        );
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  useEffect(() => {
     clearLegacyAccountStorage();
   }, []);
 
@@ -318,8 +305,29 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     Record<string, "up" | "down">
   >({});
 
+  useEffect(() => {
+    if (visited.length === 0) return;
+
+    loadDestinationsMeta()
+      .then((meta) => setDestinationsIndex(meta))
+      .catch((error: unknown) => {
+        console.warn(
+          "[Meguruto Store] destinations-meta chunk failed to load:",
+          error,
+        );
+      });
+  }, [visited.length]);
+
   const getDestinationRating = (id: string): "up" | "down" | null =>
     destinationRatings[id] ?? null;
+
+  const getAvailableDestinations = useCallback(
+    (): Destination[] =>
+      destinationsIndex.length > 0
+        ? destinationsIndex
+        : (getDestinationsMetaSnapshot() ?? []),
+    [destinationsIndex],
+  );
 
   const {
     profileSyncStatus,
@@ -408,13 +416,14 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!visited || visited.length === 0) return;
 
+    const availableDestinations = getAvailableDestinations();
     let updatedVisited = [...visited];
     let updatedDates = { ...visitedDates };
     let updatedPrefectures = [...visitedPrefectures];
     let hasChanges = false;
 
     for (const id of visited) {
-      const targetDest = destinationsIndex.find((d) => d.id === id);
+      const targetDest = availableDestinations.find((d) => d.id === id);
       if (targetDest) {
         const prefId = formatPrefectureId(targetDest.prefecture);
         if (!updatedPrefectures.includes(prefId)) {
@@ -425,7 +434,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
       let currentId: string | undefined = id;
       while (currentId) {
-        const dest = destinationsIndex.find((d) => d.id === currentId);
+        const dest = availableDestinations.find((d) => d.id === currentId);
         const parentHubId = dest?.relationships?.parentDestinationId;
         if (!parentHubId) break;
 
@@ -434,7 +443,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
           hasChanges = true;
         }
 
-        const parentDest = destinationsIndex.find((d) => d.id === parentHubId);
+        const parentDest = availableDestinations.find(
+          (d) => d.id === parentHubId,
+        );
         if (parentDest) {
           const prefId = formatPrefectureId(parentDest.prefecture);
           if (!updatedPrefectures.includes(prefId)) {
@@ -468,13 +479,13 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     }
 
     for (const hubId of updatedVisited) {
-      const hubDest = destinationsIndex.find((d) => d.id === hubId);
+      const hubDest = availableDestinations.find((d) => d.id === hubId);
       if (hubDest?.role !== "hub") continue;
 
       const hubDates = normalizeVisitDates(updatedDates[hubId]);
       if (hubDates.length === 0) continue;
 
-      const childIds = destinationsIndex
+      const childIds = availableDestinations
         .filter(
           (d) =>
             d.relationships?.parentDestinationId === hubId &&
@@ -509,7 +520,13 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
     }
     // KAI-147: destinationsIndex is a dependency so prefecture derivation
     // re-runs (and back-fills) once the lazy meta chunk resolves.
-  }, [visited, visitedDates, visitedPrefectures, destinationsIndex]);
+  }, [
+    visited,
+    visitedDates,
+    visitedPrefectures,
+    destinationsIndex,
+    getAvailableDestinations,
+  ]);
 
   const toggleFavorite = (id: string) => {
     if (!canMutateProfile) return;
@@ -522,6 +539,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const clearAllVisits = (id: string) => {
     if (!canMutateProfile) return;
+    const availableDestinations = getAvailableDestinations();
     const remainingVisitedIds = visited.filter((vId) => vId !== id);
     setVisited(remainingVisitedIds);
 
@@ -531,11 +549,11 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
       return next;
     });
 
-    const destination = destinationsIndex.find((d) => d.id === id);
+    const destination = availableDestinations.find((d) => d.id === id);
     if (destination) {
       const prefId = formatPrefectureId(destination.prefecture);
       const hasOtherVisitedInPref = remainingVisitedIds.some((vId) => {
-        const otherDest = destinationsIndex.find((d) => d.id === vId);
+        const otherDest = availableDestinations.find((d) => d.id === vId);
         if (!otherDest) return false;
         const otherPref = formatPrefectureId(otherDest.prefecture);
         return otherPref === prefId;
@@ -647,12 +665,13 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
   const addVisitedDate = (id: string, date: string) => {
     if (!canMutateProfile) return;
+    const availableDestinations = getAvailableDestinations();
     const dateToAdd = date || new Date().toISOString().split("T")[0];
 
     if (!visited.includes(id)) {
       setVisited((prev) => (prev.includes(id) ? prev : [...prev, id]));
 
-      const destination = destinationsIndex.find((d) => d.id === id);
+      const destination = availableDestinations.find((d) => d.id === id);
       if (destination) {
         const prefId = formatPrefectureId(destination.prefecture);
         setVisitedPrefectures((prevPrefs) =>
@@ -672,7 +691,7 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
 
     let currentId: string | undefined = id;
     while (currentId) {
-      const dest = destinationsIndex.find((d) => d.id === currentId);
+      const dest = availableDestinations.find((d) => d.id === currentId);
       const parentHubId = dest?.relationships?.parentDestinationId;
       if (!parentHubId) break;
 
@@ -681,7 +700,9 @@ export function TripStoreProvider({ children }: { children: ReactNode }) {
           prev.includes(parentHubId) ? prev : [...prev, parentHubId],
         );
 
-        const parentDest = destinationsIndex.find((d) => d.id === parentHubId);
+        const parentDest = availableDestinations.find(
+          (d) => d.id === parentHubId,
+        );
         if (parentDest) {
           const prefId = formatPrefectureId(parentDest.prefecture);
           setVisitedPrefectures((prevPrefs) =>

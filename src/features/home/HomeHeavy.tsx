@@ -314,7 +314,7 @@ export default function HeavyHome({
 
       {/* Curated Collections Rail */}
       <DeferredSection order={3} when={liteReady}>
-        <CollectionsRail />
+        <CollectionsRail destinations={allDestinations} />
       </DeferredSection>
 
       {/* Compact Prompt Banner near bottom for empty/signed-out states */}
