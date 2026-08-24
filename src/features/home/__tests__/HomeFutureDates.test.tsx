@@ -190,12 +190,21 @@ async function pickDate(host: HTMLElement, value: string) {
     );
   }
 
-  await waitForCondition(() =>
-    Boolean(host.querySelector(`button[data-date="${value}"]`)),
-  );
-  const dayBtn = host.querySelector(
-    `button[data-date="${value}"]`,
-  ) as HTMLButtonElement;
+  const daySelector = `button[data-date="${value}"]`;
+  for (let month = 0; month < 12 && !host.querySelector(daySelector); month++) {
+    const nextMonthButton = Array.from(
+      host.querySelectorAll<HTMLButtonElement>("button[aria-label]"),
+    ).find((button) =>
+      /next month/i.test(button.getAttribute("aria-label") ?? ""),
+    );
+    if (!nextMonthButton) break;
+    await act(async () => {
+      nextMonthButton.click();
+      await new Promise((res) => setTimeout(res, 20));
+    });
+  }
+  await waitForCondition(() => Boolean(host.querySelector(daySelector)));
+  const dayBtn = host.querySelector(daySelector) as HTMLButtonElement;
   if (!dayBtn) {
     throw new Error(`dayBtn not found for ${value}`);
   }
