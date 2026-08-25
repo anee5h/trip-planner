@@ -132,27 +132,37 @@ export default function Destinations() {
   const { locale } = useLocale();
   const { t } = useTranslation();
   const [sortBy, setSortBy] = useState(initialExplorerState.sortBy);
-  // KAI-132: keep the summary catalogue on the initial/default Explore path.
-  // Budget and Least Walk require authoritative full-record fields that are
-  // intentionally absent from the lite index, so those sorts opt into the
-  // existing runtime-lazy full catalogue without inflating the initial chunk.
+  // KAI-132: keep the summary catalogue available while an explicit full
+  // catalogue sort is loading. The summary is the visible continuity snapshot;
+  // it is never used as the authoritative Budget/Least Walk sort input.
   const requiresFullSortCatalogue = sortBy === "budget" || sortBy === "walking";
   const summaryCatalogue = useCatalogue({
     need: "summary",
-    enabled: !requiresFullSortCatalogue,
+    enabled: true,
   });
   const fullSortCatalogue = useCatalogue({
     need: "full",
     enabled: requiresFullSortCatalogue,
   });
-  const activeCatalogue = requiresFullSortCatalogue
-    ? fullSortCatalogue
-    : summaryCatalogue;
-  const {
-    places: cataloguePlaces,
-    error: catalogueError,
-    retry: retryCatalogue,
-  } = activeCatalogue;
+  const fullSortReady =
+    !requiresFullSortCatalogue || fullSortCatalogue.status === "ready";
+  const sortPreparationPending =
+    requiresFullSortCatalogue && fullSortCatalogue.status === "loading";
+  const activeCatalogue =
+    requiresFullSortCatalogue && fullSortReady
+      ? fullSortCatalogue
+      : summaryCatalogue;
+  const catalogueError = requiresFullSortCatalogue
+    ? (fullSortCatalogue.error ?? summaryCatalogue.error)
+    : summaryCatalogue.error;
+  const retryCatalogue =
+    requiresFullSortCatalogue && fullSortCatalogue.status === "error"
+      ? fullSortCatalogue.retry
+      : summaryCatalogue.retry;
+  const catalogueStillLoading =
+    summaryCatalogue.status === "loading" &&
+    summaryCatalogue.places.length === 0;
+  const { places: cataloguePlaces } = activeCatalogue;
   const allDestinations = cataloguePlaces.map((destination) =>
     getLocalizedPlace(destination, locale),
   );
@@ -998,6 +1008,18 @@ export default function Destinations() {
       );
     }
 
+    // Keep the continuity snapshot in its existing catalogue/filter order while
+    // authoritative full records are loading. Never compute Budget/Least Walk
+    // metrics from the lite records and never expose a transient empty state.
+    if (sortPreparationPending) {
+      return {
+        destinations: result,
+        weekend: weekendConsolidation,
+        weekendTravelById,
+        conditionById,
+      };
+    }
+
     // Score once per destination: the shared day-trip efficiency calculation
     // is origin-aware and should not repeat inside Array.sort's comparator.
     const recommendedScoreById = new Map<string, number>();
@@ -1058,6 +1080,7 @@ export default function Destinations() {
     query,
     maxBudget,
     sortBy,
+    sortPreparationPending,
     carMode,
     publicModes,
     partySize,
@@ -1216,6 +1239,7 @@ export default function Destinations() {
         }
         sortBy={sortBy}
         setSortBy={setSortBy}
+        sortLoading={sortPreparationPending}
         carMode={carMode}
         setCarMode={setCarMode}
         publicModes={publicModes}
@@ -1261,14 +1285,18 @@ export default function Destinations() {
       >
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800">
-            {weekendResult
-              ? t("destination.tripAreas.summary", {
-                  areas: filteredAndSortedDestinations.length,
-                  places: weekendResult.totalPlaceCount,
-                })
-              : t("ui.destinationsMatching", {
-                  count: filteredAndSortedDestinations.length,
-                })}
+            {catalogueStillLoading && allDestinations.length === 0
+              ? locale === "ja"
+                ? "目的地を準備中…"
+                : "Preparing destinations…"
+              : weekendResult
+                ? t("destination.tripAreas.summary", {
+                    areas: filteredAndSortedDestinations.length,
+                    places: weekendResult.totalPlaceCount,
+                  })
+                : t("ui.destinationsMatching", {
+                    count: filteredAndSortedDestinations.length,
+                  })}
           </span>
           {travelDates && (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300">
@@ -1287,7 +1315,15 @@ export default function Destinations() {
         </div>
       </div>
 
-      {filteredAndSortedDestinations.length === 0 ? (
+      {catalogueStillLoading && allDestinations.length === 0 ? (
+        <div
+          role="status"
+          data-catalogue-loading
+          className="flex min-h-48 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-20 text-center text-sm font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-900/40 dark:text-slate-300"
+        >
+          {locale === "ja" ? "目的地を準備中です…" : "Preparing destinations…"}
+        </div>
+      ) : filteredAndSortedDestinations.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-slate-500">
           <Frown className="w-12 h-12 mb-4 text-slate-500" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300">

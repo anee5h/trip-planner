@@ -88,6 +88,7 @@ interface DestinationFiltersProps {
   setDate: (val: string) => void;
   sortBy: string;
   setSortBy: (val: string) => void;
+  sortLoading?: boolean;
   carMode: string;
   setCarMode: (val: string) => void;
   publicModes: string[];
@@ -166,6 +167,7 @@ export default function DestinationFilters({
   forecastMap,
   originLabel,
   totalResultsCount = 0,
+  sortLoading = false,
   onReset,
 }: DestinationFiltersProps) {
   const { user } = useAuth();
@@ -621,6 +623,8 @@ export default function DestinationFilters({
           >
             <SelectTrigger
               aria-label={isJa ? "並び替え" : "Sort by"}
+              aria-busy={sortLoading}
+              data-sort-loading={sortLoading || undefined}
               className="order-4 h-9 w-full rounded-xl border-slate-200 bg-slate-50 text-xs font-medium transition-colors hover:border-emerald-700 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] sm:order-none sm:w-36"
             >
               {sortBy === "recommended" && (
@@ -687,6 +691,14 @@ export default function DestinationFilters({
               </SelectItem>
             </SelectContent>
           </Select>
+          {sortLoading && (
+            <span
+              role="status"
+              className="text-[11px] font-semibold text-slate-500 dark:text-slate-300"
+            >
+              {isJa ? "並び替えを準備中…" : "Preparing sort…"}
+            </span>
+          )}
 
           {/* 4. Filters Trigger Button */}
           <button

@@ -5,6 +5,12 @@
  */
 import { describe, expect, it } from "vitest";
 import type { Destination } from "@/shared/types/destination";
+import destinations from "@/shared/data/destinations-index.json";
+import {
+  getEstimatedBudgetRange,
+  getSortableVerifiedBudget,
+} from "@/shared/services/budget/BudgetService";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
 import {
   compareExploreNumericValues,
   computeExploreSortMetrics,
@@ -44,6 +50,14 @@ function metrics(
 
 const NAKAYAMA = { lat: 35.5147, lng: 139.5393 };
 const TOKYO_STATION = { lat: 35.6812, lng: 139.7671 };
+const PUBLIC_MODES = ["train", "shinkansen", "bus", "flight"];
+const REAL_CATALOGUE = destinations as unknown as Destination[];
+
+function realDestination(id: string): Destination {
+  const value = REAL_CATALOGUE.find((candidate) => candidate.id === id);
+  if (!value) throw new Error(`Missing real catalogue fixture: ${id}`);
+  return value;
+}
 
 describe("Explore numeric sort boundary", () => {
   it("normalizes nullish, NaN, infinity, zero, and finite values explicitly", () => {
@@ -100,6 +114,86 @@ describe("Explore numeric sort boundary", () => {
       "cheap-b",
       "unknown",
     ]);
+  });
+});
+
+describe("real Nakayama BudgetService → Explore path", () => {
+  it("uses canonical finite estimates, ranks the nearest available fixture ahead of a farther 30k+ trip, and keeps nearby unknowns unknown", () => {
+    // The real diagnostic found no finite canonical budget within 50 km. The
+    // nearest available finite fixture is 89 km away; this test records that
+    // coverage limitation instead of inventing a local fare.
+    const nearestPriced = realDestination("takeda-castle-yamanashi");
+    const fartherPriced = realDestination("ueda-castle-nagano");
+    const nearbyUnknown = realDestination("yokohama-zoorasia");
+    const context = {
+      originCoords: NAKAYAMA,
+      originZoneId: "mainland-honshu" as const,
+      carMode: "none",
+      publicModes: PUBLIC_MODES,
+      partySize: 2,
+      budgetTier: "standard" as const,
+    };
+
+    const nearestModes = getValidModes(
+      nearestPriced,
+      "none",
+      PUBLIC_MODES,
+      NAKAYAMA,
+      undefined,
+      "mainland-honshu",
+    );
+    const nearestEstimates = nearestModes.map((mode) =>
+      getEstimatedBudgetRange(nearestPriced, mode, 2, "standard", NAKAYAMA),
+    );
+    const nearestBudget = getSortableVerifiedBudget(
+      nearestPriced,
+      nearestModes,
+      2,
+      NAKAYAMA,
+    );
+    const fartherBudget = getSortableVerifiedBudget(
+      fartherPriced,
+      getValidModes(
+        fartherPriced,
+        "none",
+        PUBLIC_MODES,
+        NAKAYAMA,
+        undefined,
+        "mainland-honshu",
+      ),
+      2,
+      NAKAYAMA,
+    );
+
+    expect(nearestModes.length).toBeGreaterThan(0);
+    expect(
+      nearestEstimates.some(
+        (estimate) =>
+          estimate.range &&
+          estimate.transportIncluded &&
+          estimate.durationIncluded,
+      ),
+    ).toBe(true);
+    expect(Number.isFinite(nearestBudget)).toBe(true);
+    expect(Number.isFinite(fartherBudget)).toBe(true);
+    expect(nearestBudget).toBeLessThan(fartherBudget);
+
+    const metrics = computeExploreSortMetrics(
+      [fartherPriced, nearestPriced, nearbyUnknown],
+      context,
+      "budget",
+    );
+    expect(metrics.get(nearestPriced.id)?.budgetJpy).toBe(nearestBudget);
+    expect(metrics.get(fartherPriced.id)?.budgetJpy).toBe(fartherBudget);
+    expect(metrics.get(nearbyUnknown.id)?.budgetJpy).toBeNull();
+
+    expect(
+      sortExploreDestinations(
+        [fartherPriced, nearbyUnknown, nearestPriced],
+        "budget",
+        metrics,
+      ).map((item) => item.id),
+    ).toEqual([nearestPriced.id, fartherPriced.id, nearbyUnknown.id]);
   });
 });
 
