@@ -1125,6 +1125,7 @@ export default function Destinations() {
         <div
           role="alert"
           data-catalogue-error
+          data-lite-error={!requiresFullSortCatalogue ? true : undefined}
           className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
         >
           <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
