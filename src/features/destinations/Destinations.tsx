@@ -19,7 +19,6 @@ import {
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
 import {
-  getSortableVerifiedBudget,
   getEstimatedBudgetRange,
   hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
@@ -100,7 +99,6 @@ import {
 
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 
-import { getDistance } from "@/shared/utils/distance";
 import { getWalkingIntensity } from "@/shared/utils/walking";
 import {
   DEFAULT_DESTINATION_EXPLORER_STATE,
@@ -108,6 +106,10 @@ import {
   parseDestinationSearchParams,
   serializeDestinationSearchParams,
 } from "./destinationSearchParams";
+import {
+  computeExploreSortMetrics,
+  sortExploreDestinations,
+} from "./exploreSorting";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
 export default function Destinations() {
@@ -129,15 +131,38 @@ export default function Destinations() {
   } = useTripStore();
   const { locale } = useLocale();
   const { t } = useTranslation();
-  // KAI-132: the explorer is a list/filter surface — SUMMARY-ONLY. The
-  // lite catalogue is runtime-loaded (not inlined in the shared chunk);
-  // the grid renders once the loader resolves. `filtersReady` already
-  // gates filter-derived state; `liteReady` gates the catalogue data.
-  const {
-    places: cataloguePlaces,
-    error: liteError,
-    retry: retryLite,
-  } = useCatalogue({ need: "summary" });
+  const [sortBy, setSortBy] = useState(initialExplorerState.sortBy);
+  // KAI-132: keep the summary catalogue available while the authoritative
+  // full catalogue needed by Least Walk is loading. The summary is the visible
+  // continuity snapshot; it is never used as the authoritative sort input.
+  const requiresFullSortCatalogue = sortBy === "walking";
+  const summaryCatalogue = useCatalogue({
+    need: "summary",
+    enabled: true,
+  });
+  const fullSortCatalogue = useCatalogue({
+    need: "full",
+    enabled: requiresFullSortCatalogue,
+  });
+  const fullSortReady =
+    !requiresFullSortCatalogue || fullSortCatalogue.status === "ready";
+  const sortPreparationPending =
+    requiresFullSortCatalogue && fullSortCatalogue.status === "loading";
+  const activeCatalogue =
+    requiresFullSortCatalogue && fullSortReady
+      ? fullSortCatalogue
+      : summaryCatalogue;
+  const catalogueError = requiresFullSortCatalogue
+    ? (fullSortCatalogue.error ?? summaryCatalogue.error)
+    : summaryCatalogue.error;
+  const retryCatalogue =
+    requiresFullSortCatalogue && fullSortCatalogue.status === "error"
+      ? fullSortCatalogue.retry
+      : summaryCatalogue.retry;
+  const catalogueStillLoading =
+    summaryCatalogue.status === "loading" &&
+    summaryCatalogue.places.length === 0;
+  const { places: cataloguePlaces } = activeCatalogue;
   const allDestinations = cataloguePlaces.map((destination) =>
     getLocalizedPlace(destination, locale),
   );
@@ -145,7 +170,6 @@ export default function Destinations() {
     initialExplorerState.searchQuery,
   );
   const [maxBudget, setMaxBudget] = useState(initialExplorerState.maxBudget);
-  const [sortBy, setSortBy] = useState(initialExplorerState.sortBy);
   const { user, loading: authLoading } = useAuth();
   const [carMode, setCarMode] = useState(initialExplorerState.carMode);
   const [publicModes, setPublicModes] = useState<string[]>(
@@ -984,6 +1008,18 @@ export default function Destinations() {
       );
     }
 
+    // Keep the continuity snapshot in its existing catalogue/filter order while
+    // authoritative full records are loading. Never compute Least Walk metrics
+    // from the lite records and never expose a transient empty state.
+    if (sortPreparationPending) {
+      return {
+        destinations: result,
+        weekend: weekendConsolidation,
+        weekendTravelById,
+        conditionById,
+      };
+    }
+
     // Score once per destination: the shared day-trip efficiency calculation
     // is origin-aware and should not repeat inside Array.sort's comparator.
     const recommendedScoreById = new Map<string, number>();
@@ -996,125 +1032,39 @@ export default function Destinations() {
       }
     }
 
-    // 6. Sort
-    result = [...result].sort((a, b) => {
-      switch (sortBy) {
-        case "recommended":
-        default:
-          // Beta product decision (KAI-89): the overall score is hidden and
-          // never drives list order — the legacy 'overall' URL value and any
-          // unknown sort fall back to the personalized recommendation
-          // ranking. 2D1N uses the weekend-aware score so the explorer ranks
-          // consistently with the Home pipeline (and the Tokyo wards group
-          // ranks as its best member, not at a plain catalog position). The
-          // forecast/seasonal condition delta for the planned dates is added
-          // for both modes when a date is selected.
-          return (
-            (weekendRecommendedScoreById.get(b.id) ??
-              recommendedScoreById.get(b.id) ??
-              scoreForCatalog(b, catalogContext)) +
-            (conditionFor(b)?.scoreDelta ?? 0) -
-            ((weekendRecommendedScoreById.get(a.id) ??
-              recommendedScoreById.get(a.id) ??
-              scoreForCatalog(a, catalogContext)) +
-              (conditionFor(a)?.scoreDelta ?? 0))
-          );
-        case "budget": {
-          // Sort by the lowest VERIFIED complete cost: unknown, expired or
-          // unverified fares are never zero-cost and never rank cheaper.
-          const sortableBudget = (dest: Destination) =>
-            getSortableVerifiedBudget(
-              dest,
-              getValidModes(
-                dest,
-                carMode,
-                effectivePublicModes,
-                homeStationCoords ?? undefined,
-                budgetTier === "any" ? undefined : budgetTier,
-                homeStationTransportZoneId,
-                ferryTemporal,
-              ),
-              partySize,
-              homeStationCoords ?? undefined,
-              ferryTemporal,
-              budgetTier === "any" ? undefined : budgetTier,
-            );
-          return sortableBudget(a) - sortableBudget(b);
-        }
-        case "travelTime": {
-          const hasOrigin = Boolean(
-            homeStationCoords || homeStationTransportZoneId,
-          );
-          const getFastestTime = (dest: Destination) => {
-            const modes = getValidModes(
-              dest,
-              carMode,
-              effectivePublicModes,
-              homeStationCoords ?? undefined,
-              budgetTier === "any" ? undefined : budgetTier,
-              homeStationTransportZoneId,
-              ferryTemporal,
-            );
-            if (modes.length === 0) return 999;
-            // Origin-aware duration when an origin exists (never a false
-            // personalized claim); neutral browsing falls back to catalogue
-            // minutes for comparison only.
-            const minutes = getBestOneWayTravelMinutes(
-              dest,
-              catalogContext,
-              modes,
-            );
-            if (minutes !== undefined) return minutes;
-            if (!hasOrigin) {
-              const legacyMinutes = Math.min(
-                ...modes.map(
-                  (m) =>
-                    (dest.transportOptions?.[
-                      m as keyof typeof dest.transportOptions
-                    ] as number) || 999,
-                ),
-              );
-              return legacyMinutes;
-            }
-            // Selected origin without a canonical origin-aware estimate:
-            // unknown sorts last — never a legacy transportOptions fallback.
-            return 999;
-          };
-          return getFastestTime(a) - getFastestTime(b);
-        }
-        case "nearest": {
-          if (!homeStationCoords) {
-            return (
-              scoreForCatalog(b, catalogContext) -
-              scoreForCatalog(a, catalogContext)
-            );
-          }
-
-          const distanceFromHome = (destination: Destination) =>
-            destination.coordinates
-              ? getDistance(
-                  homeStationCoords.lat,
-                  homeStationCoords.lng,
-                  destination.coordinates.lat,
-                  destination.coordinates.lng,
-                )
-              : Number.POSITIVE_INFINITY;
-
-          return (
-            distanceFromHome(a) - distanceFromHome(b) ||
-            a.id.localeCompare(b.id)
-          );
-        }
-        case "walking":
-          return (a.walkingMin ?? 0) - (b.walkingMin ?? 0);
-        case "couple":
-          return (b.ratings?.couple ?? 0) - (a.ratings?.couple ?? 0);
-        case "summer":
-          return (b.ratings?.summer ?? 0) - (a.ratings?.summer ?? 0);
-        case "winter":
-          return (b.ratings?.winter ?? 0) - (a.ratings?.winter ?? 0);
+    const recommendedSortScoreById = new Map<string, number>();
+    if (sortBy === "recommended") {
+      for (const destination of result) {
+        const baseScore =
+          weekendRecommendedScoreById.get(destination.id) ??
+          recommendedScoreById.get(destination.id) ??
+          scoreForCatalog(destination, catalogContext);
+        recommendedSortScoreById.set(
+          destination.id,
+          baseScore + (conditionFor(destination)?.scoreDelta ?? 0),
+        );
       }
-    });
+    }
+
+    // 6. Resolve each explicit sort metric once for the complete eligible set,
+    // then sort before the render-time page slice. Unknown values are handled
+    // by the shared boundary and never participate as accidental zeroes.
+    const exploreSortMetrics = computeExploreSortMetrics(
+      result,
+      {
+        originCoords: homeStationCoords,
+        carMode,
+        publicModes: effectivePublicModes,
+        partySize,
+      },
+      sortBy,
+    );
+    result = sortExploreDestinations(
+      result,
+      sortBy,
+      exploreSortMetrics,
+      recommendedSortScoreById,
+    );
 
     return {
       destinations: result,
@@ -1127,6 +1077,7 @@ export default function Destinations() {
     query,
     maxBudget,
     sortBy,
+    sortPreparationPending,
     carMode,
     publicModes,
     partySize,
@@ -1185,15 +1136,16 @@ export default function Destinations() {
     filteredAndSortedDestinations.length / ITEMS_PER_PAGE,
   );
 
-  // KAI-132: a failed lite load is NOT ready — surface an explicit
+  // A failed summary or full load is NOT ready — surface an explicit
   // error/retry state instead of an empty grid that looks like a real
   // (empty) catalogue.
-  if (liteError) {
+  if (catalogueError) {
     return (
       <div className="container mx-auto px-4 py-8">
         <div
           role="alert"
-          data-lite-error
+          data-catalogue-error
+          data-lite-error={!requiresFullSortCatalogue ? true : undefined}
           className="flex flex-col items-center justify-center py-20 bg-red-50 dark:bg-red-950/30 rounded-2xl border border-red-200 dark:border-red-900/50 text-center px-4"
         >
           <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">
@@ -1207,7 +1159,7 @@ export default function Destinations() {
           </p>
           <button
             type="button"
-            onClick={retryLite}
+            onClick={retryCatalogue}
             className="mt-4 rounded-xl bg-emerald-600 px-4 py-2 text-sm font-bold text-white hover:bg-emerald-700"
           >
             {t("ui.retry", "Retry")}
@@ -1284,6 +1236,7 @@ export default function Destinations() {
         }
         sortBy={sortBy}
         setSortBy={setSortBy}
+        sortLoading={sortPreparationPending}
         carMode={carMode}
         setCarMode={setCarMode}
         publicModes={publicModes}
@@ -1329,14 +1282,18 @@ export default function Destinations() {
       >
         <div className="flex items-center gap-2">
           <span className="text-sm font-bold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-800">
-            {weekendResult
-              ? t("destination.tripAreas.summary", {
-                  areas: filteredAndSortedDestinations.length,
-                  places: weekendResult.totalPlaceCount,
-                })
-              : t("ui.destinationsMatching", {
-                  count: filteredAndSortedDestinations.length,
-                })}
+            {catalogueStillLoading && allDestinations.length === 0
+              ? locale === "ja"
+                ? "目的地を準備中…"
+                : "Preparing destinations…"
+              : weekendResult
+                ? t("destination.tripAreas.summary", {
+                    areas: filteredAndSortedDestinations.length,
+                    places: weekendResult.totalPlaceCount,
+                  })
+                : t("ui.destinationsMatching", {
+                    count: filteredAndSortedDestinations.length,
+                  })}
           </span>
           {travelDates && (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300">
@@ -1355,7 +1312,15 @@ export default function Destinations() {
         </div>
       </div>
 
-      {filteredAndSortedDestinations.length === 0 ? (
+      {catalogueStillLoading && allDestinations.length === 0 ? (
+        <div
+          role="status"
+          data-catalogue-loading
+          className="flex min-h-48 items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-20 text-center text-sm font-semibold text-slate-600 dark:border-slate-800 dark:bg-slate-900/40 dark:text-slate-300"
+        >
+          {locale === "ja" ? "目的地を準備中です…" : "Preparing destinations…"}
+        </div>
+      ) : filteredAndSortedDestinations.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-slate-500">
           <Frown className="w-12 h-12 mb-4 text-slate-500" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300">

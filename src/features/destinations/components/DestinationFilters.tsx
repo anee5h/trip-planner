@@ -11,7 +11,6 @@ import {
 } from "@/shared/components/ui/select";
 import {
   Search,
-  Clock,
   Footprints,
   Coins,
   Filter,
@@ -89,6 +88,7 @@ interface DestinationFiltersProps {
   setDate: (val: string) => void;
   sortBy: string;
   setSortBy: (val: string) => void;
+  sortLoading?: boolean;
   carMode: string;
   setCarMode: (val: string) => void;
   publicModes: string[];
@@ -167,6 +167,7 @@ export default function DestinationFilters({
   forecastMap,
   originLabel,
   totalResultsCount = 0,
+  sortLoading = false,
   onReset,
 }: DestinationFiltersProps) {
   const { user } = useAuth();
@@ -622,24 +623,14 @@ export default function DestinationFilters({
           >
             <SelectTrigger
               aria-label={isJa ? "並び替え" : "Sort by"}
+              aria-busy={sortLoading}
+              data-sort-loading={sortLoading || undefined}
               className="order-4 h-9 w-full rounded-xl border-slate-200 bg-slate-50 text-xs font-medium transition-colors hover:border-emerald-700 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))] sm:order-none sm:w-36"
             >
               {sortBy === "recommended" && (
                 <div className="flex items-center whitespace-nowrap">
                   <Compass className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
-                </div>
-              )}
-              {sortBy === "travelTime" && (
-                <div className="flex items-center whitespace-nowrap">
-                  <Clock className="w-3.5 h-3.5 mr-1.5 text-blue-500 shrink-0" />{" "}
-                  {isJa ? "移動時間が短い順" : "Fastest"}
-                </div>
-              )}
-              {sortBy === "budget" && (
-                <div className="flex items-center whitespace-nowrap">
-                  <Coins className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
-                  {isJa ? "予算が安い順" : "Lowest Budget"}
                 </div>
               )}
               {sortBy === "walking" && (
@@ -666,24 +657,6 @@ export default function DestinationFilters({
                 </div>
               </SelectItem>
               <SelectItem
-                value="travelTime"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center whitespace-nowrap">
-                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-500" />{" "}
-                  {isJa ? "移動時間が短い順" : "Fastest Travel"}
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="budget"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center whitespace-nowrap">
-                  <Coins className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
-                  {isJa ? "予算が安い順" : "Lowest Budget"}
-                </div>
-              </SelectItem>
-              <SelectItem
                 value="walking"
                 className="py-2 px-3 text-xs cursor-pointer"
               >
@@ -703,6 +676,14 @@ export default function DestinationFilters({
               </SelectItem>
             </SelectContent>
           </Select>
+          {sortLoading && (
+            <span
+              role="status"
+              className="text-[11px] font-semibold text-slate-500 dark:text-slate-300"
+            >
+              {isJa ? "並び替えを準備中…" : "Preparing sort…"}
+            </span>
+          )}
 
           {/* 4. Filters Trigger Button */}
           <button

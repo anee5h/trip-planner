@@ -25,8 +25,9 @@ vi.mock("react-i18next", () => ({
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
-const { authMock } = vi.hoisted(() => ({
+const { authMock, localeMock } = vi.hoisted(() => ({
   authMock: { user: null as unknown },
+  localeMock: { value: "en" },
 }));
 
 vi.mock("@/shared/hooks/useAuth", () => ({
@@ -34,7 +35,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
 }));
 
 vi.mock("@/shared/context/LocaleContext", () => ({
-  useLocale: () => ({ locale: "en" }),
+  useLocale: () => ({ locale: localeMock.value }),
 }));
 
 vi.mock("@/shared/components/ui/input", () => ({
@@ -85,6 +86,7 @@ afterEach(() => {
   root = undefined;
   host = undefined;
   authMock.user = null;
+  localeMock.value = "en";
 });
 
 function makeDefaults(): Props {
@@ -227,6 +229,28 @@ describe("DestinationFilters score-sort presentation", () => {
 
     expect(text).not.toMatch(/Top Rated|Highest Rated|overall/i);
     expect(container.querySelector('[data-value="overall"]')).toBeNull();
+  });
+});
+
+describe("Explore sort option parity", () => {
+  it("exposes only Recommended, Least Walking, and Nearest in both locales", () => {
+    const english = renderFilters();
+    const englishText = english.textContent ?? "";
+    expect(englishText).toContain("Recommended");
+    expect(englishText).toContain("Least Walking");
+    expect(englishText).toContain("Nearest");
+    expect(englishText).not.toContain("Lowest Budget");
+    expect(englishText).not.toMatch(/Fastest|Fastest Travel/);
+
+    act(() => root?.unmount());
+    localeMock.value = "ja";
+    const japanese = renderFilters();
+    const japaneseText = japanese.textContent ?? "";
+    expect(japaneseText).toContain("おすすめ順");
+    expect(japaneseText).toContain("歩行量が少ない順");
+    expect(japaneseText).toContain("近い順");
+    expect(japaneseText).not.toContain("予算が安い順");
+    expect(japaneseText).not.toMatch(/移動時間が短い順|最速/);
   });
 });
 
