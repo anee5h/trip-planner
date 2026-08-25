@@ -1049,8 +1049,8 @@ export function DayPlanWidget({
             })}
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
-              <div className="flex items-center gap-2">
+            <div className="flex flex-col items-stretch gap-2 pt-4 border-t border-slate-100 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex w-full items-center gap-2 sm:w-auto">
                 <Button
                   variant="outline"
                   onClick={() => setShowConfig(true)}
@@ -1072,7 +1072,7 @@ export function DayPlanWidget({
               {onSaveToItinerary && (
                 <Button
                   onClick={handleSave}
-                  className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center gap-2 shadow-sm min-h-[44px]"
+                  className="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs px-5 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-sm min-h-[44px] sm:w-auto"
                 >
                   <Calendar className="w-4 h-4" />
                   {locale === "ja" ? "旅程に登録" : "Save Plan to Itinerary"}
