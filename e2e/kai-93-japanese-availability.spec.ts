@@ -49,7 +49,7 @@ test.describe("KAI-93 Japanese destination availability", () => {
     // The destination detail header must be visible with the destination name
     const heading = page.getByRole("heading", {
       level: 1,
-      name: "Abashiri City",
+      name: "網走市",
     });
     await expect(heading).toBeVisible();
 
