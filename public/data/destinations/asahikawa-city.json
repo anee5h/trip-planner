@@ -1,6 +1,7 @@
 {
   "id": "asahikawa-city",
   "name": "Asahikawa City",
+  "nameJa": "旭川市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

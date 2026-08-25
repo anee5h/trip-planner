@@ -1,6 +1,7 @@
 {
   "id": "takayama-city",
   "name": "Takayama City",
+  "nameJa": "高山市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

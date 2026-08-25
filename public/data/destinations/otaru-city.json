@@ -1,6 +1,7 @@
 {
   "id": "otaru-city",
   "name": "Otaru City",
+  "nameJa": "小樽市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

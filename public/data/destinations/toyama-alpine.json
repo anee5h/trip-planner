@@ -1,6 +1,7 @@
 {
   "id": "toyama-alpine",
   "name": "Tateyama Kurobe Alpine Route",
+  "nameJa": "立山黒部アルペンルート",
   "kind": "nature",
   "region": "Chubu",
   "categories": ["Nature", "Mountain"],

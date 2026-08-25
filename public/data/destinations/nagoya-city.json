@@ -1,6 +1,7 @@
 {
   "id": "nagoya-city",
   "name": "Nagoya City",
+  "nameJa": "名古屋市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

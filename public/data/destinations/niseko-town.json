@@ -1,6 +1,7 @@
 {
   "id": "niseko-town",
   "name": "Niseko Town",
+  "nameJa": "ニセコ町",
   "kind": "town",
   "role": "hub",
   "importance": "major",

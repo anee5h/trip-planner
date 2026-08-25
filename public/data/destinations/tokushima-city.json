@@ -1,6 +1,7 @@
 {
   "id": "tokushima-city",
   "name": "Tokushima City",
+  "nameJa": "徳島市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

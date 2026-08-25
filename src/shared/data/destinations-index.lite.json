@@ -2,6 +2,7 @@
   {
     "id": "abashiri-city",
     "name": "Abashiri City",
+    "nameJa": "網走市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -1762,6 +1763,7 @@
   {
     "id": "asahikawa-city",
     "name": "Asahikawa City",
+    "nameJa": "旭川市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -2390,6 +2392,7 @@
   {
     "id": "atami-city",
     "name": "Atami City",
+    "nameJa": "熱海市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -2735,6 +2738,7 @@
   {
     "id": "biei-town",
     "name": "Biei Town",
+    "nameJa": "美瑛町",
     "kind": "town",
     "role": "hub",
     "importance": "major",
@@ -6437,6 +6441,7 @@
   {
     "id": "fuji-5-lake",
     "name": "Fuji Five Lakes",
+    "nameJa": "富士五湖",
     "kind": "lake",
     "role": "standalone",
     "placeType": "destination",
@@ -6517,6 +6522,7 @@
   {
     "id": "fujikawaguchiko-town",
     "name": "Fujikawaguchiko Town",
+    "nameJa": "富士河口湖町",
     "kind": "town",
     "role": "hub",
     "importance": "major",
@@ -6688,6 +6694,7 @@
   {
     "id": "fujinomiya-city",
     "name": "Fujinomiya City",
+    "nameJa": "富士宮市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -6960,6 +6967,7 @@
   {
     "id": "fukui",
     "name": "Fukui City",
+    "nameJa": "福井市",
     "kind": "city",
     "role": "standalone",
     "placeType": "destination",
@@ -7699,6 +7707,7 @@
   {
     "id": "furano-city",
     "name": "Furano City",
+    "nameJa": "富良野市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -8051,6 +8060,7 @@
   {
     "id": "gero-city",
     "name": "Gero City",
+    "nameJa": "下呂市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -8314,6 +8324,7 @@
   {
     "id": "gifu-castle-gifu",
     "name": "Gifu Castle (Mt. Kinka)",
+    "nameJa": "岐阜城（金華山）",
     "municipalityId": "Gifu:gifu",
     "prefecture": "Gifu",
     "region": "Chubu",
@@ -8409,6 +8420,7 @@
   {
     "id": "gifu-city",
     "name": "Gifu City",
+    "nameJa": "岐阜市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -8498,6 +8510,7 @@
   {
     "id": "gifu-gujo-hachiman",
     "name": "Gujo Hachiman",
+    "nameJa": "郡上八幡",
     "kind": "historic_town",
     "role": "standalone",
     "placeType": "destination",
@@ -8586,6 +8599,7 @@
   {
     "id": "gifu-magome-juku",
     "name": "Magome-juku",
+    "nameJa": "馬籠宿",
     "kind": "historic_town",
     "role": "standalone",
     "placeType": "destination",
@@ -9145,6 +9159,7 @@
   {
     "id": "gotemba-city",
     "name": "Gotemba City",
+    "nameJa": "御殿場市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -10186,6 +10201,7 @@
   {
     "id": "hakodate-city",
     "name": "Hakodate City",
+    "nameJa": "函館市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -10467,6 +10483,7 @@
   {
     "id": "hakuba-village",
     "name": "Hakuba Village",
+    "nameJa": "白馬村",
     "kind": "village",
     "role": "hub",
     "importance": "major",
@@ -10547,6 +10564,7 @@
   {
     "id": "hamamatsu-city",
     "name": "Hamamatsu City",
+    "nameJa": "浜松市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -11015,6 +11033,7 @@
   {
     "id": "higashiyama-sky-tower-nagoya",
     "name": "Higashiyama Sky Tower",
+    "nameJa": "東山スカイタワー",
     "municipalityId": "Aichi:nagoya",
     "prefecture": "Aichi",
     "region": "Chubu",
@@ -11111,6 +11130,7 @@
   {
     "id": "hikone-castle-shiga",
     "name": "Hikone Castle (National Treasure)",
+    "nameJa": "彦根城（国宝）",
     "role": "destination",
     "municipalityId": "Shiga:hikone",
     "prefecture": "Shiga",
@@ -13331,6 +13351,7 @@
   {
     "id": "inuyama-castle-aichi",
     "name": "Inuyama Castle (National Treasure Keep)",
+    "nameJa": "犬山城（国宝天守）",
     "kind": "castle",
     "role": "poi",
     "importance": "major",
@@ -13424,6 +13445,7 @@
   {
     "id": "inuyama-city",
     "name": "Inuyama City",
+    "nameJa": "犬山市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -13858,6 +13880,7 @@
   {
     "id": "ito-city",
     "name": "Ito City",
+    "nameJa": "伊東市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -14290,6 +14313,7 @@
   {
     "id": "izu",
     "name": "Izu Peninsula",
+    "nameJa": "伊豆半島",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",
@@ -15395,6 +15419,7 @@
   {
     "id": "kakegawa-castle-shizuoka",
     "name": "Kakegawa Castle & Ninomaru Goten",
+    "nameJa": "掛川城・二の丸御殿",
     "role": "standalone",
     "placeType": "destination",
     "municipalityId": "Shizuoka:kakegawa",
@@ -15874,6 +15899,7 @@
   {
     "id": "kanazawa",
     "name": "Kanazawa City",
+    "nameJa": "金沢市",
     "kind": "city",
     "role": "standalone",
     "placeType": "destination",
@@ -15951,6 +15977,7 @@
   {
     "id": "kanazawa-castle-ishikawa",
     "name": "Kanazawa Castle Park",
+    "nameJa": "金沢城公園",
     "role": "standalone",
     "placeType": "destination",
     "prefecture": "Ishikawa",
@@ -16136,6 +16163,7 @@
   {
     "id": "karuizawa-town",
     "name": "Karuizawa Town",
+    "nameJa": "軽井沢町",
     "kind": "town",
     "role": "hub",
     "importance": "major",
@@ -18198,6 +18226,7 @@
   {
     "id": "kiso",
     "name": "Kiso Valley",
+    "nameJa": "木曽谷",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",
@@ -19407,6 +19436,7 @@
   {
     "id": "kochi-city",
     "name": "Kochi City",
+    "nameJa": "高知市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -19499,6 +19529,7 @@
   {
     "id": "kofu-city",
     "name": "Kofu City",
+    "nameJa": "甲府市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -20587,6 +20618,7 @@
   {
     "id": "kurobe-gorge",
     "name": "Kurobe Gorge",
+    "nameJa": "黒部峡谷",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",
@@ -20949,6 +20981,7 @@
   {
     "id": "kushiro-city",
     "name": "Kushiro City",
+    "nameJa": "釧路市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -21604,6 +21637,7 @@
   {
     "id": "lake-hamanako",
     "name": "Lake Hamanako",
+    "nameJa": "浜名湖",
     "kind": "lake",
     "role": "standalone",
     "placeType": "destination",
@@ -22504,6 +22538,7 @@
   {
     "id": "maruoka-castle-fukui",
     "name": "Maruoka Castle (Original Keep 1576)",
+    "nameJa": "丸岡城（現存天守1576）",
     "role": "standalone",
     "placeType": "destination",
     "prefecture": "Fukui",
@@ -22972,6 +23007,7 @@
   {
     "id": "matsumoto-castle-nagano",
     "name": "Matsumoto Castle (Crow Castle)",
+    "nameJa": "松本城（烏城）",
     "kind": "castle",
     "role": "poi",
     "importance": "major",
@@ -23065,6 +23101,7 @@
   {
     "id": "matsumoto-city",
     "name": "Matsumoto City",
+    "nameJa": "松本市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -23325,6 +23362,7 @@
   {
     "id": "matsuyama-city",
     "name": "Matsuyama City",
+    "nameJa": "松山市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -23944,6 +23982,7 @@
   {
     "id": "mirai-tower-nagoya",
     "name": "Chubu Electric Power MIRAI TOWER",
+    "nameJa": "中部電力 MIRAI TOWER",
     "role": "poi",
     "placeType": "destination",
     "municipalityId": "Aichi:nagoya",
@@ -26086,6 +26125,7 @@
   {
     "id": "nagano-bessho-onsen",
     "name": "Bessho Onsen",
+    "nameJa": "別所温泉",
     "kind": "onsen",
     "role": "standalone",
     "placeType": "destination",
@@ -26174,6 +26214,7 @@
   {
     "id": "nagano-city",
     "name": "Nagano City",
+    "nameJa": "長野市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -26258,6 +26299,7 @@
   {
     "id": "nagano-kamikochi",
     "name": "Kamikochi",
+    "nameJa": "上高地",
     "kind": "mountain",
     "role": "standalone",
     "placeType": "destination",
@@ -26346,6 +26388,7 @@
   {
     "id": "nagano-narai-juku",
     "name": "Narai-juku",
+    "nameJa": "奈良井宿",
     "kind": "historic_town",
     "role": "standalone",
     "placeType": "destination",
@@ -26431,6 +26474,7 @@
   {
     "id": "nagano-suwa",
     "name": "Suwa",
+    "nameJa": "諏訪",
     "role": "standalone",
     "placeType": "destination",
     "prefecture": "Nagano",
@@ -26517,6 +26561,7 @@
   {
     "id": "nagano-tsumago-juku",
     "name": "Tsumago-juku",
+    "nameJa": "妻籠宿",
     "kind": "historic_town",
     "role": "standalone",
     "placeType": "destination",
@@ -26769,6 +26814,7 @@
   {
     "id": "nagoya-castle-aichi",
     "name": "Nagoya Castle (Golden Shachihoko)",
+    "nameJa": "名古屋城（金のしゃちほこ）",
     "kind": "castle",
     "role": "poi",
     "importance": "major",
@@ -26859,6 +26905,7 @@
   {
     "id": "nagoya-city",
     "name": "Nagoya City",
+    "nameJa": "名古屋市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -27142,6 +27189,7 @@
   {
     "id": "nagoya-port-tower",
     "name": "Nagoya Port Building (Maritime Tower)",
+    "nameJa": "名古屋港ビルディング（旧名古屋港タワー）",
     "municipalityId": "Aichi:nagoya",
     "prefecture": "Aichi",
     "region": "Chubu",
@@ -28343,6 +28391,7 @@
   {
     "id": "naruto-city",
     "name": "Naruto City",
+    "nameJa": "鳴門市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -29477,6 +29526,7 @@
   {
     "id": "niseko-town",
     "name": "Niseko Town",
+    "nameJa": "ニセコ町",
     "kind": "town",
     "role": "hub",
     "importance": "major",
@@ -29643,6 +29693,7 @@
   {
     "id": "noto",
     "name": "Noto Peninsula",
+    "nameJa": "能登半島",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",
@@ -29728,6 +29779,7 @@
   {
     "id": "numazu-city",
     "name": "Numazu City",
+    "nameJa": "沼津市",
     "kind": "city",
     "role": "hub",
     "importance": "standard",
@@ -31022,6 +31074,7 @@
   {
     "id": "okazaki-city",
     "name": "Okazaki City",
+    "nameJa": "岡崎市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -31195,6 +31248,7 @@
   {
     "id": "okuhida",
     "name": "Okuhida",
+    "nameJa": "奥飛騨",
     "kind": "onsen",
     "role": "standalone",
     "placeType": "destination",
@@ -32874,6 +32928,7 @@
   {
     "id": "otaru-city",
     "name": "Otaru City",
+    "nameJa": "小樽市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -35321,6 +35376,7 @@
   {
     "id": "sapporo-city",
     "name": "Sapporo City",
+    "nameJa": "札幌市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -37899,6 +37955,7 @@
   {
     "id": "shizuoka-city",
     "name": "Shizuoka City",
+    "nameJa": "静岡市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -39279,6 +39336,7 @@
   {
     "id": "takamatsu-city",
     "name": "Takamatsu City",
+    "nameJa": "高松市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -39460,6 +39518,7 @@
   {
     "id": "takaoka",
     "name": "Takaoka City",
+    "nameJa": "高岡市",
     "kind": "city",
     "role": "standalone",
     "placeType": "destination",
@@ -39537,6 +39596,7 @@
   {
     "id": "takato-castle-nagano",
     "name": "Takato Castle Park",
+    "nameJa": "高遠城址公園",
     "role": "standalone",
     "placeType": "destination",
     "prefecture": "Nagano",
@@ -39633,6 +39693,7 @@
   {
     "id": "takayama-city",
     "name": "Takayama City",
+    "nameJa": "高山市",
     "kind": "city",
     "role": "hub",
     "importance": "major",
@@ -39815,6 +39876,7 @@
   {
     "id": "takeda-castle-yamanashi",
     "name": "Tsutsujigasaki Castle (Takeda Shrine)",
+    "nameJa": "武田氏館跡（武田神社）",
     "role": "standalone",
     "placeType": "destination",
     "municipalityId": "Yamanashi:kofu",
@@ -41207,6 +41269,7 @@
   {
     "id": "toki-messe-tower-niigata",
     "name": "Befco Bakauke Observatory (Toki Messe)",
+    "nameJa": "Befcoばかうけ展望室（朱鷺メッセ）",
     "municipalityId": "Niigata:niigata",
     "prefecture": "Niigata",
     "region": "Chubu",
@@ -41672,6 +41735,7 @@
   {
     "id": "tokushima-city",
     "name": "Tokushima City",
+    "nameJa": "徳島市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -42896,6 +42960,7 @@
   {
     "id": "toyama-alpine",
     "name": "Tateyama Kurobe Alpine Route",
+    "nameJa": "立山黒部アルペンルート",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",
@@ -43162,6 +43227,7 @@
   {
     "id": "toyota-city",
     "name": "Toyota City",
+    "nameJa": "豊田市",
     "kind": "city",
     "role": "hub",
     "importance": "notable",
@@ -43895,6 +43961,7 @@
   {
     "id": "ueda-castle-nagano",
     "name": "Ueda Castle Park",
+    "nameJa": "上田城跡公園",
     "role": "standalone",
     "placeType": "destination",
     "municipalityId": "Nagano:ueda",
@@ -45334,6 +45401,7 @@
   {
     "id": "yamanashi-nishizawa-valley",
     "name": "Nishizawa Valley",
+    "nameJa": "西沢渓谷",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",
@@ -45420,6 +45488,7 @@
   {
     "id": "yamanashi-shosenkyo-gorge",
     "name": "Shosenkyo Gorge",
+    "nameJa": "昇仙峡",
     "kind": "nature",
     "role": "standalone",
     "placeType": "destination",

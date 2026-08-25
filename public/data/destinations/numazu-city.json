@@ -1,6 +1,7 @@
 {
   "id": "numazu-city",
   "name": "Numazu City",
+  "nameJa": "沼津市",
   "kind": "city",
   "role": "hub",
   "importance": "standard",

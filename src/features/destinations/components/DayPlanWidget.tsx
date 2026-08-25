@@ -38,6 +38,8 @@ import {
 } from "lucide-react";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import { useTranslation } from "react-i18next";
 
 interface DayPlanWidgetProps {
   destination: Destination;
@@ -76,6 +78,8 @@ export function DayPlanWidget({
   catalogueError = null,
   onRetryCatalogue,
 }: DayPlanWidgetProps) {
+  const { t } = useTranslation();
+  const localizedDestination = getLocalizedPlace(destination, locale);
   const isHubOrCity = isHubPrimary(destination);
 
   const [hasGenerated, setHasGenerated] = useState(false);
@@ -331,10 +335,10 @@ export function DayPlanWidget({
   // Product title based on destination role
   const plannerTitle = isHubOrCity
     ? locale === "ja"
-      ? `${destination.nameJa || destination.name}周辺の1日コース`
+      ? `${localizedDestination.name}周辺の1日コース`
       : `Plan a day in ${destination.name}`
     : locale === "ja"
-      ? `${destination.nameJa || destination.name} 周辺モデルコース`
+      ? `${localizedDestination.name} 周辺モデルコース`
       : `Plan around ${destination.name}`;
 
   const visitMinHours = destination.recommendedVisitHours?.min;
@@ -363,16 +367,20 @@ export function DayPlanWidget({
                   {plannerTitle}
                 </h3>
                 <Badge className="bg-emerald-100 dark:bg-emerald-500/30 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-500/40 text-[10px] uppercase font-bold">
-                  {isHubOrCity ? "Hub Local Tour" : "POI Itinerary"}
+                  {t(
+                    isHubOrCity
+                      ? "destination.dayPlan.hubBadge"
+                      : "destination.dayPlan.poiBadge",
+                  )}
                 </Badge>
               </div>
               <p className="text-xs text-slate-500 dark:text-slate-300 mt-0.5">
                 {isHubOrCity
                   ? locale === "ja"
-                    ? `${destination.nameJa || destination.name}周辺の見どころ・グルメを効率よく巡るプラン`
+                    ? `${localizedDestination.name}周辺の見どころ・グルメを効率よく巡るプラン`
                     : `Customized itinerary of ${destination.name}'s nearby attractions.`
                   : locale === "ja"
-                    ? `${destination.nameJa || destination.name}を中心に近隣スポットを組み合わせたおすすめコース`
+                    ? `${localizedDestination.name}を中心に近隣スポットを組み合わせたおすすめコース`
                     : `Model itinerary combining ${destination.name} with nearby highlights.`}
               </p>
             </div>
@@ -431,10 +439,10 @@ export function DayPlanWidget({
                   <p className="leading-relaxed">
                     {isHubOrCity
                       ? locale === "ja"
-                        ? `${destination.nameJa || destination.name}周辺で、移動時間と滞在バランスを最適化した1日・半日コースを作成します。`
+                        ? `${localizedDestination.name}周辺で、移動時間と滞在バランスを最適化した1日・半日コースを作成します。`
                         : `Create a customized itinerary combining ${destination.name} with nearby highlights and dining.`
                       : locale === "ja"
-                        ? `${destination.nameJa || destination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
+                        ? `${localizedDestination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
                         : `Build a personalized schedule around ${destination.name} with optimal visit durations.`}
                   </p>
                   <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300">
@@ -668,7 +676,12 @@ export function DayPlanWidget({
                 >
                   {[1, 2, 3, 4, 5, 6].map((n) => (
                     <option key={n} value={n}>
-                      {n} {n === 1 ? "person" : "people"}
+                      {n}{" "}
+                      {t(
+                        n === 1
+                          ? "destination.dayPlan.person"
+                          : "destination.dayPlan.people",
+                      )}
                     </option>
                   ))}
                 </select>

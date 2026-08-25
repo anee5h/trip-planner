@@ -1,6 +1,7 @@
 {
   "id": "lake-hamanako",
   "name": "Lake Hamanako",
+  "nameJa": "浜名湖",
   "kind": "lake",
   "region": "Chubu",
   "categories": ["Lake", "Hot Spring"],

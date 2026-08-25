@@ -1,6 +1,7 @@
 {
   "id": "nagano-city",
   "name": "Nagano City",
+  "nameJa": "長野市",
   "region": "Chubu",
   "categories": ["City", "Shrine", "History"],
   "tags": ["Zenkoji", "Olympics"],

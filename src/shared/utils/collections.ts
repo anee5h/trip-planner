@@ -6,6 +6,7 @@ import {
   getUNESCOPropertyId,
   UNESCO_PROPERTY_LABELS,
 } from "@/shared/data/unesco-properties";
+import { localizePlaceLabel } from "@/shared/utils/placeLabels";
 export function getCollectionContent(
   collection: Collection,
   locale: "en" | "ja",
@@ -13,15 +14,16 @@ export function getCollectionContent(
   const content = collection.content?.[locale];
   if (content) return content;
 
-  if (locale === "ja" && collection.nameJa) {
+  if (locale === "ja") {
     return {
-      name: collection.nameJa,
-      description: collection.descriptionJa || collection.description,
+      name: collection.content?.ja?.name || collection.nameJa || "コレクション",
+      description:
+        collection.content?.ja?.description || collection.descriptionJa || "",
     };
   }
 
   return (
-    collection.content?.en || {
+    content || {
       name: collection.name,
       description: collection.description,
     }
@@ -56,12 +58,12 @@ function getDestinationName(
   locale: "en" | "ja",
 ): string {
   if (locale === "ja") {
-    return (
+    const name =
       destination.content?.ja?.name ||
       destination.nameJa ||
       destination.content?.en?.name ||
-      destination.name
-    );
+      destination.name;
+    return localizePlaceLabel(name, "ja");
   }
 
   return destination.content?.en?.name || destination.name;

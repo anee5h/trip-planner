@@ -1,6 +1,7 @@
 {
   "id": "matsumoto-city",
   "name": "Matsumoto City",
+  "nameJa": "松本市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

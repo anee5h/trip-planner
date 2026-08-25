@@ -1,6 +1,7 @@
 {
   "id": "izu",
   "name": "Izu Peninsula",
+  "nameJa": "伊豆半島",
   "kind": "nature",
   "region": "Chubu",
   "categories": ["Coast", "Hot Spring"],

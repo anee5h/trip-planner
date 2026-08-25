@@ -1,6 +1,7 @@
 {
   "id": "furano-city",
   "name": "Furano City",
+  "nameJa": "富良野市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

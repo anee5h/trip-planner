@@ -49,7 +49,7 @@ test.describe("KAI-93 Japanese destination availability", () => {
     // The destination detail header must be visible with the destination name
     const heading = page.getByRole("heading", {
       level: 1,
-      name: "Abashiri City",
+      name: "網走市",
     });
     await expect(heading).toBeVisible();
 
@@ -58,9 +58,9 @@ test.describe("KAI-93 Japanese destination availability", () => {
       page.getByText("この場所はまだ日本語で利用できません");
     await expect(deadEndMessage).not.toBeVisible();
 
-    // Overview content should be present via fallback
+    // Legacy records without Japanese prose remain reachable without leaking English.
     await expect(
       page.getByText(/Okhotsk coastal city famous for winter/i),
-    ).toBeVisible();
+    ).not.toBeVisible();
   });
 });

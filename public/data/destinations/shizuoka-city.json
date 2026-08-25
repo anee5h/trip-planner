@@ -1,6 +1,7 @@
 {
   "id": "shizuoka-city",
   "name": "Shizuoka City",
+  "nameJa": "静岡市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

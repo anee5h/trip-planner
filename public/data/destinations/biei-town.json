@@ -1,6 +1,7 @@
 {
   "id": "biei-town",
   "name": "Biei Town",
+  "nameJa": "美瑛町",
   "kind": "town",
   "role": "hub",
   "importance": "major",

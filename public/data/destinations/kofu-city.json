@@ -1,6 +1,7 @@
 {
   "id": "kofu-city",
   "name": "Kofu City",
+  "nameJa": "甲府市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

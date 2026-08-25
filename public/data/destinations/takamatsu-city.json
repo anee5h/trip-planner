@@ -1,6 +1,7 @@
 {
   "id": "takamatsu-city",
   "name": "Takamatsu City",
+  "nameJa": "高松市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

@@ -1,6 +1,7 @@
 {
   "id": "abashiri-city",
   "name": "Abashiri City",
+  "nameJa": "網走市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

@@ -1,6 +1,7 @@
 {
   "id": "nagoya-castle-aichi",
   "name": "Nagoya Castle (Golden Shachihoko)",
+  "nameJa": "名古屋城（金のしゃちほこ）",
   "kind": "castle",
   "role": "poi",
   "importance": "major",

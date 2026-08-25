@@ -161,20 +161,20 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     host.remove();
   });
 
-  it("renders detail page for destinations without Japanese editorial content (e.g. abashiri-city)", async () => {
+  it("renders legacy destinations without exposing English editorial prose in Japanese", async () => {
     render("/destinations/abashiri-city");
     await act(async () => {
       await flush(80);
     });
 
     const text = host.textContent ?? "";
-    // Must not show dead-end message
     expect(text).not.toContain("この場所はまだ日本語で利用できません");
     expect(text).not.toContain("Destination Not Found");
 
-    // Falls back to English name and description safely
-    expect(text).toContain("Abashiri City");
-    expect(text).toContain("Okhotsk coastal city famous for winter");
+    // The audited Japanese name is available; unavailable Japanese prose is
+    // omitted rather than silently falling back to the English description.
+    expect(text).toContain("網走市");
+    expect(text).not.toContain("Okhotsk coastal city famous for winter");
   });
 
   it("renders detail page for destinations with partial Japanese content (e.g. abukuma-cave-fukushima)", async () => {

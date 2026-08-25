@@ -117,6 +117,7 @@
     "preferences": {
       "budget": "予算",
       "transport": "交通",
+      "weather": "天候",
       "food": "グルメ",
       "nature": "自然",
       "history": "歴史",
@@ -587,6 +588,13 @@
     "wikipediaLoading": "Wikipediaの概要を読み込み中…",
     "wikipediaSummary": "Wikipedia概要",
     "wikipediaUnavailable": "この目的地のWikipedia追加概要は見つかりませんでした。",
+    "weatherLoading": "天気予報を読み込み中…",
+    "dayPlan": {
+      "hubBadge": "エリア周遊コース",
+      "poiBadge": "スポット旅程",
+      "person": "人",
+      "people": "人"
+    },
     "scoreUnavailable": "スコアを表示できません",
     "scoreVerifiedNote": "編集で検証済みのスコアです",
     "scoreEstimatedNote": "総合目的地ルーブリックによる推定スコアです",
@@ -683,6 +691,11 @@
     "allCollections": "すべてのコレクション",
     "collectionNotFound": "コレクションが見つかりません",
     "collectionNotFoundHint": "お探しのコレクションは存在しないか移動されました。",
+    "noCollectionDestinations": "このコレクションには、まだ目的地がありません。",
+    "noCollectionDestinationsHint": "確認済みの目的地が追加されるまで、しばらくお待ちください。",
+    "loading": "読み込み中…",
+    "previousPage": "前のページ",
+    "nextPage": "次のページ",
     "source": "出典",
     "authority": "権威",
     "aboutCollection": "このコレクションについて",

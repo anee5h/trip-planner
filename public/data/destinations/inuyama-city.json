@@ -1,6 +1,7 @@
 {
   "id": "inuyama-city",
   "name": "Inuyama City",
+  "nameJa": "犬山市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

@@ -1,6 +1,7 @@
 {
   "id": "fukui",
   "name": "Fukui City",
+  "nameJa": "福井市",
   "kind": "city",
   "region": "Chubu",
   "categories": ["City", "Museum", "Coast"],

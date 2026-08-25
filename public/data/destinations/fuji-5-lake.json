@@ -1,6 +1,7 @@
 {
   "id": "fuji-5-lake",
   "name": "Fuji Five Lakes",
+  "nameJa": "富士五湖",
   "kind": "lake",
   "region": "Chubu",
   "categories": ["Lake", "Nature", "Theme Park"],

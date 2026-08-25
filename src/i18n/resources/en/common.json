@@ -117,6 +117,7 @@
     "preferences": {
       "budget": "Budget",
       "transport": "Transport",
+      "weather": "Weather",
       "food": "Food",
       "nature": "Nature",
       "history": "History",
@@ -587,6 +588,13 @@
     "wikipediaLoading": "Loading Wikipedia summary…",
     "wikipediaSummary": "Wikipedia Summary",
     "wikipediaUnavailable": "No additional Wikipedia article summary found for this destination.",
+    "weatherLoading": "Loading weather forecast…",
+    "dayPlan": {
+      "hubBadge": "Hub local tour",
+      "poiBadge": "POI itinerary",
+      "person": "person",
+      "people": "people"
+    },
     "scoreUnavailable": "Score unavailable",
     "scoreVerifiedNote": "Editorially reviewed score",
     "scoreEstimatedNote": "Estimated score from the overall-destination rubric",
@@ -683,6 +691,11 @@
     "allCollections": "All collections",
     "collectionNotFound": "Collection not found",
     "collectionNotFoundHint": "The curated collection you are looking for does not exist or has been relocated.",
+    "noCollectionDestinations": "No destinations are available in this collection yet.",
+    "noCollectionDestinationsHint": "Check back soon as new verified destinations are added.",
+    "loading": "Loading…",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
     "source": "Source",
     "authority": "Authority",
     "aboutCollection": "About this collection",
