@@ -25,8 +25,9 @@ vi.mock("react-i18next", () => ({
   initReactI18next: { type: "3rdParty", init: vi.fn() },
 }));
 
-const { authMock } = vi.hoisted(() => ({
+const { authMock, localeMock } = vi.hoisted(() => ({
   authMock: { user: null as unknown },
+  localeMock: { value: "en" },
 }));
 
 vi.mock("@/shared/hooks/useAuth", () => ({
@@ -34,7 +35,7 @@ vi.mock("@/shared/hooks/useAuth", () => ({
 }));
 
 vi.mock("@/shared/context/LocaleContext", () => ({
-  useLocale: () => ({ locale: "en" }),
+  useLocale: () => ({ locale: localeMock.value }),
 }));
 
 vi.mock("@/shared/components/ui/input", () => ({
@@ -85,6 +86,7 @@ afterEach(() => {
   root = undefined;
   host = undefined;
   authMock.user = null;
+  localeMock.value = "en";
 });
 
 function makeDefaults(): Props {
@@ -227,6 +229,18 @@ describe("DestinationFilters score-sort presentation", () => {
 
     expect(text).not.toMatch(/Top Rated|Highest Rated|overall/i);
     expect(container.querySelector('[data-value="overall"]')).toBeNull();
+  });
+});
+
+describe("Explore sort option parity", () => {
+  it("does not expose Fastest in either English or Japanese", () => {
+    const english = renderFilters();
+    expect(english.textContent ?? "").not.toMatch(/Fastest|Fastest Travel/);
+
+    act(() => root?.unmount());
+    localeMock.value = "ja";
+    const japanese = renderFilters();
+    expect(japanese.textContent ?? "").not.toMatch(/移動時間が短い順|最速/);
   });
 });
 

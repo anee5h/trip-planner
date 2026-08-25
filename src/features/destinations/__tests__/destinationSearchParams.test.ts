@@ -14,7 +14,7 @@ describe("destinationSearchParams", () => {
   it("round-trips Explorer filters, search, view, and page", () => {
     const parsed = parseDestinationSearchParams(
       new URLSearchParams(
-        "q=beach&region=Okinawa&prefecture=Okinawa&collection=islands&city=fukuoka-city&area=momochi&indoor=70&season=summer&budget=45000&sort=travelTime&car=rental&mode=flight&mode=bus&party=3&walking=low&suitability=couple&interest=nature&view=map&page=3",
+        "q=beach&region=Okinawa&prefecture=Okinawa&collection=islands&city=fukuoka-city&area=momochi&indoor=70&season=summer&budget=45000&sort=budget&car=rental&mode=flight&mode=bus&party=3&walking=low&suitability=couple&interest=nature&view=map&page=3",
       ),
     );
 
@@ -28,7 +28,7 @@ describe("destinationSearchParams", () => {
       indoorMin: 70,
       season: "summer",
       maxBudget: 45000,
-      sortBy: "travelTime",
+      sortBy: "budget",
       carMode: "rental",
       publicModes: ["flight", "bus"],
       partySize: 3,

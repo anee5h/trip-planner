@@ -11,7 +11,6 @@ import {
 } from "@/shared/components/ui/select";
 import {
   Search,
-  Clock,
   Footprints,
   Coins,
   Filter,
@@ -630,12 +629,6 @@ export default function DestinationFilters({
                   {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               )}
-              {sortBy === "travelTime" && (
-                <div className="flex items-center whitespace-nowrap">
-                  <Clock className="w-3.5 h-3.5 mr-1.5 text-blue-500 shrink-0" />{" "}
-                  {isJa ? "移動時間が短い順" : "Fastest"}
-                </div>
-              )}
               {sortBy === "budget" && (
                 <div className="flex items-center whitespace-nowrap">
                   <Coins className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
@@ -663,15 +656,6 @@ export default function DestinationFilters({
                 <div className="flex items-center whitespace-nowrap">
                   <Compass className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="travelTime"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center whitespace-nowrap">
-                  <Clock className="w-3.5 h-3.5 mr-2 text-blue-500" />{" "}
-                  {isJa ? "移動時間が短い順" : "Fastest Travel"}
                 </div>
               </SelectItem>
               <SelectItem

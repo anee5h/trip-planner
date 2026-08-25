@@ -75,7 +75,6 @@ export const EXPLORE_CAR_MODE_KEYS = ["none", "my_car", "rental"] as const;
 
 const EXPOSED_SORT_KEYS = [
   "recommended",
-  "travelTime",
   "budget",
   "walking",
   "nearest",
