@@ -1,7 +1,9 @@
 const buckets = new Map();
 const MAX_TRACKED_CLIENTS = 2048;
+let pruneCount = 0;
 
 function pruneExpired(now) {
+  pruneCount += 1;
   for (const [key, bucket] of buckets) {
     if (bucket.resetAt <= now) buckets.delete(key);
   }
@@ -26,19 +28,23 @@ function clientKey(request, scope) {
 export function isRateLimited(request, { scope, limit, windowMs }) {
   const now = Date.now();
   const key = clientKey(request, scope);
-
-  // Reclaim all stale state before deciding whether this client can allocate
-  // a bucket. This keeps the map bounded and lets expired buckets be reused.
-  pruneExpired(now);
-
   const bucket = buckets.get(key);
+
   if (bucket) {
-    bucket.count += 1;
-    return bucket.count > limit;
+    if (bucket.resetAt > now) {
+      bucket.count += 1;
+      return bucket.count > limit;
+    }
+    buckets.delete(key);
   }
 
-  // Fail closed when the map is full: never create an overflow bucket that
-  // can be overwritten by each unseen client.
+  if (buckets.size < MAX_TRACKED_CLIENTS) {
+    buckets.set(key, { count: 1, resetAt: now + windowMs });
+    return false;
+  }
+
+  // Only scan the map when a new client needs capacity and the cap is full.
+  pruneExpired(now);
   if (buckets.size >= MAX_TRACKED_CLIENTS) return true;
 
   buckets.set(key, { count: 1, resetAt: now + windowMs });
@@ -55,7 +61,13 @@ export function rateLimitResponse(retryAfterSeconds) {
   );
 }
 
+/** Test-only inspection for the bounded-state regression tests. */
+export function __getRequestGuardStats() {
+  return { bucketCount: buckets.size, pruneCount };
+}
+
 /** Test-only reset for isolated endpoint tests. */
 export function __resetRequestGuardState() {
   buckets.clear();
+  pruneCount = 0;
 }
