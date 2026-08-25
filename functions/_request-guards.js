@@ -2,7 +2,6 @@ const buckets = new Map();
 const MAX_TRACKED_CLIENTS = 2048;
 
 function pruneExpired(now) {
-  if (buckets.size < MAX_TRACKED_CLIENTS) return;
   for (const [key, bucket] of buckets) {
     if (bucket.resetAt <= now) buckets.delete(key);
   }
@@ -26,22 +25,24 @@ function clientKey(request, scope) {
  */
 export function isRateLimited(request, { scope, limit, windowMs }) {
   const now = Date.now();
-  let key = clientKey(request, scope);
-  let bucket = buckets.get(key);
+  const key = clientKey(request, scope);
 
-  if (!bucket || bucket.resetAt <= now) {
-    pruneExpired(now);
-    if (!bucket && buckets.size >= MAX_TRACKED_CLIENTS) {
-      key = `${scope}:overflow`;
-      bucket = buckets.get(key);
-    }
-    bucket = { count: 1, resetAt: now + windowMs };
-    buckets.set(key, bucket);
-    return false;
+  // Reclaim all stale state before deciding whether this client can allocate
+  // a bucket. This keeps the map bounded and lets expired buckets be reused.
+  pruneExpired(now);
+
+  const bucket = buckets.get(key);
+  if (bucket) {
+    bucket.count += 1;
+    return bucket.count > limit;
   }
 
-  bucket.count += 1;
-  return bucket.count > limit;
+  // Fail closed when the map is full: never create an overflow bucket that
+  // can be overwritten by each unseen client.
+  if (buckets.size >= MAX_TRACKED_CLIENTS) return true;
+
+  buckets.set(key, { count: 1, resetAt: now + windowMs });
+  return false;
 }
 
 export function rateLimitResponse(retryAfterSeconds) {
