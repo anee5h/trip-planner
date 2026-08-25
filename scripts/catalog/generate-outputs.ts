@@ -19,6 +19,7 @@ import path from "path";
 import { format, resolveConfig } from "prettier";
 import type { Destination } from "../../src/shared/types/destination.js";
 import { buildDestinationsMeta } from "./meta.mjs";
+import { generateRelationshipIndex } from "./generate-relationship-index.mjs";
 import { assertClassified, buildClientIndex } from "./client-index.js";
 
 export interface GeneratedCatalogueOutputs {
@@ -30,6 +31,8 @@ export interface GeneratedCatalogueOutputs {
   fullIndex: Destination[];
   /** Formatted client-only index content. */
   clientIndex: string;
+  /** Formatted compact relationship graph content. */
+  relationshipIndex: string;
 }
 
 export interface GenerateOptions {
@@ -69,5 +72,12 @@ export async function generateCatalogueOutputs(
   );
   assertClassified(destinations);
   const clientIndex = await formatJson(buildClientIndex(destinations), rootDir);
-  return { detailFiles, meta, fullIndex: destinations, clientIndex };
+  const relationshipIndex = generateRelationshipIndex(rootDir);
+  return {
+    detailFiles,
+    meta,
+    fullIndex: destinations,
+    clientIndex,
+    relationshipIndex,
+  };
 }

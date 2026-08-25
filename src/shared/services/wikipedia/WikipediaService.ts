@@ -302,7 +302,14 @@ async function buildSummary(
 ): Promise<WikipediaSummary> {
   let japaneseTitle: string | undefined;
   if (candidate.language === "en") {
-    japaneseTitle = await fetchLanguageLink("en", candidate.title, "ja");
+    try {
+      japaneseTitle = await fetchLanguageLink("en", candidate.title, "ja");
+    } catch (error) {
+      // The requested-language article is already validated. A transient
+      // optional language-link failure must not discard that valid summary.
+      if (!(error instanceof WikipediaRequestError)) throw error;
+      japaneseTitle = undefined;
+    }
   }
   return {
     extract: candidate.extract,

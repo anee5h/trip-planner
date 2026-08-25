@@ -44,3 +44,16 @@ copyFileSync(LITE_SRC, LITE_DEST);
 console.log(
   `copy-catalogue-assets: ${path.basename(LITE_SRC)} -> public/data/`,
 );
+const RELATIONSHIP_SRC = path.join(
+  ROOT,
+  "src/shared/data/destination-relationships.json",
+);
+const RELATIONSHIP_DEST = path.join(DEST_DIR, "destination-relationships.json");
+if (!existsSync(RELATIONSHIP_SRC)) {
+  console.error(`copy-catalogue-assets: missing ${RELATIONSHIP_SRC}`);
+  process.exit(1);
+}
+copyFileSync(RELATIONSHIP_SRC, RELATIONSHIP_DEST);
+console.log(
+  `copy-catalogue-assets: ${path.basename(RELATIONSHIP_SRC)} -> public/data/`,
+);

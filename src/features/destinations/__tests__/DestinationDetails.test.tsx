@@ -87,24 +87,26 @@ vi.mock("@/shared/components/ui/LazyImage", () => ({
 }));
 
 import destinationIndex from "@/shared/data/destinations-index.json";
-import liteIndex from "@/shared/data/destinations-index.lite.json";
-import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
-import { resetLiteIndexForTests } from "@/shared/services/place/PlaceCatalog";
+import relationshipIndex from "@/shared/data/destination-relationships.json";
+import {
+  DestinationRelationshipService,
+  resetRelationshipIndexForTests,
+} from "@/shared/services/destination/DestinationRelationshipService";
 const records = new Map(
   (destinationIndex as { id: string }[]).map((d) => [d.id, d]),
 );
 
-const liteLoadState = vi.hoisted(() => ({ shouldFail: false }));
+const relationshipLoadState = vi.hoisted(() => ({ shouldFail: false }));
 
 vi.stubGlobal(
   "fetch",
   vi.fn(async (input: RequestInfo | URL) => {
     const url = String(input);
-    if (url.endsWith("/data/destinations-index.lite.json")) {
+    if (url.endsWith("/data/destination-relationships.json")) {
       return {
-        ok: !liteLoadState.shouldFail,
-        status: liteLoadState.shouldFail ? 500 : 200,
-        json: async () => liteIndex,
+        ok: !relationshipLoadState.shouldFail,
+        status: relationshipLoadState.shouldFail ? 500 : 200,
+        json: async () => relationshipIndex,
       } as Response;
     }
     const match = url.match(/\/data\/destinations\/([^/]+)\.json$/);
@@ -163,7 +165,8 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
     storeState.homeStationTransportZoneId = "mainland-honshu";
     localeState.locale = "ja";
-    liteLoadState.shouldFail = false;
+    relationshipLoadState.shouldFail = false;
+    resetRelationshipIndexForTests();
     wikipediaMock.fetchSummary.mockReset();
     wikipediaMock.fetchSummary.mockResolvedValue(null);
     host = document.createElement("div");
@@ -270,8 +273,8 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
 
   it("shows relationship load failure with a retry action", async () => {
     localeState.locale = "en";
-    liteLoadState.shouldFail = true;
-    resetLiteIndexForTests();
+    relationshipLoadState.shouldFail = true;
+    resetRelationshipIndexForTests();
     DestinationRelationshipService.clearIndex();
     render("/destinations/otsu-city");
     await act(async () => {
@@ -286,7 +289,7 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     );
     expect(retry).toBeTruthy();
 
-    liteLoadState.shouldFail = false;
+    relationshipLoadState.shouldFail = false;
     await act(async () => {
       retry?.click();
       await flush(220);

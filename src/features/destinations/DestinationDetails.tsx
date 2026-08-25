@@ -58,7 +58,7 @@ import {
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
-import { useCatalogue } from "@/shared/hooks/useCatalogue";
+import { useDestinationRelationships } from "@/shared/hooks/useDestinationRelationships";
 import {
   WalkingIntensityRow,
   WalkabilityRatingItem,
@@ -305,15 +305,12 @@ export default function DestinationDetails() {
   const { user } = useAuth();
   const partySize =
     navState?.partySize || user?.user_metadata?.preferences?.partySize || 2;
-  // Relationship-backed detail sections need the runtime-lazy summary index,
-  // not the large full catalogue. The status dependency below causes the
-  // relationship memos to recompute after the index resolves.
+  // Relationship-backed detail sections use a compact generated graph of
+  // relationship-relevant nodes, not the nationwide summary catalogue.
   const {
     status: relationshipCatalogueStatus,
     retry: retryRelationshipCatalogue,
-  } = useCatalogue({
-    need: "summary",
-  });
+  } = useDestinationRelationships();
   const relationshipCatalogueReady = relationshipCatalogueStatus === "ready";
   const accommodationAllowance =
     navState?.tripMode === "weekend_2d1n"

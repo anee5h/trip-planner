@@ -1,6 +1,73 @@
 import type { Destination } from "@/shared/types/destination";
-import { getDestinationList } from "./DestinationService";
+import { toCanonicalPlace } from "@/shared/services/place/PlaceCatalog";
 import { getDistance } from "@/shared/utils/distance";
+
+const RELATIONSHIP_INDEX_URL = "/data/destination-relationships.json";
+
+interface RelationshipIndexPayload {
+  schemaVersion: number;
+  sourceRecordCount: number;
+  nodes: Destination[];
+}
+
+let relationshipIndexPromise: Promise<Destination[]> | null = null;
+let loadedRelationshipPlaces: Destination[] | null = null;
+
+/**
+ * Loads the compact relationship/card projection exactly once per session.
+ * It contains only relationship-relevant nodes and the card/map fields used
+ * by destination detail rails; it is deliberately not the nationwide summary
+ * catalogue. A failed request clears the singleton so retry can re-fetch.
+ */
+export function loadRelationshipIndex(): Promise<Destination[]> {
+  if (!relationshipIndexPromise) {
+    relationshipIndexPromise = fetch(RELATIONSHIP_INDEX_URL)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `HTTP ${response.status} fetching relationship index`,
+          );
+        }
+        return response.json() as Promise<RelationshipIndexPayload>;
+      })
+      .then((payload) => {
+        if (
+          !payload ||
+          payload.schemaVersion !== 1 ||
+          !Array.isArray(payload.nodes)
+        ) {
+          throw new Error("relationship index has an invalid shape");
+        }
+        // The projection is intentionally narrower than Destination. The
+        // relationship service exposes the historic Destination return type
+        // for card/map compatibility; the generated fields are validated by
+        // the generator and this service never sends projection records to
+        // full-data/editorial consumers.
+        loadedRelationshipPlaces = payload.nodes.map((node) =>
+          toCanonicalPlace(node),
+        );
+        DestinationRelationshipService.clearIndex();
+        return loadedRelationshipPlaces;
+      })
+      .catch((error) => {
+        relationshipIndexPromise = null;
+        loadedRelationshipPlaces = null;
+        DestinationRelationshipService.clearIndex();
+        throw new Error(`failed to load relationship index: ${String(error)}`);
+      });
+  }
+  return relationshipIndexPromise;
+}
+
+export function hasLoadedRelationshipIndex(): boolean {
+  return loadedRelationshipPlaces !== null;
+}
+
+export function resetRelationshipIndexForTests(): void {
+  relationshipIndexPromise = null;
+  loadedRelationshipPlaces = null;
+  DestinationRelationshipService.clearIndex();
+}
 
 export class DestinationRelationshipService {
   private static byIdMap: Map<string, Destination> | null = null;
@@ -8,9 +75,9 @@ export class DestinationRelationshipService {
   private static indexedCatalogueSize = -1;
 
   private static ensureIndex() {
-    const all = getDestinationList() as Destination[];
+    const all = loadedRelationshipPlaces ?? [];
 
-    // The detail route can render before the runtime-lazy lite catalogue has
+    // The detail route can render before the relationship projection has
     // resolved. Do not permanently cache that safe empty state; rebuild on
     // the first post-load access instead of making relationships timing
     // dependent.
@@ -40,18 +107,14 @@ export class DestinationRelationshipService {
     this.indexedCatalogueSize = all.length;
   }
 
-  /**
-   * Resets the cache index (useful when destination list mutates dynamically).
-   */
+  /** Resets only the derived maps; the loaded projection remains reusable. */
   static clearIndex() {
     this.byIdMap = null;
     this.childrenByParentMap = null;
     this.indexedCatalogueSize = -1;
   }
 
-  /**
-   * Returns the parent container destination (e.g. Nagoya Castle -> Nagoya City).
-   */
+  /** Returns the parent container destination. */
   static getParentDestination(destination: Destination): Destination | null {
     this.ensureIndex();
     const parentId = destination.relationships?.parentDestinationId;
@@ -59,9 +122,7 @@ export class DestinationRelationshipService {
     return this.byIdMap?.get(parentId) || null;
   }
 
-  /**
-   * Returns child attractions assigned to a parent hub.
-   */
+  /** Returns child attractions assigned to a parent hub. */
   static getChildDestinations(parentId: string): Destination[] {
     this.ensureIndex();
     return this.childrenByParentMap?.get(parentId) || [];
@@ -103,9 +164,7 @@ export class DestinationRelationshipService {
       .map(({ place }) => place);
   }
 
-  /**
-   * Returns editorially featured top sights for a hub page.
-   */
+  /** Returns editorially featured top sights for a hub page. */
   static getFeaturedChildDestinations(city: Destination): Destination[] {
     this.ensureIndex();
     const featuredIds = city.relationships?.featuredDestinationIds;
@@ -153,9 +212,7 @@ export class DestinationRelationshipService {
     ).slice(0, 4);
   }
 
-  /**
-   * Returns thematically related destinations ("You may also like").
-   */
+  /** Returns thematically related destinations. */
   static getRelatedDestinations(destination: Destination): Destination[] {
     this.ensureIndex();
     const rels = destination.relationships;

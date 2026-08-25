@@ -1,13 +1,16 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
 import {
-  loadLiteIndex,
-  resetLiteIndexForTests,
-} from "@/shared/services/place/PlaceCatalog";
-import { DestinationRelationshipService } from "../DestinationRelationshipService";
+  DestinationRelationshipService,
+  loadRelationshipIndex,
+  resetRelationshipIndexForTests,
+} from "../DestinationRelationshipService";
 
 describe("DestinationRelationshipService", () => {
+  beforeAll(async () => {
+    await loadRelationshipIndex();
+  });
   it("includes reviewed contained places in a city hub's featured list", () => {
     const yokohama = (destinationsIndex as Destination[]).find(
       (destination) => destination.id === "yokohama-city",
@@ -47,13 +50,13 @@ describe("DestinationRelationshipService", () => {
     );
     expect(otsu).toBeTruthy();
 
-    resetLiteIndexForTests();
+    resetRelationshipIndexForTests();
     DestinationRelationshipService.clearIndex();
     expect(
       DestinationRelationshipService.getChildDestinations(otsu!.id),
     ).toEqual([]);
 
-    await loadLiteIndex();
+    await loadRelationshipIndex();
     expect(
       DestinationRelationshipService.getChildDestinations(otsu!.id)
         .map((place) => place.id)

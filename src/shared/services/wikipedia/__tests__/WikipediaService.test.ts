@@ -354,6 +354,38 @@ describe("WikipediaService", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it("retains a valid English summary when optional Japanese enrichment fails", async () => {
+    const fetchMock = vi
+      .spyOn(globalThis, "fetch")
+      .mockImplementation(async (input) => {
+        const url = String(input);
+        if (url.includes("/api/rest_v1/page/summary/Kyoto")) {
+          return response(wikipediaSummary());
+        }
+        if (url.includes("prop=langlinks")) return response({}, 500);
+        throw new Error(`unexpected request ${url}`);
+      });
+
+    const result = await WikipediaService.fetchSummary(
+      {
+        name: "Kyoto",
+        prefecture: "Kyoto",
+        coordinates: { lat: 35.0116, lng: 135.7681 },
+      },
+      "en",
+    );
+
+    expect(result).toMatchObject({
+      title: "Kyoto",
+      language: "en",
+      confidence: "high",
+    });
+    expect(result?.japaneseTitle).toBeUndefined();
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining("prop=langlinks"),
+    );
+  });
+
   it("surfaces transient HTTP failures so the UI can offer retry", async () => {
     vi.spyOn(globalThis, "fetch").mockResolvedValue(response({}, 500));
 
