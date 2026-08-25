@@ -37,6 +37,7 @@ const catalogueMock = vi.hoisted(() => ({
   fullStatus: "loading" as "loading" | "ready" | "error",
   fullError: null as Error | null,
   fullDeferred: null as Deferred<Destination[]> | null,
+  fullRequestCount: 0,
 }));
 
 vi.mock("@/shared/hooks/useCatalogue", async () => {
@@ -55,6 +56,7 @@ vi.mock("@/shared/hooks/useCatalogue", async () => {
 
       React.useEffect(() => {
         if (!promise) return;
+        catalogueMock.fullRequestCount += 1;
         promise.then(
           (places) => {
             catalogueMock.fullPlaces = places;
@@ -189,6 +191,7 @@ beforeEach(() => {
   catalogueMock.fullStatus = "loading";
   catalogueMock.fullError = null;
   catalogueMock.fullDeferred = deferred<Destination[]>();
+  catalogueMock.fullRequestCount = 0;
 });
 
 afterEach(() => {
@@ -219,7 +222,7 @@ function resultCount(container: HTMLDivElement): string {
 
 describe("deferred full catalogue sort loading", () => {
   it("keeps summary results visible and atomically replaces them after full data arrives", async () => {
-    const container = await render("/destinations?sort=budget");
+    const container = await render("/destinations?sort=walking");
 
     expect(container.querySelectorAll("[data-card]")).toHaveLength(20);
     expect(resultCount(container)).toContain("1056 destinations matching");
@@ -275,7 +278,7 @@ describe("deferred full catalogue sort loading", () => {
   });
 
   it("can switch back to Recommended while full sorting is still pending", async () => {
-    const container = await render("/destinations?sort=budget");
+    const container = await render("/destinations?sort=walking");
 
     await act(async () => {
       container
@@ -285,6 +288,18 @@ describe("deferred full catalogue sort loading", () => {
     });
 
     expect(container.querySelector("[data-sort-loading]")).toBeNull();
+    expect(resultCount(container)).toContain("1056 destinations matching");
+  });
+
+  it("normalizes a legacy Budget URL without requesting the full catalogue", async () => {
+    const container = await render("/destinations?sort=budget");
+
+    expect(container.querySelector("[data-sort-control]")?.textContent).toBe(
+      "recommended",
+    );
+    expect(container.querySelector("[data-sort-loading]")).toBeNull();
+    expect(catalogueMock.fullRequestCount).toBe(0);
+    expect(container.querySelectorAll("[data-card]")).toHaveLength(20);
     expect(resultCount(container)).toContain("1056 destinations matching");
   });
 });

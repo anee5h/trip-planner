@@ -233,14 +233,24 @@ describe("DestinationFilters score-sort presentation", () => {
 });
 
 describe("Explore sort option parity", () => {
-  it("does not expose Fastest in either English or Japanese", () => {
+  it("exposes only Recommended, Least Walking, and Nearest in both locales", () => {
     const english = renderFilters();
-    expect(english.textContent ?? "").not.toMatch(/Fastest|Fastest Travel/);
+    const englishText = english.textContent ?? "";
+    expect(englishText).toContain("Recommended");
+    expect(englishText).toContain("Least Walking");
+    expect(englishText).toContain("Nearest");
+    expect(englishText).not.toContain("Lowest Budget");
+    expect(englishText).not.toMatch(/Fastest|Fastest Travel/);
 
     act(() => root?.unmount());
     localeMock.value = "ja";
     const japanese = renderFilters();
-    expect(japanese.textContent ?? "").not.toMatch(/移動時間が短い順|最速/);
+    const japaneseText = japanese.textContent ?? "";
+    expect(japaneseText).toContain("おすすめ順");
+    expect(japaneseText).toContain("歩行量が少ない順");
+    expect(japaneseText).toContain("近い順");
+    expect(japaneseText).not.toContain("予算が安い順");
+    expect(japaneseText).not.toMatch(/移動時間が短い順|最速/);
   });
 });
 

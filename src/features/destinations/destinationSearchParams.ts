@@ -73,12 +73,7 @@ export const EXPLORE_PUBLIC_MODE_KEYS = [
  */
 export const EXPLORE_CAR_MODE_KEYS = ["none", "my_car", "rental"] as const;
 
-const EXPOSED_SORT_KEYS = [
-  "recommended",
-  "budget",
-  "walking",
-  "nearest",
-] as const;
+const EXPOSED_SORT_KEYS = ["recommended", "walking", "nearest"] as const;
 
 function sanitizeSort(raw: string | null): string {
   return raw && (EXPOSED_SORT_KEYS as readonly string[]).includes(raw)

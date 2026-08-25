@@ -633,12 +633,6 @@ export default function DestinationFilters({
                   {isJa ? "おすすめ順" : "Recommended"}
                 </div>
               )}
-              {sortBy === "budget" && (
-                <div className="flex items-center whitespace-nowrap">
-                  <Coins className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
-                  {isJa ? "予算が安い順" : "Lowest Budget"}
-                </div>
-              )}
               {sortBy === "walking" && (
                 <div className="flex items-center whitespace-nowrap">
                   <Footprints className="w-3.5 h-3.5 mr-1.5 text-slate-500 shrink-0" />{" "}
@@ -660,15 +654,6 @@ export default function DestinationFilters({
                 <div className="flex items-center whitespace-nowrap">
                   <Compass className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
                   {isJa ? "おすすめ順" : "Recommended"}
-                </div>
-              </SelectItem>
-              <SelectItem
-                value="budget"
-                className="py-2 px-3 text-xs cursor-pointer"
-              >
-                <div className="flex items-center whitespace-nowrap">
-                  <Coins className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
-                  {isJa ? "予算が安い順" : "Lowest Budget"}
                 </div>
               </SelectItem>
               <SelectItem

@@ -132,10 +132,10 @@ export default function Destinations() {
   const { locale } = useLocale();
   const { t } = useTranslation();
   const [sortBy, setSortBy] = useState(initialExplorerState.sortBy);
-  // KAI-132: keep the summary catalogue available while an explicit full
-  // catalogue sort is loading. The summary is the visible continuity snapshot;
-  // it is never used as the authoritative Budget/Least Walk sort input.
-  const requiresFullSortCatalogue = sortBy === "budget" || sortBy === "walking";
+  // KAI-132: keep the summary catalogue available while the authoritative
+  // full catalogue needed by Least Walk is loading. The summary is the visible
+  // continuity snapshot; it is never used as the authoritative sort input.
+  const requiresFullSortCatalogue = sortBy === "walking";
   const summaryCatalogue = useCatalogue({
     need: "summary",
     enabled: true,
@@ -1009,8 +1009,8 @@ export default function Destinations() {
     }
 
     // Keep the continuity snapshot in its existing catalogue/filter order while
-    // authoritative full records are loading. Never compute Budget/Least Walk
-    // metrics from the lite records and never expose a transient empty state.
+    // authoritative full records are loading. Never compute Least Walk metrics
+    // from the lite records and never expose a transient empty state.
     if (sortPreparationPending) {
       return {
         destinations: result,
@@ -1053,12 +1053,9 @@ export default function Destinations() {
       result,
       {
         originCoords: homeStationCoords,
-        originZoneId: homeStationTransportZoneId,
         carMode,
         publicModes: effectivePublicModes,
         partySize,
-        budgetTier: budgetTier === "any" ? undefined : budgetTier,
-        ferryTemporal,
       },
       sortBy,
     );
