@@ -151,13 +151,36 @@ function candidateFromData(
 }
 
 async function fetchJson(url: string): Promise<unknown | null> {
+  let response: Response;
   try {
-    const response = await fetch(url);
-    if (!response.ok) return null;
+    response = await fetch(url);
+  } catch (error) {
+    throw new WikipediaRequestError("Wikipedia request failed", {
+      cause: error,
+    });
+  }
+
+  if (!response.ok) {
+    // A missing page is a valid fail-closed identity result. Server-side,
+    // throttling, and timeout responses are retryable transport failures.
+    if (
+      response.status >= 500 ||
+      response.status === 408 ||
+      response.status === 429
+    ) {
+      throw new WikipediaRequestError(
+        `Wikipedia request returned HTTP ${response.status}`,
+      );
+    }
+    return null;
+  }
+
+  try {
     return await response.json();
   } catch (error) {
-    console.warn("Wikipedia request failed:", error);
-    return null;
+    throw new WikipediaRequestError("Wikipedia response was not valid JSON", {
+      cause: error,
+    });
   }
 }
 
@@ -368,6 +391,15 @@ async function resolveExplicitMapping(
     mapping,
   });
   return validation.accepted ? buildSummary(candidate, "deterministic") : null;
+}
+
+export class WikipediaRequestError extends Error {
+  readonly retryable = true;
+
+  constructor(message: string, options?: { cause?: unknown }) {
+    super(message, options);
+    this.name = "WikipediaRequestError";
+  }
 }
 
 export class WikipediaService {

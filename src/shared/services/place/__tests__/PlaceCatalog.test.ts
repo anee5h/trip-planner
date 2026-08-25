@@ -200,7 +200,7 @@ describe("PlaceCatalog", () => {
     expect(ja.description).not.toBe(en.description);
   });
 
-  it("preserves intentionally empty English highlights without leaking legacy top-level highlights", () => {
+  it("uses canonical English highlights when an empty localized projection suppresses them", () => {
     const basePlace = getFullPlaces()[0];
     const place: Destination = {
       ...basePlace,
@@ -225,13 +225,41 @@ describe("PlaceCatalog", () => {
     const enLocalized = getLocalizedPlace(place, "en");
     expect(enLocalized.name).toBe("Test Place English");
     expect(enLocalized.description).toBe("English description");
-    // Must remain strictly empty, never falling back to legacy top-level highlights
-    expect(enLocalized.highlights).toEqual([]);
+    // A meaningful canonical field is safe to restore at the localization
+    // boundary; an explicit localized [] must not suppress it accidentally.
+    expect(enLocalized.highlights).toEqual([
+      "Legacy Highlight 1",
+      "Legacy Highlight 2",
+    ]);
 
     const jaLocalized = getLocalizedPlace(place, "ja");
     expect(jaLocalized.name).toBe("テスト場所");
     expect(jaLocalized.description).toBe("日本語説明");
     expect(jaLocalized.highlights).toEqual(["日本語ハイライト1"]);
+  });
+
+  it("keeps English highlights empty when canonical highlights are also absent", () => {
+    const basePlace = getFullPlaces()[0];
+    const place: Destination = {
+      ...basePlace,
+      id: "test-place-no-en-highlights-source",
+      highlights: [],
+      content: {
+        en: {
+          name: "Test Place English",
+          description: "English description",
+          highlights: [],
+        },
+        ja: {
+          name: "テスト場所",
+          description: "日本語説明",
+          highlights: [],
+        },
+      },
+    };
+
+    expect(getLocalizedPlace(place, "en").highlights).toEqual([]);
+    expect(getLocalizedPlace(place, "ja").highlights).toEqual([]);
   });
 
   it("exposes hasLoadedFullIndex reflecting the async loader state", () => {

@@ -5,11 +5,23 @@ import { getDistance } from "@/shared/utils/distance";
 export class DestinationRelationshipService {
   private static byIdMap: Map<string, Destination> | null = null;
   private static childrenByParentMap: Map<string, Destination[]> | null = null;
+  private static indexedCatalogueSize = -1;
 
   private static ensureIndex() {
-    if (this.byIdMap) return;
-
     const all = getDestinationList() as Destination[];
+
+    // The detail route can render before the runtime-lazy lite catalogue has
+    // resolved. Do not permanently cache that safe empty state; rebuild on
+    // the first post-load access instead of making relationships timing
+    // dependent.
+    if (all.length === 0) {
+      this.byIdMap = null;
+      this.childrenByParentMap = null;
+      this.indexedCatalogueSize = -1;
+      return;
+    }
+    if (this.byIdMap && this.indexedCatalogueSize === all.length) return;
+
     this.byIdMap = new Map();
     this.childrenByParentMap = new Map();
 
@@ -25,6 +37,7 @@ export class DestinationRelationshipService {
         this.childrenByParentMap.get(parentId)!.push(dest);
       }
     }
+    this.indexedCatalogueSize = all.length;
   }
 
   /**
@@ -33,6 +46,7 @@ export class DestinationRelationshipService {
   static clearIndex() {
     this.byIdMap = null;
     this.childrenByParentMap = null;
+    this.indexedCatalogueSize = -1;
   }
 
   /**

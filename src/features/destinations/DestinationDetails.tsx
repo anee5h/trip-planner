@@ -58,6 +58,7 @@ import {
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
+import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import {
   WalkingIntensityRow,
   WalkabilityRatingItem,
@@ -281,6 +282,9 @@ function comfortFieldIsDerived(
     : meta.derivedFields.includes(field);
 }
 
+type WikipediaPanelState =
+  "idle" | "loading" | "success" | "unavailable" | "error";
+
 export default function DestinationDetails() {
   const { t } = useTranslation();
   const { locale } = useLocale();
@@ -301,6 +305,16 @@ export default function DestinationDetails() {
   const { user } = useAuth();
   const partySize =
     navState?.partySize || user?.user_metadata?.preferences?.partySize || 2;
+  // Relationship-backed detail sections need the runtime-lazy summary index,
+  // not the large full catalogue. The status dependency below causes the
+  // relationship memos to recompute after the index resolves.
+  const {
+    status: relationshipCatalogueStatus,
+    retry: retryRelationshipCatalogue,
+  } = useCatalogue({
+    need: "summary",
+  });
+  const relationshipCatalogueReady = relationshipCatalogueStatus === "ready";
   const accommodationAllowance =
     navState?.tripMode === "weekend_2d1n"
       ? navState?.accommodationAllowance
@@ -396,30 +410,39 @@ export default function DestinationDetails() {
   const [isWikiExpanded, setIsWikiExpanded] = useState(false);
   const [isWikiLoading, setIsWikiLoading] = useState(false);
   const [wikiFetched, setWikiFetched] = useState(false);
+  const [wikiPanelState, setWikiPanelState] =
+    useState<WikipediaPanelState>("idle");
 
   useEffect(() => {
     setWikiSummary(null);
     setIsWikiExpanded(false);
     setIsWikiLoading(false);
     setWikiFetched(false);
+    setWikiPanelState("idle");
   }, [destination?.id, locale]);
 
   const handleToggleWikipedia = async () => {
-    if (isWikiExpanded) {
+    if (isWikiExpanded && wikiPanelState !== "error") {
       setIsWikiExpanded(false);
       return;
     }
 
     setIsWikiExpanded(true);
 
-    if (!wikiFetched && !isWikiLoading && destination) {
+    if (
+      (!wikiFetched || wikiPanelState === "error") &&
+      !isWikiLoading &&
+      destination
+    ) {
       setIsWikiLoading(true);
+      setWikiPanelState("loading");
       try {
         const res = await WikipediaService.fetchSummary(destination, locale);
         setWikiSummary(res);
-        if (!res) setIsWikiExpanded(false);
+        setWikiPanelState(res ? "success" : "unavailable");
       } catch (err) {
         console.warn("Lazy Wikipedia fetch error:", err);
+        setWikiPanelState("error");
       } finally {
         setIsWikiLoading(false);
         setWikiFetched(true);
@@ -507,25 +530,31 @@ export default function DestinationDetails() {
   }, [destination, homeStationCoords, ferryTemporal]);
 
   const parentDestination = useMemo(() => {
-    if (!destination) return null;
+    if (!relationshipCatalogueReady || !destination) return null;
     const parent =
       DestinationRelationshipService.getParentDestination(destination);
     return parent && isPlaceAvailableInLocale(parent, locale) ? parent : null;
-  }, [destination, locale]);
+  }, [destination, locale, relationshipCatalogueReady]);
 
   const featuredChildSights = useMemo(() => {
-    if (!destination) return [];
+    if (!relationshipCatalogueReady || !destination) return [];
     return DestinationRelationshipService.getFeaturedChildDestinations(
       destination,
     ).filter((place) => isPlaceAvailableInLocale(place, locale));
-  }, [destination, locale]);
+  }, [destination, locale, relationshipCatalogueReady]);
 
   const childDestinations = useMemo(() => {
-    if (!destination || destination.role !== "hub") return [];
+    if (
+      !relationshipCatalogueReady ||
+      !destination ||
+      destination.role !== "hub"
+    ) {
+      return [];
+    }
     return DestinationRelationshipService.getChildDestinations(
       destination.id,
     ).filter((place) => isPlaceAvailableInLocale(place, locale));
-  }, [destination, locale]);
+  }, [destination, locale, relationshipCatalogueReady]);
 
   const areaGroups = useMemo(
     () =>
@@ -562,7 +591,12 @@ export default function DestinationDetails() {
   );
 
   const halfDaySiblings = useMemo(() => {
-    if (!destination?.relationships?.parentDestinationId) return [];
+    if (
+      !relationshipCatalogueReady ||
+      !destination?.relationships?.parentDestinationId
+    ) {
+      return [];
+    }
     return DestinationRelationshipService.getChildDestinations(
       destination.relationships.parentDestinationId,
     )
@@ -573,21 +607,27 @@ export default function DestinationDetails() {
           isPlaceAvailableInLocale(place, locale),
       )
       .slice(0, 3);
-  }, [destination, locale]);
+  }, [destination, locale, relationshipCatalogueReady]);
 
   const nearbyPlaces = useMemo(() => {
-    if (!destination) return [];
+    if (!relationshipCatalogueReady || !destination) return [];
     return DestinationRelationshipService.getNearbyDestinations(
       destination,
     ).filter((place) => isPlaceAvailableInLocale(place, locale));
-  }, [destination, locale]);
+  }, [destination, locale, relationshipCatalogueReady]);
 
   const nearbyHubs = useMemo(() => {
-    if (!destination || destination.role !== "hub") return [];
+    if (
+      !relationshipCatalogueReady ||
+      !destination ||
+      destination.role !== "hub"
+    ) {
+      return [];
+    }
     return DestinationRelationshipService.getNearbyHubs(destination, 50).filter(
       (place) => isPlaceAvailableInLocale(place, locale),
     );
-  }, [destination, locale]);
+  }, [destination, locale, relationshipCatalogueReady]);
 
   const topSightsToDisplay = showAllTopSights
     ? featuredChildSights
@@ -887,6 +927,25 @@ export default function DestinationDetails() {
   const heroImage = getWikimediaResponsiveImage(destination.heroImage);
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
+      {relationshipCatalogueStatus === "error" && (
+        <div
+          role="alert"
+          className="flex items-center justify-between gap-4 bg-amber-50 px-4 py-3 text-sm text-amber-900 dark:bg-amber-950/30 dark:text-amber-100"
+        >
+          <span>
+            {locale === "ja"
+              ? "周辺の目的地情報を読み込めませんでした。"
+              : "Related destination information could not be loaded."}
+          </span>
+          <button
+            type="button"
+            onClick={retryRelationshipCatalogue}
+            className="shrink-0 rounded-lg border border-amber-300 px-3 py-1.5 font-semibold hover:bg-amber-100 dark:border-amber-700 dark:hover:bg-amber-900/40"
+          >
+            {locale === "ja" ? "再試行" : "Retry"}
+          </button>
+        </div>
+      )}
       {/* Hero Image Header */}
       <div className="relative min-h-[380px] sm:min-h-[400px] md:min-h-[440px] w-full overflow-hidden flex flex-col justify-between">
         {/* Top Header Bar for Back & Action Buttons */}
@@ -1232,31 +1291,36 @@ export default function DestinationDetails() {
                 </p>
               )}
               {/* Read More Wikipedia Button Trigger directly below custom overview text */}
-              {(!wikiFetched || wikiSummary) && (
-                <div className="mb-5">
-                  <button
-                    type="button"
-                    onClick={handleToggleWikipedia}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
-                  >
-                    <BookOpen className="w-3.5 h-3.5" />
-                    <span>
-                      {isWikiExpanded
-                        ? locale === "ja"
-                          ? "閉じる"
-                          : "Show less"
-                        : locale === "ja"
-                          ? "続きを読む"
-                          : "Read more"}
-                    </span>
-                    {isWikiExpanded ? (
-                      <ChevronUp className="w-3.5 h-3.5" />
-                    ) : (
-                      <ChevronDown className="w-3.5 h-3.5" />
-                    )}
-                  </button>
-                </div>
-              )}
+              {wikiPanelState !== "unavailable" &&
+                (!wikiFetched || wikiSummary || wikiPanelState === "error") && (
+                  <div className="mb-5">
+                    <button
+                      type="button"
+                      onClick={handleToggleWikipedia}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs font-bold text-emerald-700 dark:text-emerald-300 hover:bg-emerald-50 dark:hover:bg-emerald-950/50 transition-colors border border-slate-200 dark:border-slate-700"
+                    >
+                      <BookOpen className="w-3.5 h-3.5" />
+                      <span>
+                        {wikiPanelState === "error"
+                          ? locale === "ja"
+                            ? "再試行"
+                            : "Retry"
+                          : isWikiExpanded
+                            ? locale === "ja"
+                              ? "閉じる"
+                              : "Show less"
+                            : locale === "ja"
+                              ? "続きを読む"
+                              : "Read more"}
+                      </span>
+                      {isWikiExpanded ? (
+                        <ChevronUp className="w-3.5 h-3.5" />
+                      ) : (
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      )}
+                    </button>
+                  </div>
+                )}
 
               <div className="border-t border-slate-100 pt-4 dark:border-slate-800">
                 <RecommendationFeedbackControl
@@ -1317,6 +1381,24 @@ export default function DestinationDetails() {
                         <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed pt-1">
                           {wikiSummary.extract}
                         </p>
+                      </div>
+                    ) : wikiPanelState === "unavailable" ? (
+                      <div
+                        role="status"
+                        className="bg-slate-50 dark:bg-slate-800/60 rounded-xl p-4 border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300"
+                      >
+                        {locale === "ja"
+                          ? "信頼できるWikipedia記事は見つかりませんでした。"
+                          : "No trusted Wikipedia article was found for this destination."}
+                      </div>
+                    ) : wikiPanelState === "error" ? (
+                      <div
+                        role="alert"
+                        className="bg-amber-50 dark:bg-amber-950/30 rounded-xl p-4 border border-amber-200 dark:border-amber-800/60 text-xs text-amber-800 dark:text-amber-200"
+                      >
+                        {locale === "ja"
+                          ? "Wikipediaを読み込めませんでした。再試行してください。"
+                          : "Wikipedia could not be loaded. Please retry."}
                       </div>
                     ) : null}
                   </div>
@@ -2264,7 +2346,17 @@ export default function DestinationDetails() {
                 notesText && !notesText.startsWith("Source-backed")
                   ? notesText
                   : null;
-              if (!visibleNotes) return null;
+              const localizedVisibleNotes =
+                locale === "ja" &&
+                visibleNotes &&
+                localizedDestination?.name &&
+                destination.name
+                  ? visibleNotes.replaceAll(
+                      destination.name,
+                      localizedDestination.name,
+                    )
+                  : visibleNotes;
+              if (!localizedVisibleNotes) return null;
               return (
                 <Card>
                   <CardContent className="p-6">
@@ -2273,7 +2365,7 @@ export default function DestinationDetails() {
                         <Info className="w-4 h-4" />
                       </div>
                       <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
-                        {visibleNotes}
+                        {localizedVisibleNotes}
                       </p>
                     </div>
                   </CardContent>
@@ -2360,30 +2452,35 @@ export default function DestinationDetails() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-bold mb-4">{copy.highlights}</h3>
-                <ul className="space-y-3">
-                  {(
-                    localizedDestination?.highlights ??
-                    destination.highlights ??
-                    []
-                  ).map((h, index) => (
-                    <li
-                      key={`${destination.id}-${index}`}
-                      className="flex items-start"
-                    >
-                      <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-700 rounded-full flex items-center justify-center mr-3 mt-0.5">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="text-slate-600 dark:text-slate-300 text-sm leading-tight">
-                        {h}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            {(() => {
+              const highlights =
+                localizedDestination?.highlights ??
+                destination.highlights ??
+                [];
+              if (highlights.length === 0) return null;
+              return (
+                <Card>
+                  <CardContent className="p-6">
+                    <h3 className="font-bold mb-4">{copy.highlights}</h3>
+                    <ul className="space-y-3">
+                      {highlights.map((h, index) => (
+                        <li
+                          key={`${destination.id}-${index}`}
+                          className="flex items-start"
+                        >
+                          <div className="min-w-6 min-h-6 bg-slate-100 dark:bg-slate-800 text-emerald-700 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                            <CheckCircle2 className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="text-slate-600 dark:text-slate-300 text-sm leading-tight">
+                            {h}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })()}
 
             <Card>
               <CardContent className="p-6">
