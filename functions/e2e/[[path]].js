@@ -2,7 +2,7 @@
  * KAI-126: server-verifiable protection for the engineering surfaces.
  *
  * /e2e — the Allure dashboard (served from private R2 storage)
- * /qa  — the separate internal QA surface
+ * /qa and /ja/qa — the separate internal QA surfaces
  *
  * Both are gated by a Cloudflare Access JWT (the Cf-Access-Jwt-Assertion
  * header Cloudflare Access injects after its own authentication). This is
@@ -136,17 +136,21 @@ export async function onRequest(context) {
     return new Response(obj.body, { status: 200, headers });
   }
 
-  // /qa: serve the EXISTING QA SPA shell through ASSETS after auth
-  // validation (next() does not fall back to the SPA handler for /qa).
-  // The shell is the public app shell — no private data, but it must carry
-  // noindex headers + robots meta like every protected surface.
-  if (url.pathname.startsWith("/qa")) {
-    const shell = await env.ASSETS.fetch(new URL("/index.html", url), {
-      headers: {
-        "Cf-Access-Jwt-Assertion":
-          request.headers.get("Cf-Access-Jwt-Assertion") ?? "",
+  // /qa and /ja/qa: serve the EXISTING QA SPA shell through ASSETS after
+  // auth validation (next() does not fall back to the SPA handler for these
+  // paths). The shell is the public app shell — no private data, but it must
+  // carry noindex headers + robots meta like every protected surface.
+  const isJapaneseQa = url.pathname.startsWith("/ja/qa");
+  if (url.pathname.startsWith("/qa") || isJapaneseQa) {
+    const shell = await env.ASSETS.fetch(
+      new URL(isJapaneseQa ? "/ja/index.html" : "/index.html", url),
+      {
+        headers: {
+          "Cf-Access-Jwt-Assertion":
+            request.headers.get("Cf-Access-Jwt-Assertion") ?? "",
+        },
       },
-    });
+    );
     const headers = withRobotsHeaders(shell.headers);
     const contentType = shell.headers.get("content-type") ?? "text/html";
     headers.set("Content-Type", contentType);

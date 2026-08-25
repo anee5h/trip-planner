@@ -26,6 +26,8 @@
  * Every stage is exception-guarded and returns an honest
  * { error, step, deleted, retrySafe } payload on network failure.
  */
+import { isRateLimited, rateLimitResponse } from "../../_request-guards.js";
+
 const APP_OWNED_TABLES = [
   { table: "trips", column: "user_id" },
   { table: "user_data", column: "id" },
@@ -34,6 +36,7 @@ const APP_OWNED_TABLES = [
 
 /** amr authentication timestamp must be within this window. */
 const REAUTH_WINDOW_MS = 15 * 60 * 1000;
+const MAX_BODY_BYTES = 16_384;
 
 const json = (payload, status) => Response.json(payload, { status });
 
@@ -90,6 +93,16 @@ export const onRequest = async (context) => {
   }
 
   if (
+    isRateLimited(request, {
+      scope: "account-delete",
+      limit: 3,
+      windowMs: 15 * 60 * 1000,
+    })
+  ) {
+    return rateLimitResponse(900);
+  }
+
+  if (
     !env.SUPABASE_URL ||
     !env.SUPABASE_SERVICE_ROLE_KEY ||
     !env.SUPABASE_PUBLISHABLE_KEY
@@ -107,7 +120,7 @@ export const onRequest = async (context) => {
   } catch {
     return json({ ok: false, error: "invalid_body" }, 400);
   }
-  if (raw.length > 16_384) {
+  if (new TextEncoder().encode(raw).byteLength > MAX_BODY_BYTES) {
     return json({ ok: false, error: "payload_too_large" }, 413);
   }
   let body;

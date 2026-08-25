@@ -10,6 +10,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { onRequest, __resetServerState } from "../../functions/api/errors.js";
+import { __resetRequestGuardState } from "../../functions/_request-guards.js";
 
 const BASE = "https://example.com/api/errors";
 const TEST_ENV = {
@@ -24,7 +25,11 @@ function makeContext({ body, raw, authHeader, env = TEST_ENV, ip }) {
     return {
       request: new Request(BASE, {
         method: "POST",
-        headers: { "Content-Type": "application/json", ...headers },
+        headers: {
+          "Content-Type": "application/json",
+          ...headers,
+          ...(ip ? { "CF-Connecting-IP": ip } : {}),
+        },
         body: JSON.stringify(body),
       }),
       env: { ...env, __waitUntil: vi.fn() },
@@ -84,6 +89,7 @@ const VALID_BODY = {
 
 beforeEach(() => {
   __resetServerState();
+  __resetRequestGuardState();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
@@ -130,11 +136,19 @@ describe("POST /api/errors — validation and guards", () => {
   it("rate-limits server-side after 30 requests per minute", async () => {
     mockSupabase({ insertOk: true });
     for (let i = 0; i < 30; i += 1) {
-      const res = await onRequest(makeContext({ body: VALID_BODY }));
+      const res = await onRequest(
+        makeContext({ body: VALID_BODY, ip: "error-test-ip" }),
+      );
       expect(res.status).toBe(201);
     }
-    const blocked = await onRequest(makeContext({ body: VALID_BODY }));
+    const blocked = await onRequest(
+      makeContext({ body: VALID_BODY, ip: "error-test-ip" }),
+    );
     expect(blocked.status).toBe(429);
+    expect(
+      (await onRequest(makeContext({ body: VALID_BODY, ip: "other-ip" })))
+        .status,
+    ).toBe(201);
   });
 });
 

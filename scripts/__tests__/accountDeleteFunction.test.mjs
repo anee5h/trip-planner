@@ -10,6 +10,7 @@
  */
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { onRequest } from "../../functions/api/account/delete.js";
+import { __resetRequestGuardState } from "../../functions/_request-guards.js";
 
 const BASE = "https://example.com/api/account/delete";
 const TEST_ENV = {
@@ -144,6 +145,7 @@ const authDeleteCalled = (calls) =>
   calls.some((c) => c.url.includes("/auth/v1/admin/users/"));
 
 beforeEach(() => {
+  __resetRequestGuardState();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
 });
@@ -205,6 +207,17 @@ describe("POST /api/account/delete — authorization", () => {
     expect((await res.json()).error).toBe("not_configured");
   });
 
+  it("rate-limits repeated attempts before session verification", async () => {
+    const { calls } = mockSupabase();
+    for (let i = 0; i < 3; i += 1) {
+      expect((await onRequest(postContext({ body: {} }))).status).toBe(401);
+    }
+    const blocked = await onRequest(postContext({ body: {} }));
+    expect(blocked.status).toBe(429);
+    expect(blocked.headers.get("Retry-After")).toBe("900");
+    expect(calls).toHaveLength(0);
+  });
+
   it("returns 502 with a retry-safe payload when session verification itself fails", async () => {
     mockSupabase({ throwOn: "auth" });
     const res = await onRequest(postContext());
@@ -217,6 +230,22 @@ describe("POST /api/account/delete — authorization", () => {
 });
 
 describe("POST /api/account/delete — server-enforced recent authentication", () => {
+  it("rejects oversized UTF-8 payloads before session verification", async () => {
+    const { calls } = mockSupabase();
+    const res = await onRequest(
+      postContext({
+        body: {
+          reauthMode: "password",
+          email: "u@example.com",
+          password: "あ".repeat(6000),
+        },
+      }),
+    );
+    expect(res.status).toBe(413);
+    expect((await res.json()).error).toBe("payload_too_large");
+    expect(calls).toHaveLength(0);
+  });
+
   it("rejects requests without a reauthMode", async () => {
     mockSupabase();
     const res = await onRequest(postContext({ body: {} }));

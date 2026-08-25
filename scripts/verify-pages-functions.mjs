@@ -11,7 +11,7 @@
  *   beta/verified destination    -> 200, prerendered HTML, no noindex (KAI-97:
  *                                  status is a quality signal, not an
  *                                  indexability gate)
- *   unknown slug                 -> 404, X-Robots-Tag: noindex
+ *   unknown slug                 -> 404, noindex
  *   malformed id                 -> 404
  *   private SPA route (/settings)-> 200 + noindex (from public/_headers)
  *   normal SPA routes, built module asset, sitemap, robots, manifest -> 200
@@ -112,6 +112,18 @@ function assertSecureHtml(result, label) {
       !result.permissionsPolicy?.includes("notifications="),
     `${label} serves the least-privilege Permissions-Policy`,
   );
+}
+
+function assertReal404(result, label) {
+  assert(result.status === 404, `${label} -> real 404 (got ${result.status})`);
+  assert(
+    !result.body.includes('<div id="root">') &&
+      (result.robots?.includes("noindex") ||
+        (result.body.includes('name="robots"') &&
+          result.body.includes("noindex"))),
+    `${label} does not return the SPA shell and is noindex`,
+  );
+  assertSecureHtml(result, label);
 }
 
 function normalizePolicy(value) {
@@ -316,7 +328,9 @@ try {
     );
   }
 
-  // KAI-111: unknown public routes return REAL 404s, not soft-200 shells.
+  // KAI-111/KAI-198: unknown public routes return REAL 404s, not soft-200
+  // shells. Exact known routes are Function-owned; the static 404 page owns
+  // arbitrary paths so scanner traffic does not consume a Function request.
   for (const path of [
     "/random-garbage-path",
     "/foo/bar/baz",
@@ -330,11 +344,7 @@ try {
     "/ja/terms/foo",
   ]) {
     const res = await fetchStatusAndRobots(path);
-    assert(
-      res.status === 404 && res.robots === "noindex, follow",
-      `unknown route ${path} -> real 404 + noindex (got ${res.status})`,
-    );
-    assertSecureHtml(res, `404 ${path}`);
+    assertReal404(res, `unknown route ${path}`);
     if (path.startsWith("/ja/")) {
       assert(
         res.lang === "ja" &&
@@ -358,7 +368,6 @@ try {
     "/profile",
     "/settings",
     "/help",
-    "/qa",
     "/editorial",
     "/terms",
     "/privacy",
@@ -372,6 +381,15 @@ try {
       `known SPA route ${path} -> 200 shell (got ${res.status})`,
     );
     assertSecureHtml(res, `SPA ${path}`);
+  }
+
+  for (const path of ["/qa", "/qa/unknown", "/ja/qa", "/ja/qa/unknown"]) {
+    const res = await fetchStatusAndRobots(path);
+    assert(
+      res.status === 401 && res.robots === "noindex, nofollow",
+      `protected QA route ${path} -> 401 + noindex (got ${res.status} ${res.robots})`,
+    );
+    assertSecureHtml(res, `protected QA ${path}`);
   }
 
   for (const path of [
@@ -388,13 +406,12 @@ try {
     "/ja/settings",
     "/ja/my-trips",
     "/ja/favorites",
-    "/ja/qa",
     "/ja/editorial",
     "/ja/compare",
   ]) {
     const res = await fetchStatusAndRobots(path);
     assert(
-      res.robots === "noindex",
+      res.robots?.startsWith("noindex"),
       `private SPA route ${path} -> noindex (got ${res.robots})`,
     );
   }
@@ -411,10 +428,7 @@ try {
   );
 
   const malformed = await fetchStatusAndRobots("/destinations/UPPER-CASE");
-  assert(
-    malformed.status === 404,
-    `malformed destination id -> 404 (got ${malformed.status})`,
-  );
+  assertReal404(malformed, "malformed destination id");
 
   const settings = await fetchStatusAndRobots("/settings");
   assert(
@@ -433,19 +447,24 @@ try {
     assert(res.status === 200, `${path} -> 200 (got ${res.status})`);
   }
 
-  // KAI-111: the `/* /index.html 200` SPA wildcard was removed from
-  // public/_redirects so missing static/asset-like URLs 404 at the edge
-  // instead of soft-200ing to the app shell. wrangler pages dev has a
-  // built-in index.html fallback for static misses, so the excluded
-  // families are asserted from the built output config below, while a
-  // non-excluded asset-like URL is asserted end-to-end through the
-  // catch-all Function.
-  const missingAsset = await fetchStatusAndRobots("/random-garbage.png");
-  assert(
-    missingAsset.status === 404,
-    `unknown asset-like URL /random-garbage.png -> real 404 (got ${missingAsset.status})`,
-  );
-  assertSecureHtml(missingAsset, "404 /random-garbage.png");
+  // KAI-198: a top-level 404.html disables Pages' default SPA fallback for
+  // excluded static families, so all hostile/static-looking misses are
+  // cheap static 404s rather than catch-all Function requests.
+  for (const path of [
+    "/wp-admin",
+    "/wp-login.php",
+    "/.env",
+    "/.git/config",
+    "/phpmyadmin",
+    "/server-status",
+    "/random-uuid-garbage",
+    "/assets/nonexistent.js",
+    "/data/nonexistent.json",
+    "/random-garbage.png",
+  ]) {
+    const missing = await fetchStatusAndRobots(path);
+    assertReal404(missing, `hostile/static miss ${path}`);
+  }
 
   const redirectsText = fs.readFileSync(path.join(DIST, "_redirects"), "utf8");
   const activeRedirectRules = redirectsText
@@ -462,6 +481,22 @@ try {
 
   const routesConfig = JSON.parse(
     fs.readFileSync(path.join(DIST, "_routes.json"), "utf8"),
+  );
+  assert(
+    !routesConfig.include.includes("/*"),
+    "_routes.json does not invoke Functions for every path",
+  );
+  assert(
+    routesConfig.include.includes("/destinations/*") &&
+      routesConfig.include.includes("/ja/destinations/*") &&
+      routesConfig.include.includes("/api/feedback") &&
+      routesConfig.include.includes("/api/errors") &&
+      routesConfig.include.includes("/api/account/delete"),
+    "_routes.json keeps destination, API, EN, and JA Function families",
+  );
+  assert(
+    routesConfig.include.length + (routesConfig.exclude?.length ?? 0) <= 100,
+    "_routes.json stays within Cloudflare's 100-rule limit",
   );
   const excludedRules = new Set(routesConfig.exclude ?? []);
   // Function-owned or config entries are intentionally not excluded.
