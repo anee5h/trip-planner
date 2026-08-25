@@ -1,6 +1,7 @@
 {
   "id": "hakodate-city",
   "name": "Hakodate City",
+  "nameJa": "函館市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

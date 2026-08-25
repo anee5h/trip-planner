@@ -1,6 +1,7 @@
 {
   "id": "kushiro-city",
   "name": "Kushiro City",
+  "nameJa": "釧路市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

@@ -1,6 +1,7 @@
 {
   "id": "atami-city",
   "name": "Atami City",
+  "nameJa": "熱海市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

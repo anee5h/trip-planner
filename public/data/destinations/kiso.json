@@ -1,6 +1,7 @@
 {
   "id": "kiso",
   "name": "Kiso Valley",
+  "nameJa": "木曽谷",
   "kind": "nature",
   "region": "Chubu",
   "categories": ["Town", "History", "Mountain"],

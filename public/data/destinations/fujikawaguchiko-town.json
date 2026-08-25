@@ -1,6 +1,7 @@
 {
   "id": "fujikawaguchiko-town",
   "name": "Fujikawaguchiko Town",
+  "nameJa": "富士河口湖町",
   "kind": "town",
   "role": "hub",
   "importance": "major",

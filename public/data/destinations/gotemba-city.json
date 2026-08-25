@@ -1,6 +1,7 @@
 {
   "id": "gotemba-city",
   "name": "Gotemba City",
+  "nameJa": "御殿場市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

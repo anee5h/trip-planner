@@ -1,6 +1,7 @@
 {
   "id": "okazaki-city",
   "name": "Okazaki City",
+  "nameJa": "岡崎市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

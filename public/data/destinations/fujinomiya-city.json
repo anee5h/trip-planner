@@ -1,6 +1,7 @@
 {
   "id": "fujinomiya-city",
   "name": "Fujinomiya City",
+  "nameJa": "富士宮市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

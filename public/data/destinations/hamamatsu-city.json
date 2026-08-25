@@ -1,6 +1,7 @@
 {
   "id": "hamamatsu-city",
   "name": "Hamamatsu City",
+  "nameJa": "浜松市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

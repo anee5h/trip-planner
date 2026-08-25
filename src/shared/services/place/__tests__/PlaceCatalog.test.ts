@@ -118,15 +118,13 @@ describe("PlaceCatalog", () => {
     }
   });
 
-  it("falls back to English when Japanese content is unavailable", () => {
-    const place = getFullPlaces().find(
-      (item) => !item.content.ja && !item.nameJa,
-    );
+  it("does not expose English prose when Japanese content is unavailable", () => {
+    const place = getFullPlaces().find((item) => !item.content.ja?.description);
     expect(place).toBeTruthy();
     const localized = getLocalizedPlace(place!, "ja");
-    expect(localized.name).toBe(place!.content.en.name);
-    expect(localized.description).toBe(place!.content.en.description);
-    expect(localized.highlights).toEqual(place!.content.en.highlights);
+    expect(localized.description).toBe("");
+    expect(localized.highlights).toEqual([]);
+    expect(localized.description).not.toBe(place!.content.en.description);
   });
 
   it("provides identical destination availability in English and Japanese", () => {
@@ -162,7 +160,7 @@ describe("PlaceCatalog", () => {
     expect(localized.highlights).toEqual(place!.content.ja!.highlights);
   });
 
-  it("performs safe per-field fallback for partial Japanese content", () => {
+  it("does not expose English prose for partial Japanese content", () => {
     // abukuma-cave-fukushima has Japanese name (nameJa) but English description & highlights
     const place = getFullPlaces().find(
       (item) => item.id === "abukuma-cave-fukushima",
@@ -170,18 +168,36 @@ describe("PlaceCatalog", () => {
     expect(place).toBeTruthy();
     const localized = getLocalizedPlace(place!, "ja");
     expect(localized.name).toBe("あぶくま洞");
-    expect(localized.description).toBe(place!.content.en.description);
-    expect(localized.highlights).toEqual(place!.content.en.highlights);
+    expect(localized.description).toBe("");
+    expect(localized.highlights).toEqual([]);
   });
 
-  it("performs safe per-field fallback for places with no Japanese content", () => {
+  it("uses audited Japanese names for legacy municipality records", () => {
+    const place = getFullPlaces().find((item) => item.id === "abashiri-city");
+    expect(place).toBeTruthy();
+    expect(getLocalizedPlace(place!, "ja").name).toBe("網走市");
+  });
+
+  it("does not expose English prose for legacy records without Japanese content", () => {
     // abashiri-city has no Japanese editorial content
     const place = getFullPlaces().find((item) => item.id === "abashiri-city");
     expect(place).toBeTruthy();
     const localized = getLocalizedPlace(place!, "ja");
-    expect(localized.name).toBe(place!.content.en.name);
-    expect(localized.description).toBe(place!.content.en.description);
-    expect(localized.highlights).toEqual(place!.content.en.highlights);
+    expect(localized.description).toBe("");
+    expect(localized.highlights).toEqual([]);
+  });
+
+  it("recomputes localized prose when the requested locale changes", () => {
+    const place = getFullPlaces().find((item) => item.id === "ueno-park");
+    expect(place?.content.ja?.description).toBeTruthy();
+    const en = getLocalizedPlace(place!, "en");
+    const ja = getLocalizedPlace(place!, "ja");
+    const enAgain = getLocalizedPlace(place!, "en");
+
+    expect(en.description).toContain("spacious public park");
+    expect(ja.description).toContain("日本初の公立公園");
+    expect(enAgain.description).toBe(en.description);
+    expect(ja.description).not.toBe(en.description);
   });
 
   it("preserves intentionally empty English highlights without leaking legacy top-level highlights", () => {

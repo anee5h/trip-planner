@@ -14,6 +14,7 @@ import { useLocale } from "@/shared/context/LocaleContext";
 import { PageHeader } from "@/shared/components/ui/PageHeader";
 import { useTranslation } from "react-i18next";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
+import { getCollectionCategoryLabel } from "@/shared/utils/collectionLabels";
 
 export default function CollectionsDirectory() {
   const {
@@ -107,7 +108,7 @@ export default function CollectionsDirectory() {
                   variant="outline"
                   className="w-fit text-xs font-bold uppercase tracking-wide"
                 >
-                  {collection.category}
+                  {getCollectionCategoryLabel(collection.category, locale)}
                 </Badge>
                 <h2 className="mt-3 text-2xl font-extrabold text-slate-900 transition-colors group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-400">
                   {content.name}

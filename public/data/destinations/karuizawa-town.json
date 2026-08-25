@@ -1,6 +1,7 @@
 {
   "id": "karuizawa-town",
   "name": "Karuizawa Town",
+  "nameJa": "軽井沢町",
   "kind": "town",
   "role": "hub",
   "importance": "major",

@@ -1,6 +1,7 @@
 {
   "id": "inuyama-castle-aichi",
   "name": "Inuyama Castle (National Treasure Keep)",
+  "nameJa": "犬山城（国宝天守）",
   "kind": "castle",
   "role": "poi",
   "importance": "major",

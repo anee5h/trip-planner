@@ -1,6 +1,7 @@
 {
   "id": "ito-city",
   "name": "Ito City",
+  "nameJa": "伊東市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

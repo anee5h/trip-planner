@@ -1,6 +1,7 @@
 {
   "id": "matsumoto-castle-nagano",
   "name": "Matsumoto Castle (Crow Castle)",
+  "nameJa": "松本城（烏城）",
   "kind": "castle",
   "role": "poi",
   "importance": "major",

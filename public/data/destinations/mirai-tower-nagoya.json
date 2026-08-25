@@ -1,6 +1,7 @@
 {
   "id": "mirai-tower-nagoya",
   "name": "Chubu Electric Power MIRAI TOWER",
+  "nameJa": "中部電力 MIRAI TOWER",
   "prefecture": "Aichi",
   "region": "Chubu",
   "categories": ["Tower", "Landmark", "History", "Observation Deck"],

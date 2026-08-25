@@ -1,6 +1,7 @@
 {
   "id": "takaoka",
   "name": "Takaoka City",
+  "nameJa": "高岡市",
   "kind": "city",
   "region": "Chubu",
   "categories": ["City", "Shrine", "History"],

@@ -1,6 +1,7 @@
 {
   "id": "sapporo-city",
   "name": "Sapporo City",
+  "nameJa": "札幌市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

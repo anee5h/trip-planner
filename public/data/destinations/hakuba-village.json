@@ -1,6 +1,7 @@
 {
   "id": "hakuba-village",
   "name": "Hakuba Village",
+  "nameJa": "白馬村",
   "kind": "village",
   "role": "hub",
   "importance": "major",

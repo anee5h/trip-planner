@@ -1,6 +1,7 @@
 {
   "id": "noto",
   "name": "Noto Peninsula",
+  "nameJa": "能登半島",
   "kind": "nature",
   "region": "Chubu",
   "categories": ["Coast", "Nature"],

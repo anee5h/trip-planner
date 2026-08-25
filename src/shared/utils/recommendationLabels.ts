@@ -138,14 +138,12 @@ export function localizeRecommendationReason(
       key,
       params,
     );
+  const params = formatTravelConditionParams(reason.params, locale);
   return {
-    title: translate(
-      `recommendation.reasons.${reason.code}.title`,
-      reason.params,
-    ),
+    title: translate(`recommendation.reasons.${reason.code}.title`, params),
     description: translate(
       `recommendation.reasons.${reason.code}.description`,
-      reason.params,
+      params,
     ),
   };
 }

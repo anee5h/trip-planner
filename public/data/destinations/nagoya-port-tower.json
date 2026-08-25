@@ -1,6 +1,7 @@
 {
   "id": "nagoya-port-tower",
   "name": "Nagoya Port Building (Maritime Tower)",
+  "nameJa": "名古屋港ビルディング（旧名古屋港タワー）",
   "prefecture": "Aichi",
   "region": "Chubu",
   "categories": ["Tower", "Landmark", "Maritime", "Observation Deck"],

@@ -131,14 +131,14 @@ describe("search index destination availability parity (KAI-93)", () => {
     expect(jaIds).toEqual(enIds);
   });
 
-  it("finds abashiri-city in Japanese search index using English fallback", async () => {
+  it("finds abashiri-city in Japanese search index with a Japanese display name", async () => {
     const jaDestDocs = await searchDocuments("abashiri", "ja");
     const abashiri = jaDestDocs
       .find((g) => g.type === "destination")
       ?.items.find((item) => item.metadata?.dest?.id === "abashiri-city");
 
     expect(abashiri).toBeDefined();
-    expect(abashiri?.title).toBe("Abashiri City");
+    expect(abashiri?.title).toBe("網走市");
     expect(abashiri?.url).toBe("/destinations/abashiri-city");
   });
 

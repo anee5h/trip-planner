@@ -167,6 +167,10 @@ function localizeEditorialValue(value: string, locale: "en" | "ja") {
       "Extremely easy access from central Tokyo.":
         "東京中心部からのアクセスが非常に便利です。",
       "Spring & Autumn": "春・秋",
+      Spring: "春",
+      Summer: "夏",
+      Autumn: "秋",
+      Winter: "冬",
       "Dinners with night views require booking.":
         "夜景を楽しむディナーは予約が必要です。",
       "Plenty of paid parking in Minatomirai.":
@@ -175,7 +179,7 @@ function localizeEditorialValue(value: string, locale: "en" | "ja") {
       "None required": "予約不要",
       "Public parking available": "公共駐車場あり",
       "No advance reservation required.": "事前予約は不要です。",
-    }[value] || value
+    }[value] || "情報未登録"
   );
 }
 
@@ -963,7 +967,7 @@ export default function DestinationDetails() {
               >
                 <MapPin className="w-3 h-3 text-emerald-400" />
                 {locale === "ja" ? "所在地：" : "Located In: "}
-                {parentDestination.name}
+                {getLocalizedPlace(parentDestination, locale).name}
               </Link>
             )}
           </div>
@@ -1218,9 +1222,13 @@ export default function DestinationDetails() {
               </div>
 
               {/* Primary Description */}
-              {(localizedDestination?.description || destination.notes) && (
+              {(localizedDestination?.description ||
+                (locale === "en"
+                  ? destination.notes
+                  : destination.notesJa)) && (
                 <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-4">
-                  {localizedDestination?.description || destination.notes}
+                  {localizedDestination?.description ||
+                    (locale === "en" ? destination.notes : destination.notesJa)}
                 </p>
               )}
               {/* Read More Wikipedia Button Trigger directly below custom overview text */}
@@ -2250,9 +2258,7 @@ export default function DestinationDetails() {
             {(() => {
               const notesText =
                 locale === "ja"
-                  ? destination.content?.ja?.notes ||
-                    destination.notesJa ||
-                    localizeEditorialValue(destination.notes, "ja")
+                  ? destination.content?.ja?.notes || destination.notesJa
                   : destination.content?.en?.notes || destination.notes;
               const visibleNotes =
                 notesText && !notesText.startsWith("Source-backed")
@@ -2384,8 +2390,8 @@ export default function DestinationDetails() {
                 <h3 className="font-bold mb-4">{copy.weather}</h3>
                 {loading || !forecast ? (
                   <div className="text-sm text-slate-500 animate-pulse flex items-center">
-                    <ThermometerSun className="w-4 h-4 mr-2" /> Fetching
-                    forecast...
+                    <ThermometerSun className="w-4 h-4 mr-2" />
+                    {t("destination.weatherLoading")}
                   </div>
                 ) : (
                   <div className="space-y-4">
@@ -2544,7 +2550,10 @@ export default function DestinationDetails() {
                   </div>
                 )}
 
-                {destination.reservation && (
+                {(locale === "en"
+                  ? destination.reservation
+                  : destination.content?.ja?.reservation ||
+                    destination.reservationJa) && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
                       {copy.reservation}
@@ -2552,8 +2561,7 @@ export default function DestinationDetails() {
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                       {locale === "ja"
                         ? destination.content?.ja?.reservation ||
-                          destination.reservationJa ||
-                          localizeEditorialValue(destination.reservation, "ja")
+                          destination.reservationJa
                         : destination.content?.en?.reservation ||
                           destination.reservation}
                     </p>
@@ -2576,7 +2584,10 @@ export default function DestinationDetails() {
                       </a>
                     </div>
                   )}
-                {destination.parking && (
+                {(locale === "en"
+                  ? destination.parking
+                  : destination.content?.ja?.parking ||
+                    destination.parkingJa) && (
                   <div>
                     <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
                       {copy.parkingLabel}
@@ -2584,8 +2595,7 @@ export default function DestinationDetails() {
                     <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                       {locale === "ja"
                         ? destination.content?.ja?.parking ||
-                          destination.parkingJa ||
-                          localizeEditorialValue(destination.parking, "ja")
+                          destination.parkingJa
                         : destination.content?.en?.parking ||
                           destination.parking}
                     </p>

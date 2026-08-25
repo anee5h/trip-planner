@@ -1,6 +1,7 @@
 {
   "id": "gifu-city",
   "name": "Gifu City",
+  "nameJa": "岐阜市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

@@ -1,6 +1,7 @@
 {
   "id": "matsuyama-city",
   "name": "Matsuyama City",
+  "nameJa": "松山市",
   "kind": "city",
   "role": "hub",
   "importance": "major",

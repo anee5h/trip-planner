@@ -1,6 +1,7 @@
 {
   "id": "kochi-city",
   "name": "Kochi City",
+  "nameJa": "高知市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

@@ -128,8 +128,8 @@ export function toCanonicalPlace(destination: Destination): CanonicalPlace {
     (destination.nameJa
       ? {
           name: destination.nameJa,
-          description: destination.description,
-          highlights: destination.highlights || [],
+          description: "",
+          highlights: [],
         }
       : undefined);
   const isReviewed = Boolean(pilot);
@@ -281,7 +281,10 @@ export function getAvailablePlaces(
 
 /**
  * Returns a localized copy of the place for the specified locale.
- * Japanese rendering uses per-field fallback to English for any missing localized fields.
+ * Japanese prose is opt-in: missing Japanese fields stay empty rather than
+ * silently exposing English editorial content. Canonical names may remain
+ * Latin-script when the catalogue has no Japanese name source; display
+ * taxonomy/location helpers own their own required mappings.
  */
 export function getLocalizedPlace(
   place: Destination,
@@ -307,13 +310,8 @@ export function getLocalizedPlace(
         ? canonical.nameJa
         : en.name;
 
-  const description =
-    ja?.description && ja.description.trim() !== ""
-      ? ja.description
-      : en.description;
-
-  const highlights =
-    ja?.highlights && ja.highlights.length > 0 ? ja.highlights : en.highlights;
+  const description = ja?.description?.trim() ?? "";
+  const highlights = ja?.highlights ?? [];
 
   return {
     ...canonical,

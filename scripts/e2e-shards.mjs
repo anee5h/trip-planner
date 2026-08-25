@@ -41,6 +41,7 @@ const WEIGHTS = {
   "kai-51-destinations-explore": 33,
   "kai-93-japanese-availability": 20,
   "kai-98-ja-labels": 13,
+  "kai-141-localization": 20,
   "kai-121-lazy-catalogue": 30, // runtime-lazy network checks (4 quick tests)
   "kai-144-early-home": 25, // eager surface + pre-readiness CTA interactions
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
@@ -65,6 +66,7 @@ const BINS = {
     "kai-51-destinations-explore",
     "kai-93-japanese-availability",
     "kai-98-ja-labels",
+    "kai-141-localization",
     "kai-121-lazy-catalogue",
     "kai-144-early-home",
     "kai-64-pwa",

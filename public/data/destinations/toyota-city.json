@@ -1,6 +1,7 @@
 {
   "id": "toyota-city",
   "name": "Toyota City",
+  "nameJa": "豊田市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

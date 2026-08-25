@@ -1,6 +1,7 @@
 {
   "id": "gero-city",
   "name": "Gero City",
+  "nameJa": "下呂市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

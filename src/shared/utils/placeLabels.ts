@@ -898,6 +898,16 @@ const japaneseLabels: Record<string, string> = {
   wisteria: "藤",
   wooden: "木造",
   zoo: "動物園",
+  // Location metadata and lower-case canonical region tags must use the same
+  // display boundary as taxonomy labels; raw source values are not UI copy.
+  "Hakone Onsen": "箱根温泉",
+  "Taito City": "台東区",
+  "Tokyo City": "東京都",
+  "UNESCO World Heritage Japan": "日本のユネスコ世界遺産",
+  "Ueno Park": "上野恩賜公園",
+  akita: "秋田",
+  sendai: "仙台",
+  tochigi: "栃木",
 };
 
 export function formatPrefecture(prefecture: string, locale: "en" | "ja") {
@@ -916,6 +926,8 @@ export function formatPlaceName(
   locale: "en" | "ja",
 ) {
   if (locale !== "ja") return place.name;
+  const mapped = localizePlaceLabel(place.name, locale);
+  if (mapped !== place.name) return mapped;
   const suffix = place.kind ? municipalSuffixes[place.kind] : undefined;
   if (!suffix || !/[\u3040-\u30ff\u3400-\u9fff]/.test(place.name)) {
     return place.name;

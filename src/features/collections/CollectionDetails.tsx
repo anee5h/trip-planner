@@ -15,6 +15,11 @@ import { ArrowLeft, ExternalLink, Frown, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
+import {
+  getCollectionAuthorityLabel,
+  getCollectionCategoryLabel,
+  getCollectionTypeLabel,
+} from "@/shared/utils/collectionLabels";
 
 export default function CollectionDetails() {
   const {
@@ -117,7 +122,8 @@ export default function CollectionDetails() {
           variant="outline"
           className="text-[10px] font-bold uppercase tracking-wide"
         >
-          {collection.category} · {collection.type}
+          {getCollectionCategoryLabel(collection.category, locale)} ·{" "}
+          {getCollectionTypeLabel(collection.type, locale)}
         </Badge>
 
         <h1 className="mb-3 text-3xl font-extrabold text-slate-900 dark:text-white md:text-4xl">
@@ -160,7 +166,10 @@ export default function CollectionDetails() {
                   {t("ui.authority")}:
                 </span>{" "}
                 <span className="font-semibold text-slate-700 dark:text-slate-200 capitalize">
-                  {collection.metadata.authority.replace("_", " ")}
+                  {getCollectionAuthorityLabel(
+                    collection.metadata.authority,
+                    locale,
+                  )}
                 </span>
               </div>
               {(collection.metadata.verificationSource ||
@@ -269,11 +278,9 @@ export default function CollectionDetails() {
         <div className="flex flex-col items-center justify-center py-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-slate-500">
           <Frown className="w-12 h-12 mb-3 text-slate-500" />
           <h3 className="text-xl font-bold text-slate-700 dark:text-slate-300 mb-1">
-            No destinations are available in this collection yet.
+            {t("ui.noCollectionDestinations")}
           </h3>
-          <p className="text-sm">
-            Check back soon as new verified destinations are added.
-          </p>
+          <p className="text-sm">{t("ui.noCollectionDestinationsHint")}</p>
         </div>
       ) : isUNESCOCollection ? (
         <div>

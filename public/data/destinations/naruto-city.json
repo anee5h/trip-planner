@@ -1,6 +1,7 @@
 {
   "id": "naruto-city",
   "name": "Naruto City",
+  "nameJa": "鳴門市",
   "kind": "city",
   "role": "hub",
   "importance": "notable",

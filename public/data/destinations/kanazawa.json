@@ -1,6 +1,7 @@
 {
   "id": "kanazawa",
   "name": "Kanazawa City",
+  "nameJa": "金沢市",
   "kind": "city",
   "region": "Chubu",
   "categories": ["City", "Garden", "History"],

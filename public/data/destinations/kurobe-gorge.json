@@ -1,6 +1,7 @@
 {
   "id": "kurobe-gorge",
   "name": "Kurobe Gorge",
+  "nameJa": "黒部峡谷",
   "kind": "nature",
   "region": "Chubu",
   "categories": ["Nature", "Mountain"],
