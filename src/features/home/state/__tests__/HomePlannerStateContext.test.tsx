@@ -76,6 +76,5 @@ describe("HomePlannerStateProvider", () => {
     expect(getState().partySize).toBe(4);
     expect(getState().draftState.partySize).toBe(4);
     expect(getState().appliedState.partySize).toBe(4);
-    expect(getState().configuredCarMode).toBe("my_car");
   });
 });

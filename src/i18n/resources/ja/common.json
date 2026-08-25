@@ -413,7 +413,8 @@
       "public": "公共交通",
       "myCar": "マイカー",
       "rentalCar": "レンタカー",
-      "either": "どちらでも"
+      "either": "どちらでも",
+      "none": "交通手段未選択"
     },
     "topMatches": "今日のおすすめ",
     "topMatchesForYou": "あなたへのおすすめ",

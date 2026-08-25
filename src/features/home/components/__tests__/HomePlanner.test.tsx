@@ -40,6 +40,9 @@ vi.mock("react-i18next", () => ({
         "home.budgets.standard": "Standard",
         "home.transport": "Getting around",
         "home.transportOptions.public": "Public transit",
+        "home.transportOptions.rentalCar": "Rental car",
+        "home.transportOptions.myCar": "Personal car",
+        "home.transportOptions.none": "No transport selected",
         "home.find": "Find matches",
         "home.surprise": "Surprise me",
         "home.planner": "Trip Planner",
@@ -88,8 +91,10 @@ function renderHomePlanner(
         onPartySizeChange={vi.fn()}
         budgetTier="standard"
         onBudgetTierChange={vi.fn()}
-        transportPreference="public"
-        onTransportPreferenceChange={vi.fn()}
+        publicTransport={true}
+        onPublicTransportChange={vi.fn()}
+        carMode="none"
+        onCarModeChange={vi.fn()}
         tripMode="day_trip"
         onTripModeChange={vi.fn()}
         accommodationAllowance={15000}
@@ -619,6 +624,89 @@ describe("HomePlanner", () => {
         (btn) => btn.textContent?.includes("Weekend"),
       );
       expect(weekendBtn?.getAttribute("aria-checked")).toBe("true");
+    });
+  });
+
+  describe("transport multi-select semantics", () => {
+    it("keeps public transit and rental car independently pressed", () => {
+      const onPublicTransportChange = vi.fn();
+      const onCarModeChange = vi.fn();
+      const container = renderHomePlanner({
+        publicTransport: true,
+        carMode: "rental",
+        onPublicTransportChange,
+        onCarModeChange,
+      });
+
+      const trigger = container.querySelector(
+        '[data-testid="transport-trigger"]',
+      ) as HTMLButtonElement;
+      expect(trigger.getAttribute("aria-expanded")).toBe("false");
+      act(() => trigger.click());
+
+      const publicOption = container.querySelector(
+        '[data-testid="transport-option-public"]',
+      ) as HTMLButtonElement;
+      const rentalOption = container.querySelector(
+        '[data-testid="transport-option-rental"]',
+      ) as HTMLButtonElement;
+      const personalOption = container.querySelector(
+        '[data-testid="transport-option-my_car"]',
+      ) as HTMLButtonElement;
+
+      expect(publicOption.getAttribute("aria-pressed")).toBe("true");
+      expect(rentalOption.getAttribute("aria-pressed")).toBe("true");
+      expect(personalOption.getAttribute("aria-pressed")).toBe("false");
+
+      act(() => publicOption.click());
+      expect(onPublicTransportChange).toHaveBeenCalledWith(false);
+      act(() => rentalOption.click());
+      expect(onCarModeChange).toHaveBeenCalledWith("none");
+      act(() => personalOption.click());
+      expect(onCarModeChange).toHaveBeenCalledWith("my_car");
+    });
+
+    it("uses the same independent toggles in the mobile dialog", () => {
+      const onPublicTransportChange = vi.fn();
+      const onCarModeChange = vi.fn();
+      const container = renderHomePlanner({
+        publicTransport: true,
+        carMode: "rental",
+        onPublicTransportChange,
+        onCarModeChange,
+      });
+      const mobileTransportRow = Array.from(
+        container.querySelectorAll("button"),
+      ).find(
+        (button) =>
+          button.textContent?.includes("Getting around") &&
+          button.textContent.includes("Public transit") &&
+          !button.dataset.testid,
+      ) as HTMLButtonElement | undefined;
+      expect(mobileTransportRow).toBeDefined();
+
+      act(() => mobileTransportRow?.click());
+      const dialog = container.querySelector('[role="dialog"]');
+      expect(dialog).toBeDefined();
+      expect(
+        dialog
+          ?.querySelector('[data-testid="transport-option-public"]')
+          ?.getAttribute("aria-pressed"),
+      ).toBe("true");
+      expect(
+        dialog
+          ?.querySelector('[data-testid="transport-option-rental"]')
+          ?.getAttribute("aria-pressed"),
+      ).toBe("true");
+
+      act(() =>
+        (
+          dialog?.querySelector(
+            '[data-testid="transport-option-public"]',
+          ) as HTMLButtonElement
+        )?.click(),
+      );
+      expect(onPublicTransportChange).toHaveBeenCalledWith(false);
     });
   });
 });

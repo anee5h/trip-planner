@@ -17,6 +17,7 @@ import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabService";
 import { HOME_RAIL_SECTION_SPACING } from "./components/HomeRailLayout";
 import type { HomePendingAction } from "./state/HomeAction";
+import type { TransportSelection } from "./services/TransportResolver";
 
 const HeavyHome = lazy(() => import("./HomeHeavy"));
 
@@ -110,8 +111,10 @@ function HomeSurface() {
     setPartySize,
     budgetTier,
     setBudgetTier,
-    transportPreference,
-    setTransportPreference,
+    publicTransport,
+    setPublicTransport,
+    carMode,
+    setCarMode,
     tripMode,
     setTripMode,
     accommodationAllowance,
@@ -283,8 +286,10 @@ function HomeSurface() {
               onPartySizeChange={setPartySize}
               budgetTier={budgetTier}
               onBudgetTierChange={setBudgetTier}
-              transportPreference={transportPreference}
-              onTransportPreferenceChange={setTransportPreference}
+              publicTransport={publicTransport}
+              onPublicTransportChange={setPublicTransport}
+              carMode={carMode}
+              onCarModeChange={setCarMode}
               tripMode={tripMode}
               onTripModeChange={setTripMode}
               accommodationAllowance={accommodationAllowance}
@@ -312,10 +317,30 @@ function HomeSurface() {
 }
 
 export default function Home() {
-  const { user } = useAuth();
+  const { user, updateUserProfile } = useAuth();
   const { homeStationCoords } = useTripStore();
+  const persistTransportPreferences = useCallback(
+    (selection: TransportSelection) => {
+      if (!user) return;
+      const existingPreferences =
+        (user.user_metadata?.preferences as
+          Record<string, unknown> | undefined) ?? {};
+      void updateUserProfile({
+        preferences: {
+          ...existingPreferences,
+          carMode: selection.carMode,
+          publicModes: selection.publicModes,
+          preferences_set: true,
+        },
+      });
+    },
+    [updateUserProfile, user],
+  );
   return (
-    <HomePlannerStateProvider user={user}>
+    <HomePlannerStateProvider
+      user={user}
+      onTransportPreferencesPersist={persistTransportPreferences}
+    >
       <HomeDateStateProvider homeStationCoords={homeStationCoords ?? null}>
         <HomeSurface />
       </HomeDateStateProvider>

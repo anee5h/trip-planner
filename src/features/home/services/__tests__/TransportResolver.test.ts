@@ -5,39 +5,53 @@ import {
 } from "../TransportResolver";
 
 describe("TransportResolver", () => {
-  it("resolves public preference correctly", () => {
-    const result = resolveTransportSelection("public", "my_car");
-    expect(result.carMode).toBe("none");
-    expect(result.publicModes).toEqual(ALL_PUBLIC_MODES);
+  it("resolves public transport only", () => {
+    expect(resolveTransportSelection(true, "none")).toEqual({
+      carMode: "none",
+      publicModes: ALL_PUBLIC_MODES,
+    });
   });
 
-  it("resolves myCar preference correctly", () => {
-    const result = resolveTransportSelection("myCar", "none");
-    expect(result.carMode).toBe("my_car");
-    expect(result.publicModes).toEqual([]);
+  it("resolves rental car only", () => {
+    expect(resolveTransportSelection(false, "rental")).toEqual({
+      carMode: "rental",
+      publicModes: [],
+    });
   });
 
-  it("resolves rentalCar preference correctly", () => {
-    const result = resolveTransportSelection("rentalCar", "none");
-    expect(result.carMode).toBe("rental");
-    expect(result.publicModes).toEqual([]);
+  it("resolves public transport and rental car independently", () => {
+    expect(resolveTransportSelection(true, "rental")).toEqual({
+      carMode: "rental",
+      publicModes: ALL_PUBLIC_MODES,
+    });
   });
 
-  it("resolves either with configured my_car correctly", () => {
-    const result = resolveTransportSelection("either", "my_car");
-    expect(result.carMode).toBe("my_car");
-    expect(result.publicModes).toEqual(ALL_PUBLIC_MODES);
+  it("resolves public transport and personal car independently", () => {
+    expect(resolveTransportSelection(true, "my_car")).toEqual({
+      carMode: "my_car",
+      publicModes: ALL_PUBLIC_MODES,
+    });
   });
 
-  it("resolves either with configured rental correctly", () => {
-    const result = resolveTransportSelection("either", "rental");
-    expect(result.carMode).toBe("rental");
-    expect(result.publicModes).toEqual(ALL_PUBLIC_MODES);
+  it("keeps personal and rental car mutually exclusive at the car layer", () => {
+    expect(resolveTransportSelection(false, "my_car")).toEqual({
+      carMode: "my_car",
+      publicModes: [],
+    });
   });
 
-  it("resolves either with no configured car to public modes only", () => {
-    const result = resolveTransportSelection("either", "none");
-    expect(result.carMode).toBe("none");
-    expect(result.publicModes).toEqual(ALL_PUBLIC_MODES);
+  it("resolves both toggles off to the empty canonical capability set", () => {
+    expect(resolveTransportSelection(false, "none")).toEqual({
+      carMode: "none",
+      publicModes: [],
+    });
+  });
+
+  it("returns a fresh public mode collection for each resolution", () => {
+    const first = resolveTransportSelection(true, "none");
+    first.publicModes.pop();
+    expect(resolveTransportSelection(true, "none").publicModes).toEqual(
+      ALL_PUBLIC_MODES,
+    );
   });
 });
