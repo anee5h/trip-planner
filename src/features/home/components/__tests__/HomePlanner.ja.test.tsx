@@ -42,6 +42,9 @@ vi.mock("react-i18next", () => ({
         "home.budgets.standard": "標準",
         "home.transport": "交通手段",
         "home.transportOptions.public": "公共交通機関",
+        "home.transportOptions.rentalCar": "レンタカー",
+        "home.transportOptions.myCar": "マイカー",
+        "home.transportOptions.none": "交通手段未選択",
         "home.find": "検索",
         "home.surprise": "おまかせ",
         "home.planner": "旅のプランナー",
@@ -91,8 +94,10 @@ function renderHomePlanner(
         onPartySizeChange={vi.fn()}
         budgetTier="standard"
         onBudgetTierChange={vi.fn()}
-        transportPreference="public"
-        onTransportPreferenceChange={vi.fn()}
+        publicTransport={true}
+        onPublicTransportChange={vi.fn()}
+        carMode="none"
+        onCarModeChange={vi.fn()}
         tripMode="day_trip"
         onTripModeChange={vi.fn()}
         accommodationAllowance={15000}
@@ -254,6 +259,45 @@ describe("HomePlanner (ja locale)", () => {
       ) as HTMLInputElement;
       expect(customInput).toBeDefined();
       expect(customInput.value).toBe("32000");
+    });
+  });
+
+  describe("transport multi-select semantics", () => {
+    it("keeps 公共交通 and レンタカー independently pressed", () => {
+      const onPublicTransportChange = vi.fn();
+      const onCarModeChange = vi.fn();
+      const container = renderHomePlanner({
+        publicTransport: true,
+        carMode: "rental",
+        onPublicTransportChange,
+        onCarModeChange,
+      });
+      const mobileTransportRow = Array.from(
+        container.querySelectorAll("button"),
+      ).find(
+        (button) =>
+          button.textContent?.includes("交通手段") &&
+          button.textContent.includes("公共交通機関") &&
+          !button.dataset.testid,
+      ) as HTMLButtonElement | undefined;
+      expect(mobileTransportRow).toBeDefined();
+
+      act(() => mobileTransportRow?.click());
+      const dialog = container.querySelector('[role="dialog"]');
+      expect(dialog).toBeDefined();
+      const publicOption = dialog?.querySelector(
+        '[data-testid="transport-option-public"]',
+      ) as HTMLButtonElement;
+      const rentalOption = dialog?.querySelector(
+        '[data-testid="transport-option-rental"]',
+      ) as HTMLButtonElement;
+      expect(publicOption.getAttribute("aria-pressed")).toBe("true");
+      expect(rentalOption.getAttribute("aria-pressed")).toBe("true");
+
+      act(() => publicOption.click());
+      expect(onPublicTransportChange).toHaveBeenCalledWith(false);
+      act(() => rentalOption.click());
+      expect(onCarModeChange).toHaveBeenCalledWith("none");
     });
   });
 });

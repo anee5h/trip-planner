@@ -6,17 +6,24 @@ export type TripDuration =
 
 export type HomepageTripDuration = Exclude<TripDuration, "any" | "weekend">;
 export type TripMode = "day_trip" | "weekend_2d1n";
-export type TransportPreference = "public" | "myCar" | "rentalCar" | "either";
 
 export type ForecastDateSelection =
   { type: "today" } | { type: "tomorrow" } | { type: "custom"; date: string };
 
-export interface PlannerControlsState {
+export interface PlannerTransportSelection {
+  /** Existing public sub-mode selection; never changed by car toggles. */
+  publicModes: string[];
+  /** High-level preference that gates the configured public mode set. */
+  publicTransport: boolean;
+  /** One car access strategy; personal and rental car remain exclusive. */
+  carMode: CarMode;
+}
+
+export interface PlannerControlsState extends PlannerTransportSelection {
   vibe: string;
   tripDuration: HomepageTripDuration;
   partySize: number;
   budgetTier: BudgetTier;
-  transportPreference: TransportPreference;
   tripMode: TripMode;
   accommodationAllowance: number;
 }
@@ -40,7 +47,9 @@ export function createDefaultPlannerControls(): PlannerControlsState {
     tripDuration: DEFAULT_HOME_TRIP_DURATION,
     partySize: 2,
     budgetTier: DEFAULT_PLANNER_BUDGET_TIER,
-    transportPreference: "public",
+    publicModes: [],
+    publicTransport: true,
+    carMode: "none",
     tripMode: "day_trip",
     accommodationAllowance: DEFAULT_ACCOMMODATION_ALLOWANCE,
   };

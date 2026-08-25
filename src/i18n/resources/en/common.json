@@ -413,7 +413,8 @@
       "public": "Public transit",
       "myCar": "Personal car",
       "rentalCar": "Rental car",
-      "either": "Either"
+      "either": "Either",
+      "none": "No transport selected"
     },
     "topMatches": "Top matches for today",
     "topMatchesForYou": "Top matches for you",

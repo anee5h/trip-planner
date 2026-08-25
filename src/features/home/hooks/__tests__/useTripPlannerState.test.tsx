@@ -3,9 +3,10 @@
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { afterEach, describe, it, expect } from "vitest";
+import { afterEach, describe, it, expect, vi } from "vitest";
 import { useTripPlannerState } from "../useTripPlannerState";
 import { HomePlannerStateProvider } from "@/features/home/state/HomePlannerStateContext";
+import type { TransportSelection } from "@/features/home/services/TransportResolver";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -36,18 +37,26 @@ function TestHarnessContent({
 function TestHarness({
   mockUser,
   onHookResult,
+  onTransportPreferencesPersist,
 }: {
   mockUser: Parameters<typeof useTripPlannerState>[0];
   onHookResult: (state: ReturnType<typeof useTripPlannerState>) => void;
+  onTransportPreferencesPersist?: (selection: TransportSelection) => void;
 }) {
   return (
-    <HomePlannerStateProvider user={mockUser}>
+    <HomePlannerStateProvider
+      user={mockUser}
+      onTransportPreferencesPersist={onTransportPreferencesPersist}
+    >
       <TestHarnessContent mockUser={mockUser} onHookResult={onHookResult} />
     </HomePlannerStateProvider>
   );
 }
 
-function setupHook(mockUser: Parameters<typeof useTripPlannerState>[0] = null) {
+function setupHook(
+  mockUser: Parameters<typeof useTripPlannerState>[0] = null,
+  onTransportPreferencesPersist?: (selection: TransportSelection) => void,
+) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -61,6 +70,7 @@ function setupHook(mockUser: Parameters<typeof useTripPlannerState>[0] = null) {
         onHookResult={(state) => {
           currentResult = state;
         }}
+        onTransportPreferencesPersist={onTransportPreferencesPersist}
       />,
     );
   });
@@ -78,7 +88,8 @@ describe("useTripPlannerState", () => {
     expect(result.vibe).toBe("any");
     expect(result.partySize).toBe(2);
     expect(result.budgetTier).toBe("standard");
-    expect(result.transportPreference).toBe("public");
+    expect(result.publicTransport).toBe(true);
+    expect(result.carMode).toBe("none");
   });
 
   it("defaults Home trip mode to day_trip (weekend is opt-in)", () => {
@@ -219,13 +230,14 @@ describe("useTripPlannerState", () => {
     });
   });
 
-  describe("carMode normalization with mock user", () => {
-    it("normalizes legacy own to my_car and preserves my_car in either transport path", () => {
+  describe("transport selection with mock user", () => {
+    it("hydrates persisted split preferences and keeps public + personal car available", () => {
       const mockUser = {
         id: "user-a",
         user_metadata: {
           preferences: {
             carMode: "own",
+            publicModes: ["train", "bus"],
             partySize: 2,
           },
         },
@@ -233,20 +245,56 @@ describe("useTripPlannerState", () => {
 
       const getResult = setupHook(mockUser);
 
-      // configuredCarMode should be normalized from "own" → "my_car"
-      expect(getResult().configuredCarMode).toBe("my_car");
+      expect(getResult().publicTransport).toBe(true);
+      expect(getResult().carMode).toBe("my_car");
+      expect(getResult().resolvedDraft.carMode).toBe("my_car");
+      expect(getResult().resolvedDraft.publicModes).toEqual(["train", "bus"]);
+    });
 
-      // Set transport preference to "either" (which uses personal car)
+    it("persists the combined canonical capabilities on apply", () => {
+      const persisted = vi.fn();
+      const mockUser = {
+        id: "user-c",
+        user_metadata: {
+          preferences: {
+            carMode: "none",
+            publicModes: ["train", "bus"],
+          },
+        },
+      } as unknown as Parameters<typeof useTripPlannerState>[0];
+      const getResult = setupHook(mockUser, persisted);
+
       act(() => {
-        getResult().setTransportPreference("either");
+        getResult().setCarMode("rental");
+      });
+      act(() => {
+        getResult().applyPlannerState();
       });
 
-      // resolvedDraft.carMode should still be "my_car" (not "own")
-      expect(getResult().resolvedDraft.carMode).toBe("my_car");
+      expect(persisted).toHaveBeenCalledWith({
+        carMode: "rental",
+        publicModes: ["train", "bus"],
+      });
+    });
 
-      // resolvedDraft should contain my_car in publicModes when either is selected
-      // (my_car user with either preference → carMode = "my_car")
-      expect(getResult().resolvedDraft.carMode).toBe("my_car");
+    it("hydrates a persisted rental-only preference without restoring public transport", () => {
+      const mockUser = {
+        id: "user-b",
+        user_metadata: {
+          preferences: {
+            carMode: "rental",
+            publicModes: [],
+          },
+        },
+      } as unknown as Parameters<typeof useTripPlannerState>[0];
+
+      const getResult = setupHook(mockUser);
+      expect(getResult().publicTransport).toBe(false);
+      expect(getResult().carMode).toBe("rental");
+      expect(getResult().resolvedDraft).toMatchObject({
+        carMode: "rental",
+        publicModes: [],
+      });
     });
   });
 });

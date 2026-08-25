@@ -35,7 +35,7 @@ const ALL_MODES = ["train", "shinkansen", "bus", "flight", "car", "my_car"];
 
 function publicSelection(coords: { lat: number; lng: number }) {
   return {
-    selection: resolveTransportSelection("public"),
+    selection: resolveTransportSelection(true, "none"),
     zone: resolveOriginTransportZone({ coordinates: coords }),
   };
 }
@@ -894,6 +894,29 @@ describe("car/my_car cross-zone authorization", () => {
       "mainland-honshu",
     );
     expect(modes).toContain("car");
+  });
+
+  it("public + rental selection preserves both downstream capabilities", () => {
+    const dest = byId.get("kumamoto-castle")!;
+    const selection = resolveTransportSelection(true, "rental", [
+      "train",
+      "shinkansen",
+      "bus",
+      "flight",
+    ]);
+    const modes = getValidModes(
+      dest,
+      selection.carMode,
+      selection.publicModes,
+      TOKYO_COORDS,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modes).toContain("car");
+    expect(
+      modes.some((mode) => ["train", "shinkansen", "bus"].includes(mode)),
+    ).toBe(true);
+    expect(new Set(modes).size).toBe(modes.length);
   });
 
   it("destination without road support excludes car/my_car", () => {

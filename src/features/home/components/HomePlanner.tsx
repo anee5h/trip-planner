@@ -32,9 +32,9 @@ import {
 import type { BudgetTier } from "@/shared/types/planner";
 import type {
   HomepageTripDuration,
-  TransportPreference,
   TripMode,
 } from "@/shared/types/homePlannerState";
+import type { CarMode } from "@/shared/utils/carMode";
 import { useTranslation } from "react-i18next";
 import {
   ACCOMMODATION_ALLOWANCE_PRESETS,
@@ -55,8 +55,10 @@ interface HomePlannerProps {
   budgetTier: BudgetTier;
   onBudgetTierChange: (tier: BudgetTier) => void;
 
-  transportPreference: TransportPreference;
-  onTransportPreferenceChange: (pref: TransportPreference) => void;
+  publicTransport: boolean;
+  onPublicTransportChange: (enabled: boolean) => void;
+  carMode: CarMode;
+  onCarModeChange: (mode: CarMode) => void;
 
   tripMode: TripMode;
   onTripModeChange: (mode: TripMode) => void;
@@ -205,6 +207,177 @@ function MobileOptionSheet({
   );
 }
 
+const TRANSPORT_OPTIONS = [
+  {
+    id: "public",
+    labelKey: "home.transportOptions.public",
+    icon: Train,
+  },
+  {
+    id: "rental",
+    labelKey: "home.transportOptions.rentalCar",
+    icon: Car,
+  },
+  {
+    id: "my_car",
+    labelKey: "home.transportOptions.myCar",
+    icon: Car,
+  },
+] as const;
+type PlannerTransportOption = (typeof TRANSPORT_OPTIONS)[number]["id"];
+
+function TransportToggleList({
+  publicTransport,
+  carMode,
+  onPublicTransportChange,
+  onCarModeChange,
+}: {
+  publicTransport: boolean;
+  carMode: CarMode;
+  onPublicTransportChange: (enabled: boolean) => void;
+  onCarModeChange: (mode: CarMode) => void;
+}) {
+  const { t } = useTranslation();
+
+  const isSelected = (option: PlannerTransportOption) =>
+    option === "public" ? publicTransport : carMode === option;
+
+  const toggle = (option: PlannerTransportOption) => {
+    if (option === "public") {
+      onPublicTransportChange(!publicTransport);
+      return;
+    }
+    onCarModeChange(carMode === option ? "none" : option);
+  };
+
+  return (
+    <div role="group" aria-label={t("home.transport")} className="grid gap-1">
+      {TRANSPORT_OPTIONS.map(({ id, labelKey, icon: Icon }) => {
+        const selected = isSelected(id);
+        return (
+          <button
+            key={id}
+            type="button"
+            data-testid={`transport-option-${id}`}
+            aria-pressed={selected}
+            onClick={() => toggle(id)}
+            className={`flex min-h-11 items-center gap-2 rounded-lg px-3 text-left text-xs font-bold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-1 ${
+              selected
+                ? "bg-emerald-50 text-emerald-800 ring-1 ring-emerald-200 dark:bg-emerald-950/50 dark:text-emerald-200 dark:ring-emerald-800"
+                : "text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
+            }`}
+          >
+            <Icon className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-300" />
+            <span className="min-w-0 flex-1">{t(labelKey)}</span>
+            {selected && (
+              <Check className="h-4 w-4 shrink-0" aria-hidden="true" />
+            )}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function TransportOptionSheet({
+  title,
+  publicTransport,
+  carMode,
+  onPublicTransportChange,
+  onCarModeChange,
+  onClose,
+}: {
+  title: string;
+  publicTransport: boolean;
+  carMode: CarMode;
+  onPublicTransportChange: (enabled: boolean) => void;
+  onCarModeChange: (mode: CarMode) => void;
+  onClose: () => void;
+}) {
+  const { t } = useTranslation();
+  const sheetRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const sheet = sheetRef.current;
+    if (!sheet) return;
+    sheet
+      .querySelector<HTMLButtonElement>(
+        'button[aria-label="' + t("ui.close") + '"]',
+      )
+      ?.focus();
+  }, [t]);
+
+  React.useEffect(() => {
+    const handleTab = (event: KeyboardEvent) => {
+      const sheet = sheetRef.current;
+      if (!sheet) return;
+      const focusables = Array.from(
+        sheet.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((element) => element.offsetParent !== null);
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleTab);
+    return () => document.removeEventListener("keydown", handleTab);
+  }, []);
+
+  React.useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [onClose]);
+
+  return (
+    <div
+      ref={sheetRef}
+      className="fixed inset-0 z-50 lg:hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
+      <button
+        type="button"
+        aria-label={title}
+        className="absolute inset-0 w-full bg-slate-950/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      <div className="absolute inset-x-0 bottom-0 max-h-[85dvh] overflow-y-auto rounded-t-3xl border border-slate-200 bg-white p-4 pb-[env(safe-area-inset-bottom)] shadow-2xl dark:border-slate-700 dark:bg-[hsl(var(--surface-overlay))]">
+        <div className="mb-3 flex items-center justify-between">
+          <h2 className="text-base font-extrabold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+            {title}
+          </h2>
+          <button
+            type="button"
+            aria-label={t("ui.close")}
+            onClick={onClose}
+            className="flex h-11 w-11 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-[hsl(var(--surface-raised))]"
+          >
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+        <TransportToggleList
+          publicTransport={publicTransport}
+          carMode={carMode}
+          onPublicTransportChange={onPublicTransportChange}
+          onCarModeChange={onCarModeChange}
+        />
+      </div>
+    </div>
+  );
+}
+
 const VIBE_LABELS: Record<
   string,
   { label: string; icon: React.ElementType; color: string }
@@ -242,16 +415,6 @@ const BUDGET_TIER_LABELS: Record<BudgetTier, { label: string; desc: string }> =
     luxury: { label: "Flexible", desc: "Keep options open" },
   };
 
-const TRANSPORT_LABELS: Record<
-  TransportPreference,
-  { label: string; icon: React.ElementType }
-> = {
-  public: { label: "Public transit", icon: Train },
-  myCar: { label: "Personal car", icon: Car },
-  rentalCar: { label: "Rental car", icon: Car },
-  either: { label: "Either", icon: Shuffle },
-};
-
 export const HomePlanner: React.FC<HomePlannerProps> = ({
   vibe,
   onVibeChange,
@@ -261,8 +424,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   onPartySizeChange,
   budgetTier,
   onBudgetTierChange,
-  transportPreference,
-  onTransportPreferenceChange,
+  publicTransport,
+  onPublicTransportChange,
+  carMode,
+  onCarModeChange,
   tripMode,
   onTripModeChange,
   accommodationAllowance,
@@ -279,6 +444,30 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   // KAI-80: remember which planner control opened the mobile sheet so
   // focus can be restored to it when the sheet closes.
   const mobileFieldOpenerRef = React.useRef<HTMLElement | null>(null);
+  const transportMenuRef = React.useRef<HTMLDivElement>(null);
+  const [transportMenuOpen, setTransportMenuOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!transportMenuOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setTransportMenuOpen(false);
+    };
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        !target.closest('[data-testid="transport-menu"]') &&
+        !target.closest('[data-testid="transport-trigger"]')
+      ) {
+        setTransportMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [transportMenuOpen]);
 
   const openMobileField = (
     field: "vibe" | "duration" | "budget" | "transport",
@@ -301,13 +490,28 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   const currentVibe = VIBE_LABELS[vibe] || VIBE_LABELS.any;
   const VibeIcon = currentVibe.icon;
 
-  const currentTransport =
-    TRANSPORT_LABELS[transportPreference] || TRANSPORT_LABELS.public;
-  const TransportIcon = currentTransport.icon;
-  const mobileOptions: Record<
-    NonNullable<typeof mobileField>,
-    MobileOption[]
-  > = {
+  const transportLabels = [
+    publicTransport && t("home.transportOptions.public"),
+    carMode === "rental" && t("home.transportOptions.rentalCar"),
+    carMode === "my_car" && t("home.transportOptions.myCar"),
+  ].filter(Boolean) as string[];
+  const transportSummary =
+    transportLabels.length > 0
+      ? transportLabels.join(" + ")
+      : t("home.transportOptions.none");
+  const TransportIcon =
+    publicTransport || carMode !== "none"
+      ? publicTransport && carMode !== "none"
+        ? Shuffle
+        : publicTransport
+          ? Train
+          : Car
+      : X;
+  const mobileOptions: {
+    vibe: MobileOption[];
+    duration: MobileOption[];
+    budget: MobileOption[];
+  } = {
     vibe: Object.entries(VIBE_LABELS).map(([value, item]) => ({
       value,
       label: translate(`home.vibes.${value}`),
@@ -324,11 +528,6 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       label: translate(`home.budgets.${value}`),
       description: translate(`home.budgetHints.${value}`),
       icon: Wallet,
-    })),
-    transport: Object.entries(TRANSPORT_LABELS).map(([value, item]) => ({
-      value,
-      label: translate(`home.transportOptions.${value}`),
-      icon: item.icon,
     })),
   };
 
@@ -664,46 +863,41 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
 
           {/* Segment 5: Getting Around (20%) */}
-          <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center relative cursor-pointer">
-            <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-0.5">
+          <div className="relative w-1/5 min-w-0 px-3 py-1.5">
+            <span className="mb-0.5 block text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300">
               {t("home.transport")}
             </span>
-            <Select
-              value={transportPreference}
-              onValueChange={(val: string | null) => {
-                if (val)
-                  onTransportPreferenceChange(val as TransportPreference);
-              }}
+            <button
+              type="button"
+              data-testid="transport-trigger"
+              aria-label={t("home.transport")}
+              aria-haspopup="true"
+              aria-expanded={transportMenuOpen}
+              onClick={() => setTransportMenuOpen((open) => !open)}
+              className="flex h-auto w-full items-center justify-between rounded-lg text-left text-xs font-bold text-slate-900 outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 dark:text-white sm:text-sm"
             >
-              <SelectTrigger
-                className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between"
+              <span className="flex min-w-0 items-center gap-2">
+                <TransportIcon className="h-4 w-4 shrink-0 text-emerald-500" />
+                <span className="truncate">{transportSummary}</span>
+              </span>
+              <ChevronRight className="h-4 w-4 shrink-0 rotate-90 text-slate-500" />
+            </button>
+            {transportMenuOpen && (
+              <div
+                ref={transportMenuRef}
+                data-testid="transport-menu"
+                role="group"
                 aria-label={t("home.transport")}
+                className="absolute left-0 right-0 top-full z-30 mt-2 rounded-xl border border-slate-200 bg-white p-2 shadow-xl dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))]"
               >
-                <div className="flex items-center gap-2 truncate">
-                  <TransportIcon className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="truncate">
-                    {translate(`home.transportOptions.${transportPreference}`)}
-                  </span>
-                </div>
-              </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
-                {Object.entries(TRANSPORT_LABELS).map(([key, item]) => {
-                  const Icon = item.icon;
-                  return (
-                    <SelectItem
-                      key={key}
-                      value={key}
-                      className="py-2.5 px-3 cursor-pointer"
-                    >
-                      <div className="flex items-center text-xs font-semibold">
-                        <Icon className="w-4 h-4 mr-2 text-slate-500" />
-                        <span>{translate(`home.transportOptions.${key}`)}</span>
-                      </div>
-                    </SelectItem>
-                  );
-                })}
-              </SelectContent>
-            </Select>
+                <TransportToggleList
+                  publicTransport={publicTransport}
+                  carMode={carMode}
+                  onPublicTransportChange={onPublicTransportChange}
+                  onCarModeChange={onCarModeChange}
+                />
+              </div>
+            )}
           </div>
         </div>
 
@@ -827,9 +1021,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               {
                 field: "transport" as const,
                 label: t("home.transport"),
-                value: translate(
-                  `home.transportOptions.${transportPreference}`,
-                ),
+                value: transportSummary,
                 icon: TransportIcon,
               },
             ].map(({ field, label, value, icon: Icon }) => (
@@ -871,7 +1063,16 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </Button>
           </div>
         </div>
-        {mobileField && (
+        {mobileField === "transport" ? (
+          <TransportOptionSheet
+            title={t("home.transport")}
+            publicTransport={publicTransport}
+            carMode={carMode}
+            onPublicTransportChange={onPublicTransportChange}
+            onCarModeChange={onCarModeChange}
+            onClose={closeMobileField}
+          />
+        ) : mobileField ? (
           <MobileOptionSheet
             title={t(`home.${mobileField}`)}
             options={mobileOptions[mobileField]}
@@ -880,21 +1081,17 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 ? vibe
                 : mobileField === "duration"
                   ? tripDuration
-                  : mobileField === "budget"
-                    ? budgetTier
-                    : transportPreference
+                  : budgetTier
             }
             onClose={closeMobileField}
             onChange={(value) => {
               if (mobileField === "vibe") onVibeChange(value);
               else if (mobileField === "duration")
                 onTripDurationChange(value as HomepageTripDuration);
-              else if (mobileField === "budget")
-                onBudgetTierChange(value as BudgetTier);
-              else onTransportPreferenceChange(value as TransportPreference);
+              else onBudgetTierChange(value as BudgetTier);
             }}
           />
-        )}
+        ) : null}
       </div>
     </div>
   );

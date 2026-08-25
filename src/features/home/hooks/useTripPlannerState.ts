@@ -5,7 +5,6 @@ import {
   type ForecastDateSelection,
   type HomepageTripDuration,
   type PlannerControlsState,
-  type TransportPreference,
 } from "@/shared/types/homePlannerState";
 import { useHomePlannerState } from "@/features/home/state/HomePlannerStateContext";
 import { getPlannerBudgetLimit } from "../services/PlannerBudgetPolicy";
@@ -17,7 +16,6 @@ export type {
   ForecastDateSelection,
   HomepageTripDuration,
   PlannerControlsState,
-  TransportPreference,
 };
 
 export interface ResolvedPlannerState extends PlannerControlsState {
@@ -38,8 +36,9 @@ export function useTripPlannerState(
   const resolveFullState = useCallback(
     (controls: PlannerControlsState): ResolvedPlannerState => {
       const { carMode, publicModes } = resolveTransportSelection(
-        controls.transportPreference,
-        state.configuredCarMode,
+        controls.publicTransport,
+        controls.carMode,
+        controls.publicModes,
       );
       const budget = getPlannerBudgetLimit(
         controls.budgetTier,
@@ -50,7 +49,7 @@ export function useTripPlannerState(
       );
       return { ...controls, budget, carMode, publicModes };
     },
-    [state.configuredCarMode],
+    [],
   );
 
   const resolvedDraft = useMemo(

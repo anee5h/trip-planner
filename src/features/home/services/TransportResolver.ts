@@ -1,9 +1,7 @@
-import type { TransportPreference } from "@/shared/types/homePlannerState";
-
-export type { TransportPreference } from "@/shared/types/homePlannerState";
+import type { CarMode } from "@/shared/utils/carMode";
 
 export interface TransportSelection {
-  carMode: "none" | "my_car" | "rental";
+  carMode: CarMode;
   publicModes: string[];
 }
 
@@ -15,21 +13,24 @@ export const ALL_PUBLIC_MODES = [
   "ferry",
 ];
 
+/**
+ * Resolve the planner's split-domain transport state into the canonical
+ * recommendation inputs. Public transport is a capability toggle over the
+ * existing public-mode collection; car access remains one mutually exclusive
+ * CarMode. An empty public collection uses the existing full public-mode
+ * default when the high-level toggle is on.
+ */
 export function resolveTransportSelection(
-  preference: TransportPreference,
-  configuredCarMode: "none" | "my_car" | "rental" = "none",
+  publicTransport: boolean,
+  carMode: CarMode = "none",
+  publicModes: string[] = ALL_PUBLIC_MODES,
 ): TransportSelection {
-  switch (preference) {
-    case "public":
-      return { carMode: "none", publicModes: ALL_PUBLIC_MODES };
-    case "myCar":
-      return { carMode: "my_car", publicModes: [] };
-    case "rentalCar":
-      return { carMode: "rental", publicModes: [] };
-    case "either":
-      if (configuredCarMode === "my_car" || configuredCarMode === "rental") {
-        return { carMode: configuredCarMode, publicModes: ALL_PUBLIC_MODES };
-      }
-      return { carMode: "none", publicModes: ALL_PUBLIC_MODES };
-  }
+  return {
+    carMode,
+    publicModes: publicTransport
+      ? publicModes.length > 0
+        ? [...publicModes]
+        : [...ALL_PUBLIC_MODES]
+      : [],
+  };
 }
