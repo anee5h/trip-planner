@@ -12,6 +12,7 @@
 import { beforeAll, vi } from "vitest";
 import fullIndex from "./src/shared/data/destinations-index.json";
 import liteIndex from "./src/shared/data/destinations-index.lite.json";
+import relationshipIndex from "./src/shared/data/destination-relationships.json";
 const realFetch = globalThis.fetch.bind(globalThis);
 
 vi.stubGlobal(
@@ -23,6 +24,14 @@ vi.stubGlobal(
     if (url.endsWith("/data/destinations-index.lite.json")) {
       return Promise.resolve(
         new Response(JSON.stringify(liteIndex), {
+          status: 200,
+          headers: { "Content-Type": "application/json" },
+        }),
+      );
+    }
+    if (url.endsWith("/data/destination-relationships.json")) {
+      return Promise.resolve(
+        new Response(JSON.stringify(relationshipIndex), {
           status: 200,
           headers: { "Content-Type": "application/json" },
         }),
@@ -48,10 +57,16 @@ vi.stubGlobal(
 // this load; those tests don't need the lite catalogue (useTripSync now
 // uses destinations-meta), so a failed preload is tolerated here.
 import { loadLiteIndex } from "./src/shared/services/place/PlaceCatalog";
+import { loadRelationshipIndex } from "./src/shared/services/destination/DestinationRelationshipService";
 beforeAll(async () => {
   try {
     await loadLiteIndex();
   } catch {
     // tolerate — tests that need lite data load it in their own setup
+  }
+  try {
+    await loadRelationshipIndex();
+  } catch {
+    // tolerate — relationship tests can load their own fixture
   }
 });

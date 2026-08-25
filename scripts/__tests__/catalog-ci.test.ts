@@ -649,6 +649,10 @@ describe("catalogue generated-file checks", () => {
       path.join(root, "src/shared/data/destinations-index.lite.json"),
       outputs.clientIndex,
     );
+    fs.writeFileSync(
+      path.join(root, "src/shared/data/destination-relationships.json"),
+      outputs.relationshipIndex,
+    );
   }
 
   it("the generator is deterministic: a second generation is byte-identical", async () => {

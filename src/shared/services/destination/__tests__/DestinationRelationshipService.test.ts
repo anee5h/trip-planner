@@ -1,9 +1,16 @@
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
-import { DestinationRelationshipService } from "../DestinationRelationshipService";
+import {
+  DestinationRelationshipService,
+  loadRelationshipIndex,
+  resetRelationshipIndexForTests,
+} from "../DestinationRelationshipService";
 
 describe("DestinationRelationshipService", () => {
+  beforeAll(async () => {
+    await loadRelationshipIndex();
+  });
   it("includes reviewed contained places in a city hub's featured list", () => {
     const yokohama = (destinationsIndex as Destination[]).find(
       (destination) => destination.id === "yokohama-city",
@@ -35,5 +42,30 @@ describe("DestinationRelationshipService", () => {
     expect(hubs.length).toBeGreaterThan(0);
     expect(hubs.every((hub) => hub.role === "hub")).toBe(true);
     expect(hubs).not.toContainEqual(yokohama);
+  });
+
+  it("rebuilds after an initial pre-load empty relationship lookup", async () => {
+    const otsu = (destinationsIndex as Destination[]).find(
+      (destination) => destination.id === "otsu-city",
+    );
+    expect(otsu).toBeTruthy();
+
+    resetRelationshipIndexForTests();
+    DestinationRelationshipService.clearIndex();
+    expect(
+      DestinationRelationshipService.getChildDestinations(otsu!.id),
+    ).toEqual([]);
+
+    await loadRelationshipIndex();
+    expect(
+      DestinationRelationshipService.getChildDestinations(otsu!.id)
+        .map((place) => place.id)
+        .sort(),
+    ).toEqual([
+      "enryaku-ji-mount-hiei",
+      "hiei-zan-driveway-observatory",
+      "lake-biwa-shiga",
+      "ukimido-mangetsu-ji",
+    ]);
   });
 });

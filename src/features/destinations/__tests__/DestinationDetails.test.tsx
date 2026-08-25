@@ -47,10 +47,12 @@ vi.mock("@/shared/hooks/useWeather", () => ({
   useWeekendWeather: () => ({ forecast: null, loading: false }),
 }));
 
+const wikipediaMock = vi.hoisted(() => ({
+  fetchSummary: vi.fn(async () => null),
+}));
+
 vi.mock("@/shared/services/wikipedia/WikipediaService", () => ({
-  WikipediaService: {
-    fetchSummary: vi.fn(async () => null),
-  },
+  WikipediaService: wikipediaMock,
 }));
 
 vi.mock("@/shared/hooks/useRecentlyViewedDestinations", () => ({
@@ -85,14 +87,28 @@ vi.mock("@/shared/components/ui/LazyImage", () => ({
 }));
 
 import destinationIndex from "@/shared/data/destinations-index.json";
+import relationshipIndex from "@/shared/data/destination-relationships.json";
+import {
+  DestinationRelationshipService,
+  resetRelationshipIndexForTests,
+} from "@/shared/services/destination/DestinationRelationshipService";
 const records = new Map(
   (destinationIndex as { id: string }[]).map((d) => [d.id, d]),
 );
+
+const relationshipLoadState = vi.hoisted(() => ({ shouldFail: false }));
 
 vi.stubGlobal(
   "fetch",
   vi.fn(async (input: RequestInfo | URL) => {
     const url = String(input);
+    if (url.endsWith("/data/destination-relationships.json")) {
+      return {
+        ok: !relationshipLoadState.shouldFail,
+        status: relationshipLoadState.shouldFail ? 500 : 200,
+        json: async () => relationshipIndex,
+      } as Response;
+    }
     const match = url.match(/\/data\/destinations\/([^/]+)\.json$/);
     if (match && records.has(match[1])) {
       return { ok: true, json: async () => records.get(match[1]) } as Response;
@@ -149,6 +165,10 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
     storeState.homeStationTransportZoneId = "mainland-honshu";
     localeState.locale = "ja";
+    relationshipLoadState.shouldFail = false;
+    resetRelationshipIndexForTests();
+    wikipediaMock.fetchSummary.mockReset();
+    wikipediaMock.fetchSummary.mockResolvedValue(null);
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -201,6 +221,108 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     expect(text).not.toContain("この場所はまだ日本語で利用できません");
     expect(text).not.toContain("Destination Not Found");
     expect(text).toContain("浅草");
+  });
+
+  it("shows a safe unavailable state when no trusted Wikipedia article exists", async () => {
+    render("/destinations/abashiri-city");
+    await act(async () => {
+      await flush(120);
+    });
+
+    const readMore = Array.from(host.querySelectorAll("button")).find(
+      (button) => button.textContent?.includes("続きを読む"),
+    );
+    expect(readMore).toBeTruthy();
+    await act(async () => {
+      readMore?.click();
+      await flush(40);
+    });
+
+    expect(host.textContent).toContain(
+      "信頼できるWikipedia記事は見つかりませんでした。",
+    );
+    expect(host.querySelector('[role="status"]')).not.toBeNull();
+  });
+
+  it("keeps a retry action for transient Wikipedia failures", async () => {
+    localeState.locale = "en";
+    wikipediaMock.fetchSummary.mockRejectedValueOnce(new Error("temporary"));
+    render("/destinations/abashiri-city");
+    await act(async () => {
+      await flush(120);
+    });
+
+    const readMore = Array.from(host.querySelectorAll("button")).find(
+      (button) => button.textContent?.includes("Read more"),
+    );
+    expect(readMore).toBeTruthy();
+    await act(async () => {
+      readMore?.click();
+      await flush(40);
+    });
+
+    expect(host.textContent).toContain(
+      "Wikipedia could not be loaded. Please retry.",
+    );
+    expect(
+      Array.from(host.querySelectorAll("button")).some((button) =>
+        button.textContent?.includes("Retry"),
+      ),
+    ).toBe(true);
+  });
+
+  it("shows relationship load failure with a retry action", async () => {
+    localeState.locale = "en";
+    relationshipLoadState.shouldFail = true;
+    resetRelationshipIndexForTests();
+    DestinationRelationshipService.clearIndex();
+    render("/destinations/otsu-city");
+    await act(async () => {
+      await flush(160);
+    });
+
+    expect(host.textContent).toContain(
+      "Related destination information could not be loaded.",
+    );
+    const retry = Array.from(host.querySelectorAll("button")).find((button) =>
+      button.textContent?.includes("Retry"),
+    );
+    expect(retry).toBeTruthy();
+
+    relationshipLoadState.shouldFail = false;
+    await act(async () => {
+      retry?.click();
+      await flush(220);
+    });
+    expect(host.textContent).toContain("Explore by area");
+  });
+
+  it("renders Otsu's existing child and area relationship sections after the lite catalogue resolves", async () => {
+    render("/destinations/otsu-city");
+    await act(async () => {
+      await flush(220);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("大津市の見どころ");
+    expect(text).toContain("エリアから探す");
+    expect(text).toContain("延暦寺");
+    expect(text).toContain("【見どころ】大津市");
+    expect(text).not.toContain("【見どころ】Otsu City");
+  });
+
+  it("falls back to Otsu's canonical English highlights without leaking Japanese text", async () => {
+    localeState.locale = "en";
+    render("/destinations/otsu-city");
+    await act(async () => {
+      await flush(220);
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("Top Sights in Otsu City");
+    expect(text).toContain("Explore by area");
+    expect(text).toContain("Explore Otsu City");
+    expect(text).not.toContain("大津市の見どころ");
   });
 
   it("renders not found state for genuinely non-existent destinations in Japanese and English", async () => {

@@ -44,6 +44,7 @@ docs/*
 # by scripts/copy-catalogue-assets.mjs — KAI-121 runtime-lazy fetch).
 public/data/destinations-index.json
 public/data/destinations-index.lite.json
+public/data/destination-relationships.json
 
 # Python scratch artifacts
 __pycache__/

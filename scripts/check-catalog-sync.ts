@@ -2,7 +2,8 @@
  * check:catalog-sync — generated-file currency and idempotency check.
  *
  * Regenerates every public/data/destinations/<id>.json file,
- * destinations-meta.json, and destinations-index.lite.json from the index
+ * destinations-meta.json, destinations-index.lite.json, and the compact
+ * destination-relationships.json from the index
  * IN MEMORY (never touching the
  * working tree) using the same generator as `sync-destination-details`
  * (scripts/catalog/generate-outputs.ts), then:
@@ -58,6 +59,9 @@ export function outputKeyDisplayName(key: string): string {
   if (key === "client-index") {
     return "src/shared/data/destinations-index.lite.json";
   }
+  if (key === "relationship-index") {
+    return "src/shared/data/destination-relationships.json";
+  }
   return `public/data/destinations/${key.slice("detail:".length)}.json`;
 }
 
@@ -66,6 +70,7 @@ export function toOutputMap(o: {
   detailFiles: Map<string, string>;
   meta: string;
   clientIndex: string;
+  relationshipIndex: string;
 }): Map<string, string> {
   const map = new Map<string, string>();
   for (const [id, content] of o.detailFiles) {
@@ -73,6 +78,7 @@ export function toOutputMap(o: {
   }
   map.set("meta", o.meta);
   map.set("client-index", o.clientIndex);
+  map.set("relationship-index", o.relationshipIndex);
   return map;
 }
 
@@ -95,6 +101,14 @@ export function loadCommittedOutputs(rootDir: string): Map<string, string> {
     "src/shared/data/destinations-index.lite.json",
   );
   committed.set("client-index", fs.readFileSync(clientIndexPath, "utf-8"));
+  const relationshipIndexPath = path.join(
+    rootDir,
+    "src/shared/data/destination-relationships.json",
+  );
+  committed.set(
+    "relationship-index",
+    fs.readFileSync(relationshipIndexPath, "utf-8"),
+  );
   return committed;
 }
 
@@ -116,7 +130,7 @@ export async function runSyncCheck(
   );
 
   console.log(
-    `Generated ${firstGeneration.detailFiles.size} detail files + meta + client index from the index (run 1 of 2).`,
+    `Generated ${firstGeneration.detailFiles.size} detail files + meta + client index + relationship index from the index (run 1 of 2).`,
   );
 
   let failed = false;

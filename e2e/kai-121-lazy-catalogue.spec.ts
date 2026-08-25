@@ -132,6 +132,7 @@ test("settings (summary surface) never loads the full index", async ({
 // --- KAI-132: the LITE catalogue must be runtime-lazy like the full one. ---
 
 const LITE_INDEX_URL = "/data/destinations-index.lite.json";
+const RELATIONSHIP_INDEX_URL = "/data/destination-relationships.json";
 
 async function collectLiteRequests(page: Page): Promise<string[]> {
   const urls: string[] = [];
@@ -140,6 +141,39 @@ async function collectLiteRequests(page: Page): Promise<string[]> {
   });
   return urls;
 }
+
+test("cold Otsu detail uses the compact relationship graph, not the full lite catalogue", async ({
+  page,
+}) => {
+  const requests: string[] = [];
+  page.on("request", (request) => {
+    const url = request.url();
+    if (
+      url.includes("destination-relationships") ||
+      url.includes("destinations-index")
+    ) {
+      requests.push(url);
+    }
+  });
+
+  await page.goto("/destinations/otsu-city", {
+    waitUntil: "domcontentloaded",
+    timeout: 60000,
+  });
+  await expect(
+    page.getByRole("heading", { name: "Explore by area" }),
+  ).toBeVisible({
+    timeout: 20000,
+  });
+  await expect(
+    page.getByRole("heading", { name: "Enryaku-ji Mount Hiei", exact: false }),
+  ).toBeVisible();
+
+  expect(
+    requests.filter((url) => url.includes(RELATIONSHIP_INDEX_URL)),
+  ).toHaveLength(1);
+  expect(requests.filter((url) => url.includes(LITE_INDEX_URL))).toEqual([]);
+});
 
 test("served index.html never references the lite index (module graph clean)", async ({
   page,

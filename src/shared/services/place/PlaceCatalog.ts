@@ -291,24 +291,41 @@ export function getLocalizedPlace(
   locale: "en" | "ja" = "en",
 ): Destination {
   const canonical = toCanonicalPlace(place);
+  const english = canonical.content?.en;
+  const englishName =
+    typeof english?.name === "string" && english.name.trim() !== ""
+      ? english.name
+      : canonical.name;
+  const englishDescription =
+    typeof english?.description === "string" ? english.description : "";
+  const englishHighlights = Array.isArray(english?.highlights)
+    ? english.highlights
+    : [];
+
   if (locale === "en") {
     return {
       ...canonical,
-      name: canonical.content.en.name,
-      description: canonical.content.en.description,
-      highlights: canonical.content.en.highlights,
+      name: englishName,
+      // English localized projections may contain an accidental empty
+      // override. Preserve a meaningful canonical field at this boundary.
+      description:
+        englishDescription.trim() !== ""
+          ? englishDescription
+          : canonical.description,
+      highlights:
+        englishHighlights.length > 0 ? englishHighlights : canonical.highlights,
     };
   }
 
-  const ja = canonical.content.ja;
-  const en = canonical.content.en;
+  const ja = canonical.content?.ja;
+  const en = canonical.content?.en ?? {};
 
   const name =
     ja?.name && ja.name.trim() !== ""
       ? ja.name
       : canonical.nameJa && canonical.nameJa.trim() !== ""
         ? canonical.nameJa
-        : en.name;
+        : (en.name ?? canonical.name);
 
   const description = ja?.description?.trim() ?? "";
   const highlights = ja?.highlights ?? [];
