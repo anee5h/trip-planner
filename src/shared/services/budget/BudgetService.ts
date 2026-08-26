@@ -757,7 +757,18 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
 
 export function isFreeDestination(dest: Destination): boolean {
   if (!dest || !hasKnownBudget(dest)) return false;
-  if (dest.budgetMin === 0 && dest.budgetMax === 0) return true;
+  // KAI-204 (Phase 5): a zero range is only "free" when the record carries
+  // trusted provenance (manual/model metadata). Absent metadata means the
+  // numbers are legacy debt with no verified source — a min=0/max=0 pair on
+  // such a record is not evidence of free admission (undefined/null/NaN/
+  // missing-metadata must never become 0 or "Free"). Verified free always
+  // requires ledger/ledger-derived evidence or an approved class rule.
+  if (dest.budgetMin === 0 && dest.budgetMax === 0) {
+    return (
+      dest.budgetMetadata?.method === "manual" ||
+      dest.budgetMetadata?.method === "model"
+    );
+  }
   const freeKeywords = ["free observatory", "free"];
   const hasFreeCategory = dest.categories?.some((c) =>
     freeKeywords.some((k) => c.toLowerCase().includes(k)),
