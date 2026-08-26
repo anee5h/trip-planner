@@ -20,8 +20,11 @@ const base: Destination = {
   budgetMax: 2000,
   // KAI-204 phase 3: numeric budgets require explicit provenance — the
   // "clean record" fixture carries trusted manual metadata.
+  // KAI-214: explicit state/provenance (forward-path valid record).
   budgetMetadata: {
     method: "manual",
+    state: "verified_paid",
+    provenance: "verified_source",
     confidence: "low",
     basis: "test fixture — trusted provenance",
   },
@@ -493,12 +496,98 @@ describe("KAI-214 budget-state taxonomy hard contract", () => {
     expect(c).not.toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
   });
 
-  it("existing records without explicit state are untouched (ratchet)", async () => {
-    // The current catalogue uses method-only metadata; none of the new
-    // KAI-214 guards may fire on it.
+  it("existing records without explicit state emit only the migration-debt warning (ratchet)", async () => {
+    // The current catalogue uses method-only metadata. The KAI-214
+    // TRANSITIONAL_METHOD_ONLY rule fires as a WARNING (baselined debt in
+    // check:catalog-warnings, identity-level). It must NOT be a hard error
+    // (existing 503 records carry it), but NEW instances fail the baseline.
+    const r = await run([
+      {
+        ...trustedBase,
+        budgetMetadata: {
+          method: "manual",
+          confidence: "low",
+          basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_METHOD_ONLY");
+    const transitional = r.issues.find(
+      (i) => i.code === "KAI214_TRANSITIONAL_METHOD_ONLY",
+    );
+    expect(transitional?.severity).toBe("warning");
+    // No OTHER KAI-214 hard error fires on valid method-only data.
+    expect(
+      codes.some(
+        (code) =>
+          code.startsWith("KAI214_") &&
+          code !== "KAI214_TRANSITIONAL_METHOD_ONLY",
+      ),
+    ).toBe(false);
+  });
+
+  it("NEW method-only budget record → migration-debt warning (fails baseline as new fingerprint)", async () => {
+    // A newly introduced record with method-only metadata (no state) relies
+    // on the transitional path. It emits KAI214_TRANSITIONAL_METHOD_ONLY;
+    // because its fingerprint is NOT in the committed baseline, the
+    // check:catalog-warnings gate fails CI. This is the Blocker-1 ratchet.
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-destination",
+        budgetMetadata: {
+          method: "manual",
+          confidence: "low",
+          basis: "some basis",
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_METHOD_ONLY");
+    // The fingerprint (code:id) is what the baseline gate keys on — the
+    // validator reports the warning; the baseline gate rejects new ids.
+  });
+
+  it("NEW record with no metadata but numeric budget → hard error (NUMERIC_BUDGET_WITHOUT_PROVENANCE)", async () => {
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-no-meta",
+        budgetMetadata: undefined,
+        budgetMin: 1000,
+        budgetRecommended: 2000,
+        budgetMax: 3000,
+        budgetBreakdown: {
+          transport: 500,
+          tickets: 1000,
+          food: 300,
+          cafe: 200,
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("NUMERIC_BUDGET_WITHOUT_PROVENANCE");
+  });
+
+  it("estimate/provenance contradiction (documented_estimate + verified_source) → hard error", async () => {
     const c = await codes({
       budgetMetadata: {
         method: "manual",
+        state: "documented_estimate",
+        provenance: "verified_source",
+        basis: "verified",
+      },
+    });
+    expect(c).toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("valid forward records pass (no KAI-214 codes)", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
         confidence: "low",
         basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
       },

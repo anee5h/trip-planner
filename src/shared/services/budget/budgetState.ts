@@ -12,9 +12,20 @@
  *
  * `method` remains the backward-compatible single-axis marker. When the new
  * explicit fields (`state`/`provenance`/`reasonCode`) are ABSENT, the
- * normalizer derives them deterministically from `method` + numeric fields.
- * New production data must author `state` explicitly; CI forbids new
- * records that rely on the transitional normalization path.
+ * normalizer derives them deterministically from `method` + numeric fields
+ * (the TRANSITIONAL path — existing catalogue debt, baselined in CI).
+ *
+ * FAIL-CLOSED CONTRACT (KAI-214 blockers):
+ *   - Explicit-state records NEVER reconstruct missing provenance from the
+ *     legacy method. provenance = bm.provenance ?? "none".
+ *   - Trust is derived ONLY from a VALID state/provenance pair. Malformed
+ *     explicit combinations are UNTRUSTED at runtime even though CI also
+ *     reports them.
+ *   - isVerifiedFree requires normalized state verified_free + verified
+ *     source provenance + explicit free evidence (shared rule).
+ *   - hasDisplayableBudget means "may be presented as a user-facing
+ *     price/estimate" (trusted or trusted-estimate ONLY). Storage presence
+ *     is a separate concept: hasStoredNumericBudget.
  *
  * Pure, deterministic, O(1) per destination — safe for render-time use.
  */
@@ -26,7 +37,6 @@ import type {
   Destination,
   NormalizedBudgetState,
 } from "@/shared/types/destination";
-import { hasTrustedBudgetProvenance } from "./BudgetService";
 
 const isFiniteNonNegative = (v: unknown): v is number =>
   typeof v === "number" && Number.isFinite(v) && v >= 0;
@@ -48,16 +58,34 @@ const hasBreakdown = (d: Destination): boolean =>
   );
 
 /**
+ * Shared verified-free evidence rule (single source of truth).
+ * Free is NEVER inferred from a zero numeric value, missing admission,
+ * tags, kind, or absent data — it requires EXPLICIT free evidence in the
+ * basis. EN ("free", "no admission", "no entry fee") and JA (無料, 入場無料,
+ * 無料開放) evidence both qualify.
+ */
+export function hasVerifiedFreeEvidence(
+  basis: string | undefined,
+  tickets: number | undefined,
+): boolean {
+  if (tickets !== undefined && tickets > 0) return false;
+  if (!basis) return false;
+  // Negative evidence ("not free", "no longer free", "free but admission
+  // applies" edge cases) must NOT qualify. Check negation FIRST.
+  if (
+    /\bnot free\b|not.*free|no longer free|charges apply|admission applies|tickets required|fee applies/i.test(
+      basis,
+    )
+  ) {
+    return false;
+  }
+  return /free|no admission|no entry fee|無料|入場無料|無料開放/i.test(basis);
+}
+
+/**
  * Deterministic mapping from the legacy `method` + numeric fields to the
  * permanent VALUE STATE. Used only when `budgetMetadata.state` is absent
  * (backward-compatible transitional path — KAI-214).
- *
- * Manual records with a breakdown/range are source-backed (verified paid or
- * verified free depends on ticket evidence — resolved in getReasonForManual).
- * Model records are documented estimates. Legacy records are legacy
- * unverified. Unknown records are unavailable (transitional reason).
- * Absent metadata with numbers is a transitional unavailable state; absent
- * without numbers is unavailable.
  */
 function deriveStateFromMethod(
   d: Destination,
@@ -66,11 +94,11 @@ function deriveStateFromMethod(
   switch (method) {
     case "manual": {
       if (!hasNumericRange(d) && !hasBreakdown(d)) return "unavailable";
-      // Manual records with tickets=0 and explicit free evidence in the
-      // basis are VERIFIED FREE (never inferred — evidence required).
-      const tickets = d.budgetBreakdown?.tickets ?? d.budgetMin ?? 1;
-      const basis = d.budgetMetadata?.basis ?? "";
-      if (tickets === 0 && /free|無料|¥0|jpy.?0/i.test(basis)) {
+      const tickets = d.budgetBreakdown?.tickets;
+      if (
+        (tickets ?? 0) === 0 &&
+        hasVerifiedFreeEvidence(d.budgetMetadata?.basis, tickets)
+      ) {
         return "verified_free";
       }
       return "verified_paid";
@@ -103,10 +131,12 @@ function deriveProvenance(
 }
 
 /**
- * Stable reason code derivation for the transitional mapping. This is a
- * conservative, evidence-based projection — it never fabricates a more
- * specific classification than the data supports. KAI-218 performs the real
- * variable/not-applicable classification.
+ * Stable reason code derivation for the transitional mapping. CONSERVATIVE:
+ * it never manufactures specificity. "volatile/destination-dependent/
+ * origin-dependent" basis text does NOT establish date-variable pricing —
+ * KAI-218 owns real evidence-based variable/not-applicable classification.
+ * Until then those map to transitional_unclassified (or source_missing when
+ * genuinely no signal exists).
  */
 function deriveReasonCode(
   d: Destination,
@@ -120,12 +150,12 @@ function deriveReasonCode(
       if (method === "unknown") {
         const basis = d.budgetMetadata?.basis ?? "";
         if (/volatile|destination-dependent|origin-dependent/i.test(basis)) {
-          return "price_variable_by_date";
+          // Conservative: the basis signals instability but does not
+          // establish DATE/SEASON variation specifically.
+          return "transitional_unclassified";
         }
         return "source_missing";
       }
-      if (method === "absent") return "source_missing";
-      if (method === "manual") return "source_missing";
       return "source_missing";
     }
     case "verified_paid":
@@ -137,44 +167,73 @@ function deriveReasonCode(
   }
 }
 
+/** Trust derived from a VALID state/provenance pair (fail-closed). */
+function trustForStateProvenance(
+  state: BudgetValueState,
+  provenance: BudgetProvenance,
+  freeEvidence: boolean,
+): NormalizedBudgetState["trustLevel"] {
+  switch (state) {
+    case "verified_paid":
+      return provenance === "verified_source" ? "trusted" : "untrusted";
+    case "verified_free":
+      // verified_free requires verified source provenance AND explicit
+      // free evidence. Missing either → untrusted.
+      return provenance === "verified_source" && freeEvidence
+        ? "trusted"
+        : "untrusted";
+    case "documented_estimate":
+      return provenance === "model" ? "trusted_estimate" : "untrusted";
+    case "variable_price":
+    case "not_applicable":
+    case "unavailable":
+    case "legacy_unverified":
+      return "untrusted";
+  }
+}
+
 /**
  * The single entry point for normalized budget state. O(1), pure,
- * deterministic. Prefers explicit `budgetMetadata.state` when authored;
- * falls back to the deterministic transitional mapping.
+ * deterministic. Prefers explicit `budgetMetadata.state` when authored
+ * (fail-closed on malformed combinations); falls back to the deterministic
+ * transitional mapping for existing method-only records.
  */
 export function normalizeBudgetState(d: Destination): NormalizedBudgetState {
   const bm = d.budgetMetadata;
   const method = bm?.method ?? "absent";
+  const tickets = d.budgetBreakdown?.tickets;
 
   // Forward path: explicit multi-axis state authored on the record.
   if (bm?.state) {
+    // FAIL CLOSED: never reconstruct missing provenance from legacy method.
+    const provenance = bm.provenance ?? "none";
+    const freeEvidence =
+      bm.state === "verified_free"
+        ? hasVerifiedFreeEvidence(bm.basis, tickets)
+        : false;
     return {
       state: bm.state,
-      provenance: bm.provenance ?? deriveProvenance(method),
+      provenance,
       reasonCode: bm.reasonCode,
-      trustLevel:
-        bm.state === "documented_estimate"
-          ? "trusted_estimate"
-          : bm.state === "verified_paid" || bm.state === "verified_free"
-            ? "trusted"
-            : "untrusted",
+      trustLevel: trustForStateProvenance(bm.state, provenance, freeEvidence),
       hasNumericRange: hasNumericRange(d),
       hasBreakdown: hasBreakdown(d),
       sourceMethod: method,
     };
   }
 
-  // Transitional path: derive from method + fields.
+  // Transitional path: derive from method + fields (existing debt).
   const state = deriveStateFromMethod(d, method);
+  const provenance = deriveProvenance(method);
+  const freeEvidence =
+    state === "verified_free"
+      ? hasVerifiedFreeEvidence(bm?.basis, tickets)
+      : false;
   return {
     state,
-    provenance: deriveProvenance(method),
+    provenance,
     reasonCode: deriveReasonCode(d, method, state),
-    trustLevel: hasTrustedBudgetProvenance(d)
-      ? state === "documented_estimate"
-        ? "trusted_estimate"
-        : "trusted"
-      : "untrusted",
+    trustLevel: trustForStateProvenance(state, provenance, freeEvidence),
     hasNumericRange: hasNumericRange(d),
     hasBreakdown: hasBreakdown(d),
     sourceMethod: method,
@@ -183,15 +242,17 @@ export function normalizeBudgetState(d: Destination): NormalizedBudgetState {
 
 // ---- Semantic helpers (centralized contract) ----
 
-/** A verified free destination: explicit evidence, never inferred. */
+/**
+ * A verified free destination: normalized state verified_free AND verified
+ * source provenance AND explicit free evidence. No weaker fallback — a
+ * manual zero-ticket record with any non-free basis text is NOT free.
+ */
 export function isVerifiedFree(d: Destination): boolean {
   const s = normalizeBudgetState(d);
   return (
-    s.state === "verified_free" ||
-    (s.sourceMethod === "manual" &&
-      s.trustLevel === "trusted" &&
-      (d.budgetBreakdown?.tickets ?? d.budgetMin ?? 1) === 0 &&
-      d.budgetMetadata?.basis !== undefined)
+    s.state === "verified_free" &&
+    s.provenance === "verified_source" &&
+    s.trustLevel === "trusted"
   );
 }
 
@@ -212,14 +273,25 @@ export function isBudgetNotApplicable(d: Destination): boolean {
 
 /** The budget could exist but evidence is missing (with a reason). */
 export function isBudgetUnavailable(d: Destination): boolean {
-  const s = normalizeBudgetState(d);
-  return s.state === "unavailable";
+  return normalizeBudgetState(d).state === "unavailable";
 }
 
-/** The budget has a displayable numeric value (trusted OR untrusted storage). */
+/**
+ * Numbers exist PHYSICALLY in the record (storage semantics). This is for
+ * audit/migration/debugging only — it says NOTHING about trust or display.
+ */
+export function hasStoredNumericBudget(d: Destination): boolean {
+  return hasNumericRange(d) || hasBreakdown(d);
+}
+
+/**
+ * The budget MAY be presented as a user-facing price/estimate. Requires a
+ * TRUSTED or TRUSTED_ESTIMATE semantic state — legacy/unknown/absent
+ * numeric storage is NEVER displayable (KAI-204 storage-vs-trust split).
+ */
 export function hasDisplayableBudget(d: Destination): boolean {
   const s = normalizeBudgetState(d);
-  return s.hasNumericRange || s.hasBreakdown;
+  return s.trustLevel !== "untrusted" && (s.hasNumericRange || s.hasBreakdown);
 }
 
 /**
@@ -231,9 +303,12 @@ export function hasSortableBudget(d: Destination): boolean {
   return s.trustLevel !== "untrusted" && (s.hasNumericRange || s.hasBreakdown);
 }
 
-/** Trusted numeric budget (verified source or documented model estimate). */
+/**
+ * Trusted numeric budget (verified source or documented model estimate).
+ * Backed by the NORMALIZED semantic state (not the legacy method) so it can
+ * never disagree with hasSortableBudget/hasDisplayableBudget.
+ */
 export function hasTrustedNumericBudget(d: Destination): boolean {
-  return (
-    hasTrustedBudgetProvenance(d) && (hasNumericRange(d) || hasBreakdown(d))
-  );
+  const s = normalizeBudgetState(d);
+  return s.trustLevel !== "untrusted" && (s.hasNumericRange || s.hasBreakdown);
 }

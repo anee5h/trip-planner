@@ -2,6 +2,7 @@
 
 Branch: `feat/kai-214-budget-state-taxonomy`
 Starting SHA: `f77aecc554524072efa01eb18c53a35f43777e98` (post-#263 main)
+Blocker-fix head: `31422bffea20e9530229ab698671f0105e0a0794` (reviewed) → final (below)
 
 ## Objective
 
@@ -99,8 +100,8 @@ by VALUE STATE:
   unavailable           554   (462 unknown + 92 absent)
   legacy_unverified     353
   documented_estimate   112
-  verified_paid          34
-  verified_free           4
+  verified_paid          35
+  verified_free           3
 by PROVENANCE:
   none                  554
   legacy                353
@@ -110,11 +111,77 @@ by TRUST:
   untrusted             907
   trusted_estimate      112
   trusted                38
+by reason code:
+  source_missing                   491
+  legacy_provenance_unrecovered    353
+  transitional_unclassified         63   (conservative — NOT price_variable_by_date)
 invalid combinations: 0
 reconciled: 1057 === 1057 ✓
 ```
 
 Two runs produce byte-identical output (deterministic).
+
+## Blocker resolutions (reviewer pass on head 31422bff)
+
+### Blocker 1 — NEW transitional debt is impossible
+
+`KAI214_TRANSITIONAL_METHOD_ONLY` fires on ANY record with budgetMetadata
+but no explicit state AND numeric budget fields (503 existing). The 503
+fingerprints are seeded into the catalog-warnings baseline (identity-level:
+`KAI214_TRANSITIONAL_METHOD_ONLY:<id>`), so:
+
+- EXISTING method-only records → accepted migration debt (baselined)
+- NEW method-only record → NEW fingerprint → check:catalog-warnings fails
+- NEW record with numeric budget and NO metadata → NUMERIC_BUDGET_WITHOUT_
+  PROVENANCE hard error (existing rule)
+- valid explicit state/provenance → passes
+
+The migration exception disappears under KAI-218 when records gain explicit
+state: each migrated record's KAI214_TRANSITIONAL_METHOD_ONLY fingerprint
+disappears from the audit (shrink-only baseline), so the class monotonically
+decreases to 0.
+
+### Blocker 2 — stored ≠ displayable
+
+- `hasStoredNumericBudget(d)` — numbers exist physically (audit/migration
+  semantics only)
+- `hasDisplayableBudget(d)` — MAY be presented as a user-facing price;
+  requires trusted OR trusted_estimate semantic state
+- legacy/absent/unknown numeric → stored true, displayable FALSE
+
+### Blocker 3 — verified free requires real evidence
+
+`hasVerifiedFreeEvidence(basis, tickets)` is the SHARED evidence rule used
+by the normalizer, isVerifiedFree, and the validator. Requires explicit
+free evidence (EN: free/no admission/no entry fee; JA: 無料/入場無料/無料開放)
+and REJECTS negations ("not free", "admission applies", "tickets
+required"). kitaro-chaya ("verified ticket ¥0 preserved; peer cell...")
+no longer classifies verified_free — its ¥0 is a preserved model value, not
+explicit free evidence → verified_paid (honest, still trusted).
+
+### Blocker 4 — explicit states fail closed at runtime
+
+For explicit-state records, `provenance = bm.provenance ?? "none"` (NEVER
+reconstructed from legacy method). Trust derived ONLY from a valid
+state/provenance pair:
+
+- verified_paid + verified_source → trusted
+- verified_free + verified_source + free evidence → trusted
+- documented_estimate + model → trusted_estimate
+- anything else → UNTRUSTED (runtime never grants trust to CI-rejected data)
+
+### Helper agreement invariants
+
+hasTrustedNumericBudget / hasSortableBudget / hasDisplayableBudget all read
+the NORMALIZED semantic state — they can never disagree (invariant tests).
+
+### CI contract completeness
+
+KAI214_CONTRADICTORY_STATE_PROVENANCE now covers the full matrix:
+
+- verified_paid/free requires verified_source provenance
+- documented_estimate requires model provenance
+- legacy_unverified cannot pair with verified_source
 
 ## Runtime safety preserved (KAI-204 regression)
 

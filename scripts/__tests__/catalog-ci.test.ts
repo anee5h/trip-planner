@@ -57,9 +57,11 @@ function makeDest(
     budgetRecommended: 2000,
     budgetMax: 5000,
     // KAI-204 phase 3: numeric budgets require provenance — fixtures carry
-    // legacy metadata so the trust-boundary guard does not fire on them.
+    // explicit KAI-214 state so the trust-boundary guards do not fire.
     budgetMetadata: {
       method: "legacy",
+      state: "legacy_unverified",
+      provenance: "legacy",
       confidence: "unknown",
       basis: "test fixture",
     },

@@ -3,8 +3,9 @@ import type { Destination } from "@/shared/types/destination";
 import {
   hasDisplayableBudget,
   hasSortableBudget,
+  hasStoredNumericBudget,
+  hasTrustedNumericBudget,
   isBudgetNotApplicable,
-  isBudgetUnavailable,
   isBudgetVariable,
   isDocumentedEstimate,
   isVerifiedFree,
@@ -92,7 +93,7 @@ describe("KAI-214 budget-state taxonomy — normalizeBudgetState", () => {
     expect(s.reasonCode).toBe("legacy_provenance_unrecovered");
   });
 
-  it("unknown → unavailable / reason source_missing (or variable by basis)", () => {
+  it("unknown → unavailable / transitional reason (conservative)", () => {
     const d = {
       ...base,
       budgetMin: undefined,
@@ -109,20 +110,27 @@ describe("KAI-214 budget-state taxonomy — normalizeBudgetState", () => {
     expect(s.state).toBe("unavailable");
     expect(s.reasonCode).toBe("source_missing");
     expect(s.trustLevel).toBe("untrusted");
+  });
 
+  it("volatile/destination-dependent basis → transitional_unclassified (NOT price_variable_by_date)", () => {
+    // Blocker: "destination-dependent" does NOT establish date-variable
+    // pricing. KAI-218 owns the real classification.
     const volatile = {
-      ...d,
+      ...base,
+      budgetMin: undefined,
+      budgetRecommended: undefined,
+      budgetMax: undefined,
+      budgetBreakdown: undefined,
       budgetMetadata: {
         method: "unknown",
         basis:
           "Current admission, food, and access costs are volatile or destination-dependent",
       },
     } as unknown as Destination;
-    expect(normalizeBudgetState(volatile).reasonCode).toBe(
-      "price_variable_by_date",
-    );
-    expect(isBudgetUnavailable(volatile)).toBe(true);
-    expect(isBudgetVariable(volatile)).toBe(false); // state stays unavailable; reason is variable
+    const s = normalizeBudgetState(volatile);
+    expect(s.state).toBe("unavailable");
+    expect(s.reasonCode).toBe("transitional_unclassified");
+    expect(s.reasonCode).not.toBe("price_variable_by_date");
   });
 
   it("absent metadata with numbers → unavailable (transitional), untrusted", () => {
@@ -135,8 +143,9 @@ describe("KAI-214 budget-state taxonomy — normalizeBudgetState", () => {
     expect(s.provenance).toBe("none");
     expect(s.trustLevel).toBe("untrusted");
     expect(s.hasNumericRange).toBe(true); // numbers in storage
-    expect(hasDisplayableBudget(d)).toBe(true); // storage has numbers
-    expect(hasSortableBudget(d)).toBe(false); // but NOT sortable
+    expect(hasStoredNumericBudget(d)).toBe(true); // storage has numbers
+    expect(hasDisplayableBudget(d)).toBe(false); // but NOT displayable
+    expect(hasSortableBudget(d)).toBe(false); // and NOT sortable
   });
 
   it("explicit forward-path state overrides transitional derivation", () => {
@@ -207,5 +216,297 @@ describe("KAI-214 budget-state taxonomy — normalizeBudgetState", () => {
       },
     } as unknown as Destination;
     expect(normalizeBudgetState(d)).toEqual(normalizeBudgetState(d));
+  });
+});
+
+describe("KAI-214 Blocker 2 — stored vs displayable budget", () => {
+  it("legacy numeric → stored true, displayable FALSE", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "legacy",
+        confidence: "unknown",
+        basis: "legacy numeric budget without recoverable provenance",
+      },
+    } as unknown as Destination;
+    expect(hasStoredNumericBudget(d)).toBe(true);
+    expect(hasDisplayableBudget(d)).toBe(false);
+    expect(hasSortableBudget(d)).toBe(false);
+  });
+
+  it("absent numeric → stored true, displayable FALSE", () => {
+    const d = { ...base } as unknown as Destination; // no budgetMetadata
+    expect(hasStoredNumericBudget(d)).toBe(true);
+    expect(hasDisplayableBudget(d)).toBe(false);
+  });
+
+  it("manual verified numeric → displayable TRUE", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    } as unknown as Destination;
+    expect(hasDisplayableBudget(d)).toBe(true);
+    expect(hasStoredNumericBudget(d)).toBe(true);
+  });
+
+  it("model numeric → displayable TRUE (trusted estimate)", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "model",
+        modelVersion: "budget-model-v1",
+        confidence: "low",
+        basis: "peer cell n=8",
+      },
+    } as unknown as Destination;
+    expect(hasDisplayableBudget(d)).toBe(true);
+    expect(hasSortableBudget(d)).toBe(true);
+  });
+
+  it("unknown numeric (if it existed) → displayable FALSE", () => {
+    const d = {
+      ...base,
+      budgetMetadata: { method: "unknown" },
+    } as unknown as Destination;
+    expect(hasDisplayableBudget(d)).toBe(false);
+  });
+});
+
+describe("KAI-214 Blocker 3 — verified free requires real evidence", () => {
+  it("manual tickets=0 basis='ticket component unavailable' → NOT free", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "ticket component unavailable",
+      },
+    } as unknown as Destination;
+    expect(isVerifiedFree(d)).toBe(false);
+    expect(normalizeBudgetState(d).state).not.toBe("verified_free");
+  });
+
+  it("manual tickets=0 basis='optional activities priced separately' → NOT free", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "optional activities priced separately",
+      },
+    } as unknown as Destination;
+    expect(isVerifiedFree(d)).toBe(false);
+  });
+
+  it("manual tickets=0 basis='not free; admission applies' → NOT free", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "not free; admission applies",
+      },
+    } as unknown as Destination;
+    expect(isVerifiedFree(d)).toBe(false);
+  });
+
+  it("verified explicit free evidence → free (EN)", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis:
+          "verified free admission (ledger FREE_ENTRY); source: official site",
+      },
+    } as unknown as Destination;
+    expect(isVerifiedFree(d)).toBe(true);
+  });
+
+  it("verified explicit free evidence → free (JA 無料)", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "入場無料（公式サイト確認）",
+      },
+    } as unknown as Destination;
+    expect(isVerifiedFree(d)).toBe(true);
+  });
+
+  it("manual tickets=0 basis with free word in negative context 'not free' → NOT free", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "not free; admission applies (tickets required)",
+      },
+    } as unknown as Destination;
+    expect(isVerifiedFree(d)).toBe(false);
+  });
+});
+
+describe("KAI-214 Blocker 4 — explicit forward states fail closed at runtime", () => {
+  it("verified_paid + missing provenance → UNTRUSTED (fail closed)", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid" as const,
+        // NO provenance
+        basis: "verified",
+      },
+    } as unknown as Destination;
+    const s = normalizeBudgetState(d);
+    expect(s.provenance).toBe("none"); // NOT derived from method
+    expect(s.trustLevel).toBe("untrusted"); // fail closed
+    expect(hasDisplayableBudget(d)).toBe(false);
+    expect(hasTrustedNumericBudget(d)).toBe(false);
+  });
+
+  it("verified_paid + model provenance → UNTRUSTED", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "model",
+        state: "verified_paid" as const,
+        provenance: "model" as const,
+        modelVersion: "budget-model-v1",
+      },
+    } as unknown as Destination;
+    expect(normalizeBudgetState(d).trustLevel).toBe("untrusted");
+  });
+
+  it("documented_estimate + missing provenance → UNTRUSTED", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "model",
+        state: "documented_estimate" as const,
+        // NO provenance
+      },
+    } as unknown as Destination;
+    expect(normalizeBudgetState(d).provenance).toBe("none");
+    expect(normalizeBudgetState(d).trustLevel).toBe("untrusted");
+  });
+
+  it("documented_estimate + verified_source provenance → UNTRUSTED", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "manual",
+        state: "documented_estimate" as const,
+        provenance: "verified_source" as const,
+        basis: "verified",
+      },
+    } as unknown as Destination;
+    expect(normalizeBudgetState(d).trustLevel).toBe("untrusted");
+  });
+
+  it("documented_estimate + model provenance → trusted_estimate", () => {
+    const d = {
+      ...base,
+      budgetMetadata: {
+        method: "model",
+        state: "documented_estimate" as const,
+        provenance: "model" as const,
+        modelVersion: "budget-model-v1",
+      },
+    } as unknown as Destination;
+    expect(normalizeBudgetState(d).trustLevel).toBe("trusted_estimate");
+    expect(hasDisplayableBudget(d)).toBe(true);
+  });
+
+  it("verified_free + verified_source but NO free evidence → untrusted / isVerifiedFree false", () => {
+    const d = {
+      ...base,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free" as const,
+        provenance: "verified_source" as const,
+        basis: "admission costs apply",
+      },
+    } as unknown as Destination;
+    const s = normalizeBudgetState(d);
+    expect(s.trustLevel).toBe("untrusted");
+    expect(isVerifiedFree(d)).toBe(false);
+  });
+});
+
+describe("KAI-214 semantic helper agreement invariants", () => {
+  it("hasTrustedNumericBudget === hasSortableBudget for all fixture states", () => {
+    const fixtures = [
+      {
+        ...base,
+        budgetMetadata: {
+          method: "manual",
+          confidence: "low",
+          basis: "verified ticket ¥1500",
+        },
+      },
+      {
+        ...base,
+        budgetMetadata: { method: "model", modelVersion: "budget-model-v1" },
+      },
+      {
+        ...base,
+        budgetMetadata: { method: "legacy", confidence: "unknown" },
+      },
+      { ...base }, // absent
+      {
+        ...base,
+        budgetMetadata: { method: "unknown" },
+      },
+    ] as unknown as Destination[];
+    for (const d of fixtures) {
+      // The two helpers must NEVER disagree (both read normalized state).
+      expect(hasTrustedNumericBudget(d)).toBe(hasSortableBudget(d));
+      // displayable implies sortable-capable trust (both use trustLevel)
+      expect(hasDisplayableBudget(d) ? hasSortableBudget(d) : true).toBe(true);
+    }
+  });
+
+  it("displayable requires trusted or trusted_estimate (never untrusted)", () => {
+    const untrusted = [
+      {
+        ...base,
+        budgetMetadata: { method: "legacy", confidence: "unknown" },
+      },
+      { ...base },
+      {
+        ...base,
+        budgetMetadata: { method: "unknown" },
+      },
+    ] as unknown as Destination[];
+    for (const d of untrusted) {
+      expect(hasDisplayableBudget(d)).toBe(false);
+    }
   });
 });

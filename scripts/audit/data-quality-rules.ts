@@ -587,6 +587,26 @@ export function collectDestinationIssues(
   const budgetProvenance = dest.budgetMetadata?.provenance;
   const reasonCode = dest.budgetMetadata?.reasonCode;
 
+  // KAI-214 Blocker 1: NEW transitional debt must be impossible. A record
+  // with budgetMetadata but NO explicit state (method-only) relies on the
+  // transitional normalization path. Existing records are baselined as
+  // accepted migration debt via the catalog-warnings identity-level
+  // fingerprint ratchet (KAI214_TRANSITIONAL_METHOD_ONLY:<id>); a NEW
+  // method-only record produces a NEW fingerprint and fails CI.
+  if (
+    dest.budgetMetadata &&
+    !budgetState &&
+    (dest.budgetMin !== undefined ||
+      dest.budgetRecommended !== undefined ||
+      dest.budgetMax !== undefined ||
+      dest.budgetBreakdown !== undefined)
+  ) {
+    push(
+      "KAI214_TRANSITIONAL_METHOD_ONLY",
+      "budgetMetadata without explicit state relies on the transitional normalization path — new records must author state/provenance/reasonCode explicitly",
+    );
+  }
+
   if (budgetState) {
     // Trusted states require explicit provenance.
     if (
@@ -652,14 +672,31 @@ export function collectDestinationIssues(
         "unavailable state coexists with numeric budget fields",
       );
     }
-    // contradictory state+provenance (e.g. verified_paid + model).
+    // contradictory state+provenance — complete matrix (Blocker: CI
+    // contract completeness). Trusted states require verified_source;
+    // documented_estimate requires model; anything else is contradictory.
     if (
       (budgetState === "verified_paid" || budgetState === "verified_free") &&
-      budgetProvenance === "model"
+      budgetProvenance !== "verified_source"
     ) {
       push(
         "KAI214_CONTRADICTORY_STATE_PROVENANCE",
-        `state '${budgetState}' cannot pair with provenance 'model'`,
+        `state '${budgetState}' requires provenance 'verified_source' (got ${budgetProvenance ?? "none"})`,
+      );
+    }
+    if (budgetState === "documented_estimate" && budgetProvenance !== "model") {
+      push(
+        "KAI214_CONTRADICTORY_STATE_PROVENANCE",
+        `state 'documented_estimate' requires provenance 'model' (got ${budgetProvenance ?? "none"})`,
+      );
+    }
+    if (
+      budgetState === "legacy_unverified" &&
+      budgetProvenance === "verified_source"
+    ) {
+      push(
+        "KAI214_CONTRADICTORY_STATE_PROVENANCE",
+        "state 'legacy_unverified' cannot pair with provenance 'verified_source'",
       );
     }
   }
