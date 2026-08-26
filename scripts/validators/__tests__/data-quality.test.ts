@@ -594,4 +594,179 @@ describe("KAI-214 budget-state taxonomy hard contract", () => {
     });
     expect(c.some((code) => code.startsWith("KAI214_"))).toBe(false);
   });
+
+  it("NEW method-only UNKNOWN record (no numbers) → migration-debt warning (new fingerprint fails baseline)", async () => {
+    // Blocker 1: method:"unknown" with NO numeric fields must ALSO be
+    // transitional debt. Emits KAI214_TRANSITIONAL_METHOD_ONLY; its
+    // fingerprint is not in the committed baseline → CI fails.
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-unknown-debt",
+        budgetMin: undefined,
+        budgetRecommended: undefined,
+        budgetMax: undefined,
+        budgetBreakdown: undefined,
+        budgetMetadata: {
+          method: "unknown",
+          basis: "source missing",
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_METHOD_ONLY");
+  });
+
+  it("NEW absent-state record (no metadata, no numbers) → KAI214_TRANSITIONAL_STATE_MISSING", async () => {
+    // Blocker 2: completely absent budget state must be transitional debt.
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-absent-state",
+        budgetMetadata: undefined,
+        budgetMin: undefined,
+        budgetRecommended: undefined,
+        budgetMax: undefined,
+        budgetBreakdown: undefined,
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_STATE_MISSING");
+    const miss = r.issues.find(
+      (i) => i.code === "KAI214_TRANSITIONAL_STATE_MISSING",
+    );
+    expect(miss?.severity).toBe("warning");
+  });
+
+  it("verified_free + 'not free; admission applies' → hard error (shared evidence rule)", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "not free; admission applies",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_free + 'tickets required' → hard error", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "tickets required for entry",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_free + positive ticket cost + 'free ...' → hard error", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 0, tickets: 1500, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "free entry for children",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_free + explicit EN free evidence + zero tickets → pass", async () => {
+    const c = await codes({
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "free admission (ledger FREE_ENTRY); official site",
+      },
+    });
+    expect(c).not.toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+    expect(c).not.toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("verified_free + explicit JA free evidence (入場無料) → pass", async () => {
+    const c = await codes({
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "入場無料（公式サイト確認）",
+      },
+    });
+    expect(c).not.toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_paid + verified_source + NO numeric fields → hard error (numeric-state invariant)", async () => {
+    const c = await codes({
+      budgetMin: undefined,
+      budgetRecommended: undefined,
+      budgetMax: undefined,
+      budgetBreakdown: undefined,
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        basis: "verified ticket ¥1500",
+      },
+    });
+    expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+
+  it("documented_estimate + model + NO numeric fields → hard error (numeric-state invariant)", async () => {
+    const c = await codes({
+      budgetMin: undefined,
+      budgetRecommended: undefined,
+      budgetMax: undefined,
+      budgetBreakdown: undefined,
+      budgetMetadata: {
+        method: "model",
+        state: "documented_estimate",
+        provenance: "model",
+        modelVersion: "budget-model-v1",
+        basis: "peer cell n=8",
+      },
+    });
+    expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+
+  it("valid verified_paid with numeric fields → passes invariant", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    });
+    expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+
+  it("valid documented_estimate with numeric fields → passes invariant", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "model",
+        state: "documented_estimate",
+        provenance: "model",
+        modelVersion: "budget-model-v1",
+        confidence: "low",
+        basis: "peer cell n=8",
+      },
+    });
+    expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
 });

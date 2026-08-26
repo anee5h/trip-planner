@@ -510,3 +510,57 @@ describe("KAI-214 semantic helper agreement invariants", () => {
     }
   });
 });
+
+describe("KAI-214 shared free-evidence rule (runtime/validator agreement)", () => {
+  it("isVerifiedFree agrees with the shared predicate on negatives", () => {
+    const cases = [
+      { basis: "not free; admission applies", tickets: 0 },
+      { basis: "tickets required for entry", tickets: 0 },
+      { basis: "optional activities priced separately", tickets: 0 },
+      { basis: "ticket component unavailable", tickets: 0 },
+      { basis: "free entry for children", tickets: 1500 }, // positive ticket
+    ];
+    for (const { basis, tickets } of cases) {
+      const d = {
+        ...base,
+        budgetMin: 0,
+        budgetMax: 0,
+        budgetBreakdown: { transport: 0, tickets, food: 0, cafe: 0 },
+        budgetMetadata: {
+          method: "manual",
+          state: "verified_free" as const,
+          provenance: "verified_source" as const,
+          basis,
+        },
+      } as unknown as Destination;
+      // Runtime helper AND normalizer both refuse.
+      expect(isVerifiedFree(d), basis).toBe(false);
+      expect(normalizeBudgetState(d).trustLevel, basis).toBe("untrusted");
+    }
+  });
+
+  it("isVerifiedFree agrees with the shared predicate on positives (EN + JA)", () => {
+    const cases = [
+      { basis: "free admission (ledger FREE_ENTRY)", tickets: 0 },
+      { basis: "入場無料（公式サイト確認）", tickets: 0 },
+      { basis: "no admission fee; open access", tickets: 0 },
+      { basis: "無料開放", tickets: 0 },
+    ];
+    for (const { basis, tickets } of cases) {
+      const d = {
+        ...base,
+        budgetMin: 0,
+        budgetMax: 0,
+        budgetBreakdown: { transport: 0, tickets, food: 0, cafe: 0 },
+        budgetMetadata: {
+          method: "manual",
+          state: "verified_free" as const,
+          provenance: "verified_source" as const,
+          basis,
+        },
+      } as unknown as Destination;
+      expect(isVerifiedFree(d), basis).toBe(true);
+      expect(normalizeBudgetState(d).trustLevel, basis).toBe("trusted");
+    }
+  });
+});

@@ -18,6 +18,7 @@
 import type { Destination } from "../../src/shared/types/destination";
 import type { Collection } from "../../src/shared/types/collection";
 import type { TransportMode } from "../../src/shared/services/transport/types";
+import { hasVerifiedFreeEvidence } from "../../src/shared/services/budget/freeEvidence";
 
 export interface DataQualityIssue {
   code: string;
@@ -168,6 +169,7 @@ export const PREVENTIVE_CODES = new Set([
   "KAI214_NOT_APPLICABLE_WITH_TICKETS",
   "KAI214_UNAVAILABLE_WITH_NUMERIC",
   "KAI214_CONTRADICTORY_STATE_PROVENANCE",
+  "KAI214_NUMERIC_STATE_WITHOUT_NUMBERS",
 ]);
 
 export function firstTimeRange(text: string | undefined): number | null {
@@ -587,23 +589,30 @@ export function collectDestinationIssues(
   const budgetProvenance = dest.budgetMetadata?.provenance;
   const reasonCode = dest.budgetMetadata?.reasonCode;
 
-  // KAI-214 Blocker 1: NEW transitional debt must be impossible. A record
+  // KAI-214 Blocker 1: NEW transitional debt must be impossible. ANY record
   // with budgetMetadata but NO explicit state (method-only) relies on the
-  // transitional normalization path. Existing records are baselined as
-  // accepted migration debt via the catalog-warnings identity-level
-  // fingerprint ratchet (KAI214_TRANSITIONAL_METHOD_ONLY:<id>); a NEW
-  // method-only record produces a NEW fingerprint and fails CI.
-  if (
-    dest.budgetMetadata &&
-    !budgetState &&
-    (dest.budgetMin !== undefined ||
-      dest.budgetRecommended !== undefined ||
-      dest.budgetMax !== undefined ||
-      dest.budgetBreakdown !== undefined)
-  ) {
+  // transitional normalization path — REGARDLESS of whether numeric budget
+  // fields exist (method:"unknown" with no numbers is still transitional
+  // debt: it must author state/provenance/reasonCode explicitly). Existing
+  // records are baselined as accepted migration debt via the
+  // catalog-warnings identity-level fingerprint ratchet
+  // (KAI214_TRANSITIONAL_METHOD_ONLY:<id>); a NEW method-only record
+  // produces a NEW fingerprint and fails CI.
+  if (dest.budgetMetadata && !budgetState) {
     push(
       "KAI214_TRANSITIONAL_METHOD_ONLY",
       "budgetMetadata without explicit state relies on the transitional normalization path — new records must author state/provenance/reasonCode explicitly",
+    );
+  }
+
+  // KAI-214 Blocker 2: completely absent budget state is also transitional
+  // debt. A production record with NO budgetMetadata and NO explicit state
+  // is unclassified. Identity-baselined; NEW missing-state records produce
+  // a new fingerprint and fail CI. KAI-218 classifies these (state=...).
+  if (!dest.budgetMetadata) {
+    push(
+      "KAI214_TRANSITIONAL_STATE_MISSING",
+      "no budgetMetadata / explicit budget state — new records must author state/provenance/reasonCode explicitly",
     );
   }
 
@@ -618,14 +627,20 @@ export function collectDestinationIssues(
         `state '${budgetState}' requires provenance 'verified_source' (got ${budgetProvenance ?? "none"})`,
       );
     }
-    // verified_free must carry evidence.
+    // verified_free must carry evidence — SHARED rule with the runtime
+    // normalizer/isVerifiedFree (freeEvidence.ts), so the three layers
+    // cannot drift. The shared rule rejects negations ("not free",
+    // "admission applies", "tickets required") and positive ticket costs.
     if (
       budgetState === "verified_free" &&
-      !/free|無料/i.test(dest.budgetMetadata?.basis ?? "")
+      !hasVerifiedFreeEvidence(
+        dest.budgetMetadata?.basis,
+        dest.budgetBreakdown?.tickets,
+      )
     ) {
       push(
         "KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE",
-        "state 'verified_free' requires free evidence in basis",
+        "state 'verified_free' requires explicit free evidence in basis (shared rule)",
       );
     }
     // unavailable/not-applicable/variable must carry a reasonCode.
@@ -670,6 +685,20 @@ export function collectDestinationIssues(
       push(
         "KAI214_UNAVAILABLE_WITH_NUMERIC",
         "unavailable state coexists with numeric budget fields",
+      );
+    }
+    // KAI-214 forward numeric-state invariant: verified_paid and
+    // documented_estimate are NUMERIC states — they must carry a valid
+    // stored numeric budget (range or breakdown). A state claiming a
+    // numeric truth with no numeric fields is internally contradictory.
+    if (
+      (budgetState === "verified_paid" ||
+        budgetState === "documented_estimate") &&
+      !hasNumericBudget
+    ) {
+      push(
+        "KAI214_NUMERIC_STATE_WITHOUT_NUMBERS",
+        `state '${budgetState}' requires a valid stored numeric budget (range or breakdown)`,
       );
     }
     // contradictory state+provenance — complete matrix (Blocker: CI

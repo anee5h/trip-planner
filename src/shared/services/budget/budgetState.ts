@@ -37,6 +37,7 @@ import type {
   Destination,
   NormalizedBudgetState,
 } from "@/shared/types/destination";
+import { hasVerifiedFreeEvidence } from "./freeEvidence";
 
 const isFiniteNonNegative = (v: unknown): v is number =>
   typeof v === "number" && Number.isFinite(v) && v >= 0;
@@ -56,31 +57,6 @@ const hasBreakdown = (d: Destination): boolean =>
       d.budgetBreakdown.cafe,
     ].every(isFiniteNonNegative),
   );
-
-/**
- * Shared verified-free evidence rule (single source of truth).
- * Free is NEVER inferred from a zero numeric value, missing admission,
- * tags, kind, or absent data — it requires EXPLICIT free evidence in the
- * basis. EN ("free", "no admission", "no entry fee") and JA (無料, 入場無料,
- * 無料開放) evidence both qualify.
- */
-export function hasVerifiedFreeEvidence(
-  basis: string | undefined,
-  tickets: number | undefined,
-): boolean {
-  if (tickets !== undefined && tickets > 0) return false;
-  if (!basis) return false;
-  // Negative evidence ("not free", "no longer free", "free but admission
-  // applies" edge cases) must NOT qualify. Check negation FIRST.
-  if (
-    /\bnot free\b|not.*free|no longer free|charges apply|admission applies|tickets required|fee applies/i.test(
-      basis,
-    )
-  ) {
-    return false;
-  }
-  return /free|no admission|no entry fee|無料|入場無料|無料開放/i.test(basis);
-}
 
 /**
  * Deterministic mapping from the legacy `method` + numeric fields to the
