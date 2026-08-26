@@ -162,12 +162,43 @@ describe("KAI-217A engine — travel completeness", () => {
     expect((r as { total?: unknown }).total).toBeUndefined();
   });
 
-  it("all components bounded → complete with summed total", () => {
-    const r = calculateTripCost(ctx({ partySize: 2 }));
+  it("all components bounded → complete with summed total", async () => {
+    // KAI-216 repair: a COMPLETE trip requires a complete-scope origin
+    // (whole-journey fare, no missing access leg). A synthetic
+    // transportFares fixture is corridor_only (no origin identity), so use
+    // a real destination with a verified complete shinkansen corridor
+    // (Tokyo→Nagano) + a trusted-manual override so local transport is a
+    // documented allowance.
+    const { getDestinationListAsync } =
+      await import("@/shared/services/destination/DestinationService");
+    const { loadDestinationsIndex } =
+      await import("@/shared/services/place/PlaceCatalog");
+    await loadDestinationsIndex();
+    const list = (await getDestinationListAsync("en")) as Destination[];
+    const base = list.find((d) => d.id === "nagano-city")!;
+    const dest = {
+      ...base,
+      budgetMetadata: {
+        method: "manual" as const,
+        confidence: "low" as const,
+        basis: "verified ticket (ledger LEDGER_VERIFIED)",
+      },
+    } as unknown as Destination;
+    const r = calculateTripCost(
+      ctx({
+        dest,
+        mode: "shinkansen",
+        homeCoords: { lat: 35.6812, lng: 139.7671 },
+        tripMode: "day_trip",
+        partySize: 2,
+      }),
+    );
     expect(r.completeness).toBe("complete");
     if (r.completeness === "complete") {
-      // origin 800×2×2=3200 + admission 1300×2=2600 + local 1000×2=2000.
-      expect(r.total).toEqual({ kind: "bounded", min: 7800, max: 7800 });
+      // origin complete-scope shinkansen (bounded) + admission + local.
+      expect(r.total.kind).toBe("bounded");
+      expect(r.total.min).toBeGreaterThan(0);
+      expect(r.total.max).toBeGreaterThanOrEqual(r.total.min);
       expect(isValidTripCostResult(r)).toBe(true);
     }
   });
@@ -200,13 +231,34 @@ describe("KAI-217A engine — local transport", () => {
         confidence: "low",
         basis: "free area / free walking access (ledger FREE_ENTRY)",
       },
+      walkingMin: 10,
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
+    // Walking evidence (walkingMin > 0 + "walking access" basis) supports
+    // the ¥0 walking fact → bounded [0,0].
     expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
-    expect(c.evidence.state).toBe("verified_free");
-    expect(c.evidence.derivation).toBe("source_fact");
+    // KAI-216 repair: a manual on-site allowance is a DOCUMENTED MODEL
+    // ESTIMATE, never source_fact (it is an allowance, not a verified fare).
+    expect(c.evidence.derivation).toBe("model_estimate");
     expect(c.cost.kind).not.toBe("unavailable");
+  });
+
+  it("manual transport:0 WITHOUT walking evidence stays unavailable (unknown ≠ ¥0)", () => {
+    const dest = paidDest({
+      id: "no-walk-evidence-dest",
+      budgetBreakdown: { transport: 0, tickets: 1300, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket ¥1300 (ledger FIXED_PAID)",
+      },
+      walkingMin: 0,
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    // No walking evidence: the ¥0 is NOT a verified walking fact.
+    expect(c.cost.kind).toBe("unavailable");
   });
 
   it("known local transport scales per-person × party", () => {
@@ -312,7 +364,7 @@ describe("KAI-217A engine — Luna blocker regressions", () => {
     expect(a.evidence.state).toBe("verified_free");
   });
 
-  it("hub not_applicable admission + known local transport → complete (Luna blocker 2)", () => {
+  it("hub not_applicable admission + MODEL peer-cell transport → local transport unavailable (KAI-216 repair: no generic city allowance)", () => {
     const dest = paidDest({
       id: "hub-with-transit",
       role: "hub" as const,
@@ -326,13 +378,17 @@ describe("KAI-217A engine — Luna blocker regressions", () => {
       },
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
-    // Admission N/A (excluded from required set) + local transport known
-    // + bounded origin → complete.
+    // Admission N/A (excluded from required set).
     const a = byScope(r, "admission")!;
     expect(a.cost).toEqual({ kind: "not_applicable" });
+    // KAI-216 repair: a MODEL hub's peer-cell transport value is a generic
+    // city allowance, NOT defensible local-transport evidence → unavailable.
+    // The trip is partial (missing required local transport), never
+    // complete on a generic allowance.
     const lt = byScope(r, "local_transport")!;
-    expect(lt.cost).toEqual({ kind: "bounded", min: 1600, max: 1600 });
-    expect(r.completeness).toBe("complete");
+    expect(lt.cost.kind).toBe("unavailable");
+    expect(r.completeness).toBe("partial");
+    expect(r.total).toBeUndefined();
   });
 
   it("fractional party size fails closed (Luna warning)", () => {

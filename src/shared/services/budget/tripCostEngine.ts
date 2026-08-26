@@ -258,31 +258,61 @@ function admissionComponent(
 }
 
 /**
- * local_transport — the KAI-89 per-person on-site/local-transit allowance
- * (budgetBreakdown.transport) scaled by party, gated by KAI-214 trust.
- * A verified-free record may still carry a real on-site transit allowance
- * (e.g. a free-admission market with ¥1,083 local transit), so local
- * transport reads the ACTUAL breakdown.transport value — never forced to
- * [0,0] by free admission. Verified-free walking is [0,0] ONLY when the
- * record's transport value is truly 0.
+ * local_transport — the required on-site/local-transit cost.
+ *
+ * KAI-216 repair (locked decision): NO generic city allowance. The generic
+ * budgetBreakdown.transport is NOT defensible local-transport evidence:
+ *   - MODEL records (incl. the 106 city hubs with peer-cell transport:3000)
+ *     are generic peer-cell allowances, not route facts → UNAVAILABLE.
+ *   - TRUSTED MANUAL records carry a documented per-person on-site
+ *     allowance → accepted as a DOCUMENTED MODEL ESTIMATE (derivation
+ *     model_estimate), never source_fact — it is an allowance, not a
+ *     verified fare.
+ *   - verified_free walking is [0,0] ONLY when the record's own walking
+ *     evidence supports it (walkingMin/grounds metadata); a legacy
+ *     transport:0 without evidence stays unavailable.
+ * The not_applicable-hub raw-breakdown bypass is REMOVED — a hub's peer-cell
+ * transport value is a generic city allowance and must not become a
+ * canonical required-local-transport fact.
  */
 function localTransportComponent(
   dest: Destination,
   partySize: number,
 ): TripCostComponent {
   const s = normalizeBudgetState(dest);
-  // For a verified not_applicable hub, the admission state is untrusted by
-  // KAI-214 (correct — no single admission product), but the hub's stored
-  // on-site transit allowance is still a real fact. Read the raw breakdown
-  // value for that case; all other states use the trust-gated breakdown.
-  const isNotApplicableHub = s.state === "not_applicable";
-  const breakdown =
-    isNotApplicableHub && dest.budgetBreakdown
-      ? dest.budgetBreakdown
-      : getEffectiveBudgetBreakdown(dest);
+  // Only TRUSTED MANUAL records may contribute a documented on-site
+  // allowance. Model/legacy/unknown/absent and not_applicable hubs all fail
+  // closed (generic peer-cell values are NOT defensible local transport).
+  const breakdown = getEffectiveBudgetBreakdown(dest);
   const transit = breakdown?.transport;
 
-  if (transit !== undefined && Number.isFinite(transit) && transit >= 0) {
+  const isTrustedManual =
+    s.sourceMethod === "manual" && s.trustLevel !== "untrusted";
+
+  if (
+    isTrustedManual &&
+    transit !== undefined &&
+    Number.isFinite(transit) &&
+    transit >= 0
+  ) {
+    // Verified-free walking: [0,0] ONLY with walking evidence (a practical
+    // walk is documented). A manual transport:0 WITHOUT walking evidence is
+    // NOT a verified walking fact — it stays unavailable (unknown ≠ ¥0).
+    const hasWalkingEvidence =
+      (dest.walkingMin ?? 0) > 0 ||
+      /walk|pedestrian|grounds|adjacent/i.test(
+        dest.budgetMetadata?.basis ?? "",
+      );
+    if (transit === 0 && !hasWalkingEvidence) {
+      return {
+        cost: SOURCE_MISSING,
+        evidence: {
+          scope: "local_transport",
+          derivation: "computed",
+          reason: "source_missing",
+        },
+      };
+    }
     return {
       cost: {
         kind: "bounded",
@@ -291,8 +321,7 @@ function localTransportComponent(
       },
       evidence: {
         scope: "local_transport",
-        derivation:
-          s.state === "documented_estimate" ? "model_estimate" : "source_fact",
+        derivation: "model_estimate",
         state: s.state,
         provenance: s.provenance,
       },
@@ -451,10 +480,27 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
     };
   }
 
-  // Partial: any required component open_ended / unavailable / variable.
+  // Partial: any required component open_ended / unavailable / variable,
+  // OR a bounded origin_travel whose fareScope is corridor_only /
+  // local_bounded_estimate (a missing access leg means the origin journey
+  // is NOT whole-journey complete — locked KAI-216 decision).
   const hasNonBounded = components.some((c) => {
     const k = c.cost.kind;
-    return k === "open_ended" || k === "unavailable" || k === "variable";
+    if (k === "open_ended" || k === "unavailable" || k === "variable") {
+      return true;
+    }
+    if (
+      k === "bounded" &&
+      c.evidence.scope === "origin_travel" &&
+      c.evidence.fareScope !== undefined &&
+      c.evidence.fareScope !== "complete"
+    ) {
+      // Bounded corridor-only / local-bounded origin: the verified
+      // corridor/service fare is known but an access leg is missing →
+      // the trip is partial, never complete.
+      return true;
+    }
+    return false;
   });
   if (hasNonBounded) {
     return {

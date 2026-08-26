@@ -38,6 +38,7 @@ import type {
   BudgetReasonCode,
   BudgetValueState,
 } from "@/shared/types/destination";
+import type { TransportFareScope } from "@/shared/services/transport/types";
 
 // ---- Bounded vs open-ended cost representation ----
 
@@ -115,6 +116,13 @@ export interface ComponentEvidence {
   readonly provenance?: BudgetProvenance;
   readonly reason?: BudgetReasonCode;
   readonly sourceUrls?: readonly string[];
+  /**
+   * KAI-216: the transport fare scope carried by the canonical ladder
+   * (complete / corridor_only / local_bounded_estimate / unknown). A
+   * bounded origin_travel with a non-complete scope means an access leg is
+   * missing → the trip is partial, never complete.
+   */
+  readonly fareScope?: TransportFareScope;
   readonly scope: CostScope;
   readonly derivation: CostDerivation;
 }
