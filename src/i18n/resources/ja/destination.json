@@ -6,5 +6,10 @@
     "directions": "ルート検索",
     "share": "目的地を共有",
     "copyLink": "リンクをコピー"
+  },
+  "budget": {
+    "priceVaries": "料金は変動します",
+    "noSingleAdmissionPrice": "単一の入場料はありません",
+    "costUnavailable": "料金不明"
   }
 }

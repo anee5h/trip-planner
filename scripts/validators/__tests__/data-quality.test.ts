@@ -20,8 +20,11 @@ const base: Destination = {
   budgetMax: 2000,
   // KAI-204 phase 3: numeric budgets require explicit provenance — the
   // "clean record" fixture carries trusted manual metadata.
+  // KAI-214: explicit state/provenance (forward-path valid record).
   budgetMetadata: {
     method: "manual",
+    state: "verified_paid",
+    provenance: "verified_source",
     confidence: "low",
     basis: "test fixture — trusted provenance",
   },
@@ -399,4 +402,466 @@ describe("KAI-87 data quality validator", () => {
       ),
     ).toBe(true);
   });
+});
+
+describe("KAI-214 budget-state taxonomy hard contract", () => {
+  const trustedBase = {
+    ...base,
+    budgetMetadata: {
+      method: "manual",
+      confidence: "low",
+      basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+    },
+  };
+
+  async function codes(overrides: Partial<Destination>) {
+    const r = await run([{ ...trustedBase, ...overrides }]);
+    return r.issues.map((i) => i.code);
+  }
+
+  it("verified_paid without verified_source provenance → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        // no provenance
+        basis: "verified",
+      },
+    });
+    expect(c).toContain("KAI214_TRUSTED_STATE_REQUIRES_VERIFIED_PROVENANCE");
+  });
+
+  it("verified_free without evidence → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "admission costs apply (no gratuity evidence)",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("unavailable without reasonCode → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "unknown",
+        state: "unavailable",
+        // no reasonCode
+      },
+    });
+    expect(c).toContain("KAI214_NON_NUMERIC_STATE_REQUIRES_REASON");
+  });
+
+  it("not_applicable carrying tickets>0 → hard error", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 500, tickets: 1500, food: 300, cafe: 200 },
+      budgetMetadata: {
+        method: "manual",
+        state: "not_applicable",
+        provenance: "verified_source",
+        reasonCode: "hub_budget_not_applicable",
+        basis: "hub",
+      },
+    });
+    expect(c).toContain("KAI214_NOT_APPLICABLE_WITH_TICKETS");
+  });
+
+  it("verified_paid + provenance model → contradictory hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "model",
+        state: "verified_paid",
+        provenance: "model",
+        modelVersion: "budget-model-v1",
+      },
+    });
+    expect(c).toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("valid explicit state passes cleanly", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    });
+    expect(c).not.toContain(
+      "KAI214_TRUSTED_STATE_REQUIRES_VERIFIED_PROVENANCE",
+    );
+    expect(c).not.toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("existing records without explicit state emit only the migration-debt warning (ratchet)", async () => {
+    // The current catalogue uses method-only metadata. The KAI-214
+    // TRANSITIONAL_METHOD_ONLY rule fires as a WARNING (baselined debt in
+    // check:catalog-warnings, identity-level). It must NOT be a hard error
+    // (existing 503 records carry it), but NEW instances fail the baseline.
+    const r = await run([
+      {
+        ...trustedBase,
+        budgetMetadata: {
+          method: "manual",
+          confidence: "low",
+          basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_METHOD_ONLY");
+    const transitional = r.issues.find(
+      (i) => i.code === "KAI214_TRANSITIONAL_METHOD_ONLY",
+    );
+    expect(transitional?.severity).toBe("warning");
+    // No OTHER KAI-214 hard error fires on valid method-only data.
+    expect(
+      codes.some(
+        (code) =>
+          code.startsWith("KAI214_") &&
+          code !== "KAI214_TRANSITIONAL_METHOD_ONLY",
+      ),
+    ).toBe(false);
+  });
+
+  it("NEW method-only budget record → migration-debt warning (fails baseline as new fingerprint)", async () => {
+    // A newly introduced record with method-only metadata (no state) relies
+    // on the transitional path. It emits KAI214_TRANSITIONAL_METHOD_ONLY;
+    // because its fingerprint is NOT in the committed baseline, the
+    // check:catalog-warnings gate fails CI. This is the Blocker-1 ratchet.
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-destination",
+        budgetMetadata: {
+          method: "manual",
+          confidence: "low",
+          basis: "some basis",
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_METHOD_ONLY");
+    // The fingerprint (code:id) is what the baseline gate keys on — the
+    // validator reports the warning; the baseline gate rejects new ids.
+  });
+
+  it("NEW record with no metadata but numeric budget → hard error (NUMERIC_BUDGET_WITHOUT_PROVENANCE)", async () => {
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-no-meta",
+        budgetMetadata: undefined,
+        budgetMin: 1000,
+        budgetRecommended: 2000,
+        budgetMax: 3000,
+        budgetBreakdown: {
+          transport: 500,
+          tickets: 1000,
+          food: 300,
+          cafe: 200,
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("NUMERIC_BUDGET_WITHOUT_PROVENANCE");
+  });
+
+  it("estimate/provenance contradiction (documented_estimate + verified_source) → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "documented_estimate",
+        provenance: "verified_source",
+        basis: "verified",
+      },
+    });
+    expect(c).toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("valid forward records pass (no KAI-214 codes)", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    });
+    expect(c.some((code) => code.startsWith("KAI214_"))).toBe(false);
+  });
+
+  it("NEW method-only UNKNOWN record (no numbers) → migration-debt warning (new fingerprint fails baseline)", async () => {
+    // Blocker 1: method:"unknown" with NO numeric fields must ALSO be
+    // transitional debt. Emits KAI214_TRANSITIONAL_METHOD_ONLY; its
+    // fingerprint is not in the committed baseline → CI fails.
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-unknown-debt",
+        budgetMin: undefined,
+        budgetRecommended: undefined,
+        budgetMax: undefined,
+        budgetBreakdown: undefined,
+        budgetMetadata: {
+          method: "unknown",
+          basis: "source missing",
+        },
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_METHOD_ONLY");
+  });
+
+  it("NEW absent-state record (no metadata, no numbers) → KAI214_TRANSITIONAL_STATE_MISSING", async () => {
+    // Blocker 2: completely absent budget state must be transitional debt.
+    const r = await run([
+      {
+        ...trustedBase,
+        id: "brand-new-absent-state",
+        budgetMetadata: undefined,
+        budgetMin: undefined,
+        budgetRecommended: undefined,
+        budgetMax: undefined,
+        budgetBreakdown: undefined,
+      },
+    ]);
+    const codes = r.issues.map((i) => i.code);
+    expect(codes).toContain("KAI214_TRANSITIONAL_STATE_MISSING");
+    const miss = r.issues.find(
+      (i) => i.code === "KAI214_TRANSITIONAL_STATE_MISSING",
+    );
+    expect(miss?.severity).toBe("warning");
+  });
+
+  it("verified_free + 'not free; admission applies' → hard error (shared evidence rule)", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "not free; admission applies",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_free + 'tickets required' → hard error", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "tickets required for entry",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_free + positive ticket cost + 'free ...' → hard error", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 0, tickets: 1500, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "free entry for children",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_free + explicit EN free evidence + zero tickets → pass", async () => {
+    const c = await codes({
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "free admission (ledger FREE_ENTRY); official site",
+      },
+    });
+    expect(c).not.toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+    expect(c).not.toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("verified_free + explicit JA free evidence (入場無料) → pass", async () => {
+    const c = await codes({
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "入場無料（公式サイト確認）",
+      },
+    });
+    expect(c).not.toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("verified_paid + verified_source + NO numeric fields → hard error (numeric-state invariant)", async () => {
+    const c = await codes({
+      budgetMin: undefined,
+      budgetRecommended: undefined,
+      budgetMax: undefined,
+      budgetBreakdown: undefined,
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        basis: "verified ticket ¥1500",
+      },
+    });
+    expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+
+  it("documented_estimate + model + NO numeric fields → hard error (numeric-state invariant)", async () => {
+    const c = await codes({
+      budgetMin: undefined,
+      budgetRecommended: undefined,
+      budgetMax: undefined,
+      budgetBreakdown: undefined,
+      budgetMetadata: {
+        method: "model",
+        state: "documented_estimate",
+        provenance: "model",
+        modelVersion: "budget-model-v1",
+        basis: "peer cell n=8",
+      },
+    });
+    expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+
+  it("valid verified_paid with numeric fields → passes invariant", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    });
+    expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+
+  it("valid documented_estimate with numeric fields → passes invariant", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "model",
+        state: "documented_estimate",
+        provenance: "model",
+        modelVersion: "budget-model-v1",
+        confidence: "low",
+        basis: "peer cell n=8",
+      },
+    });
+    expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+  });
+});
+
+describe("KAI-214 valid numeric-shape contract (final blocker)", () => {
+  // Local base (trustedBase from the sibling describe is out of scope).
+  const shapeBase = {
+    ...base,
+    budgetMetadata: {
+      method: "manual",
+      confidence: "low",
+      basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+    },
+  };
+  const paidMeta = {
+    method: "manual",
+    state: "verified_paid" as const,
+    provenance: "verified_source" as const,
+    confidence: "low",
+    basis: "verified ticket ¥1500",
+  };
+  const estMeta = {
+    method: "model",
+    state: "documented_estimate" as const,
+    provenance: "model" as const,
+    modelVersion: "budget-model-v1",
+    confidence: "low",
+    basis: "peer cell n=8",
+  };
+  const noNumbers = {
+    budgetMin: undefined,
+    budgetRecommended: undefined,
+    budgetMax: undefined,
+    budgetBreakdown: undefined,
+  };
+
+  async function invariantCodes(meta: object, shape: object) {
+    const r = await run([
+      { ...shapeBase, ...noNumbers, ...shape, budgetMetadata: meta },
+    ]);
+    return r.issues.map((i) => i.code);
+  }
+
+  for (const [label, meta] of [
+    ["verified_paid", paidMeta],
+    ["documented_estimate", estMeta],
+  ] as const) {
+    it(`${label}: only budgetMin → KAI214_NUMERIC_STATE_WITHOUT_NUMBERS`, async () => {
+      const c = await invariantCodes(meta, { budgetMin: 1200 });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: only budgetMax → error`, async () => {
+      const c = await invariantCodes(meta, { budgetMax: 3000 });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: only budgetRecommended → error`, async () => {
+      const c = await invariantCodes(meta, { budgetRecommended: 2000 });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: partial breakdown → error`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetBreakdown: { transport: 500, tickets: 1500 },
+      });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: invalid min > max → error`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetMin: 5000,
+        budgetMax: 1000,
+      });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: valid min/max range → passes invariant`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetMin: 1000,
+        budgetMax: 3000,
+      });
+      expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: valid complete breakdown → passes invariant`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetBreakdown: {
+          transport: 500,
+          tickets: 1000,
+          food: 300,
+          cafe: 200,
+        },
+      });
+      expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+  }
 });

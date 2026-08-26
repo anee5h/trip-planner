@@ -57,9 +57,11 @@ function makeDest(
     budgetRecommended: 2000,
     budgetMax: 5000,
     // KAI-204 phase 3: numeric budgets require provenance — fixtures carry
-    // legacy metadata so the trust-boundary guard does not fire on them.
+    // explicit KAI-214 state so the trust-boundary guards do not fire.
     budgetMetadata: {
       method: "legacy",
+      state: "legacy_unverified",
+      provenance: "legacy",
       confidence: "unknown",
       basis: "test fixture",
     },
@@ -767,5 +769,134 @@ describe("catalogue generated-file checks", () => {
       toOutputMap(gen2),
     );
     expect(cmp.changedOnRegen).toEqual(["detail:a-place"]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// KAI-214 identity-level transitional ratchet
+// ---------------------------------------------------------------------------
+
+/** A method-only (transitional debt) destination — no explicit state. */
+function methodOnlyDest(id: string): Destination {
+  return makeDest(id, {
+    budgetMetadata: {
+      method: "unknown",
+      basis: "source missing",
+    },
+    budgetMin: undefined,
+    budgetRecommended: undefined,
+    budgetMax: undefined,
+    budgetBreakdown: undefined,
+  });
+}
+
+/** An absent-state destination — no budgetMetadata at all. */
+function absentStateDest(id: string): Destination {
+  return makeDest(id, {
+    budgetMetadata: undefined,
+    budgetMin: undefined,
+    budgetRecommended: undefined,
+    budgetMax: undefined,
+    budgetBreakdown: undefined,
+  });
+}
+
+/** A forward-contract destination — explicit state (NOT debt). */
+function forwardDest(id: string): Destination {
+  return makeDest(id, {
+    budgetMetadata: {
+      method: "manual",
+      state: "verified_paid",
+      provenance: "verified_source",
+      confidence: "low",
+      basis: "verified ticket ¥1500",
+    },
+  });
+}
+
+describe("KAI-214 identity-level transitional ratchet", () => {
+  it("existing method-only ID → accepted by baseline (migration debt)", () => {
+    const root = tmpRoot();
+    writeWarningsFixture(root, [methodOnlyDest("old-method-only"), refHub()]);
+    const baseline = baselineFor(root);
+    expect(
+      baseline.warningFingerprints[
+        "KAI214_TRANSITIONAL_METHOD_ONLY:old-method-only"
+      ],
+    ).toBe(1);
+    const cmp = compareToBaseline(auditReport(root), baseline);
+    expect(cmp.added).toHaveLength(0);
+  });
+
+  it("NEW method-only UNKNOWN ID → rejected (new fingerprint)", () => {
+    const root = tmpRoot();
+    // Baseline has old-method-only; current catalogue adds brand-new.
+    writeWarningsFixture(root, [methodOnlyDest("old-method-only"), refHub()]);
+    const baseline = baselineFor(root);
+    // New record appears.
+    writeWarningsFixture(root, [
+      methodOnlyDest("old-method-only"),
+      methodOnlyDest("brand-new-unknown"),
+      refHub(),
+    ]);
+    const cmp = compareToBaseline(auditReport(root), baseline);
+    expect(cmp.added.map(warningFingerprint)).toContain(
+      "KAI214_TRANSITIONAL_METHOD_ONLY:brand-new-unknown",
+    );
+  });
+
+  it("existing absent-state ID → accepted by baseline (migration debt)", () => {
+    const root = tmpRoot();
+    writeWarningsFixture(root, [absentStateDest("old-absent"), refHub()]);
+    const baseline = baselineFor(root);
+    expect(
+      baseline.warningFingerprints[
+        "KAI214_TRANSITIONAL_STATE_MISSING:old-absent"
+      ],
+    ).toBe(1);
+    const cmp = compareToBaseline(auditReport(root), baseline);
+    expect(cmp.added).toHaveLength(0);
+  });
+
+  it("NEW absent-state ID → rejected (new fingerprint)", () => {
+    const root = tmpRoot();
+    writeWarningsFixture(root, [absentStateDest("old-absent"), refHub()]);
+    const baseline = baselineFor(root);
+    writeWarningsFixture(root, [
+      absentStateDest("old-absent"),
+      absentStateDest("brand-new-absent"),
+      refHub(),
+    ]);
+    const cmp = compareToBaseline(auditReport(root), baseline);
+    expect(cmp.added.map(warningFingerprint)).toContain(
+      "KAI214_TRANSITIONAL_STATE_MISSING:brand-new-absent",
+    );
+  });
+
+  it("migrating an existing ID to forward state shrinks debt safely", () => {
+    const root = tmpRoot();
+    writeWarningsFixture(root, [methodOnlyDest("old-method-only"), refHub()]);
+    const baseline = baselineFor(root);
+    // Record gains explicit state → its debt fingerprint disappears.
+    writeWarningsFixture(root, [forwardDest("old-method-only"), refHub()]);
+    const cmp = compareToBaseline(auditReport(root), baseline);
+    expect(cmp.reduced).toContain(
+      "KAI214_TRANSITIONAL_METHOD_ONLY:old-method-only",
+    );
+    expect(cmp.added).toHaveLength(0);
+  });
+
+  it("swapping one old fingerprint for one new cannot keep the same count and pass", () => {
+    const root = tmpRoot();
+    writeWarningsFixture(root, [methodOnlyDest("old-a"), refHub()]);
+    const baseline = baselineFor(root);
+    // Same count (1 transitional), but a DIFFERENT id.
+    writeWarningsFixture(root, [methodOnlyDest("new-b"), refHub()]);
+    const cmp = compareToBaseline(auditReport(root), baseline);
+    // The count is unchanged but the fingerprint set moved — this MUST fail.
+    expect(cmp.added.map(warningFingerprint)).toEqual([
+      "KAI214_TRANSITIONAL_METHOD_ONLY:new-b",
+    ]);
+    expect(cmp.reduced).toEqual(["KAI214_TRANSITIONAL_METHOD_ONLY:old-a"]);
   });
 });

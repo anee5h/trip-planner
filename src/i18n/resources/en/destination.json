@@ -6,5 +6,10 @@
     "directions": "Get Directions",
     "share": "Share destination",
     "copyLink": "Copy destination link"
+  },
+  "budget": {
+    "priceVaries": "Price varies",
+    "noSingleAdmissionPrice": "No single admission price",
+    "costUnavailable": "Cost unavailable"
   }
 }
