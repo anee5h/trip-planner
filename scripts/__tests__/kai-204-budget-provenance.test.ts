@@ -83,12 +83,14 @@ describe("KAI-204 on-site budget provenance repair", () => {
       expect(d, id).toBeDefined();
       const meta = d!.budgetMetadata?.method ?? "absent";
       // These must NOT carry manual/model provenance with a fabricated
-      // budget. They may be unknown, absent, or (for records the model
+      // budget. They may be unknown, absent, legacy (numbers preserved but
+      // not trusted — KAI-204 phase 3), or (for records the model
       // legitimately filled from the same ledger entry, e.g. free-entry
       // yokohama-cosmo-world) model — but never with invented numbers.
-      expect(["unknown", "absent", "model"], `${id} method ${meta}`).toContain(
-        meta,
-      );
+      expect(
+        ["unknown", "absent", "legacy", "model"],
+        `${id} method ${meta}`,
+      ).toContain(meta);
       if (meta === "unknown") {
         // unknown is authoritative: no numeric budget may coexist.
         expect(d!.budgetMin, `${id} min`).toBeUndefined();
@@ -178,17 +180,76 @@ describe("KAI-204 on-site budget provenance repair", () => {
   });
 
   it("catalogue metadata baseline is stable after repair", () => {
-    const counts = { manual: 0, model: 0, unknown: 0, absent: 0 };
+    const counts = { manual: 0, model: 0, unknown: 0, legacy: 0, absent: 0 };
     for (const d of destinations) {
       const m = d.budgetMetadata?.method ?? "absent";
       counts[m as keyof typeof counts]++;
     }
-    // Exact post-repair state: 38 manual, 112 model, 462 unknown, 445 absent.
+    // KAI-204 phase 3 state: 38 manual, 112 model, 462 unknown, 329 legacy,
+    // 116 absent (no numbers), 0 invalid.
     expect(counts).toEqual({
       manual: 38,
       model: 112,
       unknown: 462,
-      absent: 445,
+      legacy: 329,
+      absent: 116,
     });
+  });
+
+  it("legacy records keep numeric values in storage but are never trusted", () => {
+    // Phase 3 invariant: every legacy record still carries its numbers
+    // (STORAGE preserved) and every legacy record is non-hub.
+    const legacy = destinations.filter(
+      (d) => d.budgetMetadata?.method === "legacy",
+    );
+    expect(legacy.length).toBe(329);
+    const HUB_KINDS = new Set(["city", "ward", "town", "village"]);
+    for (const d of legacy) {
+      const isHub = HUB_KINDS.has(d.kind ?? "") || d.role === "hub";
+      expect(isHub, `${d.id} hub`).toBe(false);
+      // Numbers preserved for storage/migration value.
+      expect(
+        d.budgetMin !== undefined ||
+          d.budgetRecommended !== undefined ||
+          d.budgetMax !== undefined ||
+          d.budgetBreakdown !== undefined,
+        `${d.id} numbers`,
+      ).toBe(true);
+      expect(d.budgetMetadata?.confidence).toBe("unknown");
+    }
+  });
+
+  it("no numeric budget coexists with method 'unknown' (two-truths invariant, legacy excluded)", () => {
+    const bad = destinations.filter((d) => {
+      if (d.budgetMetadata?.method !== "unknown") return false;
+      return (
+        d.budgetMin !== undefined ||
+        d.budgetRecommended !== undefined ||
+        d.budgetMax !== undefined ||
+        d.budgetBreakdown !== undefined
+      );
+    });
+    expect(bad.map((d) => d.id)).toEqual([]);
+  });
+
+  it("every absent-metadata numeric record is hub-class (no pure legacy or ambiguous-ledger remains)", () => {
+    // After phase 3 tagging, the ONLY absent-metadata records still carrying
+    // numeric budgets are hub-class records (kind city/ward/town/village or
+    // role hub — a separate hub-convention policy class, not legacy). No
+    // non-hub record may remain absent-with-numbers.
+    const HUB_KINDS = new Set(["city", "ward", "town", "village"]);
+    const absent = destinations.filter((d) => !d.budgetMetadata);
+    const absentNumeric = absent.filter(
+      (d) =>
+        d.budgetMin !== undefined ||
+        d.budgetRecommended !== undefined ||
+        d.budgetMax !== undefined ||
+        d.budgetBreakdown !== undefined,
+    );
+    for (const d of absentNumeric) {
+      const isHub = HUB_KINDS.has(d.kind ?? "") || d.role === "hub";
+      expect(isHub, `${d.id} must be hub-class`).toBe(true);
+    }
+    expect(absentNumeric.length).toBe(24);
   });
 });

@@ -1,4 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
+import { hasTrustedBudgetProvenance } from "@/shared/services/budget/BudgetService";
 import type {
   DayPlan,
   PlanAssumption,
@@ -113,7 +114,14 @@ export function calculateGeneratedPlanCost(
   let hasMissingTickets = false;
 
   uniqueDestinationsMap.forEach((dest) => {
-    if (typeof dest.budgetBreakdown?.tickets === "number") {
+    // KAI-204 phase 3: only TRUSTED provenance (manual verified ticket or
+    // documented model output) may contribute admission to a generated plan.
+    // Absent-metadata legacy numbers and method "unknown" records must not
+    // leak unverified ticket values into a "curated" plan cost.
+    if (
+      hasTrustedBudgetProvenance(dest) &&
+      typeof dest.budgetBreakdown?.tickets === "number"
+    ) {
       const ticketVal = dest.budgetBreakdown.tickets;
       totalAdmissionMin += ticketVal * safeParty;
       totalAdmissionMax += ticketVal * safeParty;

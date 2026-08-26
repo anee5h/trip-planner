@@ -125,6 +125,7 @@ function budgetMethods(list: Destination[]) {
     manual: 0,
     model: 0,
     unknown: 0,
+    legacy: 0,
     absent: 0,
     invalid: 0,
   };
@@ -134,9 +135,11 @@ function budgetMethods(list: Destination[]) {
     const bucket =
       method === "manual" || method === "model" || method === "unknown"
         ? method
-        : method === undefined
-          ? "absent"
-          : "invalid";
+        : method === "legacy"
+          ? "legacy"
+          : method === undefined
+            ? "absent"
+            : "invalid";
     counts[bucket] = (counts[bucket] ?? 0) + 1;
     if ((samples[bucket] ?? []).length < 10) {
       (samples[bucket] ??= []).push(destination.id);

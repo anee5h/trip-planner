@@ -108,7 +108,21 @@ export function TripCostBreakdownWidget({
     viewMode === "party"
       ? range
       : [Math.round(range[0] / partySize), Math.round(range[1] / partySize)];
-  const hasKnownCost = Boolean(planCostBreakdown || cost.budgetAvailable);
+  const hasKnownCost = planCostBreakdown
+    ? // KAI-204 phase 3: a populated plan cost object is only "known" when
+      // its admission component carries trusted provenance. A plan built
+      // from legacy absent-metadata or unknown-ticket destinations sets
+      // admission.source="unknown" — the widget must not present those
+      // unverified totals as a known cost.
+      planCostBreakdown.admission.source !== "unknown" &&
+      Boolean(
+        planCostBreakdown.originTransport.applicable ||
+        planCostBreakdown.localTransit.applicable ||
+        planCostBreakdown.admission.applicable ||
+        planCostBreakdown.meals.applicable ||
+        planCostBreakdown.parking.applicable,
+      )
+    : cost.budgetAvailable;
   const transportRange: [number, number] = planCostBreakdown
     ? [
         planCostBreakdown.originTransport.min +

@@ -48,9 +48,13 @@ function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
  * KAI-89: budgetMetadata.method "unknown" is AUTHORITATIVE — even if legacy
  * numbers linger on the record, the metadata state wins and the budget is
  * treated as unknown (never 0, never free, never compared).
+ * KAI-204 phase 3: method "legacy" (numeric values without recoverable
+ * provenance) is treated the SAME as unknown for trust purposes — the
+ * numbers exist in storage but are not trustworthy enough for consumers.
  */
 export function hasKnownBudget(dest: Destination): boolean {
-  if (dest.budgetMetadata?.method === "unknown") return false;
+  const method = dest.budgetMetadata?.method;
+  if (method === "unknown" || method === "legacy") return false;
   const breakdown = dest.budgetBreakdown;
   const bMin = dest.budgetMin;
   const bMax = dest.budgetMax;
@@ -68,6 +72,16 @@ export function hasKnownBudget(dest: Destination): boolean {
 }
 
 /**
+ * True when the record carries explicit trusted provenance (manual verified
+ * ticket or documented model output). "legacy" and "unknown" are never
+ * trusted for consumption.
+ */
+export function hasTrustedBudgetProvenance(dest: Destination): boolean {
+  const method = dest.budgetMetadata?.method;
+  return method === "manual" || method === "model";
+}
+
+/**
  * KAI-89 type guard: both budget bounds are finite known values with a
  * valid order. Narrows the Destination so consumers can safely do price
  * arithmetic (unknown budgets must never act as 0/free in comparisons,
@@ -78,8 +92,11 @@ export function hasKnownBudgetRange(
 ): dest is Destination & { budgetMin: number; budgetMax: number } {
   // budgetMetadata.method "unknown" is authoritative: even with numbers on
   // the record, the budget is unknown (two competing truths must never
-  // surface through the type guard).
-  if (dest.budgetMetadata?.method === "unknown") return false;
+  // surface through the type guard). KAI-204 phase 3: method "legacy" is
+  // treated identically — numbers without recoverable provenance are not
+  // trustworthy for consumption.
+  const method = dest.budgetMetadata?.method;
+  if (method === "unknown" || method === "legacy") return false;
   return (
     typeof dest.budgetMin === "number" &&
     Number.isFinite(dest.budgetMin) &&
@@ -735,7 +752,10 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
 } | null {
   // KAI-89: budgetMetadata.method "unknown" is AUTHORITATIVE — even a
   // breakdown present on the record must not be consumed as known.
-  if (dest.budgetMetadata?.method === "unknown") return null;
+  // KAI-204 phase 3: method "legacy" is treated identically — numeric values
+  // without recoverable provenance must not enter consumption.
+  const method = dest.budgetMetadata?.method;
+  if (method === "unknown" || method === "legacy") return null;
   if (
     dest.budgetBreakdown &&
     [

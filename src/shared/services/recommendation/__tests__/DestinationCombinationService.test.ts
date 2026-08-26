@@ -17,6 +17,14 @@ const mockDest1 = {
   categories: ["Observation Deck"],
   budgetMin: 2000,
   budgetMax: 3000,
+  // KAI-204 phase 3: trusted provenance required for combination budgets —
+  // shibuya-sky's real catalogue record is legacy-tagged, so the fixture
+  // carries explicit manual metadata.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   recommendedVisitHours: { min: 1.5, max: 2.5 },
   ratings: { rain: 8 },
 } as unknown as Destination;
@@ -38,7 +46,13 @@ describe("DestinationCombinationService", () => {
     expect(first.secondary.id).not.toBe(mockDest1.id);
     expect(first.interDistanceKm).toBeLessThanOrEqual(20);
     expect(first.combinedVisitHours[0]).toBeGreaterThan(0);
-    expect(first.combinedBudgetRange?.[0]).toBeGreaterThanOrEqual(0);
+    // KAI-204 phase 3: combinedBudgetRange is only present when BOTH sides
+    // carry trusted provenance. Secondary records from the real catalogue
+    // are largely legacy-tagged, so the range may be null — it must never be
+    // a fabricated number from an untrusted side.
+    if (first.combinedBudgetRange !== null) {
+      expect(first.combinedBudgetRange![0]).toBeGreaterThanOrEqual(0);
+    }
     expect(first.explanation.en).toBeTruthy();
     expect(first.explanation.ja).toBeTruthy();
   });
@@ -53,9 +67,13 @@ describe("DestinationCombinationService", () => {
       const sVisitMin = sEff.minMins / 60;
       expect(combo.combinedVisitHours[0]).toBeCloseTo(pVisitMin + sVisitMin, 1);
 
-      const expectedBudgetMin =
-        (mockDest1.budgetMin ?? 0) + (combo.secondary.budgetMin ?? 0);
-      expect(combo.combinedBudgetRange?.[0]).toBe(expectedBudgetMin);
+      // Both sides must be trusted for a combined budget range; otherwise
+      // the range is honestly null (never a fabricated 0 + legacy).
+      if (combo.combinedBudgetRange !== null) {
+        const expectedBudgetMin =
+          (mockDest1.budgetMin ?? 0) + (combo.secondary.budgetMin ?? 0);
+        expect(combo.combinedBudgetRange[0]).toBe(expectedBudgetMin);
+      }
     }
   });
 

@@ -40,7 +40,7 @@ const truthPath = path.join(
   "scripts/audit/kai-89-calibration-truth.json",
 );
 
-type Method = "manual" | "model" | "unknown";
+type Method = "manual" | "model" | "unknown" | "legacy";
 type AuditClass =
   | "A_VERIFIED_SOURCE_BACKED"
   | "B_MODEL_DECLARED"
@@ -51,7 +51,8 @@ type AuditClass =
   | "G_POSSIBLY_FREE_UNVERIFIED"
   | "H_GENUINE_UNKNOWN"
   | "I_NOT_APPLICABLE"
-  | "J_MALFORMED_INCONSISTENT";
+  | "J_MALFORMED_INCONSISTENT"
+  | "K_LEGACY_UNVERIFIED";
 
 interface EvidenceEntry {
   jpy?: number;
@@ -140,7 +141,7 @@ for (const d of destinations) {
   let cls: AuditClass;
   let reason: string;
 
-  if (bm && !["manual", "model", "unknown"].includes(bm.method)) {
+  if (bm && !["manual", "model", "unknown", "legacy"].includes(bm.method)) {
     cls = "J_MALFORMED_INCONSISTENT";
     reason = `invalid budgetMetadata.method '${bm.method}'`;
   } else if (numeric && method === "unknown") {
@@ -186,6 +187,11 @@ for (const d of destinations) {
       cls = "E_EXPLICIT_UNKNOWN";
       reason = `explicit unknown (${bm?.basis ?? "no basis"})`;
     }
+  } else if (method === "legacy") {
+    // K_LEGACY_UNVERIFIED: numeric values with explicit legacy provenance —
+    // numbers preserved in storage but NOT trustworthy for consumption.
+    cls = "K_LEGACY_UNVERIFIED";
+    reason = `legacy numeric budget without recoverable provenance: ${bm?.basis ?? "no basis"}`;
   } else {
     // absent metadata
     if (numeric || breakdown) {
@@ -234,6 +240,7 @@ const classOrder: AuditClass[] = [
   "H_GENUINE_UNKNOWN",
   "I_NOT_APPLICABLE",
   "J_MALFORMED_INCONSISTENT",
+  "K_LEGACY_UNVERIFIED",
 ];
 
 const baseline = {
@@ -241,6 +248,7 @@ const baseline = {
   manual: records.filter((r) => r.metadata === "manual").length,
   model: records.filter((r) => r.metadata === "model").length,
   unknown: records.filter((r) => r.metadata === "unknown").length,
+  legacy: records.filter((r) => r.metadata === "legacy").length,
   absent: records.filter((r) => r.metadata === "absent").length,
   invalid: records.filter((r) => r.cls === "J_MALFORMED_INCONSISTENT").length,
 };
@@ -351,7 +359,7 @@ if (process.argv.includes("--json")) {
   console.log("=======================================");
   console.log(`total: ${baseline.total}`);
   console.log(
-    `manual: ${baseline.manual}  model: ${baseline.model}  unknown: ${baseline.unknown}  absent: ${baseline.absent}  invalid: ${baseline.invalid}`,
+    `manual: ${baseline.manual}  model: ${baseline.model}  unknown: ${baseline.unknown}  legacy: ${baseline.legacy}  absent: ${baseline.absent}  invalid: ${baseline.invalid}`,
   );
   console.log("\nclass counts:");
   for (const c of classOrder) {

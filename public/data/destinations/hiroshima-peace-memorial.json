@@ -211,5 +211,10 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
+  },
+  "budgetMetadata": {
+    "method": "legacy",
+    "confidence": "unknown",
+    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   }
 }

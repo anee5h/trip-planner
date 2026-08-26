@@ -708,9 +708,17 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
     // ~17,667 (PASSED economy ≤ 20,000); with 7467×2 it is ~32,718 and must
     // be EXCLUDED from the economy tier. Removing budgetBreakdown.transport
     // from the origin-aware calculation fails this test.
-    const boso = (await fullList()).find(
-      (d) => d.id === "boso-peninsula",
-    ) as unknown as Destination;
+    // KAI-204 phase 3: boso-peninsula is now legacy-tagged (no provenance),
+    // so a trusted manual-metadata fixture with the same shape is used.
+    const boso = {
+      ...(await fullList()).find((d) => d.id === "boso-peninsula"),
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis:
+          "test fixture — trusted provenance for on-site transit inclusion",
+      },
+    } as unknown as Destination;
     const r = getEstimatedBudgetRange(boso, "train", 2, "economy", TOKYO);
     expect(r.transportIncluded).toBe(true);
     expect(r.range).not.toBeNull();
@@ -994,5 +1002,84 @@ describe("KAI-204 free-vs-unknown safety (Phase 5)", () => {
       expect(freeByRangeAbsent).toHaveLength(0);
       expect(freeByRange.length).toBeGreaterThanOrEqual(0);
     });
+  });
+});
+
+describe("KAI-204 legacy budget trust boundary (Phase 3)", () => {
+  const legacyDest = {
+    ...mockPaidDest,
+    budgetMetadata: {
+      method: "legacy",
+      confidence: "unknown",
+      basis: "legacy numeric budget without recoverable provenance",
+    },
+  } as unknown as Destination;
+
+  it("hasKnownBudget returns false for legacy metadata", () => {
+    expect(BudgetServiceModule.hasKnownBudget(legacyDest)).toBe(false);
+  });
+
+  it("hasKnownBudgetRange returns false for legacy metadata", () => {
+    expect(hasKnownBudgetRange(legacyDest)).toBe(false);
+  });
+
+  it("getEffectiveBudgetBreakdown returns null for legacy metadata", () => {
+    expect(getEffectiveBudgetBreakdown(legacyDest)).toBeNull();
+  });
+
+  it("isFreeDestination returns false for legacy metadata even with free tags", () => {
+    const legacyFreeTag = {
+      ...legacyDest,
+      categories: ["Park"],
+      tags: ["Free"],
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetRecommended: 0,
+    } as unknown as Destination;
+    expect(isFreeDestination(legacyFreeTag)).toBe(false);
+  });
+
+  it("getEstimatedBudgetRange returns no range for legacy metadata", () => {
+    const result = getEstimatedBudgetRange(legacyDest, "train", 2, "standard", {
+      lat: 35.68,
+      lng: 139.76,
+    });
+    expect(result.range).toBeNull();
+  });
+
+  it("getSortableVerifiedBudget returns Infinity for legacy metadata", () => {
+    const sortable = getSortableVerifiedBudget(legacyDest, ["train"], 2, {
+      lat: 35.68,
+      lng: 139.76,
+    });
+    expect(sortable).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  it("hasTrustedBudgetProvenance distinguishes legacy from manual/model", () => {
+    expect(BudgetServiceModule.hasTrustedBudgetProvenance(legacyDest)).toBe(
+      false,
+    );
+    const manualDest = {
+      ...mockPaidDest,
+      budgetMetadata: { method: "manual" },
+    } as unknown as Destination;
+    const modelDest = {
+      ...mockPaidDest,
+      budgetMetadata: { method: "model", modelVersion: "budget-model-v1" },
+    } as unknown as Destination;
+    expect(BudgetServiceModule.hasTrustedBudgetProvenance(manualDest)).toBe(
+      true,
+    );
+    expect(BudgetServiceModule.hasTrustedBudgetProvenance(modelDest)).toBe(
+      true,
+    );
+  });
+
+  it("legacy records with numbers still keep them in storage (not deleted)", () => {
+    // Phase 8: STORAGE is separated from TRUST. The numbers remain on the
+    // record for migration/debugging value even though consumption is gated.
+    expect(legacyDest.budgetMin).toBe(mockPaidDest.budgetMin);
+    expect(legacyDest.budgetRecommended).toBe(mockPaidDest.budgetRecommended);
+    expect(legacyDest.budgetBreakdown).toBeDefined();
   });
 });

@@ -380,9 +380,15 @@ export interface Destination {
    * consumers treat it as unknown even if legacy numbers linger). method
    * "manual" marks accepted-debt budgets (verified ticket preserved with
    * legacy components — numbers remain usable, provenance states the fact).
+   * KAI-204 phase 3: method "legacy" marks numeric budget values WITHOUT
+   * recoverable provenance (historical/template/formula generations). The
+   * numbers remain in storage for migration/debugging value but must NOT be
+   * consumed as trusted by display, scoring, filtering, or planning —
+   * consumers treat "legacy" exactly like "unknown" for trust purposes
+   * (STORAGE is separated from TRUST at the semantic boundary).
    */
   budgetMetadata?: {
-    method: "model" | "manual" | "unknown";
+    method: "model" | "manual" | "unknown" | "legacy";
     modelVersion?: string;
     confidence?: "high" | "medium" | "low" | "unknown";
     basis?: string;

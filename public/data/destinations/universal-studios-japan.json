@@ -278,5 +278,10 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details."
+  "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details.",
+  "budgetMetadata": {
+    "method": "legacy",
+    "confidence": "unknown",
+    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  }
 }
