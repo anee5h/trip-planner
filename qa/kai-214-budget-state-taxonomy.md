@@ -2,7 +2,7 @@
 
 Branch: `feat/kai-214-budget-state-taxonomy`
 Starting SHA: `f77aecc554524072efa01eb18c53a35f43777e98` (post-#263 main)
-Blocker-fix head: `c6fbc684b2c87ee9d977db495adaf001f2c8ba55` (reviewed) → final (below)
+Blocker-fix head: `2b103d5e1a68a7dc0e0e2fff2da94778c18946de` (reviewed) → final (below)
 
 ## Objective
 
@@ -166,6 +166,26 @@ catalog-ci.test.ts proves: existing method-only ID accepted; NEW method-only
 UNKNOWN ID rejected; existing absent-state ID accepted; NEW absent-state ID
 rejected; migrating to forward state shrinks debt; swapping one old
 fingerprint for one new (same count) fails.
+
+### Valid numeric-shape contract (final blocker on head 2b103d5e)
+
+`KAI214_NUMERIC_STATE_WITHOUT_NUMBERS` now uses the SHARED valid-shape
+predicate `hasValidStoredNumericBudget` (numericBudgetShape.ts) instead of
+field-presence. A valid stored numeric budget is a valid range (min/max
+finite non-negative, min<=max) OR a complete breakdown (all four components
+finite non-negative). A lone budgetMin/budgetRecommended/budgetMax or
+partial breakdown does NOT satisfy the contract — presence is not shape.
+
+Shared module: `src/shared/services/budget/numericBudgetShape.ts`
+(dependency-neutral) — used by budgetState.ts (hasNumericRange/hasBreakdown/
+hasStoredNumericBudget) AND the data-quality validator. Runtime and
+validator cannot drift.
+
+Tests (both verified_paid and documented_estimate): only budgetMin → error;
+only budgetMax → error; only budgetRecommended → error; partial breakdown →
+error; invalid min>max → error; valid range → pass; valid breakdown → pass.
+Plus validator/runtime agreement invariant: CI-valid shape always reports
+hasNumericRange||hasBreakdown at runtime; CI-invalid shape never does.
 
 ## Runtime safety preserved (KAI-204 regression)
 

@@ -564,3 +564,88 @@ describe("KAI-214 shared free-evidence rule (runtime/validator agreement)", () =
     }
   });
 });
+
+describe("KAI-214 validator/runtime numeric-shape agreement (final blocker)", () => {
+  it("CI-valid numeric shapes always report hasNumericRange || hasBreakdown at runtime", () => {
+    // If the CI invariant passes (valid range or complete breakdown), the
+    // runtime normalizer MUST report a consumable numeric shape — this
+    // prevents validator/runtime drift.
+    const validShapes = [
+      { budgetMin: 1000, budgetMax: 3000 },
+      {
+        budgetBreakdown: {
+          transport: 500,
+          tickets: 1000,
+          food: 300,
+          cafe: 200,
+        },
+      },
+      {
+        budgetMin: 1000,
+        budgetRecommended: 2000,
+        budgetMax: 3000,
+        budgetBreakdown: {
+          transport: 500,
+          tickets: 1000,
+          food: 300,
+          cafe: 200,
+        },
+      },
+    ];
+    for (const shape of validShapes) {
+      const d = {
+        ...base,
+        ...shape,
+        budgetMetadata: {
+          method: "manual",
+          state: "verified_paid" as const,
+          provenance: "verified_source" as const,
+          confidence: "low",
+          basis: "verified ticket ¥1500",
+        },
+      } as unknown as Destination;
+      const s = normalizeBudgetState(d);
+      expect(s.hasNumericRange || s.hasBreakdown, JSON.stringify(shape)).toBe(
+        true,
+      );
+      expect(hasDisplayableBudget(d), JSON.stringify(shape)).toBe(true);
+    }
+  });
+
+  it("CI-invalid shapes (presence without shape) report NO consumable numeric at runtime", () => {
+    // The blocker case: a lone budgetMin looks present but is not a valid
+    // shape — runtime must agree it is NOT consumable.
+    const cleared = {
+      budgetMin: undefined,
+      budgetRecommended: undefined,
+      budgetMax: undefined,
+      budgetBreakdown: undefined,
+    };
+    const invalidShapes = [
+      { budgetMin: 1200 },
+      { budgetMax: 3000 },
+      { budgetRecommended: 2000 },
+      { budgetBreakdown: { transport: 500, tickets: 1500 } }, // partial
+      { budgetMin: 5000, budgetMax: 1000 }, // inverted
+    ];
+    for (const shape of invalidShapes) {
+      const d = {
+        ...base,
+        ...cleared,
+        ...shape,
+        budgetMetadata: {
+          method: "manual",
+          state: "verified_paid" as const,
+          provenance: "verified_source" as const,
+          confidence: "low",
+          basis: "verified ticket ¥1500",
+        },
+      } as unknown as Destination;
+      const s = normalizeBudgetState(d);
+      expect(s.hasNumericRange || s.hasBreakdown, JSON.stringify(shape)).toBe(
+        false,
+      );
+      expect(hasDisplayableBudget(d), JSON.stringify(shape)).toBe(false);
+    }
+  });
+});

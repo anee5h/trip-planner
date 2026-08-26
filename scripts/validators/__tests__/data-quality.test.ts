@@ -770,3 +770,98 @@ describe("KAI-214 budget-state taxonomy hard contract", () => {
     expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
   });
 });
+
+describe("KAI-214 valid numeric-shape contract (final blocker)", () => {
+  // Local base (trustedBase from the sibling describe is out of scope).
+  const shapeBase = {
+    ...base,
+    budgetMetadata: {
+      method: "manual",
+      confidence: "low",
+      basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+    },
+  };
+  const paidMeta = {
+    method: "manual",
+    state: "verified_paid" as const,
+    provenance: "verified_source" as const,
+    confidence: "low",
+    basis: "verified ticket ¥1500",
+  };
+  const estMeta = {
+    method: "model",
+    state: "documented_estimate" as const,
+    provenance: "model" as const,
+    modelVersion: "budget-model-v1",
+    confidence: "low",
+    basis: "peer cell n=8",
+  };
+  const noNumbers = {
+    budgetMin: undefined,
+    budgetRecommended: undefined,
+    budgetMax: undefined,
+    budgetBreakdown: undefined,
+  };
+
+  async function invariantCodes(meta: object, shape: object) {
+    const r = await run([
+      { ...shapeBase, ...noNumbers, ...shape, budgetMetadata: meta },
+    ]);
+    return r.issues.map((i) => i.code);
+  }
+
+  for (const [label, meta] of [
+    ["verified_paid", paidMeta],
+    ["documented_estimate", estMeta],
+  ] as const) {
+    it(`${label}: only budgetMin → KAI214_NUMERIC_STATE_WITHOUT_NUMBERS`, async () => {
+      const c = await invariantCodes(meta, { budgetMin: 1200 });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: only budgetMax → error`, async () => {
+      const c = await invariantCodes(meta, { budgetMax: 3000 });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: only budgetRecommended → error`, async () => {
+      const c = await invariantCodes(meta, { budgetRecommended: 2000 });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: partial breakdown → error`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetBreakdown: { transport: 500, tickets: 1500 },
+      });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: invalid min > max → error`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetMin: 5000,
+        budgetMax: 1000,
+      });
+      expect(c).toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: valid min/max range → passes invariant`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetMin: 1000,
+        budgetMax: 3000,
+      });
+      expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+
+    it(`${label}: valid complete breakdown → passes invariant`, async () => {
+      const c = await invariantCodes(meta, {
+        budgetBreakdown: {
+          transport: 500,
+          tickets: 1000,
+          food: 300,
+          cafe: 200,
+        },
+      });
+      expect(c).not.toContain("KAI214_NUMERIC_STATE_WITHOUT_NUMBERS");
+    });
+  }
+});

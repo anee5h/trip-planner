@@ -19,6 +19,7 @@ import type { Destination } from "../../src/shared/types/destination";
 import type { Collection } from "../../src/shared/types/collection";
 import type { TransportMode } from "../../src/shared/services/transport/types";
 import { hasVerifiedFreeEvidence } from "../../src/shared/services/budget/freeEvidence";
+import { hasValidStoredNumericBudget } from "../../src/shared/services/budget/numericBudgetShape";
 
 export interface DataQualityIssue {
   code: string;
@@ -688,17 +689,21 @@ export function collectDestinationIssues(
       );
     }
     // KAI-214 forward numeric-state invariant: verified_paid and
-    // documented_estimate are NUMERIC states — they must carry a valid
-    // stored numeric budget (range or breakdown). A state claiming a
-    // numeric truth with no numeric fields is internally contradictory.
+    // documented_estimate are NUMERIC states — they must carry a VALID
+    // stored numeric budget (valid range OR complete breakdown), using the
+    // SAME shape contract as the runtime semantic layer
+    // (numericBudgetShape.hasValidStoredNumericBudget). Presence of a lone
+    // budgetMin/budgetRecommended/budgetMax or partial breakdown is NOT a
+    // valid shape — it would be internally contradictory (state says
+    // numeric, runtime cannot consume it).
     if (
       (budgetState === "verified_paid" ||
         budgetState === "documented_estimate") &&
-      !hasNumericBudget
+      !hasValidStoredNumericBudget(dest)
     ) {
       push(
         "KAI214_NUMERIC_STATE_WITHOUT_NUMBERS",
-        `state '${budgetState}' requires a valid stored numeric budget (range or breakdown)`,
+        `state '${budgetState}' requires a valid stored numeric budget (valid range or complete breakdown)`,
       );
     }
     // contradictory state+provenance — complete matrix (Blocker: CI

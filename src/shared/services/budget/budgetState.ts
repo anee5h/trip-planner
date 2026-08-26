@@ -38,25 +38,10 @@ import type {
   NormalizedBudgetState,
 } from "@/shared/types/destination";
 import { hasVerifiedFreeEvidence } from "./freeEvidence";
-
-const isFiniteNonNegative = (v: unknown): v is number =>
-  typeof v === "number" && Number.isFinite(v) && v >= 0;
-
-const hasNumericRange = (d: Destination): boolean =>
-  isFiniteNonNegative(d.budgetMin) &&
-  isFiniteNonNegative(d.budgetMax) &&
-  d.budgetMin <= d.budgetMax;
-
-const hasBreakdown = (d: Destination): boolean =>
-  Boolean(
-    d.budgetBreakdown &&
-    [
-      d.budgetBreakdown.transport,
-      d.budgetBreakdown.tickets,
-      d.budgetBreakdown.food,
-      d.budgetBreakdown.cafe,
-    ].every(isFiniteNonNegative),
-  );
+import {
+  hasValidCompleteBreakdown,
+  hasValidNumericRange,
+} from "./numericBudgetShape";
 
 /**
  * Deterministic mapping from the legacy `method` + numeric fields to the
@@ -69,7 +54,8 @@ function deriveStateFromMethod(
 ): BudgetValueState {
   switch (method) {
     case "manual": {
-      if (!hasNumericRange(d) && !hasBreakdown(d)) return "unavailable";
+      if (!hasValidNumericRange(d) && !hasValidCompleteBreakdown(d))
+        return "unavailable";
       const tickets = d.budgetBreakdown?.tickets;
       if (
         (tickets ?? 0) === 0 &&
@@ -192,8 +178,8 @@ export function normalizeBudgetState(d: Destination): NormalizedBudgetState {
       provenance,
       reasonCode: bm.reasonCode,
       trustLevel: trustForStateProvenance(bm.state, provenance, freeEvidence),
-      hasNumericRange: hasNumericRange(d),
-      hasBreakdown: hasBreakdown(d),
+      hasNumericRange: hasValidNumericRange(d),
+      hasBreakdown: hasValidCompleteBreakdown(d),
       sourceMethod: method,
     };
   }
@@ -210,8 +196,8 @@ export function normalizeBudgetState(d: Destination): NormalizedBudgetState {
     provenance,
     reasonCode: deriveReasonCode(d, method, state),
     trustLevel: trustForStateProvenance(state, provenance, freeEvidence),
-    hasNumericRange: hasNumericRange(d),
-    hasBreakdown: hasBreakdown(d),
+    hasNumericRange: hasValidNumericRange(d),
+    hasBreakdown: hasValidCompleteBreakdown(d),
     sourceMethod: method,
   };
 }
@@ -257,7 +243,7 @@ export function isBudgetUnavailable(d: Destination): boolean {
  * audit/migration/debugging only — it says NOTHING about trust or display.
  */
 export function hasStoredNumericBudget(d: Destination): boolean {
-  return hasNumericRange(d) || hasBreakdown(d);
+  return hasValidNumericRange(d) || hasValidCompleteBreakdown(d);
 }
 
 /**
