@@ -5,6 +5,7 @@ import {
   formatLocalizedJPYRange,
   hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
+import { isVerifiedFree } from "@/shared/services/budget/budgetState";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
@@ -206,15 +207,21 @@ export function TripCostBreakdownWidget({
 
   const lowerCostAlternatives = useMemo(() => {
     const combos = findNearbyCombinations(destination, undefined, 5);
-    // KAI-89: only FINITE known ranges may be compared — an unknown budget
-    // (budgetMetadata.method "unknown", value absent) must never qualify as
-    // "Lower-Cost" via a (?? 0) fallback. Both sides must be finite.
+    // KAI-89 + KAI-215: only TRUSTED finite known ranges may be compared —
+    // an unknown/legacy/absent budget must never qualify as "Lower-Cost" via
+    // a (?? 0) fallback or a raw budgetMin read. Both sides must be trusted
+    // (normalized) and finite.
     const destMin = destination.budgetMin;
-    if (!Number.isFinite(destMin)) return [];
+    if (!hasKnownBudgetRange(destination) || !Number.isFinite(destMin)) {
+      return [];
+    }
     return combos
       .map((c) => c.secondary)
       .filter(
-        (sec) => Number.isFinite(sec.budgetMin) && sec.budgetMin! <= destMin!,
+        (sec) =>
+          hasKnownBudgetRange(sec) &&
+          Number.isFinite(sec.budgetMin) &&
+          sec.budgetMin! <= destMin!,
       )
       .slice(0, 2);
   }, [destination]);
@@ -610,7 +617,7 @@ export function TripCostBreakdownWidget({
                           <div className="text-[11px] text-slate-500 dark:text-slate-300 flex items-center gap-1 font-semibold">
                             <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
                             {hasKnownBudgetRange(alt)
-                              ? alt.budgetMin === 0
+                              ? isVerifiedFree(alt)
                                 ? locale === "ja"
                                   ? "無料"
                                   : "Free"
