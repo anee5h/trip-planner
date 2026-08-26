@@ -9,12 +9,19 @@
  *   - reuse the KAI-214 state/provenance/reason/trust taxonomy
  *     (BudgetValueState / BudgetProvenance / BudgetReasonCode) — this is
  *     NOT a second trust taxonomy;
+ *   - add a small ORTHOGONAL Budget-v2 derivation/source-kind axis
+ *     (CostDerivation) so runtime-computed components (e.g. the user's
+ *     accommodation allowance) can be described truthfully without forcing
+ *     a KAI-214 provenance value (KAI-214 has no user_assumption
+ *     provenance and must not be modified);
  *   - distinguish a BOUNDED range from an OPEN-ENDED "from ¥X" value —
  *     an open-ended cost must never masquerade as a bounded-complete cost;
  *   - represent unavailable / not_applicable / variable as first-class
  *     non-numeric states, never as zero;
  *   - carry component evidence (provenance, reason, scope, source URLs);
- *   - represent trip completeness (complete | partial | unavailable);
+ *   - represent trip completeness as a DISCRIMINATED UNION so that
+ *     partial/open-ended/unavailable results can NEVER carry a definite
+ *     bounded total, and a complete result ALWAYS carries one;
  *   - represent future travel as one-or-more LEGS (mode + cost + evidence)
  *     WITHOUT implementing multimodal routing (that is future transport
  *     work, not this PR);
@@ -71,18 +78,45 @@ export type CostScope =
   | "other";
 
 /**
+ * ORTHOGONAL Budget-v2 derivation axis — how a COMPUTED TripCost component
+ * was produced. This is NOT a second trust taxonomy: KAI-214 state/
+ * provenance remain the trust/state source for PERSISTED destination
+ * facts. This axis only describes the production of a runtime component,
+ * and it is required so that a component can never omit how it came to be.
+ *
+ * - source_fact:    a source-backed fact (verified admission, verified
+ *                   fare, verified free) — the strongest form;
+ * - model_estimate: a bounded model-derived estimate (KAI-214
+ *                   documented_estimate);
+ * - user_allowance: a value the USER provided (e.g. the accommodation
+ *                   party-total per-night allowance) — never mislabeled
+ *                   as verified_source or model;
+ * - computed:       a value derived/computed from other components.
+ */
+export type CostDerivation =
+  "source_fact" | "model_estimate" | "user_allowance" | "computed";
+
+/**
  * Evidence attached to a component. Reuses the KAI-214 provenance/reason
  * taxonomy verbatim — no second trust system. `state` is the normalized
  * KAI-214 value state; `provenance` is where it came from; `reason` is the
  * stable non-numeric reason; `sourceUrls` are official sources where
  * available; `scope` says which part of the trip the cost covers.
+ *
+ * `state`/`provenance` are OPTIONAL because they describe PERSISTED
+ * destination facts (KAI-214's domain). A pure runtime component such as
+ * the user's accommodation allowance has no KAI-214 provenance — it is
+ * carried by `derivation: "user_allowance"` instead, without pretending to
+ * be a verified_source/model value. `derivation` is REQUIRED on every
+ * component.
  */
 export interface ComponentEvidence {
-  readonly state: BudgetValueState;
-  readonly provenance: BudgetProvenance;
+  readonly state?: BudgetValueState;
+  readonly provenance?: BudgetProvenance;
   readonly reason?: BudgetReasonCode;
   readonly sourceUrls?: readonly string[];
   readonly scope: CostScope;
+  readonly derivation: CostDerivation;
 }
 
 /** A single trip-cost component: value + epistemic state. */
@@ -91,9 +125,49 @@ export interface TripCostComponent {
   readonly evidence: ComponentEvidence;
 }
 
-// ---- Trip completeness ----
+// ---- Trip completeness (discriminated union — fail-closed) ----
 
-export type TripCompleteness = "complete" | "partial" | "unavailable";
+/**
+ * The canonical trip-cost result (KAI-217 will produce this) as a
+ * DISCRIMINATED UNION on `completeness` so the completeness/total
+ * invariant is STRUCTURAL:
+ *
+ *   complete    => bounded total REQUIRED
+ *   partial     => definite total FORBIDDEN (total?: never)
+ *   unavailable => definite total FORBIDDEN (total?: never)
+ *
+ * A partial/open-ended/unavailable result can NEVER carry a definite
+ * bounded total, and a complete result can NEVER omit one — both are
+ * compile-time errors, not just runtime conventions.
+ */
+export interface TripCostResultBase {
+  /** Component-level facts: value + epistemic state. */
+  readonly components: readonly TripCostComponent[];
+  /** The accommodation allowance actually applied (party-total per night). */
+  readonly accommodation?: AccommodationAllowance;
+}
+
+/** A complete trip: every required component is bounded, total REQUIRED. */
+export interface CompleteTripCostResult extends TripCostResultBase {
+  readonly completeness: "complete";
+  /** The definite bounded party-total range. REQUIRED for complete. */
+  readonly total: BoundedCost;
+}
+
+/** A partial trip: some component is open-ended/unavailable; NO definite total. */
+export interface PartialTripCostResult extends TripCostResultBase {
+  readonly completeness: "partial";
+  readonly total?: never;
+}
+
+/** An unavailable trip: no usable cost evidence; NO definite total. */
+export interface UnavailableTripCostResult extends TripCostResultBase {
+  readonly completeness: "unavailable";
+  readonly total?: never;
+}
+
+export type TripCostResult =
+  CompleteTripCostResult | PartialTripCostResult | UnavailableTripCostResult;
 
 // ---- Future travel legs ----
 
@@ -124,37 +198,10 @@ export interface TravelLeg {
  * it is not hardcoded to day_trip | weekend_2d1n.
  */
 export interface AccommodationAllowance {
-  /** Party-total lodging allowance per night (JPY, >= 0). */
+  /** Party-total lodging allowance per night (JPY, finite, >= 0). */
   readonly perNight: number;
-  /** Explicit number of nights (>= 0). day trip = 0, 2D1N = 1, 3D2N = 2. */
+  /** Explicit number of nights (integer >= 0). day trip = 0, 2D1N = 1. */
   readonly nights: number;
-}
-
-// ---- Trip result context + result ----
-
-/** The context the future canonical engine will evaluate. */
-export interface TripCostContext {
-  readonly nights: number;
-  readonly partySize: number;
-  /** Future-compatible: one or more travel legs. */
-  readonly travelLegs?: readonly TravelLeg[];
-  /** Optional explicit accommodation allowance (party-total per night). */
-  readonly accommodation?: AccommodationAllowance;
-}
-
-/** The canonical trip-cost result (KAI-217 will produce this). */
-export interface TripCostResult {
-  readonly completeness: TripCompleteness;
-  /** Component-level facts: value + epistemic state. */
-  readonly components: readonly TripCostComponent[];
-  /**
-   * The bounded total range, present only when the result is COMPLETE
-   * (all required components bounded). Partial/open-ended results must not
-   * claim a definite total — callers must use `completeness` first.
-   */
-  readonly total?: BoundedCost;
-  /** The accommodation allowance actually applied (party-total per night). */
-  readonly accommodation?: AccommodationAllowance;
 }
 
 // ---- Invariant predicates (fail-closed) ----
@@ -220,10 +267,57 @@ export function isValidCostRepresentation(value: CostRepresentation): boolean {
 }
 
 /**
+ * Fail-closed completeness/total invariant (the runtime twin of the
+ * discriminated-union compile-time contract):
+ *
+ *   complete    => total MUST be a valid bounded cost
+ *   partial     => total MUST be absent
+ *   unavailable => total MUST be absent
+ *
+ * Also validates every component representation (bounded/open-ended/
+ * non-numeric shape), so an invalid component can never ride inside a
+ * "complete" result.
+ */
+export function isValidTripCostResult(result: TripCostResult): boolean {
+  if (!result.components.every((c) => isValidCostRepresentation(c.cost))) {
+    return false;
+  }
+  if (result.completeness === "complete") {
+    return result.total !== undefined && isBoundedCost(result.total);
+  }
+  return result.total === undefined;
+}
+
+/**
+ * Fail-closed accommodation validation:
+ *
+ *   perNight: finite, >= 0
+ *   nights:   integer, >= 0
+ *
+ * NaN/Infinity/negative/fractional values are INVALID. No arbitrary
+ * rounding is introduced anywhere.
+ */
+export function isValidAccommodationAllowance(
+  allowance: AccommodationAllowance,
+): boolean {
+  return (
+    Number.isFinite(allowance.perNight) &&
+    allowance.perNight >= 0 &&
+    Number.isInteger(allowance.nights) &&
+    allowance.nights >= 0
+  );
+}
+
+/**
  * The accommodation contract invariant: the party-total per-night allowance
  * times NIGHTS gives the total accommodation cost. It never multiplies by
  * party size — party size is already baked into `perNight`.
+ *
+ * Fail-closed: an invalid allowance (negative/NaN/Infinity perNight,
+ * negative/fractional/NaN/Infinity nights) returns NaN instead of a
+ * plausible-looking wrong number. No rounding is applied.
  */
 export function accommodationTotal(a: AccommodationAllowance): number {
+  if (!isValidAccommodationAllowance(a)) return Number.NaN;
   return a.perNight * a.nights;
 }

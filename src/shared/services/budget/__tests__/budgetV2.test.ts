@@ -5,7 +5,9 @@ import {
   isBoundedCost,
   isNonNumeric,
   isOpenEnded,
+  isValidAccommodationAllowance,
   isValidCostRepresentation,
+  isValidTripCostResult,
   type BoundedCost,
   type CostRepresentation,
   type OpenEndedCost,
@@ -86,7 +88,131 @@ describe("KAI-215 Budget v2 — bounded vs open-ended cost invariants", () => {
   });
 });
 
-describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
+describe("KAI-215 Budget v2 — trip completeness is a discriminated union", () => {
+  it("complete REQUIRES a bounded total (compile-time structural)", () => {
+    // TypeScript enforces this structurally: a complete result without
+    // `total` does not type-check. Here we build the valid shape.
+    const complete: TripCostResult = {
+      completeness: "complete",
+      total: { kind: "bounded", min: 3000, max: 5000 },
+      components: [
+        {
+          cost: { kind: "bounded", min: 3000, max: 5000 },
+          evidence: {
+            state: "verified_paid",
+            provenance: "verified_source",
+            scope: "admission",
+            derivation: "source_fact",
+          },
+        },
+      ],
+    };
+    expect(isValidTripCostResult(complete)).toBe(true);
+    // Compile-time structural proof (plain TS — deterministic):
+    // only the complete variant carries a bounded total; partial and
+    // unavailable variants have total: never (structurally forbidden).
+    const completeTotal: BoundedCost = complete.total; // complete HAS total
+    // @ts-expect-error — a partial result must NOT have a bounded total
+    const partialTotal: BoundedCost = (
+      { completeness: "partial", components: [] } as TripCostResult
+    ).total;
+    // @ts-expect-error — an unavailable result must NOT have a bounded total
+    const unavailableTotal: BoundedCost = (
+      { completeness: "unavailable", components: [] } as TripCostResult
+    ).total;
+    expect(completeTotal).toBeDefined();
+    expect(partialTotal).toBeUndefined();
+    expect(unavailableTotal).toBeUndefined();
+  });
+
+  it("partial FORBIDS a definite total (compile-time structural)", () => {
+    const partial: TripCostResult = {
+      completeness: "partial",
+      components: [
+        {
+          cost: { kind: "open_ended", from: 2000 },
+          evidence: {
+            state: "variable_price",
+            provenance: "verified_source",
+            scope: "origin_travel",
+            derivation: "source_fact",
+          },
+        },
+      ],
+    };
+    expect(isValidTripCostResult(partial)).toBe(true);
+    // Compile-time: a partial result's total is never (not assignable to
+    // BoundedCost) — the discriminated union structurally forbids it.
+    // @ts-expect-error — partial total is never
+    const partialTotal: BoundedCost = (
+      { completeness: "partial", components: [] } as TripCostResult
+    ).total;
+    expect(partialTotal).toBeUndefined();
+  });
+
+  it("unavailable FORBIDS a definite total (compile-time structural)", () => {
+    const unavailable: TripCostResult = {
+      completeness: "unavailable",
+      components: [],
+    };
+    expect(isValidTripCostResult(unavailable)).toBe(true);
+    // @ts-expect-error — unavailable total is never
+    const unavailableTotal: BoundedCost = (
+      { completeness: "unavailable", components: [] } as TripCostResult
+    ).total;
+    expect(unavailableTotal).toBeUndefined();
+  });
+
+  it("runtime validator rejects invalid completeness/total combinations", () => {
+    // partial with a total (simulate a bad runtime object via cast)
+    const partialWithTotal = {
+      completeness: "partial",
+      total: { kind: "bounded", min: 1, max: 2 },
+      components: [],
+    } as unknown as TripCostResult;
+    expect(isValidTripCostResult(partialWithTotal)).toBe(false);
+
+    const unavailableWithTotal = {
+      completeness: "unavailable",
+      total: { kind: "bounded", min: 1, max: 2 },
+      components: [],
+    } as unknown as TripCostResult;
+    expect(isValidTripCostResult(unavailableWithTotal)).toBe(false);
+
+    // complete without a total
+    const completeNoTotal = {
+      completeness: "complete",
+      components: [],
+    } as unknown as TripCostResult;
+    expect(isValidTripCostResult(completeNoTotal)).toBe(false);
+
+    // complete with a malformed (inverted) total
+    const completeBadTotal = {
+      completeness: "complete",
+      total: { kind: "bounded", min: 5000, max: 3000 },
+      components: [],
+    } as unknown as TripCostResult;
+    expect(isValidTripCostResult(completeBadTotal)).toBe(false);
+
+    // complete with an invalid component shape
+    const completeBadComponent = {
+      completeness: "complete",
+      total: { kind: "bounded", min: 1, max: 2 },
+      components: [
+        {
+          cost: { kind: "bounded", min: Number.NaN, max: 2 },
+          evidence: {
+            state: "verified_paid",
+            provenance: "verified_source",
+            scope: "admission",
+            derivation: "source_fact",
+          },
+        },
+      ],
+    } as unknown as TripCostResult;
+    expect(isValidTripCostResult(completeBadComponent)).toBe(false);
+  });
+
   it("a partial/open-ended trip cannot claim a complete bounded total", () => {
     const partialResult: TripCostResult = {
       completeness: "partial",
@@ -97,6 +223,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
             state: "verified_paid",
             provenance: "verified_source",
             scope: "admission",
+            derivation: "source_fact",
           },
         },
         {
@@ -105,6 +232,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
             state: "variable_price",
             provenance: "verified_source",
             scope: "origin_travel",
+            derivation: "source_fact",
           },
         },
       ],
@@ -117,7 +245,52 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
     ).toBe(true);
     expect(partialResult.completeness).not.toBe("complete");
   });
+});
 
+describe("KAI-215 Budget v2 — user-allowance derivation (orthogonal axis)", () => {
+  it("an accommodation component can carry user_allowance without being mislabeled verified_source/model", () => {
+    const accommodation: TripCostComponent = {
+      cost: { kind: "bounded", min: 15000, max: 15000 },
+      evidence: {
+        scope: "accommodation",
+        // NO KAI-214 state/provenance — KAI-214 has no user_assumption
+        // provenance and is not modified. The derivation axis carries it.
+        derivation: "user_allowance",
+      },
+    };
+    expect(accommodation.evidence.derivation).toBe("user_allowance");
+    expect(accommodation.evidence.provenance).toBeUndefined();
+    expect(accommodation.evidence.state).toBeUndefined();
+    // It is NOT pretending to be a verified source or model value.
+    expect(accommodation.evidence.derivation).not.toBe("source_fact");
+    expect(accommodation.evidence.derivation).not.toBe("model_estimate");
+  });
+
+  it("a source-backed fact and a model estimate are distinct derivations", () => {
+    const sourceFact: TripCostComponent = {
+      cost: { kind: "bounded", min: 1000, max: 1000 },
+      evidence: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        scope: "admission",
+        derivation: "source_fact",
+      },
+    };
+    const model: TripCostComponent = {
+      cost: { kind: "bounded", min: 2000, max: 3000 },
+      evidence: {
+        state: "documented_estimate",
+        provenance: "model",
+        scope: "local_transport",
+        derivation: "model_estimate",
+      },
+    };
+    expect(sourceFact.evidence.derivation).toBe("source_fact");
+    expect(model.evidence.derivation).toBe("model_estimate");
+  });
+});
+
+describe("KAI-215 Budget v2 — travel legs", () => {
   it("travel is representable as multiple future legs without multimodal routing", () => {
     const legs: TravelLeg[] = [
       {
@@ -127,6 +300,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
           state: "verified_paid",
           provenance: "verified_source",
           scope: "origin_travel",
+          derivation: "source_fact",
         },
       },
       {
@@ -136,6 +310,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
           state: "documented_estimate",
           provenance: "model",
           scope: "origin_travel",
+          derivation: "model_estimate",
         },
       },
       {
@@ -145,6 +320,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
           state: "variable_price",
           provenance: "verified_source",
           scope: "origin_travel",
+          derivation: "source_fact",
           sourceUrls: ["https://example.com/bus-fare"],
         },
       },
@@ -171,6 +347,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
         provenance: "verified_source",
         reason: "price_variable_by_product",
         scope: "local_transport",
+        derivation: "source_fact",
         sourceUrls: ["https://official.example"],
       },
     };
@@ -178,6 +355,7 @@ describe("KAI-215 Budget v2 — trip completeness and travel legs", () => {
     expect(component.evidence.provenance).toBe("verified_source");
     expect(component.evidence.reason).toBe("price_variable_by_product");
     expect(component.evidence.scope).toBe("local_transport");
+    expect(component.evidence.derivation).toBe("source_fact");
   });
 });
 
@@ -203,6 +381,72 @@ describe("KAI-215 Budget v2 — accommodation contract", () => {
     // If a consumer wrongly multiplied by partySize it would differ.
     expect(total).toBe(16000);
     expect(total).not.toBe(16000 * 4); // partySize=4 would double-count
+  });
+
+  it("isValidAccommodationAllowance accepts valid inputs", () => {
+    expect(isValidAccommodationAllowance({ perNight: 0, nights: 0 })).toBe(
+      true,
+    ); // valid 0 nights
+    expect(isValidAccommodationAllowance({ perNight: 12000, nights: 1 })).toBe(
+      true,
+    );
+    expect(isValidAccommodationAllowance({ perNight: 12000, nights: 2 })).toBe(
+      true,
+    );
+    expect(isValidAccommodationAllowance({ perNight: 12000, nights: 4 })).toBe(
+      true,
+    );
+    expect(isValidAccommodationAllowance({ perNight: 0, nights: 3 })).toBe(
+      true,
+    ); // zero allowance, positive nights is valid
+  });
+
+  it("isValidAccommodationAllowance rejects invalid inputs (fail closed)", () => {
+    expect(isValidAccommodationAllowance({ perNight: -1, nights: 1 })).toBe(
+      false,
+    ); // negative perNight
+    expect(
+      isValidAccommodationAllowance({ perNight: Number.NaN, nights: 1 }),
+    ).toBe(false); // NaN perNight
+    expect(
+      isValidAccommodationAllowance({ perNight: Infinity, nights: 1 }),
+    ).toBe(false); // Infinity perNight
+    expect(isValidAccommodationAllowance({ perNight: 12000, nights: -1 })).toBe(
+      false,
+    ); // negative nights
+    expect(
+      isValidAccommodationAllowance({ perNight: 12000, nights: 1.5 }),
+    ).toBe(false); // fractional nights
+    expect(
+      isValidAccommodationAllowance({ perNight: 12000, nights: Number.NaN }),
+    ).toBe(false); // NaN nights
+    expect(
+      isValidAccommodationAllowance({ perNight: 12000, nights: Infinity }),
+    ).toBe(false); // Infinity nights
+  });
+
+  it("accommodationTotal is fail-closed on invalid inputs (no arbitrary rounding)", () => {
+    expect(Number.isNaN(accommodationTotal({ perNight: -1, nights: 1 }))).toBe(
+      true,
+    );
+    expect(
+      Number.isNaN(accommodationTotal({ perNight: Number.NaN, nights: 1 })),
+    ).toBe(true);
+    expect(
+      Number.isNaN(accommodationTotal({ perNight: Infinity, nights: 1 })),
+    ).toBe(true);
+    expect(
+      Number.isNaN(accommodationTotal({ perNight: 12000, nights: -1 })),
+    ).toBe(true);
+    expect(
+      Number.isNaN(accommodationTotal({ perNight: 12000, nights: 1.5 })),
+    ).toBe(true);
+    expect(
+      Number.isNaN(accommodationTotal({ perNight: 12000, nights: Number.NaN })),
+    ).toBe(true);
+    // Valid inputs still produce exact products (no rounding introduced).
+    expect(accommodationTotal({ perNight: 10000, nights: 4 })).toBe(40000);
+    expect(accommodationTotal({ perNight: 12345, nights: 3 })).toBe(37035);
   });
 });
 
