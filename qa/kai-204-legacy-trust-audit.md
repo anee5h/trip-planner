@@ -1,7 +1,8 @@
-# KAI-204 Phase 3 — Legacy Budget Trust Boundary (Final)
+# KAI-204 Phase 3 — Legacy Budget Trust Boundary (Final, incl. hub hardening)
 
 Branch: `fix/kai-204-legacy-budget-trust`
 Starting SHA: `e7064fdf4f4ba2133b977ea6d1ef86c33b52af49` (post-#257 main)
+Hub-hardening head: `ccddbd1135d21bd258153518c5708a6eaa4337a6` (reviewed) → final (below)
 
 ## Phase 0 — reproduced current state (dynamic)
 
@@ -113,11 +114,107 @@ Truthful 12-15% finite coverage > misleading 25-38%.
 | free-tag legacy (4)                  |     4 | NOT free (hasKnownBudget false) |
 | unknown zero-like                    |     0 | never free                      |
 
+## Hub hardening (reviewer blocker resolution)
+
+The reviewer identified a semantic hole: the 24 numeric+absent hubs were
+skipped from legacy tagging, but the trust helpers used a NEGATIVE check
+(`method !== "unknown" && method !== "legacy"`) which left absent metadata
+implicitly trusted — so the hubs still displayed prices, scored, filtered,
+and entered complete budgets.
+
+### Phase A — the 24 hubs audited
+
+| id                    | kind      | tickets | model-reproducible?              | class                |
+| --------------------- | --------- | ------- | -------------------------------- | -------------------- |
+| chiba-city            | city      | 1600    | NO (model: 7600/6600-8600 tix=0) | B. LEGACY_UNVERIFIED |
+| chofu-tokyo           | city      | 2000    | NO                               | B                    |
+| hachioji-tokyo        | city      | 2000    | NO                               | B                    |
+| hakone-town           | town      | 2125    | NO (clear-to-unknown)            | B                    |
+| kanazawa              | city      | 2600    | NO (clear-to-unknown)            | B                    |
+| kyoto-city            | city      | 2000    | NO                               | B                    |
+| machida-tokyo         | city      | 2000    | NO                               | B                    |
+| nagano-city           | city      | 2000    | NO                               | B                    |
+| nagoya-city           | city      | 1813    | NO                               | B                    |
+| niigata-city          | undefined | 3000    | NO (clear-to-unknown)            | B                    |
+| ome-tokyo             | city      | 2000    | NO                               | B                    |
+| osaka-city            | city      | 2125    | NO                               | B                    |
+| saitama-city          | city      | 1400    | NO                               | B                    |
+| sendai-city           | city      | 3000    | NO                               | B                    |
+| shibuya-city          | ward      | 2100    | NO (clear-to-unknown)            | B                    |
+| shirakawa-village     | village   | 1917    | NO (clear-to-unknown)            | B                    |
+| tachikawa-tokyo       | city      | 2000    | NO                               | B                    |
+| takaoka               | city      | 1800    | NO (clear-to-unknown)            | B                    |
+| tokyo-station-chiyoda | undefined | 0       | NO (clear-to-unknown)            | B                    |
+| ueno-taito            | undefined | 2250    | NO (clear-to-unknown)            | B                    |
+| yokohama-city         | city      | 0       | NO                               | B                    |
+| miyoshi-city          | city      | 3000    | NO                               | B                    |
+| uwajima-city          | city      | 2500    | NO                               | B                    |
+| matsushima-town       | town      | 1500    | NO (clear-to-unknown)            | B                    |
+
+**All 24 = B. LEGACY_UNVERIFIED** — NONE are reproduced by the current
+approved budget-model-v1 (which yields tickets=0 + peer-cell medians).
+Their tickets≠0 (except 2) violates the hub convention; their ranges are
+legacy template/heuristic values. Hub status alone is NOT provenance.
+
+### Phase B — positive trust contract
+
+Replaced the negative checks in `hasKnownBudget` / `hasKnownBudgetRange` /
+`getEffectiveBudgetBreakdown` with:
+
+```
+hasTrustedBudgetProvenance(dest) → method === "manual" || method === "model"
+```
+
+Absent metadata is now UNTRUSTED (no longer implicitly trusted by absence
+of a negative marker). Trust is positive and future-proof:
+manual → trusted · model → trusted estimate · legacy → untrusted ·
+unknown → untrusted · absent → untrusted.
+
+### Phase C — the 24 hubs tagged
+
+All 24 tagged `method: "legacy", confidence: "unknown"` (numbers preserved
+in storage, not trusted for consumption). **numeric+absent = 0** after this.
+
+### Phase D — hub CI exception removed
+
+`NUMERIC_BUDGET_WITHOUT_PROVENANCE` now fires for ANY numeric budget without
+metadata — hub or not. A hub convention must be represented explicitly by
+model provenance, never by missing metadata.
+
+### Phase E — tests
+
+- hub numeric + absent → NOT known (all trust helpers + sortable + free)
+- hub method=model → known estimate
+- hub method=legacy → NOT trusted despite hub status
+- manual → known; legacy → unknown; unknown → unknown; absent → unknown
+- generated plan with numeric+absent destination → admission NOT curated
+- generated plan with model-provenance hub → curated per model semantics
+- ALT regression: absent-metadata zero-range alternative → NOT Free;
+  verified manual zero-range alternative → MAY display Free
+
+### Result
+
+- metadata: manual 38 / model 112 / unknown 462 / legacy **353** / absent **92** / invalid 0
+- **numeric+absent trusted count: 0** (invariant test added)
+
+### Multi-origin after hub hardening (transport unchanged)
+
+| origin   | finite | unknown | strict | bounded | ONSITE |
+| -------- | -----: | ------: | -----: | ------: | -----: |
+| Nakayama |    109 |     947 |     49 |      88 |    579 |
+| Tokyo    |    129 |     927 |     53 |      68 |    579 |
+| Osaka    |     83 |     973 |      7 |       7 |    579 |
+| Hakata   |     97 |     959 |     77 |      82 |    579 |
+| Naha     |     94 |     962 |     93 |      93 |    579 |
+
+The further drop (vs the 329-tagging pass) is exactly the 24 hub legacy
+values leaving trusted consumption. Truth > coverage.
+
 ## CI guard (Phase 15)
 
 Added to `scripts/audit/data-quality-rules.ts` (ratchet):
 
-- `NUMERIC_BUDGET_WITHOUT_PROVENANCE` — numeric+absent non-hub (must be tagged)
+- `NUMERIC_BUDGET_WITHOUT_PROVENANCE` — numeric+absent ANY kind (hub exemption removed; must be tagged)
 - `ZERO_RANGE_FREE_WITHOUT_PROVENANCE` — min=0/max=0 without manual/model
 - `UNKNOWN_METADATA_WITH_NUMERIC` — two competing truths
 - `LEGACY_METADATA_BAD_CONFIDENCE` — legacy must declare confidence unknown

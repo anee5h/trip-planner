@@ -43,6 +43,12 @@ const mockPaidDest = {
   budgetMax: 3000,
   budgetRecommended: 8000,
   budgetBreakdown: { transport: 1500, tickets: 2000, food: 3000, cafe: 1500 },
+  // KAI-204 phase 3 (positive trust): fixtures represent TRUSTED records.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 3,
   transportOptions: { train: 30 },
@@ -57,6 +63,12 @@ const mockFreeDest = {
   budgetMax: 1000,
   budgetRecommended: 0,
   budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+  // KAI-204 phase 3 (positive trust): fixtures represent TRUSTED records.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted free provenance",
+  },
   recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 2,
   transportOptions: { train: 20 },
@@ -72,6 +84,12 @@ const mockRangeOnlyDest = {
   budgetMin: 2000,
   budgetMax: 5000,
   budgetRecommended: 3500,
+  // KAI-204 phase 3 (positive trust): trusted provenance for a known range.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 3,
   transportOptions: { train: 30 },
@@ -532,14 +550,17 @@ describe("BudgetService", () => {
 
 describe("KAI-89 per-person budget contract", () => {
   // Real catalogue destination with an intact per-person budget and a
-  // train corridor from Tokyo: nagano-city (tickets 2000 per person).
+  // train corridor from Tokyo: play-museum-tachikawa (tickets 1800 per
+  // person, manual provenance — ledger-verified).
   // KAI-121: resolved AFTER the lazy catalogue preload (module-level
   // resolution would read the lite summary and miss budget fields).
+  // KAI-204 phase 3: uses a MANUAL record (trusted) — the previous
+  // nagano-city fixture is now legacy-tagged (untrusted).
   let perPersonDest: Destination;
 
   beforeAll(async () => {
     perPersonDest = (await fullList()).find(
-      (d) => d.id === "nagano-city",
+      (d) => d.id === "play-museum-tachikawa",
     ) as unknown as Destination;
   });
 
@@ -662,8 +683,10 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
   });
 
   it("known per-person budgets still scale correctly for parties 1/2/3/4", async () => {
+    // KAI-204 phase 3: nagano-city is now legacy-tagged (untrusted); use
+    // the manual ledger-verified play-museum-tachikawa (tickets 1800).
     const d = (await fullList()).find(
-      (x) => x.id === "nagano-city",
+      (x) => x.id === "play-museum-tachikawa",
     ) as unknown as Destination;
     const coords = { lat: 35.6812, lng: 139.7671 };
     const mids = [1, 2, 3, 4].map((p) => {
@@ -744,6 +767,12 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       budgetRecommended: 5000,
       budgetMax: 8000,
       budgetBreakdown: { transport: 1000, tickets: 0, food: 0, cafe: 0 },
+      // KAI-204 phase 3 (positive trust): trusted provenance required.
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "test fixture — trusted provenance",
+      },
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
     } as unknown as Destination;
@@ -773,6 +802,12 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       budgetRecommended: 5000,
       budgetMax: 8000,
       budgetBreakdown: { transport: 1000, tickets: 2000, food: 0, cafe: 500 },
+      // KAI-204 phase 3 (positive trust): trusted provenance required.
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "test fixture — trusted provenance",
+      },
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
     } as unknown as Destination;
@@ -883,6 +918,12 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
         tickets: 2000,
         food: 1500,
         cafe: 500,
+      },
+      // KAI-204 phase 3 (positive trust): trusted provenance required.
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "test fixture — trusted provenance",
       },
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
@@ -1081,5 +1122,215 @@ describe("KAI-204 legacy budget trust boundary (Phase 3)", () => {
     expect(legacyDest.budgetMin).toBe(mockPaidDest.budgetMin);
     expect(legacyDest.budgetRecommended).toBe(mockPaidDest.budgetRecommended);
     expect(legacyDest.budgetBreakdown).toBeDefined();
+  });
+});
+
+describe("KAI-204 positive trust contract — hubs (Phase 3 blocker)", () => {
+  const hubBase = {
+    id: "chiba-city",
+    name: "Chiba City",
+    kind: "city",
+    role: "hub",
+    categories: ["City Hub"],
+    budgetMin: 4000,
+    budgetRecommended: 8000,
+    budgetMax: 12000,
+    budgetBreakdown: { transport: 3200, tickets: 1600, food: 2400, cafe: 800 },
+    recommendedVisitHours: { min: 6, max: 12 },
+    transportOptions: { train: 60 },
+  } as unknown as Destination;
+
+  it("hub numeric + ABSENT metadata → NOT known (positive trust)", () => {
+    // The blocker: a hub with numbers but no budgetMetadata must not be
+    // implicitly trusted. Only explicit manual/model provenance is trusted.
+    expect(BudgetServiceModule.hasKnownBudget(hubBase)).toBe(false);
+    expect(hasKnownBudgetRange(hubBase)).toBe(false);
+    expect(getEffectiveBudgetBreakdown(hubBase)).toBeNull();
+    expect(isFreeDestination(hubBase)).toBe(false);
+    const sortable = getSortableVerifiedBudget(hubBase, ["train"], 2, {
+      lat: 35.68,
+      lng: 139.76,
+    });
+    expect(sortable).toBe(Number.POSITIVE_INFINITY);
+  });
+
+  it("hub with legitimate method=model → known estimate", () => {
+    const modelHub = {
+      ...hubBase,
+      budgetBreakdown: { transport: 3000, tickets: 0, food: 3000, cafe: 1600 },
+      budgetMetadata: {
+        method: "model",
+        modelVersion: "budget-model-v1",
+        confidence: "low",
+        basis:
+          "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
+      },
+    } as unknown as Destination;
+    expect(BudgetServiceModule.hasKnownBudget(modelHub)).toBe(true);
+    expect(hasKnownBudgetRange(modelHub)).toBe(true);
+    expect(getEffectiveBudgetBreakdown(modelHub)).not.toBeNull();
+  });
+
+  it("hub with method=legacy → NOT trusted despite hub status", () => {
+    const legacyHub = {
+      ...hubBase,
+      budgetMetadata: {
+        method: "legacy",
+        confidence: "unknown",
+        basis: "legacy numeric budget without recoverable provenance",
+      },
+    } as unknown as Destination;
+    expect(BudgetServiceModule.hasKnownBudget(legacyHub)).toBe(false);
+    expect(hasKnownBudgetRange(legacyHub)).toBe(false);
+    expect(getEffectiveBudgetBreakdown(legacyHub)).toBeNull();
+  });
+
+  it("manual destination → known; legacy → unknown; unknown → unknown (full matrix)", () => {
+    const manualDest = {
+      ...mockPaidDest,
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket",
+      },
+    } as unknown as Destination;
+    const legacyDest2 = {
+      ...mockPaidDest,
+      budgetMetadata: { method: "legacy", confidence: "unknown" },
+    } as unknown as Destination;
+    const unknownDest = {
+      ...mockPaidDest,
+      budgetMetadata: { method: "unknown" },
+    } as unknown as Destination;
+    const absentDest = {
+      ...mockPaidDest,
+      budgetMetadata: undefined,
+    } as unknown as Destination;
+    expect(BudgetServiceModule.hasKnownBudget(manualDest)).toBe(true);
+    expect(BudgetServiceModule.hasKnownBudget(legacyDest2)).toBe(false);
+    expect(BudgetServiceModule.hasKnownBudget(unknownDest)).toBe(false);
+    expect(BudgetServiceModule.hasKnownBudget(absentDest)).toBe(false); // absent
+  });
+
+  it("generated plan with numeric+absent destination → admission NOT curated", async () => {
+    // A plan step whose destination carries numbers but NO trusted
+    // provenance must not contribute tickets as curated (positive trust
+    // contract). Uses a POI (not a hub — hubs are filtered from plan
+    // admission entirely).
+    const { calculateGeneratedPlanCost } =
+      await import("../GeneratedPlanCostService");
+    const untrustedDest = {
+      id: "untrusted-poi",
+      name: "Untrusted POI",
+      kind: "museum",
+      role: "poi",
+      budgetMin: 2000,
+      budgetRecommended: 4000,
+      budgetMax: 6000,
+      budgetBreakdown: { transport: 1000, tickets: 2000, food: 500, cafe: 500 },
+      // NO budgetMetadata — legacy/absent
+    } as unknown as Destination;
+    const plan = {
+      id: "plan-untrusted",
+      title: { en: "Untrusted plan", ja: "信頼できないプラン" },
+      steps: [
+        {
+          id: "step-1",
+          type: "destination",
+          timeBlock: "morning",
+          startTime: "09:00",
+          endTime: "11:00",
+          durationMinutes: 120,
+          destination: untrustedDest,
+          title: { en: "Museum", ja: "博物館" },
+        },
+      ],
+      routeLegs: [],
+      totalDurationMinutes: 120,
+      totalBudgetRange: [0, 0],
+      isOverfilled: false,
+      uncertainHoursDisclosures: [],
+    } as never;
+    const cost = calculateGeneratedPlanCost(plan as never, 2, "train", false);
+    expect(cost.admission.source).toBe("unknown");
+    expect(cost.admission.min).toBe(0);
+  });
+
+  it("generated plan with model-provenance hub → may contribute per model semantics", async () => {
+    const { calculateGeneratedPlanCost } =
+      await import("../GeneratedPlanCostService");
+    const modelHub = {
+      ...hubBase,
+      budgetBreakdown: { transport: 3000, tickets: 0, food: 3000, cafe: 1600 },
+      budgetMetadata: {
+        method: "model",
+        modelVersion: "budget-model-v1",
+        confidence: "low",
+      },
+    } as unknown as Destination;
+    const plan = {
+      id: "plan-hub-model",
+      title: { en: "Model hub", ja: "モデルハブ" },
+      steps: [
+        {
+          id: "step-1",
+          type: "destination",
+          timeBlock: "morning",
+          startTime: "09:00",
+          endTime: "11:00",
+          durationMinutes: 120,
+          destination: modelHub,
+          title: { en: "Chiba", ja: "千葉" },
+        },
+      ],
+      routeLegs: [],
+      totalDurationMinutes: 120,
+      totalBudgetRange: [0, 0],
+      isOverfilled: false,
+      uncertainHoursDisclosures: [],
+    } as never;
+    const cost = calculateGeneratedPlanCost(plan as never, 2, "train", false);
+    // tickets=0 hub convention: admission is zero but trusted (curated).
+    expect(cost.admission.source).toBe("curated");
+    expect(cost.admission.min).toBe(0);
+  });
+
+  it("ALT regression: numeric absent-metadata zero-range alternative → NOT Free", () => {
+    // The alternative-destination UI renders "Free" only when
+    // hasKnownBudgetRange(alt) is true AND alt.budgetMin === 0. Under the
+    // positive trust contract, an absent-metadata zero-range alt fails
+    // hasKnownBudgetRange, so it must NOT display Free.
+    const untrustedAlt = {
+      id: "untrusted-alt",
+      name: "Untrusted Alt",
+      kind: "park",
+      role: "poi",
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetRecommended: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      // NO budgetMetadata — legacy/absent
+    } as unknown as Destination;
+    expect(hasKnownBudgetRange(untrustedAlt)).toBe(false);
+
+    // The exact widget condition: hasKnownBudgetRange(alt) ? (alt.budgetMin === 0 ? "Free" : ...) : unavailable
+    const rendersFree =
+      hasKnownBudgetRange(untrustedAlt) && untrustedAlt.budgetMin === 0;
+    expect(rendersFree).toBe(false);
+
+    // A verified manual zero-range alternative MAY display Free per current
+    // semantics.
+    const verifiedAlt = {
+      ...untrustedAlt,
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified free admission (ledger LEDGER_VERIFIED)",
+      },
+    } as unknown as Destination;
+    expect(hasKnownBudgetRange(verifiedAlt)).toBe(true);
+    const verifiedRendersFree =
+      hasKnownBudgetRange(verifiedAlt) && verifiedAlt.budgetMin === 0;
+    expect(verifiedRendersFree).toBe(true);
   });
 });

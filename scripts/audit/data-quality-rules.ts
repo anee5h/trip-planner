@@ -526,17 +526,16 @@ export function collectDestinationIssues(
     dest.budgetRecommended !== undefined ||
     dest.budgetMax !== undefined ||
     dest.budgetBreakdown !== undefined;
-  const isHubKind =
-    dest.role === "hub" ||
-    ["city", "ward", "town", "village"].includes(dest.kind ?? "");
-  if (hasNumericBudget && !budgetMethod && !isHubKind) {
-    // A numeric budget with absent metadata and no hub convention is either
-    // an untagged legacy record (should have been tagged "legacy") or a NEW
-    // record added without provenance. Either way it violates the trust
-    // boundary.
+  if (hasNumericBudget && !budgetMethod) {
+    // A numeric budget with absent metadata is EITHER an untagged legacy
+    // record (should have been tagged "legacy") or a NEW record added
+    // without provenance. KAI-204 phase 3 (hub trust): the hub exemption is
+    // REMOVED — a hub convention must be represented explicitly by model
+    // provenance (tickets=0 + peer-cell medians), never by missing metadata.
+    // Hub status alone is NOT provenance for transport/food/cafe/range.
     push(
       "NUMERIC_BUDGET_WITHOUT_PROVENANCE",
-      "numeric budget fields without budgetMetadata and not hub-class — must carry explicit legacy/manual/model provenance",
+      "numeric budget fields without budgetMetadata — must carry explicit legacy/manual/model provenance (hub-class included)",
     );
   }
   if (

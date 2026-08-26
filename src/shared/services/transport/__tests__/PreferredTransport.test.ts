@@ -12,6 +12,12 @@ const destination = {
   budgetMin: 8000,
   budgetMax: 16000,
   budgetBreakdown: { transport: 3000, tickets: 2000, food: 5000, cafe: 2000 },
+  // KAI-204 phase 3 (positive trust): trusted provenance required.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   totalTripHours: 8,
 } as Destination;
 

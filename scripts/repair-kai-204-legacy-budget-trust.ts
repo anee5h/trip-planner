@@ -6,10 +6,12 @@
  *
  *   - numeric budget fields exist (min/rec/max and/or breakdown);
  *   - budgetMetadata is absent;
- *   - NOT hub-class (kind city/ward/town/village or role hub — those have
- *     the documented tickets=0 class convention, a different trust story);
  *   - NOT ledger-backed (ticketEvidence — already repaired in Phase 2);
- *   - NOT ambiguous-evidence kind (already left unknown in Phase 2).
+ *   - NOT ambiguous-evidence kind (already left unknown in Phase 2);
+ *   - hubs: tagged legacy UNLESS the current approved budget model
+ *     deterministically reproduces their values (hub status alone is NOT
+ *     provenance for transport/food/cafe/range components — the tickets=0
+ *     convention proves only the admission component).
  *
  * The `legacy` marker means: "numbers exist in storage for historical/
  * migration/debugging value, but their provenance is UNKNOWN and they must
@@ -27,6 +29,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { Destination } from "../src/shared/types/destination";
+import { budgetModel } from "./models/budget-model-v1";
+import { loadTruth } from "./models/calibration";
 
 const rootDir = process.cwd();
 const indexPath = path.join(rootDir, "src/shared/data/destinations-index.json");
@@ -78,12 +82,43 @@ const isHub = (d: Destination): boolean =>
 const tagged: string[] = [];
 const skipped: Array<{ id: string; reason: string }> = [];
 
+// A hub's numeric budget is model-trusted ONLY when the current approved
+// budget model deterministically reproduces it (hub convention tickets=0 +
+// peer-cell medians). Otherwise it is legacy-unverified — hub status alone
+// is NOT provenance for transport/food/cafe/range components.
+function hubIsModelReproducible(d: Destination): boolean {
+  const truth = loadTruth();
+  const out = budgetModel(d, new Set([d.id]), destinations, truth);
+  if (out.action !== "fill" || !out.budget) return false;
+  const b = out.budget;
+  return (
+    b.budgetRecommended === d.budgetRecommended &&
+    b.budgetMin === d.budgetMin &&
+    b.budgetMax === d.budgetMax &&
+    JSON.stringify(b.breakdown) === JSON.stringify(d.budgetBreakdown)
+  );
+}
+
 for (const d of destinations) {
   if (d.budgetMetadata) continue; // already has provenance
   if (!hasNumericBudget(d)) continue; // nothing to tag
   if (isHub(d)) {
-    skipped.push({ id: d.id, reason: "hub-class (convention, not legacy)" });
-    continue;
+    // KAI-204 phase 3 (hub trust): a hub with numeric budgets and no
+    // metadata is NOT automatically trusted. Only a hub whose values the
+    // current approved model reproduces (convention tickets=0 + peer-cell
+    // medians) may carry method "model". Everything else is legacy.
+    if (hubIsModelReproducible(d)) {
+      skipped.push({
+        id: d.id,
+        reason: "hub-class model-reproducible (eligible for model tagging)",
+      });
+      continue;
+    }
+    skipped.push({
+      id: d.id,
+      reason: "hub-class legacy — tagging (not model-reproducible)",
+    });
+    // fall through to tag as legacy
   }
   const ev = ticket[d.id];
   if (ev && !AMBIGUOUS_KINDS.has(ev.kind ?? "")) {
