@@ -56,6 +56,13 @@ function makeDest(
     budgetMin: 1000,
     budgetRecommended: 2000,
     budgetMax: 5000,
+    // KAI-204 phase 3: numeric budgets require provenance — fixtures carry
+    // legacy metadata so the trust-boundary guard does not fire on them.
+    budgetMetadata: {
+      method: "legacy",
+      confidence: "unknown",
+      basis: "test fixture",
+    },
     transportOptions: { train: 60 },
     recommendedVisitHours: { min: 4, max: 8 },
     totalTripHours: 4,

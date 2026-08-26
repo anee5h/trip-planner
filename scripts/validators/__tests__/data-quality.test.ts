@@ -18,6 +18,13 @@ const base: Destination = {
   budgetRecommended: 1000,
   budgetMin: 500,
   budgetMax: 2000,
+  // KAI-204 phase 3: numeric budgets require explicit provenance — the
+  // "clean record" fixture carries trusted manual metadata.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   transportOptions: { train: 60 },
   walkingMin: 30,
   walkingSunMin: 30,
@@ -196,6 +203,11 @@ describe("KAI-87 data quality validator", () => {
         season: undefined as never,
         bestMonths: [] as never,
         budgetRecommended: undefined as never,
+        // A genuinely missing budget: no numbers AND no provenance marker.
+        budgetMetadata: undefined as never,
+        budgetMin: undefined as never,
+        budgetMax: undefined as never,
+        budgetBreakdown: undefined as never,
         imageMetadata: undefined as never,
       },
     ]);
