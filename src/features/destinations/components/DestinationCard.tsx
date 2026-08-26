@@ -339,7 +339,7 @@ export default function DestinationCard({
                       "bg-amber-500 hover:bg-amber-600 text-white border-amber-300 font-bold shadow-md";
                   } else if (tag === "World's Tallest Tower") {
                     badgeStyle =
-                      "bg-sky-600 hover:bg-sky-700 text-white border-sky-300 font-bold shadow-md";
+                      "bg-sky-700 hover:bg-sky-800 text-white border-sky-300 font-bold shadow-md";
                   } else if (tag === "Top 100 Castle") {
                     badgeStyle =
                       "bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold border-amber-300 shadow-md";

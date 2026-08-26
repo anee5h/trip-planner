@@ -7,6 +7,7 @@ import {
   getAdjustedBudget,
   getEffectiveBudgetBreakdown,
   getEstimatedBudgetRange,
+  getSortableVerifiedBudget,
   hasKnownBudgetRange,
   getDiningFoodRange,
   getTransportCost,
@@ -210,6 +211,68 @@ describe("BudgetService", () => {
     // duration would give both modes the same meal bucket.
     expect(shinkansenBudget.food![1]).toBeLessThan(trainBudget.food![0]);
     expect(trainBudget.range).not.toEqual(shinkansenBudget.range);
+  });
+
+  it("keeps local bounded rail budgets finite but explicitly estimated", () => {
+    const nearbyOsaka = {
+      ...mockPaidDest,
+      id: "nearby-osaka-budget",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7105, lng: 135.5005 },
+      transportOptions: { train: 25 },
+      localAccessModes: ["train"],
+    } as unknown as Destination;
+    const origin = { lat: 34.7025, lng: 135.4959 };
+    const result = getEstimatedBudgetRange(
+      nearbyOsaka,
+      "train",
+      2,
+      "standard",
+      origin,
+    );
+
+    expect(result.transportIncluded).toBe(true);
+    expect(result.transportFareScope).toBe("local_bounded_estimate");
+    expect(result.durationIncluded).toBe(true);
+    expect(result.range).not.toBeNull();
+    expect(getSortableVerifiedBudget(nearbyOsaka, ["train"], 2, origin)).toBe(
+      result.range![1],
+    );
+  });
+
+  it("keeps a missing on-site component unknown even when local transport is bounded", () => {
+    const unknownOnsite = {
+      ...mockPaidDest,
+      id: "unknown-onsite-local-budget",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7105, lng: 135.5005 },
+      transportOptions: { train: 25 },
+      localAccessModes: ["train"],
+      budgetMetadata: { method: "unknown" },
+      budgetBreakdown: undefined,
+      budgetMin: undefined,
+      budgetMax: undefined,
+      budgetRecommended: undefined,
+    } as unknown as Destination;
+    const result = getEstimatedBudgetRange(
+      unknownOnsite,
+      "train",
+      2,
+      "standard",
+      { lat: 34.7025, lng: 135.4959 },
+    );
+
+    expect(result.transportIncluded).toBe(true);
+    expect(result.transportFareScope).toBe("local_bounded_estimate");
+    expect(result.range).toBeNull();
+    expect(
+      getSortableVerifiedBudget(unknownOnsite, ["train"], 2, {
+        lat: 34.7025,
+        lng: 135.4959,
+      }),
+    ).toBe(Number.POSITIVE_INFINITY);
   });
 
   it("never fabricates a meal count when trip duration is unknown", () => {

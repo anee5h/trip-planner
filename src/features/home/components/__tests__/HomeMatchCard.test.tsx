@@ -441,7 +441,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     expect(text).toContain("home.transportModes.travelUnavailable");
   });
 
-  it("recommendation leakage proof: canonical OriginAwareTransportService remains null for same-municipality without verified route", async () => {
+  it("uses the bounded local estimate for same-municipality train coverage", async () => {
     const { getOriginAwareTransportEstimate } =
       await import("@/shared/services/transport/OriginAwareTransportService");
 
@@ -451,7 +451,8 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
       ["train"],
     );
 
-    expect(canonicalEstimate).toBeNull();
+    expect(canonicalEstimate?.fareScope).toBe("local_bounded_estimate");
+    expect(canonicalEstimate?.source).toBe("calculated_local_bounded_estimate");
   });
 
   it("shows the canonical strongest day-trip reason and existing estimated cost", async () => {
