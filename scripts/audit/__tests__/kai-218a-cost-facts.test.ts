@@ -147,7 +147,7 @@ describe("KAI-218A admission cost-fact invariants", () => {
     expect(codes(dest)).toContain("KAI218_ADMISSION_LEGACY_DRIFT");
   });
 
-  it("variable_price as fabricated bounded range fails", () => {
+  it("variable_price bounded range WITHOUT verified source fails (KAI-218 repair)", () => {
     const dest = {
       ...base,
       admission: {
@@ -158,7 +158,25 @@ describe("KAI-218A admission cost-fact invariants", () => {
         scope: "general_entry",
       },
     } as unknown as Destination;
-    expect(codes(dest)).toContain("KAI218_ADMISSION_VARIABLE_NEVER_BOUNDED");
+    expect(codes(dest)).toContain(
+      "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
+    );
+  });
+
+  it("variable_price official bounded range WITH verified source passes (KAI-218 repair: variable ≠ necessarily open-ended)", () => {
+    const dest = {
+      ...base,
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "bounded", min: 2000, max: 3500 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com/official-pricing"],
+        checkedAt: "2026-08-02",
+      },
+    } as unknown as Destination;
+    expect(codes(dest).filter((c) => c.startsWith("KAI218_"))).toEqual([]);
   });
 
   it("not_applicable without reasonCode fails", () => {
@@ -290,8 +308,9 @@ describe("KAI-218A preventive codes", () => {
       "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_EVIDENCE",
       "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_REQUIRES_MODEL",
       "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_COST",
-      "KAI218_ADMISSION_VARIABLE_NEVER_BOUNDED",
+      "KAI218_ADMISSION_VARIABLE_INVALID_COST",
       "KAI218_ADMISSION_VARIABLE_INVALID_FROM",
+      "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
       "KAI218_ADMISSION_VARIABLE_REQUIRES_REASON",
       "KAI218_ADMISSION_NOT_APPLICABLE_COST",
       "KAI218_ADMISSION_NOT_APPLICABLE_REQUIRES_REASON",

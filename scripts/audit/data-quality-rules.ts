@@ -188,8 +188,9 @@ export const PREVENTIVE_CODES = new Set([
   "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_EVIDENCE",
   "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_REQUIRES_MODEL",
   "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_COST",
-  "KAI218_ADMISSION_VARIABLE_NEVER_BOUNDED",
+  "KAI218_ADMISSION_VARIABLE_INVALID_COST",
   "KAI218_ADMISSION_VARIABLE_INVALID_FROM",
+  "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
   "KAI218_ADMISSION_VARIABLE_REQUIRES_REASON",
   "KAI218_ADMISSION_NOT_APPLICABLE_COST",
   "KAI218_ADMISSION_NOT_APPLICABLE_REQUIRES_REASON",
@@ -881,23 +882,43 @@ export function collectDestinationIssues(
         );
       }
     }
-    // variable_price requires reasonCode and an open_ended/variable cost —
-    // NEVER a fabricated bounded range; open_ended.from must be a finite
-    // non-negative number (KAI-215 validity).
+    // variable_price requires reasonCode. The cost may be:
+    //   - a VERIFIED OFFICIAL BOUNDED range (e.g. ¥2,000–3,500 published by
+    //     the attraction; applies to the selected date/product) — allowed
+    //     ONLY with verified_source provenance + non-empty sourceUrls, so a
+    //     fabricated/legacy bounded guess can never ride the variable_price
+    //     state (KAI-218 repair: variable ≠ necessarily open-ended);
+    //   - open_ended {from} (finite non-negative) or variable.
     if (admission.state === "variable_price") {
-      if (cost?.kind !== "open_ended" && cost?.kind !== "variable") {
+      const costKind = cost?.kind;
+      if (
+        costKind !== "open_ended" &&
+        costKind !== "variable" &&
+        costKind !== "bounded"
+      ) {
         push(
-          "KAI218_ADMISSION_VARIABLE_NEVER_BOUNDED",
-          "variable_price admission must be open_ended or variable, never a fabricated bounded range",
+          "KAI218_ADMISSION_VARIABLE_INVALID_COST",
+          "variable_price admission must be bounded, open_ended or variable",
         );
       }
       if (
-        cost?.kind === "open_ended" &&
+        costKind === "open_ended" &&
         (typeof cost.from !== "number" || !finiteNonNegative(cost.from))
       ) {
         push(
           "KAI218_ADMISSION_VARIABLE_INVALID_FROM",
           "variable_price open_ended cost requires a finite non-negative 'from'",
+        );
+      }
+      if (
+        costKind === "bounded" &&
+        (admission.provenance !== "verified_source" ||
+          !admission.sourceUrls ||
+          admission.sourceUrls.length === 0)
+      ) {
+        push(
+          "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
+          "variable_price bounded cost requires verified_source provenance + at least one sourceUrl (an official verified range, not a fabricated guess)",
         );
       }
       if (!admission.reasonCode) {

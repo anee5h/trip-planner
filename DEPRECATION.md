@@ -22,7 +22,7 @@ author them):
 `budgetBreakdown.tickets` is NOT deprecated as a storage field: it is the
 legacy admission value. It may be migrated into the explicit `admission`
 fact where defensible; legacy ticket values are NOT presumed trustworthy
-(see the mapping table in `.hermes/plans/kai-218a-admission-schema-design.md`
+(see the mapping table in `docs/KAI-218A-admission-schema-design.md`
 — only the 38 manual records carry verified provenance).
 
 ## The new facts
