@@ -54,7 +54,10 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
       tripMode: "day_trip",
       includeOriginTravel: false,
     });
-    return r.completeness === "complete" && r.total ? r.total.min : null;
+    return r.completeness === "complete" && r.total
+      ? // KAI-217B repair: midpoint-for-ranking (not the minimum bound).
+        (r.total.min + r.total.max) / 2
+      : null;
   });
   const knownBudgets = budgets.filter(
     (budget): budget is number => budget !== null,

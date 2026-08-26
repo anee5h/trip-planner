@@ -248,6 +248,10 @@ export function runRecommendationPipeline(
         partySize: context.partySize,
         homeCoords: context.homeStationCoords || undefined,
         tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+        // KAI-217B repair: overnight recommendation affordability MUST
+        // include the user's accommodation selection — the engine sees
+        // missing accommodation as partial without it.
+        accommodationAllowance: context.accommodationAllowance,
         ferryTemporal: context.ferryTemporal,
       }),
     );
@@ -358,6 +362,9 @@ export function runRecommendationPipeline(
             partySize: context.partySize,
             homeCoords: context.homeStationCoords || undefined,
             tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+            // KAI-217B repair: pass the accommodation allowance so an
+            // overnight card range is not falsely partial.
+            accommodationAllowance: context.accommodationAllowance,
             ferryTemporal: context.ferryTemporal,
           })
         : null;

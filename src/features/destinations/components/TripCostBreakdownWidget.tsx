@@ -5,6 +5,7 @@ import {
   formatLocalizedJPYRange,
   hasKnownBudgetRange,
 } from "@/shared/services/budget/BudgetService";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import { isVerifiedFree } from "@/shared/services/budget/budgetState";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
@@ -173,25 +174,34 @@ export function TripCostBreakdownWidget({
         ...(hasAccommodationAllowance ? [accommodationAllowanceRange] : []),
       ]
     : [];
-  // KAI-217B: the canonical total is transport + admission + accommodation
-  // ONLY. The legacy itemized partyRange includes food/cafe/parking — never
-  // surface those as canonical cost.
-  const totalRange: [number, number] = planCostBreakdown
+  // KAI-217B repair: the canonical total comes from the ENGINE — never
+  // hand-reconstructed scalars. With includeOriginTravel:false the engine
+  // produces the on-site canonical total (admission + local transport +
+  // accommodation) as a RANGE when it is complete; partial/unavailable
+  // results yield no total (honest: no strict cost claim on incomplete
+  // evidence). This removes the duplicated arithmetic AND the range
+  // collapse ([sameNumber, sameNumber]).
+  const engineTotal = useMemo(() => {
+    if (planCostBreakdown) return undefined;
+    const r = calculateTripCost({
+      dest: destination,
+      tripMode: "day_trip",
+      partySize,
+      accommodationAllowance,
+      includeOriginTravel: false,
+    });
+    return r.completeness === "complete" && r.total ? r.total : undefined;
+  }, [destination, partySize, accommodationAllowance, planCostBreakdown]);
+
+  const totalRange: [number, number] | undefined = planCostBreakdown
     ? visiblePartyRanges.reduce<[number, number]>(
         (total, range) => [total[0] + range[0], total[1] + range[1]],
         [0, 0],
       )
-    : [
-        cost.transport +
-          (cost.localTransit ?? 0) +
-          cost.tickets +
-          (hasAccommodationAllowance ? accommodationAllowance! : 0),
-        cost.transport +
-          (cost.localTransit ?? 0) +
-          cost.tickets +
-          (hasAccommodationAllowance ? accommodationAllowance! : 0),
-      ];
-  const displayedTotalRange: [number, number] =
+    : engineTotal
+      ? [engineTotal.min, engineTotal.max]
+      : undefined;
+  const displayedTotalRange: [number, number] | undefined =
     viewMode === "party"
       ? totalRange
       : planCostBreakdown
@@ -201,10 +211,12 @@ export function TripCostBreakdownWidget({
               (total, range) => [total[0] + range[0], total[1] + range[1]],
               [0, 0],
             )
-        : [
-            Math.round(totalRange[0] / partySize),
-            Math.round(totalRange[1] / partySize),
-          ];
+        : totalRange
+          ? [
+              Math.round(totalRange[0] / partySize),
+              Math.round(totalRange[1] / partySize),
+            ]
+          : undefined;
 
   const headerTitle = hasGeneratedPlan
     ? locale === "ja"
@@ -237,7 +249,7 @@ export function TripCostBreakdownWidget({
 
   if (!destination) return null;
 
-  const totalMax = displayedTotalRange[1];
+  const totalMax = displayedTotalRange?.[1];
 
   function getCategoryWidth(amount: number): number {
     if (!totalMax || totalMax === 0) return 0;

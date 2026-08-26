@@ -557,12 +557,12 @@ export default function Destinations() {
         publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
         if (!hasKnownBudgetRange(dest)) return false;
-        // KAI-217B: the tier filter evaluates the CANONICAL engine cost.
-        // With origin context: a dest passes when ANY mode COMPLETELY fits
-        // (max <= tierLimit). Without origin context (or no complete mode):
-        // the canonical ON-SITE total (admission + local transport, origin
-        // excluded) is compared — never a raw budgetMax fallback that
-        // fabricates a hard-pass.
+        // KAI-217B repair: the tier filter evaluates ONLY the CANONICAL
+        // engine cost. When no complete engine result exists (partial /
+        // open-ended / unavailable), the destination does NOT pass the
+        // strict tier filter — a raw budgetMax fallback would hard-pass on
+        // the very generic field we're retiring (food/cafe/generic-budget
+        // assumptions). Unknown stays unknown: no fabricated fit.
         let costMax: number | undefined;
         if (homeStationCoords) {
           let best: number | undefined;
@@ -585,13 +585,18 @@ export default function Destinations() {
             }
           }
           costMax = best;
-        }
-        if (costMax === undefined) {
-          // On-site party cost fallback (transport excluded — NOT claimed).
-          // The destination's own trusted budgetMax range is its on-site
-          // cost fact; using it as the tier filter's on-site bound does not
-          // fabricate origin transport (the label omits transport).
-          costMax = dest.budgetMax * partySize;
+        } else {
+          // No origin context: evaluate the canonical ON-SITE total
+          // (admission + local transport, origin excluded).
+          const onSite = calculateTripCost({
+            dest,
+            partySize,
+            tripMode: "day_trip",
+            includeOriginTravel: false,
+          });
+          if (onSite.completeness === "complete" && onSite.total) {
+            costMax = onSite.total.max;
+          }
         }
         return costMax !== undefined && costMax <= tierLimit;
       });

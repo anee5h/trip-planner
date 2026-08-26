@@ -67,6 +67,22 @@ let scenario: Scenario = {
   budgetAvailable: true,
 };
 
+// KAI-217B repair: the widget's canonical total comes from the engine.
+// Mock it deterministically to the scenario's canonical components
+// (transport + local transit + tickets — food/cafe excluded) so the
+// transport-row presentation contract stays the focus.
+vi.mock("@/shared/services/budget/tripCostEngine", () => ({
+  calculateTripCost: () => {
+    const s = scenario;
+    const total = s.transport + s.localTransit + s.tickets;
+    return {
+      completeness: "complete",
+      total: { kind: "bounded", min: total, max: total },
+    };
+  },
+  evaluateAffordability: () => "fits",
+}));
+
 vi.mock("@/shared/services/budget/BudgetService", () => ({
   calculateItemizedTripCost: () => {
     const s = scenario;

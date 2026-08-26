@@ -538,7 +538,12 @@ describe("Clear/Reset Behavior (KAI-63)", () => {
       "/destinations?budget=3&party=4&car=rental&mode=train",
     );
     const filteredCount = getResultCount(containerFiltered);
-    expect(filteredCount).toBeGreaterThan(0);
+    // KAI-217B repair: the budget-tier filter is CANONICAL-ONLY (no
+    // budgetMax fallback). The test's mocked catalogue has no destination
+    // with a complete engine train cost from the fixture origin, so the
+    // strict filter yields 0 — honest: a partial/incomplete engine result
+    // never passes a strict tier filter. What matters is the Clear/Reset
+    // contract: clearing restores the full fresh catalogue below.
     expect(filteredCount).toBeLessThan(freshCount);
 
     // 3. Click "Clear all"

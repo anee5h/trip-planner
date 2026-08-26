@@ -1690,25 +1690,31 @@ export default function DestinationDetails() {
                                   <JapaneseYen className="inline w-4 h-4" />
                                   {isTransportExcluded
                                     ? (() => {
-                                        const breakdown =
-                                          budgetService.getEffectiveBudgetBreakdown(
-                                            destination,
-                                          );
-                                        if (!breakdown)
+                                        // KAI-217B repair: the canonical
+                                        // ON-SITE total (admission + local
+                                        // transport, origin excluded) comes
+                                        // from the ENGINE — never a manual
+                                        // breakdown summation. Partial/
+                                        // unavailable → honest unavailable.
+                                        const onSite = calculateTripCost({
+                                          dest: destination,
+                                          partySize,
+                                          tripMode:
+                                            navState?.tripMode ===
+                                            "weekend_2d1n"
+                                              ? "weekend_2d1n"
+                                              : "day_trip",
+                                          accommodationAllowance,
+                                          includeOriginTravel: false,
+                                        });
+                                        if (
+                                          onSite.completeness !== "complete" ||
+                                          !onSite.total
+                                        ) {
                                           return copy.costUnavailable;
-                                        // KAI-89: breakdown components are
-                                        // per-person (incl. the on-site
-                                        // local-transit allowance); scale by
-                                        // partySize (legacy /2 couple-scale
-                                        // removed).
-                                        // KAI-217B: canonical on-site total =
-                                        // admission + local transport ONLY.
-                                        // Food/cafe are excluded from
-                                        // canonical affordability.
+                                        }
                                         return Math.round(
-                                          (breakdown.tickets +
-                                            breakdown.transport) *
-                                            partySize,
+                                          onSite.total.min,
                                         ).toLocaleString();
                                       })()
                                     : (() => {

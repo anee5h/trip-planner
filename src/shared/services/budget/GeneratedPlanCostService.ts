@@ -156,7 +156,14 @@ export function calculateGeneratedPlanCost(
         : fareComponents.some((c) => c.applicable)
           ? "estimated"
           : "unknown",
-    applicable: fareComponents.some((c) => c.applicable),
+    // KAI-217B repair: applicable ONLY when EVERY leg is curated. A plan
+    // with some curated legs + some unknown legs must NOT produce a numeric
+    // total that silently omits the unknown legs — that would claim a
+    // complete plan cost on partial evidence. Missing-leg semantics: any
+    // unknown leg makes the component non-applicable (no strict cost claim).
+    applicable:
+      fareComponents.length > 0 &&
+      fareComponents.every((c) => c.applicable && c.source === "curated"),
   };
 
   // 3-5. Origin / meals / parking — REMOVED (never fabricated).

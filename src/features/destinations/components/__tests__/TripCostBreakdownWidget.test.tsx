@@ -46,6 +46,28 @@ vi.mock("lucide-react", () => ({
   Frown: () => null,
 }));
 
+// KAI-217B repair: the widget's canonical total comes from the engine.
+// Mock it deterministically: complete with a bounded total derived from the
+// accommodation allowance so the allowance rows remain the focus.
+vi.mock("@/shared/services/budget/tripCostEngine", () => ({
+  calculateTripCost: ({
+    accommodationAllowance,
+  }: {
+    accommodationAllowance?: number;
+  }) => {
+    const allowance = accommodationAllowance ?? 0;
+    return {
+      completeness: "complete",
+      total: {
+        kind: "bounded",
+        min: 800 + 3000 + allowance,
+        max: 800 + 3000 + allowance,
+      },
+    };
+  },
+  evaluateAffordability: () => "fits",
+}));
+
 vi.mock("@/shared/services/budget/BudgetService", () => ({
   calculateItemizedTripCost: (
     _dest: Destination,

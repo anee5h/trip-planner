@@ -432,7 +432,11 @@ export function calculateScore(
         mode,
         partySize,
         homeCoords: context.homeStationCoords || undefined,
-        tripMode: "day_trip",
+        // KAI-217B repair: respect the ACTUAL trip mode — overnight
+        // affordability must include the accommodation selection.
+        tripMode:
+          context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+        accommodationAllowance: context.accommodationAllowance,
         ferryTemporal: context.ferryTemporal,
       });
       const affordability = evaluateAffordability(engineResult, budget);
