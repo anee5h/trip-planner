@@ -224,7 +224,7 @@ describe("DestinationDetails transport rows", () => {
     ["Shin-Yokohama", SHIN_YOKOHAMA],
     ["Chiba", CHIBA],
   ])(
-    "%s labels a safe local fallback as approximate when canonical travel is unknown",
+    "%s labels a bounded local fare estimate when no verified corridor exists",
     async (_originName, originCoords) => {
       storeState.homeStationCoords = originCoords;
       storeState.homeStationTransportZoneId = "mainland-honshu";
@@ -233,10 +233,9 @@ describe("DestinationDetails transport rows", () => {
         await flush(80);
       });
       const text = host.textContent ?? "";
-      expect(text).toContain("Route not verified");
+      expect(text).toContain("Local fare estimate (bounded)");
       expect(text).toContain("~");
-      expect(text).not.toContain("Transport estimate unavailable");
-      expect(text).not.toContain("Est.");
+      expect(text).not.toContain("Route not verified");
     },
   );
 

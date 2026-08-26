@@ -243,19 +243,19 @@ export function runRecommendationPipeline(
       ),
     );
 
-    // Filter by budget only using COMPLETE corridor-backed estimates (origin
-    // transport evidence included, mode-specific duration known, and the
-    // included fare covers the complete origin-destination journey). A
-    // corridor-only fare is verified intercity cost with unknown local access
-    // cost — it cannot hard-pass affordability (¥29,000 corridor + unknown
-    // access must not fit a ¥30,000 budget) and is also never hard-failed
-    // for the same reason (KAI-12 budget policy).
+    // Filter by budget only using complete or explicitly bounded-complete
+    // estimates (origin transport evidence included, mode-specific duration
+    // known, and the fare scope covers the modeled origin-to-destination
+    // domain). A corridor-only fare is verified intercity cost with unknown
+    // local access cost — it cannot hard-pass affordability and is also never
+    // hard-failed for the same reason (KAI-12 budget policy).
     const completeEstimates = modeBudgetEstimates.filter(
       (b) =>
         b.transportIncluded &&
         b.durationIncluded &&
         b.range !== null &&
-        b.transportFareScope === "complete",
+        (b.transportFareScope === "complete" ||
+          b.transportFareScope === "local_bounded_estimate"),
     );
     if (completeEstimates.length > 0) {
       const lowestCompleteCost = Math.min(

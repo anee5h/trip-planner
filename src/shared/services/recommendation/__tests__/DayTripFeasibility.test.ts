@@ -506,13 +506,19 @@ describe("day-trip travel evidence", () => {
     ).toBeNull();
   });
 
-  it("never uses estimated travel for fares or budget calculations", () => {
+  it("uses a bounded local fare for same-zone estimated train travel", () => {
     const local = {
       ...catalog.find((destination) => destination.id === "yokohama-city")!,
       id: "synthetic-budget-local-yokohama",
       recommendedVisitHours: { min: 1, max: 2 },
       transportOptions: { train: 30 },
       transportFares: undefined,
+      budgetBreakdown: {
+        transport: 500,
+        tickets: 0,
+        food: 1500,
+        cafe: 500,
+      },
     } as Destination;
     const evidence = getDayTripTravelDurationEvidence(
       local,
@@ -528,10 +534,11 @@ describe("day-trip travel evidence", () => {
     );
 
     expect(evidence.evidence).toBe("estimated");
-    expect(getTransportCost(local, "train", 2, NAKAYAMA)).toBeNull();
-    expect(budget.transportIncluded).toBe(false);
-    expect(budget.durationIncluded).toBe(false);
-    expect(budget.range).toBeNull();
+    expect(getTransportCost(local, "train", 2, NAKAYAMA)).toBe(2000);
+    expect(budget.transportIncluded).toBe(true);
+    expect(budget.durationIncluded).toBe(true);
+    expect(budget.transportFareScope).toBe("local_bounded_estimate");
+    expect(budget.range).not.toBeNull();
   });
 });
 

@@ -4,6 +4,14 @@ export type TransportMode =
   "train" | "shinkansen" | "car" | "my_car" | "bus" | "flight" | "ferry";
 
 /**
+ * Scope of an origin-aware fare. A local bounded estimate is complete only
+ * within its explicitly supported local domain and remains visibly distinct
+ * from a verified station-to-station fare.
+ */
+export type TransportFareScope =
+  "complete" | "corridor_only" | "local_bounded_estimate" | "unknown";
+
+/**
  * Canonical temporal input for ferry availability. Production code must
  * never fall back to the system clock: an undefined context is evaluated
  * conservatively (seasonal routes unavailable, period fares unverified).

@@ -11,6 +11,7 @@ import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type {
   FerryTemporalContext,
+  TransportFareScope,
   TransportMode,
 } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
@@ -204,8 +205,9 @@ export interface EstimatedBudgetRangeResult {
   range: PriceRange | null;
   /** True when the verified corridor fare is included; access fare may be unmodeled. */
   transportIncluded: boolean;
-  /** Whether the included transport fare covers the complete OD or corridor only. */
-  transportFareScope: "complete" | "corridor_only" | "unknown";
+  /** Whether the included transport fare covers the complete OD, a corridor,
+   * or a bounded local estimate. */
+  transportFareScope: TransportFareScope;
   /** True when trip duration was derived for exactly this mode. */
   durationIncluded: boolean;
   /** Meal range for this mode, or null when trip duration is unknown. */
@@ -233,6 +235,7 @@ function getTransportFareScope(
     [mode as TransportMode],
   );
   if (!estimate?.fare) return "unknown";
+  if (estimate.fareScope) return estimate.fareScope;
   return estimate.evidence === "estimated" ? "corridor_only" : "complete";
 }
 
@@ -315,13 +318,12 @@ export function getEstimatedBudgetRange(
 }
 
 /**
- * Lowest corridor-backed trip cost across the given modes, for sorting.
- *
- * Estimates whose origin transport is unavailable (expired or unverified
- * fares, no verified route) are NEVER treated as zero-cost: they are
- * excluded entirely, and a destination with no usable estimate sorts after
- * every priced candidate (PositiveInfinity). On-site-only budgets (transport
- * excluded) are never rewarded in a sort.
+ * Lowest finite trip-budget metric across the given modes. Verified complete
+ * and corridor-only estimates remain numerically sortable for the existing
+ * diagnostic contract, while local bounded estimates add an explicitly
+ * scoped third state. Callers that need affordability or "complete" claims
+ * must inspect `transportFareScope`; unknown/on-site-only values stay at
+ * PositiveInfinity and never become zero-cost.
  */
 export function getSortableVerifiedBudget(
   dest: Destination,

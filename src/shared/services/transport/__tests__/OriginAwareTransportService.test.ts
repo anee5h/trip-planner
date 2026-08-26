@@ -162,6 +162,65 @@ describe("getOriginAwareTransportEstimate — required real route checks", () =>
 });
 
 describe("getOriginAwareTransportEstimate — policy", () => {
+  it("uses a bounded local rail fare only inside the supported local domain", () => {
+    const nearbyOsaka = dest({
+      id: "nearby-osaka-local",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7105, lng: 135.5005 },
+      transportOptions: { train: 25 },
+      localAccessModes: ["train"],
+      budgetBreakdown: { transport: 300, tickets: 0, food: 1200, cafe: 300 },
+    });
+    const estimate = estimateFor(nearbyOsaka, OSAKA, ["train"]);
+
+    expect(estimate).not.toBeNull();
+    expect(estimate!.source).toBe("calculated_local_bounded_estimate");
+    expect(estimate!.evidence).toBe("estimated");
+    expect(estimate!.fareScope).toBe("local_bounded_estimate");
+    expect(estimate!.fare).toEqual([150, 500]);
+    expect(estimate!.fareVariability).toBe("range");
+    expect(estimate!.fareSourceUrl).toMatch(/^https:\/\//);
+  });
+
+  it("does not turn a distant or explicitly unestimated local leg into a fare", () => {
+    const distant = dest({
+      id: "distant-osaka-local",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 35.4, lng: 135.5 },
+      transportOptions: { train: 45 },
+      localAccessModes: ["train"],
+    });
+    const unestimated = dest({
+      id: "unestimated-osaka-local",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7105, lng: 135.5005 },
+      transportOptions: { train: 25 },
+      localAccessModes: ["train"],
+      localAccessUnestimated: true,
+    });
+
+    expect(estimateFor(distant, OSAKA, ["train"])).toBeNull();
+    expect(estimateFor(unestimated, OSAKA, ["train"])).toBeNull();
+  });
+
+  it("does not reuse a local estimate after the origin changes", () => {
+    const nearbyOsaka = dest({
+      id: "origin-cache-local",
+      prefecture: "Osaka",
+      municipalityId: "Osaka:osaka",
+      coordinates: { lat: 34.7105, lng: 135.5005 },
+      transportOptions: { train: 25 },
+      localAccessModes: ["train"],
+    });
+
+    expect(estimateFor(nearbyOsaka, OSAKA, ["train"])).not.toBeNull();
+    const changedOrigin = estimateFor(nearbyOsaka, FUKUOKA, ["train"]);
+    expect(changedOrigin?.fareScope).not.toBe("local_bounded_estimate");
+  });
+
   it("unregistered corridors yield no estimate (no fabrication)", () => {
     const kagawa = dest({ id: "kagawa-dest", prefecture: "Kagawa" });
     expect(

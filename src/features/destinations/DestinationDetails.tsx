@@ -223,6 +223,7 @@ const DETAIL_COPY = {
       "Local access available — time and cost unavailable",
     costUnavailable: "Cost unavailable",
     corridorFareOnly: "Intercity fare only; local access cost is not modeled",
+    localBoundedFare: "Local fare estimate (bounded)",
   },
   ja: {
     notFound: "目的地が見つかりません",
@@ -261,6 +262,7 @@ const DETAIL_COPY = {
     localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
     costUnavailable: "料金不明",
     corridorFareOnly: "都市間交通の料金のみ（現地アクセス費は未算出）",
+    localBoundedFare: "近距離運賃の概算（範囲推定）",
   },
 } as const;
 
@@ -792,10 +794,13 @@ export default function DestinationDetails() {
       homeStationCoords ?? undefined,
     );
     if (cost === null || !Number.isFinite(cost)) return copy.costUnavailable;
+    const estimate = groundEstimateFor(mode);
     const label =
-      groundEstimateFor(mode)?.evidence === "estimated"
-        ? copy.corridorFareOnly
-        : copy.estimated;
+      estimate?.fareScope === "local_bounded_estimate"
+        ? copy.localBoundedFare
+        : estimate?.evidence === "estimated"
+          ? copy.corridorFareOnly
+          : copy.estimated;
     return `${label} ¥${(cost / 1000).toFixed(1)}k`;
   };
 

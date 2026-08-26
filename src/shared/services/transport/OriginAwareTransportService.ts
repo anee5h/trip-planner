@@ -1,6 +1,10 @@
 import type { Destination } from "@/shared/types/destination";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import type { FerryTemporalContext, TransportMode } from "./types";
+import type {
+  FerryTemporalContext,
+  TransportFareScope,
+  TransportMode,
+} from "./types";
 import { getDistanceKm } from "./TransportEstimator";
 import {
   getGroundRoute,
@@ -26,6 +30,10 @@ import {
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import {
+  getLocalBoundedRailFareEstimate,
+  LOCAL_BOUNDED_FARE_SOURCE_URLS,
+} from "./LocalBoundedFareEstimator";
+import {
   resolveDestinationTransportZone,
   topology,
   zoneById,
@@ -34,7 +42,10 @@ import { resolveOriginMunicipalityId } from "../recommendation/OriginAreaService
 import { getDestinationList } from "../destination/DestinationService";
 
 export type OriginAwareEstimateSource =
-  "verified_ground_route" | "verified_flight" | "verified_ferry";
+  | "verified_ground_route"
+  | "verified_flight"
+  | "verified_ferry"
+  | "calculated_local_bounded_estimate";
 
 export type TravelDurationEvidence = "verified" | "estimated" | "unknown";
 
@@ -86,6 +97,10 @@ export interface OriginAwareTransportEstimate {
     "base" | "base-plus-lex" | "integrated-total" | "non-reserved" | "reserved";
   /** Supports the fare range specifically, when distinct from route source. */
   fareSourceUrl?: string;
+  /** Supports a bounded local fare envelope assembled from operator tables. */
+  fareSourceUrls?: readonly string[];
+  /** Explicit fare scope; absent on older verified route records. */
+  fareScope?: TransportFareScope;
 }
 
 /**
@@ -327,6 +342,31 @@ function resolveExactHubIds(
   return mapped ? (Array.isArray(mapped) ? mapped : [mapped]) : [];
 }
 
+function getLocalBoundedOriginAwareEstimate(
+  destination: Destination,
+  context: OriginAwareEstimateContext,
+  destinationZoneId: TransportZoneId,
+): OriginAwareTransportEstimate | null {
+  const local = getLocalBoundedRailFareEstimate(destination, {
+    homeStationCoords: context.homeStationCoords,
+    originZoneId: context.originZoneId,
+  });
+  if (!local) return null;
+  return {
+    mode: "train",
+    timeRange: local.timeRange,
+    source: "calculated_local_bounded_estimate",
+    evidence: "estimated",
+    originZoneId: local.originZoneId ?? context.originZoneId,
+    destinationZoneId: local.destinationZoneId ?? destinationZoneId,
+    fare: local.fare,
+    fareVariability: local.fareVariability,
+    fareSourceUrl: LOCAL_BOUNDED_FARE_SOURCE_URLS[0],
+    fareSourceUrls: local.fareSourceUrls,
+    fareScope: local.fareScope,
+  };
+}
+
 /**
  * Ground-mode registry lookup. Conventional train corridors carry verified
  * prefecture-pair durations; Shinkansen uses the curated physical
@@ -516,7 +556,15 @@ function getGroundEstimate(
     context.originPrefecture ?? resolvedOrigin?.prefecture;
   const originMunicipalityId =
     context.originMunicipalityId ?? resolvedOrigin?.municipalityId;
-  if (!originPrefecture) return null;
+  if (!originPrefecture) {
+    return mode === "train"
+      ? getLocalBoundedOriginAwareEstimate(
+          destination,
+          context,
+          destinationZoneId,
+        )
+      : null;
+  }
   const destinationPrefecture = (destination.prefecture ?? "")
     .trim()
     .toLowerCase();
@@ -551,6 +599,13 @@ function getGroundEstimate(
   const route =
     municipalityRoute ??
     getGroundRoute(originPrefecture, destinationPrefecture, mode);
+  if (!route && mode === "train") {
+    return getLocalBoundedOriginAwareEstimate(
+      destination,
+      context,
+      destinationZoneId,
+    );
+  }
   if (!route) return null;
   return {
     mode,
@@ -564,6 +619,7 @@ function getGroundEstimate(
     fare: route.fare,
     fareBasis: route.fareBasis,
     fareSourceUrl: route.fareSourceUrl,
+    fareScope: route.fare ? "complete" : "unknown",
   };
 }
 
@@ -572,6 +628,30 @@ const originAwareEstimateCache = new Map<
   string,
   OriginAwareTransportEstimate | null
 >();
+
+export interface OriginAwareEstimateCacheStats {
+  hits: number;
+  misses: number;
+  entries: number;
+}
+
+let originAwareCacheHits = 0;
+let originAwareCacheMisses = 0;
+
+/** QA/performance harness hook; production callers never need to clear this cache. */
+export function resetOriginAwareEstimateCache(): void {
+  originAwareEstimateCache.clear();
+  originAwareCacheHits = 0;
+  originAwareCacheMisses = 0;
+}
+
+export function getOriginAwareEstimateCacheStats(): OriginAwareEstimateCacheStats {
+  return {
+    hits: originAwareCacheHits,
+    misses: originAwareCacheMisses,
+    entries: originAwareEstimateCache.size,
+  };
+}
 
 function buildEstimateCacheKey(
   destination: Destination,
@@ -623,7 +703,11 @@ export function getOriginAwareTransportEstimate(
 ): OriginAwareTransportEstimate | null {
   const cacheKey = buildEstimateCacheKey(destination, context, modes);
   const cached = originAwareEstimateCache.get(cacheKey);
-  if (cached !== undefined) return cached;
+  if (cached !== undefined) {
+    originAwareCacheHits += 1;
+    return cached;
+  }
+  originAwareCacheMisses += 1;
 
   let best: OriginAwareTransportEstimate | null = null;
   for (const mode of modes) {
