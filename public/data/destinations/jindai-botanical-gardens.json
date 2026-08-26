@@ -191,5 +191,11 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "budgetMetadata": {
+    "method": "manual",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"
   }
 }

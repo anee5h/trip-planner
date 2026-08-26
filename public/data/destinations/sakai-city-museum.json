@@ -151,10 +151,10 @@
   "walkingMin": 90,
   "walkingIntensity": "medium",
   "budgetMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "verified ticket ¥200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+    "confidence": "low",
+    "basis": "verified ticket ¥200 (ledger FIXED_PAID); source: https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html"
   },
   "durationMetadata": {
     "method": "model",
@@ -173,5 +173,11 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
+  },
+  "budgetBreakdown": {
+    "transport": 0,
+    "tickets": 200,
+    "food": 0,
+    "cafe": 0
   }
 }

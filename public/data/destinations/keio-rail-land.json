@@ -206,5 +206,11 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "budgetMetadata": {
+    "method": "manual",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "verified ticket ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
   }
 }

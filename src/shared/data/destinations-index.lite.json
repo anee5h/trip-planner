@@ -2946,6 +2946,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -3509,6 +3515,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.ccma-net.jp/"
+    },
     "totalTripHours": 6,
     "walkingMin": 30,
     "indoorPercent": 90,
@@ -4935,6 +4947,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 6500,
     "budgetMax": 10000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+    },
     "totalTripHours": 3,
     "walkingMin": 40,
     "indoorPercent": 75,
@@ -5822,6 +5840,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 25,
@@ -7378,6 +7402,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥1000 (ledger FIXED_PAID); source: https://www.fukuokatower.co.jp/charge/"
+    },
     "totalTripHours": 5,
     "walkingMin": 90,
     "indoorPercent": 20,
@@ -10050,6 +10080,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/"
+    },
     "totalTripHours": 6,
     "walkingMin": 55,
     "indoorPercent": 90,
@@ -12182,6 +12218,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+    },
     "totalTripHours": 6,
     "walkingMin": 55,
     "indoorPercent": 90,
@@ -12454,6 +12496,12 @@
     "budgetMin": 4000,
     "budgetRecommended": 9500,
     "budgetMax": 15000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/"
+    },
     "totalTripHours": 6,
     "walkingMin": 120,
     "indoorPercent": 35,
@@ -12917,6 +12965,12 @@
     "budgetMin": 9000,
     "budgetRecommended": 13000,
     "budgetMax": 17000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified free admission (ledger LEDGER_VERIFIED)"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 80,
@@ -17033,6 +17087,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 5500,
     "budgetMax": 8500,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.kawagoematsuri.jp/English/museum.html"
+    },
     "totalTripHours": 6,
     "walkingMin": 30,
     "indoorPercent": 90,
@@ -19729,6 +19789,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 7500,
     "budgetMax": 12000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html"
+    },
     "totalTripHours": 4,
     "walkingMin": 150,
     "indoorPercent": 20,
@@ -30380,6 +30446,12 @@
     "budgetMin": 9000,
     "budgetRecommended": 13000,
     "budgetMax": 17000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified free admission (ledger LEDGER_VERIFIED)"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 60,
@@ -36888,6 +36960,12 @@
     "budgetMin": 3000,
     "budgetRecommended": 6500,
     "budgetMax": 10000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥450 (ledger LEDGER_VERIFIED); source: https://www.raumen.co.jp/english/"
+    },
     "totalTripHours": 3,
     "walkingMin": 40,
     "indoorPercent": 75,
@@ -46693,6 +46771,12 @@
     "budgetMin": 9000,
     "budgetRecommended": 13000,
     "budgetMax": 17000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥5900 (ledger LEDGER_VERIFIED); source: https://www.yomiuriland.com/charge/"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -47892,6 +47976,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -48382,6 +48472,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -48866,7 +48962,7 @@
       "method": "manual",
       "modelVersion": "budget-model-v1",
       "confidence": "low",
-      "basis": "verified ticket ¥150 preserved; peer cell 'garden|half|poi' has 0 samples (< 5); components left as accepted debt"
+      "basis": "verified ticket ¥150 (ledger FIXED_PAID); source: https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
     },
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -49623,7 +49719,7 @@
       "method": "manual",
       "modelVersion": "budget-model-v1",
       "confidence": "low",
-      "basis": "verified ticket ¥1500 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+      "basis": "verified ticket ¥1500 (ledger FIXED_PAID); source: https://buaiso.com/access_guide/new_ticket.html"
     },
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -50286,6 +50382,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.gotokyo.org/en/spot/882/index.html"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -50382,6 +50484,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -50470,6 +50578,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.keio-mogusaen.jp/en/"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -50651,6 +50765,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -51121,6 +51241,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -51212,6 +51338,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -51601,6 +51733,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/"
+    },
     "totalTripHours": 5,
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -51701,7 +51839,7 @@
       "method": "manual",
       "modelVersion": "budget-model-v1",
       "confidence": "low",
-      "basis": "verified ticket ¥400 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+      "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/"
     },
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -52173,6 +52311,12 @@
     "budgetMin": 1500,
     "budgetRecommended": 4000,
     "budgetMax": 7000,
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥370 (ledger LEDGER_VERIFIED); source: https://hiroshimacastle.jp/"
+    },
     "totalTripHours": 5,
     "walkingMin": 110,
     "indoorPercent": 20,
@@ -52691,7 +52835,7 @@
       "method": "unknown",
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
-      "basis": "verified ticket ¥0 preserved; peer cell 'museum|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
     },
     "walkingMin": 60,
     "recommendedVisitHours": {
@@ -53121,10 +53265,10 @@
     "officialWebsite": "https://www.himeji-machishin.jp/kokoen/",
     "status": "published",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105"
     },
     "walkingMin": 70,
     "recommendedVisitHours": {
@@ -53333,10 +53477,10 @@
     "officialWebsite": "https://genbudo-park.jp/",
     "status": "published",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥500 preserved; peer cell 'park|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger FIXED_PAID); source: https://genbudo-park.jp/"
     },
     "walkingMin": 70,
     "recommendedVisitHours": {
@@ -53487,10 +53631,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year (indoor)",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥1200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥1200 (ledger FIXED_PAID); source: https://www.ikuno-ginzan.co.jp/ryokin/ryokin.html"
     },
     "walkingMin": 90,
     "recommendedVisitHours": {
@@ -53850,7 +53994,7 @@
       "method": "unknown",
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
-      "basis": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
     },
     "walkingMin": 70,
     "recommendedVisitHours": {
@@ -53923,10 +54067,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year (indoor)",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥1300 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥1300 (ledger FIXED_PAID); source: https://www.miho.jp/en/information/"
     },
     "walkingMin": 90,
     "recommendedVisitHours": {
@@ -54285,10 +54429,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year (indoor)",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥200 (ledger FIXED_PAID); source: https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html"
     },
     "walkingMin": 90,
     "recommendedVisitHours": {
@@ -71968,10 +72112,10 @@
     "officialWebsite": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
     "status": "published",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥320 preserved; peer cell 'garden|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/"
     },
     "walkingMin": 240,
     "recommendedVisitHours": {
@@ -86020,10 +86164,10 @@
     "officialWebsite": "https://www.farm-tomita.co.jp/",
     "status": "published",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥0 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified free admission (ledger FREE_ENTRY); source: https://www.farm-tomita.co.jp/en/"
     },
     "walkingMin": 170,
     "recommendedVisitHours": {
@@ -86104,7 +86248,7 @@
       "method": "unknown",
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
-      "basis": "verified ticket ¥800 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
     },
     "walkingMin": 170,
     "recommendedVisitHours": {
@@ -86699,10 +86843,10 @@
     "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     "bestSeason": "All Year (indoor)",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥2000 preserved; peer cell 'museum|half|standalone' has 1 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.hakone-oam.or.jp/contact/"
     },
     "walkingMin": 105,
     "recommendedVisitHours": {

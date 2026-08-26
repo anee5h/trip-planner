@@ -6361,6 +6361,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html"
     }
   },
   {
@@ -7742,6 +7748,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.ccma-net.jp/"
     }
   },
   {
@@ -11107,6 +11119,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
     }
   },
   {
@@ -13038,6 +13056,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/"
     }
   },
   {
@@ -16430,7 +16454,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 800,
+      "tickets": 1000,
       "food": 1400,
       "cafe": 400
     },
@@ -16625,6 +16649,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥1000 (ledger FIXED_PAID); source: https://www.fukuokatower.co.jp/charge/"
     }
   },
   {
@@ -22026,6 +22056,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/"
     }
   },
   {
@@ -26458,6 +26494,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
     }
   },
   {
@@ -27122,6 +27164,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/"
     }
   },
   {
@@ -28074,6 +28122,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified free admission (ledger LEDGER_VERIFIED)"
     }
   },
   {
@@ -36888,6 +36942,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.kawagoematsuri.jp/English/museum.html"
     }
   },
   {
@@ -42804,6 +42864,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html"
     }
   },
   {
@@ -65167,6 +65233,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified free admission (ledger LEDGER_VERIFIED)"
     }
   },
   {
@@ -79403,6 +79475,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥450 (ledger LEDGER_VERIFIED); source: https://www.raumen.co.jp/english/"
     }
   },
   {
@@ -100816,6 +100894,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥5900 (ledger LEDGER_VERIFIED); source: https://www.yomiuriland.com/charge/"
     }
   },
   {
@@ -103550,6 +103634,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
     }
   },
   {
@@ -104659,6 +104749,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
     }
   },
   {
@@ -105666,7 +105762,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 150,
       "food": 1400,
       "cafe": 1200
     },
@@ -105780,7 +105876,7 @@
       "method": "manual",
       "modelVersion": "budget-model-v1",
       "confidence": "low",
-      "basis": "verified ticket ¥150 preserved; peer cell 'garden|half|poi' has 0 samples (< 5); components left as accepted debt"
+      "basis": "verified ticket ¥150 (ledger FIXED_PAID); source: https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
     },
     "comfortMetadata": {
       "method": "model",
@@ -107332,7 +107428,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 1500,
       "food": 1400,
       "cafe": 1200
     },
@@ -107476,7 +107572,7 @@
       "method": "manual",
       "modelVersion": "budget-model-v1",
       "confidence": "low",
-      "basis": "verified ticket ¥1500 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+      "basis": "verified ticket ¥1500 (ledger FIXED_PAID); source: https://buaiso.com/access_guide/new_ticket.html"
     },
     "comfortMetadata": {
       "method": "model",
@@ -108977,6 +109073,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.gotokyo.org/en/spot/882/index.html"
     }
   },
   {
@@ -109214,6 +109316,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
     }
   },
   {
@@ -109417,6 +109525,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.keio-mogusaen.jp/en/"
     }
   },
   {
@@ -109826,6 +109940,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"
     }
   },
   {
@@ -110906,6 +111026,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html"
     }
   },
   {
@@ -111143,6 +111269,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/"
     }
   },
   {
@@ -112018,6 +112150,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/"
     }
   },
   {
@@ -112093,7 +112231,7 @@
     "budgetMax": 7000,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
+      "tickets": 400,
       "food": 1400,
       "cafe": 1200
     },
@@ -112237,7 +112375,7 @@
       "method": "manual",
       "modelVersion": "budget-model-v1",
       "confidence": "low",
-      "basis": "verified ticket ¥400 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+      "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/"
     },
     "comfortMetadata": {
       "method": "model",
@@ -113320,6 +113458,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "manual",
+      "modelVersion": "budget-model-v1",
+      "confidence": "low",
+      "basis": "verified ticket ¥370 (ledger LEDGER_VERIFIED); source: https://hiroshimacastle.jp/"
     }
   },
   {
@@ -114461,7 +114605,7 @@
       "method": "unknown",
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
-      "basis": "verified ticket ¥0 preserved; peer cell 'museum|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
     },
     "scoreMetadata": {
       "state": "unavailable",
@@ -115408,10 +115552,10 @@
     "walkingMin": 70,
     "walkingIntensity": "medium",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105"
     },
     "scoreMetadata": {
       "state": "unavailable",
@@ -115424,6 +115568,12 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 400,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -115859,10 +116009,10 @@
     "walkingMin": 70,
     "walkingIntensity": "medium",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥500 preserved; peer cell 'park|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥500 (ledger FIXED_PAID); source: https://genbudo-park.jp/"
     },
     "scoreMetadata": {
       "state": "unavailable",
@@ -115875,6 +116025,12 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 500,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -116219,10 +116375,10 @@
     "walkingMin": 90,
     "walkingIntensity": "medium",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥1200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥1200 (ledger FIXED_PAID); source: https://www.ikuno-ginzan.co.jp/ryokin/ryokin.html"
     },
     "durationMetadata": {
       "method": "model",
@@ -116241,6 +116397,12 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 1200,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -116991,7 +117153,7 @@
       "method": "unknown",
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
-      "basis": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
+      "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
     },
     "scoreMetadata": {
       "state": "unavailable",
@@ -117177,10 +117339,10 @@
     "walkingMin": 90,
     "walkingIntensity": "medium",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥1300 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥1300 (ledger FIXED_PAID); source: https://www.miho.jp/en/information/"
     },
     "durationMetadata": {
       "method": "model",
@@ -117199,6 +117361,12 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 1300,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -117959,10 +118127,10 @@
     "walkingMin": 90,
     "walkingIntensity": "medium",
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥200 preserved; peer cell 'museum|half|destination' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥200 (ledger FIXED_PAID); source: https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html"
     },
     "durationMetadata": {
       "method": "model",
@@ -117981,6 +118149,12 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 200,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -159487,10 +159661,10 @@
     },
     "walkingMin": 240,
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥320 preserved; peer cell 'garden|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/"
     },
     "durationMetadata": {
       "method": "model",
@@ -159509,6 +159683,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 320,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -189533,10 +189713,10 @@
     },
     "walkingMin": 170,
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥0 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified free admission (ledger FREE_ENTRY); source: https://www.farm-tomita.co.jp/en/"
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -189549,6 +189729,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 0,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
@@ -189698,7 +189884,7 @@
       "method": "unknown",
       "modelVersion": "budget-model-v1",
       "confidence": "unknown",
-      "basis": "verified ticket ¥800 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -190913,10 +191099,10 @@
     },
     "walkingMin": 105,
     "budgetMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "budget-model-v1",
-      "confidence": "unknown",
-      "basis": "verified ticket ¥2000 preserved; peer cell 'museum|half|standalone' has 1 samples (< 5); components left as accepted debt"
+      "confidence": "low",
+      "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.hakone-oam.or.jp/contact/"
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -190929,6 +191115,12 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetBreakdown": {
+      "transport": 0,
+      "tickets": 2000,
+      "food": 0,
+      "cafe": 0
     }
   },
   {
