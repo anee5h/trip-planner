@@ -51,7 +51,7 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
+    "tickets": 1500,
     "food": 1400,
     "cafe": 1200
   },
@@ -182,7 +182,7 @@
     "method": "manual",
     "modelVersion": "budget-model-v1",
     "confidence": "low",
-    "basis": "verified ticket ¥1500 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+    "basis": "verified ticket ¥1500 (ledger FIXED_PAID); source: https://buaiso.com/access_guide/new_ticket.html"
   },
   "comfortMetadata": {
     "method": "model",

@@ -175,5 +175,11 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "budgetMetadata": {
+    "method": "manual",
+    "modelVersion": "budget-model-v1",
+    "confidence": "low",
+    "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/"
   }
 }

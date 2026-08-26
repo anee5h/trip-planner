@@ -252,6 +252,37 @@ function main() {
     ) {
       budgetEligible.add(d.id);
     }
+    // KAI-204 provenance rescue: a record cleared to method "unknown" that
+    // LATER gained ledger ticket evidence (the calibration truth ledger
+    // postdates the KAI-89 model run) must be re-eligible so the budget
+    // model can restore the source-verified admission. Without this, the
+    // explicit-unknown state is a dead-end and verified tickets are lost.
+    // The budget model itself still enforces override precedence: it only
+    // writes a ticket when truth.ticketEvidence has one, and only upgrades
+    // to "manual"/"model" with that evidence.
+    //
+    // Ambiguous evidence kinds stay excluded: a FIXED_PAID_WITH_BUNDLE /
+    // FIXED_ENTRY_PLUS_ACTIVITIES / FREE_ENTRY_PAID_EXPERIENCES etc price is
+    // not a clean admission fact (the ledger itself flags the product
+    // ambiguity), so re-eligibility must not manufacture a budget from it.
+    if (
+      d.budgetMetadata?.method === "unknown" &&
+      truth.ticketEvidence?.[d.id] !== undefined
+    ) {
+      const ev = truth.ticketEvidence[d.id];
+      const ambiguousKinds = new Set([
+        "FIXED_PAID_WITH_BUNDLE",
+        "FIXED_ENTRY_PLUS_ACTIVITIES",
+        "FREE_AREA_SEPARATE_PAID_FACILITIES",
+        "FREE_ENTRY_PAID_EXPERIENCES",
+        "FREE_ENTRY_PAY_PER_RIDE",
+        "FREE_ENTRY_PURCHASES_VARIABLE",
+        "FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL",
+      ]);
+      if (!ambiguousKinds.has(ev.kind ?? "")) {
+        budgetEligible.add(d.id);
+      }
+    }
   }
   const seasonEligible = new Set(manualByField.season ?? []);
   for (const d of destinations) {

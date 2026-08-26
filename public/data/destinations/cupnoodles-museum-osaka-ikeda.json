@@ -144,7 +144,7 @@
     "method": "unknown",
     "modelVersion": "budget-model-v1",
     "confidence": "unknown",
-    "basis": "verified ticket ¥0 preserved; peer cell 'museum|short|destination' has 0 samples (< 5); components left as accepted debt"
+    "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
   },
   "scoreMetadata": {
     "state": "unavailable",

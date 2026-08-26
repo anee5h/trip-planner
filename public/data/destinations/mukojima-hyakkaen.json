@@ -52,7 +52,7 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
+    "tickets": 150,
     "food": 1400,
     "cafe": 1200
   },
@@ -166,7 +166,7 @@
     "method": "manual",
     "modelVersion": "budget-model-v1",
     "confidence": "low",
-    "basis": "verified ticket ¥150 preserved; peer cell 'garden|half|poi' has 0 samples (< 5); components left as accepted debt"
+    "basis": "verified ticket ¥150 (ledger FIXED_PAID); source: https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
   },
   "comfortMetadata": {
     "method": "model",

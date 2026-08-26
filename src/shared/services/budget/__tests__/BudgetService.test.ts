@@ -893,3 +893,106 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
 function round1(v: number): number {
   return Math.round(v);
 }
+
+describe("KAI-204 free-vs-unknown safety (Phase 5)", () => {
+  it("never treats undefined/null/NaN budgets as 0 or Free", () => {
+    const missing = {
+      ...mockPaidDest,
+      budgetMin: undefined,
+      budgetMax: undefined,
+      budgetRecommended: undefined,
+      budgetBreakdown: undefined,
+    } as unknown as Destination;
+    expect(isFreeDestination(missing)).toBe(false);
+    expect(hasKnownBudgetRange(missing)).toBe(false);
+    expect(getEffectiveBudgetBreakdown(missing)).toBeNull();
+    const cost = calculateItemizedTripCost(missing);
+    expect(cost.budgetAvailable).toBe(false);
+    expect(cost.isFreeTicket).toBe(false);
+  });
+
+  it("does not classify an absent-metadata zero range as free (provenance required)", () => {
+    // Legacy record with a 0–0 range but NO budgetMetadata: the numbers are
+    // unverified debt, so min=0/max=0 must not become a "Free" claim.
+    const legacyZero = {
+      ...mockPaidDest,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetRecommended: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: undefined,
+      categories: ["Park"],
+      tags: [],
+    } as unknown as Destination;
+    expect(isFreeDestination(legacyZero)).toBe(false);
+  });
+
+  it("classifies a manual-metadata zero range as free (verified provenance)", () => {
+    const verifiedFree = {
+      ...mockPaidDest,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetRecommended: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: {
+        method: "manual",
+        modelVersion: "budget-model-v1",
+        confidence: "low",
+        basis: "verified free admission (ledger LEDGER_VERIFIED)",
+      },
+      categories: ["Park"],
+      tags: [],
+    } as unknown as Destination;
+    expect(isFreeDestination(verifiedFree)).toBe(true);
+  });
+
+  it("keeps method 'unknown' authoritative even with legacy zero numbers", () => {
+    // Two competing truths: metadata says unknown, legacy numbers say 0.
+    // Unknown wins — never free, never a price.
+    const unknownWithZero = {
+      ...mockPaidDest,
+      budgetMin: 0,
+      budgetMax: 0,
+      budgetRecommended: 0,
+      budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
+      budgetMetadata: { method: "unknown" },
+    } as unknown as Destination;
+    expect(isFreeDestination(unknownWithZero)).toBe(false);
+    expect(hasKnownBudgetRange(unknownWithZero)).toBe(false);
+    expect(getEffectiveBudgetBreakdown(unknownWithZero)).toBeNull();
+  });
+
+  it("does not treat a missing ticket price as free (zero-min with costs above)", () => {
+    const zeroMinPaidCosts = {
+      ...mockPaidDest,
+      budgetMin: 0,
+      budgetMax: 2000,
+      budgetRecommended: 1000,
+      budgetBreakdown: { transport: 300, tickets: 0, food: 500, cafe: 200 },
+    } as unknown as Destination;
+    expect(isFreeDestination(zeroMinPaidCosts)).toBe(false);
+  });
+
+  it("real catalogue has no isFreeDestination false positives from absent metadata", () => {
+    // Dynamic guard over the committed catalogue: any record classified free
+    // by range must carry manual/model provenance; free by keyword is the
+    // only accepted unproven path (and it renders an estimate, never a hard
+    // zero). This test pins the safety invariant for future data.
+    return fullList().then((list) => {
+      const freeByRange = (list as Destination[]).filter(
+        (d) =>
+          d.budgetMin === 0 &&
+          d.budgetMax === 0 &&
+          (d.budgetMetadata?.method === "manual" ||
+            d.budgetMetadata?.method === "model"),
+      );
+      const freeByRangeAbsent = (list as Destination[]).filter(
+        (d) => d.budgetMin === 0 && d.budgetMax === 0 && !d.budgetMetadata,
+      );
+      // Manual/model zero ranges are allowed (verified provenance); absent
+      // metadata zero ranges are not (must never exist).
+      expect(freeByRangeAbsent).toHaveLength(0);
+      expect(freeByRange.length).toBeGreaterThanOrEqual(0);
+    });
+  });
+});

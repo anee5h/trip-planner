@@ -57,7 +57,7 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
+    "tickets": 400,
     "food": 1400,
     "cafe": 1200
   },
@@ -188,7 +188,7 @@
     "method": "manual",
     "modelVersion": "budget-model-v1",
     "confidence": "low",
-    "basis": "verified ticket ¥400 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
+    "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/"
   },
   "comfortMetadata": {
     "method": "model",
