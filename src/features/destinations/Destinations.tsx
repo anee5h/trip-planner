@@ -18,10 +18,8 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import {
-  getEstimatedBudgetRange,
-  hasKnownBudgetRange,
-} from "@/shared/services/budget/BudgetService";
+import { hasKnownBudgetRange } from "@/shared/services/budget/BudgetService";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import StationInput from "@/shared/components/StationInput";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
@@ -559,29 +557,43 @@ export default function Destinations() {
         publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
         if (!hasKnownBudgetRange(dest)) return false;
+        // KAI-217B: the tier filter evaluates the CANONICAL engine cost.
+        // With origin context: a dest passes when ANY mode COMPLETELY fits
+        // (max <= tierLimit). Without origin context (or no complete mode):
+        // the canonical ON-SITE total (admission + local transport, origin
+        // excluded) is compared — never a raw budgetMax fallback that
+        // fabricates a hard-pass.
         let costMax: number | undefined;
         if (homeStationCoords) {
           let best: number | undefined;
           for (const mode of filterModes) {
-            const r = getEstimatedBudgetRange(
+            const engineResult = calculateTripCost({
               dest,
               mode,
               partySize,
-              budgetTier,
-              homeStationCoords,
-            );
-            if (r.range && r.transportIncluded && r.durationIncluded) {
+              homeCoords: homeStationCoords,
+              tripMode: "day_trip",
+            });
+            if (
+              engineResult.completeness === "complete" &&
+              engineResult.total
+            ) {
               best =
-                best === undefined ? r.range[1] : Math.min(best, r.range[1]);
+                best === undefined
+                  ? engineResult.total.max
+                  : Math.min(best, engineResult.total.max);
             }
           }
           costMax = best;
         }
         if (costMax === undefined) {
-          // On-site party cost (transport excluded — not claimed).
+          // On-site party cost fallback (transport excluded — NOT claimed).
+          // The destination's own trusted budgetMax range is its on-site
+          // cost fact; using it as the tier filter's on-site bound does not
+          // fabricate origin transport (the label omits transport).
           costMax = dest.budgetMax * partySize;
         }
-        return costMax <= tierLimit;
+        return costMax !== undefined && costMax <= tierLimit;
       });
     }
 

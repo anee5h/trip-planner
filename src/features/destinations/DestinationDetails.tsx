@@ -149,6 +149,7 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { budgetService } from "@/shared/services/budget/BudgetService";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
@@ -1700,27 +1701,45 @@ export default function DestinationDetails() {
                                         // local-transit allowance); scale by
                                         // partySize (legacy /2 couple-scale
                                         // removed).
+                                        // KAI-217B: canonical on-site total =
+                                        // admission + local transport ONLY.
+                                        // Food/cafe are excluded from
+                                        // canonical affordability.
                                         return Math.round(
                                           (breakdown.tickets +
-                                            breakdown.food +
-                                            breakdown.cafe +
                                             breakdown.transport) *
                                             partySize,
                                         ).toLocaleString();
                                       })()
                                     : (() => {
-                                        const adjustedBudget =
-                                          budgetService.getAdjustedBudget(
-                                            destination,
-                                            selectedTransport ?? "all",
-                                            partySize,
+                                        // KAI-217B: the canonical trip cost
+                                        // (origin travel + admission + local
+                                        // transport + accommodation) is owned
+                                        // by the TripCostEngine. Food/cafe/
+                                        // parking/5% are excluded.
+                                        const engineResult = calculateTripCost({
+                                          dest: destination,
+                                          mode: selectedTransport ?? undefined,
+                                          partySize,
+                                          homeCoords:
                                             homeStationCoords ?? undefined,
-                                            homeStationTransportZoneId,
-                                            ferryTemporal,
-                                          );
-                                        return adjustedBudget === null
-                                          ? copy.costUnavailable
-                                          : adjustedBudget.toLocaleString();
+                                          tripMode:
+                                            navState?.tripMode ===
+                                            "weekend_2d1n"
+                                              ? "weekend_2d1n"
+                                              : "day_trip",
+                                          accommodationAllowance:
+                                            accommodationAllowance,
+                                          ferryTemporal,
+                                        });
+                                        if (
+                                          engineResult.completeness !==
+                                            "complete" ||
+                                          !engineResult.total
+                                        ) {
+                                          return copy.costUnavailable;
+                                        }
+                                        return engineResult.total.min.toLocaleString();
                                       })()}
                                 </div>
                               </>

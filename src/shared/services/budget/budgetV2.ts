@@ -125,6 +125,15 @@ export interface ComponentEvidence {
   readonly fareScope?: TransportFareScope;
   readonly scope: CostScope;
   readonly derivation: CostDerivation;
+  /**
+   * KAI-217B: transport fare scope (origin_travel components only).
+   * "complete" = whole-journey verified fare; "corridor_only" = verified
+   * intercity with unmodeled access; "local_bounded_estimate" = bounded
+   * local rail envelope. Required to distinguish a DEFINITE origin cost
+   * (complete) from a partial one (corridor/local-bounded) in
+   * affordability decisions.
+   */
+  readonly fareScope?: TransportFareScope;
 }
 
 /** A single trip-cost component: value + epistemic state. */

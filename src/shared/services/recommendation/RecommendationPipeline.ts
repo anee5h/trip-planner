@@ -1,5 +1,9 @@
 import type { Destination } from "@/shared/types/destination";
 import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
+import {
+  calculateTripCost,
+  evaluateAffordability,
+} from "@/shared/services/budget/tripCostEngine";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
@@ -230,42 +234,37 @@ export function runRecommendationPipeline(
 
     if (context.budgetTier === "luxury") return true;
 
-    // Call getEstimatedBudgetRange once per mode; it derives that mode's own
-    // trip duration internally.
-    const modeBudgetEstimates = modes.map((mode) =>
-      getEstimatedBudgetRange(
-        destination,
+    // KAI-217B: the budget gate evaluates the CANONICAL engine cost per mode
+    // (origin travel + admission + local transport — food/cafe/parking/5%
+    // excluded). A destination hard-passes only when at least one mode is
+    // COMPLETE and fits (max <= budget). Partial/open-ended/unavailable
+    // results are affordability-unknown under the neutral policy (never
+    // hard-failed, never hard-passed) — same KAI-12 philosophy as before,
+    // but driven by the canonical cost, not the legacy food-inclusive range.
+    const modeResults = modes.map((mode) =>
+      calculateTripCost({
+        dest: destination,
         mode,
-        context.partySize,
-        context.budgetTier,
-        context.homeStationCoords || undefined,
-        context.ferryTemporal,
-      ),
+        partySize: context.partySize,
+        homeCoords: context.homeStationCoords || undefined,
+        tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+        ferryTemporal: context.ferryTemporal,
+      }),
     );
-
-    // Filter by budget only using complete or explicitly bounded-complete
-    // estimates (origin transport evidence included, mode-specific duration
-    // known, and the fare scope covers the modeled origin-to-destination
-    // domain). A corridor-only fare is verified intercity cost with unknown
-    // local access cost — it cannot hard-pass affordability and is also never
-    // hard-failed for the same reason (KAI-12 budget policy).
-    const completeEstimates = modeBudgetEstimates.filter(
-      (b) =>
-        b.transportIncluded &&
-        b.durationIncluded &&
-        b.range !== null &&
-        (b.transportFareScope === "complete" ||
-          b.transportFareScope === "local_bounded_estimate"),
+    const affordances = modeResults.map((r) =>
+      evaluateAffordability(r, context.budget),
     );
-    if (completeEstimates.length > 0) {
-      const lowestCompleteCost = Math.min(
-        ...completeEstimates.map((b) => b.range![1]),
-      );
-      return lowestCompleteCost <= context.budget;
+    // Any mode that COMPLETELY fits (max <= budget) hard-passes.
+    if (affordances.some((a) => a === "fits")) return true;
+    // A complete result that does not fit (over, or straddling may_exceed)
+    // is a definite affordability-unknown-but-complete verdict: preserve the
+    // legacy hard-fail when complete estimates exist and NONE fit.
+    if (affordances.some((a) => a === "over" || a === "may_exceed")) {
+      return false;
     }
-
-    // Retain as affordability-unknown under the neutral policy (do NOT filter out,
-    // and do NOT classify as affordable based on an on-site-only range)
+    // No complete result: retain as affordability-unknown under the neutral
+    // policy (do NOT filter out, and do NOT classify as affordable based on
+    // an on-site-only range).
     return true;
   });
 
@@ -348,6 +347,20 @@ export function runRecommendationPipeline(
       // source of truth for the card's mode and matching budget status. Its
       // evidence still distinguishes bounded access from a verified corridor.
       const cardTransportMode = transportEstimate?.mode ?? scoreResult.bestMode;
+      // KAI-217B: the card's displayed cost range comes from the CANONICAL
+      // engine — a COMPLETE result only (food/cafe/parking/5% excluded).
+      // Partial/open-ended/unavailable results yield NO cost chip on the
+      // card (honest: no strict cost claim on incomplete evidence).
+      const cardEngineResult = cardTransportMode
+        ? calculateTripCost({
+            dest: candidate,
+            mode: cardTransportMode,
+            partySize: context.partySize,
+            homeCoords: context.homeStationCoords || undefined,
+            tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+            ferryTemporal: context.ferryTemporal,
+          })
+        : null;
       const budgetResult = cardTransportMode
         ? getEstimatedBudgetRange(
             candidate,
@@ -365,10 +378,8 @@ export function runRecommendationPipeline(
             food: null,
           };
       const estimatedCostRange =
-        budgetResult.transportIncluded &&
-        budgetResult.durationIncluded &&
-        budgetResult.range
-          ? budgetResult.range
+        cardEngineResult?.completeness === "complete" && cardEngineResult.total
+          ? [cardEngineResult.total.min, cardEngineResult.total.max]
           : undefined;
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
       const estimatedCostTransportScope = budgetResult.transportFareScope;

@@ -3,7 +3,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
@@ -44,7 +44,18 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   // Best value helpers
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);
 
-  const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
+  // KAI-217B: canonical engine total (complete-only) for the "Lowest" badge
+  // and the Est. Budget chip. Partial/unavailable never win "Lowest".
+  const budgets = compareDestinations.map((d) => {
+    // KAI-217B: Compare has no origin context — compare the canonical
+    // ON-SITE total (admission + local transport).
+    const r = calculateTripCost({
+      dest: d,
+      tripMode: "day_trip",
+      includeOriginTravel: false,
+    });
+    return r.completeness === "complete" && r.total ? r.total.min : null;
+  });
   const knownBudgets = budgets.filter(
     (budget): budget is number => budget !== null,
   );

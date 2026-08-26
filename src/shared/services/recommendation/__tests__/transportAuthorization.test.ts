@@ -720,9 +720,12 @@ describe("no-route budget excludes origin transport", () => {
     const nullCost = calculateGeneratedPlanCost(plan as never, 2, null);
     expect(nullCost.localTransit.min).toBe(0);
     expect(nullCost.localTransit.applicable).toBe(false);
-    // The train-mode estimate must differ: it prices on-site transit.
+    // KAI-217B: the train duration-band heuristic (210/350/550/880) is
+    // REMOVED — a train-mode plan with no curated fare is also unknown
+    // (0, not applicable). No mode may fabricate a local-fare assumption.
     const trainCost = calculateGeneratedPlanCost(plan as never, 2, "train");
-    expect(trainCost.localTransit.min).toBeGreaterThan(0);
+    expect(trainCost.localTransit.min).toBe(0);
+    expect(trainCost.localTransit.applicable).toBe(false);
     // A curated fare is real data and is still counted without a mode.
     const curatedLeg = {
       ...leg,

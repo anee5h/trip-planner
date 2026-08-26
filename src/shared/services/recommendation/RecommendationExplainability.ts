@@ -13,10 +13,8 @@ import {
   isRatingVerified,
   getValidModes,
 } from "./RecommendationScorer";
-import {
-  formatJPYRange,
-  getEstimatedBudgetRange,
-} from "@/shared/services/budget/BudgetService";
+import { formatJPYRange } from "@/shared/services/budget/BudgetService";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { PriceRange } from "@/shared/types/planner";
@@ -153,20 +151,24 @@ export function createRecommendationMatch(
   for (const mode of validModesForDest) {
     let estimatedBudget: PriceRange | undefined;
     if (dest.budgetRecommended) {
-      const budgetEst = getEstimatedBudgetRange(
+      // KAI-217B: the budget reason evaluates the CANONICAL engine cost.
+      // A strict "within budget" claim requires a COMPLETE result that
+      // fits (max <= C). Partial/open-ended/unavailable results never
+      // produce "Within Budget"/"Great Value".
+      const engineResult = calculateTripCost({
         dest,
         mode,
         partySize,
-        context.budgetTier,
-        context.homeStationCoords || undefined,
-        context.ferryTemporal,
-      );
+        homeCoords: context.homeStationCoords ?? undefined,
+        tripMode: "day_trip",
+        ferryTemporal: context.ferryTemporal,
+      });
       if (
-        budgetEst.transportIncluded &&
-        budgetEst.durationIncluded &&
-        budgetEst.range
+        engineResult.completeness === "complete" &&
+        engineResult.total &&
+        engineResult.total.max <= budget
       ) {
-        estimatedBudget = budgetEst.range;
+        estimatedBudget = [engineResult.total.min, engineResult.total.max];
       }
     }
 

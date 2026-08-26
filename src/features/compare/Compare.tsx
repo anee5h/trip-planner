@@ -13,7 +13,7 @@ import {
 } from "@/shared/components/ui/table";
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -130,11 +130,28 @@ export default function Compare() {
   // Helpers to find best values
   const getMin = (arr: number[]) => Math.min(...arr);
 
-  const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
-  const knownBudgets = budgets.filter(
+  // KAI-217B: the "Lowest" comparison uses the CANONICAL engine total,
+  // and only COMPLETE results qualify. Partial/unavailable destinations
+  // (unknown transport/admission) never win "Lowest" — they show
+  // "unavailable" instead of a potentially-misleading recBudget number.
+  const engineBudgets = compareDestinations.map((d) => {
+    // KAI-217B: Compare has no origin context (no homeCoords/mode), so the
+    // canonical ON-SITE total (admission + local transport) is compared —
+    // origin travel is excluded via includeOriginTravel: false.
+    const r = calculateTripCost({
+      dest: d,
+      tripMode: "day_trip",
+      includeOriginTravel: false,
+    });
+    return r.completeness === "complete" && r.total ? r.total.min : null;
+  });
+  const knownBudgets = engineBudgets.filter(
     (budget): budget is number => budget !== null,
   );
   const minBudget = knownBudgets.length > 0 ? getMin(knownBudgets) : null;
+  // Legacy getAdjustedBudget retained for the display row (recBudget-based)
+  // until the display migration lands; the badge uses engineBudgets.
+  const budgets = engineBudgets;
 
   const travelTimes = compareDestinations.map((d) => {
     const times = Object.values(d.transportOptions || {}).filter(
@@ -230,8 +247,9 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 {t("compare.budgetRecommended")}
               </TableCell>
-              {compareDestinations.map((dest) => {
-                const budget = getAdjustedBudget(dest, "all");
+              {compareDestinations.map((dest, destIdx) => {
+                // KAI-217B: canonical engine total (complete-only).
+                const budget = budgets[destIdx];
                 return (
                   <TableCell key={dest.id}>
                     <span
@@ -366,9 +384,10 @@ export default function Compare() {
 
       {/* Mobile Stacked View */}
       <div className="grid grid-cols-1 gap-6 md:hidden">
-        {compareDestinations.map((dest) => {
+        {compareDestinations.map((dest, destIdx) => {
           const localized = getLocalizedPlace(dest, locale);
-          const budgetVal = getAdjustedBudget(dest, "all");
+          // KAI-217B: canonical engine total (complete-only).
+          const budgetVal = budgets[destIdx];
           const travelTimesForDest = Object.values(
             dest.transportOptions || {},
           ).filter((t): t is number => t !== undefined);

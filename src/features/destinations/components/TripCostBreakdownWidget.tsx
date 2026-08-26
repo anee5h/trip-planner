@@ -149,10 +149,8 @@ export function TripCostBreakdownWidget({
   const parkingRange: [number, number] = planCostBreakdown
     ? [planCostBreakdown.parking.min, planCostBreakdown.parking.max]
     : [cost.parking, cost.parking];
-  const hasMeals = planCostBreakdown
-    ? planCostBreakdown.meals.applicable
-    : hasKnownCost && cost.food !== null;
-  const hasCafe = !planCostBreakdown && cafeRange[1] > 0;
+  const hasMeals = false; // KAI-217B: food/dining excluded from canonical affordability
+  const hasCafe = false; // KAI-217B: cafe/snacks excluded from canonical affordability
   // Transport visibility follows the DISPLAYED ROW (origin + on-site/local
   // transit combined), not origin availability alone: when origin transport
   // is unavailable but the on-site allowance is known, the row must still
@@ -160,9 +158,7 @@ export function TripCostBreakdownWidget({
   const hasTransport = transportRange[1] > 0;
   const originTransportExcluded =
     !planCostBreakdown && hasTransport && !cost.transportAvailable;
-  const hasParking = planCostBreakdown
-    ? planCostBreakdown.parking.applicable
-    : parkingRange[1] > 0;
+  const hasParking = false; // KAI-217B: universal parking excluded from canonical affordability
   const hasAccommodationAllowance = Boolean(
     accommodationAllowance && accommodationAllowance > 0,
   );
@@ -174,17 +170,27 @@ export function TripCostBreakdownWidget({
     ? [
         ...(hasTransport ? [transportRange] : []),
         admissionRange,
-        ...(hasMeals ? [mealRange] : []),
-        ...(hasParking ? [parkingRange] : []),
         ...(hasAccommodationAllowance ? [accommodationAllowanceRange] : []),
       ]
     : [];
+  // KAI-217B: the canonical total is transport + admission + accommodation
+  // ONLY. The legacy itemized partyRange includes food/cafe/parking — never
+  // surface those as canonical cost.
   const totalRange: [number, number] = planCostBreakdown
     ? visiblePartyRanges.reduce<[number, number]>(
         (total, range) => [total[0] + range[0], total[1] + range[1]],
         [0, 0],
       )
-    : [cost.partyRange[0], cost.partyRange[1]];
+    : [
+        cost.transport +
+          (cost.localTransit ?? 0) +
+          cost.tickets +
+          (hasAccommodationAllowance ? accommodationAllowance! : 0),
+        cost.transport +
+          (cost.localTransit ?? 0) +
+          cost.tickets +
+          (hasAccommodationAllowance ? accommodationAllowance! : 0),
+      ];
   const displayedTotalRange: [number, number] =
     viewMode === "party"
       ? totalRange
@@ -195,7 +201,10 @@ export function TripCostBreakdownWidget({
               (total, range) => [total[0] + range[0], total[1] + range[1]],
               [0, 0],
             )
-        : [cost.perPersonRange[0], cost.perPersonRange[1]];
+        : [
+            Math.round(totalRange[0] / partySize),
+            Math.round(totalRange[1] / partySize),
+          ];
 
   const headerTitle = hasGeneratedPlan
     ? locale === "ja"

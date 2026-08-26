@@ -72,7 +72,10 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.source).toBe("curated");
     expect(cost.originTransport.source).toBe("unknown");
     expect(cost.totalRange[0]).toBeGreaterThan(0);
-    expect(cost.confidence).toBe("estimated");
+    // KAI-217B: the fabricated meals/parking components are removed, so a
+    // plan built entirely from curated components is now VERIFIED (the old
+    // "estimated" came from the fabricated meal/parking sources).
+    expect(cost.confidence).toBe("verified");
   });
 
   it("excludes tickets from ABSENT-metadata legacy destinations (not trusted)", () => {
@@ -134,10 +137,14 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.source).toBe("curated");
   });
 
-  it("returns zero origin transport fare when origin info is unavailable", () => {
-    const originCost = estimateOriginTransportFare(false);
+  it("returns zero origin transport fare when origin info is unavailable (KAI-217B: never fabricated)", () => {
+    // KAI-217B: the origin-fare fallback (1500/3000) is removed; origin
+    // transport is owned by the canonical engine. This extraction always
+    // reports unknown/non-applicable.
+    const originCost = estimateOriginTransportFare();
     expect(originCost.min).toBe(0);
     expect(originCost.max).toBe(0);
     expect(originCost.source).toBe("unknown");
+    expect(originCost.applicable).toBe(false);
   });
 });

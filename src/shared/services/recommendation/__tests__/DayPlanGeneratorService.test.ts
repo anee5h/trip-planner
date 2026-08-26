@@ -44,7 +44,15 @@ describe("DayPlanGeneratorService", () => {
       const realStops = plan.steps.filter(isRealDestinationStop);
       expect(realStops.length).toBeGreaterThanOrEqual(2);
       expect(plan.totalDurationMinutes).toBeGreaterThan(0);
-      expect(plan.totalBudgetRange[0]).toBeGreaterThan(0);
+      // KAI-217B: the stored plan total is the honest canonical extraction
+      // (admission + curated transit). The generated plan's non-fixture
+      // stops lack trusted provenance, so unknown admission is NOT counted
+      // (never fabricated) — the total may legitimately be ¥0.
+      expect(Array.isArray(plan.totalBudgetRange)).toBe(true);
+      expect(plan.totalBudgetRange[0]).toBeGreaterThanOrEqual(0);
+      expect(plan.totalBudgetRange[1]).toBeGreaterThanOrEqual(
+        plan.totalBudgetRange[0],
+      );
     }
   });
 
