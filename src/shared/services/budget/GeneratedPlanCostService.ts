@@ -1,5 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
-import { hasTrustedBudgetProvenance } from "@/shared/services/budget/BudgetService";
+import { hasDisplayableBudget } from "@/shared/services/budget/budgetState";
 import type {
   DayPlan,
   PlanAssumption,
@@ -114,12 +114,16 @@ export function calculateGeneratedPlanCost(
   let hasMissingTickets = false;
 
   uniqueDestinationsMap.forEach((dest) => {
-    // KAI-204 phase 3: only TRUSTED provenance (manual verified ticket or
-    // documented model output) may contribute admission to a generated plan.
-    // Absent-metadata legacy numbers and method "unknown" records must not
-    // leak unverified ticket values into a "curated" plan cost.
+    // KAI-204 phase 3 + KAI-215 convergence: only TRUSTED provenance
+    // (manual verified ticket or documented model output) may contribute
+    // admission to a generated plan. Trust is read from the KAI-214
+    // NORMALIZED semantic layer (hasDisplayableBudget), not rebuilt from
+    // the raw legacy `method`. Absent-metadata legacy numbers and method
+    // "unknown" records must not leak unverified ticket values into a
+    // "curated" plan cost. Malformed explicit forward states (verified_paid
+    // without provenance) also fail closed here.
     if (
-      hasTrustedBudgetProvenance(dest) &&
+      hasDisplayableBudget(dest) &&
       typeof dest.budgetBreakdown?.tickets === "number"
     ) {
       const ticketVal = dest.budgetBreakdown.tickets;

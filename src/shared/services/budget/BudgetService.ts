@@ -17,6 +17,12 @@ import type {
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
 import { isValidAccommodationAllowance } from "@/shared/types/homePlannerState";
+import {
+  hasDisplayableBudget,
+  hasTrustedNumericBudget,
+  isVerifiedFree,
+  normalizeBudgetState,
+} from "@/shared/services/budget/budgetState";
 export {
   ACCOMMODATION_ALLOWANCE_PRESETS,
   MAX_ACCOMMODATION_ALLOWANCE,
@@ -45,29 +51,17 @@ function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
 
 /**
  * Returns false for legacy records with no trustworthy price source.
- * KAI-204 phase 3 (positive trust contract): numeric budgets are consumed
- * ONLY when explicit trusted provenance exists (method "manual" verified
- * ticket or method "model" documented output). Absent metadata is NOT a
- * trust state — a number existing in old JSON is not provenance. The old
- * negative check (method !== "unknown" && method !== "legacy") implicitly
- * trusted absent metadata; the positive check closes that hole.
+ * KAI-204 phase 3 (positive trust contract) + KAI-215 convergence: numeric
+ * budgets are consumed ONLY when the KAI-214 NORMALIZED semantic state says
+ * the value is trusted (verified source or documented model estimate).
+ * Absent metadata is NOT a trust state — a number existing in old JSON is
+ * not provenance. The old negative check (method !== "unknown" &&
+ * method !== "legacy") implicitly trusted absent metadata; the positive
+ * check closes that hole. KAI-215: trust is read from the centralized
+ * normalizer (budgetState.ts), never rebuilt from the raw `method`.
  */
 export function hasKnownBudget(dest: Destination): boolean {
-  if (!hasTrustedBudgetProvenance(dest)) return false;
-  const breakdown = dest.budgetBreakdown;
-  const bMin = dest.budgetMin;
-  const bMax = dest.budgetMax;
-  return Boolean(
-    (breakdown &&
-      [
-        breakdown.transport,
-        breakdown.tickets,
-        breakdown.food,
-        breakdown.cafe,
-      ].every(isFiniteNonNegative) &&
-      isFiniteNonNegative(dest.budgetRecommended)) ||
-    (isFiniteNonNegative(bMin) && isFiniteNonNegative(bMax) && bMin <= bMax),
-  );
+  return hasTrustedNumericBudget(dest);
 }
 
 /**
@@ -75,10 +69,16 @@ export function hasKnownBudget(dest: Destination): boolean {
  * ticket or documented model output). "legacy", "unknown", and ABSENT
  * metadata are never trusted for consumption — trust is positive, never
  * inferred from the absence of a negative marker.
+ *
+ * KAI-215: this now delegates to the KAI-214 normalized semantic contract
+ * (trustLevel trusted | trusted_estimate) rather than re-implementing the
+ * method check. The raw `method` field remains ONLY for transitional
+ * normalization inside budgetState.ts; no downstream consumer rebuilds
+ * trust from it.
  */
 export function hasTrustedBudgetProvenance(dest: Destination): boolean {
-  const method = dest.budgetMetadata?.method;
-  return method === "manual" || method === "model";
+  const s = normalizeBudgetState(dest);
+  return s.trustLevel !== "untrusted" && (s.hasNumericRange || s.hasBreakdown);
 }
 
 /**
@@ -86,16 +86,18 @@ export function hasTrustedBudgetProvenance(dest: Destination): boolean {
  * valid order. Narrows the Destination so consumers can safely do price
  * arithmetic (unknown budgets must never act as 0/free in comparisons,
  * ranking, or rendering).
+ *
+ * KAI-215: gated on the KAI-214 NORMALIZED trust contract (trustLevel
+ * trusted | trusted_estimate), so an explicit-state record that is
+ * malformed (e.g. verified_paid without provenance) fails closed here too.
+ * Legacy/unknown/absent never yield a known range even with numbers on the
+ * record.
  */
 export function hasKnownBudgetRange(
   dest: Destination,
 ): dest is Destination & { budgetMin: number; budgetMax: number } {
-  // KAI-204 phase 3 (positive trust contract): a range is "known" only when
-  // the record carries explicit trusted provenance (manual/model). Absent
-  // metadata, "legacy", and "unknown" are never trusted — even with numbers
-  // on the record, the budget is unknown (two competing truths must never
-  // surface through the type guard).
-  if (!hasTrustedBudgetProvenance(dest)) return false;
+  const s = normalizeBudgetState(dest);
+  if (s.trustLevel === "untrusted") return false;
   return (
     typeof dest.budgetMin === "number" &&
     Number.isFinite(dest.budgetMin) &&
@@ -749,12 +751,14 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   food: number;
   cafe: number;
 } | null {
-  // KAI-204 phase 3 (positive trust contract): a breakdown is consumed only
-  // when the record carries explicit trusted provenance (manual/model).
+  // KAI-204 phase 3 (positive trust contract) + KAI-215 convergence: a
+  // breakdown is consumed only when the KAI-214 NORMALIZED semantic state
+  // says the record is trusted (trustLevel trusted | trusted_estimate).
   // Absent metadata, "legacy", and "unknown" never yield a usable breakdown
   // — numeric values without recoverable provenance must not enter
-  // consumption, and unknown is authoritative.
-  if (!hasTrustedBudgetProvenance(dest)) return null;
+  // consumption, and unknown is authoritative. Malformed explicit forward
+  // states (e.g. verified_paid without provenance) also fail closed here.
+  if (!hasDisplayableBudget(dest)) return null;
   if (
     dest.budgetBreakdown &&
     [
@@ -775,27 +779,16 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
 }
 
 export function isFreeDestination(dest: Destination): boolean {
-  if (!dest || !hasKnownBudget(dest)) return false;
-  // KAI-204 (Phase 5): a zero range is only "free" when the record carries
-  // trusted provenance (manual/model metadata). Absent metadata means the
-  // numbers are legacy debt with no verified source — a min=0/max=0 pair on
-  // such a record is not evidence of free admission (undefined/null/NaN/
-  // missing-metadata must never become 0 or "Free"). Verified free always
-  // requires ledger/ledger-derived evidence or an approved class rule.
-  if (dest.budgetMin === 0 && dest.budgetMax === 0) {
-    return (
-      dest.budgetMetadata?.method === "manual" ||
-      dest.budgetMetadata?.method === "model"
-    );
-  }
-  const freeKeywords = ["free observatory", "free"];
-  const hasFreeCategory = dest.categories?.some((c) =>
-    freeKeywords.some((k) => c.toLowerCase().includes(k)),
-  );
-  const hasFreeTag = dest.tags?.some((t) =>
-    freeKeywords.some((k) => t.toLowerCase().includes(k)),
-  );
-  return Boolean(hasFreeCategory || hasFreeTag);
+  if (!dest) return false;
+  // KAI-215 convergence: verified free is decided by the KAI-214 NORMALIZED
+  // semantic contract (isVerifiedFree = state verified_free + verified
+  // source provenance + explicit free evidence). The old implementation
+  // re-derived trust from raw `method` plus a keyword fallback; both
+  // independently-inferred paths are removed. Free NEVER comes from
+  // zero/missing data or free-looking keywords without explicit evidence.
+  // farm-tomita (manual, tickets=0, FREE_ENTRY evidence, breakdown-only)
+  // normalizes to verified_free and remains free here.
+  return isVerifiedFree(dest);
 }
 
 export interface ItemizedCostBreakdown {

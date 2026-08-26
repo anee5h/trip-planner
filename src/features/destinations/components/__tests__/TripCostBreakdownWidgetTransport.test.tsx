@@ -99,6 +99,7 @@ vi.mock("@/shared/services/budget/BudgetService", () => ({
   }),
   getTransportCost: () => 0,
   isFreeDestination: () => false,
+  hasKnownBudgetRange: () => false,
   ACCOMMODATION_ALLOWANCE_PRESETS: {
     economy: 8000,
     standard: 15000,
