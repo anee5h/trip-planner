@@ -78,16 +78,19 @@ describe("pre-metadata migration requires positive provenance (finishing pass)",
 
   it("record with model-shaped values and NO calculated source is NEVER promoted", () => {
     // akasaka-minato: complete per-person budget (model-shaped) but no
-    // calculated source and no budgetMetadata. Value shape alone must not
-    // create model provenance.
+    // calculated source and only legacy provenance. Value shape alone must
+    // not create model provenance — the record stays legacy (numbers
+    // preserved but NOT trusted, KAI-204 phase 3).
     const out = runApply((idx) => {
       const d = idx.find((x) => x.id === "akasaka-minato")!;
-      expect(d.budgetMetadata?.method).toBeUndefined();
+      expect(d.budgetMetadata?.method).toBe("legacy");
       expect(d.budgetBreakdown).toBeTruthy();
       expect(d.editorial?.fieldSources?.budgetRecommended).toBeUndefined();
     });
     const d = out.find((x) => x.id === "akasaka-minato")!;
-    expect(d.budgetMetadata?.method).toBeUndefined();
+    expect(d.budgetMetadata?.method).toBe("legacy");
+    // Legacy provenance must never be promoted to model by the migration.
+    expect(d.budgetMetadata?.method).not.toBe("model");
   });
 
   it("genuine calculated pre-metadata record is migrated", () => {

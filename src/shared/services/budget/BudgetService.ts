@@ -45,12 +45,15 @@ function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
 
 /**
  * Returns false for legacy records with no trustworthy price source.
- * KAI-89: budgetMetadata.method "unknown" is AUTHORITATIVE — even if legacy
- * numbers linger on the record, the metadata state wins and the budget is
- * treated as unknown (never 0, never free, never compared).
+ * KAI-204 phase 3 (positive trust contract): numeric budgets are consumed
+ * ONLY when explicit trusted provenance exists (method "manual" verified
+ * ticket or method "model" documented output). Absent metadata is NOT a
+ * trust state — a number existing in old JSON is not provenance. The old
+ * negative check (method !== "unknown" && method !== "legacy") implicitly
+ * trusted absent metadata; the positive check closes that hole.
  */
 export function hasKnownBudget(dest: Destination): boolean {
-  if (dest.budgetMetadata?.method === "unknown") return false;
+  if (!hasTrustedBudgetProvenance(dest)) return false;
   const breakdown = dest.budgetBreakdown;
   const bMin = dest.budgetMin;
   const bMax = dest.budgetMax;
@@ -68,6 +71,17 @@ export function hasKnownBudget(dest: Destination): boolean {
 }
 
 /**
+ * True when the record carries explicit trusted provenance (manual verified
+ * ticket or documented model output). "legacy", "unknown", and ABSENT
+ * metadata are never trusted for consumption — trust is positive, never
+ * inferred from the absence of a negative marker.
+ */
+export function hasTrustedBudgetProvenance(dest: Destination): boolean {
+  const method = dest.budgetMetadata?.method;
+  return method === "manual" || method === "model";
+}
+
+/**
  * KAI-89 type guard: both budget bounds are finite known values with a
  * valid order. Narrows the Destination so consumers can safely do price
  * arithmetic (unknown budgets must never act as 0/free in comparisons,
@@ -76,10 +90,12 @@ export function hasKnownBudget(dest: Destination): boolean {
 export function hasKnownBudgetRange(
   dest: Destination,
 ): dest is Destination & { budgetMin: number; budgetMax: number } {
-  // budgetMetadata.method "unknown" is authoritative: even with numbers on
-  // the record, the budget is unknown (two competing truths must never
+  // KAI-204 phase 3 (positive trust contract): a range is "known" only when
+  // the record carries explicit trusted provenance (manual/model). Absent
+  // metadata, "legacy", and "unknown" are never trusted — even with numbers
+  // on the record, the budget is unknown (two competing truths must never
   // surface through the type guard).
-  if (dest.budgetMetadata?.method === "unknown") return false;
+  if (!hasTrustedBudgetProvenance(dest)) return false;
   return (
     typeof dest.budgetMin === "number" &&
     Number.isFinite(dest.budgetMin) &&
@@ -733,9 +749,12 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   food: number;
   cafe: number;
 } | null {
-  // KAI-89: budgetMetadata.method "unknown" is AUTHORITATIVE — even a
-  // breakdown present on the record must not be consumed as known.
-  if (dest.budgetMetadata?.method === "unknown") return null;
+  // KAI-204 phase 3 (positive trust contract): a breakdown is consumed only
+  // when the record carries explicit trusted provenance (manual/model).
+  // Absent metadata, "legacy", and "unknown" never yield a usable breakdown
+  // — numeric values without recoverable provenance must not enter
+  // consumption, and unknown is authoritative.
+  if (!hasTrustedBudgetProvenance(dest)) return null;
   if (
     dest.budgetBreakdown &&
     [

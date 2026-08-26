@@ -32,6 +32,13 @@ function makeDestination(overrides: Partial<Destination> = {}): Destination {
     budgetMin: 5000,
     budgetMax: 20000,
     budgetBreakdown: { transport: 1500, tickets: 2000, food: 4000, cafe: 2500 },
+    // KAI-204 phase 3 (positive trust): shared test fixtures carry trusted
+    // provenance so budget consumption works.
+    budgetMetadata: {
+      method: "manual",
+      confidence: "low",
+      basis: "test fixture — trusted provenance",
+    },
     transportOptions: { train: 90 },
     recommendedVisitHours: { min: 4, max: 8 },
     totalTripHours: 8,

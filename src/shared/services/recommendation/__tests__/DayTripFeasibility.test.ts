@@ -519,6 +519,13 @@ describe("day-trip travel evidence", () => {
         food: 1500,
         cafe: 500,
       },
+      // KAI-204 phase 3 (positive trust): trusted provenance required for
+      // the range to be consumed.
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "test fixture — trusted provenance",
+      },
     } as Destination;
     const evidence = getDayTripTravelDurationEvidence(
       local,

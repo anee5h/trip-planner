@@ -478,6 +478,13 @@ describe("pipeline-level budget filtering and metadata", () => {
       ...byId.get("nagoya-city")!,
       coordinates: { lat: 35.1709, lng: 136.8815 },
       municipalityId: "Aichi:nagoya",
+      // KAI-204 phase 3 (positive trust): the affordability test needs a
+      // TRUSTED complete fare — nagoya-city's legacy numbers are untrusted.
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "test fixture — trusted provenance for hard affordability",
+      },
     } as Destination;
     const tokyo = { lat: 35.6812, lng: 139.7671 };
     const scopeCheck = getEstimatedBudgetRange(

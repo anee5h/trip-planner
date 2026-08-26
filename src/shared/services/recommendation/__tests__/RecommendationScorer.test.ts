@@ -273,9 +273,19 @@ describe("RecommendationScorer Unit Tests", () => {
     // cleared (no verified ticket, insufficient peer samples), which would
     // make this fare-semantics test vacuous. nagano-city retains its
     // verified-fare corridor budget and exercises the same invariant.
-    const destination = (
-      (await getDestinationListAsync("en")) as Destination[]
-    ).find((candidate) => candidate.id === "nagano-city")!;
+    // KAI-204 phase 3: nagano-city's numeric budget is legacy-tagged
+    // (untrusted), so the fixture carries synthetic trusted metadata to
+    // keep exercising the fare-semantics invariant.
+    const destination = {
+      ...((await getDestinationListAsync("en")) as Destination[]).find(
+        (candidate) => candidate.id === "nagano-city",
+      )!,
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "test fixture — trusted provenance for fare-semantics invariant",
+      },
+    } as Destination;
     const context = {
       vibe: "any",
       budget: 40000,

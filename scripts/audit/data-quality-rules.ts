@@ -514,6 +514,56 @@ export function collectDestinationIssues(
   ) {
     push("MISSING_BUDGET", "published non-hub record lacks budgetRecommended");
   }
+
+  // ---- KAI-204 phase 3: legacy budget trust guards (ratchet) ----
+  // A number existing in old JSON is NOT provenance. These guards enforce
+  // the trust boundary: numeric values without recoverable provenance must
+  // carry the explicit "legacy" marker, and the legacy cohort must never
+  // grow silently (new numeric values REQUIRE provenance).
+  const budgetMethod = dest.budgetMetadata?.method;
+  const hasNumericBudget =
+    dest.budgetMin !== undefined ||
+    dest.budgetRecommended !== undefined ||
+    dest.budgetMax !== undefined ||
+    dest.budgetBreakdown !== undefined;
+  if (hasNumericBudget && !budgetMethod) {
+    // A numeric budget with absent metadata is EITHER an untagged legacy
+    // record (should have been tagged "legacy") or a NEW record added
+    // without provenance. KAI-204 phase 3 (hub trust): the hub exemption is
+    // REMOVED — a hub convention must be represented explicitly by model
+    // provenance (tickets=0 + peer-cell medians), never by missing metadata.
+    // Hub status alone is NOT provenance for transport/food/cafe/range.
+    push(
+      "NUMERIC_BUDGET_WITHOUT_PROVENANCE",
+      "numeric budget fields without budgetMetadata — must carry explicit legacy/manual/model provenance (hub-class included)",
+    );
+  }
+  if (
+    dest.budgetMin === 0 &&
+    dest.budgetMax === 0 &&
+    budgetMethod !== "manual" &&
+    budgetMethod !== "model"
+  ) {
+    push(
+      "ZERO_RANGE_FREE_WITHOUT_PROVENANCE",
+      "budgetMin=0 and budgetMax=0 without manual/model provenance — free must never be inferred from default zeros",
+    );
+  }
+  if (budgetMethod === "unknown" && hasNumericBudget) {
+    push(
+      "UNKNOWN_METADATA_WITH_NUMERIC",
+      "budgetMetadata.method 'unknown' coexists with numeric budget fields (two competing truths)",
+    );
+  }
+  if (
+    budgetMethod === "legacy" &&
+    dest.budgetMetadata?.confidence !== "unknown"
+  ) {
+    push(
+      "LEGACY_METADATA_BAD_CONFIDENCE",
+      "legacy budget metadata must declare confidence 'unknown'",
+    );
+  }
   if (dest.status === "published" && !dest.imageMetadata) {
     push("MISSING_IMAGE_METADATA", "published record lacks imageMetadata");
   }

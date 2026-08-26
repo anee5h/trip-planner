@@ -21,6 +21,13 @@ const baseDest = {
   budgetRecommended: 10000,
   budgetMax: 15000,
   budgetBreakdown: { transport: 1000, tickets: 1000, food: 3000, cafe: 1500 },
+  // KAI-204 phase 3 (positive trust): trusted provenance so the budget
+  // reason ("Great Value") is generated.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   ratings: {
     overall: 8.5,
     couple: 8.0,

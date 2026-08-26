@@ -23,6 +23,13 @@ const mockDestPrimary = {
   role: "primary",
   budgetMin: 2000,
   budgetMax: 3000,
+  budgetBreakdown: { transport: 500, tickets: 1800, food: 800, cafe: 400 },
+  // KAI-204 phase 3: trusted provenance required for generated-plan costs.
+  budgetMetadata: {
+    method: "manual",
+    confidence: "low",
+    basis: "test fixture — trusted provenance",
+  },
   recommendedVisitHours: { min: 1.5, max: 2.5 },
   coordinates: { lat: 35.6604, lng: 139.7292 },
 } as unknown as Destination;

@@ -83,12 +83,14 @@ describe("KAI-204 on-site budget provenance repair", () => {
       expect(d, id).toBeDefined();
       const meta = d!.budgetMetadata?.method ?? "absent";
       // These must NOT carry manual/model provenance with a fabricated
-      // budget. They may be unknown, absent, or (for records the model
+      // budget. They may be unknown, absent, legacy (numbers preserved but
+      // not trusted — KAI-204 phase 3), or (for records the model
       // legitimately filled from the same ledger entry, e.g. free-entry
       // yokohama-cosmo-world) model — but never with invented numbers.
-      expect(["unknown", "absent", "model"], `${id} method ${meta}`).toContain(
-        meta,
-      );
+      expect(
+        ["unknown", "absent", "legacy", "model"],
+        `${id} method ${meta}`,
+      ).toContain(meta);
       if (meta === "unknown") {
         // unknown is authoritative: no numeric budget may coexist.
         expect(d!.budgetMin, `${id} min`).toBeUndefined();
@@ -178,17 +180,94 @@ describe("KAI-204 on-site budget provenance repair", () => {
   });
 
   it("catalogue metadata baseline is stable after repair", () => {
-    const counts = { manual: 0, model: 0, unknown: 0, absent: 0 };
+    const counts = { manual: 0, model: 0, unknown: 0, legacy: 0, absent: 0 };
     for (const d of destinations) {
       const m = d.budgetMetadata?.method ?? "absent";
       counts[m as keyof typeof counts]++;
     }
-    // Exact post-repair state: 38 manual, 112 model, 462 unknown, 445 absent.
+    // KAI-204 phase 3 state (hub hardening): 38 manual, 112 model, 462
+    // unknown, 353 legacy (incl. 24 numeric hubs), 92 absent (no numbers),
+    // 0 invalid.
     expect(counts).toEqual({
       manual: 38,
       model: 112,
       unknown: 462,
-      absent: 445,
+      legacy: 353,
+      absent: 92,
     });
+  });
+
+  it("legacy records keep numeric values in storage but are never trusted", () => {
+    // Phase 3 invariant: every legacy record still carries its numbers
+    // (STORAGE preserved). Legacy now includes the 24 numeric hubs whose
+    // values the approved model does not reproduce.
+    const legacy = destinations.filter(
+      (d) => d.budgetMetadata?.method === "legacy",
+    );
+    expect(legacy.length).toBe(353);
+    for (const d of legacy) {
+      // Numbers preserved for storage/migration value.
+      expect(
+        d.budgetMin !== undefined ||
+          d.budgetRecommended !== undefined ||
+          d.budgetMax !== undefined ||
+          d.budgetBreakdown !== undefined,
+        `${d.id} numbers`,
+      ).toBe(true);
+      expect(d.budgetMetadata?.confidence).toBe("unknown");
+    }
+  });
+
+  it("ZERO numeric+absent records remain (hub hardening complete)", () => {
+    // The Phase 3 blocker: absent metadata must never be implicitly trusted.
+    // After hub tagging, NO record carries numeric budget fields without
+    // explicit provenance.
+    const HUB_KINDS = new Set(["city", "ward", "town", "village"]);
+    const numericAbsent = destinations.filter(
+      (d) =>
+        !d.budgetMetadata &&
+        (d.budgetMin !== undefined ||
+          d.budgetRecommended !== undefined ||
+          d.budgetMax !== undefined ||
+          d.budgetBreakdown !== undefined),
+    );
+    expect(numericAbsent).toHaveLength(0);
+    // Sanity: hubs that were numeric+absent are now legacy.
+    const hubLegacy = destinations.filter(
+      (d) =>
+        d.budgetMetadata?.method === "legacy" &&
+        (HUB_KINDS.has(d.kind ?? "") || d.role === "hub"),
+    );
+    expect(hubLegacy.length).toBe(24);
+  });
+
+  it("no numeric budget coexists with method 'unknown' (two-truths invariant, legacy excluded)", () => {
+    const bad = destinations.filter((d) => {
+      if (d.budgetMetadata?.method !== "unknown") return false;
+      return (
+        d.budgetMin !== undefined ||
+        d.budgetRecommended !== undefined ||
+        d.budgetMax !== undefined ||
+        d.budgetBreakdown !== undefined
+      );
+    });
+    expect(bad.map((d) => d.id)).toEqual([]);
+  });
+
+  it("no absent-metadata record carries numeric budget values (positive trust contract)", () => {
+    // KAI-204 phase 3 (hub hardening): absent metadata is NOT a trust state.
+    // Every record with numeric budgets now carries explicit provenance
+    // (manual/model/legacy). Absent-metadata records have no numbers at all.
+    const absent = destinations.filter((d) => !d.budgetMetadata);
+    for (const d of absent) {
+      expect(
+        d.budgetMin === undefined &&
+          d.budgetRecommended === undefined &&
+          d.budgetMax === undefined &&
+          d.budgetBreakdown === undefined,
+        `${d.id} absent metadata must carry no numeric budget`,
+      ).toBe(true);
+    }
+    expect(absent.length).toBe(92);
   });
 });
