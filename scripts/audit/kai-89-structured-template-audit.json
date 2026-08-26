@@ -1411,7 +1411,7 @@
       "genericTemplateCopyRecords": 0,
       "missingBudgetRecords": 0,
       "missingSeasonRecords": 0,
-      "explicitlyUnknownBudget": 390,
+      "explicitlyUnknownBudget": 382,
       "explicitlyUnknownSeason": 391
     },
     "publishedScoreStates": {
@@ -1423,8 +1423,8 @@
       "corrected": 14,
       "confidence-gated": 31,
       "model-estimate": 43,
-      "manual-review": 93,
-      "legitimate": 13
+      "legitimate": 14,
+      "manual-review": 92
     },
     "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 13, "E": 31 }
   },
@@ -3303,7 +3303,7 @@
       "category": "budget",
       "severity": "review",
       "clusterCount": 8,
-      "affectedRecordCount": 129,
+      "affectedRecordCount": 128,
       "affectedIds": [
         "abashiri-city",
         "aizuwakamatsu-city",
@@ -3317,7 +3317,6 @@
         "aso-city",
         "atami-city",
         "beppu-city",
-        "buaiso",
         "chichibu-city",
         "chigasaki-city",
         "choshi-city",
@@ -3327,6 +3326,7 @@
         "fujinomiya-city",
         "fujisawa-city",
         "fujiyoshida-city",
+        "fukagawa-edo-museum",
         "fukuoka-city",
         "fukushima-city",
         "funabashi-city",
@@ -3367,7 +3367,6 @@
         "kinrin-lake-yufuin",
         "kisarazu-city",
         "kitakyushu-city",
-        "kitaro-chaya",
         "kobe-city",
         "kochi-city",
         "kofu-city",
@@ -3390,7 +3389,6 @@
         "miyazaki-jingu-shrine",
         "miyazu-city",
         "morioka-city",
-        "mukojima-hyakkaen",
         "museum-contemporary-art-tokyo",
         "nagasaki-city",
         "nago-city",
@@ -3416,6 +3414,7 @@
         "shimonoseki-city",
         "shiratani-unsuikyo-ravine",
         "shizuoka-city",
+        "sumida-hokusai-museum",
         "tachikawa-manga-park",
         "takahashi-city",
         "takamatsu-city",
@@ -3618,33 +3617,6 @@
           }
         },
         {
-          "id": "59f041cab981",
-          "severity": "review",
-          "count": 4,
-          "ids": [
-            "buaiso",
-            "kitaro-chaya",
-            "mukojima-hyakkaen",
-            "tachikawa-manga-park"
-          ],
-          "value": {
-            "budgetBreakdown": {
-              "cafe": 1200,
-              "food": 1400,
-              "tickets": 0,
-              "transport": 1400
-            },
-            "budgetMax": 7000,
-            "budgetMin": 1500,
-            "budgetRecommended": 4000
-          },
-          "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-          }
-        },
-        {
           "id": "70babdf47301",
           "severity": "review",
           "count": 4,
@@ -3721,6 +3693,32 @@
             "category": "B",
             "action": "corrected",
             "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+          }
+        },
+        {
+          "id": "b52e6e182513",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "fukagawa-edo-museum",
+            "sumida-hokusai-museum",
+            "tachikawa-manga-park"
+          ],
+          "value": {
+            "budgetBreakdown": {
+              "cafe": 1200,
+              "food": 1400,
+              "tickets": 400,
+              "transport": 1400
+            },
+            "budgetMax": 7000,
+            "budgetMin": 1500,
+            "budgetRecommended": 4000
+          },
+          "disposition": {
+            "category": "B",
+            "action": "legitimate",
+            "reason": "legacy 1400/400/1400/1200 template with 1500/4000/7000 range; tachikawa-manga-park tickets=400 is ledger-verified (KAI-204), fukagawa-edo-museum and sumida-hokusai-museum retain the shared legacy shape (accepted debt; not eligible for model clearing — no evidence either way)"
           }
         },
         {

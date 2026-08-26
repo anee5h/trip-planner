@@ -988,6 +988,11 @@
       "category": "A",
       "action": "legitimate",
       "reason": "KAI-147/KAI-159 reviewed quick-worship band {0.7,1}h: Kumano Hayatama Taisha and Awa Shrine carry operator-published reception/prayer windows (Shingu City official 8:00-17:00 amulet office; Awa Shrine reception 08:30-16:30, prayers 09:00-16:00) with conservative manual, medium-confidence provenance; the band is pure on-site worship time and excludes origin travel."
+    },
+    "budget:b52e6e182513": {
+      "category": "B",
+      "action": "legitimate",
+      "reason": "legacy 1400/400/1400/1200 template with 1500/4000/7000 range; tachikawa-manga-park tickets=400 is ledger-verified (KAI-204), fukagawa-edo-museum and sumida-hokusai-museum retain the shared legacy shape (accepted debt; not eligible for model clearing — no evidence either way)"
     }
   }
 }
