@@ -3375,6 +3375,11 @@
     "budgetMin": 4000,
     "budgetRecommended": 8000,
     "budgetMax": 12000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 70,
@@ -4756,6 +4761,11 @@
     "budgetMin": 5500,
     "budgetRecommended": 9250,
     "budgetMax": 13000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 5,
     "walkingMin": 40,
     "indoorPercent": 40,
@@ -10173,6 +10183,11 @@
     "budgetMin": 6500,
     "budgetRecommended": 10750,
     "budgetMax": 15000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 7,
     "walkingMin": 60,
     "indoorPercent": 30,
@@ -10652,6 +10667,11 @@
     "budgetMin": 6000,
     "budgetRecommended": 25500,
     "budgetMax": 45000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 40,
     "indoorPercent": 50,
@@ -16279,6 +16299,11 @@
     "budgetMin": 9000,
     "budgetRecommended": 13000,
     "budgetMax": 17000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 360,
     "indoorPercent": 50,
@@ -21524,6 +21549,11 @@
     "budgetMin": 5000,
     "budgetRecommended": 20000,
     "budgetMax": 35000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 360,
     "indoorPercent": 40,
@@ -22555,6 +22585,11 @@
     "budgetMin": 5000,
     "budgetRecommended": 8500,
     "budgetMax": 12000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 6,
     "walkingMin": 45,
     "indoorPercent": 40,
@@ -26776,6 +26811,11 @@
     "budgetMin": 6000,
     "budgetRecommended": 10000,
     "budgetMax": 14000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 360,
     "indoorPercent": 50,
@@ -27494,6 +27534,11 @@
     "budgetMin": 4000,
     "budgetRecommended": 14500,
     "budgetMax": 25000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 6,
     "walkingMin": 360,
     "indoorPercent": 60,
@@ -29547,6 +29592,11 @@
     "budgetMin": 8000,
     "budgetRecommended": 14000,
     "budgetMax": 20000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 90,
     "indoorPercent": 40,
@@ -31985,6 +32035,11 @@
     "budgetMin": 7000,
     "budgetRecommended": 11500,
     "budgetMax": 16000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 55,
     "indoorPercent": 35,
@@ -32937,6 +32992,11 @@
     "budgetMin": 4000,
     "budgetRecommended": 17000,
     "budgetMax": 30000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 6,
     "walkingMin": 215,
     "indoorPercent": 70,
@@ -34926,6 +34986,11 @@
     "budgetMin": 3000,
     "budgetRecommended": 7000,
     "budgetMax": 11000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 60,
@@ -36819,6 +36884,11 @@
     "budgetMin": 8000,
     "budgetRecommended": 14000,
     "budgetMax": 20000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 90,
     "indoorPercent": 40,
@@ -37275,6 +37345,11 @@
     "budgetMin": 3000,
     "budgetRecommended": 14000,
     "budgetMax": 25000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 5,
     "walkingMin": 45,
     "indoorPercent": 65,
@@ -38497,6 +38572,11 @@
     "budgetMin": 3000,
     "budgetRecommended": 11500,
     "budgetMax": 20000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 5,
     "walkingMin": 330,
     "indoorPercent": 40,
@@ -39620,6 +39700,11 @@
     "budgetMin": 6000,
     "budgetRecommended": 10000,
     "budgetMax": 14000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 6,
     "walkingMin": 50,
     "indoorPercent": 35,
@@ -40247,6 +40332,11 @@
     "budgetMin": 5000,
     "budgetRecommended": 9000,
     "budgetMax": 13000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 360,
     "indoorPercent": 60,
@@ -43205,6 +43295,11 @@
     "budgetMin": 5000,
     "budgetRecommended": 10000,
     "budgetMax": 15000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 4,
     "walkingMin": 40,
     "indoorPercent": 85,
@@ -44972,6 +45067,11 @@
     "budgetMin": 5000,
     "budgetRecommended": 9000,
     "budgetMax": 13000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 50,
@@ -46820,6 +46920,11 @@
     "budgetMin": 8000,
     "budgetRecommended": 12000,
     "budgetMax": 16000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "totalTripHours": 8,
     "walkingMin": 60,
     "indoorPercent": 70,
@@ -66712,6 +66817,11 @@
     "budgetMin": 7000,
     "budgetRecommended": 14000,
     "budgetMax": 22000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "walkingMin": 360,
     "indoorPercent": 40,
     "recommendedVisitHours": {
@@ -66795,6 +66905,11 @@
     "budgetMin": 6000,
     "budgetRecommended": 12000,
     "budgetMax": 20000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "walkingMin": 360,
     "indoorPercent": 40,
     "recommendedVisitHours": {
@@ -69810,6 +69925,11 @@
     "budgetMin": 7000,
     "budgetRecommended": 10500,
     "budgetMax": 14000,
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
     "walkingMin": 360,
     "indoorPercent": 30,
     "recommendedVisitHours": {

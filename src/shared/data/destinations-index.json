@@ -7300,6 +7300,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -10550,6 +10555,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -22015,6 +22025,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -22955,6 +22970,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -34661,6 +34681,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -46222,6 +46247,11 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -48556,6 +48586,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -56956,6 +56991,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -58223,6 +58263,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -62678,6 +62723,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -67754,6 +67804,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -70003,6 +70058,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -74251,6 +74311,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -78449,6 +78514,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -79479,6 +79549,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -82171,6 +82246,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -84633,6 +84713,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -85873,6 +85958,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -92397,6 +92487,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -96089,6 +96184,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -100131,6 +100231,11 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -146195,6 +146300,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -146367,6 +146477,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
@@ -153061,6 +153176,11 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "budgetMetadata": {
+      "method": "legacy",
+      "confidence": "unknown",
+      "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
     }
   },
   {
