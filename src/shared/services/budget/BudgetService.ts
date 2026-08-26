@@ -238,10 +238,23 @@ function getTransportFareScope(
   transportIncluded: boolean,
 ): EstimatedBudgetRangeResult["transportFareScope"] {
   if (!transportIncluded || !homeCoords) return "unknown";
-  // Flight and ferry fares cover the complete origin-destination journey
-  // (verified airport/port-to-port products); only ground intercity fares
-  // can be corridor-only when bounded access is estimated.
-  if (mode === "flight" || mode === "ferry") return "complete";
+  // KAI-216 repair: an explicit catalogue transportFares[mode] entry has NO
+  // origin identity and NO provenance — it is a route (corridor) fare with
+  // an unspecified origin, so it can never claim whole-journey "complete"
+  // scope from an arbitrary user origin. It is corridor_only (access legs
+  // unknown), consistent with the canonical ladder (transportCostV2).
+  if (
+    dest.transportFares &&
+    typeof dest.transportFares[mode as keyof typeof dest.transportFares] ===
+      "number"
+  ) {
+    return "corridor_only";
+  }
+  // Flight and ferry fares cover the verified air/sea ROUTE only — origin
+  // airport/port access and destination-side access are NOT included. A
+  // verified airline/ferry ticket is a verified corridor/service fare, not
+  // a complete trip from the user's origin → corridor_only.
+  if (mode === "flight" || mode === "ferry") return "corridor_only";
   if (mode !== "train" && mode !== "shinkansen" && mode !== "bus") {
     return "unknown";
   }

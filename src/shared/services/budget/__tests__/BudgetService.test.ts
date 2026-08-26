@@ -244,6 +244,10 @@ describe("BudgetService", () => {
       coordinates: { lat: 34.7105, lng: 135.5005 },
       transportOptions: { train: 25 },
       localAccessModes: ["train"],
+      // KAI-216 repair: clear the inherited explicit fare so the KAI-204
+      // local-bounded rail path is exercised (an explicit route fare is
+      // corridor_only, not a local-bounded estimate).
+      transportFares: undefined,
     } as unknown as Destination;
     const origin = { lat: 34.7025, lng: 135.4959 };
     const result = getEstimatedBudgetRange(
@@ -277,6 +281,9 @@ describe("BudgetService", () => {
       budgetMin: undefined,
       budgetMax: undefined,
       budgetRecommended: undefined,
+      // KAI-216 repair: clear the inherited explicit fare so the KAI-204
+      // local-bounded rail path is exercised.
+      transportFares: undefined,
     } as unknown as Destination;
     const result = getEstimatedBudgetRange(
       unknownOnsite,

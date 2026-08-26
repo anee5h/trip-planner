@@ -167,7 +167,18 @@ export function getCanonicalTransportCost(
     };
   }
 
-  // ---- 1. Explicit transportFares (verified catalogue fare) ----
+  // ---- 1. Explicit transportFares (curated route fare, NO origin identity) ----
+  // The Destination.transportFares structure has no origin identity and no
+  // provenance metadata: a single destination-level value cannot be the
+  // complete Nakayama→dest, Osaka→dest AND Hakata→dest fare simultaneously.
+  // It is a ROUTE (corridor) fare with an unspecified origin — so it can
+  // never claim whole-journey "complete" scope from an arbitrary user
+  // origin, and without provenance it is NOT a verified source fact.
+  //   - ground modes (train/bus/shinkansen): corridor_only + model_estimate
+  //   - car/my_car: the vehicle total covers door-to-door movement (so the
+  //     SCOPE is complete) but it is documented as an ESTIMATED vehicle
+  //     cost (rental+gas+tolls) with no provenance → derivation is
+  //     model_estimate, NEVER source_fact.
   const explicitFare =
     dest.transportFares?.[mode as keyof typeof dest.transportFares];
   if (explicitFare !== undefined) {
@@ -186,26 +197,27 @@ export function getCanonicalTransportCost(
     }
     if (mode === "car" || mode === "my_car") {
       // Vehicle total (round trip per car) scaled by cars needed.
-      // Evidence: explicit catalogue fares are the strongest form
-      // (source_fact); their provenance/source URLs ride on the catalogue
-      // record itself, not the runtime result.
+      // Documented as ESTIMATED vehicle cost — a curated model value, not a
+      // verified source fact (no provenance on the field).
       return {
         cost: scaleVehicleCost([explicitFare, explicitFare], partySize),
         evidence: {
           fareScope: "complete",
           isRoundTripPartyTotal: true,
-          derivation: "source_fact",
+          derivation: "model_estimate",
         },
         source: "explicit_transport_fare",
       };
     }
-    // Transit: per-person one-way fare ×2 (round trip) × party.
+    // Ground transit: per-person one-way route fare ×2 (round trip) × party.
+    // The origin is unspecified → corridor_only (access legs unknown), and
+    // the value is un-provenanced → model_estimate, not source_fact.
     return {
       cost: scaleRoundTripParty([explicitFare, explicitFare], partySize),
       evidence: {
-        fareScope: "complete",
+        fareScope: "corridor_only",
         isRoundTripPartyTotal: true,
-        derivation: "source_fact",
+        derivation: "model_estimate",
       },
       source: "explicit_transport_fare",
     };
@@ -338,13 +350,16 @@ export function getCanonicalTransportCost(
       // Canonical flight cost = verified route fare only (one-way per
       // person), scaled to round-trip × party. Access-leg costs (generic
       // straight-line estimates) never enter the canonical component.
+      // The fare covers the AIR ROUTE only — origin airport access and
+      // destination-side access are NOT included, so the scope is
+      // corridor_only (a verified corridor/service fare), never complete.
       return {
         cost: scaleRoundTripParty(
           [verifiedFare[0], verifiedFare[1]],
           partySize,
         ),
         evidence: {
-          fareScope: "complete",
+          fareScope: "corridor_only",
           isRoundTripPartyTotal: true,
           derivation: "source_fact",
         },
@@ -392,6 +407,9 @@ export function getCanonicalTransportCost(
       // Canonical ferry cost = verified service fare only. A round-trip
       // basis fare already includes the return; a one-way basis fare is
       // doubled for the return trip. Scaled by party size.
+      // The fare covers the SEA ROUTE only — origin→port access and
+      // destination-side access are NOT included, so the scope is
+      // corridor_only (a verified corridor/service fare), never complete.
       const multiplier = fareBasis === "round-trip" ? 1 : 2;
       const party = normalizePartySize(partySize);
       return {
@@ -401,7 +419,7 @@ export function getCanonicalTransportCost(
           max: verifiedFare[1] * multiplier * party,
         },
         evidence: {
-          fareScope: "complete",
+          fareScope: "corridor_only",
           isRoundTripPartyTotal: true,
           fareBasis,
           derivation: "source_fact",

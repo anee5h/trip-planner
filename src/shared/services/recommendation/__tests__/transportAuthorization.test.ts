@@ -373,7 +373,11 @@ describe("flight registry expansion (PR #102)", () => {
       originZoneId: "mainland-honshu" as const,
     };
     const scoreResult = calculateScore(dest, highBudgetContext);
-    expect(scoreResult.bestModeScore).toBeGreaterThan(0);
+    // KAI-216 repair: the verified flight fare is corridor_only (air route
+    // only, access legs missing) — the budget score is NEUTRAL (no
+    // whole-journey affordability claim), not a positive bonus. The flight
+    // itself remains verified (transportIncluded + nonzero cost above).
+    expect(scoreResult.bestModeScore).toBeGreaterThanOrEqual(0);
   });
 });
 
@@ -406,9 +410,14 @@ describe("pipeline-level budget filtering and metadata", () => {
     ).toBe(false);
   });
 
-  it("HND → Ishigaki with verified fare continues through hard budget filter and stores transportIncluded=true", () => {
+  it("HND → Ishigaki with verified corridor fare is retained as affordability-unknown (KAI-216 repair: flight is corridor-only, not complete)", () => {
     const dest = byId.get("ishigaki-city")!;
-    // Budget 20,000 is below Tokyo -> Ishigaki verified cost (~106,000), so it MUST be filtered out
+    // KAI-216 repair: a verified flight fare covers the AIR ROUTE only —
+    // origin airport access and destination-side access are NOT included.
+    // The scope is corridor_only, so even though the route fare (~106,000)
+    // exceeds a ¥20,000 budget, the trip is PARTIAL (missing access legs)
+    // and under KAI-12 neutrality is retained as affordability-unknown —
+    // never hard-failed on a corridor-only fare, never hard-passed.
     const lowResults = runRecommendationPipeline([dest], {
       vibe: "any",
       budget: 20000,
@@ -420,7 +429,10 @@ describe("pipeline-level budget filtering and metadata", () => {
       originZoneId: "mainland-honshu",
       tripMode: "weekend_2d1n",
     });
-    expect(lowResults.length).toBe(0);
+    // Retained (neutral), and the verified route fare IS included in the
+    // transport estimate.
+    expect(lowResults.length).toBe(1);
+    expect(lowResults[0].estimatedCostTransportIncluded).toBe(true);
 
     // Budget 200,000 is above verified cost, so it IS admitted and stores transportIncluded=true
     // Keep this budget-only regression outside the Day Trip + Any 14h envelope.
