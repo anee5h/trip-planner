@@ -128,7 +128,11 @@ test.describe("KAI-89 rendered data safety", () => {
   }) => {
     const states = [
       ["tokyo-national-museum", /Estimated visit cost|概算滞在費用/],
-      ["hiroshima-national-peace-memorial-hall", /Free Admission|入場無料/],
+      // KAI-204 phase 3: hiroshima-national-peace-memorial-hall carries a
+      // "Free" tag but NO ledger-verified free evidence — it is legacy-
+      // tagged (untrusted provenance), so it renders "Cost unavailable"
+      // rather than "Free Admission". Verified free requires ledger proof.
+      ["hiroshima-national-peace-memorial-hall", /Cost unavailable|料金不明/],
       ["cupnoodles-museum-osaka-ikeda", /Cost unavailable|料金不明/],
       // KAI-89 drift correction (KAI-132's deterministic fixture surfaced
       // it): shinjuku-gyo-en's canonical data now carries
@@ -137,6 +141,10 @@ test.describe("KAI-89 rendered data safety", () => {
       // not "Cost unavailable". This is a data/UI expectation update, not
       // a change to KAI-132 runtime behavior.
       ["shinjuku-gyo-en", /Estimated visit cost|概算滞在費用/],
+      // KAI-204 phase 3: kouri-island-okinawa is legacy-tagged (untrusted
+      // provenance) — its numbers are preserved in storage but not shown
+      // as a verified price. The widget header still reads "Estimated
+      // visit cost", so the estimate header assertion remains valid.
       ["kouri-island-okinawa", /Estimated visit cost|概算滞在費用/],
     ] as const;
     for (const [id, expected] of states) {
