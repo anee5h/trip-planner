@@ -1,12 +1,14 @@
 import type { Destination } from "@/shared/types/destination";
-import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
-import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   getEligibleOriginModes,
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
+import {
+  getCanonicalTransportCost,
+  canonicalTransportCostToNumber,
+} from "@/shared/services/transport/transportCostV2";
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type {
@@ -43,10 +45,6 @@ function isValidPriceRange(range: readonly unknown[]): range is PriceRange {
     isFiniteNonNegative(range[1]) &&
     range[0] <= range[1]
   );
-}
-
-function finiteNonNegativeOrUndefined(value: unknown): number | undefined {
-  return isFiniteNonNegative(value) ? value : undefined;
 }
 
 /**
@@ -372,52 +370,34 @@ export function getSortableVerifiedBudget(
   return lowest;
 }
 
-export const TRANSPORT_PRICING_CONFIG = {
-  carRentalRates: {
-    upTo6h: 7370,
-    upTo12h: 7920,
-    upTo24h: 10340,
-    extraPerHour: 1540,
-  },
-  gasPricePerLiter: 175,
-  train: {
-    shortTripMaxMins: 25,
-    shortTripBase: 160,
-    shortTripPerMin: 8,
-    mediumTripMaxMins: 65,
-    mediumTripBase: 250,
-    mediumTripPerMin: 16,
-    longTripBase: 890,
-    longTripPerMin: 22,
-  },
-  shinkansen: {
-    baseFare: 2200,
-    perMinRate: 62,
-  },
-  bus: {
-    baseFare: 800,
-    perMinRate: 11,
-  },
-  car: {
-    circuityMultiplier: 1.1,
-    tollRatePerKm: 18,
-    fuelConsumptionKmPerLiter: 14,
-  },
-} as const;
-
-function getRentalBaseFee(tripDurationHours: number): number {
-  const rates = TRANSPORT_PRICING_CONFIG.carRentalRates;
-  if (tripDurationHours <= 6) return rates.upTo6h;
-  if (tripDurationHours <= 12) return rates.upTo12h;
-  if (tripDurationHours <= 24) return rates.upTo24h;
-  return rates.upTo24h + Math.ceil(tripDurationHours - 24) * rates.extraPerHour;
-}
+/**
+ * KAI-216: the generic duration-derived pricing config (base + perMinute
+ * fare heuristics, tollRatePerKm, rental tiers) is REMOVED. A corridor
+ * without a verified fare is unavailable, never a base+perMinute guess.
+ * Verified fares live in the transport registries (ground-routes.json,
+ * bus-routes.json, flight-estimates.json, ferry-estimates.json) and
+ * explicit transportFares; the canonical transport cost (transportCostV2)
+ * consumes only those.
+ */
 
 /**
  * Returns the round-trip transport cost for the given party size, or null if
- * no cost could be computed (e.g. unverified flight fare, missing option).
- * Checks explicit route fares (dest.transportFares) first, falling back to
- * configurable duration-based pricing (TRANSPORT_PRICING_CONFIG).
+ * no verified cost could be computed (unverified fare, missing corridor,
+ * unsupported mode).
+ *
+ * KAI-216: this function is re-expressed over the canonical structured
+ * transport cost (getCanonicalTransportCost). It projects the canonical
+ * CostRepresentation to the legacy numeric shape for number|null consumers:
+ *
+ *   - bounded       → midpoint (min===max ? min : round((min+max)/2))
+ *   - open_ended    → the verified lower bound ("from ¥X" floor)
+ *   - unavailable / not_applicable / variable → null
+ *
+ * Duration-derived fake fares (TRANSPORT_PRICING_CONFIG heuristics) and
+ * drive-time→distance→toll fabrication are REMOVED: a corridor without a
+ * verified fare is null, never a base+perMinute guess. The canonical
+ * representation preserves both bounds; this projection is display/legacy
+ * only.
  */
 export function getTransportCost(
   dest: Destination,
@@ -426,216 +406,21 @@ export function getTransportCost(
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
   /**
-   * Explicit mode-matched trip duration for rental tier selection. Must
-   * correspond to `mode`; when omitted the mode-specific duration is derived
-   * internally and unknown durations make car rental unavailable.
+   * Retained for call-site compatibility (rental tier selection previously
+   * used this). Car/my_car costs are now canonical-only: without an explicit
+   * transportFares vehicle total the cost is null regardless of duration.
    */
-  tripDurationHours?: number,
+  _tripDurationHours?: number,
 ): number | null {
   if (!isFiniteNonNegative(partySize)) return null;
-  const normalizedPartySize = Math.max(1, Math.floor(partySize));
-
-  // 1. Explicit Route Fare Precedence (if specified in destination JSON)
-  const explicitFare =
-    dest.transportFares?.[mode as keyof typeof dest.transportFares];
-  if (explicitFare !== undefined) {
-    if (!isFiniteNonNegative(explicitFare)) return null;
-    if (mode === "car" || mode === "my_car") {
-      // For driving modes, explicitFare represents total round-trip vehicle cost per car (tolls + gas + rental).
-      // Scale by vehicles needed for party size (4 seats per car).
-      const carsNeeded = Math.ceil(normalizedPartySize / 4);
-      return explicitFare * carsNeeded;
-    }
-    // For transit modes (train, bus, shinkansen), explicitFare represents one-way ticket fare per person.
-    // Scale to round-trip (x2) across partySize.
-    const roundTripPerPerson = explicitFare * 2;
-    return Math.floor(roundTripPerPerson * normalizedPartySize);
-  }
-
-  // 2. Verified origin-aware registry fare (ground modes only): when the
-  // corridor registry carries a verified one-way adult fare for the same
-  // product the duration describes, it wins over heuristics (FARE_POLICY
-  // §0–§2). A catchment estimate may use this corridor fare, but never adds
-  // an invented access fare.
-  if (
-    homeCoords &&
-    (mode === "train" || mode === "shinkansen" || mode === "bus")
-  ) {
-    const estimate = getOriginAwareTransportEstimate(
-      dest,
-      { homeStationCoords: homeCoords, ferryTemporal },
-      [mode as TransportMode],
-    );
-    if (estimate?.fare) {
-      // Dynamic bus fares may have a null upper bound ("from ¥X"): the
-      // verified lower bound is the advertised minimum — never treat a
-      // dynamic fare as fixed truth above it.
-      const lower = estimate.fare[0];
-      const upper = estimate.fare[1] ?? lower;
-      if (
-        !isFiniteNonNegative(lower) ||
-        !isFiniteNonNegative(upper) ||
-        lower > upper
-      ) {
-        return null;
-      }
-      const avgOneWayPerPerson = Math.round((lower + upper) / 2);
-      return Math.floor(avgOneWayPerPerson * 2 * normalizedPartySize);
-    }
-    // A bounded access duration is not evidence for a duration-priced fare.
-    if (estimate?.evidence === "estimated") return null;
-  }
-
-  // 3. Duration-based Fallback Pricing Heuristics
-  const cfg = TRANSPORT_PRICING_CONFIG;
-
-  // With an explicit origin, ground pricing must use the verified
-  // origin-aware duration; without one the cost is unknown (never a
-  // fabricated price from unprovenanced catalogue minutes).
-  let originAwareMinutes: number | undefined;
-  if (homeCoords && mode !== "flight" && mode !== "ferry") {
-    const estimate = getOriginAwareTransportEstimate(
-      dest,
-      { homeStationCoords: homeCoords, ferryTemporal },
-      [mode as TransportMode],
-    );
-    if (!estimate) return null;
-    const [minMinutes, maxMinutes] = estimate.timeRange;
-    if (
-      !isFiniteNonNegative(minMinutes) ||
-      !isFiniteNonNegative(maxMinutes) ||
-      minMinutes > maxMinutes
-    ) {
-      return null;
-    }
-    originAwareMinutes = Math.round((minMinutes + maxMinutes) / 2);
-  }
-
-  if (mode === "flight") {
-    const flightEst = getFlightTransportEstimate(
-      dest,
-      homeCoords,
-      ferryTemporal?.travelDate,
-    );
-    if (
-      flightEst &&
-      !flightEst.costUnavailable &&
-      isValidPriceRange(flightEst.costRange)
-    ) {
-      const avgOneWayPerPerson = Math.round(
-        (flightEst.costRange[0] + flightEst.costRange[1]) / 2,
-      );
-      return Math.floor(avgOneWayPerPerson * 2 * normalizedPartySize);
-    }
-    return null;
-  }
-
-  if (mode === "ferry") {
-    const ferryEst = getFerryTransportEstimate(dest, homeCoords, ferryTemporal);
-    if (
-      ferryEst &&
-      !ferryEst.costUnavailable &&
-      isValidPriceRange(ferryEst.costRange)
-    ) {
-      const avgRoundTripPerPerson = Math.round(
-        (ferryEst.costRange[0] + ferryEst.costRange[1]) / 2,
-      );
-      // One-way fares are doubled for the return trip; round-trip fares
-      // already include it and must not be doubled again.
-      const multiplier =
-        ferryEst.details?.ferryFareBasis === "round-trip" ? 1 : 2;
-      return Math.floor(
-        avgRoundTripPerPerson * multiplier * normalizedPartySize,
-      );
-    }
-    return null;
-  }
-
-  if (mode === "shinkansen") {
-    const mins = finiteNonNegativeOrUndefined(
-      originAwareMinutes ?? dest.transportOptions?.shinkansen,
-    );
-    if (mins === undefined) return null;
-    const oneWayPerPerson = Math.round(
-      cfg.shinkansen.baseFare + mins * cfg.shinkansen.perMinRate,
-    );
-    return Math.floor(oneWayPerPerson * 2 * normalizedPartySize);
-  }
-
-  if (mode === "bus") {
-    const mins = finiteNonNegativeOrUndefined(
-      originAwareMinutes ?? dest.transportOptions?.bus,
-    );
-    if (mins === undefined) return null;
-    const oneWayPerPerson = Math.round(
-      cfg.bus.baseFare + mins * cfg.bus.perMinRate,
-    );
-    return Math.floor(oneWayPerPerson * 2 * normalizedPartySize);
-  }
-
-  if (mode === "car") {
-    const driveTimeOneWayMin = finiteNonNegativeOrUndefined(
-      originAwareMinutes ?? dest.transportOptions?.car,
-    );
-    if (driveTimeOneWayMin === undefined) return null;
-    const distanceKm = driveTimeOneWayMin * cfg.car.circuityMultiplier;
-    const rentalDurationHours =
-      tripDurationHours ??
-      deriveTripDurationHours(dest, mode, homeCoords, ferryTemporal);
-    if (!isFiniteNonNegative(rentalDurationHours)) return null;
-    const rentalFee = getRentalBaseFee(rentalDurationHours);
-    const tollsRoundTrip = Math.floor(distanceKm * cfg.car.tollRatePerKm * 2);
-    const gasRoundTrip = Math.floor(
-      ((distanceKm * 2) / cfg.car.fuelConsumptionKmPerLiter) *
-        cfg.gasPricePerLiter,
-    );
-    const carsNeeded = Math.ceil(normalizedPartySize / 4);
-    return (rentalFee + tollsRoundTrip + gasRoundTrip) * carsNeeded;
-  }
-
-  if (mode === "my_car") {
-    const driveTimeOneWayMin = finiteNonNegativeOrUndefined(
-      originAwareMinutes ?? dest.transportOptions?.my_car,
-    );
-    if (driveTimeOneWayMin === undefined) return null;
-    const distanceKm = driveTimeOneWayMin * cfg.car.circuityMultiplier;
-    const tollsRoundTrip = Math.floor(distanceKm * cfg.car.tollRatePerKm * 2);
-    const gasRoundTrip = Math.floor(
-      ((distanceKm * 2) / cfg.car.fuelConsumptionKmPerLiter) *
-        cfg.gasPricePerLiter,
-    );
-    const carsNeeded = Math.ceil(normalizedPartySize / 4);
-    return (tollsRoundTrip + gasRoundTrip) * carsNeeded;
-  }
-
-  if (mode === "train") {
-    const mins = finiteNonNegativeOrUndefined(
-      originAwareMinutes ?? dest.transportOptions?.train,
-    );
-    if (mins === undefined) return null;
-    const tCfg = cfg.train;
-    let oneWayPerPerson: number;
-
-    if (mins <= tCfg.shortTripMaxMins) {
-      oneWayPerPerson = Math.round(
-        tCfg.shortTripBase + mins * tCfg.shortTripPerMin,
-      );
-    } else if (mins <= tCfg.mediumTripMaxMins) {
-      oneWayPerPerson = Math.round(
-        tCfg.mediumTripBase +
-          (mins - tCfg.shortTripMaxMins) * tCfg.mediumTripPerMin,
-      );
-    } else {
-      oneWayPerPerson = Math.round(
-        tCfg.longTripBase +
-          (mins - tCfg.mediumTripMaxMins) * tCfg.longTripPerMin,
-      );
-    }
-
-    return Math.floor(oneWayPerPerson * 2 * normalizedPartySize);
-  }
-
-  return null;
+  const result = getCanonicalTransportCost(
+    dest,
+    mode,
+    partySize,
+    homeCoords,
+    ferryTemporal,
+  );
+  return canonicalTransportCostToNumber(result);
 }
 
 /**

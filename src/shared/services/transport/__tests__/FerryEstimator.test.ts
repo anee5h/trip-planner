@@ -145,14 +145,12 @@ describe("fare basis", () => {
     expect(estimate?.details?.ferryFareBasis).toBe("round-trip");
 
     const cost = getTransportCost(dest, "ferry", 2, WAKAYAMA, SUMMER);
-    // costRange is already round-trip door-to-door; the cost must equal the
-    // average range times party size — not doubled again.
-    const expected = Math.floor(
-      Math.round((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2,
-    );
+    // KAI-216: the canonical cost uses the verified service fare only
+    // (¥2,800 since 2026-07-01, round-trip basis — not doubled), scaled by
+    // party size. Access-leg costs are excluded from the canonical fare.
+    const expected = Math.floor(2800 * 2);
     expect(cost).toBe(expected);
-    // The published fare alone (¥2,800 since 2026-07-01) for two people is
-    // ~¥5,600; doubling it twice would exceed ¥22,400.
+    // Doubling the round-trip fare again would exceed ¥22,400.
     expect(cost!).toBeLessThan(4000 * 2 * 2);
     expect(cost!).toBeGreaterThan(4000);
   });
@@ -162,8 +160,10 @@ describe("fare basis", () => {
     const estimate = getFerryTransportEstimate(dest, OSAKA, SUMMER);
     expect(estimate?.details?.ferryFareBasis).toBe("one-way");
     const cost = getTransportCost(dest, "ferry", 2, OSAKA, SUMMER);
+    // KAI-216: canonical = verified one-way service fare ×2 (return) × party.
+    const verifiedFare = estimate!.details!.verifiedFare!;
     const expected = Math.floor(
-      Math.round((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2 * 2,
+      Math.round((verifiedFare[0] + verifiedFare[1]) / 2) * 2 * 2,
     );
     expect(cost).toBe(expected);
   });

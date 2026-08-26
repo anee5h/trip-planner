@@ -288,6 +288,24 @@ export function getFlightTransportEstimate(
       arrivalAirportName: arrAirport.name,
       originAccessTimeRange: bestOption.originAccess.timeRange,
       destAccessTimeRange: bestOption.destAccess.timeRange,
+      /**
+       * KAI-216: the verified route fare (one-way, per person) WITHOUT
+       * access-leg costs. Present only when the route fare is verified;
+       * null when the fare is unverified/missing. Canonical budget
+       * consumers use this instead of the door-to-door costRange (which
+       * mixes in generic access-leg estimates). An ABSENT fareStatus means
+       * the fare is verified (the status field only marks exceptions).
+       */
+      verifiedFare:
+        bestOption.route.fare !== null &&
+        bestOption.route.fareStatus !== "unverified"
+          ? bestOption.route.fare
+          : null,
+      verifiedFareStatus:
+        bestOption.route.fare === null ||
+        bestOption.route.fareStatus === "unverified"
+          ? "unverified"
+          : "verified",
     },
   };
 }

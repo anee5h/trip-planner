@@ -345,9 +345,11 @@ describe("flight registry expansion (PR #102)", () => {
     expect(flightCost).not.toBeNull();
     expect(flightCost).toBeGreaterThan(0);
 
-    const avgOneWay = Math.round(
-      (estimate!.costRange[0] + estimate!.costRange[1]) / 2,
-    );
+    // KAI-216: canonical flight cost uses the VERIFIED ROUTE FARE only
+    // (details.verifiedFare), excluding generic access-leg estimates.
+    const verifiedFare = estimate!.details!.verifiedFare!;
+    expect(verifiedFare).not.toBeNull();
+    const avgOneWay = Math.round((verifiedFare[0] + verifiedFare[1]) / 2);
     const expectedCost = Math.floor(avgOneWay * 2 * 2);
     expect(flightCost).toBe(expectedCost);
 
@@ -636,12 +638,11 @@ describe("flight cost and time use the origin gateway", () => {
     const estimate = getFlightTransportEstimate(dest, NAHA);
     expect(estimate?.details?.departureAirportCode).toBe("OKA");
     expect(estimate?.details?.arrivalAirportCode).toBe("ISG");
-    // Cost derives from the OKA→ISG door-to-door estimate: avg one-way ×
-    // round trip × party size.
+    // KAI-216: cost derives from the VERIFIED ROUTE FARE (OKA→ISG) ×
+    // round trip × party size — access legs excluded from canonical fare.
+    const verifiedFare = estimate!.details!.verifiedFare!;
     const expected = Math.floor(
-      Math.round(
-        ((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2 * 2,
-      ),
+      Math.round(((verifiedFare[0] + verifiedFare[1]) / 2) * 2 * 2),
     );
     expect(getTransportCost(dest, "flight", 2, NAHA)).toBe(expected);
     // Must not silently fall back to the HND→ISG price.
@@ -654,10 +655,9 @@ describe("flight cost and time use the origin gateway", () => {
     const estimate = getFlightTransportEstimate(dest, NAHA);
     expect(estimate?.details?.departureAirportCode).toBe("OKA");
     expect(estimate?.details?.arrivalAirportCode).toBe("MMY");
+    const verifiedFare = estimate!.details!.verifiedFare!;
     const expected = Math.floor(
-      Math.round(
-        ((estimate!.costRange[0] + estimate!.costRange[1]) / 2) * 2 * 2,
-      ),
+      Math.round(((verifiedFare[0] + verifiedFare[1]) / 2) * 2 * 2),
     );
     expect(getTransportCost(dest, "flight", 2, NAHA)).toBe(expected);
     const tokyoCost = getTransportCost(dest, "flight", 2, TOKYO);
@@ -674,9 +674,12 @@ describe("no-route budget excludes origin transport", () => {
     const withNull = calculateItemizedTripCost(dest, { activeMode: null });
     const withTrain = calculateItemizedTripCost(dest, { activeMode: "train" });
     expect(withNull.transport).toBe(0);
-    // The null-mode total must be strictly less than the train-mode total
-    // (which would price an origin train that does not exist).
-    expect(withNull.partyRange[0]).toBeLessThan(withTrain.partyRange[0]);
+    // KAI-216: the Tokyo→Yamanashi train corridor has NO verified fare, so
+    // train mode no longer fabricates a heuristic price — both totals stay
+    // equal (transport 0), and the origin train is honestly unpriced.
+    expect(withTrain.transport).toBe(0);
+    expect(withTrain.transportAvailable).toBe(false);
+    expect(withNull.partyRange[0]).toBe(withTrain.partyRange[0]);
   });
 
   it("generated plan costs never include origin transport", () => {

@@ -48,6 +48,9 @@ const mockDestinations = [
       car: 90,
       my_car: 90,
     },
+    // KAI-216: explicit verified one-way fares (the duration heuristic was
+    // removed). Hakone's corridor is farther than Kamakura's.
+    transportFares: { train: 1800 },
     recommendedVisitHours: { min: 6, max: 8 },
     totalTripHours: 8,
     walkingMin: 30,
@@ -97,6 +100,9 @@ const mockDestinations = [
       car: 70,
       my_car: 70,
     },
+    // KAI-216: explicit verified one-way fare (the duration heuristic was
+    // removed). Kamakura's corridor is shorter than Hakone's.
+    transportFares: { train: 900 },
     recommendedVisitHours: { min: 4, max: 6 },
     totalTripHours: 6,
     walkingMin: 40,
@@ -214,6 +220,9 @@ describe("RecommendationService Unit Tests", () => {
       id: "hokkaido-far",
       prefecture: "Hokkaido",
       transportOptions: { shinkansen: 300 },
+      // KAI-216: explicit verified one-way shinkansen fare — a Hokkaido
+      // corridor is far, so round-trip × party far exceeds the budget.
+      transportFares: { shinkansen: 24000 },
     };
     const results = getRecommendations(
       [farDest, mockDestinations[0], mockDestinations[1]],

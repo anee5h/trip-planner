@@ -131,6 +131,11 @@ describe("car ownership budget semantics (KAI-63 D11)", () => {
     budgetMax: 10000,
     transportOptions: { car: 60, my_car: 60 },
     totalTripHours: 8,
+    // KAI-216: car/my_car costs exist ONLY via an explicit verified
+    // transportFares vehicle total (round trip per car). The old
+    // drive-min→km→toll heuristic is removed. Rental (car) is priced higher
+    // than personal (my_car) vehicle totals.
+    transportFares: { car: 12000, my_car: 6000 },
     walkingMin: 10,
     walkingSunMin: 5,
     walkingShadeMin: 5,
