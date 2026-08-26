@@ -400,3 +400,109 @@ describe("KAI-87 data quality validator", () => {
     ).toBe(true);
   });
 });
+
+describe("KAI-214 budget-state taxonomy hard contract", () => {
+  const trustedBase = {
+    ...base,
+    budgetMetadata: {
+      method: "manual",
+      confidence: "low",
+      basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+    },
+  };
+
+  async function codes(overrides: Partial<Destination>) {
+    const r = await run([{ ...trustedBase, ...overrides }]);
+    return r.issues.map((i) => i.code);
+  }
+
+  it("verified_paid without verified_source provenance → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        // no provenance
+        basis: "verified",
+      },
+    });
+    expect(c).toContain("KAI214_TRUSTED_STATE_REQUIRES_VERIFIED_PROVENANCE");
+  });
+
+  it("verified_free without evidence → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "admission costs apply (no gratuity evidence)",
+      },
+    });
+    expect(c).toContain("KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE");
+  });
+
+  it("unavailable without reasonCode → hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "unknown",
+        state: "unavailable",
+        // no reasonCode
+      },
+    });
+    expect(c).toContain("KAI214_NON_NUMERIC_STATE_REQUIRES_REASON");
+  });
+
+  it("not_applicable carrying tickets>0 → hard error", async () => {
+    const c = await codes({
+      budgetBreakdown: { transport: 500, tickets: 1500, food: 300, cafe: 200 },
+      budgetMetadata: {
+        method: "manual",
+        state: "not_applicable",
+        provenance: "verified_source",
+        reasonCode: "hub_budget_not_applicable",
+        basis: "hub",
+      },
+    });
+    expect(c).toContain("KAI214_NOT_APPLICABLE_WITH_TICKETS");
+  });
+
+  it("verified_paid + provenance model → contradictory hard error", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "model",
+        state: "verified_paid",
+        provenance: "model",
+        modelVersion: "budget-model-v1",
+      },
+    });
+    expect(c).toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("valid explicit state passes cleanly", async () => {
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        state: "verified_paid",
+        provenance: "verified_source",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    });
+    expect(c).not.toContain(
+      "KAI214_TRUSTED_STATE_REQUIRES_VERIFIED_PROVENANCE",
+    );
+    expect(c).not.toContain("KAI214_CONTRADICTORY_STATE_PROVENANCE");
+  });
+
+  it("existing records without explicit state are untouched (ratchet)", async () => {
+    // The current catalogue uses method-only metadata; none of the new
+    // KAI-214 guards may fire on it.
+    const c = await codes({
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket ¥1500 (ledger LEDGER_VERIFIED)",
+      },
+    });
+    expect(c.some((code) => code.startsWith("KAI214_"))).toBe(false);
+  });
+});

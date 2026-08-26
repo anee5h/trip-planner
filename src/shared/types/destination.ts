@@ -101,6 +101,84 @@ export type DestinationKind =
 /** A standalone place is a deliberate root: regional, multi-municipality, or island-wide. */
 export type DestinationRole = "hub" | "poi" | "standalone";
 
+/**
+ * KAI-214 budget-state taxonomy — VALUE STATE axis.
+ *
+ * Describes what a destination's on-site budget IS (the semantic truth),
+ * independent of where the number came from (see BudgetProvenance).
+ *
+ * - verified_paid: a source-backed required/base admission price exists.
+ * - verified_free: free/open access with EXPLICIT evidence (never inferred
+ *   from 0, missing admission, tags, kind, or absent data).
+ * - documented_estimate: a deterministic approved model provides a numeric
+ *   estimate/range (distinct from source-backed pricing).
+ * - variable_price: a single fixed price is not truthful because cost
+ *   varies materially by date/product/activity/package/season/choice.
+ * - not_applicable: a single admission/on-site price is not conceptually
+ *   applicable (e.g. city/hub, district, certain public-space concepts).
+ *   NEVER assigned automatically by category — must be explicit.
+ * - unavailable: a budget could conceptually exist but Meguruto lacks
+ *   evidence; MUST carry a reasonCode.
+ * - legacy_unverified: temporary migration state (KAI-215 target: 0);
+ *   always UNTRUSTED for consumption.
+ */
+export type BudgetValueState =
+  | "verified_paid"
+  | "verified_free"
+  | "documented_estimate"
+  | "variable_price"
+  | "not_applicable"
+  | "unavailable"
+  | "legacy_unverified";
+
+/**
+ * KAI-214 budget-state taxonomy — PROVENANCE axis (orthogonal to state).
+ * Where the value/state came from.
+ */
+export type BudgetProvenance =
+  | "verified_source" // source-backed (manual review / calibration ledger)
+  | "model" // deterministic approved model output
+  | "legacy" // historical/template/formula generation
+  | "transitional" // compatibility mapping from old method (KAI-214)
+  | "none"; // no provenance at all
+
+/**
+ * KAI-214 budget-state taxonomy — REASON CODE axis.
+ * Stable machine-readable reasons for non-numeric/non-complete states.
+ * Small stable taxonomy; extend without breaking consumers.
+ */
+export type BudgetReasonCode =
+  | "source_missing"
+  | "price_variable_by_date"
+  | "price_variable_by_product"
+  | "optional_paid_experiences_only"
+  | "free_area_with_optional_paid_components"
+  | "no_single_admission_product"
+  | "hub_budget_not_applicable"
+  | "activity_specific_pricing"
+  | "seasonal_pricing"
+  | "legacy_provenance_unrecovered"
+  | "insufficient_model_evidence"
+  | "transitional_unclassified";
+
+/**
+ * KAI-214 normalized budget state — the full multi-axis semantic record
+ * produced by normalizeBudgetState() (budgetState.ts). Runtime consumers
+ * should ask semantic questions via helpers, never scattered field checks.
+ */
+export interface NormalizedBudgetState {
+  state: BudgetValueState;
+  provenance: BudgetProvenance;
+  reasonCode?: BudgetReasonCode;
+  trustLevel: "trusted" | "trusted_estimate" | "untrusted";
+  /** true when a numeric range exists in storage (regardless of trust) */
+  hasNumericRange: boolean;
+  /** true when a breakdown exists in storage (regardless of trust) */
+  hasBreakdown: boolean;
+  /** the source method this was normalized from */
+  sourceMethod: "model" | "manual" | "unknown" | "legacy" | "absent";
+}
+
 export type PlaceType = "hub" | "destination";
 export type EditorialLifecycle =
   "legacy" | "draft" | "in_review" | "approved" | "published";
@@ -386,9 +464,28 @@ export interface Destination {
    * consumed as trusted by display, scoring, filtering, or planning —
    * consumers treat "legacy" exactly like "unknown" for trust purposes
    * (STORAGE is separated from TRUST at the semantic boundary).
+   *
+   * KAI-214 (budget-state taxonomy): `method` is the LEGACY single-axis
+   * marker (backward compatible — all existing records keep working). The
+   * new OPTIONAL additive fields `state` / `provenance` / `reasonCode`
+   * express the permanent multi-axis contract for forward-authored data:
+   *   - state: the VALUE state (verified_paid / verified_free /
+   *     documented_estimate / variable_price / not_applicable /
+   *     unavailable / legacy_unverified)
+   *   - provenance: where the value came from (verified_source / model /
+   *     legacy / transitional / none)
+   *   - reasonCode: stable machine-readable reason for non-numeric states
+   * When the new fields are absent, the runtime NORMALIZER derives them
+   * deterministically from `method` + numeric fields (see
+   * src/shared/services/budget/budgetState.ts). New production data should
+   * author `state` explicitly; CI forbids new records that rely on the
+   * transitional normalization path.
    */
   budgetMetadata?: {
     method: "model" | "manual" | "unknown" | "legacy";
+    state?: BudgetValueState;
+    provenance?: BudgetProvenance;
+    reasonCode?: BudgetReasonCode;
     modelVersion?: string;
     confidence?: "high" | "medium" | "low" | "unknown";
     basis?: string;

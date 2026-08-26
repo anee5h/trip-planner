@@ -156,6 +156,18 @@ export const PREVENTIVE_CODES = new Set([
   // whenever they appear (catalogue is zero-debt on both after KAI-89).
   "RATING_METADATA_UNSUPPORTED_HIGH",
   "OKINAWA_RAIL_VALUE",
+  // KAI-214: budget-state taxonomy hard contract. These fire only when the
+  // new explicit state/provenance/reasonCode fields are present — impossible
+  // combinations are provably wrong and must fail CI. Existing records
+  // (method-only metadata) never trigger them, so the current catalogue
+  // stays zero-debt on these codes.
+  "KAI214_TRUSTED_STATE_REQUIRES_VERIFIED_PROVENANCE",
+  "KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE",
+  "KAI214_NON_NUMERIC_STATE_REQUIRES_REASON",
+  "KAI214_LEGACY_UNVERIFIED_HIGH_CONFIDENCE",
+  "KAI214_NOT_APPLICABLE_WITH_TICKETS",
+  "KAI214_UNAVAILABLE_WITH_NUMERIC",
+  "KAI214_CONTRADICTORY_STATE_PROVENANCE",
 ]);
 
 export function firstTimeRange(text: string | undefined): number | null {
@@ -563,6 +575,93 @@ export function collectDestinationIssues(
       "LEGACY_METADATA_BAD_CONFIDENCE",
       "legacy budget metadata must declare confidence 'unknown'",
     );
+  }
+
+  // ---- KAI-214: budget-state taxonomy hard contract (NEW data) ----
+  // The permanent multi-axis contract (state/provenance/reasonCode) is
+  // OPTIONAL for existing records (transitional normalization). But NEW
+  // production data must author `state` explicitly, and impossible
+  // combinations are hard errors. These guards only fire when the new
+  // fields are present, so existing debt is untouched (ratchet).
+  const budgetState = dest.budgetMetadata?.state;
+  const budgetProvenance = dest.budgetMetadata?.provenance;
+  const reasonCode = dest.budgetMetadata?.reasonCode;
+
+  if (budgetState) {
+    // Trusted states require explicit provenance.
+    if (
+      (budgetState === "verified_paid" || budgetState === "verified_free") &&
+      budgetProvenance !== "verified_source"
+    ) {
+      push(
+        "KAI214_TRUSTED_STATE_REQUIRES_VERIFIED_PROVENANCE",
+        `state '${budgetState}' requires provenance 'verified_source' (got ${budgetProvenance ?? "none"})`,
+      );
+    }
+    // verified_free must carry evidence.
+    if (
+      budgetState === "verified_free" &&
+      !/free|無料/i.test(dest.budgetMetadata?.basis ?? "")
+    ) {
+      push(
+        "KAI214_VERIFIED_FREE_REQUIRES_EVIDENCE",
+        "state 'verified_free' requires free evidence in basis",
+      );
+    }
+    // unavailable/not-applicable/variable must carry a reasonCode.
+    if (
+      ["unavailable", "not_applicable", "variable_price"].includes(
+        budgetState,
+      ) &&
+      !reasonCode
+    ) {
+      push(
+        "KAI214_NON_NUMERIC_STATE_REQUIRES_REASON",
+        `state '${budgetState}' requires a reasonCode`,
+      );
+    }
+    // legacy_unverified must be untrusted (confidence unknown, no high).
+    if (
+      budgetState === "legacy_unverified" &&
+      dest.budgetMetadata?.confidence === "high"
+    ) {
+      push(
+        "KAI214_LEGACY_UNVERIFIED_HIGH_CONFIDENCE",
+        "legacy_unverified must never carry high confidence",
+      );
+    }
+    // not_applicable must not carry a required admission cost.
+    if (
+      budgetState === "not_applicable" &&
+      dest.budgetBreakdown?.tickets !== undefined &&
+      dest.budgetBreakdown.tickets > 0
+    ) {
+      push(
+        "KAI214_NOT_APPLICABLE_WITH_TICKETS",
+        "not_applicable must not carry a required admission cost",
+      );
+    }
+    // unavailable must not carry trusted numeric fields.
+    if (
+      budgetState === "unavailable" &&
+      hasNumericBudget &&
+      budgetProvenance !== "legacy"
+    ) {
+      push(
+        "KAI214_UNAVAILABLE_WITH_NUMERIC",
+        "unavailable state coexists with numeric budget fields",
+      );
+    }
+    // contradictory state+provenance (e.g. verified_paid + model).
+    if (
+      (budgetState === "verified_paid" || budgetState === "verified_free") &&
+      budgetProvenance === "model"
+    ) {
+      push(
+        "KAI214_CONTRADICTORY_STATE_PROVENANCE",
+        `state '${budgetState}' cannot pair with provenance 'model'`,
+      );
+    }
   }
   if (dest.status === "published" && !dest.imageMetadata) {
     push("MISSING_IMAGE_METADATA", "published record lacks imageMetadata");
