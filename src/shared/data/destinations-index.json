@@ -6541,8 +6541,7 @@
       "sourceUrls": [
         "https://www.japan-guide.com/e/e6403.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -7954,8 +7953,7 @@
       "sourceUrls": [
         "https://www.ccma-net.jp/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -11396,8 +11394,7 @@
       "sourceUrls": [
         "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -13379,8 +13376,7 @@
       "sourceUrls": [
         "https://www.engakuji.or.jp/en/access/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -17048,8 +17044,7 @@
       "sourceUrls": [
         "https://www.fukuokatower.co.jp/charge/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -22611,8 +22606,7 @@
       "sourceUrls": [
         "http://www.hakatamachiya.com/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -25907,15 +25901,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "documented_estimate",
-      "provenance": "model",
+      "state": "verified_paid",
+      "provenance": "verified_source",
       "cost": {
         "kind": "bounded",
         "min": 1000,
         "max": 1000
       },
       "scope": "general_entry",
-      "basis": "Peer-cell model estimate (peer cell 'none|full|standalone' n=7; tickets source-verified)"
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.chusonji.or.jp/",
+      "sourceUrls": [
+        "https://www.chusonji.or.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -27201,8 +27199,7 @@
       "sourceUrls": [
         "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -27887,8 +27884,7 @@
       "sourceUrls": [
         "https://www.horyuji.or.jp/en/annai/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -37881,8 +37877,7 @@
       "sourceUrls": [
         "https://www.kawagoematsuri.jp/English/museum.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -43924,8 +43919,7 @@
       "sourceUrls": [
         "https://okayama-korakuen.jp/section/english/info/index.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -62884,15 +62878,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "documented_estimate",
-      "provenance": "model",
+      "state": "verified_paid",
+      "provenance": "verified_source",
       "cost": {
         "kind": "bounded",
         "min": 500,
         "max": 500
       },
       "scope": "general_entry",
-      "basis": "Peer-cell model estimate (peer cell 'none|full|poi' n=12; tickets source-verified)"
+      "basis": "Verified admission ¥500 (ledger FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL); source: https://www.nmwa.go.jp/en/visit/index.html",
+      "sourceUrls": [
+        "https://www.nmwa.go.jp/en/visit/index.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -73088,15 +73086,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "documented_estimate",
-      "provenance": "model",
+      "state": "verified_paid",
+      "provenance": "verified_source",
       "cost": {
         "kind": "bounded",
         "min": 1000,
         "max": 1000
       },
       "scope": "general_entry",
-      "basis": "Peer-cell model estimate (peer cell 'none|full|poi' n=12; tickets source-verified)"
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://oura-church.jp/guide-en/",
+      "sourceUrls": [
+        "https://oura-church.jp/guide-en/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -77479,15 +77481,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "documented_estimate",
-      "provenance": "model",
+      "state": "verified_paid",
+      "provenance": "verified_source",
       "cost": {
         "kind": "bounded",
-        "min": 410,
-        "max": 410
+        "min": 500,
+        "max": 500
       },
       "scope": "general_entry",
-      "basis": "Peer-cell model estimate (peer cell 'none|full|poi' n=12; tickets source-verified)"
+      "basis": "Committed notes state site-wide adult viewing fee ¥500 (since Apr 2019); official site",
+      "sourceUrls": [
+        "https://sannaimaruyama.pref.aomori.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -81254,8 +81260,7 @@
       "sourceUrls": [
         "https://www.raumen.co.jp/english/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -82140,8 +82145,7 @@
       "sourceUrls": [
         "https://policies.env.go.jp/national-garden/shinjukugyoen/english/guide/information/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -94106,15 +94110,19 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "documented_estimate",
-      "provenance": "model",
+      "state": "verified_paid",
+      "provenance": "verified_source",
       "cost": {
         "kind": "bounded",
         "min": 1000,
         "max": 1000
       },
       "scope": "general_entry",
-      "basis": "Peer-cell model estimate (peer cell 'none|full|standalone' n=7; tickets source-verified)"
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.tomioka-silk.jp/_tomioka-silk-mill/visit/",
+      "sourceUrls": [
+        "https://www.tomioka-silk.jp/_tomioka-silk-mill/visit/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -101744,15 +101752,18 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "admission": {
-      "state": "unavailable",
-      "provenance": "none",
-      "reasonCode": "legacy_provenance_unrecovered",
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
       "cost": {
-        "kind": "unavailable",
-        "reason": "legacy_provenance_unrecovered"
+        "kind": "not_applicable"
       },
-      "scope": "general_entry",
-      "basis": "Peer-cell ¥0 is a class artifact for a paid attraction; no source-verified admission"
+      "scope": "open_area",
+      "basis": "Free admission; individual attractions optional and excluded from canonical admission",
+      "sourceUrls": [
+        "https://cosmoworld.jp/ticket/?lang=en"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -103067,8 +103078,7 @@
       "sourceUrls": [
         "https://www.yomiuriland.com/charge/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -105843,8 +105853,7 @@
       "sourceUrls": [
         "https://www.tokyo-park.or.jp/park/hama-rikyu/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -106974,8 +106983,7 @@
       "sourceUrls": [
         "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -108151,8 +108159,7 @@
       "sourceUrls": [
         "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -109863,8 +109870,7 @@
       "sourceUrls": [
         "https://buaiso.com/access_guide/new_ticket.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -111361,8 +111367,7 @@
       "sourceUrls": [
         "https://www.gotokyo.org/en/spot/882/index.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -111620,8 +111625,7 @@
       "sourceUrls": [
         "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -111845,8 +111849,7 @@
       "sourceUrls": [
         "https://www.keio-mogusaen.jp/en/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -112276,8 +112279,7 @@
       "sourceUrls": [
         "https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -112533,7 +112535,8 @@
       "scope": "open_area",
       "basis": "Free entry; purchases variable (ledger FREE_ENTRY_PURCHASES_VARIABLE)",
       "sourceUrls": [
-        "https://csa.gr.jp/"
+        "https://kitaro-chaya.jp/",
+        "https://kitaro-chaya.jp/free/access"
       ],
       "checkedAt": "2026-08-14"
     }
@@ -113392,8 +113395,7 @@
       "sourceUrls": [
         "http://www.gyokudo.jp/guide_english.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -113651,8 +113653,7 @@
       "sourceUrls": [
         "https://www.jreast.co.jp/ome-railway-park/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -114068,8 +114069,7 @@
       "sourceUrls": [
         "https://www.showakinen-koen.jp/guide-english/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -114565,8 +114565,7 @@
         "https://play2020.jp/en/",
         "https://www.tokyoartbeat.com/en/venues/-/B43A7496"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -114825,8 +114824,7 @@
       "sourceUrls": [
         "https://mangapark.jp/guide/info/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -115905,8 +115903,7 @@
       "sourceUrls": [
         "https://hiroshimacastle.jp/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -118046,8 +118043,7 @@
       "sourceUrls": [
         "https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -118519,8 +118515,7 @@
       "sourceUrls": [
         "https://genbudo-park.jp/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -118907,8 +118902,7 @@
       "sourceUrls": [
         "https://www.ikuno-ginzan.co.jp/ryokin/ryokin.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -119887,8 +119881,7 @@
       "sourceUrls": [
         "https://www.miho.jp/en/information/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -120691,8 +120684,7 @@
       "sourceUrls": [
         "https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -163146,8 +163138,7 @@
       "sourceUrls": [
         "https://kenrokuen.or.jp/information/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -194429,7 +194420,7 @@
       "Rodin and Picasso collection",
       "Sculpture garden and onsen"
     ],
-    "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+    "notes": "Admission ¥2,000 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
     "transportOptions": {},
     "recommendedVisitHours": {
       "min": 1.5,
@@ -194483,7 +194474,7 @@
           "Rodin and Picasso collection",
           "Sculpture garden and onsen"
         ],
-        "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+        "notes": "Admission ¥2,000 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
         "reservation": "None required",
         "parking": "Paid parking nearby (varies by site)",
         "openingHours": "Open daily; hours vary by season"
@@ -194496,7 +194487,7 @@
           "ロダン＆ピカソのコレクション",
           "彫刻庭園と足湯"
         ],
-        "notes": "大人入館料1,800円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
+        "notes": "大人入館料2,000円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
         "reservation": "予約不要",
         "parking": "周辺の有料駐車場あり（施設により異なる）",
         "openingHours": "毎日開館（時期により異なる）"
@@ -194614,8 +194605,7 @@
       "sourceUrls": [
         "https://www.hakone-oam.or.jp/contact/"
       ],
-      "checkedAt": "2026-08-14",
-      "reviewIntervalMonths": 12
+      "checkedAt": "2026-08-14"
     }
   },
   {

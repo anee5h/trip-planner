@@ -178,14 +178,16 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "documented_estimate",
-    "provenance": "model",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
       "kind": "bounded",
       "min": 1000,
       "max": 1000
     },
     "scope": "general_entry",
-    "basis": "Peer-cell model estimate (peer cell 'none|full|standalone' n=7; tickets source-verified)"
+    "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.chusonji.or.jp/",
+    "sourceUrls": ["https://www.chusonji.or.jp/"],
+    "checkedAt": "2026-08-14"
   }
 }

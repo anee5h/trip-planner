@@ -207,7 +207,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥450 (ledger LEDGER_VERIFIED); source: https://www.raumen.co.jp/english/",
     "sourceUrls": ["https://www.raumen.co.jp/english/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }

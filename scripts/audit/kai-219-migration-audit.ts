@@ -105,6 +105,15 @@ export function runAudit(destinations: Destination[]) {
   };
   const debtIds: Record<string, string[]> = {};
 
+  // KAI-219B review (Fix 3): literal prose prices conflicting with the
+  // explicit source-backed bounded admission fact (deterministic list).
+  const proseConflicts: {
+    id: string;
+    field: string;
+    prosePrice: number;
+    factPrice: number;
+  }[] = [];
+
   const push = (map: Record<string, string[]>, key: string, id: string) => {
     (map[key] ??= []).push(id);
   };
@@ -208,6 +217,35 @@ export function runAudit(destinations: Destination[]) {
       debt.deprecated_budget_field_authoring += 1;
       push(debtIds, "debt:deprecated_budget_field_authoring", d.id);
     }
+
+    // KAI-219B review (Fix 3): prose contradiction audit — a literal
+    // ¥/円 price in the supported price-bearing prose fields that
+    // CONFLICTS with the explicit source-backed bounded admission fact.
+    // Deterministic: first literal price per field, compared to fact max.
+    const admFact = d.admission;
+    if (admFact && admFact.cost.kind === "bounded") {
+      const factVal = admFact.cost.max;
+      const fields: [string, string | undefined][] = [
+        ["notes", d.notes],
+        ["description", d.description],
+        ["content.en.notes", d.content?.en?.notes],
+        ["content.ja.notes", d.content?.ja?.notes],
+      ];
+      for (const [field, text] of fields) {
+        if (typeof text !== "string") continue;
+        const m = /(?:¥|￥|円)\s*([\d,]+)/.exec(text);
+        if (!m) continue;
+        const prosePrice = Number(m[1].replace(/,/g, ""));
+        if (prosePrice !== factVal) {
+          proseConflicts.push({
+            id: d.id,
+            field,
+            prosePrice,
+            factPrice: factVal,
+          });
+        }
+      }
+    }
   }
 
   const sortIds = (v: string[]) => [...v].sort();
@@ -226,6 +264,7 @@ export function runAudit(destinations: Destination[]) {
     admission,
     localTransport,
     debt,
+    proseConflicts,
     ids: {
       admission: clean(admissionIds),
       localTransport: clean(localTransportIds),

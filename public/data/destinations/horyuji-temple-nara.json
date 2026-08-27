@@ -193,7 +193,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/",
     "sourceUrls": ["https://www.horyuji.or.jp/en/annai/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }

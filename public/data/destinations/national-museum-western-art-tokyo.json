@@ -200,14 +200,16 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "documented_estimate",
-    "provenance": "model",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
       "kind": "bounded",
       "min": 500,
       "max": 500
     },
     "scope": "general_entry",
-    "basis": "Peer-cell model estimate (peer cell 'none|full|poi' n=12; tickets source-verified)"
+    "basis": "Verified admission ¥500 (ledger FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL); source: https://www.nmwa.go.jp/en/visit/index.html",
+    "sourceUrls": ["https://www.nmwa.go.jp/en/visit/index.html"],
+    "checkedAt": "2026-08-14"
   }
 }

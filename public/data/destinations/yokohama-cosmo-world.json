@@ -205,14 +205,15 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Peer-cell ¥0 is a class artifact for a paid attraction; no source-verified admission"
+    "scope": "open_area",
+    "basis": "Free admission; individual attractions optional and excluded from canonical admission",
+    "sourceUrls": ["https://cosmoworld.jp/ticket/?lang=en"],
+    "checkedAt": "2026-08-14"
   }
 }

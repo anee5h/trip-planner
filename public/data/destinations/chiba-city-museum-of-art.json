@@ -251,7 +251,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.ccma-net.jp/",
     "sourceUrls": ["https://www.ccma-net.jp/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }

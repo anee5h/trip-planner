@@ -217,7 +217,10 @@
     },
     "scope": "open_area",
     "basis": "Free entry; purchases variable (ledger FREE_ENTRY_PURCHASES_VARIABLE)",
-    "sourceUrls": ["https://csa.gr.jp/"],
+    "sourceUrls": [
+      "https://kitaro-chaya.jp/",
+      "https://kitaro-chaya.jp/free/access"
+    ],
     "checkedAt": "2026-08-14"
   }
 }

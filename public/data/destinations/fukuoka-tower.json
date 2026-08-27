@@ -254,7 +254,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.fukuokatower.co.jp/charge/",
     "sourceUrls": ["https://www.fukuokatower.co.jp/charge/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }

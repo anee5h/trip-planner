@@ -260,7 +260,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/",
     "sourceUrls": ["https://www.engakuji.or.jp/en/access/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }

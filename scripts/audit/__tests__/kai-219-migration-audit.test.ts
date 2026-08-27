@@ -94,4 +94,14 @@ describe("KAI-219 migration audit", () => {
       out.ids.admission["admission:transitional_legacy_numeric_used"] ?? [];
     expect(numericUsedIds.length).toBe(transitional_legacy_numeric_used);
   });
+
+  it("KAI-219B: no prose price conflicts with source-backed bounded admission facts", () => {
+    const destinations = JSON.parse(
+      fs.readFileSync(INDEX_PATH, "utf8"),
+    ) as Parameters<typeof runAudit>[0];
+    const out = runAudit(destinations);
+    // A migrated source-backed bounded admission must not contradict a
+    // literal admission price in the price-bearing prose fields.
+    expect(out.proseConflicts).toEqual([]);
+  });
 });

@@ -225,7 +225,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/",
     "sourceUrls": ["https://mangapark.jp/guide/info/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }

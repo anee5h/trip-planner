@@ -209,7 +209,6 @@
     "scope": "general_entry",
     "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
     "sourceUrls": ["https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-14"
   }
 }
