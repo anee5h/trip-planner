@@ -67,17 +67,56 @@ let scenario: Scenario = {
   budgetAvailable: true,
 };
 
-// KAI-217B repair: the widget's canonical total comes from the engine.
-// Mock it deterministically to the scenario's canonical components
-// (transport + local transit + tickets — food/cafe excluded) so the
-// transport-row presentation contract stays the focus.
+// KAI-217B round-5: the widget's costs derive ENTIRELY from the engine's
+// canonical components. Mock it deterministically to the scenario's
+// canonical components (origin_travel / local_transport / admission —
+// food/cafe excluded) so the transport-row presentation contract stays the
+// focus.
 vi.mock("@/shared/services/budget/tripCostEngine", () => ({
   calculateTripCost: () => {
     const s = scenario;
+    const components: unknown[] = [];
+    if (s.transport > 0 || s.transportAvailable) {
+      components.push({
+        cost: { kind: "bounded", min: s.transport, max: s.transport },
+        evidence: {
+          scope: "origin_travel",
+          derivation: "model_estimate",
+        },
+      });
+    } else {
+      components.push({
+        cost: { kind: "unavailable", reason: "source_missing" },
+        evidence: { scope: "origin_travel", derivation: "computed" },
+      });
+    }
+    if (s.localTransit > 0) {
+      components.push({
+        cost: {
+          kind: "bounded",
+          min: s.localTransit,
+          max: s.localTransit,
+        },
+        evidence: {
+          scope: "local_transport",
+          derivation: "model_estimate",
+        },
+      });
+    } else {
+      components.push({
+        cost: { kind: "unavailable", reason: "source_missing" },
+        evidence: { scope: "local_transport", derivation: "computed" },
+      });
+    }
+    components.push({
+      cost: { kind: "bounded", min: s.tickets, max: s.tickets },
+      evidence: { scope: "admission", derivation: "source_fact" },
+    });
     const total = s.transport + s.localTransit + s.tickets;
     return {
       completeness: "complete",
       total: { kind: "bounded", min: total, max: total },
+      components,
     };
   },
   evaluateAffordability: () => "fits",
