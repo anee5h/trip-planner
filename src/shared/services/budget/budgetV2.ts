@@ -166,6 +166,29 @@ export interface CompleteTripCostResult extends TripCostResultBase {
 export interface PartialTripCostResult extends TripCostResultBase {
   readonly completeness: "partial";
   readonly total?: never;
+  /**
+   * KAI-217A round-3: the KNOWN subtotal — the sum of all BOUNDED required
+   * components (origin travel + admission + local transport + applied
+   * accommodation). Communicates what IS known even when the trip is not
+   * complete. NEVER presented as a full plan total.
+   */
+  readonly knownSubtotal: [number, number];
+  /**
+   * KAI-217A round-3: a definite LOWER BOUND across the remaining
+   * components, where meaningful: the minimum contribution of an
+   * open_ended component ({from}) added to the known subtotal. Absent when
+   * a component is unavailable (no floor is knowable).
+   */
+  readonly knownLowerBound?: number;
+  /**
+   * KAI-217A round-3: the components that are MISSING (unavailable /
+   * open-ended / variable / bounded-but-corridor-only), with the explicit
+   * scope + reason — so UI can say "Known ¥X–Y; missing: local transport".
+   */
+  readonly missingComponents: readonly {
+    readonly scope: CostScope;
+    readonly reason: string;
+  }[];
 }
 
 /** An unavailable trip: no usable cost evidence; NO definite total. */
@@ -292,6 +315,13 @@ export function isValidTripCostResult(result: TripCostResult): boolean {
   }
   if (result.completeness === "complete") {
     return result.total !== undefined && isBoundedCost(result.total);
+  }
+  if (result.completeness === "partial") {
+    return (
+      result.total === undefined &&
+      result.knownSubtotal !== undefined &&
+      result.missingComponents !== undefined
+    );
   }
   return result.total === undefined;
 }

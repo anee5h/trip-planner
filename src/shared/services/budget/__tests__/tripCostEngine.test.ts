@@ -198,6 +198,17 @@ describe("KAI-217A engine — travel completeness", () => {
     expect(r.completeness).toBe("partial");
     expect((r as { total?: unknown }).total).toBeUndefined();
     expect(isValidTripCostResult(r)).toBe(true);
+    // KAI-217A round-3: canonical partial-result semantics.
+    if (r.completeness === "partial") {
+      // knownSubtotal present (origin fare is known & bounded).
+      expect(Array.isArray(r.knownSubtotal)).toBe(true);
+      expect(r.knownSubtotal[1]).toBeGreaterThanOrEqual(r.knownSubtotal[0]);
+      // missing local_transport is EXPLICIT (unavailable — no fact).
+      const missingScopes = r.missingComponents.map((m) => m.scope);
+      expect(missingScopes).toContain("local_transport");
+      expect(missingScopes).toContain("origin_travel"); // corridor-only
+      expect(r.missingComponents.every((m) => m.reason.length > 0)).toBe(true);
+    }
   });
 
   it("no usable evidence at all → unavailable", () => {

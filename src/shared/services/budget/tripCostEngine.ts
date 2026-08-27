@@ -46,6 +46,7 @@ import {
 import {
   type AccommodationAllowance,
   type BoundedCost,
+  type CostScope,
   type NonNumericCost,
   type TripCostComponent,
   type TripCostResult,
@@ -368,6 +369,67 @@ function sumBounded(components: readonly TripCostComponent[]): BoundedCost {
 }
 
 /**
+ * KAI-217A round-3: canonical partial-result metadata.
+ *   - knownSubtotal: sum of the BOUNDED required components (what IS known).
+ *   - knownLowerBound: when an OPEN_ENDED component exists (and nothing is
+ *     plain unavailable), the known subtotal + the open_ended floor(s) is a
+ *     definite lower bound on the true total.
+ *   - missingComponents: explicit scopes + reasons for every component that
+ *     is unavailable / open_ended / variable / bounded-but-corridor-only —
+ *     so UI can say "Known ¥X–Y; missing: local transport (no fare fact)".
+ */
+function buildPartialMetadata(components: readonly TripCostComponent[]): {
+  knownSubtotal: [number, number];
+  knownLowerBound?: number;
+  missingComponents: readonly { scope: CostScope; reason: string }[];
+} {
+  const knownSubtotal = sumBounded(components);
+  const missing: { scope: CostScope; reason: string }[] = [];
+  let openEndedFloor = 0;
+  let hasOpenEnded = false;
+  for (const c of components) {
+    const k = c.cost.kind;
+    if (k === "bounded") {
+      // Bounded corridor-only origin: known amount but scope-incomplete.
+      if (
+        c.evidence.scope === "origin_travel" &&
+        c.evidence.fareScope !== undefined &&
+        c.evidence.fareScope !== "complete"
+      ) {
+        missing.push({
+          scope: c.evidence.scope,
+          reason: "corridor_only_access_leg_missing",
+        });
+      }
+      continue;
+    }
+    if (k === "open_ended") {
+      openEndedFloor += c.cost.from;
+      hasOpenEnded = true;
+      missing.push({
+        scope: c.evidence.scope,
+        reason: "open_ended",
+      });
+      continue;
+    }
+    if (k === "unavailable" || k === "variable") {
+      missing.push({
+        scope: c.evidence.scope,
+        reason:
+          c.evidence.reason ?? (k === "variable" ? "variable" : "unavailable"),
+      });
+    }
+  }
+  return {
+    knownSubtotal: [knownSubtotal.min, knownSubtotal.max],
+    ...(hasOpenEnded
+      ? { knownLowerBound: knownSubtotal.min + openEndedFloor }
+      : {}),
+    missingComponents: missing,
+  };
+}
+
+/**
  * The canonical trip-cost engine (KAI-217A).
  *
  * Emits exactly four components in stable order: origin_travel, admission,
@@ -468,6 +530,7 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
       completeness: "partial",
       components,
       ...(accommodation ? { accommodation } : {}),
+      ...buildPartialMetadata(components),
     };
   }
 
@@ -479,6 +542,7 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
       completeness: "partial",
       components,
       ...(accommodation ? { accommodation } : {}),
+      ...buildPartialMetadata(components),
     };
   }
 

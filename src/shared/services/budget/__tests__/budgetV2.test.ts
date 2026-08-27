@@ -114,7 +114,12 @@ describe("KAI-215 Budget v2 — trip completeness is a discriminated union", () 
     const completeTotal: BoundedCost = complete.total; // complete HAS total
     // @ts-expect-error — a partial result must NOT have a bounded total
     const partialTotal: BoundedCost = (
-      { completeness: "partial", components: [] } as TripCostResult
+      {
+        completeness: "partial",
+        components: [],
+        knownSubtotal: [0, 0],
+        missingComponents: [],
+      } as TripCostResult
     ).total;
     // @ts-expect-error — an unavailable result must NOT have a bounded total
     const unavailableTotal: BoundedCost = (
@@ -139,13 +144,20 @@ describe("KAI-215 Budget v2 — trip completeness is a discriminated union", () 
           },
         },
       ],
+      knownSubtotal: [0, 0],
+      missingComponents: [{ scope: "origin_travel", reason: "open_ended" }],
     };
     expect(isValidTripCostResult(partial)).toBe(true);
     // Compile-time: a partial result's total is never (not assignable to
     // BoundedCost) — the discriminated union structurally forbids it.
     // @ts-expect-error — partial total is never
     const partialTotal: BoundedCost = (
-      { completeness: "partial", components: [] } as TripCostResult
+      {
+        completeness: "partial",
+        components: [],
+        knownSubtotal: [0, 0],
+        missingComponents: [],
+      } as TripCostResult
     ).total;
     expect(partialTotal).toBeUndefined();
   });
@@ -236,6 +248,8 @@ describe("KAI-215 Budget v2 — trip completeness is a discriminated union", () 
           },
         },
       ],
+      knownSubtotal: [3000, 5000],
+      missingComponents: [{ scope: "origin_travel", reason: "open_ended" }],
     };
     expect(partialResult.completeness).toBe("partial");
     expect(partialResult.total).toBeUndefined(); // no fabricated total
