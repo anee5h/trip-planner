@@ -17,6 +17,10 @@ interface DestinationPlanningSectionProps {
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
   accommodationAllowance?: number;
+  /** KAI-217B round-2: the actual trip mode, threaded to the widget so
+   *  2D1N includes the accommodation allowance × 1 night. */
+  tripMode?: "day_trip" | "weekend_2d1n" | "multi_night";
+  nights?: number;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -28,6 +32,8 @@ export function DestinationPlanningSection({
   selectedTransport,
   ferryTemporal,
   accommodationAllowance,
+  tripMode,
+  nights,
   onSaveToItinerary,
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
@@ -134,6 +140,8 @@ export function DestinationPlanningSection({
         activeTransportMode={selectedTransport}
         ferryTemporal={ferryTemporal}
         accommodationAllowance={accommodationAllowance}
+        tripMode={tripMode}
+        nights={nights}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

@@ -1713,9 +1713,12 @@ export default function DestinationDetails() {
                                         ) {
                                           return copy.costUnavailable;
                                         }
-                                        return Math.round(
-                                          onSite.total.min,
-                                        ).toLocaleString();
+                                        // KAI-217B round-2: display the
+                                        // [min,max] RANGE, never total.min.
+                                        return formatLocalizedJPYRange(
+                                          [onSite.total.min, onSite.total.max],
+                                          locale,
+                                        );
                                       })()
                                     : (() => {
                                         // KAI-217B: the canonical trip cost
@@ -1745,7 +1748,15 @@ export default function DestinationDetails() {
                                         ) {
                                           return copy.costUnavailable;
                                         }
-                                        return engineResult.total.min.toLocaleString();
+                                        // KAI-217B round-2: display the
+                                        // [min,max] RANGE, never total.min.
+                                        return formatLocalizedJPYRange(
+                                          [
+                                            engineResult.total.min,
+                                            engineResult.total.max,
+                                          ],
+                                          locale,
+                                        );
                                       })()}
                                 </div>
                               </>
@@ -2350,6 +2361,12 @@ export default function DestinationDetails() {
                 selectedTransport={selectedTransport}
                 ferryTemporal={ferryTemporal}
                 accommodationAllowance={accommodationAllowance}
+                tripMode={
+                  navState?.tripMode === "weekend_2d1n"
+                    ? "weekend_2d1n"
+                    : "day_trip"
+                }
+                nights={navState?.tripMode === "weekend_2d1n" ? 1 : 0}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {

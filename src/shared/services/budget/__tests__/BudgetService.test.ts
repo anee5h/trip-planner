@@ -284,9 +284,6 @@ describe("BudgetService", () => {
       budgetMin: undefined,
       budgetMax: undefined,
       budgetRecommended: undefined,
-      // KAI-216 repair: clear the inherited explicit fare so the KAI-204
-      // local-bounded rail path is exercised.
-      transportFares: undefined,
     } as unknown as Destination;
     const result = getEstimatedBudgetRange(
       unknownOnsite,

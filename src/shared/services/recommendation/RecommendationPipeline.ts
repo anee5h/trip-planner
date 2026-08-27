@@ -234,13 +234,16 @@ export function runRecommendationPipeline(
 
     if (context.budgetTier === "luxury") return true;
 
-    // KAI-217B: the budget gate evaluates the CANONICAL engine cost per mode
-    // (origin travel + admission + local transport — food/cafe/parking/5%
-    // excluded). A destination hard-passes only when at least one mode is
-    // COMPLETE and fits (max <= budget). Partial/open-ended/unavailable
-    // results are affordability-unknown under the neutral policy (never
-    // hard-failed, never hard-passed) — same KAI-12 philosophy as before,
-    // but driven by the canonical cost, not the legacy food-inclusive range.
+    // KAI-217B round-2: the budget gate evaluates the CANONICAL engine cost
+    // per mode. SOFT recommendation eligibility (required):
+    //   - fits       → retain
+    //   - may_exceed → retain, exposed as a warning (a straddling range is
+    //                  still ELIGIBLE in soft recommendations)
+    //   - unknown    → neutral retain (KAI-12: never hard-fail on partial/
+    //                  open-ended/unavailable evidence)
+    //   - over       → hard-fail ONLY when there is no valid fits/
+    //                  may_exceed/neutral alternative mode (per-mode, the
+    //                  destination still has other usable modes).
     const modeResults = modes.map((mode) =>
       calculateTripCost({
         dest: destination,
@@ -260,15 +263,18 @@ export function runRecommendationPipeline(
     );
     // Any mode that COMPLETELY fits (max <= budget) hard-passes.
     if (affordances.some((a) => a === "fits")) return true;
-    // A complete result that does not fit (over, or straddling may_exceed)
-    // is a definite affordability-unknown-but-complete verdict: preserve the
-    // legacy hard-fail when complete estimates exist and NONE fit.
-    if (affordances.some((a) => a === "over" || a === "may_exceed")) {
-      return false;
+    // may_exceed is ELIGIBLE in soft recommendations (retain + warning);
+    // unknown is neutral-retain.
+    if (affordances.some((a) => a === "may_exceed" || a === "unknown")) {
+      return true;
     }
-    // No complete result: retain as affordability-unknown under the neutral
-    // policy (do NOT filter out, and do NOT classify as affordable based on
-    // an on-site-only range).
+    // No usable modes (e.g. no origin context): neutral retain — never
+    // hard-fail on the absence of a mode.
+    if (affordances.length === 0) return true;
+    // Only when EVERY mode is definitely over (complete, min > budget, and
+    // no fits/may_exceed/neutral alternative exists) does the destination
+    // hard-fail.
+    if (affordances.every((a) => a === "over")) return false;
     return true;
   });
 

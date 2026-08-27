@@ -117,23 +117,16 @@ export interface ComponentEvidence {
   readonly reason?: BudgetReasonCode;
   readonly sourceUrls?: readonly string[];
   /**
-   * KAI-216: the transport fare scope carried by the canonical ladder
-   * (complete / corridor_only / local_bounded_estimate / unknown). A
-   * bounded origin_travel with a non-complete scope means an access leg is
-   * missing → the trip is partial, never complete.
+   * KAI-216 / KAI-217B: the transport fare scope carried by the canonical
+   * ladder (complete / corridor_only / local_bounded_estimate / unknown),
+   * on origin_travel components. "complete" = whole-journey verified fare;
+   * "corridor_only" = verified intercity with unmodeled access; a bounded
+   * origin_travel with a non-complete scope means an access leg is missing
+   * → the trip is partial, never complete.
    */
   readonly fareScope?: TransportFareScope;
   readonly scope: CostScope;
   readonly derivation: CostDerivation;
-  /**
-   * KAI-217B: transport fare scope (origin_travel components only).
-   * "complete" = whole-journey verified fare; "corridor_only" = verified
-   * intercity with unmodeled access; "local_bounded_estimate" = bounded
-   * local rail envelope. Required to distinguish a DEFINITE origin cost
-   * (complete) from a partial one (corridor/local-bounded) in
-   * affordability decisions.
-   */
-  readonly fareScope?: TransportFareScope;
 }
 
 /** A single trip-cost component: value + epistemic state. */

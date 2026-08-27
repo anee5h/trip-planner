@@ -318,15 +318,14 @@ describe("RecommendationScorer Unit Tests", () => {
     // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen carries a
     // verified reserved fare (¥8,250 one-way, FARE_POLICY §2) while the
     // train corridor has none (heuristic only).
-    // KAI-217B: the budget score evaluates the CANONICAL engine cost. The
-    // verified shinkansen fare yields a COMPLETE result (budget bonus or
-    // penalty — here a penalty, the verified round-trip party total exceeds
-    // the ¥40k ceiling); the train corridor has NO verified fare (KAI-216
-    // removed the duration heuristic) → origin_travel unavailable → the
-    // result is partial and contributes NO budget bonus/penalty. Train
-    // still wins bestMode on transport/travel-efficiency scoring.
-    expect(shinkansen.budget).not.toBe(0);
+    // KAI-217B round-2: the budget score evaluates the CANONICAL engine
+    // cost. Required local transport is UNAVAILABLE until explicit
+    // localTransport facts exist → EVERY engine result is partial → NO
+    // mode contributes a budget bonus/penalty (no strict affordability
+    // claim on incomplete evidence). bestMode is decided by transport/
+    // travel-efficiency scoring alone.
     expect(train.budget).toBe(0);
+    expect(shinkansen.budget).toBe(0);
     expect(shinkansenEfficiency.oneWayMinutes).toBeLessThan(
       trainEfficiency.oneWayMinutes,
     );

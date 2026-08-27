@@ -43,6 +43,16 @@ export interface GeneratedPlanCostResult {
   admission: CostComponent;
   meals: CostComponent;
   parking: CostComponent;
+  /**
+   * KAI-217B round-2: explicit completeness. "complete" ONLY when every
+   * applicable component is curated; "partial" when some known + some
+   * unknown; "unavailable" when nothing is known. Never claim a full plan
+   * total on partial evidence.
+   */
+  completeness: "complete" | "partial" | "unavailable";
+  /** The known-subtotal (curated components only) — NOT a full plan total. */
+  knownSubtotal: [number, number];
+  /** DEPRECATED: [0,0] unless complete — use completeness + knownSubtotal. */
   totalRange: [number, number];
   confidence: "verified" | "estimated";
   assumptions: PlanAssumption[];
@@ -190,18 +200,35 @@ export function calculateGeneratedPlanCost(
     return true;
   });
 
-  // Canonical total = admission + curated local transit only.
+  // KAI-217B round-2: this service is EXTRACTION-ONLY — it must not own a
+  // second canonical total. It exposes explicit COMPLETENESS + a
+  // KNOWN-SUBTOTAL:
+  //   - admission known + unknown route leg(s) → completeness "partial",
+  //     knownSubtotal = curated legs + admission (never presented as a
+  //     full plan total).
+  //   - admission unknown → admission is not applicable; if local transit
+  //     is also not fully curated, completeness is "partial" (or
+  //     "unavailable" when NO component is applicable).
   const applicableComponents = [localTransitComp, admissionComp].filter(
     (c) => c.applicable,
   );
+  const allKnown =
+    applicableComponents.length > 0 &&
+    applicableComponents.every((c) => c.source === "curated" && c.applicable);
+  const nothingKnown = applicableComponents.length === 0;
 
-  const grandTotalMin = applicableComponents.reduce((sum, c) => sum + c.min, 0);
-  const grandTotalMax = applicableComponents.reduce((sum, c) => sum + c.max, 0);
+  const knownSubtotalMin = applicableComponents.reduce(
+    (sum, c) => sum + c.min,
+    0,
+  );
+  const knownSubtotalMax = applicableComponents.reduce(
+    (sum, c) => sum + c.max,
+    0,
+  );
 
-  const computedConfidence: "estimated" | "verified" =
-    applicableComponents.every((c) => c.source === "curated")
-      ? "verified"
-      : "estimated";
+  const computedConfidence: "estimated" | "verified" = allKnown
+    ? "verified"
+    : "estimated";
 
   return {
     originTransport: originComp,
@@ -209,7 +236,18 @@ export function calculateGeneratedPlanCost(
     admission: admissionComp,
     meals: mealsComp,
     parking: parkingComp,
-    totalRange: [grandTotalMin, grandTotalMax],
+    // KAI-217B round-2: NEVER a misleading full-plan totalRange. Expose
+    // completeness + knownSubtotal; consumers render "partial/unavailable"
+    // honestly instead of a numeric claim on incomplete evidence.
+    completeness: nothingKnown
+      ? ("unavailable" as const)
+      : allKnown
+        ? ("complete" as const)
+        : ("partial" as const),
+    knownSubtotal: [knownSubtotalMin, knownSubtotalMax] as [number, number],
+    totalRange: allKnown
+      ? ([knownSubtotalMin, knownSubtotalMax] as [number, number])
+      : [0, 0],
     confidence: computedConfidence,
     assumptions: deduplicatedAssumptions,
   };

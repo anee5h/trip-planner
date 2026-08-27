@@ -46,6 +46,10 @@ export interface TripCostBreakdownWidgetProps {
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
   accommodationAllowance?: number;
+  /** KAI-217B round-2: the actual trip mode — overnight trips must include
+   *  the party-total accommodation allowance × nights. */
+  tripMode?: "day_trip" | "weekend_2d1n" | "multi_night";
+  nights?: number;
 }
 
 export function TripCostBreakdownWidget({
@@ -58,6 +62,8 @@ export function TripCostBreakdownWidget({
   hasGeneratedPlan = false,
   planCostBreakdown,
   accommodationAllowance,
+  tripMode = "day_trip",
+  nights,
 }: TripCostBreakdownWidgetProps) {
   const { t } = useTranslation();
   const location = useLocation();
@@ -185,13 +191,24 @@ export function TripCostBreakdownWidget({
     if (planCostBreakdown) return undefined;
     const r = calculateTripCost({
       dest: destination,
-      tripMode: "day_trip",
+      // KAI-217B round-2: the ACTUAL trip mode — 2D1N includes the
+      // party-total accommodation allowance × 1 night (never hardcoded
+      // day_trip, which would falsely omit overnight cost).
+      tripMode,
+      nights,
       partySize,
       accommodationAllowance,
       includeOriginTravel: false,
     });
     return r.completeness === "complete" && r.total ? r.total : undefined;
-  }, [destination, partySize, accommodationAllowance, planCostBreakdown]);
+  }, [
+    destination,
+    partySize,
+    accommodationAllowance,
+    planCostBreakdown,
+    tripMode,
+    nights,
+  ]);
 
   const totalRange: [number, number] | undefined = planCostBreakdown
     ? visiblePartyRanges.reduce<[number, number]>(
