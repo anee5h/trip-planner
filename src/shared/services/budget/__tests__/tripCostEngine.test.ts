@@ -13,6 +13,7 @@
 
 import { describe, it, expect } from "vitest";
 import { calculateTripCost, type TripCostContext } from "../tripCostEngine";
+import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
 import {
   accommodationTotal,
   isNonNumeric,
@@ -431,5 +432,348 @@ describe("KAI-217A engine — cross-cutting invariants", () => {
         (acc.cost.kind === "bounded" ? acc.cost.min : 0);
       expect(r.total.min).toBe(expectedMin);
     }
+  });
+});
+
+// ── KAI-219A: explicit KAI-218 fact consumption ─────────────────────────────
+describe("KAI-219A engine — explicit admission fact is authoritative", () => {
+  it("explicit verified_paid admission → engine uses the FACT, not legacy tickets", () => {
+    // Legacy tickets say 1300; the FACT says 2000. The fact must win.
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 2000, max: 2000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com/ticket"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 4000, max: 4000 });
+    expect(c.evidence.state).toBe("verified_paid");
+    expect(c.evidence.provenance).toBe("verified_source");
+    expect(c.evidence.sourceUrls).toEqual(["https://example.com/ticket"]);
+  });
+
+  it("explicit verified_free → ¥0 ONLY with verified_free evidence", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_free",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "general_entry",
+        basis: "FREE_ENTRY official site states free admission",
+        sourceUrls: ["https://example.com/free"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
+    expect(c.evidence.state).toBe("verified_free");
+    expect(c.evidence.derivation).toBe("source_fact");
+  });
+
+  it("explicit unavailable admission + legacy numeric tickets → stays unavailable, legacy NOT resurrected", () => {
+    const dest = paidDest({
+      // Legacy tickets=1300 numeric exists, but the explicit fact says
+      // unavailable — the legacy value must NEVER come back.
+      admission: {
+        state: "unavailable",
+        provenance: "none",
+        cost: { kind: "unavailable", reason: "legacy_provenance_unrecovered" },
+        scope: "general_entry",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+    expect(c.evidence.state).toBe("unavailable");
+    expect(c.cost).not.toEqual({ kind: "bounded", min: 2600, max: 2600 });
+  });
+
+  it("explicit bounded variable_price → range preserved end-to-end (never midpoint-collapsed)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_product",
+        cost: { kind: "bounded", min: 2000, max: 3500 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com/prices"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 4000, max: 7000 });
+    expect(c.evidence.state).toBe("variable_price");
+    expect(c.evidence.provenance).toBe("verified_source");
+  });
+
+  it("explicit open-ended variable_price → remains open-ended", () => {
+    const dest = paidDest({
+      admission: {
+        state: "variable_price",
+        provenance: "model",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "open_ended", from: 1500 },
+        scope: "general_entry",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "open_ended", from: 3000 });
+    expect(r.completeness).toBe("partial"); // open_ended never complete
+  });
+
+  it("explicit documented_estimate → bounded model estimate, never source_fact", () => {
+    const dest = paidDest({
+      admission: {
+        state: "documented_estimate",
+        provenance: "model",
+        cost: { kind: "bounded", min: 800, max: 1200 },
+        scope: "general_entry",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 1600, max: 2400 });
+    expect(c.evidence.derivation).toBe("model_estimate");
+    expect(c.evidence.state).toBe("documented_estimate");
+  });
+
+  it("explicit not_applicable admission → non-numeric, excluded from required set", () => {
+    const dest = paidDest({
+      admission: {
+        state: "not_applicable",
+        provenance: "model",
+        reasonCode: "hub_budget_not_applicable",
+        cost: { kind: "not_applicable" },
+        scope: "whole_area",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("not_applicable");
+  });
+});
+
+describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
+  it("explicit verified_required_access → bounded verified source fare", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [400, 600],
+        sourceUrls: ["https://example.com/rail"],
+        coverage: "all_day",
+        basis: "Station X is the served stop for this destination",
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 800, max: 1200 });
+    expect(c.evidence.state).toBe("verified_paid");
+    expect(c.evidence.provenance).toBe("verified_source");
+    expect(c.evidence.derivation).toBe("source_fact");
+  });
+
+  it("explicit verified_walking → ¥0 ONLY with required evidence", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_walking",
+        walkingEvidence: "Official site states 5 min walk from station",
+        walkingMinutes: 5,
+        sourceUrls: ["https://example.com/access"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
+    expect(c.evidence.state).toBe("verified_free");
+  });
+
+  it("explicit bounded_defensible_access → bounded model estimate", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "bounded_defensible_access",
+        access: "rail",
+        band: "≤15km",
+        fare: [500, 800],
+        distanceKm: 12,
+        sourceUrls: ["https://example.com/operator"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 1000, max: 1600 });
+    expect(c.evidence.derivation).toBe("model_estimate");
+  });
+
+  it("explicit localTransport unavailable → unavailable (never a generic allowance)", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "unavailable",
+        reason: "no_on_site_evidence",
+        detail: "No route evidence found",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost.kind).toBe("unavailable");
+    expect(c.evidence.derivation).toBe("computed");
+  });
+
+  it("missing localTransport + legacy budgetBreakdown.transport numeric → unavailable; generic allowance NEVER consumed", () => {
+    // paidDest carries budgetBreakdown.transport=1000 — with NO explicit
+    // localTransport fact, the generic allowance must NOT become the
+    // canonical local-transport cost.
+    const dest = paidDest({}); // no localTransport fact
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost.kind).toBe("unavailable");
+    expect(c.evidence.reason).toBe("source_missing");
+  });
+});
+
+describe("KAI-219A engine — transitional fallback boundary", () => {
+  it("absent admission + trusted transitional legacy ticket → fallback works ONLY there", () => {
+    // paidDest: manual method + verified ticket basis → KAI-214 trusted.
+    const dest = paidDest({}); // no explicit admission fact
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "admission")!;
+    // Transitional fallback: trusted legacy tickets 1300 × 2 = 2600.
+    expect(c.cost).toEqual({ kind: "bounded", min: 2600, max: 2600 });
+    expect(c.evidence.state).toBe("verified_paid");
+  });
+
+  it("legacy/unverified admission → NEVER promoted to known", () => {
+    const dest = paidDest({
+      budgetMetadata: {
+        method: "legacy",
+        confidence: "low",
+        basis: "unsourced legacy value",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+    expect(c.evidence.state).toBe("legacy_unverified");
+  });
+
+  it("absent admission + untrusted legacy → unavailable, not a fabricated value", () => {
+    const dest = paidDest({
+      budgetMetadata: { method: "unknown" },
+      budgetBreakdown: undefined,
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+});
+
+describe("KAI-219A — one-way compatibility projection", () => {
+  it("explicit admission fact → legacy tickets projection is v2→legacy ONLY (never write-back)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 2000, max: 2000 },
+        scope: "general_entry",
+      },
+    }) as unknown as Parameters<typeof getEffectiveBudgetBreakdown>[0];
+    const proj = getEffectiveBudgetBreakdown(dest);
+    // Projection reads FROM the fact (tickets = fact max, 2000), NOT the
+    // legacy 1300.
+    expect(proj?.tickets).toBe(2000);
+    // The fact is unchanged after projection (read-only).
+    expect(dest.admission?.cost).toEqual({
+      kind: "bounded",
+      min: 2000,
+      max: 2000,
+    });
+  });
+
+  it("non-numeric admission fact → no tickets projection; legacy consumers see unavailable", () => {
+    const dest = paidDest({
+      admission: {
+        state: "unavailable",
+        provenance: "none",
+        cost: { kind: "unavailable", reason: "legacy_provenance_unrecovered" },
+        scope: "general_entry",
+      },
+    }) as unknown as Parameters<typeof getEffectiveBudgetBreakdown>[0];
+    const proj = getEffectiveBudgetBreakdown(dest);
+    expect(proj?.tickets).toBeUndefined();
+  });
+});
+
+// ── KAI-219A: Luna blocker regressions ──────────────────────────────────────
+describe("KAI-219A — Luna blocker fixes", () => {
+  it("runtime fail-closed: verified_free fact WITHOUT evidence → unavailable, never [0,0]", () => {
+    // A malformed persisted fact (verified_free state but no free basis /
+    // no verified provenance) must NOT create an unverified canonical zero.
+    const dest = paidDest({
+      admission: {
+        state: "verified_free",
+        provenance: "none",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "general_entry",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost).not.toEqual({ kind: "bounded", min: 0, max: 0 });
+  });
+
+  it("runtime fail-closed: verified_paid with legacy provenance → unavailable, not promoted", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "legacy",
+        cost: { kind: "bounded", min: 2000, max: 2000 },
+        scope: "general_entry",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("runtime fail-closed: verified_walking WITHOUT walkingEvidence → unavailable, never ¥0", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_walking",
+        // no walkingEvidence — invalid per KAI-218A
+      } as never,
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("projection never synthesizes zeros for absent legacy transport/food/cafe", () => {
+    // Explicit admission fact + NO legacy breakdown at all.
+    const dest = paidDest({
+      budgetBreakdown: undefined,
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 2000, max: 2000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    }) as unknown as Parameters<typeof getEffectiveBudgetBreakdown>[0];
+    const proj = getEffectiveBudgetBreakdown(dest);
+    // Fail closed: null, NOT { transport: 0, tickets: 2000, food: 0, cafe: 0 }.
+    expect(proj).toBeNull();
   });
 });

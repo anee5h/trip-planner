@@ -24,6 +24,7 @@
 
 import type { Destination } from "@/shared/types/destination";
 import { hasDisplayableBudget } from "@/shared/services/budget/budgetState";
+import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
 import type {
   DayPlan,
   PlanAssumption,
@@ -114,11 +115,17 @@ export function calculateGeneratedPlanCost(
   let hasMissingTickets = false;
 
   uniqueDestinationsMap.forEach((dest) => {
+    // KAI-219A (Luna blocker 3): read admission through the fact-aware
+    // projection (getEffectiveBudgetBreakdown) — an explicit admission
+    // fact's value wins, and an explicit unavailable fact never
+    // resurrects stale legacy tickets.
+    const effectiveBreakdown = getEffectiveBudgetBreakdown(dest);
     if (
       hasDisplayableBudget(dest) &&
-      typeof dest.budgetBreakdown?.tickets === "number"
+      effectiveBreakdown &&
+      typeof effectiveBreakdown.tickets === "number"
     ) {
-      const ticketVal = dest.budgetBreakdown.tickets;
+      const ticketVal = effectiveBreakdown.tickets;
       totalAdmissionMin += ticketVal * safeParty;
       totalAdmissionMax += ticketVal * safeParty;
     } else {

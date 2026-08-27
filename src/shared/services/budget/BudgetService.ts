@@ -552,6 +552,55 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   food: number;
   cafe: number;
 } | null {
+  // KAI-219A ONE-WAY COMPATIBILITY PROJECTION (DEPRECATION.md §2): when an
+  // explicit KAI-218 `admission` FACT exists, legacy `tickets` consumers
+  // read the PROJECTED value derived FROM the fact at read time. This is
+  // DERIVED and READ-ONLY — never written back, never independently edited.
+  // The projection preserves the fact's representation:
+  //   bounded       → a representative tickets value (min===max ? min : max)
+  //   open_ended    → the truthful lower bound ("from ¥X" floor)
+  //   variable / not_applicable / unavailable → null (legacy consumers see
+  //   unavailable — the fact's non-numeric truth must not become a number)
+  const fact = dest.admission;
+  const legacyBreakdown = dest.budgetBreakdown;
+  if (fact) {
+    let projectedTickets: number | undefined;
+    if (fact.cost.kind === "bounded") {
+      projectedTickets = fact.cost.max; // conservative ceiling for legacy readers
+    } else if (fact.cost.kind === "open_ended") {
+      projectedTickets = fact.cost.from; // truthful lower bound
+    }
+    const hasLegacyTransportFoodCafe =
+      legacyBreakdown &&
+      [
+        legacyBreakdown.transport,
+        legacyBreakdown.food,
+        legacyBreakdown.cafe,
+      ].every(isFiniteNonNegative);
+    if (projectedTickets !== undefined && hasLegacyTransportFoodCafe) {
+      return {
+        transport: legacyBreakdown!.transport,
+        tickets: projectedTickets,
+        food: legacyBreakdown!.food,
+        cafe: legacyBreakdown!.cafe,
+      };
+    }
+    if (projectedTickets !== undefined) {
+      // The admission fact is numeric but the legacy non-admission fields
+      // are absent. NEVER synthesize zeros for transport/food/cafe
+      // (Luna blocker 2: unknown≠¥0). Fail closed for the whole breakdown
+      // rather than invent numbers the legacy reader would treat as real.
+      return null;
+    }
+    // Non-numeric fact → NO tickets projection. The legacy tickets value
+    // must NOT survive (never legacy → v2 → legacy resurrection). Fail
+    // closed: return null rather than serve the legacy breakdown with a
+    // stale numeric tickets. Transport/food/cafe legacy reads are served
+    // by the normal no-fact path on unmigrated records; a record WITH an
+    // explicit non-numeric admission fact is declaring its admission
+    // truth, so legacy consumers get unavailable for the whole breakdown.
+    return null;
+  }
   // KAI-204 phase 3 (positive trust contract) + KAI-215 convergence: a
   // breakdown is consumed only when the KAI-214 NORMALIZED semantic state
   // says the record is trusted (trustLevel trusted | trusted_estimate).
@@ -561,15 +610,15 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   // states (e.g. verified_paid without provenance) also fail closed here.
   if (!hasDisplayableBudget(dest)) return null;
   if (
-    dest.budgetBreakdown &&
+    legacyBreakdown &&
     [
-      dest.budgetBreakdown.transport,
-      dest.budgetBreakdown.tickets,
-      dest.budgetBreakdown.food,
-      dest.budgetBreakdown.cafe,
+      legacyBreakdown.transport,
+      legacyBreakdown.tickets,
+      legacyBreakdown.food,
+      legacyBreakdown.cafe,
     ].every(isFiniteNonNegative)
   ) {
-    return dest.budgetBreakdown;
+    return legacyBreakdown;
   }
   // KAI-89 review: NO synthetic breakdown. A known range without a valid
   // breakdown returns null — the runtime must NEVER invent admission
