@@ -19,6 +19,7 @@ import type {
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
 import { isValidAccommodationAllowance } from "@/shared/types/homePlannerState";
+import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import {
   hasDisplayableBudget,
   hasTrustedNumericBudget,
@@ -556,20 +557,23 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   // explicit KAI-218 `admission` FACT exists, legacy `tickets` consumers
   // read the PROJECTED value derived FROM the fact at read time. This is
   // DERIVED and READ-ONLY — never written back, never independently edited.
-  // The projection preserves the fact's representation:
-  //   bounded       → a representative tickets value (min===max ? min : max)
-  //   open_ended    → the truthful lower bound ("from ¥X" floor)
-  //   variable / not_applicable / unavailable → null (legacy consumers see
-  //   unavailable — the fact's non-numeric truth must not become a number)
+  //
+  // KAI-219A review BLOCKER 4: the projection uses the SAME shared runtime
+  // validator (factValidation.ts) as the engine, and only projects a
+  // VALIDATED BOUNDED fact to a scalar. open_ended / variable /
+  // not_applicable / unavailable / malformed → null (no "from ¥X" → exact
+  // ¥X scalarization). The bounded projection uses the fact MAX (the
+  // conservative ceiling for legacy readers).
   const fact = dest.admission;
   const legacyBreakdown = dest.budgetBreakdown;
   if (fact) {
-    let projectedTickets: number | undefined;
-    if (fact.cost.kind === "bounded") {
-      projectedTickets = fact.cost.max; // conservative ceiling for legacy readers
-    } else if (fact.cost.kind === "open_ended") {
-      projectedTickets = fact.cost.from; // truthful lower bound
-    }
+    const validation = validateAdmissionFact(fact);
+    const validBounded =
+      validation.valid &&
+      fact.cost.kind === "bounded" &&
+      isFiniteNonNegative(fact.cost.min) &&
+      isFiniteNonNegative(fact.cost.max);
+    const projectedTickets = validBounded ? fact.cost.max : undefined;
     const hasLegacyTransportFoodCafe =
       legacyBreakdown &&
       [
@@ -585,20 +589,10 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
         cafe: legacyBreakdown!.cafe,
       };
     }
-    if (projectedTickets !== undefined) {
-      // The admission fact is numeric but the legacy non-admission fields
-      // are absent. NEVER synthesize zeros for transport/food/cafe
-      // (Luna blocker 2: unknown≠¥0). Fail closed for the whole breakdown
-      // rather than invent numbers the legacy reader would treat as real.
-      return null;
-    }
-    // Non-numeric fact → NO tickets projection. The legacy tickets value
-    // must NOT survive (never legacy → v2 → legacy resurrection). Fail
-    // closed: return null rather than serve the legacy breakdown with a
-    // stale numeric tickets. Transport/food/cafe legacy reads are served
-    // by the normal no-fact path on unmigrated records; a record WITH an
-    // explicit non-numeric admission fact is declaring its admission
-    // truth, so legacy consumers get unavailable for the whole breakdown.
+    // No scalar projection (non-bounded / malformed fact, or absent legacy
+    // non-admission fields). NEVER synthesize zeros, NEVER scalarize
+    // "from ¥X" → ¥X, NEVER resurrect the stale legacy tickets value.
+    // Fail closed for the whole breakdown.
     return null;
   }
   // KAI-204 phase 3 (positive trust contract) + KAI-215 convergence: a

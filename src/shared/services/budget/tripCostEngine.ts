@@ -54,6 +54,10 @@ import {
   isValidTripCostResult,
 } from "@/shared/services/budget/budgetV2";
 import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
+import {
+  validateAdmissionFact,
+  validateLocalTransportFact,
+} from "@/shared/services/budget/factValidation";
 
 /**
  * KAI-217A trip-mode axis. EXTENDS the binary app types ("day_trip" |
@@ -206,31 +210,13 @@ function admissionFromFact(
     sourceUrls,
   };
 
-  // KAI-219A runtime fail-closed (Luna blocker 1): the KAI-218 validators
-  // enforce invariants at authoring time; the ENGINE re-validates them at
-  // runtime so an invalid persisted fact can never create unverified
-  // canonical zero costs or promote an untrusted value:
-  //   - verified_free requires verified_source provenance + explicit free
-  //     evidence (FREE_ENTRY / free area / no admission fee / 入場無料).
-  //   - verified_paid requires verified_source provenance.
-  //   - documented_estimate requires model provenance.
-  //   - variable_price bounded requires verified_source + sourceUrls.
-  // Any violation fails closed to unavailable.
-  const FREE_EVIDENCE_RE =
-    /FREE_ENTRY|free area|free admission|no admission fee|入場無料/i;
-  const invariantOk =
-    (state === "verified_free" &&
-      provenance === "verified_source" &&
-      Boolean(fact.basis && FREE_EVIDENCE_RE.test(fact.basis))) ||
-    (state === "verified_paid" && provenance === "verified_source") ||
-    (state === "documented_estimate" && provenance === "model") ||
-    (state === "variable_price" &&
-      (cost.kind !== "bounded" ||
-        (provenance === "verified_source" &&
-          Boolean(sourceUrls && sourceUrls.length > 0)))) ||
-    state === "not_applicable" ||
-    state === "unavailable";
-  if (!invariantOk) {
+  // KAI-219A runtime fail-closed: ONE shared dependency-neutral validator
+  // (factValidation.ts) enforces the full KAI-218 invariant set — the same
+  // validator the projection and GeneratedPlanCostService use. An invalid
+  // persisted fact can never create unverified canonical zero costs or
+  // promote an untrusted value; it fails closed to unavailable.
+  const validation = validateAdmissionFact(fact);
+  if (!validation.valid) {
     return {
       cost: { kind: "unavailable", reason: "source_missing" },
       evidence: { ...evidenceBase, derivation: "computed" },
@@ -425,23 +411,13 @@ function localTransportComponent(
     sourceUrls,
   };
 
-  // KAI-219A runtime fail-closed (Luna blocker 1): re-validate the fact's
-  // invariants at runtime so an invalid persisted fact can never create an
-  // unverified zero (walking) or an unsourced verified fare:
-  //   - verified_required_access requires sourceUrls + basis.
-  //   - bounded_defensible_access requires sourceUrls.
-  //   - verified_walking requires walkingEvidence (¥0 ONLY with it).
-  // Any violation fails closed to unavailable.
-  const ltInvariantOk =
-    (fact.kind === "verified_required_access" &&
-      Boolean(fact.sourceUrls && fact.sourceUrls.length > 0) &&
-      Boolean(fact.basis)) ||
-    (fact.kind === "bounded_defensible_access" &&
-      Boolean(fact.sourceUrls && fact.sourceUrls.length > 0)) ||
-    (fact.kind === "verified_walking" && Boolean(fact.walkingEvidence)) ||
-    fact.kind === "not_applicable" ||
-    fact.kind === "unavailable";
-  if (!ltInvariantOk) {
+  // KAI-219A runtime fail-closed: ONE shared dependency-neutral validator
+  // (factValidation.ts) enforces the full KAI-218 local-transport invariant
+  // set — the same validator the projection uses. An invalid persisted fact
+  // can never create an unverified zero (walking) or an unsourced verified
+  // fare; it fails closed to unavailable.
+  const validation = validateLocalTransportFact(fact);
+  if (!validation.valid) {
     return {
       cost: { kind: "unavailable", reason: "source_missing" },
       evidence: { ...evidenceBase, derivation: "computed" },

@@ -22,6 +22,7 @@ import {
   normalizeBudgetState,
   isVerifiedFree,
 } from "../../src/shared/services/budget/budgetState";
+import { getEffectiveBudgetBreakdown } from "../../src/shared/services/budget/BudgetService";
 
 const INDEX_PATH = path.resolve(
   process.cwd(),
@@ -78,7 +79,8 @@ export function runAudit(destinations: Destination[]) {
     not_applicable: 0,
     unavailable: 0,
     absent: 0,
-    transitional_legacy_fallback: 0,
+    transitional_legacy_numeric_used: 0,
+    transitional_legacy_non_numeric_or_untrusted: 0,
   };
   const admissionIds: Record<string, string[]> = {};
 
@@ -119,10 +121,35 @@ export function runAudit(destinations: Destination[]) {
       push(admissionIds, `admission:${st}`, d.id);
     } else {
       admission.absent += 1;
-      // Transitional legacy fallback: any record WITHOUT an explicit fact
-      // still relies on the KAI-214 normalized legacy admission path.
-      admission.transitional_legacy_fallback += 1;
-      push(admissionIds, "admission:transitional_legacy_fallback", d.id);
+      push(admissionIds, "admission:absent", d.id);
+      // KAI-219A review AUDIT FIX: split the fallback metrics.
+      //   transitional_legacy_numeric_used — admission fact ABSENT + the
+      //   KAI-214 normalized state is trusted/trusted_estimate AND a valid
+      //   numeric legacy ticket is actually consumed by the transitional
+      //   engine path (getEffectiveBudgetBreakdown). This metric shrinks
+      //   as records migrate.
+      //   transitional_legacy_non_numeric_or_untrusted — absent fact whose
+      //   legacy state is untrusted / non-numeric (no numeric fallback).
+      const norm = normalizeBudgetState(d);
+      const trusted =
+        norm.trustLevel === "trusted" || norm.trustLevel === "trusted_estimate";
+      const projected = getEffectiveBudgetBreakdown(d);
+      if (
+        trusted &&
+        projected &&
+        typeof projected.tickets === "number" &&
+        Number.isFinite(projected.tickets)
+      ) {
+        admission.transitional_legacy_numeric_used += 1;
+        push(admissionIds, "admission:transitional_legacy_numeric_used", d.id);
+      } else {
+        admission.transitional_legacy_non_numeric_or_untrusted += 1;
+        push(
+          admissionIds,
+          "admission:transitional_legacy_non_numeric_or_untrusted",
+          d.id,
+        );
+      }
     }
 
     // ── Local transport cohort ──────────────────────────────────────────

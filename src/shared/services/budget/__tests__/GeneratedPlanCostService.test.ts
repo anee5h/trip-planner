@@ -172,3 +172,133 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.knownSubtotal[1]).toBe(3000);
   });
 });
+
+// ── KAI-219A review BLOCKER 3: GeneratedPlan trusts explicit v2 facts ──────
+describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
+  it("A) old budgetMetadata legacy + new valid verified_paid fact → plan consumes the FACT", () => {
+    // The record has OLD legacy metadata (untrusted method 'unknown') but a
+    // NEW valid verified_paid fact. The fact is authoritative — the old
+    // trust gate must NOT reject it.
+    const dest = {
+      ...BASE_DEST,
+      budgetMetadata: { method: "unknown" },
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 2500, max: 2500 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+        reviewIntervalMonths: 12,
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
+    expect(cost.admission.min).toBe(2500);
+    expect(cost.admission.max).toBe(2500);
+    expect(cost.admission.source).toBe("curated");
+    expect(cost.admission.applicable).toBe(true);
+  });
+
+  it("B) documented_estimate bounded → source ESTIMATED, NOT curated", () => {
+    const dest = {
+      ...BASE_DEST,
+      budgetMetadata: { method: "unknown" }, // old trust gate would reject
+      admission: {
+        state: "documented_estimate",
+        provenance: "model",
+        cost: { kind: "bounded", min: 1800, max: 2200 },
+        scope: "general_entry",
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
+    expect(cost.admission.min).toBe(1800);
+    expect(cost.admission.max).toBe(2200);
+    expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.applicable).toBe(true);
+  });
+
+  it("C) open_ended admission → partial → NO exact projected ticket scalar", () => {
+    const dest = {
+      ...BASE_DEST,
+      budgetMetadata: { method: "unknown" },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "open_ended", from: 1200 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
+    // open_ended → never scalarized to a full ticket amount.
+    expect(cost.admission.min).toBe(0);
+    expect(cost.admission.max).toBe(0);
+    expect(cost.admission.source).toBe("unknown");
+    expect(cost.admission.applicable).toBe(false);
+    expect(cost.assumptions.some((a) => a.destinationId === "dest-1")).toBe(
+      true,
+    );
+  });
+
+  it("D) explicit unavailable + legacy numeric ticket → remains missing, legacy NEVER resurrects", () => {
+    // The record HAS a legacy numeric ticket (1500) AND an explicit
+    // unavailable admission fact. The fact's truth wins — the legacy
+    // value must NOT be consumed.
+    const dest = {
+      ...BASE_DEST, // budgetBreakdown.tickets = 1500
+      budgetMetadata: { method: "manual", confidence: "low" },
+      admission: {
+        state: "unavailable",
+        provenance: "none",
+        reasonCode: "legacy_provenance_unrecovered",
+        cost: { kind: "unavailable", reason: "legacy_provenance_unrecovered" },
+        scope: "general_entry",
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
+    expect(cost.admission.min).toBe(0);
+    expect(cost.admission.max).toBe(0);
+    expect(cost.admission.source).toBe("unknown");
+    expect(cost.admission.applicable).toBe(false);
+  });
+
+  it("malformed verified_paid fact (wrong cost kind) → fails closed, never numeric", () => {
+    const dest = {
+      ...BASE_DEST,
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "open_ended", from: 1000 }, // wrong kind for paid
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
+    expect(cost.admission.min).toBe(0);
+    expect(cost.admission.source).toBe("unknown");
+  });
+
+  it("not_applicable admission → excluded from required admission (not missing)", () => {
+    const dest = {
+      ...BASE_DEST,
+      budgetMetadata: { method: "unknown" },
+      admission: {
+        state: "not_applicable",
+        provenance: "none",
+        reasonCode: "hub_budget_not_applicable",
+        cost: { kind: "not_applicable" },
+        scope: "general_entry",
+      },
+    } as unknown as Destination;
+    const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
+    // Excluded: no missing assumption, not ¥0 contribution.
+    expect(cost.admission.min).toBe(0);
+    expect(cost.admission.applicable).toBe(true);
+    expect(cost.assumptions.some((a) => a.destinationId === "dest-1")).toBe(
+      false,
+    );
+  });
+});

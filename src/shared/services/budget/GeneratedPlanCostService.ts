@@ -25,6 +25,7 @@
 import type { Destination } from "@/shared/types/destination";
 import { hasDisplayableBudget } from "@/shared/services/budget/budgetState";
 import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
+import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import type {
   DayPlan,
   PlanAssumption,
@@ -86,6 +87,21 @@ export function estimateOriginTransportFare(): CostComponent {
   return { min: 0, max: 0, source: "unknown", applicable: false };
 }
 
+/** KAI-219A: shared missing-ticket assumption (deduplicated helper). */
+function pushMissingAssumption(
+  dest: Destination,
+  assumptions: PlanAssumption[],
+): void {
+  assumptions.push({
+    type: "estimated_cost",
+    destinationId: dest.id,
+    message: {
+      en: `Ticket cost for ${dest.name} is excluded or unverified.`,
+      ja: `${dest.nameJa || dest.name}の入場チケット料金は未確認のため含まれていません。`,
+    },
+  });
+}
+
 export function calculateGeneratedPlanCost(
   plan: DayPlan,
   partySize: number = 1,
@@ -113,12 +129,46 @@ export function calculateGeneratedPlanCost(
   let totalAdmissionMin = 0;
   let totalAdmissionMax = 0;
   let hasMissingTickets = false;
+  let hasEstimatedTickets = false;
 
   uniqueDestinationsMap.forEach((dest) => {
-    // KAI-219A (Luna blocker 3): read admission through the fact-aware
-    // projection (getEffectiveBudgetBreakdown) — an explicit admission
-    // fact's value wins, and an explicit unavailable fact never
-    // resurrects stale legacy tickets.
+    // KAI-219A review BLOCKER 3: an EXPLICIT v2 admission fact is
+    // AUTHORITATIVE — the canonical fact is interpreted directly and the
+    // OLD budgetMetadata trust gate (hasDisplayableBudget) is NOT consulted
+    // for it. Absent fact → transitional KAI-214 legacy fallback.
+    const fact = dest.admission;
+    if (fact) {
+      const validation = validateAdmissionFact(fact);
+      if (!validation.valid) {
+        // Malformed persisted fact → never numeric, never Free.
+        hasMissingTickets = true;
+        pushMissingAssumption(dest, assumptions);
+        return;
+      }
+      if (fact.cost.kind === "bounded") {
+        const isModel = fact.state === "documented_estimate";
+        totalAdmissionMin += fact.cost.min * safeParty;
+        totalAdmissionMax += fact.cost.max * safeParty;
+        // verified/source-backed bounded → curated; documented model
+        // estimate → ESTIMATED, NOT curated.
+        if (isModel) hasEstimatedTickets = true;
+        return;
+      }
+      if (fact.cost.kind === "not_applicable") {
+        // Hub / no-single-admission-product: EXCLUDED from required
+        // admission (not missing, not ¥0 — no admission required).
+        return;
+      }
+      // open_ended / variable / unavailable → generated plan stays
+      // partial → do NOT scalarize to a full ticket amount.
+      hasMissingTickets = true;
+      pushMissingAssumption(dest, assumptions);
+      return;
+    }
+    // Transitional legacy fallback (no explicit fact): the OLD trust gate
+    // + projection may still serve a trusted legacy ticket for unmigrated
+    // records — but only through the shared projection (never a direct
+    // budgetBreakdown.tickets read).
     const effectiveBreakdown = getEffectiveBudgetBreakdown(dest);
     if (
       hasDisplayableBudget(dest) &&
@@ -130,21 +180,18 @@ export function calculateGeneratedPlanCost(
       totalAdmissionMax += ticketVal * safeParty;
     } else {
       hasMissingTickets = true;
-      assumptions.push({
-        type: "estimated_cost",
-        destinationId: dest.id,
-        message: {
-          en: `Ticket cost for ${dest.name} is excluded or unverified.`,
-          ja: `${dest.nameJa || dest.name}の入場チケット料金は未確認のため含まれていません。`,
-        },
-      });
+      pushMissingAssumption(dest, assumptions);
     }
   });
 
   const admissionComp: CostComponent = {
     min: totalAdmissionMin,
     max: totalAdmissionMax,
-    source: hasMissingTickets ? "unknown" : "curated",
+    source: hasMissingTickets
+      ? "unknown"
+      : hasEstimatedTickets
+        ? "estimated"
+        : "curated",
     // KAI-217B (Luna): unknown admission is NOT applicable — a missing/
     // unverified ticket value must not become an applicable [0,0] that
     // inflates the numeric plan total with a fabricated ¥0.

@@ -41,7 +41,8 @@ describe("KAI-219 migration audit", () => {
       "not_applicable",
       "unavailable",
       "absent",
-      "transitional_legacy_fallback",
+      "transitional_legacy_numeric_used",
+      "transitional_legacy_non_numeric_or_untrusted",
     ]) {
       expect(out.admission).toHaveProperty(k);
     }
@@ -65,5 +66,29 @@ describe("KAI-219 migration audit", () => {
     // The audit is an inventory, not a gate — baseline low completeness is
     // expected and must not be masked.
     expect(out.admission.explicit).toBeGreaterThanOrEqual(0);
+  });
+
+  it("splits transitional fallback: numeric_used differs from absent and sums to absent", () => {
+    const destinations = JSON.parse(
+      fs.readFileSync(INDEX_PATH, "utf8"),
+    ) as Parameters<typeof runAudit>[0];
+    const out = runAudit(destinations);
+    const {
+      absent,
+      transitional_legacy_numeric_used,
+      transitional_legacy_non_numeric_or_untrusted,
+    } = out.admission;
+    // The split must be meaningful (numeric-used < absent — NOT equal).
+    expect(transitional_legacy_numeric_used).toBeGreaterThan(0);
+    expect(transitional_legacy_numeric_used).toBeLessThan(absent);
+    // And the two split cohorts partition the absent records exactly.
+    expect(
+      transitional_legacy_numeric_used +
+        transitional_legacy_non_numeric_or_untrusted,
+    ).toBe(absent);
+    // Every fallback-used id is present in the ID list.
+    const numericUsedIds =
+      out.ids.admission["admission:transitional_legacy_numeric_used"] ?? [];
+    expect(numericUsedIds.length).toBe(transitional_legacy_numeric_used);
   });
 });

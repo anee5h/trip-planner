@@ -686,6 +686,8 @@ describe("KAI-219A — one-way compatibility projection", () => {
         provenance: "verified_source",
         cost: { kind: "bounded", min: 2000, max: 2000 },
         scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
       },
     }) as unknown as Parameters<typeof getEffectiveBudgetBreakdown>[0];
     const proj = getEffectiveBudgetBreakdown(dest);
@@ -775,5 +777,157 @@ describe("KAI-219A — Luna blocker fixes", () => {
     const proj = getEffectiveBudgetBreakdown(dest);
     // Fail closed: null, NOT { transport: 0, tickets: 2000, food: 0, cafe: 0 }.
     expect(proj).toBeNull();
+  });
+});
+
+// ── KAI-219A review repair: malformed persisted-fact runtime fixtures ──────
+describe("KAI-219A — malformed persisted facts fail closed (shared validator)", () => {
+  it("verified_paid with negative bounded range → unavailable, never numeric", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: -500, max: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("verified_paid with min > max → unavailable, never numeric", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 2000, max: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("verified_paid with NaN-like range (non-finite) → unavailable", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: Number.NaN, max: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("verified_paid with zero range → unavailable (zero range rejected as paid)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("verified_paid wrong cost kind (open_ended) → unavailable", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "open_ended", from: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("verified_free missing sourceUrls / checkedAt → unavailable, never [0,0]", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_free",
+        provenance: "verified_source",
+        basis: "FREE_ENTRY",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "general_entry",
+        // missing sourceUrls + checkedAt
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("variable_price bounded missing checkedAt → unavailable", () => {
+    const dest = paidDest({
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "bounded", min: 1000, max: 3000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        // missing checkedAt
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("malformed local fare range (min > max) → unavailable", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        fare: [2000, 500],
+        sourceUrls: ["https://example.com"],
+        basis: "local bus/train",
+        checkedAt: "2026-01-01",
+      } as never,
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+
+  it("bounded variable_price valid → range preserved end-to-end (not collapsed)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        cost: { kind: "bounded", min: 1000, max: 3000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost.kind).toBe("bounded");
+    if (c.cost.kind === "bounded") {
+      expect(c.cost.min).toBe(1000 * 2);
+      expect(c.cost.max).toBe(3000 * 2);
+    }
   });
 });
