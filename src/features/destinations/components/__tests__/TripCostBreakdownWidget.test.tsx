@@ -426,4 +426,128 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
     expect(text).toContain("Known");
     expect(text).toContain("Missing: local transport");
   });
+
+  // ── Round-6 regressions: component-level semantics ─────────────────────────
+  async function renderWithEngine(engineResult: unknown) {
+    const engineMock =
+      (await import("@/shared/services/budget/tripCostEngine")) as unknown as {
+        calculateTripCost: ReturnType<typeof vi.fn>;
+      };
+    engineMock.calculateTripCost = vi.fn().mockReturnValue(engineResult);
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <TripCostBreakdownWidget
+          destination={testDestination}
+          locale="en"
+          partySize={2}
+          activeTransportMode="train"
+          defaultExpanded={true}
+        />,
+      );
+    });
+    return host.textContent ?? "";
+  }
+
+  it("A) partial trip: bounded admission shows its range, NOT Cost unavailable (KAI-217B round-6)", async () => {
+    const text = await renderWithEngine({
+      completeness: "partial",
+      components: [
+        {
+          cost: { kind: "bounded", min: 2000, max: 2000 },
+          evidence: { scope: "admission", derivation: "source_fact" },
+        },
+        {
+          cost: { kind: "unavailable", reason: "source_missing" },
+          evidence: { scope: "local_transport", derivation: "computed" },
+        },
+      ],
+      knownSubtotal: [2000, 2000],
+      missingComponents: [
+        { scope: "local_transport", reason: "source_missing" },
+      ],
+    });
+    // Header: Known ¥2,000. Admission row: ¥2,000. Missing: local transport.
+    expect(text).toContain("Known");
+    expect(text).toContain("¥2,000");
+    expect(text).toContain("Missing: local transport");
+    // The bounded admission must NOT be rendered as Cost unavailable.
+    expect(text).not.toContain("Cost unavailable");
+  });
+
+  it("B) bounded [0,0] with verified_paid state must NOT show Free Admission (KAI-217B round-6)", async () => {
+    const text = await renderWithEngine({
+      completeness: "complete",
+      components: [
+        {
+          cost: { kind: "bounded", min: 0, max: 0 },
+          evidence: {
+            scope: "admission",
+            derivation: "source_fact",
+            state: "verified_paid",
+          },
+        },
+        {
+          cost: { kind: "bounded", min: 1000, max: 1000 },
+          evidence: {
+            scope: "local_transport",
+            derivation: "model_estimate",
+          },
+        },
+      ],
+      total: { kind: "bounded", min: 1000, max: 1000 },
+    });
+    expect(text).not.toContain("Free Admission");
+    expect(text).not.toContain("Free");
+  });
+
+  it("C) verified admission + model-estimated other component must NOT show Verified Fares (KAI-217B round-6)", async () => {
+    const text = await renderWithEngine({
+      completeness: "complete",
+      components: [
+        {
+          cost: { kind: "bounded", min: 2000, max: 2000 },
+          evidence: {
+            scope: "admission",
+            derivation: "source_fact",
+            state: "verified_paid",
+          },
+        },
+        {
+          cost: { kind: "bounded", min: 1000, max: 1000 },
+          evidence: {
+            scope: "local_transport",
+            derivation: "model_estimate",
+          },
+        },
+      ],
+      total: { kind: "bounded", min: 3000, max: 3000 },
+    });
+    expect(text).toContain("Estimated Fares");
+    expect(text).not.toContain("Verified Fares");
+  });
+
+  it("D) partial result shows the Partial badge (KAI-217B round-6)", async () => {
+    const text = await renderWithEngine({
+      completeness: "partial",
+      components: [
+        {
+          cost: { kind: "bounded", min: 2000, max: 2000 },
+          evidence: { scope: "admission", derivation: "source_fact" },
+        },
+        {
+          cost: { kind: "unavailable", reason: "source_missing" },
+          evidence: { scope: "local_transport", derivation: "computed" },
+        },
+      ],
+      knownSubtotal: [2000, 2000],
+      missingComponents: [
+        { scope: "local_transport", reason: "source_missing" },
+      ],
+    });
+    expect(text).toContain("Partial");
+    expect(text).not.toContain("Verified Fares");
+  });
 });

@@ -257,21 +257,61 @@ export function TripCostBreakdownWidget({
         : `Missing: ${[...engineMissingComponents.map((m) => scopeLabel(m.scope)), ...planMissingComponents].join(", ")}`
       : undefined;
 
-  // KAI-217B round-5: canonical admission evidence — verified free comes
-  // from the ENGINE component's evidence state, never the legacy itemized
-  // result.
+  // KAI-217B round-6: STRICT Free semantics — verified free comes ONLY
+  // from the canonical admission evidence.state === "verified_free" (plus
+  // a defensive [0,0] check). A source-backed PAID fact whose value happens
+  // to be 0 is NOT a verified-free semantic state.
   const isFreeAdmission =
     admissionComp?.cost.kind === "bounded" &&
     admissionComp.cost.min === 0 &&
     admissionComp.cost.max === 0 &&
-    (admissionComp.evidence.state === "verified_free" ||
-      admissionComp.evidence.derivation === "source_fact");
-  // Confidence badge: derived from canonical component evidence (any
-  // source_fact/verified component → verified fares; otherwise estimated).
-  const canonicalVerified =
-    admissionComp?.evidence.derivation === "source_fact" ||
-    admissionComp?.evidence.state === "verified_paid" ||
-    admissionComp?.evidence.state === "verified_free";
+    admissionComp.evidence.state === "verified_free";
+
+  // KAI-217B round-6: AGGREGATE confidence badge from ALL cost-bearing
+  // components — never from admission alone:
+  //   - partial result          → "Partial"
+  //   - complete + any model_estimate → "Estimated"
+  //   - complete, every cost-bearing component verified source_fact → "Verified"
+  // Accommodation user_allowance is NEUTRAL (a user assumption, not
+  // evidence that turns Verified into Estimated).
+  const costBearingComponents = engineResult
+    ? engineResult.components.filter(
+        (c) =>
+          c.evidence.scope !== "accommodation" ||
+          c.evidence.derivation !== "user_allowance",
+      )
+    : [];
+  const anyModelEstimate = costBearingComponents.some(
+    (c) =>
+      c.evidence.derivation === "model_estimate" ||
+      c.evidence.derivation === "computed",
+  );
+  const allVerified = costBearingComponents.every(
+    (c) =>
+      c.evidence.derivation === "source_fact" ||
+      c.evidence.state === "verified_paid" ||
+      c.evidence.state === "verified_free",
+  );
+  const badgeState: "verified" | "estimated" | "partial" | undefined =
+    planCostBreakdown
+      ? planCostBreakdown.completeness === "complete"
+        ? planCostBreakdown.confidence === "verified"
+          ? "verified"
+          : "estimated"
+        : planCostBreakdown.completeness === "partial"
+          ? "partial"
+          : undefined
+      : engineResult
+        ? engineResult.completeness === "complete"
+          ? allVerified
+            ? "verified"
+            : anyModelEstimate
+              ? "estimated"
+              : "verified"
+          : engineResult.completeness === "partial"
+            ? "partial"
+            : undefined
+        : undefined;
 
   const totalRange: [number, number] | undefined = planCostBreakdown
     ? visiblePartyRanges.reduce<[number, number]>(
@@ -357,23 +397,19 @@ export function TripCostBreakdownWidget({
                 <JapaneseYen className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
                 {headerTitle}
               </h3>
-              {planCostBreakdown ? (
-                planCostBreakdown.confidence === "verified" ? (
-                  <Badge className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 text-[10px] font-bold">
-                    {locale === "ja" ? "確認済み概算" : "Verified Fares"}
-                  </Badge>
-                ) : (
-                  <Badge className="bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border-amber-200 dark:border-amber-800 text-[10px] font-bold">
-                    {locale === "ja" ? "推定概算" : "Estimated Fares"}
-                  </Badge>
-                )
-              ) : canonicalVerified ? (
+              {badgeState === "verified" && (
                 <Badge className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 text-[10px] font-bold">
                   {locale === "ja" ? "確認済み概算" : "Verified Fares"}
                 </Badge>
-              ) : (
+              )}
+              {badgeState === "estimated" && (
                 <Badge className="bg-amber-50 text-amber-700 dark:bg-amber-950/60 dark:text-amber-300 border-amber-200 dark:border-amber-800 text-[10px] font-bold">
                   {locale === "ja" ? "推定概算" : "Estimated Fares"}
+                </Badge>
+              )}
+              {badgeState === "partial" && (
+                <Badge className="bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300 border-slate-200 dark:border-slate-700 text-[10px] font-bold">
+                  {locale === "ja" ? "一部のみ判明" : "Partial"}
                 </Badge>
               )}
             </div>
@@ -558,22 +594,28 @@ export function TripCostBreakdownWidget({
                       : "Admission Tickets"}
                   </span>
                   <span className="text-slate-900 dark:text-white">
-                    {!hasKnownCost
-                      ? locale === "ja"
-                        ? "料金不明"
-                        : "Cost unavailable"
-                      : isFreeAdmission
-                        ? locale === "ja"
-                          ? "無料"
-                          : "Free"
-                        : planCostBreakdown?.admission.source === "unknown"
-                          ? locale === "ja"
-                            ? "変動・未確認"
-                            : "Variable / unknown admission"
-                          : formatLocalizedJPYRange(
-                              displayRangeOrUndefined(admissionRange),
-                              locale,
-                            )}
+                    {(() => {
+                      // KAI-217B round-6: component-level displayability —
+                      // NEVER gated by the trip's global completeness. A
+                      // bounded admission shows its range even when the trip
+                      // is partial; free shows Free; unknown → variable/
+                      // unavailable.
+                      if (isFreeAdmission) {
+                        return locale === "ja" ? "無料" : "Free";
+                      }
+                      if (admissionRange) {
+                        return formatLocalizedJPYRange(
+                          displayRangeOrUndefined(admissionRange),
+                          locale,
+                        );
+                      }
+                      if (planCostBreakdown?.admission.source === "unknown") {
+                        return locale === "ja"
+                          ? "変動・未確認"
+                          : "Variable / unknown admission";
+                      }
+                      return locale === "ja" ? "料金不明" : "Cost unavailable";
+                    })()}
                   </span>
                 </div>
                 <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
