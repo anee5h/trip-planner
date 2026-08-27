@@ -209,5 +209,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html",
+    "sourceUrls": ["http://www.gyokudo.jp/guide_english.html"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

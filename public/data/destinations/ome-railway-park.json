@@ -206,5 +206,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 100,
+      "max": 100
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/",
+    "sourceUrls": ["https://www.jreast.co.jp/ome-railway-park/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

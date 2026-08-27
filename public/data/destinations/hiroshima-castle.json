@@ -182,5 +182,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥370 (ledger LEDGER_VERIFIED); source: https://hiroshimacastle.jp/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 370,
+      "max": 370
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥370 (ledger LEDGER_VERIFIED); source: https://hiroshimacastle.jp/",
+    "sourceUrls": ["https://hiroshimacastle.jp/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

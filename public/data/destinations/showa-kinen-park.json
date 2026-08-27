@@ -187,5 +187,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 450,
+      "max": 450
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥450 (ledger FIXED_PAID); source: https://www.showakinen-koen.jp/guide-english/",
+    "sourceUrls": ["https://www.showakinen-koen.jp/guide-english/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

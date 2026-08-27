@@ -212,5 +212,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 200
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/",
+    "sourceUrls": ["http://www.hakatamachiya.com/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

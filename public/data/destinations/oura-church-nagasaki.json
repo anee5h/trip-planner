@@ -185,5 +185,16 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "documented_estimate",
+    "provenance": "model",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Peer-cell model estimate (peer cell 'none|full|poi' n=12; tickets source-verified)"
   }
 }

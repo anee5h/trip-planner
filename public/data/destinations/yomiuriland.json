@@ -155,5 +155,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥5900 (ledger LEDGER_VERIFIED); source: https://www.yomiuriland.com/charge/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 5900,
+      "max": 5900
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥5900 (ledger LEDGER_VERIFIED); source: https://www.yomiuriland.com/charge/",
+    "sourceUrls": ["https://www.yomiuriland.com/charge/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

@@ -203,5 +203,15 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "none",
+    "reasonCode": "hub_budget_not_applicable",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "general_entry",
+    "basis": "City hub — no single admission product (hub class convention)"
   }
 }

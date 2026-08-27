@@ -224,5 +224,22 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1800,
+      "max": 1800
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/, https://www.tokyoartbeat.com/en/venues/-/B43A7496",
+    "sourceUrls": [
+      "https://play2020.jp/en/",
+      "https://www.tokyoartbeat.com/en/venues/-/B43A7496"
+    ],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

@@ -207,5 +207,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1500,
+      "max": 1500
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥1500 (ledger FIXED_PAID); source: https://buaiso.com/access_guide/new_ticket.html",
+    "sourceUrls": ["https://buaiso.com/access_guide/new_ticket.html"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

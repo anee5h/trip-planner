@@ -263,5 +263,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html",
+    "sourceUrls": ["https://www.japan-guide.com/e/e6403.html"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

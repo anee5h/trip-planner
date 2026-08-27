@@ -185,5 +185,21 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 150,
+      "max": 150
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html",
+    "sourceUrls": [
+      "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+    ],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

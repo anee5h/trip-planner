@@ -203,5 +203,16 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "legacy_provenance_unrecovered",
+    "cost": {
+      "kind": "unavailable",
+      "reason": "legacy_provenance_unrecovered"
+    },
+    "scope": "general_entry",
+    "basis": "Peer-cell ¥0 is a class artifact for a paid attraction; no source-verified admission"
   }
 }

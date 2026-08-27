@@ -209,5 +209,19 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/",
+    "sourceUrls": ["https://www.tokyo-park.or.jp/park/hama-rikyu/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

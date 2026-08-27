@@ -213,5 +213,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/",
+    "sourceUrls": ["https://mangapark.jp/guide/info/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

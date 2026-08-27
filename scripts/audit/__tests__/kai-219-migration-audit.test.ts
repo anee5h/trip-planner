@@ -78,9 +78,12 @@ describe("KAI-219 migration audit", () => {
       transitional_legacy_numeric_used,
       transitional_legacy_non_numeric_or_untrusted,
     } = out.admission;
-    // The split must be meaningful (numeric-used < absent — NOT equal).
-    expect(transitional_legacy_numeric_used).toBeGreaterThan(0);
-    expect(transitional_legacy_numeric_used).toBeLessThan(absent);
+    // The split is meaningful: numeric-used is a SUBSET of absent (it can
+    // be 0 after full migration — KAI-219B retired the cohort — but must
+    // never exceed absent, and must never equal absent when non-numeric
+    // records exist).
+    expect(transitional_legacy_numeric_used).toBeGreaterThanOrEqual(0);
+    expect(transitional_legacy_numeric_used).toBeLessThanOrEqual(absent);
     // And the two split cohorts partition the absent records exactly.
     expect(
       transitional_legacy_numeric_used +

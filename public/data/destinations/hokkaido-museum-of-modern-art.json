@@ -202,5 +202,21 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 510,
+      "max": 510
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about",
+    "sourceUrls": [
+      "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+    ],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }
