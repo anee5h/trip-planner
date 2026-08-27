@@ -267,19 +267,5 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "admission": {
-    "state": "verified_paid",
-    "provenance": "verified_source",
-    "cost": {
-      "kind": "bounded",
-      "min": 450,
-      "max": 450
-    },
-    "scope": "open_area",
-    "basis": "Official park page: shared entry for Natural & Cultural Garden + Japanese Garden adult ¥450 (2026-04-01 revision); Tower of the Sun separate.",
-    "sourceUrls": ["https://www.expo70-park.jp/guide/fee/"],
-    "checkedAt": "2026-08-27",
-    "reviewIntervalMonths": 12
   }
 }

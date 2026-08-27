@@ -221,19 +221,5 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
-  },
-  "admission": {
-    "state": "verified_paid",
-    "provenance": "verified_source",
-    "cost": {
-      "kind": "bounded",
-      "min": 600,
-      "max": 600
-    },
-    "scope": "open_area",
-    "basis": "Committed notes: keep ¥600 adult (2025 revision); fixed component admission (town itself free).",
-    "sourceUrls": ["https://kaminoyama-castle.info/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
   }
 }

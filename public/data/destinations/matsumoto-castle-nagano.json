@@ -122,22 +122,5 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
-  },
-  "admission": {
-    "state": "verified_paid",
-    "provenance": "verified_source",
-    "cost": {
-      "kind": "bounded",
-      "min": 1300,
-      "max": 1300
-    },
-    "scope": "whole_area",
-    "basis": "Official site: paid-area ticket incl. keep ¥1,300 paper same-day / ¥1,200 e-ticket (2025 revision); fixed adult price.",
-    "sourceUrls": [
-      "https://www.matsumoto-castle.jp/info",
-      "https://www.city.matsumoto.nagano.jp/soshiki/135/4118.html"
-    ],
-    "checkedAt": "2026-08-27",
-    "reviewIntervalMonths": 12
   }
 }

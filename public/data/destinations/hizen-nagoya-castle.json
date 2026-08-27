@@ -154,19 +154,5 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "admission": {
-    "state": "verified_paid",
-    "provenance": "verified_source",
-    "cost": {
-      "kind": "bounded",
-      "min": 500,
-      "max": 500
-    },
-    "scope": "open_area",
-    "basis": "Committed notes: museum ¥500; fixed component admission (ruins free).",
-    "sourceUrls": ["https://saga-museum.jp/nagoya/"],
-    "checkedAt": "2026-08-14",
-    "reviewIntervalMonths": 12
   }
 }

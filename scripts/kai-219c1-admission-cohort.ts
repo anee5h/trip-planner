@@ -47,6 +47,7 @@ interface ManifestEntry {
   checkedAt: string;
   basis: string;
   state?: "verified_paid" | "variable_price";
+  reasonCode?: "price_variable_by_date" | "price_variable_by_product";
 }
 
 function load(): Destination[] {
@@ -74,16 +75,61 @@ function buildFact(entry: ManifestEntry, d: Destination): AdmissionCostFact {
     );
   }
   const state = entry.state ?? "verified_paid";
+
+  // Hardened manifest semantics (review R6):
+  // - verified_paid: ONLY jpy allowed (a scalar). min/max are forbidden.
+  // - variable_price: REQUIRES min + max + explicit reasonCode; jpy is
+  //   forbidden (never a scalar for variable).
+  const hasJpy = entry.jpy !== undefined;
+  const hasRange = entry.min !== undefined || entry.max !== undefined;
+
+  if (state === "verified_paid") {
+    if (hasRange) {
+      throw new Error(
+        `KAI-219C1 FAIL-CLOSED: ${entry.id} verified_paid must NOT supply min/max (only jpy) — a scalar fact cannot carry a range.`,
+      );
+    }
+    if (entry.jpy === undefined || entry.jpy <= 0) {
+      throw new Error(
+        `KAI-219C1 FAIL-CLOSED: ${entry.id} verified_paid requires a positive adult general-entry price (jpy).`,
+      );
+    }
+    return {
+      state: "verified_paid",
+      provenance: "verified_source",
+      cost: { kind: "bounded", min: entry.jpy, max: entry.jpy },
+      scope: entry.scope as "general_entry",
+      basis: entry.basis,
+      sourceUrls: entry.sourceUrls,
+      checkedAt: entry.checkedAt,
+      reviewIntervalMonths: 12,
+    };
+  }
+
   if (state === "variable_price") {
+    if (hasJpy) {
+      throw new Error(
+        `KAI-219C1 FAIL-CLOSED: ${entry.id} variable_price must NOT supply a jpy scalar (only min/max) — variable facts are never a point estimate.`,
+      );
+    }
     if (entry.min === undefined || entry.max === undefined) {
       throw new Error(
-        `KAI-219C1 FAIL-CLOSED: ${entry.id} variable_price requires an official bounded [min,max].`,
+        `KAI-219C1 FAIL-CLOSED: ${entry.id} variable_price requires both min and max (official bounded range).`,
+      );
+    }
+    const reasonCode = entry.reasonCode;
+    if (
+      reasonCode !== "price_variable_by_date" &&
+      reasonCode !== "price_variable_by_product"
+    ) {
+      throw new Error(
+        `KAI-219C1 FAIL-CLOSED: ${entry.id} variable_price requires explicit reasonCode price_variable_by_date OR price_variable_by_product (got ${reasonCode ?? "none"}).`,
       );
     }
     return {
       state: "variable_price",
       provenance: "verified_source",
-      reasonCode: "price_variable_by_date",
+      reasonCode,
       cost: { kind: "bounded", min: entry.min, max: entry.max },
       scope: entry.scope as "general_entry",
       basis: entry.basis,
@@ -92,22 +138,10 @@ function buildFact(entry: ManifestEntry, d: Destination): AdmissionCostFact {
       reviewIntervalMonths: 12,
     };
   }
-  // verified_paid
-  if (entry.jpy === undefined || entry.jpy <= 0) {
-    throw new Error(
-      `KAI-219C1 FAIL-CLOSED: ${entry.id} verified_paid requires a positive adult general-entry price.`,
-    );
-  }
-  return {
-    state: "verified_paid",
-    provenance: "verified_source",
-    cost: { kind: "bounded", min: entry.jpy, max: entry.jpy },
-    scope: entry.scope as "general_entry",
-    basis: entry.basis,
-    sourceUrls: entry.sourceUrls,
-    checkedAt: entry.checkedAt,
-    reviewIntervalMonths: 12,
-  };
+
+  throw new Error(
+    `KAI-219C1 FAIL-CLOSED: ${entry.id} unsupported state ${state} — only verified_paid or variable_price are valid in C1.`,
+  );
 }
 
 function factsEqual(
@@ -182,4 +216,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main();
 }
 
+export type { ManifestEntry };
 export { buildFact, factsEqual, main as runC1Migration };

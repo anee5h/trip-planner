@@ -29,18 +29,6 @@
     "basis": "Official site: general ¥1,000 from 2026-03-01 (news item confirms revision); keep admission for national-treasure keep."
   },
   {
-    "id": "matsumoto-castle-nagano",
-    "name": "Matsumoto Castle (Crow Castle)",
-    "jpy": 1300,
-    "scope": "whole_area",
-    "sourceUrls": [
-      "https://www.matsumoto-castle.jp/info",
-      "https://www.city.matsumoto.nagano.jp/soshiki/135/4118.html"
-    ],
-    "checkedAt": "2026-08-27",
-    "basis": "Official site: paid-area ticket incl. keep ¥1,300 paper same-day / ¥1,200 e-ticket (2025 revision); fixed adult price."
-  },
-  {
     "id": "enoshima-aquarium",
     "name": "Enoshima Aquarium",
     "jpy": 3320,
@@ -225,24 +213,6 @@
     "basis": "Official Nagoya zoo page: adults ¥500 (one admission covers zoo + botanical garden); fixed."
   },
   {
-    "id": "kobe-suma-sea-world",
-    "name": "Kobe Suma Sea World",
-    "jpy": 3700,
-    "scope": "general_entry",
-    "sourceUrls": ["https://www.kobesuma-seaworld.jp/guide/price_ticket/"],
-    "checkedAt": "2026-08-27",
-    "basis": "Official operator: 1-day adult (high-school+) ¥3,700; fixed 1-day admission."
-  },
-  {
-    "id": "kamogawa-sea-world",
-    "name": "Kamogawa Sea World",
-    "jpy": 3300,
-    "scope": "general_entry",
-    "sourceUrls": ["https://www.kamogawa-seaworld.jp/price_ticket/admission/"],
-    "checkedAt": "2026-08-27",
-    "basis": "Official operator: 1-day adult (high-school+) ¥3,300; fixed."
-  },
-  {
     "id": "marine-world-uminonakamichi",
     "name": "Marine World Uminonakamichi",
     "jpy": 2500,
@@ -322,24 +292,6 @@
     "sourceUrls": ["https://www.pref.kumamoto.jp/site/museum/56418.html"],
     "checkedAt": "2026-08-27",
     "basis": "Official prefecture page: collection exhibition general ¥280; fixed (special exhibitions separate)."
-  },
-  {
-    "id": "busena-marine-park-nago",
-    "name": "Busena Marine Park & Underwater Observatory",
-    "jpy": 1050,
-    "scope": "open_area",
-    "sourceUrls": ["https://www.busena-marinepark.com/charge.html"],
-    "checkedAt": "2026-08-27",
-    "basis": "Official park page: underwater observation tower adult ¥1,050; fixed component admission."
-  },
-  {
-    "id": "expo-70-commemorative-park",
-    "name": "Expo '70 Commemorative Park",
-    "jpy": 450,
-    "scope": "open_area",
-    "sourceUrls": ["https://www.expo70-park.jp/guide/fee/"],
-    "checkedAt": "2026-08-27",
-    "basis": "Official park page: shared entry for Natural & Cultural Garden + Japanese Garden adult ¥450 (2026-04-01 revision); Tower of the Sun separate."
   },
   {
     "id": "koka-ninja-house",
@@ -445,15 +397,6 @@
     "basis": "Committed notes: garden admission adult ¥500; fixed."
   },
   {
-    "id": "iizaka-onsen",
-    "name": "Iizaka Onsen",
-    "jpy": 400,
-    "scope": "open_area",
-    "sourceUrls": ["https://iizaka.com/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: Sakaba-yu public bath adult ¥400; fixed component admission."
-  },
-  {
     "id": "fukushima-prefectural-museum-of-art",
     "name": "Fukushima Prefectural Museum of Art",
     "jpy": 360,
@@ -463,15 +406,6 @@
     "basis": "Committed notes: permanent collection adult ¥360; fixed."
   },
   {
-    "id": "kaminoyama-castle-town",
-    "name": "Kaminoyama Castle Town",
-    "jpy": 600,
-    "scope": "open_area",
-    "sourceUrls": ["https://kaminoyama-castle.info/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: keep ¥600 adult (2025 revision); fixed component admission (town itself free)."
-  },
-  {
     "id": "aizu-bukeyashiki",
     "name": "Aizu Bukeyashiki",
     "jpy": 1000,
@@ -479,24 +413,6 @@
     "sourceUrls": ["https://bukeyashiki.com/"],
     "checkedAt": "2026-08-14",
     "basis": "Committed notes: adult ¥1,000; fixed."
-  },
-  {
-    "id": "goryokaku",
-    "name": "Goryokaku (Star Fort)",
-    "jpy": 500,
-    "scope": "open_area",
-    "sourceUrls": ["https://www.city.hakodate.hokkaido.jp/docs/2014011601161/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: magistrate-office reconstruction adult ¥500; fixed component admission."
-  },
-  {
-    "id": "matsumae-castle",
-    "name": "Matsumae Castle",
-    "jpy": 360,
-    "scope": "open_area",
-    "sourceUrls": ["https://www.town.matsumae.hokkaido.jp/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: keep history museum adult ¥360; fixed component admission."
   },
   {
     "id": "iga-ueno-castle",
@@ -526,15 +442,6 @@
     "basis": "Committed notes: keep admission ¥500; fixed component admission."
   },
   {
-    "id": "hizen-nagoya-castle",
-    "name": "Nagoya Castle (Hizen)",
-    "jpy": 500,
-    "scope": "open_area",
-    "sourceUrls": ["https://saga-museum.jp/nagoya/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: museum ¥500; fixed component admission (ruins free)."
-  },
-  {
     "id": "hirado-castle",
     "name": "Hirado Castle",
     "jpy": 520,
@@ -542,15 +449,6 @@
     "sourceUrls": ["https://hirado-castle.jp/"],
     "checkedAt": "2026-08-14",
     "basis": "Committed notes: keep admission ¥520; fixed component admission."
-  },
-  {
-    "id": "akashi-kaikyo-bridge",
-    "name": "Akashi Kaikyo Bridge",
-    "jpy": 300,
-    "scope": "open_area",
-    "sourceUrls": ["https://www.jb-honshi.co.jp/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: Marine Promenade adult ¥300 (¥250 weekdays); fixed bounded range."
   },
   {
     "id": "kishiwada-castle",
@@ -571,17 +469,6 @@
     "sourceUrls": ["https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/"],
     "checkedAt": "2026-08-14",
     "basis": "Committed notes: adult ¥600; fixed."
-  },
-  {
-    "id": "kumano-hongu-taisha-oyunohara",
-    "name": "Kumano Hongu Taisha & Oyunohara",
-    "jpy": 300,
-    "scope": "open_area",
-    "sourceUrls": [
-      "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/"
-    ],
-    "checkedAt": "2026-08-14",
-    "basis": "Committed notes: Homotsuden treasure hall adult ¥300 (web-verified on same official page); shrine grounds free."
   },
   {
     "id": "lafcadio-hearn-memorial-museum",
