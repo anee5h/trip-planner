@@ -137,5 +137,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "whole_area",
+    "basis": "Official Yakushiji page: adult individual admission ¥1,000 since 2024-03-01 covering Kondo, Daikodo, Toindo.",
+    "sourceUrls": ["https://www.yakushiji.or.jp/forvisitors.html"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

@@ -231,5 +231,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "whole_area",
+    "basis": "Official temple guide page: adult ¥400, elementary ¥200; fixed worship fee.",
+    "sourceUrls": ["https://www.hasedera.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

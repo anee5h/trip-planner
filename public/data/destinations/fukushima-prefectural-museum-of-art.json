@@ -207,5 +207,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 360,
+      "max": 360
+    },
+    "scope": "general_entry",
+    "basis": "Committed notes: permanent collection adult ¥360; fixed.",
+    "sourceUrls": ["https://art-museum.fcs.ed.jp/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

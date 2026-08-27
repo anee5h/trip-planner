@@ -263,5 +263,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Official Nagoya zoo page: adults ¥500 (one admission covers zoo + botanical garden); fixed.",
+    "sourceUrls": ["https://www.higashiyama.city.nagoya.jp/english/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

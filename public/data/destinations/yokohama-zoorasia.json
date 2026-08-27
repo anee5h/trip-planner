@@ -53,7 +53,6 @@
   "description": "One of Japan's largest state-of-the-art zoos in Yokohama, reproducing natural habitats across 8 global ecological zones.",
   "budgetBreakdown": {
     "transport": 1563,
-    "tickets": 1563,
     "food": 3908,
     "cafe": 1466
   },
@@ -195,5 +194,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
+    },
+    "scope": "whole_area",
+    "basis": "Official Yokohama Green Foundation fee page: general individual admission ¥800.",
+    "sourceUrls": [
+      "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/fee.php"
+    ],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

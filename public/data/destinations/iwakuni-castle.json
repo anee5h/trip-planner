@@ -216,5 +216,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 270,
+      "max": 270
+    },
+    "scope": "open_area",
+    "basis": "Committed notes: castle ¥270 adult (web-verified on Iwakuni City tourism page); fixed; ropeway separate.",
+    "sourceUrls": ["https://kankou.iwakuni-city.net/iwakunijyo.html"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

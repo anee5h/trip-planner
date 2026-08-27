@@ -148,5 +148,21 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
+    },
+    "scope": "whole_area",
+    "basis": "Official temple press release: mountain admission donation raised to ¥800 (junior-high+) from 2026-03-19; fixed.",
+    "sourceUrls": [
+      "http://www.shosha.or.jp/press.cgi?press_id=260218_1771922553"
+    ],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

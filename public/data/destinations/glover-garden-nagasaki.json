@@ -58,7 +58,6 @@
   "budgetMax": 8000,
   "budgetBreakdown": {
     "transport": 875,
-    "tickets": 620,
     "food": 1000,
     "cafe": 250
   },
@@ -186,5 +185,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1300,
+      "max": 1300
+    },
+    "scope": "whole_area",
+    "basis": "Official site: general ¥1,300 from 2026-04-01 (city ordinance revision); fixed garden admission.",
+    "sourceUrls": ["https://glover-garden.jp/guide"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

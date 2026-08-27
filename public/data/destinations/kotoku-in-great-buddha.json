@@ -210,5 +210,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "whole_area",
+    "basis": "Official temple English page: general admission ¥300; fixed.",
+    "sourceUrls": ["https://www.kotoku-in.jp/en/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

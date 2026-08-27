@@ -175,5 +175,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2180,
+      "max": 2180
+    },
+    "scope": "general_entry",
+    "basis": "Official aquarium: adult general ¥2,180; fixed.",
+    "sourceUrls": ["https://churaumi.okinawa/guide/info/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

@@ -254,5 +254,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "general_entry",
+    "basis": "Committed notes: adult ¥600; fixed.",
+    "sourceUrls": ["https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

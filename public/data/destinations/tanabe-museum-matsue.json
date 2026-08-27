@@ -214,5 +214,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 700,
+      "max": 700
+    },
+    "scope": "general_entry",
+    "basis": "Committed notes: adult ¥700 official site; special exhibitions extra (canonical collection admission fixed).",
+    "sourceUrls": [
+      "https://www.tanabe-museum.or.jp/information/",
+      "https://www.tanabe-museum.or.jp/guide/"
+    ],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

@@ -264,5 +264,21 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 360,
+      "max": 360
+    },
+    "scope": "general_entry",
+    "basis": "Official museum page: collection/theme exhibition general ¥360; fixed.",
+    "sourceUrls": [
+      "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?idSubTop=0&id=6"
+    ],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

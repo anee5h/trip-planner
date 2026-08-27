@@ -191,5 +191,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "whole_area",
+    "basis": "Official TCMIT page: general adult admission ¥1,000.",
+    "sourceUrls": ["https://www.tcmit.org/visit/admission/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

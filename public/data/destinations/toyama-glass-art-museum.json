@@ -270,5 +270,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 200
+    },
+    "scope": "general_entry",
+    "basis": "Official museum visitor page: Permanent Exhibition general/college ¥200; special exhibitions priced separately.",
+    "sourceUrls": ["https://toyama-glass-art-museum.jp/en/visitor/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

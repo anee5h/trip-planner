@@ -252,5 +252,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
+    },
+    "scope": "general_entry",
+    "basis": "Chiba City official zoo page: adult (high-school+) ¥800; fixed.",
+    "sourceUrls": ["https://www.city.chiba.jp/zoo/guide/index.html"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

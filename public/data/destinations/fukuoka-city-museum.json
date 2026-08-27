@@ -239,5 +239,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 200
+    },
+    "scope": "general_entry",
+    "basis": "Official museum page: permanent+special-regular exhibitions general ¥200; fixed.",
+    "sourceUrls": ["https://museum.city.fukuoka.jp/about/information.html"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

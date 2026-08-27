@@ -150,5 +150,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 520,
+      "max": 520
+    },
+    "scope": "open_area",
+    "basis": "Committed notes: keep admission ¥520; fixed component admission.",
+    "sourceUrls": ["https://hirado-castle.jp/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

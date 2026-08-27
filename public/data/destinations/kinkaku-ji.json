@@ -221,5 +221,19 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "whole_area",
+    "basis": "Official Shokoku-ji site: adult (high-school+) worship fee ¥500; fixed.",
+    "sourceUrls": ["https://www.shokoku-ji.jp/kinkakuji/access/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

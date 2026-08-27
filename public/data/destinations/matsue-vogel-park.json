@@ -198,5 +198,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1750,
+      "max": 1750
+    },
+    "scope": "general_entry",
+    "basis": "Official operator: adult (high-school+) ¥1,750 (revised 2026-04-01); fixed entry.",
+    "sourceUrls": ["https://www.ichibata.co.jp/vogelpark/info/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

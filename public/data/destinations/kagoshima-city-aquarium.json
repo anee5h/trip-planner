@@ -58,7 +58,6 @@
   "budgetMax": 8000,
   "budgetBreakdown": {
     "transport": 875,
-    "tickets": 1500,
     "food": 1000,
     "cafe": 250
   },
@@ -239,5 +238,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "general_entry",
+    "basis": "Official aquarium: adult (high-school+) ¥2,000; fixed.",
+    "sourceUrls": ["https://ioworld.jp/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

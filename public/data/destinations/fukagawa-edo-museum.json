@@ -206,5 +206,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "general_entry",
+    "basis": "Official Koto City foundation page: exhibition-room adult ¥400; fixed.",
+    "sourceUrls": ["https://www.kcf.or.jp/fukagawa/outline/fee/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

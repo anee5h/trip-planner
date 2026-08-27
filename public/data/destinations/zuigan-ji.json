@@ -187,5 +187,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "whole_area",
+    "basis": "Committed notes: ¥1,000 adult / ¥500 child per official temple site; fixed adult general admission.",
+    "sourceUrls": ["https://www.zuiganji.or.jp/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

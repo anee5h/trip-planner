@@ -67,7 +67,6 @@
   "description": "Rising 300 meters above Osaka, Abeno Harukas is Japan's tallest skyscraper, featuring a 3-story glass observatory and open-air wooden atrium garden.",
   "budgetBreakdown": {
     "transport": 2574,
-    "tickets": 1853,
     "food": 3294,
     "cafe": 1029
   },
@@ -235,5 +234,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2200,
+      "max": 2200
+    },
+    "scope": "general_entry",
+    "basis": "Official Harukas 300 page: same-day ticket adult (high-school+) ¥2,200; fixed observatory admission.",
+    "sourceUrls": [
+      "https://www.abenoharukas-300.jp/observatory/information.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

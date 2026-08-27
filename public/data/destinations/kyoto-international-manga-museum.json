@@ -219,5 +219,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
+    },
+    "scope": "general_entry",
+    "basis": "Official museum page: adult ¥1,200; fixed general entry.",
+    "sourceUrls": ["https://kyotomm.jp/opentime-cost/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

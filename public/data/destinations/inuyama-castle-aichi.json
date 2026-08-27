@@ -122,5 +122,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "whole_area",
+    "basis": "Official site: general ¥1,000 from 2026-03-01 (news item confirms revision); keep admission for national-treasure keep.",
+    "sourceUrls": ["https://inuyama-castle.jp/guidance/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

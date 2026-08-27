@@ -181,5 +181,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "whole_area",
+    "basis": "Official Takamatsu City page (updated 2026-04-01): standard entry ¥300 per person per day; under-18 free.",
+    "sourceUrls": [
+      "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/bunzai2018060.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }
