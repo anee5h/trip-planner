@@ -213,5 +213,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "whole_area",
+    "basis": "Official TNM page: TNM Collection Exhibition (regular) general ¥1,000; special exhibitions separate.",
+    "sourceUrls": ["https://www.tnm.jp/modules/r_free_page/index.php?id=113"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

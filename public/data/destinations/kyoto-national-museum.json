@@ -211,5 +211,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 700,
+      "max": 700
+    },
+    "scope": "general_entry",
+    "basis": "Official museum site: general ¥700 for the regular gallery (Meihin Gallery); fixed general admission (special exhibitions priced separately).",
+    "sourceUrls": ["https://www.kyohaku.go.jp/jp/visit/info/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

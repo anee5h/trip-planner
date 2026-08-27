@@ -52,7 +52,6 @@
   "budgetMax": 8500,
   "budgetBreakdown": {
     "transport": 1925,
-    "tickets": 2800,
     "food": 1925,
     "cafe": 550
   },
@@ -242,5 +241,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 3320,
+      "max": 3320
+    },
+    "scope": "general_entry",
+    "basis": "Official aquarium page: adult admission ¥3,320; fixed general-entry price.",
+    "sourceUrls": ["https://www.enosui.com/basicinfo.php"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

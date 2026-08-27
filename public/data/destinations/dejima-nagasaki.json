@@ -58,7 +58,6 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 700,
-    "tickets": 520,
     "food": 800,
     "cafe": 200
   },
@@ -238,5 +237,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1100,
+      "max": 1100
+    },
+    "scope": "whole_area",
+    "basis": "Official Dejima page: adult ¥1,100; fixed.",
+    "sourceUrls": ["https://nagasakidejima.jp/about"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

@@ -245,5 +245,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 550,
+      "max": 550
+    },
+    "scope": "whole_area",
+    "basis": "Miyoshi City official tourism page: adult (junior-high+) ¥550 bridge crossing; fixed.",
+    "sourceUrls": ["https://miyoshi-tourism.jp/en/spot/46/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

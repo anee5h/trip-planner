@@ -270,5 +270,21 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "open_area",
+    "basis": "Committed notes: Homotsuden treasure hall adult ¥300 (web-verified on same official page); shrine grounds free.",
+    "sourceUrls": [
+      "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/"
+    ],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

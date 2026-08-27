@@ -231,5 +231,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 700,
+      "max": 700
+    },
+    "scope": "general_entry",
+    "basis": "Official museum page: cultural-exchange (permanent) exhibition general ¥700; fixed.",
+    "sourceUrls": ["https://www.kyuhaku.jp/visit/visit_top.html"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

@@ -217,5 +217,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 630,
+      "max": 630
+    },
+    "scope": "general_entry",
+    "basis": "Official Miraikan page: permanent exhibitions adult ¥630; fixed (free on Saturdays).",
+    "sourceUrls": ["https://www.miraikan.jst.go.jp/en/visit/admission/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

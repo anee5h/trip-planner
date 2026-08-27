@@ -193,5 +193,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
+    },
+    "scope": "whole_area",
+    "basis": "Committed notes: adult ¥320; fixed garden entry.",
+    "sourceUrls": ["http://www.hirosakipark.or.jp/hujita/"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

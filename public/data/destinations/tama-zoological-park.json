@@ -53,7 +53,6 @@
   "description": "A vast 50-hectare hillside zoo in Hino, Tokyo, featuring free-roaming African animals, Koala House, and Lion Bus tours.",
   "budgetBreakdown": {
     "transport": 1372,
-    "tickets": 1176,
     "food": 3527,
     "cafe": 1175
   },
@@ -187,5 +186,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "whole_area",
+    "basis": "Official Tokyo Zoo page: general admission ¥600 individual; fixed adult entry.",
+    "sourceUrls": [
+      "https://www.tokyo-zoo.net/en/tama/visitor-info/tickets/index.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

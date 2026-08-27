@@ -204,5 +204,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "whole_area",
+    "basis": "Committed notes: observation donation ¥300 (jr-high+); fixed.",
+    "sourceUrls": [
+      "https://www.city.izumo.shimane.jp/www/contents/1769395852119/index.html"
+    ],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

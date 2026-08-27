@@ -193,5 +193,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "whole_area",
+    "basis": "Committed notes: adult ¥300 / student ¥100; fixed.",
+    "sourceUrls": ["https://www.town.miyagi-matsushima.lg.jp/page/1140.html"],
+    "checkedAt": "2026-08-14",
+    "reviewIntervalMonths": 12
   }
 }

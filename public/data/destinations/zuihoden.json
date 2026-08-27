@@ -185,5 +185,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 570,
+      "max": 570
+    },
+    "scope": "whole_area",
+    "basis": "Official Zuihoden site: viewing fee general/university student ¥570 individual; fixed.",
+    "sourceUrls": ["https://www.zuihoden.com/info/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

@@ -1,0 +1,867 @@
+[
+  {
+    "id": "abeno-harukas-300-osaka",
+    "name": "Abeno Harukas 300 (Osaka Skyline)",
+    "jpy": 2200,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.abenoharukas-300.jp/observatory/information.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Harukas 300 page: same-day ticket adult (high-school+) ¥2,200; fixed observatory admission."
+  },
+  {
+    "id": "bitchu-matsuyama-castle",
+    "name": "Bitchu Matsuyama Castle",
+    "jpy": 500,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.bitchumatsuyamacastle.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official castle page: keep admission adult ¥500 (junior ¥200); Takahaski City notice confirms revision to ¥500."
+  },
+  {
+    "id": "inuyama-castle-aichi",
+    "name": "Inuyama Castle (National Treasure Keep)",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://inuyama-castle.jp/guidance/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official site: general ¥1,000 from 2026-03-01 (news item confirms revision); keep admission for national-treasure keep."
+  },
+  {
+    "id": "matsumoto-castle-nagano",
+    "name": "Matsumoto Castle (Crow Castle)",
+    "jpy": 1300,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.matsumoto-castle.jp/info",
+      "https://www.city.matsumoto.nagano.jp/soshiki/135/4118.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official site: paid-area ticket incl. keep ¥1,300 paper same-day / ¥1,200 e-ticket (2025 revision); fixed adult price."
+  },
+  {
+    "id": "enoshima-aquarium",
+    "name": "Enoshima Aquarium",
+    "jpy": 3320,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.enosui.com/basicinfo.php"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official aquarium page: adult admission ¥3,320; fixed general-entry price."
+  },
+  {
+    "id": "kyoto-railway-museum",
+    "name": "Kyoto Railway Museum",
+    "jpy": 1500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kyotorailwaymuseum.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum guide: individual admission ¥1,500 adult; fixed."
+  },
+  {
+    "id": "kyoto-national-museum",
+    "name": "Kyoto National Museum",
+    "jpy": 700,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kyohaku.go.jp/jp/visit/info/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum site: general ¥700 for the regular gallery (Meihin Gallery); fixed general admission (special exhibitions priced separately)."
+  },
+  {
+    "id": "kyoto-international-manga-museum",
+    "name": "Kyoto International Manga Museum",
+    "jpy": 1200,
+    "scope": "general_entry",
+    "sourceUrls": ["https://kyotomm.jp/opentime-cost/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: adult ¥1,200; fixed general entry."
+  },
+  {
+    "id": "kinkaku-ji",
+    "name": "Kinkaku-ji",
+    "jpy": 500,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.shokoku-ji.jp/kinkakuji/access/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Shokoku-ji site: adult (high-school+) worship fee ¥500; fixed."
+  },
+  {
+    "id": "ginkaku-ji",
+    "name": "Ginkaku-ji",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.shokoku-ji.jp/ginkakuji/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Shokoku-ji page: worship fee ¥1,000 adult from 2026-01 (raised from ¥500; Yomiuri report); fixed."
+  },
+  {
+    "id": "kiyomizu-dera",
+    "name": "Kiyomizu-dera Temple",
+    "jpy": 500,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.kiyomizudera.or.jp/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official temple site (and Kyoto tourism): adult worship fee ¥500; fixed general admission."
+  },
+  {
+    "id": "hasedera",
+    "name": "Hasedera",
+    "jpy": 400,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.hasedera.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official temple guide page: adult ¥400, elementary ¥200; fixed worship fee."
+  },
+  {
+    "id": "hokokuji",
+    "name": "Hokokuji",
+    "jpy": 400,
+    "scope": "whole_area",
+    "sourceUrls": ["https://houkokuji.or.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official temple page: bamboo-garden worship fee ¥400 (high-school+), ¥200 child; fixed."
+  },
+  {
+    "id": "kotoku-in-great-buddha",
+    "name": "Kotoku-in Great Buddha",
+    "jpy": 300,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.kotoku-in.jp/en/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official temple English page: general admission ¥300; fixed."
+  },
+  {
+    "id": "kita-in",
+    "name": "Kita-in",
+    "jpy": 400,
+    "scope": "whole_area",
+    "sourceUrls": ["https://kitain.net/information/visit/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Kita-in page: adult ¥400 worship fee; fixed."
+  },
+  {
+    "id": "byodoin-temple",
+    "name": "Byodoin Temple",
+    "jpy": 700,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.byodoin.or.jp/en/guide/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official site: garden + Hoshokan museum adults ¥700 (no garden-only ticket); fixed general admission."
+  },
+  {
+    "id": "mimuroto-ji-temple",
+    "name": "Mimuroto-ji Hydrangea Temple",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.mimurotoji.com/guide/index.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official temple guide: adult worship fee ¥1,000; fixed (note: seasonal gardens may have separate evening events)."
+  },
+  {
+    "id": "engyo-ji-mount-shosha",
+    "name": "Engyo-ji Temple Mount Shosha",
+    "jpy": 800,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "http://www.shosha.or.jp/press.cgi?press_id=260218_1771922553"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official temple press release: mountain admission donation raised to ¥800 (junior-high+) from 2026-03-19; fixed."
+  },
+  {
+    "id": "fukagawa-edo-museum",
+    "name": "Fukagawa Edo Museum",
+    "jpy": 400,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kcf.or.jp/fukagawa/outline/fee/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Koto City foundation page: exhibition-room adult ¥400; fixed."
+  },
+  {
+    "id": "miraikan",
+    "name": "Miraikan",
+    "jpy": 630,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.miraikan.jst.go.jp/en/visit/admission/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Miraikan page: permanent exhibitions adult ¥630; fixed (free on Saturdays)."
+  },
+  {
+    "id": "museum-contemporary-art-tokyo",
+    "name": "Museum of Contemporary Art Tokyo",
+    "jpy": 500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.mot-art-museum.jp/en/guide/museum-info/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official MOT page: MOT Collection adult ¥500; fixed collection admission (special exhibitions separate)."
+  },
+  {
+    "id": "chiba-zoological-park",
+    "name": "Chiba Zoological Park",
+    "jpy": 800,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.city.chiba.jp/zoo/guide/index.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Chiba City official zoo page: adult (high-school+) ¥800; fixed."
+  },
+  {
+    "id": "iwatsuki-ningyo-museum",
+    "name": "Iwatsuki Ningyo Museum",
+    "jpy": 300,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://ningyo-muse.jp/modules/info/index.php?action=PageView&page_id=1"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: general ¥300; fixed."
+  },
+  {
+    "id": "higashiyama-zoo-and-botanical-gardens",
+    "name": "Higashiyama Zoo and Botanical Gardens",
+    "jpy": 500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.higashiyama.city.nagoya.jp/english/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Nagoya zoo page: adults ¥500 (one admission covers zoo + botanical garden); fixed."
+  },
+  {
+    "id": "kobe-suma-sea-world",
+    "name": "Kobe Suma Sea World",
+    "jpy": 3700,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kobesuma-seaworld.jp/guide/price_ticket/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official operator: 1-day adult (high-school+) ¥3,700; fixed 1-day admission."
+  },
+  {
+    "id": "kamogawa-sea-world",
+    "name": "Kamogawa Sea World",
+    "jpy": 3300,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kamogawa-seaworld.jp/price_ticket/admission/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official operator: 1-day adult (high-school+) ¥3,300; fixed."
+  },
+  {
+    "id": "marine-world-uminonakamichi",
+    "name": "Marine World Uminonakamichi",
+    "jpy": 2500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://marine-world.jp/general-guide/regular-fees/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official aquarium page: adult ¥2,500; fixed."
+  },
+  {
+    "id": "churaumi-aquarium-motobu",
+    "name": "Okinawa Churaumi Aquarium",
+    "jpy": 2180,
+    "scope": "general_entry",
+    "sourceUrls": ["https://churaumi.okinawa/guide/info/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official aquarium: adult general ¥2,180; fixed."
+  },
+  {
+    "id": "fukuoka-city-museum",
+    "name": "Fukuoka City Museum",
+    "jpy": 200,
+    "scope": "general_entry",
+    "sourceUrls": ["https://museum.city.fukuoka.jp/about/information.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: permanent+special-regular exhibitions general ¥200; fixed."
+  },
+  {
+    "id": "kyushu-national-museum",
+    "name": "Kyushu National Museum",
+    "jpy": 700,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kyuhaku.jp/visit/visit_top.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: cultural-exchange (permanent) exhibition general ¥700; fixed."
+  },
+  {
+    "id": "kagoshima-city-aquarium",
+    "name": "Kagoshima City Aquarium",
+    "jpy": 2000,
+    "scope": "general_entry",
+    "sourceUrls": ["https://ioworld.jp/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official aquarium: adult (high-school+) ¥2,000; fixed."
+  },
+  {
+    "id": "aso-volcanic-museum",
+    "name": "Aso Volcano Museum",
+    "jpy": 1300,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.asomuse.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum: adult (junior-high+) ¥1,300; fixed."
+  },
+  {
+    "id": "glover-garden-nagasaki",
+    "name": "Glover Garden",
+    "jpy": 1300,
+    "scope": "whole_area",
+    "sourceUrls": ["https://glover-garden.jp/guide"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official site: general ¥1,300 from 2026-04-01 (city ordinance revision); fixed garden admission."
+  },
+  {
+    "id": "dejima-nagasaki",
+    "name": "Dejima",
+    "jpy": 1100,
+    "scope": "whole_area",
+    "sourceUrls": ["https://nagasakidejima.jp/about"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Dejima page: adult ¥1,100; fixed."
+  },
+  {
+    "id": "kumamoto-prefectural-art-museum",
+    "name": "Kumamoto Prefectural Art Museum",
+    "jpy": 280,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.pref.kumamoto.jp/site/museum/56418.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official prefecture page: collection exhibition general ¥280; fixed (special exhibitions separate)."
+  },
+  {
+    "id": "busena-marine-park-nago",
+    "name": "Busena Marine Park & Underwater Observatory",
+    "jpy": 1050,
+    "scope": "open_area",
+    "sourceUrls": ["https://www.busena-marinepark.com/charge.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official park page: underwater observation tower adult ¥1,050; fixed component admission."
+  },
+  {
+    "id": "expo-70-commemorative-park",
+    "name": "Expo '70 Commemorative Park",
+    "jpy": 450,
+    "scope": "open_area",
+    "sourceUrls": ["https://www.expo70-park.jp/guide/fee/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official park page: shared entry for Natural & Cultural Garden + Japanese Garden adult ¥450 (2026-04-01 revision); Tower of the Sun separate."
+  },
+  {
+    "id": "koka-ninja-house",
+    "name": "Koka Ninja House",
+    "jpy": 800,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.kouka-ninjya.com/la_en/info/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official English page: adults (junior-high+) ¥800; fixed."
+  },
+  {
+    "id": "awaji-farm-park-england-hill",
+    "name": "Awaji Farm Park England Hill",
+    "jpy": 1500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.england-hill.com/price/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official operator: adult (high-school+) ¥1,500 entry; fixed."
+  },
+  {
+    "id": "ibaraki-ceramic-art-museum",
+    "name": "Ibaraki Ceramic Art Museum",
+    "jpy": 360,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.tougei.museum.ibk.ed.jp/viewer/info.html?idSubTop=0&id=6"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: collection/theme exhibition general ¥360; fixed."
+  },
+  {
+    "id": "iya-no-kazurabashi-tokushima",
+    "name": "Iya-no-Kazurabashi",
+    "jpy": 550,
+    "scope": "whole_area",
+    "sourceUrls": ["https://miyoshi-tourism.jp/en/spot/46/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Miyoshi City official tourism page: adult (junior-high+) ¥550 bridge crossing; fixed."
+  },
+  {
+    "id": "bizan-ropeway-tokushima",
+    "name": "Mount Bizan Ropeway",
+    "jpy": 1500,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Tokushima City official page: adult round trip ¥1,500; fixed fare."
+  },
+  {
+    "id": "matsue-vogel-park",
+    "name": "Matsue Vogel Park",
+    "jpy": 1750,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.ichibata.co.jp/vogelpark/info/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official operator: adult (high-school+) ¥1,750 (revised 2026-04-01); fixed entry."
+  },
+  {
+    "id": "aomori-museum-of-art",
+    "name": "Aomori Museum of Art",
+    "jpy": 700,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.aomori-museum.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: permanent collection adult ¥700; fixed."
+  },
+  {
+    "id": "mount-hakkoda-ropeway",
+    "name": "Mount Hakkoda Ropeway",
+    "jpy": 2500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://hakkoda-ropeway.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult round trip ¥2,500 from 2026-08-01; fixed fare."
+  },
+  {
+    "id": "hirosaki-neputa-mura",
+    "name": "Hirosaki Neputa Mura",
+    "jpy": 600,
+    "scope": "general_entry",
+    "sourceUrls": ["http://neputamura.com/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥600; fixed."
+  },
+  {
+    "id": "fujita-memorial-garden",
+    "name": "Fujita Memorial Garden",
+    "jpy": 320,
+    "scope": "whole_area",
+    "sourceUrls": ["http://www.hirosakipark.or.jp/hujita/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥320; fixed garden entry."
+  },
+  {
+    "id": "motsu-ji",
+    "name": "Motsu-ji",
+    "jpy": 500,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.motsuji.or.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: garden admission adult ¥500; fixed."
+  },
+  {
+    "id": "iizaka-onsen",
+    "name": "Iizaka Onsen",
+    "jpy": 400,
+    "scope": "open_area",
+    "sourceUrls": ["https://iizaka.com/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: Sakaba-yu public bath adult ¥400; fixed component admission."
+  },
+  {
+    "id": "fukushima-prefectural-museum-of-art",
+    "name": "Fukushima Prefectural Museum of Art",
+    "jpy": 360,
+    "scope": "general_entry",
+    "sourceUrls": ["https://art-museum.fcs.ed.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: permanent collection adult ¥360; fixed."
+  },
+  {
+    "id": "kaminoyama-castle-town",
+    "name": "Kaminoyama Castle Town",
+    "jpy": 600,
+    "scope": "open_area",
+    "sourceUrls": ["https://kaminoyama-castle.info/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: keep ¥600 adult (2025 revision); fixed component admission (town itself free)."
+  },
+  {
+    "id": "aizu-bukeyashiki",
+    "name": "Aizu Bukeyashiki",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://bukeyashiki.com/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥1,000; fixed."
+  },
+  {
+    "id": "goryokaku",
+    "name": "Goryokaku (Star Fort)",
+    "jpy": 500,
+    "scope": "open_area",
+    "sourceUrls": ["https://www.city.hakodate.hokkaido.jp/docs/2014011601161/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: magistrate-office reconstruction adult ¥500; fixed component admission."
+  },
+  {
+    "id": "matsumae-castle",
+    "name": "Matsumae Castle",
+    "jpy": 360,
+    "scope": "open_area",
+    "sourceUrls": ["https://www.town.matsumae.hokkaido.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: keep history museum adult ¥360; fixed component admission."
+  },
+  {
+    "id": "iga-ueno-castle",
+    "name": "Iga Ueno Castle",
+    "jpy": 600,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.igaueno-castle.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: keep admission ¥600 incl. ninja museum; fixed."
+  },
+  {
+    "id": "fukuyama-castle",
+    "name": "Fukuyama Castle",
+    "jpy": 500,
+    "scope": "open_area",
+    "sourceUrls": ["https://fukuyamajo.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: keep admission ¥500 (with turret); fixed component admission."
+  },
+  {
+    "id": "imabari-castle",
+    "name": "Imabari Castle",
+    "jpy": 500,
+    "scope": "open_area",
+    "sourceUrls": ["https://museum.city.imabari.ehime.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: keep admission ¥500; fixed component admission."
+  },
+  {
+    "id": "hizen-nagoya-castle",
+    "name": "Nagoya Castle (Hizen)",
+    "jpy": 500,
+    "scope": "open_area",
+    "sourceUrls": ["https://saga-museum.jp/nagoya/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: museum ¥500; fixed component admission (ruins free)."
+  },
+  {
+    "id": "hirado-castle",
+    "name": "Hirado Castle",
+    "jpy": 520,
+    "scope": "open_area",
+    "sourceUrls": ["https://hirado-castle.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: keep admission ¥520; fixed component admission."
+  },
+  {
+    "id": "akashi-kaikyo-bridge",
+    "name": "Akashi Kaikyo Bridge",
+    "jpy": 300,
+    "scope": "open_area",
+    "sourceUrls": ["https://www.jb-honshi.co.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: Marine Promenade adult ¥300 (¥250 weekdays); fixed bounded range."
+  },
+  {
+    "id": "kishiwada-castle",
+    "name": "Kishiwada Castle",
+    "jpy": 300,
+    "scope": "open_area",
+    "sourceUrls": [
+      "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html"
+    ],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: admission ¥300 (junior-high and under free); fixed."
+  },
+  {
+    "id": "kishiwada-danjiri-kaikan",
+    "name": "Kishiwada Danjiri Kaikan",
+    "jpy": 600,
+    "scope": "general_entry",
+    "sourceUrls": ["https://osaka-info.jp/en/spot/kishiwada-danjiri-kaikan/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥600; fixed."
+  },
+  {
+    "id": "kumano-hongu-taisha-oyunohara",
+    "name": "Kumano Hongu Taisha & Oyunohara",
+    "jpy": 300,
+    "scope": "open_area",
+    "sourceUrls": [
+      "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/"
+    ],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: Homotsuden treasure hall adult ¥300 (web-verified on same official page); shrine grounds free."
+  },
+  {
+    "id": "lafcadio-hearn-memorial-museum",
+    "name": "Lafcadio Hearn Memorial Museum",
+    "jpy": 600,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.hearn-museum-matsue.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥600; fixed (former residence separate/¥800 common ticket)."
+  },
+  {
+    "id": "gessho-ji-temple-matsue",
+    "name": "Gessho-ji Temple",
+    "jpy": 700,
+    "scope": "whole_area",
+    "sourceUrls": ["https://gesshoji-matsue.com/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥700; fixed."
+  },
+  {
+    "id": "iwakuni-castle",
+    "name": "Iwakuni Castle",
+    "jpy": 270,
+    "scope": "open_area",
+    "sourceUrls": ["https://kankou.iwakuni-city.net/iwakunijyo.html"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: castle ¥270 adult (web-verified on Iwakuni City tourism page); fixed; ropeway separate."
+  },
+  {
+    "id": "kanrantei",
+    "name": "Kanrantei",
+    "jpy": 300,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.town.miyagi-matsushima.lg.jp/page/1140.html"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥300 / student ¥100; fixed."
+  },
+  {
+    "id": "entsuin",
+    "name": "Entsu-in",
+    "jpy": 500,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.entuuin.or.jp"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥500 / child ¥300; fixed (juzu experience separate)."
+  },
+  {
+    "id": "hinomisaki-lighthouse-izumo",
+    "name": "Hinomisaki Lighthouse",
+    "jpy": 300,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.city.izumo.shimane.jp/www/contents/1769395852119/index.html"
+    ],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: observation donation ¥300 (jr-high+); fixed."
+  },
+  {
+    "id": "takkoku-no-iwa",
+    "jpy": 400,
+    "scope": "whole_area",
+    "sourceUrls": ["http://www.iwayabetto.com/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes state adult admission ¥400 (official temple site); fixed general-entry fee."
+  },
+  {
+    "id": "tanabe-museum-matsue",
+    "jpy": 700,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.tanabe-museum.or.jp/information/",
+      "https://www.tanabe-museum.or.jp/guide/"
+    ],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult ¥700 official site; special exhibitions extra (canonical collection admission fixed)."
+  },
+  {
+    "id": "tenshaen-garden-uwajima",
+    "jpy": 500,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html"
+    ],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult 500 yen per official Uwajima City garden page; cash only."
+  },
+  {
+    "id": "uwajima-date-museum",
+    "jpy": 500,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html"
+    ],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: adult admission 500 yen from official Uwajima City page."
+  },
+  {
+    "id": "yoshinogari",
+    "jpy": 470,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.yoshinogari.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: admission ¥470 for Yoshinogari Historical Park per official park site; fixed adult general entry."
+  },
+  {
+    "id": "zuigan-ji",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.zuiganji.or.jp/"],
+    "checkedAt": "2026-08-14",
+    "basis": "Committed notes: ¥1,000 adult / ¥500 child per official temple site; fixed adult general admission."
+  },
+  {
+    "id": "toyama-glass-art-museum",
+    "jpy": 200,
+    "scope": "general_entry",
+    "sourceUrls": ["https://toyama-glass-art-museum.jp/en/visitor/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum visitor page: Permanent Exhibition general/college ¥200; special exhibitions priced separately."
+  },
+  {
+    "id": "umi-kirara-aquarium",
+    "jpy": 1470,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.umikirara.jp/information/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Umikirara page: adult (high school+) general admission ¥1,470; fixed aquarium entry."
+  },
+  {
+    "id": "tokugawa-garden",
+    "jpy": 300,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.tokugawaen.aichi.jp/guide/index.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Tokugawa-en page: general admission ¥300 individual; middle school and under free."
+  },
+  {
+    "id": "tokugawa-art-museum",
+    "jpy": 2000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.tokugawa-art-museum.jp/visitor-information"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum visitor-information page: general admission ¥2,000."
+  },
+  {
+    "id": "takamatsu-castle-tamamo",
+    "jpy": 300,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/shisetsu/park/tamamo/bunzai2018060.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Takamatsu City page (updated 2026-04-01): standard entry ¥300 per person per day; under-18 free."
+  },
+  {
+    "id": "takamatsu-art-museum",
+    "jpy": 200,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: permanent collection exhibition general admission ¥200; special exhibitions priced separately."
+  },
+  {
+    "id": "tokushima-modern-art-museum",
+    "jpy": 200,
+    "scope": "general_entry",
+    "sourceUrls": ["https://art.bunmori.tokushima.jp/info/index_en.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official museum page: collection exhibition general ¥200; special exhibitions vary."
+  },
+  {
+    "id": "wakayama-castle",
+    "jpy": 410,
+    "scope": "whole_area",
+    "sourceUrls": ["https://wakayamajo.jp/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Wakayama Castle site: keep admission adult ¥410, child ¥200; fixed."
+  },
+  {
+    "id": "ueno-zoo",
+    "jpy": 600,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.tokyo-zoo.net/en/ueno/visitor-info/tickets/index.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Tokyo Zoo page: general (high school+) admission ¥600 individual; fixed adult entry."
+  },
+  {
+    "id": "tama-zoological-park",
+    "jpy": 600,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.tokyo-zoo.net/en/tama/visitor-info/tickets/index.html"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Tokyo Zoo page: general admission ¥600 individual; fixed adult entry."
+  },
+  {
+    "id": "yokohama-zoorasia",
+    "jpy": 800,
+    "scope": "whole_area",
+    "sourceUrls": [
+      "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/fee.php"
+    ],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Yokohama Green Foundation fee page: general individual admission ¥800."
+  },
+  {
+    "id": "tokyo-national-museum",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.tnm.jp/modules/r_free_page/index.php?id=113"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official TNM page: TNM Collection Exhibition (regular) general ¥1,000; special exhibitions separate."
+  },
+  {
+    "id": "zuihoden",
+    "jpy": 570,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.zuihoden.com/info/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Zuihoden site: viewing fee general/university student ¥570 individual; fixed."
+  },
+  {
+    "id": "toyota-commemorative-museum-of-industry-and-technology",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.tcmit.org/visit/admission/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official TCMIT page: general adult admission ¥1,000."
+  },
+  {
+    "id": "tsutenkaku",
+    "jpy": 1500,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.tsutenkaku.co.jp/annai/index.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Tsutenkaku site: main observatory adult (15+) ¥1,500; special outdoor deck is a separate set ticket."
+  },
+  {
+    "id": "umeda-sky-building",
+    "jpy": 2000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.skybldg.co.jp/en/observatory/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Umeda Sky Building page: Kuchu Teien Observatory adult ¥2,000."
+  },
+  {
+    "id": "tenryu-ji-kyoto",
+    "jpy": 500,
+    "scope": "open_area",
+    "sourceUrls": ["https://www.tenryuji.com/en/visit/index.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Tenryu-ji page: garden-only admission high school+ ¥500; garden+buildings ¥800."
+  },
+  {
+    "id": "toshodai-ji-temple",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://toshodaiji.jp/haikan.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Toshodai-ji page: individual adult admission ¥1,000 (revised 2020-04-01)."
+  },
+  {
+    "id": "yakushi-ji-temple",
+    "jpy": 1000,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.yakushiji.or.jp/forvisitors.html"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Yakushiji page: adult individual admission ¥1,000 since 2024-03-01 covering Kondo, Daikodo, Toindo."
+  },
+  {
+    "id": "uzu-no-michi-naruto",
+    "jpy": 510,
+    "scope": "whole_area",
+    "sourceUrls": ["https://www.uzunomichi.jp/lang_en/"],
+    "checkedAt": "2026-08-27",
+    "basis": "Official Uzu no Michi page: general adult admission ¥510; fixed walkway entry."
+  }
+]

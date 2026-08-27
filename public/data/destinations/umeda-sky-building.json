@@ -217,5 +217,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "whole_area",
+    "basis": "Official Umeda Sky Building page: Kuchu Teien Observatory adult ¥2,000.",
+    "sourceUrls": ["https://www.skybldg.co.jp/en/observatory/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

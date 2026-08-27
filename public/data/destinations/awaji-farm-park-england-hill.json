@@ -257,5 +257,19 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "transportZoneId": "awaji-island"
+  "transportZoneId": "awaji-island",
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1500,
+      "max": 1500
+    },
+    "scope": "general_entry",
+    "basis": "Official operator: adult (high-school+) ¥1,500 entry; fixed.",
+    "sourceUrls": ["https://www.england-hill.com/price/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
+  }
 }

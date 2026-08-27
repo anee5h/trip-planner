@@ -58,7 +58,6 @@
   "budgetMax": 6000,
   "budgetBreakdown": {
     "transport": 525,
-    "tickets": 600,
     "food": 600,
     "cafe": 150
   },
@@ -231,5 +230,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1300,
+      "max": 1300
+    },
+    "scope": "general_entry",
+    "basis": "Official museum: adult (junior-high+) ¥1,300; fixed.",
+    "sourceUrls": ["https://www.asomuse.jp/guide/"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }

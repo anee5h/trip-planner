@@ -151,5 +151,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "whole_area",
+    "basis": "Official Toshodai-ji page: individual adult admission ¥1,000 (revised 2020-04-01).",
+    "sourceUrls": ["https://toshodaiji.jp/haikan.html"],
+    "checkedAt": "2026-08-27",
+    "reviewIntervalMonths": 12
   }
 }
