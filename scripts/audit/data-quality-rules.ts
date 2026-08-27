@@ -204,6 +204,8 @@ export const PREVENTIVE_CODES = new Set([
   "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
   "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
   "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
+  "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
+  "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
   "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
   "KAI218_LOCAL_TRANSPORT_INVALID_DISTANCE",
   "KAI218_LOCAL_TRANSPORT_WALKING_REQUIRES_EVIDENCE",
@@ -895,6 +897,18 @@ export function collectDestinationIssues(
           "verified_free admission requires KAI-214 free evidence in basis (FREE_ENTRY / free area / no admission fee — not a bare word match)",
         );
       }
+      // KAI-218A round-3: verified_free carries the same fixed freshness
+      // contract as verified_paid — sourceUrls + checkedAt are REQUIRED.
+      if (
+        !admission.sourceUrls ||
+        admission.sourceUrls.length === 0 ||
+        !admission.checkedAt
+      ) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_PROVENANCE",
+          "verified_free admission requires at least one sourceUrl and a checkedAt date (fixed freshness contract)",
+        );
+      }
     }
     // documented_estimate requires model provenance + a VALID bounded or
     // open_ended cost (shared fail-closed numeric validator).
@@ -1079,6 +1093,25 @@ export function collectDestinationIssues(
             "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
             "verified_required_access requires a checkedAt date (fixed freshness contract)",
           );
+        }
+        // KAI-218A round-3: positive/default-12-month review interval +
+        // real-date validation, consistent with the admission freshness
+        // contract.
+        const ltIntervalMonths = localTransport.reviewIntervalMonths ?? 12;
+        if (!Number.isFinite(ltIntervalMonths) || ltIntervalMonths <= 0) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
+            "reviewIntervalMonths must be a positive finite number (default 12)",
+          );
+        }
+        if (localTransport.checkedAt) {
+          const ltChecked = new Date(localTransport.checkedAt).getTime();
+          if (!Number.isFinite(ltChecked)) {
+            push(
+              "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
+              `checkedAt '${localTransport.checkedAt}' is not a valid date`,
+            );
+          }
         }
         break;
       }

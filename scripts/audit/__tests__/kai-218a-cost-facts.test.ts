@@ -86,6 +86,38 @@ describe("KAI-218A admission cost-fact invariants", () => {
     );
   });
 
+  it("verified_free requires sourceUrls + checkedAt (KAI-218 round-3 freshness)", () => {
+    const dest = {
+      ...base,
+      admission: {
+        state: "verified_free",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "whole_area",
+        basis: "free entry (ledger FREE_ENTRY)",
+      },
+    } as unknown as Destination;
+    expect(codes(dest)).toContain(
+      "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_PROVENANCE",
+    );
+  });
+
+  it("verified_free with full evidence + freshness passes", () => {
+    const dest = {
+      ...base,
+      admission: {
+        state: "verified_free",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "whole_area",
+        basis: "free entry (ledger FREE_ENTRY)",
+        sourceUrls: ["https://example.com/free"],
+        checkedAt: "2026-08-02",
+      },
+    } as unknown as Destination;
+    expect(codes(dest).filter((c) => c.startsWith("KAI218_"))).toEqual([]);
+  });
+
   it("verified_free with legacy provenance fails (anti-promotion)", () => {
     const dest = {
       ...base,
@@ -280,6 +312,41 @@ describe("KAI-218A local-transport fact invariants", () => {
     expect(codes(dest)).toContain("KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS");
   });
 
+  it("verified_required_access with invalid review interval fails (KAI-218 round-3)", () => {
+    const dest = {
+      ...base,
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [200, 400],
+        coverage: "all_day",
+        basis: "JR station 5 min walk from the destination gate",
+        sourceUrls: ["https://example.com/operator"],
+        checkedAt: "2026-08-02",
+        reviewIntervalMonths: -3,
+      },
+    } as unknown as Destination;
+    expect(codes(dest)).toContain(
+      "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
+    );
+  });
+
+  it("verified_required_access with invalid checkedAt date fails (KAI-218 round-3)", () => {
+    const dest = {
+      ...base,
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [200, 400],
+        coverage: "all_day",
+        basis: "JR station 5 min walk from the destination gate",
+        sourceUrls: ["https://example.com/operator"],
+        checkedAt: "not-a-date",
+      },
+    } as unknown as Destination;
+    expect(codes(dest)).toContain("KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT");
+  });
+
   it("bounded_defensible_access without source fails", () => {
     const dest = {
       ...base,
@@ -355,6 +422,8 @@ describe("KAI-218A preventive codes", () => {
       "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
       "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
       "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
+      "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
+      "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
       "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
       "KAI218_LOCAL_TRANSPORT_INVALID_DISTANCE",
       "KAI218_LOCAL_TRANSPORT_WALKING_REQUIRES_EVIDENCE",
