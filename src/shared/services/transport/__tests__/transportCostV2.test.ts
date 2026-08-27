@@ -92,20 +92,20 @@ describe("KAI-216 canonical transport cost — fixed and range fares", () => {
     expect(r.source).toBe("explicit_transport_fare");
   });
 
-  it("car explicit vehicle total scales by cars needed", () => {
+  it("car explicit vehicle total is UNAVAILABLE (no origin-specific defensible car model)", () => {
     const dest = {
       id: "car-explicit",
       name: "Car",
       prefecture: "Tokyo",
       transportFares: { car: 12000 },
     } as unknown as Destination;
-    // party 5 → 2 cars (ceil(5/4)).
+    // KAI-216 round-2: a static destination-level car estimate has NO origin
+    // identity and NO verified provenance — it cannot represent complete
+    // travel from every possible user origin. Canonical unavailable (the
+    // engine stays partial) until an origin-specific car model exists.
     const r = getCanonicalTransportCost(dest, "car", 5);
-    expect(r.cost.kind).toBe("bounded");
-    if (r.cost.kind === "bounded") {
-      expect(r.cost.min).toBe(12000 * 2);
-      expect(r.cost.max).toBe(12000 * 2);
-    }
+    expect(r.cost.kind).toBe("unavailable");
+    expect(r.evidence.fareScope).toBe("unknown");
   });
 });
 

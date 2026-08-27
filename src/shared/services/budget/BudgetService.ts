@@ -242,12 +242,15 @@ function getTransportFareScope(
   // origin identity and NO provenance — it is a route (corridor) fare with
   // an unspecified origin, so it can never claim whole-journey "complete"
   // scope from an arbitrary user origin. It is corridor_only (access legs
-  // unknown), consistent with the canonical ladder (transportCostV2).
+  // unknown) for ground transit, consistent with the canonical ladder
+  // (transportCostV2). car/my_car static estimates are UNAVAILABLE (no
+  // origin-specific defensible car model) → unknown.
   if (
     dest.transportFares &&
     typeof dest.transportFares[mode as keyof typeof dest.transportFares] ===
       "number"
   ) {
+    if (mode === "car" || mode === "my_car") return "unknown";
     return "corridor_only";
   }
   // Flight and ferry fares cover the verified air/sea ROUTE only — origin

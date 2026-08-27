@@ -517,12 +517,14 @@ describe("BudgetService", () => {
       expect(cost).toBe(Math.floor(1100 * 2 * 1));
     });
 
-    it("dynamic bus fare uses the verified floor, never an invented fixed price", () => {
+    it("dynamic bus fare is NOT projected into a fixed numeric for legacy callers", () => {
       const nagano = dest("nagano-dest", "Nagano", "Nagano:nagano");
       // tokyo→nagano bus [240,330] fare [3500, null] dynamic ("from ¥3,500"):
-      // the budget uses the verified lower bound, not a fabricated upper.
+      // KAI-216 round-2: the legacy projection returns NULL for open-ended
+      // — a lower bound must never be presented as a fixed price. Callers
+      // needing open-ended semantics read the structured cost directly.
       const cost = getTransportCost(nagano, "bus", 1, TOKYO_COORDS);
-      expect(cost).toBe(Math.floor(3500 * 2 * 1));
+      expect(cost).toBeNull();
     });
 
     it("catchment bus fare stays corridor-only and never includes access cost", () => {

@@ -105,20 +105,6 @@ function scaleOpenEndedRoundTripParty(
   return { kind: "open_ended", from: from * 2 * party };
 }
 
-/** Scale a per-car round-trip vehicle total by the cars needed for the party. */
-function scaleVehicleCost(
-  fare: readonly [number, number],
-  partySize: number,
-): { kind: "bounded"; min: number; max: number } {
-  const party = normalizePartySize(partySize);
-  const carsNeeded = Math.ceil(party / 4);
-  return {
-    kind: "bounded",
-    min: fare[0] * carsNeeded,
-    max: fare[1] * carsNeeded,
-  };
-}
-
 const UNAVAILABLE_SOURCE_MISSING: CostRepresentation = {
   kind: "unavailable",
   reason: "source_missing",
@@ -196,17 +182,20 @@ export function getCanonicalTransportCost(
       };
     }
     if (mode === "car" || mode === "my_car") {
-      // Vehicle total (round trip per car) scaled by cars needed.
-      // Documented as ESTIMATED vehicle cost — a curated model value, not a
-      // verified source fact (no provenance on the field).
+      // KAI-216 round-2 repair: a static destination-level transportFares
+      // car value is an ESTIMATED vehicle total with NO origin identity and
+      // NO verified provenance — it cannot represent complete travel from
+      // every possible user origin, and there is no origin-specific
+      // defensible car model yet. Prefer canonical UNAVAILABLE (the engine
+      // stays partial) until such a model exists.
       return {
-        cost: scaleVehicleCost([explicitFare, explicitFare], partySize),
+        cost: UNAVAILABLE_SOURCE_MISSING,
         evidence: {
-          fareScope: "complete",
+          fareScope: "unknown",
           isRoundTripPartyTotal: true,
-          derivation: "model_estimate",
+          derivation: "computed",
         },
-        source: "explicit_transport_fare",
+        source: "unavailable",
       };
     }
     // Ground transit: per-person one-way route fare ×2 (round trip) × party.
@@ -464,16 +453,15 @@ export function getCanonicalTransportCost(
 }
 
 /**
- * Project a canonical transport cost to a legacy numeric round-trip party
- * total (or null when unavailable). This is the NARROW ADAPTER for legacy
- * number|null consumers; it never fabricates a number:
+ * Project a canonical transport cost to a scalar for LEGACY callers.
  *
- *   - bounded       → min===max ? min : Math.round((min+max)/2)
- *                     (midpoint projection is DISPLAY-only for legacy
- *                     numeric consumers; the canonical representation
- *                     preserves both bounds)
- *   - open_ended    → from (the verified lower bound; never an invented
- *                     fixed price — the caller must treat it as "from")
+ * KAI-216 round-2 repair: this is a legacy compatibility boundary ONLY.
+ *   - bounded → midpoint (min===max ? min : (min+max)/2); kept only where
+ *     strictly needed as a legacy display/compat projection — the canonical
+ *     representation always preserves both bounds
+ *   - open_ended → NULL (never project {from:X} into a fixed numeric fare —
+ *     the caller would treat a lower bound as a price. Callers needing
+ *     open-ended semantics must read the structured cost directly.)
  *   - unavailable/not_applicable/variable → null
  */
 export function canonicalTransportCostToNumber(
@@ -483,8 +471,6 @@ export function canonicalTransportCostToNumber(
   if (c.kind === "bounded") {
     return c.min === c.max ? c.min : Math.round((c.min + c.max) / 2);
   }
-  if (c.kind === "open_ended") {
-    return c.from;
-  }
+  // open_ended and everything else → null (never a fixed numeric).
   return null;
 }
