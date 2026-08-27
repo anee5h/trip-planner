@@ -131,8 +131,15 @@ export function DestinationPlanningSection({
             generatedPlan
               ? {
                   ...generatedPlan,
+                  // KAI-217B round-4: a saved plan carries a numeric total
+                  // ONLY when the CURRENT extraction is complete. NEVER
+                  // fall back to generatedPlan.totalBudgetRange for a known
+                  // partial costBreakdown (a stale complete range would
+                  // survive on a partial plan).
                   totalBudgetRange:
-                    completePlanCostRange ?? generatedPlan.totalBudgetRange,
+                    costBreakdown?.completeness === "complete"
+                      ? costBreakdown.knownSubtotal
+                      : undefined,
                 }
               : undefined,
           )

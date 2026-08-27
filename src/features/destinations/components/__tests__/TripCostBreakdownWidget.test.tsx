@@ -8,6 +8,7 @@ import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, it, expect, vi } from "vitest";
 import { TripCostBreakdownWidget } from "../TripCostBreakdownWidget";
 import type { Destination } from "@/shared/types/destination";
+import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -294,5 +295,46 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
 
     // In party view (default), the allowance should show the full 25000
     expect(container.textContent).toContain("¥25,000");
+  });
+
+  it("partial generated plan: collapsed header says Known, expanded says Known subtotal NOT Total Party Cost (KAI-217B round-4)", () => {
+    const partialPlan: GeneratedPlanCostResult = {
+      originTransport: { min: 0, max: 0, source: "unknown", applicable: false },
+      localTransit: { min: 0, max: 0, source: "unknown", applicable: false },
+      admission: { min: 3000, max: 3000, source: "curated", applicable: true },
+      meals: { min: 0, max: 0, source: "unknown", applicable: false },
+      parking: { min: 0, max: 0, source: "unknown", applicable: false },
+      completeness: "partial",
+      knownSubtotal: [3000, 3000],
+      confidence: "estimated",
+      assumptions: [],
+    };
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <TripCostBreakdownWidget
+          destination={testDestination}
+          locale="en"
+          partySize={2}
+          activeTransportMode="train"
+          hasGeneratedPlan
+          planCostBreakdown={partialPlan}
+          defaultExpanded={false}
+        />,
+      );
+    });
+    const collapsedText = host.textContent ?? "";
+    expect(collapsedText).toContain("Known");
+    // Click the expand toggle to show the expanded body.
+    const toggleBtn = Array.from(host.querySelectorAll("button")).find((btn) =>
+      btn.textContent?.includes("breakdown"),
+    );
+    act(() => toggleBtn?.click());
+    const expandedText = host.textContent ?? "";
+    expect(expandedText).toContain("Known subtotal");
+    expect(expandedText).not.toContain("Total Party Cost");
+    expect(expandedText).not.toContain("Per Person Total");
   });
 });

@@ -228,7 +228,12 @@ export interface DayPlan {
   returnMode?: ReturnMode;
   returnEndpointId?: string;
   totalDurationMinutes: number;
-  totalBudgetRange: [number, number];
+  /**
+   * KAI-217B round-4: OPTIONAL — set ONLY when the generated plan cost is
+   * COMPLETE (admission + all required route legs curated). A partial or
+   * unavailable plan MUST NOT carry a numeric range (never [0,0]).
+   */
+  totalBudgetRange?: [number, number];
   isOverfilled: boolean;
   isUnfeasible?: boolean;
   canFallbackToHalfDay?: boolean;
@@ -394,7 +399,7 @@ export function generateDayPlan(
       title: { en: "Day Plan", ja: "日帰りプラン" },
       steps: [],
       totalDurationMinutes: 0,
-      totalBudgetRange: [0, 0],
+      // KAI-217B round-4: no [0,0] — an empty plan has no complete cost.
       isOverfilled: false,
       isUnfeasible: false,
       uncertainHoursDisclosures: [],
@@ -455,7 +460,7 @@ export function generateDayPlan(
     steps: [],
     returnMode,
     totalDurationMinutes: 0,
-    totalBudgetRange: [0, 0],
+    // KAI-217B round-4: no [0,0] — unfeasible plan has no complete cost.
     isOverfilled: false,
     isUnfeasible: true,
     canFallbackToHalfDay:
@@ -702,7 +707,8 @@ export function generateDayPlan(
     returnMode,
     returnEndpointId: builtRoute.returnEndpoint?.id,
     totalDurationMinutes: builtRoute.totalMins,
-    totalBudgetRange: [0, 0],
+    // KAI-217B round-4: totalBudgetRange set below ONLY when the plan cost
+    // is complete — never initialized [0,0] here.
     isOverfilled: false,
     isUnfeasible: false,
     uncertainHoursDisclosures,
@@ -1122,6 +1128,11 @@ export function rebuildPlanFromEditedStops(
     assumptions: rebuilt.assumptions,
     totalDurationMinutes: rebuilt.totalMins,
     isUnfeasible: false,
+    // KAI-217B round-4: the spread above carries the ORIGINAL plan's
+    // totalBudgetRange — explicitly clear it so a stale complete total can
+    // never survive a complete→partial rebuild. Re-set below ONLY when the
+    // rebuilt plan cost is complete.
+    totalBudgetRange: undefined,
   };
 
   const planCost = calculateGeneratedPlanCost(newPlan, partySize);

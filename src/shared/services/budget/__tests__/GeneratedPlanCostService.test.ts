@@ -150,4 +150,25 @@ describe("GeneratedPlanCostService", () => {
     expect(originCost.source).toBe("unknown");
     expect(originCost.applicable).toBe(false);
   });
+
+  it("known admission + ZERO route legs => complete, knownSubtotal = admission (KAI-217B round-4)", () => {
+    const manualDest = {
+      ...BASE_DEST,
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket",
+      },
+    } as unknown as Destination;
+    const zeroLegPlan: DayPlan = {
+      ...makePlan(manualDest),
+      routeLegs: [],
+    };
+    const cost = calculateGeneratedPlanCost(zeroLegPlan, 2, "train", false);
+    // Zero required route legs satisfies the route condition → complete
+    // when admission is fully curated.
+    expect(cost.completeness).toBe("complete");
+    expect(cost.knownSubtotal[0]).toBe(3000); // 1500 × 2
+    expect(cost.knownSubtotal[1]).toBe(3000);
+  });
 });

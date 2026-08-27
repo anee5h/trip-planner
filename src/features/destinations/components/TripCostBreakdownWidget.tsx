@@ -206,13 +206,12 @@ export function TripCostBreakdownWidget({
   // KAI-217B repair: the canonical total comes from the ENGINE — never
   // hand-reconstructed scalars. With includeOriginTravel:false the engine
   // produces the on-site canonical total (admission + local transport +
-  // accommodation) as a RANGE when it is complete; partial/unavailable
-  // results yield no total (honest: no strict cost claim on incomplete
-  // evidence). This removes the duplicated arithmetic AND the range
-  // collapse ([sameNumber, sameNumber]).
-  const engineTotal = useMemo(() => {
+  // accommodation) as a RANGE when it is complete; partial results carry
+  // knownSubtotal/knownLowerBound/missingComponents (consumed by the
+  // header's partial rendering) — never dropped to a bare "unavailable".
+  const engineResult = useMemo(() => {
     if (planCostBreakdown) return undefined;
-    const r = calculateTripCost({
+    return calculateTripCost({
       dest: destination,
       // KAI-217B round-2: the ACTUAL trip mode — 2D1N includes the
       // party-total accommodation allowance × 1 night (never hardcoded
@@ -223,7 +222,6 @@ export function TripCostBreakdownWidget({
       accommodationAllowance,
       includeOriginTravel: false,
     });
-    return r.completeness === "complete" && r.total ? r.total : undefined;
   }, [
     destination,
     partySize,
@@ -232,15 +230,29 @@ export function TripCostBreakdownWidget({
     tripMode,
     nights,
   ]);
+  const engineTotal = engineResult
+    ? engineResult.completeness === "complete" && engineResult.total
+      ? ([engineResult.total.min, engineResult.total.max] as [number, number])
+      : undefined
+    : undefined;
+  // KAI-217B round-4: engine partial metadata for non-generated results —
+  // the header shows "Known ¥X–Y" + missing indication instead of a generic
+  // unavailable when the engine result is partial.
+  const enginePartialLabel: string | undefined =
+    !planCostBreakdown &&
+    engineResult &&
+    engineResult.completeness === "partial"
+      ? locale === "ja"
+        ? `既知 ${formatLocalizedJPYRange(engineResult.knownSubtotal, locale)}`
+        : `Known ${formatLocalizedJPYRange(engineResult.knownSubtotal, locale)}`
+      : undefined;
 
   const totalRange: [number, number] | undefined = planCostBreakdown
     ? visiblePartyRanges.reduce<[number, number]>(
         (total, range) => [total[0] + range[0], total[1] + range[1]],
         [0, 0],
       )
-    : engineTotal
-      ? [engineTotal.min, engineTotal.max]
-      : undefined;
+    : engineTotal;
   const displayedTotalRange: [number, number] | undefined =
     viewMode === "party"
       ? totalRange
@@ -339,8 +351,8 @@ export function TripCostBreakdownWidget({
                     ? `現地費用の概算（交通費を除く） (グループ: ${partySize}名)`
                     : `Estimated on-site total — transport excluded (${partySize} guests)`
                   : locale === "ja"
-                    ? `交通・チケット・食事を含む予想合計 (グループ: ${partySize}名)`
-                    : `Est. total including transport, tickets & dining (${partySize} guests)`}
+                    ? `交通・チケット・宿泊を含む予想合計 (グループ: ${partySize}名)`
+                    : `Est. total including transport, tickets & accommodation (${partySize} guests)`}
             </p>
           </div>
 
@@ -350,8 +362,8 @@ export function TripCostBreakdownWidget({
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
-                {partialPlanLabel
-                  ? partialPlanLabel
+                {partialPlanLabel || enginePartialLabel
+                  ? (partialPlanLabel ?? enginePartialLabel)
                   : hasKnownCost
                     ? formatLocalizedJPYRange(totalRange, locale)
                     : locale === "ja"
@@ -422,21 +434,36 @@ export function TripCostBreakdownWidget({
             <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
-                  {viewMode === "party"
+                  {partialPlanLabel || enginePartialLabel
                     ? locale === "ja"
-                      ? `グループ合計 (${partySize}名)`
-                      : `Total Party Cost (${partySize} guests)`
-                    : locale === "ja"
-                      ? "1名あたりの予想費用"
-                      : "Per Person Total"}
+                      ? "判明済み小計"
+                      : "Known subtotal"
+                    : viewMode === "party"
+                      ? locale === "ja"
+                        ? `グループ合計 (${partySize}名)`
+                        : `Total Party Cost (${partySize} guests)`
+                      : locale === "ja"
+                        ? "1名あたりの予想費用"
+                        : "Per Person Total"}
                 </span>
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
-                  {hasKnownCost
-                    ? formatLocalizedJPYRange(displayedTotalRange, locale)
-                    : locale === "ja"
-                      ? "料金不明"
-                      : "Cost unavailable"}
+                  {partialPlanLabel || enginePartialLabel
+                    ? (partialPlanLabel ?? enginePartialLabel)
+                    : hasKnownCost
+                      ? formatLocalizedJPYRange(displayedTotalRange, locale)
+                      : locale === "ja"
+                        ? "料金不明"
+                        : "Cost unavailable"}
                 </div>
+                {(partialPlanLabel || enginePartialLabel) &&
+                  (planCostBreakdown?.completeness === "partial" ||
+                    engineResult?.completeness === "partial") && (
+                    <div className="text-[11px] text-amber-600 dark:text-amber-400 mt-1">
+                      {locale === "ja"
+                        ? "一部の項目が不明のため小計のみ表示"
+                        : "Some components unknown — showing known subtotal only"}
+                    </div>
+                  )}
               </div>
 
               {cost.isFreeTicket && (

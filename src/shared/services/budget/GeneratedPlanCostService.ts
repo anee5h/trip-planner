@@ -207,11 +207,17 @@ export function calculateGeneratedPlanCost(
   const applicableComponents = [localTransitComp, admissionComp].filter(
     (c) => c.applicable,
   );
+  // KAI-217B round-4 zero-leg semantics: "complete" means admission is
+  // fully known AND EVERY REQUIRED route leg is fully curated. ZERO
+  // required route legs satisfies the route condition — do NOT require
+  // localTransitComp.applicable (which is false for an empty leg set).
+  const routeConditionSatisfied =
+    fareComponents.length === 0 ||
+    (localTransitComp.applicable && localTransitComp.source === "curated");
   const allKnown =
     admissionComp.applicable &&
     admissionComp.source === "curated" &&
-    localTransitComp.applicable &&
-    localTransitComp.source === "curated";
+    routeConditionSatisfied;
   const nothingKnown = applicableComponents.length === 0;
 
   const knownSubtotalMin = applicableComponents.reduce(
