@@ -503,3 +503,137 @@ describe("KAI-219A final — GeneratedPlan known-numeric vs satisfied + aggregat
     expect(cost.admission.max).toBe(0);
   });
 });
+
+// ── KAI-219A FINAL N/A numeric-total guard regressions ──────────────────────
+describe("KAI-219A final — hasNumericTotal guard", () => {
+  function paidDest(overrides: Partial<Destination> = {}): Destination {
+    return {
+      ...BASE_DEST,
+      budgetMetadata: { method: "unknown" },
+      ...overrides,
+    } as unknown as Destination;
+  }
+
+  type AdmissionOverride = NonNullable<Destination["admission"]>;
+
+  function notApplicableFact(): AdmissionOverride {
+    return {
+      state: "not_applicable",
+      provenance: "none",
+      reasonCode: "hub_budget_not_applicable",
+      cost: { kind: "not_applicable" },
+      scope: "general_entry",
+    } as AdmissionOverride;
+  }
+
+  function verifiedPaidFact(amount: number): AdmissionOverride {
+    return {
+      state: "verified_paid",
+      provenance: "verified_source",
+      cost: { kind: "bounded", min: amount, max: amount },
+      scope: "general_entry",
+      sourceUrls: ["https://example.com"],
+      checkedAt: "2026-01-01",
+    } as AdmissionOverride;
+  }
+
+  function freeFact(): AdmissionOverride {
+    return {
+      state: "verified_free",
+      provenance: "verified_source",
+      basis: "The garden is free to enter",
+      cost: { kind: "bounded", min: 0, max: 0 },
+      scope: "general_entry",
+      sourceUrls: ["https://example.com"],
+      checkedAt: "2026-01-01",
+    } as AdmissionOverride;
+  }
+
+  function unavailableFact(): AdmissionOverride {
+    return {
+      state: "unavailable",
+      provenance: "none",
+      reasonCode: "legacy_provenance_unrecovered",
+      cost: {
+        kind: "unavailable",
+        reason: "legacy_provenance_unrecovered",
+      },
+      scope: "general_entry",
+    } as AdmissionOverride;
+  }
+
+  function zeroLegPlan(dest: Destination): DayPlan {
+    return { ...makePlan(dest), routeLegs: [] };
+  }
+
+  it("A) all N/A + zero route legs → complete → hasNumericTotal FALSE (no numeric cost claim)", () => {
+    const dest = paidDest({ admission: notApplicableFact() });
+    const cost = calculateGeneratedPlanCost(
+      zeroLegPlan(dest),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("complete");
+    expect(cost.admission.semanticState).toBe("not_applicable");
+    expect(cost.hasNumericTotal).toBe(false);
+  });
+
+  it("B) verified free + zero legs → complete → hasNumericTotal TRUE ([0,0] is a legitimate verified zero)", () => {
+    const dest = paidDest({ admission: freeFact() });
+    const cost = calculateGeneratedPlanCost(
+      zeroLegPlan(dest),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("complete");
+    expect(cost.admission.semanticState).toBe("verified_free");
+    expect(cost.hasNumericTotal).toBe(true);
+  });
+
+  it("C) N/A + paid ¥1,500 → complete → hasNumericTotal TRUE → ¥1,500", () => {
+    const naDest = paidDest({ id: "na-1", admission: notApplicableFact() });
+    const paidDest2 = paidDest({
+      id: "paid-1",
+      admission: verifiedPaidFact(1500),
+    });
+    const cost = calculateGeneratedPlanCost(
+      {
+        ...makePlan(naDest),
+        routeLegs: [],
+        steps: [makePlan(naDest).steps[0], makePlan(paidDest2).steps[0]],
+      },
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("complete");
+    expect(cost.hasNumericTotal).toBe(true);
+    expect(cost.knownSubtotal[0]).toBe(1500);
+  });
+
+  it("D) partial paid ¥1,500 + unavailable → partial → hasNumericTotal TRUE (knownSubtotal) but NO complete total", () => {
+    const paidDest2 = paidDest({
+      id: "paid-1",
+      admission: verifiedPaidFact(1500),
+    });
+    const unavailDest = paidDest({
+      id: "unavail-1",
+      admission: unavailableFact(),
+    });
+    const cost = calculateGeneratedPlanCost(
+      {
+        ...makePlan(paidDest2),
+        routeLegs: [],
+        steps: [makePlan(paidDest2).steps[0], makePlan(unavailDest).steps[0]],
+      },
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("partial");
+    expect(cost.hasNumericTotal).toBe(true);
+    expect(cost.knownSubtotal[0]).toBe(1500);
+  });
+});

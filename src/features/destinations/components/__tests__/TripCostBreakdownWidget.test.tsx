@@ -340,6 +340,7 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
       parking: { min: 0, max: 0, source: "unknown", applicable: false },
       completeness: "partial",
       knownSubtotal: [3000, 3000],
+      hasNumericTotal: true,
       confidence: "estimated",
       assumptions: [],
     };
@@ -585,14 +586,15 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
       parking: { min: 0, max: 0, source: "unknown", applicable: false },
       completeness: "complete",
       knownSubtotal: [0, 0],
+      hasNumericTotal: true,
       confidence: "verified",
       assumptions: [],
     };
   }
 
-  it("A) not_applicable admission → widget says Not applicable, NOT ¥0", () => {
-    const text = renderPlanWidget(
-      basePlan({
+  it("A) not_applicable admission → widget says Not applicable, NO overall ¥0, honest non-numeric summary", () => {
+    const text = renderPlanWidget({
+      ...basePlan({
         min: 0,
         max: 0,
         source: "curated",
@@ -601,13 +603,20 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
         knownNumeric: false,
         semanticState: "not_applicable",
       }),
-    );
+      // KAI-219A final N/A guard: all-N/A complete plan has NO numeric
+      // cost claim.
+      hasNumericTotal: false,
+    });
     expect(text).toContain("Not applicable");
     // The admission row is NOT a numeric range (no fake ¥0 admission row).
     // "Admission Tickets" is followed by "Not applicable", not a ¥ range.
     const admissionSection = text.slice(text.indexOf("Admission Tickets"));
     expect(admissionSection).toContain("Not applicable");
     expect(admissionSection).not.toMatch(/¥\d/);
+    // No overall numeric total — the honest non-numeric summary shows.
+    expect(text).toContain("No applicable priced components");
+    // No overall ¥0 range in the header.
+    expect(text).not.toMatch(/¥0 - ¥0/);
   });
 
   it("C) free + paid → widget shows the paid RANGE, NOT Free", () => {

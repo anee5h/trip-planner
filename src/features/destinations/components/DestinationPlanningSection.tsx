@@ -103,11 +103,14 @@ export function DestinationPlanningSection({
         )
       : undefined;
 
-  // KAI-217B round-3: the generated-plan cost feeds are COMPLETE-ONLY.
-  // A partial/unavailable plan must NOT present [0,0] or a partial subtotal
-  // as the plan's cost range — the UI renders "partial/unavailable" instead.
+  // KAI-217B round-3 + KAI-219A final N/A guard: the generated-plan cost
+  // feeds are COMPLETE-ONLY **AND** require a numeric cost claim. A
+  // partial/unavailable plan must NOT present [0,0] or a partial subtotal
+  // as the plan's cost range; an all-N/A complete plan is epistemically
+  // complete but has NO numeric total (N/A ≠ verified ¥0) → undefined.
   const completePlanCostRange: [number, number] | undefined =
-    costBreakdown?.completeness === "complete"
+    costBreakdown?.completeness === "complete" &&
+    costBreakdown.hasNumericTotal === true
       ? costBreakdown.knownSubtotal
       : undefined;
 
@@ -136,8 +139,12 @@ export function DestinationPlanningSection({
                   // fall back to generatedPlan.totalBudgetRange for a known
                   // partial costBreakdown (a stale complete range would
                   // survive on a partial plan).
+                  // KAI-219A final N/A guard: an all-N/A complete plan has
+                  // NO numeric cost claim (hasNumericTotal=false) → saved
+                  // totalBudgetRange undefined (N/A ≠ verified ¥0).
                   totalBudgetRange:
-                    costBreakdown?.completeness === "complete"
+                    costBreakdown?.completeness === "complete" &&
+                    costBreakdown.hasNumericTotal === true
                       ? costBreakdown.knownSubtotal
                       : undefined,
                 }

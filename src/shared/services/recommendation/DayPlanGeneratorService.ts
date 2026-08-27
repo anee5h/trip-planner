@@ -725,7 +725,10 @@ export function generateDayPlan(
   const planCost = calculateGeneratedPlanCost(rawPlan, partySize);
   // KAI-217B round-3: complete-only — a partial plan must NOT carry a
   // numeric totalBudgetRange (never [0,0] or a partial subtotal).
-  if (planCost.completeness === "complete") {
+  // KAI-219A final N/A guard: an all-N/A complete plan has NO numeric
+  // cost claim (hasNumericTotal=false) → totalBudgetRange undefined
+  // (N/A ≠ verified ¥0; verified free [0,0] still counts as numeric).
+  if (planCost.completeness === "complete" && planCost.hasNumericTotal) {
     rawPlan.totalBudgetRange = planCost.knownSubtotal;
   }
   if (planCost.assumptions.length > 0) {
@@ -1137,7 +1140,8 @@ export function rebuildPlanFromEditedStops(
 
   const planCost = calculateGeneratedPlanCost(newPlan, partySize);
   // KAI-217B round-3: complete-only totalBudgetRange.
-  if (planCost.completeness === "complete") {
+  // KAI-219A final N/A guard: no numeric cost claim → undefined.
+  if (planCost.completeness === "complete" && planCost.hasNumericTotal) {
     newPlan.totalBudgetRange = planCost.knownSubtotal;
   }
 

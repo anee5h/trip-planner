@@ -82,6 +82,17 @@ export interface GeneratedPlanCostResult {
   completeness: "complete" | "partial" | "unavailable";
   /** The known-subtotal (curated components only) — NOT a full plan total. */
   knownSubtotal: [number, number];
+  /**
+   * KAI-219A final N/A guard: whether the plan has a NUMERIC COST CLAIM.
+   *   true  — the (complete) plan contains ≥1 actual known numeric
+   *           required component (verified free [0,0] COUNTS — it is a
+   *           legitimate verified zero; paid/estimated bounded count).
+   *   false — the plan may be epistemically COMPLETE (all N/A) but there
+   *           is NO numeric cost claim. Consumers must NOT publish/persist
+   *           knownSubtotal [0,0] as a numeric total.
+   * NEVER inferred later from [0,0] — this field is explicit.
+   */
+  hasNumericTotal: boolean;
   confidence: "verified" | "estimated";
   assumptions: PlanAssumption[];
 }
@@ -394,6 +405,14 @@ export function calculateGeneratedPlanCost(
       : "verified"
     : "estimated";
 
+  // KAI-219A final N/A guard: a NUMERIC COST CLAIM exists when ≥1 required
+  // component contributes a known numeric amount. verified_free [0,0] is a
+  // legitimate verified zero (counts); N/A contributes nothing (does not
+  // count). An all-N/A complete plan has hasNumericTotal=false.
+  const hasNumericTotal =
+    admissionComp.knownNumeric === true ||
+    (localTransitComp.applicable && localTransitComp.source === "curated");
+
   return {
     originTransport: originComp,
     localTransit: localTransitComp,
@@ -409,6 +428,7 @@ export function calculateGeneratedPlanCost(
         ? ("complete" as const)
         : ("partial" as const),
     knownSubtotal: [knownSubtotalMin, knownSubtotalMax] as [number, number],
+    hasNumericTotal,
     confidence: computedConfidence,
     assumptions: deduplicatedAssumptions,
   };

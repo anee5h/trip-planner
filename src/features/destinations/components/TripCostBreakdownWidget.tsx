@@ -322,10 +322,17 @@ export function TripCostBreakdownWidget({
         : undefined;
 
   const totalRange: [number, number] | undefined = planCostBreakdown
-    ? visiblePartyRanges.reduce<[number, number]>(
-        (total, range) => [total[0] + range[0], total[1] + range[1]],
-        [0, 0],
-      )
+    ? // KAI-219A final N/A guard: a COMPLETE plan with NO numeric cost
+      // claim (all-N/A, hasNumericTotal=false) must NOT reduce empty
+      // visiblePartyRanges to [0,0] — N/A ≠ verified ¥0. Show no overall
+      // numeric total (the widget renders the honest non-numeric summary).
+      planCostBreakdown.completeness === "complete" &&
+      planCostBreakdown.hasNumericTotal === false
+      ? undefined
+      : visiblePartyRanges.reduce<[number, number]>(
+          (total, range) => [total[0] + range[0], total[1] + range[1]],
+          [0, 0],
+        )
     : engineTotal;
   const displayedTotalRange: [number, number] | undefined =
     viewMode === "party"
@@ -440,11 +447,19 @@ export function TripCostBreakdownWidget({
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
                 {partialPlanLabel || enginePartialLabel
                   ? (partialPlanLabel ?? enginePartialLabel)
-                  : hasKnownCost
-                    ? formatLocalizedJPYRange(totalRange, locale)
-                    : locale === "ja"
-                      ? "料金不明"
-                      : "Cost unavailable"}
+                  : // KAI-219A final N/A guard: a COMPLETE plan with no
+                    // numeric cost claim (all-N/A) shows an honest
+                    // non-numeric summary — never an overall ¥0.
+                    planCostBreakdown?.completeness === "complete" &&
+                      planCostBreakdown.hasNumericTotal === false
+                    ? locale === "ja"
+                      ? "対象となる料金項目なし"
+                      : "No applicable priced components"
+                    : hasKnownCost
+                      ? formatLocalizedJPYRange(totalRange, locale)
+                      : locale === "ja"
+                        ? "料金不明"
+                        : "Cost unavailable"}
               </div>
             </div>
 
@@ -525,11 +540,19 @@ export function TripCostBreakdownWidget({
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
                   {partialPlanLabel || enginePartialLabel
                     ? (partialPlanLabel ?? enginePartialLabel)
-                    : hasKnownCost
-                      ? formatLocalizedJPYRange(displayedTotalRange, locale)
-                      : locale === "ja"
-                        ? "料金不明"
-                        : "Cost unavailable"}
+                    : // KAI-219A final N/A guard: a COMPLETE plan with no
+                      // numeric cost claim shows the honest non-numeric
+                      // summary — never an overall ¥0.
+                      planCostBreakdown?.completeness === "complete" &&
+                        planCostBreakdown.hasNumericTotal === false
+                      ? locale === "ja"
+                        ? "対象となる料金項目なし"
+                        : "No applicable priced components"
+                      : hasKnownCost
+                        ? formatLocalizedJPYRange(displayedTotalRange, locale)
+                        : locale === "ja"
+                          ? "料金不明"
+                          : "Cost unavailable"}
                 </div>
                 {(partialPlanLabel || enginePartialLabel) &&
                   (planCostBreakdown?.completeness === "partial" ||
