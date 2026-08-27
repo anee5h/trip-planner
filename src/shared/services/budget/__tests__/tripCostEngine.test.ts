@@ -162,13 +162,11 @@ describe("KAI-217A engine — travel completeness", () => {
     expect((r as { total?: unknown }).total).toBeUndefined();
   });
 
-  it("all components bounded → complete with summed total", async () => {
-    // KAI-216 repair: a COMPLETE trip requires a complete-scope origin
-    // (whole-journey fare, no missing access leg). A synthetic
-    // transportFares fixture is corridor_only (no origin identity), so use
-    // a real destination with a verified complete shinkansen corridor
-    // (Tokyo→Nagano) + a trusted-manual override so local transport is a
-    // documented allowance.
+  it("bounded corridor-only origin → PARTIAL, no total (KAI-216 round-2 regression)", async () => {
+    // A bounded origin with fareScope corridor_only has a missing access
+    // leg — the trip must be partial with NO total, and this must hold in
+    // THIS layer (the fareScope flows through originTravelComponent onto
+    // ComponentEvidence, independent of any later consumer work).
     const { getDestinationListAsync } =
       await import("@/shared/services/destination/DestinationService");
     const { loadDestinationsIndex } =
@@ -176,31 +174,30 @@ describe("KAI-217A engine — travel completeness", () => {
     await loadDestinationsIndex();
     const list = (await getDestinationListAsync("en")) as Destination[];
     const base = list.find((d) => d.id === "nagano-city")!;
+    // Explicit route fare = corridor_only (no origin identity, unprovenanced).
     const dest = {
       ...base,
-      budgetMetadata: {
-        method: "manual" as const,
-        confidence: "low" as const,
-        basis: "verified ticket (ledger LEDGER_VERIFIED)",
-      },
+      transportFares: { train: 800 },
     } as unknown as Destination;
     const r = calculateTripCost(
       ctx({
         dest,
-        mode: "shinkansen",
+        mode: "train",
         homeCoords: { lat: 35.6812, lng: 139.7671 },
         tripMode: "day_trip",
         partySize: 2,
       }),
     );
-    expect(r.completeness).toBe("complete");
-    if (r.completeness === "complete") {
-      // origin complete-scope shinkansen (bounded) + admission + local.
-      expect(r.total.kind).toBe("bounded");
-      expect(r.total.min).toBeGreaterThan(0);
-      expect(r.total.max).toBeGreaterThanOrEqual(r.total.min);
-      expect(isValidTripCostResult(r)).toBe(true);
-    }
+    const origin = r.components.find(
+      (c) => c.evidence.scope === "origin_travel",
+    )!;
+    // The origin is BOUNDED but corridor_only.
+    expect(origin.cost.kind).toBe("bounded");
+    expect(origin.evidence.fareScope).toBe("corridor_only");
+    // ⇒ the trip is PARTIAL and MUST NOT produce a total.
+    expect(r.completeness).toBe("partial");
+    expect((r as { total?: unknown }).total).toBeUndefined();
+    expect(isValidTripCostResult(r)).toBe(true);
   });
 
   it("no usable evidence at all → unavailable", () => {
@@ -222,7 +219,7 @@ describe("KAI-217A engine — travel completeness", () => {
 });
 
 describe("KAI-217A engine — local transport", () => {
-  it("verified free local transport maps to bounded [0,0] (NOT unavailable)", () => {
+  it("local transport is UNAVAILABLE until an explicit defensible fact exists (KAI-216 round-2)", () => {
     const dest = paidDest({
       id: "free-walk-dest",
       budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
@@ -235,16 +232,15 @@ describe("KAI-217A engine — local transport", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    // Walking evidence (walkingMin > 0 + "walking access" basis) supports
-    // the ¥0 walking fact → bounded [0,0].
-    expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
-    // KAI-216 repair: a manual on-site allowance is a DOCUMENTED MODEL
-    // ESTIMATE, never source_fact (it is an allowance, not a verified fare).
-    expect(c.evidence.derivation).toBe("model_estimate");
-    expect(c.cost.kind).not.toBe("unavailable");
+    // KAI-216 round-2: the legacy transport allowance (even trusted-manual,
+    // even with walkingMin/basis text) is NOT explicit defensible
+    // local-transport evidence. Manual provenance can verify admission
+    // while the old allowance stays generic; walking ¥0 is manufactured
+    // only from explicit localTransport facts. ⇒ unavailable.
+    expect(c.cost.kind).toBe("unavailable");
   });
 
-  it("manual transport:0 WITHOUT walking evidence stays unavailable (unknown ≠ ¥0)", () => {
+  it("manual transport:0 stays unavailable — walking ¥0 is never manufactured from walkingMin/regex", () => {
     const dest = paidDest({
       id: "no-walk-evidence-dest",
       budgetBreakdown: { transport: 0, tickets: 1300, food: 0, cafe: 0 },
@@ -257,14 +253,13 @@ describe("KAI-217A engine — local transport", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    // No walking evidence: the ¥0 is NOT a verified walking fact.
     expect(c.cost.kind).toBe("unavailable");
   });
 
-  it("known local transport scales per-person × party", () => {
+  it("no legacy breakdown allowance becomes canonical local transport", () => {
     const r = calculateTripCost(ctx({ partySize: 3 }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost).toEqual({ kind: "bounded", min: 3000, max: 3000 });
+    expect(c.cost.kind).toBe("unavailable");
   });
 });
 
@@ -355,9 +350,11 @@ describe("KAI-217A engine — Luna blocker regressions", () => {
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "local_transport")!;
-    // Local transport reads the actual allowance (1083 × 2), NOT forced to
-    // [0,0] by the free admission.
-    expect(c.cost).toEqual({ kind: "bounded", min: 2166, max: 2166 });
+    // KAI-216 round-2: the free admission must NOT zero local transport,
+    // but the legacy allowance is ALSO not explicit defensible evidence →
+    // local transport is unavailable (never a fabricated [0,0], never a
+    // legacy allowance promoted to canonical).
+    expect(c.cost.kind).toBe("unavailable");
     // Admission is still verified-free [0,0].
     const a = byScope(r, "admission")!;
     expect(a.cost).toEqual({ kind: "bounded", min: 0, max: 0 });

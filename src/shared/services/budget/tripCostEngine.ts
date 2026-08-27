@@ -130,6 +130,13 @@ function originTravelComponent(
     evidence: {
       scope: "origin_travel",
       derivation: transport.evidence.derivation,
+      // KAI-216 round-2: the fare scope must flow onto ComponentEvidence so
+      // the bounded corridor-only → PARTIAL invariant works in THIS layer —
+      // a bounded origin whose scope is not "complete" has a missing access
+      // leg and the trip can never be complete.
+      ...(transport.evidence.fareScope
+        ? { fareScope: transport.evidence.fareScope }
+        : {}),
       ...(transport.evidence.sourceUrls
         ? { sourceUrls: transport.evidence.sourceUrls }
         : {}),
@@ -260,73 +267,27 @@ function admissionComponent(
 /**
  * local_transport — the required on-site/local-transit cost.
  *
- * KAI-216 repair (locked decision): NO generic city allowance. The generic
- * budgetBreakdown.transport is NOT defensible local-transport evidence:
- *   - MODEL records (incl. the 106 city hubs with peer-cell transport:3000)
- *     are generic peer-cell allowances, not route facts → UNAVAILABLE.
- *   - TRUSTED MANUAL records carry a documented per-person on-site
- *     allowance → accepted as a DOCUMENTED MODEL ESTIMATE (derivation
- *     model_estimate), never source_fact — it is an allowance, not a
- *     verified fare.
- *   - verified_free walking is [0,0] ONLY when the record's own walking
- *     evidence supports it (walkingMin/grounds metadata); a legacy
- *     transport:0 without evidence stays unavailable.
- * The not_applicable-hub raw-breakdown bypass is REMOVED — a hub's peer-cell
- * transport value is a generic city allowance and must not become a
- * canonical required-local-transport fact.
+ * KAI-216 round-2 repair (locked decisions):
+ *   - NO generic city allowance: the generic budgetBreakdown.transport is
+ *     NOT defensible local-transport evidence — model peer-cell values,
+ *     legacy values, AND trusted-manual allowances all fail closed. Manual
+ *     provenance can verify admission while the old transport allowance is
+ *     still generic (a per-person on-site allowance is not a route fact).
+ *   - Until an EXPLICIT defensible localTransport fact exists (KAI-218A
+ *     schema, future consumption), local transport is UNAVAILABLE.
+ *   - Evidence-backed walking ¥0 belongs to explicit localTransport facts —
+ *     never manufactured from walkingMin or a generic word regex in
+ *     budgetMetadata.basis.
  */
 function localTransportComponent(
   dest: Destination,
   partySize: number,
 ): TripCostComponent {
-  const s = normalizeBudgetState(dest);
-  // Only TRUSTED MANUAL records may contribute a documented on-site
-  // allowance. Model/legacy/unknown/absent and not_applicable hubs all fail
-  // closed (generic peer-cell values are NOT defensible local transport).
-  const breakdown = getEffectiveBudgetBreakdown(dest);
-  const transit = breakdown?.transport;
-
-  const isTrustedManual =
-    s.sourceMethod === "manual" && s.trustLevel !== "untrusted";
-
-  if (
-    isTrustedManual &&
-    transit !== undefined &&
-    Number.isFinite(transit) &&
-    transit >= 0
-  ) {
-    // Verified-free walking: [0,0] ONLY with walking evidence (a practical
-    // walk is documented). A manual transport:0 WITHOUT walking evidence is
-    // NOT a verified walking fact — it stays unavailable (unknown ≠ ¥0).
-    const hasWalkingEvidence =
-      (dest.walkingMin ?? 0) > 0 ||
-      /walk|pedestrian|grounds|adjacent/i.test(
-        dest.budgetMetadata?.basis ?? "",
-      );
-    if (transit === 0 && !hasWalkingEvidence) {
-      return {
-        cost: SOURCE_MISSING,
-        evidence: {
-          scope: "local_transport",
-          derivation: "computed",
-          reason: "source_missing",
-        },
-      };
-    }
-    return {
-      cost: {
-        kind: "bounded",
-        min: transit * partySize,
-        max: transit * partySize,
-      },
-      evidence: {
-        scope: "local_transport",
-        derivation: "model_estimate",
-        state: s.state,
-        provenance: s.provenance,
-      },
-    };
-  }
+  // KAI-218A explicit localTransport facts are NOT yet consumed by the
+  // engine. Until they are, required local transport is unavailable —
+  // never a legacy breakdown allowance, never a manufactured walking ¥0.
+  void dest;
+  void partySize;
   return {
     cost: SOURCE_MISSING,
     evidence: {
