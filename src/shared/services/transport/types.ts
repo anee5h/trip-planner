@@ -155,5 +155,14 @@ export interface TransportEstimate {
     /** one-way: costRange is one-way; round-trip: costRange is round-trip. */
     ferryFareBasis?: FerryFareBasis;
     ferryNotes?: string;
+    /**
+     * KAI-216: the verified route fare (one-way, per person) WITHOUT
+     * access-leg costs, for flight/ferry. Null when unverified/missing.
+     * Canonical budget consumers use this instead of the door-to-door
+     * costRange (which mixes in generic access-leg estimates).
+     */
+    verifiedFare?: [number, number] | null;
+    /** Whether verifiedFare is backed by a verified fare status. */
+    verifiedFareStatus?: "verified" | "unverified";
   };
 }

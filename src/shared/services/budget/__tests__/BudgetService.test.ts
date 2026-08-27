@@ -16,6 +16,7 @@ import {
 } from "../BudgetService";
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
+import { getCanonicalTransportCost } from "@/shared/services/transport/transportCostV2";
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 import { getDestinationListAsync } from "@/shared/services/destination/DestinationService";
 
@@ -52,6 +53,9 @@ const mockPaidDest = {
   recommendedVisitHours: { min: 1, max: 2 },
   totalTripHours: 3,
   transportOptions: { train: 30 },
+  // KAI-216: explicit verified one-way fare so transport is a real number
+  // (the duration heuristic that previously produced it was removed).
+  transportFares: { train: 800 },
 } as unknown as Destination;
 
 const mockFreeDest = {
@@ -240,6 +244,10 @@ describe("BudgetService", () => {
       coordinates: { lat: 34.7105, lng: 135.5005 },
       transportOptions: { train: 25 },
       localAccessModes: ["train"],
+      // KAI-216 repair: clear the inherited explicit fare so the KAI-204
+      // local-bounded rail path is exercised (an explicit route fare is
+      // corridor_only, not a local-bounded estimate).
+      transportFares: undefined,
     } as unknown as Destination;
     const origin = { lat: 34.7025, lng: 135.4959 };
     const result = getEstimatedBudgetRange(
@@ -273,6 +281,9 @@ describe("BudgetService", () => {
       budgetMin: undefined,
       budgetMax: undefined,
       budgetRecommended: undefined,
+      // KAI-216 repair: clear the inherited explicit fare so the KAI-204
+      // local-bounded rail path is exercised.
+      transportFares: undefined,
     } as unknown as Destination;
     const result = getEstimatedBudgetRange(
       unknownOnsite,
@@ -474,13 +485,22 @@ describe("BudgetService", () => {
       expect(cost).toBe(Math.floor(((15520 + 16020) / 2) * 2 * 1));
     });
 
-    it("heuristic fallback when no verified fare exists (Tokyo→Kyoto)", () => {
+    it("no verified fare stays unknown (no heuristic fabrication)", () => {
       const kyoto = dest("kyoto-dest", "Kyoto", "Kyoto:kyoto");
-      // tokyo→kyoto shinkansen [135,220] has no verified fare → heuristic.
+      // tokyo→kyoto shinkansen corridor [135,220] exists but has NO verified
+      // fare. KAI-216 removed the duration-based heuristic: a corridor
+      // without a verified fare is null (honest unavailable), never a
+      // base+perMinute guess.
       const cost = getTransportCost(kyoto, "shinkansen", 1, TOKYO_COORDS);
-      const mins = Math.round((135 + 220) / 2);
-      const oneWayHeuristic = Math.round(2200 + mins * 62);
-      expect(cost).toBe(Math.floor(oneWayHeuristic * 2 * 1));
+      expect(cost).toBeNull();
+      // The canonical structured result is unavailable with a reason.
+      const canonical = getCanonicalTransportCost(
+        kyoto,
+        "shinkansen",
+        1,
+        TOKYO_COORDS,
+      );
+      expect(canonical.cost.kind).toBe("unavailable");
     });
 
     it("unknown fare stays unknown (no corridor → no fabricated price)", () => {
@@ -497,12 +517,14 @@ describe("BudgetService", () => {
       expect(cost).toBe(Math.floor(1100 * 2 * 1));
     });
 
-    it("dynamic bus fare uses the verified floor, never an invented fixed price", () => {
+    it("dynamic bus fare is NOT projected into a fixed numeric for legacy callers", () => {
       const nagano = dest("nagano-dest", "Nagano", "Nagano:nagano");
       // tokyo→nagano bus [240,330] fare [3500, null] dynamic ("from ¥3,500"):
-      // the budget uses the verified lower bound, not a fabricated upper.
+      // KAI-216 round-2: the legacy projection returns NULL for open-ended
+      // — a lower bound must never be presented as a fixed price. Callers
+      // needing open-ended semantics read the structured cost directly.
       const cost = getTransportCost(nagano, "bus", 1, TOKYO_COORDS);
-      expect(cost).toBe(Math.floor(3500 * 2 * 1));
+      expect(cost).toBeNull();
     });
 
     it("catchment bus fare stays corridor-only and never includes access cost", () => {
@@ -733,8 +755,13 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
     // from the origin-aware calculation fails this test.
     // KAI-204 phase 3: boso-peninsula is now legacy-tagged (no provenance),
     // so a trusted manual-metadata fixture with the same shape is used.
+    // KAI-216: the Tokyo→Chiba train corridor has no verified fare, so the
+    // fixture also carries an explicit verified transportFares.train to keep
+    // the origin-transport term present (a corridor without a fare is
+    // honestly null now — never a fabricated heuristic number).
     const boso = {
       ...(await fullList()).find((d) => d.id === "boso-peninsula"),
+      transportFares: { train: 2400 },
       budgetMetadata: {
         method: "manual",
         confidence: "low",
@@ -775,6 +802,11 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       },
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
+      // KAI-216: an explicit verified one-way fare replaces the removed
+      // duration heuristic (10 min × 24 was the old base+perMinute guess).
+      // 240 × 2 (round trip) = 480 per person, matching the expected
+      // per-person increment below.
+      transportFares: { train: 240 },
     } as unknown as Destination;
     const maxes = [1, 2, 3, 4].map((p) => {
       const r = getEstimatedBudgetRange(dest, "train", p, "economy");
@@ -810,6 +842,9 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       },
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
+      // KAI-216: explicit verified one-way fare (240) replaces the removed
+      // duration heuristic; 240 × 2 (round trip) = 480 per person.
+      transportFares: { train: 240 },
     } as unknown as Destination;
     const p2 = calculateItemizedTripCost(dest, {
       partySize: 2,
@@ -927,6 +962,9 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       },
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
+      // KAI-216: explicit verified one-way fare (240) replaces the removed
+      // duration heuristic; 240 × 2 (round trip) = 480 per person.
+      transportFares: { train: 240 },
     } as unknown as Destination;
     // recBudget 5000 (incl. on-site 1000) × party 2 + origin transport:
     // the on-site allowance must be counted per person, not subtracted.

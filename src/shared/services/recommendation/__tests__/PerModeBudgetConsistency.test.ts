@@ -131,6 +131,11 @@ describe("car ownership budget semantics (KAI-63 D11)", () => {
     budgetMax: 10000,
     transportOptions: { car: 60, my_car: 60 },
     totalTripHours: 8,
+    // KAI-216: car/my_car costs exist ONLY via an explicit verified
+    // transportFares vehicle total (round trip per car). The old
+    // drive-min→km→toll heuristic is removed. Rental (car) is priced higher
+    // than personal (my_car) vehicle totals.
+    transportFares: { car: 12000, my_car: 6000 },
     walkingMin: 10,
     walkingSunMin: 5,
     walkingShadeMin: 5,
@@ -140,10 +145,12 @@ describe("car ownership budget semantics (KAI-63 D11)", () => {
     coordinates: { lat: 35.5, lng: 139.6 },
   } as unknown as Destination;
 
-  it("rental car prices include the rental fee; personal car does not", () => {
-    // Same car trip, same explicit 8 h mode duration: the single Car chip
-    // maps to "rental" (fee included) or "my_car" (tolls/fuel only) via the
-    // user's carOwnership preference — the two budget models must differ.
+  it("rental and personal car costs are UNAVAILABLE without an origin-specific car model (KAI-216 round-2)", () => {
+    // KAI-216 round-2: a static destination-level car estimate has NO origin
+    // identity and NO verified provenance — canonical unavailable for both
+    // car and my_car (the engine stays partial) until an origin-specific
+    // defensible car model exists. The rental-vs-personal differentiation
+    // cannot be claimed from the static transportFares value.
     const rental = getTransportCost(carDest, "car", 2, undefined, undefined, 8);
     const personal = getTransportCost(
       carDest,
@@ -153,8 +160,7 @@ describe("car ownership budget semantics (KAI-63 D11)", () => {
       undefined,
       8,
     );
-    expect(rental).not.toBeNull();
-    expect(personal).not.toBeNull();
-    expect(rental!).toBeGreaterThan(personal!);
+    expect(rental).toBeNull();
+    expect(personal).toBeNull();
   });
 });

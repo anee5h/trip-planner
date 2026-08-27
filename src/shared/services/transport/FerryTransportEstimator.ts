@@ -409,6 +409,22 @@ function buildFerryEstimate(
       originAccessTimeRange: originAccess.timeRange,
       destAccessTimeRange: destAccess.timeRange,
       ferryNotes: service.notes,
+      /**
+       * KAI-216: the verified service fare (per person, one-way or
+       * round-trip per fareBasis) WITHOUT access-leg costs. Present only
+       * when the fare is currently valid AND its fareStatus is not
+       * "unverified"; null when unverified/expired/missing. Canonical
+       * budget consumers use this instead of the door-to-door costRange
+       * (which mixes in generic access-leg estimates).
+       */
+      verifiedFare:
+        costUnavailable || service.fareStatus === "unverified"
+          ? null
+          : service.fare,
+      verifiedFareStatus:
+        costUnavailable || service.fareStatus === "unverified"
+          ? "unverified"
+          : "verified",
     },
   };
 }

@@ -43,6 +43,9 @@ const baseDest = {
   bestSeason: "Spring",
   coordinates: { lat: 35.2323, lng: 139.1069 },
   transportOptions: { train: 45 },
+  // KAI-216: explicit verified one-way fare (the duration heuristic was
+  // removed) so the origin transport contributes to the budget reason.
+  transportFares: { train: 1000 },
   recommendedVisitHours: { min: 1, max: 3 },
   totalTripHours: 4,
   walkingMin: 30,
