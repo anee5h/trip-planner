@@ -191,5 +191,18 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.keio-mogusaen.jp/en/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.keio-mogusaen.jp/en/",
+    "sourceUrls": ["https://www.keio-mogusaen.jp/en/"],
+    "checkedAt": "2026-08-14"
   }
 }

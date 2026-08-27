@@ -174,5 +174,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Committed notes state site-wide adult viewing fee ¥500 (since Apr 2019); official site",
+    "sourceUrls": ["https://sannaimaruyama.pref.aomori.jp/"],
+    "checkedAt": "2026-08-14"
   }
 }

@@ -150,6 +150,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -971,6 +981,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -1562,6 +1582,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -2887,6 +2917,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -3841,6 +3881,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -3990,6 +4040,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -4575,6 +4635,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -4965,6 +5035,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -5294,6 +5374,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -5633,6 +5723,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -6427,6 +6527,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 300,
+        "max": 300
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html",
+      "sourceUrls": [
+        "https://www.japan-guide.com/e/e6403.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -7824,6 +7939,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.ccma-net.jp/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 300,
+        "max": 300
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.ccma-net.jp/",
+      "sourceUrls": [
+        "https://www.ccma-net.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -9918,6 +10048,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -10141,6 +10281,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -10787,6 +10937,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -11220,6 +11380,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/",
+      "sourceUrls": [
+        "https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -11631,6 +11806,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -13177,6 +13362,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/",
+      "sourceUrls": [
+        "https://www.engakuji.or.jp/en/access/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -15334,6 +15534,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -15555,6 +15765,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -15696,6 +15916,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -16523,6 +16753,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -16790,6 +17030,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥1000 (ledger FIXED_PAID); source: https://www.fukuokatower.co.jp/charge/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1000,
+        "max": 1000
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.fukuokatower.co.jp/charge/",
+      "sourceUrls": [
+        "https://www.fukuokatower.co.jp/charge/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -17238,6 +17493,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -17460,6 +17725,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -17609,6 +17884,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -18308,6 +18593,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -18960,6 +19255,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -20418,6 +20723,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -21630,6 +21945,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -22267,6 +22592,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 200,
+        "max": 200
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/",
+      "sourceUrls": [
+        "http://www.hakatamachiya.com/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -22609,6 +22949,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -23259,6 +23609,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -23880,6 +24240,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -24671,6 +25041,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -25097,6 +25477,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -25315,6 +25705,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -25499,6 +25899,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1000,
+        "max": 1000
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.chusonji.or.jp/",
+      "sourceUrls": [
+        "https://www.chusonji.or.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -25881,6 +26296,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -26041,6 +26466,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -26750,6 +27185,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 510,
+        "max": 510
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about",
+      "sourceUrls": [
+        "https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -27420,6 +27870,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 2000,
+        "max": 2000
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/",
+      "sourceUrls": [
+        "https://www.horyuji.or.jp/en/annai/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -28393,6 +28858,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified free admission (ledger LEDGER_VERIFIED)"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Free admission (ledger LEDGER_VERIFIED)",
+      "sourceUrls": [
+        "https://www.toshima-kanko.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -29595,6 +30075,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -29798,6 +30288,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -30222,6 +30722,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -30563,6 +31073,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -30707,6 +31227,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -31473,6 +32003,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -33091,6 +33631,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -34077,6 +34627,16 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -36157,6 +36717,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -37044,6 +37614,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -37283,6 +37863,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.kawagoematsuri.jp/English/museum.html"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 300,
+        "max": 300
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.kawagoematsuri.jp/English/museum.html",
+      "sourceUrls": [
+        "https://www.kawagoematsuri.jp/English/museum.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -37762,6 +38357,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -37995,6 +38600,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -39887,6 +40502,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -40642,6 +41267,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -41495,6 +42130,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -42714,6 +43359,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -42864,6 +43519,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -43240,6 +43905,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html",
+      "sourceUrls": [
+        "https://okayama-korakuen.jp/section/english/info/index.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -43433,6 +44113,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -44700,6 +45390,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -45034,6 +45734,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -46005,6 +46715,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -49355,6 +50075,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -49969,6 +50699,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -50269,6 +51009,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -50554,6 +51304,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -51042,6 +51802,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -52241,6 +53011,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -53055,6 +53835,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -53441,6 +54231,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -53639,6 +54439,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -53851,6 +54661,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -54039,6 +54859,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -57736,6 +58566,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -57958,6 +58798,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -59062,6 +59912,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -60308,6 +61168,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -61149,6 +62019,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -61550,6 +62430,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -61986,6 +62876,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL); source: https://www.nmwa.go.jp/en/visit/index.html",
+      "sourceUrls": [
+        "https://www.nmwa.go.jp/en/visit/index.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -63370,6 +64275,16 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -64478,6 +65393,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -65829,6 +66754,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified free admission (ledger LEDGER_VERIFIED)"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Free admission (ledger LEDGER_VERIFIED)",
+      "sourceUrls": [
+        "https://tokyo-odaiba.net/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -66036,6 +66976,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -67157,6 +68107,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -67297,6 +68257,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -69086,6 +70056,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -71518,6 +72498,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -71722,6 +72712,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -72084,6 +73084,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1000,
+        "max": 1000
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://oura-church.jp/guide-en/",
+      "sourceUrls": [
+        "https://oura-church.jp/guide-en/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -74090,6 +75105,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"standard\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -75409,6 +76434,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -76444,6 +77479,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Committed notes state site-wide adult viewing fee ¥500 (since Apr 2019); official site",
+      "sourceUrls": [
+        "https://sannaimaruyama.pref.aomori.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -76820,6 +77870,16 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -77894,6 +78954,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -79936,6 +81006,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -80166,6 +81246,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥450 (ledger LEDGER_VERIFIED); source: https://www.raumen.co.jp/english/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 450,
+        "max": 450
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥450 (ledger LEDGER_VERIFIED); source: https://www.raumen.co.jp/english/",
+      "sourceUrls": [
+        "https://www.raumen.co.jp/english/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -81036,6 +82131,21 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger FIXED_PAID); source: https://policies.env.go.jp/national-garden/shinjukugyoen/english/guide/information/",
+      "sourceUrls": [
+        "https://policies.env.go.jp/national-garden/shinjukugyoen/english/guide/information/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -82505,6 +83615,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -85452,6 +86572,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -85603,6 +86733,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -86233,6 +87373,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -90402,6 +91552,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -90988,6 +92148,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -92938,6 +94108,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1000,
+        "max": 1000
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1000 (ledger FIXED_PAID); source: https://www.tomioka-silk.jp/_tomioka-silk-mill/visit/",
+      "sourceUrls": [
+        "https://www.tomioka-silk.jp/_tomioka-silk-mill/visit/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -93278,6 +94463,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -93746,6 +94941,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -94122,6 +95327,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -94794,6 +96009,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -96606,6 +97831,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -97372,6 +98607,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -97763,6 +99008,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -98275,6 +99530,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -98816,6 +100081,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-4\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -100475,6 +101750,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Free admission; individual attractions optional and excluded from canonical admission",
+      "sourceUrls": [
+        "https://cosmoworld.jp/ticket/?lang=en"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -101592,6 +102881,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -101765,6 +103064,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥5900 (ledger LEDGER_VERIFIED); source: https://www.yomiuriland.com/charge/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 5900,
+        "max": 5900
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥5900 (ledger LEDGER_VERIFIED); source: https://www.yomiuriland.com/charge/",
+      "sourceUrls": [
+        "https://www.yomiuriland.com/charge/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -101963,6 +103277,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -104515,6 +105839,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 300,
+        "max": 300
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/",
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/park/hama-rikyu/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -105630,6 +106969,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 150,
+        "max": 150
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html",
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -106791,6 +108145,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 150,
+        "max": 150
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥150 (ledger FIXED_PAID); source: https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html",
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -108487,6 +109856,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1500,
+        "max": 1500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1500 (ledger FIXED_PAID); source: https://buaiso.com/access_guide/new_ticket.html",
+      "sourceUrls": [
+        "https://buaiso.com/access_guide/new_ticket.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -109969,6 +111353,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.gotokyo.org/en/spot/882/index.html"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.gotokyo.org/en/spot/882/index.html",
+      "sourceUrls": [
+        "https://www.gotokyo.org/en/spot/882/index.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -110212,6 +111611,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 310,
+        "max": 310
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/",
+      "sourceUrls": [
+        "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -110421,6 +111835,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.keio-mogusaen.jp/en/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.keio-mogusaen.jp/en/",
+      "sourceUrls": [
+        "https://www.keio-mogusaen.jp/en/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -110836,6 +112265,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -111080,6 +112524,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Free entry; purchases variable (ledger FREE_ENTRY_PURCHASES_VARIABLE)",
+      "sourceUrls": [
+        "https://kitaro-chaya.jp/",
+        "https://kitaro-chaya.jp/free/access"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -111922,6 +113381,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 600,
+        "max": 600
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html",
+      "sourceUrls": [
+        "http://www.gyokudo.jp/guide_english.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -112165,6 +113639,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 100,
+        "max": 100
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/",
+      "sourceUrls": [
+        "https://www.jreast.co.jp/ome-railway-park/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -112566,6 +114055,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 450,
+        "max": 450
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥450 (ledger FIXED_PAID); source: https://www.showakinen-koen.jp/guide-english/",
+      "sourceUrls": [
+        "https://www.showakinen-koen.jp/guide-english/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -113046,6 +114550,22 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1800,
+        "max": 1800
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/, https://www.tokyoartbeat.com/en/venues/-/B43A7496",
+      "sourceUrls": [
+        "https://play2020.jp/en/",
+        "https://www.tokyoartbeat.com/en/venues/-/B43A7496"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -113290,6 +114810,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 400,
+        "max": 400
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/",
+      "sourceUrls": [
+        "https://mangapark.jp/guide/info/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -114354,6 +115889,21 @@
       "modelVersion": "budget-model-v1",
       "confidence": "low",
       "basis": "verified ticket ¥370 (ledger LEDGER_VERIFIED); source: https://hiroshimacastle.jp/"
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 370,
+        "max": 370
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥370 (ledger LEDGER_VERIFIED); source: https://hiroshimacastle.jp/",
+      "sourceUrls": [
+        "https://hiroshimacastle.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -116479,6 +118029,21 @@
       "tickets": 400,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 400,
+        "max": 400
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥400 (ledger FIXED_PAID); source: https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105",
+      "sourceUrls": [
+        "https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -116936,6 +118501,21 @@
       "tickets": 500,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥500 (ledger FIXED_PAID); source: https://genbudo-park.jp/",
+      "sourceUrls": [
+        "https://genbudo-park.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -117308,6 +118888,21 @@
       "tickets": 1200,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1200,
+        "max": 1200
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1200 (ledger FIXED_PAID); source: https://www.ikuno-ginzan.co.jp/ryokin/ryokin.html",
+      "sourceUrls": [
+        "https://www.ikuno-ginzan.co.jp/ryokin/ryokin.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -118272,6 +119867,21 @@
       "tickets": 1300,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 1300,
+        "max": 1300
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥1300 (ledger FIXED_PAID); source: https://www.miho.jp/en/information/",
+      "sourceUrls": [
+        "https://www.miho.jp/en/information/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -119060,6 +120670,21 @@
       "tickets": 200,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 200,
+        "max": 200
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥200 (ledger FIXED_PAID); source: https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html",
+      "sourceUrls": [
+        "https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -132772,6 +134397,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -133883,6 +135518,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -135253,6 +136898,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -136595,6 +138250,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -137500,6 +139165,16 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "none",
+      "reasonCode": "hub_budget_not_applicable",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "general_entry",
+      "basis": "City hub — no single admission product (hub class convention)"
     }
   },
   {
@@ -161449,6 +163124,21 @@
       "tickets": 320,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 320,
+        "max": 320
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/",
+      "sourceUrls": [
+        "https://kenrokuen.or.jp/information/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -191495,6 +193185,21 @@
       "tickets": 0,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "whole_area",
+      "basis": "Free admission (ledger FREE_ENTRY)",
+      "sourceUrls": [
+        "https://www.farm-tomita.co.jp/en/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -192715,7 +194420,7 @@
       "Rodin and Picasso collection",
       "Sculpture garden and onsen"
     ],
-    "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+    "notes": "Admission ¥2,000 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
     "transportOptions": {},
     "recommendedVisitHours": {
       "min": 1.5,
@@ -192769,7 +194474,7 @@
           "Rodin and Picasso collection",
           "Sculpture garden and onsen"
         ],
-        "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+        "notes": "Admission ¥2,000 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
         "reservation": "None required",
         "parking": "Paid parking nearby (varies by site)",
         "openingHours": "Open daily; hours vary by season"
@@ -192782,7 +194487,7 @@
           "ロダン＆ピカソのコレクション",
           "彫刻庭園と足湯"
         ],
-        "notes": "大人入館料1,800円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
+        "notes": "大人入館料2,000円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
         "reservation": "予約不要",
         "parking": "周辺の有料駐車場あり（施設により異なる）",
         "openingHours": "毎日開館（時期により異なる）"
@@ -192886,6 +194591,21 @@
       "tickets": 2000,
       "food": 0,
       "cafe": 0
+    },
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 2000,
+        "max": 2000
+      },
+      "scope": "general_entry",
+      "basis": "Verified admission ¥2000 (ledger FIXED_PAID); source: https://www.hakone-oam.or.jp/contact/",
+      "sourceUrls": [
+        "https://www.hakone-oam.or.jp/contact/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {

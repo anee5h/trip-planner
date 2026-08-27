@@ -230,5 +230,20 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥500 (ledger FIXED_PAID); source: https://policies.env.go.jp/national-garden/shinjukugyoen/english/guide/information/",
+    "sourceUrls": [
+      "https://policies.env.go.jp/national-garden/shinjukugyoen/english/guide/information/"
+    ],
+    "checkedAt": "2026-08-14"
   }
 }

@@ -20,7 +20,7 @@
     "Rodin and Picasso collection",
     "Sculpture garden and onsen"
   ],
-  "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+  "notes": "Admission ¥2,000 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
   "transportOptions": {},
   "recommendedVisitHours": {
     "min": 1.5,
@@ -74,7 +74,7 @@
         "Rodin and Picasso collection",
         "Sculpture garden and onsen"
       ],
-      "notes": "Admission ¥1,800 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
+      "notes": "Admission ¥2,000 (adult); about 5 min from Chokoku-no-Mori station on the Hakone Tozan line.",
       "reservation": "None required",
       "parking": "Paid parking nearby (varies by site)",
       "openingHours": "Open daily; hours vary by season"
@@ -87,7 +87,7 @@
         "ロダン＆ピカソのコレクション",
         "彫刻庭園と足湯"
       ],
-      "notes": "大人入館料1,800円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
+      "notes": "大人入館料2,000円。箱根登山鉄道「彫刻の森」駅から徒歩約5分。",
       "reservation": "予約不要",
       "parking": "周辺の有料駐車場あり（施設により異なる）",
       "openingHours": "毎日開館（時期により異なる）"
@@ -178,5 +178,18 @@
     "tickets": 2000,
     "food": 0,
     "cafe": 0
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥2000 (ledger FIXED_PAID); source: https://www.hakone-oam.or.jp/contact/",
+    "sourceUrls": ["https://www.hakone-oam.or.jp/contact/"],
+    "checkedAt": "2026-08-14"
   }
 }

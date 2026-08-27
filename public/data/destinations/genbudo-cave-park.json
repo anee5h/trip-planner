@@ -136,5 +136,18 @@
     "tickets": 500,
     "food": 0,
     "cafe": 0
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥500 (ledger FIXED_PAID); source: https://genbudo-park.jp/",
+    "sourceUrls": ["https://genbudo-park.jp/"],
+    "checkedAt": "2026-08-14"
   }
 }

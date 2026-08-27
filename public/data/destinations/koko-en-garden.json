@@ -136,5 +136,20 @@
     "tickets": 400,
     "food": 0,
     "cafe": 0
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥400 (ledger FIXED_PAID); source: https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105",
+    "sourceUrls": [
+      "https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105"
+    ],
+    "checkedAt": "2026-08-14"
   }
 }

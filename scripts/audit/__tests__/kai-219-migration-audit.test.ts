@@ -78,9 +78,12 @@ describe("KAI-219 migration audit", () => {
       transitional_legacy_numeric_used,
       transitional_legacy_non_numeric_or_untrusted,
     } = out.admission;
-    // The split must be meaningful (numeric-used < absent — NOT equal).
-    expect(transitional_legacy_numeric_used).toBeGreaterThan(0);
-    expect(transitional_legacy_numeric_used).toBeLessThan(absent);
+    // The split is meaningful: numeric-used is a SUBSET of absent (it can
+    // be 0 after full migration — KAI-219B retired the cohort — but must
+    // never exceed absent, and must never equal absent when non-numeric
+    // records exist).
+    expect(transitional_legacy_numeric_used).toBeGreaterThanOrEqual(0);
+    expect(transitional_legacy_numeric_used).toBeLessThanOrEqual(absent);
     // And the two split cohorts partition the absent records exactly.
     expect(
       transitional_legacy_numeric_used +
@@ -90,5 +93,15 @@ describe("KAI-219 migration audit", () => {
     const numericUsedIds =
       out.ids.admission["admission:transitional_legacy_numeric_used"] ?? [];
     expect(numericUsedIds.length).toBe(transitional_legacy_numeric_used);
+  });
+
+  it("KAI-219B: no prose price conflicts with source-backed bounded admission facts", () => {
+    const destinations = JSON.parse(
+      fs.readFileSync(INDEX_PATH, "utf8"),
+    ) as Parameters<typeof runAudit>[0];
+    const out = runAudit(destinations);
+    // A migrated source-backed bounded admission must not contradict a
+    // literal admission price in the price-bearing prose fields.
+    expect(out.proseConflicts).toEqual([]);
   });
 });

@@ -79,6 +79,12 @@ const DROPPED_FIELDS: ReadonlySet<string> = new Set([
   "content",
   "editorial",
   "budgetBreakdown",
+  // KAI-219B: scoped cost facts are detail/audit fields — the client lite
+  // index does NOT need them; detail surfaces hydrate from the per-
+  // destination JSON files (which carry the facts), and the engine reads
+  // the full index.
+  "admission",
+  "localTransport",
   "ratingsSchemaVersion",
   "imageMetadata",
   "seasonMetadata",

@@ -154,5 +154,18 @@
     "tickets": 0,
     "food": 0,
     "cafe": 0
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "whole_area",
+    "basis": "Free admission (ledger FREE_ENTRY)",
+    "sourceUrls": ["https://www.farm-tomita.co.jp/en/"],
+    "checkedAt": "2026-08-14"
   }
 }

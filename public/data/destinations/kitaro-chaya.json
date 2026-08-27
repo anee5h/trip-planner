@@ -207,5 +207,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Free entry; purchases variable (ledger FREE_ENTRY_PURCHASES_VARIABLE)",
+    "sourceUrls": [
+      "https://kitaro-chaya.jp/",
+      "https://kitaro-chaya.jp/free/access"
+    ],
+    "checkedAt": "2026-08-14"
   }
 }

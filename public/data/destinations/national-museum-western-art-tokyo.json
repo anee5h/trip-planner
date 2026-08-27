@@ -198,5 +198,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥500 (ledger FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL); source: https://www.nmwa.go.jp/en/visit/index.html",
+    "sourceUrls": ["https://www.nmwa.go.jp/en/visit/index.html"],
+    "checkedAt": "2026-08-14"
   }
 }

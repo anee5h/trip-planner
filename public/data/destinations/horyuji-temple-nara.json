@@ -181,5 +181,18 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/",
+    "sourceUrls": ["https://www.horyuji.or.jp/en/annai/"],
+    "checkedAt": "2026-08-14"
   }
 }

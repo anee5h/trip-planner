@@ -212,5 +212,20 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 310,
+      "max": 310
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥310 (ledger LEDGER_VERIFIED); source: https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/",
+    "sourceUrls": [
+      "https://www.japan.travel/en/au/news-blog/keio-rail-land-railway-museum/"
+    ],
+    "checkedAt": "2026-08-14"
   }
 }

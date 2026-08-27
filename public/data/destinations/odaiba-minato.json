@@ -200,5 +200,18 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified free admission (ledger LEDGER_VERIFIED)"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Free admission (ledger LEDGER_VERIFIED)",
+    "sourceUrls": ["https://tokyo-odaiba.net/"],
+    "checkedAt": "2026-08-14"
   }
 }

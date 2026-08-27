@@ -191,5 +191,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 150,
+      "max": 150
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥150 (ledger FIXED_PAID); source: https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html",
+    "sourceUrls": [
+      "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
+    ],
+    "checkedAt": "2026-08-14"
   }
 }

@@ -248,5 +248,18 @@
     "modelVersion": "budget-model-v1",
     "confidence": "low",
     "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/",
+    "sourceUrls": ["https://www.engakuji.or.jp/en/access/"],
+    "checkedAt": "2026-08-14"
   }
 }

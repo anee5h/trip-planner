@@ -179,5 +179,20 @@
     "tickets": 200,
     "food": 0,
     "cafe": 0
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 200
+    },
+    "scope": "general_entry",
+    "basis": "Verified admission ¥200 (ledger FIXED_PAID); source: https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html",
+    "sourceUrls": [
+      "https://www.city.sakai.lg.jp/kanko/hakubutsukan/annai/kaikanzikan.html"
+    ],
+    "checkedAt": "2026-08-14"
   }
 }

@@ -138,5 +138,15 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "none",
+    "reasonCode": "hub_budget_not_applicable",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "general_entry",
+    "basis": "City hub — no single admission product (hub class convention)"
   }
 }
