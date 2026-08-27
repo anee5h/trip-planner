@@ -427,33 +427,39 @@ function localTransportComponent(
   switch (fact.kind) {
     case "verified_required_access": {
       const [min, max] = fact.fare;
+      // KAI-219A contract: canonical fare scaling by basis.
+      //   one_way → ×2 ×party (out + back); round_trip / total → ×party.
+      const mult = fact.fareBasis === "one_way" ? 2 * partySize : partySize;
       return {
         cost: {
           kind: "bounded",
-          min: min * partySize,
-          max: max * partySize,
+          min: min * mult,
+          max: max * mult,
         },
         evidence: {
           ...evidenceBase,
           state: "verified_paid",
           provenance: "verified_source",
           derivation: "source_fact",
+          localCoverage: fact.coverage,
         },
       };
     }
     case "bounded_defensible_access": {
       const [min, max] = fact.fare;
+      const mult = fact.fareBasis === "one_way" ? 2 * partySize : partySize;
       return {
         cost: {
           kind: "bounded",
-          min: min * partySize,
-          max: max * partySize,
+          min: min * mult,
+          max: max * mult,
         },
         evidence: {
           ...evidenceBase,
           state: "documented_estimate",
           provenance: "model",
           derivation: "model_estimate",
+          localCoverage: fact.coverage,
         },
       };
     }
@@ -598,6 +604,18 @@ function buildPartialMetadata(components: readonly TripCostComponent[]): {
           reason: "corridor_only_access_leg_missing",
         });
       }
+      // KAI-219A contract: bounded segment-only local transport — known
+      // segment but the required local access is NOT fully covered; the
+      // component stays MISSING (explicit in missingComponents).
+      if (
+        c.evidence.scope === "local_transport" &&
+        c.evidence.localCoverage === "segment_only"
+      ) {
+        missing.push({
+          scope: c.evidence.scope,
+          reason: "segment_only_access_incomplete",
+        });
+      }
       continue;
     }
     if (k === "open_ended") {
@@ -732,6 +750,18 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
       // Bounded corridor-only / local-bounded origin: the verified
       // corridor/service fare is known but an access leg is missing →
       // the trip is partial, never complete.
+      return true;
+    }
+    if (
+      k === "bounded" &&
+      c.evidence.scope === "local_transport" &&
+      c.evidence.localCoverage === "segment_only"
+    ) {
+      // KAI-219A contract: a SEGMENT-ONLY local-transport fare covers only
+      // part of the required on-site access. The known segment contributes
+      // to knownSubtotal but the local_transport required component is NOT
+      // satisfied — the trip must remain partial (missingComponents keeps
+      // local_transport explicit).
       return true;
     }
     return false;

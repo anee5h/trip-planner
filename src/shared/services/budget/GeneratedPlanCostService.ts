@@ -37,6 +37,20 @@ export interface CostComponent {
   max: number;
   source: "curated" | "estimated" | "unknown";
   applicable: boolean;
+  /**
+   * KAI-219A contract (Fix 3): optional semantic state carried through the
+   * generated-plan result so consumers (widget) can distinguish
+   * verified_free → Free, not_applicable → Not applicable / 対象外,
+   * paid/estimated bounded → range, unknown/open-ended/variable → partial.
+   * N/A must NEVER render as a fake ¥0 admission.
+   */
+  semanticState?:
+    | "verified_free"
+    | "not_applicable"
+    | "paid"
+    | "estimated"
+    | "open_ended_or_variable"
+    | "unknown";
 }
 
 export interface GeneratedPlanCostResult {
@@ -130,6 +144,8 @@ export function calculateGeneratedPlanCost(
   let totalAdmissionMax = 0;
   let hasMissingTickets = false;
   let hasEstimatedTickets = false;
+  let hasVerifiedFreeAdmission = false;
+  let hasNotApplicableAdmission = false;
 
   uniqueDestinationsMap.forEach((dest) => {
     // KAI-219A review BLOCKER 3: an EXPLICIT v2 admission fact is
@@ -150,13 +166,17 @@ export function calculateGeneratedPlanCost(
         totalAdmissionMin += fact.cost.min * safeParty;
         totalAdmissionMax += fact.cost.max * safeParty;
         // verified/source-backed bounded → curated; documented model
-        // estimate → ESTIMATED, NOT curated.
+        // estimate → ESTIMATED, NOT curated (epistemically complete either
+        // way — KAI-219A Fix 3).
         if (isModel) hasEstimatedTickets = true;
+        if (fact.state === "verified_free") hasVerifiedFreeAdmission = true;
         return;
       }
       if (fact.cost.kind === "not_applicable") {
-        // Hub / no-single-admission-product: EXCLUDED from required
-        // admission (not missing, not ¥0 — no admission required).
+        // Hub / no-single-admission-product: a SATISFIED non-numeric
+        // component (KAI-219A Fix 3: N/A is complete for that component,
+        // never a missing component, never a fake ¥0).
+        hasNotApplicableAdmission = true;
         return;
       }
       // open_ended / variable / unavailable → generated plan stays
@@ -184,6 +204,10 @@ export function calculateGeneratedPlanCost(
     }
   });
 
+  // KAI-219A Fix 3: semantic state for the admission component — so the
+  // widget renders Free / Not applicable / range / partial honestly and
+  // N/A never appears as a fake ¥0. not_applicable is a SATISFIED
+  // non-numeric component (never missing).
   const admissionComp: CostComponent = {
     min: totalAdmissionMin,
     max: totalAdmissionMax,
@@ -194,8 +218,18 @@ export function calculateGeneratedPlanCost(
         : "curated",
     // KAI-217B (Luna): unknown admission is NOT applicable — a missing/
     // unverified ticket value must not become an applicable [0,0] that
-    // inflates the numeric plan total with a fabricated ¥0.
-    applicable: !hasMissingTickets,
+    // inflates the numeric plan total with a fabricated ¥0. A
+    // not_applicable admission is satisfied without contributing ¥0.
+    applicable: hasNotApplicableAdmission ? true : !hasMissingTickets,
+    semanticState: hasMissingTickets
+      ? "open_ended_or_variable"
+      : hasNotApplicableAdmission
+        ? "not_applicable"
+        : hasVerifiedFreeAdmission
+          ? "verified_free"
+          : hasEstimatedTickets
+            ? "estimated"
+            : "paid",
   };
 
   // 2. Local Transit (per leg) — curated fares only.
@@ -252,26 +286,21 @@ export function calculateGeneratedPlanCost(
     return true;
   });
 
-  // KAI-217B round-3: extraction-only — no second canonical total. Exposes
-  // explicit COMPLETENESS + KNOWN-SUBTOTAL:
-  //   - complete ONLY when the ADMISSION fact AND the required route legs
-  //     are all curated+applicable (any missing admission OR any missing
-  //     required route leg ⇒ NOT complete).
-  //   - knownSubtotal = curated components only (never a full plan total).
-  const applicableComponents = [localTransitComp, admissionComp].filter(
-    (c) => c.applicable,
-  );
-  // KAI-217B round-4 zero-leg semantics: "complete" means admission is
-  // fully known AND EVERY REQUIRED route leg is fully curated. ZERO
-  // required route legs satisfies the route condition — do NOT require
-  // localTransitComp.applicable (which is false for an empty leg set).
+  // KAI-219A Fix 3: a required component is SATISFIED by bounded curated,
+  // bounded estimated, OR explicit not_applicable (all epistemically
+  // complete for that component). Confidence is SEPARATE: complete + any
+  // estimated → confidence estimated; complete + all verified/curated →
+  // confidence verified. Estimated is NOT partial.
+  const admissionSatisfied =
+    !hasMissingTickets || (hasNotApplicableAdmission && !hasMissingTickets);
   const routeConditionSatisfied =
     fareComponents.length === 0 ||
     (localTransitComp.applicable && localTransitComp.source === "curated");
-  const allKnown =
-    admissionComp.applicable &&
-    admissionComp.source === "curated" &&
-    routeConditionSatisfied;
+  const allKnown = admissionSatisfied && routeConditionSatisfied;
+  // knownSubtotal = the APPLICABLE (known, non-N/A) components only.
+  const applicableComponents = [localTransitComp, admissionComp].filter(
+    (c) => c.applicable,
+  );
   const nothingKnown = applicableComponents.length === 0;
 
   const knownSubtotalMin = applicableComponents.reduce(
@@ -283,8 +312,13 @@ export function calculateGeneratedPlanCost(
     0,
   );
 
+  const hasAnyEstimatedComponent =
+    admissionComp.source === "estimated" ||
+    localTransitComp.source === "estimated";
   const computedConfidence: "estimated" | "verified" = allKnown
-    ? "verified"
+    ? hasAnyEstimatedComponent
+      ? "estimated"
+      : "verified"
     : "estimated";
 
   return {

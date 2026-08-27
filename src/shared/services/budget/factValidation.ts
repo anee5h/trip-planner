@@ -27,25 +27,43 @@
  *     positive/default review interval); bounded_defensible_access →
  *     valid fare + finite non-negative distance + sourceUrls;
  *     verified_walking → explicit walkingEvidence (no manufactured fare);
- *     not_applicable/unavailable → valid required fields.
+ *   - not_applicable/unavailable → valid required fields.
  */
+import { hasVerifiedFreeEvidence } from "./freeEvidence";
 
 export interface ValidationResult {
   readonly valid: boolean;
   readonly reason?: string;
 }
 
-const FREE_EVIDENCE_RE =
-  /FREE_ENTRY|free area|free admission|no admission fee|入場無料/i;
+// KAI-219A contract (Fix 2): the FREE rule is the SHARED dependency-neutral
+// hasVerifiedFreeEvidence() from freeEvidence.ts — the SAME rule used by
+// budgetState (runtime) and data-quality-rules (authoring CI). NO second
+// free-evidence regex exists in this module.
 
 function isFiniteNumber(v: unknown): v is number {
   return typeof v === "number" && Number.isFinite(v);
 }
 
 function isValidDateString(v: unknown): boolean {
-  if (typeof v !== "string" || v.length === 0) return false;
-  const t = Date.parse(v);
-  return Number.isFinite(t);
+  // KAI-219A contract (Fix 5): strict YYYY-MM-DD + calendar round-trip.
+  // Date.parse alone accepts impossible/ambiguous inputs (2026-02-30,
+  // 01/02/2026); checkedAt must be an unambiguous real calendar date.
+  if (typeof v !== "string") return false;
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+  if (!m) return false;
+  const year = Number(m[1]);
+  const month = Number(m[2]);
+  const day = Number(m[3]);
+  if (month < 1 || month > 12 || day < 1 || day > 31) return false;
+  const d = new Date(Date.UTC(year, month - 1, day));
+  // Round-trip: the parsed date must have the SAME Y/M/D (rejects
+  // 2026-02-30 → 2026-03-02, 2026-04-31, etc.).
+  return (
+    d.getUTCFullYear() === year &&
+    d.getUTCMonth() === month - 1 &&
+    d.getUTCDate() === day
+  );
 }
 
 function isNonEmptyUrlList(v: unknown): boolean {
@@ -120,7 +138,10 @@ export function validateAdmissionFact(
       if (provenance !== "verified_source") {
         return { valid: false, reason: "verified_free_not_verified_source" };
       }
-      if (!fact.basis || !FREE_EVIDENCE_RE.test(fact.basis)) {
+      // KAI-219A contract (Fix 2): the SHARED hasVerifiedFreeEvidence()
+      // rule — positive evidence required AND negative evidence
+      // ("not free", "tickets required") rejects. Same rule as authoring CI.
+      if (!hasVerifiedFreeEvidence(fact.basis, cost.min)) {
         return { valid: false, reason: "verified_free_missing_evidence" };
       }
       if (!isNonEmptyUrlList(fact.sourceUrls)) {
@@ -214,6 +235,8 @@ export function validateLocalTransportFact(
   fact: Readonly<{
     kind?: string;
     fare?: readonly [number, number] | readonly number[];
+    fareBasis?: string;
+    coverage?: string;
     sourceUrls?: readonly string[];
     basis?: string;
     walkingEvidence?: string;
@@ -236,6 +259,21 @@ export function validateLocalTransportFact(
       if (!isValidBounded(min, max)) {
         return { valid: false, reason: "verified_required_invalid_fare" };
       }
+      // KAI-219A contract: numeric fares REQUIRE an explicit fareBasis +
+      // coverage (no silent "one-way but charged once" default).
+      if (
+        fact.fareBasis !== "one_way" &&
+        fact.fareBasis !== "round_trip" &&
+        fact.fareBasis !== "required_access_total"
+      ) {
+        return { valid: false, reason: "verified_required_missing_fare_basis" };
+      }
+      if (
+        fact.coverage !== "all_required_access" &&
+        fact.coverage !== "segment_only"
+      ) {
+        return { valid: false, reason: "verified_required_missing_coverage" };
+      }
       if (!isNonEmptyUrlList(fact.sourceUrls)) {
         return { valid: false, reason: "verified_required_missing_urls" };
       }
@@ -251,6 +289,26 @@ export function validateLocalTransportFact(
       const [min, max] = fact.fare ?? [];
       if (!isValidBounded(min, max)) {
         return { valid: false, reason: "bounded_defensible_invalid_fare" };
+      }
+      // KAI-219A contract: explicit fareBasis + coverage required.
+      if (
+        fact.fareBasis !== "one_way" &&
+        fact.fareBasis !== "round_trip" &&
+        fact.fareBasis !== "required_access_total"
+      ) {
+        return {
+          valid: false,
+          reason: "bounded_defensible_missing_fare_basis",
+        };
+      }
+      if (
+        fact.coverage !== "all_required_access" &&
+        fact.coverage !== "segment_only"
+      ) {
+        return {
+          valid: false,
+          reason: "bounded_defensible_missing_coverage",
+        };
       }
       if (!isFiniteNumber(fact.distanceKm) || fact.distanceKm < 0) {
         return { valid: false, reason: "bounded_defensible_invalid_distance" };

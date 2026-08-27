@@ -271,18 +271,44 @@ export interface AdmissionCostFact {
  * Replaces the semantic role of budgetBreakdown.transport (per-person
  * on-site transit allowance) in canonical affordability. NEVER a generic
  * city allowance: every value must be defensible from the record's own
- * evidence. Values are PER-PERSON; the engine multiplies by partySize.
+ * evidence. Numeric fares carry an explicit fareBasis + coverage so the
+ * engine scales them canonically and never lets a partial segment behave
+ * as the complete required-local-transport component.
  */
+
+/**
+ * KAI-219A contract: how a numeric local-transport fare should be scaled.
+ *   - one_way               → fare × 2 × partySize (out + back)
+ *   - round_trip            → fare × partySize (fare already round-trip)
+ *   - required_access_total → fare × partySize (fare IS the total required
+ *     access cost for the trip)
+ */
+export type LocalTransportFareBasis =
+  "one_way" | "round_trip" | "required_access_total";
+
+/**
+ * KAI-219A contract: how much of the required local access a fare covers.
+ *   - all_required_access → the fare covers ALL required on-site access;
+ *     may satisfy the local_transport required component.
+ *   - segment_only        → the fare covers only a SEGMENT of the required
+ *     access; the whole-trip local_transport component stays MISSING — a
+ *     segment-only fare can never make a trip cost complete.
+ */
+export type LocalTransportCoverage = "all_required_access" | "segment_only";
+
 export type LocalTransportAccess =
   | {
       /** Source-backed fare for the actual on-site movement. */
       readonly kind: "verified_required_access";
       readonly access: "rail" | "bus" | "ferry" | "mixed";
-      /** Per-person one-way local fare envelope [min,max]. */
+      /** Fare envelope [min,max] in the units of fareBasis (per-person). */
       readonly fare: readonly [number, number];
+      /** How the fare should be scaled (one-way vs round-trip vs total). */
+      readonly fareBasis: LocalTransportFareBasis;
+      /** How much required access this fare covers. */
+      readonly coverage: LocalTransportCoverage;
       /** Official/operator source URLs. REQUIRED. */
       readonly sourceUrls: readonly string[];
-      readonly coverage: "all_day" | "segment";
       readonly segmentNotes?: string;
       /**
        * Destination-specific evidence of the required access (which
@@ -301,6 +327,10 @@ export type LocalTransportAccess =
       readonly access: "rail";
       readonly band: "≤5km" | "≤15km" | "≤30km" | "≤50km";
       readonly fare: readonly [number, number];
+      /** How the fare should be scaled (one-way vs round-trip vs total). */
+      readonly fareBasis: LocalTransportFareBasis;
+      /** How much required access this fare covers. */
+      readonly coverage: LocalTransportCoverage;
       readonly distanceKm: number;
       /** KAI-204 operator source URLs. REQUIRED. */
       readonly sourceUrls: readonly string[];

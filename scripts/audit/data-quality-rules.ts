@@ -204,6 +204,8 @@ export const PREVENTIVE_CODES = new Set([
   "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
   "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
   "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
+  "KAI218_LOCAL_TRANSPORT_REQUIRES_FARE_BASIS",
+  "KAI218_LOCAL_TRANSPORT_REQUIRES_COVERAGE",
   "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
   "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
   "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
@@ -265,6 +267,28 @@ export const REQUIRED_RATING_KEYS = [
 
 function finiteNonNegative(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value) && value >= 0;
+}
+
+/**
+ * KAI-219A contract (Fix 5): strict YYYY-MM-DD + calendar round-trip —
+ * the SAME rule as the runtime validator (factValidation.ts). Rejects
+ * impossible/ambiguous dates (2026-02-30, 01/02/2026) that Date.parse
+ * would accept. Runtime and authoring stay aligned.
+ */
+function isStrictCalendarDate(value: unknown): boolean {
+  if (typeof value !== "string") return false;
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!m) return false;
+  const year = Number(m[1]);
+  const month = Number(m[2]);
+  const day = Number(m[3]);
+  if (month < 1 || month > 12 || day < 1 || day > 31) return false;
+  const d = new Date(Date.UTC(year, month - 1, day));
+  return (
+    d.getUTCFullYear() === year &&
+    d.getUTCMonth() === month - 1 &&
+    d.getUTCDate() === day
+  );
 }
 
 export function collectDestinationIssues(
@@ -1046,10 +1070,13 @@ export function collectDestinationIssues(
         );
       }
       const checked = new Date(admission.checkedAt).getTime();
-      if (!Number.isFinite(checked)) {
+      if (
+        !Number.isFinite(checked) ||
+        !isStrictCalendarDate(admission.checkedAt)
+      ) {
         push(
           "KAI218_ADMISSION_INVALID_CHECKED_AT",
-          `checkedAt '${admission.checkedAt}' is not a valid date`,
+          `checkedAt '${admission.checkedAt}' is not a valid YYYY-MM-DD calendar date`,
         );
       }
     }
@@ -1069,6 +1096,29 @@ export function collectDestinationIssues(
           push(
             "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
             "verified_required_access requires a valid [min,max] fare",
+          );
+        }
+        // KAI-219A contract (Fix 1): numeric local-transport facts REQUIRE
+        // an explicit fareBasis + coverage — no silent "one-way but
+        // charged once" default, and a partial segment must never behave
+        // as the complete required-local-transport component.
+        if (
+          localTransport.fareBasis !== "one_way" &&
+          localTransport.fareBasis !== "round_trip" &&
+          localTransport.fareBasis !== "required_access_total"
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_FARE_BASIS",
+            "verified_required_access requires fareBasis (one_way | round_trip | required_access_total)",
+          );
+        }
+        if (
+          localTransport.coverage !== "all_required_access" &&
+          localTransport.coverage !== "segment_only"
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_COVERAGE",
+            "verified_required_access requires coverage (all_required_access | segment_only)",
           );
         }
         if (
@@ -1106,10 +1156,13 @@ export function collectDestinationIssues(
         }
         if (localTransport.checkedAt) {
           const ltChecked = new Date(localTransport.checkedAt).getTime();
-          if (!Number.isFinite(ltChecked)) {
+          if (
+            !Number.isFinite(ltChecked) ||
+            !isStrictCalendarDate(localTransport.checkedAt)
+          ) {
             push(
               "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
-              `checkedAt '${localTransport.checkedAt}' is not a valid date`,
+              `checkedAt '${localTransport.checkedAt}' is not a valid YYYY-MM-DD calendar date`,
             );
           }
         }
@@ -1125,6 +1178,26 @@ export function collectDestinationIssues(
           push(
             "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
             "bounded_defensible_access requires a valid [min,max] fare",
+          );
+        }
+        // KAI-219A contract (Fix 1): explicit fareBasis + coverage.
+        if (
+          localTransport.fareBasis !== "one_way" &&
+          localTransport.fareBasis !== "round_trip" &&
+          localTransport.fareBasis !== "required_access_total"
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_FARE_BASIS",
+            "bounded_defensible_access requires fareBasis (one_way | round_trip | required_access_total)",
+          );
+        }
+        if (
+          localTransport.coverage !== "all_required_access" &&
+          localTransport.coverage !== "segment_only"
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_COVERAGE",
+            "bounded_defensible_access requires coverage (all_required_access | segment_only)",
           );
         }
         if (

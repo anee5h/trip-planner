@@ -568,18 +568,21 @@ describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
         kind: "verified_required_access",
         access: "rail",
         fare: [400, 600],
+        fareBasis: "one_way",
+        coverage: "all_required_access",
         sourceUrls: ["https://example.com/rail"],
-        coverage: "all_day",
         basis: "Station X is the served stop for this destination",
         checkedAt: "2026-01-01",
       },
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost).toEqual({ kind: "bounded", min: 800, max: 1200 });
+    // one_way basis: fare × 2 (out+back) × partySize.
+    expect(c.cost).toEqual({ kind: "bounded", min: 1600, max: 2400 });
     expect(c.evidence.state).toBe("verified_paid");
     expect(c.evidence.provenance).toBe("verified_source");
     expect(c.evidence.derivation).toBe("source_fact");
+    expect(c.evidence.localCoverage).toBe("all_required_access");
   });
 
   it("explicit verified_walking → ¥0 ONLY with required evidence", () => {
@@ -605,6 +608,8 @@ describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
         access: "rail",
         band: "≤15km",
         fare: [500, 800],
+        fareBasis: "one_way",
+        coverage: "all_required_access",
         distanceKm: 12,
         sourceUrls: ["https://example.com/operator"],
         checkedAt: "2026-01-01",
@@ -612,8 +617,10 @@ describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost).toEqual({ kind: "bounded", min: 1000, max: 1600 });
+    // one_way basis: fare × 2 (out+back) × partySize.
+    expect(c.cost).toEqual({ kind: "bounded", min: 2000, max: 3200 });
     expect(c.evidence.derivation).toBe("model_estimate");
+    expect(c.evidence.localCoverage).toBe("all_required_access");
   });
 
   it("explicit localTransport unavailable → unavailable (never a generic allowance)", () => {
@@ -639,6 +646,219 @@ describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
     const c = byScope(r, "local_transport")!;
     expect(c.cost.kind).toBe("unavailable");
     expect(c.evidence.reason).toBe("source_missing");
+  });
+});
+
+// ── KAI-219A contract (Fix 1): local-transport fareBasis + coverage ────────
+describe("KAI-219A — local-transport fare basis + coverage contract", () => {
+  it("A) ¥500 one_way, party 2 → canonical local transport ¥2,000", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [500, 500],
+        fareBasis: "one_way",
+        coverage: "all_required_access",
+        sourceUrls: ["https://example.com/rail"],
+        basis: "Served stop",
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "local_transport")!;
+    // one_way: 500 × 2 (out+back) × 2 party = 2000.
+    expect(c.cost).toEqual({ kind: "bounded", min: 2000, max: 2000 });
+  });
+
+  it("B) ¥1,000 round_trip, party 2 → ¥2,000", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [1000, 1000],
+        fareBasis: "round_trip",
+        coverage: "all_required_access",
+        sourceUrls: ["https://example.com/rail"],
+        basis: "Served stop",
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    const c = byScope(r, "local_transport")!;
+    // round_trip: 1000 × 2 party = 2000.
+    expect(c.cost).toEqual({ kind: "bounded", min: 2000, max: 2000 });
+  });
+
+  it("C) segment_only bounded local fare → trip stays PARTIAL; segment in knownSubtotal; local_transport explicit in missingComponents", () => {
+    // All other components complete (origin via a bounded verified route
+    // + admission verified_paid), local transport = bounded segment_only.
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [300, 400],
+        fareBasis: "one_way",
+        coverage: "segment_only",
+        sourceUrls: ["https://example.com/rail"],
+        basis: "Only the station→gate segment is covered",
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    // Partial — segment-only local transport can never make it complete.
+    expect(r.completeness).toBe("partial");
+    // The known segment contributes to knownSubtotal.
+    if (r.completeness === "partial") {
+      const seg = r.components.find(
+        (c) => c.evidence.scope === "local_transport",
+      )!;
+      expect(seg.cost).toEqual({ kind: "bounded", min: 1200, max: 1600 });
+      expect(seg.evidence.localCoverage).toBe("segment_only");
+      expect(r.knownSubtotal[0]).toBeGreaterThanOrEqual(1200);
+      // local_transport stays explicit in missingComponents.
+      expect(
+        r.missingComponents.some((m) => m.scope === "local_transport"),
+      ).toBe(true);
+    }
+  });
+
+  it("D) all_required_access bounded → can participate in a COMPLETE result", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [500, 600],
+        fareBasis: "round_trip",
+        coverage: "all_required_access",
+        sourceUrls: ["https://example.com/rail"],
+        basis: "Served stop",
+        checkedAt: "2026-01-01",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest, partySize: 2 }));
+    // paidDest has trusted admission (1300) + all_required_access local
+    // transport (bounded) — but origin_travel is unavailable (no
+    // mode/homeCoords) → still partial. The local_transport component
+    // itself is bounded and NOT in missingComponents.
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost.kind).toBe("bounded");
+    if (r.completeness === "partial") {
+      expect(
+        r.missingComponents.some((m) => m.scope === "local_transport"),
+      ).toBe(false);
+    }
+  });
+
+  it("numeric local-transport fact missing fareBasis/coverage → invalid → unavailable", () => {
+    const dest = paidDest({
+      localTransport: {
+        kind: "verified_required_access",
+        access: "rail",
+        fare: [400, 600],
+        sourceUrls: ["https://example.com/rail"],
+        basis: "Served stop",
+        checkedAt: "2026-01-01",
+        // missing fareBasis + coverage
+      } as never,
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    const c = byScope(r, "local_transport")!;
+    expect(c.cost.kind).toBe("unavailable");
+  });
+});
+
+// ── KAI-219A contract (Fix 2): SHARED free-evidence rule ────────────────────
+describe("KAI-219A — shared verified-free evidence rule (hasVerifiedFreeEvidence)", () => {
+  function freeDest(basis: string) {
+    return paidDest({
+      admission: {
+        state: "verified_free",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "general_entry",
+        basis,
+        sourceUrls: ["https://example.com/free"],
+        checkedAt: "2026-01-01",
+      },
+    });
+  }
+
+  it("'not free area' → INVALID verified_free (negative evidence rejects)", () => {
+    const r = calculateTripCost(
+      ctx({ dest: freeDest("This is a not free area; admission applies") }),
+    );
+    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+  });
+
+  it("'free, but tickets required' → INVALID (negative evidence rejects)", () => {
+    const r = calculateTripCost(
+      ctx({
+        dest: freeDest("Free to enter, but tickets required for exhibits"),
+      }),
+    );
+    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+  });
+
+  it("'free' → valid when other requirements are satisfied", () => {
+    const r = calculateTripCost(
+      ctx({ dest: freeDest("The garden is free to enter") }),
+    );
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
+  });
+
+  it("'無料開放' → valid (JA positive evidence)", () => {
+    const r = calculateTripCost(ctx({ dest: freeDest("庭園は無料開放") }));
+    const c = byScope(r, "admission")!;
+    expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
+  });
+});
+
+// ── KAI-219A contract (Fix 5): strict YYYY-MM-DD checkedAt ──────────────────
+describe("KAI-219A — strict checkedAt date validation", () => {
+  it("2026-02-28 → valid", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 1000, max: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-02-28",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    expect(byScope(r, "admission")!.cost.kind).toBe("bounded");
+  });
+
+  it("2026-02-30 → invalid (impossible date)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 1000, max: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-02-30",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+  });
+
+  it("01/02/2026 → invalid (ambiguous format)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 1000, max: 1000 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "01/02/2026",
+      },
+    });
+    const r = calculateTripCost(ctx({ dest }));
+    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
   });
 });
 
