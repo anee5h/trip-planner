@@ -786,15 +786,34 @@ export default function DestinationDetails() {
       groundEstimateFor(mode)?.evidence,
     );
 
-  const formatGroundCost = (mode: GroundMode): string => {
-    if (!destination) return copy.costUnavailable;
-    const cost = budgetService.getTransportCost(
-      destination,
+  // KAI-217B round-3: canonical per-mode cost RANGE from the engine.
+  // complete → [min,max]; partial → undefined (callers render the known
+  // subtotal + missing via the engine's partial semantics); unavailable →
+  // undefined. NEVER a scalar midpoint projection.
+  const modeCostRange = (
+    mode: string,
+    opts?: { includeOriginTravel?: boolean },
+  ): [number, number] | undefined => {
+    if (!destination) return undefined;
+    const r = calculateTripCost({
+      dest: destination,
       mode,
       partySize,
-      homeStationCoords ?? undefined,
-    );
-    if (cost === null || !Number.isFinite(cost)) return copy.costUnavailable;
+      homeCoords: homeStationCoords ?? undefined,
+      tripMode:
+        navState?.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+      accommodationAllowance,
+      ferryTemporal,
+      ...(opts ?? {}),
+    });
+    if (r.completeness !== "complete" || !r.total) return undefined;
+    return [r.total.min, r.total.max];
+  };
+
+  const formatGroundCost = (mode: GroundMode): string => {
+    if (!destination) return copy.costUnavailable;
+    const range = modeCostRange(mode);
+    if (!range) return copy.costUnavailable;
     const estimate = groundEstimateFor(mode);
     const label =
       estimate?.fareScope === "local_bounded_estimate"
@@ -802,7 +821,7 @@ export default function DestinationDetails() {
         : estimate?.evidence === "estimated"
           ? copy.corridorFareOnly
           : copy.estimated;
-    return `${label} ¥${(cost / 1000).toFixed(1)}k`;
+    return `${label} ${formatLocalizedJPYRange(range, locale)}`;
   };
 
   const isModeVisible = (mode: string) => {
@@ -1585,31 +1604,26 @@ export default function DestinationDetails() {
                                 </span>
                               </div>
                               <div className="text-xs text-slate-500">
-                                {ferryEstimate.costUnavailable ||
-                                budgetService.getTransportCost(
-                                  destination,
-                                  "ferry",
-                                  partySize,
-                                  homeStationCoords ?? undefined,
-                                  ferryTemporal,
-                                ) === null ? (
-                                  copy.costUnavailable
-                                ) : (
-                                  <>
-                                    {copy.estimated}{" "}
-                                    <JapaneseYen className="inline w-3 h-3" />
-                                    {(
-                                      (budgetService.getTransportCost(
-                                        destination,
-                                        "ferry",
-                                        partySize,
-                                        homeStationCoords ?? undefined,
-                                        ferryTemporal,
-                                      ) ?? 0) / 1000
-                                    ).toFixed(1)}
-                                    k
-                                  </>
-                                )}
+                                {(() => {
+                                  // KAI-217B round-3: canonical RANGE, never
+                                  // a scalar getTransportCost midpoint.
+                                  const ferryRange = modeCostRange("ferry");
+                                  if (
+                                    ferryEstimate.costUnavailable ||
+                                    !ferryRange
+                                  ) {
+                                    return copy.costUnavailable;
+                                  }
+                                  return (
+                                    <>
+                                      {copy.estimated}{" "}
+                                      {formatLocalizedJPYRange(
+                                        ferryRange,
+                                        locale,
+                                      )}
+                                    </>
+                                  );
+                                })()}
                               </div>
                             </div>
                           </div>
@@ -1628,29 +1642,26 @@ export default function DestinationDetails() {
                                 )}
                               </div>
                               <div className="text-xs text-slate-500">
-                                {flightEstimate.costUnavailable ||
-                                budgetService.getTransportCost(
-                                  destination,
-                                  "flight",
-                                  partySize,
-                                  homeStationCoords ?? undefined,
-                                ) === null ? (
-                                  copy.costUnavailable
-                                ) : (
-                                  <>
-                                    {copy.estimated}{" "}
-                                    <JapaneseYen className="inline w-3 h-3" />
-                                    {(
-                                      (budgetService.getTransportCost(
-                                        destination,
-                                        "flight",
-                                        partySize,
-                                        homeStationCoords ?? undefined,
-                                      ) ?? 0) / 1000
-                                    ).toFixed(1)}
-                                    k
-                                  </>
-                                )}
+                                {(() => {
+                                  // KAI-217B round-3: canonical RANGE, never
+                                  // a scalar getTransportCost midpoint.
+                                  const flightRange = modeCostRange("flight");
+                                  if (
+                                    flightEstimate.costUnavailable ||
+                                    !flightRange
+                                  ) {
+                                    return copy.costUnavailable;
+                                  }
+                                  return (
+                                    <>
+                                      {copy.estimated}{" "}
+                                      {formatLocalizedJPYRange(
+                                        flightRange,
+                                        locale,
+                                      )}
+                                    </>
+                                  );
+                                })()}
                               </div>
                             </div>
                           </div>
@@ -1667,15 +1678,11 @@ export default function DestinationDetails() {
                         </div>
                         <div>
                           {(() => {
+                            // KAI-217B round-3: availability via the CANONICAL
+                            // engine range — never a scalar midpoint.
                             const isSelectedTransportCostUnavailable =
                               selectedTransport === null ||
-                              budgetService.getTransportCost(
-                                destination,
-                                selectedTransport,
-                                partySize,
-                                homeStationCoords ?? undefined,
-                                ferryTemporal,
-                              ) === null;
+                              !modeCostRange(selectedTransport);
                             const isTransportExcluded =
                               availableModes.length === 0 ||
                               isSelectedTransportCostUnavailable;
@@ -1854,35 +1861,25 @@ export default function DestinationDetails() {
                                             : "Highway Bus",
                                         flight:
                                           locale === "ja"
-                                            ? "飛行機 (航空券・アクセス)"
-                                            : "Flight (Air & Access)",
+                                            ? "飛行機 (航空券)"
+                                            : "Flight (airfare)",
                                       } as Record<string, string>
                                     )[selectedTransport]
                                   }
                                 </span>
                                 <span className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {budgetService.getTransportCost(
-                                    destination,
-                                    selectedTransport,
-                                    partySize,
-                                    homeStationCoords ?? undefined,
-                                    ferryTemporal,
-                                  ) === null ? (
-                                    copy.costUnavailable
-                                  ) : (
-                                    <>
-                                      <JapaneseYen className="inline w-3 h-3" />
-                                      {budgetService
-                                        .getTransportCost(
-                                          destination,
-                                          selectedTransport,
-                                          partySize,
-                                          homeStationCoords ?? undefined,
-                                          ferryTemporal,
+                                  {(() => {
+                                    // KAI-217B round-3: canonical RANGE.
+                                    const selRange = modeCostRange(
+                                      selectedTransport ?? "",
+                                    );
+                                    return selRange
+                                      ? formatLocalizedJPYRange(
+                                          selRange,
+                                          locale,
                                         )
-                                        ?.toLocaleString()}
-                                    </>
-                                  )}
+                                      : copy.costUnavailable;
+                                  })()}
                                 </span>
                               </div>
 

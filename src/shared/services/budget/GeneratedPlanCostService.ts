@@ -44,16 +44,14 @@ export interface GeneratedPlanCostResult {
   meals: CostComponent;
   parking: CostComponent;
   /**
-   * KAI-217B round-2: explicit completeness. "complete" ONLY when every
-   * applicable component is curated; "partial" when some known + some
-   * unknown; "unavailable" when nothing is known. Never claim a full plan
-   * total on partial evidence.
+   * KAI-217B round-3: explicit completeness. "complete" ONLY when the
+   * admission fact AND every required route leg are curated; "partial"
+   * when some known + some unknown; "unavailable" when nothing is known.
+   * Never claim a full plan total on partial evidence.
    */
   completeness: "complete" | "partial" | "unavailable";
   /** The known-subtotal (curated components only) — NOT a full plan total. */
   knownSubtotal: [number, number];
-  /** DEPRECATED: [0,0] unless complete — use completeness + knownSubtotal. */
-  totalRange: [number, number];
   confidence: "verified" | "estimated";
   assumptions: PlanAssumption[];
 }
@@ -200,21 +198,20 @@ export function calculateGeneratedPlanCost(
     return true;
   });
 
-  // KAI-217B round-2: this service is EXTRACTION-ONLY — it must not own a
-  // second canonical total. It exposes explicit COMPLETENESS + a
-  // KNOWN-SUBTOTAL:
-  //   - admission known + unknown route leg(s) → completeness "partial",
-  //     knownSubtotal = curated legs + admission (never presented as a
-  //     full plan total).
-  //   - admission unknown → admission is not applicable; if local transit
-  //     is also not fully curated, completeness is "partial" (or
-  //     "unavailable" when NO component is applicable).
+  // KAI-217B round-3: extraction-only — no second canonical total. Exposes
+  // explicit COMPLETENESS + KNOWN-SUBTOTAL:
+  //   - complete ONLY when the ADMISSION fact AND the required route legs
+  //     are all curated+applicable (any missing admission OR any missing
+  //     required route leg ⇒ NOT complete).
+  //   - knownSubtotal = curated components only (never a full plan total).
   const applicableComponents = [localTransitComp, admissionComp].filter(
     (c) => c.applicable,
   );
   const allKnown =
-    applicableComponents.length > 0 &&
-    applicableComponents.every((c) => c.source === "curated" && c.applicable);
+    admissionComp.applicable &&
+    admissionComp.source === "curated" &&
+    localTransitComp.applicable &&
+    localTransitComp.source === "curated";
   const nothingKnown = applicableComponents.length === 0;
 
   const knownSubtotalMin = applicableComponents.reduce(
@@ -236,18 +233,15 @@ export function calculateGeneratedPlanCost(
     admission: admissionComp,
     meals: mealsComp,
     parking: parkingComp,
-    // KAI-217B round-2: NEVER a misleading full-plan totalRange. Expose
-    // completeness + knownSubtotal; consumers render "partial/unavailable"
-    // honestly instead of a numeric claim on incomplete evidence.
+    // KAI-217B round-3: totalRange REMOVED entirely — consumers must use
+    // completeness + knownSubtotal; a partial plan renders honestly as
+    // partial, never as a numeric total.
     completeness: nothingKnown
       ? ("unavailable" as const)
       : allKnown
         ? ("complete" as const)
         : ("partial" as const),
     knownSubtotal: [knownSubtotalMin, knownSubtotalMax] as [number, number],
-    totalRange: allKnown
-      ? ([knownSubtotalMin, knownSubtotalMax] as [number, number])
-      : [0, 0],
     confidence: computedConfidence,
     assumptions: deduplicatedAssumptions,
   };

@@ -224,7 +224,7 @@ describe("DestinationDetails transport rows", () => {
     ["Shin-Yokohama", SHIN_YOKOHAMA],
     ["Chiba", CHIBA],
   ])(
-    "%s labels a bounded local fare estimate when no verified corridor exists",
+    "%s shows the canonical partial cost state (bounded local fare + no complete range)",
     async (_originName, originCoords) => {
       storeState.homeStationCoords = originCoords;
       storeState.homeStationTransportZoneId = "mainland-honshu";
@@ -233,9 +233,13 @@ describe("DestinationDetails transport rows", () => {
         await flush(80);
       });
       const text = host.textContent ?? "";
-      expect(text).toContain("Local fare estimate (bounded)");
-      expect(text).toContain("~");
-      expect(text).not.toContain("Route not verified");
+      // KAI-217B round-3: the local-bounded origin fare is corridor_only →
+      // the engine result is PARTIAL → no complete range is displayed; the
+      // train row is present with honest unavailable cost copy (never a
+      // fabricated scalar).
+      expect(text).toContain("Train");
+      expect(text).toContain("Cost unavailable");
+      expect(text).not.toContain("Local fare estimate (bounded)");
     },
   );
 
@@ -274,8 +278,11 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
     expect(text).not.toContain("Flight");
-    // Ferry is now estimable: budget no longer says transport-excluded.
-    expect(text).not.toContain("On-site budget (transport excluded)");
+    // KAI-217B round-3: the ferry corridor fare is corridor_only (access
+    // legs not modeled) + required local transport is unavailable → the
+    // engine result is PARTIAL → no complete range → the on-site-excluded
+    // copy legitimately shows (origin trip is not whole-journey complete).
+    expect(text).toContain("On-site budget (transport excluded)");
   });
 
   it("Ogasawara from Fukuoka shows no ferry note, unavailable copy, and on-site budget", async () => {
@@ -300,8 +307,9 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    // Transport is now included because ferry is estimable.
-    expect(text).not.toContain("On-site budget (transport excluded)");
+    // KAI-217B round-3: the ferry corridor is partial (access + local
+    // transport not modeled) → the on-site-excluded copy legitimately shows.
+    expect(text).toContain("On-site budget (transport excluded)");
   });
 
   it("Japanese locale no longer shows on-site-only budget when ferry estimable", async () => {
@@ -313,8 +321,9 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    // Ferry is estimable: transport-excluded copy is gone.
-    expect(text).not.toContain("現地予算（往復交通費を除く）");
+    // KAI-217B round-3: partial ferry corridor → the transport-excluded
+    // copy legitimately shows (origin trip is not whole-journey complete).
+    expect(text).toContain("現地予算（往復交通費を除く）");
   });
 
   it("Tomogashima ferry row follows the planned travel date (August)", async () => {
@@ -360,7 +369,11 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
     expect(text).toContain("Travel Time Bus");
-    expect(text).toContain(
+    // KAI-217B round-3: the highway-bus corridor fare is corridor_only →
+    // the engine result is PARTIAL → the cost row honestly shows
+    // unavailable (no fabricated scalar, no intercity-only label).
+    expect(text).toContain("Cost unavailable");
+    expect(text).not.toContain(
       "Intercity fare only; local access cost is not modeled",
     );
     expect(text).not.toContain("Local access available");

@@ -717,7 +717,11 @@ export function generateDayPlan(
   };
 
   const planCost = calculateGeneratedPlanCost(rawPlan, partySize);
-  rawPlan.totalBudgetRange = planCost.totalRange;
+  // KAI-217B round-3: complete-only — a partial plan must NOT carry a
+  // numeric totalBudgetRange (never [0,0] or a partial subtotal).
+  if (planCost.completeness === "complete") {
+    rawPlan.totalBudgetRange = planCost.knownSubtotal;
+  }
   if (planCost.assumptions.length > 0) {
     rawPlan.assumptions = [
       ...(rawPlan.assumptions || []),
@@ -1121,7 +1125,10 @@ export function rebuildPlanFromEditedStops(
   };
 
   const planCost = calculateGeneratedPlanCost(newPlan, partySize);
-  newPlan.totalBudgetRange = planCost.totalRange;
+  // KAI-217B round-3: complete-only totalBudgetRange.
+  if (planCost.completeness === "complete") {
+    newPlan.totalBudgetRange = planCost.knownSubtotal;
+  }
 
   return newPlan;
 }

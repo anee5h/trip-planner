@@ -71,11 +71,14 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.min).toBe(3000); // 1500 * 2
     expect(cost.admission.source).toBe("curated");
     expect(cost.originTransport.source).toBe("unknown");
-    expect(cost.totalRange[0]).toBeGreaterThan(0);
-    // KAI-217B: the fabricated meals/parking components are removed, so a
-    // plan built entirely from curated components is now VERIFIED (the old
-    // "estimated" came from the fabricated meal/parking sources).
-    expect(cost.confidence).toBe("verified");
+    // KAI-217B round-3: originTransport unknown → the plan is PARTIAL (a
+    // missing route leg) — knownSubtotal still carries the known parts but
+    // there is no totalRange and no complete claim. The confidence is
+    // honestly "estimated" (not verified): a partial plan is never verified
+    // end-to-end even when its known parts are curated.
+    expect(cost.completeness).toBe("partial");
+    expect(cost.knownSubtotal[0]).toBeGreaterThan(0);
+    expect(cost.confidence).toBe("estimated");
   });
 
   it("excludes tickets from ABSENT-metadata legacy destinations (not trusted)", () => {

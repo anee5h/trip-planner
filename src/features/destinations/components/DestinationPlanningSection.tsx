@@ -103,6 +103,14 @@ export function DestinationPlanningSection({
         )
       : undefined;
 
+  // KAI-217B round-3: the generated-plan cost feeds are COMPLETE-ONLY.
+  // A partial/unavailable plan must NOT present [0,0] or a partial subtotal
+  // as the plan's cost range — the UI renders "partial/unavailable" instead.
+  const completePlanCostRange: [number, number] | undefined =
+    costBreakdown?.completeness === "complete"
+      ? costBreakdown.knownSubtotal
+      : undefined;
+
   return (
     <div className="space-y-6 pb-4 md:pb-0">
       {/* Unified Progressive Day Plan Generator */}
@@ -111,7 +119,7 @@ export function DestinationPlanningSection({
         locale={locale}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
-        generatedCostRange={costBreakdown?.totalRange}
+        generatedCostRange={completePlanCostRange}
         eligible={eligible}
         catalogueLoading={catalogueLoading}
         catalogueError={catalogueError}
@@ -124,7 +132,7 @@ export function DestinationPlanningSection({
               ? {
                   ...generatedPlan,
                   totalBudgetRange:
-                    costBreakdown?.totalRange ?? generatedPlan.totalBudgetRange,
+                    completePlanCostRange ?? generatedPlan.totalBudgetRange,
                 }
               : undefined,
           )

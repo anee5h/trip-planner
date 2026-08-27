@@ -91,10 +91,18 @@ export function TripCostBreakdownWidget({
           planCostBreakdown.admission.max === 0 &&
           planCostBreakdown.admission.source === "curated",
         confidence: planCostBreakdown.confidence,
-        partyRange: planCostBreakdown.totalRange,
-        perPersonRange: planCostBreakdown.totalRange,
+        // KAI-217B round-3: complete-only — a partial plan must NOT present
+        // a numeric range as its party/per-person cost.
+        partyRange:
+          planCostBreakdown.completeness === "complete"
+            ? planCostBreakdown.knownSubtotal
+            : undefined,
+        perPersonRange:
+          planCostBreakdown.completeness === "complete"
+            ? planCostBreakdown.knownSubtotal
+            : undefined,
         durationKnown: true,
-        budgetAvailable: true,
+        budgetAvailable: planCostBreakdown.completeness === "complete",
       };
     }
     return calculateItemizedTripCost(destination, {
@@ -131,6 +139,21 @@ export function TripCostBreakdownWidget({
         planCostBreakdown.parking.applicable,
       )
     : cost.budgetAvailable;
+  // KAI-217B round-3: partial-plan UI — when the plan is partial, surface
+  // the KNOWN subtotal instead of a generic "Cost unavailable" (known parts
+  // are still honest information).
+  const partialPlanLabel: string | undefined =
+    planCostBreakdown?.completeness === "partial"
+      ? locale === "ja"
+        ? `既知 ${formatLocalizedJPYRange(
+            planCostBreakdown.knownSubtotal,
+            locale,
+          )}`
+        : `Known ${formatLocalizedJPYRange(
+            planCostBreakdown.knownSubtotal,
+            locale,
+          )}`
+      : undefined;
   const transportRange: [number, number] = planCostBreakdown
     ? [
         planCostBreakdown.originTransport.min +
@@ -327,11 +350,13 @@ export function TripCostBreakdownWidget({
                 {locale === "ja" ? "概算合計" : "Est. Range"}
               </div>
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
-                {hasKnownCost
-                  ? formatLocalizedJPYRange(totalRange, locale)
-                  : locale === "ja"
-                    ? "料金不明"
-                    : "Cost unavailable"}
+                {partialPlanLabel
+                  ? partialPlanLabel
+                  : hasKnownCost
+                    ? formatLocalizedJPYRange(totalRange, locale)
+                    : locale === "ja"
+                      ? "料金不明"
+                      : "Cost unavailable"}
               </div>
             </div>
 
