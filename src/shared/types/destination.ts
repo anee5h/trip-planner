@@ -179,6 +179,168 @@ export interface NormalizedBudgetState {
   sourceMethod: "model" | "manual" | "unknown" | "legacy" | "absent";
 }
 
+// ---- KAI-218A — scoped destination cost facts ----
+//
+// These are PERSISTED, destination-owned cost facts (admission / required
+// local transport). They reuse the KAI-214 state/provenance/reasonCode
+// taxonomy VERBATIM (no second trust system) and represent values with
+// KAI-215-style shapes (bounded / open_ended / non-numeric). They are the
+// forward replacement for the generic budgetMin/budgetRecommended/budgetMax
+// + budgetBreakdown.{transport,food,cafe} fields (retirement path in
+// DEPRECATION.md).
+
+/** KAI-218A — destination cost value shapes (dependency-neutral twin of the
+ *  KAI-215 CostRepresentation, kept local so destination.ts stays free of
+ *  service-layer imports). */
+export type DestinationCostFact =
+  | { readonly kind: "bounded"; readonly min: number; readonly max: number }
+  | { readonly kind: "open_ended"; readonly from: number }
+  | { readonly kind: "variable" }
+  | { readonly kind: "not_applicable" }
+  | { readonly kind: "unavailable"; readonly reason?: BudgetReasonCode };
+
+/** What the admission number/state covers, for honest scope reporting. */
+export type AdmissionScope =
+  | "general_entry"
+  | "adult"
+  | "combo_included"
+  | "main_site_only"
+  | "grounds_only"
+  | "per_activity"
+  | "open_area"
+  | "whole_area";
+
+/**
+ * KAI-218A — ADMISSION cost fact.
+ *
+ * The on-site admission/entry-price truth for ONE destination. Deliberately
+ * reuses the KAI-214 state/provenance/reasonCode taxonomy verbatim and
+ * represents the value with DestinationCostFact shapes.
+ *
+ * Invariants (CI-enforced):
+ *   - state === "verified_free"  ⇒ cost bounded [0,0] AND explicit free
+ *     evidence in basis (freeEvidence.hasVerifiedFreeEvidence semantics).
+ *   - state === "verified_paid"  ⇒ cost bounded [min,max] (min>=0,
+ *     max>=min) AND provenance "verified_source" AND at least one
+ *     sourceUrl + checkedAt.
+ *   - state === "documented_estimate" ⇒ cost bounded/open_ended with
+ *     provenance "model".
+ *   - state === "variable_price" ⇒ cost open_ended (truthful lower bound
+ *     only), variable, OR a VERIFIED OFFICIAL bounded range (e.g.
+ *     ¥2,000–3,500 published by the attraction — variable ≠ necessarily
+ *     open-ended). A bounded variable range additionally requires
+ *     provenance "verified_source" + sourceUrl + checkedAt (never a
+ *     fabricated/legacy bounded guess); reasonCode REQUIRED.
+ *   - state === "not_applicable" ⇒ cost not_applicable; reasonCode
+ *     REQUIRED (hub_budget_not_applicable / no_single_admission_product /
+ *     free_area_with_optional_paid_components).
+ *   - state === "unavailable" ⇒ cost unavailable; reasonCode REQUIRED.
+ *   - legacy_unverified is NOT a forward admission state — legacy
+ *     admission values are authored unavailable
+ *     (legacy_provenance_unrecovered) or re-verified.
+ *
+ * Scaling: values are PER-PERSON; the engine multiplies by partySize.
+ */
+export interface AdmissionCostFact {
+  readonly state: Exclude<BudgetValueState, "legacy_unverified">;
+  readonly provenance: BudgetProvenance;
+  readonly reasonCode?: BudgetReasonCode;
+  readonly cost: DestinationCostFact;
+  readonly scope: AdmissionScope;
+  readonly basis?: string;
+  readonly sourceUrls?: readonly string[];
+  readonly checkedAt?: string;
+  /**
+   * KAI-218A: review cadence in months (default 12). A verified fact whose
+   * checkedAt is older than reviewIntervalMonths is review-due — never
+   * silently refreshed or discarded.
+   */
+  readonly reviewIntervalMonths?: number;
+  /** Free + optional paid experiences: the OPTIONAL paid components, never
+   *  folded into a bounded [0,0]. */
+  readonly optionalPaidComponents?: readonly {
+    readonly name: string;
+    readonly price?: number;
+    readonly sourceUrl?: string;
+  }[];
+}
+
+/**
+ * KAI-218A — REQUIRED LOCAL TRANSPORT cost fact.
+ *
+ * Replaces the semantic role of budgetBreakdown.transport (per-person
+ * on-site transit allowance) in canonical affordability. NEVER a generic
+ * city allowance: every value must be defensible from the record's own
+ * evidence. Values are PER-PERSON; the engine multiplies by partySize.
+ */
+export type LocalTransportAccess =
+  | {
+      /** Source-backed fare for the actual on-site movement. */
+      readonly kind: "verified_required_access";
+      readonly access: "rail" | "bus" | "ferry" | "mixed";
+      /** Per-person one-way local fare envelope [min,max]. */
+      readonly fare: readonly [number, number];
+      /** Official/operator source URLs. REQUIRED. */
+      readonly sourceUrls: readonly string[];
+      readonly coverage: "all_day" | "segment";
+      readonly segmentNotes?: string;
+      /**
+       * Destination-specific evidence of the required access (which
+       * station/stop serves THIS destination, which segments are required).
+       * REQUIRED — prevents a generic city allowance from masquerading as a
+       * verified fact.
+       */
+      readonly basis: string;
+      readonly checkedAt?: string;
+      readonly reviewIntervalMonths?: number;
+    }
+  | {
+      /** KAI-204 bounded local rail envelope — a defensible bounded
+       *  estimate, NOT a verified route fare. */
+      readonly kind: "bounded_defensible_access";
+      readonly access: "rail";
+      readonly band: "≤5km" | "≤15km" | "≤30km" | "≤50km";
+      readonly fare: readonly [number, number];
+      readonly distanceKm: number;
+      /** KAI-204 operator source URLs. REQUIRED. */
+      readonly sourceUrls: readonly string[];
+      readonly unmodelledKm?: number;
+      readonly checkedAt?: string;
+      readonly reviewIntervalMonths?: number;
+    }
+  | {
+      /** Verified walking: practical, evidence-backed walking access. ¥0. */
+      readonly kind: "verified_walking";
+      /** Evidence that walking is PRACTICAL (grounds pedestrian-only,
+       *  station adjacent, official site states walking access). REQUIRED. */
+      readonly walkingEvidence: string;
+      readonly walkingMinutes?: number;
+      /** Official source supporting walking access. */
+      readonly sourceUrls?: readonly string[];
+      readonly checkedAt?: string;
+      readonly reviewIntervalMonths?: number;
+    }
+  | {
+      /** Local transport genuinely not needed (e.g. hub with an
+       *  on-site-only plan). */
+      readonly kind: "not_applicable";
+      readonly reason: string;
+    }
+  | {
+      /** Local transport cost cannot be established. NEVER ¥0, NEVER a
+       *  generic city allowance. */
+      readonly kind: "unavailable";
+      readonly reason:
+        | "no_on_site_evidence"
+        | "untrusted_legacy_only"
+        | "island_no_rail"
+        | "corridor_only"
+        | "distance_beyond_model"
+        | "fare_not_found"
+        | "other";
+      readonly detail: string;
+    };
+
 export type PlaceType = "hub" | "destination";
 export type EditorialLifecycle =
   "legacy" | "draft" | "in_review" | "approved" | "published";
@@ -335,6 +497,19 @@ export interface Destination {
     food: number;
     cafe: number;
   };
+  /**
+   * KAI-218A — explicit admission cost fact. When present, this is the
+   * AUTHORITATIVE admission truth (the engine prefers it over
+   * budgetBreakdown.tickets). budgetBreakdown.tickets degrades to a legacy
+   * aggregate estimate.
+   */
+  admission?: AdmissionCostFact;
+  /**
+   * KAI-218A — explicit required-local-transport cost fact. When present,
+   * this replaces budgetBreakdown.transport in canonical affordability.
+   * NEVER a generic city allowance.
+   */
+  localTransport?: LocalTransportAccess;
   transportOptions: {
     train?: number;
     car?: number;

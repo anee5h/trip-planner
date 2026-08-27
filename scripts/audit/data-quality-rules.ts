@@ -171,6 +171,46 @@ export const PREVENTIVE_CODES = new Set([
   "KAI214_UNAVAILABLE_WITH_NUMERIC",
   "KAI214_CONTRADICTORY_STATE_PROVENANCE",
   "KAI214_NUMERIC_STATE_WITHOUT_NUMBERS",
+  // KAI-218A: scoped cost-fact hard contract. These fire ONLY when the new
+  // admission/localTransport facts are present — the current catalogue
+  // (no facts authored) stays zero-debt. Impossible combinations are
+  // provably wrong and must fail CI (verified_paid without provenance,
+  // variable_price as a fabricated bounded range, walking without evidence,
+  // etc.).
+  "KAI218_ADMISSION_LEGACY_UNVERIFIED",
+  "KAI218_ADMISSION_UNKNOWN_STATE",
+  "KAI218_ADMISSION_MISSING_COST",
+  "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_BOUNDED",
+  "KAI218_ADMISSION_VERIFIED_PAID_ZERO_RANGE",
+  "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_SOURCE",
+  "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_PROVENANCE",
+  "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_ZERO",
+  "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_SOURCE",
+  "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_EVIDENCE",
+  "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_REQUIRES_MODEL",
+  "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_COST",
+  "KAI218_ADMISSION_VARIABLE_INVALID_COST",
+  "KAI218_ADMISSION_VARIABLE_INVALID_FROM",
+  "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
+  "KAI218_ADMISSION_VARIABLE_REQUIRES_REASON",
+  "KAI218_ADMISSION_NOT_APPLICABLE_COST",
+  "KAI218_ADMISSION_NOT_APPLICABLE_REQUIRES_REASON",
+  "KAI218_ADMISSION_UNAVAILABLE_COST",
+  "KAI218_ADMISSION_UNAVAILABLE_REQUIRES_REASON",
+  "KAI218_ADMISSION_LEGACY_DRIFT",
+  "KAI218_ADMISSION_INVALID_REVIEW_INTERVAL",
+  "KAI218_ADMISSION_INVALID_CHECKED_AT",
+  "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
+  "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
+  "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
+  "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
+  "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
+  "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
+  "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
+  "KAI218_LOCAL_TRANSPORT_INVALID_DISTANCE",
+  "KAI218_LOCAL_TRANSPORT_WALKING_REQUIRES_EVIDENCE",
+  "KAI218_LOCAL_TRANSPORT_UNAVAILABLE_REQUIRES_DETAIL",
+  "KAI218_LOCAL_TRANSPORT_NOT_APPLICABLE_REQUIRES_REASON",
 ]);
 
 export function firstTimeRange(text: string | undefined): number | null {
@@ -732,6 +772,414 @@ export function collectDestinationIssues(
         "KAI214_CONTRADICTORY_STATE_PROVENANCE",
         "state 'legacy_unverified' cannot pair with provenance 'verified_source'",
       );
+    }
+  }
+
+  // ---- KAI-218A: shared fail-closed DestinationCostFact numeric validators ----
+  // bounded: min/max finite, min >= 0, max >= min.
+  // open_ended: from finite, from >= 0.
+  // Used by documented_estimate / variable_price / verified_paid / verified_free.
+  const isValidBoundedCost = (
+    c: { kind?: string; min?: unknown; max?: unknown } | undefined,
+  ): boolean =>
+    c?.kind === "bounded" &&
+    typeof c.min === "number" &&
+    typeof c.max === "number" &&
+    finiteNonNegative(c.min) &&
+    finiteNonNegative(c.max) &&
+    c.min <= c.max;
+  const isValidOpenEndedCost = (
+    c: { kind?: string; from?: unknown } | undefined,
+  ): boolean =>
+    c?.kind === "open_ended" &&
+    typeof c.from === "number" &&
+    finiteNonNegative(c.from);
+
+  // ---- KAI-218A: scoped admission cost fact invariants ----
+  const admission = dest.admission;
+  if (admission) {
+    // Defensive: a malformed fact must produce a finding, never a throw.
+    const cost = admission.cost as
+      | { kind?: string; min?: unknown; max?: unknown; from?: unknown }
+      | undefined;
+    // Forward admission facts must never use the legacy_unverified state —
+    // legacy values are authored unavailable (legacy_provenance_unrecovered)
+    // or re-verified.
+    if ((admission.state as string) === "legacy_unverified") {
+      push(
+        "KAI218_ADMISSION_LEGACY_UNVERIFIED",
+        "admission.state must not be legacy_unverified (author unavailable with legacy_provenance_unrecovered or re-verify)",
+      );
+    }
+    // Unknown forward states have no rejection path — reject them.
+    const knownStates: ReadonlySet<string> = new Set([
+      "verified_paid",
+      "verified_free",
+      "documented_estimate",
+      "variable_price",
+      "not_applicable",
+      "unavailable",
+    ]);
+    if (!knownStates.has(admission.state)) {
+      push(
+        "KAI218_ADMISSION_UNKNOWN_STATE",
+        `admission.state '${admission.state}' is not a forward admission state`,
+      );
+    }
+    if (!cost || typeof cost.kind !== "string") {
+      push(
+        "KAI218_ADMISSION_MISSING_COST",
+        "admission requires a cost representation",
+      );
+    }
+    // verified_paid requires bounded cost + verified_source provenance +
+    // sourceUrls + checkedAt (prevents silent mass-promotion of legacy
+    // ticket values, KAI-218 §risks). A [0,0] verified_paid is rejected:
+    // verified zero admission is verified_free, never verified_paid.
+    if (admission.state === "verified_paid") {
+      const bounded = isValidBoundedCost(cost);
+      if (!bounded) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_BOUNDED",
+          "verified_paid admission requires a bounded [min,max] cost with min>=0 and max>=min",
+        );
+      }
+      if (bounded && cost.min === 0 && cost.max === 0) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_PAID_ZERO_RANGE",
+          "verified_paid admission must not be [0,0] — verified zero admission is verified_free",
+        );
+      }
+      if (admission.provenance !== "verified_source") {
+        push(
+          "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_SOURCE",
+          "verified_paid admission requires provenance 'verified_source'",
+        );
+      }
+      if (
+        !admission.sourceUrls ||
+        admission.sourceUrls.length === 0 ||
+        !admission.checkedAt
+      ) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_PROVENANCE",
+          "verified_paid admission requires at least one sourceUrl and a checkedAt date",
+        );
+      }
+    }
+    // verified_free requires verified_source provenance + bounded [0,0] +
+    // KAI-214 free evidence (shared semantics, not a weak /free/i regex:
+    // the basis must carry the ledger FREE_ENTRY / free-area evidence the
+    // runtime's freeEvidence helper trusts).
+    if (admission.state === "verified_free") {
+      const zeroBounded =
+        cost?.kind === "bounded" && cost.min === 0 && cost.max === 0;
+      if (!zeroBounded) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_ZERO",
+          "verified_free admission requires a bounded [0,0] cost",
+        );
+      }
+      if (admission.provenance !== "verified_source") {
+        push(
+          "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_SOURCE",
+          "verified_free admission requires provenance 'verified_source' (a legacy/unknown free claim is not a verified fact)",
+        );
+      }
+      if (
+        !admission.basis ||
+        !/FREE_ENTRY|free area|free admission|no admission fee|入場無料/i.test(
+          admission.basis,
+        )
+      ) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_EVIDENCE",
+          "verified_free admission requires KAI-214 free evidence in basis (FREE_ENTRY / free area / no admission fee — not a bare word match)",
+        );
+      }
+      // KAI-218A round-3: verified_free carries the same fixed freshness
+      // contract as verified_paid — sourceUrls + checkedAt are REQUIRED.
+      if (
+        !admission.sourceUrls ||
+        admission.sourceUrls.length === 0 ||
+        !admission.checkedAt
+      ) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_PROVENANCE",
+          "verified_free admission requires at least one sourceUrl and a checkedAt date (fixed freshness contract)",
+        );
+      }
+    }
+    // documented_estimate requires model provenance + a VALID bounded or
+    // open_ended cost (shared fail-closed numeric validator).
+    if (admission.state === "documented_estimate") {
+      if (admission.provenance !== "model") {
+        push(
+          "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_REQUIRES_MODEL",
+          "documented_estimate admission requires provenance 'model'",
+        );
+      }
+      if (!isValidBoundedCost(cost) && !isValidOpenEndedCost(cost)) {
+        push(
+          "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_COST",
+          "documented_estimate admission must be a valid bounded [min>=0, max>=min] or open_ended [from>=0] cost",
+        );
+      }
+    }
+    // variable_price requires reasonCode. The cost may be:
+    //   - a VERIFIED OFFICIAL BOUNDED range (e.g. ¥2,000–3,500 published by
+    //     the attraction; applies to the selected date/product) — allowed
+    //     ONLY with verified_source provenance + sourceUrls + checkedAt
+    //     (fixed freshness contract), so a fabricated/legacy bounded guess
+    //     can never ride the variable_price state;
+    //   - open_ended {from} (validated by the shared validator) or variable.
+    if (admission.state === "variable_price") {
+      const costKind = cost?.kind;
+      if (
+        costKind !== "open_ended" &&
+        costKind !== "variable" &&
+        costKind !== "bounded"
+      ) {
+        push(
+          "KAI218_ADMISSION_VARIABLE_INVALID_COST",
+          "variable_price admission must be bounded, open_ended or variable",
+        );
+      }
+      if (costKind === "open_ended" && !isValidOpenEndedCost(cost)) {
+        push(
+          "KAI218_ADMISSION_VARIABLE_INVALID_FROM",
+          "variable_price open_ended cost requires a finite non-negative 'from'",
+        );
+      }
+      if (
+        costKind === "bounded" &&
+        (!isValidBoundedCost(cost) ||
+          admission.provenance !== "verified_source" ||
+          !admission.sourceUrls ||
+          admission.sourceUrls.length === 0 ||
+          !admission.checkedAt)
+      ) {
+        push(
+          "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
+          "variable_price bounded cost requires a valid [min>=0,max>=min] range + verified_source provenance + sourceUrl + checkedAt (an official verified range, not a fabricated guess)",
+        );
+      }
+      if (!admission.reasonCode) {
+        push(
+          "KAI218_ADMISSION_VARIABLE_REQUIRES_REASON",
+          "variable_price admission requires a reasonCode",
+        );
+      }
+    }
+    // not_applicable requires reasonCode + not_applicable cost.
+    if (admission.state === "not_applicable") {
+      if (cost?.kind !== "not_applicable") {
+        push(
+          "KAI218_ADMISSION_NOT_APPLICABLE_COST",
+          "not_applicable admission requires a not_applicable cost",
+        );
+      }
+      if (!admission.reasonCode) {
+        push(
+          "KAI218_ADMISSION_NOT_APPLICABLE_REQUIRES_REASON",
+          "not_applicable admission requires a reasonCode (hub_budget_not_applicable / no_single_admission_product / free_area_with_optional_paid_components)",
+        );
+      }
+    }
+    // unavailable requires reasonCode + unavailable cost.
+    if (admission.state === "unavailable") {
+      if (cost?.kind !== "unavailable") {
+        push(
+          "KAI218_ADMISSION_UNAVAILABLE_COST",
+          "unavailable admission requires an unavailable cost",
+        );
+      }
+      if (!admission.reasonCode) {
+        push(
+          "KAI218_ADMISSION_UNAVAILABLE_REQUIRES_REASON",
+          "unavailable admission requires a reasonCode",
+        );
+      }
+    }
+    // KAI-218A round-2 drift guard: when BOTH the admission fact and the
+    // legacy budgetBreakdown.tickets exist, compare DISTANCE-TO-RANGE, not
+    // the min bound. A legacy ticket WITHIN [min,max] is NOT drift — only a
+    // ticket outside the range by more than the documented tolerance is.
+    if (
+      dest.budgetBreakdown?.tickets !== undefined &&
+      (admission.state === "verified_paid" ||
+        admission.state === "verified_free") &&
+      isValidBoundedCost(cost)
+    ) {
+      const tickets = dest.budgetBreakdown.tickets;
+      const factMin = cost.min as number;
+      const factMax = cost.max as number;
+      // Distance to the range: 0 when inside, else the gap to the nearer
+      // bound.
+      const distanceToRange =
+        tickets < factMin
+          ? factMin - tickets
+          : tickets > factMax
+            ? tickets - factMax
+            : 0;
+      if (distanceToRange > 100) {
+        push(
+          "KAI218_ADMISSION_LEGACY_DRIFT",
+          `legacy budgetBreakdown.tickets (¥${tickets}) drifts >¥100 outside the admission fact range [¥${factMin}, ¥${factMax}] — reconcile the two truths`,
+        );
+      }
+    }
+    // Freshness: a verified fact with a stale checkedAt is review-due —
+    // never silently refreshed or discarded. Applies to verified_paid,
+    // verified_free, and verified official bounded variable_price.
+    if (
+      (admission.state === "verified_paid" ||
+        admission.state === "verified_free" ||
+        (admission.state === "variable_price" && cost?.kind === "bounded")) &&
+      admission.checkedAt
+    ) {
+      const intervalMonths = admission.reviewIntervalMonths ?? 12;
+      if (!Number.isFinite(intervalMonths) || intervalMonths <= 0) {
+        push(
+          "KAI218_ADMISSION_INVALID_REVIEW_INTERVAL",
+          "reviewIntervalMonths must be a positive finite number",
+        );
+      }
+      const checked = new Date(admission.checkedAt).getTime();
+      if (!Number.isFinite(checked)) {
+        push(
+          "KAI218_ADMISSION_INVALID_CHECKED_AT",
+          `checkedAt '${admission.checkedAt}' is not a valid date`,
+        );
+      }
+    }
+  }
+
+  // ---- KAI-218A: scoped required-local-transport fact invariants ----
+  const localTransport = dest.localTransport;
+  if (localTransport) {
+    switch (localTransport.kind) {
+      case "verified_required_access": {
+        if (
+          localTransport.fare.length !== 2 ||
+          !finiteNonNegative(localTransport.fare[0]) ||
+          !finiteNonNegative(localTransport.fare[1]) ||
+          localTransport.fare[0] > localTransport.fare[1]
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
+            "verified_required_access requires a valid [min,max] fare",
+          );
+        }
+        if (
+          !localTransport.sourceUrls ||
+          localTransport.sourceUrls.length === 0
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
+            "verified_required_access requires at least one sourceUrl",
+          );
+        }
+        if (!localTransport.basis || localTransport.basis.trim() === "") {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
+            "verified_required_access requires destination-specific basis evidence (which station/stop/segments serve THIS destination) — a generic city allowance is forbidden",
+          );
+        }
+        // KAI-218A round-2: the fixed freshness contract applies to
+        // explicitly-verified local facts too.
+        if (!localTransport.checkedAt) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
+            "verified_required_access requires a checkedAt date (fixed freshness contract)",
+          );
+        }
+        // KAI-218A round-3: positive/default-12-month review interval +
+        // real-date validation, consistent with the admission freshness
+        // contract.
+        const ltIntervalMonths = localTransport.reviewIntervalMonths ?? 12;
+        if (!Number.isFinite(ltIntervalMonths) || ltIntervalMonths <= 0) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_INVALID_REVIEW_INTERVAL",
+            "reviewIntervalMonths must be a positive finite number (default 12)",
+          );
+        }
+        if (localTransport.checkedAt) {
+          const ltChecked = new Date(localTransport.checkedAt).getTime();
+          if (!Number.isFinite(ltChecked)) {
+            push(
+              "KAI218_LOCAL_TRANSPORT_INVALID_CHECKED_AT",
+              `checkedAt '${localTransport.checkedAt}' is not a valid date`,
+            );
+          }
+        }
+        break;
+      }
+      case "bounded_defensible_access": {
+        if (
+          localTransport.fare.length !== 2 ||
+          !finiteNonNegative(localTransport.fare[0]) ||
+          !finiteNonNegative(localTransport.fare[1]) ||
+          localTransport.fare[0] > localTransport.fare[1]
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
+            "bounded_defensible_access requires a valid [min,max] fare",
+          );
+        }
+        if (
+          !Number.isFinite(localTransport.distanceKm) ||
+          localTransport.distanceKm < 0
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_INVALID_DISTANCE",
+            "bounded_defensible_access requires a finite non-negative distanceKm",
+          );
+        }
+        if (
+          !localTransport.sourceUrls ||
+          localTransport.sourceUrls.length === 0
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
+            "bounded_defensible_access requires at least one operator sourceUrl",
+          );
+        }
+        break;
+      }
+      case "verified_walking": {
+        // KAI-218: verified walking ¥0 requires EVIDENCE of practical
+        // walking — a bare 0 without walking evidence is forbidden.
+        if (
+          !localTransport.walkingEvidence ||
+          localTransport.walkingEvidence.trim() === ""
+        ) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_WALKING_REQUIRES_EVIDENCE",
+            "verified_walking requires explicit walkingEvidence (bare 0 is forbidden)",
+          );
+        }
+        break;
+      }
+      case "unavailable": {
+        // The unavailable reason union is exhaustive; the detail is required.
+        if (!localTransport.detail || localTransport.detail.trim() === "") {
+          push(
+            "KAI218_LOCAL_TRANSPORT_UNAVAILABLE_REQUIRES_DETAIL",
+            "unavailable local transport requires a detail explanation",
+          );
+        }
+        break;
+      }
+      case "not_applicable": {
+        if (!localTransport.reason || localTransport.reason.trim() === "") {
+          push(
+            "KAI218_LOCAL_TRANSPORT_NOT_APPLICABLE_REQUIRES_REASON",
+            "not_applicable local transport requires a reason",
+          );
+        }
+        break;
+      }
     }
   }
   if (dest.status === "published" && !dest.imageMetadata) {
