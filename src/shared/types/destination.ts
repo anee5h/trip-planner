@@ -226,8 +226,11 @@ export type AdmissionScope =
  *   - state === "documented_estimate" ⇒ cost bounded/open_ended with
  *     provenance "model".
  *   - state === "variable_price" ⇒ cost open_ended (truthful lower bound
- *     only) or variable; NEVER a fabricated bounded range; reasonCode
- *     required.
+ *     only), variable, OR a VERIFIED OFFICIAL bounded range (e.g.
+ *     ¥2,000–3,500 published by the attraction — variable ≠ necessarily
+ *     open-ended). A bounded variable range additionally requires
+ *     provenance "verified_source" + sourceUrl + checkedAt (never a
+ *     fabricated/legacy bounded guess); reasonCode REQUIRED.
  *   - state === "not_applicable" ⇒ cost not_applicable; reasonCode
  *     REQUIRED (hub_budget_not_applicable / no_single_admission_product /
  *     free_area_with_optional_paid_components).

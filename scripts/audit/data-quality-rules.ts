@@ -181,6 +181,7 @@ export const PREVENTIVE_CODES = new Set([
   "KAI218_ADMISSION_UNKNOWN_STATE",
   "KAI218_ADMISSION_MISSING_COST",
   "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_BOUNDED",
+  "KAI218_ADMISSION_VERIFIED_PAID_ZERO_RANGE",
   "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_SOURCE",
   "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_PROVENANCE",
   "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_ZERO",
@@ -202,6 +203,7 @@ export const PREVENTIVE_CODES = new Set([
   "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
   "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
   "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
+  "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
   "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
   "KAI218_LOCAL_TRANSPORT_INVALID_DISTANCE",
   "KAI218_LOCAL_TRANSPORT_WALKING_REQUIRES_EVIDENCE",
@@ -771,6 +773,26 @@ export function collectDestinationIssues(
     }
   }
 
+  // ---- KAI-218A: shared fail-closed DestinationCostFact numeric validators ----
+  // bounded: min/max finite, min >= 0, max >= min.
+  // open_ended: from finite, from >= 0.
+  // Used by documented_estimate / variable_price / verified_paid / verified_free.
+  const isValidBoundedCost = (
+    c: { kind?: string; min?: unknown; max?: unknown } | undefined,
+  ): boolean =>
+    c?.kind === "bounded" &&
+    typeof c.min === "number" &&
+    typeof c.max === "number" &&
+    finiteNonNegative(c.min) &&
+    finiteNonNegative(c.max) &&
+    c.min <= c.max;
+  const isValidOpenEndedCost = (
+    c: { kind?: string; from?: unknown } | undefined,
+  ): boolean =>
+    c?.kind === "open_ended" &&
+    typeof c.from === "number" &&
+    finiteNonNegative(c.from);
+
   // ---- KAI-218A: scoped admission cost fact invariants ----
   const admission = dest.admission;
   if (admission) {
@@ -810,19 +832,20 @@ export function collectDestinationIssues(
     }
     // verified_paid requires bounded cost + verified_source provenance +
     // sourceUrls + checkedAt (prevents silent mass-promotion of legacy
-    // ticket values, KAI-218 §risks).
+    // ticket values, KAI-218 §risks). A [0,0] verified_paid is rejected:
+    // verified zero admission is verified_free, never verified_paid.
     if (admission.state === "verified_paid") {
-      const bounded =
-        cost?.kind === "bounded" &&
-        typeof cost.min === "number" &&
-        typeof cost.max === "number" &&
-        finiteNonNegative(cost.min) &&
-        finiteNonNegative(cost.max) &&
-        cost.min <= cost.max;
+      const bounded = isValidBoundedCost(cost);
       if (!bounded) {
         push(
           "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_BOUNDED",
           "verified_paid admission requires a bounded [min,max] cost with min>=0 and max>=min",
+        );
+      }
+      if (bounded && cost.min === 0 && cost.max === 0) {
+        push(
+          "KAI218_ADMISSION_VERIFIED_PAID_ZERO_RANGE",
+          "verified_paid admission must not be [0,0] — verified zero admission is verified_free",
         );
       }
       if (admission.provenance !== "verified_source") {
@@ -843,8 +866,9 @@ export function collectDestinationIssues(
       }
     }
     // verified_free requires verified_source provenance + bounded [0,0] +
-    // free evidence. The provenance gate is the anti-promotion guard: a
-    // legacy/unknown-provenance "free" claim is NOT a verified fact.
+    // KAI-214 free evidence (shared semantics, not a weak /free/i regex:
+    // the basis must carry the ledger FREE_ENTRY / free-area evidence the
+    // runtime's freeEvidence helper trusts).
     if (admission.state === "verified_free") {
       const zeroBounded =
         cost?.kind === "bounded" && cost.min === 0 && cost.max === 0;
@@ -860,14 +884,20 @@ export function collectDestinationIssues(
           "verified_free admission requires provenance 'verified_source' (a legacy/unknown free claim is not a verified fact)",
         );
       }
-      if (!admission.basis || !/free/i.test(admission.basis)) {
+      if (
+        !admission.basis ||
+        !/FREE_ENTRY|free area|free admission|no admission fee|入場無料/i.test(
+          admission.basis,
+        )
+      ) {
         push(
           "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_EVIDENCE",
-          "verified_free admission requires explicit free evidence in basis",
+          "verified_free admission requires KAI-214 free evidence in basis (FREE_ENTRY / free area / no admission fee — not a bare word match)",
         );
       }
     }
-    // documented_estimate requires model provenance + bounded/open_ended cost.
+    // documented_estimate requires model provenance + a VALID bounded or
+    // open_ended cost (shared fail-closed numeric validator).
     if (admission.state === "documented_estimate") {
       if (admission.provenance !== "model") {
         push(
@@ -875,20 +905,20 @@ export function collectDestinationIssues(
           "documented_estimate admission requires provenance 'model'",
         );
       }
-      if (cost?.kind !== "bounded" && cost?.kind !== "open_ended") {
+      if (!isValidBoundedCost(cost) && !isValidOpenEndedCost(cost)) {
         push(
           "KAI218_ADMISSION_DOCUMENTED_ESTIMATE_COST",
-          "documented_estimate admission must be bounded or open_ended",
+          "documented_estimate admission must be a valid bounded [min>=0, max>=min] or open_ended [from>=0] cost",
         );
       }
     }
     // variable_price requires reasonCode. The cost may be:
     //   - a VERIFIED OFFICIAL BOUNDED range (e.g. ¥2,000–3,500 published by
     //     the attraction; applies to the selected date/product) — allowed
-    //     ONLY with verified_source provenance + non-empty sourceUrls, so a
-    //     fabricated/legacy bounded guess can never ride the variable_price
-    //     state (KAI-218 repair: variable ≠ necessarily open-ended);
-    //   - open_ended {from} (finite non-negative) or variable.
+    //     ONLY with verified_source provenance + sourceUrls + checkedAt
+    //     (fixed freshness contract), so a fabricated/legacy bounded guess
+    //     can never ride the variable_price state;
+    //   - open_ended {from} (validated by the shared validator) or variable.
     if (admission.state === "variable_price") {
       const costKind = cost?.kind;
       if (
@@ -901,10 +931,7 @@ export function collectDestinationIssues(
           "variable_price admission must be bounded, open_ended or variable",
         );
       }
-      if (
-        costKind === "open_ended" &&
-        (typeof cost.from !== "number" || !finiteNonNegative(cost.from))
-      ) {
+      if (costKind === "open_ended" && !isValidOpenEndedCost(cost)) {
         push(
           "KAI218_ADMISSION_VARIABLE_INVALID_FROM",
           "variable_price open_ended cost requires a finite non-negative 'from'",
@@ -912,13 +939,15 @@ export function collectDestinationIssues(
       }
       if (
         costKind === "bounded" &&
-        (admission.provenance !== "verified_source" ||
+        (!isValidBoundedCost(cost) ||
+          admission.provenance !== "verified_source" ||
           !admission.sourceUrls ||
-          admission.sourceUrls.length === 0)
+          admission.sourceUrls.length === 0 ||
+          !admission.checkedAt)
       ) {
         push(
           "KAI218_ADMISSION_VARIABLE_BOUNDED_REQUIRES_SOURCE",
-          "variable_price bounded cost requires verified_source provenance + at least one sourceUrl (an official verified range, not a fabricated guess)",
+          "variable_price bounded cost requires a valid [min>=0,max>=min] range + verified_source provenance + sourceUrl + checkedAt (an official verified range, not a fabricated guess)",
         );
       }
       if (!admission.reasonCode) {
@@ -958,32 +987,41 @@ export function collectDestinationIssues(
         );
       }
     }
-    // KAI-218A drift guard: when BOTH the admission fact and the legacy
-    // budgetBreakdown.tickets exist, a verified_paid/verified_free fact
-    // must not contradict the legacy ticket value by more than a
-    // documented tolerance (the fact is authoritative; a large drift means
-    // one of the two is stale — flag it rather than silently diverging).
+    // KAI-218A round-2 drift guard: when BOTH the admission fact and the
+    // legacy budgetBreakdown.tickets exist, compare DISTANCE-TO-RANGE, not
+    // the min bound. A legacy ticket WITHIN [min,max] is NOT drift — only a
+    // ticket outside the range by more than the documented tolerance is.
     if (
       dest.budgetBreakdown?.tickets !== undefined &&
       (admission.state === "verified_paid" ||
         admission.state === "verified_free") &&
-      cost?.kind === "bounded" &&
-      typeof cost.min === "number"
+      isValidBoundedCost(cost)
     ) {
       const tickets = dest.budgetBreakdown.tickets;
-      const fact = cost.min;
-      if (Math.abs(tickets - fact) > 100) {
+      const factMin = cost.min as number;
+      const factMax = cost.max as number;
+      // Distance to the range: 0 when inside, else the gap to the nearer
+      // bound.
+      const distanceToRange =
+        tickets < factMin
+          ? factMin - tickets
+          : tickets > factMax
+            ? tickets - factMax
+            : 0;
+      if (distanceToRange > 100) {
         push(
           "KAI218_ADMISSION_LEGACY_DRIFT",
-          `admission fact (¥${fact}) drifts >¥100 from legacy budgetBreakdown.tickets (¥${tickets}) — reconcile the two truths`,
+          `legacy budgetBreakdown.tickets (¥${tickets}) drifts >¥100 outside the admission fact range [¥${factMin}, ¥${factMax}] — reconcile the two truths`,
         );
       }
     }
     // Freshness: a verified fact with a stale checkedAt is review-due —
-    // never silently refreshed or discarded.
+    // never silently refreshed or discarded. Applies to verified_paid,
+    // verified_free, and verified official bounded variable_price.
     if (
       (admission.state === "verified_paid" ||
-        admission.state === "verified_free") &&
+        admission.state === "verified_free" ||
+        (admission.state === "variable_price" && cost?.kind === "bounded")) &&
       admission.checkedAt
     ) {
       const intervalMonths = admission.reviewIntervalMonths ?? 12;
@@ -1032,6 +1070,14 @@ export function collectDestinationIssues(
           push(
             "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
             "verified_required_access requires destination-specific basis evidence (which station/stop/segments serve THIS destination) — a generic city allowance is forbidden",
+          );
+        }
+        // KAI-218A round-2: the fixed freshness contract applies to
+        // explicitly-verified local facts too.
+        if (!localTransport.checkedAt) {
+          push(
+            "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
+            "verified_required_access requires a checkedAt date (fixed freshness contract)",
           );
         }
         break;

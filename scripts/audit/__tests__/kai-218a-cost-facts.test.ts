@@ -147,6 +147,37 @@ describe("KAI-218A admission cost-fact invariants", () => {
     expect(codes(dest)).toContain("KAI218_ADMISSION_LEGACY_DRIFT");
   });
 
+  it("legacy ticket WITHIN the admission fact range is NOT drift (KAI-218 round-2)", () => {
+    const dest = {
+      ...base,
+      budgetBreakdown: { transport: 0, tickets: 2500, food: 0, cafe: 0 },
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 2000, max: 3500 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-08-02",
+      },
+    } as unknown as Destination;
+    expect(codes(dest)).not.toContain("KAI218_ADMISSION_LEGACY_DRIFT");
+  });
+
+  it("verified_paid [0,0] is rejected — verified zero is verified_free (KAI-218 round-2)", () => {
+    const dest = {
+      ...base,
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        cost: { kind: "bounded", min: 0, max: 0 },
+        scope: "general_entry",
+        sourceUrls: ["https://example.com"],
+        checkedAt: "2026-08-02",
+      },
+    } as unknown as Destination;
+    expect(codes(dest)).toContain("KAI218_ADMISSION_VERIFIED_PAID_ZERO_RANGE");
+  });
+
   it("variable_price bounded range WITHOUT verified source fails (KAI-218 repair)", () => {
     const dest = {
       ...base,
@@ -301,6 +332,7 @@ describe("KAI-218A preventive codes", () => {
       "KAI218_ADMISSION_UNKNOWN_STATE",
       "KAI218_ADMISSION_MISSING_COST",
       "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_BOUNDED",
+      "KAI218_ADMISSION_VERIFIED_PAID_ZERO_RANGE",
       "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_SOURCE",
       "KAI218_ADMISSION_VERIFIED_PAID_REQUIRES_PROVENANCE",
       "KAI218_ADMISSION_VERIFIED_FREE_REQUIRES_ZERO",
@@ -322,6 +354,7 @@ describe("KAI-218A preventive codes", () => {
       "KAI218_LOCAL_TRANSPORT_INVALID_FARE",
       "KAI218_LOCAL_TRANSPORT_REQUIRES_SOURCE",
       "KAI218_LOCAL_TRANSPORT_REQUIRES_BASIS",
+      "KAI218_LOCAL_TRANSPORT_REQUIRES_CHECKED_AT",
       "KAI218_LOCAL_TRANSPORT_BOUNDED_REQUIRES_SOURCE",
       "KAI218_LOCAL_TRANSPORT_INVALID_DISTANCE",
       "KAI218_LOCAL_TRANSPORT_WALKING_REQUIRES_EVIDENCE",
