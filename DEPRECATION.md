@@ -70,8 +70,11 @@ Verified source-backed cost facts carry `sourceUrls` + `checkedAt`. The
 12-month review cadence follows the collections precedent
 (`reviewIntervalMonths`, default 12): a fact whose `checkedAt` is older than
 `reviewIntervalMonths` becomes review-due (never silently refreshed or
-discarded). Date/product-variable prices are authored `variable_price` with
-an open-ended/variable cost shape — never a fabricated bounded range.
+discarded). Date/product-variable prices are authored `variable_price`:
+either an open-ended/variable cost shape, or a VERIFIED OFFICIAL BOUNDED
+range (e.g. ¥2,000–3,500 published by the attraction) backed by
+`verified_source` provenance + sourceUrl + checkedAt — never a
+fabricated/legacy bounded guess.
 
 ## Status
 
