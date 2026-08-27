@@ -551,3 +551,114 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
     expect(text).not.toContain("Verified Fares");
   });
 });
+
+// ── KAI-219A FINAL repair: widget consumes generated-plan semanticState ──────
+describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
+  function renderPlanWidget(plan: GeneratedPlanCostResult) {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <TripCostBreakdownWidget
+          destination={testDestination}
+          locale="en"
+          partySize={2}
+          activeTransportMode="train"
+          hasGeneratedPlan
+          planCostBreakdown={plan}
+          defaultExpanded
+        />,
+      );
+    });
+    return host.textContent ?? "";
+  }
+
+  function basePlan(
+    admission: GeneratedPlanCostResult["admission"],
+  ): GeneratedPlanCostResult {
+    return {
+      originTransport: { min: 0, max: 0, source: "unknown", applicable: false },
+      localTransit: { min: 0, max: 0, source: "unknown", applicable: false },
+      admission,
+      meals: { min: 0, max: 0, source: "unknown", applicable: false },
+      parking: { min: 0, max: 0, source: "unknown", applicable: false },
+      completeness: "complete",
+      knownSubtotal: [0, 0],
+      confidence: "verified",
+      assumptions: [],
+    };
+  }
+
+  it("A) not_applicable admission → widget says Not applicable, NOT ¥0", () => {
+    const text = renderPlanWidget(
+      basePlan({
+        min: 0,
+        max: 0,
+        source: "curated",
+        applicable: true,
+        satisfied: true,
+        knownNumeric: false,
+        semanticState: "not_applicable",
+      }),
+    );
+    expect(text).toContain("Not applicable");
+    // The admission row is NOT a numeric range (no fake ¥0 admission row).
+    // "Admission Tickets" is followed by "Not applicable", not a ¥ range.
+    const admissionSection = text.slice(text.indexOf("Admission Tickets"));
+    expect(admissionSection).toContain("Not applicable");
+    expect(admissionSection).not.toMatch(/¥\d/);
+  });
+
+  it("C) free + paid → widget shows the paid RANGE, NOT Free", () => {
+    const text = renderPlanWidget(
+      basePlan({
+        min: 1500,
+        max: 1500,
+        source: "curated",
+        applicable: true,
+        satisfied: true,
+        knownNumeric: true,
+        semanticState: "paid",
+      }),
+    );
+    expect(text).toContain("¥1,500");
+    expect(text).not.toContain("Free");
+  });
+
+  it("verified_free semantic → widget says Free / 無料", () => {
+    const text = renderPlanWidget(
+      basePlan({
+        min: 0,
+        max: 0,
+        source: "curated",
+        applicable: true,
+        satisfied: true,
+        knownNumeric: true,
+        semanticState: "verified_free",
+      }),
+    );
+    expect(text).toContain("Free");
+  });
+
+  it("partial/mixed admission with known numeric → widget shows the known range, missing admission indicated separately", () => {
+    const text = renderPlanWidget({
+      ...basePlan({
+        min: 1500,
+        max: 1500,
+        source: "unknown",
+        applicable: false,
+        satisfied: false,
+        knownNumeric: true,
+        semanticState: "open_ended_or_variable",
+      }),
+      // A mixed partial plan (paid + unavailable) is PARTIAL — the widget
+      // renders the missing-admission label from planMissingComponents.
+      completeness: "partial",
+      knownSubtotal: [1500, 1500],
+    });
+    expect(text).toContain("¥1,500");
+    expect(text).toContain("Missing:");
+    expect(text).toContain("admission");
+  });
+});

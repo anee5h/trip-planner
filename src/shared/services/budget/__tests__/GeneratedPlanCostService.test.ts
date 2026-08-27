@@ -302,3 +302,204 @@ describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
     );
   });
 });
+
+// ── KAI-219A FINAL repair regressions (A-F) ─────────────────────────────────
+describe("KAI-219A final — GeneratedPlan known-numeric vs satisfied + aggregate semantics", () => {
+  function paidDest(overrides: Partial<Destination> = {}): Destination {
+    return {
+      ...BASE_DEST,
+      budgetMetadata: { method: "unknown" },
+      ...overrides,
+    } as unknown as Destination;
+  }
+
+  type AdmissionOverride = NonNullable<Destination["admission"]>;
+
+  function verifiedPaidFact(amount: number): AdmissionOverride {
+    return {
+      state: "verified_paid",
+      provenance: "verified_source",
+      cost: { kind: "bounded", min: amount, max: amount },
+      scope: "general_entry",
+      sourceUrls: ["https://example.com"],
+      checkedAt: "2026-01-01",
+    } as AdmissionOverride;
+  }
+
+  function unavailableFact(): AdmissionOverride {
+    return {
+      state: "unavailable",
+      provenance: "none",
+      reasonCode: "legacy_provenance_unrecovered",
+      cost: {
+        kind: "unavailable",
+        reason: "legacy_provenance_unrecovered",
+      },
+      scope: "general_entry",
+    } as AdmissionOverride;
+  }
+
+  function notApplicableFact(): AdmissionOverride {
+    return {
+      state: "not_applicable",
+      provenance: "none",
+      reasonCode: "hub_budget_not_applicable",
+      cost: { kind: "not_applicable" },
+      scope: "general_entry",
+    } as AdmissionOverride;
+  }
+
+  function freeFact(): AdmissionOverride {
+    return {
+      state: "verified_free",
+      provenance: "verified_source",
+      basis: "The garden is free to enter",
+      cost: { kind: "bounded", min: 0, max: 0 },
+      scope: "general_entry",
+      sourceUrls: ["https://example.com"],
+      checkedAt: "2026-01-01",
+    } as AdmissionOverride;
+  }
+
+  function makeMultiPlan(dests: Destination[]): DayPlan {
+    return {
+      ...makePlan(dests[0]),
+      id: "plan-multi",
+      steps: dests.map((d, i) => ({
+        id: `step-${i + 1}`,
+        type: "destination" as const,
+        timeBlock: "morning" as const,
+        startTime: "09:00",
+        endTime: "11:00",
+        durationMinutes: 120,
+        destination: d,
+        title: { en: `Dest ${i + 1}`, ja: `Dest ${i + 1}` },
+      })),
+      routeLegs: [],
+    };
+  }
+
+  function makeZeroLegPlan(dest: Destination): DayPlan {
+    return { ...makePlan(dest), routeLegs: [] };
+  }
+
+  it("A) only N/A admission + zero route legs → complete; semantic N/A; knownSubtotal gains NO fake ¥0", () => {
+    const dest = paidDest({ admission: notApplicableFact() });
+    const cost = calculateGeneratedPlanCost(
+      makeZeroLegPlan(dest),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("complete");
+    expect(cost.admission.semanticState).toBe("not_applicable");
+    expect(cost.admission.satisfied).toBe(true);
+    expect(cost.admission.knownNumeric).toBe(false);
+    // knownSubtotal does NOT gain a fake ¥0 admission contribution (the
+    // N/A is non-numeric — [0,0] is not added as a "known" numeric).
+    expect(cost.knownSubtotal[0]).toBe(0);
+    expect(cost.knownSubtotal[1]).toBe(0);
+  });
+
+  it("B) N/A + paid ¥1,500 → complete; admission range ¥1,500; NOT N/A", () => {
+    const naDest = paidDest({ id: "na-1", admission: notApplicableFact() });
+    const paidDest2 = paidDest({
+      id: "paid-1",
+      admission: verifiedPaidFact(1500),
+    });
+    const cost = calculateGeneratedPlanCost(
+      makeMultiPlan([naDest, paidDest2]),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("complete");
+    expect(cost.admission.semanticState).toBe("paid");
+    expect(cost.admission.satisfied).toBe(true);
+    expect(cost.admission.min).toBe(1500);
+    expect(cost.admission.max).toBe(1500);
+  });
+
+  it("C) free + paid ¥1,500 → admission range ¥1,500; NOT Free", () => {
+    const freeDest = paidDest({ id: "free-1", admission: freeFact() });
+    const paidDest2 = paidDest({
+      id: "paid-1",
+      admission: verifiedPaidFact(1500),
+    });
+    const cost = calculateGeneratedPlanCost(
+      makeMultiPlan([freeDest, paidDest2]),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.admission.semanticState).toBe("paid");
+    expect(cost.admission.min).toBe(1500);
+    expect(cost.admission.max).toBe(1500);
+    expect(cost.admission.satisfied).toBe(true);
+  });
+
+  it("D) verified ¥1,500 + unavailable second admission → partial; knownSubtotal INCLUDES ¥1,500; Missing: admission", () => {
+    const paidDest2 = paidDest({
+      id: "paid-1",
+      admission: verifiedPaidFact(1500),
+    });
+    const unavailDest = paidDest({
+      id: "unavail-1",
+      admission: unavailableFact(),
+    });
+    const cost = calculateGeneratedPlanCost(
+      makeMultiPlan([paidDest2, unavailDest]),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("partial");
+    expect(cost.admission.satisfied).toBe(false);
+    expect(cost.admission.knownNumeric).toBe(true);
+    // The known ¥1,500 is NOT dropped from knownSubtotal.
+    expect(cost.knownSubtotal[0]).toBe(1500);
+    expect(cost.knownSubtotal[1]).toBe(1500);
+    // Missing admission remains explicit.
+    expect(cost.assumptions.some((a) => a.destinationId === "unavail-1")).toBe(
+      true,
+    );
+  });
+
+  it("E) documented estimate + zero legs → complete + confidence estimated (retain)", () => {
+    const dest = paidDest({
+      admission: {
+        state: "documented_estimate",
+        provenance: "model",
+        cost: { kind: "bounded", min: 1800, max: 2200 },
+        scope: "general_entry",
+      },
+    });
+    const cost = calculateGeneratedPlanCost(
+      makeZeroLegPlan(dest),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.completeness).toBe("complete");
+    expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.semanticState).toBe("estimated");
+    expect(cost.confidence).toBe("estimated");
+    expect(cost.knownSubtotal[0]).toBe(1800);
+    expect(cost.knownSubtotal[1]).toBe(2200);
+  });
+
+  it("F) all applicable admission free → verified_free", () => {
+    const freeDest1 = paidDest({ id: "free-1", admission: freeFact() });
+    const freeDest2 = paidDest({ id: "free-2", admission: freeFact() });
+    const cost = calculateGeneratedPlanCost(
+      makeMultiPlan([freeDest1, freeDest2]),
+      1,
+      "train",
+      false,
+    );
+    expect(cost.admission.semanticState).toBe("verified_free");
+    expect(cost.admission.satisfied).toBe(true);
+    expect(cost.admission.min).toBe(0);
+    expect(cost.admission.max).toBe(0);
+  });
+});
