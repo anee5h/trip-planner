@@ -141,6 +141,6 @@
     ]
   },
   "allowScripts": {
-    "wrangler@4.123.0": true
+    "wrangler@4.125.0": true
   }
 }
