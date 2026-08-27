@@ -54,6 +54,10 @@ import {
   isValidTripCostResult,
 } from "@/shared/services/budget/budgetV2";
 import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
+import {
+  validateAdmissionFact,
+  validateLocalTransportFact,
+} from "@/shared/services/budget/factValidation";
 
 /**
  * KAI-217A trip-mode axis. EXTENDS the binary app types ("day_trip" |
@@ -158,12 +162,128 @@ function originTravelComponent(
 }
 
 /**
- * admission — from the KAI-214 normalized trust state + the trusted
- * per-person tickets value (budgetBreakdown.tickets), scaled by party.
- * verified_free → bounded [0,0] with verified_free evidence (a FACT, not
- * missing data). not_applicable (verified hub) → first-class non-numeric.
+ * admission — KAI-219A: the explicit KAI-218 admission FACT is
+ * AUTHORITATIVE when present. It is mapped 1:1 into the canonical
+ * CostRepresentation and NEVER falls back to legacy fields, even when the
+ * fact itself says unavailable (an explicit "new truth says unavailable"
+ * must never resurrect the old legacy ticket value behind it).
+ *
+ * When NO admission fact exists, a narrowly-bounded TRANSITIONAL fallback
+ * to the KAI-214 normalized trusted legacy admission may remain (for
+ * unmigrated records) — but ONLY through the centralized KAI-214 trust
+ * gate: legacy/unverified/absent trust never becomes "known", and the
+ * fallback is counted for the migration audit.
  */
 function admissionComponent(
+  dest: Destination,
+  partySize: number,
+): TripCostComponent {
+  const fact = dest.admission;
+
+  if (fact) {
+    return admissionFromFact(fact, partySize);
+  }
+
+  // ── Transitional fallback (no explicit fact authored) ────────────────
+  return admissionFromLegacy(dest, partySize);
+}
+
+/**
+ * KAI-219A: explicit admission fact → canonical component. Pure mapping,
+ * no legacy involvement. Preserves the fact's exact representation:
+ * verified_paid → bounded source fact with verified provenance;
+ * verified_free → [0,0] ONLY via verified_free semantics; documented_estimate
+ * → bounded/open_ended model estimate; variable_price → bounded official
+ * range OR open-ended OR variable (never midpoint-collapsed); not_applicable
+ * → non-numeric; unavailable → unavailable + reason.
+ */
+function admissionFromFact(
+  fact: NonNullable<Destination["admission"]>,
+  partySize: number,
+): TripCostComponent {
+  const { state, provenance, reasonCode, cost, sourceUrls } = fact;
+  const evidenceBase = {
+    scope: "admission" as const,
+    provenance,
+    state,
+    reason: reasonCode,
+    sourceUrls,
+  };
+
+  // KAI-219A runtime fail-closed: ONE shared dependency-neutral validator
+  // (factValidation.ts) enforces the full KAI-218 invariant set — the same
+  // validator the projection and GeneratedPlanCostService use. An invalid
+  // persisted fact can never create unverified canonical zero costs or
+  // promote an untrusted value; it fails closed to unavailable.
+  const validation = validateAdmissionFact(fact);
+  if (!validation.valid) {
+    return {
+      cost: { kind: "unavailable", reason: "source_missing" },
+      evidence: { ...evidenceBase, derivation: "computed" },
+    };
+  }
+
+  switch (cost.kind) {
+    case "bounded": {
+      // verified_free is bounded [0,0] ONLY through verified_free semantics.
+      const isFree = state === "verified_free";
+      if (isFree && (cost.min !== 0 || cost.max !== 0)) {
+        // Validator already forbids this; fail closed rather than trust a
+        // malformed free fact.
+        return {
+          cost: { kind: "unavailable", reason: "source_missing" },
+          evidence: { ...evidenceBase, derivation: "computed" },
+        };
+      }
+      return {
+        cost: {
+          kind: "bounded",
+          min: cost.min * partySize,
+          max: cost.max * partySize,
+        },
+        evidence: {
+          ...evidenceBase,
+          derivation:
+            state === "documented_estimate" ? "model_estimate" : "source_fact",
+        },
+      };
+    }
+    case "open_ended": {
+      return {
+        cost: { kind: "open_ended", from: cost.from * partySize },
+        evidence: { ...evidenceBase, derivation: "model_estimate" },
+      };
+    }
+    case "variable": {
+      return {
+        cost: { kind: "variable" },
+        evidence: { ...evidenceBase, derivation: "computed" },
+      };
+    }
+    case "not_applicable": {
+      return {
+        cost: { kind: "not_applicable" },
+        evidence: { ...evidenceBase, derivation: "computed" },
+      };
+    }
+    case "unavailable": {
+      return {
+        cost: { kind: "unavailable", reason: cost.reason ?? "source_missing" },
+        evidence: { ...evidenceBase, derivation: "computed" },
+      };
+    }
+  }
+}
+
+/**
+ * KAI-219A: TRANSITIONAL legacy fallback — used ONLY when no explicit
+ * admission fact exists. Mirrors the pre-KAI-219 behavior: KAI-214
+ * normalized trust state + the trusted per-person tickets value. Every
+ * record that reaches this path is counted by the migration audit
+ * (transitional legacy fallback cohort). NEVER promoted: legacy/unverified/
+ * absent trust stays unavailable.
+ */
+function admissionFromLegacy(
   dest: Destination,
   partySize: number,
 ): TripCostComponent {
@@ -184,29 +304,6 @@ function admissionComponent(
   }
   switch (s.state) {
     case "verified_paid":
-      if (tickets !== undefined && Number.isFinite(tickets) && tickets >= 0) {
-        return {
-          cost: {
-            kind: "bounded",
-            min: tickets * partySize,
-            max: tickets * partySize,
-          },
-          evidence: {
-            scope: "admission",
-            derivation: "source_fact",
-            state: s.state,
-            provenance: s.provenance,
-          },
-        };
-      }
-      return {
-        cost: SOURCE_MISSING,
-        evidence: {
-          scope: "admission",
-          derivation: "computed",
-          reason: "source_missing",
-        },
-      };
     case "documented_estimate":
       if (tickets !== undefined && Number.isFinite(tickets) && tickets >= 0) {
         return {
@@ -217,7 +314,10 @@ function admissionComponent(
           },
           evidence: {
             scope: "admission",
-            derivation: "model_estimate",
+            derivation:
+              s.state === "documented_estimate"
+                ? "model_estimate"
+                : "source_fact",
             state: s.state,
             provenance: s.provenance,
           },
@@ -280,35 +380,126 @@ function admissionComponent(
 /**
  * local_transport — the required on-site/local-transit cost.
  *
- * KAI-216 round-2 repair (locked decisions):
- *   - NO generic city allowance: the generic budgetBreakdown.transport is
- *     NOT defensible local-transport evidence — model peer-cell values,
- *     legacy values, AND trusted-manual allowances all fail closed. Manual
- *     provenance can verify admission while the old transport allowance is
- *     still generic (a per-person on-site allowance is not a route fact).
- *   - Until an EXPLICIT defensible localTransport fact exists (KAI-218A
- *     schema, future consumption), local transport is UNAVAILABLE.
- *   - Evidence-backed walking ¥0 belongs to explicit localTransport facts —
- *     never manufactured from walkingMin or a generic word regex in
- *     budgetMetadata.basis.
+ * KAI-219A: consumes the EXPLICIT KAI-218 localTransport fact when present
+ * (verified_required_access → bounded verified source fare; bounded_defensible_access
+ * → bounded model estimate; verified_walking → [0,0] ONLY with walking evidence;
+ * not_applicable → non-numeric; unavailable → unavailable + reason).
+ *
+ * NO legacy fallback: budgetBreakdown.transport is NEVER consumed here —
+ * no generic city allowance, no walkingMin heuristic, no text-regex → ¥0.
+ * If no explicit localTransport fact exists, local transport is UNAVAILABLE
+ * unless the fact itself says not_applicable.
  */
 function localTransportComponent(
   dest: Destination,
   partySize: number,
 ): TripCostComponent {
-  // KAI-218A explicit localTransport facts are NOT yet consumed by the
-  // engine. Until they are, required local transport is unavailable —
-  // never a legacy breakdown allowance, never a manufactured walking ¥0.
-  void dest;
-  void partySize;
-  return {
-    cost: SOURCE_MISSING,
-    evidence: {
-      scope: "local_transport",
-      derivation: "computed",
-      reason: "source_missing",
-    },
+  const fact = dest.localTransport;
+  if (!fact) {
+    return {
+      cost: SOURCE_MISSING,
+      evidence: {
+        scope: "local_transport",
+        derivation: "computed",
+        reason: "source_missing",
+      },
+    };
+  }
+  const { sourceUrls } = fact as { sourceUrls?: readonly string[] };
+  const evidenceBase = {
+    scope: "local_transport" as const,
+    sourceUrls,
   };
+
+  // KAI-219A runtime fail-closed: ONE shared dependency-neutral validator
+  // (factValidation.ts) enforces the full KAI-218 local-transport invariant
+  // set — the same validator the projection uses. An invalid persisted fact
+  // can never create an unverified zero (walking) or an unsourced verified
+  // fare; it fails closed to unavailable.
+  const validation = validateLocalTransportFact(fact);
+  if (!validation.valid) {
+    return {
+      cost: { kind: "unavailable", reason: "source_missing" },
+      evidence: { ...evidenceBase, derivation: "computed" },
+    };
+  }
+
+  switch (fact.kind) {
+    case "verified_required_access": {
+      const [min, max] = fact.fare;
+      // KAI-219A contract: canonical fare scaling by basis.
+      //   one_way → ×2 ×party (out + back); round_trip / total → ×party.
+      const mult = fact.fareBasis === "one_way" ? 2 * partySize : partySize;
+      return {
+        cost: {
+          kind: "bounded",
+          min: min * mult,
+          max: max * mult,
+        },
+        evidence: {
+          ...evidenceBase,
+          state: "verified_paid",
+          provenance: "verified_source",
+          derivation: "source_fact",
+          localCoverage: fact.coverage,
+        },
+      };
+    }
+    case "bounded_defensible_access": {
+      const [min, max] = fact.fare;
+      const mult = fact.fareBasis === "one_way" ? 2 * partySize : partySize;
+      return {
+        cost: {
+          kind: "bounded",
+          min: min * mult,
+          max: max * mult,
+        },
+        evidence: {
+          ...evidenceBase,
+          state: "documented_estimate",
+          provenance: "model",
+          derivation: "model_estimate",
+          localCoverage: fact.coverage,
+        },
+      };
+    }
+    case "verified_walking": {
+      // ¥0 ONLY through explicit walking evidence — never manufactured.
+      return {
+        cost: { kind: "bounded", min: 0, max: 0 },
+        evidence: {
+          ...evidenceBase,
+          state: "verified_free",
+          provenance: "verified_source",
+          derivation: "source_fact",
+        },
+      };
+    }
+    case "not_applicable": {
+      return {
+        cost: { kind: "not_applicable" },
+        evidence: {
+          ...evidenceBase,
+          derivation: "computed",
+          reason: "hub_budget_not_applicable",
+        },
+      };
+    }
+    case "unavailable": {
+      // The fact's own reason string (no_on_site_evidence / corridor_only /
+      // ...) is a LOCAL-TRANSPORT taxonomy, not a KAI-214 BudgetReasonCode.
+      // Map to the honest KAI-214 code for the canonical evidence; the
+      // fact itself retains its specific detail for the audit.
+      return {
+        cost: { kind: "unavailable", reason: "source_missing" },
+        evidence: {
+          ...evidenceBase,
+          derivation: "computed",
+          reason: "source_missing",
+        },
+      };
+    }
+  }
 }
 
 /**
@@ -411,6 +602,18 @@ function buildPartialMetadata(components: readonly TripCostComponent[]): {
         missing.push({
           scope: c.evidence.scope,
           reason: "corridor_only_access_leg_missing",
+        });
+      }
+      // KAI-219A contract: bounded segment-only local transport — known
+      // segment but the required local access is NOT fully covered; the
+      // component stays MISSING (explicit in missingComponents).
+      if (
+        c.evidence.scope === "local_transport" &&
+        c.evidence.localCoverage === "segment_only"
+      ) {
+        missing.push({
+          scope: c.evidence.scope,
+          reason: "segment_only_access_incomplete",
         });
       }
       continue;
@@ -547,6 +750,18 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
       // Bounded corridor-only / local-bounded origin: the verified
       // corridor/service fare is known but an access leg is missing →
       // the trip is partial, never complete.
+      return true;
+    }
+    if (
+      k === "bounded" &&
+      c.evidence.scope === "local_transport" &&
+      c.evidence.localCoverage === "segment_only"
+    ) {
+      // KAI-219A contract: a SEGMENT-ONLY local-transport fare covers only
+      // part of the required on-site access. The known segment contributes
+      // to knownSubtotal but the local_transport required component is NOT
+      // satisfied — the trip must remain partial (missingComponents keeps
+      // local_transport explicit).
       return true;
     }
     return false;

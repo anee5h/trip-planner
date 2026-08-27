@@ -184,7 +184,12 @@ export function TripCostBreakdownWidget({
         return undefined;
       })();
   const admissionRange: [number, number] | undefined = planCostBreakdown
-    ? [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
+    ? // KAI-219A final repair: a not_applicable generated-plan admission is
+      // a SATISFIED non-numeric component — NO ¥0 range row, NO [0,0] in
+      // visiblePartyRanges. Free shows its [0,0] via the Free label.
+      planCostBreakdown.admission.semanticState === "not_applicable"
+      ? undefined
+      : [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
     : componentRange(admissionComp);
   const accommodationRange: [number, number] | undefined =
     componentRange(accommodationComp);
@@ -262,10 +267,13 @@ export function TripCostBreakdownWidget({
   // a defensive [0,0] check). A source-backed PAID fact whose value happens
   // to be 0 is NOT a verified-free semantic state.
   const isFreeAdmission =
-    admissionComp?.cost.kind === "bounded" &&
-    admissionComp.cost.min === 0 &&
-    admissionComp.cost.max === 0 &&
-    admissionComp.evidence.state === "verified_free";
+    (admissionComp?.cost.kind === "bounded" &&
+      admissionComp.cost.min === 0 &&
+      admissionComp.cost.max === 0 &&
+      admissionComp.evidence.state === "verified_free") ||
+    // KAI-219A final repair: generated plans carry the aggregate semantic
+    // state — all-applicable-free → verified_free.
+    (planCostBreakdown?.admission.semanticState === "verified_free" && true);
 
   // KAI-217B round-6: AGGREGATE confidence badge from ALL cost-bearing
   // components — never from admission alone:
@@ -314,10 +322,17 @@ export function TripCostBreakdownWidget({
         : undefined;
 
   const totalRange: [number, number] | undefined = planCostBreakdown
-    ? visiblePartyRanges.reduce<[number, number]>(
-        (total, range) => [total[0] + range[0], total[1] + range[1]],
-        [0, 0],
-      )
+    ? // KAI-219A final N/A guard: a COMPLETE plan with NO numeric cost
+      // claim (all-N/A, hasNumericTotal=false) must NOT reduce empty
+      // visiblePartyRanges to [0,0] — N/A ≠ verified ¥0. Show no overall
+      // numeric total (the widget renders the honest non-numeric summary).
+      planCostBreakdown.completeness === "complete" &&
+      planCostBreakdown.hasNumericTotal === false
+      ? undefined
+      : visiblePartyRanges.reduce<[number, number]>(
+          (total, range) => [total[0] + range[0], total[1] + range[1]],
+          [0, 0],
+        )
     : engineTotal;
   const displayedTotalRange: [number, number] | undefined =
     viewMode === "party"
@@ -432,11 +447,19 @@ export function TripCostBreakdownWidget({
               <div className="text-base font-extrabold text-slate-900 dark:text-white">
                 {partialPlanLabel || enginePartialLabel
                   ? (partialPlanLabel ?? enginePartialLabel)
-                  : hasKnownCost
-                    ? formatLocalizedJPYRange(totalRange, locale)
-                    : locale === "ja"
-                      ? "料金不明"
-                      : "Cost unavailable"}
+                  : // KAI-219A final N/A guard: a COMPLETE plan with no
+                    // numeric cost claim (all-N/A) shows an honest
+                    // non-numeric summary — never an overall ¥0.
+                    planCostBreakdown?.completeness === "complete" &&
+                      planCostBreakdown.hasNumericTotal === false
+                    ? locale === "ja"
+                      ? "対象となる料金項目なし"
+                      : "No applicable priced components"
+                    : hasKnownCost
+                      ? formatLocalizedJPYRange(totalRange, locale)
+                      : locale === "ja"
+                        ? "料金不明"
+                        : "Cost unavailable"}
               </div>
             </div>
 
@@ -517,11 +540,19 @@ export function TripCostBreakdownWidget({
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">
                   {partialPlanLabel || enginePartialLabel
                     ? (partialPlanLabel ?? enginePartialLabel)
-                    : hasKnownCost
-                      ? formatLocalizedJPYRange(displayedTotalRange, locale)
-                      : locale === "ja"
-                        ? "料金不明"
-                        : "Cost unavailable"}
+                    : // KAI-219A final N/A guard: a COMPLETE plan with no
+                      // numeric cost claim shows the honest non-numeric
+                      // summary — never an overall ¥0.
+                      planCostBreakdown?.completeness === "complete" &&
+                        planCostBreakdown.hasNumericTotal === false
+                      ? locale === "ja"
+                        ? "対象となる料金項目なし"
+                        : "No applicable priced components"
+                      : hasKnownCost
+                        ? formatLocalizedJPYRange(displayedTotalRange, locale)
+                        : locale === "ja"
+                          ? "料金不明"
+                          : "Cost unavailable"}
                 </div>
                 {(partialPlanLabel || enginePartialLabel) &&
                   (planCostBreakdown?.completeness === "partial" ||
@@ -600,6 +631,14 @@ export function TripCostBreakdownWidget({
                       // bounded admission shows its range even when the trip
                       // is partial; free shows Free; unknown → variable/
                       // unavailable.
+                      // KAI-219A final repair: generated-plan not_applicable
+                      // → "Not applicable / 対象外" (never a ¥0 row).
+                      if (
+                        planCostBreakdown?.admission.semanticState ===
+                        "not_applicable"
+                      ) {
+                        return locale === "ja" ? "対象外" : "Not applicable";
+                      }
                       if (isFreeAdmission) {
                         return locale === "ja" ? "無料" : "Free";
                       }

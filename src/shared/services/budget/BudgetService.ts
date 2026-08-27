@@ -19,6 +19,7 @@ import type {
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
 import { isValidAccommodationAllowance } from "@/shared/types/homePlannerState";
+import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import {
   hasDisplayableBudget,
   hasTrustedNumericBudget,
@@ -552,6 +553,48 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   food: number;
   cafe: number;
 } | null {
+  // KAI-219A ONE-WAY COMPATIBILITY PROJECTION (DEPRECATION.md §2): when an
+  // explicit KAI-218 `admission` FACT exists, legacy `tickets` consumers
+  // read the PROJECTED value derived FROM the fact at read time. This is
+  // DERIVED and READ-ONLY — never written back, never independently edited.
+  //
+  // KAI-219A review BLOCKER 4: the projection uses the SAME shared runtime
+  // validator (factValidation.ts) as the engine, and only projects a
+  // VALIDATED BOUNDED fact to a scalar. open_ended / variable /
+  // not_applicable / unavailable / malformed → null (no "from ¥X" → exact
+  // ¥X scalarization). The bounded projection uses the fact MAX (the
+  // conservative ceiling for legacy readers).
+  const fact = dest.admission;
+  const legacyBreakdown = dest.budgetBreakdown;
+  if (fact) {
+    const validation = validateAdmissionFact(fact);
+    const validBounded =
+      validation.valid &&
+      fact.cost.kind === "bounded" &&
+      isFiniteNonNegative(fact.cost.min) &&
+      isFiniteNonNegative(fact.cost.max);
+    const projectedTickets = validBounded ? fact.cost.max : undefined;
+    const hasLegacyTransportFoodCafe =
+      legacyBreakdown &&
+      [
+        legacyBreakdown.transport,
+        legacyBreakdown.food,
+        legacyBreakdown.cafe,
+      ].every(isFiniteNonNegative);
+    if (projectedTickets !== undefined && hasLegacyTransportFoodCafe) {
+      return {
+        transport: legacyBreakdown!.transport,
+        tickets: projectedTickets,
+        food: legacyBreakdown!.food,
+        cafe: legacyBreakdown!.cafe,
+      };
+    }
+    // No scalar projection (non-bounded / malformed fact, or absent legacy
+    // non-admission fields). NEVER synthesize zeros, NEVER scalarize
+    // "from ¥X" → ¥X, NEVER resurrect the stale legacy tickets value.
+    // Fail closed for the whole breakdown.
+    return null;
+  }
   // KAI-204 phase 3 (positive trust contract) + KAI-215 convergence: a
   // breakdown is consumed only when the KAI-214 NORMALIZED semantic state
   // says the record is trusted (trustLevel trusted | trusted_estimate).
@@ -561,15 +604,15 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
   // states (e.g. verified_paid without provenance) also fail closed here.
   if (!hasDisplayableBudget(dest)) return null;
   if (
-    dest.budgetBreakdown &&
+    legacyBreakdown &&
     [
-      dest.budgetBreakdown.transport,
-      dest.budgetBreakdown.tickets,
-      dest.budgetBreakdown.food,
-      dest.budgetBreakdown.cafe,
+      legacyBreakdown.transport,
+      legacyBreakdown.tickets,
+      legacyBreakdown.food,
+      legacyBreakdown.cafe,
     ].every(isFiniteNonNegative)
   ) {
-    return dest.budgetBreakdown;
+    return legacyBreakdown;
   }
   // KAI-89 review: NO synthetic breakdown. A known range without a valid
   // breakdown returns null — the runtime must NEVER invent admission

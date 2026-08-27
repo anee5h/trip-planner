@@ -24,6 +24,8 @@
 
 import type { Destination } from "@/shared/types/destination";
 import { hasDisplayableBudget } from "@/shared/services/budget/budgetState";
+import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
+import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import type {
   DayPlan,
   PlanAssumption,
@@ -35,6 +37,34 @@ export interface CostComponent {
   max: number;
   source: "curated" | "estimated" | "unknown";
   applicable: boolean;
+  /**
+   * KAI-219A final repair: required admission is FULLY SATISFIED (every
+   * required destination satisfied — bounded curated / bounded estimated /
+   * explicit not_applicable). INDEPENDENT of knownNumeric: an all-N/A
+   * itinerary is satisfied=true with no numeric contribution; a mixed
+   * partial (paid ¥1,500 + unavailable) is satisfied=false WITH a known
+   * numeric subtotal.
+   */
+  satisfied?: boolean;
+  /**
+   * KAI-219A final repair: whether a KNOWN NUMERIC admission contribution
+   * exists (bounded incl. verified_free [0,0]). Independent of satisfied.
+   */
+  knownNumeric?: boolean;
+  /**
+   * KAI-219A contract (Fix 3): optional semantic state carried through the
+   * generated-plan result so consumers (widget) can distinguish
+   * verified_free → Free, not_applicable → Not applicable / 対象外,
+   * paid/estimated bounded → range, unknown/open-ended/variable → partial.
+   * N/A must NEVER render as a fake ¥0 admission.
+   */
+  semanticState?:
+    | "verified_free"
+    | "not_applicable"
+    | "paid"
+    | "estimated"
+    | "open_ended_or_variable"
+    | "unknown";
 }
 
 export interface GeneratedPlanCostResult {
@@ -52,6 +82,17 @@ export interface GeneratedPlanCostResult {
   completeness: "complete" | "partial" | "unavailable";
   /** The known-subtotal (curated components only) — NOT a full plan total. */
   knownSubtotal: [number, number];
+  /**
+   * KAI-219A final N/A guard: whether the plan has a NUMERIC COST CLAIM.
+   *   true  — the (complete) plan contains ≥1 actual known numeric
+   *           required component (verified free [0,0] COUNTS — it is a
+   *           legitimate verified zero; paid/estimated bounded count).
+   *   false — the plan may be epistemically COMPLETE (all N/A) but there
+   *           is NO numeric cost claim. Consumers must NOT publish/persist
+   *           knownSubtotal [0,0] as a numeric total.
+   * NEVER inferred later from [0,0] — this field is explicit.
+   */
+  hasNumericTotal: boolean;
   confidence: "verified" | "estimated";
   assumptions: PlanAssumption[];
 }
@@ -85,6 +126,21 @@ export function estimateOriginTransportFare(): CostComponent {
   return { min: 0, max: 0, source: "unknown", applicable: false };
 }
 
+/** KAI-219A: shared missing-ticket assumption (deduplicated helper). */
+function pushMissingAssumption(
+  dest: Destination,
+  assumptions: PlanAssumption[],
+): void {
+  assumptions.push({
+    type: "estimated_cost",
+    destinationId: dest.id,
+    message: {
+      en: `Ticket cost for ${dest.name} is excluded or unverified.`,
+      ja: `${dest.nameJa || dest.name}の入場チケット料金は未確認のため含まれていません。`,
+    },
+  });
+}
+
 export function calculateGeneratedPlanCost(
   plan: DayPlan,
   partySize: number = 1,
@@ -109,39 +165,149 @@ export function calculateGeneratedPlanCost(
     }
   });
 
+  // KAI-219A final repair: admission aggregation with TWO INDEPENDENT
+  // axes per destination:
+  //   - knownNumeric: does this destination contribute a KNOWN NUMERIC
+  //     admission amount (bounded incl. verified_free [0,0])?
+  //   - satisfied: is this destination's REQUIRED admission fully
+  //     satisfied (bounded curated OR bounded estimated OR explicit
+  //     not_applicable)? unavailable/open_ended/variable/malformed → NOT
+  //     satisfied.
+  // Aggregate: satisfied = EVERY required destination is satisfied;
+  // knownNumeric = any destination contributes a numeric amount. A mixed
+  // itinerary (A paid ¥1,500 + B unavailable) keeps the ¥1,500 in
+  // knownSubtotal and stays partial.
   let totalAdmissionMin = 0;
   let totalAdmissionMax = 0;
-  let hasMissingTickets = false;
+  let anyKnownNumeric = false;
+  let anyUnsatisfied = false;
+  let allSatisfied = true;
+  let hasEstimatedNumeric = false;
+  let hasPaidNumeric = false;
+  let hasFreeNumeric = false;
+  let allNotApplicable = true;
+  let anyNumericAtAll = false; // bounded numeric (paid/free/estimated)
+  let destinationCount = 0;
 
   uniqueDestinationsMap.forEach((dest) => {
+    destinationCount += 1;
+    // KAI-219A review BLOCKER 3: an EXPLICIT v2 admission fact is
+    // AUTHORITATIVE — the canonical fact is interpreted directly and the
+    // OLD budgetMetadata trust gate (hasDisplayableBudget) is NOT consulted
+    // for it. Absent fact → transitional KAI-214 legacy fallback.
+    const fact = dest.admission;
+    if (fact) {
+      const validation = validateAdmissionFact(fact);
+      if (!validation.valid) {
+        // Malformed persisted fact → never numeric, never Free, NOT
+        // satisfied.
+        anyUnsatisfied = true;
+        allSatisfied = false;
+        allNotApplicable = false;
+        pushMissingAssumption(dest, assumptions);
+        return;
+      }
+      if (fact.cost.kind === "bounded") {
+        const isModel = fact.state === "documented_estimate";
+        totalAdmissionMin += fact.cost.min * safeParty;
+        totalAdmissionMax += fact.cost.max * safeParty;
+        anyKnownNumeric = true;
+        anyNumericAtAll = true;
+        allNotApplicable = false;
+        // verified/source-backed bounded → curated; documented model
+        // estimate → ESTIMATED (epistemically complete either way).
+        if (isModel) hasEstimatedNumeric = true;
+        else if (fact.state === "verified_free") hasFreeNumeric = true;
+        else hasPaidNumeric = true;
+        return;
+      }
+      if (fact.cost.kind === "not_applicable") {
+        // Hub / no-single-admission-product: SATISFIED non-numeric
+        // component (never a fake ¥0, never missing).
+        return;
+      }
+      // open_ended / variable / unavailable → NOT satisfied → plan stays
+      // partial → do NOT scalarize to a full ticket amount.
+      anyUnsatisfied = true;
+      allSatisfied = false;
+      allNotApplicable = false;
+      pushMissingAssumption(dest, assumptions);
+      return;
+    }
+    // Transitional legacy fallback (no explicit fact): the OLD trust gate
+    // + projection may still serve a trusted legacy ticket for unmigrated
+    // records — but only through the shared projection (never a direct
+    // budgetBreakdown.tickets read).
+    const effectiveBreakdown = getEffectiveBudgetBreakdown(dest);
     if (
       hasDisplayableBudget(dest) &&
-      typeof dest.budgetBreakdown?.tickets === "number"
+      effectiveBreakdown &&
+      typeof effectiveBreakdown.tickets === "number"
     ) {
-      const ticketVal = dest.budgetBreakdown.tickets;
+      const ticketVal = effectiveBreakdown.tickets;
       totalAdmissionMin += ticketVal * safeParty;
       totalAdmissionMax += ticketVal * safeParty;
+      anyKnownNumeric = true;
+      anyNumericAtAll = true;
+      hasPaidNumeric = true;
+      allNotApplicable = false;
     } else {
-      hasMissingTickets = true;
-      assumptions.push({
-        type: "estimated_cost",
-        destinationId: dest.id,
-        message: {
-          en: `Ticket cost for ${dest.name} is excluded or unverified.`,
-          ja: `${dest.nameJa || dest.name}の入場チケット料金は未確認のため含まれていません。`,
-        },
-      });
+      anyUnsatisfied = true;
+      allSatisfied = false;
+      allNotApplicable = false;
+      pushMissingAssumption(dest, assumptions);
     }
   });
+
+  // Aggregate satisfaction: EVERY required destination satisfied (vacuously
+  // true with zero destinations).
+  const admissionSatisfied = destinationCount === 0 ? true : allSatisfied;
+  const allApplicableFree =
+    anyNumericAtAll &&
+    !hasPaidNumeric &&
+    !hasEstimatedNumeric &&
+    hasFreeNumeric;
+
+  // Aggregate semantic state (KAI-219A final repair Fix 3): NO single
+  // free/N/A destination overrides the whole aggregate.
+  //   - any paid/estimated numeric + any N/A → paid/estimated range (NOT
+  //     not_applicable)
+  //   - free + paid → paid range (NOT verified_free)
+  //   - N/A + free only → verified_free
+  //   - all N/A → not_applicable
+  //   - any missing → partial/mixed (open_ended_or_variable display)
+  //   - all applicable admission free → verified_free
+  let aggregateSemantic: CostComponent["semanticState"];
+  if (anyUnsatisfied) {
+    aggregateSemantic = "open_ended_or_variable"; // partial/mixed
+  } else if (allNotApplicable) {
+    aggregateSemantic = "not_applicable";
+  } else if (hasPaidNumeric || hasEstimatedNumeric) {
+    aggregateSemantic = hasEstimatedNumeric ? "estimated" : "paid";
+  } else if (allApplicableFree || hasFreeNumeric) {
+    aggregateSemantic = "verified_free";
+  } else {
+    aggregateSemantic = "unknown";
+  }
 
   const admissionComp: CostComponent = {
     min: totalAdmissionMin,
     max: totalAdmissionMax,
-    source: hasMissingTickets ? "unknown" : "curated",
-    // KAI-217B (Luna): unknown admission is NOT applicable — a missing/
-    // unverified ticket value must not become an applicable [0,0] that
-    // inflates the numeric plan total with a fabricated ¥0.
-    applicable: !hasMissingTickets,
+    source: anyUnsatisfied
+      ? "unknown"
+      : hasEstimatedNumeric
+        ? "estimated"
+        : "curated",
+    // KAI-217B (Luna): unknown admission must not become an applicable
+    // [0,0]. applicable = SATISFIED (every required destination) — the
+    // known-numeric axis is carried by min/max + anyKnownNumeric, so a
+    // mixed partial keeps its known subtotal.
+    applicable: admissionSatisfied,
+    // KAI-219A final repair: explicit satisfied field — the known-numeric
+    // and satisfied concepts are independent.
+    satisfied: admissionSatisfied,
+    knownNumeric: anyKnownNumeric,
+    semanticState: aggregateSemantic,
   };
 
   // 2. Local Transit (per leg) — curated fares only.
@@ -198,27 +364,28 @@ export function calculateGeneratedPlanCost(
     return true;
   });
 
-  // KAI-217B round-3: extraction-only — no second canonical total. Exposes
-  // explicit COMPLETENESS + KNOWN-SUBTOTAL:
-  //   - complete ONLY when the ADMISSION fact AND the required route legs
-  //     are all curated+applicable (any missing admission OR any missing
-  //     required route leg ⇒ NOT complete).
-  //   - knownSubtotal = curated components only (never a full plan total).
-  const applicableComponents = [localTransitComp, admissionComp].filter(
-    (c) => c.applicable,
-  );
-  // KAI-217B round-4 zero-leg semantics: "complete" means admission is
-  // fully known AND EVERY REQUIRED route leg is fully curated. ZERO
-  // required route legs satisfies the route condition — do NOT require
-  // localTransitComp.applicable (which is false for an empty leg set).
+  // KAI-219A Fix 3 + final repair: a required component is SATISFIED by
+  // bounded curated, bounded estimated, OR explicit not_applicable (all
+  // epistemically complete). Confidence is SEPARATE: complete + any
+  // estimated → confidence estimated; complete + all verified/curated →
+  // confidence verified. Estimated is NOT partial.
   const routeConditionSatisfied =
     fareComponents.length === 0 ||
     (localTransitComp.applicable && localTransitComp.source === "curated");
-  const allKnown =
-    admissionComp.applicable &&
-    admissionComp.source === "curated" &&
-    routeConditionSatisfied;
-  const nothingKnown = applicableComponents.length === 0;
+  const allKnown = admissionSatisfied && routeConditionSatisfied;
+  // knownSubtotal = components with a KNOWN NUMERIC contribution. A mixed
+  // partial admission (paid ¥1,500 + unavailable) keeps its ¥1,500 here
+  // even though admission is NOT satisfied/applicable (Fix GP2).
+  const applicableComponents = [localTransitComp, admissionComp].filter((c) =>
+    c === admissionComp ? c.knownNumeric === true : c.applicable,
+  );
+  // nothingKnown: NO epistemically-known component. A satisfied-but-
+  // non-numeric admission (all N/A) is epistemically complete — the plan
+  // is NOT "nothing known" (it is complete with no numeric claim).
+  const nothingKnown =
+    applicableComponents.length === 0 &&
+    !admissionSatisfied &&
+    !(localTransitComp.applicable && localTransitComp.source === "curated");
 
   const knownSubtotalMin = applicableComponents.reduce(
     (sum, c) => sum + c.min,
@@ -229,9 +396,22 @@ export function calculateGeneratedPlanCost(
     0,
   );
 
+  const hasAnyEstimatedComponent =
+    admissionComp.source === "estimated" ||
+    localTransitComp.source === "estimated";
   const computedConfidence: "estimated" | "verified" = allKnown
-    ? "verified"
+    ? hasAnyEstimatedComponent
+      ? "estimated"
+      : "verified"
     : "estimated";
+
+  // KAI-219A final N/A guard: a NUMERIC COST CLAIM exists when ≥1 required
+  // component contributes a known numeric amount. verified_free [0,0] is a
+  // legitimate verified zero (counts); N/A contributes nothing (does not
+  // count). An all-N/A complete plan has hasNumericTotal=false.
+  const hasNumericTotal =
+    admissionComp.knownNumeric === true ||
+    (localTransitComp.applicable && localTransitComp.source === "curated");
 
   return {
     originTransport: originComp,
@@ -248,6 +428,7 @@ export function calculateGeneratedPlanCost(
         ? ("complete" as const)
         : ("partial" as const),
     knownSubtotal: [knownSubtotalMin, knownSubtotalMax] as [number, number],
+    hasNumericTotal,
     confidence: computedConfidence,
     assumptions: deduplicatedAssumptions,
   };

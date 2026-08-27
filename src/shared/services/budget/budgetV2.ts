@@ -39,6 +39,7 @@ import type {
   BudgetValueState,
 } from "@/shared/types/destination";
 import type { TransportFareScope } from "@/shared/services/transport/types";
+import type { LocalTransportCoverage } from "@/shared/types/destination";
 
 // ---- Bounded vs open-ended cost representation ----
 
@@ -125,6 +126,15 @@ export interface ComponentEvidence {
    * → the trip is partial, never complete.
    */
   readonly fareScope?: TransportFareScope;
+  /**
+   * KAI-219A contract: the local-transport coverage carried by a
+   * local_transport component. "all_required_access" = the fare covers ALL
+   * required on-site access (may satisfy the component); "segment_only" =
+   * the fare covers only a SEGMENT — the component is known but the trip
+   * must remain partial. Canonical typed field — never inferred from
+   * strings.
+   */
+  readonly localCoverage?: LocalTransportCoverage;
   readonly scope: CostScope;
   readonly derivation: CostDerivation;
 }

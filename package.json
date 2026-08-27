@@ -30,6 +30,8 @@
     "check:catalog-warnings:update": "tsx scripts/check-catalog-warnings.ts --update",
     "check:catalog-sync": "tsx scripts/check-catalog-sync.ts",
     "audit:kai-203": "tsx scripts/audit-kai-203-destination-completeness.ts",
+    "audit:kai-219": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-219-migration-audit.ts",
+    "check:kai-219-benchmark": "vitest run scripts/audit/__tests__/kai-219-five-origin-benchmark.test.ts",
     "check:kai-203": "tsx scripts/audit-kai-203-destination-completeness.ts --strict",
     "check:catalog-ci": "tsx scripts/check-catalog-ci.ts && npm run check:kai-89-structured-templates && npm run check:destination-models && npm run check:kai-203 && npm run check:deprecated-fields",
     "check:deprecated-fields": "tsx scripts/check-deprecated-fields.ts",
