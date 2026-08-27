@@ -6,6 +6,7 @@ import {
   getEstimatedBudgetRange,
   getTransportCost,
 } from "@/shared/services/budget/BudgetService";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { RecommendationContext } from "../RecommendationContext";
 
@@ -1162,7 +1163,25 @@ describe("runRecommendationPipeline — estimate consistency", () => {
       );
       expect(flightBudget.transportIncluded).toBe(true);
       expect(result.estimatedCostTransportIncluded).toBe(true);
-      expect(result.estimatedCostRange).toEqual(flightBudget.range);
+      // KAI-217B: the card range is the CANONICAL engine total (food/cafe/
+      // parking/5% excluded), not the legacy food-inclusive range. A
+      // weekend_2d1n result without an accommodation allowance is partial
+      // → the card shows no range (honest: incomplete evidence).
+      const engineResult = calculateTripCost({
+        dest: destination,
+        mode: "flight",
+        partySize: 2,
+        homeCoords: tokyoHome,
+        tripMode: "weekend_2d1n",
+      });
+      if (engineResult.completeness === "complete" && engineResult.total) {
+        expect(result.estimatedCostRange).toEqual([
+          engineResult.total.min,
+          engineResult.total.max,
+        ]);
+      } else {
+        expect(result.estimatedCostRange).toBeUndefined();
+      }
       expect(result.match.reasons.map((reason) => reason.code)).not.toContain(
         "weekendTransportExcluded",
       );

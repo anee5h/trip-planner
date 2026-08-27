@@ -11,7 +11,10 @@ import {
   resolveRecommendationWeather,
   type RecommendationContext,
 } from "./RecommendationContext";
-import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
+import {
+  calculateTripCost,
+  evaluateAffordability,
+} from "@/shared/services/budget/tripCostEngine";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
@@ -419,35 +422,41 @@ export function calculateScore(
       Number.isFinite(budgetRecommended) &&
       budgetRecommended >= 0
     ) {
-      const estimatedResult = getEstimatedBudgetRange(
+      // KAI-217B: the budget score evaluates the CANONICAL engine cost
+      // (food/cafe/parking/5% excluded). The legacy midpoint is NOT a valid
+      // affordability notion — bonus only on complete fit (max <= C),
+      // penalty only on definite over (min > C), nothing when the range
+      // straddles the ceiling or the result is partial/open-ended.
+      const engineResult = calculateTripCost({
         dest,
         mode,
         partySize,
-        context.budgetTier,
-        context.homeStationCoords || undefined,
-        context.ferryTemporal,
-      );
-      // KAI-50: budget uses the mode-specific derived duration. Skip the
-      // bonus/penalty when either the origin transport fare or the
-      // duration-dependent meal/rental cost is unavailable.
-      if (
-        estimatedResult.transportIncluded &&
-        estimatedResult.durationIncluded &&
-        estimatedResult.range
-      ) {
-        adjustedBudget =
-          (estimatedResult.range[0] + estimatedResult.range[1]) / 2;
-        if (adjustedBudget > budget) {
-          budgetScore -=
-            ((adjustedBudget - budget) / SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
-            SCORING_WEIGHTS.BUDGET_OVER_PENALTY_MULTIPLIER;
-        } else {
-          budgetScore += Math.min(
-            SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
-            (budget - adjustedBudget) / SCORING_WEIGHTS.BUDGET_UNDER_DIVISOR,
-          );
-        }
+        homeCoords: context.homeStationCoords || undefined,
+        // KAI-217B repair: respect the ACTUAL trip mode — overnight
+        // affordability must include the accommodation selection.
+        tripMode:
+          context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+        accommodationAllowance: context.accommodationAllowance,
+        ferryTemporal: context.ferryTemporal,
+      });
+      const affordability = evaluateAffordability(engineResult, budget);
+      if (affordability === "fits" && engineResult.total) {
+        // Complete fit: bonus proportional to headroom under the ceiling.
+        budgetScore += Math.min(
+          SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
+          (budget - engineResult.total.max) /
+            SCORING_WEIGHTS.BUDGET_UNDER_DIVISOR,
+        );
+        adjustedBudget = engineResult.total.max;
+      } else if (affordability === "over" && engineResult.total) {
+        // Definite over: penalty proportional to the overshoot.
+        budgetScore -=
+          ((engineResult.total.min - budget) /
+            SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
+          SCORING_WEIGHTS.BUDGET_OVER_PENALTY_MULTIPLIER;
+        adjustedBudget = engineResult.total.min;
       }
+      // may_exceed / unknown: no bonus, no penalty (no strict claim).
     }
 
     let transportScore = 0;

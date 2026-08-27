@@ -91,6 +91,12 @@ export interface TripCostContext {
   /** Date/ferry context, passed through to KAI-216 for date-sensitive
    *  ferry fares. */
   readonly ferryTemporal?: FerryTemporalContext;
+  /** KAI-217B: when FALSE, origin travel is NOT part of this context
+   *  (no mode/homeCoords — e.g. Compare's on-site comparison). The
+   *  origin_travel component becomes not_applicable so the on-site
+   *  canonical total (admission + local transport) can still be complete.
+   *  Default TRUE (origin travel is a required canonical component). */
+  readonly includeOriginTravel?: boolean;
 }
 
 // ---- Helpers ----
@@ -140,6 +146,12 @@ function originTravelComponent(
         : {}),
       ...(transport.evidence.sourceUrls
         ? { sourceUrls: transport.evidence.sourceUrls }
+        : {}),
+      // KAI-217B: the fare scope (complete vs corridor_only vs
+      // local_bounded_estimate) is required for affordability decisions —
+      // only a COMPLETE origin fare is a definite whole-journey cost.
+      ...(transport.evidence.fareScope
+        ? { fareScope: transport.evidence.fareScope }
         : {}),
     },
   };
@@ -471,7 +483,21 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
   );
 
   const components: TripCostComponent[] = [
-    originTravelComponent(transport),
+    // KAI-217B: when the context has no origin (no mode/homeCoords — e.g.
+    // Compare), origin travel is NOT part of this context and is excluded
+    // from the required set (not_applicable), so the on-site canonical
+    // total (admission + local transport) can still be complete.
+    ...(context.includeOriginTravel === false
+      ? [
+          {
+            cost: { kind: "not_applicable" as const },
+            evidence: {
+              scope: "origin_travel" as const,
+              derivation: "computed" as const,
+            },
+          },
+        ]
+      : [originTravelComponent(transport)]),
     admissionComponent(context.dest, partySize),
     localTransportComponent(context.dest, partySize),
     accommodationComponent(context, nights),
@@ -561,4 +587,60 @@ export function calculateTripCost(context: TripCostContext): TripCostResult {
     };
   }
   return result;
+}
+
+/**
+ * KAI-217B — canonical affordability evaluation.
+ *
+ * The user's budget preference evaluates the CANONICAL cost; it does not
+ * mutate it. Contract (KAI-217 spec):
+ *
+ *   - Flexible budget → no constraint (always "fits" — the caller decides).
+ *   - Complete bounded [min,max] with ceiling C:
+ *       max <= C → "fits"
+ *       min <= C < max → "may_exceed"
+ *       min > C → "over"
+ *   - Partial/open-ended/unavailable → "unknown" (NEVER claims strict fit,
+ *     never "over" — there is no definite cost to exceed with).
+ *
+ * The engine's components are the ONLY affordability inputs: food, cafe,
+ * shopping, optional spend, universal parking and the hidden 5% never
+ * influence this decision.
+ */
+export function evaluateAffordability(
+  result: TripCostResult,
+  budget: number | undefined,
+): "fits" | "may_exceed" | "over" | "unknown" {
+  if (budget === undefined || !Number.isFinite(budget) || budget < 0) {
+    // No (valid) ceiling → no affordability claim.
+    return "unknown";
+  }
+  if (result.completeness === "complete" && result.total) {
+    const { min, max } = result.total;
+    if (max <= budget) return "fits";
+    if (min > budget) return "over";
+    return "may_exceed";
+  }
+  // Partial/open-ended/unavailable: NEVER claims strict fit. Under the
+  // KAI-12 neutral policy, incomplete evidence is affordability-unknown —
+  // except ONE definite fact: a COMPLETE-scope origin fare (whole-journey
+  // verified cost, e.g. flight/explicit/complete shinkansen) whose min
+  // alone exceeds the ceiling is over regardless of what else is unknown
+  // (a verified ¥72k flight with unknown accommodation still cannot fit a
+  // ¥20k budget). Corridor-only / local-bounded origin (unmodeled access)
+  // stays neutral — retained, never hard-failed (KAI-12).
+  if (result.completeness === "partial") {
+    const originComponent = result.components.find(
+      (c) => c.evidence.scope === "origin_travel",
+    );
+    if (
+      originComponent &&
+      originComponent.cost.kind === "bounded" &&
+      originComponent.evidence.fareScope === "complete" &&
+      originComponent.cost.min > budget
+    ) {
+      return "over";
+    }
+  }
+  return "unknown";
 }

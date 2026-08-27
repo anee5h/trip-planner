@@ -17,6 +17,10 @@ interface DestinationPlanningSectionProps {
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
   accommodationAllowance?: number;
+  /** KAI-217B round-2: the actual trip mode, threaded to the widget so
+   *  2D1N includes the accommodation allowance × 1 night. */
+  tripMode?: "day_trip" | "weekend_2d1n" | "multi_night";
+  nights?: number;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -28,6 +32,8 @@ export function DestinationPlanningSection({
   selectedTransport,
   ferryTemporal,
   accommodationAllowance,
+  tripMode,
+  nights,
   onSaveToItinerary,
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
@@ -97,6 +103,14 @@ export function DestinationPlanningSection({
         )
       : undefined;
 
+  // KAI-217B round-3: the generated-plan cost feeds are COMPLETE-ONLY.
+  // A partial/unavailable plan must NOT present [0,0] or a partial subtotal
+  // as the plan's cost range — the UI renders "partial/unavailable" instead.
+  const completePlanCostRange: [number, number] | undefined =
+    costBreakdown?.completeness === "complete"
+      ? costBreakdown.knownSubtotal
+      : undefined;
+
   return (
     <div className="space-y-6 pb-4 md:pb-0">
       {/* Unified Progressive Day Plan Generator */}
@@ -105,7 +119,7 @@ export function DestinationPlanningSection({
         locale={locale}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
-        generatedCostRange={costBreakdown?.totalRange}
+        generatedCostRange={completePlanCostRange}
         eligible={eligible}
         catalogueLoading={catalogueLoading}
         catalogueError={catalogueError}
@@ -117,8 +131,15 @@ export function DestinationPlanningSection({
             generatedPlan
               ? {
                   ...generatedPlan,
+                  // KAI-217B round-4: a saved plan carries a numeric total
+                  // ONLY when the CURRENT extraction is complete. NEVER
+                  // fall back to generatedPlan.totalBudgetRange for a known
+                  // partial costBreakdown (a stale complete range would
+                  // survive on a partial plan).
                   totalBudgetRange:
-                    costBreakdown?.totalRange ?? generatedPlan.totalBudgetRange,
+                    costBreakdown?.completeness === "complete"
+                      ? costBreakdown.knownSubtotal
+                      : undefined,
                 }
               : undefined,
           )
@@ -134,6 +155,8 @@ export function DestinationPlanningSection({
         activeTransportMode={selectedTransport}
         ferryTemporal={ferryTemporal}
         accommodationAllowance={accommodationAllowance}
+        tripMode={tripMode}
+        nights={nights}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

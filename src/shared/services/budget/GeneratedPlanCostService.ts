@@ -1,3 +1,27 @@
+/**
+ * GeneratedPlanCostService — KAI-217B: itinerary-input extraction only.
+ *
+ * KAI-217B removes the contradictory canonical arithmetic this service used
+ * to own (meals 1500-2500/step, parking 1000-2000, origin 1500/3000
+ * fallback, duration-based transit bands — all fabricated, all excluded
+ * from canonical affordability).
+ *
+ * What remains is EXTRACTION ONLY, aligned with the canonical TripCostEngine
+ * (tripCostEngine.ts):
+ *
+ *   - admission:   trusted per-person tickets (KAI-214 gate) × party
+ *                  (identical to the engine's admissionComponent);
+ *   - localTransit: ONLY curated leg fares (routeLegs[].curatedFare) ×
+ *                  party — no duration bands, no car mins×20 heuristic;
+ *   - meals/parking/origin-fallback: REMOVED. The result's meals/parking
+ *                  components are always non-applicable (never fabricated).
+ *
+ * The canonical total = admission + curated local transit. Anything missing
+ * stays unknown (never ¥0). Consumers that need the full canonical trip cost
+ * (origin travel + accommodation) must call calculateTripCost (the engine),
+ * which owns the arithmetic.
+ */
+
 import type { Destination } from "@/shared/types/destination";
 import { hasDisplayableBudget } from "@/shared/services/budget/budgetState";
 import type {
@@ -19,14 +43,27 @@ export interface GeneratedPlanCostResult {
   admission: CostComponent;
   meals: CostComponent;
   parking: CostComponent;
-  totalRange: [number, number];
+  /**
+   * KAI-217B round-3: explicit completeness. "complete" ONLY when the
+   * admission fact AND every required route leg are curated; "partial"
+   * when some known + some unknown; "unavailable" when nothing is known.
+   * Never claim a full plan total on partial evidence.
+   */
+  completeness: "complete" | "partial" | "unavailable";
+  /** The known-subtotal (curated components only) — NOT a full plan total. */
+  knownSubtotal: [number, number];
   confidence: "verified" | "estimated";
   assumptions: PlanAssumption[];
 }
 
+/**
+ * KAI-217B: local transit extraction — CURATED leg fares only. A leg with
+ * no curated fare contributes nothing (unknown, not applicable) and is
+ * NEVER replaced by a duration band or a car mins×20 heuristic.
+ */
 export function estimateLocalTransitFare(
   leg: RouteLeg,
-  transportMode: "car" | "train" | null = null,
+  _transportMode: "car" | "train" | null = null,
 ): CostComponent {
   if (leg.curatedFare) {
     return {
@@ -36,66 +73,29 @@ export function estimateLocalTransitFare(
       applicable: true,
     };
   }
-
-  // null = local transit mode unknown: never default to Train fare
-  // assumptions.
-  if (transportMode === null) {
-    return { min: 0, max: 0, source: "unknown", applicable: false };
-  }
-
-  if (transportMode === "car") {
-    // Car tolls/gas per leg based on duration/distance
-    const mins = Math.max(5, leg.durationMinutes);
-    const estFare = Math.round((mins * 20) / 100) * 100;
-    return {
-      min: estFare,
-      max: Math.round(estFare * 1.3),
-      source: "estimated",
-      applicable: true,
-    };
-  }
-
-  const mins = Math.max(5, leg.durationMinutes);
-  let fareMin = 210;
-  if (mins <= 15) fareMin = 210;
-  else if (mins <= 30) fareMin = 350;
-  else if (mins <= 45) fareMin = 550;
-  else fareMin = 880;
-
-  return {
-    min: fareMin,
-    max: Math.round(fareMin * 1.2),
-    source: "estimated",
-    applicable: true,
-  };
+  return { min: 0, max: 0, source: "unknown", applicable: false };
 }
 
-export function estimateOriginTransportFare(
-  hasOriginInfo: boolean = false,
-  originFareMin?: number,
-  originFareMax?: number,
-): CostComponent {
-  if (!hasOriginInfo) {
-    return { min: 0, max: 0, source: "unknown", applicable: false };
-  }
-  return {
-    min: originFareMin ?? 1500,
-    max: originFareMax ?? 3000,
-    source: "curated",
-    applicable: true,
-  };
+/**
+ * KAI-217B: origin transport extraction — REMOVED. The origin fare is owned
+ * by the canonical engine (getCanonicalTransportCost); this service never
+ * fabricates a 1500/3000 fallback.
+ */
+export function estimateOriginTransportFare(): CostComponent {
+  return { min: 0, max: 0, source: "unknown", applicable: false };
 }
 
 export function calculateGeneratedPlanCost(
   plan: DayPlan,
   partySize: number = 1,
-  transportMode: "car" | "train" | null = null,
-  hasOriginInfo: boolean = false,
+  _transportMode: "car" | "train" | null = null,
+  _hasOriginInfo: boolean = false,
 ): GeneratedPlanCostResult {
-  const safeParty = Math.max(1, partySize);
+  const safeParty = Math.max(1, Math.floor(partySize));
   const assumptions: PlanAssumption[] = [];
 
-  // 1. Admission Tickets (deduplicated by destination ID)
+  // 1. Admission Tickets (deduplicated by destination ID) — canonical,
+  //    trusted-provenance only (identical to the engine's admission rule).
   const uniqueDestinationsMap = new Map<string, Destination>();
   plan.steps.forEach((step) => {
     if (
@@ -114,14 +114,6 @@ export function calculateGeneratedPlanCost(
   let hasMissingTickets = false;
 
   uniqueDestinationsMap.forEach((dest) => {
-    // KAI-204 phase 3 + KAI-215 convergence: only TRUSTED provenance
-    // (manual verified ticket or documented model output) may contribute
-    // admission to a generated plan. Trust is read from the KAI-214
-    // NORMALIZED semantic layer (hasDisplayableBudget), not rebuilt from
-    // the raw legacy `method`. Absent-metadata legacy numbers and method
-    // "unknown" records must not leak unverified ticket values into a
-    // "curated" plan cost. Malformed explicit forward states (verified_paid
-    // without provenance) also fail closed here.
     if (
       hasDisplayableBudget(dest) &&
       typeof dest.budgetBreakdown?.tickets === "number"
@@ -146,16 +138,17 @@ export function calculateGeneratedPlanCost(
     min: totalAdmissionMin,
     max: totalAdmissionMax,
     source: hasMissingTickets ? "unknown" : "curated",
-    applicable: true,
+    // KAI-217B (Luna): unknown admission is NOT applicable — a missing/
+    // unverified ticket value must not become an applicable [0,0] that
+    // inflates the numeric plan total with a fabricated ¥0.
+    applicable: !hasMissingTickets,
   };
 
-  // 2. Local Transit (per leg)
+  // 2. Local Transit (per leg) — curated fares only.
   let totalTransitMin = 0;
   let totalTransitMax = 0;
   const legs = plan.routeLegs || [];
-  const fareComponents = legs.map((leg) =>
-    estimateLocalTransitFare(leg, transportMode),
-  );
+  const fareComponents = legs.map((leg) => estimateLocalTransitFare(leg));
   fareComponents.forEach((est) => {
     totalTransitMin += est.min * safeParty;
     totalTransitMax += est.max * safeParty;
@@ -171,33 +164,29 @@ export function calculateGeneratedPlanCost(
         : fareComponents.some((c) => c.applicable)
           ? "estimated"
           : "unknown",
-    applicable: fareComponents.some((c) => c.applicable),
+    // KAI-217B repair: applicable ONLY when EVERY leg is curated. A plan
+    // with some curated legs + some unknown legs must NOT produce a numeric
+    // total that silently omits the unknown legs — that would claim a
+    // complete plan cost on partial evidence. Missing-leg semantics: any
+    // unknown leg makes the component non-applicable (no strict cost claim).
+    applicable:
+      fareComponents.length > 0 &&
+      fareComponents.every((c) => c.applicable && c.source === "curated"),
   };
 
-  // 3. Origin Transport
-  const originComp = estimateOriginTransportFare(hasOriginInfo);
-
-  // 4. Meals (only if meal step exists)
-  const mealSteps = plan.steps.filter((s) => s.type === "meal");
-  const mealCostPerPersonMin = 1500;
-  const mealCostPerPersonMax = 2500;
-  const totalMealsMin = mealSteps.length * mealCostPerPersonMin * safeParty;
-  const totalMealsMax = mealSteps.length * mealCostPerPersonMax * safeParty;
+  // 3-5. Origin / meals / parking — REMOVED (never fabricated).
+  const originComp: CostComponent = estimateOriginTransportFare();
   const mealsComp: CostComponent = {
-    min: totalMealsMin,
-    max: totalMealsMax,
-    source: mealSteps.length > 0 ? "estimated" : "unknown",
-    applicable: mealSteps.length > 0,
+    min: 0,
+    max: 0,
+    source: "unknown",
+    applicable: false,
   };
-
-  // 5. Parking (only for car mode)
-  const totalParkingMin = transportMode === "car" ? 1000 : 0;
-  const totalParkingMax = transportMode === "car" ? 2000 : 0;
   const parkingComp: CostComponent = {
-    min: totalParkingMin,
-    max: totalParkingMax,
-    source: transportMode === "car" ? "estimated" : "unknown",
-    applicable: transportMode === "car",
+    min: 0,
+    max: 0,
+    source: "unknown",
+    applicable: false,
   };
 
   // Deduplicate assumptions
@@ -209,21 +198,40 @@ export function calculateGeneratedPlanCost(
     return true;
   });
 
-  const applicableComponents = [
-    originComp,
-    localTransitComp,
-    admissionComp,
-    mealsComp,
-    parkingComp,
-  ].filter((c) => c.applicable);
+  // KAI-217B round-3: extraction-only — no second canonical total. Exposes
+  // explicit COMPLETENESS + KNOWN-SUBTOTAL:
+  //   - complete ONLY when the ADMISSION fact AND the required route legs
+  //     are all curated+applicable (any missing admission OR any missing
+  //     required route leg ⇒ NOT complete).
+  //   - knownSubtotal = curated components only (never a full plan total).
+  const applicableComponents = [localTransitComp, admissionComp].filter(
+    (c) => c.applicable,
+  );
+  // KAI-217B round-4 zero-leg semantics: "complete" means admission is
+  // fully known AND EVERY REQUIRED route leg is fully curated. ZERO
+  // required route legs satisfies the route condition — do NOT require
+  // localTransitComp.applicable (which is false for an empty leg set).
+  const routeConditionSatisfied =
+    fareComponents.length === 0 ||
+    (localTransitComp.applicable && localTransitComp.source === "curated");
+  const allKnown =
+    admissionComp.applicable &&
+    admissionComp.source === "curated" &&
+    routeConditionSatisfied;
+  const nothingKnown = applicableComponents.length === 0;
 
-  const grandTotalMin = applicableComponents.reduce((sum, c) => sum + c.min, 0);
-  const grandTotalMax = applicableComponents.reduce((sum, c) => sum + c.max, 0);
+  const knownSubtotalMin = applicableComponents.reduce(
+    (sum, c) => sum + c.min,
+    0,
+  );
+  const knownSubtotalMax = applicableComponents.reduce(
+    (sum, c) => sum + c.max,
+    0,
+  );
 
-  const computedConfidence: "estimated" | "verified" =
-    applicableComponents.every((c) => c.source === "curated")
-      ? "verified"
-      : "estimated";
+  const computedConfidence: "estimated" | "verified" = allKnown
+    ? "verified"
+    : "estimated";
 
   return {
     originTransport: originComp,
@@ -231,7 +239,15 @@ export function calculateGeneratedPlanCost(
     admission: admissionComp,
     meals: mealsComp,
     parking: parkingComp,
-    totalRange: [grandTotalMin, grandTotalMax],
+    // KAI-217B round-3: totalRange REMOVED entirely — consumers must use
+    // completeness + knownSubtotal; a partial plan renders honestly as
+    // partial, never as a numeric total.
+    completeness: nothingKnown
+      ? ("unavailable" as const)
+      : allKnown
+        ? ("complete" as const)
+        : ("partial" as const),
+    knownSubtotal: [knownSubtotalMin, knownSubtotalMax] as [number, number],
     confidence: computedConfidence,
     assumptions: deduplicatedAssumptions,
   };

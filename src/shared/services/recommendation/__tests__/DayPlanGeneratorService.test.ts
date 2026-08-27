@@ -5,6 +5,7 @@ import {
   reorderPlanSteps,
   isRealDestinationStop,
   getPlanEligibility,
+  rebuildPlanFromEditedStops,
 } from "../DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
@@ -44,7 +45,17 @@ describe("DayPlanGeneratorService", () => {
       const realStops = plan.steps.filter(isRealDestinationStop);
       expect(realStops.length).toBeGreaterThanOrEqual(2);
       expect(plan.totalDurationMinutes).toBeGreaterThan(0);
-      expect(plan.totalBudgetRange[0]).toBeGreaterThan(0);
+      // KAI-217B round-4: totalBudgetRange is OPTIONAL — present ONLY when
+      // the extraction is complete. The fixture stops lack trusted
+      // provenance, so the plan is typically partial → the range is absent
+      // (never [0,0]); when present it must be a valid range.
+      if (plan.totalBudgetRange) {
+        expect(Array.isArray(plan.totalBudgetRange)).toBe(true);
+        expect(plan.totalBudgetRange[0]).toBeGreaterThanOrEqual(0);
+        expect(plan.totalBudgetRange[1]).toBeGreaterThanOrEqual(
+          plan.totalBudgetRange[0],
+        );
+      }
     }
   });
 
@@ -291,6 +302,43 @@ describe("getPlanEligibility", () => {
     const catalogueIds = new Set(catalogue.map((d) => d.id));
     for (const stop of stops) {
       expect(catalogueIds.has(stop.destination?.id ?? "")).toBe(true);
+    }
+  });
+
+  it("partial generated plan has NO totalBudgetRange (KAI-217B round-4)", () => {
+    const plan = generateDayPlan(mockDestPrimary, {
+      planType: "full_day",
+      startTime: "09:00",
+    });
+    // The fixture destinations lack trusted admission provenance → the
+    // extraction is partial/unavailable → totalBudgetRange MUST be absent
+    // (never [0,0]).
+    if (!plan.isUnfeasible) {
+      expect(plan.totalBudgetRange).toBeUndefined();
+    }
+  });
+
+  it("edited complete→partial rebuild clears the stale totalBudgetRange (KAI-217B round-4)", () => {
+    const plan = generateDayPlan(mockDestPrimary, {
+      planType: "full_day",
+      startTime: "09:00",
+    });
+    if (plan.isUnfeasible || plan.steps.length === 0) return;
+    // Simulate an originally-complete plan (a numeric range present) that
+    // becomes partial after an edit introduces an unknown route fare.
+    const completePlan: ReturnType<typeof generateDayPlan> = {
+      ...plan,
+      totalBudgetRange: [3000, 3000],
+    };
+    const realStops = plan.steps.filter(isRealDestinationStop);
+    // Rebuild with the same steps — the fixture stops lack trusted fare
+    // provenance, so the rebuilt extraction is partial and the stale
+    // [3000,3000] must be cleared.
+    const rebuilt = rebuildPlanFromEditedStops(completePlan, realStops);
+    // The rebuilt plan must NOT retain the stale [3000,3000] when its
+    // extraction is not complete (unknown route fare → partial).
+    if (rebuilt) {
+      expect(rebuilt.totalBudgetRange).toBeUndefined();
     }
   });
 });

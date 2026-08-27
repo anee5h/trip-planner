@@ -13,7 +13,8 @@ import {
 } from "@/shared/components/ui/table";
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -130,11 +131,28 @@ export default function Compare() {
   // Helpers to find best values
   const getMin = (arr: number[]) => Math.min(...arr);
 
-  const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
-  const knownBudgets = budgets.filter(
+  // KAI-217B round-2: Compare maintains TWO values per destination:
+  //   - display range  = engine [min,max] (the UI shows the RANGE)
+  //   - ranking value  = midpoint (INTERNAL ranking only, never displayed)
+  // Only COMPLETE results qualify; partial/unavailable show unavailable.
+  const engineBudgetRanges = compareDestinations.map((d) => {
+    const r = calculateTripCost({
+      dest: d,
+      tripMode: "day_trip",
+      includeOriginTravel: false,
+    });
+    return r.completeness === "complete" && r.total
+      ? ([r.total.min, r.total.max] as [number, number])
+      : null;
+  });
+  const engineBudgetMidpoints = engineBudgetRanges.map((range) =>
+    range ? (range[0] + range[1]) / 2 : null,
+  );
+  const knownBudgets = engineBudgetMidpoints.filter(
     (budget): budget is number => budget !== null,
   );
   const minBudget = knownBudgets.length > 0 ? getMin(knownBudgets) : null;
+  const budgets = engineBudgetMidpoints;
 
   const travelTimes = compareDestinations.map((d) => {
     const times = Object.values(d.transportOptions || {}).filter(
@@ -230,8 +248,10 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 {t("compare.budgetRecommended")}
               </TableCell>
-              {compareDestinations.map((dest) => {
-                const budget = getAdjustedBudget(dest, "all");
+              {compareDestinations.map((dest, destIdx) => {
+                // KAI-217B: canonical engine total (complete-only).
+                const budget = budgets[destIdx];
+                const budgetRange = engineBudgetRanges[destIdx];
                 return (
                   <TableCell key={dest.id}>
                     <span
@@ -241,9 +261,9 @@ export default function Compare() {
                           : ""
                       }
                     >
-                      {budget === null
+                      {budgetRange === null
                         ? t("compare.unavailable")
-                        : `¥${(budget / 1000).toFixed(0)}k`}
+                        : formatLocalizedJPYRange(budgetRange, locale)}
                     </span>
                     {budget !== null && budget === minBudget && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800">
@@ -366,9 +386,11 @@ export default function Compare() {
 
       {/* Mobile Stacked View */}
       <div className="grid grid-cols-1 gap-6 md:hidden">
-        {compareDestinations.map((dest) => {
+        {compareDestinations.map((dest, destIdx) => {
           const localized = getLocalizedPlace(dest, locale);
-          const budgetVal = getAdjustedBudget(dest, "all");
+          // KAI-217B round-2: display RANGE; midpoint is internal ranking.
+          const budgetVal = budgets[destIdx];
+          const budgetRange = engineBudgetRanges[destIdx];
           const travelTimesForDest = Object.values(
             dest.transportOptions || {},
           ).filter((t): t is number => t !== undefined);
@@ -425,9 +447,9 @@ export default function Compare() {
                     {t("compare.budgetRecommended")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
-                    {budgetVal === null
+                    {budgetRange === null
                       ? t("compare.unavailable")
-                      : `¥${(budgetVal / 1000).toFixed(0)}k`}
+                      : formatLocalizedJPYRange(budgetRange, locale)}
                     {budgetVal !== null && budgetVal === minBudget && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.lowest")}

@@ -3,7 +3,8 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
-import { getAdjustedBudget } from "@/shared/utils/utils";
+import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
@@ -44,7 +45,22 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   // Best value helpers
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);
 
-  const budgets = compareDestinations.map((d) => getAdjustedBudget(d, "all"));
+  // KAI-217B round-2: display RANGE + internal midpoint ranking.
+  const engineBudgetRanges = compareDestinations.map((d) => {
+    // KAI-217B: Compare has no origin context — compare the canonical
+    // ON-SITE total (admission + local transport).
+    const r = calculateTripCost({
+      dest: d,
+      tripMode: "day_trip",
+      includeOriginTravel: false,
+    });
+    return r.completeness === "complete" && r.total
+      ? ([r.total.min, r.total.max] as [number, number])
+      : null;
+  });
+  const budgets = engineBudgetRanges.map((range) =>
+    range ? (range[0] + range[1]) / 2 : null,
+  );
   const knownBudgets = budgets.filter(
     (budget): budget is number => budget !== null,
   );
@@ -127,6 +143,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
               {compareDestinations.map((dest, idx) => {
                 const localized = getLocalizedPlace(dest, locale);
                 const cost = budgets[idx];
+                const costRange = engineBudgetRanges[idx];
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
                 const isFastest = time === minTravelTime && time !== 999;
@@ -193,9 +210,9 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         </span>
                         <div className="flex items-center gap-1.5">
                           <span className="font-bold text-slate-900 dark:text-white text-xs">
-                            {cost === null
+                            {costRange === null
                               ? t("compare.unavailable")
-                              : `¥${(cost / 1000).toFixed(0)}k`}
+                              : formatLocalizedJPYRange(costRange, locale)}
                           </span>
                           {cost !== null && isLowestBudget && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] font-extrabold px-1.5 py-0">

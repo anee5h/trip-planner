@@ -71,7 +71,13 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.min).toBe(3000); // 1500 * 2
     expect(cost.admission.source).toBe("curated");
     expect(cost.originTransport.source).toBe("unknown");
-    expect(cost.totalRange[0]).toBeGreaterThan(0);
+    // KAI-217B round-3: originTransport unknown → the plan is PARTIAL (a
+    // missing route leg) — knownSubtotal still carries the known parts but
+    // there is no totalRange and no complete claim. The confidence is
+    // honestly "estimated" (not verified): a partial plan is never verified
+    // end-to-end even when its known parts are curated.
+    expect(cost.completeness).toBe("partial");
+    expect(cost.knownSubtotal[0]).toBeGreaterThan(0);
     expect(cost.confidence).toBe("estimated");
   });
 
@@ -134,10 +140,35 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.admission.source).toBe("curated");
   });
 
-  it("returns zero origin transport fare when origin info is unavailable", () => {
-    const originCost = estimateOriginTransportFare(false);
+  it("returns zero origin transport fare when origin info is unavailable (KAI-217B: never fabricated)", () => {
+    // KAI-217B: the origin-fare fallback (1500/3000) is removed; origin
+    // transport is owned by the canonical engine. This extraction always
+    // reports unknown/non-applicable.
+    const originCost = estimateOriginTransportFare();
     expect(originCost.min).toBe(0);
     expect(originCost.max).toBe(0);
     expect(originCost.source).toBe("unknown");
+    expect(originCost.applicable).toBe(false);
+  });
+
+  it("known admission + ZERO route legs => complete, knownSubtotal = admission (KAI-217B round-4)", () => {
+    const manualDest = {
+      ...BASE_DEST,
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "verified ticket",
+      },
+    } as unknown as Destination;
+    const zeroLegPlan: DayPlan = {
+      ...makePlan(manualDest),
+      routeLegs: [],
+    };
+    const cost = calculateGeneratedPlanCost(zeroLegPlan, 2, "train", false);
+    // Zero required route legs satisfies the route condition → complete
+    // when admission is fully curated.
+    expect(cost.completeness).toBe("complete");
+    expect(cost.knownSubtotal[0]).toBe(3000); // 1500 × 2
+    expect(cost.knownSubtotal[1]).toBe(3000);
   });
 });

@@ -4,22 +4,22 @@ import { createRecommendationMatch } from "../RecommendationExplainability";
 import { getTransportCost } from "@/shared/services/budget/BudgetService";
 import type { Destination } from "@/shared/types/destination";
 
-const { budgetCalls } = vi.hoisted(() => ({
-  budgetCalls: [] as unknown[][],
+const { engineCalls } = vi.hoisted(() => ({
+  engineCalls: [] as unknown[][],
 }));
 
-vi.mock("@/shared/services/budget/BudgetService", async (importOriginal) => {
+vi.mock("@/shared/services/budget/tripCostEngine", async (importOriginal) => {
   const actual =
     await importOriginal<
-      typeof import("@/shared/services/budget/BudgetService")
+      typeof import("@/shared/services/budget/tripCostEngine")
     >();
   return {
     ...actual,
-    getEstimatedBudgetRange: (
-      ...args: Parameters<typeof actual.getEstimatedBudgetRange>
+    calculateTripCost: (
+      ...args: Parameters<typeof actual.calculateTripCost>
     ) => {
-      budgetCalls.push(args);
-      return actual.getEstimatedBudgetRange(...args);
+      engineCalls.push(args);
+      return actual.calculateTripCost(...args);
     },
   };
 });
@@ -80,37 +80,38 @@ function context() {
   };
 }
 
-function modeDurationsFromCalls(): string[] {
-  return budgetCalls.map((args) => args[1] as string);
+function modeCallsFromEngine(): string[] {
+  // Each calculateTripCost call carries { mode } in args[0].
+  return engineCalls
+    .map((args) => (args[0] as { mode?: string }).mode)
+    .filter((m): m is string => Boolean(m));
 }
 
 describe("per-mode budget consistency", () => {
   it("scoring prices every mode with its own duration, never a shared all-mode total", () => {
-    budgetCalls.length = 0;
+    engineCalls.length = 0;
     const scoreResult = calculateScore(twoModeDest, context());
 
-    const modes = modeDurationsFromCalls();
+    const modes = modeCallsFromEngine();
     expect(modes).toContain("train");
     expect(modes).toContain("shinkansen");
     expect(scoreResult.bestMode).toBeTruthy();
-    for (const args of budgetCalls) {
-      // KAI-50: no explicit duration argument is passed; the budget service
-      // derives exactly the requested mode's duration internally.
-      expect(args.length).toBeLessThanOrEqual(6);
-      expect(typeof args[4]).not.toBe("number");
+    // KAI-217B: the canonical engine prices each mode with its own
+    // context (mode passed per call) — never a shared all-mode total.
+    for (const args of engineCalls) {
+      expect((args[0] as { mode?: string }).mode).toBeTruthy();
     }
   });
 
   it("explainability prices the same per-mode budget contract", () => {
-    budgetCalls.length = 0;
+    engineCalls.length = 0;
     createRecommendationMatch(twoModeDest, context(), 85);
 
-    const modes = modeDurationsFromCalls();
+    const modes = modeCallsFromEngine();
     expect(modes).toContain("train");
     expect(modes).toContain("shinkansen");
-    for (const args of budgetCalls) {
-      expect(args.length).toBeLessThanOrEqual(6);
-      expect(typeof args[4]).not.toBe("number");
+    for (const args of engineCalls) {
+      expect((args[0] as { mode?: string }).mode).toBeTruthy();
     }
   });
 });

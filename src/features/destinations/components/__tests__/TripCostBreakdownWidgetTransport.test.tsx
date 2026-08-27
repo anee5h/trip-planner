@@ -67,6 +67,61 @@ let scenario: Scenario = {
   budgetAvailable: true,
 };
 
+// KAI-217B round-5: the widget's costs derive ENTIRELY from the engine's
+// canonical components. Mock it deterministically to the scenario's
+// canonical components (origin_travel / local_transport / admission —
+// food/cafe excluded) so the transport-row presentation contract stays the
+// focus.
+vi.mock("@/shared/services/budget/tripCostEngine", () => ({
+  calculateTripCost: () => {
+    const s = scenario;
+    const components: unknown[] = [];
+    if (s.transport > 0 || s.transportAvailable) {
+      components.push({
+        cost: { kind: "bounded", min: s.transport, max: s.transport },
+        evidence: {
+          scope: "origin_travel",
+          derivation: "model_estimate",
+        },
+      });
+    } else {
+      components.push({
+        cost: { kind: "unavailable", reason: "source_missing" },
+        evidence: { scope: "origin_travel", derivation: "computed" },
+      });
+    }
+    if (s.localTransit > 0) {
+      components.push({
+        cost: {
+          kind: "bounded",
+          min: s.localTransit,
+          max: s.localTransit,
+        },
+        evidence: {
+          scope: "local_transport",
+          derivation: "model_estimate",
+        },
+      });
+    } else {
+      components.push({
+        cost: { kind: "unavailable", reason: "source_missing" },
+        evidence: { scope: "local_transport", derivation: "computed" },
+      });
+    }
+    components.push({
+      cost: { kind: "bounded", min: s.tickets, max: s.tickets },
+      evidence: { scope: "admission", derivation: "source_fact" },
+    });
+    const total = s.transport + s.localTransit + s.tickets;
+    return {
+      completeness: "complete",
+      total: { kind: "bounded", min: total, max: total },
+      components,
+    };
+  },
+  evaluateAffordability: () => "fits",
+}));
+
 vi.mock("@/shared/services/budget/BudgetService", () => ({
   calculateItemizedTripCost: () => {
     const s = scenario;
@@ -199,8 +254,12 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     expect(text).toContain("Transport");
     expect(text).toContain("¥2,000 - ¥2,000");
     expect(text).toContain("Origin transport not estimated");
-    // Total includes local transit (2000 + 1000 + 500..800 + 300).
-    expect(text).toContain("¥3,800 - ¥4,100");
+    // KAI-217B: canonical total = transport + admission (food/cafe/parking
+    // excluded) → 2000 + 1000 = 3000.
+    expect(text).toContain("¥3,000 - ¥3,000");
+    // The food/cafe rows must NOT render.
+    expect(text).not.toContain("Food & Dining");
+    expect(text).not.toContain("Café & Snacks");
   });
 
   it("2. origin and local transit both known: combined row, no exclusion note", () => {
@@ -217,7 +276,8 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     const text = bodyText(h);
     expect(text).toContain("¥2,800 - ¥2,800");
     expect(text).not.toContain("Origin transport not estimated");
-    expect(text).toContain("¥4,600 - ¥4,900");
+    // KAI-217B: 800 + 2000 + 1000 = 3800.
+    expect(text).toContain("¥3,800 - ¥3,800");
   });
 
   it("3. origin known, local transit not applicable: row shows origin only", () => {
@@ -249,8 +309,8 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     const h = renderWidget();
     const text = bodyText(h);
     expect(text).not.toContain("Origin transport not estimated");
-    // Tickets/food still rendered; total has no transport line.
-    expect(text).toContain("¥1,800 - ¥2,100");
+    // KAI-217B: canonical total = admission only = 1000.
+    expect(text).toContain("¥1,000 - ¥1,000");
   });
 
   it("5. displayed category totals equal the displayed total", () => {
@@ -265,12 +325,13 @@ describe("TripCostBreakdownWidget transport presentation (finishing pass)", () =
     };
     const h = renderWidget();
     const text = bodyText(h);
-    // Category rows: transport 2800, tickets 1500, food 1000-1200, cafe 400.
+    // KAI-217B: category rows are transport 2800 + tickets 1500 ONLY
+    // (food/cafe rows removed from canonical affordability).
     expect(text).toContain("¥2,800 - ¥2,800");
     expect(text).toContain("¥1,500 - ¥1,500");
-    expect(text).toContain("¥1,000 - ¥1,200");
-    expect(text).toContain("¥400 - ¥400");
-    // Total = 2800 + 1500 + (1000..1200) + 400 = 5700..5900.
-    expect(text).toContain("¥5,700 - ¥5,900");
+    expect(text).not.toContain("¥1,000 - ¥1,200");
+    expect(text).not.toContain("¥400 - ¥400");
+    // Total = 2800 + 1500 = 4300.
+    expect(text).toContain("¥4,300 - ¥4,300");
   });
 });

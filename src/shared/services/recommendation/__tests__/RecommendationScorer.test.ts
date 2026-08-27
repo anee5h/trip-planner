@@ -317,26 +317,32 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(shinkansen.usable).toBe(true);
     // KAI-12 verified-fare behavior: Tokyo→Nagano shinkansen carries a
     // verified reserved fare (¥8,250 one-way, FARE_POLICY §2) while the
-    // train corridor has none (heuristic only). The KAI-89 model pass
-    // re-derived the destination's visit window, so the exact budget
-    // margin changed; the invariant is the ORDER (train cheaper than
-    // shinkansen for the verified-fare corridor), not a fixed margin.
-    expect(train.budget + train.transport).toBeGreaterThan(
-      shinkansen.budget + shinkansen.transport,
-    );
+    // train corridor has none (heuristic only).
+    // KAI-217B round-2: the budget score evaluates the CANONICAL engine
+    // cost. Required local transport is UNAVAILABLE until explicit
+    // localTransport facts exist → EVERY engine result is partial → NO
+    // mode contributes a budget bonus/penalty (no strict affordability
+    // claim on incomplete evidence). bestMode is decided by transport/
+    // travel-efficiency scoring alone.
+    expect(train.budget).toBe(0);
+    expect(shinkansen.budget).toBe(0);
     expect(shinkansenEfficiency.oneWayMinutes).toBeLessThan(
       trainEfficiency.oneWayMinutes,
     );
-    expect(result.bestMode).toBe("train");
+    // KAI-217B: with the canonical engine, train (partial — no verified
+    // fare) no longer receives the cheap-heuristic budget bonus that made
+    // it win bestMode. Shinkansen (complete verified cost) now wins on
+    // total score.
+    expect(result.bestMode).toBe("shinkansen");
     expect(result.dayTripTravelEfficiency?.mode).toBe(result.bestMode);
     expect(result.dayTripTravelEfficiency?.oneWayMinutes).toBe(
-      trainEfficiency.oneWayMinutes,
+      shinkansenEfficiency.oneWayMinutes,
     );
-    expect(train.travelEfficiency).toBe(
+    expect(shinkansen.travelEfficiency).toBe(
       result.dayTripTravelEfficiency?.contribution,
     );
-    expect(result.modeScoreBreakdown.train.total).toBe(
-      train.budget + train.transport + train.travelEfficiency,
+    expect(result.modeScoreBreakdown.shinkansen.total).toBe(
+      shinkansen.budget + shinkansen.transport + shinkansen.travelEfficiency,
     );
   });
 
