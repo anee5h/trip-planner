@@ -169,4 +169,115 @@ describe("KAI-219D1 strict classification (free evidence rules)", () => {
       .filter(Boolean);
     expect(mismatches).toEqual([]);
   });
+
+  it("S2: STATE A/B MIXED → migration FAILS CLOSED with zero writes", () => {
+    // Build a temp index: record A absent (STATE A side), record B with
+    // the expected fact (STATE B side). The real migration must THROW
+    // (fail-closed) and leave the temp file byte-identical.
+    const manPath = path.join(
+      REPO_ROOT,
+      "scripts/audit/kai-219d1-candidates.json",
+    );
+    if (!fs.existsSync(manPath)) return;
+    const man = JSON.parse(fs.readFileSync(manPath, "utf8")) as ManifestEntry[];
+    const real = JSON.parse(
+      fs.readFileSync(INDEX_PATH, "utf8"),
+    ) as Destination[];
+    const realById = new Map(real.map((d) => [d.id, d]));
+    // A: absent; B: expected fact present.
+    const a = realById.get(man[0].id)!;
+    const b = realById.get(man[1].id)!;
+    delete a.admission;
+    b.admission = buildFact(man[1], b);
+    const tmpIndex = path.join(REPO_ROOT, "tmp-d1-mixed-index.json");
+    fs.writeFileSync(tmpIndex, JSON.stringify(real, null, 2) + "\n");
+    const beforeBytes = fs.readFileSync(tmpIndex, "utf8");
+    const { execSync } = require("node:child_process");
+    let threw = false;
+    try {
+      execSync(
+        "npx tsx --tsconfig tsconfig.app.json scripts/kai-219d1-admission-cohort.ts",
+        {
+          cwd: REPO_ROOT,
+          stdio: "pipe",
+          env: {
+            ...process.env,
+            TMPDIR: process.env.HOME + "/.tmp-vitest",
+            KAI219D1_INDEX_PATH: tmpIndex,
+          },
+        },
+      );
+    } catch {
+      threw = true;
+    }
+    expect(threw).toBe(true); // fail-closed on mixed A/B
+    const afterBytes = fs.readFileSync(tmpIndex, "utf8");
+    expect(afterBytes).toBe(beforeBytes); // zero writes
+    fs.rmSync(tmpIndex, { force: true });
+  });
+
+  it("S2: existing DIFFERENT fact → migration FAILS CLOSED (no overwrite)", () => {
+    // A manifest candidate with an unexpected admission fact must fail
+    // closed — the authoring script NEVER overwrites.
+    const manPath = path.join(
+      REPO_ROOT,
+      "scripts/audit/kai-219d1-candidates.json",
+    );
+    if (!fs.existsSync(manPath)) return;
+    const man = JSON.parse(fs.readFileSync(manPath, "utf8")) as ManifestEntry[];
+    const real = JSON.parse(
+      fs.readFileSync(INDEX_PATH, "utf8"),
+    ) as Destination[];
+    const realById = new Map(real.map((d) => [d.id, d]));
+    const d = realById.get(man[0].id)!;
+    d.admission = {
+      state: "verified_paid",
+      provenance: "verified_source",
+      cost: { kind: "bounded", min: 999, max: 999 },
+      scope: "general_entry",
+      basis: "unexpected different fact",
+      sourceUrls: ["https://example.com"],
+      checkedAt: "2026-08-27",
+    };
+    const tmpIndex = path.join(REPO_ROOT, "tmp-d1-diff-index.json");
+    fs.writeFileSync(tmpIndex, JSON.stringify(real, null, 2) + "\n");
+    const beforeBytes = fs.readFileSync(tmpIndex, "utf8");
+    const { execSync } = require("node:child_process");
+    let threw = false;
+    try {
+      execSync(
+        "npx tsx --tsconfig tsconfig.app.json scripts/kai-219d1-admission-cohort.ts",
+        {
+          cwd: REPO_ROOT,
+          stdio: "pipe",
+          env: {
+            ...process.env,
+            TMPDIR: process.env.HOME + "/.tmp-vitest",
+            KAI219D1_INDEX_PATH: tmpIndex,
+          },
+        },
+      );
+    } catch {
+      threw = true;
+    }
+    expect(threw).toBe(true); // fail-closed on unexpected different fact
+    const afterBytes = fs.readFileSync(tmpIndex, "utf8");
+    expect(afterBytes).toBe(beforeBytes); // zero writes
+    fs.rmSync(tmpIndex, { force: true });
+  });
+
+  it("S2: REAL CLI rerun on the committed index → byte-identical zero diff", () => {
+    const before = fs.readFileSync(INDEX_PATH, "utf8");
+    const { execSync } = require("node:child_process");
+    execSync(
+      "npx tsx --tsconfig tsconfig.app.json scripts/kai-219d1-admission-cohort.ts",
+      {
+        cwd: REPO_ROOT,
+        stdio: "pipe",
+        env: { ...process.env, TMPDIR: process.env.HOME + "/.tmp-vitest" },
+      },
+    );
+    const after = fs.readFileSync(INDEX_PATH, "utf8");
+    expect(after).toBe(before);
+  });
 });

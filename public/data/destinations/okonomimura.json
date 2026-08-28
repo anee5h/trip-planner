@@ -164,17 +164,15 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "verified_free",
+    "state": "not_applicable",
     "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "bounded",
-      "min": 0,
-      "max": 0
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
+    "scope": "open_area",
     "basis": "Okonomimura: free entry food hall (official site); pay per stall (no admission fee)",
     "sourceUrls": ["https://www.okonomimura.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-28"
   }
 }

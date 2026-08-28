@@ -84,48 +84,6 @@ describe("KAI-89 final-pass regression tests", () => {
         expect(d.budgetBreakdown.tickets).toBe(baseline.tickets);
       }
     });
-
-    it("authoritative admission + changed food → test fails (R6 regression)", () => {
-      // A record with an authoritative admission fact whose food component
-      // was mutated must FAIL the components-untouched assertion.
-      for (const c of corrections.sections.budgetRebalanceOnly) {
-        const d = get(c.id);
-        const hasAuthoritativeAdmission =
-          d.admission &&
-          (d.admission.state === "verified_paid" ||
-            d.admission.state === "verified_free" ||
-            d.admission.state === "not_applicable");
-        if (!hasAuthoritativeAdmission) continue;
-        const original = d.budgetBreakdown.food;
-        d.budgetBreakdown.food = original + 999;
-        expect(
-          d.budgetBreakdown.food,
-          `${c.id} mutated food must break the untouched assertion`,
-        ).not.toBe(original);
-        d.budgetBreakdown.food = original;
-        break; // one record is enough to prove the guard
-      }
-    });
-
-    it("authoritative admission + changed transport → test fails (R6 regression)", () => {
-      for (const c of corrections.sections.budgetRebalanceOnly) {
-        const d = get(c.id);
-        const hasAuthoritativeAdmission =
-          d.admission &&
-          (d.admission.state === "verified_paid" ||
-            d.admission.state === "verified_free" ||
-            d.admission.state === "not_applicable");
-        if (!hasAuthoritativeAdmission) continue;
-        const original = d.budgetBreakdown.transport;
-        d.budgetBreakdown.transport = original + 999;
-        expect(
-          d.budgetBreakdown.transport,
-          `${c.id} mutated transport must break the untouched assertion`,
-        ).not.toBe(original);
-        d.budgetBreakdown.transport = original;
-        break;
-      }
-    });
   });
 
   describe("cross-field factual consistency", () => {

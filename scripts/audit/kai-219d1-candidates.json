@@ -253,16 +253,6 @@
     "optionalPaidNote": "Individual shops/activities optional"
   },
   {
-    "id": "shibuya-crossing-hachiko",
-    "classification": "verified_free",
-    "sourceUrls": [
-      "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
-    ],
-    "checkedAt": "2026-08-28",
-    "basis": "Shibuya Crossing: public intersection, free (Go Tokyo official) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
     "id": "nihonbashi",
     "classification": "not_applicable_free_area",
     "sourceUrls": [
@@ -272,14 +262,6 @@
     "basis": "Nihonbashi: public district, free to walk (Go Tokyo official)",
     "freeEvidence": "Nihonbashi: public district, free to walk (Go Tokyo official)",
     "optionalPaidNote": "Individual shops/activities optional"
-  },
-  {
-    "id": "sumida-river-walk",
-    "classification": "verified_free",
-    "sourceUrls": ["https://visit-sumida.jp/en/"],
-    "checkedAt": "2026-08-28",
-    "basis": "Sumida River Walk: free public promenade (official Sumida tourism; open 7:00-22:00) (no admission fee)",
-    "freeEvidence": "no admission fee"
   },
   {
     "id": "sugamo-jizo-dori",
@@ -325,11 +307,11 @@
   },
   {
     "id": "okonomimura",
-    "classification": "verified_free",
+    "classification": "not_applicable_free_area",
     "sourceUrls": ["https://www.okonomimura.jp/"],
     "checkedAt": "2026-08-28",
     "basis": "Okonomimura: free entry food hall (official site); pay per stall (no admission fee)",
-    "freeEvidence": "no admission fee"
+    "optionalPaidNote": "free-entry food hall; purchases at individual stalls are optional paid components"
   },
   {
     "id": "ritsuunkyo-viewpoint",
@@ -403,17 +385,6 @@
     "optionalPaidNote": "Individual shops/activities optional"
   },
   {
-    "id": "oshima",
-    "classification": "verified_free",
-    "sourceUrls": [
-      "https://www.matsushima-kanko.com/miru/detail.php?id=142",
-      "https://www.japan-guide.com/e/e5104.html"
-    ],
-    "checkedAt": "2026-08-28",
-    "basis": "Oshima (Matsushima): free to cross via bridge and walk (Matsushima tourism + japan-guide) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
     "id": "saigyo-modoshi-no-matsu",
     "classification": "verified_free",
     "sourceUrls": ["https://www.matsushima-kanko.com/miru/detail.php?id=137"],
@@ -462,29 +433,11 @@
     "optionalPaidNote": "Kujukushima cruise (~¥1,700)"
   },
   {
-    "id": "nichinan-kaigan-drive",
-    "classification": "verified_free",
-    "sourceUrls": [
-      "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1"
-    ],
-    "checkedAt": "2026-08-28",
-    "basis": "Nichinan Kaigan scenic drive: public road, no toll (MLIT scenic-byway page) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
     "id": "saru-hashi",
     "classification": "verified_free",
     "sourceUrls": ["https://www.city.otsuki.yamanashi.jp/"],
     "checkedAt": "2026-08-28",
     "basis": "Saruhashi bridge: free to cross (Otsuki city official) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
-    "id": "rainbow-bridge",
-    "classification": "verified_free",
-    "sourceUrls": ["https://www.shutoko.jp/"],
-    "checkedAt": "2026-08-28",
-    "basis": "Rainbow Bridge pedestrian walkway: free (official Shutoko; 09:00-21:00) (no admission fee)",
     "freeEvidence": "no admission fee"
   },
   {
@@ -501,14 +454,6 @@
     "sourceUrls": ["https://www.city.fujinomiya.shizuoka.jp/"],
     "checkedAt": "2026-08-28",
     "basis": "Shiraito Falls: free to view (Fujinomiya city official) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
-    "id": "shodoshima",
-    "classification": "verified_free",
-    "sourceUrls": ["https://www.shodoshima-kankou.jp/"],
-    "checkedAt": "2026-08-28",
-    "basis": "Shodoshima island: free island access; attractions/ferries paid (official tourism) (no admission fee)",
     "freeEvidence": "no admission fee"
   },
   {
@@ -568,14 +513,6 @@
     "sourceUrls": ["https://visitkochijapan.com/en/see-and-do/10014"],
     "checkedAt": "2026-08-28",
     "basis": "Nakatsu Gorge: free entry, 2.3km trail (official Kochi tourism) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
-    "id": "shikoku-karst-kochi",
-    "classification": "verified_free",
-    "sourceUrls": ["https://okushimanto.jp/en/special/content1"],
-    "checkedAt": "2026-08-28",
-    "basis": "Shikoku Karst: open grassland plateau, free to drive/walk (Oku Shimanto official) (no admission fee)",
     "freeEvidence": "no admission fee"
   },
   {

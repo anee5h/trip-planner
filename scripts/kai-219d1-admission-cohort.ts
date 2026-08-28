@@ -34,10 +34,13 @@ import type {
 } from "../src/shared/types/destination";
 // KAI-214 shared free-evidence semantics — ONE implementation (R1).
 import { hasVerifiedFreeEvidence } from "../src/shared/services/budget/freeEvidence";
+// KAI-219D1 (S3): the SINGLE shared strict-date implementation from
+// factValidation — no second date implementation in D1.
+import { isValidCheckedAtDate } from "../src/shared/services/budget/factValidation";
 
 const INDEX_PATH = path.resolve(
-  process.cwd(),
-  "src/shared/data/destinations-index.json",
+  process.env.KAI219D1_INDEX_PATH ??
+    path.join(process.cwd(), "src/shared/data/destinations-index.json"),
 );
 const MANIFEST_PATH = path.resolve(
   process.cwd(),
@@ -58,20 +61,6 @@ function load(): Destination[] {
   return JSON.parse(fs.readFileSync(INDEX_PATH, "utf8")) as Destination[];
 }
 
-/** KAI-219D1 review (R7): strict YYYY-MM-DD calendar-date validation —
- *  rejects impossible/ambiguous inputs (2026-02-30, 2026/08/28). */
-function isStrictCalendarDate(v: string): boolean {
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
-  const [y, m, d] = v.split("-").map(Number);
-  if (m < 1 || m > 12 || d < 1 || d > 31) return false;
-  const date = new Date(Date.UTC(y, m - 1, d));
-  return (
-    date.getUTCFullYear() === y &&
-    date.getUTCMonth() === m - 1 &&
-    date.getUTCDate() === d
-  );
-}
-
 function buildFact(entry: ManifestEntry, d: Destination): AdmissionCostFact {
   if (entry.classification !== "unavailable" && entry.sourceUrls.length === 0) {
     throw new Error(
@@ -80,10 +69,10 @@ function buildFact(entry: ManifestEntry, d: Destination): AdmissionCostFact {
   }
   if (
     entry.classification !== "unavailable" &&
-    !isStrictCalendarDate(entry.checkedAt)
+    !isValidCheckedAtDate(entry.checkedAt)
   ) {
     throw new Error(
-      `KAI-219D1 FAIL-CLOSED: ${entry.id} checkedAt "${entry.checkedAt}" is not a strict YYYY-MM-DD calendar date.`,
+      `KAI-219D1 FAIL-CLOSED: ${entry.id} checkedAt "${entry.checkedAt}" is not a strict YYYY-MM-DD calendar date (shared isValidCheckedAtDate).`,
     );
   }
   if (entry.classification === "verified_free") {

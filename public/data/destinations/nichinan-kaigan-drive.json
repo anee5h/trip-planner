@@ -184,21 +184,5 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "admission": {
-    "state": "verified_free",
-    "provenance": "verified_source",
-    "cost": {
-      "kind": "bounded",
-      "min": 0,
-      "max": 0
-    },
-    "scope": "general_entry",
-    "basis": "Nichinan Kaigan scenic drive: public road, no toll (MLIT scenic-byway page) (no admission fee)",
-    "sourceUrls": [
-      "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1"
-    ],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
   }
 }
