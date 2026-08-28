@@ -201,5 +201,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 480,
+      "max": 480
+    },
+    "scope": "general_entry",
+    "basis": "Sendai City Yagiyama Zoo official: 一般(高校生以上) ¥480, 小中 ¥120; fixed adult zoo admission.",
+    "sourceUrls": ["https://www.city.sendai.jp/zoo/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

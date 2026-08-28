@@ -1,0 +1,124 @@
+[
+  {
+    "id": "nokonoshima-island-park",
+    "jpy": 1500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://nokonoshima.com/en/info"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Nokonoshima Island Park site: Adult admission ¥1,500 (¥800 child); fixed park admission for the flower park."
+  },
+  {
+    "id": "expo-70-commemorative-park",
+    "jpy": 450,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.expo70-park.jp/guide/fee/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Expo '70 park fee page (revised 2026-04-01): 自然文化園・日本庭園共通 大人(高校生以上) ¥450; required park admission."
+  },
+  {
+    "id": "shiratani-unsuikyo-ravine",
+    "jpy": 800,
+    "scope": "general_entry",
+    "sourceUrls": [
+      "https://www.town.yakushima.kagoshima.jp/kanko/kankospot/6/2632.html"
+    ],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Yakushima town: conservation cooperation fee 協力金 1人¥800 from April 2026 (令和8年4月から), group 20+ ¥600; required entry payment for the ravine."
+  },
+  {
+    "id": "kamogawa-sea-world",
+    "jpy": 3300,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kamogawa-seaworld.jp/price_ticket/admission/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Kamogawa Sea World admission page: adult (high school+) 1DAY ¥3,300 flat; no date/season variation in official table."
+  },
+  {
+    "id": "nakagusuku-castle",
+    "jpy": 500,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.nakagusuku-jo.jp/5426.html"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Nakagusuku Castle page: 入場料 大人 ¥500 (団体 ¥400); fixed adult admission."
+  },
+  {
+    "id": "oga-namahage-kan",
+    "jpy": 660,
+    "scope": "general_entry",
+    "sourceUrls": ["https://namahage.co.jp/namahagekan/information/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Namahage-kan museum fee page: 入館料(税込) ¥660 adult (¥330 child); fixed general admission."
+  },
+  {
+    "id": "national-museum-japanese-history-sakura",
+    "jpy": 600,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.rekihaku.ac.jp/information/basicinfo/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official REKIHAKU basic-info page: 一般 ¥600, 大学生 ¥250, 高校生以下無料; fixed permanent-exhibition adult admission."
+  },
+  {
+    "id": "sengan-en-garden-kagoshima",
+    "jpy": 1600,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.senganen.jp/faq/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Sengan-en FAQ (since 2024-10-01): 入場券(御殿・尚古集成館含む) 一般(15歳以上) ¥1,600; fixed single admission."
+  },
+  {
+    "id": "sendai-yagiyama-zoo",
+    "jpy": 480,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.city.sendai.jp/zoo/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Sendai City Yagiyama Zoo official: 一般(高校生以上) ¥480, 小中 ¥120; fixed adult zoo admission."
+  },
+  {
+    "id": "otsuka-museum-of-art-naruto",
+    "jpy": 3300,
+    "scope": "general_entry",
+    "sourceUrls": ["https://o-museum.or.jp/pages/28/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Otsuka Museum of Art: 入館料 一般 ¥3,300, 大学生 ¥2,200, 小中高生 ¥550; fixed adult admission."
+  },
+  {
+    "id": "sumida-hokusai-museum",
+    "jpy": 400,
+    "scope": "general_entry",
+    "sourceUrls": ["https://hokusai-museum.jp/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Sumida Hokusai Museum official: 常設展 一般 ¥400 (高校生・大学生¥300); fixed permanent-exhibition adult admission."
+  },
+  {
+    "id": "nagoya-city-science-museum",
+    "jpy": 400,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.ncsm.city.nagoya.jp/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Nagoya City Science Museum official: 展示室のみ 一般 ¥400, 高校生・大学生 ¥200, 中学生以下無料; fixed adult exhibition admission."
+  },
+  {
+    "id": "national-museum-of-nature-and-science",
+    "jpy": 630,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.kahaku.go.jp/riyou/nyukan-annai/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official National Museum of Nature and Science (Ueno): 常設展 一般・大学生 ¥630, 高校生以下無料; fixed permanent-exhibition adult admission."
+  },
+  {
+    "id": "shirotori-garden",
+    "jpy": 300,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.nagoya-info.jp/spot/detail/33/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Nagoya official tourism (Visit Nagoya): 白鳥庭園 入園料 大人 ¥300, 名古屋市在住65歳以上 ¥100, 中学生以下無料; fixed adult garden admission (special events like 観桜会 may add entry, base admission ¥300)."
+  },
+  {
+    "id": "sapporo-beer-museum",
+    "jpy": 1000,
+    "scope": "general_entry",
+    "sourceUrls": ["https://www.sapporobeer.jp/brewery/s_museum/kengaku/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Sapporo Beer Museum 見学 page: 入館料 一般料金 大人 ¥1,000 (¥500 中学生~20歳未満, 小学生以下無料); 道民割 ¥700 is a resident discount — excluded. Paid admission since 2026-07-01."
+  }
+]

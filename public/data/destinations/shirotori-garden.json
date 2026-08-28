@@ -255,5 +255,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Nagoya official tourism (Visit Nagoya): 白鳥庭園 入園料 大人 ¥300, 名古屋市在住65歳以上 ¥100, 中学生以下無料; fixed adult garden admission (special events like 観桜会 may add entry, base admission ¥300).",
+    "sourceUrls": ["https://www.nagoya-info.jp/spot/detail/33/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }
