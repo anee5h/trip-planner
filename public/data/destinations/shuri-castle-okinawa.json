@@ -205,5 +205,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "variable"
+    },
+    "scope": "general_entry",
+    "basis": "Official park operator publishes changing paid-area access and a 2026-11 paid-zone opening; no stable single current envelope is promoted.",
+    "sourceUrls": ["https://oki-park.jp/shurijo/en/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

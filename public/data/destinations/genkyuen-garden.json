@@ -134,5 +134,19 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "general_entry",
+    "basis": "Official Hikone visitor guide lists the Genkyu-en-only individual adult ticket at ¥400; castle combination tickets excluded.",
+    "sourceUrls": ["https://hikonecastle.com/information.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

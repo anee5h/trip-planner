@@ -124,5 +124,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 200
+    },
+    "scope": "general_entry",
+    "basis": "Official Uwajima City fee table lists adult keep admission at ¥200; castle-hill access is free and parking excluded.",
+    "sourceUrls": [
+      "https://www.city.uwajima.ehime.jp/site/uwajima-jo/ujouannnai3.html"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

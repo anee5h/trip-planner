@@ -266,5 +266,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
+    },
+    "scope": "general_entry",
+    "basis": "Official park fee table lists general adult admission at ¥900; concessions and group rates excluded.",
+    "sourceUrls": ["https://www.park-funabashi.or.jp/and/guide.html#price"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

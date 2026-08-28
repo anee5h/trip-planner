@@ -205,5 +205,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "general_entry",
+    "basis": "Official museum fee table lists ordinary permanent-exhibition adult admission at ¥600; seasonal exhibition set tickets excluded.",
+    "sourceUrls": ["https://www.osaka-angenet.jp/konjyakukan/guide"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

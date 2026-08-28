@@ -221,5 +221,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official Nichinan tourism information distinguishes the free castle ruins/grounds from separately ticketed museum, restored residence, and combined town-facility products; no single required admission applies to the canonical castle-ruin identity.",
+    "sourceUrls": ["https://www.kankou-nichinan.jp/en/spot/obi/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   }
 }

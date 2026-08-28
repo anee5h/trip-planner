@@ -189,5 +189,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "general_entry",
+    "basis": "Official Hayashibara Museum of Art visitor/fee page lists individual general admission at ¥600; discounts and special categories excluded.",
+    "sourceUrls": ["https://www.hayashibara-museumofart.jp/guide/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

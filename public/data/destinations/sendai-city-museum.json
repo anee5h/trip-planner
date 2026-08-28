@@ -190,5 +190,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 460,
+      "max": 460
+    },
+    "scope": "general_entry",
+    "basis": "Official Sendai City Museum visitor page lists regular-exhibition admission for adults/college students at ¥460; additional special-exhibition fees are separate and excluded.",
+    "sourceUrls": ["https://www.city.sendai.jp/museum/museum/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

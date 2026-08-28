@@ -199,5 +199,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "exhibition_dependent_pricing",
+    "cost": {
+      "kind": "variable"
+    },
+    "scope": "general_entry",
+    "basis": "Official museum page says exhibition charges differ by exhibition and confirms the 2026 renovation period has free mini-exhibition space; no single scalar is promoted.",
+    "sourceUrls": ["https://www.taromuseum.jp/hoursadmission.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -209,5 +209,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 420,
+      "max": 420
+    },
+    "scope": "general_entry",
+    "basis": "Official tower fee table lists ordinary adult admission at ¥420; annual passes and cafe purchases excluded.",
+    "sourceUrls": ["https://chiba-porttower.com/guide.php#price"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -193,5 +193,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 350,
+      "max": 350
+    },
+    "scope": "general_entry",
+    "basis": "Official Sapporo fee table lists adult admission at ¥350; citizen free days and group rates excluded.",
+    "sourceUrls": ["http://sapporoshi-tokeidai.jp/inspect/guide.php"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

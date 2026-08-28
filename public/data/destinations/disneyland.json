@@ -173,5 +173,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "variable"
+    },
+    "scope": "general_entry",
+    "basis": "Official operator uses date-specific park ticket products; current adult admission is not a stable single value in the page evidence.",
+    "sourceUrls": ["https://www.tokyodisneyresort.jp/en/ticket/index.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

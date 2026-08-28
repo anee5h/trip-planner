@@ -45,7 +45,6 @@
   "description": "Discover Ushiku Daibutsu, a prominent destination in Ibaraki. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 1500,
     "food": 2250,
     "cafe": 750
   },
@@ -169,5 +168,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
+    },
+    "scope": "general_entry",
+    "basis": "Official Ushiku Daibutsu fee page lists the ordinary adult set admission including the Buddha interior and Jodo Garden at ¥900; the garden-only, group, and child products are excluded.",
+    "sourceUrls": ["https://daibutu.net/ryokin.html"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

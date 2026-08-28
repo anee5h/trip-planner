@@ -210,5 +210,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "variable"
+    },
+    "scope": "general_entry",
+    "basis": "Official Shibuya Sky ticketing is date/time-slot and product dependent; no single fixed adult price is defensible from the current booking system.",
+    "sourceUrls": ["https://www.shibuya-scramble-square.com/sky/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

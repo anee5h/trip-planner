@@ -133,5 +133,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "The current Higashiyama Sky Tower operator ticket-and-price page lists ordinary adult/high-school-and-over tower admission at ¥300. The zoo+tower common ticket is a separate product; the zoo admission, parking, shops, and other upgrades are excluded.",
+    "sourceUrls": [
+      "https://higashiyamaskytower.jp/price",
+      "https://higashiyamaskytower.jp/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

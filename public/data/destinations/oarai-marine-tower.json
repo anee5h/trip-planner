@@ -183,5 +183,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 340,
+      "max": 340
+    },
+    "scope": "general_entry",
+    "basis": "Official Oarai Marine Tower page lists 3F observation-room admission for adults/high-school students at ¥340; the free 1F/2F cafe area and group/child rates are excluded.",
+    "sourceUrls": ["https://www.oarai-mt.jp/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

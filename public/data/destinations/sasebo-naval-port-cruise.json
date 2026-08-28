@@ -65,7 +65,6 @@
   "budgetMax": 8000,
   "budgetBreakdown": {
     "transport": 750,
-    "tickets": 1800,
     "food": 1125,
     "cafe": 250
   },
@@ -201,5 +200,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2500,
+      "max": 2500
+    },
+    "scope": "general_entry",
+    "basis": "The current Sasebo tourism association official cruise page lists the ordinary adult (middle-school age and older) Sasebo Naval Port Cruise ticket at ¥2,500. This cruise ticket is the canonical product for the cruise identity; child, disability, charter, booking timing, and transport to the pier are excluded.",
+    "sourceUrls": ["https://www.sasebo99.com/tour/100011"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

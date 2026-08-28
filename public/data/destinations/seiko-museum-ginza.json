@@ -204,5 +204,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "FREE_ENTRY: Official Seiko Museum Ginza visiting page explicitly lists Admission: Free; reservation procedure does not create an admission charge.",
+    "sourceUrls": ["https://museum.seiko.co.jp/en/use/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

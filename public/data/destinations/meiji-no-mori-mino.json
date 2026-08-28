@@ -143,5 +143,18 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "notesJa": "明治の森箕面国定公園の既存レコードが箕面の行き先をカバーしています。箕面大滝（落差33m）が主役で、阪急箕面駅から片道約40分の遊歩道で到達します。KAI-155では箕面の細分化は意図的に追加しません。"
+  "notesJa": "明治の森箕面国定公園の既存レコードが箕面の行き先をカバーしています。箕面大滝（落差33m）が主役で、阪急箕面駅から片道約40分の遊歩道で到達します。KAI-155では箕面の細分化は意図的に追加しません。",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity represents Meiji no Mori Mino Quasi-National Park as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
+    "sourceUrls": ["https://www.pref.osaka.lg.jp/midori/midori/g07-kouen.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
+  }
 }

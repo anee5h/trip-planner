@@ -270,5 +270,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity represents Arashiyama Bamboo Grove and Togetsukyo Bridge as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
+    "sourceUrls": ["https://kyoto.travel/en/areas/saga-arashiyama/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

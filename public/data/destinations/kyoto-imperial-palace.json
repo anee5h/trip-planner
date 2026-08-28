@@ -211,5 +211,22 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "The Imperial Household Agency Kyoto Imperial Palace current visitor page explicitly states that entry is free (入場は無料です). No admission fee is charged under the year-round open-access rules. Optional audio guides, special events, and nearby paid facilities are not admission.",
+    "sourceUrls": [
+      "https://kyoto-gosho.kunaicho.go.jp/visit",
+      "https://kyoto-gosho.kunaicho.go.jp/faq"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

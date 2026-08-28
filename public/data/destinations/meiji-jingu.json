@@ -184,5 +184,20 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity is the open worship grounds of Meiji Jingu; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
+    "sourceUrls": [
+      "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

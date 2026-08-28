@@ -218,5 +218,22 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "The official Hachioji City visitor-information page explicitly states that Takao 599 Museum admission is free (入館料 無料). No admission fee is charged. The museum operator event page confirms the current museum/event program; separately charged workshops or special activities, if any, are not canonical admission.",
+    "sourceUrls": [
+      "https://www.city.hachioji.tokyo.jp/kankobunka/006/p003221.html",
+      "https://www.takao599museum.jp/information/events/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

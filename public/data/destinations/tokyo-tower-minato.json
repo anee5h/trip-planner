@@ -60,7 +60,6 @@
   "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
   "budgetBreakdown": {
     "transport": 443,
-    "tickets": 1329,
     "food": 4429,
     "cafe": 1549
   },
@@ -208,5 +207,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1500,
+      "max": 1500
+    },
+    "scope": "general_entry",
+    "basis": "Official Tokyo Tower fee page lists adult Main Deck (150m) admission at ¥1,500; Top Deck tours and other products excluded.",
+    "sourceUrls": ["https://www.tokyotower.co.jp/fee/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

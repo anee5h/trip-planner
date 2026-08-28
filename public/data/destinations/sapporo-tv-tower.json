@@ -187,5 +187,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
+    },
+    "scope": "general_entry",
+    "basis": "Official Sapporo TV Tower fee table lists ordinary adult admission at ¥1,200; resident, group, and discount rates excluded.",
+    "sourceUrls": ["https://www.tv-tower.co.jp/pricetime.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

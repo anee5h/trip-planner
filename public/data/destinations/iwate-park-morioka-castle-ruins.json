@@ -206,5 +206,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity is the open Iwate Park (Morioka Castle Ruins) ruins/park landscape, not a single admission-controlled keep; separate museums, towers, events, or transport are excluded.",
+    "sourceUrls": [
+      "https://www.city.morioka.iwate.jp/kurashi/midori/koen/1010491.html"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

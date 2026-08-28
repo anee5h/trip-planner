@@ -184,5 +184,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "general_entry",
+    "basis": "Official Matsue Horikawa Pleasure Boat booking information lists the current adult day-pass fare at ¥2,000; legacy tourism-board rates and unrelated transport excluded.",
+    "sourceUrls": ["https://www.matsue-horikawameguri.jp/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

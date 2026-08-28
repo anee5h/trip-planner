@@ -198,5 +198,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "variable"
+    },
+    "scope": "general_entry",
+    "basis": "Official Nakanoshima Museum of Art visitor page explicitly states admission fees are set separately for each exhibition; no scalar or invented range is stored.",
+    "sourceUrls": ["https://nakka-art.jp/en/visit-en/info-en/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -242,5 +242,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "exhibition_dependent_pricing",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1800
+    },
+    "scope": "general_entry",
+    "basis": "Official operator lists general admission at ¥1,800 and ¥1,000 during exhibition transition periods; this bounded exhibition-dependent range is preserved.",
+    "sourceUrls": ["https://towadaartcenter.com/overview/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

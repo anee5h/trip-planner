@@ -157,5 +157,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official Kagoshima information identifies the castle grounds as free; the Reimeikan museum and other nearby facilities are separate products.",
+    "sourceUrls": ["https://www.pref.kagoshima.jp/reimeikan/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   }
 }

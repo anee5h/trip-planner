@@ -205,5 +205,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "bounded",
+      "min": 430,
+      "max": 1800
+    },
+    "scope": "general_entry",
+    "basis": "Official National Museum of Art, Osaka admission page lists current ordinary collection admission ¥430 and current special-exhibition admission ¥1,800; exhibition/product-dependent pricing is preserved as the bounded normal range.",
+    "sourceUrls": ["https://www.nmao.go.jp/visit/admission/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

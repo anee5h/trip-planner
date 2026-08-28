@@ -77,7 +77,7 @@
   "walkingIntensity": "high",
   "reservation": "None required",
   "parking": "Castle grounds parking available",
-  "notes": "Admission ¥410 to castle keep museum. The red tiles were restored in 1965 reconstruction based on original records. Castle park has 1,000 cherry and 400 plum trees. Nearby Higashiyama Onsen and Ouchi-juku make a good day combo.",
+  "notes": "Admission ¥330 to castle keep museum. The red tiles were restored in 1965 reconstruction based on original records. Castle park has 1,000 cherry and 400 plum trees. Nearby Higashiyama Onsen and Ouchi-juku make a good day combo.",
   "status": "beta",
   "relationships": {
     "featuredDestinationIds": [],
@@ -163,5 +163,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 330,
+      "max": 330
+    },
+    "scope": "general_entry",
+    "basis": "Official Tsuruga Castle visitor page lists individual adult admission at ¥330; transport fares, group, student, and child categories excluded.",
+    "sourceUrls": ["https://www.tsurugajo.com/en/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

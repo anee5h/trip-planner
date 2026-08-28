@@ -188,5 +188,21 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Official Nagoya City Art Museum fee page lists current individual general admission to the collection exhibition as ¥300 through 2026-09-30; it separately states that special-exhibition prices are set per exhibition and that the general fee changes to ¥450 from 2026-10-01.",
+    "sourceUrls": [
+      "https://art-museum.city.nagoya.jp/guide/%e5%85%a5%e9%a4%a8%e6%96%99%e3%83%bb%e6%b8%9b%e5%85%8d/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

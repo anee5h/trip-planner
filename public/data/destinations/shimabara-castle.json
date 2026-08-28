@@ -21,7 +21,7 @@
     "Castle town walls",
     "Christian history museum"
   ],
-  "notes": "Keep admission ¥520; the Samurai Street and the Christian heritage sites are within walking distance.",
+  "notes": "The keep requires adult admission; the Samurai Street and Christian heritage sites are within walking distance.",
   "transportOptions": {},
   "recommendedVisitHours": {
     "min": 1.5,
@@ -76,7 +76,7 @@
         "Castle town walls",
         "Christian history museum"
       ],
-      "notes": "Keep admission ¥520; the Samurai Street and the Christian heritage sites are within walking distance.",
+      "notes": "The keep requires adult admission; the Samurai Street and the Christian heritage sites are within walking distance.",
       "reservation": "None required",
       "parking": "Free/paid parking near the site (varies)",
       "openingHours": "Open daily; hours vary by season (see official site)"
@@ -89,7 +89,7 @@
         "再建された五重天守",
         "城下町の石垣と武家屋敷"
       ],
-      "notes": "天守は大人520円。武家屋敷やキリシタン史跡と合わせてどうぞ。",
+      "notes": "天守は大人700円。武家屋敷やキリシタン史跡と合わせてどうぞ。",
       "reservation": "予約不要",
       "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
       "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
@@ -156,5 +156,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 700,
+      "max": 700
+    },
+    "scope": "general_entry",
+    "basis": "Official castle site lists adult admission at ¥700; parking excluded.",
+    "sourceUrls": ["https://www.shimabarajou.com/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

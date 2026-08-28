@@ -73,7 +73,6 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 2000,
     "food": 2925,
     "cafe": 1575
   },
@@ -172,5 +171,23 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
+    },
+    "scope": "general_entry",
+    "basis": "The current Hirosaki Park official fee page, effective 2025-04-01, lists the individual adult one-day admission for Hirosaki Castle Honmaru/North Bailey at ¥320. It also states the castle paid area is free from 11/24 through 3/31 and the keep is closed in that winter period; the defined operating-period individual admission remains a fixed ¥320 product. Common tickets, annual passes, group and child rates are excluded.",
+    "sourceUrls": [
+      "https://www.hirosakipark.jp/price.html",
+      "http://www.hirosakipark.or.jp/hirosakipark/charge.html",
+      "https://www.city.hirosaki.aomori.jp/gaiyou/shisetsu/park/2015-0217-1525-48.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

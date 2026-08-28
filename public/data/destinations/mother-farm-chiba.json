@@ -63,7 +63,6 @@
   "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 2000,
     "food": 5200,
     "cafe": 2800
   },
@@ -168,5 +167,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1800,
+      "max": 1800
+    },
+    "scope": "general_entry",
+    "basis": "Official operator entry page lists adult admission at ¥1,800; parking, activities, and passports excluded.",
+    "sourceUrls": [
+      "https://www.motherfarm.co.jp/ticket/index.php?id=anc_entrance"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

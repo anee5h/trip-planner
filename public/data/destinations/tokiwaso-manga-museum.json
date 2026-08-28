@@ -198,5 +198,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Official Tokiwaso Manga Museum FAQ states basic admission is free outside special-exhibition periods and ordinary adult admission is ¥500 during special exhibitions; exhibition-period variability is preserved.",
+    "sourceUrls": ["https://tokiwasomm.jp/guide/faq.php"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

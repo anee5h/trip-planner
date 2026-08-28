@@ -238,5 +238,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 480,
+      "max": 480
+    },
+    "scope": "general_entry",
+    "basis": "The current Kitakyushu Manga Museum official outline lists ordinary adult permanent-exhibition admission at ¥480. The same page states that企画/temporary exhibition fees vary separately; those temporary exhibitions, group/discount prices, and optional programs are excluded from the ordinary permanent-admission fact.",
+    "sourceUrls": [
+      "https://www.ktqmm.jp/about/outline",
+      "https://www.ktqmm.jp/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

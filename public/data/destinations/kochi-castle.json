@@ -133,5 +133,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Official Kochi Park / Kochi Castle fee page lists admission for visitors aged 18 and over at ¥500; under-18, group, and exemption categories excluded.",
+    "sourceUrls": ["https://kochipark.jp/kochijyo/usage-fee"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

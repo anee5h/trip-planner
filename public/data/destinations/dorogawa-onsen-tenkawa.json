@@ -257,5 +257,18 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "transportZoneId": "mainland-honshu"
+  "transportZoneId": "mainland-honshu",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official Nara tourism information identifies Dorogawa as an onsen town/area; individual baths and nearby attractions are separate products.",
+    "sourceUrls": ["https://www.visitnara.jp/destinations/area/dorogawa/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
+  }
 }

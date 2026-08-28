@@ -188,5 +188,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Official Daigo Town Tourism Association page lists the Fukuroda Falls observation tunnel fee for an individual adult as ¥500; child and group rates excluded.",
+    "sourceUrls": ["https://www.daigo-kanko.jp/fukuroda-falls.html"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

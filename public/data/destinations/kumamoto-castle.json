@@ -63,7 +63,6 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
   "budgetBreakdown": {
     "transport": 2000,
-    "tickets": 1000,
     "food": 3250,
     "cafe": 1750
   },
@@ -179,5 +178,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
+    },
+    "scope": "general_entry",
+    "basis": "The current official Kumamoto Castle viewing guide lists ordinary individual admission for high-school age and older at ¥800. Group, child, exemption, annual, and shared tickets are excluded; separate Kumamoto Museum exhibitions do not replace the castle admission.",
+    "sourceUrls": [
+      "https://castle.kumamoto-guide.jp/info/",
+      "https://castle.kumamoto-guide.jp/ticket/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

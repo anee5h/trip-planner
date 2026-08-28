@@ -201,5 +201,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 1300
+    },
+    "scope": "general_entry",
+    "basis": "Official Akita Museum of Art visitor information states permanent collection entry is free while special exhibitions are product-specific, with the current special-exhibition adult price ¥1,300; the full normal 0–1,300 range is preserved.",
+    "sourceUrls": ["https://www.akita-museum-of-art.jp/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

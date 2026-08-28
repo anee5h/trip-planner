@@ -196,5 +196,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
+    },
+    "scope": "general_entry",
+    "basis": "Official Shikoku Mura visitor information lists adult admission at ¥1,600; the parenthesized group fare and annual pass are excluded.",
+    "sourceUrls": ["https://www.shikokumura.or.jp/en/information/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -215,5 +215,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "temporarily_closed",
+    "cost": {
+      "kind": "unavailable",
+      "reason": "temporarily_closed"
+    },
+    "scope": "general_entry",
+    "basis": "The current official Sky Garden notice states that the 69th-floor observation deck is temporarily closed because of the Landmark Tower large-scale repair work and that reopening is planned for 2028 or later, with details still undecided. The official facility and guide/PDF paths were checked, but no currently sellable ordinary adult admission product exists; pre-closure prices are historical and are not restored. Paid, free, and variable states are inappropriate while the canonical observation deck is closed and no reopening price is defined; N/A is inappropriate because this is a defined admission attraction, not an open area or hub.",
+    "sourceUrls": [
+      "https://yokohama-landmark.jp/skygarden/",
+      "https://yokohama-landmark.jp/skygarden/skygarden_news/detail.php?id=62613"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

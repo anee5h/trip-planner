@@ -134,5 +134,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1100,
+      "max": 1100
+    },
+    "scope": "general_entry",
+    "basis": "Official cave operator lists adult admission at ¥1,100.",
+    "sourceUrls": ["https://www.iwate-ryusendo.jp/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

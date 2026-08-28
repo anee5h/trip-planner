@@ -205,5 +205,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
+    },
+    "scope": "general_entry",
+    "basis": "Official Museum of Aeronautical Sciences visitor guide lists adult admission at ¥900 and states the current price applies from 2025-10-01.",
+    "sourceUrls": ["https://www.aeromuseum.or.jp/guide/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

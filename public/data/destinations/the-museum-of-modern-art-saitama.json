@@ -199,5 +199,22 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 1400
+    },
+    "scope": "general_entry",
+    "basis": "Official Saitama MOMAS visitor page states the building is free to enter, the current MOMAS collection costs ¥200 for adults, and current/future temporary exhibitions cost ¥1,400 for adults; product-dependent pricing is preserved as the full normal range.",
+    "sourceUrls": [
+      "https://pref.spec.ed.jp/momas/%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85---%E4%BA%A4%E9%80%9A%E6%A1%88%E5%86%85"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

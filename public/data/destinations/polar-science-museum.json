@@ -204,5 +204,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "FREE_ENTRY: Official National Institute of Polar Research Science Museum page explicitly states 入場料：無料 (admission free).",
+    "sourceUrls": ["https://www.nipr.ac.jp/science-museum/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

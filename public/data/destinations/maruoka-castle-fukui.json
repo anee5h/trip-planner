@@ -142,5 +142,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 450,
+      "max": 450
+    },
+    "scope": "general_entry",
+    "basis": "Official Maruoka Castle visitor page lists individual adult admission at ¥450; group and child prices are excluded.",
+    "sourceUrls": ["https://maruoka-castle.jp/information/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

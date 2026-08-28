@@ -211,5 +211,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "general_entry",
+    "basis": "Official Sanjusangen-do visitor page lists general adult worship/admission at ¥600; group and student prices excluded.",
+    "sourceUrls": ["https://www.sanjusangendo.jp/visit/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

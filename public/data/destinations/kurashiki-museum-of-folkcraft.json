@@ -203,5 +203,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
+    },
+    "scope": "general_entry",
+    "basis": "Official Kurashiki Museum of Folkcraft visitor information lists general adult admission at ¥1,200; student, child, and group prices excluded.",
+    "sourceUrls": ["https://kurashiki-mingeikan.com/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

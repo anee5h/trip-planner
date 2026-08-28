@@ -150,5 +150,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 360,
+      "max": 360
+    },
+    "scope": "general_entry",
+    "basis": "Official Okazaki Park operator information lists adult Okazaki Castle keep admission at ¥360; the adjacent Ieyasu Museum and combined tickets excluded.",
+    "sourceUrls": ["https://okazakipark.com/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

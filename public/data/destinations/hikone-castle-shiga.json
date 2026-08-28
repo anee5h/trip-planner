@@ -69,7 +69,6 @@
   "description": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
   "budgetBreakdown": {
     "transport": 1993,
-    "tickets": 886,
     "food": 3764,
     "cafe": 1107
   },
@@ -173,5 +172,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Official Hikone Castle fee table lists individual adult castle admission at ¥1,000 including Genkyu-en; museum and combined tickets excluded.",
+    "sourceUrls": ["https://hikonecastle.com/information.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

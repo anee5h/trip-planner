@@ -573,7 +573,6 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
       fact.cost.kind === "bounded" &&
       isFiniteNonNegative(fact.cost.min) &&
       isFiniteNonNegative(fact.cost.max);
-    const projectedTickets = validBounded ? fact.cost.max : undefined;
     const hasLegacyTransportFoodCafe =
       legacyBreakdown &&
       [
@@ -581,6 +580,19 @@ export function getEffectiveBudgetBreakdown(dest: Destination): {
         legacyBreakdown.food,
         legacyBreakdown.cafe,
       ].every(isFiniteNonNegative);
+    if (
+      fact.state === "not_applicable" &&
+      validation.valid &&
+      hasLegacyTransportFoodCafe
+    ) {
+      return {
+        transport: legacyBreakdown!.transport,
+        tickets: 0,
+        food: legacyBreakdown!.food,
+        cafe: legacyBreakdown!.cafe,
+      };
+    }
+    const projectedTickets = validBounded ? fact.cost.max : undefined;
     if (projectedTickets !== undefined && hasLegacyTransportFoodCafe) {
       return {
         transport: legacyBreakdown!.transport,

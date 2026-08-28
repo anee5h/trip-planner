@@ -182,5 +182,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "FREE_ENTRY: Official museum page explicitly states 入場料 無料 (admission free); production experiences are separate.",
+    "sourceUrls": ["https://marugameuchiwa.jp/museum"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

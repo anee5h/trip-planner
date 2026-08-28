@@ -189,5 +189,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 310,
+      "max": 310
+    },
+    "scope": "general_entry",
+    "basis": "Official museum fee table lists adult admission to the collection/small exhibition at ¥310; special exhibitions excluded.",
+    "sourceUrls": ["https://www.city.okayama.jp/orientmuseum/0000022022.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

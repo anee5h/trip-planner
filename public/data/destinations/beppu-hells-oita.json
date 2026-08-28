@@ -172,5 +172,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2400,
+      "max": 2400
+    },
+    "scope": "general_entry",
+    "basis": "Official Beppu Jigoku organization fee page lists the common admission ticket for all seven hells at ¥2,400 for an individual adult (current fee table effective 2025-02-01); this is the canonical Jigoku Meguri product.",
+    "sourceUrls": ["https://www.beppu-jigoku.com/fee/index.html"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

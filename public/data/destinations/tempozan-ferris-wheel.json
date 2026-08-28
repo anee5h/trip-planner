@@ -219,5 +219,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity represents Tempozan Ferris Wheel as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
+    "sourceUrls": ["http://www.senyo.co.jp/tempozan/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

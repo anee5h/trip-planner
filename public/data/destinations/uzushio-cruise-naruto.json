@@ -168,5 +168,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "per_activity",
+    "basis": "Official cruise operator lists adult whirlpool-cruise fare at ¥2,000; this destination is the cruise product itself.",
+    "sourceUrls": ["https://www.uzusio.com/en/geton/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

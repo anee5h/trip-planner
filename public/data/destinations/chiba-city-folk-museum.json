@@ -230,5 +230,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "FREE_ENTRY: Chiba City Folk Museum visitor page explicitly states 料金 無料 (admission free).",
+    "sourceUrls": ["http://www.city.chiba.jp/kyodo/annai/riyo.html"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -204,5 +204,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
+    },
+    "scope": "general_entry",
+    "basis": "Official Kobe Maritime Museum price page lists individual adult admission at ¥900, including Kawasaki World; child and discounted prices excluded.",
+    "sourceUrls": ["https://kobe-maritime-museum.com/price/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

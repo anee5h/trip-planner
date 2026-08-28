@@ -182,5 +182,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 1600
+    },
+    "scope": "general_entry",
+    "basis": "Official Awa Odori Kaikan fee page lists distinct ordinary products: museum ¥500, daytime performance ¥1,300, and night performance ¥1,600. The canonical facility has no single scalar admission; the full normal product range is preserved.",
+    "sourceUrls": ["https://www.awaodori-kaikan.jp/fee"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

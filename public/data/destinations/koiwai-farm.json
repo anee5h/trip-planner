@@ -37,7 +37,6 @@
   "budgetMax": 5000,
   "budgetBreakdown": {
     "transport": 1000,
-    "tickets": 0,
     "food": 1000,
     "cafe": 500
   },
@@ -215,5 +214,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
+    },
+    "scope": "general_entry",
+    "basis": "Official farm entry page lists adult admission at ¥800; pet fees, activities, transport, and passports excluded.",
+    "sourceUrls": ["https://www.koiwaifarm.com/guide/entry/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

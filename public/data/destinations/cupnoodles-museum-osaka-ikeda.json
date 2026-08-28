@@ -157,5 +157,21 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official museum admission page explicitly states “Free of charge”; Chicken Ramen Factory and My CUPNOODLES Factory are separate optional paid facilities.",
+    "sourceUrls": [
+      "https://www.cupnoodles-museum.jp/en/osaka_ikeda/guide/admission/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   }
 }

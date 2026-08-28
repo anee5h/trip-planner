@@ -203,5 +203,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "FREE_ENTRY: Official TOTO Museum facility page explicitly states 入館料：無料 (admission free) and that ordinary small-group self-guided visits need no advance reservation.",
+    "sourceUrls": ["https://jp.toto.com/museum/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -111,5 +111,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 700,
+      "max": 700
+    },
+    "scope": "general_entry",
+    "basis": "Official operator lists the adult base 神の湯階下 bath admission at ¥700; rest/room packages excluded.",
+    "sourceUrls": ["https://dogo.jp/onsen/honkan"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

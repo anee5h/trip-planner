@@ -168,5 +168,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official Kochi City tourism page identifies Harimaya Bridge as a public bridge/landmark; crossing and viewing have no required admission.",
+    "sourceUrls": [
+      "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

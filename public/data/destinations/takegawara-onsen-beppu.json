@@ -58,7 +58,6 @@
   "budgetMax": 6000,
   "budgetBreakdown": {
     "transport": 350,
-    "tickets": 100,
     "food": 400,
     "cafe": 100
   },
@@ -182,5 +181,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Official Beppu municipal visitor page lists adult bath admission at ¥300; sand-bath packages and other service charges are excluded.",
+    "sourceUrls": [
+      "https://www.city.beppu.oita.jp/seikatu/gaikokujinmuke/ei/detail7.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

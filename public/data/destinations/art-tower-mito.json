@@ -203,5 +203,21 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official Art Tower Mito pages show a multi-purpose complex (concert hall, theatre, contemporary-art gallery) and exhibition-specific fees. The ¥900 exhibition fee is not a required admission to the whole tower complex.",
+    "sourceUrls": [
+      "https://www.arttowermito.or.jp/ticket/",
+      "https://www.arttowermito.or.jp/access/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -205,5 +205,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 550,
+      "max": 550
+    },
+    "scope": "general_entry",
+    "basis": "Official open-air museum fee table lists general adult admission at ¥550; passes and discounts excluded.",
+    "sourceUrls": ["https://www.nihonminkaen.jp/information.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

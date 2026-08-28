@@ -126,5 +126,23 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "temporarily_closed",
+    "cost": {
+      "kind": "unavailable",
+      "reason": "temporarily_closed"
+    },
+    "scope": "general_entry",
+    "basis": "Current Gifu City visitor page, updated 2026-07-22, explicitly says Gifu Castle keep and museum are closed for renovation from 2026-05-19 through late October 2027 (予定). The prefectural tourism page still displays the pre-closure adult ¥200 figure but also says the facility is currently closed; that historical figure is not restored as a current product. No current ordinary adult admission can be charged during the closure, and reopening pricing is not published.",
+    "sourceUrls": [
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html",
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1031926.html",
+      "https://www.kankou-gifu.jp/spot/detail_912.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -151,5 +151,23 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_time",
+    "cost": {
+      "kind": "bounded",
+      "min": 200,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "The current official Fukushuen operator access-and-fee page publishes two ordinary adult admission periods: ¥200 for daytime 9:00–18:00 and ¥300 for nighttime 18:00–21:00. The Naha City facility page independently confirms the daytime adult fee of ¥200. The bounded ¥200–¥300 range preserves the genuine time-dependent admission; group, child, exhibition-room, and optional facility charges are excluded.",
+    "checkedAt": "2026-08-29",
+    "sourceUrls": [
+      "https://www.fksn-okinawa.jp/access/",
+      "https://www.city.naha.okinawa.jp/shisetsu/sports/1007498/1004873.html"
+    ],
+    "reviewIntervalMonths": 12
   }
 }

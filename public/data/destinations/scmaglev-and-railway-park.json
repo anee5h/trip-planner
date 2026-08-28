@@ -202,5 +202,21 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
+    },
+    "scope": "general_entry",
+    "basis": "Official JR Central museum fee table lists individual adult admission at ¥1,200; simulator supplements excluded.",
+    "sourceUrls": [
+      "https://museum.jr-central.co.jp/facilities/index.html#section09"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }
