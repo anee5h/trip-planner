@@ -203,17 +203,18 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 1300
     },
     "scope": "general_entry",
-    "basis": "Akita Museum of Art is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Akita Museum of Art visitor information states permanent collection entry is free while special exhibitions are product-specific, with the current special-exhibition adult price ¥1,300; the full normal 0–1,300 range is preserved.",
     "sourceUrls": ["https://www.akita-museum-of-art.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

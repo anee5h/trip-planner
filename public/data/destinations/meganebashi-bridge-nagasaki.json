@@ -187,14 +187,16 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "source_missing"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Meganebashi Spectacles Bridge is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content."
+    "scope": "open_area",
+    "basis": "Official Nagasaki tourism destination page identifies Meganebashi as a public bridge/viewpoint; crossing and viewing have no coherent required admission product.",
+    "sourceUrls": ["https://www.nagasaki-tabinet.com/guide/95"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

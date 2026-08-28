@@ -274,13 +274,13 @@
     "state": "variable_price",
     "provenance": "verified_source",
     "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "variable"
+    },
     "scope": "general_entry",
     "basis": "Official operator publishes multiple dated pass and product options; no single canonical adult scalar is promoted.",
     "sourceUrls": ["https://www.legoland.jp/en/tickets/"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12,
-    "cost": {
-      "kind": "variable"
-    }
+    "reviewIntervalMonths": 12
   }
 }

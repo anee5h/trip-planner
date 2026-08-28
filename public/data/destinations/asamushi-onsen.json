@@ -203,17 +203,16 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Asamushi Onsen is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Asamushi tourism page identifies the record as the onsen town; individual baths and the separate aquarium are not one town admission.",
     "sourceUrls": ["https://www.asamushi.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

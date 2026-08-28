@@ -174,16 +174,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 2400,
+      "max": 2400
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity represents Beppu Hells (Jigoku Meguri) as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
-    "sourceUrls": ["https://www.umi-jigoku.co.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Official Beppu Jigoku organization fee page lists the common admission ticket for all seven hells at ¥2,400 for an individual adult (current fee table effective 2025-02-01); this is the canonical Jigoku Meguri product.",
+    "sourceUrls": ["https://www.beppu-jigoku.com/fee/index.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

@@ -159,17 +159,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 550,
+      "max": 550
     },
     "scope": "general_entry",
-    "basis": "Ozu Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Ozu Castle visitor page lists ordinary adult keep admission at ¥550; combined multi-site passes and child/group prices excluded.",
     "sourceUrls": ["https://www.ozucastle.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

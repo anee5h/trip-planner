@@ -780,6 +780,82 @@ describe("KAI-249 explicit N/A admission compatibility", () => {
       cafe: 600,
     });
   });
+
+  it("projects a verified paid admission fact instead of a stale ticket value", () => {
+    const destination = {
+      budgetBreakdown: {
+        transport: 900,
+        tickets: 9999,
+        food: 1800,
+        cafe: 400,
+      },
+      admission: {
+        state: "verified_paid",
+        provenance: "verified_source",
+        scope: "general_entry",
+        cost: { kind: "bounded", min: 1200, max: 1200 },
+        basis: "Official visitor fee page lists ordinary adult admission.",
+        sourceUrls: ["https://example.com/kai-249-paid"],
+        checkedAt: "2026-08-29",
+        reviewIntervalMonths: 12,
+      },
+    } as unknown as Destination;
+
+    expect(getEffectiveBudgetBreakdown(destination)).toEqual({
+      transport: 900,
+      tickets: 1200,
+      food: 1800,
+      cafe: 400,
+    });
+  });
+
+  it("does not silently zero variable or open-ended admission", () => {
+    const destination = {
+      budgetBreakdown: {
+        transport: 900,
+        tickets: 9999,
+        food: 1800,
+        cafe: 400,
+      },
+      admission: {
+        state: "variable_price",
+        provenance: "verified_source",
+        reasonCode: "price_variable_by_date",
+        scope: "general_entry",
+        cost: { kind: "open_ended", from: 1200 },
+        basis: "Official ticket page uses date-dependent admission pricing.",
+        sourceUrls: ["https://example.com/kai-249-variable"],
+        checkedAt: "2026-08-29",
+        reviewIntervalMonths: 12,
+      },
+    } as unknown as Destination;
+
+    expect(getEffectiveBudgetBreakdown(destination)).toBeNull();
+  });
+
+  it("does not silently zero unavailable admission", () => {
+    const destination = {
+      budgetBreakdown: {
+        transport: 900,
+        tickets: 9999,
+        food: 1800,
+        cafe: 400,
+      },
+      admission: {
+        state: "unavailable",
+        provenance: "none",
+        reasonCode: "legacy_provenance_unrecovered",
+        scope: "general_entry",
+        cost: {
+          kind: "unavailable",
+          reason: "legacy_provenance_unrecovered",
+        },
+        basis: "Authoritative paths were exhausted without a defensible fact.",
+      },
+    } as unknown as Destination;
+
+    expect(getEffectiveBudgetBreakdown(destination)).toBeNull();
+  });
 });
 
 describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", () => {

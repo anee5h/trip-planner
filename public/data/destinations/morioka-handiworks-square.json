@@ -208,6 +208,7 @@
     "basis": "The catalogue identity represents Morioka Handi-Works Square as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
     "sourceUrls": ["https://tezukurimura.com/"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   }
 }

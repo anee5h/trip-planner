@@ -185,17 +185,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 340,
+      "max": 340
     },
     "scope": "general_entry",
-    "basis": "Oarai Marine Tower is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://oarai-mt.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Oarai Marine Tower page lists 3F observation-room admission for adults/high-school students at ¥340; the free 1F/2F cafe area and group/child rates are excluded.",
+    "sourceUrls": ["https://www.oarai-mt.jp/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

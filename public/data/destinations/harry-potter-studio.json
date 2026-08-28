@@ -193,13 +193,13 @@
     "state": "variable_price",
     "provenance": "verified_source",
     "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "variable"
+    },
     "scope": "general_entry",
     "basis": "Official operator publishes dated ticket products and seasonal/booking conditions; no single current scalar is promoted.",
     "sourceUrls": ["https://www.wbstudiotour.jp/en/tickets/"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12,
-    "cost": {
-      "kind": "variable"
-    }
+    "reviewIntervalMonths": 12
   }
 }

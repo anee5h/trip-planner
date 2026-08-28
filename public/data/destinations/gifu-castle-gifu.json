@@ -136,9 +136,11 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Gifu Castle (Mt. Kinka) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.city.gifu.lg.jp/kanko/gifucastle/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Full authoritative-path re-audit on 2026-08-29: current Gifu City page explicitly marks Gifu Castle keep as closed for renovation. No current ordinary adult admission can be charged while the canonical keep is closed; future reopening pricing was not inferred.",
+    "sourceUrls": [
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html"
+    ],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

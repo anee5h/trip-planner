@@ -206,17 +206,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Seiko Museum Ginza is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://museum.seiko.co.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "FREE_ENTRY: Official Seiko Museum Ginza visiting page explicitly lists Admission: Free; reservation procedure does not create an admission charge.",
+    "sourceUrls": ["https://museum.seiko.co.jp/en/use/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

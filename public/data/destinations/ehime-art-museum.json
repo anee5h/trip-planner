@@ -187,14 +187,14 @@
     "state": "variable_price",
     "provenance": "verified_source",
     "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "open_ended",
+      "from": 340
+    },
     "scope": "general_entry",
     "basis": "Official museum visitor guide separates collection admission from special/rental exhibitions whose entry conditions vary; no complete single current envelope is published.",
     "sourceUrls": ["https://www.ehime-art.jp/en/guide"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12,
-    "cost": {
-      "kind": "open_ended",
-      "from": 340
-    }
+    "reviewIntervalMonths": 12
   }
 }

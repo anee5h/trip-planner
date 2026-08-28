@@ -156,17 +156,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
     },
     "scope": "general_entry",
-    "basis": "Shirakawa Komine Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Shirakawa tourism information lists adult admission to the open keep interior at ¥320; the free grounds and child/group categories excluded.",
     "sourceUrls": ["https://shirakawa315.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

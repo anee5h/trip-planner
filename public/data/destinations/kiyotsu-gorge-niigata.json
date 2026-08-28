@@ -118,15 +118,15 @@
     "state": "variable_price",
     "provenance": "verified_source",
     "reasonCode": "seasonal_pricing",
-    "scope": "general_entry",
-    "basis": "Official operator publishes ¥1,000 off-season and ¥1,200 high-season adult tunnel admission for 2026.",
-    "sourceUrls": ["https://nakasato-kiyotsu.com/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12,
     "cost": {
       "kind": "bounded",
       "min": 1000,
       "max": 1200
-    }
+    },
+    "scope": "general_entry",
+    "basis": "Official operator publishes ¥1,000 off-season and ¥1,200 high-season adult tunnel admission for 2026.",
+    "sourceUrls": ["https://nakasato-kiyotsu.com/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

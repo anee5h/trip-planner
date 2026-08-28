@@ -73,7 +73,6 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
   "budgetBreakdown": {
     "transport": 1625,
-    "tickets": 1300,
     "food": 2641,
     "cafe": 1422
   },
@@ -196,17 +195,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
     },
     "scope": "general_entry",
-    "basis": "Nijo Castle (Kyoto) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://nijo-jocastle.city.kyoto.lg.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Kyoto Nijo Castle fee page lists the ordinary individual general admission ticket at ¥800; the ¥1,300 ticket adds the optional Ninomaru Palace viewing and is excluded.",
+    "sourceUrls": ["https://nijo-jocastle.city.kyoto.lg.jp/fee/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

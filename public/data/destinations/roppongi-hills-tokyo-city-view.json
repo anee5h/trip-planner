@@ -200,17 +200,16 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Roppongi Hills Observation Deck (Tokyo City View) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://tcv.roppongihills.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Tokyo City View fee/current-program pages show admission varies with the current observation-deck exhibition and ticket product; no scalar is invented.",
+    "sourceUrls": ["https://www.roppongihills.com/tcv/jp/fee/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

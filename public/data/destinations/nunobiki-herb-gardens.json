@@ -234,9 +234,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Nunobiki Herb Gardens is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.kobeherb.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

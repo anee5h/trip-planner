@@ -206,13 +206,13 @@
     "state": "variable_price",
     "provenance": "verified_source",
     "reasonCode": "seasonal_pricing",
+    "cost": {
+      "kind": "variable"
+    },
     "scope": "general_entry",
     "basis": "Official operator states admission varies with bloom conditions; the ¥600 reservation token is not admission and is excluded.",
     "sourceUrls": ["https://kawachi-fujien.com/"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12,
-    "cost": {
-      "kind": "variable"
-    }
+    "reviewIntervalMonths": 12
   }
 }

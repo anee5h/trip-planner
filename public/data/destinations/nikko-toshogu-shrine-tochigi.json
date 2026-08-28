@@ -205,16 +205,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity is the open worship grounds of Shrines and Temples of Nikko (Toshogu & UNESCO Heritage); offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
-    "sourceUrls": ["https://www.toshogu.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Official Nikko Toshogu admission page lists the ordinary individual adult/high-school general worship admission at ¥1,600; the canonical Toshogu experience is the controlled paid precinct, not merely open worship grounds.",
+    "sourceUrls": ["https://www.toshogu.jp/pages/25/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

@@ -200,17 +200,18 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 500
     },
     "scope": "general_entry",
-    "basis": "Tokiwaso Manga Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://tokiwasomm.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Tokiwaso Manga Museum FAQ states basic admission is free outside special-exhibition periods and ordinary adult admission is ¥500 during special exhibitions; exhibition-period variability is preserved.",
+    "sourceUrls": ["https://tokiwasomm.jp/guide/faq.php"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

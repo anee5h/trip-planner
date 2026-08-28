@@ -71,7 +71,6 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
   "budgetBreakdown": {
     "transport": 3000,
-    "tickets": 1040,
     "food": 3890,
     "cafe": 2070
   },
@@ -140,16 +139,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 520,
+      "max": 520
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity represents Iyo Matsuyama Castle as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
-    "sourceUrls": ["https://www.matsuyamajo.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Official Matsuyama Castle fee page lists the adult Matsuyama Castle keep admission ticket at ¥520. The page separately lists the free main plaza and ropeway/lift transport; transport is excluded.",
+    "sourceUrls": ["https://www.matsuyamajo.jp/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

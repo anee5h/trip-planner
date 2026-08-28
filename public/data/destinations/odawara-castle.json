@@ -21,7 +21,7 @@
     "Siege history (1590)",
     "Castle park blossoms"
   ],
-  "notes": "Keep admission ¥510 (adult). The castle tower view of Sagami Bay is a highlight.",
+  "notes": "Keep admission ¥1,000 (adult). The castle tower view of Sagami Bay is a highlight.",
   "transportOptions": {},
   "recommendedVisitHours": {
     "min": 1.5,
@@ -76,7 +76,7 @@
         "Siege history (1590)",
         "Castle park blossoms"
       ],
-      "notes": "Keep admission ¥510 (adult). The castle tower view of Sagami Bay is a highlight.",
+      "notes": "Keep admission ¥1,000 (adult). The castle tower view of Sagami Bay is a highlight.",
       "reservation": "None required",
       "parking": "Free/paid parking near the site (varies)",
       "openingHours": "Open daily; hours vary by season (see official site)"
@@ -85,7 +85,7 @@
       "name": "小田原城",
       "description": "北条五代が本拠とした難攻不落の城。1590年の小田原攻めで秀吉に屈しました。現在の天守は1960年の再建で、資料館になっています。",
       "highlights": ["北条氏五代の本拠", "再建天守と資料館", "桜・梅の名所"],
-      "notes": "天守は大人510円。天守からの相模湾の眺めが人気です。",
+      "notes": "天守は大人1,000円。天守からの相模湾の眺めが人気です。",
       "reservation": "予約不要",
       "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
       "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
@@ -154,17 +154,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
     },
     "scope": "general_entry",
-    "basis": "Odawara Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://odawaracastle.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Odawara Castle ticket page lists general adult keep admission at ¥1,000; city, group, SAMURAI, and NINJA products are excluded.",
+    "sourceUrls": ["https://odawaracastle.com/ticket/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

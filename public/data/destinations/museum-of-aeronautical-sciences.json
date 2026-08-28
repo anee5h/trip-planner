@@ -207,17 +207,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
     },
     "scope": "general_entry",
-    "basis": "Museum of Aeronautical Sciences is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.aeromuseum.or.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Museum of Aeronautical Sciences visitor guide lists adult admission at ¥900 and states the current price applies from 2025-10-01.",
+    "sourceUrls": ["https://www.aeromuseum.or.jp/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

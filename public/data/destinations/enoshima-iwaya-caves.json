@@ -232,17 +232,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
     },
     "scope": "general_entry",
-    "basis": "Enoshima Iwaya Caves is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Fujisawa tourism authority page lists ordinary admission for Enoshima Iwaya Caves as ¥500 for middle-school students and older.",
     "sourceUrls": ["https://www.fujisawa-kanko.jp/spot/enoshima/17.html"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

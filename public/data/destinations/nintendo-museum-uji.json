@@ -260,17 +260,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 3300,
+      "max": 3300
     },
     "scope": "general_entry",
-    "basis": "Nintendo Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://museum.nintendo.com/en/index.html"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Nintendo Museum visitor guide lists adult (18+) admission at ¥3,300 including tax; lottery/reservation mechanics do not change the ordinary adult ticket price.",
+    "sourceUrls": ["https://museum.nintendo.com/en/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

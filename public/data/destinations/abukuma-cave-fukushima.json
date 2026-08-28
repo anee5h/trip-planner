@@ -158,17 +158,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
     },
     "scope": "general_entry",
-    "basis": "Abukuma Cave is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://abukumado.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Abukuma Cave ticket material lists ordinary adult cave admission at ¥1,200; optional attractions and legacy ticket fields are excluded.",
+    "sourceUrls": ["https://abukumado.com/abukuma_top"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

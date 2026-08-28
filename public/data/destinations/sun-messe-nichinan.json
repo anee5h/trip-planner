@@ -65,7 +65,6 @@
   "budgetMax": 12000,
   "budgetBreakdown": {
     "transport": 750,
-    "tickets": 800,
     "food": 1125,
     "cafe": 250
   },
@@ -196,17 +195,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
     },
     "scope": "general_entry",
-    "basis": "Sun Messe Nichinan is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.sun-messe.co.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Sun Messe Nichinan information page lists general adult admission at ¥1,000; group and discounted categories excluded.",
+    "sourceUrls": ["https://sun-messe.co.jp/information/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

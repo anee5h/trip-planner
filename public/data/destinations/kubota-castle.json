@@ -154,17 +154,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Kubota Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Akita City information identifies Senshu Park as free; the reconstructed Kubota Castle Omoya opens periodically with separate exhibition fees, so no single park admission applies.",
     "sourceUrls": ["https://www.city.akita.lg.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   }
 }

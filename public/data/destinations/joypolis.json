@@ -187,13 +187,13 @@
     "state": "variable_price",
     "provenance": "verified_source",
     "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "variable"
+    },
     "scope": "general_entry",
     "basis": "Official operator publishes date-specific admission/pass products and revised prices; bundled attraction passports are not scalarized.",
     "sourceUrls": ["https://tokyo-joypolis.com/"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12,
-    "cost": {
-      "kind": "variable"
-    }
+    "reviewIntervalMonths": 12
   }
 }

@@ -57,7 +57,6 @@
   "description": "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
   "budgetBreakdown": {
     "transport": 3236,
-    "tickets": 3020,
     "food": 5286,
     "cafe": 2158
   },
@@ -186,17 +185,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
     },
     "scope": "general_entry",
-    "basis": "Omiya Railway Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.railway-museum.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Railway Museum page lists individual admission for an adult at ¥1,600 (fee table effective from 2024-04-01); group, student, child, and event-specific prices excluded.",
+    "sourceUrls": ["https://www.railway-museum.jp/e/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

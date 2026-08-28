@@ -275,17 +275,16 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Spa Metsa Ootaka, Ryusenji-no-Yu is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.ryusenjinoyu.com/spametsaotaka/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Spa Metsa Ootaka operator fee page publishes separate weekday/weekend and facility/product pricing with operating-condition changes; no scalar is invented.",
+    "sourceUrls": ["https://www.ryusenjinoyu.com/spametsaotaka/info"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

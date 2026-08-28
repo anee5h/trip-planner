@@ -207,17 +207,18 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 430,
+      "max": 1800
     },
     "scope": "general_entry",
-    "basis": "The National Museum of Art, Osaka is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["http://www.nmao.go.jp"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official National Museum of Art, Osaka admission page lists current ordinary collection admission ¥430 and current special-exhibition admission ¥1,800; exhibition/product-dependent pricing is preserved as the bounded normal range.",
+    "sourceUrls": ["https://www.nmao.go.jp/visit/admission/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

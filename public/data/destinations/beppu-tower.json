@@ -58,7 +58,6 @@
   "budgetMax": 7000,
   "budgetBreakdown": {
     "transport": 525,
-    "tickets": 500,
     "food": 600,
     "cafe": 150
   },
@@ -219,17 +218,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
     },
     "scope": "general_entry",
-    "basis": "Beppu Tower is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://beppu-tower.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Beppu Tower charge page lists the ordinary adult 16F/17F observation-deck admission at ¥800 effective 2024-01-01; the art-museum and combined package products are excluded.",
+    "sourceUrls": ["https://bepputower.co.jp/en/charge/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

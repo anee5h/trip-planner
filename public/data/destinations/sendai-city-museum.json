@@ -192,17 +192,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 460,
+      "max": 460
     },
     "scope": "general_entry",
-    "basis": "Sendai City Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["http://www.city.sendai.jp/museum/index.html"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Sendai City Museum visitor page lists regular-exhibition admission for adults/college students at ¥460; additional special-exhibition fees are separate and excluded.",
+    "sourceUrls": ["https://www.city.sendai.jp/museum/museum/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

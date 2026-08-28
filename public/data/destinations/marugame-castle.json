@@ -130,17 +130,17 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
     },
     "scope": "general_entry",
-    "basis": "Marugame Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.city.marugame.lg.jp/site/castle/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Marugame City page updated 2025-08-29 lists individual adult admission to the castle keep at ¥400; group, child, and combination tickets excluded.",
+    "sourceUrls": ["https://www.city.marugame.lg.jp/site/castle/7454.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }

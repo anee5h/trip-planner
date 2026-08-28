@@ -155,12 +155,17 @@
   "admission": {
     "state": "unavailable",
     "provenance": "none",
-    "reasonCode": "source_missing",
+    "reasonCode": "legacy_provenance_unrecovered",
     "cost": {
       "kind": "unavailable",
-      "reason": "source_missing"
+      "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Fukushuen Garden is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content."
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: official Naha City Tourism Association page was recovered and identifies Fukushuen Garden and an admission-fee section, but no current ordinary individual adult amount was exposed in the authoritative content; no price is inferred from secondary snippets or legacy values.",
+    "sourceUrls": [
+      "https://www.naha-navi.or.jp/en/sightseeing/fukushuen-garden/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

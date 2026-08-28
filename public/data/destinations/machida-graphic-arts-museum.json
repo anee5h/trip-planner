@@ -200,17 +200,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Machida City Museum of Graphic Arts is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://hanga-museum.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "scope": "open_area",
+    "basis": "Official Machida City Museum of Graphic Arts visitor page states general museum entry and permanent/special feature core viewing are free, while temporary exhibitions are paid with exhibition-specific fees. Those optional exhibition charges are not a single required admission for the canonical free core.",
+    "sourceUrls": ["https://hanga-museum.jp/guide/index"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   }
 }

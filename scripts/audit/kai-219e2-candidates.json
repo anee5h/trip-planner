@@ -8,22 +8,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://abukumado.com/",
+        "url": "https://abukumado.com/abukuma_top",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
     },
     "scope": "general_entry",
-    "basis": "Abukuma Cave is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://abukumado.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Abukuma Cave ticket material lists ordinary adult cave admission at ¥1,200; optional attractions and legacy ticket fields are excluded.",
+    "sourceUrls": ["https://abukumado.com/abukuma_top"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -149,9 +149,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Akiyoshido Cave is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://akiyoshi-dai.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -343,22 +343,29 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.arttowermito.or.jp/",
+        "url": "https://www.arttowermito.or.jp/ticket/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority page fetched; identity-level review found no single required admission for the canonical record; optional or separate products excluded."
+      },
+      {
+        "url": "https://www.arttowermito.or.jp/access/",
+        "result": "retrieved",
+        "note": "Official operator/authority page fetched; identity-level review found no single required admission for the canonical record; optional or separate products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Art Tower Mito is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.arttowermito.or.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "open_area",
+    "basis": "Official Art Tower Mito pages show a multi-purpose complex (concert hall, theatre, contemporary-art gallery) and exhibition-specific fees. The ¥900 exhibition fee is not a required admission to the whole tower complex.",
+    "sourceUrls": [
+      "https://www.arttowermito.or.jp/ticket/",
+      "https://www.arttowermito.or.jp/access/"
+    ],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -500,21 +507,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.umi-jigoku.co.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.beppu-jigoku.com/fee/index.html",
+        "result": "retrieved",
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 2400,
+      "max": 2400
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity represents Beppu Hells (Jigoku Meguri) as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
-    "sourceUrls": ["https://www.umi-jigoku.co.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Official Beppu Jigoku organization fee page lists the common admission ticket for all seven hells at ¥2,400 for an individual adult (current fee table effective 2025-02-01); this is the canonical Jigoku Meguri product.",
+    "sourceUrls": ["https://www.beppu-jigoku.com/fee/index.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -647,24 +655,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html",
+        "url": "http://www.city.chiba.jp/kyodo/annai/riyo.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official museum/authority visitor fee page explicitly states admission is free; paid special events/exhibitions excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Chiba City Folk Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": [
-      "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html"
-    ],
-    "checkedAt": "2026-08-28",
+    "basis": "FREE_ENTRY: Chiba City Folk Museum visitor page explicitly states 料金 無料 (admission free).",
+    "sourceUrls": ["http://www.city.chiba.jp/kyodo/annai/riyo.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -1181,20 +1187,20 @@
       {
         "url": "https://www.fujisawa-kanko.jp/spot/enoshima/17.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
     },
     "scope": "general_entry",
-    "basis": "Enoshima Iwaya Caves is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Fujisawa tourism authority page lists ordinary admission for Enoshima Iwaya Caves as ¥500 for middle-school students and older.",
     "sourceUrls": ["https://www.fujisawa-kanko.jp/spot/enoshima/17.html"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -1282,9 +1288,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Former Hokkaido Government Office is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -1633,9 +1639,9 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.city.gifu.lg.jp/kanko/gifucastle/",
+        "url": "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Current Gifu City page reviewed; it explicitly states the keep is closed for renovation."
       }
     ],
     "state": "unavailable",
@@ -1646,9 +1652,11 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Gifu Castle (Mt. Kinka) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.city.gifu.lg.jp/kanko/gifucastle/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Full authoritative-path re-audit on 2026-08-29: current Gifu City page explicitly marks Gifu Castle keep as closed for renovation. No current ordinary adult admission can be charged while the canonical keep is closed; future reopening pricing was not inferred.",
+    "sourceUrls": [
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html"
+    ],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -2175,6 +2183,36 @@
         "url": "https://www.higashiyama.city.nagoya.jp/",
         "result": "fetch_failed",
         "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+      },
+      {
+        "url": "https://www.higashiyama.city.nagoya.jp/img/ico_ticket.png",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.higashiyama.city.nagoya.jp/education_guide",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.higashiyama.city.nagoya.jp/calendar/assets_c/2023/04/8bc94feec84a0dd809728995b80e26f372010bb0-thumb-330xauto-16122.jpg",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.higashiyama.city.nagoya.jp/education_guide/lecture/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.higashiyama.city.nagoya.jp/education_guide/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.higashiyama.city.nagoya.jp/img/common/bnr_ticket.png",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
       }
     ],
     "state": "unavailable",
@@ -2185,9 +2223,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Higashiyama Sky Tower is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.higashiyama.city.nagoya.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -2281,9 +2319,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Hirosaki Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.hirosakijo.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -2378,22 +2416,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.daigo-kanko.jp/",
+        "url": "https://www.daigo-kanko.jp/fukuroda-falls.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
     },
     "scope": "general_entry",
-    "basis": "Fukuroda Falls is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.daigo-kanko.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Daigo Town Tourism Association page lists the Fukuroda Falls observation tunnel fee for an individual adult as ¥500; child and group rates excluded.",
+    "sourceUrls": ["https://www.daigo-kanko.jp/fukuroda-falls.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -3526,21 +3564,20 @@
       {
         "url": "https://www.kirin.co.jp/experience/factory/yokohama/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator page reviewed for identity-level semantics; optional factory tours and their date-dependent prices are not a required admission to the factory record."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Kirin Beer Yokohama Factory is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Kirin Yokohama Factory page lists separately booked factory-tour products, including optional paid experience tours; the factory record has no one coherent required admission product, so tour prices are excluded.",
     "sourceUrls": ["https://www.kirin.co.jp/experience/factory/yokohama/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "no_single_admission_product"
   },
   {
     "id": "kiso",
@@ -3659,22 +3696,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.kobe-oukoku.com/",
+        "url": "https://www.kobe-oukoku.com/information/fees",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 2400,
+      "max": 2400
     },
     "scope": "general_entry",
-    "basis": "Kobe Animal Kingdom is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.kobe-oukoku.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Kobe Animal Kingdom admission page lists adults (middle-school age and older) at ¥2,400; set tickets, meals, transport, and group prices excluded.",
+    "sourceUrls": ["https://www.kobe-oukoku.com/information/fees"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -3712,22 +3749,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "http://www.kobe-maritime-museum.com/",
+        "url": "https://kobe-maritime-museum.com/price/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
     },
     "scope": "general_entry",
-    "basis": "Kobe Maritime Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["http://www.kobe-maritime-museum.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Kobe Maritime Museum price page lists individual adult admission at ¥900, including Kawasaki World; child and discounted prices excluded.",
+    "sourceUrls": ["https://kobe-maritime-museum.com/price/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -3797,22 +3834,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://kochipark.jp/kochijyo/",
+        "url": "https://kochipark.jp/kochijyo/usage-fee",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
     },
     "scope": "general_entry",
-    "basis": "Kochi Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://kochipark.jp/kochijyo/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Kochi Park / Kochi Castle fee page lists admission for visitors aged 18 and over at ¥500; under-18, group, and exemption categories excluded.",
+    "sourceUrls": ["https://kochipark.jp/kochijyo/usage-fee"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -3925,6 +3962,31 @@
         "url": "https://kumamoto-guide.jp/kumamoto-castle/",
         "result": "retrieved",
         "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+      },
+      {
+        "url": "https://kumamoto-guide.jp/en/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://kumamoto-guide.jp/tw/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://kumamoto-guide.jp/ko/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://kumamoto-guide.jp/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://kumamoto-guide.jp/zh/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
       }
     ],
     "state": "unavailable",
@@ -3935,9 +3997,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Kumamoto Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://kumamoto-guide.jp/kumamoto-castle/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -4143,9 +4205,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Kyoto Imperial Palace is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://sankan.kunaicho.go.jp/guide/kyoto.html"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -4364,22 +4426,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.city.marugame.lg.jp/site/castle/",
+        "url": "https://www.city.marugame.lg.jp/site/castle/7454.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator or authority page reviewed; ordinary admission selected and optional, group, child, package, transport, and unrelated service charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
     },
     "scope": "general_entry",
-    "basis": "Marugame Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.city.marugame.lg.jp/site/castle/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Marugame City page updated 2025-08-29 lists individual adult admission to the castle keep at ¥400; group, child, and combination tickets excluded.",
+    "sourceUrls": ["https://www.city.marugame.lg.jp/site/castle/7454.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -4391,22 +4453,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://maruoka-castle.jp/",
+        "url": "https://maruoka-castle.jp/information/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 450,
+      "max": 450
     },
     "scope": "general_entry",
-    "basis": "Maruoka Castle (Original Keep 1576) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://maruoka-castle.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Maruoka Castle visitor page lists individual adult admission at ¥450; group and child prices are excluded.",
+    "sourceUrls": ["https://maruoka-castle.jp/information/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -4502,21 +4564,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.matsuyamajo.jp/",
+        "url": "https://www.matsuyamajo.jp/guide/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 520,
+      "max": 520
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity represents Iyo Matsuyama Castle as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
-    "sourceUrls": ["https://www.matsuyamajo.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Official Matsuyama Castle fee page lists the adult Matsuyama Castle keep admission ticket at ¥520. The page separately lists the free main plaza and ropeway/lift transport; transport is excluded.",
+    "sourceUrls": ["https://www.matsuyamajo.jp/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5070,22 +5133,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.aeromuseum.or.jp/",
+        "url": "https://www.aeromuseum.or.jp/guide/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
     },
     "scope": "general_entry",
-    "basis": "Museum of Aeronautical Sciences is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.aeromuseum.or.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Museum of Aeronautical Sciences visitor guide lists adult admission at ¥900 and states the current price applies from 2025-10-01.",
+    "sourceUrls": ["https://www.aeromuseum.or.jp/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5200,22 +5263,24 @@
     },
     "evidenceAttempted": [
       {
-        "url": "http://www.art-museum.city.nagoya.jp/",
+        "url": "https://art-museum.city.nagoya.jp/guide/%e5%85%a5%e9%a4%a8%e6%96%99%e3%83%bb%e6%b8%9b%e5%85%8d/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Nagoya City Art Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["http://www.art-museum.city.nagoya.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Nagoya City Art Museum fee page lists current individual general admission to the collection exhibition as ¥300 through 2026-09-30; it separately states that special-exhibition prices are set per exhibition and that the general fee changes to ¥450 from 2026-10-01.",
+    "sourceUrls": [
+      "https://art-museum.city.nagoya.jp/guide/%e5%85%a5%e9%a4%a8%e6%96%99%e3%83%bb%e6%b8%9b%e5%85%8d/"
+    ],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5240,9 +5305,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Nagoya Port Building (Maritime Tower) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://nagoya-port-building.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5414,20 +5479,20 @@
       {
         "url": "https://www.nebuta.jp/warasse/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 620,
+      "max": 620
     },
     "scope": "general_entry",
-    "basis": "Aomori Nebuta Museum WA RASSE is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Aomori Nebuta Museum WA RASSE visitor information lists ordinary adult admission at ¥620; festival events, groups, and child prices excluded.",
     "sourceUrls": ["https://www.nebuta.jp/warasse/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5522,22 +5587,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://nijo-jocastle.city.kyoto.lg.jp/",
+        "url": "https://nijo-jocastle.city.kyoto.lg.jp/fee/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
     },
     "scope": "general_entry",
-    "basis": "Nijo Castle (Kyoto) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://nijo-jocastle.city.kyoto.lg.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Kyoto Nijo Castle fee page lists the ordinary individual general admission ticket at ¥800; the ¥1,300 ticket adds the optional Ninomaru Palace viewing and is excluded.",
+    "sourceUrls": ["https://nijo-jocastle.city.kyoto.lg.jp/fee/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5549,21 +5614,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.toshogu.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.toshogu.jp/pages/25/",
+        "result": "retrieved",
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity is the open worship grounds of Shrines and Temples of Nikko (Toshogu & UNESCO Heritage); offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
-    "sourceUrls": ["https://www.toshogu.jp/"],
-    "checkedAt": "2026-08-28",
+    "scope": "general_entry",
+    "basis": "Official Nikko Toshogu admission page lists the ordinary individual adult/high-school general worship admission at ¥1,600; the canonical Toshogu experience is the controlled paid precinct, not merely open worship grounds.",
+    "sourceUrls": ["https://www.toshogu.jp/pages/25/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5635,6 +5701,26 @@
         "url": "https://www.kobeherb.com/",
         "result": "retrieved",
         "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+      },
+      {
+        "url": "https://www.kobeherb.com/infomation/facility_guide/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.kobeherb.com/infomation/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.kobeherb.com/introduce/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.kobeherb.com/infomation/hours_fare/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
       }
     ],
     "state": "unavailable",
@@ -5645,9 +5731,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Nunobiki Herb Gardens is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.kobeherb.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5690,22 +5776,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://oarai-mt.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.oarai-mt.jp/",
+        "result": "retrieved",
+        "note": "Official operator or authority page reviewed; ordinary admission selected and optional, group, child, package, transport, and unrelated service charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 340,
+      "max": 340
     },
     "scope": "general_entry",
-    "basis": "Oarai Marine Tower is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://oarai-mt.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Oarai Marine Tower page lists 3F observation-room admission for adults/high-school students at ¥340; the free 1F/2F cafe area and group/child rates are excluded.",
+    "sourceUrls": ["https://www.oarai-mt.jp/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -5995,22 +6081,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.railway-museum.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.railway-museum.jp/e/",
+        "result": "retrieved",
+        "note": "Official operator or authority page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
     },
     "scope": "general_entry",
-    "basis": "Omiya Railway Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.railway-museum.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Railway Museum page lists individual admission for an adult at ¥1,600 (fee table effective from 2024-04-01); group, student, child, and event-specific prices excluded.",
+    "sourceUrls": ["https://www.railway-museum.jp/e/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -6329,23 +6415,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://tcv.roppongihills.com/",
+        "url": "https://www.roppongihills.com/tcv/jp/fee/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Roppongi Hills Observation Deck (Tokyo City View) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://tcv.roppongihills.com/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "basis": "Official Tokyo City View fee/current-program pages show admission varies with the current observation-deck exhibition and ticket product; no scalar is invented.",
+    "sourceUrls": ["https://www.roppongihills.com/tcv/jp/fee/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_product"
   },
   {
     "id": "ryoan-ji",
@@ -6583,22 +6668,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.sanjusangendo.jp/",
+        "url": "https://www.sanjusangendo.jp/visit/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator or authority page reviewed; ordinary admission selected and optional, group, child, package, transport, and unrelated service charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
     },
     "scope": "general_entry",
-    "basis": "Sanjusangen-do is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.sanjusangendo.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Sanjusangen-do visitor page lists general adult worship/admission at ¥600; group and student prices excluded.",
+    "sourceUrls": ["https://www.sanjusangendo.jp/visit/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -6757,22 +6842,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "http://www.city.sendai.jp/museum/index.html",
+        "url": "https://www.city.sendai.jp/museum/museum/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator or authority page reviewed; ordinary admission selected and optional, group, child, package, transport, and unrelated service charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 460,
+      "max": 460
     },
     "scope": "general_entry",
-    "basis": "Sendai City Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["http://www.city.sendai.jp/museum/index.html"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Sendai City Museum visitor page lists regular-exhibition admission for adults/college students at ¥460; additional special-exhibition fees are separate and excluded.",
+    "sourceUrls": ["https://www.city.sendai.jp/museum/museum/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -6895,21 +6980,20 @@
       {
         "url": "https://www.shibuya-scramble-square.com/sky/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Shibuya Sky (Rooftop Observatory) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Shibuya Sky ticketing is date/time-slot and product dependent; no single fixed adult price is defensible from the current booking system.",
     "sourceUrls": ["https://www.shibuya-scramble-square.com/sky/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_date"
   },
   {
     "id": "shinagawa-city",
@@ -7668,23 +7752,26 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://pref.spec.ed.jp/momas/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://pref.spec.ed.jp/momas/%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85---%E4%BA%A4%E9%80%9A%E6%A1%88%E5%86%85",
+        "result": "retrieved",
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 200,
+      "max": 1400
     },
     "scope": "general_entry",
-    "basis": "The Museum of Modern Art, Saitama is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://pref.spec.ed.jp/momas/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "basis": "Official Saitama MOMAS visitor page states the building is free to enter, the current MOMAS collection costs ¥200 for adults, and current/future temporary exhibitions cost ¥1,400 for adults; product-dependent pricing is preserved as the full normal range.",
+    "sourceUrls": [
+      "https://pref.spec.ed.jp/momas/%E5%88%A9%E7%94%A8%E6%A1%88%E5%86%85---%E4%BA%A4%E9%80%9A%E6%A1%88%E5%86%85"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_product"
   },
   {
     "id": "the-national-museum-of-art-osaka",
@@ -7695,22 +7782,23 @@
     },
     "evidenceAttempted": [
       {
-        "url": "http://www.nmao.go.jp",
+        "url": "https://www.nmao.go.jp/visit/admission/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority page fetched; normal admission products/exhibitions are explicitly date/product dependent; no scalar was invented."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 430,
+      "max": 1800
     },
     "scope": "general_entry",
-    "basis": "The National Museum of Art, Osaka is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["http://www.nmao.go.jp"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official National Museum of Art, Osaka admission page lists current ordinary collection admission ¥430 and current special-exhibition admission ¥1,800; exhibition/product-dependent pricing is preserved as the bounded normal range.",
+    "sourceUrls": ["https://www.nmao.go.jp/visit/admission/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -8001,22 +8089,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.tokyotower.co.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.tokyotower.co.jp/fee/",
+        "result": "retrieved",
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1500,
+      "max": 1500
     },
     "scope": "general_entry",
-    "basis": "Tokyo Tower is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.tokyotower.co.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Tokyo Tower fee page lists adult Main Deck (150m) admission at ¥1,500; Top Deck tours and other products excluded.",
+    "sourceUrls": ["https://www.tokyotower.co.jp/fee/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -8181,22 +8269,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.tsurugajo.com/",
+        "url": "https://www.tsurugajo.com/en/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 330,
+      "max": 330
     },
     "scope": "general_entry",
-    "basis": "Tsuruga Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.tsurugajo.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Tsuruga Castle visitor page lists individual adult admission at ¥330; transport fares, group, student, and child categories excluded.",
+    "sourceUrls": ["https://www.tsurugajo.com/en/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -8235,22 +8323,22 @@
     "evidenceAttempted": [
       {
         "url": "https://www.uedajo.myu-shop.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Ueda Castle Park is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Ueda Castle Park information identifies the record as a public castle park with separate museum/seasonal products; no single required admission applies to the park identity.",
     "sourceUrls": ["https://www.uedajo.myu-shop.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "ueno-taito",
@@ -8310,22 +8398,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://daibutu.net/",
+        "url": "https://daibutu.net/ryokin.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 900,
+      "max": 900
     },
     "scope": "general_entry",
-    "basis": "Ushiku Daibutsu is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://daibutu.net/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Ushiku Daibutsu fee page lists the ordinary adult set admission including the Buddha interior and Jodo Garden at ¥900; the garden-only, group, and child products are excluded.",
+    "sourceUrls": ["https://daibutu.net/ryokin.html"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -8629,6 +8717,31 @@
         "url": "https://www.yokohama-landmark.jp/skygarden/",
         "result": "retrieved",
         "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+      },
+      {
+        "url": "https://www.yokohama-landmark.jp/facility_information/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.yokohama-landmark.jp/pdf/landmark_guide_JPEn.pdf#page=3",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.yokohama-landmark.jp/information/",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.yokohama-landmark.jp/upload/pdf/landmark_guide_JPEn.pdf#page=3",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+      },
+      {
+        "url": "https://www.yokohama-landmark.jp/upload/pdf/landmark_guide_JPEn.pdf",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
       }
     ],
     "state": "unavailable",
@@ -8639,9 +8752,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Yokohama Landmark Tower (Sky Garden) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.yokohama-landmark.jp/skygarden/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -8998,22 +9111,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://museum.seiko.co.jp/en/",
+        "url": "https://museum.seiko.co.jp/en/use/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator or authority page reviewed; ordinary admission selected and optional, group, child, package, transport, and unrelated service charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Seiko Museum Ginza is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://museum.seiko.co.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "FREE_ENTRY: Official Seiko Museum Ginza visiting page explicitly lists Admission: Free; reservation procedure does not create an admission charge.",
+    "sourceUrls": ["https://museum.seiko.co.jp/en/use/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -9108,23 +9221,24 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://tokiwasomm.jp/en/",
+        "url": "https://tokiwasomm.jp/guide/faq.php",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 500
     },
     "scope": "general_entry",
-    "basis": "Tokiwaso Manga Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://tokiwasomm.jp/en/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "basis": "Official Tokiwaso Manga Museum FAQ states basic admission is free outside special-exhibition periods and ordinary adult admission is ¥500 during special exhibitions; exhibition-period variability is preserved.",
+    "sourceUrls": ["https://tokiwasomm.jp/guide/faq.php"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_product"
   },
   {
     "id": "zoshigaya-kishimojindo",
@@ -9189,23 +9303,23 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://hanga-museum.jp/",
+        "url": "https://hanga-museum.jp/guide/index",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority page fetched; identity-level review found no single required admission for the canonical record; optional or separate products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Machida City Museum of Graphic Arts is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://hanga-museum.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "scope": "open_area",
+    "basis": "Official Machida City Museum of Graphic Arts visitor page states general museum entry and permanent/special feature core viewing are free, while temporary exhibitions are paid with exhibition-specific fees. Those optional exhibition charges are not a single required admission for the canonical free core.",
+    "sourceUrls": ["https://hanga-museum.jp/guide/index"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "serigaya-park",
@@ -9307,9 +9421,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Takao 599 Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.hkc.or.jp/eng/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -9477,22 +9591,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.tbt.gr.jp/",
+        "url": "https://www.nipr.ac.jp/science-museum/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Polar Science Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.tbt.gr.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "FREE_ENTRY: Official National Institute of Polar Research Science Museum page explicitly states 入場料：無料 (admission free).",
+    "sourceUrls": ["https://www.nipr.ac.jp/science-museum/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -9530,22 +9644,21 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://nakka-art.jp/en/",
+        "url": "https://nakka-art.jp/en/visit-en/info-en/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority page fetched; normal admission products/exhibitions are explicitly date/product dependent; no scalar was invented."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Nakanoshima Museum of Art, Osaka is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://nakka-art.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Nakanoshima Museum of Art visitor page explicitly states admission fees are set separately for each exhibition; no scalar or invented range is stored.",
+    "sourceUrls": ["https://nakka-art.jp/en/visit-en/info-en/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -9621,22 +9734,21 @@
     "evidenceAttempted": [
       {
         "url": "https://www.hiroshima-museum.jp/en/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Hiroshima Museum of Art is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Hiroshima Museum of Art visitor information directs visitors to exhibition-specific admission pages; the collection and special exhibitions do not provide one universal adult admission, so no scalar is invented.",
     "sourceUrls": ["https://www.hiroshima-museum.jp/en/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_product"
   },
   {
     "id": "mitaki-dera",
@@ -9718,7 +9830,8 @@
       "https://www.cupnoodles-museum.jp/en/osaka_ikeda/guide/admission/"
     ],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "uji-tea-culture-center",
@@ -10301,20 +10414,25 @@
     },
     "evidenceAttempted": [
       {
-        "url": null,
-        "result": "catalogue_official_url_absent",
-        "note": "No official URL is stored on the current catalogue record; legacy numeric fields were not used."
+        "url": "https://www.naha-navi.or.jp/en/sightseeing/fukushuen-garden/",
+        "result": "retrieved",
+        "note": "Official Naha City Tourism Association destination and admission-information page reviewed; fee section did not expose a current ordinary adult amount."
       }
     ],
     "state": "unavailable",
     "provenance": "none",
-    "reasonCode": "source_missing",
+    "reasonCode": "legacy_provenance_unrecovered",
     "cost": {
       "kind": "unavailable",
-      "reason": "source_missing"
+      "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Fukushuen Garden is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content."
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: official Naha City Tourism Association page was recovered and identifies Fukushuen Garden and an admission-fee section, but no current ordinary individual adult amount was exposed in the authoritative content; no price is inferred from secondary snippets or legacy values.",
+    "checkedAt": "2026-08-29",
+    "sourceUrls": [
+      "https://www.naha-navi.or.jp/en/sightseeing/fukushuen-garden/"
+    ],
+    "reviewIntervalMonths": 12
   },
   {
     "id": "nago-pineapple-park",
@@ -10613,20 +10731,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": null,
-        "result": "catalogue_official_url_absent",
-        "note": "No official URL is stored on the current catalogue record; legacy numeric fields were not used."
+        "url": "https://www.nagasaki-tabinet.com/guide/95",
+        "result": "retrieved",
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "source_missing"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Meganebashi Spectacles Bridge is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content."
+    "scope": "open_area",
+    "basis": "Official Nagasaki tourism destination page identifies Meganebashi as a public bridge/viewpoint; crossing and viewing have no coherent required admission product.",
+    "checkedAt": "2026-08-29",
+    "sourceUrls": ["https://www.nagasaki-tabinet.com/guide/95"],
+    "reviewIntervalMonths": 12
   },
   {
     "id": "suizenji-garden-kumamoto",
@@ -10664,20 +10784,25 @@
     },
     "evidenceAttempted": [
       {
-        "url": null,
-        "result": "catalogue_official_url_absent",
-        "note": "No official URL is stored on the current catalogue record; legacy numeric fields were not used."
+        "url": "https://www.city.beppu.oita.jp/seikatu/gaikokujinmuke/ei/detail7.html",
+        "result": "retrieved",
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "source_missing"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Takegawara Onsen is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content."
+    "basis": "Official Beppu municipal visitor page lists adult bath admission at ¥300; sand-bath packages and other service charges are excluded.",
+    "sourceUrls": [
+      "https://www.city.beppu.oita.jp/seikatu/gaikokujinmuke/ei/detail7.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   },
   {
     "id": "kannawa-onsen-district",
@@ -10688,20 +10813,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": null,
-        "result": "catalogue_official_url_absent",
-        "note": "No official URL is stored on the current catalogue record; legacy numeric fields were not used."
+        "url": "https://www.city.beppu.oita.jp/",
+        "result": "retrieved",
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "source_missing"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Kannawa Onsen Steam District is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content."
+    "scope": "open_area",
+    "basis": "Official Beppu municipal tourism information treats Kannawa as an onsen district; individual bathhouses and services are separate products, with no single district admission.",
+    "checkedAt": "2026-08-29",
+    "sourceUrls": ["https://www.city.beppu.oita.jp/"],
+    "reviewIntervalMonths": 12
   },
   {
     "id": "beppu-tower",
@@ -10712,22 +10839,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://beppu-tower.com/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://bepputower.co.jp/en/charge/",
+        "result": "retrieved",
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
     },
     "scope": "general_entry",
-    "basis": "Beppu Tower is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://beppu-tower.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Beppu Tower charge page lists the ordinary adult 16F/17F observation-deck admission at ¥800 effective 2024-01-01; the art-museum and combined package products are excluded.",
+    "sourceUrls": ["https://bepputower.co.jp/en/charge/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11165,6 +11292,11 @@
         "url": "https://www.ktqmm.jp/",
         "result": "retrieved",
         "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+      },
+      {
+        "url": "https://www.ktqmm.jp/kikaku_info/144177",
+        "result": "retrieved",
+        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
       }
     ],
     "state": "unavailable",
@@ -11175,9 +11307,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Kitakyushu Manga Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.ktqmm.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11246,22 +11378,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://jp.toto.com/knowledge/visit/en_museum/",
+        "url": "https://jp.toto.com/museum/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "TOTO Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://jp.toto.com/knowledge/visit/en_museum/"],
-    "checkedAt": "2026-08-28",
+    "basis": "FREE_ENTRY: Official TOTO Museum facility page explicitly states 入館料：無料 (admission free) and that ordinary small-group self-guided visits need no advance reservation.",
+    "sourceUrls": ["https://jp.toto.com/museum/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11441,9 +11573,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Sasebo Naval Port Cruise is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.sasebo99.com/en/spot/556"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11468,9 +11600,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Sand Bath Hall Saraku is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.ibusuki.or.jp/en/spot/saraku/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11588,21 +11720,21 @@
       {
         "url": "https://www.kankou-nichinan.jp/en/spot/obi/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official destination page reviewed for identity-level semantics; optional museum/residence/combination products excluded from castle-ruin admission."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Obi Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Nichinan tourism information distinguishes the free castle ruins/grounds from separately ticketed museum, restored residence, and combined town-facility products; no single required admission applies to the canonical castle-ruin identity.",
     "sourceUrls": ["https://www.kankou-nichinan.jp/en/spot/obi/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "free_area_with_optional_paid_components",
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "udo-jingu",
@@ -11639,22 +11771,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.sun-messe.co.jp/en/",
+        "url": "https://sun-messe.co.jp/information/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
     },
     "scope": "general_entry",
-    "basis": "Sun Messe Nichinan is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.sun-messe.co.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Sun Messe Nichinan information page lists general adult admission at ¥1,000; group and discounted categories excluded.",
+    "sourceUrls": ["https://sun-messe.co.jp/information/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11731,9 +11863,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Hita Gion Yamahoko Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.oidehita.com/en/spot/yamahoko/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11773,20 +11905,19 @@
       {
         "url": "https://oidehita.com/archives/51871",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Hita Onsen & Mikuma River is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Hita tourism information identifies the record as the Hita Onsen/Mikuma River area; cormorant fishing and bathhouses are separate optional products, not one required area admission.",
     "sourceUrls": ["https://oidehita.com/archives/51871"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -11882,22 +12013,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.shikokumura.or.jp/en/",
+        "url": "https://www.shikokumura.or.jp/en/information/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
     },
     "scope": "general_entry",
-    "basis": "Shikoku Mura is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.shikokumura.or.jp/en/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Shikoku Mura visitor information lists adult admission at ¥1,600; the parenthesized group fare and annual pass are excluded.",
+    "sourceUrls": ["https://www.shikokumura.or.jp/en/information/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -12104,22 +12235,23 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.awaodori-kaikan.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.awaodori-kaikan.jp/fee",
+        "result": "retrieved",
+        "note": "Official operator/authority page fetched; normal admission products/exhibitions are explicitly date/product dependent; no scalar was invented."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 500,
+      "max": 1600
     },
     "scope": "general_entry",
-    "basis": "Awa Odori Kaikan is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.awaodori-kaikan.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Awa Odori Kaikan fee page lists distinct ordinary products: museum ¥500, daytime performance ¥1,300, and night performance ¥1,600. The canonical facility has no single scalar admission; the full normal product range is preserved.",
+    "sourceUrls": ["https://www.awaodori-kaikan.jp/fee"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -12299,22 +12431,21 @@
       {
         "url": "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Harimaya Bridge is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Kochi City tourism page identifies Harimaya Bridge as a public bridge/landmark; crossing and viewing have no required admission.",
     "sourceUrls": [
       "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html"
     ],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -12597,22 +12728,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.hayashibara-museumofart.jp/",
+        "url": "https://www.hayashibara-museumofart.jp/guide/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
     },
     "scope": "general_entry",
-    "basis": "Hayashibara Museum of Art is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.hayashibara-museumofart.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Hayashibara Museum of Art visitor/fee page lists individual general admission at ¥600; discounts and special categories excluded.",
+    "sourceUrls": ["https://www.hayashibara-museumofart.jp/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -12744,20 +12875,20 @@
       {
         "url": "https://kurashiki-mingeikan.com/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1200
     },
     "scope": "general_entry",
-    "basis": "Kurashiki Museum of Folkcraft is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Kurashiki Museum of Folkcraft visitor information lists general adult admission at ¥1,200; student, child, and group prices excluded.",
     "sourceUrls": ["https://kurashiki-mingeikan.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -13034,20 +13165,20 @@
       {
         "url": "https://www.matsue-horikawameguri.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
     },
     "scope": "general_entry",
-    "basis": "Horikawa Pleasure Boat is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Matsue Horikawa Pleasure Boat booking information lists the current adult day-pass fare at ¥2,000; legacy tourism-board rates and unrelated transport excluded.",
     "sourceUrls": ["https://www.matsue-horikawameguri.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -13297,20 +13428,19 @@
       {
         "url": "https://www.asamushi.com/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Asamushi Onsen is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Asamushi tourism page identifies the record as the onsen town; individual baths and the separate aquarium are not one town admission.",
     "sourceUrls": ["https://www.asamushi.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -13513,7 +13643,8 @@
     "basis": "The catalogue identity represents Morioka Handi-Works Square as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
     "sourceUrls": ["https://tezukurimura.com/"],
     "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "koiwai-farm",
@@ -13558,21 +13689,22 @@
       {
         "url": "https://www.akita-museum-of-art.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 1300
     },
     "scope": "general_entry",
-    "basis": "Akita Museum of Art is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Akita Museum of Art visitor information states permanent collection entry is free while special exhibitions are product-specific, with the current special-exhibition adult price ¥1,300; the full normal 0–1,300 range is preserved.",
     "sourceUrls": ["https://www.akita-museum-of-art.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_product"
   },
   {
     "id": "sendai-ichibancho",
@@ -13611,19 +13743,20 @@
       {
         "url": "https://www.daikannon.com/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "not_applicable",
+    "state": "verified_paid",
     "provenance": "verified_source",
-    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "not_applicable"
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
     },
-    "scope": "open_area",
-    "basis": "The catalogue identity is the open worship grounds of Sendai Daikannon; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
+    "scope": "general_entry",
+    "basis": "Official Sendai Daikannon operator notice states interior observation/admission is ¥500 for adults from 2026-01-01; offerings, prayers, and donations are not used as the admission fact.",
     "sourceUrls": ["https://www.daikannon.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -13965,21 +14098,21 @@
       {
         "url": "https://www.city.akita.lg.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Kubota Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Akita City information identifies Senshu Park as free; the reconstructed Kubota Castle Omoya opens periodically with separate exhibition fees, so no single park admission applies.",
     "sourceUrls": ["https://www.city.akita.lg.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "yamagata-castle",
@@ -13992,21 +14125,21 @@
       {
         "url": "https://www.city.yamagata-yamagata.lg.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Yamagata Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Yamagata City information describes Kajo Park as free while reconstructed gate/turret openings are separate seasonal products; no single admission applies to the canonical park identity.",
     "sourceUrls": ["https://www.city.yamagata-yamagata.lg.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "nihonmatsu-castle",
@@ -14019,21 +14152,21 @@
       {
         "url": "https://www.nihonmatsu-kanko.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Nihonmatsu Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Nihonmatsu tourism information identifies the castle grounds as free; the seasonal reconstructed turret is a separate paid product.",
     "sourceUrls": ["https://www.nihonmatsu-kanko.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "shirakawa-komine-castle",
@@ -14045,21 +14178,21 @@
     "evidenceAttempted": [
       {
         "url": "https://shirakawa315.com/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
     },
     "scope": "general_entry",
-    "basis": "Shirakawa Komine Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Shirakawa tourism information lists adult admission to the open keep interior at ¥320; the free grounds and child/group categories excluded.",
     "sourceUrls": ["https://shirakawa315.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14190,22 +14323,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://odawaracastle.com/",
+        "url": "https://odawaracastle.com/ticket/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
     },
     "scope": "general_entry",
-    "basis": "Odawara Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://odawaracastle.com/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Odawara Castle ticket page lists general adult keep admission at ¥1,000; city, group, SAMURAI, and NINJA products are excluded.",
+    "sourceUrls": ["https://odawaracastle.com/ticket/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14281,20 +14414,19 @@
       {
         "url": "https://www.city.komoro.lg.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Komoro Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Komoro City information identifies Kaiko-en as a public park containing castle ruins; no single required admission applies to the ruin/park identity.",
     "sourceUrls": ["https://www.city.komoro.lg.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14319,9 +14451,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Shibata Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://shibata-info.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14432,22 +14564,22 @@
     "evidenceAttempted": [
       {
         "url": "https://www3.fctv.ne.jp/~asakura/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Ichijodani Castle (Asakura site) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Ichijodani site information distinguishes free castle ruins from the separately paid reconstructed town/museum products.",
     "sourceUrls": ["https://www3.fctv.ne.jp/~asakura/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "iwamura-castle",
@@ -14460,20 +14592,19 @@
       {
         "url": "https://hot-iwamura.com/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Iwamura Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Iwamura tourism information identifies Iwamura Castle as a free open-air ruin reached by a climb; no coherent required admission product applies.",
     "sourceUrls": ["https://hot-iwamura.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14517,22 +14648,22 @@
     "evidenceAttempted": [
       {
         "url": "https://www.city.shizuoka.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Sunpu Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Shizuoka City information identifies Sunpu Park as free; the East Gate/seasonal structures are separate products, not a single park admission.",
     "sourceUrls": ["https://www.city.shizuoka.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "okazaki-castle",
@@ -14544,21 +14675,21 @@
     "evidenceAttempted": [
       {
         "url": "https://okazakipark.com/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 360,
+      "max": 360
     },
     "scope": "general_entry",
-    "basis": "Okazaki Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Okazaki Park operator information lists adult Okazaki Castle keep admission at ¥360; the adjacent Ieyasu Museum and combined tickets excluded.",
     "sourceUrls": ["https://okazakipark.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14603,20 +14734,19 @@
       {
         "url": "https://www.city.matsusaka.mie.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Matsusaka Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Matsusaka City information identifies the castle as walkable ruins/park; no coherent required admission applies to the ruin grounds.",
     "sourceUrls": ["https://www.city.matsusaka.mie.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14754,21 +14884,21 @@
       {
         "url": "https://tourism.sasayama.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Sasayama Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Tamba-Sasayama tourism information identifies the castle grounds as free while the Oshoin is a separate ¥500 facility product.",
     "sourceUrls": ["https://tourism.sasayama.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "akashi-castle",
@@ -14811,22 +14941,22 @@
     "evidenceAttempted": [
       {
         "url": "https://www.ako-hyg.ed.jp/bunkazai/akojo/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Ako Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Ako cultural-property information describes the castle ruins as walkable/free; the separate history museum is optional and not a required ruins admission.",
     "sourceUrls": ["https://www.ako-hyg.ed.jp/bunkazai/akojo/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "takatori-castle",
@@ -14932,20 +15062,19 @@
       {
         "url": "https://www.kankou-shimane.com/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Tsuwano Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Shimane tourism information treats Tsuwano Castle as free ruins reached by a separately charged ropeway; the ropeway is required access transport, not admission.",
     "sourceUrls": ["https://www.kankou-shimane.com/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -14959,21 +15088,21 @@
       {
         "url": "https://www.tsuyamakan.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Tsuyama Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Tsuyama tourism information identifies Kakuzan Park as free while the seasonal turret is a separate ¥300 product.",
     "sourceUrls": ["https://www.tsuyamakan.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "kinojo",
@@ -14986,20 +15115,19 @@
       {
         "url": "https://www.city.soja.okayama.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Ki-no-jo (Kinojo) is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Soja City information identifies Ki-no-jo as an open-air historical site; access/viewing has no single required admission product.",
     "sourceUrls": ["https://www.city.soja.okayama.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -15106,20 +15234,20 @@
       {
         "url": "https://www.ozucastle.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, prefectural, or national visitor/fee page fetched; ordinary individual adult/general product selected and unrelated group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 550,
+      "max": 550
     },
     "scope": "general_entry",
-    "basis": "Ozu Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Ozu Castle visitor page lists ordinary adult keep admission at ¥550; combined multi-site passes and child/group prices excluded.",
     "sourceUrls": ["https://www.ozucastle.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -15223,21 +15351,21 @@
       {
         "url": "https://www.city.hitoyoshi.lg.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Hitoyoshi Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Hitoyoshi City information describes the castle ruins park as free; the separate reconstructed-turret museum is optional and not the park admission.",
     "sourceUrls": ["https://www.city.hitoyoshi.lg.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "funai-castle",
@@ -15281,20 +15409,20 @@
       {
         "url": "https://okajou.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Oka Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official Oka Castle page lists admission for high-school age and older at ¥300; the maintenance fee is the castle-site admission and group pricing is excluded.",
     "sourceUrls": ["https://okajou.jp/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -15308,21 +15436,21 @@
       {
         "url": "https://www.pref.kagoshima.jp/reimeikan/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Kagoshima Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Kagoshima information identifies the castle grounds as free; the Reimeikan museum and other nearby facilities are separate products.",
     "sourceUrls": ["https://www.pref.kagoshima.jp/reimeikan/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "rishiri-rebun-sarobetsu",
@@ -17724,22 +17852,22 @@
     "evidenceAttempted": [
       {
         "url": "https://www.fuefukigawa-fruits.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Fuefukigawa Fruit Park is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official fruit-park operator page identifies a free-entry park with separate seasonal fruit picking and illumination/activities; there is no single required admission.",
     "sourceUrls": ["https://www.fuefukigawa-fruits.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "wakakusayama",
@@ -18043,23 +18171,23 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.nagashima-onsen.co.jp/nabana/",
+        "url": "https://www.nagashima-onsen.co.jp/nabana/info/fee.html",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "open_ended",
+      "from": 2500
     },
     "scope": "general_entry",
-    "basis": "Nabana no Sato is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.nagashima-onsen.co.jp/nabana/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "basis": "Official Nagashima Resort/Nabana no Sato information describes seasonal admission as ¥2,500 or more including the seasonal illumination product; the open-ended lower bound is preserved rather than inventing an upper bound.",
+    "sourceUrls": ["https://www.nagashima-onsen.co.jp/nabana/info/fee.html"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "seasonal_pricing"
   },
   {
     "id": "taketomi-island",
@@ -18150,21 +18278,21 @@
       {
         "url": "https://www.kanazawa21.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal/operator/tourism page reviewed for identity-level semantics; free core, separate museum/turret/gate/exhibition, and optional products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "21st Century Museum of Contemporary Art is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official 21st Century Museum information identifies free building/public areas alongside exhibition- and installation-specific paid areas; no single required admission applies to the canonical free core.",
     "sourceUrls": ["https://www.kanazawa21.jp/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
   },
   {
     "id": "ogijima",
@@ -18630,9 +18758,9 @@
       "reason": "legacy_provenance_unrecovered"
     },
     "scope": "general_entry",
-    "basis": "Kikkoman Soy Sauce Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
     "sourceUrls": ["https://www.kikkoman.com/en/culture/soysaucemuseum/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -18644,23 +18772,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.ryusenjinoyu.com/spametsaotaka/",
+        "url": "https://www.ryusenjinoyu.com/spametsaotaka/info",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "variable"
     },
     "scope": "general_entry",
-    "basis": "Spa Metsa Ootaka, Ryusenji-no-Yu is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.ryusenjinoyu.com/spametsaotaka/"],
-    "checkedAt": "2026-08-28",
-    "reviewIntervalMonths": 12
+    "basis": "Official Spa Metsa Ootaka operator fee page publishes separate weekday/weekend and facility/product pricing with operating-condition changes; no scalar is invented.",
+    "sourceUrls": ["https://www.ryusenjinoyu.com/spametsaotaka/info"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12,
+    "reasonCode": "price_variable_by_date"
   },
   {
     "id": "inubosaki-lighthouse-choshi",
@@ -18782,22 +18909,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://www.hirakatapark.co.jp/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "url": "https://www.hirakatapark.co.jp/ticket/",
+        "result": "retrieved",
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
     },
     "scope": "general_entry",
-    "basis": "Hirakata Park is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.hirakatapark.co.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Hirakata Park ticket page lists ordinary adult entry at ¥2,000; group, free-pass, pool, and seasonal package products are excluded.",
+    "sourceUrls": ["https://www.hirakatapark.co.jp/ticket/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -19125,22 +19252,22 @@
     },
     "evidenceAttempted": [
       {
-        "url": "https://museum.nintendo.com/en/index.html",
+        "url": "https://museum.nintendo.com/en/guide/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator/authority admission or fee page fetched; ordinary individual adult/general entry selected; group, child, package, optional, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 3300,
+      "max": 3300
     },
     "scope": "general_entry",
-    "basis": "Nintendo Museum is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://museum.nintendo.com/en/index.html"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Nintendo Museum visitor guide lists adult (18+) admission at ¥3,300 including tax; lottery/reservation mechanics do not change the ordinary adult ticket price.",
+    "sourceUrls": ["https://museum.nintendo.com/en/guide/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -19232,20 +19359,19 @@
       {
         "url": "https://www.awajishima-kanko.jp/en/spot/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Sumoto Castle is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Awaji tourism information identifies Sumoto Castle as a summit ruin/viewpoint; no single required admission to the canonical ruin/viewpoint is established.",
     "sourceUrls": ["https://www.awajishima-kanko.jp/en/spot/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -19259,20 +19385,19 @@
       {
         "url": "https://www.visitnara.jp/destinations/area/dorogawa/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Dorogawa Onsen Town is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Nara tourism information identifies Dorogawa as an onsen town/area; individual baths and nearby attractions are separate products.",
     "sourceUrls": ["https://www.visitnara.jp/destinations/area/dorogawa/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -19340,20 +19465,20 @@
       {
         "url": "https://visitkochijapan.com/en/activities/10152",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official operator, municipal, or tourism page reviewed; ordinary admission selected and unrelated optional, group, child, package, and transport charges excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 2200,
+      "max": 2200
     },
     "scope": "general_entry",
-    "basis": "Shimanto River Yakatabune Nattoku is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "basis": "Official VISIT KOCHI JAPAN listing identifies Nattoku as the regular Shimanto River yakatabune experience and lists the adult fare at ¥2,200; departure/access transport excluded.",
     "sourceUrls": ["https://visitkochijapan.com/en/activities/10152"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {
@@ -19627,21 +19752,20 @@
     "evidenceAttempted": [
       {
         "url": "https://www.tb-kumano.jp/en/places/yunomine/",
-        "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "result": "retrieved",
+        "note": "Official municipal, cultural-property, or tourism page reviewed for identity-level admission semantics; separate bath, museum, ride, activity, and transport products excluded."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
-    "scope": "general_entry",
-    "basis": "Yunomine Onsen is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "scope": "open_area",
+    "basis": "Official Kumano tourism information identifies Yunomine as an onsen settlement; Tsuboyu and individual bathing services are optional facility products, not one town admission.",
     "sourceUrls": ["https://www.tb-kumano.jp/en/places/yunomine/"],
-    "checkedAt": "2026-08-28",
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
   {

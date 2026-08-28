@@ -213,17 +213,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
     },
     "scope": "general_entry",
-    "basis": "Sanjusangen-do is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
-    "sourceUrls": ["https://www.sanjusangendo.jp/"],
-    "checkedAt": "2026-08-28",
+    "basis": "Official Sanjusangen-do visitor page lists general adult worship/admission at ¥600; group and student prices excluded.",
+    "sourceUrls": ["https://www.sanjusangendo.jp/visit/"],
+    "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
 }
