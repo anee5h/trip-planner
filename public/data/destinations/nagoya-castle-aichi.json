@@ -113,5 +113,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Official Nagoya Castle fee page: 大人 ¥500 current; ¥1,000 effective 2026-10-01 (known effective-date change, city ordinance) → full normal adult range ¥500–¥1,000 by date. ¥450/¥400 are GROUP rates (30+/100+), NOT online/combo.",
+    "sourceUrls": ["https://www.nagoyajo.city.nagoya.jp/info/fee/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

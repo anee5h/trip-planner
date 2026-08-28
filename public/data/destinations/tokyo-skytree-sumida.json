@@ -208,5 +208,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 1800,
+      "max": 3600
+    },
+    "scope": "general_entry",
+    "basis": "Official Tokyo Skytree documentation publishes the individual adult Tembo Deck variable-price envelope ¥1,800–¥3,600 by visit date. Tembo Deck + Galleria is a separate product and is excluded.",
+    "sourceUrls": ["https://www.tokyo-skytree.jp/ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -28389,6 +28389,23 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "seasonal_pricing",
+      "cost": {
+        "kind": "bounded",
+        "min": 450,
+        "max": 800
+      },
+      "scope": "general_entry",
+      "basis": "Official Hitachi Seaside Park fee page: 大人(高校生以上) ¥450 normal; seasonal-pricing periods (spring/autumn) ¥450 + ¥350 surcharge = ¥800 → full normal adult range ¥450–¥800 (seasonal_pricing).",
+      "sourceUrls": [
+        "https://www.hitachikaihin.jp/guide/ticket.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -51400,6 +51417,23 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_product",
+      "cost": {
+        "kind": "bounded",
+        "min": 1200,
+        "max": 1300
+      },
+      "scope": "general_entry",
+      "basis": "Official Matsumoto Castle: adult e-ticket ¥1,200 / on-site paper ticket ¥1,300 (product variation); full normal adult range ¥1,200–¥1,300.",
+      "sourceUrls": [
+        "https://www.matsumoto-castle.jp/topics/8173.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -59250,6 +59284,23 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 1000
+      },
+      "scope": "general_entry",
+      "basis": "Official Nagoya Castle fee page: 大人 ¥500 current; ¥1,000 effective 2026-10-01 (known effective-date change, city ordinance) → full normal adult range ¥500–¥1,000 by date. ¥450/¥400 are GROUP rates (30+/100+), NOT online/combo.",
+      "sourceUrls": [
+        "https://www.nagoyajo.city.nagoya.jp/info/fee/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -70771,6 +70822,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 2800,
+        "max": 3500
+      },
+      "scope": "general_entry",
+      "basis": "Official Kaiyukan current admission calendar: adult normal date tiers ¥2,800, ¥3,200, and ¥3,500; complete current normal adult range ¥2,800–¥3,500 by date. Child/senior/group pricing excluded.",
+      "sourceUrls": [
+        "https://www.kaiyukan.com/info/ticket/kaiyukan/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -85869,6 +85937,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 2600,
+        "max": 3200
+      },
+      "scope": "general_entry",
+      "basis": "Official Sunshine Aquarium ticket page: 大人(高校生以上) ¥2,600–¥3,200, 入場日によりチケット料金が異なります (date-variable); full normal adult range ¥2,600–¥3,200.",
+      "sourceUrls": [
+        "https://sunshinecity.jp/aquarium/ticket/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -89588,6 +89673,22 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "open_ended",
+        "from": 3600
+      },
+      "scope": "general_entry",
+      "basis": "Official teamLab Planets ticket store: adult (18+) from ¥3,600 with dynamic date/time pricing; no published upper bound (premium ¥12,000 package excluded).",
+      "sourceUrls": [
+        "https://teamlabplanets.dmm.com/en"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -94229,6 +94330,23 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 1800,
+        "max": 3600
+      },
+      "scope": "general_entry",
+      "basis": "Official Tokyo Skytree documentation publishes the individual adult Tembo Deck variable-price envelope ¥1,800–¥3,600 by visit date. Tembo Deck + Galleria is a separate product and is excluded.",
+      "sourceUrls": [
+        "https://www.tokyo-skytree.jp/ticket/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -146977,6 +147095,23 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 900
+      },
+      "scope": "general_entry",
+      "basis": "Official Kochi Prefectural Sakamoto Ryoma Memorial Museum: 大人 ¥500 normal periods; ¥900 during special-exhibition periods; NO separate permanent-only lower ticket during exhibitions → full normal adult range ¥500–¥900 by date.",
+      "sourceUrls": [
+        "https://ryoma-kinenkan.jp/visit/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -194678,6 +194813,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 250,
+        "max": 300
+      },
+      "scope": "general_entry",
+      "basis": "Official Maiko Marine Promenade fee table: adult 土日祝 ¥300, 平日 ¥250 (groups ¥200); weekday/holiday date variation — full normal adult range ¥250–¥300.",
+      "sourceUrls": [
+        "https://hyogo-maikopark.jp/facility/f01/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -198340,7 +198492,25 @@
         }
       ]
     },
-    "addedAt": "2026-08-22"
+    "addedAt": "2026-08-22",
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 2800,
+        "max": 3200
+      },
+      "scope": "general_entry",
+      "basis": "Official fee table identifies individual adult value, regular, and peak tiers ¥2,800, ¥2,950, and ¥3,200; operating calendar determines the applicable tier.",
+      "sourceUrls": [
+        "https://kariyushi-aquarium.com/fee-ticket/",
+        "https://kariyushi-aquarium.com/opening-hours/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    }
   },
   {
     "id": "kiyomizu-dera",
@@ -209242,6 +209412,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "variable_price",
+      "provenance": "verified_source",
+      "reasonCode": "price_variable_by_date",
+      "cost": {
+        "kind": "bounded",
+        "min": 2900,
+        "max": 3700
+      },
+      "scope": "general_entry",
+      "basis": "Official Kobe Suma Sea World price calendar: 1DAY adult (high school+) date-tiered ¥3,700 (Obon), ¥3,300 (busy-season weekends), ¥3,100 (regular), ¥2,900 (Dec-Mar); normal adult range ¥2,900–¥3,700 by date.",
+      "sourceUrls": [
+        "https://www.kobesuma-seaworld.jp/guide/price_ticket/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {

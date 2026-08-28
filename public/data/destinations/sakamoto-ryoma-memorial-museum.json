@@ -168,5 +168,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 900
+    },
+    "scope": "general_entry",
+    "basis": "Official Kochi Prefectural Sakamoto Ryoma Memorial Museum: 大人 ¥500 normal periods; ¥900 during special-exhibition periods; NO separate permanent-only lower ticket during exhibitions → full normal adult range ¥500–¥900 by date.",
+    "sourceUrls": ["https://ryoma-kinenkan.jp/visit/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }
