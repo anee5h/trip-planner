@@ -18,7 +18,6 @@
   "budgetRecommended": 7000,
   "budgetBreakdown": {
     "transport": 2500,
-    "tickets": 2200,
     "food": 1500,
     "cafe": 800
   },
@@ -179,5 +178,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Nagatoro Iwadatami rock terrace: free to explore (Nagatoro tourism; \"Access to the rocks is completely free\") (no admission fee) (no admission fee)",
+    "sourceUrls": [
+      "https://www.nagatoro.gr.jp/",
+      "https://itinerary.expert/japan/nagatoro-iwadatami/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

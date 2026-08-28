@@ -19,7 +19,6 @@
   "budgetRecommended": 8250,
   "budgetBreakdown": {
     "transport": 3521,
-    "tickets": 704,
     "food": 2515,
     "cafe": 1510
   },
@@ -125,5 +124,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Bessho Onsen town: free to stroll; public baths & Anraku-ji pagoda paid",
+    "sourceUrls": ["https://www.bessho-spa.jp/"],
+    "checkedAt": "2026-08-28"
   }
 }

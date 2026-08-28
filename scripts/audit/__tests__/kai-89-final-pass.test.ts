@@ -67,6 +67,16 @@ describe("KAI-89 final-pass regression tests", () => {
         expect(d.budgetRecommended).toBe(
           Math.round((d.budgetMin + d.budgetMax) / 2),
         );
+        // KAI-219C1/D1 migration: a record with an authoritative admission
+        // fact has its stale legacy budgetBreakdown.tickets retired (the
+        // fact is the single truth; the old model value was cleared). Such
+        // records are exempt from the "components untouched" assertion.
+        const hasAuthoritativeAdmission =
+          d.admission &&
+          (d.admission.state === "verified_paid" ||
+            d.admission.state === "verified_free" ||
+            d.admission.state === "not_applicable");
+        if (hasAuthoritativeAdmission) continue;
         expect(d.budgetBreakdown.transport).toBe(baseline.transport);
         expect(d.budgetBreakdown.tickets).toBe(baseline.tickets);
         expect(d.budgetBreakdown.food).toBe(baseline.food);

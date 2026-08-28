@@ -65,7 +65,6 @@
   "budgetMax": 9000,
   "budgetBreakdown": {
     "transport": 600,
-    "tickets": 1600,
     "food": 900,
     "cafe": 200
   },
@@ -210,5 +209,22 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Nanatsugama sea caves: free coastal viewpoint; only sightseeing cruise paid (no admission fee) (no admission fee)",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/Nanatsugama",
+      "https://japanforkids.jp/places/nanatsugama-caves/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

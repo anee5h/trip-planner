@@ -172,5 +172,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Marine park core access free; underwater observatory/tower ¥1,050 optional.",
+    "sourceUrls": ["https://www.busena-marinepark.com/"],
+    "checkedAt": "2026-08-14"
   }
 }

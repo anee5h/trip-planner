@@ -192,5 +192,17 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "notes": "Osu Shopping District is Nagoya's largest shopping quarter around Osu Kannon, with covered arcades known for electronics, secondhand shops, character goods, and the Osu festival. This record is verified current; no duplicate card is added.",
-  "notesJa": "大須商店街は大須観音周辺に広がる名古屋最大の商店街です。アーケードには家電、リサイクルショップ、キャラクターグッズ店などが並び、大須まつりも開催されます。このレコードは現状確認済みで、重複カードは追加しません。"
+  "notesJa": "大須商店街は大須観音周辺に広がる名古屋最大の商店街です。アーケードには家電、リサイクルショップ、キャラクターグッズ店などが並び、大須まつりも開催されます。このレコードは現状確認済みで、重複カードは追加しません。",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Osu Shopping District: public shopping arcades, free to walk (Nagoya city official)",
+    "sourceUrls": ["https://www.city.nagoya.jp/"],
+    "checkedAt": "2026-08-28"
+  }
 }

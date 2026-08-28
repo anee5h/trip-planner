@@ -48,7 +48,6 @@
   "description": "Discover Okuhida, a prominent destination in Gifu. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
   "budgetBreakdown": {
     "transport": 7600,
-    "tickets": 3800,
     "food": 5700,
     "cafe": 1900
   },
@@ -111,5 +110,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Okuhida onsen villages: town free to stroll (official tourism); baths & ropeway paid",
+    "sourceUrls": ["https://www.okuhida.or.jp/"],
+    "checkedAt": "2026-08-28"
   }
 }

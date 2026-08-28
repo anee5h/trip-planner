@@ -89,7 +89,6 @@
   },
   "budgetBreakdown": {
     "transport": 3833,
-    "tickets": 1917,
     "food": 3737,
     "cafe": 2013
   },
@@ -131,5 +130,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Shirakawa-go Ogimachi: village itself free to walk (village official); parking & houses paid",
+    "sourceUrls": ["https://www.vill.shirakawa.lg.jp/2680.htm"],
+    "checkedAt": "2026-08-28"
   }
 }

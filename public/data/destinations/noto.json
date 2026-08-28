@@ -55,7 +55,6 @@
   "bestMonths": [7, 8],
   "budgetBreakdown": {
     "transport": 4800,
-    "tickets": 2400,
     "food": 3600,
     "cafe": 1200
   },
@@ -128,5 +127,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Noto Peninsula: public coastline free to visit (Noto tourism official)",
+    "sourceUrls": ["https://www.noto-kanko.jp/"],
+    "checkedAt": "2026-08-28"
   }
 }

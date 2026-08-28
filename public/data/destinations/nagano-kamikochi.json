@@ -19,7 +19,6 @@
   "budgetRecommended": 12000,
   "budgetBreakdown": {
     "transport": 5000,
-    "tickets": 2500,
     "food": 3000,
     "cafe": 1500
   },
@@ -118,5 +117,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Kamikochi: no admission fee for the valley (official site); only transport paid (Kamikochi: no admission fee for the valley (official site); only transport paid)",
+    "sourceUrls": ["https://www.kamikochi.or.jp/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

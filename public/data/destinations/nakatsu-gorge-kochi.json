@@ -245,5 +245,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Nakatsu Gorge: free entry, 2.3km trail (official Kochi tourism) (no admission fee) (no admission fee)",
+    "sourceUrls": ["https://visitkochijapan.com/en/see-and-do/10014"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

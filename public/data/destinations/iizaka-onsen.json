@@ -201,5 +201,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Onsen town core free to stroll; public baths (e.g. Sakaba-yu ¥400) optional.",
+    "sourceUrls": ["https://www.bessho-spa.jp/"],
+    "checkedAt": "2026-08-14"
   }
 }

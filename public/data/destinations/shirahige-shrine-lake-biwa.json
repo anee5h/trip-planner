@@ -131,5 +131,22 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Shrine grounds free to enter; worship free (Shiga tourism + Wikipedia) (no admission fee) (no admission fee)",
+    "sourceUrls": [
+      "https://en.wikipedia.org/wiki/Shirahige_Shrine",
+      "https://global.biwako-visitors.jp/things-to-do/22147/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

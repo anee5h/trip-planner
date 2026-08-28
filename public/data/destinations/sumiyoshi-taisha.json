@@ -263,5 +263,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Official shrine site: precinct free to enter; treasure hall has separate admission fee",
+    "sourceUrls": [
+      "https://www.sumiyoshitaisha.net/en/",
+      "https://www.sumiyoshitaisha.net/access/"
+    ],
+    "checkedAt": "2026-08-28"
   }
 }

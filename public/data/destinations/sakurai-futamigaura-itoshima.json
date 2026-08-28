@@ -252,5 +252,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Sakurai Futamigaura: open coastal viewpoint, free to access (Crossroad Fukuoka official) (no admission fee) (no admission fee)",
+    "sourceUrls": ["https://www.crossroadfukuoka.jp/en/spot/12456"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -19,7 +19,6 @@
   "budgetRecommended": 7750,
   "budgetBreakdown": {
     "transport": 3776,
-    "tickets": 994,
     "food": 1987,
     "cafe": 993
   },
@@ -128,5 +127,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Tsumago-juku: preserved post town, streets free to walk (official site)",
+    "sourceUrls": ["https://tumago.jp/"],
+    "checkedAt": "2026-08-28"
   }
 }
