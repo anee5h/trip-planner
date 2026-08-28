@@ -45,7 +45,6 @@
   "budgetMax": 4500,
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 0,
     "food": 1400,
     "cafe": 400
   },
@@ -205,5 +204,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Sendai Asaichi: public morning market, free to walk (official site)",
+    "sourceUrls": ["https://sendaiasaichi.com/"],
+    "checkedAt": "2026-08-28"
   }
 }

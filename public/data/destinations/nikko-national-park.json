@@ -156,5 +156,17 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "National park: park entry free (MOE); Kegon elevator & shrines/temples inside paid",
+    "sourceUrls": ["https://www.env.go.jp/en/nature/nps/"],
+    "checkedAt": "2026-08-28"
   }
 }

@@ -6,7 +6,7 @@
   "totalRecords": 1057,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 194,
+    "clusterCount": 193,
     "affectedRecordCount": 1054,
     "affectedIds": [
       "abashiri",
@@ -1420,13 +1420,13 @@
       "unavailable": 27
     },
     "dispositionCounts": {
-      "corrected": 14,
+      "corrected": 13,
       "confidence-gated": 31,
       "model-estimate": 43,
       "legitimate": 14,
       "manual-review": 92
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 63, "A": 13, "E": 31 }
+    "categoryCounts": { "D": 6, "C": 81, "B": 62, "A": 13, "E": 31 }
   },
   "categories": [
     {
@@ -3302,8 +3302,8 @@
     {
       "category": "budget",
       "severity": "review",
-      "clusterCount": 8,
-      "affectedRecordCount": 128,
+      "clusterCount": 7,
+      "affectedRecordCount": 125,
       "affectedIds": [
         "abashiri-city",
         "aizuwakamatsu-city",
@@ -3349,7 +3349,6 @@
         "ibusuki-city",
         "inuyama-city",
         "ise-city",
-        "ishidake-observatory",
         "ishigaki-city",
         "ito-city",
         "iwakuni-city",
@@ -3375,7 +3374,6 @@
         "kurashiki-city",
         "kusasenri-meadow-aso",
         "kushiro-city",
-        "lake-ikeda",
         "marugame-city",
         "matsudo-city",
         "matsue-city",
@@ -3397,7 +3395,6 @@
         "narita-city",
         "naruto-city",
         "nichinan-city",
-        "nijinomatsubara-pine-grove",
         "nikko-city",
         "numazu-city",
         "odawara-city",
@@ -3641,32 +3638,6 @@
             "category": "B",
             "action": "corrected",
             "reason": "d1f36940 template variant after repair pass (FREE_PLACE_TICKET_COST rule): tickets forced 0, cafe rebalanced +800 (400->1200); tickets=0 correct only for genuinely free venues"
-          }
-        },
-        {
-          "id": "546bb5ac6a3c",
-          "severity": "review",
-          "count": 3,
-          "ids": [
-            "ishidake-observatory",
-            "lake-ikeda",
-            "nijinomatsubara-pine-grove"
-          ],
-          "value": {
-            "budgetBreakdown": {
-              "cafe": 100,
-              "food": 450,
-              "tickets": 0,
-              "transport": 300
-            },
-            "budgetMax": 6000,
-            "budgetMin": 1000,
-            "budgetRecommended": 3500
-          },
-          "disposition": {
-            "category": "B",
-            "action": "corrected",
-            "reason": "pr12c-era formula variant {300,0,450,100} (30/45/10% of min 1000); sum 850 != rec 3000"
           }
         },
         {

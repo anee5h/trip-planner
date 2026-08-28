@@ -185,5 +185,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Nihonbashi: public district, free to walk (Go Tokyo official)",
+    "sourceUrls": [
+      "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html"
+    ],
+    "checkedAt": "2026-08-28"
   }
 }

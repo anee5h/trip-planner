@@ -174,5 +174,17 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Ryozenji: temple precinct free to visit (Naruto tourism official; first temple of Shikoku 88)",
+    "sourceUrls": ["https://naruto-tourism.jp/en/spot/15466"],
+    "checkedAt": "2026-08-28"
   }
 }

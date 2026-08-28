@@ -45,10 +45,15 @@ function isFiniteNumber(v: unknown): v is number {
   return typeof v === "number" && Number.isFinite(v);
 }
 
-function isValidDateString(v: unknown): boolean {
-  // KAI-219A contract (Fix 5): strict YYYY-MM-DD + calendar round-trip.
-  // Date.parse alone accepts impossible/ambiguous inputs (2026-02-30,
-  // 01/02/2026); checkedAt must be an unambiguous real calendar date.
+/**
+ * KAI-219A contract (Fix 5) + KAI-219D1 (S3): strict YYYY-MM-DD + calendar
+ * round-trip. The SINGLE shared strict-date implementation — used by
+ * factValidation (runtime), data-quality-rules (authoring CI), and the
+ * D1 migration authoring. No second date implementation exists.
+ * Date.parse alone accepts impossible/ambiguous inputs (2026-02-30,
+ * 01/02/2026); checkedAt must be an unambiguous real calendar date.
+ */
+export function isValidCheckedAtDate(v: unknown): boolean {
   if (typeof v !== "string") return false;
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
   if (!m) return false;
@@ -126,7 +131,7 @@ export function validateAdmissionFact(
       if (!isNonEmptyUrlList(fact.sourceUrls)) {
         return { valid: false, reason: "verified_paid_missing_source_urls" };
       }
-      if (!isValidDateString(fact.checkedAt)) {
+      if (!isValidCheckedAtDate(fact.checkedAt)) {
         return { valid: false, reason: "verified_paid_invalid_checked_at" };
       }
       return { valid: true };
@@ -147,7 +152,7 @@ export function validateAdmissionFact(
       if (!isNonEmptyUrlList(fact.sourceUrls)) {
         return { valid: false, reason: "verified_free_missing_source_urls" };
       }
-      if (!isValidDateString(fact.checkedAt)) {
+      if (!isValidCheckedAtDate(fact.checkedAt)) {
         return { valid: false, reason: "verified_free_invalid_checked_at" };
       }
       return { valid: true };
@@ -189,7 +194,7 @@ export function validateAdmissionFact(
             reason: "variable_price_bounded_missing_urls",
           };
         }
-        if (!isValidDateString(fact.checkedAt)) {
+        if (!isValidCheckedAtDate(fact.checkedAt)) {
           return { valid: false, reason: "variable_price_invalid_checked_at" };
         }
         return { valid: true };
@@ -280,7 +285,7 @@ export function validateLocalTransportFact(
       if (!fact.basis || fact.basis.length === 0) {
         return { valid: false, reason: "verified_required_missing_basis" };
       }
-      if (!isValidDateString(fact.checkedAt)) {
+      if (!isValidCheckedAtDate(fact.checkedAt)) {
         return { valid: false, reason: "verified_required_invalid_checked_at" };
       }
       return { valid: true };

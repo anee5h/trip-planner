@@ -53,7 +53,6 @@
   "bestMonths": [7, 8],
   "budgetBreakdown": {
     "transport": 6400,
-    "tickets": 3200,
     "food": 4800,
     "cafe": 1600
   },
@@ -146,5 +145,17 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Sado island: public island free to visit; Sado Gold Mine is separate paid attraction",
+    "sourceUrls": ["https://www.pref.niigata.lg.jp/site/sado-goldmine/"],
+    "checkedAt": "2026-08-28"
   }
 }

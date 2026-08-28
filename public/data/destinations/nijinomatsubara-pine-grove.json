@@ -64,7 +64,6 @@
   "budgetMax": 6000,
   "budgetBreakdown": {
     "transport": 300,
-    "tickets": 0,
     "food": 450,
     "cafe": 100
   },
@@ -195,5 +194,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Niji no Matsubara pine grove: free to enter (Karatsu tourism official; cycling path) (no admission fee)",
+    "sourceUrls": ["https://www.karatsu-kankou.jp/en/spots/detail/4"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

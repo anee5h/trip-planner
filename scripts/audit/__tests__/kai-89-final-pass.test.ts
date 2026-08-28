@@ -67,10 +67,21 @@ describe("KAI-89 final-pass regression tests", () => {
         expect(d.budgetRecommended).toBe(
           Math.round((d.budgetMin + d.budgetMax) / 2),
         );
+        // KAI-219C1/D1 migration (narrowed per review R6): ONLY the legacy
+        // budgetBreakdown.tickets field may be exempt when it was
+        // intentionally retired because an authoritative v2 admission fact
+        // exists. transport / food / cafe MUST remain asserted unchanged —
+        // an authoritative admission fact never justifies changing them.
+        const hasAuthoritativeAdmission =
+          d.admission &&
+          (d.admission.state === "verified_paid" ||
+            d.admission.state === "verified_free" ||
+            d.admission.state === "not_applicable");
         expect(d.budgetBreakdown.transport).toBe(baseline.transport);
-        expect(d.budgetBreakdown.tickets).toBe(baseline.tickets);
         expect(d.budgetBreakdown.food).toBe(baseline.food);
         expect(d.budgetBreakdown.cafe).toBe(baseline.cafe);
+        if (hasAuthoritativeAdmission) continue;
+        expect(d.budgetBreakdown.tickets).toBe(baseline.tickets);
       }
     });
   });

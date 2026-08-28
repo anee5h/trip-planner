@@ -158,5 +158,19 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
+  },
+  "admission": {
+    "state": "verified_free",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
+    },
+    "scope": "general_entry",
+    "basis": "Ritsuunkyo viewpoint: free overlook of Takeda Castle sea of clouds (Asago tourism official) (no admission fee)",
+    "sourceUrls": ["https://www.asago-kanko.com/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

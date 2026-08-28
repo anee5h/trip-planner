@@ -57818,7 +57818,6 @@
     "budgetRecommended": 8250,
     "budgetBreakdown": {
       "transport": 3521,
-      "tickets": 704,
       "food": 2515,
       "cafe": 1510
     },
@@ -57934,6 +57933,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Bessho Onsen town: free to stroll; public baths & Anraku-ji pagoda paid",
+      "sourceUrls": [
+        "https://www.bessho-spa.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -58106,7 +58119,6 @@
     "budgetRecommended": 12000,
     "budgetBreakdown": {
       "transport": 5000,
-      "tickets": 2500,
       "food": 3000,
       "cafe": 1500
     },
@@ -58216,6 +58228,22 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Kamikochi: no admission fee for the valley (official site); only transport paid",
+      "sourceUrls": [
+        "https://www.kamikochi.or.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -58242,7 +58270,6 @@
     "budgetRecommended": 7500,
     "budgetBreakdown": {
       "transport": 3500,
-      "tickets": 500,
       "food": 2500,
       "cafe": 1000
     },
@@ -58350,6 +58377,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Narai-juku: preserved historic street free to walk (official site)",
+      "sourceUrls": [
+        "https://www.naraijuku.org/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -58511,7 +58552,6 @@
     "budgetRecommended": 7750,
     "budgetBreakdown": {
       "transport": 3776,
-      "tickets": 994,
       "food": 1987,
       "cafe": 993
     },
@@ -58625,6 +58665,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Tsumago-juku: preserved post town, streets free to walk (official site)",
+      "sourceUrls": [
+        "https://tumago.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -60598,6 +60652,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Nakasu: public entertainment district, free to walk (Nakasu tourism association)",
+      "sourceUrls": [
+        "http://www.nakasukankou.com/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -60838,6 +60906,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Nankinmachi: public street district, free to walk (official association)",
+      "sourceUrls": [
+        "https://www.nankinmachi.or.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -62530,6 +62612,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Naritasan Park: entry free for all (walkerplus price info: 入場無料)",
+      "sourceUrls": [
+        "https://www.naritasan.or.jp/",
+        "https://www.walkerplus.com/spot/ar0312s76369/price.html"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -64314,6 +64413,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Nijo Market: public market, free to walk (official site)",
+      "sourceUrls": [
+        "https://nijomarket.com/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -65121,6 +65234,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Niseko town: public town, free to visit (Niseko tourism association)",
+      "sourceUrls": [
+        "https://www.niseko-ta.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -65362,6 +65489,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Nishiki Market: public market street, free to walk (official association site)",
+      "sourceUrls": [
+        "http://www.kyoto-nishiki.or.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -65431,7 +65572,6 @@
     ],
     "budgetBreakdown": {
       "transport": 4800,
-      "tickets": 2400,
       "food": 3600,
       "cafe": 1200
     },
@@ -65504,6 +65644,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Noto Peninsula: public coastline free to visit (Noto tourism official)",
+      "sourceUrls": [
+        "https://www.noto-kanko.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -66576,6 +66730,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Nyuto onsen village: free to walk; each ryokan bath has onsen fee (pass ~¥600/day)",
+      "sourceUrls": [
+        "https://www.nyuto-onsenkyo.gr.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -68759,7 +68927,6 @@
     "description": "Discover Okuhida, a prominent destination in Gifu. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
     "budgetBreakdown": {
       "transport": 7600,
-      "tickets": 3800,
       "food": 5700,
       "cafe": 1900
     },
@@ -68822,6 +68989,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Okuhida onsen villages: town free to stroll (official tourism); baths & ropeway paid",
+      "sourceUrls": [
+        "https://www.okuhida.or.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -71980,6 +72161,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Shrine grounds free to visit (official shrine site); no precinct admission charge",
+      "sourceUrls": [
+        "https://www.oosaki-hachiman.or.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -72421,7 +72616,21 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "notes": "Osu Shopping District is Nagoya's largest shopping quarter around Osu Kannon, with covered arcades known for electronics, secondhand shops, character goods, and the Osu festival. This record is verified current; no duplicate card is added.",
-    "notesJa": "大須商店街は大須観音周辺に広がる名古屋最大の商店街です。アーケードには家電、リサイクルショップ、キャラクターグッズ店などが並び、大須まつりも開催されます。このレコードは現状確認済みで、重複カードは追加しません。"
+    "notesJa": "大須商店街は大須観音周辺に広がる名古屋最大の商店街です。アーケードには家電、リサイクルショップ、キャラクターグッズ店などが並び、大須まつりも開催されます。このレコードは現状確認済みで、重複カードは追加しません。",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Osu Shopping District: public shopping arcades, free to walk (Nagoya city official)",
+      "sourceUrls": [
+        "https://www.city.nagoya.jp/"
+      ],
+      "checkedAt": "2026-08-28"
+    }
   },
   {
     "id": "ota-city",
@@ -73537,6 +73746,22 @@
         "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
       },
       "noteKey": "destination.scoreVerifiedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Oze National Park: no park entry fee (Oze Foundation official site) (no admission fee)",
+      "sourceUrls": [
+        "https://www.oze-fnd.or.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -74222,6 +74447,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Renkeiji (Kawagoe): temple grounds free (official site) (no admission fee)",
+      "sourceUrls": [
+        "https://renkeiji.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -75047,7 +75288,6 @@
     ],
     "budgetBreakdown": {
       "transport": 6400,
-      "tickets": 3200,
       "food": 4800,
       "cafe": 1600
     },
@@ -75140,6 +75380,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Sado island: public island free to visit; Sado Gold Mine is separate paid attraction",
+      "sourceUrls": [
+        "https://www.pref.niigata.lg.jp/site/sado-goldmine/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -75619,7 +75873,6 @@
     "budgetRecommended": 7000,
     "budgetBreakdown": {
       "transport": 2500,
-      "tickets": 2200,
       "food": 1500,
       "cafe": 800
     },
@@ -75795,6 +76048,23 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Nagatoro Iwadatami rock terrace: free to explore (Nagatoro tourism; \"Access to the rocks is completely free\") (no admission fee)",
+      "sourceUrls": [
+        "https://www.nagatoro.gr.jp/",
+        "https://itinerary.expert/japan/nagatoro-iwadatami/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -76025,6 +76295,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Saitama Shintoshin: public district, free to walk (Saitama city official)",
+      "sourceUrls": [
+        "https://www.city.saitama.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -78795,6 +79079,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Shrine grounds free; Kamakura guide lists \"Free\" entry (no admission fee)",
+      "sourceUrls": [
+        "https://kamakuraguide.com/en/kamakura-station-west/sasuke-inari-jinja-kamakura/",
+        "https://sasukeinari.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -79283,7 +79584,6 @@
     "budgetMax": 4500,
     "budgetBreakdown": {
       "transport": 1400,
-      "tickets": 0,
       "food": 1400,
       "cafe": 400
     },
@@ -79450,6 +79750,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Sendai Asaichi: public morning market, free to walk (official site)",
+      "sourceUrls": [
+        "https://sendaiasaichi.com/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -81936,6 +82250,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Shingashi River: public riverside promenade, free to walk (Kawagoe Koedo official)",
+      "sourceUrls": [
+        "https://koedo.or.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -83095,6 +83423,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Naritasan Shinsho-ji grounds & halls free to enter; free admission (official Naritasan site); no admission fee",
+      "sourceUrls": [
+        "https://www.naritasan.or.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -83282,6 +83626,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Shirahama town: public resort town, free to visit; beaches free (town official)",
+      "sourceUrls": [
+        "https://www.town.shirahama.wakayama.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -83572,7 +83930,6 @@
     },
     "budgetBreakdown": {
       "transport": 3833,
-      "tickets": 1917,
       "food": 3737,
       "cafe": 2013
     },
@@ -83614,6 +83971,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Shirakawa-go Ogimachi: village itself free to walk (village official); parking & houses paid",
+      "sourceUrls": [
+        "https://www.vill.shirakawa.lg.jp/2680.htm"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -84124,6 +84495,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Prefectural Shonan Kaigan Park: open free park (official S-N-P site); parking paid (no admission fee)",
+      "sourceUrls": [
+        "https://www.s-n-p.jp/shonankaigan_park/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -85875,6 +86262,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Susukino: public entertainment district, free to walk (official association)",
+      "sourceUrls": [
+        "https://www.susukino-ta.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -106466,6 +106867,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Nihonbashi: public district, free to walk (Go Tokyo official)",
+      "sourceUrls": [
+        "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -109424,6 +109839,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Sugamo Jizo-dori: public shopping street, free to walk (Go Tokyo official)",
+      "sourceUrls": [
+        "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -110512,6 +110941,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Nozuta Park: 入場無料 (ekoen; Machida city official) (無料)",
+      "sourceUrls": [
+        "https://ekoen.jp/2940",
+        "https://www.city.machida.tokyo.jp/bunka/park/shisetu/nozuta/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -114291,6 +114737,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Ome retro town: public townscape, free to walk (Ome tourism association)",
+      "sourceUrls": [
+        "https://www.omekanko.gr.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -115466,6 +115926,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Suwa Shrine Tachikawa: visiting free (aroundus + Tachikawa tourism) (no admission fee)",
+      "sourceUrls": [
+        "https://aroundus.com/p/11792831-suwa-shrine-tachikawa",
+        "https://www.tbt.gr.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -117333,6 +117810,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Okonomimura: free entry food hall (official site); pay per stall (no admission fee)",
+      "sourceUrls": [
+        "https://www.okonomimura.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -119176,6 +119667,22 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Ritsuunkyo viewpoint: free overlook of Takeda Castle sea of clouds (Asago tourism official) (no admission fee)",
+      "sourceUrls": [
+        "https://www.asago-kanko.com/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -120516,6 +121023,20 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Okage Yokocho: free to stroll (official site); food/souvenirs per stall",
+      "sourceUrls": [
+        "https://okageyokocho.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -120811,6 +121332,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Okunoin cemetery & temple precinct free to walk (official Koyasan site); no admission gate",
+      "sourceUrls": [
+        "https://www.koyasan.or.jp/en/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -122177,6 +122712,22 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Shirahama Beach: public beach free entry (town tourism); Adventure World theme park paid separately (no admission fee)",
+      "sourceUrls": [
+        "https://www.shirahama-ryokan.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -122670,6 +123221,20 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Official Nara travel guide: Naramachi Koshi-no-Ie (lattice house) is free to visit; district streets free to stroll",
+      "sourceUrls": [
+        "https://www.visitnara.jp/venues/S01099/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -122815,6 +123380,23 @@
         "basis": "evidence coverage 0.30 below threshold 0.5"
       },
       "noteKey": "destination.scoreUnavailable"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Shrine grounds free to enter; worship free (Shiga tourism + Wikipedia) (no admission fee)",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Shirahige_Shrine",
+        "https://global.biwako-visitors.jp/things-to-do/22147/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -124510,6 +125092,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Marine park core access free; underwater observatory/tower ¥1,050 optional.",
+      "sourceUrls": [
+        "https://www.busena-marinepark.com/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -135585,7 +136181,6 @@
     "budgetMax": 6000,
     "budgetBreakdown": {
       "transport": 300,
-      "tickets": 0,
       "food": 450,
       "cafe": 100
     },
@@ -135723,6 +136318,22 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Niji no Matsubara pine grove: free to enter (Karatsu tourism official; cycling path) (no admission fee)",
+      "sourceUrls": [
+        "https://www.karatsu-kankou.jp/en/spots/detail/4"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -135804,7 +136415,6 @@
     "budgetMax": 9000,
     "budgetBreakdown": {
       "transport": 600,
-      "tickets": 1600,
       "food": 900,
       "cafe": 200
     },
@@ -145581,6 +146191,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Ryozenji: temple precinct free to visit (Naruto tourism official; first temple of Shikoku 88)",
+      "sourceUrls": [
+        "https://naruto-tourism.jp/en/spot/15466"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -157446,6 +158070,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Saigyo Modoshi no Matsu park: free park (Matsushima tourism official) (no admission fee)",
+      "sourceUrls": [
+        "https://www.matsushima-kanko.com/miru/detail.php?id=137"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -161208,6 +161848,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Onsen town core free to stroll; public baths (e.g. Sakaba-yu ¥400) optional.",
+      "sourceUrls": [
+        "https://www.bessho-spa.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -162997,6 +163651,20 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Castle town itself free; castle keep ¥600 optional component.",
+      "sourceUrls": [
+        "https://www.kaminoyama-castle.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -165521,6 +166189,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Fort grounds free; reconstructed magistrate office ¥500 optional component.",
+      "sourceUrls": [
+        "https://www.city.hakodate.hokkaido.jp/docs/2014011601161/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -165692,6 +166374,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Castle park/core free; keep history museum ¥360 optional.",
+      "sourceUrls": [
+        "https://www.matsumae-castle.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -173741,6 +174437,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Ruins/core area free; museum ¥500 optional.",
+      "sourceUrls": [
+        "https://www.city.karatsu.lg.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -176408,6 +177118,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "National park: park entry free (MOE); Toyako Onsen baths & Usuzan ropeway paid",
+      "sourceUrls": [
+        "https://www.env.go.jp/en/nature/nps/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -176774,6 +177498,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "National park: park entry free (MOE); museums/visitor facilities paid",
+      "sourceUrls": [
+        "https://www.env.go.jp/en/nature/nps/park/sanriku/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -177126,6 +177864,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "National park: park entry free (MOE); Kegon elevator & shrines/temples inside paid",
+      "sourceUrls": [
+        "https://www.env.go.jp/en/nature/nps/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -179098,6 +179850,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "National park: park entry free (MOE); Tottori Sand Dunes activities & Uradome boat tours paid",
+      "sourceUrls": [
+        "https://www.env.go.jp/en/nature/nps/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -179855,6 +180621,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "National park: park entry free (MOE); Kujukushima Pearl Sea Resort cruise paid",
+      "sourceUrls": [
+        "https://www.env.go.jp/en/nature/nps/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -193478,6 +194258,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Saruhashi bridge: free to cross (Otsuki city official) (no admission fee)",
+      "sourceUrls": [
+        "https://www.city.otsuki.yamanashi.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -194827,6 +195623,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Shomyo Falls: free viewpoint at trailhead (Toyama tourism official) (no admission fee)",
+      "sourceUrls": [
+        "https://www.info-toyama.com/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -194989,6 +195801,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Shiraito Falls: free to view (Fujinomiya city official) (no admission fee)",
+      "sourceUrls": [
+        "https://www.city.fujinomiya.shizuoka.jp/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -195909,6 +196737,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Official site: park grounds free; Sapporo Art Museum charges ¥900 adult",
+      "sourceUrls": [
+        "https://artpark.or.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -201682,6 +202524,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Official site: park entry free; field athletics, Aqua Venture, flower garden charge fees",
+      "sourceUrls": [
+        "https://www.shimizu-kouen.com/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -203553,6 +204409,21 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Official shrine site: precinct free to enter; treasure hall has separate admission fee",
+      "sourceUrls": [
+        "https://www.sumiyoshitaisha.net/en/",
+        "https://www.sumiyoshitaisha.net/access/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -206419,6 +207290,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Official site: garden/grounds free; Noritake Museum & Craft Center charge admission",
+      "sourceUrls": [
+        "https://www.noritake.co.jp/eng/mori/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -208939,6 +209824,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Sakurai Futamigaura: open coastal viewpoint, free to access (Crossroad Fukuoka official) (no admission fee)",
+      "sourceUrls": [
+        "https://www.crossroadfukuoka.jp/en/spot/12456"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -213946,6 +214847,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Oboke-Koboke gorge viewpoints: free from road/viewpoints (Miyoshi tourism official); boat cruise paid (no admission fee)",
+      "sourceUrls": [
+        "https://miyoshi-tourism.jp/en/spot/53/"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -214478,6 +215395,22 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Nakatsu Gorge: free entry, 2.3km trail (official Kochi tourism) (no admission fee)",
+      "sourceUrls": [
+        "https://visitkochijapan.com/en/see-and-do/10014"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -215348,6 +216281,23 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-5\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "verified_free",
+      "provenance": "verified_source",
+      "cost": {
+        "kind": "bounded",
+        "min": 0,
+        "max": 0
+      },
+      "scope": "general_entry",
+      "basis": "Suganuma Gassho village: free to enter village (Gokayama tourism official); museums ¥300 combined (no admission fee)",
+      "sourceUrls": [
+        "https://gokayama-info.jp/en/archives/1270",
+        "http://gokayama-info.jp/en/archives/3510"
+      ],
+      "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -218515,6 +219465,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Shrine/Oyunohara pilgrimage grounds free; Homotsuden treasure hall ¥300 optional.",
+      "sourceUrls": [
+        "https://www.hongutaisha.jp/"
+      ],
+      "checkedAt": "2026-08-14"
     }
   },
   {
