@@ -32,6 +32,8 @@ import type {
   Destination,
   AdmissionCostFact,
 } from "../src/shared/types/destination";
+// KAI-214 shared free-evidence semantics — ONE implementation (R1).
+import { hasVerifiedFreeEvidence } from "../src/shared/services/budget/freeEvidence";
 
 const INDEX_PATH = path.resolve(
   process.cwd(),
@@ -56,10 +58,32 @@ function load(): Destination[] {
   return JSON.parse(fs.readFileSync(INDEX_PATH, "utf8")) as Destination[];
 }
 
+/** KAI-219D1 review (R7): strict YYYY-MM-DD calendar-date validation —
+ *  rejects impossible/ambiguous inputs (2026-02-30, 2026/08/28). */
+function isStrictCalendarDate(v: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  const [y, m, d] = v.split("-").map(Number);
+  if (m < 1 || m > 12 || d < 1 || d > 31) return false;
+  const date = new Date(Date.UTC(y, m - 1, d));
+  return (
+    date.getUTCFullYear() === y &&
+    date.getUTCMonth() === m - 1 &&
+    date.getUTCDate() === d
+  );
+}
+
 function buildFact(entry: ManifestEntry, d: Destination): AdmissionCostFact {
   if (entry.classification !== "unavailable" && entry.sourceUrls.length === 0) {
     throw new Error(
       `KAI-219D1 FAIL-CLOSED: ${entry.id} has no source URL — refusing to classify without source-backed evidence.`,
+    );
+  }
+  if (
+    entry.classification !== "unavailable" &&
+    !isStrictCalendarDate(entry.checkedAt)
+  ) {
+    throw new Error(
+      `KAI-219D1 FAIL-CLOSED: ${entry.id} checkedAt "${entry.checkedAt}" is not a strict YYYY-MM-DD calendar date.`,
     );
   }
   if (entry.classification === "verified_free") {
@@ -68,20 +92,24 @@ function buildFact(entry: ManifestEntry, d: Destination): AdmissionCostFact {
         `KAI-219D1 FAIL-CLOSED: ${entry.id} verified_free requires freeEvidence (official text establishing free required admission).`,
       );
     }
-    // KAI-218A authoring CI: the fact's basis must carry explicit free
-    // evidence (FREE_ENTRY / free area / free admission / no admission fee
-    // / 入場無料) — the shared KAI-214 free-evidence semantics.
-    const basis =
-      entry.freeEvidence.includes("無料") ||
-      /free|FREE_ENTRY|no admission/i.test(entry.freeEvidence)
-        ? `${entry.basis} (${entry.freeEvidence})`
-        : `${entry.basis} — free admission (${entry.freeEvidence})`;
+    // KAI-219D1 review (R1): ONE Free-evidence implementation only — the
+    // SHARED hasVerifiedFreeEvidence() (KAI-214 semantics used at runtime
+    // and in authoring CI). If the evidence is NOT Free by that rule,
+    // FAIL CLOSED — never transform non-Free evidence into Free wording,
+    // never prepend/append "free admission" to make validation pass.
+    if (!hasVerifiedFreeEvidence(entry.freeEvidence)) {
+      throw new Error(
+        `KAI-219D1 FAIL-CLOSED: ${entry.id} freeEvidence does not satisfy the shared hasVerifiedFreeEvidence() rule ("${entry.freeEvidence}") — refusing verified_free.`,
+      );
+    }
     return {
       state: "verified_free",
       provenance: "verified_source",
       cost: { kind: "bounded", min: 0, max: 0 },
       scope: "general_entry",
-      basis,
+      // Honest source-derived basis — the original manifest basis, no
+      // appended "free admission" filler.
+      basis: entry.basis,
       sourceUrls: entry.sourceUrls,
       checkedAt: entry.checkedAt,
       reviewIntervalMonths: 12,

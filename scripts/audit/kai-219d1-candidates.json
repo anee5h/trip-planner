@@ -293,14 +293,6 @@
     "optionalPaidNote": "Individual shops/activities optional"
   },
   {
-    "id": "serigaya-park",
-    "classification": "verified_free",
-    "sourceUrls": ["https://ekoen.jp/3004"],
-    "checkedAt": "2026-08-28",
-    "basis": "Serigaya Park: 入場無料 (ekoen; Machida city park) (無料)",
-    "freeEvidence": "入場無料"
-  },
-  {
     "id": "nozuta-park",
     "classification": "verified_free",
     "sourceUrls": [
@@ -394,30 +386,11 @@
     "freeEvidence": "no admission fee"
   },
   {
-    "id": "shiratani-unsuikyo-ravine",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": ["https://www.japan-guide.com/e/e4654.html"],
-    "checkedAt": "2026-08-28",
-    "basis": "Ravine trails accessible free; Yakushima national park conservation entry fee (¥500-800) for 15+",
-    "optionalPaidNote": "Yakushima national-park conservation entry fee"
-  },
-  {
     "id": "nijinomatsubara-pine-grove",
     "classification": "verified_free",
     "sourceUrls": ["https://www.karatsu-kankou.jp/en/spots/detail/4"],
     "checkedAt": "2026-08-28",
     "basis": "Niji no Matsubara pine grove: free to enter (Karatsu tourism official; cycling path) (no admission fee)",
-    "freeEvidence": "no admission fee"
-  },
-  {
-    "id": "nanatsugama-sea-caves",
-    "classification": "verified_free",
-    "sourceUrls": [
-      "https://en.wikipedia.org/wiki/Nanatsugama",
-      "https://japanforkids.jp/places/nanatsugama-caves/"
-    ],
-    "checkedAt": "2026-08-28",
-    "basis": "Nanatsugama sea caves: free coastal viewpoint; only sightseeing cruise paid (no admission fee)",
     "freeEvidence": "no admission fee"
   },
   {
@@ -449,14 +422,6 @@
     "freeEvidence": "no admission fee"
   },
   {
-    "id": "rishiri-rebun-sarobetsu",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": ["https://www.env.go.jp/en/nature/nps/park/rishiri/"],
-    "checkedAt": "2026-08-28",
-    "basis": "National park: park entry free (MOE official); ferry transport paid",
-    "optionalPaidNote": "Ferries to Rishiri/Rebun; transport"
-  },
-  {
     "id": "shikotsu-toya",
     "classification": "not_applicable_free_area",
     "sourceUrls": ["https://www.env.go.jp/en/nature/nps/"],
@@ -481,32 +446,12 @@
     "optionalPaidNote": "Kegon Falls elevator; Nikko shrine/temple admission"
   },
   {
-    "id": "ogasawara-national-park",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": [
-      "https://www.env.go.jp/en/nature/nps/park/ogasawara/index.html"
-    ],
-    "checkedAt": "2026-08-28",
-    "basis": "National park: park entry free (MOE); Ogasawara Maru ferry is the paid access",
-    "optionalPaidNote": "Ogasawara Maru ferry fare"
-  },
-  {
     "id": "sanin-kaigan",
     "classification": "not_applicable_free_area",
     "sourceUrls": ["https://www.env.go.jp/en/nature/nps/"],
     "checkedAt": "2026-08-28",
     "basis": "National park: park entry free (MOE); Tottori Sand Dunes activities & Uradome boat tours paid",
     "optionalPaidNote": "Uradome Coast boat tours; dune activities"
-  },
-  {
-    "id": "setonaikai",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": [
-      "https://www.env.go.jp/en/nature/nps/park/setonaikai/index.html"
-    ],
-    "checkedAt": "2026-08-28",
-    "basis": "National park: park entry free (MOE); ferries & Shimanami Kaido bike rentals paid",
-    "optionalPaidNote": "Ferries; Shimanami Kaido bike rentals"
   },
   {
     "id": "saikai",
@@ -575,14 +520,6 @@
     "optionalPaidNote": "Sapporo Art Museum admission (¥900)"
   },
   {
-    "id": "ogijima",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": ["https://setouchi-artfest.jp/"],
-    "checkedAt": "2026-08-28",
-    "basis": "Ogijima: island itself free to walk; artworks require Setouchi Triennale passport (paid)",
-    "optionalPaidNote": "Setouchi Triennale artwork passport; ferry"
-  },
-  {
     "id": "shimizu-park-noda",
     "classification": "not_applicable_free_area",
     "sourceUrls": ["https://www.shimizu-kouen.com/"],
@@ -608,14 +545,6 @@
     "checkedAt": "2026-08-28",
     "basis": "Official site: garden/grounds free; Noritake Museum & Craft Center charge admission",
     "optionalPaidNote": "Noritake Museum / Craft Center admission fees"
-  },
-  {
-    "id": "nokonoshima-island-park",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": ["https://nokonoshima.com/en"],
-    "checkedAt": "2026-08-28",
-    "basis": "Official site: island access open; flower park entry charged (¥1,200 adult)",
-    "optionalPaidNote": "Island park entry fee (¥1,200 adult)"
   },
   {
     "id": "sakurai-futamigaura-itoshima",
@@ -715,13 +644,5 @@
     "checkedAt": "2026-08-14",
     "basis": "Marine park core access free; underwater observatory/tower ¥1,050 optional.",
     "optionalPaidNote": "Underwater observatory tower ¥1,050"
-  },
-  {
-    "id": "expo-70-commemorative-park",
-    "classification": "not_applicable_free_area",
-    "sourceUrls": ["https://www.expo70-park.jp/"],
-    "checkedAt": "2026-08-14",
-    "basis": "Park core free; shared Natural & Cultural + Japanese Garden entry ¥450 optional component.",
-    "optionalPaidNote": "Shared garden entry ¥450"
   }
 ]

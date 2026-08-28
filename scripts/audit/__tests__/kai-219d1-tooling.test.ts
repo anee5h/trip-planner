@@ -96,11 +96,60 @@ describe("KAI-219D1 strict classification (free evidence rules)", () => {
     expect(fact.cost.kind).toBe("unavailable");
   });
 
-  it("hasVerifiedFreeEvidence rejects non-free text (shared rule)", () => {
-    expect(hasVerifiedFreeEvidence("The garden is free to enter")).toBe(true);
+  it("R1: non-free evidence FAILS CLOSED via the shared hasVerifiedFreeEvidence rule", () => {
+    // "admission fee ¥1,000" → throws (not free)
+    expect(() =>
+      buildFact(
+        entry({ freeEvidence: "admission fee ¥1,000" }),
+        byId.get("ueno-park")!,
+      ),
+    ).toThrow(/hasVerifiedFreeEvidence/);
+    // "not free" → throws
+    expect(() =>
+      buildFact(entry({ freeEvidence: "not free" }), byId.get("ueno-park")!),
+    ).toThrow(/hasVerifiedFreeEvidence/);
+    // "tickets required" → throws
+    expect(() =>
+      buildFact(
+        entry({ freeEvidence: "tickets required" }),
+        byId.get("ueno-park")!,
+      ),
+    ).toThrow(/hasVerifiedFreeEvidence/);
+  });
+
+  it("R1: free evidence ACCEPTED by the shared rule", () => {
+    expect(() =>
+      buildFact(entry({ freeEvidence: "入場無料" }), byId.get("ueno-park")!),
+    ).not.toThrow();
+    expect(() =>
+      buildFact(
+        entry({ freeEvidence: "no admission fee" }),
+        byId.get("ueno-park")!,
+      ),
+    ).not.toThrow();
+  });
+
+  it("R1: the shared rule itself is the single implementation", () => {
     expect(hasVerifiedFreeEvidence("admission fee ¥1,000")).toBe(false);
+    expect(hasVerifiedFreeEvidence("not free")).toBe(false);
+    expect(hasVerifiedFreeEvidence("tickets required")).toBe(false);
     expect(hasVerifiedFreeEvidence("入場無料")).toBe(true);
-    expect(hasVerifiedFreeEvidence("大人1,000円")).toBe(false);
+    expect(hasVerifiedFreeEvidence("no admission fee")).toBe(true);
+  });
+
+  it("R7: strict checkedAt — impossible/ambiguous dates are REJECTED", () => {
+    expect(() =>
+      buildFact(entry({ checkedAt: "2026-02-30" }), byId.get("ueno-park")!),
+    ).toThrow(/strict YYYY-MM-DD/);
+    expect(() =>
+      buildFact(entry({ checkedAt: "2026/08/28" }), byId.get("ueno-park")!),
+    ).toThrow(/strict YYYY-MM-DD/);
+  });
+
+  it("R7: valid YYYY-MM-DD checkedAt is ACCEPTED", () => {
+    expect(() =>
+      buildFact(entry({ checkedAt: "2026-08-28" }), byId.get("ueno-park")!),
+    ).not.toThrow();
   });
 
   it("STATE B no-op: committed manifest facts match on the real index", () => {

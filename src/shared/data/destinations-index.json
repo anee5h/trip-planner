@@ -58238,7 +58238,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Kamikochi: no admission fee for the valley (official site); only transport paid (Kamikochi: no admission fee for the valley (official site); only transport paid)",
+      "basis": "Kamikochi: no admission fee for the valley (official site); only transport paid",
       "sourceUrls": [
         "https://www.kamikochi.or.jp/"
       ],
@@ -62622,7 +62622,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Naritasan Park: entry free for all (walkerplus price info: 入場無料) (入場無料)",
+      "basis": "Naritasan Park: entry free for all (walkerplus price info: 入場無料)",
       "sourceUrls": [
         "https://www.naritasan.or.jp/",
         "https://www.walkerplus.com/spot/ar0312s76369/price.html"
@@ -73756,7 +73756,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Oze National Park: no park entry fee (Oze Foundation official site) (no admission fee) (no admission fee)",
+      "basis": "Oze National Park: no park entry fee (Oze Foundation official site) (no admission fee)",
       "sourceUrls": [
         "https://www.oze-fnd.or.jp/"
       ],
@@ -74457,7 +74457,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Renkeiji (Kawagoe): temple grounds free (official site) (no admission fee) (no admission fee)",
+      "basis": "Renkeiji (Kawagoe): temple grounds free (official site) (no admission fee)",
       "sourceUrls": [
         "https://renkeiji.jp/"
       ],
@@ -76058,7 +76058,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Nagatoro Iwadatami rock terrace: free to explore (Nagatoro tourism; \"Access to the rocks is completely free\") (no admission fee) (no admission fee)",
+      "basis": "Nagatoro Iwadatami rock terrace: free to explore (Nagatoro tourism; \"Access to the rocks is completely free\") (no admission fee)",
       "sourceUrls": [
         "https://www.nagatoro.gr.jp/",
         "https://itinerary.expert/japan/nagatoro-iwadatami/"
@@ -79089,7 +79089,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shrine grounds free; Kamakura guide lists \"Free\" entry (no admission fee) (no admission fee)",
+      "basis": "Shrine grounds free; Kamakura guide lists \"Free\" entry (no admission fee)",
       "sourceUrls": [
         "https://kamakuraguide.com/en/kamakura-station-west/sasuke-inari-jinja-kamakura/",
         "https://sasukeinari.jp/"
@@ -83433,7 +83433,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Naritasan Shinsho-ji grounds & halls free to enter; free admission (official Naritasan site); no admission fee (free admission; no admission fee)",
+      "basis": "Naritasan Shinsho-ji grounds & halls free to enter; free admission (official Naritasan site); no admission fee",
       "sourceUrls": [
         "https://www.naritasan.or.jp/"
       ],
@@ -84505,7 +84505,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Prefectural Shonan Kaigan Park: open free park (official S-N-P site); parking paid (no admission fee) (no admission fee)",
+      "basis": "Prefectural Shonan Kaigan Park: open free park (official S-N-P site); parking paid (no admission fee)",
       "sourceUrls": [
         "https://www.s-n-p.jp/shonankaigan_park/"
       ],
@@ -105607,7 +105607,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shibuya Crossing: public intersection, free (Go Tokyo official) (no admission fee) (no admission fee)",
+      "basis": "Shibuya Crossing: public intersection, free (Go Tokyo official) (no admission fee)",
       "sourceUrls": [
         "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
       ],
@@ -109238,7 +109238,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Sumida River Walk: free public promenade (official Sumida tourism; open 7:00-22:00) (no admission fee) (no admission fee)",
+      "basis": "Sumida River Walk: free public promenade (official Sumida tourism; open 7:00-22:00) (no admission fee)",
       "sourceUrls": [
         "https://visit-sumida.jp/en/"
       ],
@@ -110520,22 +110520,6 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    },
-    "admission": {
-      "state": "verified_free",
-      "provenance": "verified_source",
-      "cost": {
-        "kind": "bounded",
-        "min": 0,
-        "max": 0
-      },
-      "scope": "general_entry",
-      "basis": "Serigaya Park: 入場無料 (ekoen; Machida city park) (無料) (入場無料)",
-      "sourceUrls": [
-        "https://ekoen.jp/3004"
-      ],
-      "checkedAt": "2026-08-28",
-      "reviewIntervalMonths": 12
     }
   },
   {
@@ -110999,7 +110983,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Nozuta Park: 入場無料 (ekoen; Machida city official) (無料) (入場無料)",
+      "basis": "Nozuta Park: 入場無料 (ekoen; Machida city official) (無料)",
       "sourceUrls": [
         "https://ekoen.jp/2940",
         "https://www.city.machida.tokyo.jp/bunka/park/shisetu/nozuta/"
@@ -115984,7 +115968,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Suwa Shrine Tachikawa: visiting free (aroundus + Tachikawa tourism) (no admission fee) (no admission fee)",
+      "basis": "Suwa Shrine Tachikawa: visiting free (aroundus + Tachikawa tourism) (no admission fee)",
       "sourceUrls": [
         "https://aroundus.com/p/11792831-suwa-shrine-tachikawa",
         "https://www.tbt.gr.jp/"
@@ -117868,7 +117852,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Okonomimura: free entry food hall (official site); pay per stall (no admission fee) (no admission fee)",
+      "basis": "Okonomimura: free entry food hall (official site); pay per stall (no admission fee)",
       "sourceUrls": [
         "https://www.okonomimura.jp/"
       ],
@@ -119727,7 +119711,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Ritsuunkyo viewpoint: free overlook of Takeda Castle sea of clouds (Asago tourism official) (no admission fee) (no admission fee)",
+      "basis": "Ritsuunkyo viewpoint: free overlook of Takeda Castle sea of clouds (Asago tourism official) (no admission fee)",
       "sourceUrls": [
         "https://www.asago-kanko.com/"
       ],
@@ -122772,7 +122756,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shirahama Beach: public beach free entry (town tourism); Adventure World theme park paid separately (no admission fee) (no admission fee)",
+      "basis": "Shirahama Beach: public beach free entry (town tourism); Adventure World theme park paid separately (no admission fee)",
       "sourceUrls": [
         "https://www.shirahama-ryokan.jp/"
       ],
@@ -123440,7 +123424,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shrine grounds free to enter; worship free (Shiga tourism + Wikipedia) (no admission fee) (no admission fee)",
+      "basis": "Shrine grounds free to enter; worship free (Shiga tourism + Wikipedia) (no admission fee)",
       "sourceUrls": [
         "https://en.wikipedia.org/wiki/Shirahige_Shrine",
         "https://global.biwako-visitors.jp/things-to-do/22147/"
@@ -134129,20 +134113,6 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "Ravine trails accessible free; Yakushima national park conservation entry fee (¥500-800) for 15+",
-      "sourceUrls": [
-        "https://www.japan-guide.com/e/e4654.html"
-      ],
-      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -136392,7 +136362,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Niji no Matsubara pine grove: free to enter (Karatsu tourism official; cycling path) (no admission fee) (no admission fee)",
+      "basis": "Niji no Matsubara pine grove: free to enter (Karatsu tourism official; cycling path) (no admission fee)",
       "sourceUrls": [
         "https://www.karatsu-kankou.jp/en/spots/detail/4"
       ],
@@ -136630,23 +136600,6 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
-    },
-    "admission": {
-      "state": "verified_free",
-      "provenance": "verified_source",
-      "cost": {
-        "kind": "bounded",
-        "min": 0,
-        "max": 0
-      },
-      "scope": "general_entry",
-      "basis": "Nanatsugama sea caves: free coastal viewpoint; only sightseeing cruise paid (no admission fee) (no admission fee)",
-      "sourceUrls": [
-        "https://en.wikipedia.org/wiki/Nanatsugama",
-        "https://japanforkids.jp/places/nanatsugama-caves/"
-      ],
-      "checkedAt": "2026-08-28",
-      "reviewIntervalMonths": 12
     }
   },
   {
@@ -157527,7 +157480,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Oshima (Matsushima): free to cross via bridge and walk (Matsushima tourism + japan-guide) (no admission fee) (no admission fee)",
+      "basis": "Oshima (Matsushima): free to cross via bridge and walk (Matsushima tourism + japan-guide) (no admission fee)",
       "sourceUrls": [
         "https://www.matsushima-kanko.com/miru/detail.php?id=142",
         "https://www.japan-guide.com/e/e5104.html"
@@ -158178,7 +158131,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Saigyo Modoshi no Matsu park: free park (Matsushima tourism official) (no admission fee) (no admission fee)",
+      "basis": "Saigyo Modoshi no Matsu park: free park (Matsushima tourism official) (no admission fee)",
       "sourceUrls": [
         "https://www.matsushima-kanko.com/miru/detail.php?id=137"
       ],
@@ -176312,20 +176265,6 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "National park: park entry free (MOE official); ferry transport paid",
-      "sourceUrls": [
-        "https://www.env.go.jp/en/nature/nps/park/rishiri/"
-      ],
-      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -178687,20 +178626,6 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "National park: park entry free (MOE); Ogasawara Maru ferry is the paid access",
-      "sourceUrls": [
-        "https://www.env.go.jp/en/nature/nps/park/ogasawara/index.html"
-      ],
-      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -180186,20 +180111,6 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "National park: park entry free (MOE); ferries & Shimanami Kaido bike rentals paid",
-      "sourceUrls": [
-        "https://www.env.go.jp/en/nature/nps/park/setonaikai/index.html"
-      ],
-      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -194246,7 +194157,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Nichinan Kaigan scenic drive: public road, no toll (MLIT scenic-byway page) (no admission fee) (no admission fee)",
+      "basis": "Nichinan Kaigan scenic drive: public road, no toll (MLIT scenic-byway page) (no admission fee)",
       "sourceUrls": [
         "https://www.mlit.go.jp/road/sisaku/fukeikaidou/contents/route.html?route=9_1"
       ],
@@ -194424,7 +194335,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Saruhashi bridge: free to cross (Otsuki city official) (no admission fee) (no admission fee)",
+      "basis": "Saruhashi bridge: free to cross (Otsuki city official) (no admission fee)",
       "sourceUrls": [
         "https://www.city.otsuki.yamanashi.jp/"
       ],
@@ -194956,7 +194867,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Rainbow Bridge pedestrian walkway: free (official Shutoko; 09:00-21:00) (no admission fee) (no admission fee)",
+      "basis": "Rainbow Bridge pedestrian walkway: free (official Shutoko; 09:00-21:00) (no admission fee)",
       "sourceUrls": [
         "https://www.shutoko.jp/"
       ],
@@ -195805,7 +195716,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shomyo Falls: free viewpoint at trailhead (Toyama tourism official) (no admission fee) (no admission fee)",
+      "basis": "Shomyo Falls: free viewpoint at trailhead (Toyama tourism official) (no admission fee)",
       "sourceUrls": [
         "https://www.info-toyama.com/"
       ],
@@ -195983,7 +195894,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shiraito Falls: free to view (Fujinomiya city official) (no admission fee) (no admission fee)",
+      "basis": "Shiraito Falls: free to view (Fujinomiya city official) (no admission fee)",
       "sourceUrls": [
         "https://www.city.fujinomiya.shizuoka.jp/"
       ],
@@ -196374,7 +196285,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shodoshima island: free island access; attractions/ferries paid (official tourism) (no admission fee) (no admission fee)",
+      "basis": "Shodoshima island: free island access; attractions/ferries paid (official tourism) (no admission fee)",
       "sourceUrls": [
         "https://www.shodoshima-kankou.jp/"
       ],
@@ -197300,20 +197211,6 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "Ogijima: island itself free to walk; artworks require Setouchi Triennale passport (paid)",
-      "sourceUrls": [
-        "https://setouchi-artfest.jp/"
-      ],
-      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -205197,20 +205094,6 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "Park core free; shared Natural & Cultural + Japanese Garden entry ¥450 optional component.",
-      "sourceUrls": [
-        "https://www.expo70-park.jp/"
-      ],
-      "checkedAt": "2026-08-14"
     }
   },
   {
@@ -209767,20 +209650,6 @@
       "modelVersion": "walking-model-v1",
       "confidence": "low",
       "basis": "walk-share estimate: 80% of 3h visit"
-    },
-    "admission": {
-      "state": "not_applicable",
-      "provenance": "verified_source",
-      "reasonCode": "free_area_with_optional_paid_components",
-      "cost": {
-        "kind": "not_applicable"
-      },
-      "scope": "open_area",
-      "basis": "Official site: island access open; flower park entry charged (¥1,200 adult)",
-      "sourceUrls": [
-        "https://nokonoshima.com/en"
-      ],
-      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -210064,7 +209933,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Sakurai Futamigaura: open coastal viewpoint, free to access (Crossroad Fukuoka official) (no admission fee) (no admission fee)",
+      "basis": "Sakurai Futamigaura: open coastal viewpoint, free to access (Crossroad Fukuoka official) (no admission fee)",
       "sourceUrls": [
         "https://www.crossroadfukuoka.jp/en/spot/12456"
       ],
@@ -215087,7 +214956,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Oboke-Koboke gorge viewpoints: free from road/viewpoints (Miyoshi tourism official); boat cruise paid (no admission fee) (no admission fee)",
+      "basis": "Oboke-Koboke gorge viewpoints: free from road/viewpoints (Miyoshi tourism official); boat cruise paid (no admission fee)",
       "sourceUrls": [
         "https://miyoshi-tourism.jp/en/spot/53/"
       ],
@@ -215635,7 +215504,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Nakatsu Gorge: free entry, 2.3km trail (official Kochi tourism) (no admission fee) (no admission fee)",
+      "basis": "Nakatsu Gorge: free entry, 2.3km trail (official Kochi tourism) (no admission fee)",
       "sourceUrls": [
         "https://visitkochijapan.com/en/see-and-do/10014"
       ],
@@ -215923,7 +215792,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Shikoku Karst: open grassland plateau, free to drive/walk (Oku Shimanto official) (no admission fee) (no admission fee)",
+      "basis": "Shikoku Karst: open grassland plateau, free to drive/walk (Oku Shimanto official) (no admission fee)",
       "sourceUrls": [
         "https://okushimanto.jp/en/special/content1"
       ],
@@ -216537,7 +216406,7 @@
         "max": 0
       },
       "scope": "general_entry",
-      "basis": "Suganuma Gassho village: free to enter village (Gokayama tourism official); museums ¥300 combined (no admission fee) (no admission fee)",
+      "basis": "Suganuma Gassho village: free to enter village (Gokayama tourism official); museums ¥300 combined (no admission fee)",
       "sourceUrls": [
         "https://gokayama-info.jp/en/archives/1270",
         "http://gokayama-info.jp/en/archives/3510"
