@@ -201,5 +201,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 660,
+      "max": 660
+    },
+    "scope": "general_entry",
+    "basis": "Official Namahage-kan museum fee page: 入館料(税込) ¥660 adult (¥330 child); fixed general admission.",
+    "sourceUrls": ["https://namahage.co.jp/namahagekan/information/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

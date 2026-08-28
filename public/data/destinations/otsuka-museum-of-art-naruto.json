@@ -204,5 +204,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 3300,
+      "max": 3300
+    },
+    "scope": "general_entry",
+    "basis": "Official Otsuka Museum of Art: 入館料 一般 ¥3,300, 大学生 ¥2,200, 小中高生 ¥550; fixed adult admission.",
+    "sourceUrls": ["https://o-museum.or.jp/pages/28/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -21,7 +21,7 @@
     "UNESCO World Heritage",
     "Sea views from the walls"
   ],
-  "notes": "Admission ¥400; the walls over the East China Sea side are the highlight.",
+  "notes": "Admission ¥500 (revised April 2025); the walls over the East China Sea side are the highlight.",
   "transportOptions": {
     "bus": 90,
     "car": 60
@@ -80,7 +80,7 @@
         "UNESCO World Heritage",
         "Sea views from the walls"
       ],
-      "notes": "Admission ¥400; the walls over the East China Sea side are the highlight.",
+      "notes": "Admission ¥500 (revised April 2025); the walls over the East China Sea side are the highlight.",
       "reservation": "None required",
       "parking": "Free/paid parking near the site (varies)",
       "openingHours": "Open daily; hours vary by season (see official site)"
@@ -94,7 +94,7 @@
         "ユネスコ世界遺産",
         "海を望む城壁"
       ],
-      "notes": "入場料は大人400円。東シナ海側の城壁が絶景です。",
+      "notes": "入場料は大人500円（2025年4月改定）。東シナ海側の城壁が絶景です。",
       "reservation": "予約不要",
       "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
       "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
@@ -160,5 +160,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Official Nakagusuku Castle page: 入場料 大人 ¥500 (団体 ¥400); fixed adult admission.",
+    "sourceUrls": ["https://www.nakagusuku-jo.jp/5426.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

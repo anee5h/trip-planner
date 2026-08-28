@@ -193,5 +193,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Official Sapporo Beer Museum 見学 page: 入館料 一般料金 大人 ¥1,000 (¥500 中学生~20歳未満, 小学生以下無料); 道民割 ¥700 is a resident discount — excluded. Paid admission since 2026-07-01.",
+    "sourceUrls": ["https://www.sapporobeer.jp/brewery/s_museum/kengaku/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

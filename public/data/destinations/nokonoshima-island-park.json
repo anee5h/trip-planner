@@ -252,5 +252,19 @@
     "modelVersion": "walking-model-v1",
     "confidence": "low",
     "basis": "walk-share estimate: 80% of 3h visit"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1500,
+      "max": 1500
+    },
+    "scope": "general_entry",
+    "basis": "Official Nokonoshima Island Park site: Adult admission ¥1,500 (¥800 child); fixed park admission for the flower park.",
+    "sourceUrls": ["https://nokonoshima.com/en/info"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

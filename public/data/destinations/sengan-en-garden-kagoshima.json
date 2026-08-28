@@ -58,7 +58,6 @@
   "budgetMax": 8000,
   "budgetBreakdown": {
     "transport": 875,
-    "tickets": 1000,
     "food": 1000,
     "cafe": 250
   },
@@ -208,5 +207,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1600,
+      "max": 1600
+    },
+    "scope": "general_entry",
+    "basis": "Official Sengan-en FAQ (since 2024-10-01): 入場券(御殿・尚古集成館含む) 一般(15歳以上) ¥1,600; fixed single admission.",
+    "sourceUrls": ["https://www.senganen.jp/faq/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -188,5 +188,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "general_entry",
+    "basis": "Nagoya City Science Museum official: 展示室のみ 一般 ¥400, 高校生・大学生 ¥200, 中学生以下無料; fixed adult exhibition admission.",
+    "sourceUrls": ["https://www.ncsm.city.nagoya.jp/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -205,5 +205,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 630,
+      "max": 630
+    },
+    "scope": "general_entry",
+    "basis": "Official National Museum of Nature and Science (Ueno): 常設展 一般・大学生 ¥630, 高校生以下無料; fixed permanent-exhibition adult admission.",
+    "sourceUrls": ["https://www.kahaku.go.jp/riyou/nyukan-annai/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

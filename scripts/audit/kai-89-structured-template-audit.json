@@ -1426,7 +1426,7 @@
       "legitimate": 14,
       "manual-review": 92
     },
-    "categoryCounts": { "D": 6, "C": 81, "B": 62, "A": 13, "E": 31 }
+    "categoryCounts": { "D": 7, "C": 81, "B": 61, "A": 13, "E": 31 }
   },
   "categories": [
     {
@@ -3333,6 +3333,7 @@
         "furano-city",
         "gero-city",
         "gifu-city",
+        "glover-garden-nagasaki",
         "gotemba-city",
         "hachinohe-city",
         "hakodate-city",
@@ -3355,10 +3356,10 @@
         "izumo-city",
         "jindai-botanical-gardens",
         "kagoshima-city",
+        "kagoshima-city-aquarium",
         "kamakura-city",
         "karatsu-city",
         "katori-city",
-        "kawachi-wisteria-garden",
         "kawagoe-city",
         "kawaguchi-city",
         "kawasaki-city",
@@ -3408,8 +3409,8 @@
         "sapporo-city",
         "sasebo-city",
         "semboku-city",
+        "sengan-en-garden-kagoshima",
         "shimonoseki-city",
-        "shiratani-unsuikyo-ravine",
         "shizuoka-city",
         "sumida-hokusai-museum",
         "tachikawa-manga-park",
@@ -3426,7 +3427,6 @@
         "urayasu-city",
         "utsunomiya-city",
         "wakayama-city",
-        "yakusugi-land-yakushima",
         "yamagata-city",
         "yokosuka-city",
         "yufu-city"
@@ -3641,29 +3641,24 @@
           }
         },
         {
-          "id": "a0aa92974412",
+          "id": "50a4bd984b0f",
           "severity": "review",
           "count": 3,
           "ids": [
-            "kawachi-wisteria-garden",
-            "shiratani-unsuikyo-ravine",
-            "yakusugi-land-yakushima"
+            "glover-garden-nagasaki",
+            "kagoshima-city-aquarium",
+            "sengan-en-garden-kagoshima"
           ],
           "value": {
-            "budgetBreakdown": {
-              "cafe": 200,
-              "food": 800,
-              "tickets": 500,
-              "transport": 700
-            },
+            "budgetBreakdown": { "cafe": 250, "food": 1000, "transport": 875 },
             "budgetMax": 8000,
-            "budgetMin": 2000,
+            "budgetMin": 2500,
             "budgetRecommended": 5000
           },
           "disposition": {
-            "category": "B",
+            "category": "D",
             "action": "corrected",
-            "reason": "template {2000,5000,8000, 700/500/800/200}; sum 2200 != rec 5000"
+            "reason": "KAI-219C2 legacy drift clear: cluster members' stale budgetBreakdown.tickets retired by authoritative admission facts (glover-garden ¥900, kagoshima-city-aquarium, sengan-en ¥1000 → ¥1600). Remaining {cafe,food,transport} + budget envelope retained unchanged; only the deprecated ticket value was removed per the KAI218_ADMISSION_LEGACY_DRIFT guard."
           }
         },
         {

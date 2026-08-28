@@ -993,6 +993,11 @@
       "category": "B",
       "action": "legitimate",
       "reason": "legacy 1400/400/1400/1200 template with 1500/4000/7000 range; tachikawa-manga-park tickets=400 is ledger-verified (KAI-204), fukagawa-edo-museum and sumida-hokusai-museum retain the shared legacy shape (accepted debt; not eligible for model clearing — no evidence either way)"
+    },
+    "budget:50a4bd984b0f": {
+      "category": "D",
+      "action": "corrected",
+      "reason": "KAI-219C2 legacy drift clear: cluster members' stale budgetBreakdown.tickets retired by authoritative admission facts (glover-garden ¥900, kagoshima-city-aquarium, sengan-en ¥1000 → ¥1600). Remaining {cafe,food,transport} + budget envelope retained unchanged; only the deprecated ticket value was removed per the KAI218_ADMISSION_LEGACY_DRIFT guard."
     }
   }
 }
