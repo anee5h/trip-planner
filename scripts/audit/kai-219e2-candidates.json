@@ -138,19 +138,38 @@
       {
         "url": "https://akiyoshi-dai.com/",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Legacy catalogue root was unavailable; this failed fetch was not treated as exhausted evidence."
+      },
+      {
+        "url": "https://karusuto.com/spot/akiyoshido/",
+        "result": "retrieved",
+        "note": "Official Mine City tourism association attraction page checked for identity and visitor context."
+      },
+      {
+        "url": "https://karusuto.com/notice/20260401akiyoshidouryoukin/",
+        "result": "retrieved",
+        "note": "Official 2026 notice explicitly announces individual admission variable pricing from 2026-04-01."
+      },
+      {
+        "url": "https://karusuto.com/wp-content/uploads/2026/02/2d0d10839c900cecd662f2e4b319fd69.pdf",
+        "result": "retrieved",
+        "note": "Official 2026 PDF gives adult normal ¥1,600, busy ¥1,900, and off-season ¥1,350; it also defines the applicable periods."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "seasonal_pricing",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1350,
+      "max": 1900
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://akiyoshi-dai.com/"],
+    "basis": "Official Mine City tourism association notice and its 2026 fee PDF state that from 2026-04-01 Akiyoshido individual admission is seasonally variable: adult (high-school age and older) ¥1,600 normal, ¥1,900 busy-period, and ¥1,350 off-season (December through February). The bounded ¥1,350–¥1,900 range preserves the published adult product; group, child, and access/transport costs are excluded.",
+    "sourceUrls": [
+      "https://karusuto.com/notice/20260401akiyoshidouryoukin/",
+      "https://karusuto.com/wp-content/uploads/2026/02/2d0d10839c900cecd662f2e4b319fd69.pdf"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -1277,19 +1296,47 @@
       {
         "url": "http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Legacy prefectural root failed; it was not treated as the only authority."
+      },
+      {
+        "url": "https://www.pref.hokkaido.lg.jp/sm/zsk/fm/akarengarenewal/top.html",
+        "result": "retrieved",
+        "note": "Official Hokkaido prefectural portal confirms the 2025-07-25 reopening and links the current fee site."
+      },
+      {
+        "url": "https://www.pref.hokkaido.lg.jp/chosha/docho_akarenga/index.html",
+        "result": "retrieved",
+        "note": "Official prefectural facility page checked as a municipality/prefecture visitor-information path."
+      },
+      {
+        "url": "https://www.hokkaido-redbrick.jp/information/",
+        "result": "retrieved",
+        "note": "Official operator facility-information page checked for admission scope and optional tower product."
+      },
+      {
+        "url": "https://www.hokkaido-redbrick.jp/",
+        "result": "retrieved",
+        "note": "Current operator home/fee section lists general admission ¥300."
+      },
+      {
+        "url": "https://hokkaido-redbrick.ticket.smarthello.jp/9b6042abe1f147c6a26753d336d0d2a6?openExternalBrowser=1",
+        "result": "linked",
+        "note": "Official site ticket-booking link checked; reservation is not a separate admission price."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm"],
+    "basis": "The current Former Hokkaido Government Office (Akarenga) official site lists ordinary general admission at ¥300. The Hokkaido prefectural renewal portal confirms the building reopened after renovation on 2025-07-25. The octagonal-tower viewing area, guided tours, shops, parking, and group/discount rates are separate and excluded.",
+    "sourceUrls": [
+      "https://www.hokkaido-redbrick.jp/",
+      "https://www.pref.hokkaido.lg.jp/sm/zsk/fm/akarengarenewal/top.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -1641,20 +1688,37 @@
       {
         "url": "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html",
         "result": "retrieved",
-        "note": "Current Gifu City page reviewed; it explicitly states the keep is closed for renovation."
+        "note": "Current official Gifu City visitor page says the keep is closed for renovation through late October 2027 (予定)."
+      },
+      {
+        "url": "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1031926.html",
+        "result": "retrieved",
+        "note": "Official Gifu City repair schedule gives the closure start 2026-05-19 and planned completion late October 2027."
+      },
+      {
+        "url": "https://www.kankou-gifu.jp/spot/detail_912.html",
+        "result": "retrieved",
+        "note": "Official Gifu Prefecture tourism page was checked; its ¥200 fee is historical/stale in context because the same page says currently closed, so it cannot establish a current admission product."
+      },
+      {
+        "url": "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/index.html",
+        "result": "retrieved",
+        "note": "Official city attraction index checked for current visitor links; no active ticket page or current reopening price found."
       }
     ],
     "state": "unavailable",
     "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "reasonCode": "temporarily_closed",
     "cost": {
       "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "reason": "temporarily_closed"
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit on 2026-08-29: current Gifu City page explicitly marks Gifu Castle keep as closed for renovation. No current ordinary adult admission can be charged while the canonical keep is closed; future reopening pricing was not inferred.",
+    "basis": "Current Gifu City visitor page, updated 2026-07-22, explicitly says Gifu Castle keep and museum are closed for renovation from 2026-05-19 through late October 2027 (予定). The prefectural tourism page still displays the pre-closure adult ¥200 figure but also says the facility is currently closed; that historical figure is not restored as a current product. No current ordinary adult admission can be charged during the closure, and reopening pricing is not published.",
     "sourceUrls": [
-      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html"
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1005098.html",
+      "https://www.city.gifu.lg.jp/kankoubunka/kankou/1013051/1005097/1031926.html",
+      "https://www.kankou-gifu.jp/spot/detail_912.html"
     ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
@@ -2182,49 +2246,42 @@
       {
         "url": "https://www.higashiyama.city.nagoya.jp/",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Zoo subsite root was not sufficient and failed in the first pass; this was not treated as exhausted evidence."
       },
       {
-        "url": "https://www.higashiyama.city.nagoya.jp/img/ico_ticket.png",
+        "url": "https://www.higashiyama.city.nagoya.jp/01_annai/01_01kaien/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official Nagoya zoo information checked; it distinguishes the separate Sky Tower admission and common ticket."
       },
       {
-        "url": "https://www.higashiyama.city.nagoya.jp/education_guide",
+        "url": "https://www.higashiyama.city.nagoya.jp/facilities/northzoo-amusement/skytower/000051.html",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official Nagoya facility page checked for tower identity and linked ticket purchase."
       },
       {
-        "url": "https://www.higashiyama.city.nagoya.jp/calendar/assets_c/2023/04/8bc94feec84a0dd809728995b80e26f372010bb0-thumb-330xauto-16122.jpg",
+        "url": "https://higashiyamaskytower.jp/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Current tower operator home page checked; it links the operator price page and ticket purchase."
       },
       {
-        "url": "https://www.higashiyama.city.nagoya.jp/education_guide/lecture/",
+        "url": "https://higashiyamaskytower.jp/price",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://www.higashiyama.city.nagoya.jp/education_guide/",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://www.higashiyama.city.nagoya.jp/img/common/bnr_ticket.png",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Current official operator fee page explicitly lists adult ¥300; combination ticket is separately listed."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.higashiyama.city.nagoya.jp/"],
+    "basis": "The current Higashiyama Sky Tower operator ticket-and-price page lists ordinary adult/high-school-and-over tower admission at ¥300. The zoo+tower common ticket is a separate product; the zoo admission, parking, shops, and other upgrades are excluded.",
+    "sourceUrls": [
+      "https://higashiyamaskytower.jp/price",
+      "https://higashiyamaskytower.jp/"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -2308,19 +2365,38 @@
       {
         "url": "https://www.hirosakijo.jp/",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Legacy castle root failed; this was not treated as exhausted evidence."
+      },
+      {
+        "url": "https://www.hirosakipark.jp/price.html",
+        "result": "retrieved",
+        "note": "Current official Hirosaki Park fee page lists individual adult Honmaru/North Bailey admission ¥320 from 2025-04-01 and explains winter treatment."
+      },
+      {
+        "url": "http://www.hirosakipark.or.jp/hirosakipark/charge.html",
+        "result": "retrieved",
+        "note": "Official Hirosaki City Green Association charge page independently lists adult ¥320."
+      },
+      {
+        "url": "https://www.city.hirosaki.aomori.jp/gaiyou/shisetsu/park/2015-0217-1525-48.html",
+        "result": "retrieved",
+        "note": "Official Hirosaki City visitor page confirms adult ¥320 and the winter free/closed period."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.hirosakijo.jp/"],
+    "basis": "The current Hirosaki Park official fee page, effective 2025-04-01, lists the individual adult one-day admission for Hirosaki Castle Honmaru/North Bailey at ¥320. It also states the castle paid area is free from 11/24 through 3/31 and the keep is closed in that winter period; the defined operating-period individual admission remains a fixed ¥320 product. Common tickets, annual passes, group and child rates are excluded.",
+    "sourceUrls": [
+      "https://www.hirosakipark.jp/price.html",
+      "http://www.hirosakipark.or.jp/hirosakipark/charge.html",
+      "https://www.city.hirosaki.aomori.jp/gaiyou/shisetsu/park/2015-0217-1525-48.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -3961,44 +4037,37 @@
       {
         "url": "https://kumamoto-guide.jp/kumamoto-castle/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Legacy tourism path checked for identity and links."
       },
       {
-        "url": "https://kumamoto-guide.jp/en/",
+        "url": "https://castle.kumamoto-guide.jp/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Current official castle operator site checked for visitor, ticket, and notice paths."
       },
       {
-        "url": "https://kumamoto-guide.jp/tw/",
+        "url": "https://castle.kumamoto-guide.jp/info/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official current viewing guide lists individual high-school-and-over admission ¥800 and separates common/annual tickets."
       },
       {
-        "url": "https://kumamoto-guide.jp/ko/",
+        "url": "https://castle.kumamoto-guide.jp/ticket/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://kumamoto-guide.jp/",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://kumamoto-guide.jp/zh/",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official ticket page checked for current purchase path; it does not replace the ordinary fee table."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://kumamoto-guide.jp/kumamoto-castle/"],
+    "basis": "The current official Kumamoto Castle viewing guide lists ordinary individual admission for high-school age and older at ¥800. Group, child, exemption, annual, and shared tickets are excluded; separate Kumamoto Museum exhibitions do not replace the castle admission.",
+    "sourceUrls": [
+      "https://castle.kumamoto-guide.jp/info/",
+      "https://castle.kumamoto-guide.jp/ticket/"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -4194,19 +4263,32 @@
       {
         "url": "https://sankan.kunaicho.go.jp/guide/kyoto.html",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Legacy Imperial Household Agency guide URL failed; this was not treated as exhausted evidence."
+      },
+      {
+        "url": "https://kyoto-gosho.kunaicho.go.jp/visit",
+        "result": "retrieved",
+        "note": "Current official Imperial Household Agency visitor page explicitly states entry is free and no advance application is required."
+      },
+      {
+        "url": "https://kyoto-gosho.kunaicho.go.jp/faq",
+        "result": "retrieved",
+        "note": "Official Kyoto Imperial Palace FAQ checked for admission and visitor rules."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://sankan.kunaicho.go.jp/guide/kyoto.html"],
+    "basis": "The Imperial Household Agency Kyoto Imperial Palace current visitor page explicitly states that entry is free (入場は無料です). No admission fee is charged under the year-round open-access rules. Optional audio guides, special events, and nearby paid facilities are not admission.",
+    "sourceUrls": [
+      "https://kyoto-gosho.kunaicho.go.jp/visit",
+      "https://kyoto-gosho.kunaicho.go.jp/faq"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -5294,19 +5376,31 @@
       {
         "url": "https://nagoya-port-building.jp/",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Legacy operator root failed; this was not treated as exhausted evidence."
+      },
+      {
+        "url": "https://www.port-of-nagoya.jp/kanko/kankoshisetsu/1000885.html",
+        "result": "retrieved",
+        "note": "Official Nagoya Port Authority page identifies the facility and explicitly lists adult admission ¥300."
+      },
+      {
+        "url": "https://www.port-of-nagoya.jp/kanko/kankoshisetsu/",
+        "result": "retrieved",
+        "note": "Official municipal tourism-facility index checked for the current facility path."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://nagoya-port-building.jp/"],
+    "basis": "The Nagoya Port Authority official facility page for Nagoya Port Building/Maritime Tower lists ordinary adult admission at ¥300. The page is the municipal operator visitor-information source; parking, group, student, and other harbour facilities are excluded.",
+    "sourceUrls": [
+      "https://www.port-of-nagoya.jp/kanko/kankoshisetsu/1000885.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -5700,39 +5794,46 @@
       {
         "url": "https://www.kobeherb.com/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Current operator root checked for identity and navigation."
       },
       {
         "url": "https://www.kobeherb.com/infomation/facility_guide/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://www.kobeherb.com/infomation/",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official facility guide checked for garden access and facility scope."
       },
       {
         "url": "https://www.kobeherb.com/introduce/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official user-information page checked for access and admission product structure."
       },
       {
         "url": "https://www.kobeherb.com/infomation/hours_fare/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Current official fee page publishes only ropeway+garden composite prices and says the one-way ticket does not include garden entry."
+      },
+      {
+        "url": "https://www.kobeherb.com/wordpress/wp-content/uploads/2026/07/bcb52248ee733baac71102f56c89c87e.pdf",
+        "result": "retrieved",
+        "note": "Official 2026 Christmas fee PDF checked for current composite product variants; no garden-only admission appears."
+      },
+      {
+        "url": "https://www.asoview.com/channel/tickets/uNVQKxCECp/ticket0000044072/",
+        "result": "checked",
+        "note": "Officially linked booking channel checked as a booking path; it represents the same composite product, not a standalone garden admission."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.kobeherb.com/"],
+    "basis": "The current official operator hours-and-fares page and its official fee PDF publish only ropeway-ride plus herb-garden composite products (ordinary adult round trip ¥2,500; night ¥2,000; seasonal Christmas pricing) and explicitly state that the one-way access ticket does not admit visitors to the garden. No standalone garden-only admission is published. Because the composite includes access transport and there is no one coherent admission-only product, required ropeway transport and its package price are not promoted as canonical admission.",
+    "sourceUrls": [
+      "https://www.kobeherb.com/infomation/hours_fare/",
+      "https://www.kobeherb.com/wordpress/wp-content/uploads/2026/07/bcb52248ee733baac71102f56c89c87e.pdf"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -8716,44 +8817,47 @@
       {
         "url": "https://www.yokohama-landmark.jp/skygarden/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Legacy-domain Sky Garden page checked; current official path redirects/normalizes to the closure notice."
+      },
+      {
+        "url": "https://yokohama-landmark.jp/skygarden/",
+        "result": "retrieved",
+        "note": "Current official Sky Garden page explicitly says business is temporarily suspended due to building repair and reopening is planned from 2028 onward."
+      },
+      {
+        "url": "https://yokohama-landmark.jp/skygarden/skygarden_news/detail.php?id=62613",
+        "result": "retrieved",
+        "note": "Official closure detail repeats that reopening timing is not finalized; no current fee is published."
       },
       {
         "url": "https://www.yokohama-landmark.jp/facility_information/",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://www.yokohama-landmark.jp/pdf/landmark_guide_JPEn.pdf#page=3",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://www.yokohama-landmark.jp/information/",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
-      },
-      {
-        "url": "https://www.yokohama-landmark.jp/upload/pdf/landmark_guide_JPEn.pdf#page=3",
-        "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official facility-information path checked for current observation-deck/ticket status."
       },
       {
         "url": "https://www.yokohama-landmark.jp/upload/pdf/landmark_guide_JPEn.pdf",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official facility guide PDF checked for legacy visitor/ticket information; it cannot establish a current product during the closure."
+      },
+      {
+        "url": "https://www.yokohama-landmark.jp/information/",
+        "result": "retrieved",
+        "note": "Official information path checked for reopening/visitor notices; no current admission sale found."
       }
     ],
     "state": "unavailable",
     "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "reasonCode": "temporarily_closed",
     "cost": {
       "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "reason": "temporarily_closed"
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.yokohama-landmark.jp/skygarden/"],
+    "basis": "The current official Sky Garden notice states that the 69th-floor observation deck is temporarily closed because of the Landmark Tower large-scale repair work and that reopening is planned for 2028 or later, with details still undecided. The official facility and guide/PDF paths were checked, but no currently sellable ordinary adult admission product exists; pre-closure prices are historical and are not restored. Paid, free, and variable states are inappropriate while the canonical observation deck is closed and no reopening price is defined; N/A is inappropriate because this is a defined admission attraction, not an open area or hub.",
+    "sourceUrls": [
+      "https://yokohama-landmark.jp/skygarden/",
+      "https://yokohama-landmark.jp/skygarden/skygarden_news/detail.php?id=62613"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -9410,19 +9514,37 @@
       {
         "url": "https://www.hkc.or.jp/eng/",
         "result": "fetch_failed",
-        "note": "Official URL was attempted; fetch status=None; no unsupported fact was promoted."
+        "note": "Legacy operator/English root failed; this was not treated as exhausted evidence."
+      },
+      {
+        "url": "https://www.city.hachioji.tokyo.jp/kankobunka/006/p003221.html",
+        "result": "retrieved",
+        "note": "Official Hachioji City visitor page explicitly lists admission as free and points to the current museum site."
+      },
+      {
+        "url": "https://www.takao599museum.jp/",
+        "result": "retrieved",
+        "note": "Current museum operator root checked for visitor information."
+      },
+      {
+        "url": "https://www.takao599museum.jp/information/events/",
+        "result": "retrieved",
+        "note": "Current operator event page confirms active events and labels the museum program; events are not admission."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.hkc.or.jp/eng/"],
+    "basis": "The official Hachioji City visitor-information page explicitly states that Takao 599 Museum admission is free (入館料 無料). No admission fee is charged. The museum operator event page confirms the current museum/event program; separately charged workshops or special activities, if any, are not canonical admission.",
+    "sourceUrls": [
+      "https://www.city.hachioji.tokyo.jp/kankobunka/006/p003221.html",
+      "https://www.takao599museum.jp/information/events/"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -10416,21 +10538,38 @@
       {
         "url": "https://www.naha-navi.or.jp/en/sightseeing/fukushuen-garden/",
         "result": "retrieved",
-        "note": "Official Naha City Tourism Association destination and admission-information page reviewed; fee section did not expose a current ordinary adult amount."
+        "note": "Official Naha City Tourism Association destination page checked; its fee section was incomplete, so the search continued."
+      },
+      {
+        "url": "https://www.fksn-okinawa.jp/",
+        "result": "retrieved",
+        "note": "Current official operator root checked for identity and fee navigation."
+      },
+      {
+        "url": "https://www.fksn-okinawa.jp/access/",
+        "result": "retrieved",
+        "note": "Current official operator fee page explicitly lists adult daytime ¥200 and nighttime ¥300."
+      },
+      {
+        "url": "https://www.city.naha.okinawa.jp/shisetsu/sports/1007498/1004873.html",
+        "result": "retrieved",
+        "note": "Official Naha City facility page independently lists adult admission ¥200 and confirms the municipal facility identity."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_time",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 200,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: official Naha City Tourism Association page was recovered and identifies Fukushuen Garden and an admission-fee section, but no current ordinary individual adult amount was exposed in the authoritative content; no price is inferred from secondary snippets or legacy values.",
+    "basis": "The current official Fukushuen operator access-and-fee page publishes two ordinary adult admission periods: ¥200 for daytime 9:00–18:00 and ¥300 for nighttime 18:00–21:00. The Naha City facility page independently confirms the daytime adult fee of ¥200. The bounded ¥200–¥300 range preserves the genuine time-dependent admission; group, child, exhibition-room, and optional facility charges are excluded.",
     "checkedAt": "2026-08-29",
     "sourceUrls": [
-      "https://www.naha-navi.or.jp/en/sightseeing/fukushuen-garden/"
+      "https://www.fksn-okinawa.jp/access/",
+      "https://www.city.naha.okinawa.jp/shisetsu/sports/1007498/1004873.html"
     ],
     "reviewIntervalMonths": 12
   },
@@ -11291,24 +11430,37 @@
       {
         "url": "https://www.ktqmm.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Current operator root checked for visitor and admission navigation."
+      },
+      {
+        "url": "https://www.ktqmm.jp/about/outline",
+        "result": "retrieved",
+        "note": "Official current outline explicitly lists ordinary adult permanent-exhibition admission ¥480 and separately identifies variable temporary-exhibition fees."
+      },
+      {
+        "url": "https://www.ktqmm.jp/event/kikaku",
+        "result": "retrieved",
+        "note": "Official temporary-exhibition index checked to ensure its variable prices were not substituted for ordinary admission."
       },
       {
         "url": "https://www.ktqmm.jp/kikaku_info/144177",
         "result": "retrieved",
-        "note": "Official same-domain fee/admission/visitor/ticket/PDF path checked in rendered second-pass re-audit."
+        "note": "Official exhibition page checked as a product-specific path; it does not replace permanent admission."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 480,
+      "max": 480
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.ktqmm.jp/"],
+    "basis": "The current Kitakyushu Manga Museum official outline lists ordinary adult permanent-exhibition admission at ¥480. The same page states that企画/temporary exhibition fees vary separately; those temporary exhibitions, group/discount prices, and optional programs are excluded from the ordinary permanent-admission fact.",
+    "sourceUrls": [
+      "https://www.ktqmm.jp/about/outline",
+      "https://www.ktqmm.jp/"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -11562,19 +11714,34 @@
       {
         "url": "https://www.sasebo99.com/en/spot/556",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official Sasebo tourism English spot path checked for identity and alternate visitor information."
+      },
+      {
+        "url": "https://www.sasebo99.com/",
+        "result": "retrieved",
+        "note": "Current official Sasebo tourism association root checked for tour navigation."
+      },
+      {
+        "url": "https://www.sasebo99.com/tour/100011",
+        "result": "retrieved",
+        "note": "Current official cruise/ticket page lists ordinary adult ticket ¥2,500 and current reservation rules."
+      },
+      {
+        "url": "https://www.sasebo99.com/tour/100011#reservation",
+        "result": "checked",
+        "note": "Official booking section checked; reservation timing is not an admission amount and charter service is separate."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 2500,
+      "max": 2500
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.sasebo99.com/en/spot/556"],
+    "basis": "The current Sasebo tourism association official cruise page lists the ordinary adult (middle-school age and older) Sasebo Naval Port Cruise ticket at ¥2,500. This cruise ticket is the canonical product for the cruise identity; child, disability, charter, booking timing, and transport to the pier are excluded.",
+    "sourceUrls": ["https://www.sasebo99.com/tour/100011"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -11589,19 +11756,38 @@
       {
         "url": "https://www.ibusuki.or.jp/en/spot/saraku/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official Ibusuki tourism English spot path checked for identity and visitor information."
+      },
+      {
+        "url": "https://www.ibusuki.or.jp/news/2024/08/01/28439.html",
+        "result": "retrieved",
+        "note": "Official Ibusuki tourism fee-change notice gives adult ¥1,500 normal and ¥2,000 special-period price, with yukata included."
+      },
+      {
+        "url": "https://www.ibusuki-saraku.jp/ja/",
+        "result": "retrieved",
+        "note": "Current official Saraku operator page confirms the 2026–2027 special-period calendar and current sand-bath minimum set; bath-only and rentals are separate."
+      },
+      {
+        "url": "https://www.ibusuki-saraku.jp/ja/guide",
+        "result": "retrieved",
+        "note": "Current official operator guide checked for reception/payment and product scope."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "seasonal_pricing",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1500,
+      "max": 2000
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.ibusuki.or.jp/en/spot/saraku/"],
+    "basis": "Official Ibusuki tourism and Saraku operator fee pages publish ordinary adult sand-bath admission at ¥1,500, with special-period adult admission at ¥2,000. The current operator identifies special periods in the 2026–2027 calendar. The canonical sand-bath product is preserved as the bounded ¥1,500–¥2,000 seasonal range; towel rental, bath-only entry, group rates, and other optional alternatives are excluded.",
+    "sourceUrls": [
+      "https://www.ibusuki-saraku.jp/ja/",
+      "https://www.ibusuki.or.jp/news/2024/08/01/28439.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -11852,19 +12038,24 @@
       {
         "url": "https://www.oidehita.com/en/spot/yamahoko/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official Hita tourism path checked for identity and visitor information."
+      },
+      {
+        "url": "https://www.city.hita.oita.jp/site/hitanioideyo/2460.html",
+        "result": "retrieved",
+        "note": "Current official Hita City page lists ordinary individual adult admission ¥320 and group rate ¥270."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.oidehita.com/en/spot/yamahoko/"],
+    "basis": "The current Hita City official cultural-facility page lists Hita Gion Yamahoko Museum admission at ¥320 for an ordinary individual adult (一般), and ¥270 for groups. The ordinary individual ¥320 product is used; group, child, discount, and unrelated festival costs are excluded.",
+    "sourceUrls": ["https://www.city.hita.oita.jp/site/hitanioideyo/2460.html"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -14440,19 +14631,31 @@
       {
         "url": "https://shibata-info.jp/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official Shibata tourism root checked for attraction navigation."
+      },
+      {
+        "url": "https://www.city.shibata.lg.jp/shisetsu/kanko/kanko/1005061.html",
+        "result": "retrieved",
+        "note": "Current official Shibata City page explicitly lists admission as free and documents the winter closure period."
+      },
+      {
+        "url": "https://www.city.shibata.lg.jp/shisetsu/kanko/kanko/",
+        "result": "retrieved",
+        "note": "Official city tourism-facility index checked for current visitor path."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://shibata-info.jp/"],
+    "basis": "The current official Shibata City visitor page explicitly states Shibata Castle admission is free (入場料 無料、事前予約不要). No admission fee is charged. The page notes seasonal winter closure from December to late March; that operating restriction does not change the core admission classification. Optional nearby facilities and transport are excluded.",
+    "sourceUrls": [
+      "https://www.city.shibata.lg.jp/shisetsu/kanko/kanko/1005061.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },
@@ -18747,19 +18950,32 @@
       {
         "url": "https://www.kikkoman.com/en/culture/soysaucemuseum/",
         "result": "retrieved",
-        "note": "Official URL fetched and visible text reviewed; only the stated classification evidence was promoted."
+        "note": "Official Kikkoman English museum path checked for identity and alternate navigation."
+      },
+      {
+        "url": "https://www.kikkoman.com/jp/shokuiku/factory/noda/",
+        "result": "retrieved",
+        "note": "Current official Japanese Noda facility page explicitly lists admission as free and separately states the reservation requirement."
+      },
+      {
+        "url": "https://www.kikkoman.com/jp/shokuiku/factory/noda/tour.html",
+        "result": "retrieved",
+        "note": "Official Noda tour subpage checked for visitor/tour details; reservation is not a price."
       }
     ],
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.kikkoman.com/en/culture/soysaucemuseum/"],
+    "basis": "Kikkoman’s current official Noda factory/Monoshiri Shoyu-kan visitor page explicitly lists admission as free (入館料 無料). No admission fee is charged. The page’s advance reservation requirement and closure calendar are visitor logistics, not admission charges; factory tours, optional activities, parking, and purchases are excluded.",
+    "sourceUrls": [
+      "https://www.kikkoman.com/jp/shokuiku/factory/noda/",
+      "https://www.kikkoman.com/jp/shokuiku/factory/noda/tour.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   },

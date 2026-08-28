@@ -113,16 +113,20 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "seasonal_pricing",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1350,
+      "max": 1900
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://akiyoshi-dai.com/"],
+    "basis": "Official Mine City tourism association notice and its 2026 fee PDF state that from 2026-04-01 Akiyoshido individual admission is seasonally variable: adult (high-school age and older) ¥1,600 normal, ¥1,900 busy-period, and ¥1,350 off-season (December through February). The bounded ¥1,350–¥1,900 range preserves the published adult product; group, child, and access/transport costs are excluded.",
+    "sourceUrls": [
+      "https://karusuto.com/notice/20260401akiyoshidouryoukin/",
+      "https://karusuto.com/wp-content/uploads/2026/02/2d0d10839c900cecd662f2e4b319fd69.pdf"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }

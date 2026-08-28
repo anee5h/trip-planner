@@ -226,16 +226,18 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "not_applicable"
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.kobeherb.com/"],
+    "basis": "The current official operator hours-and-fares page and its official fee PDF publish only ropeway-ride plus herb-garden composite products (ordinary adult round trip ¥2,500; night ¥2,000; seasonal Christmas pricing) and explicitly state that the one-way access ticket does not admit visitors to the garden. No standalone garden-only admission is published. Because the composite includes access transport and there is no one coherent admission-only product, required ropeway transport and its package price are not promoted as canonical admission.",
+    "sourceUrls": [
+      "https://www.kobeherb.com/infomation/hours_fare/",
+      "https://www.kobeherb.com/wordpress/wp-content/uploads/2026/07/bcb52248ee733baac71102f56c89c87e.pdf"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }

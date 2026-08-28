@@ -191,16 +191,20 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "seasonal_pricing",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 1500,
+      "max": 2000
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.ibusuki.or.jp/en/spot/saraku/"],
+    "basis": "Official Ibusuki tourism and Saraku operator fee pages publish ordinary adult sand-bath admission at ¥1,500, with special-period adult admission at ¥2,000. The current operator identifies special periods in the 2026–2027 calendar. The canonical sand-bath product is preserved as the bounded ¥1,500–¥2,000 seasonal range; towel rental, bath-only entry, group rates, and other optional alternatives are excluded.",
+    "sourceUrls": [
+      "https://www.ibusuki-saraku.jp/ja/",
+      "https://www.ibusuki.or.jp/news/2024/08/01/28439.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }

@@ -110,11 +110,19 @@ describe("KAI-219E2 residual admission manifest", () => {
       expect(JSON.stringify(fact)).not.toMatch(/budgetBreakdown/i);
       if (entry.state === "unavailable") {
         expect(entry.reasonCode).toBeTruthy();
-        expect(entry.evidenceAttempted).toEqual(
-          expect.arrayContaining([
-            expect.objectContaining({ note: expect.any(String) }),
-          ]),
+        expect(entry.reasonCode).not.toBe("legacy_provenance_unrecovered");
+        expect(entry.basis).not.toMatch(
+          /Full authoritative-path re-audit.*No current ordinary individual adult\/general admission fact was established/i,
         );
+        expect(entry.evidenceAttempted.length).toBeGreaterThanOrEqual(2);
+        expect(
+          new Set(entry.evidenceAttempted.map(({ url }) => url)).size,
+        ).toBe(entry.evidenceAttempted.length);
+        expect(
+          entry.evidenceAttempted.every(
+            ({ url, note }) => Boolean(url) && note.trim().length > 0,
+          ),
+        ).toBe(true);
       }
     }
   });

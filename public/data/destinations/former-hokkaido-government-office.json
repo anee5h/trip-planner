@@ -195,16 +195,19 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm"],
+    "basis": "The current Former Hokkaido Government Office (Akarenga) official site lists ordinary general admission at ¥300. The Hokkaido prefectural renewal portal confirms the building reopened after renovation on 2025-07-25. The octagonal-tower viewing area, guided tours, shops, parking, and group/discount rates are separate and excluded.",
+    "sourceUrls": [
+      "https://www.hokkaido-redbrick.jp/",
+      "https://www.pref.hokkaido.lg.jp/sm/zsk/fm/akarengarenewal/top.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }

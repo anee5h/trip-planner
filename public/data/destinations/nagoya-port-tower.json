@@ -129,16 +129,18 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://nagoya-port-building.jp/"],
+    "basis": "The Nagoya Port Authority official facility page for Nagoya Port Building/Maritime Tower lists ordinary adult admission at ¥300. The page is the municipal operator visitor-information source; parking, group, student, and other harbour facilities are excluded.",
+    "sourceUrls": [
+      "https://www.port-of-nagoya.jp/kanko/kankoshisetsu/1000885.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }

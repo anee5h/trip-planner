@@ -150,6 +150,7 @@ export type BudgetProvenance =
 export type BudgetReasonCode =
   | "source_missing"
   | "price_variable_by_date"
+  | "price_variable_by_time"
   | "price_variable_by_product"
   | "optional_paid_experiences_only"
   | "free_area_with_optional_paid_components"
@@ -157,6 +158,7 @@ export type BudgetReasonCode =
   | "hub_budget_not_applicable"
   | "activity_specific_pricing"
   | "seasonal_pricing"
+  | "temporarily_closed"
   | "legacy_provenance_unrecovered"
   | "insufficient_model_evidence"
   | "transitional_unclassified";

@@ -203,16 +203,16 @@
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_paid",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://www.oidehita.com/en/spot/yamahoko/"],
+    "basis": "The current Hita City official cultural-facility page lists Hita Gion Yamahoko Museum admission at ¥320 for an ordinary individual adult (一般), and ¥270 for groups. The ordinary individual ¥320 product is used; group, child, discount, and unrelated festival costs are excluded.",
+    "sourceUrls": ["https://www.city.hita.oita.jp/site/hitanioideyo/2460.html"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }

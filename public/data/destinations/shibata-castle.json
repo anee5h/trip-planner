@@ -20,7 +20,7 @@
     "Surviving castle gates",
     "Water-moat defenses"
   ],
-  "notes": "The keep is a reconstruction (¥400 adult); the Ote-mon gate is a designated cultural property.",
+  "notes": "The keep is a reconstruction; the Ote-mon gate is a designated cultural property.",
   "transportOptions": {},
   "recommendedVisitHours": {
     "min": 1.5,
@@ -74,7 +74,7 @@
         "Surviving castle gates",
         "Water-moat defenses"
       ],
-      "notes": "The keep is a reconstruction (¥400 adult); the Ote-mon gate is a designated cultural property.",
+      "notes": "The keep is a reconstruction; the Ote-mon gate is a designated cultural property.",
       "reservation": "None required",
       "parking": "Free/paid parking near the site (varies)",
       "openingHours": "Open daily; hours vary by season (see official site)"
@@ -83,7 +83,7 @@
       "name": "新発田城",
       "description": "溝口藩の居城。珍しい江戸期の城門が残り、再建された三層天守と水堀が見どころです。",
       "highlights": ["溝口藩の居城", "現存する城門", "水堀の防御"],
-      "notes": "天守は再建（大人400円）。大手門は文化財指定です。",
+      "notes": "天守は再建。大手門は文化財指定です。",
       "reservation": "予約不要",
       "parking": "周辺の無料・有料駐車場あり（施設により異なる）",
       "openingHours": "毎日開館（時期により異なる・公式サイトで確認）"
@@ -152,16 +152,18 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "admission": {
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "legacy_provenance_unrecovered",
+    "state": "verified_free",
+    "provenance": "verified_source",
     "cost": {
-      "kind": "unavailable",
-      "reason": "legacy_provenance_unrecovered"
+      "kind": "bounded",
+      "min": 0,
+      "max": 0
     },
     "scope": "general_entry",
-    "basis": "Full authoritative-path re-audit performed on 2026-08-29: operator/authority root plus linked fee, price, ticket, admission, visitor-information, FAQ, booking, and official PDF paths were attempted. No current ordinary individual adult/general admission fact was established for this record without relying on a legacy ticket value, unrelated optional product, inaccessible dynamic content, or a source that did not identify the canonical product.",
-    "sourceUrls": ["https://shibata-info.jp/"],
+    "basis": "The current official Shibata City visitor page explicitly states Shibata Castle admission is free (入場料 無料、事前予約不要). No admission fee is charged. The page notes seasonal winter closure from December to late March; that operating restriction does not change the core admission classification. Optional nearby facilities and transport are excluded.",
+    "sourceUrls": [
+      "https://www.city.shibata.lg.jp/shisetsu/kanko/kanko/1005061.html"
+    ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
   }
