@@ -177,5 +177,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Hiroshima Peace Memorial Park: open public memorial park (free core); the ticketed Peace Memorial Museum is the optional paid component.",
+    "sourceUrls": [
+      "https://www.city.hiroshima.lg.jp/living/park-green/1005983/1026353/1003127.html",
+      "http://hpmmuseum.jp/"
+    ],
+    "checkedAt": "2026-08-28"
   }
 }

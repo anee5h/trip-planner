@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ueno-park",
+    "classification": "not_applicable_free_area",
+    "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; zoo, museums, galleries optional paid.",
+    "optionalPaidNote": "Ueno Zoo, museums and galleries (optional paid)"
+  },
+  {
+    "id": "yoyogi-park",
+    "classification": "not_applicable_free_area",
+    "sourceUrls": ["https://www.tokyo-park.or.jp/park/yoyogi/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; sports/event facilities optional paid.",
+    "optionalPaidNote": "Sports and event facilities (optional paid)"
+  },
+  {
+    "id": "hiroshima-peace-memorial-park",
+    "classification": "not_applicable_free_area",
+    "sourceUrls": [
+      "https://www.city.hiroshima.lg.jp/living/park-green/1005983/1026353/1003127.html",
+      "http://hpmmuseum.jp/"
+    ],
+    "checkedAt": "2026-08-28",
+    "basis": "Hiroshima Peace Memorial Park: open public memorial park (free core); the ticketed Peace Memorial Museum is the optional paid component.",
+    "optionalPaidNote": "Hiroshima Peace Memorial Museum admission (optional paid)"
+  },
+  {
+    "id": "samuel-cocking-garden",
+    "classification": "not_applicable_free_area",
+    "sourceUrls": ["https://en.enoshima-seacandle.com/information/post-154/"],
+    "checkedAt": "2026-08-28",
+    "basis": "Official Enoshima Sea Candle site (since 2023-04-01): Samuel Cocking Garden free all day unless a night event is held; night-event admission ¥500 adult / ¥250 child — free core + optional paid nighttime experience.",
+    "optionalPaidNote": "Night-event admission ¥500 adult (after 17:00 during events)"
+  }
+]

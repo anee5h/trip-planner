@@ -229,5 +229,17 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; zoo, museums, galleries optional paid.",
+    "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
+    "checkedAt": "2026-08-28"
   }
 }
