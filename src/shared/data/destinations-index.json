@@ -77628,6 +77628,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Official Enoshima Sea Candle site (since 2023-04-01): Samuel Cocking Garden free all day unless a night event is held; night-event admission ¥500 adult / ¥250 child — free core + optional paid nighttime experience.",
+      "sourceUrls": [
+        "https://en.enoshima-seacandle.com/information/post-154/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -98013,6 +98027,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; zoo, museums, galleries optional paid.",
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/park/ueno/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -106049,6 +106077,20 @@
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; sports/event facilities optional paid.",
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/park/yoyogi/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
@@ -152304,6 +152346,21 @@
       "method": "legacy",
       "confidence": "unknown",
       "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+    },
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Hiroshima Peace Memorial Park: open public memorial park (free core); the ticketed Peace Memorial Museum is the optional paid component.",
+      "sourceUrls": [
+        "https://www.city.hiroshima.lg.jp/living/park-green/1005983/1026353/1003127.html",
+        "http://hpmmuseum.jp/"
+      ],
+      "checkedAt": "2026-08-28"
     }
   },
   {
