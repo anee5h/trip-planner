@@ -167,5 +167,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "seasonal_pricing",
+    "cost": {
+      "kind": "bounded",
+      "min": 450,
+      "max": 800
+    },
+    "scope": "general_entry",
+    "basis": "Official Hitachi Seaside Park fee page: 大人(高校生以上) ¥450 normal; seasonal-pricing periods (spring/autumn) ¥450 + ¥350 surcharge = ¥800 → full normal adult range ¥450–¥800 (seasonal_pricing).",
+    "sourceUrls": ["https://www.hitachikaihin.jp/guide/ticket.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

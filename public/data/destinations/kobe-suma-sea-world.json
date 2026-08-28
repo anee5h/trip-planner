@@ -264,5 +264,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 2900,
+      "max": 3700
+    },
+    "scope": "general_entry",
+    "basis": "Official Kobe Suma Sea World price calendar: 1DAY adult (high school+) date-tiered ¥3,700 (Obon), ¥3,300 (busy-season weekends), ¥3,100 (regular), ¥2,900 (Dec-Mar); normal adult range ¥2,900–¥3,700 by date.",
+    "sourceUrls": ["https://www.kobesuma-seaworld.jp/guide/price_ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

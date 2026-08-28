@@ -211,5 +211,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 2600,
+      "max": 3200
+    },
+    "scope": "general_entry",
+    "basis": "Official Sunshine Aquarium ticket page: 大人(高校生以上) ¥2,600–¥3,200, 入場日によりチケット料金が異なります (date-variable); full normal adult range ¥2,600–¥3,200.",
+    "sourceUrls": ["https://sunshinecity.jp/aquarium/ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

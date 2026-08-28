@@ -212,5 +212,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 2800,
+      "max": 3500
+    },
+    "scope": "general_entry",
+    "basis": "Official Kaiyukan current admission calendar: adult normal date tiers ¥2,800, ¥3,200, and ¥3,500; complete current normal adult range ¥2,800–¥3,500 by date. Child/senior/group pricing excluded.",
+    "sourceUrls": ["https://www.kaiyukan.com/info/ticket/kaiyukan/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

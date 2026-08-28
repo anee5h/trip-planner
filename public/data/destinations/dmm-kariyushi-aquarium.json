@@ -313,5 +313,23 @@
       }
     ]
   },
-  "addedAt": "2026-08-22"
+  "addedAt": "2026-08-22",
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 2800,
+      "max": 3200
+    },
+    "scope": "general_entry",
+    "basis": "Official fee table identifies individual adult value, regular, and peak tiers ¥2,800, ¥2,950, and ¥3,200; operating calendar determines the applicable tier.",
+    "sourceUrls": [
+      "https://kariyushi-aquarium.com/fee-ticket/",
+      "https://kariyushi-aquarium.com/opening-hours/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
+  }
 }

@@ -192,5 +192,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "open_ended",
+      "from": 3600
+    },
+    "scope": "general_entry",
+    "basis": "Official teamLab Planets ticket store: adult (18+) from ¥3,600 with dynamic date/time pricing; no published upper bound (premium ¥12,000 package excluded).",
+    "sourceUrls": ["https://teamlabplanets.dmm.com/en"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

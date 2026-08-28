@@ -122,5 +122,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "cost": {
+      "kind": "bounded",
+      "min": 1200,
+      "max": 1300
+    },
+    "scope": "general_entry",
+    "basis": "Official Matsumoto Castle: adult e-ticket ¥1,200 / on-site paper ticket ¥1,300 (product variation); full normal adult range ¥1,200–¥1,300.",
+    "sourceUrls": ["https://www.matsumoto-castle.jp/topics/8173.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

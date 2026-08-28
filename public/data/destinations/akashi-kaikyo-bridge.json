@@ -172,5 +172,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 250,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Official Maiko Marine Promenade fee table: adult 土日祝 ¥300, 平日 ¥250 (groups ¥200); weekday/holiday date variation — full normal adult range ¥250–¥300.",
+    "sourceUrls": ["https://hyogo-maikopark.jp/facility/f01/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }
