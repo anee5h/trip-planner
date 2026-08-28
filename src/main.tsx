@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { resolveInitialLanguage } from "./i18n";
 import { installGlobalErrorHandlers } from "./shared/utils/errorReporter";
+import { initializeGoogleAnalytics } from "./shared/services/analytics/GoogleAnalytics";
 
 // KAI-46: capture unhandled errors and unhandled rejections before the app
 // boots so no first-paint crash is lost.
@@ -15,13 +16,18 @@ installGlobalErrorHandlers();
 // unprefixed URL is redirected to the /ja version so shares carry Japanese
 // preview metadata; an explicit English preference is respected. Full page
 // load keeps crawler output intact (no client-only locale switching).
-if (
+const shouldRedirectToJapanese =
   !window.location.pathname.startsWith("/ja") &&
-  resolveInitialLanguage() === "ja"
-) {
+  resolveInitialLanguage() === "ja";
+
+if (shouldRedirectToJapanese) {
   window.location.replace(
     `/ja${window.location.pathname}${window.location.search}${window.location.hash}`,
   );
+} else {
+  // GA4 is production-hostname gated. Skipping initialization on the
+  // locale redirect avoids recording the transient pre-redirect URL.
+  initializeGoogleAnalytics();
 }
 
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
