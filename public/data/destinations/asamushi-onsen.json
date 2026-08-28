@@ -201,5 +201,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "legacy_provenance_unrecovered",
+    "cost": {
+      "kind": "unavailable",
+      "reason": "legacy_provenance_unrecovered"
+    },
+    "scope": "general_entry",
+    "basis": "Asamushi Onsen is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "sourceUrls": ["https://www.asamushi.com/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

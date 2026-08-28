@@ -194,5 +194,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Official Takamatsu tourism organization listing lists adult Ritsurin Garden admission at ¥500; discounts and optional experiences excluded.",
+    "sourceUrls": ["https://www.art-takamatsu.com/en/spot/entry-642.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

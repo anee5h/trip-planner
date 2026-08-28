@@ -187,5 +187,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2400,
+      "max": 2400
+    },
+    "scope": "general_entry",
+    "basis": "Official aquarium fee table lists individual adult admission at ¥2,400; annual passes and bundled products excluded.",
+    "sourceUrls": ["https://www.uminomori.jp/umino/info/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

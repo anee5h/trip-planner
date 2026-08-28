@@ -67,7 +67,6 @@
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
   "budgetBreakdown": {
     "transport": 2143,
-    "tickets": 1429,
     "food": 929,
     "cafe": 499
   },
@@ -180,5 +179,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 320,
+      "max": 320
+    },
+    "scope": "general_entry",
+    "basis": "Official garden guide lists general adult admission at ¥320; group rates excluded.",
+    "sourceUrls": ["https://ibaraki-kairakuen.jp/guide/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

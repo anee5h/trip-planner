@@ -170,5 +170,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity is the open Sendai Castle Ruins ruins/park landscape, not a single admission-controlled keep; separate museums, towers, events, or transport are excluded.",
+    "sourceUrls": ["https://www.sendai-c.ed.jp/~museum/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

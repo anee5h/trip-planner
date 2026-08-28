@@ -252,5 +252,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "scope": "general_entry",
+    "basis": "Official operator states fares change with season and crowd conditions and publishes separate regular/special fares.",
+    "sourceUrls": ["https://www.yanagawakk.co.jp/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "variable"
+    }
   }
 }

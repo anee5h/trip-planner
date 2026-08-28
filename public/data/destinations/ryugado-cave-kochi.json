@@ -105,5 +105,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1500,
+      "max": 1500
+    },
+    "scope": "general_entry",
+    "basis": "Official cave operator lists individual adult sightseeing-course admission at ¥1,500; adventure/after-hours/group supplements excluded.",
+    "sourceUrls": ["https://ryugadou.or.jp/attraction/guide/#guide1"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

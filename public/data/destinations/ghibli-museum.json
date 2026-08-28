@@ -180,5 +180,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Official museum ticket table lists adult/university admission at ¥1,000; dated reservation is an access condition, not a price range.",
+    "sourceUrls": ["https://www.ghibli-museum.jp/ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

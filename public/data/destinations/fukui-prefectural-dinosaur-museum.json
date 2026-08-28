@@ -264,5 +264,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Official museum admission table lists individual adults at ¥1,000; special exhibition and Field Station supplements excluded.",
+    "sourceUrls": ["https://www.dinosaur.pref.fukui.jp/en/info.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -161,5 +161,15 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "none",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity is the open worship grounds of Mitaki-dera; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product."
   }
 }

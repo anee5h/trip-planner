@@ -217,5 +217,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1000
+    },
+    "scope": "general_entry",
+    "basis": "Official tower ticket table lists the observation-floor adult ticket at ¥1,000; rooftop deck upgrade excluded.",
+    "sourceUrls": ["https://www.kobe-port-tower.com/ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

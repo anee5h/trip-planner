@@ -195,5 +195,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "scope": "general_entry",
+    "basis": "Official operator publishes admission and attraction/product options; current page evidence does not establish one stable general adult scalar.",
+    "sourceUrls": ["https://www.nagopine.com/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "variable"
+    }
   }
 }

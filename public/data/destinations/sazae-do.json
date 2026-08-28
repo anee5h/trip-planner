@@ -215,5 +215,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 400,
+      "max": 400
+    },
+    "scope": "general_entry",
+    "basis": "Official Aizu tourism listing lists adult admission at ¥400.",
+    "sourceUrls": ["https://www.aizukanko.com/spot/138"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

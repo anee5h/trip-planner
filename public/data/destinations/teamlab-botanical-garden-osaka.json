@@ -260,5 +260,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "scope": "general_entry",
+    "basis": "Official operator sells dated night-open-air museum tickets; no single scalar is promoted.",
+    "sourceUrls": ["https://www.teamlab.art/e/botanicalgarden/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "variable"
+    }
   }
 }

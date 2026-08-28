@@ -299,5 +299,21 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Official Choshi tourism listing lists adult lighthouse admission at ¥300.",
+    "sourceUrls": [
+      "https://www.choshikanko.com/kankoDB/%E7%8A%AC%E5%90%A0%E5%9F%BC%E7%81%AF%E5%8F%B0/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

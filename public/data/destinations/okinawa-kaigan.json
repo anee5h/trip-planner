@@ -170,5 +170,20 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity represents Okinawa Kaigan Quasi-National Park as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission.",
+    "sourceUrls": [
+      "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/"
+    ],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

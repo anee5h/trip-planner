@@ -182,5 +182,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "scope": "general_entry",
+    "basis": "Official operator lists ordinary adult viewing at ¥400 and states exhibition/event viewing may use different admission charges; no upper bound is published.",
+    "sourceUrls": ["https://www.bansuisou.org/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "open_ended",
+      "from": 400
+    }
   }
 }

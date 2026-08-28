@@ -199,5 +199,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2500,
+      "max": 2500
+    },
+    "scope": "general_entry",
+    "basis": "Official Himeji Castle fee table lists adult admission at ¥2,500; Himeji resident and combination-ticket rates excluded.",
+    "sourceUrls": ["https://www.himejicastle.jp/en/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

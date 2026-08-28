@@ -38,7 +38,7 @@
         "The kawarake clay-plate throwing rite",
         "Scenic ferry crossing across northern Lake Biwa"
       ],
-      "notes": "FERRY ONLY: no road or rail reaches the island. Biwako Kisen runs the Nagahama route (~35 min each way, adult round trip ¥3,800) and the Imazu route (~25–30 min, ¥3,600), with roughly 85–90-minute landings; schedules vary by season and weather, and an island admission fee applies. The recommendedVisitHours cover time ON the island only — the crossing and any train to the port are transport.",
+      "notes": "FERRY ONLY: no road or rail reaches the island. Biwako Kisen operates seasonal routes from Nagahama and Imazu; ferry fares are transport, not admission, and an island admission fee applies separately. The recommended visit hours cover time on the island only; check the operator timetable and weather conditions before visiting.",
       "reservation": "Ferries run on fixed daily schedules that change by season; check the Biwako Kisen timetable before visiting.",
       "parking": "Use the ferry from Nagahama or Imazu; check the operator's port-access guidance for current parking.",
       "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
@@ -51,7 +51,7 @@
         "かわらけ投げの神事",
         "琵琶湖を横断する遊覧船の旅"
       ],
-      "notes": "島へはフェリーでのみアクセスできます（道路・鉄道なし）。琵琶湖汽船が長浜航路（片道約35分、大人往復3,800円）と今津航路（約25〜30分、3,600円）を運航し、上陸時間は約85〜90分。時期・天候によりダイヤが変わり、入島料が別途必要です。滞在時間は島内の体験時間のみで、航路や港までの移動は含みません。",
+      "notes": "島へはフェリーでのみアクセスできます（道路・鉄道なし）。琵琶湖汽船が長浜港・今津港から季節運航し、航路運賃は交通費であり入島料とは別です。入島料が別途必要で、滞在時間は島内の体験時間のみです。訪問前に公式時刻表と天候条件をご確認ください。",
       "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
       "parking": "可能な限り公共交通機関をご利用ください。駐車場の条件は公式案内をご確認ください。",
       "openingHours": "開館時間・休館日は変更される場合があるため、訪問前に公式案内をご確認ください。"
@@ -119,7 +119,7 @@
   },
   "reservation": "Ferries run on fixed daily schedules that change by season; check the Biwako Kisen timetable before visiting.",
   "parking": "Use the ferry from Nagahama or Imazu; check the operator's port-access guidance for current parking.",
-  "notes": "FERRY ONLY: no road or rail reaches the island. Biwako Kisen runs the Nagahama route (~35 min each way, adult round trip ¥3,800) and the Imazu route (~25–30 min, ¥3,600), with roughly 85–90-minute landings; schedules vary by season and weather, and an island admission fee applies. The recommendedVisitHours cover time ON the island only — the crossing and any train to the port are transport.",
+  "notes": "FERRY ONLY: no road or rail reaches the island. Biwako Kisen operates seasonal routes from Nagahama and Imazu; ferry fares are transport, not admission, and an island admission fee applies separately. The recommended visit hours cover time on the island only; check the operator timetable and weather conditions before visiting.",
   "notesJa": "島へはフェリーでのみアクセスできます（道路・鉄道なし）。琵琶湖汽船が長浜航路（片道約35分、大人往復3,800円）と今津航路（約25〜30分、3,600円）を運航し、上陸時間は約85〜90分。時期・天候によりダイヤが変わり、入島料が別途必要です。滞在時間は島内の体験時間のみで、航路や港までの移動は含みません。",
   "status": "verified",
   "travelEstimate": {
@@ -258,5 +258,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 600,
+      "max": 600
+    },
+    "scope": "whole_area",
+    "basis": "Official operator distinguishes the island admission fee of ¥600 from the required cruise fare; cruise remains transport and is excluded.",
+    "sourceUrls": ["https://www.biwakokisen.co.jp/cruise/chikubu/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

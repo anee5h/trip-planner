@@ -233,5 +233,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "exhibition_dependent_pricing",
+    "cost": {
+      "kind": "open_ended",
+      "from": 200
+    },
+    "scope": "general_entry",
+    "basis": "Official museum guide lists ¥200 collection/企画展 entry and separate exhibition conditions; no single annual exhibition envelope is promoted.",
+    "sourceUrls": ["https://www.fukuoka-art-museum.jp/guide/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

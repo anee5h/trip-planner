@@ -202,5 +202,20 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 700,
+      "max": 1200
+    },
+    "scope": "general_entry",
+    "basis": "Official observatory ticket calendar lists adult weekday ¥700 through peak-period ¥1,200; dated/seasonal pricing is preserved as a bounded range.",
+    "sourceUrls": ["https://sunshinecity.jp/observatory/ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

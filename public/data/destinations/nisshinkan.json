@@ -223,5 +223,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1800,
+      "max": 1800
+    },
+    "scope": "general_entry",
+    "basis": "Official facility fee table lists general adult entry at ¥1,800; experiences and meals excluded.",
+    "sourceUrls": ["https://www.nisshinkan.com/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

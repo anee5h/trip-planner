@@ -37,7 +37,6 @@
   "budgetMax": 4000,
   "budgetBreakdown": {
     "transport": 700,
-    "tickets": 0,
     "food": 800,
     "cafe": 500
   },
@@ -201,5 +200,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Official operator fee table lists general individual entry at ¥300; facility rentals and event charges excluded.",
+    "sourceUrls": ["https://www.iwagin-akarengakan.jp/redbrick/usage.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

@@ -208,5 +208,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "scope": "general_entry",
+    "basis": "Official operator sells dated exhibition tickets and product options; no single scalar is promoted.",
+    "sourceUrls": ["https://www.teamlab.art/e/borderless-azabudai/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "variable"
+    }
   }
 }

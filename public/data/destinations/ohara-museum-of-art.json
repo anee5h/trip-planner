@@ -85,7 +85,7 @@
   "weatherDependence": "low",
   "reservation": "Not required for individuals; group arrival notice smoothens ticket issuance; wheelchair/stroller rental by prior form",
   "parking": "No dedicated lot; use paid parking around the Bikan quarter",
-  "notes": "Closed for facility renovation Feb 9–Apr 24, 2026; reopened Apr 25, 2026. Annex long-term closed. Audio guide ¥600. ~15-min walk from JR Kurashiki Station through the Bikan quarter.",
+  "notes": "An optional audio guide is available. The museum reopened Apr 25, 2026 after facility renovation; check the official visitor page for current access conditions.",
   "notesJa": "【見どころ】大原美術館は中国地方の観光スポットです。訪問前に公式サイトで最新の営業情報をご確認ください。",
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
@@ -246,5 +246,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 2000,
+      "max": 2000
+    },
+    "scope": "general_entry",
+    "basis": "Official museum admission page lists general adult admission at ¥2,000 for the common museum ticket; special arrangements excluded.",
+    "sourceUrls": ["https://www.ohara.or.jp/visitor_info#please"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

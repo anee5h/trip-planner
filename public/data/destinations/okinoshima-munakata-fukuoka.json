@@ -167,5 +167,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity represents Sacred Island of Okinoshima and Associated Sites in Munakata as an open area, aggregate, worship site, transport facility, or event venue rather than one coherent required admission product. Optional rides, transport, events, donations, purchases, and separate facilities are excluded.",
+    "sourceUrls": ["https://www.okinoshima-heritage.jp/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

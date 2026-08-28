@@ -234,5 +234,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 800,
+      "max": 800
+    },
+    "scope": "general_entry",
+    "basis": "Official operator ticket table lists the standalone adult Sea Candle admission at ¥800; the garden, escalator, night, and set products are excluded.",
+    "sourceUrls": ["https://enoshima-seacandle.com/tickets/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

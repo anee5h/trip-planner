@@ -198,5 +198,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "legacy_provenance_unrecovered",
+    "cost": {
+      "kind": "unavailable",
+      "reason": "legacy_provenance_unrecovered"
+    },
+    "scope": "general_entry",
+    "basis": "Machida City Museum of Graphic Arts is a venue/activity identity where admission could conceptually exist, but the current authoritative evidence attempted did not establish a complete current adult general-entry fact without relying on legacy ticket values, optional products, or inaccessible/dynamic content.",
+    "sourceUrls": ["https://hanga-museum.jp/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

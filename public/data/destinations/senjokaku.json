@@ -20,7 +20,7 @@
     "Important Cultural Property",
     "Hideyoshi"
   ],
-  "description": "Senjokaku, the thousand-mat hall, is a vast unfinished hall begun in 1587 at Toyotomi Hideyoshi's order to recite sutras for fallen warriors; it was never completed. It is designated an Important Cultural Property (not a National Treasure) and houses a large image of Hideyoshi plus a sacred mount. It is managed by nearby Toyokuni Shrine; admission is ¥100 (¥50 for children), open 08:30–16:30.",
+  "description": "Senjokaku, the thousand-mat hall, is a vast unfinished hall begun in 1587 at Toyotomi Hideyoshi's order to recite sutras for fallen warriors; it was never completed. It is designated an Important Cultural Property (not a National Treasure) and houses a large image of Hideyoshi plus a sacred mount. It is managed by nearby Toyokuni Shrine; admission is ¥300 for adults (children are charged separately), open 08:30–16:30.",
   "highlights": [
     "Unfinished 1587 hall built by Hideyoshi's order",
     "Thousand-mat interior with Hideyoshi statue",
@@ -40,7 +40,6 @@
   "budgetMax": 1500,
   "budgetBreakdown": {
     "transport": 200,
-    "tickets": 100,
     "food": 400,
     "cafe": 200
   },
@@ -95,20 +94,20 @@
   "content": {
     "en": {
       "name": "Senjokaku (Toyokuni Shrine)",
-      "description": "Senjokaku, the thousand-mat hall, is a vast unfinished hall begun in 1587 at Toyotomi Hideyoshi's order to recite sutras for fallen warriors; it was never completed. It is designated an Important Cultural Property (not a National Treasure) and houses a large image of Hideyoshi plus a sacred mount. It is managed by nearby Toyokuni Shrine; admission is ¥100 (¥50 for children), open 08:30–16:30.",
+      "description": "Senjokaku, the thousand-mat hall, is a vast unfinished hall begun in 1587 at Toyotomi Hideyoshi's order to recite sutras for fallen warriors; it was never completed. It is designated an Important Cultural Property (not a National Treasure) and houses a large image of Hideyoshi plus a sacred mount. It is managed by nearby Toyokuni Shrine; admission is ¥300 for adults (children are charged separately), open 08:30–16:30.",
       "highlights": [
         "Unfinished 1587 hall built by Hideyoshi's order",
         "Thousand-mat interior with Hideyoshi statue",
-        "Important Cultural Property; ¥100 entry"
+        "Important Cultural Property; ¥300 adult entry"
       ]
     },
     "ja": {
       "name": "千畳閣（豊国神社）",
-      "description": "千畳閣は、1587年に豊臣秀吉が戦没者供養のために建立を命じた未完成の大広間で、畳千枚分の広さからその名がつきました。重要文化財に指定され、内部には秀吉の木像や神輿を安置します。豊国神社が管理し、拝観料は大人100円・小中学生50円、8:30〜16:30に拝観できます。",
+      "description": "千畳閣は、1587年に豊臣秀吉が戦没者供養のために建立を命じた未完成の大広間で、畳千枚分の広さからその名がつきました。重要文化財に指定され、内部には秀吉の木像や神輿を安置します。豊国神社が管理し、拝観料は大人300円（小中学生は別料金）、8:30〜16:30に拝観できます。",
       "highlights": [
         "秀吉が建立を命じた未完成の大広間",
         "畳千枚の内部と秀吉像",
-        "重要文化財・拝観100円"
+        "重要文化財・大人拝観300円"
       ]
     }
   },
@@ -189,5 +188,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 300,
+      "max": 300
+    },
+    "scope": "general_entry",
+    "basis": "Official Itsukushima admission page lists Senjokaku/Treasure Hall adult admission at ¥300; shrine and combined products excluded.",
+    "sourceUrls": ["https://itsukushimajinja.jp/en/admission.html"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

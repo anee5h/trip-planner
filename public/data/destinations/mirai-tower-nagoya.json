@@ -62,7 +62,6 @@
   "description": "Completed in 1954 as Japan's first TV broadcasting tower, this 180-meter Registered Tangible Cultural Property in Nagoya's Hisaya-odori Park features outdoor observation decks and projection mapping art.",
   "budgetBreakdown": {
     "transport": 1400,
-    "tickets": 1517,
     "food": 3150,
     "cafe": 933
   },
@@ -136,5 +135,19 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 1300,
+      "max": 1300
+    },
+    "scope": "general_entry",
+    "basis": "Official tower fee table lists individual adult admission at ¥1,300; discounts and group rates excluded.",
+    "sourceUrls": ["https://www.nagoya-tv-tower.co.jp/fee/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

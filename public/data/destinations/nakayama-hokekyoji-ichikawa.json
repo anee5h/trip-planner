@@ -279,5 +279,18 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The catalogue identity is the open worship grounds of Nakayama Hokekyo-ji Temple; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product.",
+    "sourceUrls": ["https://hokekyoji2101.wixsite.com/nakayama"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

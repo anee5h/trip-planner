@@ -199,5 +199,19 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "cost": {
+      "kind": "bounded",
+      "min": 310,
+      "max": 310
+    },
+    "scope": "general_entry",
+    "basis": "Official museum fee table lists general individual admission at ¥310; group and special-event discounts excluded.",
+    "sourceUrls": ["https://www.bonsai-art-museum.jp/ja/access/#admission"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

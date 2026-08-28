@@ -216,5 +216,18 @@
     "method": "legacy",
     "confidence": "unknown",
     "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "scope": "general_entry",
+    "basis": "Official operator publishes multiple dated ticket/pass products and seasonal park conditions.",
+    "sourceUrls": ["https://english.huistenbosch.co.jp/ticket/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "variable"
+    }
   }
 }

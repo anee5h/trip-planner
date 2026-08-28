@@ -200,5 +200,20 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_date",
+    "cost": {
+      "kind": "bounded",
+      "min": 1000,
+      "max": 1200
+    },
+    "scope": "general_entry",
+    "basis": "Official tower table lists weekday adult day admission at ¥1,000 and weekend/holiday at ¥1,200; web discounts excluded.",
+    "sourceUrls": ["https://marinetower.yokohama/price-hours/"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12
   }
 }

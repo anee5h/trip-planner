@@ -312,5 +312,18 @@
       }
     ]
   },
-  "addedAt": "2026-08-22"
+  "addedAt": "2026-08-22",
+  "admission": {
+    "state": "variable_price",
+    "provenance": "verified_source",
+    "reasonCode": "price_variable_by_product",
+    "scope": "general_entry",
+    "basis": "Official operator publishes product-specific attraction/ticket options; no single canonical adult scalar is promoted.",
+    "sourceUrls": ["https://junglia.jp/en/ticket"],
+    "checkedAt": "2026-08-28",
+    "reviewIntervalMonths": 12,
+    "cost": {
+      "kind": "variable"
+    }
+  }
 }
