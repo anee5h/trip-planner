@@ -225,5 +225,19 @@
     "sourceUrls": ["https://inari.jp/en/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [150, 150],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://inari.jp/en/access/",
+      "https://www.jr-odekake.net/railroad/mydia/"
+    ],
+    "basis": "Kyoto → Inari on JR West is ¥150 ordinary adult one-way; the official shrine access page states Inari Station is immediately adjacent to Fushimi Inari.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

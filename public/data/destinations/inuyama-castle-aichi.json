@@ -136,5 +136,19 @@
     "sourceUrls": ["https://inuyama-castle.jp/guidance/"],
     "checkedAt": "2026-08-27",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [630, 630],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://inuyamajo.jp/visit/access/",
+      "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=犬山&start=00004372&orvName=名鉄名古屋&goal=00002086"
+    ],
+    "basis": "Meitetsu Nagoya → Inuyama is ¥630 ordinary adult one-way; Inuyama Castle's official access page identifies Inuyama Station as the access point followed by the walk to the castle.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

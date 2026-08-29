@@ -247,5 +247,19 @@
     "sourceUrls": ["https://www.fukuoka-art-museum.jp/guide/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [260, 260],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://www.fukuoka-art-museum.jp/en/guide/access/",
+      "https://fukuoka-city-subway.jorudan.biz/pc/en/faresult?mode=5&skbn=1&fr=Hakata&frkbn=4&frsk=R&to=Ohori%20Park&tokbn=4&tosk=R&dt=202608290000&lg=1&p=19"
+    ],
+    "basis": "Hakata K11/N18 → Ohorikoen K06 on Fukuoka City Subway is ¥260 ordinary adult one-way; Ohorikoen is the museum's official station access point followed by the free museum walk.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

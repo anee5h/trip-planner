@@ -205,5 +205,19 @@
     "sourceUrls": ["https://www.tcmit.org/visit/admission/"],
     "checkedAt": "2026-08-27",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [180, 180],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://www.tcmit.org/english/visit/access/",
+      "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=栄生&start=00004372&orvName=名鉄名古屋&goal=00000654"
+    ],
+    "basis": "Meitetsu Nagoya → Sako is ¥180 ordinary adult one-way; the museum's official access page places the museum three minutes on foot from Sako Station.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -218,5 +218,21 @@
     "sourceUrls": ["http://www.heianjingu.or.jp/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "mixed",
+    "fare": [230, 260],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://www.heianjingu.or.jp/access/",
+      "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+      "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html",
+      "https://www.city.kyoto.lg.jp/kotsu/page/0000163781.html"
+    ],
+    "basis": "From Kyoto Station, the official Heian Jingu access routes are Kyoto City Bus No. 5 at ¥230 or the Kyoto Municipal Subway route to Higashiyama at ¥260; both include the complete selected paid access followed by the official free walk.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

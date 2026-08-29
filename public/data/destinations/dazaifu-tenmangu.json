@@ -213,5 +213,20 @@
     "sourceUrls": ["https://www.dazaifutenmangu.or.jp/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "bus",
+    "fare": [780, 800],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://www.dazaifutenmangu.or.jp/en/plan/getting-to-dazaifu-tenmangu/",
+      "https://www.dazaifutenmangu.or.jp/en/plan/faq/",
+      "https://www.nishitetsu.jp/en/bus/dazaihu_liner.html"
+    ],
+    "basis": "Hakata Bus Terminal → Dazaifu by the official Dazaifu Liner Bus Tabito is ¥800 cash or ¥780 by transport IC/credit card; Dazaifu Station is the official shrine access endpoint followed by a free walk.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

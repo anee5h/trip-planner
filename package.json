@@ -34,6 +34,8 @@
     "check:kai-219e2": "vitest run scripts/audit/__tests__/kai-219e2-tooling.test.ts",
     "migrate:kai-219e2": "tsx --tsconfig tsconfig.app.json scripts/kai-219e2-admission-cohort.ts --write",
     "check:kai-250": "vitest run scripts/audit/__tests__/kai-250-tooling.test.ts",
+    "check:kai-251": "vitest run scripts/audit/__tests__/kai-251-tooling.test.ts",
+    "migrate:kai-251": "tsx --tsconfig tsconfig.app.json scripts/kai-251-local-transport-cohort.ts --write",
     "migrate:kai-250": "tsx --tsconfig tsconfig.app.json scripts/kai-250-local-transport-cohort.ts --write",
     "check:kai-219-benchmark": "vitest run scripts/audit/__tests__/kai-219-five-origin-benchmark.test.ts",
     "check:kai-203": "tsx scripts/audit-kai-203-destination-completeness.ts --strict",

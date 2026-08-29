@@ -224,5 +224,20 @@
     "sourceUrls": ["https://osakastationcity.com/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [180, 180],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://osakastationcity.com/map/train/",
+      "https://osakastationcity.com/map/",
+      "https://www.jr-odekake.net/railroad/mydia/"
+    ],
+    "basis": "Shin-Osaka → Osaka on JR West is ¥180 ordinary adult one-way; Osaka Station City is at the Osaka Station endpoint shown by its official rail-access map.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

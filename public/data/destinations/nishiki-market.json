@@ -223,5 +223,20 @@
     "basis": "Nishiki Market: public market street, free to walk (official association site)",
     "sourceUrls": ["http://www.kyoto-nishiki.or.jp/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "mixed",
+    "fare": [220, 230],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://www.kyoto-nishiki.or.jp/en/access/",
+      "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+      "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html"
+    ],
+    "basis": "From Kyoto Station, the official Nishiki Market access routes are Kyoto Municipal Subway to Shijo at ¥220 or Kyoto City Bus to Shijo Takakura at ¥230; both are complete paid access routes followed by the official short walk.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }
