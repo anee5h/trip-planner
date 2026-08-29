@@ -100,10 +100,16 @@ function assert(condition, message) {
 
 function assertGa4DocumentShell(result, label) {
   const loaderCount = result.body.split(GA4_URL).length - 1;
-  const initCount = result.body.split('src="/ga4-init.js"').length - 1;
+  const inlineInitializerCount = [
+    ...result.body.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi),
+  ].filter(([, body]) =>
+    body?.includes("window.dataLayer = window.dataLayer || [];"),
+  ).length;
   assert(
-    loaderCount === 1 && initCount === 1,
-    `${label} contains one static GA4 loader and one init reference (got ${loaderCount}/${initCount})`,
+    loaderCount === 1 &&
+      inlineInitializerCount === 1 &&
+      !result.body.includes("/ga4-init.js"),
+    `${label} contains one static GA4 loader and one inline initializer (got ${loaderCount}/${inlineInitializerCount})`,
   );
 }
 

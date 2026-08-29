@@ -1,13 +1,12 @@
 const LOCAL_ASSET_REFERENCE = /^\/?assets\//;
 const GOOGLE_TAG_REFERENCE = "https://www.googletagmanager.com/";
-const GA4_INIT_REFERENCE = /^\/ga4-init\.js(?:[?#].*)?$/;
 
 /**
  * Return only local Vite asset references from the document shell.
  *
- * The HTML shell also contains legitimate non-bundle scripts, such as the
- * Google tag loader and the same-origin GA4 initializer. They are deliberately
- * excluded from the Vite bundle graph; unexpected references still fail closed.
+ * The HTML shell also contains the legitimate non-bundle Google tag loader.
+ * It is deliberately excluded from the Vite bundle graph; unexpected local
+ * references still fail closed.
  */
 export function readAssetsIndex(html) {
   const urls = [];
@@ -18,10 +17,7 @@ export function readAssetsIndex(html) {
       return;
     }
 
-    if (
-      reference.startsWith(GOOGLE_TAG_REFERENCE) ||
-      GA4_INIT_REFERENCE.test(reference)
-    ) {
+    if (reference.startsWith(GOOGLE_TAG_REFERENCE)) {
       return;
     }
 
