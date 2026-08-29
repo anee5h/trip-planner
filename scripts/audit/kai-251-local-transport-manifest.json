@@ -1,0 +1,463 @@
+[
+  {
+    "id": "atsuta-shrine-nagoya",
+    "identity": { "name": "Atsuta Shrine (Nagoya)", "role": "poi" },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Nagoya Station / Meitetsu Nagoya Station",
+    "exactAccessEvidence": "Atsuta Shrine's official visitor information states that the shrine is three minutes on foot from Meitetsu Jingumae Station. The official Meitetsu route result gives Meitetsu Nagoya to Jingumae as an ordinary adult fare of ¥250.",
+    "sourceUrls": [
+      "https://atsutajingu.or.jp/en/vis/",
+      "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=神宮前&start=00004372&orvName=名鉄名古屋&goal=00004438"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The selected Meitetsu route reaches the shrine's official Jingumae access station; the final three-minute walk is free and no duplicate intercity leg is included.",
+    "excludedOptionalOrPaidAccess": "JR Atsuta and Subway Jingu-Nishi are alternative approaches, not additional required legs.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [250, 250],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://atsutajingu.or.jp/en/vis/",
+        "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=神宮前&start=00004372&orvName=名鉄名古屋&goal=00004438"
+      ],
+      "basis": "Canonical arrival is Nagoya Station; Meitetsu Nagoya → Jingumae is ¥250 ordinary adult one-way, and Atsuta Shrine's official access page places the shrine three minutes on foot from Jingumae Station.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "dazaifu-tenmangu",
+    "identity": {
+      "name": "Dazaifu Tenmangu Shrine",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Hakata Station / Fukuoka intercity arrival",
+    "exactAccessEvidence": "Dazaifu Tenmangu's official access and FAQ pages identify Dazaifu Station as the pedestrian endpoint. Nishitetsu's official Dazaifu Liner Bus Tabito fare page lists Hakata Bus Terminal–Dazaifu at ¥800 cash or ¥780 by transport IC/credit card.",
+    "sourceUrls": [
+      "https://www.dazaifutenmangu.or.jp/en/plan/getting-to-dazaifu-tenmangu/",
+      "https://www.dazaifutenmangu.or.jp/en/plan/faq/",
+      "https://www.nishitetsu.jp/en/bus/dazaihu_liner.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The selected direct bus starts at the canonical Hakata arrival and reaches Dazaifu, followed by the shrine's free station walk; the fare range is payment-method variation, not fabricated uncertainty.",
+    "excludedOptionalOrPaidAccess": "Nishitetsu rail via Tenjin and taxi are optional alternatives and are not added to the direct-bus fare.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "bus",
+      "fare": [780, 800],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.dazaifutenmangu.or.jp/en/plan/getting-to-dazaifu-tenmangu/",
+        "https://www.dazaifutenmangu.or.jp/en/plan/faq/",
+        "https://www.nishitetsu.jp/en/bus/dazaihu_liner.html"
+      ],
+      "basis": "Hakata Bus Terminal → Dazaifu by the official Dazaifu Liner Bus Tabito is ¥800 cash or ¥780 by transport IC/credit card; Dazaifu Station is the official shrine access endpoint followed by a free walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "fukuoka-art-museum",
+    "identity": {
+      "name": "Fukuoka Art Museum",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Hakata Station",
+    "exactAccessEvidence": "Fukuoka Art Museum's official access page identifies Ohorikoen Station K06 as the subway access point and describes the walk to the museum. Fukuoka City Subway's official route/fare search returns Hakata K11/N18 to Ohorikoen K06 at ¥260 for an ordinary adult one-way fare.",
+    "sourceUrls": [
+      "https://www.fukuoka-art-museum.jp/en/guide/access/",
+      "https://fukuoka-city-subway.jorudan.biz/pc/en/faresult?mode=5&skbn=1&fr=Hakata&frkbn=4&frsk=R&to=Ohori%20Park&tokbn=4&tosk=R&dt=202608290000&lg=1&p=19"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The selected subway route runs from Hakata to the official Ohorikoen access station; the museum approach is free walking and optional bus alternatives are excluded.",
+    "excludedOptionalOrPaidAccess": "Nishitetsu bus approaches are alternatives and are not combined with the subway fare.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [260, 260],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.fukuoka-art-museum.jp/en/guide/access/",
+        "https://fukuoka-city-subway.jorudan.biz/pc/en/faresult?mode=5&skbn=1&fr=Hakata&frkbn=4&frsk=R&to=Ohori%20Park&tokbn=4&tosk=R&dt=202608290000&lg=1&p=19"
+      ],
+      "basis": "Hakata K11/N18 → Ohorikoen K06 on Fukuoka City Subway is ¥260 ordinary adult one-way; Ohorikoen is the museum's official station access point followed by the free museum walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "fushimi-inari-taisha",
+    "identity": {
+      "name": "Fushimi Inari Taisha",
+      "kind": "museum",
+      "role": "destination"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Kyoto Station",
+    "exactAccessEvidence": "Fushimi Inari's official access page states that JR Inari Station is immediately adjacent and is two stations/five minutes from Kyoto Station. JR West's official My-Dia fare search gives Kyoto–Inari at ¥150 for an ordinary adult one-way fare.",
+    "sourceUrls": [
+      "https://inari.jp/en/access/",
+      "https://www.jr-odekake.net/railroad/mydia/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "JR Inari is the canonical Kyoto-Station route and the station-adjacent shrine access completes the selected paid local leg without a duplicate origin journey.",
+    "excludedOptionalOrPaidAccess": "Keihan Fushimi-inari is an alternative arrival context and is not merged into the Kyoto Station fact.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [150, 150],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://inari.jp/en/access/",
+        "https://www.jr-odekake.net/railroad/mydia/"
+      ],
+      "basis": "Kyoto → Inari on JR West is ¥150 ordinary adult one-way; the official shrine access page states Inari Station is immediately adjacent to Fushimi Inari.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "heian-jingu",
+    "identity": {
+      "name": "Heian Jingu",
+      "kind": "shrine",
+      "role": "destination"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Kyoto Station",
+    "exactAccessEvidence": "Heian Jingu's official access page gives the Kyoto Station bus route to Okazaki Park/Heian Jingu-mae followed by a five-minute walk, and the Kyoto subway alternative to Higashiyama followed by a ten-minute walk. Kyoto official fare pages give ¥230 for the bus and ¥260 for the subway route.",
+    "sourceUrls": [
+      "https://www.heianjingu.or.jp/access/",
+      "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+      "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html",
+      "https://www.city.kyoto.lg.jp/kotsu/page/0000163781.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The fact is explicitly scoped to Kyoto Station and preserves the two official ordinary-adult route prices as a bounded envelope; each selected route reaches the official destination access area and then uses a free walk.",
+    "excludedOptionalOrPaidAccess": "Keihan and other unscoped approaches are alternatives, not duplicate required legs.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "mixed",
+      "fare": [230, 260],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.heianjingu.or.jp/access/",
+        "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+        "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html",
+        "https://www.city.kyoto.lg.jp/kotsu/page/0000163781.html"
+      ],
+      "basis": "From Kyoto Station, the official Heian Jingu access routes are Kyoto City Bus No. 5 at ¥230 or the Kyoto Municipal Subway route to Higashiyama at ¥260; both include the complete selected paid access followed by the official free walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "inuyama-castle-aichi",
+    "identity": {
+      "name": "Inuyama Castle (National Treasure Keep)",
+      "kind": "castle",
+      "role": "poi"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Nagoya Station / Meitetsu Nagoya Station",
+    "exactAccessEvidence": "Inuyama Castle's official access page identifies Inuyama Station as the Meitetsu access point and the castle walk. The official Meitetsu route result gives Meitetsu Nagoya to Inuyama as ¥630 ordinary adult one-way.",
+    "sourceUrls": [
+      "https://inuyamajo.jp/visit/access/",
+      "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=犬山&start=00004372&orvName=名鉄名古屋&goal=00002086"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "Meitetsu Nagoya to Inuyama reaches the official castle access station, followed by the documented free walk; the local route is separate from intercity arrival and is not double-counted.",
+    "excludedOptionalOrPaidAccess": "Taxi and other approaches are optional alternatives.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [630, 630],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://inuyamajo.jp/visit/access/",
+        "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=犬山&start=00004372&orvName=名鉄名古屋&goal=00002086"
+      ],
+      "basis": "Meitetsu Nagoya → Inuyama is ¥630 ordinary adult one-way; Inuyama Castle's official access page identifies Inuyama Station as the access point followed by the walk to the castle.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "kuromon-market",
+    "identity": {
+      "name": "Kuromon Market",
+      "kind": "market",
+      "role": "destination"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station",
+    "exactAccessEvidence": "Kuromon Market's official access page identifies Osaka Metro Nipponbashi Station Exit 10 as the access point. Osaka Metro's official route/fare search gives Shin-Osaka to Nipponbashi at ¥290 for an ordinary adult one-way fare.",
+    "sourceUrls": [
+      "https://kuromon.com/en/access/",
+      "https://kensaku.osakametro.co.jp/route/ja/web/dia/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The selected subway route reaches the market's official Nipponbashi Exit 10 access point and the remaining approach is free walking.",
+    "excludedOptionalOrPaidAccess": "Namba and other market approaches are optional alternatives.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [290, 290],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://kuromon.com/en/access/",
+        "https://kensaku.osakametro.co.jp/route/ja/web/dia/"
+      ],
+      "basis": "Shin-Osaka → Nipponbashi on Osaka Metro is ¥290 ordinary adult one-way; the market's official access page names Nipponbashi Exit 10 followed by a free walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "nishiki-market",
+    "identity": {
+      "name": "Nishiki Market",
+      "kind": "market",
+      "role": "destination"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Kyoto Station",
+    "exactAccessEvidence": "Nishiki Market's official access page gives the Kyoto Station bus approach to Shijo Takakura and the Shijo subway approach, each followed by a short walk. Kyoto official fare pages give ¥230 for the city bus and ¥220 for the municipal subway.",
+    "sourceUrls": [
+      "https://www.kyoto-nishiki.or.jp/en/access/",
+      "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+      "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The fare envelope is explicitly scoped from Kyoto Station and covers either official paid local approach in full, with only the official free walk remaining.",
+    "excludedOptionalOrPaidAccess": "Kawaramachi, Keihan, and other station approaches are alternatives and are not added to the envelope.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "mixed",
+      "fare": [220, 230],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.kyoto-nishiki.or.jp/en/access/",
+        "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+        "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html"
+      ],
+      "basis": "From Kyoto Station, the official Nishiki Market access routes are Kyoto Municipal Subway to Shijo at ¥220 or Kyoto City Bus to Shijo Takakura at ¥230; both are complete paid access routes followed by the official short walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "osaka-station-city",
+    "identity": {
+      "name": "Osaka Station City",
+      "kind": "museum",
+      "role": "destination"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station",
+    "exactAccessEvidence": "Osaka Station City's official rail-access page maps the route from Shin-Osaka Shinkansen arrival to Osaka Station City at Osaka Station. JR West's official My-Dia fare search gives Shin-Osaka to Osaka at ¥180 for an ordinary adult one-way fare.",
+    "sourceUrls": [
+      "https://osakastationcity.com/map/train/",
+      "https://osakastationcity.com/map/",
+      "https://www.jr-odekake.net/railroad/mydia/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "Osaka Station is the paid feeder endpoint for the Shin-Osaka canonical hub, while Osaka Station City is directly connected there; no additional paid local segment is required.",
+    "excludedOptionalOrPaidAccess": "The Shinkansen/intercity leg to Shin-Osaka is not included in this local fact.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [180, 180],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://osakastationcity.com/map/train/",
+        "https://osakastationcity.com/map/",
+        "https://www.jr-odekake.net/railroad/mydia/"
+      ],
+      "basis": "Shin-Osaka → Osaka on JR West is ¥180 ordinary adult one-way; Osaka Station City is at the Osaka Station endpoint shown by its official rail-access map.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "sumiyoshi-taisha",
+    "identity": {
+      "name": "Sumiyoshi Taisha Grand Shrine",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station",
+    "exactAccessEvidence": "Sumiyoshi Taisha's official access page identifies Nankai Sumiyoshitaisha Station as a three-minute walk from the shrine. Official Osaka Metro and Nankai fare searches give Shin-Osaka to Namba at ¥290 and Namba to Sumiyoshitaisha at ¥240, respectively.",
+    "sourceUrls": [
+      "https://www.sumiyoshitaisha.net/access/",
+      "https://kensaku.osakametro.co.jp/route/ja/web/dia/",
+      "https://www.nankai.co.jp/traffic/station/sumiyoshitaisha.html",
+      "https://kensaku.nankai.co.jp/pc/U1"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The selected Shin-Osaka → Namba → Sumiyoshitaisha chain includes both required paid local rail legs and ends at the official station access point; the shrine walk is free.",
+    "excludedOptionalOrPaidAccess": "Hankai, JR, bus, and other approaches are alternatives and are not double-counted.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [530, 530],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.sumiyoshitaisha.net/access/",
+        "https://kensaku.osakametro.co.jp/route/ja/web/dia/",
+        "https://www.nankai.co.jp/traffic/station/sumiyoshitaisha.html",
+        "https://kensaku.nankai.co.jp/pc/U1"
+      ],
+      "segmentNotes": "Canonical one-way total is Osaka Metro Shin-Osaka → Namba ¥290 plus Nankai Namba → Sumiyoshitaisha ¥240; no through-fare is assumed.",
+      "basis": "The two required ordinary adult one-way fares are Shin-Osaka → Namba ¥290 and Namba → Sumiyoshitaisha ¥240, totaling ¥530 to the station named by the shrine's official access page.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "tokyo-tower-minato",
+    "identity": { "name": "Tokyo Tower" },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Shinagawa Station",
+    "exactAccessEvidence": "Tokyo Tower's official access page lists Daimon Station Exit A6 and the ten-minute walk to the tower. The official Tokyo Metro route search gives Shinagawa to Daimon via Keikyu Main Line and Toei Asakusa Line at ¥310 ordinary adult one-way.",
+    "sourceUrls": [
+      "https://en.tokyotower.co.jp/access/",
+      "https://transfer.tokyometro.jp/?lang=en"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The fact selects the official Daimon access route from the repository's Tokyo:Minato/Shinagawa hub and includes the final free walk; it does not claim to price every station or transport mode.",
+    "excludedOptionalOrPaidAccess": "Onarimon, bus, free shuttle, taxi, and parking are alternative access products and are excluded from the selected route.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [310, 310],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://en.tokyotower.co.jp/access/",
+        "https://transfer.tokyometro.jp/?lang=en"
+      ],
+      "basis": "Shinagawa → Daimon via Keikyu Main Line and Toei Asakusa Line is ¥310 ordinary adult one-way; Tokyo Tower's official access page names Daimon Exit A6 followed by the free ten-minute walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "toyota-commemorative-museum-of-industry-and-technology",
+    "identity": {
+      "name": "Toyota Commemorative Museum of Industry and Technology",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "author",
+    "canonicalArrivalAccessPoint": "Nagoya Station",
+    "exactAccessEvidence": "The museum's official access page states that it is three minutes on foot from Meitetsu Sako Station. The official Meitetsu route result gives Meitetsu Nagoya to Sako as ¥180 ordinary adult one-way.",
+    "sourceUrls": [
+      "https://www.tcmit.org/english/visit/access/",
+      "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=栄生&start=00004372&orvName=名鉄名古屋&goal=00000654"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The selected Meitetsu route reaches Sako, the museum's official rail access point, followed by the documented free walk; the separate sightseeing bus and taxi are not required additions.",
+    "excludedOptionalOrPaidAccess": "Me~guru bus and taxi from Nagoya Station are alternative routes and are not added to the rail fare.",
+    "fact": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [180, 180],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.tcmit.org/english/visit/access/",
+        "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=栄生&start=00004372&orvName=名鉄名古屋&goal=00000654"
+      ],
+      "basis": "Meitetsu Nagoya → Sako is ¥180 ordinary adult one-way; the museum's official access page places the museum three minutes on foot from Sako Station.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "sapporo-beer-museum",
+    "identity": {
+      "name": "Sapporo Beer Museum",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "defer_f3",
+    "canonicalArrivalAccessPoint": "Sapporo Station",
+    "exactAccessEvidence": "The museum operator's current page documents JR Naebo Station followed by an eight-minute walk and bus routes from Sapporo Station, but the current authoritative materials checked did not provide a retained route-specific ordinary adult fare from the canonical arrival.",
+    "sourceUrls": ["https://www.sapporobeer.jp/english/brewery/s_museum/"],
+    "deferredCohort": "F3",
+    "residualReason": "fare_unavailable",
+    "reason": "Fare not found in the current authoritative route/fare materials; no number is fabricated from a legacy value or distance estimate."
+  },
+  {
+    "id": "tokyo-skytree-sumida",
+    "identity": { "name": "Tokyo Skytree" },
+    "decision": "defer_f3",
+    "canonicalArrivalAccessPoint": "Tokyo-area intercity arrival; exact local access point unresolved",
+    "sourceUrls": [
+      "https://en.tokyo-skytree.jp/access/public-transport/",
+      "https://transfer.tokyometro.jp/?lang=en"
+    ],
+    "deferredCohort": "F3",
+    "residualReason": "ambiguous_canonical_arrival",
+    "reason": "The official route can price Tokyo Station to Oshiage at ¥380, but the catalogue has no canonical Tokyo:sumida arrival hub. Authoring against an invented Tokyo Station default would flatten unresolved topology."
+  },
+  {
+    "id": "meiji-jingu",
+    "identity": { "name": "Meiji Jingu", "kind": "shrine", "role": "poi" },
+    "decision": "defer_f3",
+    "canonicalArrivalAccessPoint": "Tokyo Station for Tokyo:Shibuya intercity arrival",
+    "sourceUrls": [
+      "https://www.meijijingu.or.jp/en/access/",
+      "https://www.meijijingu.or.jp/en/qa/"
+    ],
+    "deferredCohort": "F3",
+    "residualReason": "context_dependent_access",
+    "reason": "The official access map lists multiple entrances and station contexts plus at least another ten-minute grounds walk; no single destination-scoped fare is truthful without resolving the catalogue's Tokyo:shibuya arrival mapping."
+  },
+  {
+    "id": "tsukiji-outer-market",
+    "identity": {
+      "name": "Tsukiji Outer Market",
+      "kind": "market",
+      "role": "poi"
+    },
+    "decision": "defer_f3",
+    "canonicalArrivalAccessPoint": "Tokyo Station for Tokyo:Chuo intercity arrival",
+    "sourceUrls": [
+      "https://www.tsukiji.or.jp/english/access/",
+      "https://transfer.tokyometro.jp/?lang=en"
+    ],
+    "deferredCohort": "F3",
+    "residualReason": "context_dependent_access",
+    "reason": "The official market page lists multiple station entrances and Tokyo Station bus routes. A rail-only ¥180 route exists, but the current all-mode requirement does not permit presenting it as universal without selecting and recording the canonical access mode."
+  }
+]

@@ -218,5 +218,19 @@
     "sourceUrls": ["https://kuromon.com/en/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [290, 290],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://kuromon.com/en/access/",
+      "https://kensaku.osakametro.co.jp/route/ja/web/dia/"
+    ],
+    "basis": "Shin-Osaka → Nipponbashi on Osaka Metro is ¥290 ordinary adult one-way; the market's official access page names Nipponbashi Exit 10 followed by a free walk.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -135,5 +135,19 @@
     "sourceUrls": ["https://www.atsutajingu.or.jp/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [250, 250],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://atsutajingu.or.jp/en/vis/",
+      "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=神宮前&start=00004372&orvName=名鉄名古屋&goal=00004438"
+    ],
+    "basis": "Canonical arrival is Nagoya Station; Meitetsu Nagoya → Jingumae is ¥250 ordinary adult one-way, and Atsuta Shrine's official access page places the shrine three minutes on foot from Jingumae Station.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

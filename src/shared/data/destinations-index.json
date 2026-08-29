@@ -5831,6 +5831,23 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        250,
+        250
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://atsutajingu.or.jp/en/vis/",
+        "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=神宮前&start=00004372&orvName=名鉄名古屋&goal=00004438"
+      ],
+      "basis": "Canonical arrival is Nagoya Station; Meitetsu Nagoya → Jingumae is ¥250 ordinary adult one-way, and Atsuta Shrine's official access page places the shrine three minutes on foot from Jingumae Station.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -17150,6 +17167,23 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        260,
+        260
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.fukuoka-art-museum.jp/en/guide/access/",
+        "https://fukuoka-city-subway.jorudan.biz/pc/en/faresult?mode=5&skbn=1&fr=Hakata&frkbn=4&frsk=R&to=Ohori%20Park&tokbn=4&tosk=R&dt=202608290000&lg=1&p=19"
+      ],
+      "basis": "Hakata K11/N18 → Ohorikoen K06 on Fukuoka City Subway is ¥260 ordinary adult one-way; Ohorikoen is the museum's official station access point followed by the free museum walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -19024,6 +19058,23 @@
         "https://inari.jp/en/"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        150,
+        150
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://inari.jp/en/access/",
+        "https://www.jr-odekake.net/railroad/mydia/"
+      ],
+      "basis": "Kyoto → Inari on JR West is ¥150 ordinary adult one-way; the official shrine access page states Inari Station is immediately adjacent to Fushimi Inari.",
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -25775,6 +25826,25 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "mixed",
+      "fare": [
+        230,
+        260
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.heianjingu.or.jp/access/",
+        "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+        "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html",
+        "https://www.city.kyoto.lg.jp/kotsu/page/0000163781.html"
+      ],
+      "basis": "From Kyoto Station, the official Heian Jingu access routes are Kyoto City Bus No. 5 at ¥230 or the Kyoto Municipal Subway route to Higashiyama at ¥260; both include the complete selected paid access followed by the official free walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
     {
@@ -31486,6 +31556,23 @@
         "https://inuyama-castle.jp/guidance/"
       ],
       "checkedAt": "2026-08-27",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        630,
+        630
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://inuyamajo.jp/visit/access/",
+        "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=犬山&start=00004372&orvName=名鉄名古屋&goal=00002086"
+      ],
+      "basis": "Meitetsu Nagoya → Inuyama is ¥630 ordinary adult one-way; Inuyama Castle's official access page identifies Inuyama Station as the access point followed by the walk to the castle.",
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -48555,6 +48642,23 @@
         "https://kuromon.com/en/"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        290,
+        290
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://kuromon.com/en/access/",
+        "https://kensaku.osakametro.co.jp/route/ja/web/dia/"
+      ],
+      "basis": "Shin-Osaka → Nipponbashi on Osaka Metro is ¥290 ordinary adult one-way; the market's official access page names Nipponbashi Exit 10 followed by a free walk.",
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -68671,6 +68775,24 @@
         "http://www.kyoto-nishiki.or.jp/"
       ],
       "checkedAt": "2026-08-28"
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "mixed",
+      "fare": [
+        220,
+        230
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.kyoto-nishiki.or.jp/en/access/",
+        "https://www2.city.kyoto.lg.jp/kotsu/webguide/ja/fare/fare_bus.html",
+        "https://www.city.kyoto.lg.jp/kotsu/page/0000240757.html"
+      ],
+      "basis": "From Kyoto Station, the official Nishiki Market access routes are Kyoto Municipal Subway to Shijo at ¥220 or Kyoto City Bus to Shijo Takakura at ¥230; both are complete paid access routes followed by the official short walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -75441,6 +75563,24 @@
         "https://osakastationcity.com/"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        180,
+        180
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://osakastationcity.com/map/train/",
+        "https://osakastationcity.com/map/",
+        "https://www.jr-odekake.net/railroad/mydia/"
+      ],
+      "basis": "Shin-Osaka → Osaka on JR West is ¥180 ordinary adult one-way; Osaka Station City is at the Osaka Station endpoint shown by its official rail-access map.",
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -99167,6 +99307,23 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        310,
+        310
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://en.tokyotower.co.jp/access/",
+        "https://transfer.tokyometro.jp/?lang=en"
+      ],
+      "basis": "Shinagawa → Daimon via Keikyu Main Line and Toei Asakusa Line is ¥310 ordinary adult one-way; Tokyo Tower's official access page names Daimon Exit A6 followed by the free ten-minute walk.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -100890,6 +101047,23 @@
         "https://www.tcmit.org/visit/admission/"
       ],
       "checkedAt": "2026-08-27",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        180,
+        180
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.tcmit.org/english/visit/access/",
+        "https://trainbus.meitetsu.co.jp/meitetsu-transfer/pc/transfer/TransferSearch?defaultCondition=0&dnvName=栄生&start=00004372&orvName=名鉄名古屋&goal=00000654"
+      ],
+      "basis": "Meitetsu Nagoya → Sako is ¥180 ordinary adult one-way; the museum's official access page places the museum three minutes on foot from Sako Station.",
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -136611,6 +136785,24 @@
         "https://www.dazaifutenmangu.or.jp/"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "bus",
+      "fare": [
+        780,
+        800
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.dazaifutenmangu.or.jp/en/plan/getting-to-dazaifu-tenmangu/",
+        "https://www.dazaifutenmangu.or.jp/en/plan/faq/",
+        "https://www.nishitetsu.jp/en/bus/dazaihu_liner.html"
+      ],
+      "basis": "Hakata Bus Terminal → Dazaifu by the official Dazaifu Liner Bus Tabito is ¥800 cash or ¥780 by transport IC/credit card; Dazaifu Station is the official shrine access endpoint followed by a free walk.",
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -215121,6 +215313,26 @@
         "https://www.sumiyoshitaisha.net/access/"
       ],
       "checkedAt": "2026-08-28"
+    },
+    "localTransport": {
+      "kind": "verified_required_access",
+      "access": "rail",
+      "fare": [
+        530,
+        530
+      ],
+      "fareBasis": "one_way",
+      "coverage": "all_required_access",
+      "sourceUrls": [
+        "https://www.sumiyoshitaisha.net/access/",
+        "https://kensaku.osakametro.co.jp/route/ja/web/dia/",
+        "https://www.nankai.co.jp/traffic/station/sumiyoshitaisha.html",
+        "https://kensaku.nankai.co.jp/pc/U1"
+      ],
+      "segmentNotes": "Canonical one-way total is Osaka Metro Shin-Osaka → Namba ¥290 plus Nankai Namba → Sumiyoshitaisha ¥240; no through-fare is assumed.",
+      "basis": "The two required ordinary adult one-way fares are Shin-Osaka → Namba ¥290 and Namba → Sumiyoshitaisha ¥240, totaling ¥530 to the station named by the shrine's official access page.",
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {

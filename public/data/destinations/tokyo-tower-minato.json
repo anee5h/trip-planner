@@ -221,5 +221,19 @@
     "sourceUrls": ["https://www.tokyotower.co.jp/fee/"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [310, 310],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://en.tokyotower.co.jp/access/",
+      "https://transfer.tokyometro.jp/?lang=en"
+    ],
+    "basis": "Shinagawa → Daimon via Keikyu Main Line and Toei Asakusa Line is ¥310 ordinary adult one-way; Tokyo Tower's official access page names Daimon Exit A6 followed by the free ten-minute walk.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -88,7 +88,12 @@ describe("KAI-250 localTransport cohort tooling", () => {
     const first = applyManifest(fixture, entries);
     expect(first).toEqual({ state: "STATE A", changed: 16 });
     expect(
-      fixture.filter((destination) => destination.localTransport !== undefined),
+      fixture.filter(
+        (destination) =>
+          entries.some(
+            (entry) => entry.fact !== undefined && entry.id === destination.id,
+          ) && destination.localTransport !== undefined,
+      ),
     ).toHaveLength(16);
     expect(fixture.map((destination) => destination.admission)).toEqual(
       beforeAdmission,

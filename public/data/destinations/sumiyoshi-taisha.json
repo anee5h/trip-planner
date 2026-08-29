@@ -278,5 +278,22 @@
       "https://www.sumiyoshitaisha.net/access/"
     ],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "verified_required_access",
+    "access": "rail",
+    "fare": [530, 530],
+    "fareBasis": "one_way",
+    "coverage": "all_required_access",
+    "sourceUrls": [
+      "https://www.sumiyoshitaisha.net/access/",
+      "https://kensaku.osakametro.co.jp/route/ja/web/dia/",
+      "https://www.nankai.co.jp/traffic/station/sumiyoshitaisha.html",
+      "https://kensaku.nankai.co.jp/pc/U1"
+    ],
+    "segmentNotes": "Canonical one-way total is Osaka Metro Shin-Osaka → Namba ¥290 plus Nankai Namba → Sumiyoshitaisha ¥240; no through-fare is assumed.",
+    "basis": "The two required ordinary adult one-way fares are Shin-Osaka → Namba ¥290 and Namba → Sumiyoshitaisha ¥240, totaling ¥530 to the station named by the shrine's official access page.",
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }
