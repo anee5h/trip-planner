@@ -227,5 +227,15 @@
     "sourceUrls": ["https://www.tnm.jp/modules/r_free_page/index.php?id=113"],
     "checkedAt": "2026-08-27",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Tokyo National Museum's official access page says 10 minutes' walk from Ueno or Uguisudani Station.",
+    "walkingMinutes": 10,
+    "sourceUrls": [
+      "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

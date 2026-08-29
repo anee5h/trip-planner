@@ -211,5 +211,13 @@
     "basis": "Verified admission ¥500 (ledger FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL); source: https://www.nmwa.go.jp/en/visit/index.html",
     "sourceUrls": ["https://www.nmwa.go.jp/en/visit/index.html"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "The National Museum of Western Art's official access page says 1 minute from Ueno Station, Park Exit.",
+    "walkingMinutes": 1,
+    "sourceUrls": ["https://www.nmwa.go.jp/en/visit/map.html"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

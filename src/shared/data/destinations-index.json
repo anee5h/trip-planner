@@ -2660,6 +2660,16 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Ameya-Yokocho official access page says the shopping street is immediately beside JR Ueno Station at the Shinobazu Exit and about a 2-minute walk from Tokyo Metro Ueno Station Exit 7.",
+      "walkingMinutes": 2,
+      "sourceUrls": [
+        "https://www.ameyoko.net/access/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -20992,6 +21002,16 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "GO TOKYO’s official Ginza guide says visitors can walk to the Ginza area in around 15 minutes from Tokyo Station.",
+      "walkingMinutes": 15,
+      "sourceUrls": [
+        "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -23774,6 +23794,16 @@
         "http://www.hakatamachiya.com/"
       ],
       "checkedAt": "2026-08-14"
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Hakata Machiya Furusatokan official access page says JR Hakata Station is a 15-minute walk (JR「博多」駅より徒歩15分).",
+      "walkingMinutes": 15,
+      "sourceUrls": [
+        "https://hakatamachiya.com/access/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -26574,6 +26604,16 @@
         "https://www.himejicastle.jp/en/"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Himeji Castle's official access section says Himeji Station and Sanyo Himeji Station are a 20-minute walk; the bus route is optional and stops at Otemon-mae, followed by a 5-minute walk.",
+      "walkingMinutes": 20,
+      "sourceUrls": [
+        "https://www.himejicastle.jp/"
+      ],
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -46182,6 +46222,16 @@
         "https://okayama-korakuen.jp/section/english/info/index.html"
       ],
       "checkedAt": "2026-08-14"
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Okayama Korakuen official access page explicitly lists walking from JR Okayama Station as about 25 minutes and describes the pedestrian route via Momotaro Avenue, Ishiyama Park, and Tsurumi Bridge.",
+      "walkingMinutes": 25,
+      "sourceUrls": [
+        "https://okayama-korakuen.jp/section/english/access/index.html"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -53846,6 +53896,16 @@
         "https://www.matsumoto-castle.jp/topics/8173.html"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Matsumoto Castle's official access page says JR Matsumoto Station is approximately a 20-minute walk from the castle.",
+      "walkingMinutes": 20,
+      "sourceUrls": [
+        "https://www.matsumoto-castle.jp/access"
+      ],
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },
@@ -66232,6 +66292,16 @@
         "https://www.nmwa.go.jp/en/visit/index.html"
       ],
       "checkedAt": "2026-08-14"
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "The National Museum of Western Art's official access page says 1 minute from Ueno Station, Park Exit.",
+      "walkingMinutes": 1,
+      "sourceUrls": [
+        "https://www.nmwa.go.jp/en/visit/map.html"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -67483,6 +67553,17 @@
         "https://nijomarket.com/"
       ],
       "checkedAt": "2026-08-28"
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Official Welcome to Sapporo says Chi-Ka-Ho links JR Sapporo Station and Odori Station in about 10 minutes on foot; its official gourmet route then starts at Odori Station and gives an approximately 8-minute walk to Oiso, Nijo Fish Market.",
+      "walkingMinutes": 18,
+      "sourceUrls": [
+        "https://www.sapporo.travel/en/spot/facility/chikaho/",
+        "https://www.sapporo.travel/en/gourmet/feature/gourmet-coupons01/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -75361,6 +75442,10 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "not_applicable",
+      "reason": "canonical_arrival_hub_itself"
     }
   },
   {
@@ -83474,6 +83559,16 @@
         "https://sendaiasaichi.com/"
       ],
       "checkedAt": "2026-08-28"
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Sendai Asaichi's official access map says the market is a 5-minute walk from Sendai Station west exit and 1 minute from Sendai Subway Station West 1 exit.",
+      "walkingMinutes": 5,
+      "sourceUrls": [
+        "https://sendaiasaichi.com/access/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -98122,6 +98217,16 @@
       ],
       "checkedAt": "2026-08-27",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Tokyo National Museum's official access page says 10 minutes' walk from Ueno or Uguisudani Station.",
+      "walkingMinutes": 10,
+      "sourceUrls": [
+        "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -98812,6 +98917,10 @@
       },
       "scope": "open_area",
       "basis": "The catalogue identity is the Tokyo Station hub/aggregate, not one operator-controlled admission product; destination-level admission is not applicable."
+    },
+    "localTransport": {
+      "kind": "not_applicable",
+      "reason": "canonical_arrival_hub_itself"
     }
   },
   {
@@ -101856,6 +101965,16 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Tsurugaoka Hachimangu's official access page says 10 minutes on foot from the east exit of JR Kamakura Station and 10 minutes from Enoden Kamakura Station.",
+      "walkingMinutes": 10,
+      "sourceUrls": [
+        "https://www.hachimangu.or.jp/en/access/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -102559,6 +102678,16 @@
         "https://www.tokyo-park.or.jp/park/ueno/"
       ],
       "checkedAt": "2026-08-28"
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station.",
+      "walkingMinutes": 2,
+      "sourceUrls": [
+        "https://www.tokyo-park.or.jp/park/ueno/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
     }
   },
   {
@@ -132931,6 +133060,10 @@
       ],
       "checkedAt": "2026-08-28",
       "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "not_applicable",
+      "reason": "represented_facility_directly_connected_to_canonical_arrival_hub"
     }
   },
   {
@@ -170177,6 +170310,16 @@
       "basis": "Official Akita Museum of Art visitor information states permanent collection entry is free while special exhibitions are product-specific, with the current special-exhibition adult price ¥1,300; the full normal 0–1,300 range is preserved.",
       "sourceUrls": [
         "https://www.akita-museum-of-art.jp/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "JNTO’s official Akita Museum of Art page says the museum is near Akita Station and visitors can walk west from Akita Station for about eight minutes.",
+      "walkingMinutes": 8,
+      "sourceUrls": [
+        "https://www.japan.travel/en/spot/1828/"
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
@@ -219130,6 +219273,16 @@
         "https://ikutajinja.or.jp/access"
       ],
       "checkedAt": "2026-08-28",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Ikuta Shrine official access says JR Shin-Kobe Station (Shinkansen) is 20 minutes south on foot (JR新神戸駅（新幹線）より南へ徒歩20分).",
+      "walkingMinutes": 20,
+      "sourceUrls": [
+        "https://ikutajinja.or.jp/access"
+      ],
+      "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
     }
   },

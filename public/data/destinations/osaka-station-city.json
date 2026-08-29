@@ -224,5 +224,9 @@
     "sourceUrls": ["https://osakastationcity.com/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "not_applicable",
+    "reason": "canonical_arrival_hub_itself"
   }
 }

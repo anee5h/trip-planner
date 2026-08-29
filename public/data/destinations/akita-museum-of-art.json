@@ -216,5 +216,13 @@
     "sourceUrls": ["https://www.akita-museum-of-art.jp/"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "JNTO’s official Akita Museum of Art page says the museum is near Akita Station and visitors can walk west from Akita Station for about eight minutes.",
+    "walkingMinutes": 8,
+    "sourceUrls": ["https://www.japan.travel/en/spot/1828/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

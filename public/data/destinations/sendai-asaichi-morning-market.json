@@ -216,5 +216,13 @@
     "basis": "Sendai Asaichi: public morning market, free to walk (official site)",
     "sourceUrls": ["https://sendaiasaichi.com/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Sendai Asaichi's official access map says the market is a 5-minute walk from Sendai Station west exit and 1 minute from Sendai Subway Station West 1 exit.",
+    "walkingMinutes": 5,
+    "sourceUrls": ["https://sendaiasaichi.com/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

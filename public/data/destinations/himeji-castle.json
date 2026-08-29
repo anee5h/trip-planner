@@ -213,5 +213,13 @@
     "sourceUrls": ["https://www.himejicastle.jp/en/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Himeji Castle's official access section says Himeji Station and Sanyo Himeji Station are a 20-minute walk; the bus route is optional and stops at Otemon-mae, followed by a 5-minute walk.",
+    "walkingMinutes": 20,
+    "sourceUrls": ["https://www.himejicastle.jp/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

@@ -225,5 +225,13 @@
     "basis": "Verified admission ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/",
     "sourceUrls": ["http://www.hakatamachiya.com/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Hakata Machiya Furusatokan official access page says JR Hakata Station is a 15-minute walk (JR「博多」駅より徒歩15分).",
+    "walkingMinutes": 15,
+    "sourceUrls": ["https://hakatamachiya.com/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

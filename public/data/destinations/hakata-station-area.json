@@ -238,5 +238,9 @@
     "sourceUrls": ["https://www.jrhakatacity.com/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "not_applicable",
+    "reason": "represented_facility_directly_connected_to_canonical_arrival_hub"
   }
 }
