@@ -583,17 +583,10 @@
       "kind": "museum",
       "role": "destination"
     },
-    "decision": "not_applicable",
-    "canonicalArrivalAccessPoint": "JR Osaka Station / Osaka Station City",
-    "exactAccessEvidence": "Osaka Station City’s operator site describes the area as directly connected to Osaka Station (関西の玄関口・大阪駅に直結).",
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station for Osaka:osaka intercity arrival; Osaka Station City is at Osaka Station",
+    "reason": "The repository's canonical Shinkansen hub mapping is Osaka:osaka -> shin-osaka, while Osaka Station City is located at Osaka Station. The origin-aware transport service models destination hub access duration but does not add the required feeder fare for the Shin-Osaka -> Osaka Station local rail leg. KAI-251 must author that source-backed fare; KAI-250 must not suppress it with not_applicable.",
     "sourceUrls": ["https://osakastationcity.com/map/"],
-    "checkedAt": "2026-08-29",
-    "reviewCadence": "12 months",
-    "reason": "The represented station-area complex is directly connected to the catalogue's Osaka Station arrival hub; no destination-specific local transport component exists.",
-    "excludedOptionalOrPaidAccess": "Shopping, dining, parking, and onward local transit are optional spend or separate journeys, not required local access.",
-    "fact": {
-      "kind": "not_applicable",
-      "reason": "canonical_arrival_hub_itself"
-    }
+    "deferredCohort": "F2"
   }
 ]

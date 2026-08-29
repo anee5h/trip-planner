@@ -41,9 +41,9 @@ describe("KAI-250 localTransport cohort tooling", () => {
     const { destinations, entries } = loadFixture();
     const facts = validateManifest(entries, destinations);
     expect(entries).toHaveLength(32);
-    expect(facts.size).toBe(17);
+    expect(facts.size).toBe(16);
     expect(entries.filter((entry) => entry.fact === undefined)).toHaveLength(
-      15,
+      16,
     );
 
     const walking = entries.filter(
@@ -86,10 +86,10 @@ describe("KAI-250 localTransport cohort tooling", () => {
 
     expect(determineState(entries, fixture).state).toBe("STATE A");
     const first = applyManifest(fixture, entries);
-    expect(first).toEqual({ state: "STATE A", changed: 17 });
+    expect(first).toEqual({ state: "STATE A", changed: 16 });
     expect(
       fixture.filter((destination) => destination.localTransport !== undefined),
-    ).toHaveLength(17);
+    ).toHaveLength(16);
     expect(fixture.map((destination) => destination.admission)).toEqual(
       beforeAdmission,
     );

@@ -232,9 +232,9 @@ export function validateManifest(
     (entry) => entry.fact !== undefined,
   ).length;
   const deferredCount = entries.length - authoredCount;
-  if (authoredCount !== 17 || deferredCount !== 15) {
+  if (authoredCount !== 16 || deferredCount !== 16) {
     throw new Error(
-      `KAI-250 inventory expected 17 authored + 15 deferred entries; found ${authoredCount} + ${deferredCount}`,
+      `KAI-250 inventory expected 16 authored + 16 deferred entries; found ${authoredCount} + ${deferredCount}`,
     );
   }
   return facts;
