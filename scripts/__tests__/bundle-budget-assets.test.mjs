@@ -8,7 +8,9 @@ describe("bundle budget document-shell asset parser", () => {
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-5QKWZM9190"
       ></script>
-      <script src="/ga4-init.js"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+      </script>
       <script type="module" src="/assets/index-entry.js"></script>
       <link rel="modulepreload" href="/assets/shared.js" />
     `;
@@ -23,7 +25,9 @@ describe("bundle budget document-shell asset parser", () => {
     expect(() =>
       readAssetsIndex(`
         <script src="https://www.googletagmanager.com/gtag/js?id=G-5QKWZM9190"></script>
-        <script src="/ga4-init.js"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+      </script>
       `),
     ).toThrow("no entry script or modulepreload assets found");
   });

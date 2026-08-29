@@ -6,7 +6,53 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-5QKWZM9190"
     ></script>
-    <script src="/ga4-init.js"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      const LANGUAGE_PREF_KEY = "meguruto-lang";
+
+      function readLanguagePreference() {
+        try {
+          const preference = window.localStorage.getItem(LANGUAGE_PREF_KEY);
+          if (preference === "ja" || preference === "en") return preference;
+        } catch {
+          // Fall through to the cookie and browser locale.
+        }
+
+        try {
+          const cookie = document.cookie
+            .split("; ")
+            .find((entry) => entry.startsWith(`${LANGUAGE_PREF_KEY}=`));
+          const preference = cookie?.slice(`${LANGUAGE_PREF_KEY}=`.length);
+          if (preference === "ja" || preference === "en") return preference;
+        } catch {
+          // Cookie access can be unavailable in privacy-restricted contexts.
+        }
+
+        return null;
+      }
+
+      function shouldSkipInitialPageView() {
+        if (window.location.pathname.startsWith("/ja")) return false;
+
+        const preference = readLanguagePreference();
+        if (preference) return preference === "ja";
+
+        return (
+          typeof navigator !== "undefined" &&
+          navigator.language.toLowerCase().startsWith("ja")
+        );
+      }
+
+      if (
+        window.location.hostname === "meguruto.app" &&
+        !shouldSkipInitialPageView()
+      ) {
+        gtag('config', 'G-5QKWZM9190');
+      }
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

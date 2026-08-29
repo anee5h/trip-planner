@@ -60,7 +60,6 @@
     "/apple-touch-icon.png",
     "/icons.svg",
     "/sw.js",
-    "/ga4-init.js",
     "/manifest.webmanifest",
     "/icons/*",
     "/404.html",

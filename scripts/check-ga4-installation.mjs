@@ -4,18 +4,21 @@
  *
  * This checks the actual Vite/SEO output, not only source templates. Every
  * generated public HTML file must retain one discoverable Google tag loader
- * and one same-origin initializer. The initializer itself is checked for one
- * js/config queue pair, production-host gating, and locale-redirect handling.
+ * and one inline initializer. The initializer is validated and its exact
+ * bytes are locked to the CSP hash in both header policy sources.
  */
+import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
 const GA4_URL = "https://www.googletagmanager.com/gtag/js?id=G-5QKWZM9190";
-const GA4_INIT_REFERENCE =
-  /<script\b(?=[^>]*\bsrc=["']\/ga4-init\.js["'])[^>]*>\s*<\/script>/gi;
-const GA4_INIT_PATH = path.join(DIST, "ga4-init.js");
+const GA4_MEASUREMENT_ID = "G-5QKWZM9190";
+const GA4_INLINE_MARKER = "window.dataLayer = window.dataLayer || [];";
+const SCRIPT_PATTERN = /<script\b[^>]*>([\s\S]*?)<\/script>/gi;
+const JS_INIT_PATTERN = /gtag\(\s*['"]js['"]\s*,\s*new Date\(\)\s*\)/g;
+const CONFIG_PATTERN = /gtag\(\s*['"]config['"]\s*,\s*['"]([^'"]+)['"]\s*\)/g;
 const failures = [];
 
 // Cloudflare's static 404 documents are error pages, not application HTML
@@ -23,10 +26,6 @@ const failures = [];
 function isPublicHtmlShell(file) {
   const relative = path.relative(DIST, file).replaceAll(path.sep, "/");
   return relative !== "404.html" && relative !== "ja/404.html";
-}
-
-function count(text, needle) {
-  return text.split(needle).length - 1;
 }
 
 function collectFiles(directory, predicate, result = []) {
@@ -43,6 +42,27 @@ function fail(message) {
   failures.push(message);
 }
 
+function extractInlineInitializers(html) {
+  return [...html.matchAll(SCRIPT_PATTERN)]
+    .map((match) => match[1] ?? "")
+    .filter((body) => body.includes(GA4_INLINE_MARKER));
+}
+
+function hashInlineInitializer(source) {
+  return createHash("sha256").update(source, "utf8").digest("base64");
+}
+
+function readCspSources() {
+  const headers = fs.readFileSync(path.join(ROOT, "public/_headers"), "utf8");
+  const meta = fs.readFileSync(path.join(ROOT, "src/seo/meta.ts"), "utf8");
+  const headerCsp = headers
+    .match(/^\s*Content-Security-Policy:\s*(.+)$/m)?.[1]
+    ?.trim()
+    .replace(/;$/, "");
+  const metaCsp = meta.match(/"Content-Security-Policy":\s*"([^"]+)"/s)?.[1];
+  return { headerCsp, metaCsp };
+}
+
 function checkSourceArchitecture() {
   const main = fs.readFileSync(path.join(ROOT, "src/main.tsx"), "utf8");
   if (main.includes("initializeGoogleAnalytics")) {
@@ -57,21 +77,27 @@ function checkSourceArchitecture() {
       "the obsolete src/shared/services/analytics/GoogleAnalytics.ts exists",
     );
   }
+  if (fs.existsSync(path.join(ROOT, "public/ga4-init.js"))) {
+    fail("the obsolete public/ga4-init.js initializer still exists");
+  }
+
+  const routes = JSON.parse(
+    fs.readFileSync(path.join(ROOT, "public/_routes.json"), "utf8"),
+  );
+  if (routes.exclude?.includes("/ga4-init.js")) {
+    fail("public/_routes.json still excludes the obsolete initializer");
+  }
 }
 
-function checkHeaders() {
-  const headers = fs.readFileSync(path.join(ROOT, "public/_headers"), "utf8");
-  const meta = fs.readFileSync(path.join(ROOT, "src/seo/meta.ts"), "utf8");
-  const headerCsp = headers
-    .match(/^\s*Content-Security-Policy:\s*(.+)$/m)?.[1]
-    ?.trim()
-    .replace(/;$/, "");
-  const metaCsp = meta.match(/"Content-Security-Policy":\s*"([^"]+)"/s)?.[1];
+function checkHeaders(initializerHash) {
+  const { headerCsp, metaCsp } = readCspSources();
   if (!headerCsp || !metaCsp || headerCsp !== metaCsp) {
     fail(
       "public/_headers and src/seo/meta.ts CSP policies are not synchronized",
     );
   }
+
+  const expectedHash = `'sha256-${initializerHash}'`;
   for (const [label, csp] of [
     ["public/_headers", headerCsp],
     ["src/seo/meta.ts", metaCsp],
@@ -84,32 +110,45 @@ function checkHeaders() {
     if (!scriptSource.includes("https://www.googletagmanager.com")) {
       fail(`${label} script-src does not allow the Google tag loader`);
     }
+    const hashSources = scriptSource.match(/'sha256-[^']+'/g) ?? [];
+    if (hashSources.length !== 1 || hashSources[0] !== expectedHash) {
+      fail(
+        `${label} script-src must contain exactly the inline initializer hash ${expectedHash}`,
+      );
+    }
   }
 }
 
-function checkInitializer() {
-  if (!fs.existsSync(GA4_INIT_PATH)) {
-    fail("dist/ga4-init.js is missing");
-    return;
+function checkInitializer(source) {
+  if (!source.includes("function gtag(){dataLayer.push(arguments);}")) {
+    fail(
+      "inline GA4 initializer is missing Google's standard gtag queue function",
+    );
   }
-  const source = fs.readFileSync(GA4_INIT_PATH, "utf8");
-  if (!source.includes('window.location.hostname !== "meguruto.app"')) {
-    fail("dist/ga4-init.js is missing exact production-host gating");
+  if (source.match(JS_INIT_PATTERN)?.length !== 1) {
+    fail(
+      "inline GA4 initializer must contain exactly one gtag js initialization",
+    );
   }
-  if (count(source, 'window.gtag("js", new Date())') !== 1) {
-    fail("dist/ga4-init.js must contain exactly one gtag js initialization");
-  }
-  if (count(source, 'window.gtag("config", MEASUREMENT_ID)') !== 1) {
-    fail("dist/ga4-init.js must contain exactly one GA4 config call");
-  }
-  if (count(source, 'const MEASUREMENT_ID = "G-5QKWZM9190";') !== 1) {
-    fail("dist/ga4-init.js must contain the correct GA4 measurement ID");
+
+  const configs = [...source.matchAll(CONFIG_PATTERN)];
+  if (configs.length !== 1) {
+    fail("inline GA4 initializer must contain exactly one gtag config call");
+  } else if (configs[0]?.[1] !== GA4_MEASUREMENT_ID) {
+    fail(
+      `inline GA4 initializer must configure ${GA4_MEASUREMENT_ID}, found ${configs[0]?.[1]}`,
+    );
   }
   if (
-    source.includes('"event", "page_view"') ||
-    source.includes("'event', 'page_view'")
+    source.match(/window\.location\.hostname === ["']meguruto\.app["']/g)
+      ?.length !== 1
   ) {
-    fail("dist/ga4-init.js must not emit a duplicate explicit page_view event");
+    fail("inline GA4 initializer is missing the exact production-host gate");
+  }
+  if (source.includes("page_view")) {
+    fail(
+      "inline GA4 initializer must not emit a duplicate explicit page_view event",
+    );
   }
 }
 
@@ -120,27 +159,44 @@ function checkGeneratedHtml() {
   );
   if (htmlFiles.length === 0) {
     fail("dist contains no generated HTML files");
-    return;
+    return null;
   }
+
+  let initializerSource = null;
   for (const file of htmlFiles) {
     const html = fs.readFileSync(file, "utf8");
     const relative = path.relative(DIST, file);
-    const loaderCount = count(html, GA4_URL);
-    const initCount = html.match(GA4_INIT_REFERENCE)?.length ?? 0;
+    const loaderCount = html.split(GA4_URL).length - 1;
+    const initializers = extractInlineInitializers(html);
+
     if (loaderCount !== 1) {
       fail(
         `${relative}: expected exactly one GA4 loader URL, found ${loaderCount}`,
       );
     }
-    if (initCount !== 1) {
+    if (html.includes("/ga4-init.js")) {
+      fail(`${relative}: obsolete external GA4 initializer reference remains`);
+    }
+    if (initializers.length !== 1) {
       fail(
-        `${relative}: expected exactly one /ga4-init.js reference, found ${initCount}`,
+        `${relative}: expected exactly one inline GA4 initializer, found ${initializers.length}`,
       );
+      continue;
+    }
+
+    const [source] = initializers;
+    if (initializerSource === null) initializerSource = source;
+    else if (source !== initializerSource) {
+      fail(`${relative}: inline GA4 initializer differs from the source shell`);
     }
   }
+
+  if (initializerSource === null) return null;
+  checkInitializer(initializerSource);
+  return hashInlineInitializer(initializerSource);
 }
 
-function checkBundlesAndServiceWorker() {
+function checkBundles() {
   const builtScripts = collectFiles(path.join(DIST, "assets"), (file) =>
     file.endsWith(".js"),
   );
@@ -159,26 +215,16 @@ function checkBundlesAndServiceWorker() {
       }
     }
   }
-
-  const workerPath = path.join(DIST, "sw.js");
-  if (fs.existsSync(workerPath)) {
-    const worker = fs.readFileSync(workerPath, "utf8");
-    if (worker.includes("/ga4-init.js")) {
-      fail(
-        "dist/sw.js must not retain ga4-init.js indefinitely in the PWA shell cache",
-      );
-    }
-  }
 }
 
-if (!fs.existsSync(DIST))
+if (!fs.existsSync(DIST)) {
   fail("dist directory is missing; run npm run build first");
-if (failures.length === 0) {
+} else {
   checkSourceArchitecture();
-  checkHeaders();
-  checkInitializer();
-  checkGeneratedHtml();
-  checkBundlesAndServiceWorker();
+  const initializerHash = checkGeneratedHtml();
+  if (initializerHash) checkHeaders(initializerHash);
+  else fail("could not compute the inline GA4 initializer CSP hash");
+  checkBundles();
 }
 
 if (failures.length > 0) {
@@ -194,5 +240,5 @@ const htmlCount = collectFiles(
   (file) => file.endsWith(".html") && isPublicHtmlShell(file),
 ).length;
 console.log(
-  `✅ KAI-245 GA4 installation verified: ${htmlCount} generated HTML shells, one loader and one init reference each`,
+  `✅ KAI-245 GA4 installation verified: ${htmlCount} generated HTML shells, one loader and one CSP-hashed inline initializer each`,
 );

@@ -1,4 +1,5 @@
-import fs from "node:fs";
+import { createHash } from "node:crypto";
+import { readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 import { describe, expect, it } from "vitest";
@@ -6,24 +7,19 @@ import { buildPrerenderOutputs } from "@/seo/prerender";
 import type { Destination } from "@/shared/types/destination";
 
 const ROOT = process.cwd();
-const INDEX_HTML = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
-const INIT_SOURCE = fs.readFileSync(
-  path.join(ROOT, "public/ga4-init.js"),
-  "utf8",
-);
+const INDEX_HTML = readFileSync(path.join(ROOT, "index.html"), "utf8");
 const GA4_URL = "https://www.googletagmanager.com/gtag/js?id=G-5QKWZM9190";
-const GA4_INIT_REFERENCE = '<script src="/ga4-init.js"></script>';
-
-type TestWindow = {
-  location: { hostname: string; pathname: string };
-  localStorage: { getItem: (key: string) => string | null };
-  dataLayer?: unknown[];
-  gtag?: (...args: unknown[]) => void;
-  [key: string]: unknown;
-};
+const GA4_INLINE_MARKER = "window.dataLayer = window.dataLayer || [];";
+const GA4_CONFIG_CALL = "gtag('config', 'G-5QKWZM9190')";
 
 function count(text: string, pattern: string): number {
   return text.split(pattern).length - 1;
+}
+
+function extractInlineInitializers(html: string): string[] {
+  return [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)]
+    .map((match) => match[1] ?? "")
+    .filter((body) => body.includes(GA4_INLINE_MARKER));
 }
 
 function makeDestination(): Destination {
@@ -42,6 +38,14 @@ function makeDestination(): Destination {
   } as unknown as Destination;
 }
 
+type TestWindow = {
+  location: { hostname: string; pathname: string };
+  localStorage: { getItem: (key: string) => string | null };
+  dataLayer?: unknown[];
+  gtag?: (...args: unknown[]) => void;
+  [key: string]: unknown;
+};
+
 function runInit({
   hostname,
   pathname = "/",
@@ -53,32 +57,31 @@ function runInit({
   language?: string;
   preference?: "en" | "ja" | null;
 }) {
-  const storage = {
-    getItem: () => preference,
-  };
-  const context: {
-    window: TestWindow;
-    document: { cookie: string };
-    navigator: { language: string };
-  } = {
-    window: {
-      location: { hostname, pathname },
-      localStorage: storage,
-    },
+  const context = {
+    location: { hostname, pathname },
+    localStorage: { getItem: () => preference },
     document: { cookie: "" },
     navigator: { language },
-  };
-  vm.runInNewContext(INIT_SOURCE, context);
-  return context.window;
+  } as Record<string, unknown>;
+  context.window = context;
+  vm.runInNewContext(extractInlineInitializers(INDEX_HTML)[0] ?? "", context);
+  return context as unknown as TestWindow;
+}
+
+function entries(runtime: TestWindow): unknown[][] {
+  return (runtime.dataLayer ?? []).map((entry) =>
+    Array.from(entry as ArrayLike<unknown>),
+  );
 }
 
 function expectShellHasOneGoogleInstallation(html: string): void {
   expect(count(html, GA4_URL)).toBe(1);
-  expect(count(html, GA4_INIT_REFERENCE)).toBe(1);
+  expect(extractInlineInitializers(html)).toHaveLength(1);
+  expect(html).not.toContain("/ga4-init.js");
 }
 
-describe("KAI-245 static GA4 document-shell installation", () => {
-  it("puts one discoverable loader and one same-origin init reference in the source head", () => {
+describe("KAI-245 inline GA4 document-shell installation", () => {
+  it("puts one discoverable loader and one inline initializer in the source head", () => {
     expectShellHasOneGoogleInstallation(INDEX_HTML);
     expect(INDEX_HTML.indexOf(GA4_URL)).toBeGreaterThan(
       INDEX_HTML.indexOf("<head>"),
@@ -86,8 +89,11 @@ describe("KAI-245 static GA4 document-shell installation", () => {
     expect(INDEX_HTML.indexOf(GA4_URL)).toBeLessThan(
       INDEX_HTML.indexOf("</head>"),
     );
-    expect(INDEX_HTML.indexOf(GA4_INIT_REFERENCE)).toBeGreaterThan(
+    expect(INDEX_HTML.indexOf(GA4_INLINE_MARKER)).toBeGreaterThan(
       INDEX_HTML.indexOf(GA4_URL),
+    );
+    expect(INDEX_HTML.indexOf(GA4_INLINE_MARKER)).toBeLessThan(
+      INDEX_HTML.indexOf("</head>"),
     );
   });
 
@@ -108,43 +114,54 @@ describe("KAI-245 static GA4 document-shell installation", () => {
     }
   });
 
-  it("removes the application-bootstrap loader architecture", () => {
-    const main = fs.readFileSync(path.join(ROOT, "src/main.tsx"), "utf8");
+  it("uses Google's standard inline queue shape with the exact production gate", () => {
+    const [source] = extractInlineInitializers(INDEX_HTML);
+    expect(source).toContain("function gtag(){dataLayer.push(arguments);}");
+    expect(count(source, "gtag('js', new Date())")).toBe(1);
+    expect(count(source, GA4_CONFIG_CALL)).toBe(1);
+    expect(source).toContain('window.location.hostname === "meguruto.app"');
+    expect(source).not.toContain("unsafe-inline");
+  });
+
+  it("removes the application-bootstrap and external initializer architectures", () => {
+    const main = readFileSync(path.join(ROOT, "src/main.tsx"), "utf8");
     expect(main).not.toContain("initializeGoogleAnalytics");
     expect(
-      fs.existsSync(
+      existsSync(
         path.join(ROOT, "src/shared/services/analytics/GoogleAnalytics.ts"),
       ),
     ).toBe(false);
+    expect(existsSync(path.join(ROOT, "public/ga4-init.js"))).toBe(false);
+    const routes = JSON.parse(
+      readFileSync(path.join(ROOT, "public/_routes.json"), "utf8"),
+    ) as { exclude?: string[] };
+    expect(routes.exclude ?? []).not.toContain("/ga4-init.js");
   });
 
   it("queues one js initialization and one config call on the production host", () => {
     const runtime = runInit({ hostname: "meguruto.app" });
-    const dataLayer = runtime.dataLayer ?? [];
-    const entries: unknown[][] = dataLayer.map((entry) =>
-      Array.from(entry as ArrayLike<unknown>),
-    );
+    const queued = entries(runtime);
 
-    expect(entries).toHaveLength(2);
-    expect(entries[0]?.[0]).toBe("js");
-    expect(Object.prototype.toString.call(entries[0]?.[1])).toBe(
+    expect(queued).toHaveLength(2);
+    expect(queued[0]?.[0]).toBe("js");
+    expect(Object.prototype.toString.call(queued[0]?.[1])).toBe(
       "[object Date]",
     );
-    expect(entries[1]).toEqual(["config", "G-5QKWZM9190"]);
+    expect(queued[1]).toEqual(["config", "G-5QKWZM9190"]);
   });
 
   it("does not queue production config on localhost or preview hosts", () => {
     for (const hostname of ["localhost", "127.0.0.1", "meguruto.pages.dev"]) {
       const runtime = runInit({ hostname });
-      expect(runtime.dataLayer).toBeUndefined();
-      expect(runtime.gtag).toBeUndefined();
+      expect(entries(runtime)).toHaveLength(1);
+      expect(entries(runtime).some(([name]) => name === "config")).toBe(false);
     }
   });
 
   it("does not create a transient English page view before the Japanese locale redirect", () => {
     expect(
       runInit({ hostname: "meguruto.app", language: "ja-JP" }).dataLayer,
-    ).toBeUndefined();
+    ).toHaveLength(1);
     expect(
       runInit({ hostname: "meguruto.app", pathname: "/ja/", language: "ja-JP" })
         .dataLayer,
@@ -158,44 +175,28 @@ describe("KAI-245 static GA4 document-shell installation", () => {
     ).toHaveLength(2);
   });
 
-  it("is idempotent when the same static init is executed more than once", () => {
-    const runtime = runInit({ hostname: "meguruto.app" });
-    vm.runInNewContext(INIT_SOURCE, {
-      window: runtime,
-      document: { cookie: "" },
-      navigator: { language: "en-US" },
-    });
+  it("keeps the inline initializer CSP-safe and synchronized with both policies", () => {
+    const [source] = extractInlineInitializers(INDEX_HTML);
+    expect(source).toBeDefined();
+    if (source === undefined) return;
 
-    const entries: unknown[][] = (runtime.dataLayer ?? []).map((entry) =>
-      Array.from(entry as ArrayLike<unknown>),
-    );
-    expect(entries).toHaveLength(2);
-    expect(entries.filter(([name]) => name === "js")).toHaveLength(1);
-    expect(entries.filter(([name]) => name === "config")).toHaveLength(1);
-  });
+    const hash = createHash("sha256").update(source, "utf8").digest("base64");
+    const hashSource = `'sha256-${hash}'`;
+    const headers = readFileSync(path.join(ROOT, "public/_headers"), "utf8");
+    const meta = readFileSync(path.join(ROOT, "src/seo/meta.ts"), "utf8");
+    const headerCsp = headers
+      .match(/^\s*Content-Security-Policy:\s*(.+)$/m)?.[1]
+      ?.replace(/;$/, "");
+    const metaCsp = meta.match(/"Content-Security-Policy":\s*"([^"]+)"/s)?.[1];
 
-  it("keeps the script CSP-safe and synchronized with the Function policy", () => {
-    const headers = fs.readFileSync(path.join(ROOT, "public/_headers"), "utf8");
-    const meta = fs.readFileSync(path.join(ROOT, "src/seo/meta.ts"), "utf8");
-    const scriptSources =
-      "script-src 'self' https://static.cloudflareinsights.com https://www.googletagmanager.com";
-    expect(headers).toContain(scriptSources);
-    expect(meta).toContain(scriptSources);
-    expect(headers).not.toMatch(/script-src[^;]*unsafe-inline/);
-    expect(meta).not.toMatch(/script-src[^;]*unsafe-inline/);
-    expect(headers).toContain("connect-src 'self'");
-    expect(meta).toContain("connect-src 'self'");
-  });
-
-  it("keeps the same-origin initializer on the static asset path", () => {
-    const routes = JSON.parse(
-      fs.readFileSync(path.join(ROOT, "public/_routes.json"), "utf8"),
-    ) as { exclude?: string[] };
-    expect(routes.exclude).toContain("/ga4-init.js");
+    expect(headerCsp).toBeDefined();
+    expect(metaCsp).toBe(headerCsp);
+    expect(headerCsp).toContain(hashSource);
+    expect(headerCsp).not.toMatch(/script-src[^;]*unsafe-inline/);
   });
 
   it("does not add an explicit page_view event", () => {
-    expect(INIT_SOURCE).not.toContain('"event", "page_view"');
-    expect(INIT_SOURCE).not.toContain("'event', 'page_view'");
+    const [source] = extractInlineInitializers(INDEX_HTML);
+    expect(source).not.toContain("page_view");
   });
 });
