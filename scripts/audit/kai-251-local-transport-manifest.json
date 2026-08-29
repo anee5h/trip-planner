@@ -409,11 +409,11 @@
       "kind": "museum",
       "role": "poi"
     },
-    "decision": "defer_f2",
+    "decision": "defer_f3",
     "canonicalArrivalAccessPoint": "Sapporo Station",
     "exactAccessEvidence": "The museum operator's current page documents JR Naebo Station followed by an eight-minute walk and bus routes from Sapporo Station, but the current authoritative materials checked did not provide a retained route-specific ordinary adult fare from the canonical arrival.",
     "sourceUrls": ["https://www.sapporobeer.jp/english/brewery/s_museum/"],
-    "deferredCohort": "F2",
+    "deferredCohort": "F3",
     "residualReason": "fare_unavailable",
     "reason": "Fare not found in the current authoritative route/fare materials; no number is fabricated from a legacy value or distance estimate."
   },
