@@ -24,6 +24,7 @@
 import { readFileSync } from "node:fs";
 import { gzipSync } from "node:zlib";
 import path from "node:path";
+import { readAssetsIndex as readAssetsIndexFromHtml } from "./bundle-budget-assets.mjs";
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
@@ -46,27 +47,12 @@ const BUDGETS = {
 
 function readAssetsIndex() {
   const html = readFileSync(path.join(DIST, "index.html"), "utf8");
-  const urls = [];
-  // Parse each <link>/<script> tag as a unit and extract attributes
-  // independently — attribute ORDER must not matter.
-  for (const tag of html.matchAll(/<script\b[^>]*>/g)) {
-    const src = tag[0].match(/\bsrc="([^"]+)"/);
-    if (src) urls.push(src[1]);
-  }
-  for (const tag of html.matchAll(/<link\b[^>]*>/g)) {
-    const attrs = tag[0];
-    if (/\brel="modulepreload"/.test(attrs)) {
-      const href = attrs.match(/\bhref="([^"]+)"/);
-      if (href && !urls.includes(href[1])) urls.push(href[1]);
-    }
-  }
-  if (urls.length === 0) {
-    console.error(
-      "FAIL: no entry script or modulepreload assets found in dist/index.html",
-    );
+  try {
+    return readAssetsIndexFromHtml(html);
+  } catch (error) {
+    console.error(`FAIL: ${error.message}`);
     process.exit(1);
   }
-  return urls;
 }
 
 /** The Vite build manifest (dist/.vite/manifest.json): the deterministic
