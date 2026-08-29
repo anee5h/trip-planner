@@ -1,0 +1,592 @@
+[
+  {
+    "id": "tokyo-national-museum",
+    "identity": {
+      "name": "Tokyo National Museum",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "Ueno Station (Park Exit)",
+    "exactAccessEvidence": "Tokyo National Museum's official access page says 10 minutes' walk from Ueno or Uguisudani Station.",
+    "sourceUrls": [
+      "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The catalogue's Tokyo:Taito arrival hub is Ueno; the operator explicitly documents a practical walk from Ueno Station.",
+    "excludedOptionalOrPaidAccess": "No separate paid local access is required after Ueno Station; admission remains the separate admission fact.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Tokyo National Museum's official access page says 10 minutes' walk from Ueno or Uguisudani Station.",
+      "walkingMinutes": 10,
+      "sourceUrls": [
+        "https://www.tnm.jp/modules/r_free_page/index.php?id=113&lang=en"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "national-museum-western-art-tokyo",
+    "identity": {
+      "name": "The Architectural Work of Le Corbusier (NMWA Tokyo)"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "Ueno Station (Park Exit)",
+    "exactAccessEvidence": "The National Museum of Western Art's official access page says 1 minute from Ueno Station, Park Exit.",
+    "sourceUrls": ["https://www.nmwa.go.jp/en/visit/map.html"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The catalogue's Tokyo:Taito arrival hub is Ueno; the museum operator documents direct pedestrian access from Ueno Station.",
+    "excludedOptionalOrPaidAccess": "No separate paid local access is required after Ueno Station; admission remains the separate admission fact.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "The National Museum of Western Art's official access page says 1 minute from Ueno Station, Park Exit.",
+      "walkingMinutes": 1,
+      "sourceUrls": ["https://www.nmwa.go.jp/en/visit/map.html"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "ueno-park",
+    "identity": {
+      "name": "Ueno Park",
+      "kind": "park",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "Ueno Station",
+    "exactAccessEvidence": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station.",
+    "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "Ueno Park is the represented public park area at the catalogue's Tokyo:Taito arrival hub; the municipal park operator documents pedestrian access from Ueno Station.",
+    "excludedOptionalOrPaidAccess": "Optional boats, cafés, and on-site facilities are excluded; they are not required local transport to the represented park area.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station.",
+      "walkingMinutes": 2,
+      "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "himeji-castle",
+    "identity": {
+      "name": "Himeji Castle (White Heron Castle)",
+      "role": "destination"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Himeji Station / Sanyo Himeji Station",
+    "exactAccessEvidence": "Himeji Castle's official access section says Himeji Station and Sanyo Himeji Station are a 20-minute walk; the bus route is optional and stops at Otemon-mae, followed by a 5-minute walk.",
+    "sourceUrls": ["https://www.himejicastle.jp/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "Himeji is a catalogue intercity arrival hub and the castle operator explicitly provides a practical walking route from the represented station.",
+    "excludedOptionalOrPaidAccess": "The optional Shinki bus route and its fare are deferred; the official walking route reaches the castle gate without a required paid local leg.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Himeji Castle's official access section says Himeji Station and Sanyo Himeji Station are a 20-minute walk; the bus route is optional and stops at Otemon-mae, followed by a 5-minute walk.",
+      "walkingMinutes": 20,
+      "sourceUrls": ["https://www.himejicastle.jp/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "matsumoto-castle-nagano",
+    "identity": {
+      "name": "Matsumoto Castle (Crow Castle)",
+      "kind": "castle",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Matsumoto Station",
+    "exactAccessEvidence": "Matsumoto Castle's official access page says JR Matsumoto Station is approximately a 20-minute walk from the castle.",
+    "sourceUrls": ["https://www.matsumoto-castle.jp/access"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The intercity rail arrival for the represented Matsumoto destination is Matsumoto Station; the castle operator documents a direct practical walk from that station.",
+    "excludedOptionalOrPaidAccess": "The optional bus from Matsumoto Station is excluded because the same official page documents the walking route; admission remains separate.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Matsumoto Castle's official access page says JR Matsumoto Station is approximately a 20-minute walk from the castle.",
+      "walkingMinutes": 20,
+      "sourceUrls": ["https://www.matsumoto-castle.jp/access"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "sendai-asaichi-morning-market",
+    "identity": {
+      "name": "Sendai Asaichi Morning Market",
+      "kind": "market",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "Sendai Station west exit",
+    "exactAccessEvidence": "Sendai Asaichi's official access map says the market is a 5-minute walk from Sendai Station west exit and 1 minute from Sendai Subway Station West 1 exit.",
+    "sourceUrls": ["https://sendaiasaichi.com/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The market is represented immediately beside the catalogue's Sendai arrival hub; its operator explicitly documents pedestrian access from Sendai Station.",
+    "excludedOptionalOrPaidAccess": "The operator's parking and bicycle information is excluded; no paid local transport is required to reach the represented market.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Sendai Asaichi's official access map says the market is a 5-minute walk from Sendai Station west exit and 1 minute from Sendai Subway Station West 1 exit.",
+      "walkingMinutes": 5,
+      "sourceUrls": ["https://sendaiasaichi.com/access/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "inuyama-castle-aichi",
+    "identity": {
+      "name": "Inuyama Castle (National Treasure Keep)",
+      "kind": "castle",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Nagoya Station / Meitetsu Nagoya Station",
+    "exactAccessEvidence": "Inuyama Castle's official access page documents Tokyo Station to Nagoya Station, a 10-minute walk to Meitetsu Nagoya Station, and then an approximately 25-minute Meitetsu train to Inuyama Station before the 20-minute walk to the castle.",
+    "sourceUrls": ["https://inuyamajo.jp/access/"],
+    "reason": "The operator explicitly documents a required Meitetsu local train from Meitetsu Nagoya Station to Inuyama Station; the station-to-castle walk must not hide that paid local component.",
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "tsurugaoka-hachimangu",
+    "identity": {
+      "name": "Tsurugaoka Hachimangu",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Kamakura Station east exit",
+    "exactAccessEvidence": "Tsurugaoka Hachimangu's official access page says 10 minutes on foot from the east exit of JR Kamakura Station and 10 minutes from Enoden Kamakura Station.",
+    "sourceUrls": ["https://www.hachimangu.or.jp/en/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The represented Kamakura arrival/access point is Kamakura Station; the shrine operator explicitly documents a practical walk from the station.",
+    "excludedOptionalOrPaidAccess": "The official page's parking charges and vehicle access are excluded; they are optional and not required local transport after station arrival.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Tsurugaoka Hachimangu's official access page says 10 minutes on foot from the east exit of JR Kamakura Station and 10 minutes from Enoden Kamakura Station.",
+      "walkingMinutes": 10,
+      "sourceUrls": ["https://www.hachimangu.or.jp/en/access/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "tokyo-station-chiyoda",
+    "identity": {
+      "name": "Tokyo Station",
+      "role": "hub"
+    },
+    "decision": "not_applicable",
+    "canonicalArrivalAccessPoint": "Tokyo Station itself",
+    "exactAccessEvidence": "JR East's official Tokyo Station guide identifies the represented destination as Tokyo Station and documents its station concourses, platforms, and facilities.",
+    "sourceUrls": ["https://www.jreast.co.jp/e/stations/e1039.html"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The destination identity is the canonical arrival hub itself; there is no destination-specific local transport component after arrival.",
+    "excludedOptionalOrPaidAccess": "No citywide sightseeing, onward local transit, shopping spend, or optional facility movement is represented as required local transport.",
+    "fact": {
+      "kind": "not_applicable",
+      "reason": "canonical_arrival_hub_itself"
+    }
+  },
+  {
+    "id": "hakata-station-area",
+    "identity": {
+      "name": "Hakata Station & AMU Plaza",
+      "kind": "mixed",
+      "role": "poi"
+    },
+    "decision": "not_applicable",
+    "canonicalArrivalAccessPoint": "Hakata Station",
+    "exactAccessEvidence": "JR Hakata City’s official access page gives the address as Hakata Station Central Street 1-1 and explicitly marks the facility as directly connected to Hakata Station (博多駅直結).",
+    "sourceUrls": ["https://www.jrhakatacity.com/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The represented station-area facility is directly connected to the catalogue's Hakata arrival hub; no separate destination-specific local leg exists.",
+    "excludedOptionalOrPaidAccess": "Parking, shopping, restaurants, and onward local transit are optional spend or separate journeys and are excluded.",
+    "fact": {
+      "kind": "not_applicable",
+      "reason": "represented_facility_directly_connected_to_canonical_arrival_hub"
+    }
+  },
+  {
+    "id": "tokyo-skytree-sumida",
+    "identity": {
+      "name": "Tokyo Skytree"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Tokyo-area intercity arrival; exact local access point unresolved",
+    "reason": "The operator lists Oshiage/Tokyo Skytree Station access, but the catalogue has no Tokyo:Sumida intercity arrival hub. Required local rail/metro access from the canonical Tokyo arrival must be priced in F2; do not convert direct station connection into a zero fact.",
+    "sourceUrls": ["https://www.tokyo-skytree.jp/en/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "tokyo-tower-minato",
+    "identity": {
+      "name": "Tokyo Tower"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Shinagawa Station for Tokyo:Minato intercity arrival",
+    "reason": "Tokyo Tower's official access uses several local stations around the tower; the catalogue's Tokyo:Minato intercity hub is Shinagawa, so a required local rail/subway leg or a separately evidenced walk from Shinagawa must be resolved in F2.",
+    "sourceUrls": ["https://www.tokyotower.co.jp/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "tsukiji-outer-market",
+    "identity": {
+      "name": "Tsukiji Outer Market",
+      "kind": "market",
+      "role": "poi"
+    },
+    "decision": "defer_f3",
+    "canonicalArrivalAccessPoint": "Tokyo Station for Tokyo:Chuo intercity arrival",
+    "reason": "The market operator/tourism access descriptions use Tsukiji/Tsukijishijo stations, while the catalogue arrival hub is Tokyo Station. Whether the final leg is a defensible walk or paid local transit is not resolved without an arrival-point-specific first-party statement.",
+    "sourceUrls": ["https://www.tsukiji.or.jp/english/access/"],
+    "deferredCohort": "F3"
+  },
+  {
+    "id": "fushimi-inari-taisha",
+    "identity": {
+      "name": "Fushimi Inari Taisha",
+      "kind": "museum",
+      "role": "destination"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Kyoto Station for Kyoto:Kyoto intercity arrival",
+    "reason": "The shrine's official access page says it is next to JR Inari Station and two stations/five minutes from Kyoto Station. The Kyoto-to-Inari local rail leg is a required paid component and belongs in F2, not verified walking.",
+    "sourceUrls": ["https://inari.jp/en/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "atsuta-shrine-nagoya",
+    "identity": {
+      "name": "Atsuta Shrine (Nagoya)",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Nagoya Station for Aichi:Nagoya intercity arrival",
+    "reason": "The shrine is near Jingu-mae/Atsuta-area stations rather than the Nagoya intercity hub; the required local rail access and its fare are deferred to F2.",
+    "sourceUrls": ["https://www.atsutajingu.or.jp/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "meiji-jingu",
+    "identity": {
+      "name": "Meiji Jingu",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "defer_f3",
+    "canonicalArrivalAccessPoint": "Tokyo Station for Tokyo:Shibuya intercity arrival",
+    "reason": "The official page documents walking times from station entrances to a shrine entrance and warns that the main shrine buildings require at least another ten minutes. The multi-entry, large-ground access relationship from the catalogue's intercity arrival is not sufficiently single-leg for this cohort.",
+    "sourceUrls": ["https://www.meijijingu.or.jp/en/access/"],
+    "deferredCohort": "F3"
+  },
+  {
+    "id": "sumiyoshi-taisha",
+    "identity": {
+      "name": "Sumiyoshi Taisha Grand Shrine",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station for Osaka:Osaka intercity arrival",
+    "reason": "The shrine's official page gives a 3-minute walk from Sumiyoshi Taisha Station and a 5-minute walk from Sumiyoshi-Higashi Station, but reaching those stations from the Osaka intercity hub requires local rail/tram; fare and required-leg coverage belong in F2.",
+    "sourceUrls": ["https://www.sumiyoshitaisha.net/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "heian-jingu",
+    "identity": {
+      "name": "Heian Jingu",
+      "kind": "shrine",
+      "role": "destination"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Kyoto Station",
+    "reason": "The shrine is not the Kyoto arrival hub; the required bus/subway access from Kyoto Station must be sourced and priced in F2.",
+    "sourceUrls": ["http://www.heianjingu.or.jp/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "dazaifu-tenmangu",
+    "identity": {
+      "name": "Dazaifu Tenmangu Shrine",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Hakata Station / Fukuoka intercity arrival",
+    "reason": "Dazaifu Station is the shrine's pedestrian access point, but reaching Dazaifu from the Fukuoka arrival hub requires a separate paid rail leg; defer rather than treat the station walk as whole access.",
+    "sourceUrls": ["https://www.dazaifutenmangu.or.jp/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "nishiki-market",
+    "identity": {
+      "name": "Nishiki Market",
+      "kind": "market",
+      "role": "destination"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Kyoto Station",
+    "reason": "The represented Kyoto arrival is not Nishiki's nearest Shijo/Karasuma access; the required local subway/walk choice and fare scope need destination-specific research in F2/F3.",
+    "sourceUrls": ["http://www.kyoto-nishiki.or.jp/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "kuromon-market",
+    "identity": {
+      "name": "Kuromon Market",
+      "kind": "market",
+      "role": "destination"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station",
+    "reason": "The market is near Nippombashi/Nankai access rather than the Osaka intercity arrival hub; the required local subway/rail leg is deferred to F2.",
+    "sourceUrls": ["https://kuromon.com/en/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "nijo-market",
+    "identity": {
+      "name": "Nijo Market",
+      "kind": "market",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Sapporo Station via Chi-Ka-Ho and Odori Station",
+    "reason": "The represented Sapporo market can be reached by a continuous, source-backed pedestrian route from the catalogue's Sapporo Station arrival; no paid local leg is required.",
+    "sourceUrls": [
+      "https://www.sapporo.travel/en/spot/facility/chikaho/",
+      "https://www.sapporo.travel/en/gourmet/feature/gourmet-coupons01/"
+    ],
+    "exactAccessEvidence": "Official Welcome to Sapporo says Chi-Ka-Ho links JR Sapporo Station and Odori Station in about 10 minutes on foot; its official gourmet route then starts at Odori Station and gives an approximately 8-minute walk to Oiso, Nijo Fish Market.",
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "excludedOptionalOrPaidAccess": "Subway access and other local transport are alternatives; no fare or walkingMin-derived claim is authored.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Official Welcome to Sapporo says Chi-Ka-Ho links JR Sapporo Station and Odori Station in about 10 minutes on foot; its official gourmet route then starts at Odori Station and gives an approximately 8-minute walk to Oiso, Nijo Fish Market.",
+      "walkingMinutes": 18,
+      "sourceUrls": [
+        "https://www.sapporo.travel/en/spot/facility/chikaho/",
+        "https://www.sapporo.travel/en/gourmet/feature/gourmet-coupons01/"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "toyota-commemorative-museum-of-industry-and-technology",
+    "identity": {
+      "name": "Toyota Commemorative Museum of Industry and Technology",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Nagoya Station",
+    "reason": "The operator documents a 3-minute walk from Sako Station, but reaching Sako from Nagoya Station is a separate Meitetsu/local-rail leg. Do not promote the Sako walk to whole-access ¥0; defer fare coverage to F2.",
+    "sourceUrls": ["https://www.tcmit.org/english/visit/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "sapporo-beer-museum",
+    "identity": {
+      "name": "Sapporo Beer Museum",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Sapporo Station",
+    "reason": "The official access page gives an 8-minute walk from Naebo Station and also bus access from Sapporo Station. The required local leg from the canonical Sapporo arrival is therefore unresolved and must be priced in F2.",
+    "sourceUrls": ["https://www.sapporobeer.jp/brewery/s_museum/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "fukuoka-art-museum",
+    "identity": {
+      "name": "Fukuoka Art Museum",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Hakata Station",
+    "reason": "The official access page gives a 10-minute walk from Ohorikoen Station and bus alternatives from Hakata. The Hakata-to-Ohorikoen/subway or bus leg is a separate required local component and is deferred to F2.",
+    "sourceUrls": ["https://www.fukuoka-art-museum.jp/en/guide/access/"],
+    "deferredCohort": "F2"
+  },
+  {
+    "id": "ameya-yokocho",
+    "identity": {
+      "name": "Ameya-Yokocho",
+      "kind": "shopping",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Ueno Station Shinobazu Exit",
+    "exactAccessEvidence": "Ameya-Yokocho official access page says the shopping street is immediately beside JR Ueno Station at the Shinobazu Exit and about a 2-minute walk from Tokyo Metro Ueno Station Exit 7.",
+    "sourceUrls": ["https://www.ameyoko.net/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The catalogue's Tokyo:Taito arrival hub is Ueno; the operator documents immediate/short pedestrian access from Ueno Station.",
+    "excludedOptionalOrPaidAccess": "Nearby paid parking and car access are optional; railway-station walking access is sufficient.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Ameya-Yokocho official access page says the shopping street is immediately beside JR Ueno Station at the Shinobazu Exit and about a 2-minute walk from Tokyo Metro Ueno Station Exit 7.",
+      "walkingMinutes": 2,
+      "sourceUrls": ["https://www.ameyoko.net/access/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "ikuta-shrine-kobe",
+    "identity": {
+      "name": "Ikuta Shrine",
+      "kind": "shrine",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Shin-Kobe Station (Shinkansen)",
+    "exactAccessEvidence": "Ikuta Shrine official access says JR Shin-Kobe Station (Shinkansen) is 20 minutes south on foot (JR新神戸駅（新幹線）より南へ徒歩20分).",
+    "sourceUrls": ["https://ikutajinja.or.jp/access"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The catalogue's Hyogo:kobe arrival hub is Shin-Kobe; the shrine operator explicitly documents a practical walk from that Shinkansen station.",
+    "excludedOptionalOrPaidAccess": "Taxi and the one-stop subway alternative to Sannomiya are optional; the official direct walk is sufficient.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Ikuta Shrine official access says JR Shin-Kobe Station (Shinkansen) is 20 minutes south on foot (JR新神戸駅（新幹線）より南へ徒歩20分).",
+      "walkingMinutes": 20,
+      "sourceUrls": ["https://ikutajinja.or.jp/access"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "hakata-machiya-folk-museum",
+    "identity": {
+      "name": "Hakata Machiya Folk Museum",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Hakata Station",
+    "exactAccessEvidence": "Hakata Machiya Furusatokan official access page says JR Hakata Station is a 15-minute walk (JR「博多」駅より徒歩15分).",
+    "sourceUrls": ["https://hakatamachiya.com/access/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The museum operator explicitly documents a practical walk from the catalogue's Hakata arrival hub.",
+    "excludedOptionalOrPaidAccess": "The subway, taxi, and bus alternatives are optional; admission remains separate.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Hakata Machiya Furusatokan official access page says JR Hakata Station is a 15-minute walk (JR「博多」駅より徒歩15分).",
+      "walkingMinutes": 15,
+      "sourceUrls": ["https://hakatamachiya.com/access/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "akita-museum-of-art",
+    "identity": {
+      "name": "Akita Museum of Art",
+      "kind": "museum",
+      "role": "poi"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Akita Station",
+    "exactAccessEvidence": "JNTO’s official Akita Museum of Art page says the museum is near Akita Station and visitors can walk west from Akita Station for about eight minutes.",
+    "sourceUrls": ["https://www.japan.travel/en/spot/1828/"],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "Akita Station is the catalogue's Akita intercity arrival hub; the official national tourism body documents the practical station-to-museum walk.",
+    "excludedOptionalOrPaidAccess": "Train and bus access from other cities is origin/intercity travel; no separate local leg is required after Akita Station.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "JNTO’s official Akita Museum of Art page says the museum is near Akita Station and visitors can walk west from Akita Station for about eight minutes.",
+      "walkingMinutes": 8,
+      "sourceUrls": ["https://www.japan.travel/en/spot/1828/"],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "korakuen-okayama",
+    "identity": {
+      "name": "Korakuen Garden"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "JR Okayama Station",
+    "exactAccessEvidence": "Okayama Korakuen official access page explicitly lists walking from JR Okayama Station as about 25 minutes and describes the pedestrian route via Momotaro Avenue, Ishiyama Park, and Tsurumi Bridge.",
+    "sourceUrls": [
+      "https://okayama-korakuen.jp/section/english/access/index.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The garden operator documents a direct practical walk from the catalogue's Okayama Shinkansen arrival hub.",
+    "excludedOptionalOrPaidAccess": "Bus and streetcar routes are optional alternatives to the documented station walk.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "Okayama Korakuen official access page explicitly lists walking from JR Okayama Station as about 25 minutes and describes the pedestrian route via Momotaro Avenue, Ishiyama Park, and Tsurumi Bridge.",
+      "walkingMinutes": 25,
+      "sourceUrls": [
+        "https://okayama-korakuen.jp/section/english/access/index.html"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "ginza-urban",
+    "identity": {
+      "name": "Ginza"
+    },
+    "decision": "verified_walking",
+    "canonicalArrivalAccessPoint": "Tokyo Station to the Ginza area",
+    "exactAccessEvidence": "GO TOKYO’s official Ginza guide says visitors can walk to the Ginza area in around 15 minutes from Tokyo Station.",
+    "sourceUrls": [
+      "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewCadence": "12 months",
+    "reason": "The official Tokyo tourism authority documents a practical walk from the catalogue's Tokyo Station arrival to the represented Ginza area.",
+    "excludedOptionalOrPaidAccess": "Ginza Station, Ginza-itchome, and Yurakucho rail access are alternatives; the direct Tokyo Station walk is sufficient for this area context.",
+    "fact": {
+      "kind": "verified_walking",
+      "walkingEvidence": "GO TOKYO’s official Ginza guide says visitors can walk to the Ginza area in around 15 minutes from Tokyo Station.",
+      "walkingMinutes": 15,
+      "sourceUrls": [
+        "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html"
+      ],
+      "checkedAt": "2026-08-29",
+      "reviewIntervalMonths": 12
+    }
+  },
+  {
+    "id": "osaka-station-city",
+    "identity": {
+      "name": "Osaka Station City",
+      "kind": "museum",
+      "role": "destination"
+    },
+    "decision": "defer_f2",
+    "canonicalArrivalAccessPoint": "Shin-Osaka Station for Osaka:osaka intercity arrival; Osaka Station City is at Osaka Station",
+    "reason": "The repository's canonical Shinkansen hub mapping is Osaka:osaka -> shin-osaka, while Osaka Station City is located at Osaka Station. The origin-aware transport service models destination hub access duration but does not add the required feeder fare for the Shin-Osaka -> Osaka Station local rail leg. KAI-251 must author that source-backed fare; KAI-250 must not suppress it with not_applicable.",
+    "sourceUrls": ["https://osakastationcity.com/map/"],
+    "deferredCohort": "F2"
+  }
+]

@@ -241,5 +241,13 @@
     "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; zoo, museums, galleries optional paid.",
     "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "The Tokyo Metropolitan Park Association's Ueno Park page says 2 minutes on foot from Ueno Station and 1 minute from Keisei Ueno Station.",
+    "walkingMinutes": 2,
+    "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

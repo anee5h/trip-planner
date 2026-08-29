@@ -205,5 +205,16 @@
     "basis": "Nijo Market: public market, free to walk (official site)",
     "sourceUrls": ["https://nijomarket.com/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Official Welcome to Sapporo says Chi-Ka-Ho links JR Sapporo Station and Odori Station in about 10 minutes on foot; its official gourmet route then starts at Odori Station and gives an approximately 8-minute walk to Oiso, Nijo Fish Market.",
+    "walkingMinutes": 18,
+    "sourceUrls": [
+      "https://www.sapporo.travel/en/spot/facility/chikaho/",
+      "https://www.sapporo.travel/en/gourmet/feature/gourmet-coupons01/"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

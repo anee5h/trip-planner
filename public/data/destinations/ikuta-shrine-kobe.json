@@ -267,5 +267,13 @@
     "sourceUrls": ["https://ikutajinja.or.jp/access"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Ikuta Shrine official access says JR Shin-Kobe Station (Shinkansen) is 20 minutes south on foot (JR新神戸駅（新幹線）より南へ徒歩20分).",
+    "walkingMinutes": 20,
+    "sourceUrls": ["https://ikutajinja.or.jp/access"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

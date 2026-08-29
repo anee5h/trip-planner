@@ -146,5 +146,15 @@
       "https://okayama-korakuen.jp/section/english/info/index.html"
     ],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Okayama Korakuen official access page explicitly lists walking from JR Okayama Station as about 25 minutes and describes the pedestrian route via Momotaro Avenue, Ishiyama Park, and Tsurumi Bridge.",
+    "walkingMinutes": 25,
+    "sourceUrls": [
+      "https://okayama-korakuen.jp/section/english/access/index.html"
+    ],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }

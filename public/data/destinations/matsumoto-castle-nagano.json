@@ -137,5 +137,13 @@
     "sourceUrls": ["https://www.matsumoto-castle.jp/topics/8173.html"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "verified_walking",
+    "walkingEvidence": "Matsumoto Castle's official access page says JR Matsumoto Station is approximately a 20-minute walk from the castle.",
+    "walkingMinutes": 20,
+    "sourceUrls": ["https://www.matsumoto-castle.jp/access"],
+    "checkedAt": "2026-08-29",
+    "reviewIntervalMonths": 12
   }
 }
