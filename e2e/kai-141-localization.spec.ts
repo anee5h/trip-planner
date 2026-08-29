@@ -73,7 +73,9 @@ test.describe("KAI-141 Japanese locale regression guard", () => {
 
     await switchLocale(page, "en");
     await expect(page).toHaveURL(/\/destinations\/ueno-park$/);
-    await expect(page.locator("body")).toContainText("Overview");
+    // KAI-211 renamed the detail-page overview surface to the compact
+    // "At a glance" section.
+    await expect(page.locator("body")).toContainText("At a glance");
 
     await switchLocale(page, "ja");
     await expect(page).toHaveURL(/\/ja\/destinations\/ueno-park$/);

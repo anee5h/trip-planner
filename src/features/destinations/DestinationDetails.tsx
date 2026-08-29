@@ -1546,7 +1546,7 @@ export default function DestinationDetails() {
             <section
               id="plan-this-trip"
               aria-labelledby="plan-this-trip-heading"
-              className="space-y-5 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"
+              className="space-y-5 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"
             >
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div>
