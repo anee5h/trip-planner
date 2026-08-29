@@ -204,5 +204,10 @@
     "basis": "Verified admission ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/",
     "sourceUrls": ["https://kenrokuen.or.jp/information/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

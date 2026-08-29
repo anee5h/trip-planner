@@ -227,5 +227,10 @@
     "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.kawagoematsuri.jp/English/museum.html",
     "sourceUrls": ["https://www.kawagoematsuri.jp/English/museum.html"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

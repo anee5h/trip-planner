@@ -159,5 +159,10 @@
     },
     "scope": "open_area",
     "basis": "The catalogue identity is the open worship grounds of Naminoue Shrine & Beach; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product."
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

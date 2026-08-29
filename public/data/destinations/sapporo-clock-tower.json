@@ -207,5 +207,13 @@
     "sourceUrls": ["http://sapporoshi-tokeidai.jp/inspect/guide.php"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "checkedAt": "2026-08-29",
+    "kind": "verified_walking",
+    "reviewIntervalMonths": 12,
+    "sourceUrls": ["https://sapporoshi-tokeidai.jp/access/"],
+    "walkingEvidence": "Official Sapporo Clock Tower access page: JR Sapporo Station via the underground pedestrian walkway toward Odori, approximately 10 minutes to Exit 9.",
+    "walkingMinutes": 10
   }
 }

@@ -186,5 +186,10 @@
     "basis": "Ryozenji: temple precinct free to visit (Naruto tourism official; first temple of Shikoku 88)",
     "sourceUrls": ["https://naruto-tourism.jp/en/spot/15466"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

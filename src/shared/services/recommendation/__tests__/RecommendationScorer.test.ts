@@ -280,6 +280,7 @@ describe("RecommendationScorer Unit Tests", () => {
       ...((await getDestinationListAsync("en")) as Destination[]).find(
         (candidate) => candidate.id === "nagano-city",
       )!,
+      localTransport: undefined,
       budgetMetadata: {
         method: "manual",
         confidence: "low",

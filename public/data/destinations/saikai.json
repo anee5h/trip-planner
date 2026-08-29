@@ -178,5 +178,10 @@
     "basis": "National park: park entry free (MOE); Kujukushima Pearl Sea Resort cruise paid",
     "sourceUrls": ["https://www.env.go.jp/en/nature/nps/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

@@ -171,5 +171,10 @@
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12,
     "optionalPaidNote": "Optional paid museum, tower, gate, turret, residence, exhibition, activity, or seasonal facility is excluded from the free/open-area canonical admission fact."
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Kagoshima-Chuo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }

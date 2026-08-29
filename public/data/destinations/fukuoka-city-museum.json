@@ -253,5 +253,10 @@
     "sourceUrls": ["https://museum.city.fukuoka.jp/about/information.html"],
     "checkedAt": "2026-08-27",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }

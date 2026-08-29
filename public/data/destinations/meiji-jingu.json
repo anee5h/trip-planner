@@ -199,5 +199,10 @@
     ],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "detail": "Official access was reviewed, but multiple entrances and the unresolved Tokyo:shibuya canonical hub prevent a truthful single local fare fact. The grounds walk is documented but does not establish the missing origin leg.",
+    "kind": "unavailable",
+    "reason": "corridor_only"
   }
 }

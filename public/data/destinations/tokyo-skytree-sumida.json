@@ -223,5 +223,10 @@
     "sourceUrls": ["https://www.tokyo-skytree.jp/ticket/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "detail": "Official access was reviewed, but the repository has no Tokyo:sumida canonical intercity arrival hub. The operator Oshiage endpoint cannot replace that missing origin topology; no fare is asserted.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

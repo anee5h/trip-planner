@@ -187,5 +187,10 @@
     "basis": "Committed notes state site-wide adult viewing fee ¥500 (since Apr 2019); official site",
     "sourceUrls": ["https://sannaimaruyama.pref.aomori.jp/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Shin-Aomori Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }

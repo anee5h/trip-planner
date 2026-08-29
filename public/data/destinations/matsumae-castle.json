@@ -164,5 +164,10 @@
     "basis": "Castle park/core free; keep history museum ¥360 optional.",
     "sourceUrls": ["https://www.matsumae-castle.jp/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

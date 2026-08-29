@@ -157,5 +157,10 @@
     "basis": "Sado island: public island free to visit; Sado Gold Mine is separate paid attraction",
     "sourceUrls": ["https://www.pref.niigata.lg.jp/site/sado-goldmine/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

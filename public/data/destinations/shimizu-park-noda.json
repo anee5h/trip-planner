@@ -285,5 +285,10 @@
     "basis": "Official site: park entry free; field athletics, Aqua Venture, flower garden charge fees",
     "sourceUrls": ["https://www.shimizu-kouen.com/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

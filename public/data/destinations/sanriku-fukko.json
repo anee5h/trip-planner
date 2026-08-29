@@ -168,5 +168,10 @@
     "basis": "National park: park entry free (MOE); museums/visitor facilities paid",
     "sourceUrls": ["https://www.env.go.jp/en/nature/nps/park/sanriku/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

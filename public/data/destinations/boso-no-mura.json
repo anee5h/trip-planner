@@ -276,5 +276,10 @@
     "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.japan-guide.com/e/e6403.html",
     "sourceUrls": ["https://www.japan-guide.com/e/e6403.html"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

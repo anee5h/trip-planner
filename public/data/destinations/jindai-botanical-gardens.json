@@ -210,5 +210,10 @@
     "basis": "Verified admission ¥500 (ledger LEDGER_VERIFIED); source: https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
     "sourceUrls": ["https://en.wikipedia.org/wiki/Jindai_Botanical_Garden"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

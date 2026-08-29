@@ -207,5 +207,19 @@
     ],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "access": "rail",
+    "basis": "Tokyo:chuo maps to Tokyo Station in repository topology. The official market page identifies Tsukiji Station as a one-minute walk from the market; official Tokyo Metro route/fare search checked Tokyo Station to Tsukiji at ¥180 ordinary adult one-way. Bus and other station alternatives are excluded from this selected canonical route.",
+    "checkedAt": "2026-08-29",
+    "coverage": "all_required_access",
+    "fare": [180, 180],
+    "fareBasis": "one_way",
+    "kind": "verified_required_access",
+    "reviewIntervalMonths": 12,
+    "sourceUrls": [
+      "https://www.tsukiji.or.jp/english/access/",
+      "https://transfer.tokyometro.jp/?lang=en"
+    ]
   }
 }

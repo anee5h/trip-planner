@@ -222,5 +222,10 @@
     "basis": "Verified admission ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/",
     "sourceUrls": ["https://www.tokyo-park.or.jp/park/hama-rikyu/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }

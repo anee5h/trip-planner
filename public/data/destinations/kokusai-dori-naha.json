@@ -173,5 +173,10 @@
     },
     "scope": "open_area",
     "basis": "The catalogue identity represents Kokusai-dori & Makishi Public Market as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission."
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

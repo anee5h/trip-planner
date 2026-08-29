@@ -141,5 +141,10 @@
     "sourceUrls": ["https://334.co.jp/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Shin-Hakodate-Hokuto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }

@@ -206,5 +206,9 @@
     },
     "scope": "open_area",
     "basis": "The catalogue identity is the Chofu City hub/aggregate, not one operator-controlled admission product; destination-level admission is not applicable."
+  },
+  "localTransport": {
+    "kind": "not_applicable",
+    "reason": "canonical_arrival_hub_record_itself"
   }
 }

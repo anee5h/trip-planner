@@ -266,5 +266,10 @@
     "basis": "Official site: garden/grounds free; Noritake Museum & Craft Center charge admission",
     "sourceUrls": ["https://www.noritake.co.jp/eng/mori/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Nagoya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }

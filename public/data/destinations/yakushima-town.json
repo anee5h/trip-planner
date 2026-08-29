@@ -158,5 +158,10 @@
     },
     "scope": "open_area",
     "basis": "The catalogue identity is the Yakushima Town hub/aggregate, not one operator-controlled admission product; destination-level admission is not applicable."
+  },
+  "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
+    "kind": "unavailable",
+    "reason": "other"
   }
 }

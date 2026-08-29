@@ -171,5 +171,10 @@
     },
     "scope": "open_area",
     "basis": "The catalogue identity is the open worship grounds of Mitaki-dera; offerings, prayers, charms, donations, and separate halls/services do not establish one required admission product."
+  },
+  "localTransport": {
+    "detail": "Canonical arrival Hiroshima Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
+    "kind": "unavailable",
+    "reason": "fare_not_found"
   }
 }
