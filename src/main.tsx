@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App.tsx";
 import { resolveInitialLanguage } from "./i18n";
 import { installGlobalErrorHandlers } from "./shared/utils/errorReporter";
-import { initializeGoogleAnalytics } from "./shared/services/analytics/GoogleAnalytics";
 
 // KAI-46: capture unhandled errors and unhandled rejections before the app
 // boots so no first-paint crash is lost.
@@ -24,11 +23,11 @@ if (shouldRedirectToJapanese) {
   window.location.replace(
     `/ja${window.location.pathname}${window.location.search}${window.location.hash}`,
   );
-} else {
-  // GA4 is production-hostname gated. Skipping initialization on the
-  // locale redirect avoids recording the transient pre-redirect URL.
-  initializeGoogleAnalytics();
 }
+
+// GA4 is initialized by the CSP-safe static document shell before this
+// application bootstrap. Keep analytics out of React so production tag
+// detection does not depend on application JavaScript executing first.
 
 if (import.meta.env.PROD && "serviceWorker" in navigator) {
   window.addEventListener("load", () => {

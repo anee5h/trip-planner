@@ -31,6 +31,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, "dist");
+const GA4_URL = "https://www.googletagmanager.com/gtag/js?id=G-5QKWZM9190";
 
 const PORT = 8799 + Math.floor(Math.random() * 500);
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -97,7 +98,19 @@ function assert(condition, message) {
   }
 }
 
+function assertGa4DocumentShell(result, label) {
+  const loaderCount = result.body.split(GA4_URL).length - 1;
+  const initCount = result.body.split('src="/ga4-init.js"').length - 1;
+  assert(
+    loaderCount === 1 && initCount === 1,
+    `${label} contains one static GA4 loader and one init reference (got ${loaderCount}/${initCount})`,
+  );
+}
+
 function assertSecureHtml(result, label) {
+  if (result.status === 200 && result.body.includes('<div id="root">')) {
+    assertGa4DocumentShell(result, label);
+  }
   assert(
     result.csp?.includes("default-src 'self'") && result.frame === "DENY",
     `${label} preserves CSP + X-Frame-Options`,
