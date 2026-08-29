@@ -403,7 +403,10 @@ export function TripCostBreakdownWidget({
   };
 
   return (
-    <Card className="overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900">
+    <Card
+      data-testid="trip-cost-breakdown"
+      className="overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900"
+    >
       <CardContent className="p-5 sm:p-6 space-y-5">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
