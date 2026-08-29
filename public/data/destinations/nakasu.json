@@ -221,5 +221,10 @@
     "basis": "Nakasu: public entertainment district, free to walk (Nakasu tourism association)",
     "sourceUrls": ["http://www.nakasukankou.com/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

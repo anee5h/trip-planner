@@ -203,5 +203,10 @@
     },
     "scope": "general_entry",
     "basis": "City hub — no single admission product (hub class convention)"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual no_current_saleable_product: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

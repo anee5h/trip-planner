@@ -140,5 +140,10 @@
     "sourceUrls": ["https://www.takaoka.or.jp/"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual context_dependent_access: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

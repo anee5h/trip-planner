@@ -205,5 +205,10 @@
     },
     "scope": "open_area",
     "basis": "The catalogue identity represents Daikanbo Viewpoint as an area/landscape/aggregate rather than one coherent required admission product. Official evidence was reviewed for the identity; optional facilities, rides, transport, purchases, donations, and events are not promoted as admission."
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

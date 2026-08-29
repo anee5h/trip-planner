@@ -204,5 +204,10 @@
     "basis": "Verified admission ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/",
     "sourceUrls": ["https://kenrokuen.or.jp/information/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual no_current_saleable_product: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

@@ -184,5 +184,10 @@
     "basis": "Ome retro town: public townscape, free to walk (Ome tourism association)",
     "sourceUrls": ["https://www.omekanko.gr.jp/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual context_dependent_access: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

@@ -182,5 +182,10 @@
     "sourceUrls": ["https://www.hitachikaihin.jp/guide/ticket.html"],
     "checkedAt": "2026-08-28",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual no_current_saleable_product: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

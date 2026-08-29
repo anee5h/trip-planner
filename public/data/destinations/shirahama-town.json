@@ -182,5 +182,10 @@
     "basis": "Shirahama town: public resort town, free to visit; beaches free (town official)",
     "sourceUrls": ["https://www.town.shirahama.wakayama.jp/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual incomplete_required_segments: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

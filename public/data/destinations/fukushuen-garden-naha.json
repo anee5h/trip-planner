@@ -169,5 +169,10 @@
       "https://www.city.naha.okinawa.jp/shisetsu/sports/1007498/1004873.html"
     ],
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

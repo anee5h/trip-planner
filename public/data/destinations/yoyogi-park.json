@@ -194,5 +194,10 @@
     "basis": "Tokyo Park Association official: 入園料 無料（一部有料施設あり）— park entry free; sports/event facilities optional paid.",
     "sourceUrls": ["https://www.tokyo-park.or.jp/park/yoyogi/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

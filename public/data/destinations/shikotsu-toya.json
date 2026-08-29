@@ -172,5 +172,10 @@
     "basis": "National park: park entry free (MOE); Toyako Onsen baths & Usuzan ropeway paid",
     "sourceUrls": ["https://www.env.go.jp/en/nature/nps/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual incomplete_required_segments: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

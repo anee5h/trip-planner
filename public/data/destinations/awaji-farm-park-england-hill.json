@@ -271,5 +271,10 @@
     "sourceUrls": ["https://www.england-hill.com/price/"],
     "checkedAt": "2026-08-27",
     "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual incomplete_required_segments: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

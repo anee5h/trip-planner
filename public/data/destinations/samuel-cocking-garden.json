@@ -234,5 +234,10 @@
     "basis": "Official Enoshima Sea Candle site (since 2023-04-01): Samuel Cocking Garden free all day unless a night event is held; night-event admission ¥500 adult / ¥250 child — free core + optional paid nighttime experience.",
     "sourceUrls": ["https://en.enoshima-seacandle.com/information/post-154/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

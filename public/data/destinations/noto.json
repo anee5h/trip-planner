@@ -139,5 +139,10 @@
     "basis": "Noto Peninsula: public coastline free to visit (Noto tourism official)",
     "sourceUrls": ["https://www.noto-kanko.jp/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

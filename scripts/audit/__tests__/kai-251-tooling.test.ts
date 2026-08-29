@@ -11,12 +11,25 @@ import {
 import type { Destination } from "../../../src/shared/types/destination";
 
 const root = process.cwd();
-const destinations = JSON.parse(
+const rawDestinations = JSON.parse(
   readFileSync(
     path.join(root, "src/shared/data/destinations-index.json"),
     "utf8",
   ),
 ) as Destination[];
+const kai252Manifest = JSON.parse(
+  readFileSync(
+    path.join(root, "scripts/audit/kai-252-local-transport-manifest.json"),
+    "utf8",
+  ),
+) as { id: string }[];
+const destinations = rawDestinations.map((destination) => {
+  const fixture = JSON.parse(JSON.stringify(destination)) as Destination;
+  if (kai252Manifest.some((entry) => entry.id === fixture.id)) {
+    delete fixture.localTransport;
+  }
+  return fixture;
+});
 const manifest = JSON.parse(
   readFileSync(
     path.join(root, "scripts/audit/kai-251-local-transport-manifest.json"),

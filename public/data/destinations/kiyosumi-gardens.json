@@ -200,5 +200,10 @@
       "https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
     ],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

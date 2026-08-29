@@ -282,5 +282,10 @@
     "basis": "Shrine/Oyunohara pilgrimage grounds free; Homotsuden treasure hall ¥300 optional.",
     "sourceUrls": ["https://www.hongutaisha.jp/"],
     "checkedAt": "2026-08-14"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual incomplete_required_segments: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }

@@ -143,5 +143,10 @@
     "basis": "Official Nara travel guide: Naramachi Koshi-no-Ie (lattice house) is free to visit; district streets free to stroll",
     "sourceUrls": ["https://www.visitnara.jp/venues/S01099/"],
     "checkedAt": "2026-08-28"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
   }
 }
