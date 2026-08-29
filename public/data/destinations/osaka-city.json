@@ -238,8 +238,7 @@
     "basis": "The catalogue identity is the Osaka City hub/aggregate, not one operator-controlled admission product; destination-level admission is not applicable."
   },
   "localTransport": {
-    "kind": "unavailable",
-    "reason": "fare_not_found",
-    "detail": "KAI-252 residual no_current_saleable_product: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
+    "kind": "not_applicable",
+    "reason": "canonical_arrival_hub_record_itself"
   }
 }

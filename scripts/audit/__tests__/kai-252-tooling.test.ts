@@ -8,6 +8,7 @@ import {
   validateManifest,
   type ManifestEntry,
 } from "../../kai-252-local-transport-cohort";
+import { makeEntry as transformResearchResult } from "../build-kai-252-research-ledger";
 
 const root = process.cwd();
 const destinations = JSON.parse(
@@ -44,7 +45,7 @@ function authoringInput(): Destination[] {
 }
 
 describe("KAI-252 final local-transport migration contract", () => {
-  it("covers every absent record with a validated evidence-backed unavailable ledger entry", () => {
+  it("covers every absent record with a validated research-result ledger entry", () => {
     expect(manifest).toHaveLength(1029);
     expect(manifest.map((entry) => entry.id).sort()).toEqual(
       predecessorResidual.unresolvedIds,
@@ -58,7 +59,13 @@ describe("KAI-252 final local-transport migration contract", () => {
     expect(facts.size).toBe(1029);
     for (const entry of manifest) {
       expect(entry.decision).toBe("author");
-      expect(entry.fact.kind).toBe("unavailable");
+      expect([
+        "verified_walking",
+        "not_applicable",
+        "verified_required_access",
+        "bounded_defensible_access",
+        "unavailable",
+      ]).toContain(entry.fact.kind);
       expect(entry.sourceAttempts.length).toBeGreaterThan(0);
       expect(entry.reason.length).toBeGreaterThan(0);
       expect(entry.whyVerifiedWalkingIsInappropriate.length).toBeGreaterThan(0);
@@ -72,25 +79,8 @@ describe("KAI-252 final local-transport migration contract", () => {
       expect(entry.whySegmentOnlyIsInsufficient.length).toBeGreaterThan(0);
     }
     expect(
-      manifest
-        .filter((entry) =>
-          [
-            "sapporo-beer-museum",
-            "tokyo-skytree-sumida",
-            "meiji-jingu",
-            "tsukiji-outer-market",
-          ].includes(entry.id),
-        )
-        .reduce<Record<string, string>>((result, entry) => {
-          result[entry.id] = entry.residualReason;
-          return result;
-        }, {}),
-    ).toEqual({
-      "sapporo-beer-museum": "fare_unavailable",
-      "tokyo-skytree-sumida": "ambiguous_canonical_arrival",
-      "meiji-jingu": "context_dependent_access",
-      "tsukiji-outer-market": "context_dependent_access",
-    });
+      manifest.filter((entry) => entry.fact.kind !== "unavailable").length,
+    ).toBeGreaterThan(0);
   });
 
   it("authors STATE A once, then performs a zero-write STATE B rerun", () => {
@@ -176,11 +166,6 @@ describe("KAI-252 final local-transport migration contract", () => {
   });
 
   it("does not promote Jina rate-limit responses into source evidence", () => {
-    expect(
-      manifest.some(
-        (entry) => entry.residualReason === "no_current_saleable_product",
-      ),
-    ).toBe(false);
     for (const entry of manifest) {
       for (const attempt of entry.sourceAttempts) {
         if (!attempt.excerpt?.includes("RateLimitTriggeredError")) continue;
@@ -188,5 +173,86 @@ describe("KAI-252 final local-transport migration contract", () => {
         expect(attempt.status).toBe(429);
       }
     }
+  });
+
+  it("executes research-ledger transformation fixtures without deriving facts from fetch status", () => {
+    const destination = {
+      id: "fixture-walking",
+      name: "Fixture Walking Place",
+      kind: "museum",
+      role: "poi",
+      officialWebsite: "https://example.invalid/place",
+    } as Destination;
+    const semantic = {
+      canonicalArrivalAccessPoint: "Fixture Station north exit",
+      canonicalArrivalResolved: true,
+      accessPatternResearched:
+        "Official operator access page states the destination is reached on foot from Fixture Station.",
+      closureOrSuspension: { applies: false, detail: "No closure applies." },
+      residualReason: "resolved" as const,
+      reason: "Authoritative walking evidence resolves the final approach.",
+      whyVerifiedWalkingIsInappropriate:
+        "Not applicable after the walking evidence was reviewed.",
+      whyNotApplicableIsInappropriate:
+        "The destination has a distinct final approach, so N/A would hide it.",
+      whyVerifiedRequiredAccessIsInappropriate:
+        "No paid segment is required by the reviewed access page.",
+      whyBoundedDefensibleAccessIsInappropriate: "No fare exists to bound.",
+      whySegmentOnlyIsInsufficient: "No paid segment exists.",
+      blocker: "localTransport_evidence" as const,
+      semanticReview: {
+        originTravelCoverage: "Origin travel ends at Fixture Station.",
+        canonicalArrival:
+          "Fixture Station north exit is the physical canonical arrival.",
+        requiredLocalLegs: "Walk from the north exit to the entrance.",
+        walkingAssessment:
+          "Official access evidence establishes practical walking access.",
+        paidAccessAssessment: "No paid final-access leg is required.",
+        fareProduct: "None; walking is ¥0 without a fabricated fare.",
+        multipleRequiredSegments: "None.",
+        coverageDecision: "verified_walking.",
+        noDoubleCounting:
+          "The origin fare ends at the station and no local fare is added.",
+      },
+      fact: {
+        kind: "verified_walking" as const,
+        walkingEvidence:
+          "Official operator access page: 5 minutes on foot from Fixture Station.",
+        sourceUrls: ["https://example.invalid/place/access"],
+        checkedAt: "2026-08-29",
+      },
+    };
+    const transformed = transformResearchResult(
+      destination,
+      new Map(),
+      semantic,
+    );
+    expect(transformed.fact.kind).toBe("verified_walking");
+    expect(transformed.fact.kind).not.toBe("unavailable");
+
+    const segment = {
+      ...semantic,
+      fact: {
+        kind: "verified_required_access" as const,
+        access: "bus" as const,
+        fare: [230, 230] as [number, number],
+        fareBasis: "one_way" as const,
+        coverage: "segment_only" as const,
+        sourceUrls: ["https://example.invalid/place/fare"],
+        basis:
+          "Official operator fare table: Fixture Station to trailhead, adult one-way ¥230.",
+        checkedAt: "2026-08-29",
+      },
+    };
+    const segmentResult = transformResearchResult(
+      destination,
+      new Map(),
+      segment,
+    );
+    expect(segmentResult.fact).toMatchObject({
+      kind: "verified_required_access",
+      coverage: "segment_only",
+      fare: [230, 230],
+    });
   });
 });

@@ -178,6 +178,7 @@ describe("KAI-217A engine — travel completeness", () => {
     // Explicit route fare = corridor_only (no origin identity, unprovenanced).
     const dest = {
       ...base,
+      localTransport: undefined,
       transportFares: { train: 800 },
     } as unknown as Destination;
     const r = calculateTripCost(

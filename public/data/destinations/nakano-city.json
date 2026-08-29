@@ -187,8 +187,8 @@
     "basis": "The catalogue identity is the Nakano City hub/aggregate, not one operator-controlled admission product; destination-level admission is not applicable."
   },
   "localTransport": {
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
-    "reason": "fare_not_found",
-    "detail": "KAI-252 residual no_current_saleable_product: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
+    "reason": "other"
   }
 }

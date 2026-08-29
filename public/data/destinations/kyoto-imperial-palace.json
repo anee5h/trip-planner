@@ -230,8 +230,8 @@
     "reviewIntervalMonths": 12
   },
   "localTransport": {
+    "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
-    "reason": "fare_not_found",
-    "detail": "KAI-252 residual origin_topology_gap: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
+    "reason": "fare_not_found"
   }
 }

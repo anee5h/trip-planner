@@ -12,6 +12,7 @@ import {
 export type AuthoringState = "STATE A" | "STATE B" | "STATE C";
 
 export type ResidualReason =
+  | "resolved"
   | "fare_unavailable"
   | "ambiguous_canonical_arrival"
   | "context_dependent_access"
@@ -32,6 +33,8 @@ export type SourceAttempt = {
     | "catalogue_official"
     | "catalogue_editorial"
     | "derived_access"
+    | "direct_official"
+    | "discovered_official"
     | "source_missing";
   outcome: "retrieved" | "fetch_failed" | "source_missing";
   status?: number;
@@ -52,8 +55,15 @@ export type ManifestEntry = {
   canonicalArrivalResolved: boolean;
   accessPatternResearched: string;
   sourceAttempts: SourceAttempt[];
+  additionalSourceUrls: string[];
   closureOrSuspension: { applies: boolean; detail: string };
   residualReason: ResidualReason;
+  researchDisposition:
+    | "authoritative_reviewed"
+    | "repository_semantics_reviewed"
+    | "topology_blocked"
+    | "retrieval_incomplete";
+  retrievalFailureCount: number;
   reason: string;
   whyVerifiedWalkingIsInappropriate: string;
   whyNotApplicableIsInappropriate: string;
@@ -61,6 +71,17 @@ export type ManifestEntry = {
   whyBoundedDefensibleAccessIsInappropriate: string;
   whySegmentOnlyIsInsufficient: string;
   blocker: "localTransport_evidence" | "origin_topology";
+  semanticReview: {
+    originTravelCoverage: string;
+    canonicalArrival: string;
+    requiredLocalLegs: string;
+    walkingAssessment: string;
+    paidAccessAssessment: string;
+    fareProduct: string;
+    multipleRequiredSegments: string;
+    coverageDecision: string;
+    noDoubleCounting: string;
+  };
   fact: LocalTransportAccess;
 };
 
@@ -78,6 +99,7 @@ const MANIFEST_PATH =
 const EXPECTED_TOTAL = 1057;
 const EXPECTED_RESIDUAL = 1029;
 const RESIDUAL_REASONS = new Set<ResidualReason>([
+  "resolved",
   "fare_unavailable",
   "ambiguous_canonical_arrival",
   "context_dependent_access",
@@ -177,6 +199,8 @@ function validateLedgerEntry(entry: ManifestEntry): void {
       `${entry.id}: unavailable entry requires evidence attempts`,
     );
   }
+  if (!Array.isArray(entry.additionalSourceUrls))
+    throw new Error(`${entry.id}: additionalSourceUrls must be an array`);
   for (const attempt of entry.sourceAttempts)
     validateSourceAttempt(entry, attempt);
   if (!entry.residualReason || !RESIDUAL_REASONS.has(entry.residualReason)) {
@@ -184,6 +208,38 @@ function validateLedgerEntry(entry: ManifestEntry): void {
   }
   if (!entry.reason.trim())
     throw new Error(`${entry.id}: missing residual reason detail`);
+  if (
+    ![
+      "authoritative_reviewed",
+      "repository_semantics_reviewed",
+      "topology_blocked",
+      "retrieval_incomplete",
+    ].includes(entry.researchDisposition)
+  ) {
+    throw new Error(`${entry.id}: unsupported research disposition`);
+  }
+  if (
+    !Number.isInteger(entry.retrievalFailureCount) ||
+    entry.retrievalFailureCount < 0
+  ) {
+    throw new Error(`${entry.id}: invalid retrieval failure count`);
+  }
+  if (!entry.semanticReview || typeof entry.semanticReview !== "object")
+    throw new Error(`${entry.id}: missing semanticReview`);
+  for (const field of [
+    "originTravelCoverage",
+    "canonicalArrival",
+    "requiredLocalLegs",
+    "walkingAssessment",
+    "paidAccessAssessment",
+    "fareProduct",
+    "multipleRequiredSegments",
+    "coverageDecision",
+    "noDoubleCounting",
+  ] as const) {
+    if (!entry.semanticReview[field].trim())
+      throw new Error(`${entry.id}: missing semanticReview.${field}`);
+  }
   for (const field of [
     "whyVerifiedWalkingIsInappropriate",
     "whyNotApplicableIsInappropriate",
@@ -201,16 +257,28 @@ function validateLedgerEntry(entry: ManifestEntry): void {
   ) {
     throw new Error(`${entry.id}: unsupported blocker`);
   }
-  if (entry.fact.kind !== "unavailable") {
-    throw new Error(
-      `${entry.id}: final KAI-252 facts must be unavailable or resolved separately`,
-    );
-  }
   const result = validateLocalTransportFact(entry.fact);
   if (!result.valid)
     throw new Error(
       `${entry.id}: invalid localTransport fact: ${result.reason}`,
     );
+  if (
+    entry.fact.kind === "unavailable" &&
+    entry.researchDisposition === "retrieval_incomplete"
+  ) {
+    throw new Error(
+      `${entry.id}: retrieval-incomplete research cannot author unavailable`,
+    );
+  }
+  if (
+    entry.fact.kind !== "unavailable" &&
+    entry.researchDisposition !== "authoritative_reviewed" &&
+    entry.researchDisposition !== "repository_semantics_reviewed"
+  ) {
+    throw new Error(
+      `${entry.id}: resolved fact requires source-backed or repository-semantic research disposition`,
+    );
+  }
 }
 
 export function validateManifest(
@@ -321,7 +389,7 @@ function main(): void {
     applyManifest(destinations, entries);
     fs.writeFileSync(INDEX_PATH, `${JSON.stringify(destinations, null, 2)}\n`);
     console.log(
-      `KAI-252 ${result.state}: authored ${result.absent.length} explicit unavailable localTransport facts`,
+      `KAI-252 ${result.state}: authored ${result.absent.length} explicit localTransport facts (${[...new Set(entries.map((entry) => entry.fact.kind))].sort().join(", ")})`,
     );
     return;
   }

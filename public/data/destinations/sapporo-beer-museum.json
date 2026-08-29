@@ -209,8 +209,8 @@
     "reviewIntervalMonths": 12
   },
   "localTransport": {
+    "detail": "Official access was reviewed and establishes the required Sapporo Station → Sapporo Beer Garden bus or Sapporo Station → Naebo rail topology, but a current route-specific ordinary-adult fare was not retained. This is a fare evidence gap, not a retrieval failure.",
     "kind": "unavailable",
-    "reason": "fare_not_found",
-    "detail": "KAI-252 residual fare_unavailable: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
+    "reason": "fare_not_found"
   }
 }

@@ -1,7 +1,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import { URL } from "node:url";
-import type { Destination } from "../../src/shared/types/destination";
+import type {
+  Destination,
+  LocalTransportAccess,
+} from "../../src/shared/types/destination";
 
 const ROOT = path.resolve(import.meta.dirname, "../..");
 const INDEX_PATH = path.join(ROOT, "src/shared/data/destinations-index.json");
@@ -18,6 +21,9 @@ const PREDECESSOR_RESIDUAL_PATH = path.join(
 const CACHE_PATH =
   process.env.KAI252_CACHE ??
   path.join(ROOT, "scripts/audit/kai-252-source-cache.json");
+const DECISIONS_PATH =
+  process.env.KAI252_DECISIONS ??
+  path.join(ROOT, "scripts/audit/kai-252-research-decisions.json");
 
 const COHORTS = {
   A: "likely verified walking",
@@ -38,6 +44,7 @@ const COHORTS = {
 
 type Cohort = keyof typeof COHORTS;
 type ResidualReason =
+  | "resolved"
   | "fare_unavailable"
   | "ambiguous_canonical_arrival"
   | "context_dependent_access"
@@ -58,6 +65,8 @@ type SourceAttempt = {
     | "catalogue_official"
     | "catalogue_editorial"
     | "derived_access"
+    | "direct_official"
+    | "discovered_official"
     | "source_missing";
   outcome: "retrieved" | "fetch_failed" | "source_missing";
   status?: number;
@@ -65,19 +74,6 @@ type SourceAttempt = {
   established: string;
   remainsUnknown: string;
   excerpt?: string;
-};
-
-type LocalTransportUnavailable = {
-  kind: "unavailable";
-  reason:
-    | "no_on_site_evidence"
-    | "untrusted_legacy_only"
-    | "island_no_rail"
-    | "corridor_only"
-    | "distance_beyond_model"
-    | "fare_not_found"
-    | "other";
-  detail: string;
 };
 
 type LedgerEntry = {
@@ -91,8 +87,15 @@ type LedgerEntry = {
   canonicalArrivalResolved: boolean;
   accessPatternResearched: string;
   sourceAttempts: SourceAttempt[];
+  additionalSourceUrls: string[];
   closureOrSuspension: { applies: boolean; detail: string };
   residualReason: ResidualReason;
+  researchDisposition:
+    | "authoritative_reviewed"
+    | "repository_semantics_reviewed"
+    | "topology_blocked"
+    | "retrieval_incomplete";
+  retrievalFailureCount: number;
   reason: string;
   whyVerifiedWalkingIsInappropriate: string;
   whyNotApplicableIsInappropriate: string;
@@ -100,8 +103,42 @@ type LedgerEntry = {
   whyBoundedDefensibleAccessIsInappropriate: string;
   whySegmentOnlyIsInsufficient: string;
   blocker: "localTransport_evidence" | "origin_topology";
-  fact: LocalTransportUnavailable;
+  semanticReview: {
+    originTravelCoverage: string;
+    canonicalArrival: string;
+    requiredLocalLegs: string;
+    walkingAssessment: string;
+    paidAccessAssessment: string;
+    fareProduct: string;
+    multipleRequiredSegments: string;
+    coverageDecision: string;
+    noDoubleCounting: string;
+  };
+  fact: LocalTransportAccess;
 };
+
+type ResearchDecision = Omit<
+  Pick<
+    LedgerEntry,
+    | "canonicalArrivalAccessPoint"
+    | "canonicalArrivalResolved"
+    | "accessPatternResearched"
+    | "closureOrSuspension"
+    | "residualReason"
+    | "reason"
+    | "whyVerifiedWalkingIsInappropriate"
+    | "whyNotApplicableIsInappropriate"
+    | "whyVerifiedRequiredAccessIsInappropriate"
+    | "whyBoundedDefensibleAccessIsInappropriate"
+    | "whySegmentOnlyIsInsufficient"
+    | "blocker"
+    | "semanticReview"
+    | "sourceAttempts"
+    | "retrievalFailureCount"
+    | "fact"
+  >,
+  never
+>;
 
 type FetchResult = {
   outcome: SourceAttempt["outcome"];
@@ -111,6 +148,8 @@ type FetchResult = {
   hasFareTerms: boolean;
   hasWalkTerms: boolean;
   hasClosureTerms: boolean;
+  retrieval?: "direct" | "jina";
+  discoveredUrls: string[];
   excerpt?: string;
   error?: string;
 };
@@ -157,7 +196,10 @@ function sourceAuthority(url: string, kind: SourceAttempt["pathKind"]): string {
   }
 }
 
-function candidateUrls(d: Destination): Array<{
+function candidateUrls(
+  d: Destination,
+  additionalSourceUrls: readonly string[] = [],
+): Array<{
   url: string;
   pathKind: SourceAttempt["pathKind"];
 }> {
@@ -166,24 +208,13 @@ function candidateUrls(d: Destination): Array<{
     pathKind: SourceAttempt["pathKind"];
   }> = [];
   if (d.officialWebsite) {
-    result.push({ url: d.officialWebsite, pathKind: "catalogue_official" });
-    // Keep the sweep bounded and reproducible: the catalogue root plus the
-    // two conventional access paths. The resulting ledger records every
-    // attempted path; semantic facts still require manual source review.
-    const paths = ["access/", "en/access/"];
-    for (const relative of paths) {
-      try {
-        result.push({
-          url: new URL(relative, d.officialWebsite).toString(),
-          pathKind: "derived_access",
-        });
-      } catch {
-        // Invalid catalogue URLs are recorded through the root attempt.
-      }
-    }
+    result.push({ url: d.officialWebsite, pathKind: "direct_official" });
   }
   for (const source of d.editorial?.sources ?? []) {
     result.push({ url: source.url, pathKind: "catalogue_editorial" });
+  }
+  for (const url of additionalSourceUrls) {
+    result.push({ url, pathKind: "direct_official" });
   }
   if (result.length === 0) {
     result.push({
@@ -298,16 +329,16 @@ function canonicalArrival(d: Destination): {
   const parent = d.relationships?.parentDestinationId;
   if (parent) {
     return {
-      value: `Catalogue parent ${parent}; exact destination access remains the localTransport evidence question`,
-      resolved: true,
-      blocker: "localTransport_evidence",
+      value: `Catalogue parent ${parent} is not a physical arrival point; the exact destination access hub remains unresolved`,
+      resolved: false,
+      blocker: "origin_topology",
     };
   }
   if (d.municipalityId) {
     return {
-      value: `${d.municipalityId} municipality; destination-level localTransport evidence is researched separately without substituting an unrecorded hub`,
-      resolved: true,
-      blocker: "localTransport_evidence",
+      value: `${d.municipalityId} municipality is not itself a physical arrival point; no exact repository hub is substituted`,
+      resolved: false,
+      blocker: "origin_topology",
     };
   }
   return {
@@ -315,50 +346,6 @@ function canonicalArrival(d: Destination): {
     resolved: false,
     blocker: "origin_topology",
   };
-}
-
-function accessPattern(d: Destination, cohort: Cohort): string {
-  const modes = d.localAccessModes?.join(", ");
-  return normalize(
-    `Inventory hypothesis only (not promoted to a fact): cohort ${cohort} (${COHORTS[cohort]}); kind=${d.kind ?? "missing"}; role=${d.role ?? "missing"}; localAccessModes=${modes ?? "not recorded"}; source-backed access pattern requires record-specific confirmation.`,
-  );
-}
-
-function residualReason(
-  d: Destination,
-  cohort: Cohort,
-  canonical: ReturnType<typeof canonicalArrival>,
-): ResidualReason {
-  if (d.id === "sapporo-beer-museum") return "fare_unavailable";
-  if (d.id === "tokyo-skytree-sumida") return "ambiguous_canonical_arrival";
-  if (d.id === "meiji-jingu" || d.id === "tsukiji-outer-market")
-    return "context_dependent_access";
-  if (canonical.blocker === "origin_topology" && cohort === "J")
-    return "context_dependent_access";
-  if (d.editorial?.freshness === "conflicting") return "evidence_conflict";
-  if (canonical.blocker === "origin_topology") return "origin_topology_gap";
-  if (fetches.some((fetch) => fetch.hasClosureTerms))
-    return "temporarily_closed";
-  if (["E", "F", "G", "H"].includes(cohort))
-    return "incomplete_required_segments";
-  return "fare_unavailable";
-}
-
-function runtimeReason(
-  reason: ResidualReason,
-): LocalTransportUnavailable["reason"] {
-  if (reason === "incomplete_required_segments") return "other";
-  if (
-    reason === "origin_topology_gap" ||
-    reason === "ambiguous_canonical_arrival"
-  )
-    return "other";
-  if (reason === "context_dependent_access") return "corridor_only";
-  if (reason === "no_current_saleable_product") return "no_on_site_evidence";
-  if (reason === "temporarily_closed" || reason === "service_suspended")
-    return "other";
-  if (reason === "evidence_conflict") return "other";
-  return "fare_not_found";
 }
 
 function excerptFor(text: string): string | undefined {
@@ -377,71 +364,115 @@ async function fetchOne(url: string): Promise<FetchResult> {
       hasFareTerms: false,
       hasWalkTerms: false,
       hasClosureTerms: false,
+      discoveredUrls: [],
     };
-  try {
-    const retrievalUrl = `https://r.jina.ai/${url}`;
-    for (let attempt = 0; attempt < 3; attempt += 1) {
-      const controller = new AbortController();
-      const bodyDeadline = setTimeout(() => controller.abort(), 20_000);
+  const inspect = (
+    text: string,
+    response: Response,
+    retrieval: "direct" | "jina",
+  ): FetchResult => {
+    const lower = text.toLowerCase();
+    const discoveredUrls: string[] = [];
+    const baseHost = new URL(url).hostname;
+    const linkPattern =
+      /(?:href=["']([^"']+)["'][^>]*>([^<]*)|\[([^\]]+)\]\((https?:\/\/[^)]+)\))/gi;
+    for (const match of text.matchAll(linkPattern)) {
+      const href = match[1] ?? match[4];
+      const label = `${match[2] ?? match[3] ?? ""} ${href ?? ""}`;
+      if (
+        !href ||
+        !/access|交通|行き方|アクセス|料金|運賃|fare|price|walk|徒歩|bus|バス|shuttle|シャトル|ropeway|ロープウェイ|ferry|フェリー/i.test(
+          label,
+        )
+      )
+        continue;
       try {
-        const response = await fetch(retrievalUrl, {
-          headers: { "user-agent": "Meguruto-KAI-252-research/1.0" },
-          redirect: "follow",
-          signal: controller.signal,
-        });
-        const text = await Promise.race([
-          response.text(),
-          new Promise<string>((_, reject) =>
-            setTimeout(() => reject(new Error("body_read_timeout")), 20_000),
-          ),
-        ]);
-        const lower = text.toLowerCase();
-        const jinaRateLimited =
-          /ratelimittriggerederror|per ip rate limit exceeded/i.test(text);
-        if (jinaRateLimited) {
-          return {
-            outcome: "fetch_failed",
-            status: 429,
-            finalUrl: response.url,
-            hasAccessTerms: false,
-            hasFareTerms: false,
-            hasWalkTerms: false,
-            hasClosureTerms: false,
-            excerpt: excerptFor(text),
-            error: "jina_rate_limited",
-          };
+        const absolute = new URL(href, response.url || url);
+        if (absolute.protocol === "http:" || absolute.protocol === "https:") {
+          if (
+            absolute.hostname === baseHost &&
+            !discoveredUrls.includes(absolute.toString())
+          )
+            discoveredUrls.push(absolute.toString());
         }
-        if (response.status === 429 && attempt < 2) {
-          await new Promise((resolve) =>
-            setTimeout(resolve, (attempt + 1) * 1500),
-          );
-          continue;
-        }
-        return {
-          outcome: response.ok ? "retrieved" : "fetch_failed",
-          status: response.status,
-          finalUrl: response.url,
-          hasAccessTerms: /access|交通|行き方|アクセス/.test(lower),
-          hasFareTerms: /fare|料金|運賃|price|¥|円|jpy/.test(lower),
-          hasWalkTerms: /walk|on foot|minutes|徒歩|分/.test(lower),
-          hasClosureTerms: /closed|suspend|休館|閉鎖|運休|休止/.test(lower),
-          excerpt: excerptFor(text),
-        };
-      } finally {
-        clearTimeout(bodyDeadline);
+      } catch {
+        // Ignore malformed links; the source attempt remains recorded.
       }
+      if (discoveredUrls.length >= 25) break;
     }
-    throw new Error("retry_exhausted");
-  } catch (error) {
     return {
-      outcome: "fetch_failed",
-      hasAccessTerms: false,
-      hasFareTerms: false,
-      hasWalkTerms: false,
-      hasClosureTerms: false,
-      error: error instanceof Error ? error.name : "fetch_error",
+      outcome: response.ok ? "retrieved" : "fetch_failed",
+      status: response.status,
+      finalUrl: response.url,
+      retrieval,
+      hasAccessTerms: /access|交通|行き方|アクセス/.test(lower),
+      hasFareTerms: /fare|料金|運賃|price|¥|円|jpy/.test(lower),
+      hasWalkTerms: /walk|on foot|minutes|徒歩|分/.test(lower),
+      hasClosureTerms: /closed|suspend|休館|閉鎖|運休|休止/.test(lower),
+      discoveredUrls,
+      excerpt: excerptFor(text),
     };
-  }
+  };
+  const retrieve = async (
+    retrievalUrl: string,
+    retrieval: "direct" | "jina",
+  ) => {
+    const controller = new AbortController();
+    const deadline = setTimeout(() => controller.abort(), 20_000);
+    try {
+      const response = await fetch(retrievalUrl, {
+        headers: { "user-agent": "Meguruto-KAI-252-research/2.0" },
+        redirect: "follow",
+        signal: controller.signal,
+      });
+      const text = await Promise.race([
+        response.text(),
+        new Promise<string>((_, reject) =>
+          setTimeout(() => reject(new Error("body_read_timeout")), 20_000),
+        ),
+      ]);
+      if (
+        retrieval === "jina" &&
+        /ratelimittriggerederror|per ip rate limit exceeded/i.test(text)
+      ) {
+        return {
+          outcome: "fetch_failed" as const,
+          status: 429,
+          finalUrl: response.url,
+          retrieval,
+          hasAccessTerms: false,
+          hasFareTerms: false,
+          hasWalkTerms: false,
+          hasClosureTerms: false,
+          discoveredUrls: [],
+          excerpt: excerptFor(text),
+          error: "jina_rate_limited",
+        };
+      }
+      return inspect(text, response, retrieval);
+    } catch (error) {
+      return {
+        outcome: "fetch_failed" as const,
+        retrieval,
+        hasAccessTerms: false,
+        hasFareTerms: false,
+        hasWalkTerms: false,
+        hasClosureTerms: false,
+        discoveredUrls: [],
+        error: error instanceof Error ? error.name : "fetch_error",
+      };
+    } finally {
+      clearTimeout(deadline);
+    }
+  };
+  const direct = await retrieve(url, "direct");
+  if (direct.outcome === "retrieved") return direct;
+  const jina = await retrieve(`https://r.jina.ai/${url}`, "jina");
+  if (jina.outcome === "retrieved") return jina;
+  return {
+    ...jina,
+    error: `direct:${direct.error ?? `HTTP ${direct.status ?? "unknown"}`}; jina:${jina.error ?? `HTTP ${jina.status ?? "unknown"}`}`,
+  };
 }
 
 async function fetchAll(urls: string[]): Promise<Map<string, FetchResult>> {
@@ -479,7 +510,7 @@ function buildSourceAttempt(
   ].join("; ");
   const established =
     result.outcome === "retrieved"
-      ? `Retrieved HTTP ${result.status ?? "2xx"}; ${signalSummary}. This automated pass did not promote any semantic route or fare decision.`
+      ? `Retrieved via ${result.retrieval ?? "direct"} HTTP ${result.status ?? "2xx"}; ${signalSummary}. This automated pass did not promote any semantic route or fare decision.`
       : result.outcome === "source_missing"
         ? "The catalogue contains no official or editorial source URL for this record."
         : `The path could not be retrieved (${result.error ?? `HTTP ${result.status ?? "unknown"}`}); no claim was inferred from the failure.`;
@@ -494,17 +525,26 @@ function buildSourceAttempt(
     established,
     remainsUnknown:
       "A current authoritative source tying the exact canonical arrival/access point to every required local segment and its ordinary-adult saleable fare remains unresolved.",
-    ...(result.excerpt ? { excerpt: result.excerpt } : {}),
+    ...(result.excerpt || (result.discoveredUrls ?? []).length > 0
+      ? {
+          excerpt:
+            `${result.excerpt ?? ""}${(result.discoveredUrls ?? []).length > 0 ? ` Discovered ${(result.discoveredUrls ?? []).length} same-site transport/access link(s) for follow-up.` : ""}`.trim(),
+        }
+      : {}),
   };
 }
 
 function makeEntry(
   d: Destination,
   fetchMap: Map<string, FetchResult>,
+  decision: ResearchDecision,
+  candidates = candidateUrls(d, decision.additionalSourceUrls),
 ): LedgerEntry {
+  if (!decision)
+    throw new Error(
+      `${d.id}: research decision is missing; builder refuses to preselect unavailable`,
+    );
   const cohort = classifyCohort(d);
-  const canonical = canonicalArrival(d);
-  const candidates = candidateUrls(d);
   const attempts = candidates.map((candidate) =>
     buildSourceAttempt(
       candidate,
@@ -514,13 +554,11 @@ function makeEntry(
         hasFareTerms: false,
         hasWalkTerms: false,
         hasClosureTerms: false,
+        discoveredUrls: [],
         error: "missing_fetch_result",
       },
     ),
   );
-  const reason = residualReason(d, cohort, canonical);
-  const runtime = runtimeReason(reason);
-  const topology = canonical.blocker === "origin_topology";
   return {
     id: d.id,
     identity: {
@@ -532,38 +570,14 @@ function makeEntry(
     cohort,
     cohortLabel: COHORTS[cohort],
     cohortIsInventoryAidOnly: true,
-    canonicalArrivalAccessPoint: canonical.value,
-    canonicalArrivalResolved: canonical.resolved,
-    accessPatternResearched: accessPattern(d, cohort),
+    canonicalArrivalAccessPoint: decision.canonicalArrivalAccessPoint,
+    canonicalArrivalResolved: decision.canonicalArrivalResolved,
+    accessPatternResearched: decision.accessPatternResearched,
+    ...decision,
     sourceAttempts: attempts,
-    closureOrSuspension: {
-      applies:
-        reason === "temporarily_closed" || reason === "service_suspended",
-      detail:
-        reason === "temporarily_closed" || reason === "service_suspended"
-          ? "A retrieved source contained closure/suspension terminology; the current saleable access product was not promoted."
-          : "No closure or suspension was used as a basis for this residual decision in the retained checks.",
-    },
-    residualReason: reason,
-    reason: topology
-      ? "The current origin/topology model does not provide a defensible canonical access context for a destination-level localTransport fact."
-      : "The retained authoritative-source attempts did not establish a truthful complete destination-specific localTransport fare envelope; no numeric, walking, or N/A fact was fabricated.",
-    whyVerifiedWalkingIsInappropriate:
-      "The retained evidence does not establish practical pedestrian access from one resolved canonical arrival point to the represented destination; coordinates, walkingMin, proximity, and model routes are not used as proof.",
-    whyNotApplicableIsInappropriate:
-      "A separate destination-specific access leg has not been disproved. Treating missing fare evidence as N/A would conflate unknown with no transport.",
-    whyVerifiedRequiredAccessIsInappropriate:
-      "No current authoritative route-specific fare and complete required-segment envelope was retained for the resolved canonical context; legacy transportOptions and generic city fares are excluded.",
-    whyBoundedDefensibleAccessIsInappropriate:
-      "No authoritative fare-zone or published bounded envelope was proven for the exact required route. Distance, coordinates, minutes, typical-city fares, and arbitrary ranges are excluded.",
-    whySegmentOnlyIsInsufficient:
-      "Any isolated route signal does not establish that all required access segments are covered. A segment_only fact would be insufficient unless a known required paid segment was independently saleable and meaningful for the canonical context; no such partial fact was promoted in this pass.",
-    blocker: canonical.blocker,
-    fact: {
-      kind: "unavailable",
-      reason: runtime,
-      detail: `KAI-252 residual ${reason}: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used.`,
-    },
+    retrievalFailureCount: attempts.filter(
+      (attempt) => attempt.outcome === "fetch_failed",
+    ).length,
   };
 }
 
@@ -595,9 +609,31 @@ async function main(): Promise<void> {
     boundedOffset,
     boundedOffset + boundedLimit,
   );
-  const candidates = researchSet.flatMap(candidateUrls);
+  const decisions = readJson<Record<string, ResearchDecision>>(DECISIONS_PATH);
+  const missingDecisions = unresolved
+    .map((destination) => destination.id)
+    .filter((id) => decisions[id] === undefined);
+  if (missingDecisions.length > 0)
+    throw new Error(
+      `Research decision ledger is incomplete (${missingDecisions.length} missing): ${missingDecisions.slice(0, 5).join(", ")}`,
+    );
+  const candidatesById = new Map(
+    researchSet.map((destination) => [
+      destination.id,
+      candidateUrls(
+        destination,
+        decisions[destination.id].additionalSourceUrls,
+      ),
+    ]),
+  );
+  const initialCandidates = researchSet.flatMap((destination) =>
+    (candidatesById.get(destination.id) ?? []).map((candidate) => ({
+      ...candidate,
+      ownerId: destination.id,
+    })),
+  );
   const uniqueUrls = [
-    ...new Set(candidates.map((candidate) => candidate.url)),
+    ...new Set(initialCandidates.map((candidate) => candidate.url)),
   ].filter((url) => !url.startsWith("catalogue://"));
   console.log(
     `KAI-252 inventory: ${unresolved.length} unresolved records; ${uniqueUrls.length} unique source paths to check`,
@@ -612,9 +648,34 @@ async function main(): Promise<void> {
     ? new Map<string, FetchResult>()
     : await fetchAll(uncachedUrls);
   for (const [url, result] of freshResults) sourceCache[url] = result;
+  const discoveredCandidates = initialCandidates.flatMap((candidate) => {
+    const result = sourceCache[candidate.url];
+    return (result?.discoveredUrls ?? []).map((url) => ({
+      url,
+      pathKind: "discovered_official" as const,
+      ownerId: candidate.ownerId,
+    }));
+  });
+  for (const candidate of discoveredCandidates) {
+    const existing = candidatesById.get(candidate.ownerId) ?? [];
+    if (!existing.some((item) => item.url === candidate.url))
+      existing.push({ url: candidate.url, pathKind: candidate.pathKind });
+    candidatesById.set(candidate.ownerId, existing);
+  }
+  const discoveredUrls = [
+    ...new Set(discoveredCandidates.map((candidate) => candidate.url)),
+  ];
+  const discoveredUncached = discoveredUrls.filter(
+    (url) => sourceCache[url] === undefined,
+  );
+  const discoveredResults = process.env.KAI252_SKIP_FETCH
+    ? new Map<string, FetchResult>()
+    : await fetchAll(discoveredUncached);
+  for (const [url, result] of discoveredResults) sourceCache[url] = result;
   fs.writeFileSync(CACHE_PATH, `${JSON.stringify(sourceCache, null, 2)}\n`);
+  const allUrls = [...new Set([...uniqueUrls, ...discoveredUrls])];
   const fetchMap = new Map<string, FetchResult>(
-    uniqueUrls.map((url) => [
+    allUrls.map((url) => [
       url,
       sourceCache[url] ?? {
         outcome: "fetch_failed",
@@ -622,6 +683,7 @@ async function main(): Promise<void> {
         hasFareTerms: false,
         hasWalkTerms: false,
         hasClosureTerms: false,
+        discoveredUrls: [],
         error: "missing_fetch_result",
       },
     ]),
@@ -630,7 +692,17 @@ async function main(): Promise<void> {
     .sort((left, right) =>
       left.id < right.id ? -1 : left.id > right.id ? 1 : 0,
     )
-    .map((destination) => makeEntry(destination, fetchMap));
+    .map((destination) => {
+      const decision = decisions[destination.id];
+      if (!decision)
+        throw new Error(`${destination.id}: missing research decision`);
+      return makeEntry(
+        destination,
+        fetchMap,
+        decision,
+        candidatesById.get(destination.id),
+      );
+    });
   fs.writeFileSync(OUTPUT_PATH, `${JSON.stringify(entries, null, 2)}\n`);
   const cohortCounts = Object.fromEntries(
     Object.keys(COHORTS).map((cohort) => [

@@ -225,8 +225,8 @@
     "reviewIntervalMonths": 12
   },
   "localTransport": {
+    "detail": "Official access was reviewed, but the repository has no Tokyo:sumida canonical intercity arrival hub. The operator Oshiage endpoint cannot replace that missing origin topology; no fare is asserted.",
     "kind": "unavailable",
-    "reason": "other",
-    "detail": "KAI-252 residual ambiguous_canonical_arrival: evidence ledger records the attempted authoritative paths and the unresolved canonical access/fare boundary; no fabricated fare or zero value is used."
+    "reason": "other"
   }
 }
