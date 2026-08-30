@@ -216,5 +216,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Ishigaki, Okinawa",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Ishigaki,_Okinawa",
+  "wikipediaPageId": 22315740,
+  "wikidataId": "Q838366"
 }

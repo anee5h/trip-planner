@@ -222,5 +222,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Saitama (city)",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_(city)",
+  "wikipediaPageId": 6792822,
+  "wikidataId": "Q134635"
 }

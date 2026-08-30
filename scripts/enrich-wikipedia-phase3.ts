@@ -50,10 +50,11 @@ const PHASE2_REPORT_PATH = resolve(
 const REQUEST_DELAY_MS = 1000;
 const REQUEST_TIMEOUT_MS = 25_000;
 const MAX_RETRIES = 3;
+const MAX_RETRY_AFTER_MS = 30_000;
 const MAX_QUERIES_PER_DESTINATION = 6;
 
 export interface Phase3Manifest {
-  schemaVersion: 1;
+  schemaVersion: 2;
   scope: typeof SCOPE;
   baseline: {
     publishedDestinations: number;
@@ -67,8 +68,10 @@ export interface Phase3Manifest {
   ids: string[];
   inputFingerprints: Record<string, string>;
   phase1ReviewLedgerFingerprint: string;
-  phase1ReviewSourceFingerprints: Record<string, string>;
+  phase1ReviewInputFingerprints: Record<string, string>;
+  phase1ReviewIdentityFingerprints: Record<string, string>;
   phase2ReportFingerprint: string;
+  phase2CacheFingerprint: string;
   wholeCohortFingerprint: string;
 }
 
@@ -109,12 +112,23 @@ interface Phase3CacheEntry {
   transientFailure?: string;
 }
 
-interface Phase3CacheFile {
-  schemaVersion: 1;
+export interface Phase3CacheFile {
+  schemaVersion: 2;
   scope: typeof SCOPE;
   manifestFingerprint: string;
   phase2ReportFingerprint: string;
+  phase2CacheFingerprint: string;
   entries: Record<string, Phase3CacheEntry>;
+}
+
+export interface Phase3SafetyReport {
+  similarityOnlyAcceptance: boolean;
+  geographyBypassed: boolean;
+  entityValidationBypassed: boolean;
+  enJaEquivalenceGuessed: boolean;
+  parentArticleSubstitution: boolean;
+  phase1ReviewModified: boolean;
+  transientFailures: number;
 }
 
 interface Phase3ReportRecord {
@@ -132,11 +146,12 @@ interface Phase3ReportRecord {
 }
 
 interface Phase3ReportFile {
-  schemaVersion: 1;
+  schemaVersion: 2;
   scope: typeof SCOPE;
   manifestFingerprint: string;
   baseline: Phase3Manifest["baseline"];
   summary: Record<string, number>;
+  safety: Phase3SafetyReport;
   records: Phase3ReportRecord[];
 }
 
@@ -204,7 +219,7 @@ function deriveCohort(
     .sort((left, right) => left.id.localeCompare(right.id));
 }
 
-function phase1ReviewFingerprint(
+function phase1ReviewInputFingerprint(
   destinations: Phase3Destination[],
   phase1: Phase1ReportFile,
 ): Record<string, string> {
@@ -218,6 +233,35 @@ function phase1ReviewFingerprint(
         if (!destination)
           throw new Error(`Phase 1 review ID is missing: ${record.id}`);
         return [record.id, phase3InputFingerprint(destination)];
+      })
+      .sort(([left], [right]) => left.localeCompare(right)),
+  );
+}
+
+function phase1ReviewIdentityFingerprint(
+  destinations: Phase3Destination[],
+  phase1: Phase1ReportFile,
+): Record<string, string> {
+  const byId = new Map(
+    destinations.map((destination) => [destination.id, destination]),
+  );
+  return Object.fromEntries(
+    phase1.reviewLedger
+      .map((record) => {
+        const destination = byId.get(record.id);
+        if (!destination)
+          throw new Error(`Phase 1 review ID is missing: ${record.id}`);
+        return [
+          record.id,
+          hashStable({
+            id: destination.id,
+            wikipediaTitle: destination.wikipediaTitle ?? null,
+            wikipediaLanguage: destination.wikipediaLanguage ?? null,
+            wikipediaUrl: destination.wikipediaUrl ?? null,
+            wikipediaPageId: destination.wikipediaPageId ?? null,
+            wikidataId: destination.wikidataId ?? null,
+          }),
+        ];
       })
       .sort(([left], [right]) => left.localeCompare(right)),
   );
@@ -240,14 +284,19 @@ function buildManifest(inputs = loadInputs()): Phase3Manifest {
   const phase1Ids = sortedUnique(
     inputs.phase1.reviewLedger.map((record) => record.id),
   );
-  const phase1SourceFingerprints = phase1ReviewFingerprint(
+  const phase1InputFingerprints = phase1ReviewInputFingerprint(
+    inputs.destinations,
+    inputs.phase1,
+  );
+  const phase1IdentityFingerprints = phase1ReviewIdentityFingerprint(
     inputs.destinations,
     inputs.phase1,
   );
   const phase2ReportFingerprint = fileFingerprint(PHASE2_REPORT_PATH);
+  const phase2CacheFingerprint = fileFingerprint(PHASE2_CACHE_PATH);
   const wholeCohortFingerprint = hashStable({ ids, inputFingerprints });
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     scope: SCOPE,
     baseline: {
       publishedDestinations: published.length,
@@ -265,8 +314,10 @@ function buildManifest(inputs = loadInputs()): Phase3Manifest {
     ids,
     inputFingerprints,
     phase1ReviewLedgerFingerprint: hashStable(phase1Ids),
-    phase1ReviewSourceFingerprints: phase1SourceFingerprints,
+    phase1ReviewInputFingerprints: phase1InputFingerprints,
+    phase1ReviewIdentityFingerprints: phase1IdentityFingerprints,
     phase2ReportFingerprint,
+    phase2CacheFingerprint,
     wholeCohortFingerprint,
   };
 }
@@ -275,7 +326,7 @@ export function validatePhase3Manifest(
   manifest: Phase3Manifest,
   inputs = loadInputs(),
 ): Phase3Destination[] {
-  if (manifest.schemaVersion !== 1 || manifest.scope !== SCOPE) {
+  if (manifest.schemaVersion !== 2 || manifest.scope !== SCOPE) {
     throw new Error("Invalid KAI-256 Phase 3 cohort manifest metadata.");
   }
   const cohort = deriveCohort(inputs.destinations, inputs.phase1);
@@ -312,20 +363,35 @@ export function validatePhase3Manifest(
   if (hashStable(reviewIds) !== manifest.phase1ReviewLedgerFingerprint) {
     throw new Error("Phase 1 review ledger drift detected.");
   }
-  const currentReviewFingerprints = phase1ReviewFingerprint(
+  const currentReviewInputFingerprints = phase1ReviewInputFingerprint(
     inputs.destinations,
     inputs.phase1,
   );
   if (
-    hashStable(currentReviewFingerprints) !==
-    hashStable(manifest.phase1ReviewSourceFingerprints)
+    hashStable(currentReviewInputFingerprints) !==
+    hashStable(manifest.phase1ReviewInputFingerprints)
   ) {
-    throw new Error("Phase 1 review source fingerprint drift detected.");
+    throw new Error("Phase 1 review input fingerprint drift detected.");
+  }
+  const currentReviewIdentityFingerprints = phase1ReviewIdentityFingerprint(
+    inputs.destinations,
+    inputs.phase1,
+  );
+  if (
+    hashStable(currentReviewIdentityFingerprints) !==
+    hashStable(manifest.phase1ReviewIdentityFingerprints)
+  ) {
+    throw new Error(
+      "Phase 1 review source identity fingerprint drift detected.",
+    );
   }
   if (
     fileFingerprint(PHASE2_REPORT_PATH) !== manifest.phase2ReportFingerprint
   ) {
     throw new Error("Phase 2 report drift detected.");
+  }
+  if (fileFingerprint(PHASE2_CACHE_PATH) !== manifest.phase2CacheFingerprint) {
+    throw new Error("Phase 2 cache drift detected.");
   }
   if (
     hashStable({
@@ -356,6 +422,10 @@ function phase2Snapshot(
     reason: report?.reason ?? "unknown",
     searches: cacheEntry?.searches ?? [],
     candidates: report?.candidates ?? cacheEntry?.candidates ?? [],
+    ...(report ? { reportRecord: report as Record<string, unknown> } : {}),
+    ...(cacheEntry
+      ? { cacheEntry: cacheEntry as Record<string, unknown> }
+      : {}),
     ...(report?.candidates && cacheEntry?.candidates
       ? { apiCandidates: cacheEntry.candidates }
       : {}),
@@ -422,6 +492,7 @@ async function throttledRequest(
 ): Promise<Record<string, unknown>> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
+    let retryDelayMs: number | undefined;
     const wait = REQUEST_DELAY_MS - (Date.now() - lastRequestAt);
     if (wait > 0)
       await new Promise((resolveWait) => setTimeout(resolveWait, wait));
@@ -435,12 +506,12 @@ async function throttledRequest(
       });
       if (!response.ok) {
         const retryAfter = Number(response.headers.get("retry-after"));
-        const retryMs = Number.isFinite(retryAfter)
-          ? Math.max(REQUEST_DELAY_MS, retryAfter * 1000)
+        retryDelayMs = Number.isFinite(retryAfter)
+          ? Math.min(
+              MAX_RETRY_AFTER_MS,
+              Math.max(REQUEST_DELAY_MS, retryAfter * 1000),
+            )
           : REQUEST_DELAY_MS * 2 ** (attempt - 1);
-        if (response.status === 429 && attempt < MAX_RETRIES) {
-          await new Promise((resolveWait) => setTimeout(resolveWait, retryMs));
-        }
         throw new Error(`HTTP ${response.status}`);
       }
       const payload: unknown = await response.json();
@@ -451,7 +522,10 @@ async function throttledRequest(
       lastError = error;
       if (attempt < MAX_RETRIES) {
         await new Promise((resolveWait) =>
-          setTimeout(resolveWait, REQUEST_DELAY_MS * 2 ** (attempt - 1)),
+          setTimeout(
+            resolveWait,
+            retryDelayMs ?? REQUEST_DELAY_MS * 2 ** (attempt - 1),
+          ),
         );
       }
     } finally {
@@ -485,8 +559,14 @@ async function fetchWikiBatch(
     `https://${language}.wikipedia.org/w/api.php`,
     wikiParams(titles),
   );
-  const query = payload.query as Record<string, unknown> | undefined;
-  const rawPages = Array.isArray(query?.pages) ? query.pages : [];
+  const query =
+    payload.query && typeof payload.query === "object"
+      ? (payload.query as Record<string, unknown>)
+      : undefined;
+  if (!query || !Array.isArray(query.pages)) {
+    throw new Error("Wikipedia response omitted query.pages.");
+  }
+  const rawPages = query.pages;
   const pages = rawPages
     .map((raw) =>
       raw && typeof raw === "object"
@@ -579,7 +659,11 @@ function searchQueries(destination: Phase3Destination): Array<{
       ? [{ language: "ja", query: destination.nameJa }]
       : []),
     ...(destination.aliases ?? []).map((query) => ({
-      language: /[^\u0000-\u007f]/.test(query) ? "ja" : "en",
+      language: [...query].some(
+        (character) => (character.codePointAt(0) ?? 0) > 0x7f,
+      )
+        ? "ja"
+        : "en",
       query,
     })),
   ];
@@ -631,7 +715,9 @@ async function searchWikidataBatch(
       payload.results && typeof payload.results === "object"
         ? (payload.results as Record<string, unknown>).bindings
         : undefined;
-    if (!Array.isArray(rawResults)) continue;
+    if (!Array.isArray(rawResults)) {
+      throw new Error("Wikidata SPARQL response omitted results.bindings.");
+    }
     for (const raw of rawResults) {
       if (!raw || typeof raw !== "object") continue;
       const binding = raw as Record<string, unknown>;
@@ -868,7 +954,9 @@ async function fetchWikidataEntities(
       }),
     );
     const rawEntities = payload.entities;
-    if (!rawEntities || typeof rawEntities !== "object") continue;
+    if (!rawEntities || typeof rawEntities !== "object") {
+      throw new Error("Wikidata response omitted entities.");
+    }
     for (const [qid, raw] of Object.entries(
       rawEntities as Record<string, unknown>,
     )) {
@@ -902,7 +990,9 @@ async function fetchWikidataEntities(
       }),
     );
     const rawEntities = payload.entities;
-    if (!rawEntities || typeof rawEntities !== "object") continue;
+    if (!rawEntities || typeof rawEntities !== "object") {
+      throw new Error("Wikidata response omitted entities.");
+    }
     for (const [qid, raw] of Object.entries(
       rawEntities as Record<string, unknown>,
     )) {
@@ -1176,10 +1266,11 @@ async function loadOrFetchCache(
     : undefined;
   if (
     existing &&
-    (existing.schemaVersion !== 1 ||
+    (existing.schemaVersion !== 2 ||
       existing.scope !== SCOPE ||
       existing.manifestFingerprint !== manifest.wholeCohortFingerprint ||
-      existing.phase2ReportFingerprint !== manifest.phase2ReportFingerprint)
+      existing.phase2ReportFingerprint !== manifest.phase2ReportFingerprint ||
+      existing.phase2CacheFingerprint !== manifest.phase2CacheFingerprint)
   ) {
     throw new Error("Invalid or stale KAI-256 Phase 3 API cache metadata.");
   }
@@ -1236,10 +1327,11 @@ async function loadOrFetchCache(
     };
   }
   const cache: Phase3CacheFile = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     scope: SCOPE,
     manifestFingerprint: manifest.wholeCohortFingerprint,
     phase2ReportFingerprint: manifest.phase2ReportFingerprint,
+    phase2CacheFingerprint: manifest.phase2CacheFingerprint,
     entries: Object.fromEntries(
       Object.entries(entries).sort(([left], [right]) =>
         left.localeCompare(right),
@@ -1254,7 +1346,7 @@ function reportFor(
   manifest: Phase3Manifest,
   cohort: Phase3Destination[],
   cache: Phase3CacheFile,
-  apply: boolean,
+  phase1ReviewModified: boolean,
 ): Phase3ReportFile {
   const records: Phase3ReportRecord[] = [];
   for (const destination of cohort) {
@@ -1276,7 +1368,6 @@ function reportFor(
           transientFailure: "Missing cache entry.",
         });
     const state =
-      apply &&
       classification.identity &&
       phase3IdentityMatches(destination, classification.identity)
         ? "canonicalized"
@@ -1309,20 +1400,73 @@ function reportFor(
       records.filter((record) => record.state === state).length,
     ]),
   );
+  const candidatesForSafety = records.filter(
+    (record) =>
+      record.identity !== undefined && record.chosenCandidate !== undefined,
+  );
+  const safety: Phase3SafetyReport = {
+    similarityOnlyAcceptance: candidatesForSafety.some((record) => {
+      const signals = record.chosenCandidate?.identitySignals ?? [];
+      return !signals.some((signal) =>
+        [
+          "wikipedia-title-match",
+          "canonical-name-or-approved-alias",
+          "wikipedia-redirect",
+          "wikidata-label-or-alias",
+        ].includes(signal),
+      );
+    }),
+    geographyBypassed: candidatesForSafety.some(
+      (record) =>
+        ![
+          "coordinates-compatible",
+          "administrative-location-compatible",
+        ].includes(record.chosenCandidate?.geographyResult ?? ""),
+    ),
+    entityValidationBypassed: candidatesForSafety.some(
+      (record) => record.chosenCandidate?.entityTypeResult !== "compatible",
+    ),
+    enJaEquivalenceGuessed: candidatesForSafety.some((record) => {
+      const languages = new Set(
+        record.candidates.map((candidate) => candidate.language),
+      );
+      return (
+        languages.size > 1 &&
+        !record.chosenCandidate?.sharesVerifiedWikidataIdentity
+      );
+    }),
+    parentArticleSubstitution: candidatesForSafety.some(
+      (record) => record.reason === "parent-child-ambiguity",
+    ),
+    phase1ReviewModified,
+    transientFailures: Object.values(cache.entries).filter(
+      (entry) => entry.status === "transient-failure",
+    ).length,
+  };
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     scope: SCOPE,
     manifestFingerprint: manifest.wholeCohortFingerprint,
     baseline: manifest.baseline,
     summary,
+    safety,
     records,
   };
 }
 
-function applyClassifications(
+export function applyClassifications(
   cohort: Phase3Destination[],
   cache: Phase3CacheFile,
 ): number {
+  const transientIds = Object.entries(cache.entries)
+    .filter(([, entry]) => entry.status === "transient-failure")
+    .map(([id]) => id)
+    .sort((left, right) => left.localeCompare(right));
+  if (transientIds.length > 0) {
+    throw new Error(
+      `Refusing Phase 3 apply with transient cache entries: ${transientIds.join(", ")}`,
+    );
+  }
   let applied = 0;
   for (const destination of cohort) {
     const entry = cache.entries[destination.id];
@@ -1396,12 +1540,21 @@ async function main(): Promise<void> {
     inputs.phase2Cache,
     inputs.phase2Report,
   );
+  const phase1ReviewIdentityBefore = phase1ReviewIdentityFingerprint(
+    inputs.destinations,
+    inputs.phase1,
+  );
   let applied = 0;
   if (options.apply) {
     applied = applyClassifications(cohort, cache);
     if (applied > 0) writeJson(INDEX_PATH, inputs.destinations);
   }
-  const report = reportFor(manifest, cohort, cache, options.apply);
+  const phase1ReviewModified =
+    hashStable(phase1ReviewIdentityBefore) !==
+    hashStable(
+      phase1ReviewIdentityFingerprint(inputs.destinations, inputs.phase1),
+    );
+  const report = reportFor(manifest, cohort, cache, phase1ReviewModified);
   writeJson(REPORT_PATH, report);
   formatGeneratedJson([MANIFEST_PATH, CACHE_PATH, REPORT_PATH]);
   console.log(

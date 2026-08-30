@@ -202,10 +202,5 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  },
-  "wikipediaTitle": "唐戸市場",
-  "wikipediaLanguage": "ja",
-  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4",
-  "wikipediaPageId": 2325347,
-  "wikidataId": "Q11418545"
+  }
 }

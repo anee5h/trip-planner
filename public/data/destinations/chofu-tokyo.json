@@ -210,5 +210,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Chōfu",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%8Dfu",
+  "wikipediaPageId": 329697,
+  "wikidataId": "Q210667"
 }

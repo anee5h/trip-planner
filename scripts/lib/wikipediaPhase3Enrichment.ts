@@ -82,6 +82,8 @@ export interface Phase2EvidenceSnapshot {
   candidates: Array<Record<string, unknown>>;
   apiCandidates?: Array<Record<string, unknown>>;
   details?: string[];
+  reportRecord?: Record<string, unknown>;
+  cacheEntry?: Record<string, unknown>;
 }
 
 export interface Phase3RedirectEvidence {
@@ -171,7 +173,9 @@ export interface Phase3Classification {
     | "no-candidate"
     | "no-usable-identity"
     | "transient-network-failure"
-    | "wikipedia-wikidata-disagreement";
+    | "wikipedia-wikidata-disagreement"
+    | "wikidata-sitelink-only"
+    | "disambiguation-page";
   identity?: Phase3Identity;
   candidate?: Phase3CandidateEvidence;
   candidates: Phase3CandidateEvidence[];
@@ -206,6 +210,7 @@ export function phase3InputFingerprint(destination: Phase3Destination): string {
     municipalityId: destination.municipalityId,
     placeType: destination.placeType,
     relationships: destination.relationships,
+    status: destination.status,
   };
   return createHash("sha256")
     .update(JSON.stringify(stableValue(relevant)))
@@ -228,8 +233,13 @@ export function allCandidatesShareWikidataIdentity(
   );
 
   return (
-    qids.every((qid): qid is string => Boolean(qid)) && new Set(qids).size === 1
+    qids.every((qid): qid is string => Boolean(qid && /^Q\d+$/i.test(qid))) &&
+    new Set(qids).size === 1
   );
+}
+
+function validWikidataId(value?: string): value is string {
+  return Boolean(value && /^Q\d+$/i.test(value.trim()));
 }
 
 function normalized(value: string): string {
@@ -327,6 +337,26 @@ function typeText(entity: Phase3WikidataEntity | undefined): string {
 }
 
 function inferredKind(destination: Phase3Destination): string {
+  const structuredKind = destination.kind?.trim().toLocaleLowerCase();
+  if (structuredKind && structuredKind !== "generic") {
+    if (/national park|quasi-national park|protected area/.test(structuredKind))
+      return "protected-area";
+    if (/museum/.test(structuredKind)) return "museum";
+    if (/castle|fort/.test(structuredKind)) return "castle";
+    if (/park|garden/.test(structuredKind)) return "park";
+    if (/station/.test(structuredKind)) return "station";
+    if (/bridge/.test(structuredKind)) return "bridge";
+    if (/island/.test(structuredKind)) return "island";
+    if (/temple/.test(structuredKind)) return "temple";
+    if (/shrine/.test(structuredKind)) return "shrine";
+    if (/onsen|hot spring|spa/.test(structuredKind)) return "onsen";
+    if (/theme park|amusement|attraction/.test(structuredKind))
+      return "attraction";
+    if (/city|ward|town|village|district|municipality/.test(structuredKind))
+      return "municipality";
+    return structuredKind;
+  }
+
   const labels = [
     destination.kind ?? "",
     ...(destination.categories ?? []),
@@ -366,10 +396,25 @@ function entityTypeResult(
     /person|politician|actor|company|organization|film|song|album|language|taxon|event/.test(
       text,
     );
-  const municipal =
-    /city|ward|town|village|municipality|human settlement|administrative territorial entity|district|prefecture|市|区|町|村|自治体|地区/.test(
-      text,
+  const municipalClaims = [
+    ...(candidate.entity?.p31 ?? []),
+    ...(candidate.entity?.p279 ?? []),
+  ].filter((claim) => {
+    const claimText = `${claim.id} ${claim.label ?? ""}`.toLocaleLowerCase();
+    if (
+      /prefecture|administrative territorial entity|district|county|province|state/.test(
+        claimText,
+      )
+    ) {
+      return false;
+    }
+    return (
+      /\b(?:city|ward|town|village|municipality|human settlement)\b/.test(
+        claimText,
+      ) || /^(?:市|区|町|村)$/.test(claim.label?.trim() ?? "")
     );
+  });
+  const municipal = municipalClaims.length > 0;
   const station =
     /station|railway|metro|subway|train station|駅|鉄道|地下鉄/.test(text);
   const museum = /museum|art museum|博物館|美術館|資料館/.test(text);
@@ -559,10 +604,14 @@ function geographyResult(
 function validPage(page: Phase3Page): boolean {
   if (!Number.isInteger(page.pageId) || (page.pageId ?? 0) <= 0) return false;
   const parsed = parseWikipediaUrl(page.url);
+  const normalizedTitle = (value: string) =>
+    value.normalize("NFKC").replace(/_/g, " ").trim().toLocaleLowerCase();
   return Boolean(
     parsed &&
     parsed.language === page.language &&
-    canonicalWikipediaIdentity(page.url),
+    canonicalWikipediaIdentity(page.url) &&
+    normalizedTitle(parsed.title) === normalizedTitle(page.title) &&
+    (!page.wikidataId || validWikidataId(page.wikidataId)),
   );
 }
 
@@ -584,8 +633,8 @@ function evidenceFor(
   const geography = geographyResult(destination, candidate);
   const sitelink = candidate.entity?.sitelinks[candidate.page.language];
   const wikipediaAgreement = Boolean(
-    candidate.qid &&
-    candidate.page.wikidataId &&
+    validWikidataId(candidate.qid) &&
+    validWikidataId(candidate.page.wikidataId) &&
     candidate.qid.toLocaleUpperCase() ===
       candidate.page.wikidataId.toLocaleUpperCase() &&
     sitelink &&
@@ -594,7 +643,8 @@ function evidenceFor(
   const rejectionReasons: string[] = [];
   if (!validPage(candidate.page))
     rejectionReasons.push("invalid-wikipedia-page-identity");
-  if (!candidate.qid) rejectionReasons.push("no-usable-identity");
+  if (!validWikidataId(candidate.qid))
+    rejectionReasons.push("no-usable-identity");
   if (!identity.length) rejectionReasons.push("no-name-or-label-relationship");
   if (!wikipediaAgreement)
     rejectionReasons.push("wikipedia-wikidata-disagreement");
@@ -610,7 +660,18 @@ function evidenceFor(
     candidate.sources.length > 0 &&
     candidate.sources.every((source) => source === "wikipedia-redirect")
   ) {
+    // A redirect plus a matching Wikidata sitelink is accepted as two
+    // independent links: the Wikipedia title redirect and the QID sitelink.
     rejectionReasons.push("redirect-evidence-only");
+  }
+  if (
+    candidate.sources.length > 0 &&
+    candidate.sources.every((source) => source === "wikidata-sitelink")
+  ) {
+    rejectionReasons.push("wikidata-sitelink-only");
+  }
+  if (candidate.page.type === "disambiguation") {
+    rejectionReasons.push("disambiguation-page");
   }
   return {
     language: candidate.page.language,
@@ -670,7 +731,8 @@ function baseClassification(
 function identityFromCandidate(
   candidate: Phase3Candidate,
 ): Phase3Identity | undefined {
-  if (!candidate.qid || !validPage(candidate.page)) return undefined;
+  if (!validWikidataId(candidate.qid) || !validPage(candidate.page))
+    return undefined;
   return {
     wikipediaTitle: candidate.page.title,
     wikipediaLanguage: candidate.page.language,
@@ -753,6 +815,19 @@ export function classifyPhase3Destination(
       ["A redirect was discovered without independent cross-link evidence."],
     );
   }
+  if (chosenEvidence.rejectionReasons.includes("wikidata-sitelink-only")) {
+    return baseClassification(
+      "unresolved",
+      "wikidata-sitelink-only",
+      evidence,
+      ["A Wikidata sitelink requires independent discovery evidence."],
+    );
+  }
+  if (chosenEvidence.rejectionReasons.includes("disambiguation-page")) {
+    return baseClassification("unresolved", "disambiguation-page", evidence, [
+      "A Wikipedia disambiguation page is not a destination identity.",
+    ]);
+  }
   if (
     chosenEvidence.rejectionReasons.includes("wikipedia-wikidata-disagreement")
   ) {
@@ -800,6 +875,9 @@ export function classifyPhase3Destination(
     identity,
     candidate: chosenEvidence,
     candidates: evidence,
+    details: [
+      "Deterministic validation passed; explicit --apply is required before source mutation.",
+    ],
   };
 }
 

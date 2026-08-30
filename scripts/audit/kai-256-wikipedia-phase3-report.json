@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "scope": "kai-256-wikipedia-phase3",
-  "manifestFingerprint": "442e613261680d9a41ec5d61bbf4dc4acb8f75d588b8471f35f4bfc6b1e4f212",
+  "manifestFingerprint": "0f54d3046bb6c17faaea2aff51a1bf453dcb9115af9e38725966fd51531f6902",
   "baseline": {
     "publishedDestinations": 732,
     "canonicalWikipediaIdentity": 294,
@@ -12,11 +12,20 @@
     "phase3CohortRecords": 340
   },
   "summary": {
-    "canonicalized": 148,
+    "canonicalized": 150,
     "high-confidence-awaiting-apply": 0,
     "ambiguous-candidate": 62,
     "no-standalone-article-expected": 0,
-    "unresolved": 130
+    "unresolved": 128
+  },
+  "safety": {
+    "similarityOnlyAcceptance": false,
+    "geographyBypassed": false,
+    "entityValidationBypassed": false,
+    "enJaEquivalenceGuessed": false,
+    "parentArticleSubstitution": false,
+    "phase1ReviewModified": false,
+    "transientFailures": 0
   },
   "records": [
     {
@@ -334,6 +343,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -532,7 +544,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.651", "limitKm=45"],
           "distanceKm": 0.6510524756518141,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [
+            "entity-type-mismatch",
+            "wikidata-sitelink-only"
+          ],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -663,7 +678,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": [
             "P31=Q5327369 (chōchō)",
             "P31=Q11086229 (densely inhabited district in Japan)",
@@ -673,7 +688,7 @@
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=885.175", "limitKm=45"],
           "distanceKm": 885.1746260032246,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -1058,6 +1073,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -1362,6 +1380,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -1417,6 +1438,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -1858,6 +1880,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-insufficient",
             "geography-insufficient"
           ],
@@ -2225,12 +2248,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "ashikaga-shi-yakata",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -2286,12 +2312,12 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.002", "limitKm=18"],
           "distanceKm": 0.0019705847073044707,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -2358,15 +2384,84 @@
           },
           "identitySignals": ["wikidata-label-or-alias", "wikipedia-redirect"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.002", "limitKm=18"],
           "distanceKm": 0.0019705847073044707,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Banna-ji",
+        "url": "https://en.wikipedia.org/wiki/Banna-ji",
+        "pageId": 50595539,
+        "qid": "Q2882839",
+        "sources": ["wikidata-search", "wikidata-sitelink"],
+        "queries": ["wikidata-sitelink:Q2882839"],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Banna-ji Temple",
+          "ja": "鑁阿寺"
+        },
+        "aliases": {
+          "en": ["Banna-ji"],
+          "ja": ["真言宗大日派", "足利氏宅跡", "足利氏館"]
+        },
+        "descriptions": {
+          "en": "Buddhist temple in Ashikaga, Tochigi prefecture, Japan",
+          "ja": "栃木県足利市にある寺院"
+        },
+        "p31": [
+          {
+            "id": "Q5393308",
+            "label": "Buddhist temple"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q374477",
+            "label": "Ashikaga"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 36.3375,
+          "lng": 139.452222
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Banna-ji"
+          },
+          "ja": {
+            "title": "鑁阿寺"
+          }
+        },
+        "identitySignals": ["wikidata-label-or-alias"],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=0.002", "limitKm=18"],
+        "distanceKm": 0.0019705847073044707,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Banna-ji",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Banna-ji",
+        "wikipediaPageId": 50595539,
+        "wikidataId": "Q2882839"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "no-page-found",
       "redirects": [
@@ -2396,6 +2491,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -2968,6 +3066,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-insufficient",
             "geography-insufficient"
           ],
@@ -3329,7 +3428,7 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q38738374 (machinami)",
             "P31=Q15243209 (historic district)",
@@ -3338,7 +3437,7 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.236", "limitKm=18"],
           "distanceKm": 0.23606176802407433,
-          "rejectionReasons": [],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -3459,7 +3558,7 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q5327369 (chōchō)",
             "P31=Q11480694 (urbanization promotion area)",
@@ -3469,7 +3568,10 @@
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=965.482", "limitKm=18"],
           "distanceKm": 965.4824451835852,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": [
+            "entity-type-insufficient",
+            "geography-mismatch"
+          ],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -3719,8 +3821,8 @@
     },
     {
       "id": "chofu-tokyo",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -3785,15 +3887,15 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q494721 (city of Japan)",
             "P31=Q1549591 (big city)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.004", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.004", "limitKm=45"],
           "distanceKm": 0.004254123494119302,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -3860,18 +3962,96 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q494721 (city of Japan)",
             "P31=Q1549591 (big city)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.004", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.004", "limitKm=45"],
           "distanceKm": 0.004254123494119302,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Chōfu",
+        "url": "https://en.wikipedia.org/wiki/Ch%C5%8Dfu",
+        "pageId": 329697,
+        "qid": "Q210667",
+        "sources": ["phase2", "wikidata-search", "wikidata-sitelink"],
+        "queries": [
+          "direct-title-batch:chiba-nokogiriyama:fukuoka-yatai",
+          "wikidata-sitelink:Q210667"
+        ],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Chōfu",
+          "ja": "調布市"
+        },
+        "aliases": {
+          "en": ["Chofu", "Chofu City", "Chofu-shi", "Chōfu-shi"]
+        },
+        "descriptions": {
+          "en": "city in Tokyo, Japan",
+          "ja": "東京都の市"
+        },
+        "p31": [
+          {
+            "id": "Q494721",
+            "label": "city of Japan"
+          },
+          {
+            "id": "Q1549591",
+            "label": "big city"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q1490",
+            "label": "Tokyo"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 35.65058333333333,
+          "lng": 139.54066666666665
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Chōfu"
+          },
+          "ja": {
+            "title": "調布市"
+          }
+        },
+        "identitySignals": ["wikidata-label-or-alias", "wikipedia-title-match"],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": [
+          "P31=Q494721 (city of Japan)",
+          "P31=Q1549591 (big city)"
+        ],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=0.004", "limitKm=45"],
+        "distanceKm": 0.004254123494119302,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Chōfu",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%8Dfu",
+        "wikipediaPageId": 329697,
+        "wikidataId": "Q210667"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "insufficient-evidence",
       "redirects": [],
@@ -3902,6 +4082,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -3974,7 +4157,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.133", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.133", "limitKm=60"],
           "distanceKm": 0.13333946810153174,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -4044,7 +4227,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.133", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.133", "limitKm=60"],
           "distanceKm": 0.13333946810153174,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -4115,7 +4298,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.133", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.133", "limitKm=60"],
         "distanceKm": 0.13333946810153174,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -4149,6 +4332,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -4226,7 +4412,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=58.342", "limitKm=100"],
+          "geographyBasis": ["distanceKm=58.342", "limitKm=60"],
           "distanceKm": 58.34179079747688,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -4304,7 +4490,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=58.342", "limitKm=100"],
+          "geographyBasis": ["distanceKm=58.342", "limitKm=60"],
           "distanceKm": 58.34179079747688,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -4380,7 +4566,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=58.342", "limitKm=100"],
+        "geographyBasis": ["distanceKm=58.342", "limitKm=60"],
         "distanceKm": 58.34179079747688,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -4414,6 +4600,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -4482,7 +4671,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.505", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.505", "limitKm=60"],
           "distanceKm": 0.5054656940868612,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -4551,7 +4740,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.505", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.505", "limitKm=60"],
           "distanceKm": 0.5054656940868612,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -4618,7 +4807,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.505", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.505", "limitKm=60"],
         "distanceKm": 0.5054656940868612,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -4652,6 +4841,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -4951,8 +5143,10 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
-            "geography-insufficient"
+            "geography-insufficient",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -5678,8 +5872,8 @@
     },
     {
       "id": "cup-noodles-museum-yokohama",
-      "state": "canonicalized",
-      "reason": "validated-high-confidence",
+      "state": "unresolved",
+      "reason": "wikidata-sitelink-only",
       "candidates": [
         {
           "language": "en",
@@ -5759,7 +5953,7 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.177", "limitKm=18"],
           "distanceKm": 0.17654364006656714,
-          "rejectionReasons": [],
+          "rejectionReasons": ["wikidata-sitelink-only"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -5843,94 +6037,6 @@
           "sharesVerifiedWikidataIdentity": true
         }
       ],
-      "chosenCandidate": {
-        "language": "en",
-        "title": "CupNoodles Museum Yokohama",
-        "url": "https://en.wikipedia.org/wiki/CupNoodles_Museum_Yokohama",
-        "pageId": 61249918,
-        "qid": "Q11257362",
-        "sources": ["wikidata-sitelink"],
-        "queries": ["wikidata-sitelink:Q11257362"],
-        "redirectFromTitles": [],
-        "labels": {
-          "en": "CupNoodles Museum Yokohama",
-          "ja": "安藤百福発明記念館横浜"
-        },
-        "aliases": {
-          "ja": [
-            "カップヌードルミュージアム",
-            "カップヌードルミュージアム横浜",
-            "安藤百福発明記念館"
-          ]
-        },
-        "descriptions": {
-          "en": "Japanese museum",
-          "ja": "横浜市にある博物館"
-        },
-        "p31": [
-          {
-            "id": "Q5465500",
-            "label": "food museum"
-          },
-          {
-            "id": "Q10624527",
-            "label": "biographical museum"
-          },
-          {
-            "id": "Q3867745",
-            "label": "corporate museum"
-          }
-        ],
-        "p279": [],
-        "p131": [
-          {
-            "id": "Q11502760",
-            "label": "Shinkō"
-          }
-        ],
-        "p17": [
-          {
-            "id": "Q17",
-            "label": "Japan"
-          }
-        ],
-        "coordinates": {
-          "lat": 35.455472,
-          "lng": 139.638861
-        },
-        "sitelinks": {
-          "en": {
-            "title": "CupNoodles Museum Yokohama"
-          },
-          "ja": {
-            "title": "安藤百福発明記念館 横浜"
-          }
-        },
-        "identitySignals": [
-          "canonical-name-or-approved-alias",
-          "wikidata-label-or-alias",
-          "wikipedia-title-match"
-        ],
-        "wikipediaAgreement": true,
-        "entityTypeResult": "compatible",
-        "entityTypeBasis": [
-          "P31=Q5465500 (food museum)",
-          "P31=Q10624527 (biographical museum)",
-          "P31=Q3867745 (corporate museum)"
-        ],
-        "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.177", "limitKm=18"],
-        "distanceKm": 0.17654364006656714,
-        "rejectionReasons": [],
-        "sharesVerifiedWikidataIdentity": true
-      },
-      "identity": {
-        "wikipediaTitle": "CupNoodles Museum Yokohama",
-        "wikipediaLanguage": "en",
-        "wikipediaUrl": "https://en.wikipedia.org/wiki/CupNoodles_Museum_Yokohama",
-        "wikipediaPageId": 61249918,
-        "wikidataId": "Q11257362"
-      },
       "phase2State": "unresolved",
       "phase2Reason": "no-page-found",
       "redirects": [
@@ -5952,6 +6058,9 @@
           "query": "カップヌードルミュージアム 横浜",
           "results": []
         }
+      ],
+      "details": [
+        "A Wikidata sitelink requires independent discovery evidence."
       ]
     },
     {
@@ -6274,6 +6383,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -6968,7 +7080,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=2.446", "limitKm=100"],
+          "geographyBasis": ["distanceKm=2.446", "limitKm=60"],
           "distanceKm": 2.4462883861801212,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -7038,7 +7150,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=2.446", "limitKm=100"],
+          "geographyBasis": ["distanceKm=2.446", "limitKm=60"],
           "distanceKm": 2.4462883861801212,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -7106,7 +7218,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=2.446", "limitKm=100"],
+        "geographyBasis": ["distanceKm=2.446", "limitKm=60"],
         "distanceKm": 2.4462883861801212,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -7140,6 +7252,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -7214,7 +7329,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=6.889", "limitKm=100"],
+          "geographyBasis": ["distanceKm=6.889", "limitKm=60"],
           "distanceKm": 6.8891889173140575,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -7286,7 +7401,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=6.889", "limitKm=100"],
+          "geographyBasis": ["distanceKm=6.889", "limitKm=60"],
           "distanceKm": 6.8891889173140575,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -7359,7 +7474,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=6.889", "limitKm=100"],
+        "geographyBasis": ["distanceKm=6.889", "limitKm=60"],
         "distanceKm": 6.8891889173140575,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -7401,6 +7516,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -7703,6 +7821,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -7947,6 +8068,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -8181,6 +8305,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -8560,6 +8687,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -8744,6 +8874,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -8861,6 +8994,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -9275,6 +9409,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -9447,6 +9584,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -9698,6 +9838,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -10332,6 +10475,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -10434,7 +10580,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=17.686", "limitKm=100"],
+          "geographyBasis": ["distanceKm=17.686", "limitKm=60"],
           "distanceKm": 17.686283328283345,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -10510,7 +10656,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=17.686", "limitKm=100"],
+          "geographyBasis": ["distanceKm=17.686", "limitKm=60"],
           "distanceKm": 17.686283328283345,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -10587,7 +10733,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=17.686", "limitKm=100"],
+        "geographyBasis": ["distanceKm=17.686", "limitKm=60"],
         "distanceKm": 17.686283328283345,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -10629,6 +10775,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -10796,6 +10945,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -11310,6 +11462,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -11598,6 +11753,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -11787,6 +11945,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -12057,6 +12218,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -12398,6 +12562,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -12531,16 +12698,16 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q1059478 (town of Japan)",
             "P31=Q11422368 (city for international conferences and tourism)",
             "P31=Q1200957 (tourist destination)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.006", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.006", "limitKm=45"],
           "distanceKm": 0.005915589248008351,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -12737,7 +12904,7 @@
           "entityTypeResult": "incompatible",
           "entityTypeBasis": ["P31=Q424857 (ōaza)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=8.574", "limitKm=30"],
+          "geographyBasis": ["distanceKm=8.574", "limitKm=45"],
           "distanceKm": 8.573672951221402,
           "rejectionReasons": ["entity-type-mismatch"],
           "sharesVerifiedWikidataIdentity": false
@@ -12867,16 +13034,16 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q1059478 (town of Japan)",
             "P31=Q11422368 (city for international conferences and tourism)",
             "P31=Q1200957 (tourist destination)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.006", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.006", "limitKm=45"],
           "distanceKm": 0.005915589248008351,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -13283,7 +13450,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=5.677", "limitKm=100"],
+          "geographyBasis": ["distanceKm=5.677", "limitKm=60"],
           "distanceKm": 5.676774160352071,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -13357,7 +13524,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=5.677", "limitKm=100"],
+          "geographyBasis": ["distanceKm=5.677", "limitKm=60"],
           "distanceKm": 5.676774160352071,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -13432,7 +13599,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=5.677", "limitKm=100"],
+        "geographyBasis": ["distanceKm=5.677", "limitKm=60"],
         "distanceKm": 5.676774160352071,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -13474,6 +13641,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -13723,6 +13893,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -13961,7 +14134,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=36.397", "limitKm=100"],
+          "geographyBasis": ["distanceKm=36.397", "limitKm=60"],
           "distanceKm": 36.39718158259233,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -14033,7 +14206,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=36.397", "limitKm=100"],
+          "geographyBasis": ["distanceKm=36.397", "limitKm=60"],
           "distanceKm": 36.39718158259233,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -14106,7 +14279,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=36.397", "limitKm=100"],
+        "geographyBasis": ["distanceKm=36.397", "limitKm=60"],
         "distanceKm": 36.39718158259233,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -14148,6 +14321,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -14520,6 +14696,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -14863,6 +15042,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -15060,7 +15242,7 @@
     {
       "id": "hiroshima-national-peace-memorial-hall",
       "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "reason": "entity-type-insufficient",
       "candidates": [
         {
           "language": "en",
@@ -15120,12 +15302,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q575759 (war memorial)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.003", "limitKm=18"],
           "distanceKm": 0.0034597387994083776,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -15186,12 +15368,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q575759 (war memorial)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.003", "limitKm=18"],
           "distanceKm": 0.0034597387994083776,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
@@ -15474,6 +15656,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -15746,6 +15931,9 @@
           "query": "名護屋城跡・佐賀県立名護屋城博物館",
           "results": []
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -15860,6 +16048,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -16034,7 +16223,8 @@
           "distanceKm": 0.04599672890319547,
           "rejectionReasons": [
             "entity-type-mismatch",
-            "no-name-or-label-relationship"
+            "no-name-or-label-relationship",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -16143,6 +16333,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -16461,6 +16652,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -16542,7 +16736,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=3.841", "limitKm=100"],
+          "geographyBasis": ["distanceKm=3.841", "limitKm=60"],
           "distanceKm": 3.8408301931795545,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -16621,7 +16815,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=3.841", "limitKm=100"],
+          "geographyBasis": ["distanceKm=3.841", "limitKm=60"],
           "distanceKm": 3.8408301931795545,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -16701,7 +16895,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=3.841", "limitKm=100"],
+        "geographyBasis": ["distanceKm=3.841", "limitKm=60"],
         "distanceKm": 3.8408301931795545,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -16735,6 +16929,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -17189,6 +17386,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -17259,7 +17459,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=12.810", "limitKm=100"],
+          "geographyBasis": ["distanceKm=12.810", "limitKm=60"],
           "distanceKm": 12.810010250028217,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -17327,7 +17527,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=12.810", "limitKm=100"],
+          "geographyBasis": ["distanceKm=12.810", "limitKm=60"],
           "distanceKm": 12.810010250028217,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -17396,7 +17596,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=12.810", "limitKm=100"],
+        "geographyBasis": ["distanceKm=12.810", "limitKm=60"],
         "distanceKm": 12.810010250028217,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -17430,6 +17630,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -17751,6 +17954,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -18007,6 +18213,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -18274,8 +18483,8 @@
     },
     {
       "id": "iki-tsushima",
-      "state": "canonicalized",
-      "reason": "validated-high-confidence",
+      "state": "unresolved",
+      "reason": "geography-mismatch",
       "candidates": [
         {
           "language": "en",
@@ -18337,10 +18546,10 @@
           "wikipediaAgreement": true,
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=70.275", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=70.275", "limitKm=60"],
           "distanceKm": 70.2750580791641,
-          "rejectionReasons": [],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -18403,86 +18612,13 @@
           "wikipediaAgreement": true,
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=70.275", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=70.275", "limitKm=60"],
           "distanceKm": 70.2750580791641,
-          "rejectionReasons": [],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
-      "chosenCandidate": {
-        "language": "en",
-        "title": "Iki-Tsushima Quasi-National Park",
-        "url": "https://en.wikipedia.org/wiki/Iki-Tsushima_Quasi-National_Park",
-        "pageId": 31734420,
-        "qid": "Q1072765",
-        "sources": ["phase2", "wikidata-search", "wikidata-sitelink"],
-        "queries": [
-          "direct-title-batch:himeji-castle:iwamura-castle",
-          "wikidata-sitelink:Q1072765"
-        ],
-        "redirectFromTitles": [],
-        "labels": {
-          "en": "Iki-Tsushima Quasi-National Park",
-          "ja": "壱岐対馬国定公園"
-        },
-        "aliases": {},
-        "descriptions": {
-          "en": "quasi-National Park containing Iki and Tsushima Islands, Japan",
-          "ja": "日本の長崎県北西部にある国定公園"
-        },
-        "p31": [
-          {
-            "id": "Q11832860",
-            "label": "quasi-national park of Japan"
-          }
-        ],
-        "p279": [],
-        "p131": [
-          {
-            "id": "Q169376",
-            "label": "Nagasaki Prefecture"
-          }
-        ],
-        "p17": [
-          {
-            "id": "Q17",
-            "label": "Japan"
-          }
-        ],
-        "coordinates": {
-          "lat": 34.328,
-          "lng": 129.34
-        },
-        "sitelinks": {
-          "en": {
-            "title": "Iki-Tsushima Quasi-National Park"
-          },
-          "ja": {
-            "title": "壱岐対馬国定公園"
-          }
-        },
-        "identitySignals": [
-          "canonical-name-or-approved-alias",
-          "wikidata-label-or-alias",
-          "wikipedia-title-match"
-        ],
-        "wikipediaAgreement": true,
-        "entityTypeResult": "compatible",
-        "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-        "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=70.275", "limitKm=100"],
-        "distanceKm": 70.2750580791641,
-        "rejectionReasons": [],
-        "sharesVerifiedWikidataIdentity": true
-      },
-      "identity": {
-        "wikipediaTitle": "Iki-Tsushima Quasi-National Park",
-        "wikipediaLanguage": "en",
-        "wikipediaUrl": "https://en.wikipedia.org/wiki/Iki-Tsushima_Quasi-National_Park",
-        "wikipediaPageId": 31734420,
-        "wikidataId": "Q1072765"
-      },
       "phase2State": "unresolved",
       "phase2Reason": "coordinate-unavailable",
       "redirects": [],
@@ -18694,6 +18830,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -18964,6 +19103,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -19138,8 +19280,8 @@
     },
     {
       "id": "ine-funaya-boathouses",
-      "state": "canonicalized",
-      "reason": "validated-high-confidence",
+      "state": "unresolved",
+      "reason": "entity-type-mismatch",
       "candidates": [
         {
           "language": "en",
@@ -19202,7 +19344,7 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": [
             "P31=Q15243209 (historic district)",
             "P31=Q30504307 (maritime settlement)",
@@ -19211,7 +19353,7 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.249", "limitKm=45"],
           "distanceKm": 0.24914925632558757,
-          "rejectionReasons": [],
+          "rejectionReasons": ["entity-type-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -19282,7 +19424,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": [
             "P31=Q15243209 (historic district)",
             "P31=Q30504307 (maritime settlement)",
@@ -19291,90 +19433,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.249", "limitKm=45"],
           "distanceKm": 0.24914925632558757,
-          "rejectionReasons": [],
+          "rejectionReasons": ["entity-type-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
-      "chosenCandidate": {
-        "language": "en",
-        "title": "Ine-ura",
-        "url": "https://en.wikipedia.org/wiki/Ine-ura",
-        "pageId": 74272207,
-        "qid": "Q11379620",
-        "sources": ["wikidata-search", "wikidata-sitelink"],
-        "queries": ["wikidata-sitelink:Q11379620"],
-        "redirectFromTitles": [],
-        "labels": {
-          "en": "Ine-ura",
-          "ja": "伊根の舟屋"
-        },
-        "aliases": {
-          "ja": ["伊根浦", "伊根町伊根浦", "舟屋"]
-        },
-        "descriptions": {
-          "en": "Coastal settlement in Kyoto Prefecture, Japan",
-          "ja": "京都府与謝郡伊根町の伊根湾沿いに立ち並ぶ船の収納庫の上に住居を備えた民家"
-        },
-        "p31": [
-          {
-            "id": "Q15243209",
-            "label": "historic district"
-          },
-          {
-            "id": "Q30504307",
-            "label": "maritime settlement"
-          },
-          {
-            "id": "Q1497375",
-            "label": "architectural ensemble"
-          }
-        ],
-        "p279": [],
-        "p131": [
-          {
-            "id": "Q1345614",
-            "label": "Ine"
-          }
-        ],
-        "p17": [
-          {
-            "id": "Q17",
-            "label": "Japan"
-          }
-        ],
-        "coordinates": {
-          "lat": 35.6752,
-          "lng": 135.286697
-        },
-        "sitelinks": {
-          "en": {
-            "title": "Ine-ura"
-          },
-          "ja": {
-            "title": "伊根の舟屋"
-          }
-        },
-        "identitySignals": ["wikidata-label-or-alias"],
-        "wikipediaAgreement": true,
-        "entityTypeResult": "compatible",
-        "entityTypeBasis": [
-          "P31=Q15243209 (historic district)",
-          "P31=Q30504307 (maritime settlement)",
-          "P31=Q1497375 (architectural ensemble)"
-        ],
-        "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.249", "limitKm=45"],
-        "distanceKm": 0.24914925632558757,
-        "rejectionReasons": [],
-        "sharesVerifiedWikidataIdentity": true
-      },
-      "identity": {
-        "wikipediaTitle": "Ine-ura",
-        "wikipediaLanguage": "en",
-        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ine-ura",
-        "wikipediaPageId": 74272207,
-        "wikidataId": "Q11379620"
-      },
       "phase2State": "unresolved",
       "phase2Reason": "coordinate-unavailable",
       "redirects": [],
@@ -19560,6 +19622,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -19588,8 +19653,8 @@
     },
     {
       "id": "ishigaki-city",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -19655,12 +19720,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q494721 (city of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=2.842", "limitKm=100"],
+          "geographyBasis": ["distanceKm=2.842", "limitKm=45"],
           "distanceKm": 2.8418776334028815,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -19728,15 +19793,91 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q494721 (city of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=2.842", "limitKm=100"],
+          "geographyBasis": ["distanceKm=2.842", "limitKm=45"],
           "distanceKm": 2.8418776334028815,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Ishigaki, Okinawa",
+        "url": "https://en.wikipedia.org/wiki/Ishigaki,_Okinawa",
+        "pageId": 22315740,
+        "qid": "Q838366",
+        "sources": ["phase2", "wikidata-search", "wikidata-sitelink"],
+        "queries": [
+          "direct-title-batch:himeji-castle:iwamura-castle",
+          "wikidata-sitelink:Q838366"
+        ],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Ishigaki",
+          "ja": "石垣市"
+        },
+        "aliases": {
+          "en": ["Isigaki"],
+          "ja": ["石垣村", "石垣町"]
+        },
+        "descriptions": {
+          "en": "city in Okinawa prefecture, Japan",
+          "ja": "沖縄県の市"
+        },
+        "p31": [
+          {
+            "id": "Q494721",
+            "label": "city of Japan"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q766445",
+            "label": "Okinawa Prefecture"
+          },
+          {
+            "id": "Q629725",
+            "label": "Yaeyama District"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 24.3445,
+          "lng": 124.18525
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Ishigaki, Okinawa"
+          },
+          "ja": {
+            "title": "石垣市"
+          }
+        },
+        "identitySignals": ["wikidata-label-or-alias", "wikipedia-title-match"],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": ["P31=Q494721 (city of Japan)"],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=2.842", "limitKm=45"],
+        "distanceKm": 2.8418776334028815,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Ishigaki, Okinawa",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ishigaki,_Okinawa",
+        "wikipediaPageId": 22315740,
+        "wikidataId": "Q838366"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "insufficient-evidence",
       "redirects": [],
@@ -19759,6 +19900,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -19831,7 +19975,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=4.140", "limitKm=100"],
+          "geographyBasis": ["distanceKm=4.140", "limitKm=60"],
           "distanceKm": 4.140100765810358,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -19901,7 +20045,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=4.140", "limitKm=100"],
+          "geographyBasis": ["distanceKm=4.140", "limitKm=60"],
           "distanceKm": 4.140100765810358,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -19972,7 +20116,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=4.140", "limitKm=100"],
+        "geographyBasis": ["distanceKm=4.140", "limitKm=60"],
         "distanceKm": 4.140100765810358,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -20014,6 +20158,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -20429,6 +20576,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -20894,6 +21044,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -21108,6 +21259,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -21321,7 +21473,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.048", "limitKm=45"],
           "distanceKm": 0.0475253720813137,
-          "rejectionReasons": ["no-name-or-label-relationship"],
+          "rejectionReasons": [
+            "no-name-or-label-relationship",
+            "wikidata-sitelink-only"
+          ],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -21954,6 +22109,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -22152,6 +22310,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-insufficient",
             "geography-insufficient"
           ],
@@ -22549,12 +22708,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "karato-market-shimonoseki",
-      "state": "canonicalized",
-      "reason": "validated-high-confidence",
+      "state": "unresolved",
+      "reason": "entity-type-insufficient",
       "candidates": [
         {
           "language": "ja",
@@ -22616,7 +22778,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q30937289 (地方卸売市場)",
             "P31=Q1188480 (fish market)"
@@ -22624,7 +22786,7 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.008", "limitKm=18"],
           "distanceKm": 0.008368692321223559,
-          "rejectionReasons": [],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -22688,7 +22850,7 @@
           "wikipedia-title-match"
         ],
         "wikipediaAgreement": true,
-        "entityTypeResult": "compatible",
+        "entityTypeResult": "insufficient-evidence",
         "entityTypeBasis": [
           "P31=Q30937289 (地方卸売市場)",
           "P31=Q1188480 (fish market)"
@@ -22696,15 +22858,8 @@
         "geographyResult": "coordinates-compatible",
         "geographyBasis": ["distanceKm=0.008", "limitKm=18"],
         "distanceKm": 0.008368692321223559,
-        "rejectionReasons": [],
+        "rejectionReasons": ["entity-type-insufficient"],
         "sharesVerifiedWikidataIdentity": false
-      },
-      "identity": {
-        "wikipediaTitle": "唐戸市場",
-        "wikipediaLanguage": "ja",
-        "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4",
-        "wikipediaPageId": 2325347,
-        "wikidataId": "Q11418545"
       },
       "phase2State": "unresolved",
       "phase2Reason": "coordinate-unavailable",
@@ -22904,6 +23059,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -23206,6 +23364,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -23839,6 +24000,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -24037,8 +24201,10 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
-            "geography-insufficient"
+            "geography-insufficient",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -24163,7 +24329,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": [
             "P31=Q424857 (ōaza)",
             "P31=Q56061 (administrative territorial entity)"
@@ -24171,7 +24337,7 @@
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=261.133", "limitKm=45"],
           "distanceKm": 261.1327462214651,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -24786,6 +24952,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -25215,7 +25384,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=3.336", "limitKm=100"],
+          "geographyBasis": ["distanceKm=3.336", "limitKm=60"],
           "distanceKm": 3.335847799336889,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -25285,7 +25454,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=3.336", "limitKm=100"],
+          "geographyBasis": ["distanceKm=3.336", "limitKm=60"],
           "distanceKm": 3.335847799336889,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -25353,7 +25522,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=3.336", "limitKm=100"],
+        "geographyBasis": ["distanceKm=3.336", "limitKm=60"],
         "distanceKm": 3.335847799336889,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -25387,6 +25556,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -26151,6 +26323,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -26731,8 +26906,10 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
-            "geography-insufficient"
+            "geography-insufficient",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -27254,7 +27431,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=10.915", "limitKm=100"],
+          "geographyBasis": ["distanceKm=10.915", "limitKm=60"],
           "distanceKm": 10.914951219919104,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -27320,7 +27497,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=10.915", "limitKm=100"],
+          "geographyBasis": ["distanceKm=10.915", "limitKm=60"],
           "distanceKm": 10.914951219919104,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -27387,7 +27564,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=10.915", "limitKm=100"],
+        "geographyBasis": ["distanceKm=10.915", "limitKm=60"],
         "distanceKm": 10.914951219919104,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -27429,6 +27606,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -27499,7 +27679,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=12.743", "limitKm=100"],
+          "geographyBasis": ["distanceKm=12.743", "limitKm=60"],
           "distanceKm": 12.743064372946025,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -27567,7 +27747,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=12.743", "limitKm=100"],
+          "geographyBasis": ["distanceKm=12.743", "limitKm=60"],
           "distanceKm": 12.743064372946025,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -27636,7 +27816,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=12.743", "limitKm=100"],
+        "geographyBasis": ["distanceKm=12.743", "limitKm=60"],
         "distanceKm": 12.743064372946025,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -27670,6 +27850,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -27936,6 +28119,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -28285,6 +28471,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -28599,6 +28788,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -28701,7 +28893,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=24.381", "limitKm=100"],
+          "geographyBasis": ["distanceKm=24.381", "limitKm=60"],
           "distanceKm": 24.38076188080935,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -28777,7 +28969,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=24.381", "limitKm=100"],
+          "geographyBasis": ["distanceKm=24.381", "limitKm=60"],
           "distanceKm": 24.38076188080935,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -28854,7 +29046,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=24.381", "limitKm=100"],
+        "geographyBasis": ["distanceKm=24.381", "limitKm=60"],
         "distanceKm": 24.38076188080935,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -28888,6 +29080,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -28949,7 +29144,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.000", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.000", "limitKm=60"],
           "distanceKm": 0,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -29015,7 +29210,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.000", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.000", "limitKm=60"],
           "distanceKm": 0,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -29075,7 +29270,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.000", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.000", "limitKm=60"],
         "distanceKm": 0,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -29109,6 +29304,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -29169,12 +29367,12 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": ["P31=Q15634846 (district of Seoul)"],
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=1150.892", "limitKm=45"],
           "distanceKm": 1150.8922518296997,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -29232,7 +29430,7 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": [
             "P31=Q1065118 (district of China)",
             "P31=Q19953632 (former administrative territorial entity)"
@@ -29240,7 +29438,7 @@
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=1820.621", "limitKm=45"],
           "distanceKm": 1820.6214242917672,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -29356,6 +29554,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -29418,12 +29617,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": ["P31=Q15634846 (district of Seoul)"],
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=1150.892", "limitKm=45"],
           "distanceKm": 1150.8922518296997,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -29485,7 +29684,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "compatible",
+          "entityTypeResult": "incompatible",
           "entityTypeBasis": [
             "P31=Q1065118 (district of China)",
             "P31=Q19953632 (former administrative territorial entity)"
@@ -29493,7 +29692,7 @@
           "geographyResult": "mismatch",
           "geographyBasis": ["distanceKm=1820.621", "limitKm=45"],
           "distanceKm": 1820.6214242917672,
-          "rejectionReasons": ["geography-mismatch"],
+          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -29545,6 +29744,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -29772,7 +29972,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=26.016", "limitKm=100"],
+          "geographyBasis": ["distanceKm=26.016", "limitKm=60"],
           "distanceKm": 26.015556220693774,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -29844,7 +30044,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=26.016", "limitKm=100"],
+          "geographyBasis": ["distanceKm=26.016", "limitKm=60"],
           "distanceKm": 26.015556220693774,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -29917,7 +30117,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=26.016", "limitKm=100"],
+        "geographyBasis": ["distanceKm=26.016", "limitKm=60"],
         "distanceKm": 26.015556220693774,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -29951,6 +30151,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -30201,6 +30404,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -30905,6 +31109,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -30985,7 +31192,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=17.091", "limitKm=100"],
+          "geographyBasis": ["distanceKm=17.091", "limitKm=60"],
           "distanceKm": 17.090610387971832,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -31063,7 +31270,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=17.091", "limitKm=100"],
+          "geographyBasis": ["distanceKm=17.091", "limitKm=60"],
           "distanceKm": 17.090610387971832,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -31142,7 +31349,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=17.091", "limitKm=100"],
+        "geographyBasis": ["distanceKm=17.091", "limitKm=60"],
         "distanceKm": 17.090610387971832,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -31184,6 +31391,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -31598,7 +31808,7 @@
             "P31=Q1377575 (wildlife refuge)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.893", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.893", "limitKm=60"],
           "distanceKm": 0.89325637956563,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -31688,7 +31898,7 @@
             "P31=Q1377575 (wildlife refuge)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.893", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.893", "limitKm=60"],
           "distanceKm": 0.89325637956563,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -31776,7 +31986,7 @@
           "P31=Q1377575 (wildlife refuge)"
         ],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.893", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.893", "limitKm=60"],
         "distanceKm": 0.89325637956563,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -31810,6 +32020,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -31902,7 +32115,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=28.755", "limitKm=100"],
+          "geographyBasis": ["distanceKm=28.755", "limitKm=60"],
           "distanceKm": 28.755347119357417,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -31968,7 +32181,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=28.755", "limitKm=100"],
+          "geographyBasis": ["distanceKm=28.755", "limitKm=60"],
           "distanceKm": 28.755347119357417,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -32035,7 +32248,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=28.755", "limitKm=100"],
+        "geographyBasis": ["distanceKm=28.755", "limitKm=60"],
         "distanceKm": 28.755347119357417,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -32077,6 +32290,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -32323,7 +32539,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=7.593", "limitKm=100"],
+          "geographyBasis": ["distanceKm=7.593", "limitKm=60"],
           "distanceKm": 7.593041161246313,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -32393,7 +32609,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=7.593", "limitKm=100"],
+          "geographyBasis": ["distanceKm=7.593", "limitKm=60"],
           "distanceKm": 7.593041161246313,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -32464,7 +32680,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=7.593", "limitKm=100"],
+        "geographyBasis": ["distanceKm=7.593", "limitKm=60"],
         "distanceKm": 7.593041161246313,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -32498,6 +32714,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -32762,6 +32981,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -33029,12 +33251,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "machida-tokyo",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -33096,15 +33321,15 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q494721 (city of Japan)",
             "P31=Q1549591 (big city)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.008", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.008", "limitKm=45"],
           "distanceKm": 0.008174778683189847,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -33171,18 +33396,93 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q494721 (city of Japan)",
             "P31=Q1549591 (big city)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.008", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.008", "limitKm=45"],
           "distanceKm": 0.008174778683189847,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Machida, Tokyo",
+        "url": "https://en.wikipedia.org/wiki/Machida,_Tokyo",
+        "pageId": 329698,
+        "qid": "Q210628",
+        "sources": ["wikidata-search", "wikidata-sitelink"],
+        "queries": ["wikidata-sitelink:Q210628"],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Machida",
+          "ja": "町田市"
+        },
+        "aliases": {
+          "en": ["Matida"]
+        },
+        "descriptions": {
+          "en": "city in Tokyo, Japan",
+          "ja": "東京都の市"
+        },
+        "p31": [
+          {
+            "id": "Q494721",
+            "label": "city of Japan"
+          },
+          {
+            "id": "Q1549591",
+            "label": "big city"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q1490",
+            "label": "Tokyo"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 35.54666666666667,
+          "lng": 139.4386111111111
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Machida, Tokyo"
+          },
+          "ja": {
+            "title": "町田市"
+          }
+        },
+        "identitySignals": ["wikidata-label-or-alias", "wikipedia-title-match"],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": [
+          "P31=Q494721 (city of Japan)",
+          "P31=Q1549591 (big city)"
+        ],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=0.008", "limitKm=45"],
+        "distanceKm": 0.008174778683189847,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Machida, Tokyo",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Machida,_Tokyo",
+        "wikipediaPageId": 329698,
+        "wikidataId": "Q210628"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "insufficient-evidence",
       "redirects": [],
@@ -33205,6 +33505,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -33948,6 +34251,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -34241,6 +34547,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -34316,7 +34625,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=1.164", "limitKm=100"],
+          "geographyBasis": ["distanceKm=1.164", "limitKm=60"],
           "distanceKm": 1.163813541661745,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -34389,7 +34698,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=1.164", "limitKm=100"],
+          "geographyBasis": ["distanceKm=1.164", "limitKm=60"],
           "distanceKm": 1.163813541661745,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -34463,7 +34772,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=1.164", "limitKm=100"],
+        "geographyBasis": ["distanceKm=1.164", "limitKm=60"],
         "distanceKm": 1.163813541661745,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -34497,6 +34806,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -34576,7 +34888,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.097", "limitKm=18"],
           "distanceKm": 0.09702504412468863,
-          "rejectionReasons": ["entity-type-insufficient"],
+          "rejectionReasons": [
+            "entity-type-insufficient",
+            "wikidata-sitelink-only"
+          ],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -35032,7 +35347,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=24.242", "limitKm=100"],
+          "geographyBasis": ["distanceKm=24.242", "limitKm=60"],
           "distanceKm": 24.24235020262522,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -35100,7 +35415,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=24.242", "limitKm=100"],
+          "geographyBasis": ["distanceKm=24.242", "limitKm=60"],
           "distanceKm": 24.24235020262522,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -35169,7 +35484,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=24.242", "limitKm=100"],
+        "geographyBasis": ["distanceKm=24.242", "limitKm=60"],
         "distanceKm": 24.24235020262522,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -35203,6 +35518,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -35427,6 +35745,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -35495,7 +35816,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=28.859", "limitKm=100"],
+          "geographyBasis": ["distanceKm=28.859", "limitKm=60"],
           "distanceKm": 28.858664934680444,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -35561,7 +35882,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=28.859", "limitKm=100"],
+          "geographyBasis": ["distanceKm=28.859", "limitKm=60"],
           "distanceKm": 28.858664934680444,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -35628,7 +35949,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=28.859", "limitKm=100"],
+        "geographyBasis": ["distanceKm=28.859", "limitKm=60"],
         "distanceKm": 28.858664934680444,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -35662,6 +35983,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -35908,6 +36232,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -36778,6 +37103,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -37048,7 +37376,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.015", "limitKm=45"],
           "distanceKm": 0.015340855359960591,
-          "rejectionReasons": ["no-name-or-label-relationship"],
+          "rejectionReasons": [
+            "no-name-or-label-relationship",
+            "wikidata-sitelink-only"
+          ],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -37450,12 +37781,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q494721 (city of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=2.211", "limitKm=30"],
+          "geographyBasis": ["distanceKm=2.211", "limitKm=45"],
           "distanceKm": 2.2105647766051777,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -37570,12 +37901,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q494721 (city of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=2.211", "limitKm=30"],
+          "geographyBasis": ["distanceKm=2.211", "limitKm=45"],
           "distanceKm": 2.2105647766051777,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -37836,6 +38167,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -38034,12 +38368,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "motobu-town",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -38101,12 +38438,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1059478 (town of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.713", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.713", "limitKm=45"],
           "distanceKm": 0.7132945284505766,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -38173,15 +38510,87 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1059478 (town of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.713", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.713", "limitKm=45"],
           "distanceKm": 0.7132945284505766,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Motobu",
+        "url": "https://en.wikipedia.org/wiki/Motobu",
+        "pageId": 451337,
+        "qid": "Q1205928",
+        "sources": ["wikidata-search", "wikidata-sitelink"],
+        "queries": ["wikidata-sitelink:Q1205928"],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Motobu",
+          "ja": "本部町"
+        },
+        "aliases": {
+          "ja": ["本部村"]
+        },
+        "descriptions": {
+          "en": "town in Kunigami district, Okinawa prefecture, Japan",
+          "ja": "沖縄県国頭郡の町"
+        },
+        "p31": [
+          {
+            "id": "Q1059478",
+            "label": "town of Japan"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q766445",
+            "label": "Okinawa Prefecture"
+          },
+          {
+            "id": "Q1330132",
+            "label": "Kunigami District"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 26.6575,
+          "lng": 127.89777777777778
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Motobu"
+          },
+          "ja": {
+            "title": "本部町"
+          }
+        },
+        "identitySignals": ["wikidata-label-or-alias", "wikipedia-title-match"],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": ["P31=Q1059478 (town of Japan)"],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=0.713", "limitKm=45"],
+        "distanceKm": 0.7132945284505766,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Motobu",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Motobu",
+        "wikipediaPageId": 451337,
+        "wikidataId": "Q1205928"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "insufficient-evidence",
       "redirects": [],
@@ -38204,6 +38613,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -38837,6 +39249,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -38911,7 +39326,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=46.817", "limitKm=100"],
+          "geographyBasis": ["distanceKm=46.817", "limitKm=60"],
           "distanceKm": 46.817444194444406,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -38983,7 +39398,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=46.817", "limitKm=100"],
+          "geographyBasis": ["distanceKm=46.817", "limitKm=60"],
           "distanceKm": 46.817444194444406,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -39056,7 +39471,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=46.817", "limitKm=100"],
+        "geographyBasis": ["distanceKm=46.817", "limitKm=60"],
         "distanceKm": 46.817444194444406,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -39090,6 +39505,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -39162,7 +39580,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=41.420", "limitKm=100"],
+          "geographyBasis": ["distanceKm=41.420", "limitKm=60"],
           "distanceKm": 41.420231030957524,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -39232,7 +39650,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=41.420", "limitKm=100"],
+          "geographyBasis": ["distanceKm=41.420", "limitKm=60"],
           "distanceKm": 41.420231030957524,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -39303,7 +39721,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=41.420", "limitKm=100"],
+        "geographyBasis": ["distanceKm=41.420", "limitKm=60"],
         "distanceKm": 41.420231030957524,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -39345,6 +39763,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -39570,6 +39991,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -39639,7 +40063,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=11.989", "limitKm=100"],
+          "geographyBasis": ["distanceKm=11.989", "limitKm=60"],
           "distanceKm": 11.989412757620165,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -39709,7 +40133,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=11.989", "limitKm=100"],
+          "geographyBasis": ["distanceKm=11.989", "limitKm=60"],
           "distanceKm": 11.989412757620165,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -39777,7 +40201,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=11.989", "limitKm=100"],
+        "geographyBasis": ["distanceKm=11.989", "limitKm=60"],
         "distanceKm": 11.989412757620165,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -39811,6 +40235,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -39880,7 +40307,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=53.780", "limitKm=100"],
+          "geographyBasis": ["distanceKm=53.780", "limitKm=60"],
           "distanceKm": 53.77971539952869,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -39950,7 +40377,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=53.780", "limitKm=100"],
+          "geographyBasis": ["distanceKm=53.780", "limitKm=60"],
           "distanceKm": 53.77971539952869,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -40018,7 +40445,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=53.780", "limitKm=100"],
+        "geographyBasis": ["distanceKm=53.780", "limitKm=60"],
         "distanceKm": 53.77971539952869,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -40052,6 +40479,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -40223,6 +40653,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -40752,6 +41185,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -41055,6 +41491,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -41307,6 +41746,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -42181,7 +42623,7 @@
     {
       "id": "national-museum-western-art-tokyo",
       "state": "unresolved",
-      "reason": "entity-type-insufficient",
+      "reason": "wikidata-sitelink-only",
       "candidates": [
         {
           "language": "en",
@@ -42271,7 +42713,8 @@
           "distanceKm": 9738.485481446554,
           "rejectionReasons": [
             "entity-type-insufficient",
-            "geography-mismatch"
+            "geography-mismatch",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": true
         },
@@ -42385,6 +42828,9 @@
           "query": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-",
           "results": []
         }
+      ],
+      "details": [
+        "A Wikidata sitelink requires independent discovery evidence."
       ]
     },
     {
@@ -42642,7 +43088,7 @@
     {
       "id": "nemuro-peninsula-chashi-sites",
       "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "reason": "entity-type-insufficient",
       "candidates": [
         {
           "language": "en",
@@ -42704,12 +43150,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q5087265 (chashi)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.001", "limitKm=18"],
           "distanceKm": 0.001223144193162354,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -42772,12 +43218,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q5087265 (chashi)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.001", "limitKm=18"],
           "distanceKm": 0.001223144193162354,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
@@ -43050,6 +43496,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -43122,7 +43571,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=8.756", "limitKm=100"],
+          "geographyBasis": ["distanceKm=8.756", "limitKm=60"],
           "distanceKm": 8.756443551824141,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -43192,7 +43641,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=8.756", "limitKm=100"],
+          "geographyBasis": ["distanceKm=8.756", "limitKm=60"],
           "distanceKm": 8.756443551824141,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -43263,7 +43712,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=8.756", "limitKm=100"],
+        "geographyBasis": ["distanceKm=8.756", "limitKm=60"],
         "distanceKm": 8.756443551824141,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -43305,6 +43754,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -43714,6 +44166,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -44813,8 +45268,8 @@
     },
     {
       "id": "nippo-kaigan",
-      "state": "canonicalized",
-      "reason": "validated-high-confidence",
+      "state": "unresolved",
+      "reason": "geography-mismatch",
       "candidates": [
         {
           "language": "en",
@@ -44880,10 +45335,10 @@
           "wikipediaAgreement": true,
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=92.547", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=92.547", "limitKm=60"],
           "distanceKm": 92.54652382530492,
-          "rejectionReasons": [],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -44950,90 +45405,13 @@
           "wikipediaAgreement": true,
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=92.547", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=92.547", "limitKm=60"],
           "distanceKm": 92.54652382530492,
-          "rejectionReasons": [],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
-      "chosenCandidate": {
-        "language": "en",
-        "title": "Nippō Kaigan Quasi-National Park",
-        "url": "https://en.wikipedia.org/wiki/Nipp%C5%8D_Kaigan_Quasi-National_Park",
-        "pageId": 31734081,
-        "qid": "Q1072867",
-        "sources": ["phase2", "wikidata-search", "wikidata-sitelink"],
-        "queries": [
-          "direct-title-batch:nago-pineapple-park:ogasawara-national-park",
-          "wikidata-sitelink:Q1072867"
-        ],
-        "redirectFromTitles": [],
-        "labels": {
-          "en": "Nippō Kaigan Quasi-National Park",
-          "ja": "日豊海岸国定公園"
-        },
-        "aliases": {},
-        "descriptions": {
-          "en": "quasi-national park in Oita and Miyazaki prefecture, Japan",
-          "ja": "大分県と宮崎県に跨る海岸を区域とする国定公園"
-        },
-        "p31": [
-          {
-            "id": "Q11832860",
-            "label": "quasi-national park of Japan"
-          }
-        ],
-        "p279": [],
-        "p131": [
-          {
-            "id": "Q133924",
-            "label": "Ōita Prefecture"
-          },
-          {
-            "id": "Q130300",
-            "label": "Miyazaki Prefecture"
-          }
-        ],
-        "p17": [
-          {
-            "id": "Q17",
-            "label": "Japan"
-          }
-        ],
-        "coordinates": {
-          "lat": 32.63,
-          "lng": 131.79
-        },
-        "sitelinks": {
-          "en": {
-            "title": "Nippō Kaigan Quasi-National Park"
-          },
-          "ja": {
-            "title": "日豊海岸国定公園"
-          }
-        },
-        "identitySignals": [
-          "canonical-name-or-approved-alias",
-          "wikidata-label-or-alias",
-          "wikipedia-title-match"
-        ],
-        "wikipediaAgreement": true,
-        "entityTypeResult": "compatible",
-        "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-        "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=92.547", "limitKm=100"],
-        "distanceKm": 92.54652382530492,
-        "rejectionReasons": [],
-        "sharesVerifiedWikidataIdentity": true
-      },
-      "identity": {
-        "wikipediaTitle": "Nippō Kaigan Quasi-National Park",
-        "wikipediaLanguage": "en",
-        "wikipediaUrl": "https://en.wikipedia.org/wiki/Nipp%C5%8D_Kaigan_Quasi-National_Park",
-        "wikipediaPageId": 31734081,
-        "wikidataId": "Q1072867"
-      },
       "phase2State": "unresolved",
       "phase2Reason": "coordinate-unavailable",
       "redirects": [],
@@ -45124,7 +45502,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=9.226", "limitKm=100"],
+          "geographyBasis": ["distanceKm=9.226", "limitKm=60"],
           "distanceKm": 9.225752537182748,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -45190,7 +45568,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=9.226", "limitKm=100"],
+          "geographyBasis": ["distanceKm=9.226", "limitKm=60"],
           "distanceKm": 9.225752537182748,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -45257,7 +45635,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=9.226", "limitKm=100"],
+        "geographyBasis": ["distanceKm=9.226", "limitKm=60"],
         "distanceKm": 9.225752537182748,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -45299,6 +45677,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -45370,7 +45751,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=36.179", "limitKm=100"],
+          "geographyBasis": ["distanceKm=36.179", "limitKm=60"],
           "distanceKm": 36.17932835033482,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -45442,7 +45823,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=36.179", "limitKm=100"],
+          "geographyBasis": ["distanceKm=36.179", "limitKm=60"],
           "distanceKm": 36.17932835033482,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -45512,7 +45893,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=36.179", "limitKm=100"],
+        "geographyBasis": ["distanceKm=36.179", "limitKm=60"],
         "distanceKm": 36.17932835033482,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -45546,6 +45927,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -45721,6 +46105,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -46016,6 +46403,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -46205,7 +46593,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.694", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.694", "limitKm=60"],
           "distanceKm": 0.6942313752654218,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -46271,7 +46659,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.694", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.694", "limitKm=60"],
           "distanceKm": 0.6942313752654218,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -46338,7 +46726,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.694", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.694", "limitKm=60"],
         "distanceKm": 0.6942313752654218,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -46380,6 +46768,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -46610,6 +47001,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -47142,7 +47536,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=22.391", "limitKm=100"],
+          "geographyBasis": ["distanceKm=22.391", "limitKm=60"],
           "distanceKm": 22.3912319294034,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -47212,7 +47606,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=22.391", "limitKm=100"],
+          "geographyBasis": ["distanceKm=22.391", "limitKm=60"],
           "distanceKm": 22.3912319294034,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -47283,7 +47677,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=22.391", "limitKm=100"],
+        "geographyBasis": ["distanceKm=22.391", "limitKm=60"],
         "distanceKm": 22.3912319294034,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -47325,6 +47719,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -47392,15 +47789,15 @@
           },
           "identitySignals": ["wikipedia-redirect"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q321053 (cenotaph)",
             "P31=Q575759 (war memorial)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=4.528", "limitKm=100"],
+          "geographyBasis": ["distanceKm=4.528", "limitKm=60"],
           "distanceKm": 4.528031187076529,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -47475,7 +47872,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=1.555", "limitKm=100"],
+          "geographyBasis": ["distanceKm=1.555", "limitKm=60"],
           "distanceKm": 1.5548961895910536,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
@@ -47537,17 +47934,18 @@
           },
           "identitySignals": [],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q321053 (cenotaph)",
             "P31=Q575759 (war memorial)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=4.528", "limitKm=100"],
+          "geographyBasis": ["distanceKm=4.528", "limitKm=60"],
           "distanceKm": 4.528031187076529,
           "rejectionReasons": [
-            "entity-type-mismatch",
-            "no-name-or-label-relationship"
+            "entity-type-insufficient",
+            "no-name-or-label-relationship",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -47623,7 +48021,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=1.555", "limitKm=100"],
+          "geographyBasis": ["distanceKm=1.555", "limitKm=60"],
           "distanceKm": 1.5548961895910536,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
@@ -48354,6 +48752,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -48608,6 +49009,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -49072,15 +49474,15 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q8072 (volcano)",
             "P31=Q1595289 (sacred mountain)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=5.194", "limitKm=100"],
+          "geographyBasis": ["distanceKm=5.194", "limitKm=60"],
           "distanceKm": 5.193771759720455,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -49128,12 +49530,15 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q8502 (mountain)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=94.367", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=94.367", "limitKm=60"],
           "distanceKm": 94.36723747398685,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [
+            "entity-type-insufficient",
+            "geography-mismatch"
+          ],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -49181,12 +49586,15 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q8502 (mountain)"],
           "geographyResult": "mismatch",
-          "geographyBasis": ["distanceKm=236.875", "limitKm=100"],
+          "geographyBasis": ["distanceKm=236.875", "limitKm=60"],
           "distanceKm": 236.87465853544606,
-          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
+          "rejectionReasons": [
+            "entity-type-insufficient",
+            "geography-mismatch"
+          ],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -49259,15 +49667,15 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q8072 (volcano)",
             "P31=Q1595289 (sacred mountain)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=5.194", "limitKm=100"],
+          "geographyBasis": ["distanceKm=5.194", "limitKm=60"],
           "distanceKm": 5.193771759720455,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -49405,7 +49813,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=3.570", "limitKm=100"],
+          "geographyBasis": ["distanceKm=3.570", "limitKm=60"],
           "distanceKm": 3.570313661970788,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -49479,7 +49887,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=3.570", "limitKm=100"],
+          "geographyBasis": ["distanceKm=3.570", "limitKm=60"],
           "distanceKm": 3.570313661970788,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -49561,7 +49969,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=3.570", "limitKm=100"],
+        "geographyBasis": ["distanceKm=3.570", "limitKm=60"],
         "distanceKm": 3.570313661970788,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -49602,6 +50010,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -49845,6 +50256,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -50091,6 +50505,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -50868,6 +51285,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -50920,8 +51340,8 @@
     },
     {
       "id": "raikyuji-temple",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -50976,12 +51396,12 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.008", "limitKm=18"],
           "distanceKm": 0.007632620759071965,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -51044,15 +51464,83 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.008", "limitKm=18"],
           "distanceKm": 0.007632620759071965,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Raikyū-ji",
+        "url": "https://en.wikipedia.org/wiki/Raiky%C5%AB-ji",
+        "pageId": 22379058,
+        "qid": "Q2385052",
+        "sources": ["wikidata-search", "wikidata-sitelink"],
+        "queries": ["wikidata-sitelink:Q2385052"],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Raikyū-ji Temple",
+          "ja": "頼久寺"
+        },
+        "aliases": {
+          "en": ["Raikyū-ji"]
+        },
+        "descriptions": {
+          "en": "Buddhist temple in Takahashi, Okayama prefecture, Japan",
+          "ja": "岡山県高梁市にある臨済宗永源寺派の寺院"
+        },
+        "p31": [
+          {
+            "id": "Q5393308",
+            "label": "Buddhist temple"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q851675",
+            "label": "Takahashi"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 34.79736389,
+          "lng": 133.61893056
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Raikyū-ji"
+          },
+          "ja": {
+            "title": "頼久寺"
+          }
+        },
+        "identitySignals": ["wikidata-label-or-alias"],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=0.008", "limitKm=18"],
+        "distanceKm": 0.007632620759071965,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Raikyū-ji",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Raiky%C5%AB-ji",
+        "wikipediaPageId": 22379058,
+        "wikidataId": "Q2385052"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "coordinate-unavailable",
       "redirects": [],
@@ -51075,6 +51563,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -51280,6 +51771,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -51726,7 +52218,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=6.236", "limitKm=100"],
+          "geographyBasis": ["distanceKm=6.236", "limitKm=60"],
           "distanceKm": 6.236389699082536,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -51794,7 +52286,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=6.236", "limitKm=100"],
+          "geographyBasis": ["distanceKm=6.236", "limitKm=60"],
           "distanceKm": 6.236389699082536,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -51863,7 +52355,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=6.236", "limitKm=100"],
+        "geographyBasis": ["distanceKm=6.236", "limitKm=60"],
         "distanceKm": 6.236389699082536,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -51905,6 +52397,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -52207,12 +52702,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "saigoku-33",
       "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "reason": "entity-type-insufficient",
       "candidates": [
         {
           "language": "en",
@@ -52267,7 +52765,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q851387 (Buddhist pilgrimage)",
             "P31=Q135237007 (33 Kannon pilgrimage sites)"
@@ -52278,7 +52776,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
-            "entity-type-mismatch",
+            "entity-type-insufficient",
             "geography-insufficient"
           ],
           "sharesVerifiedWikidataIdentity": true
@@ -52339,7 +52837,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q851387 (Buddhist pilgrimage)",
             "P31=Q135237007 (33 Kannon pilgrimage sites)"
@@ -52350,7 +52848,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
-            "entity-type-mismatch",
+            "entity-type-insufficient",
             "geography-insufficient"
           ],
           "sharesVerifiedWikidataIdentity": true
@@ -52382,8 +52880,8 @@
     },
     {
       "id": "saitama-city",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "en",
@@ -52474,7 +52972,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q1749269 (city designated by government ordinance)",
             "P31=Q65589340 (prefectural capital of Japan)",
@@ -52486,9 +52984,9 @@
             "P31=Q129319205 (de facto national capital)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.035", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.035", "limitKm=45"],
           "distanceKm": 0.034954368666364304,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -52580,7 +53078,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q1749269 (city designated by government ordinance)",
             "P31=Q65589340 (prefectural capital of Japan)",
@@ -52592,12 +53090,125 @@
             "P31=Q129319205 (de facto national capital)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.035", "limitKm=30"],
+          "geographyBasis": ["distanceKm=0.035", "limitKm=45"],
           "distanceKm": 0.034954368666364304,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
+      "chosenCandidate": {
+        "language": "en",
+        "title": "Saitama (city)",
+        "url": "https://en.wikipedia.org/wiki/Saitama_(city)",
+        "pageId": 6792822,
+        "qid": "Q134635",
+        "sources": ["phase2", "wikidata-search", "wikidata-sitelink"],
+        "queries": [
+          "direct-title-batch:ogijima:saitama-city",
+          "wikidata-sitelink:Q134635"
+        ],
+        "redirectFromTitles": [],
+        "labels": {
+          "en": "Saitama",
+          "ja": "さいたま市"
+        },
+        "aliases": {
+          "en": ["Saitama City"],
+          "ja": ["埼玉市"]
+        },
+        "descriptions": {
+          "en": "city in Saitama Prefecture, Japan",
+          "ja": "埼玉県庁所在地"
+        },
+        "p31": [
+          {
+            "id": "Q1749269",
+            "label": "city designated by government ordinance"
+          },
+          {
+            "id": "Q65589340",
+            "label": "prefectural capital of Japan"
+          },
+          {
+            "id": "Q691960",
+            "label": "satellite city"
+          },
+          {
+            "id": "Q1549591",
+            "label": "big city"
+          },
+          {
+            "id": "Q494721",
+            "label": "city of Japan"
+          },
+          {
+            "id": "Q11422368",
+            "label": "city for international conferences and tourism"
+          },
+          {
+            "id": "Q11499984",
+            "label": "educational town"
+          },
+          {
+            "id": "Q129319205",
+            "label": "de facto national capital"
+          }
+        ],
+        "p279": [],
+        "p131": [
+          {
+            "id": "Q128186",
+            "label": "Saitama Prefecture"
+          }
+        ],
+        "p17": [
+          {
+            "id": "Q17",
+            "label": "Japan"
+          }
+        ],
+        "coordinates": {
+          "lat": 35.86138888888889,
+          "lng": 139.64555555555555
+        },
+        "sitelinks": {
+          "en": {
+            "title": "Saitama (city)"
+          },
+          "ja": {
+            "title": "さいたま市"
+          }
+        },
+        "identitySignals": [
+          "canonical-name-or-approved-alias",
+          "wikidata-label-or-alias",
+          "wikipedia-title-match"
+        ],
+        "wikipediaAgreement": true,
+        "entityTypeResult": "compatible",
+        "entityTypeBasis": [
+          "P31=Q1749269 (city designated by government ordinance)",
+          "P31=Q65589340 (prefectural capital of Japan)",
+          "P31=Q691960 (satellite city)",
+          "P31=Q1549591 (big city)",
+          "P31=Q494721 (city of Japan)",
+          "P31=Q11422368 (city for international conferences and tourism)",
+          "P31=Q11499984 (educational town)",
+          "P31=Q129319205 (de facto national capital)"
+        ],
+        "geographyResult": "coordinates-compatible",
+        "geographyBasis": ["distanceKm=0.035", "limitKm=45"],
+        "distanceKm": 0.034954368666364304,
+        "rejectionReasons": [],
+        "sharesVerifiedWikidataIdentity": true
+      },
+      "identity": {
+        "wikipediaTitle": "Saitama (city)",
+        "wikipediaLanguage": "en",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_(city)",
+        "wikipediaPageId": 6792822,
+        "wikidataId": "Q134635"
+      },
       "phase2State": "unresolved",
       "phase2Reason": "entity-type-mismatch",
       "redirects": [],
@@ -52628,6 +53239,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -52939,7 +53553,7 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=2.154", "limitKm=60"],
           "distanceKm": 2.1540401968146763,
-          "rejectionReasons": [],
+          "rejectionReasons": ["wikidata-sitelink-only"],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -53329,6 +53943,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -53600,7 +54217,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=34.963", "limitKm=100"],
+          "geographyBasis": ["distanceKm=34.963", "limitKm=60"],
           "distanceKm": 34.9634630942664,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -53680,7 +54297,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=34.963", "limitKm=100"],
+          "geographyBasis": ["distanceKm=34.963", "limitKm=60"],
           "distanceKm": 34.9634630942664,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -53758,7 +54375,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=34.963", "limitKm=100"],
+        "geographyBasis": ["distanceKm=34.963", "limitKm=60"],
         "distanceKm": 34.9634630942664,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -53800,6 +54417,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -54249,6 +54869,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -54694,6 +55317,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -54943,6 +55569,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -55305,6 +55934,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -55521,6 +56153,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -55764,6 +56399,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -55822,6 +56460,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -55901,7 +56540,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.254", "limitKm=45"],
           "distanceKm": 0.25359815558998794,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [
+            "entity-type-mismatch",
+            "wikidata-sitelink-only"
+          ],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -56105,6 +56747,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -56928,6 +57571,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -57032,7 +57678,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=31.867", "limitKm=100"],
+          "geographyBasis": ["distanceKm=31.867", "limitKm=60"],
           "distanceKm": 31.867235966214174,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -57110,7 +57756,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=31.867", "limitKm=100"],
+          "geographyBasis": ["distanceKm=31.867", "limitKm=60"],
           "distanceKm": 31.867235966214174,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -57189,7 +57835,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=31.867", "limitKm=100"],
+        "geographyBasis": ["distanceKm=31.867", "limitKm=60"],
         "distanceKm": 31.867235966214174,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -57231,6 +57877,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -57523,6 +58172,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -58356,6 +59008,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -58638,8 +59293,8 @@
     },
     {
       "id": "shokanbetsu-teuri-yagishiri",
-      "state": "canonicalized",
-      "reason": "validated-high-confidence",
+      "state": "unresolved",
+      "reason": "geography-mismatch",
       "candidates": [
         {
           "language": "en",
@@ -58701,10 +59356,10 @@
           "wikipediaAgreement": true,
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=90.147", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=90.147", "limitKm=60"],
           "distanceKm": 90.14663281828192,
-          "rejectionReasons": [],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -58767,86 +59422,13 @@
           "wikipediaAgreement": true,
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-          "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=90.147", "limitKm=100"],
+          "geographyResult": "mismatch",
+          "geographyBasis": ["distanceKm=90.147", "limitKm=60"],
           "distanceKm": 90.14663281828192,
-          "rejectionReasons": [],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
-      "chosenCandidate": {
-        "language": "en",
-        "title": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
-        "url": "https://en.wikipedia.org/wiki/Shokanbetsu-Teuri-Yagishiri_Quasi-National_Park",
-        "pageId": 23165991,
-        "qid": "Q986874",
-        "sources": ["phase2", "wikidata-search", "wikidata-sitelink"],
-        "queries": [
-          "direct-title-batch:saitama-nagatoro:shokanbetsu-teuri-yagishiri",
-          "wikidata-sitelink:Q986874"
-        ],
-        "redirectFromTitles": [],
-        "labels": {
-          "en": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
-          "ja": "暑寒別天売焼尻国定公園"
-        },
-        "aliases": {},
-        "descriptions": {
-          "en": "quasi-national park of Hokkaido, Japan",
-          "ja": "北海道石狩・空知・留萌地方にある国定公園"
-        },
-        "p31": [
-          {
-            "id": "Q11832860",
-            "label": "quasi-national park of Japan"
-          }
-        ],
-        "p279": [],
-        "p131": [
-          {
-            "id": "Q1037393",
-            "label": "Hokkaido"
-          }
-        ],
-        "p17": [
-          {
-            "id": "Q17",
-            "label": "Japan"
-          }
-        ],
-        "coordinates": {
-          "lat": 43,
-          "lng": 141
-        },
-        "sitelinks": {
-          "en": {
-            "title": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park"
-          },
-          "ja": {
-            "title": "暑寒別天売焼尻国定公園"
-          }
-        },
-        "identitySignals": [
-          "canonical-name-or-approved-alias",
-          "wikidata-label-or-alias",
-          "wikipedia-title-match"
-        ],
-        "wikipediaAgreement": true,
-        "entityTypeResult": "compatible",
-        "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
-        "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=90.147", "limitKm=100"],
-        "distanceKm": 90.14663281828192,
-        "rejectionReasons": [],
-        "sharesVerifiedWikidataIdentity": true
-      },
-      "identity": {
-        "wikipediaTitle": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
-        "wikipediaLanguage": "en",
-        "wikipediaUrl": "https://en.wikipedia.org/wiki/Shokanbetsu-Teuri-Yagishiri_Quasi-National_Park",
-        "wikipediaPageId": 23165991,
-        "wikidataId": "Q986874"
-      },
       "phase2State": "unresolved",
       "phase2Reason": "coordinate-unavailable",
       "redirects": [],
@@ -59306,6 +59888,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -59402,7 +59987,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=12.653", "limitKm=100"],
+          "geographyBasis": ["distanceKm=12.653", "limitKm=60"],
           "distanceKm": 12.653175445170962,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -59472,7 +60057,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=12.653", "limitKm=100"],
+          "geographyBasis": ["distanceKm=12.653", "limitKm=60"],
           "distanceKm": 12.653175445170962,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -59543,7 +60128,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=12.653", "limitKm=100"],
+        "geographyBasis": ["distanceKm=12.653", "limitKm=60"],
         "distanceKm": 12.653175445170962,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -59585,6 +60170,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -59835,8 +60423,8 @@
     },
     {
       "id": "sugamo-jizo-dori",
-      "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "state": "canonicalized",
+      "reason": "validated-high-confidence",
       "candidates": [
         {
           "language": "ja",
@@ -59892,12 +60480,12 @@
           },
           "identitySignals": ["wikipedia-redirect"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.072", "limitKm=45"],
+          "geographyBasis": ["distanceKm=0.072", "limitKm=18"],
           "distanceKm": 0.07161556822139321,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -59955,13 +60543,20 @@
         },
         "identitySignals": ["wikipedia-redirect"],
         "wikipediaAgreement": true,
-        "entityTypeResult": "incompatible",
+        "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q5393308 (Buddhist temple)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.072", "limitKm=45"],
+        "geographyBasis": ["distanceKm=0.072", "limitKm=18"],
         "distanceKm": 0.07161556822139321,
-        "rejectionReasons": ["entity-type-mismatch"],
+        "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": false
+      },
+      "identity": {
+        "wikipediaTitle": "高岩寺",
+        "wikipediaLanguage": "ja",
+        "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B2%A9%E5%AF%BA",
+        "wikipediaPageId": 245404,
+        "wikidataId": "Q6587321"
       },
       "phase2State": "unresolved",
       "phase2Reason": "no-page-found",
@@ -59984,6 +60579,9 @@
           "query": "巣鴨地蔵通り商店街",
           "results": []
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -60235,6 +60833,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -60306,7 +60907,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=21.179", "limitKm=100"],
+          "geographyBasis": ["distanceKm=21.179", "limitKm=60"],
           "distanceKm": 21.1785340280858,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -60378,7 +60979,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=21.179", "limitKm=100"],
+          "geographyBasis": ["distanceKm=21.179", "limitKm=60"],
           "distanceKm": 21.1785340280858,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -60448,7 +61049,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=21.179", "limitKm=100"],
+        "geographyBasis": ["distanceKm=21.179", "limitKm=60"],
         "distanceKm": 21.1785340280858,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -60482,6 +61083,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -60738,6 +61342,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -61297,7 +61904,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=16.552", "limitKm=100"],
+          "geographyBasis": ["distanceKm=16.552", "limitKm=60"],
           "distanceKm": 16.551699493457786,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -61369,7 +61976,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=16.552", "limitKm=100"],
+          "geographyBasis": ["distanceKm=16.552", "limitKm=60"],
           "distanceKm": 16.551699493457786,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -61442,7 +62049,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=16.552", "limitKm=100"],
+        "geographyBasis": ["distanceKm=16.552", "limitKm=60"],
         "distanceKm": 16.551699493457786,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -61484,6 +62091,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -61802,6 +62412,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -61986,6 +62599,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -62081,7 +62697,8 @@
           "distanceKm": 0,
           "rejectionReasons": [
             "entity-type-mismatch",
-            "no-name-or-label-relationship"
+            "no-name-or-label-relationship",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -62627,7 +63244,8 @@
           "distanceKm": 522.8177898317306,
           "rejectionReasons": [
             "geography-mismatch",
-            "no-name-or-label-relationship"
+            "no-name-or-label-relationship",
+            "wikidata-sitelink-only"
           ],
           "sharesVerifiedWikidataIdentity": false
         },
@@ -63170,6 +63788,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -64026,6 +64647,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -64096,7 +64720,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.311", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.311", "limitKm=60"],
           "distanceKm": 0.3113457946048289,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -64164,7 +64788,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.311", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.311", "limitKm=60"],
           "distanceKm": 0.3113457946048289,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -64233,7 +64857,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.311", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.311", "limitKm=60"],
         "distanceKm": 0.3113457946048289,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -64267,6 +64891,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -64428,6 +65055,9 @@
           "query": "チームラボボーダレス（麻布台ヒルズ）",
           "results": []
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -64623,6 +65253,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -64875,6 +65508,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -64942,12 +65578,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q4174776 (village of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=8.994", "limitKm=18"],
+          "geographyBasis": ["distanceKm=8.994", "limitKm=60"],
           "distanceKm": 8.993776443603283,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -65002,14 +65638,14 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": [
             "P31=Q18663566 (dissolved municipality of Japan)"
           ],
           "geographyResult": "mismatch",
-          "geographyBasis": ["distanceKm=229.074", "limitKm=18"],
+          "geographyBasis": ["distanceKm=229.074", "limitKm=60"],
           "distanceKm": 229.07352433219447,
-          "rejectionReasons": ["entity-type-mismatch", "geography-mismatch"],
+          "rejectionReasons": ["geography-mismatch"],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -65072,12 +65708,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q4174776 (village of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=8.994", "limitKm=18"],
+          "geographyBasis": ["distanceKm=8.994", "limitKm=60"],
           "distanceKm": 8.993776443603283,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": false
         }
       ],
@@ -65527,6 +66163,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-insufficient",
             "geography-insufficient"
           ],
@@ -66423,6 +67060,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -66675,6 +67315,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -66751,7 +67394,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=15.520", "limitKm=100"],
+          "geographyBasis": ["distanceKm=15.520", "limitKm=60"],
           "distanceKm": 15.51987570842559,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -66825,7 +67468,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=15.520", "limitKm=100"],
+          "geographyBasis": ["distanceKm=15.520", "limitKm=60"],
           "distanceKm": 15.51987570842559,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -66900,7 +67543,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=15.520", "limitKm=100"],
+        "geographyBasis": ["distanceKm=15.520", "limitKm=60"],
         "distanceKm": 15.51987570842559,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -66942,12 +67585,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "tsukiji-outer-market",
       "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "reason": "entity-type-insufficient",
       "candidates": [
         {
           "language": "en",
@@ -67011,16 +67657,16 @@
           },
           "identitySignals": ["wikidata-label-or-alias"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q11363644 (central wholesale market)",
             "P31=Q19860854 (destroyed building or structure)",
             "P31=Q1188480 (fish market)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.466", "limitKm=45"],
+          "geographyBasis": ["distanceKm=0.466", "limitKm=18"],
           "distanceKm": 0.4655909332454898,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -67089,16 +67735,16 @@
           },
           "identitySignals": ["wikidata-label-or-alias", "wikipedia-redirect"],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": [
             "P31=Q11363644 (central wholesale market)",
             "P31=Q19860854 (destroyed building or structure)",
             "P31=Q1188480 (fish market)"
           ],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.466", "limitKm=45"],
+          "geographyBasis": ["distanceKm=0.466", "limitKm=18"],
           "distanceKm": 0.4655909332454898,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
@@ -67203,7 +67849,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=4.935", "limitKm=100"],
+          "geographyBasis": ["distanceKm=4.935", "limitKm=60"],
           "distanceKm": 4.935074953348275,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -67273,7 +67919,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=4.935", "limitKm=100"],
+          "geographyBasis": ["distanceKm=4.935", "limitKm=60"],
           "distanceKm": 4.935074953348275,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -67344,7 +67990,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=4.935", "limitKm=100"],
+        "geographyBasis": ["distanceKm=4.935", "limitKm=60"],
         "distanceKm": 4.935074953348275,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -67386,6 +68032,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -67659,6 +68308,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -67911,6 +68563,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -67987,7 +68642,10 @@
           "geographyResult": "coordinates-compatible",
           "geographyBasis": ["distanceKm=0.323", "limitKm=30"],
           "distanceKm": 0.32268399054936275,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": [
+            "entity-type-mismatch",
+            "wikidata-sitelink-only"
+          ],
           "sharesVerifiedWikidataIdentity": false
         },
         {
@@ -68543,7 +69201,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=1.648", "limitKm=100"],
+          "geographyBasis": ["distanceKm=1.648", "limitKm=60"],
           "distanceKm": 1.647517699088386,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -68619,7 +69277,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=1.648", "limitKm=100"],
+          "geographyBasis": ["distanceKm=1.648", "limitKm=60"],
           "distanceKm": 1.647517699088386,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -68696,7 +69354,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=1.648", "limitKm=100"],
+        "geographyBasis": ["distanceKm=1.648", "limitKm=60"],
         "distanceKm": 1.647517699088386,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -68738,12 +69396,15 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
       "id": "uradome-coast",
       "state": "unresolved",
-      "reason": "entity-type-mismatch",
+      "reason": "entity-type-insufficient",
       "candidates": [
         {
           "language": "en",
@@ -68804,12 +69465,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q65247514 (drowned valley)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.020", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.020", "limitKm=60"],
           "distanceKm": 0.020017098778280177,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         },
         {
@@ -68864,12 +69525,12 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q65247514 (drowned valley)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.020", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.020", "limitKm=60"],
           "distanceKm": 0.020017098778280177,
-          "rejectionReasons": ["entity-type-mismatch"],
+          "rejectionReasons": ["entity-type-insufficient"],
           "sharesVerifiedWikidataIdentity": true
         }
       ],
@@ -69553,6 +70214,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -69825,7 +70489,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=7.326", "limitKm=100"],
+          "geographyBasis": ["distanceKm=7.326", "limitKm=60"],
           "distanceKm": 7.326462966181948,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -69897,7 +70561,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=7.326", "limitKm=100"],
+          "geographyBasis": ["distanceKm=7.326", "limitKm=60"],
           "distanceKm": 7.326462966181948,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -69970,7 +70634,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=7.326", "limitKm=100"],
+        "geographyBasis": ["distanceKm=7.326", "limitKm=60"],
         "distanceKm": 7.326462966181948,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -70012,6 +70676,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -70640,6 +71307,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -70716,7 +71386,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=16.612", "limitKm=100"],
+          "geographyBasis": ["distanceKm=16.612", "limitKm=60"],
           "distanceKm": 16.611549437441372,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -70790,7 +71460,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=16.612", "limitKm=100"],
+          "geographyBasis": ["distanceKm=16.612", "limitKm=60"],
           "distanceKm": 16.611549437441372,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -70865,7 +71535,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q11832860 (quasi-national park of Japan)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=16.612", "limitKm=100"],
+        "geographyBasis": ["distanceKm=16.612", "limitKm=60"],
         "distanceKm": 16.611549437441372,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -70907,6 +71577,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -71001,7 +71674,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.000", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.000", "limitKm=60"],
           "distanceKm": 0,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -71069,7 +71742,7 @@
           "entityTypeResult": "compatible",
           "entityTypeBasis": ["P31=Q1071482 (national park)"],
           "geographyResult": "coordinates-compatible",
-          "geographyBasis": ["distanceKm=0.000", "limitKm=100"],
+          "geographyBasis": ["distanceKm=0.000", "limitKm=60"],
           "distanceKm": 0,
           "rejectionReasons": [],
           "sharesVerifiedWikidataIdentity": true
@@ -71138,7 +71811,7 @@
         "entityTypeResult": "compatible",
         "entityTypeBasis": ["P31=Q1071482 (national park)"],
         "geographyResult": "coordinates-compatible",
-        "geographyBasis": ["distanceKm=0.000", "limitKm=100"],
+        "geographyBasis": ["distanceKm=0.000", "limitKm=60"],
         "distanceKm": 0,
         "rejectionReasons": [],
         "sharesVerifiedWikidataIdentity": true
@@ -71180,6 +71853,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -71237,6 +71913,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -71956,6 +72633,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {
@@ -72252,6 +72932,7 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
+            "disambiguation-page",
             "entity-type-mismatch",
             "geography-insufficient"
           ],
@@ -72797,7 +73478,7 @@
             "wikipedia-title-match"
           ],
           "wikipediaAgreement": true,
-          "entityTypeResult": "incompatible",
+          "entityTypeResult": "insufficient-evidence",
           "entityTypeBasis": ["P31=Q4167410 (Wikimedia disambiguation page)"],
           "geographyResult": "insufficient-evidence",
           "geographyBasis": [
@@ -72805,7 +73486,8 @@
             "P131 does not provide a compatible prefecture or municipality."
           ],
           "rejectionReasons": [
-            "entity-type-mismatch",
+            "disambiguation-page",
+            "entity-type-insufficient",
             "geography-insufficient"
           ],
           "sharesVerifiedWikidataIdentity": false
@@ -73204,6 +73886,9 @@
             }
           ]
         }
+      ],
+      "details": [
+        "Deterministic validation passed; explicit --apply is required before source mutation."
       ]
     },
     {

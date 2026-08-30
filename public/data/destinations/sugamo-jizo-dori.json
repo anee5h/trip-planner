@@ -199,5 +199,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "高岩寺",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B2%A9%E5%AF%BA",
+  "wikipediaPageId": 245404,
+  "wikidataId": "Q6587321"
 }

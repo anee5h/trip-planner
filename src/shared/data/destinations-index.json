@@ -11608,7 +11608,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Chōfu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%8Dfu",
+    "wikipediaPageId": 329697,
+    "wikidataId": "Q210667"
   },
   {
     "id": "choshi-city",
@@ -12317,12 +12322,7 @@
       "detail": "Canonical arrival Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    },
-    "wikipediaTitle": "CupNoodles Museum Yokohama",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/CupNoodles_Museum_Yokohama",
-    "wikipediaPageId": 61249918,
-    "wikidataId": "Q11257362"
+    }
   },
   {
     "id": "dakigaeri-valley-akita",
@@ -33348,7 +33348,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Ishigaki, Okinawa",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ishigaki,_Okinawa",
+    "wikipediaPageId": 22315740,
+    "wikidataId": "Q838366"
   },
   {
     "id": "itabashi-city",
@@ -53595,7 +53600,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Machida, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Machida,_Tokyo",
+    "wikipediaPageId": 329698,
+    "wikidataId": "Q210628"
   },
   {
     "id": "maizuru-park",
@@ -60018,7 +60028,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Motobu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Motobu",
+    "wikipediaPageId": 451337,
+    "wikidataId": "Q1205928"
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -82006,7 +82021,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Saitama (city)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_(city)",
+    "wikipediaPageId": 6792822,
+    "wikidataId": "Q134635"
   },
   {
     "id": "saitama-nagatoro",
@@ -118791,7 +118811,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "高岩寺",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B2%A9%E5%AF%BA",
+    "wikipediaPageId": 245404,
+    "wikidataId": "Q6587321"
   },
   {
     "id": "yakushi-ike-park",
@@ -128288,12 +128313,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Ine-ura",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ine-ura",
-    "wikipediaPageId": 74272207,
-    "wikidataId": "Q11379620"
+    }
   },
   {
     "id": "kasamatsu-park-view",
@@ -163869,7 +163889,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Raikyū-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Raiky%C5%AB-ji",
+    "wikipediaPageId": 22379058,
+    "wikidataId": "Q2385052"
   },
   {
     "id": "fukiya-village",
@@ -168253,12 +168278,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "唐戸市場",
-    "wikipediaLanguage": "ja",
-    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4",
-    "wikipediaPageId": 2325347,
-    "wikidataId": "Q11418545"
+    }
   },
   {
     "id": "akiyoshidai-plateau",
@@ -181102,7 +181122,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Banna-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Banna-ji",
+    "wikipediaPageId": 50595539,
+    "wikidataId": "Q2882839"
   },
   {
     "id": "minowa-castle",
@@ -197616,12 +197641,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Shokanbetsu-Teuri-Yagishiri Quasi-National Park",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shokanbetsu-Teuri-Yagishiri_Quasi-National_Park",
-    "wikipediaPageId": 23165991,
-    "wikidataId": "Q986874"
+    }
   },
   {
     "id": "abashiri",
@@ -207612,12 +207632,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Iki-Tsushima Quasi-National Park",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Iki-Tsushima_Quasi-National_Park",
-    "wikipediaPageId": 31734420,
-    "wikidataId": "Q1072765"
+    }
   },
   {
     "id": "kyushu-chuo-sanchi",
@@ -208041,12 +208056,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Nippō Kaigan Quasi-National Park",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nipp%C5%8D_Kaigan_Quasi-National_Park",
-    "wikipediaPageId": 31734081,
-    "wikidataId": "Q1072867"
+    }
   },
   {
     "id": "sobo-katamuki",

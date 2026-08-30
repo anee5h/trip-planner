@@ -12,7 +12,9 @@ import {
   type Phase3WikidataEntity,
 } from "../../lib/wikipediaPhase3Enrichment";
 import {
+  applyClassifications,
   validatePhase3Manifest,
+  type Phase3CacheFile,
   type Phase3Manifest,
 } from "../../enrich-wikipedia-phase3";
 
@@ -135,19 +137,86 @@ describe("classifyPhase3Destination", () => {
     expect(result.candidate?.wikipediaAgreement).toBe(true);
   });
 
-  it("does not treat a Wikidata sitelink alone as a destination relationship", () => {
+  it("rejects a matching Wikidata sitelink when it is the only discovery source", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([candidate({ sources: ["wikidata-sitelink"] })]),
+    );
+
+    expect(result).toMatchObject({
+      state: "unresolved",
+      reason: "wikidata-sitelink-only",
+    });
+  });
+
+  it("accepts a matching Wikidata sitelink with search evidence", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([
+        candidate({ sources: ["wikidata-sitelink", "wikidata-search"] }),
+      ]),
+    );
+
+    expect(result.state).toBe("high-confidence-awaiting-apply");
+  });
+
+  it("accepts a matching Wikidata sitelink with preserved Phase 2 evidence", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([candidate({ sources: ["wikidata-sitelink", "phase2"] })]),
+    );
+
+    expect(result.state).toBe("high-confidence-awaiting-apply");
+  });
+
+  it("rejects a Wikipedia URL whose article title disagrees with the page title", () => {
     const result = classifyPhase3Destination(
       destination(),
       discovery([
         candidate({
-          page: {
-            title: "Unrelated Page",
-            url: "https://en.wikipedia.org/wiki/Unrelated_Page",
-          },
-          sources: ["wikidata-sitelink"],
+          page: { url: "https://en.wikipedia.org/wiki/Other_Page" },
+        }),
+      ]),
+    );
+
+    expect(result.state).toBe("unresolved");
+  });
+
+  it("rejects malformed Wikidata IDs", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([
+        candidate({
+          qid: "not-a-qid",
+          page: { wikidataId: "not-a-qid" },
+          entity: { qid: "not-a-qid" },
+        }),
+      ]),
+    );
+
+    expect(result.state).toBe("unresolved");
+  });
+
+  it("rejects disambiguation pages", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([candidate({ page: { type: "disambiguation" } })]),
+    );
+
+    expect(result).toMatchObject({
+      state: "unresolved",
+      reason: "disambiguation-page",
+    });
+  });
+
+  it("does not treat a prefecture as a compatible city entity", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([
+        candidate({
           entity: {
-            labels: { en: "Unrelated Page" },
-            sitelinks: { en: { title: "Unrelated Page" } },
+            p31: [{ id: "Q行政区画", label: "prefecture" }],
+            p279: [],
           },
         }),
       ]),
@@ -155,7 +224,7 @@ describe("classifyPhase3Destination", () => {
 
     expect(result).toMatchObject({
       state: "unresolved",
-      reason: "no-candidate",
+      reason: "entity-type-mismatch",
     });
   });
 
@@ -179,6 +248,22 @@ describe("classifyPhase3Destination", () => {
       state: "unresolved",
       reason: "redirect-evidence-only",
     });
+  });
+
+  it("accepts redirect plus a Wikidata sitelink as independent combined evidence", () => {
+    const result = classifyPhase3Destination(
+      destination(),
+      discovery([
+        candidate({
+          page: { title: "Aso", url: "https://en.wikipedia.org/wiki/Aso" },
+          sources: ["wikipedia-redirect", "wikidata-sitelink"],
+          redirectFromTitles: ["Aso City"],
+          entity: { sitelinks: { en: { title: "Aso" } } },
+        }),
+      ]),
+    );
+
+    expect(result.state).toBe("high-confidence-awaiting-apply");
   });
 
   it("rejects a P31 entity-type mismatch", () => {
@@ -403,6 +488,41 @@ describe("Phase 3 fingerprints and apply", () => {
     ).not.toBe(phase3InputFingerprint(base));
   });
 
+  it("aborts all source writes when any cache entry is transient", () => {
+    const target = destination();
+    const transient = destination({ id: "transient-destination" });
+    const cache: Phase3CacheFile = {
+      schemaVersion: 2,
+      scope: "kai-256-wikipedia-phase3",
+      manifestFingerprint: "test",
+      phase2ReportFingerprint: "test",
+      phase2CacheFingerprint: "test",
+      entries: {
+        [target.id]: {
+          status: "ok",
+          inputFingerprint: phase3InputFingerprint(target),
+          redirects: [],
+          wikidataSearches: [],
+          candidates: [candidate()],
+        },
+        [transient.id]: {
+          status: "transient-failure",
+          inputFingerprint: phase3InputFingerprint(transient),
+          redirects: [],
+          wikidataSearches: [],
+          candidates: [],
+          transientFailure: "timeout",
+        },
+      },
+    };
+
+    expect(() => applyClassifications([target, transient], cache)).toThrow(
+      /transient cache entries/,
+    );
+    expect(target.wikipediaTitle).toBeUndefined();
+    expect(target.wikidataId).toBeUndefined();
+  });
+
   it("applies only once and refuses an overwrite", () => {
     const target = destination();
     const identity = {
@@ -488,12 +608,47 @@ describe("Phase 3 manifest drift guards", () => {
     );
   });
 
+  it("rejects a published-to-draft cohort drift", () => {
+    const inputs = frozenInputs();
+    const target = inputs.destinations.find(
+      (record: Phase3Destination) => record.id === manifest().ids[0],
+    );
+    expect(target).toBeDefined();
+    target.status = "draft";
+    expect(() => validatePhase3Manifest(manifest(), inputs)).toThrow(
+      /input fingerprint drift/,
+    );
+  });
+
   it("rejects any Phase 1 review-ledger intersection", () => {
     const inputs = frozenInputs();
     inputs.phase1.reviewLedger.push({ id: manifest().ids[0] });
     expect(() => validatePhase3Manifest(manifest(), inputs)).toThrow(
       /intersects the Phase 1 review ledger/,
     );
+  });
+
+  it("rejects Phase 1 source identity mutation even when inputs are unchanged", () => {
+    const inputs = frozenInputs();
+    const reviewId = inputs.phase1.reviewLedger[0].id;
+    const target = inputs.destinations.find(
+      (record: Phase3Destination) => record.id === reviewId,
+    );
+    expect(target).toBeDefined();
+    target.wikipediaPageId = (target.wikipediaPageId ?? 0) + 1;
+    expect(() => validatePhase3Manifest(manifest(), inputs)).toThrow(
+      /Phase 1 review source identity fingerprint drift/,
+    );
+  });
+
+  it("rejects Phase 2 cache fingerprint drift", () => {
+    const inputs = frozenInputs();
+    expect(() =>
+      validatePhase3Manifest(
+        { ...manifest(), phase2CacheFingerprint: "drift" },
+        inputs,
+      ),
+    ).toThrow(/Phase 2 cache drift/);
   });
 
   it("rejects Phase 1 source mutation even when the cohort is unchanged", () => {
@@ -505,7 +660,42 @@ describe("Phase 3 manifest drift guards", () => {
     expect(target).toBeDefined();
     target.name = `${target.name} drift`;
     expect(() => validatePhase3Manifest(manifest(), inputs)).toThrow(
-      /Phase 1 review source fingerprint drift/,
+      /Phase 1 review input fingerprint drift/,
     );
+  });
+
+  it("publishes the safety contract and complete Phase 2 evidence snapshots", () => {
+    const root = process.cwd();
+    const report = JSON.parse(
+      readFileSync(
+        `${root}/scripts/audit/kai-256-wikipedia-phase3-report.json`,
+        "utf8",
+      ),
+    ) as {
+      safety: Record<string, unknown>;
+      records: Array<Record<string, unknown>>;
+    };
+    const cache = JSON.parse(
+      readFileSync(
+        `${root}/scripts/audit/kai-256-wikipedia-phase3-api-cache.json`,
+        "utf8",
+      ),
+    ) as { entries: Record<string, { phase2?: Record<string, unknown> }> };
+
+    expect(report.safety).toEqual({
+      similarityOnlyAcceptance: false,
+      geographyBypassed: false,
+      entityValidationBypassed: false,
+      enJaEquivalenceGuessed: false,
+      parentArticleSubstitution: false,
+      phase1ReviewModified: false,
+      transientFailures: 0,
+    });
+    expect(report.records).toHaveLength(340);
+    expect(
+      Object.values(cache.entries).every(
+        (entry) => entry.phase2?.reportRecord && entry.phase2.cacheEntry,
+      ),
+    ).toBe(true);
   });
 });
