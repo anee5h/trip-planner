@@ -1017,13 +1017,19 @@ export default function DestinationDetails() {
     }
     return destination.recommendedDuration;
   })();
+  const isHub = destination.role === "hub";
+  const hasHubDiscovery =
+    isHub && (featuredChildSights.length > 0 || childDestinations.length > 0);
+  const hasGoNext =
+    isHub &&
+    (nearbyCombinations.length > 0 ||
+      nearbyHubs.length > 0 ||
+      nearbyPlaces.length > 0);
   const hasRelatedPlaces =
-    nearbyCombinations.length > 0 ||
-    featuredChildSights.length > 0 ||
-    childDestinations.length > 0 ||
-    nearbyHubs.length > 0 ||
-    nearbyPlaces.length > 0 ||
-    halfDaySiblings.length > 0;
+    !isHub &&
+    (nearbyCombinations.length > 0 ||
+      nearbyPlaces.length > 0 ||
+      halfDaySiblings.length > 0);
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
       {relationshipCatalogueStatus === "error" && (
@@ -1541,8 +1547,130 @@ export default function DestinationDetails() {
             </div>
           </section>
 
-          <div data-section="plan-this-trip">
-            {/* Unified "Plan this trip" Progressive Section */}
+          {hasHubDiscovery && (
+            <section
+              id="top-sights"
+              data-section="top-sights"
+              aria-labelledby="hub-discovery-heading"
+              className="space-y-7"
+            >
+              <div>
+                <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+                  {locale === "ja" ? "この街をめぐる" : "Explore this city"}
+                </p>
+                <h2
+                  id="hub-discovery-heading"
+                  className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                >
+                  {locale === "ja"
+                    ? "見どころ・エリアを探す"
+                    : "Top sights and explore"}
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-300">
+                  {locale === "ja"
+                    ? "まずはこの街の見どころから、旅の候補を探せます。"
+                    : "Start with the places that make this city worth exploring."}
+                </p>
+              </div>
+
+              {featuredChildSights.length > 0 && (
+                <DestinationDetailRail
+                  title={
+                    locale === "ja"
+                      ? `${localizedDestination?.name || destination.name}の見どころ`
+                      : `Top Sights in ${localizedDestination?.name || destination.name}`
+                  }
+                  description={
+                    locale === "ja"
+                      ? "このエリアで特におすすめの見どころ"
+                      : "Featured places worth adding near this destination."
+                  }
+                  destinations={featuredChildSights}
+                  currentDestinationId={destination.id}
+                  partySize={partySize}
+                  carMode={navState?.carMode || "none"}
+                  publicModes={
+                    navState?.publicModes || [
+                      "train",
+                      "shinkansen",
+                      "bus",
+                      "flight",
+                    ]
+                  }
+                  previousLabel={copy.scrollLeft}
+                  nextLabel={copy.scrollRight}
+                />
+              )}
+
+              {childDestinations.length > 0 && (
+                <div
+                  data-section="explore-rails"
+                  className="space-y-7 rounded-2xl border border-slate-200/80 bg-white/60 p-4 dark:border-slate-800 dark:bg-slate-900/40 sm:p-5"
+                >
+                  <div>
+                    <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
+                      {locale === "ja" ? "エリアから探す" : "Explore by area"}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {areaGroups.map(([areaId, places]) => {
+                        const area = getCityArea(areaId);
+                        return (
+                          <Link
+                            key={areaId}
+                            to={`/destinations?city=${destination.id}${area ? `&area=${area.id}` : ""}`}
+                            className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300"
+                          >
+                            {area?.name[locale] ||
+                              (locale === "ja" ? "その他" : "Other")}{" "}
+                            · {places.length}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {indoorChildren.length > 0 && (
+                    <DestinationDetailRail
+                      title={
+                        locale === "ja"
+                          ? "雨の日におすすめ"
+                          : "Best for rainy days"
+                      }
+                      destinations={indoorChildren}
+                      currentDestinationId={destination.id}
+                      partySize={partySize}
+                      previousLabel={copy.scrollLeft}
+                      nextLabel={copy.scrollRight}
+                    />
+                  )}
+                  {foodAndEveningChildren.length > 0 && (
+                    <DestinationDetailRail
+                      title={
+                        locale === "ja"
+                          ? "グルメと夜の楽しみ"
+                          : "Food and evening options"
+                      }
+                      destinations={foodAndEveningChildren}
+                      currentDestinationId={destination.id}
+                      partySize={partySize}
+                      previousLabel={copy.scrollLeft}
+                      nextLabel={copy.scrollRight}
+                    />
+                  )}
+
+                  <DestinationMap
+                    destinations={childDestinations}
+                    locale={locale}
+                    carMode={navState?.carMode}
+                    publicModes={navState?.publicModes}
+                  />
+                </div>
+              )}
+            </section>
+          )}
+
+          <div data-section={isHub ? "plan-your-visit" : "plan-this-trip"}>
+            {/* Unified "Plan your visit" progressive section */}
             <section
               id="plan-this-trip"
               aria-labelledby="plan-this-trip-heading"
@@ -1557,7 +1685,13 @@ export default function DestinationDetails() {
                     id="plan-this-trip-heading"
                     className="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5"
                   >
-                    {locale === "ja" ? "このスポットを計画" : "Plan this trip"}
+                    {isHub
+                      ? locale === "ja"
+                        ? "この街を計画"
+                        : "Plan your visit"
+                      : locale === "ja"
+                        ? "このスポットを計画"
+                        : "Plan this trip"}
                   </h2>
                 </div>
               </div>
@@ -1568,6 +1702,7 @@ export default function DestinationDetails() {
                 locale={locale}
                 partySize={partySize}
                 selectedTransport={selectedTransport}
+                compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
                 accommodationAllowance={accommodationAllowance}
                 tripMode={
@@ -1585,11 +1720,38 @@ export default function DestinationDetails() {
                   }
                 }}
               />
+
+              {isHub && childDestinations.length > 0 && (
+                <div
+                  data-section="plan-duration-links"
+                  className="border-t border-slate-100 pt-4 dark:border-slate-800"
+                >
+                  <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
+                    {locale === "ja" ? "滞在時間から探す" : "Plan by duration"}
+                  </h3>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {[
+                      ["halfDay", locale === "ja" ? "半日" : "Half day"],
+                      ["dayTrip", locale === "ja" ? "日帰り" : "Full day"],
+                      ["weekend", locale === "ja" ? "週末" : "Weekend"],
+                    ].map(([duration, label]) => (
+                      <Link
+                        key={duration}
+                        to={`/destinations?city=${destination.id}&duration=${duration}`}
+                        className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:border-emerald-700 dark:border-slate-700 dark:text-slate-200"
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
           </div>
 
           <section
             id="before-you-go"
+            data-section="before-you-go"
             aria-labelledby="before-you-go-heading"
             className="space-y-5"
           >
@@ -2457,6 +2619,91 @@ export default function DestinationDetails() {
             </div>
           </section>
 
+          {hasGoNext && (
+            <section
+              id="go-next"
+              data-section="go-next"
+              aria-labelledby="go-next-heading"
+              className="space-y-8"
+            >
+              <div>
+                <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+                  {locale === "ja" ? "次の候補" : "Keep exploring"}
+                </p>
+                <h2
+                  id="go-next-heading"
+                  className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                >
+                  {locale === "ja" ? "次に見る" : "Go next"}
+                </h2>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-300">
+                  {locale === "ja"
+                    ? "この街と組み合わせやすい、次の行き先を探せます。"
+                    : "Find the next places that fit naturally with this city."}
+                </p>
+              </div>
+
+              <DestinationCombinationRail
+                combinations={nearbyCombinations}
+                locale={locale}
+                currentDestinationId={destination.id}
+                currentDestinationName={
+                  localizedDestination?.name || destination.name
+                }
+                previousLabel={copy.scrollLeft}
+                nextLabel={copy.scrollRight}
+                exploreLabel={locale === "ja" ? "詳細を見る" : "Explore"}
+                addLabel={locale === "ja" ? "旅程に追加" : "Add to itinerary"}
+                savedLabel={(count) =>
+                  locale === "ja"
+                    ? `${count}件の旅行に保存済み`
+                    : `Saved in ${count} ${count === 1 ? "trip" : "trips"}`
+                }
+                onSave={handleSaveCombination}
+              />
+
+              {nearbyHubs.length > 0 && (
+                <DestinationDetailRail
+                  title={locale === "ja" ? "近くの都市ハブ" : "Nearby hubs"}
+                  description={
+                    locale === "ja"
+                      ? "50km圏内の都市ハブ"
+                      : "City hubs within 50 km."
+                  }
+                  destinations={nearbyHubs}
+                  currentDestinationId={destination.id}
+                  partySize={partySize}
+                  carMode={navState?.carMode || "none"}
+                  publicModes={
+                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                  }
+                  previousLabel={copy.scrollLeft}
+                  nextLabel={copy.scrollRight}
+                />
+              )}
+
+              {nearbyPlaces.length > 0 && (
+                <DestinationDetailRail
+                  title={locale === "ja" ? "近くの場所" : "Nearby places"}
+                  description={
+                    locale === "ja"
+                      ? `${localizedDestination?.name || destination.name}に関連する場所`
+                      : `Related places for ${localizedDestination?.name || destination.name}.`
+                  }
+                  destinations={nearbyPlaces}
+                  currentDestinationId={destination.id}
+                  partySize={partySize}
+                  carMode={navState?.carMode || "none"}
+                  publicModes={
+                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                  }
+                  previousLabel={copy.scrollLeft}
+                  nextLabel={copy.scrollRight}
+                />
+              )}
+            </section>
+          )}
+
           {hasRelatedPlaces && (
             <section
               id="related-places"
@@ -2496,141 +2743,7 @@ export default function DestinationDetails() {
                 onSave={handleSaveCombination}
               />
 
-              {destination.role === "hub" && featuredChildSights.length > 0 && (
-                <DestinationDetailRail
-                  title={
-                    locale === "ja"
-                      ? `${localizedDestination?.name || destination.name}の見どころ`
-                      : `Top Sights in ${localizedDestination?.name || destination.name}`
-                  }
-                  description={
-                    locale === "ja"
-                      ? "このエリアで特におすすめの見どころ"
-                      : "Featured places worth adding near this destination."
-                  }
-                  destinations={featuredChildSights}
-                  currentDestinationId={destination.id}
-                  partySize={partySize}
-                  carMode={navState?.carMode || "none"}
-                  publicModes={
-                    navState?.publicModes || [
-                      "train",
-                      "shinkansen",
-                      "bus",
-                      "flight",
-                    ]
-                  }
-                  previousLabel={copy.scrollLeft}
-                  nextLabel={copy.scrollRight}
-                />
-              )}
-
-              {destination.role === "hub" && childDestinations.length > 0 && (
-                <div className="space-y-7 rounded-2xl border border-slate-200/80 bg-white/60 p-4 dark:border-slate-800 dark:bg-slate-900/40 sm:p-5">
-                  <div>
-                    <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
-                      {locale === "ja" ? "エリアから探す" : "Explore by area"}
-                    </h3>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {areaGroups.map(([areaId, places]) => {
-                        const area = getCityArea(areaId);
-                        return (
-                          <Link
-                            key={areaId}
-                            to={`/destinations?city=${destination.id}${area ? `&area=${area.id}` : ""}`}
-                            className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300"
-                          >
-                            {area?.name[locale] ||
-                              (locale === "ja" ? "その他" : "Other")}{" "}
-                            · {places.length}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {indoorChildren.length > 0 && (
-                    <DestinationDetailRail
-                      title={
-                        locale === "ja"
-                          ? "雨の日におすすめ"
-                          : "Best for rainy days"
-                      }
-                      destinations={indoorChildren}
-                      currentDestinationId={destination.id}
-                      partySize={partySize}
-                      previousLabel={copy.scrollLeft}
-                      nextLabel={copy.scrollRight}
-                    />
-                  )}
-                  {foodAndEveningChildren.length > 0 && (
-                    <DestinationDetailRail
-                      title={
-                        locale === "ja"
-                          ? "グルメと夜の楽しみ"
-                          : "Food and evening options"
-                      }
-                      destinations={foodAndEveningChildren}
-                      currentDestinationId={destination.id}
-                      partySize={partySize}
-                      previousLabel={copy.scrollLeft}
-                      nextLabel={copy.scrollRight}
-                    />
-                  )}
-
-                  <div>
-                    <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
-                      {locale === "ja"
-                        ? "滞在時間から探す"
-                        : "Plan by duration"}
-                    </h3>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {[
-                        ["halfDay", locale === "ja" ? "半日" : "Half day"],
-                        ["dayTrip", locale === "ja" ? "日帰り" : "Full day"],
-                        ["weekend", locale === "ja" ? "週末" : "Weekend"],
-                      ].map(([duration, label]) => (
-                        <Link
-                          key={duration}
-                          to={`/destinations?city=${destination.id}&duration=${duration}`}
-                          className="rounded-xl border border-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700 hover:border-emerald-700 dark:border-slate-700 dark:text-slate-200"
-                        >
-                          {label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-
-                  <DestinationMap
-                    destinations={childDestinations}
-                    locale={locale}
-                    carMode={navState?.carMode}
-                    publicModes={navState?.publicModes}
-                  />
-                </div>
-              )}
-
-              {destination.role === "hub" && nearbyHubs.length > 0 && (
-                <DestinationDetailRail
-                  title={locale === "ja" ? "近くの都市ハブ" : "Nearby hubs"}
-                  description={
-                    locale === "ja"
-                      ? "50km圏内の都市ハブ"
-                      : "City hubs within 50 km."
-                  }
-                  destinations={nearbyHubs}
-                  currentDestinationId={destination.id}
-                  partySize={partySize}
-                  carMode={navState?.carMode || "none"}
-                  publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
-                  }
-                  previousLabel={copy.scrollLeft}
-                  nextLabel={copy.scrollRight}
-                />
-              )}
-
-              {destination.role !== "hub" && nearbyPlaces.length > 0 && (
+              {nearbyPlaces.length > 0 && (
                 <DestinationDetailRail
                   title={locale === "ja" ? "近くの場所" : "Nearby places"}
                   description={
@@ -2650,7 +2763,7 @@ export default function DestinationDetails() {
                 />
               )}
 
-              {destination.role !== "hub" && halfDaySiblings.length > 0 && (
+              {halfDaySiblings.length > 0 && (
                 <DestinationDetailRail
                   title={
                     locale === "ja"
