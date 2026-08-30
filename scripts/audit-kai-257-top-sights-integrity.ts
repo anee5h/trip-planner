@@ -68,6 +68,13 @@ export interface ReviewLedgerItem {
   candidateKind?: string;
 }
 
+export interface HistoricalMetadataEntry {
+  municipalityId?: string;
+  parentDestinationId?: string;
+  role?: string;
+  kind?: string;
+}
+
 export interface Kai257AuditReport {
   ticket: "KAI-257";
   auditTitle: "Top Sights and Geographic Relationship Integrity Audit";
@@ -197,9 +204,25 @@ export const PRE_REPAIR_FEATURED_SNAPSHOT: Record<string, string[]> = {
   ],
 };
 
+/** Pre-repair snapshot of destination metadata altered during KAI-257 repair. */
+export const PRE_REPAIR_METADATA_SNAPSHOT: Record<
+  string,
+  HistoricalMetadataEntry
+> = {
+  "takahata-fudoson": {
+    municipalityId: "Tokyo:hachioji",
+    parentDestinationId: "hachioji-tokyo",
+  },
+  "tokushima-castle": {
+    municipalityId: "Tokushima:tokushima",
+    parentDestinationId: undefined,
+  },
+};
+
 export function runKai257Audit(
   destinations: Destination[],
   rawHistoricalFeaturedMap?: Map<string, string[]>,
+  rawHistoricalMetadataMap?: Map<string, HistoricalMetadataEntry>,
 ): Kai257AuditReport {
   const catalogueSize = destinations.length;
   const byId = new Map(destinations.map((d) => [d.id, d]));
@@ -451,50 +474,84 @@ export function runKai257Audit(
   }
 
   // Phase 4: Deterministic calculation of historical repair metrics
-  const historicalMap: Map<string, string[]> =
+  const historicalFeaturedMap: Map<string, string[]> =
     rawHistoricalFeaturedMap ??
     new Map(Object.entries(PRE_REPAIR_FEATURED_SNAPSHOT));
+
+  const historicalMetadataMap: Map<string, HistoricalMetadataEntry> =
+    rawHistoricalMetadataMap ??
+    new Map(Object.entries(PRE_REPAIR_METADATA_SNAPSHOT));
 
   let originalSuspiciousRelationshipCount = 0;
   let genuinelyInvalidRelationshipsRemoved = 0;
   let legitimateRelationshipsRetained = 0;
   let parentOrTaxonomyRecordsRepaired = 0;
 
-  for (const [hubId, histFeatured] of historicalMap.entries()) {
+  for (const [hubId, histFeatured] of historicalFeaturedMap.entries()) {
     const currentHub = byId.get(hubId);
     const currFeatured =
       currentHub?.relationships?.featuredDestinationIds ?? [];
 
     for (const targetId of histFeatured) {
-      const target = byId.get(targetId);
+      const currentTarget = byId.get(targetId);
       const isCurrentlyFeatured = currFeatured.includes(targetId);
 
-      // Check if target is valid for current hub
-      const isValid =
-        target && currentHub
-          ? DestinationRelationshipService.isValidChildSight(target, currentHub)
+      // Construct historical representation of target before KAI-257 repair
+      const histMeta = historicalMetadataMap.get(targetId);
+      const histTarget: Destination | undefined = currentTarget
+        ? {
+            ...currentTarget,
+            municipalityId:
+              histMeta && "municipalityId" in histMeta
+                ? histMeta.municipalityId
+                : currentTarget.municipalityId,
+            role:
+              histMeta && "role" in histMeta
+                ? (histMeta.role as Destination["role"])
+                : currentTarget.role,
+            kind:
+              histMeta && "kind" in histMeta
+                ? (histMeta.kind as Destination["kind"])
+                : currentTarget.kind,
+            relationships: {
+              ...currentTarget.relationships,
+              parentDestinationId:
+                histMeta && "parentDestinationId" in histMeta
+                  ? histMeta.parentDestinationId
+                  : currentTarget.relationships?.parentDestinationId,
+            },
+          }
+        : undefined;
+
+      const wasValidHistorically =
+        histTarget && currentHub
+          ? DestinationRelationshipService.isValidChildSight(
+              histTarget,
+              currentHub,
+            )
           : false;
 
-      if (!isValid) {
+      const isCurrentlyValid =
+        currentTarget && currentHub
+          ? DestinationRelationshipService.isValidChildSight(
+              currentTarget,
+              currentHub,
+            )
+          : false;
+
+      if (!wasValidHistorically) {
         originalSuspiciousRelationshipCount++;
-        if (!isCurrentlyFeatured) {
+        if (isCurrentlyValid && isCurrentlyFeatured) {
+          // Repaired entity: was invalid under historical metadata, now valid and retained
+          parentOrTaxonomyRecordsRepaired++;
+          legitimateRelationshipsRetained++;
+        } else {
+          // Genuinely invalid reference: was invalid and has been removed
           genuinelyInvalidRelationshipsRemoved++;
         }
       } else {
-        // Legitimate relationship
+        // Legitimate relationship that was already valid
         legitimateRelationshipsRetained++;
-        // Check if metadata was repaired (takahata-fudoson or tokushima-castle)
-        if (
-          targetId === "takahata-fudoson" &&
-          target.relationships?.parentDestinationId === "hino-city"
-        ) {
-          parentOrTaxonomyRecordsRepaired++;
-        } else if (
-          targetId === "tokushima-castle" &&
-          target.relationships?.parentDestinationId === "tokushima-city"
-        ) {
-          parentOrTaxonomyRecordsRepaired++;
-        }
       }
     }
   }

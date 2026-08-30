@@ -86,11 +86,104 @@ describe("KAI-257 Top Sights Audit Tooling", () => {
 
     const report = runKai257Audit(destinations, customHistoricalMap);
 
-    // Karuizawa has 3 invalid removed, Hino has 1 repaired
-    expect(report.summary.originalSuspiciousRelationshipCount).toBe(3);
+    // Karuizawa has 3 invalid removed, Hino has 1 repaired (4 original suspicious total)
+    expect(report.summary.originalSuspiciousRelationshipCount).toBe(4);
     expect(report.summary.genuinelyInvalidRelationshipsRemoved).toBe(3);
     expect(report.summary.parentOrTaxonomyRecordsRepaired).toBe(1);
     expect(report.summary.legitimateRelationshipsRetained).toBe(1);
     expect(report.summary.repairedCount).toBe(4);
+  });
+
+  it("proves counting logic is generic using purely synthetic destination IDs and custom metadata map", () => {
+    const syntheticHubAlpha: Destination = {
+      id: "synthetic-hub-alpha",
+      name: "Synthetic Hub Alpha",
+      role: "hub",
+      kind: "city",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      municipalityId: "Tokyo:alpha",
+      heroImage: "https://example.com/alpha.jpg",
+      description: "Alpha hub",
+      highlights: ["Alpha"],
+      categories: ["City"],
+      relationships: {
+        featuredDestinationIds: ["synthetic-attraction-one"], // currently features repaired attraction
+      },
+      transportOptions: {},
+    };
+
+    const syntheticAttractionOne: Destination = {
+      id: "synthetic-attraction-one",
+      name: "Synthetic Attraction One",
+      role: "poi",
+      kind: "temple",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      municipalityId: "Tokyo:alpha",
+      heroImage: "https://example.com/one.jpg",
+      description: "Synthetic temple",
+      highlights: ["Temple"],
+      categories: ["Temple"],
+      relationships: {
+        parentDestinationId: "synthetic-hub-alpha", // currently repaired to alpha
+      },
+      transportOptions: {},
+    };
+
+    const syntheticPeerCityBeta: Destination = {
+      id: "synthetic-peer-city-beta",
+      name: "Synthetic Peer City Beta",
+      role: "hub",
+      kind: "city",
+      prefecture: "Tokyo",
+      region: "Kanto",
+      municipalityId: "Tokyo:beta",
+      heroImage: "https://example.com/beta.jpg",
+      description: "Beta city",
+      highlights: ["Beta"],
+      categories: ["City"],
+      relationships: {
+        featuredDestinationIds: [],
+      },
+      transportOptions: {},
+    };
+
+    const testCatalogue = [
+      syntheticHubAlpha,
+      syntheticAttractionOne,
+      syntheticPeerCityBeta,
+    ];
+
+    // Historical featured list featured both the broken attraction and the peer city
+    const customHistoricalFeaturedMap = new Map<string, string[]>([
+      [
+        "synthetic-hub-alpha",
+        ["synthetic-attraction-one", "synthetic-peer-city-beta"],
+      ],
+    ]);
+
+    // Historically, synthetic-attraction-one had a mismatched parent (pointing to beta)
+    const customHistoricalMetadataMap = new Map([
+      [
+        "synthetic-attraction-one",
+        {
+          municipalityId: "Tokyo:beta",
+          parentDestinationId: "synthetic-peer-city-beta",
+        },
+      ],
+    ]);
+
+    const report = runKai257Audit(
+      testCatalogue,
+      customHistoricalFeaturedMap,
+      customHistoricalMetadataMap,
+    );
+
+    expect(report.summary.originalSuspiciousRelationshipCount).toBe(2);
+    expect(report.summary.genuinelyInvalidRelationshipsRemoved).toBe(1);
+    expect(report.summary.parentOrTaxonomyRecordsRepaired).toBe(1);
+    expect(report.summary.legitimateRelationshipsRetained).toBe(1);
+    expect(report.summary.repairedCount).toBe(2);
   });
 });

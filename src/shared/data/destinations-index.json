@@ -27785,7 +27785,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance notable, 4 children, metro=false",
+            "title": "hub-window-model-v1; hub exploration window: importance notable, 5 children, metro=false",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -27856,7 +27856,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance notable, 4 children, metro=false"
+      "basis": "hub exploration window: importance notable, 5 children, metro=false"
     },
     "comfortMetadata": {
       "method": "model",
@@ -100364,7 +100364,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance notable, 3 children, metro=false"
+      "basis": "hub exploration window: importance notable, 4 children, metro=false"
     },
     "walkingMetadata": {
       "method": "model",
