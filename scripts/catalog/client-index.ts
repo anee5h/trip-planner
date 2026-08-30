@@ -110,8 +110,13 @@ const DROPPED_FIELDS: ReadonlySet<string> = new Set([
   "rating",
   "bestSeasons",
   "transportMetadata",
+  // Wikipedia identity is consumed by on-demand destination detail records,
+  // not the lite index used by list/search surfaces.
   "wikipediaTitle",
   "wikipediaLanguage",
+  "wikipediaUrl",
+  "wikipediaPageId",
+  "wikidataId",
   "crowd",
   "budget",
   "addedAt",

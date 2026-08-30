@@ -95,6 +95,38 @@ describe("DestinationAtAGlance", () => {
     expect(text).toContain("Origin transport excluded");
   });
 
+  it("omits a parent location fact when the header already exposes it", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          parentLabel="Yokohama City"
+          headerExposesLocation
+          labels={labels}
+        />,
+      );
+    });
+
+    expect(host.textContent).not.toContain("Located in");
+    expect(host.textContent).not.toContain("Yokohama City");
+  });
+
+  it("keeps the parent location fact when the header has no equivalent context", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          parentLabel="Yokohama City"
+          headerExposesLocation={false}
+          labels={labels}
+        />,
+      );
+    });
+
+    expect(host.textContent).toContain("Located in");
+    expect(host.textContent).toContain("Yokohama City");
+  });
+
   it("omits the cost fact for partial results instead of showing a large unavailable block", () => {
     act(() => {
       root.render(

@@ -326,17 +326,26 @@ function semanticMismatch(
     return "entity-type-mismatch";
   }
 
-  const labels = [
+  const normalizedCategories = (destination.categories ?? []).map((label) =>
+    label.toLocaleLowerCase().trim(),
+  );
+  // Categories are broad editorial facets (for example, a tower may sit in a
+  // port district). Keep the Port category guarded, but distinguish a broad
+  // contextual facet from an entity-specific transport label below.
+  const waterTransportLabelPattern =
+    /^(?:ferry|crossing|river|river crossing|boat|harbor|harbour|port)$/i;
+  const waterTransportLabels = [
     destination.kind,
-    ...(destination.categories ?? []),
-    ...(destination.tags ?? []),
+    ...(destination.tags ?? []).filter((label) =>
+      waterTransportLabelPattern.test(label.trim()),
+    ),
+    ...(destination.categories ?? []).filter((label) =>
+      waterTransportLabelPattern.test(label.trim()),
+    ),
   ]
     .filter(Boolean)
     .join(" ")
     .toLocaleLowerCase();
-  const normalizedCategories = (destination.categories ?? []).map((label) =>
-    label.toLocaleLowerCase().trim(),
-  );
   const requiresTempleOrShrineSignal =
     destination.kind === "temple" ||
     destination.kind === "shrine" ||
@@ -362,6 +371,10 @@ function semanticMismatch(
   // Prefer the title and description, using only the lead sentence as a
   // bounded fallback when REST does not provide a description.
   const entitySignals = `${titleDescription} ${lead}`;
+  const hasMatchingNonTransportSignal =
+    normalizedCategories.some((label) =>
+      ["observation deck", "landmark", "modern"].includes(label),
+    ) && /tower|skyscraper|building|landmark|observation/i.test(entitySignals);
   if (requiresTempleOrShrineSignal) {
     if (
       !/temple|shrine|buddhist|shinto|monastery|sanctuary|寺|神社|寺院|仏教|神道/i.test(
@@ -371,11 +384,14 @@ function semanticMismatch(
       return "entity-type-mismatch";
     }
   }
-  if (/ferry|crossing|river|boat|port|harbor|harbour/.test(labels)) {
+  if (
+    /ferry|crossing|river|boat|port|harbor|harbour/.test(waterTransportLabels)
+  ) {
     if (
       !/ferry|boat|river|crossing|port|harbor|harbour|waterway|transport|渡し|渡船|船|河川|川|港|水路|運航/i.test(
         entitySignals,
-      )
+      ) &&
+      !hasMatchingNonTransportSignal
     ) {
       return "entity-type-mismatch";
     }

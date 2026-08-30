@@ -17,6 +17,7 @@ import path from "node:path";
 import {
   canonicalWikipediaIdentity,
   extractWikipediaMapping,
+  parseWikipediaUrl,
   wikipediaProvenanceReferences,
   type WikipediaIdentitySource,
 } from "../src/shared/services/wikipedia/WikipediaIdentity";
@@ -24,6 +25,7 @@ import {
 interface DestinationRecord extends WikipediaIdentitySource {
   id: string;
   name: string;
+  status?: string;
   description?: string;
   wikipediaTitle?: string;
   wikipediaLanguage?: "en" | "ja";
@@ -43,11 +45,68 @@ const destinations = JSON.parse(
   fs.readFileSync(indexPath, "utf8"),
 ) as DestinationRecord[];
 
+function hasExplicitWikipediaIdentity(destination: DestinationRecord): boolean {
+  return Boolean(
+    destination.wikipediaTitle ||
+    destination.wikipediaUrl ||
+    destination.wikipediaPageId !== undefined ||
+    destination.wikidataId,
+  );
+}
+
+function normalizedTitle(value: string): string {
+  return value
+    .replace(/_/g, " ")
+    .normalize("NFKC")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLocaleLowerCase();
+}
+
+function explicitMappingIsValid(
+  destination: DestinationRecord,
+  mapping: ReturnType<typeof extractWikipediaMapping>,
+): boolean {
+  if (!mapping || !hasExplicitWikipediaIdentity(destination)) return false;
+  if (mapping.language !== "en" && mapping.language !== "ja") return false;
+  if (
+    destination.wikipediaPageId !== undefined &&
+    (!Number.isInteger(destination.wikipediaPageId) ||
+      destination.wikipediaPageId <= 0)
+  ) {
+    return false;
+  }
+  if (
+    destination.wikidataId &&
+    !/^Q\d+$/i.test(destination.wikidataId.trim())
+  ) {
+    return false;
+  }
+  if (destination.wikipediaUrl) {
+    const parsedUrl = parseWikipediaUrl(destination.wikipediaUrl);
+    if (!parsedUrl || parsedUrl.language !== mapping.language) return false;
+    if (
+      destination.wikipediaTitle &&
+      normalizedTitle(destination.wikipediaTitle) !==
+        normalizedTitle(parsedUrl.title)
+    ) {
+      return false;
+    }
+  }
+  return true;
+}
+
 function deterministicIdentity(
   destination: DestinationRecord,
 ): string | undefined {
   const mapping = extractWikipediaMapping(destination);
   if (!mapping) return undefined;
+  if (
+    hasExplicitWikipediaIdentity(destination) &&
+    !explicitMappingIsValid(destination, mapping)
+  ) {
+    return undefined;
+  }
   if (mapping.pageId !== undefined) return `pageid:${mapping.pageId}`;
   if (mapping.wikidataId) return `qid:${mapping.wikidataId}`;
   if (mapping.url) {
@@ -61,6 +120,22 @@ function deterministicIdentity(
 
 const explicit = destinations.filter((destination) =>
   deterministicIdentity(destination),
+);
+const published = destinations.filter(
+  (destination) => destination.status === "published",
+);
+const publishedCanonical = published.filter(
+  (destination) =>
+    Boolean(deterministicIdentity(destination)) &&
+    hasExplicitWikipediaIdentity(destination),
+);
+const publishedLegacyProvenance = published.filter(
+  (destination) =>
+    !hasExplicitWikipediaIdentity(destination) &&
+    wikipediaProvenanceReferences(destination).length > 0,
+);
+const publishedUnmapped = published.filter(
+  (destination) => !deterministicIdentity(destination),
 );
 const provenanceRecords = destinations.filter(
   (destination) => wikipediaProvenanceReferences(destination).length > 0,
@@ -132,6 +207,7 @@ const yagiriDescriptionSource =
 
 console.log("KAI-167 Wikipedia catalogue audit (offline committed-data pass)");
 console.log(`Destinations checked: ${destinations.length}`);
+console.log(`Published destinations: ${published.length}`);
 console.log(
   `Existing Wikipedia provenance records: ${provenanceRecords.length}`,
 );
@@ -168,6 +244,54 @@ console.log(`Duplicate subtitle text groups: ${duplicateSubtitles.length}`);
 console.log(
   `Yagiri subtitle field provenance: ${yagiriDescriptionSource.length ? "present" : "missing field-level reference"}`,
 );
+
+console.log(
+  "KAI-255 Wikipedia coverage states (deterministic committed-data pass):",
+);
+console.log(
+  `  Verified/canonical Wikipedia mapping: ${publishedCanonical.length}`,
+);
+const runtimeStateNotEvaluated = "N/E (runtime search not inferred offline)";
+console.log(`  High-confidence automatic mapping: ${runtimeStateNotEvaluated}`);
+console.log(`  Trustworthy no-match: ${runtimeStateNotEvaluated}`);
+console.log(
+  `  Resolver rejected despite likely valid candidate: ${runtimeStateNotEvaluated}`,
+);
+console.log(`  Transient/network failure: ${runtimeStateNotEvaluated}`);
+console.log(
+  `  Legacy provenance declarations requiring identity review: ${publishedLegacyProvenance.length}`,
+);
+console.log(
+  `  Unmapped/unclassified published destinations: ${publishedUnmapped.length}`,
+);
+console.log(
+  "State IDs (the five runtime states remain unevaluated until a bounded live resolver audit is run):",
+);
+const stateIds: Array<[string, string[] | undefined]> = [
+  [
+    "verified-canonical",
+    publishedCanonical.map((destination) => destination.id),
+  ],
+  ["high-confidence-automatic", undefined],
+  ["trustworthy-no-match", undefined],
+  ["resolver-rejected-likely-valid", undefined],
+  ["transient-network-failure", undefined],
+  [
+    "legacy-provenance-review",
+    publishedLegacyProvenance.map((destination) => destination.id),
+  ],
+  [
+    "unmapped-unclassified",
+    publishedUnmapped.map((destination) => destination.id),
+  ],
+];
+for (const [state, ids] of stateIds) {
+  console.log(
+    ids === undefined
+      ? `  ${state}: N/E (runtime search not inferred offline)`
+      : `  ${state} (${ids.length}): ${ids.sort().join(", ") || "None"}`,
+  );
+}
 
 if (duplicateUrls.length) {
   console.log(

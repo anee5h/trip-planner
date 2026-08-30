@@ -28,6 +28,7 @@ interface DestinationAtAGlanceProps {
   onSiteCost?: TripCostResult;
   labels: DestinationAtAGlanceLabels;
   parentLabel?: string;
+  headerExposesLocation?: boolean;
   seasonLabel?: string;
 }
 
@@ -64,6 +65,7 @@ export function DestinationAtAGlance({
   onSiteCost,
   labels,
   parentLabel,
+  headerExposesLocation = false,
   seasonLabel,
 }: DestinationAtAGlanceProps) {
   const onSiteCostLabel = getOnSiteCostLabel(onSiteCost, locale, labels);
@@ -85,7 +87,7 @@ export function DestinationAtAGlance({
           },
         ]
       : []),
-    ...(parentLabel
+    ...(parentLabel && !headerExposesLocation
       ? [
           {
             label: labels.locatedIn,

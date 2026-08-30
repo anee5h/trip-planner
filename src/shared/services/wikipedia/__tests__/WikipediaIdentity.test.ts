@@ -3,6 +3,7 @@ import {
   canonicalWikipediaIdentity,
   extractWikipediaMapping,
 } from "../WikipediaIdentity";
+import destinationIndex from "@/shared/data/destinations-index.json";
 
 describe("Wikipedia identity extraction", () => {
   it("requires a typed Wikipedia provenance reference", () => {
@@ -58,6 +59,42 @@ describe("Wikipedia identity extraction", () => {
       title: "Former Kyoto City Title",
       pageId: 37652,
       wikidataId: "Q34600",
+    });
+  });
+
+  it("keeps the reviewed KAI-255 canonical identities in the catalogue", () => {
+    const records = destinationIndex as Array<{
+      id: string;
+      wikipediaTitle?: string;
+      wikipediaLanguage?: "en" | "ja";
+      wikipediaUrl?: string;
+      wikipediaPageId?: number;
+      wikidataId?: string;
+    }>;
+
+    expect(
+      extractWikipediaMapping(
+        records.find(
+          (record) => record.id === "yokohama-landmark-tower-sky-garden",
+        )!,
+      ),
+    ).toEqual({
+      language: "en",
+      title: "Yokohama Landmark Tower",
+      url: "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+      pageId: 1404793,
+      wikidataId: "Q587108",
+    });
+    expect(
+      extractWikipediaMapping(
+        records.find((record) => record.id === "otsu-city")!,
+      ),
+    ).toEqual({
+      language: "en",
+      title: "Ōtsu",
+      url: "https://en.wikipedia.org/wiki/%C5%8Ctsu",
+      pageId: 6792853,
+      wikidataId: "Q202907",
     });
   });
 });

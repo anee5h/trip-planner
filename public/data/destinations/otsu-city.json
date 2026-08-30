@@ -6,6 +6,11 @@
   "importance": "notable",
   "prefecture": "Shiga",
   "region": "Kansai",
+  "wikipediaTitle": "Ōtsu",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Ctsu",
+  "wikipediaPageId": 6792853,
+  "wikidataId": "Q202907",
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Skyline_of_Otsu_City20210828.jpg/1280px-Skyline_of_Otsu_City20210828.jpg",
@@ -77,6 +82,12 @@
         "url": "https://www.city.otsu.lg.jp/",
         "title": "Otsu City official website",
         "accessedAt": "2026-08-13"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/%C5%8Ctsu",
+        "title": "Ōtsu",
+        "accessedAt": "2026-08-30"
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",

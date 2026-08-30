@@ -269,7 +269,7 @@ describe("DestinationDetails Japanese Localization Regression", () => {
       attrs.sources?.length ?? 0,
     );
   });
-  it("omits the Wikipedia section when the resolver returns no article", async () => {
+  it("renders the compact Japanese Wikipedia unavailable state", async () => {
     vi.spyOn(WikipediaService, "fetchSummary").mockResolvedValue(null);
 
     host = document.createElement("div");
@@ -299,13 +299,16 @@ describe("DestinationDetails Japanese Localization Regression", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toContain("Wikipedia概要");
-    expect(text).not.toContain(
-      "この目的地のWikipedia追加概要は見つかりませんでした。",
-    );
+    expect(text).toContain("信頼できるWikipedia記事は見つかりませんでした。");
     expect(
       Array.from(host.querySelectorAll("button")).find((b) =>
         b.textContent?.includes("続きを読む"),
       ),
     ).toBeUndefined();
+    expect(
+      host.querySelector(
+        'button[data-testid="wikipedia-toggle"][aria-expanded="true"]',
+      ),
+    ).not.toBeNull();
   });
 });

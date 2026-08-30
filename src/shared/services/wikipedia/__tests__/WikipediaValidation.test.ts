@@ -121,6 +121,67 @@ describe("validateWikipediaCandidate", () => {
     expect(result.accepted).toBe(true);
   });
 
+  it("does not reject a canonical tower because a broad category says Port", () => {
+    const result = validateWikipediaCandidate(
+      destination({
+        id: "yokohama-landmark-tower-sky-garden",
+        name: "Yokohama Landmark Tower (Sky Garden)",
+        nameJa: "横浜ランドマークタワー",
+        kind: undefined,
+        prefecture: "Kanagawa",
+        categories: ["Observation Deck", "Landmark", "Port", "Modern"],
+        tags: ["Yokohama Port"],
+        coordinates: { lat: 35.455, lng: 139.6314 },
+      }),
+      candidate({
+        title: "Yokohama Landmark Tower",
+        description: "Third tallest building in Japan",
+        extract:
+          "Yokohama Landmark Tower is a skyscraper and landmark in Yokohama, Japan.",
+        pageId: 1404793,
+        wikidataId: "Q587108",
+        url: "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+        coordinates: { lat: 35.455, lng: 139.6314 },
+      }),
+      {
+        locale: "en",
+        mapping: {
+          language: "en",
+          title: "Yokohama Landmark Tower",
+          pageId: 1404793,
+          wikidataId: "Q587108",
+          url: "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+        },
+      },
+    );
+
+    expect(result.accepted).toBe(true);
+  });
+
+  it("retains the transport entity check for an actual port destination", () => {
+    const result = validateWikipediaCandidate(
+      destination({
+        name: "Yokohama Port",
+        aliases: ["Yokohama"],
+        kind: undefined,
+        categories: ["Port"],
+        tags: [],
+      }),
+      candidate({
+        title: "Yokohama",
+        description: "A commercial district in Yokohama",
+        extract: "Yokohama is a commercial district in Yokohama, Japan.",
+      }),
+      {
+        locale: "en",
+        mapping: { language: "en", title: "Yokohama Port" },
+      },
+    );
+
+    expect(result.accepted).toBe(false);
+    expect(result.reasons).toContain("entity-type-mismatch");
+  });
+
   it("allows a non-place parenthetical title only with a matching deterministic identity", () => {
     const result = validateWikipediaCandidate(
       destination({
