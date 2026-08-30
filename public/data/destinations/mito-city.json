@@ -217,5 +217,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Mito, Ibaraki",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Mito,_Ibaraki",
+  "wikipediaPageId": 6793009,
+  "wikidataId": "Q204249"
 }

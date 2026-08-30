@@ -216,5 +216,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Miyakojima, Okinawa",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Miyakojima,_Okinawa",
+  "wikipediaPageId": 5002333,
+  "wikidataId": "Q714636"
 }

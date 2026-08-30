@@ -215,5 +215,10 @@
     "detail": "Canonical arrival Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "安藤百福発明記念館 横浜",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%AE%89%E8%97%A4%E7%99%BE%E7%A6%8F%E7%99%BA%E6%98%8E%E8%A8%98%E5%BF%B5%E9%A4%A8_%E6%A8%AA%E6%B5%9C",
+  "wikipediaPageId": 2430428,
+  "wikidataId": "Q11257362"
 }

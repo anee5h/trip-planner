@@ -222,5 +222,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kamakura",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kamakura",
+  "wikipediaPageId": 61759,
+  "wikidataId": "Q200267"
 }

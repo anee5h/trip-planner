@@ -207,5 +207,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Nikkō",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Nikk%C5%8D",
+  "wikipediaPageId": 328410,
+  "wikidataId": "Q235753"
 }

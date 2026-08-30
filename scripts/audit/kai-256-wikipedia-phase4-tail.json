@@ -1,0 +1,1751 @@
+{
+  "schemaVersion": 2,
+  "scope": "kai-256-wikipedia-phase4",
+  "baseline": {
+    "publishedDestinations": 732,
+    "startingCanonicalWikipediaIdentity": 444,
+    "phase1ReviewRecords": 98,
+    "phase3HighConfidenceAwaitingApply": 10,
+    "phase3AmbiguousCandidate": 62,
+    "phase3Unresolved": 118,
+    "phase3NoStandaloneArticleExpected": 0,
+    "tailPopulation": 190
+  },
+  "ids": [
+    "abeno-harukas-300-osaka",
+    "akasaka-minato",
+    "asakusa-taito",
+    "ashigara",
+    "asuka-fujiwara-nara",
+    "azuchi-castle",
+    "bise-fukugi-tree-road-motobu",
+    "busena-marine-park-nago",
+    "chiba-nokogiriyama",
+    "chiba-sawara",
+    "chiba-yoro-valley",
+    "chofu-historic-jindaiji-district",
+    "chuo-city",
+    "cup-noodles-museum-yokohama",
+    "daisho-in",
+    "danjo-garan-koyasan",
+    "disneysea",
+    "edo-castle-tokyo",
+    "farm-tomita",
+    "fujisawa-city",
+    "fukuoka-yatai",
+    "fukuyama-castle",
+    "genbudo-cave-park",
+    "gessho-ji-temple-matsue",
+    "ginza-itoya",
+    "hachioji-castle-tokyo",
+    "hakone-town",
+    "harajuku-takeshita-street",
+    "harry-potter-studio",
+    "hida-cave",
+    "hiei-zan-driveway-observatory",
+    "higashi-hennazaki-cape-miyako",
+    "hikone-castle-shiga",
+    "himeji-castle",
+    "hiraizumi-chusonji-iwate",
+    "hiroshima-national-peace-memorial-hall",
+    "hokki-ji-pagoda",
+    "hondori",
+    "horikawa-pleasure-boat",
+    "ibaraki-fukuroda-falls",
+    "ikebukuro-toshima",
+    "iki-tsushima",
+    "inasa-beach-izumo",
+    "ine-funaya-boathouses",
+    "ise-grand-shrine",
+    "izushi-castle-town",
+    "jindai-zakura",
+    "jogashima",
+    "joypolis",
+    "kabira-bay-ishigaki",
+    "kamakura-city",
+    "kanayama-castle",
+    "kannai-yokohama",
+    "karato-market-shimonoseki",
+    "kataonami-beach-wakanoura",
+    "kawagoe-castle-saitama",
+    "kawagoe-city",
+    "kawagoe-kurazukuri",
+    "kawasaki-city",
+    "kegon-falls-nikko",
+    "keio-rail-land",
+    "kibitsu-shrine",
+    "kinojo",
+    "kirin-beer-yokohama-factory",
+    "kishi-station-tama-cat",
+    "kita-city",
+    "kitaro-chaya",
+    "kobe-maya-night-view",
+    "kojima-denim-street",
+    "kokusai-dori-naha",
+    "koto-city",
+    "kouri-island-okinawa",
+    "koya-town",
+    "kubota-castle",
+    "kuroshio-market-marina-city",
+    "kusatsu-town",
+    "kyoto-historic",
+    "kyusendo-cave",
+    "lake-biwa-shiga",
+    "matsudo-city",
+    "matsushiro-castle",
+    "meoto-iwa-wedded-rocks",
+    "miharu-takizakura",
+    "minato-city",
+    "minato-mirai-yokohama",
+    "mito-castle-ibaraki",
+    "mito-city",
+    "miyajima-gojunoto",
+    "miyajima-omotesando",
+    "miyakojima-city",
+    "momijidani-park",
+    "mount-yoshino-nara",
+    "mozufuruichi-kofun-osaka",
+    "nachi-falls-wakayama",
+    "nago-pineapple-park",
+    "nakijin-castle-ruins-motobu",
+    "naminoue-shrine-naha",
+    "nanao-castle",
+    "nanatsugama-cave",
+    "nara-historic",
+    "nara-park-todaiji",
+    "naramachi-historic-district",
+    "national-museum-western-art-tokyo",
+    "ne-castle-hachinohe",
+    "nemuro-peninsula-chashi-sites",
+    "nichinan-kaigan-drive",
+    "nikko-city",
+    "nikko-toshogu-shrine-tochigi",
+    "nippara-cave",
+    "nippo-kaigan",
+    "oarai-marine-tower",
+    "odani-castle",
+    "oka-castle-oita",
+    "okage-yokocho-oharai-machi",
+    "okinawa-senseki",
+    "okinoshima-munakata-fukuoka",
+    "okunoin-cemetery-koyasan",
+    "ome-railway-park",
+    "ome-retro-town",
+    "omi-hachiman-canal",
+    "omiya-railway",
+    "ono-castle-dazaifu",
+    "ontakesan",
+    "osaka-central-public-hall",
+    "ota-city",
+    "play-museum-tachikawa",
+    "polar-science-museum",
+    "rainbow-bridge",
+    "ritsuunkyo-viewpoint",
+    "roppongi-hills-tokyo-city-view",
+    "ryogoku-kokugikan-sumo-museum",
+    "saigoku-33",
+    "saitama-nagatoro",
+    "sakai-city-museum",
+    "sakura-castle-chiba",
+    "sannai-maruyama-jomon-aomori",
+    "sarakurayama",
+    "seiko-museum-ginza",
+    "senjojiki-sandanbeki-cliffs",
+    "senjokaku",
+    "shibuya-city",
+    "shibuya-crossing-hachiko",
+    "shibuya-sky-shibuya",
+    "shikoku-henro",
+    "shirahama-beach-adventure-world",
+    "shirahige-shrine-lake-biwa",
+    "shiraito-falls",
+    "shitennoji",
+    "shokanbetsu-teuri-yagishiri",
+    "shoryu-cave",
+    "shuri-castle-okinawa",
+    "soji-ji-yokohama",
+    "sumida-river-walk",
+    "sunshine-60-observatory-ikebukuro",
+    "suwa-shrine-tachikawa",
+    "tachikawa-manga-park",
+    "takanawa-gateway-minato",
+    "takao-599-museum",
+    "takaoka-castle",
+    "takaoka-daibutsu",
+    "takatori-castle",
+    "takayama-sanmachi",
+    "takeda-castle-ruins-hyogo",
+    "tamatorizaki-viewpoint-ishigaki",
+    "teamlab-planets",
+    "tokyo-hinohara",
+    "tokyo-metropolitan-government-building-shinjuku",
+    "tokyo-mt-mitake",
+    "tokyo-okutama",
+    "tomioka-silk-mill-gunma",
+    "tomogashima-islands",
+    "tsukiji-outer-market",
+    "ueno-taito",
+    "uji-tea-culture-center",
+    "ukimido-mangetsu-ji",
+    "uradome-coast",
+    "ushiku-daibutsu",
+    "usuzumi-zakura",
+    "utsunomiya-oya",
+    "wakakusayama",
+    "wakayama-castle",
+    "yakushi-ike-park",
+    "yokohama-city",
+    "yokohama-marine-tower",
+    "yonaha-maehama-beach-miyako",
+    "yonehara-beach-coral-ishigaki",
+    "yoshida-koriyama-castle",
+    "yoshinogari",
+    "zoshigaya-kishimojindo",
+    "zushi"
+  ],
+  "phase4AdjudicationFingerprints": {
+    "abeno-harukas-300-osaka": "478d0be1364f26091ede3c9be6b72ee3ccab202b4b3f894ff6a26d45f619e1f4",
+    "akasaka-minato": "af7ecac03f1a91444db96e4f9b25c41907003d165629737560ff73339e2cdcea",
+    "asakusa-taito": "9a2c9db694397fbfc17aef9f2f02b1e7792a7e6c1b2e66d2c4ba5ed8afaae100",
+    "ashigara": "830aaeea256ebf4aac83a84d03ad4f4899e36d1defda76061dc085e25ae7931c",
+    "asuka-fujiwara-nara": "648c17b4fbba01da06f053ec30921eca49ba058944007af12d8e7c9658897db3",
+    "azuchi-castle": "8d5d96687388c099b7039660e6bf686e8483313e781fa3c2f8cf0a89a5e3232c",
+    "bise-fukugi-tree-road-motobu": "744cfe89e2bc57e9965d98575f633bbd461a5d1ca8bdf32013447a0401001873",
+    "busena-marine-park-nago": "ec4d8a7f6ab285e2baa03ba75c0ca25cb580730ee708c50e7f95fcd830ff3543",
+    "chiba-nokogiriyama": "aa6578db4a38da6ecca053cf629ecfbee39124583b28c0afab0a17a8cefa3322",
+    "chiba-sawara": "f1fb481107ce436921ae3f92219e651bbfd434d3f1aa05b79f1486c8a48d4600",
+    "chiba-yoro-valley": "56128c594995ea2d725c45c347614831e94af73692c0c2b1c7da729e22d67727",
+    "chofu-historic-jindaiji-district": "c01a60235adc6d1f3eace94fc6e4fbc2c15dcc12db3d2772ba26a1e2ff8341e5",
+    "chuo-city": "7ef664c239057d153b93c358caae2925e998070b7250bf1847d7f6af7f4ff379",
+    "cup-noodles-museum-yokohama": "a69c5aac79488b6904d8241ad1de0fc40f0e7ab19cda67982dbcbed00c273fb8",
+    "daisho-in": "ff197a1cf438edd1caa3557e079b7087ee0fbb27b11aed33f1d02388a2efb410",
+    "danjo-garan-koyasan": "be958b18dae545d2dd7788bc14dbc07b2d06896af8d3f174e099dc743b730e4e",
+    "disneysea": "c4bc0ff76da422a2f87b7b0e5178be6f3ad40a637ecfb311546fc335c7f07722",
+    "edo-castle-tokyo": "b383f3170c19d14a8461d589f0f91f3c6225ef7f91253dea03a772094806abd9",
+    "farm-tomita": "21ae934e9bcbc0bc8ee7a88e3504be556f1b8a63240f3717e65c85f154ddffdf",
+    "fujisawa-city": "0cc155183d68338eb4e20437c87c6bb7c6323e50d3a9979eac7046f77f3e640d",
+    "fukuoka-yatai": "f1eed29dcb1b64127885989db12addec9d0faa475ee1ac2bfe130268cd6accc1",
+    "fukuyama-castle": "8c5613b61866aa4684b04317b6f071aa6f33b461583654fbbfe217eec4a13f19",
+    "genbudo-cave-park": "8850aa00dbd85076293d146296d2b0a7257112b491429cbcb33f8717d75d0240",
+    "gessho-ji-temple-matsue": "7ec970f35612f0646f9a7a83c6533252a63b616cfd9bf7f2f1bc844a8885edda",
+    "ginza-itoya": "563d2d2f79a8d65514a8664ea1a1eec153ec574806f33b1fe218b901c34955f7",
+    "hachioji-castle-tokyo": "44d416e24a94da77bf0207efed01f927111462d94d22fc992ff2a8898b01de24",
+    "hakone-town": "2e3a5fb02367a922644fcd37f8688d68448b3938ea7d85023425c38d56bf2a28",
+    "harajuku-takeshita-street": "19cc1fc42fa39e82361cea9258cdfb3f78e05d7329fca62705d02d1474a637d9",
+    "harry-potter-studio": "2502e442f8730be9e5c68c86c7847c20d2ad68fd832936a3343bdc28bc635e36",
+    "hida-cave": "3c9b529098ef526b5561d7663fc5377e2cae64826871844b9c5b7797a07ff512",
+    "hiei-zan-driveway-observatory": "3a2bda466674a2329c3daefad7c98dc074d676020370c5687f9e7b5fbf976079",
+    "higashi-hennazaki-cape-miyako": "9500b8379023c2352a4dcdde770b15260aa7ea6353ede0194ce765294e0d5734",
+    "hikone-castle-shiga": "f52a6b4e30ca5452ebd2776eabcbf1926d36efcd05691828d20054c4c9354129",
+    "himeji-castle": "38159b7add6531c268fb7e3fa90ee3b448fe0d3504b5682cc016831b416f1ff5",
+    "hiraizumi-chusonji-iwate": "604e40e01ecc90b9948dc8682d89cebab0a432e858c43da85776e7215a436962",
+    "hiroshima-national-peace-memorial-hall": "30955f3e851e5d4b77795f26f1ddadd9c11fac51f6f5cdc78c3dee0c8aaff388",
+    "hokki-ji-pagoda": "54142624c0d5ccf20df5d7955e34ad9f6756d0cb5bc5cb738c61289aa66621fc",
+    "hondori": "0ac1fdf1cdd72c1df8ac220d04e2ca445fd367e3e0b2162805426bd47a91ab24",
+    "horikawa-pleasure-boat": "63a3b8f97d4e2dcea0e46ea5168353fba1b18d52997237366ed7790deae10247",
+    "ibaraki-fukuroda-falls": "48a2809c3430390b651a9f11332df3a92f0cd89f0fdcd3fb7f93d2be7c3eb19b",
+    "ikebukuro-toshima": "361bdb6d5cb2fa2de6ee38e58bcc4b6b279240f74aece62b4a4c5d32e4d085ed",
+    "iki-tsushima": "06f567db4d5d14df3fb70df64e40d0355d9fd5a94daefcbe35776663e9222d4d",
+    "inasa-beach-izumo": "30f3a153fd6119b4e38b9e6c7f626955608b6d3032735f073695c57b673089ea",
+    "ine-funaya-boathouses": "bdea548920c98c4954837b71c53f44fd8fb501a9ee12e041d4597c3006a958e2",
+    "ise-grand-shrine": "a219fec9162012a85e9d9746db3d232b55cf300b477272efbcf3460ae2bb1510",
+    "izushi-castle-town": "04b4d5c83c10ab6d8948d59efbece84cd59acb8d9852aa0a41d61c18e740dfb1",
+    "jindai-zakura": "e2a01be5da319cadee993571776641745b1907251d4a92d295ec7a5ed934cd58",
+    "jogashima": "6397b23cc6f1e3f08c2af0a1efae0d8bb9c02f8d1a1850067f33587e47c95072",
+    "joypolis": "ba47c2a82ec69213e275c5fba45836f6d551b89252080ddd2f2f4ec6d456dba4",
+    "kabira-bay-ishigaki": "5055d4b795d0a8400594002189ae7c50d6dcc8eb81f5c845a8613202bb40883e",
+    "kamakura-city": "64239b7582a42d4ea5b6cd8452392485cb6a464172cffc9090d3810ac5c8562f",
+    "kanayama-castle": "7cd3f2b23338a910d69f53e81f47550f3ba3291219b34680b21ca3431fe7e8cc",
+    "kannai-yokohama": "b67a1130fde1e6ba394e09b58ff30b58e929012f0578d21781f3af6ba3ab3716",
+    "karato-market-shimonoseki": "aa54b6c357bd23a2fdd64c2a82715d040f31b3edddff1eb2fa14c8f6d31f79e3",
+    "kataonami-beach-wakanoura": "65cdf4bce6c29d6750687ec8833e4fc30d5fa8b774eac06d618aaf02b7e394c9",
+    "kawagoe-castle-saitama": "9b95fd7ce9937a0f9d2d10a81b059306448eeb2361be1e59ff12d3ca124e33d1",
+    "kawagoe-city": "c1123c3aa23dd27fbbecf1578aff58c66256bd695d68863463b1f170ec029bc4",
+    "kawagoe-kurazukuri": "74f4d54d0d127c9638986b2881efa16bf72a9425cb6890b0e36c6a6e82f3a8c1",
+    "kawasaki-city": "d1514be42828655d610b53927d7cfe1264cbdde408b29ba2806ff7692f57c24c",
+    "kegon-falls-nikko": "7268d86955b293480ce9e0df9fd53ff0a0dfc8f39c933494f735dc9295893ba1",
+    "keio-rail-land": "bcbd3c4acbba16fc68577bfb2e7719ab1cb474d4a6c88f44028fc295b03cd706",
+    "kibitsu-shrine": "e0e80d77173f1fdf8a23bfd83e751cd7b34391831e9628c920c99dbf87247b65",
+    "kinojo": "446c11d8d486f7cde8a58180f14c16a26f007a4e1847a87d91acfabafc382284",
+    "kirin-beer-yokohama-factory": "8465ec4da65e82c7e73cee4d5ddab6c9485b1e5f1d86603b9fd3e8d7fea774db",
+    "kishi-station-tama-cat": "eec722357545d5d53475b527432f01ffb37b9b00b7b529af03f4611699d476d7",
+    "kita-city": "f58acb7fcb3b5cba36b1098e8d9eda45f208f4cedfacd1475c07cc0779fb042b",
+    "kitaro-chaya": "bb98c776b194196ba83d5f94f1b6804be894524a82739514bc90f12cdf2ed94e",
+    "kobe-maya-night-view": "7013ba7bde41e7edfa68f79996646a5a73dabeff6376cd7fa7deefd6c0ba6ae9",
+    "kojima-denim-street": "871f004e761989a542b1fd2827fc2f1f28672d31b67a4310098a5400732175fe",
+    "kokusai-dori-naha": "8fc5620c14ef636b1d4f47ce4dab0b0123980ebd4fd4969862a3e099accf6cd3",
+    "koto-city": "5f419f8482f586ade3a4758b3f84c49b2faafb5ad0726c8db3e44d795a29de21",
+    "kouri-island-okinawa": "a058f694bf6e18354aa8db79ca917bc7a496575e390eefb68fece2e6d7ce2b65",
+    "koya-town": "8b72f86cdcae0d7fc725aaa21aafbe6f04d224872eadea51fbdd1351f7d8a141",
+    "kubota-castle": "44564ec4f9f7144ceba8da7cb3e3269e822e8b68ea0dc36fd645e78e00abf4b2",
+    "kuroshio-market-marina-city": "f8fc2899dcb312d7cccb7f3f9c1d1a4fb6fde1ac04933f97b29065338cdcb359",
+    "kusatsu-town": "7532b14addb1ad39b4258f8d9d8c6cc65f65f650401136a1ad92865edc6b3e3d",
+    "kyoto-historic": "bad8a64068041215fb0d0880728222b26b15921ade01b11ed12752077a03686d",
+    "kyusendo-cave": "c10ed82a08bf8fa1d8da773fc2b97aecb2efd00aa4cd74233ae30aa6485a47fb",
+    "lake-biwa-shiga": "4185dba61e2bdc8704bb9a7b87bff4a190d758b8330f713c6851f027d2105ca3",
+    "matsudo-city": "f08d5b08a075204ac66f12567d46f588febbc94ecbdbae5674acb31bb872184b",
+    "matsushiro-castle": "53aeaa19bf1665222b66d1bf8636bd477263ef0439b7d5d686afe541602a99b3",
+    "meoto-iwa-wedded-rocks": "c9dc8ed197fa9133d1e53f4c5ec9e0f56b6dbcab71ca2d49478e94bafa17013e",
+    "miharu-takizakura": "2b2e137b594e1b7dae658fc84be03e4d1609128a6b9e0138d30eac7be54b29f8",
+    "minato-city": "259bb043c0bf12e0334a8825367fd80c21cbb4730865836415efc4edcbda24da",
+    "minato-mirai-yokohama": "71aa22a3db2f8dd8479bc9d5fb0b25515af644def382bc5883faec1e57d1f8d4",
+    "mito-castle-ibaraki": "26f954242f970f5f472bf0bd8557a3c3262edffd49879c8a8407c2c9d9104fde",
+    "mito-city": "dcfcabf55640ef7a93734d30203491f893feeb9d71de14a549b7541b82782015",
+    "miyajima-gojunoto": "510eef19bc1b98f8ab359cbc5716fdd825adb06392090206f5c6c1ed66475774",
+    "miyajima-omotesando": "951b6ec9953e39b4e947370519b82e19709b9db6bf523507881d33acbd0f8c78",
+    "miyakojima-city": "62878dd8acf4ad982ddbd85b5900e012d248700614e18db05c6785aa9a39b655",
+    "momijidani-park": "6b5b971b5296170e8513cda348164dbb4b7892ab6d49534cc425c3c15fbcb6ba",
+    "mount-yoshino-nara": "8fc3fc2868e342b74e549c9591f5b4326ca68fbff4681f04078ff0546f1221cf",
+    "mozufuruichi-kofun-osaka": "b4176a7f4afb3b914a01d69b0ac5707720e548b926f128b6c3171092f5774472",
+    "nachi-falls-wakayama": "4d93aa40a1f202b451df15ce46d24c4ccd950039dad5ea35c2ac500e9aeee707",
+    "nago-pineapple-park": "0517d91537267e27cd12ee0d00fc65eb9b832c4386d54b8e691609f73bc17996",
+    "nakijin-castle-ruins-motobu": "b756e782e9eb16fd4c20f388468caf5e791e77ac7d18024cb62045362ddd2554",
+    "naminoue-shrine-naha": "4a56b92546f5102f4fb48dfda45c8b44547bcb433152ea09137bbaf35d7f810d",
+    "nanao-castle": "b9a7008db3d8b4b605f9ff5f842e86c4b5ab963cf924b1b463a68f938000c7da",
+    "nanatsugama-cave": "3010da48f2ae0ee049aa880cd327c9b4e3bd0f45bfd4207e6727d2099ebf5725",
+    "nara-historic": "203cefbbca18a6b9dfd2d7d7c7b552104e212ef776246f8368ba45f71103f416",
+    "nara-park-todaiji": "6c81b0a776b89b6ddb5e764be28c26373afad6bcb891723ced8912ddf67b6ac0",
+    "naramachi-historic-district": "4c87aa45bfc7996c517861e60a02c82094edbb2cff74a181d618db428b7ab475",
+    "national-museum-western-art-tokyo": "f23c85608a761612ef08da765fbe6c9099e273abca5274338725dc7c4fd8f9be",
+    "ne-castle-hachinohe": "99ab16e76a27ed9d0edd1060617d011aad31ffa97d16e3093f0b0aca38cfd217",
+    "nemuro-peninsula-chashi-sites": "1f10f1d545ee916d789ab35d593e4854cb4528c4226c27120b181381dcfe5f81",
+    "nichinan-kaigan-drive": "016b65f3fc8b9c78ec46586a6c740859fd48417834327006a0936597b8bc5dea",
+    "nikko-city": "85077eab0449b933e16f818612edda28a70868b5befa8d79a8a2c78f5b73840f",
+    "nikko-toshogu-shrine-tochigi": "3b571007eb8ec19620ca36cfb1d3b9df14741d71ebc476256971d2917e9f11e1",
+    "nippara-cave": "5e5ee9690547aa2591445937ec03f791d414c975574eef4375a3803a22bbe9bc",
+    "nippo-kaigan": "69669017ab18cb27a1cde765739c029d35ab140bdcf984646f741188b8c70a68",
+    "oarai-marine-tower": "af0f1bffb054938ae70f14025efdebfa7cd1f5d4c554e95ef8f75638392c8734",
+    "odani-castle": "32853ac85bcca2c4912d9632baa342927c63a89488b04a688c3e1299c0ede3a8",
+    "oka-castle-oita": "e3aa18f63b3b854ecb88bacc632972f34a7878e15ce6506c78b5e7f69bcdb60f",
+    "okage-yokocho-oharai-machi": "a4ab8c2c6465d124cd1cf91be36e22026d9127569bc951272306d65539627e15",
+    "okinawa-senseki": "3f93aea11127ea0504e505f75e0279498185cf20d6079385c15fd57ffde4f306",
+    "okinoshima-munakata-fukuoka": "b96060719d7092d3507acc43dbe199b469b5b684c82bdacf73a965d016043276",
+    "okunoin-cemetery-koyasan": "d9c88fd8503dde8e9e2990e90886688474bad6033c511b282a5152d09ca2e49c",
+    "ome-railway-park": "4d23a3a40d21710c7721d5c3ade90e91a503e63fb8c620edde92ccdccf50fa98",
+    "ome-retro-town": "f587ff622edabff2f82560d79c8c25686983d7e5191302486870f0e4a01938f1",
+    "omi-hachiman-canal": "22964376fe389a3369ece1c9438b7da797310e5d823c2f248194f1c84a07864c",
+    "omiya-railway": "86211c9d88dfe2d56a61d07b3c02f6224020d5a6ad1f6b163b646b4c6e67b9f4",
+    "ono-castle-dazaifu": "2c92bc2cbfd6bc5d5d702020559d3c1ed7bee79b5e7e09eb2d0e245e9e8c4765",
+    "ontakesan": "0ea741e0da63b103ff22bf86125ad46187eb4239c16295984314411f25503f06",
+    "osaka-central-public-hall": "9e37cba2aa77e47d8b95d7b3515d7ac5a4deb0622ee580a8b8317aed9c9ebe28",
+    "ota-city": "7c1b8e07364842c23ac8242a29f3526a02d838799ac7d2bca5ad51cfa48d6072",
+    "play-museum-tachikawa": "3f5fd4eda4bd1c498b9e208d9fa043c885b9b6be5a74dc8f627cb700a1192027",
+    "polar-science-museum": "1eb3301a7a3461f4a42c2e8550ec4e1b5d189537b74146b05627b11439eee8c9",
+    "rainbow-bridge": "09edaba424c3ff2b1cfd40e87f2730574c2ca6a53fa0b16cbf265fbe398d5c3d",
+    "ritsuunkyo-viewpoint": "5c5262bfb5512ca8ad76c90ea51d492ad367c041ceba1f29de00f7c4d89caeda",
+    "roppongi-hills-tokyo-city-view": "7dd536a758c3defc6250680c47d84c1c37160c3f92ad3056b8c814bf5521ae0f",
+    "ryogoku-kokugikan-sumo-museum": "814b91398089ba6e0548b509176f0bb6f69c4a5ecf0ef394516c1263240e999e",
+    "saigoku-33": "386305513dbf22a1e4384ee86d7ad1d12fef35c5106371a6849b55dc5e690416",
+    "saitama-nagatoro": "d4d6338ed94da28f14cde7787f16cbf1cacaec07c2b68caadcaf5eac31500214",
+    "sakai-city-museum": "a8f56ac9ab2e667fef4509f05268820087e8f0457af3cc2f4f5fe49c7a00f652",
+    "sakura-castle-chiba": "f0fc7e05e3dafe8b67e3efdee78a353899a56d1a72565f63d1fd7dcc540281fb",
+    "sannai-maruyama-jomon-aomori": "f7e6068d484b68c2f919fca59a4e48d1c5660706911d162bce8288425b13675e",
+    "sarakurayama": "4d7a0d59d5851d29ed47455d8c83a9b8929b8e625f8cc65b5add1de4c975a81a",
+    "seiko-museum-ginza": "15cacdd72efec74372dfb2ed6a7ca0cdb9f8f259661f323b0a964bf82f590a53",
+    "senjojiki-sandanbeki-cliffs": "359882ba3e4d32379b6cc946065f4730985e9906a09c15c496e91d417ca2c591",
+    "senjokaku": "ea7c3c6ae416880323003898c342a6afc140d70025d0eff5170c47e837bf7736",
+    "shibuya-city": "d4d261468daec637477711bf4b98b56282fa2bf018fbcc8340e7aa8f937c64e8",
+    "shibuya-crossing-hachiko": "10394dc4c108cc5235b740d7d589a98ac5068e5fd0e5770fd3c3508fc0ba7fa9",
+    "shibuya-sky-shibuya": "f1c20ede52643e101bb5cc74aeb239e4214c62992f58838e2e6406afc7e3a40a",
+    "shikoku-henro": "66ad41f92b6b14a476b7682231999bf401eb09d0b85a21d23cb2f94094e445eb",
+    "shirahama-beach-adventure-world": "752a90b72b3ff54fe6e2962cfd0101f7b2e337c3e3b61cd806c8089e4d9bf99f",
+    "shirahige-shrine-lake-biwa": "72e3e9ff5227ad653b86def6d3108b3c99cc91bc657aa66f05f5a40defa6dba3",
+    "shiraito-falls": "6a7184b8474e5e17e35a46d781ae3440f90b53a968804ecea7cb9208d174fe3a",
+    "shitennoji": "e5ef45d148569be82bf366b4c5bda11e5edbfd742e8accb61b4000566789df88",
+    "shokanbetsu-teuri-yagishiri": "2855f1d4d75f7f042b4a92f9ba2f192ec81f2a8038be74b6b52cfca33333c2a6",
+    "shoryu-cave": "26a3c636b6c655a150ed032651c892ea606ab1c689ba56e819afe582b799fe8b",
+    "shuri-castle-okinawa": "010bccaee648a3f9a51177a1300fbe7441aa265f36216f8fc3d261ff48ad6bcb",
+    "soji-ji-yokohama": "9bef6570b9db81ca37105f362429281d58246848b945ade16757c1398f19e5f8",
+    "sumida-river-walk": "f87d69a5eb6e8f2f76ee809dd4d2b3f24bcd3264230a5ba1979e8c5fb35f9950",
+    "sunshine-60-observatory-ikebukuro": "2b3cfc9691f7444d884f79210061e71714b49d5b6248e5c180a3e978dccf23b4",
+    "suwa-shrine-tachikawa": "8c4e4d4c850d27a67891f31870e384d8ddce6ab2d574d20ce5bb4ad3c91fe55b",
+    "tachikawa-manga-park": "5661300f40bc105b950bf2733832ab33a242533feeaace4a798ef06c954cc744",
+    "takanawa-gateway-minato": "e67599e027538864af89f9d3b8caeb2dbd3d45a3f478a3f869258641dd27dbaa",
+    "takao-599-museum": "7c5eb35cdeae85f101c0dc502b33aa77922ed01960ab12c77974b90d63cc5ad7",
+    "takaoka-castle": "a70d68711a22224561f492a77c841cc0673c49b18a27bd8c43ac4752fa6aa8e2",
+    "takaoka-daibutsu": "385ad15455078e23231991449053a8afc25582e46f76927d445f60626a0e5a0d",
+    "takatori-castle": "15619e50fbeb0b53fe8d3726b94f40a094d323bc4982d6673f7b88801b737f5a",
+    "takayama-sanmachi": "2229e36d4e03ac18345644953d1017dc67c6ecc5279347fb2654c39870fd5988",
+    "takeda-castle-ruins-hyogo": "52c918b2dd2b36c5d7957df63dd67ca8e665ca2a5acaedf21119d0d425fd8f18",
+    "tamatorizaki-viewpoint-ishigaki": "1e42ffd60c29aadcb220d7eb55b7e16cac26d60e483c61afd96fc0da4cf7437e",
+    "teamlab-planets": "9f2f0f1592f053c4a14df13e7ada4867423f7b6a15dc5436c80f1dbc58ad8f78",
+    "tokyo-hinohara": "c8fe3bd1760f88365993a63e75dc500083d0187757a452a844ec2a5fb5de0286",
+    "tokyo-metropolitan-government-building-shinjuku": "70def70fe7ed928d669bb73d3d9a3307dc3257639ed3af5d3880408e99b1eb0f",
+    "tokyo-mt-mitake": "604d36892771069b4c8bbcfb9564c347c8017e1c73431416f975ef63d33b94a0",
+    "tokyo-okutama": "7f369a38219791149203a2e3038fa52cbe990a2c6f6ddf5fbba22f8bd25d7717",
+    "tomioka-silk-mill-gunma": "a697fec9b4f53d2e47726e770fbc4b5fb311fd42f54c0e5354c3fcc018b1ed82",
+    "tomogashima-islands": "40f06d24c4dfcf29058d4b8ad588a450293246464546a1c5c4270a78f7800ade",
+    "tsukiji-outer-market": "229fe643c40c55678ee5b97577da8a83862374493c6a549e6d82b69237c97fcd",
+    "ueno-taito": "392a3151e4a607914847bf7b6aca0e44b3a74949492ba911bc3fa09278b07104",
+    "uji-tea-culture-center": "5f1c6e628adff273f5db670b4378adedc1013ddb6500803188a683456f6c983d",
+    "ukimido-mangetsu-ji": "c03503daa1d33b043f3c6c1495b51a3a6f5a85a2b3b3d9a5cd672d6e1c332ec2",
+    "uradome-coast": "8b85bc2f5dd32dda59ece5af55d2d7e54103113c5b5cf6eeaecfd09462a49fa0",
+    "ushiku-daibutsu": "19c5475ba9d25dbb9942e8d3940733c5212433c3654c120dfcbb2e2ee291faa7",
+    "usuzumi-zakura": "084f0199fc4b57a20730f87cf91c4e2644073c380d9c723cb65210fac596450c",
+    "utsunomiya-oya": "15eb743710dca4c2efc4edc3ecdf6072528b4f78c73f007b05cf67173e0c8a10",
+    "wakakusayama": "da2ea3237ef6c13cf1ae26a3856ba33e306dec854a4c645c61ce8a740710ee05",
+    "wakayama-castle": "6f6a57a5b34fad76660539e6b0e2eb7029e571e75b109069bf72d38f810eb2b1",
+    "yakushi-ike-park": "bf065841ea3d3557f51df3f212c1cc69dc75a8d6ef73ea998f0129164f216acb",
+    "yokohama-city": "6ea3b0e3b5839d98a396cd09f5affa9e7f13fc7f5333cab49492b0e4616152cf",
+    "yokohama-marine-tower": "15b40d61ae6691f3551395792f1a6c328f52f6837360b9388c217e3f959aa2aa",
+    "yonaha-maehama-beach-miyako": "00694b77dca41bb8e80320eb4ebb68ce59e181ed0e9999eb42a2a3012dbdb400",
+    "yonehara-beach-coral-ishigaki": "49daeafc2079aeef1cff63241a15c4cf391290c6981450cc0634ff931cd1c63e",
+    "yoshida-koriyama-castle": "4690eca31ff95913cb55dc8696b6bb6957468f4562438bb7e13a9ecf8cc6c9e9",
+    "yoshinogari": "6fafdcfbe00e5e476ce3b00e080633d07a2ab35ec88ef39c0c157c5e624bf320",
+    "zoshigaya-kishimojindo": "d20e8ad143d8cd8ed6bcd751b52e8d65c41b18f6c25dae2933802a4911a881f5",
+    "zushi": "775af0c5dc56acd95f66b8f3738826f14475e45b9c1d7fd235dad66f0e2dc1c9"
+  },
+  "sourceIdentityFingerprints": {
+    "abeno-harukas-300-osaka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "akasaka-minato": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "asakusa-taito": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ashigara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "asuka-fujiwara-nara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "azuchi-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "bise-fukugi-tree-road-motobu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "busena-marine-park-nago": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-nokogiriyama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-sawara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-yoro-valley": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chofu-historic-jindaiji-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chuo-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "cup-noodles-museum-yokohama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "daisho-in": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "danjo-garan-koyasan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "disneysea": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "edo-castle-tokyo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "farm-tomita": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fujisawa-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fukuoka-yatai": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fukuyama-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "genbudo-cave-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "gessho-ji-temple-matsue": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ginza-itoya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hachioji-castle-tokyo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hakone-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "harajuku-takeshita-street": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "harry-potter-studio": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hida-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hiei-zan-driveway-observatory": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "higashi-hennazaki-cape-miyako": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hikone-castle-shiga": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "himeji-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hiraizumi-chusonji-iwate": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hiroshima-national-peace-memorial-hall": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hokki-ji-pagoda": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hondori": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "horikawa-pleasure-boat": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ibaraki-fukuroda-falls": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ikebukuro-toshima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "iki-tsushima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "inasa-beach-izumo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ine-funaya-boathouses": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ise-grand-shrine": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "izushi-castle-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "jindai-zakura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "jogashima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "joypolis": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kabira-bay-ishigaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kamakura-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kanayama-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kannai-yokohama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "karato-market-shimonoseki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kataonami-beach-wakanoura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawagoe-castle-saitama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawagoe-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawagoe-kurazukuri": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawasaki-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kegon-falls-nikko": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "keio-rail-land": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kibitsu-shrine": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kinojo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kirin-beer-yokohama-factory": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kishi-station-tama-cat": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kita-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kitaro-chaya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kobe-maya-night-view": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kojima-denim-street": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kokusai-dori-naha": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "koto-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kouri-island-okinawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "koya-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kubota-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kuroshio-market-marina-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kusatsu-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kyoto-historic": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kyusendo-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "lake-biwa-shiga": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "matsudo-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "matsushiro-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "meoto-iwa-wedded-rocks": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miharu-takizakura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "minato-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "minato-mirai-yokohama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mito-castle-ibaraki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mito-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miyajima-gojunoto": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miyajima-omotesando": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miyakojima-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "momijidani-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mount-yoshino-nara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mozufuruichi-kofun-osaka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nachi-falls-wakayama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nago-pineapple-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nakijin-castle-ruins-motobu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "naminoue-shrine-naha": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nanao-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nanatsugama-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nara-historic": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nara-park-todaiji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "naramachi-historic-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "national-museum-western-art-tokyo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ne-castle-hachinohe": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nemuro-peninsula-chashi-sites": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nichinan-kaigan-drive": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nikko-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nikko-toshogu-shrine-tochigi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nippara-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nippo-kaigan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "oarai-marine-tower": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "odani-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "oka-castle-oita": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "okage-yokocho-oharai-machi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "okinawa-senseki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "okinoshima-munakata-fukuoka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "okunoin-cemetery-koyasan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ome-railway-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ome-retro-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "omi-hachiman-canal": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "omiya-railway": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ono-castle-dazaifu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ontakesan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "osaka-central-public-hall": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ota-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "play-museum-tachikawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "polar-science-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "rainbow-bridge": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ritsuunkyo-viewpoint": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "roppongi-hills-tokyo-city-view": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ryogoku-kokugikan-sumo-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "saigoku-33": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "saitama-nagatoro": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sakai-city-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sakura-castle-chiba": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sannai-maruyama-jomon-aomori": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sarakurayama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "seiko-museum-ginza": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "senjojiki-sandanbeki-cliffs": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "senjokaku": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shibuya-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shibuya-crossing-hachiko": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shibuya-sky-shibuya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shikoku-henro": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shirahama-beach-adventure-world": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shirahige-shrine-lake-biwa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shiraito-falls": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shitennoji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shokanbetsu-teuri-yagishiri": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shoryu-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shuri-castle-okinawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "soji-ji-yokohama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sumida-river-walk": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sunshine-60-observatory-ikebukuro": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "suwa-shrine-tachikawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tachikawa-manga-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takanawa-gateway-minato": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takao-599-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takaoka-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takaoka-daibutsu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takatori-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takayama-sanmachi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takeda-castle-ruins-hyogo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tamatorizaki-viewpoint-ishigaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "teamlab-planets": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-hinohara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-metropolitan-government-building-shinjuku": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-mt-mitake": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-okutama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tomioka-silk-mill-gunma": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tomogashima-islands": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tsukiji-outer-market": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ueno-taito": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "uji-tea-culture-center": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ukimido-mangetsu-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "uradome-coast": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ushiku-daibutsu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "usuzumi-zakura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "utsunomiya-oya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "wakakusayama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "wakayama-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yakushi-ike-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yokohama-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yokohama-marine-tower": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yonaha-maehama-beach-miyako": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yonehara-beach-coral-ishigaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yoshida-koriyama-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yoshinogari": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "zoshigaya-kishimojindo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "zushi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d"
+  },
+  "outsideTailPublishedIdentityFingerprint": "6557daf3bc28d667b1fbc69585624156a38accbe238ea2f1eb7e7ab2ec136c48",
+  "phase1ReviewLedgerFingerprint": "982fc0ca3d2b39ed5c94de4716130f66a75230a47443e4c1e736c495f2fee376",
+  "phase1ReviewInputFingerprints": {
+    "amami-iriomote-natural-site": "1dea3faca5fe18801b778dbda586e110756e42264e84a37fc3bc88c757a2449d",
+    "aoshima-island-miyazaki": "def50581a37cbf0941aa28928d0ffbc0e4a001b9f4a34d9e768a4acedd6b324a",
+    "aso-city": "1364afd7135bf0740934c49251829af5bed12e9a0831083515592e4410b50611",
+    "aso-volcanic-museum": "3c825692808870b813e5bc2925833dd458b2ba4cacea457cf886d1b42fb735ef",
+    "beppu-city": "8371b9e15298783386faa60fba4cd5fbf7ea0649063701fa77b17d9a24ffc660",
+    "beppu-hells-oita": "236b8c527f8060293960938fb7a7fde601acfdec20bda58e080718da401edb05",
+    "boso-no-mura": "31ff1c1d1e2cae46477533bb4bff0902858b452d77300d59fea9ad78a9a7d835",
+    "cape-nagasakibana": "3360c2e5b8ad6168925fb63c7ea3f2d710541c7fdc0d139f563eb0912c11ba52",
+    "chiba-city-folk-museum": "304d60ad35f37fa00a634827d28492654cc3a2bf433b0742849b8410daabce3a",
+    "chiba-city-museum-of-art": "26ab7d36c4492530a5663d20227dbdd2b18ae636d631220f19190760daeec095",
+    "chiba-park": "66ea5ebdf7a9e94c61368f12a09fa9c541ae3876ca3d0e0afa66c8b0dc3d2af8",
+    "chiba-port-park": "bf0b8409d37ada6d13e02b08d1b4e52f87a4376a81e93f86af967f4b48cb1d2a",
+    "chinatown-nagasaki": "33a4800a43b91e0bbd5ad6fce6dea6d075ecb65f2ef3942f97a9fb6ff4c532c4",
+    "chiringashima-island": "60fb49d8cdf47f916706db629da95d190965a9cb8c4e77bb6502bcfa279d6cd7",
+    "daikanbo-viewpoint-aso": "d870e9bdd2ba8ff86ba92d48a14bf3f90ab70b27c2ede163485271eea866280b",
+    "dazaifu-city": "5d77c4b924c60c07621693d6a34d8b4545d5f9345cf7c9a862ccd017d6f98e9b",
+    "dazaifu-tenmangu": "f8313748dde15aa769da9999eb2be9dd6c15d401aca4290f0ecbde2db158eabd",
+    "enoshima-aquarium": "58fff20b874e744d69cd5fe01d65be0da319b4230f583e4f63f9c5d63f399789",
+    "fujiko-f-fujio-museum": "ed6523026be1da1c7b20ed88dca9901a54b22f920e5591c1db40108c3343bc5d",
+    "fukuoka-castle-ruins": "233a8f636a314c50762e1c3bd30e9d4346f2e97bb9b9ee506c3890ae2580c1c6",
+    "fukuoka-paypay-dome": "f44a9f4dc703f1cd4a1986e920536ad279ca0d64a139833604b0f879da1852f0",
+    "gotoku-ji": "097a55bb3ec87c4c087ec883213e90f60092cb35ca3a439becdd4f251da4171f",
+    "gunkanjima-hashima-nagasaki": "3c2e837460761ffa47e32c18ab0c30562c24df5afef4b952034ed633a086e046",
+    "hakata-machiya-folk-museum": "913feccabb3b6438052c3f06c8ca36d6eefd7be8b6e71e1b08a4d5300f3b452c",
+    "hakata-station-area": "240c66ee9f12c278aba617294581ee69b99913178992bae87f2c5513bb0f6bc0",
+    "heiwadai-park-miyazaki": "35b8db503402780279a9bc473da69a88f724ae2ee9c5eee890f30956ab184659",
+    "hita-city": "e412f25485b5fefcc64fc1ade065e90f583158e0ae700f726c4356fc12848419",
+    "hita-gion-yamahoko-museum": "898457001fdbc3ab950b2ed28865f96f6ddb403c7b8e1af153c16cd4536ff173",
+    "hita-onsen": "60a4e391ed360b3a4e906f7f3855b1fed4ffb9ae77253126b7ace49962d2a6ca",
+    "ibusuki-city": "efddae064aa5a97b5b9e3aa69b553ae436b1c951a575b45f7474b135babd3c9f",
+    "inage-seaside-park": "cb5679677eabd5c17152c15aa2d8c0529ba75c97af89994121b69d2fb0e907eb",
+    "ishidake-observatory": "266a402a669f5d0eec95a78ae00da825062b147bcef43640c3405aba68567315",
+    "iwatsuki-ningyo-museum": "33b8bb5441c50955359b072589b80666fda39f526d6394effff5507f7543dfc8",
+    "jochi-ji": "9bf85478493967aa60585b118c0451934d92aa51cb9bf992992c0045d20b86be",
+    "jomon-sugi-yakushima": "ee7fed98888f2a364aeb5fa96a513fa68ed43f0617f124bd84bb757b227d4131",
+    "kagoshima-city-aquarium": "7be181dc640fd06b7e3d96444c2cbbffec16230dc115df87992c1e30324ea79f",
+    "kagurazaka": "783c858d825f638253a93f31718f7b0307cdbb17bee23039e501bb6e6f5a4ca4",
+    "kamakurakokomae-station": "ee854f3a08496106bb65e7ededed25cc034f48280a13c5927ac93c3c0875fa83",
+    "kangien-academy": "132a804453861f51402e9925e2580eccfe67d4cad0a5e543192ec5ce94120254",
+    "kannawa-onsen-district": "ca28ce75cf78c71b8f61f18edec4986f3960c7ec6414af0880b1f48c6c0e03a1",
+    "katase-higashihama-beach": "21b6460190183cb7ae1253aafe817cbcb06443761ce5541197b50f6ede8048e2",
+    "kennin-ji": "cbd440391b700a2890e3f2b32d246088de1b2615a3357446355cf77482614b45",
+    "kinrin-lake-yufuin": "224a90fd5264f87fdec34b7fdd4153217bfa3ae6edbbe63f92d855ff79fe4455",
+    "kitakyushu-manga-museum": "b4a0915468a3a50cf46f33ff76e7a8d01c4f52bdd91e668f4e94dcec8330bb3a",
+    "kitano-ijinkan": "1197eb9c023a4b5900df00a8ba4d2d7ccbeb8f1fa2bb14bfc7f894066f0237cb",
+    "komachi-street": "7acd06f2f9dfc60e03acc29a273a46ac94709eccc238671f940176c385159bba",
+    "komyozenji-temple-dazaifu": "4325152ddcb31d727601166e009629e867a4f6ab7378f8acc435f35be06d9d00",
+    "kujukushima-pearl-sea-resort": "4c31eb539c1415467609dc532487e6d62c4c7a8a67b252e11fff4a47ec1725ff",
+    "kumamoto-prefectural-art-museum": "e0d3306c37c7bf12f3f37dbe9fe0c97678ee0784baaa69255bff0fa95a08cf1d",
+    "kuromon-market": "b1a725b28328d844bc1216cb0dbe59202706400ccf4cce460c452180e9c6b3c1",
+    "kusasenri-meadow-aso": "235bd2ff900a788452edce5b83009355c94ef36f9c8e33dc85f1501668ff79b8",
+    "maizuru-park": "b111a7616b9af15c23b034a63a19d3a25b66c766d639731194892de3e7aadf8a",
+    "makuhari-seaside-park": "209d1f68f086ac3a02aa437dbb4aaba758c02bf416a9e5625d07b838c1588dc7",
+    "mameda-historic-district": "8bd0860a497acef0cedab13e90c2178f5830ca58536c4da87769d10a025925c1",
+    "meganebashi-bridge-nagasaki": "609cfaa714eee295b4b5f3ca07a087035c55e480f5a4e7820f7e121155d15124",
+    "miyazaki-jingu-shrine": "cdc7c57c1a37cded7b5d75cea9bb5e41b64dd6fdabf7fff31f34032bc40d8fb2",
+    "mojiko-retro-district": "0cf7b82738acc261b678ad0b38104dc388f4aea2d9266ddae462f52a3486988b",
+    "mount-aso-kumamoto": "dc86f0d708703b230a900dc4dbba94bed9a362639110f7d673d30bfab3517dd3",
+    "museum-of-aeronautical-sciences": "556cb113d1c32b978f3a3f15cf6dfae9539f2042c2ba18d7b6fbb86ffb67ff4d",
+    "nagasaki-peace-park": "f718a1fd444a3e664dd72da4bb52e2ec8c2d8368647699dbc938f660565a1139",
+    "nakadake-crater-aso": "45bb10bd3bed2a44239300d8784af54e3982fe56c0deaa91d5ef5a651ea81bb1",
+    "nanatsugama-sea-caves": "901410b349a8353670cc19a162ebc4d7fe6488246147c1c5d37a2dc79e114220",
+    "narita-airport-observation-decks": "cab87d3601ca403207a7a64064094e0af6a1e1068ee521e4b8f12f1c338ae5a8",
+    "naritasan-park": "6b3472a4bcbaa35fc1d8add0c6963f904f8f5332a33da8fb61e82a5b5d77fb4e",
+    "nijinomatsubara-pine-grove": "6d9edb0c075de7c9f6c0e7910f58daff9510ef274a085bc5bec1ece791cf84a6",
+    "obi-castle": "69d883b51590a33079b063cdefbaceb52d880a4b8db547c13e51b0ef4bc89d40",
+    "omiya-bonsai-art-museum": "e2a7d58de7ae31bd54f0801c6ba452d08db4fe62c44cdc75d310fdca7a066c5c",
+    "omoide-yokocho": "deb650432818848f8459fdd42f2ed7092abb448e986133b5e37ddda9d58dfd65",
+    "onta-pottery-village": "2beb9dd8a21b44fc3f6a9bc2744e13ec55c413e4d3393857d893868a9ef3de6a",
+    "osaka-station-city": "b93c717dfa809098af93fb8946c97e386ac538b3265bd61a9bdc6488af7b64dc",
+    "oura-church-nagasaki": "4dd31ee0b714c45e6cc0ab5a4fe02fd748ac33cae41dd902f9c5e80d40f9f561",
+    "renkeiji": "e9ce612deef2b0e265862c60564db4f3ba6386c1ca50d8be4d9f0418b5d0f5ec",
+    "ryoan-ji": "a56d7e3d314b107055ce50f689a3dbcf91ee24a6626eedc5d56a016ab62a34b1",
+    "saitama-shintoshin": "78ade49e29ad5dbebd89e112281125c61c08f69c51d3c0b35a9a0b6a3a11470d",
+    "sakurajima-volcano-kagoshima": "8f9c427509303ff5c54a579ea014f970b17f5285f9230e80c839d0959087f8fe",
+    "sasebo-naval-port-cruise": "cf7f3954392027445061549ef8b56c1bc590dbdeff8c92739b5892b14335421e",
+    "sengan-en-garden-kagoshima": "281ca5e8e65e10435e368f7995c995564504bf55d2c8bb587cd6a9b92b7c8447",
+    "shinjuku-gyo-en": "bff6147986af7450e435c6222cd528f4ac763cafb167fa5e503ee4c3c1d6cce7",
+    "shinsho-ji": "c5709aa8c6fe9500299971c0e8b2a5764b82e42384876fe4e38100bf8db7f92c",
+    "shiratani-unsuikyo-ravine": "19086e358e090e218836cb8e3eee42c6bce402910c568f0a695a639150ff4241",
+    "shonan-kaigan-park": "83fa02ed9486659f1a761cb9deb1ceeafb45c48fad80031db7636bb3288806c2",
+    "suizenji-garden-kumamoto": "f7f42bc4bc438febd853299b532e152d90e6515a0f841e18c12a6fa5a7763b01",
+    "sun-messe-nichinan": "940f94cfb628142835f65112c2f815830af882ce9974ab131b0b5d7cb6f0a6c3",
+    "sunamushi-onsen-saraku": "31eb162e8d837b7bfccdce9d5ed36ca0a306debc44ebae6f5e272e2c891ea55f",
+    "takachiho-gorge": "1f1df594d5cfa74064ef0536f4868b12d107449b5ef752b001acda6a1352448c",
+    "takachiho-kagura-dance": "f86e5c158848547c3f7eebaf68e979490fff17a26364460538e592eb2593fadb",
+    "takachiho-town": "318dabb6f4fedcd012d759243f630abe2a0b846da13c10df71681aabdc4d1866",
+    "takegawara-onsen-beppu": "0182e5d1ceeca219e6e0f46521fcedc3fb81e7ddac9fd3f02517ef5b606621e1",
+    "tenjin": "302b46c8edf86ab014401e8768d5f263d45de3167d5eb731a5f735055bbda48f",
+    "toto-museum-kitakyushu": "9c2b46e7c638e139c442ea99d93b46780659bdc19ef80d657501831e6e00213d",
+    "umi-kirara-aquarium": "37597b6e4f4a6cdbf2beac2361a4c56535dff874777b74916f8810734ece3457",
+    "yakushima-town": "1f6962de558d8361bfff79cb67975a5dfc8300e348de47692623f491f58d18ea",
+    "yakusugi-land-yakushima": "d8242c4be8a823412b3011852edc404bfa6bbb853e69182443ff85e87b37c2c0",
+    "yasaka-shrine": "0a0428b290d0c620ce7b500acc660fe23240b15c105f49669c4ccf06e3869f88",
+    "yobuko-morning-market": "59d7d01830a5c49c9b33026ead93256266bbbb6a40f3c9f82991db1ce3b2221d",
+    "yufu-city": "ec1e053b4f4c926d51a85862a52026140233d52ab5299802e1a3e6a1bd45de1a",
+    "yufuin-floral-village": "55fa9b32047277af6d1b840503d071e94b30d405029b3a25aae63be09103276a",
+    "yufuin-onsen-ryokan-district": "5f90a7e5d87495d469cc61df23bf233bace0300d0fa7d2eda138bfa534caf9ce"
+  },
+  "phase1ReviewIdentityFingerprints": {
+    "amami-iriomote-natural-site": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "aoshima-island-miyazaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "aso-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "aso-volcanic-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "beppu-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "beppu-hells-oita": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "boso-no-mura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "cape-nagasakibana": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-city-folk-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-city-museum-of-art": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-port-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chinatown-nagasaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiringashima-island": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "daikanbo-viewpoint-aso": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "dazaifu-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "dazaifu-tenmangu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "enoshima-aquarium": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fujiko-f-fujio-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fukuoka-castle-ruins": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fukuoka-paypay-dome": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "gotoku-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "gunkanjima-hashima-nagasaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hakata-machiya-folk-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hakata-station-area": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "heiwadai-park-miyazaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hita-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hita-gion-yamahoko-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hita-onsen": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ibusuki-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "inage-seaside-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ishidake-observatory": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "iwatsuki-ningyo-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "jochi-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "jomon-sugi-yakushima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kagoshima-city-aquarium": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kagurazaka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kamakurakokomae-station": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kangien-academy": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kannawa-onsen-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "katase-higashihama-beach": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kennin-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kinrin-lake-yufuin": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kitakyushu-manga-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kitano-ijinkan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "komachi-street": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "komyozenji-temple-dazaifu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kujukushima-pearl-sea-resort": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kumamoto-prefectural-art-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kuromon-market": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kusasenri-meadow-aso": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "maizuru-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "makuhari-seaside-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mameda-historic-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "meganebashi-bridge-nagasaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miyazaki-jingu-shrine": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mojiko-retro-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mount-aso-kumamoto": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "museum-of-aeronautical-sciences": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nagasaki-peace-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nakadake-crater-aso": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nanatsugama-sea-caves": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "narita-airport-observation-decks": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "naritasan-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nijinomatsubara-pine-grove": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "obi-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "omiya-bonsai-art-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "omoide-yokocho": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "onta-pottery-village": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "osaka-station-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "oura-church-nagasaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "renkeiji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ryoan-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "saitama-shintoshin": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sakurajima-volcano-kagoshima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sasebo-naval-port-cruise": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sengan-en-garden-kagoshima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shinjuku-gyo-en": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shinsho-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shiratani-unsuikyo-ravine": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shonan-kaigan-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "suizenji-garden-kumamoto": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sun-messe-nichinan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sunamushi-onsen-saraku": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takachiho-gorge": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takachiho-kagura-dance": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takachiho-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takegawara-onsen-beppu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tenjin": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "toto-museum-kitakyushu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "umi-kirara-aquarium": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yakushima-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yakusugi-land-yakushima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yasaka-shrine": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yobuko-morning-market": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yufu-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yufuin-floral-village": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yufuin-onsen-ryokan-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d"
+  },
+  "phase3CohortFingerprint": "7b0b88b8f921dd2e79d192f8da3621869c579d94189081e6e099f5e6ba3e877c",
+  "phase3CohortWholeFingerprint": "0f54d3046bb6c17faaea2aff51a1bf453dcb9115af9e38725966fd51531f6902",
+  "phase3ReportFingerprint": "d252a4de2a068c56c36ef7805d3184ed6dbc78219b293b15ea907dfb51f679de",
+  "phase3CacheFingerprint": "4bb185741ee2e4c78547bb024094e4496a7652f6c1e4862bcc8840f9fd53ebee",
+  "priorPhase3": {
+    "abeno-harukas-300-osaka": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "akasaka-minato": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "asakusa-taito": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "ashigara": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "asuka-fujiwara-nara": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "azuchi-castle": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "bise-fukugi-tree-road-motobu": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "busena-marine-park-nago": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "chiba-nokogiriyama": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "chiba-sawara": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "chiba-yoro-valley": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "chofu-historic-jindaiji-district": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "chuo-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "cup-noodles-museum-yokohama": {
+      "state": "unresolved",
+      "reason": "wikidata-sitelink-only"
+    },
+    "daisho-in": {
+      "state": "ambiguous-candidate",
+      "reason": "multiple-qid-candidates"
+    },
+    "danjo-garan-koyasan": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "disneysea": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "edo-castle-tokyo": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "farm-tomita": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "fujisawa-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "fukuoka-yatai": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "fukuyama-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "genbudo-cave-park": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "gessho-ji-temple-matsue": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "ginza-itoya": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "hachioji-castle-tokyo": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "hakone-town": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "harajuku-takeshita-street": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "harry-potter-studio": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "hida-cave": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "hiei-zan-driveway-observatory": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "higashi-hennazaki-cape-miyako": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "hikone-castle-shiga": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "himeji-castle": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "hiraizumi-chusonji-iwate": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "hiroshima-national-peace-memorial-hall": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "hokki-ji-pagoda": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "hondori": {
+      "state": "ambiguous-candidate",
+      "reason": "multiple-qid-candidates"
+    },
+    "horikawa-pleasure-boat": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "ibaraki-fukuroda-falls": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "ikebukuro-toshima": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "iki-tsushima": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "inasa-beach-izumo": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "ine-funaya-boathouses": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "ise-grand-shrine": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "izushi-castle-town": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "jindai-zakura": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "jogashima": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "joypolis": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kabira-bay-ishigaki": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "kamakura-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kanayama-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kannai-yokohama": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "karato-market-shimonoseki": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "kataonami-beach-wakanoura": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kawagoe-castle-saitama": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kawagoe-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kawagoe-kurazukuri": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kawasaki-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kegon-falls-nikko": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "keio-rail-land": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kibitsu-shrine": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kinojo": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "kirin-beer-yokohama-factory": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kishi-station-tama-cat": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kita-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kitaro-chaya": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kobe-maya-night-view": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kojima-denim-street": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kokusai-dori-naha": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "koto-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kouri-island-okinawa": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "koya-town": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kubota-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kuroshio-market-marina-city": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kusatsu-town": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "kyoto-historic": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "kyusendo-cave": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "lake-biwa-shiga": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "matsudo-city": {
+      "state": "ambiguous-candidate",
+      "reason": "multiple-qid-candidates"
+    },
+    "matsushiro-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "meoto-iwa-wedded-rocks": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "miharu-takizakura": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "minato-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "minato-mirai-yokohama": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "mito-castle-ibaraki": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "mito-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "miyajima-gojunoto": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "miyajima-omotesando": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "miyakojima-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "momijidani-park": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "mount-yoshino-nara": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "mozufuruichi-kofun-osaka": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "nachi-falls-wakayama": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "nago-pineapple-park": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "nakijin-castle-ruins-motobu": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "naminoue-shrine-naha": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "nanao-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "nanatsugama-cave": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "nara-historic": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "nara-park-todaiji": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "naramachi-historic-district": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "national-museum-western-art-tokyo": {
+      "state": "unresolved",
+      "reason": "wikidata-sitelink-only"
+    },
+    "ne-castle-hachinohe": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "nemuro-peninsula-chashi-sites": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "nichinan-kaigan-drive": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "nikko-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "nikko-toshogu-shrine-tochigi": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "nippara-cave": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "nippo-kaigan": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "oarai-marine-tower": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "odani-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "oka-castle-oita": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "okage-yokocho-oharai-machi": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "okinawa-senseki": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "okinoshima-munakata-fukuoka": {
+      "state": "unresolved",
+      "reason": "parent-child-check-not-evaluated"
+    },
+    "okunoin-cemetery-koyasan": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "ome-railway-park": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "ome-retro-town": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "omi-hachiman-canal": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "omiya-railway": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "ono-castle-dazaifu": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "ontakesan": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "osaka-central-public-hall": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "ota-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "play-museum-tachikawa": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "polar-science-museum": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "rainbow-bridge": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "ritsuunkyo-viewpoint": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "roppongi-hills-tokyo-city-view": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "ryogoku-kokugikan-sumo-museum": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "saigoku-33": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "saitama-nagatoro": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "sakai-city-museum": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "sakura-castle-chiba": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "sannai-maruyama-jomon-aomori": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "sarakurayama": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "seiko-museum-ginza": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "senjojiki-sandanbeki-cliffs": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "senjokaku": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "shibuya-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "shibuya-crossing-hachiko": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "shibuya-sky-shibuya": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "shikoku-henro": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "shirahama-beach-adventure-world": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "shirahige-shrine-lake-biwa": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "shiraito-falls": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "shitennoji": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "shokanbetsu-teuri-yagishiri": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "shoryu-cave": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "shuri-castle-okinawa": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "soji-ji-yokohama": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "sumida-river-walk": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "sunshine-60-observatory-ikebukuro": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "suwa-shrine-tachikawa": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "tachikawa-manga-park": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "takanawa-gateway-minato": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "takao-599-museum": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "takaoka-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "takaoka-daibutsu": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "takatori-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "takayama-sanmachi": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "takeda-castle-ruins-hyogo": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "tamatorizaki-viewpoint-ishigaki": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "teamlab-planets": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "tokyo-hinohara": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "tokyo-metropolitan-government-building-shinjuku": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "tokyo-mt-mitake": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "tokyo-okutama": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "tomioka-silk-mill-gunma": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "tomogashima-islands": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "tsukiji-outer-market": {
+      "state": "unresolved",
+      "reason": "entity-type-insufficient"
+    },
+    "ueno-taito": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "uji-tea-culture-center": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "ukimido-mangetsu-ji": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "uradome-coast": {
+      "state": "unresolved",
+      "reason": "parent-child-check-not-evaluated"
+    },
+    "ushiku-daibutsu": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "usuzumi-zakura": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "utsunomiya-oya": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "wakakusayama": {
+      "state": "high-confidence-awaiting-apply",
+      "reason": "validated-high-confidence"
+    },
+    "wakayama-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "yakushi-ike-park": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "yokohama-city": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "yokohama-marine-tower": {
+      "state": "unresolved",
+      "reason": "entity-type-mismatch"
+    },
+    "yonaha-maehama-beach-miyako": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "yonehara-beach-coral-ishigaki": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "yoshida-koriyama-castle": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "yoshinogari": {
+      "state": "ambiguous-candidate",
+      "reason": "language-identity-conflict"
+    },
+    "zoshigaya-kishimojindo": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    },
+    "zushi": {
+      "state": "unresolved",
+      "reason": "no-candidate"
+    }
+  },
+  "proposedIdentityFingerprints": {
+    "abeno-harukas-300-osaka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "akasaka-minato": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "asakusa-taito": "1a59ea59bf248098a2ad182593dcbf72b883b35f77391a2d0280daba550d05be",
+    "ashigara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "asuka-fujiwara-nara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "azuchi-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "bise-fukugi-tree-road-motobu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "busena-marine-park-nago": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-nokogiriyama": "14720795b7910929b72da5f8fae2fc84385625840784dbd3d52c31a2c21143ed",
+    "chiba-sawara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chiba-yoro-valley": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chofu-historic-jindaiji-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "chuo-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "cup-noodles-museum-yokohama": "6e6be8c0ec1935f9836b7efdc237b498d1b22a1839ce495db3b48e09def1310f",
+    "daisho-in": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "danjo-garan-koyasan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "disneysea": "f4a1007b3aa51bc67e472195f5f3532f0fe5760fd201fbee204d28be622d4d50",
+    "edo-castle-tokyo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "farm-tomita": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fujisawa-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fukuoka-yatai": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "fukuyama-castle": "242129f7305266f9690601cc5dc6f80118c0bd6c9f9e846a9175097c3fc7af0d",
+    "genbudo-cave-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "gessho-ji-temple-matsue": "4e7180109e55b5a262b6891da63ca5bb197a0015171f7544f3f1477cb6006fd5",
+    "ginza-itoya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hachioji-castle-tokyo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hakone-town": "93932755cfd259178229949ffe0a5b59c2698c1c13d3806aa0703a5c7719fc2a",
+    "harajuku-takeshita-street": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "harry-potter-studio": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hida-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hiei-zan-driveway-observatory": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "higashi-hennazaki-cape-miyako": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hikone-castle-shiga": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "himeji-castle": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hiraizumi-chusonji-iwate": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hiroshima-national-peace-memorial-hall": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "hokki-ji-pagoda": "e75b8f22bed5fc14e33d490543601b68f7edc0e1582a5dd5356e89a39de6eb16",
+    "hondori": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "horikawa-pleasure-boat": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ibaraki-fukuroda-falls": "be0bd4f821f360878f78ebef8f0afd0ca32b8497d091fc18baf9bdcf9ba11e53",
+    "ikebukuro-toshima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "iki-tsushima": "881509894a034a8c1524433e242715b5fd091444e20ccfde99402920e9828314",
+    "inasa-beach-izumo": "832f80f610e2516aa6c54c59227ed942fa32f300ea6be54dad8623add9269451",
+    "ine-funaya-boathouses": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ise-grand-shrine": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "izushi-castle-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "jindai-zakura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "jogashima": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "joypolis": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kabira-bay-ishigaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kamakura-city": "ead25a81438b4b688744457db7f0d96420aeb5760f5a23c8a74c7924c467a814",
+    "kanayama-castle": "458d535fcda2735b37d5b9ea72178aca04a48d1185de6c796770c84d81a7cb7f",
+    "kannai-yokohama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "karato-market-shimonoseki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kataonami-beach-wakanoura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawagoe-castle-saitama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawagoe-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawagoe-kurazukuri": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kawasaki-city": "63bc6c8af749ba90d22afb38b55d18354eb25490e4b20ced6ecd840d45cdc785",
+    "kegon-falls-nikko": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "keio-rail-land": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kibitsu-shrine": "905ee4d166a6dab3ea147578fa0bfca05376eb9a8a0f19bbc1cacb238c8146c2",
+    "kinojo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kirin-beer-yokohama-factory": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kishi-station-tama-cat": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kita-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kitaro-chaya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kobe-maya-night-view": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kojima-denim-street": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kokusai-dori-naha": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "koto-city": "94a05cfc6af642f5cdb844fba422ebda6c29232dd02be28ae28db7d0d8e74ff4",
+    "kouri-island-okinawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "koya-town": "bf043c6ad69ec584f9965888cdb2c258c620c278dc6624479b2b32e20ee4bea4",
+    "kubota-castle": "3f3c4673efde4e968162fad69be1f41e4c7c6f3359eed5b87d22c7d3c9b7c207",
+    "kuroshio-market-marina-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kusatsu-town": "201c8abb4b813976edfb6ef7a6fbe89394093e25f96777f9f658b42adc5ab3d5",
+    "kyoto-historic": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "kyusendo-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "lake-biwa-shiga": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "matsudo-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "matsushiro-castle": "b8341c32440bc8f329c85a7704f4c9e899c001e79be3a67a0b0e2e7c9915cfff",
+    "meoto-iwa-wedded-rocks": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miharu-takizakura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "minato-city": "2c90a86ee4d792d5a64d017b64d8d1b328101713d7486d580a5f92784e0ea965",
+    "minato-mirai-yokohama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mito-castle-ibaraki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mito-city": "46cf97e0b4e436f9b5aecaec4a2168ee4a993f136cd073cda7f1ca1531a1ef37",
+    "miyajima-gojunoto": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miyajima-omotesando": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "miyakojima-city": "a84459adcfaffa48a8104e8eeb43350224cfaaa50fbf9a6b9567a00e65d3bb23",
+    "momijidani-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mount-yoshino-nara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "mozufuruichi-kofun-osaka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nachi-falls-wakayama": "1321ef556189c57837cae75c5152d54670719a2e0044657be0cd1a77eeb1c612",
+    "nago-pineapple-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nakijin-castle-ruins-motobu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "naminoue-shrine-naha": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nanao-castle": "587f438aab672e2bfb7ed835c45a217a1979a2b7ab93059346a0ff8da5690673",
+    "nanatsugama-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nara-historic": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nara-park-todaiji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "naramachi-historic-district": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "national-museum-western-art-tokyo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ne-castle-hachinohe": "4fd80f8b23b85232a74c432f8cc0b2c4155fe34ef0e19ab120e5f1fd74264f1d",
+    "nemuro-peninsula-chashi-sites": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nichinan-kaigan-drive": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nikko-city": "90c81f993d96d04589710b06304d3edc999dedf56d69d058d8f261b653da50fa",
+    "nikko-toshogu-shrine-tochigi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nippara-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "nippo-kaigan": "62c3d438d991e5445b458a407b4c50a39f799b47cfedd29de99330b8344ae28f",
+    "oarai-marine-tower": "d2ea2bca103c2b0f0d99c49871deb5253b71ca525fb04642520d39b01dfd22c3",
+    "odani-castle": "3b61834f5721f7ee0e19134942a22d3b399ad0619a956ff881d9c74f81ce2eff",
+    "oka-castle-oita": "9e31381b8d6a6d76be34eabc35a4c567412d3aefcf2a2b5e11635cf56e805a41",
+    "okage-yokocho-oharai-machi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "okinawa-senseki": "33674e8b3639e02c5b1427485c0b9450b83ac6c758b3062fda4c8115291c7865",
+    "okinoshima-munakata-fukuoka": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "okunoin-cemetery-koyasan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ome-railway-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ome-retro-town": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "omi-hachiman-canal": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "omiya-railway": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ono-castle-dazaifu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ontakesan": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "osaka-central-public-hall": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ota-city": "44075d89e29f2e5e6a375b23831b2cdfe94e64eaf9e04c855b894f0b3f809f9e",
+    "play-museum-tachikawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "polar-science-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "rainbow-bridge": "a042feac503bb0be7ab8ec30b1274e8d21076295868bc6473828f670c72079f4",
+    "ritsuunkyo-viewpoint": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "roppongi-hills-tokyo-city-view": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ryogoku-kokugikan-sumo-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "saigoku-33": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "saitama-nagatoro": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sakai-city-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sakura-castle-chiba": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sannai-maruyama-jomon-aomori": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sarakurayama": "afb3692304414284568c47dd36ddc4ec62390c22e2ab9ba93340ed724d8231e0",
+    "seiko-museum-ginza": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "senjojiki-sandanbeki-cliffs": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "senjokaku": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shibuya-city": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shibuya-crossing-hachiko": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shibuya-sky-shibuya": "75691198ab47bc0784e53e08c9d15aafb7a789ffdb5635eb5d244267be915b85",
+    "shikoku-henro": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shirahama-beach-adventure-world": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shirahige-shrine-lake-biwa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shiraito-falls": "41e6fb2d6a859357cf4a54af035434c3eb556ff266cfa4c3d033fbe3545dad6b",
+    "shitennoji": "f56af46a681065a21da17196074f538b69cfa61a09bde255258f21181aca4e82",
+    "shokanbetsu-teuri-yagishiri": "12ff677058268a036b42021a087fe252e84118a5667439bc2b78cfa212bc8ffd",
+    "shoryu-cave": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "shuri-castle-okinawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "soji-ji-yokohama": "f5cc80bbbb418c9590c86f78b818c6848cd0c176e0703e780a6987f3e158e4f1",
+    "sumida-river-walk": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "sunshine-60-observatory-ikebukuro": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "suwa-shrine-tachikawa": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tachikawa-manga-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takanawa-gateway-minato": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takao-599-museum": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takaoka-castle": "88306bf5cbb17f751da0b78aab1e41aba3efb5aa73a89d2af98bf1f3c1d3f481",
+    "takaoka-daibutsu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takatori-castle": "93663aa9af585a1c7f979c793d9d5bcb3f76c390da19965cc7df7adeb90be42f",
+    "takayama-sanmachi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "takeda-castle-ruins-hyogo": "976ca9de43e4fad9184de762be662cce7b423fdadea7dae43d586e1faad96ebd",
+    "tamatorizaki-viewpoint-ishigaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "teamlab-planets": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-hinohara": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-metropolitan-government-building-shinjuku": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tokyo-mt-mitake": "2d9c0bf96f0c484a6331889558a13ede35265f75c01c6af1f0c5f4e44a2b5dba",
+    "tokyo-okutama": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tomioka-silk-mill-gunma": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tomogashima-islands": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "tsukiji-outer-market": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ueno-taito": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "uji-tea-culture-center": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ukimido-mangetsu-ji": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "uradome-coast": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "ushiku-daibutsu": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "usuzumi-zakura": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "utsunomiya-oya": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "wakakusayama": "ccab7637b6e5027871b254348b62f5171554bdbfda522319cee29732e00d4e34",
+    "wakayama-castle": "b81a5146907cd03de1847a28ef7af070d54a6520eba6961ba709257dcf8f1af7",
+    "yakushi-ike-park": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yokohama-city": "5ed38f82b82647e567476e4646008fd9afc78a9634cae4ca26c2e76ba2c88da5",
+    "yokohama-marine-tower": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yonaha-maehama-beach-miyako": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yonehara-beach-coral-ishigaki": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "yoshida-koriyama-castle": "ea6a3a9429ba085d43cbe7ab29321eaa4760d9012f244293ad230670c3cbe229",
+    "yoshinogari": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "zoshigaya-kishimojindo": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d",
+    "zushi": "ddeb06750b84497dba5aa27de3ed2511a36b75108c7e5f169faaf36ed52e4b8d"
+  },
+  "wholeTailFingerprint": "0a58672088f73af3c13c344cbb5420986da057b29197e762d004e7ec1a39456b"
+}

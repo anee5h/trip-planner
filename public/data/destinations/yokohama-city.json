@@ -217,5 +217,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Yokohama",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Yokohama",
+  "wikipediaPageId": 80313,
+  "wikidataId": "Q38283"
 }

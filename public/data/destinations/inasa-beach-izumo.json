@@ -203,5 +203,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "稲佐の浜",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%A8%B2%E4%BD%90%E3%81%AE%E6%B5%9C",
+  "wikipediaPageId": 803076,
+  "wikidataId": "Q11596453"
 }
