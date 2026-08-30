@@ -37,6 +37,9 @@ export interface TripCostBreakdownWidgetProps {
   partySize?: number;
   /** null = no estimable origin route; the total must not claim origin transport. */
   activeTransportMode?: string | null;
+  /** Hub pages keep an unavailable on-site fact compact instead of reserving
+   *  the full itemized cost card. */
+  compactUnavailableCost?: boolean;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
   defaultExpanded?: boolean;
@@ -54,6 +57,7 @@ export function TripCostBreakdownWidget({
   locale,
   partySize = 2,
   activeTransportMode = null,
+  compactUnavailableCost = false,
   ferryTemporal,
   defaultExpanded = false,
   hasGeneratedPlan = false,
@@ -380,6 +384,13 @@ export function TripCostBreakdownWidget({
       .slice(0, 2);
   }, [destination]);
 
+  const showCompactUnavailableCost =
+    compactUnavailableCost &&
+    !planCostBreakdown &&
+    !hasKnownCost &&
+    !partialPlanLabel &&
+    !enginePartialLabel;
+
   if (!destination) return null;
 
   const totalMax = displayedTotalRange?.[1];
@@ -401,6 +412,32 @@ export function TripCostBreakdownWidget({
       );
     }
   };
+
+  if (showCompactUnavailableCost) {
+    return (
+      <Card
+        data-testid="trip-cost-breakdown"
+        data-cost-state="unavailable-compact"
+        className="border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900"
+      >
+        <CardContent className="flex items-start justify-between gap-3 px-4 py-3">
+          <div className="min-w-0">
+            <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
+              {locale === "ja" ? "現地費用" : "On-site spend"}
+            </h3>
+            <p className="mt-1 text-xs text-slate-500 dark:text-slate-300">
+              {locale === "ja"
+                ? "交通費を除く現地費用は不明です。"
+                : "On-site spend unavailable; transport excluded."}
+            </p>
+          </div>
+          <span className="shrink-0 text-right text-xs font-bold text-slate-600 dark:text-slate-300">
+            {locale === "ja" ? "料金不明" : "Cost unavailable"}
+          </span>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card

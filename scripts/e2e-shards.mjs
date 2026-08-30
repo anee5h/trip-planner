@@ -46,6 +46,7 @@ const WEIGHTS = {
   "kai-144-early-home": 25, // eager surface + pre-readiness CTA interactions
   "kai-165-transport-preferences": 20,
   "kai-166-itinerary-action-row": 20,
+  "kai-212-hub-discovery": 20, // discovery-first hub hierarchy (mobile + desktop)
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
   "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
@@ -73,6 +74,7 @@ const BINS = {
     "kai-144-early-home",
     "kai-165-transport-preferences",
     "kai-166-itinerary-action-row",
+    "kai-212-hub-discovery",
     "kai-64-pwa",
     "kai-64-upgrade",
     "kai-80-a11y",

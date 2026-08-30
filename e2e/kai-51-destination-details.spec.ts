@@ -14,17 +14,19 @@ test("Destination details render hero, tabs and cost breakdown", async ({
     page.getByRole("heading", { name: "At a glance", level: 2 }),
   ).toBeVisible();
   await expect(page.getByTestId("destination-at-a-glance")).toBeVisible();
-  // Cost breakdown widget (kai-89 selector contract).
+  // KAI-212 hub cost contract: unavailable on-site spend is compact and
+  // explicitly transport-excluding instead of an expandable empty card.
+  await expect(
+    page.locator('[data-cost-state="unavailable-compact"]'),
+  ).toHaveCount(1);
   await expect(
     page.getByRole("button", { name: "View cost breakdown" }),
-  ).toBeVisible();
+  ).toHaveCount(0);
   await expect(page.getByTestId("trip-cost-breakdown")).toHaveCount(1);
   await expect(
     page.getByText("On-site budget (transport excluded)", { exact: true }),
   ).toHaveCount(0);
   await expect(page.locator("[data-rail]").first()).toBeVisible();
-  await page.getByRole("button", { name: "View cost breakdown" }).click();
-  await expect(page.getByText(/total|合計/i).first()).toBeVisible();
 });
 
 test("Japanese destination details render with the JA card", async ({

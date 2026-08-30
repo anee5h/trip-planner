@@ -14,6 +14,9 @@ interface DestinationPlanningSectionProps {
   partySize: number;
   /** null = no estimable origin route; origin transport stays unavailable. */
   selectedTransport: string | null;
+  /** Hub pages keep an unavailable on-site fact compact instead of reserving
+   *  the full itemized cost card. Non-hub callers retain the existing UI. */
+  compactUnavailableCost?: boolean;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
   accommodationAllowance?: number;
@@ -30,6 +33,7 @@ export function DestinationPlanningSection({
   locale,
   partySize,
   selectedTransport,
+  compactUnavailableCost,
   ferryTemporal,
   accommodationAllowance,
   tripMode,
@@ -160,6 +164,7 @@ export function DestinationPlanningSection({
         locale={locale}
         partySize={activePartySize}
         activeTransportMode={selectedTransport}
+        compactUnavailableCost={compactUnavailableCost}
         ferryTemporal={ferryTemporal}
         accommodationAllowance={accommodationAllowance}
         tripMode={tripMode}
