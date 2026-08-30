@@ -72,7 +72,7 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "koto-city",
-    "featuredDestinationIds": ["miraikan", "joypolis"]
+    "featuredDestinationIds": []
   },
   "bestSeason": "Summer",
   "weatherDependence": "moderate",

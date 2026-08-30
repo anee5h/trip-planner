@@ -50,7 +50,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["kiso", "matsumoto-city", "nagano-bessho-onsen"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "walkingIntensity": "high",

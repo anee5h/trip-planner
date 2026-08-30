@@ -19,7 +19,17 @@ let loadedRelationshipPlaces: Destination[] | null = null;
  * by destination detail rails; it is deliberately not the nationwide summary
  * catalogue. A failed request clears the singleton so retry can re-fetch.
  */
-export function loadRelationshipIndex(): Promise<Destination[]> {
+export function loadRelationshipIndex(
+  customPlaces?: Destination[],
+): Promise<Destination[]> {
+  if (customPlaces) {
+    loadedRelationshipPlaces = customPlaces.map((node) =>
+      toCanonicalPlace(node),
+    );
+    DestinationRelationshipService.clearIndex();
+    relationshipIndexPromise = Promise.resolve(loadedRelationshipPlaces);
+    return relationshipIndexPromise;
+  }
   if (!relationshipIndexPromise) {
     relationshipIndexPromise = fetch(RELATIONSHIP_INDEX_URL)
       .then((response) => {
@@ -122,10 +132,68 @@ export class DestinationRelationshipService {
     return this.byIdMap?.get(parentId) || null;
   }
 
+  /**
+   * KAI-257 invariant: Evaluates whether candidate is a valid attraction/POI
+   * belonging to hub.
+   *
+   * Rules:
+   * 1. Hub cannot feature itself.
+   * 2. Candidate must NOT be a destination-level container entity (role === "hub",
+   *    or kind in ["city", "town", "village", "ward", "region"]).
+   * 3. Candidate must be in the same prefecture.
+   * 4. Candidate must belong to this hub:
+   *    - If candidate has parentDestinationId, it MUST match hub.id.
+   *    - If candidate has no parentDestinationId, it must match municipalityId
+   *      and cannot be a root standalone destination.
+   */
+  static isValidChildSight(candidate: Destination, hub: Destination): boolean {
+    if (!candidate || !hub) return false;
+    if (candidate.id === hub.id) return false;
+    if (candidate.role === "hub") return false;
+
+    const destinationLevelKinds = ["city", "town", "village", "ward", "region"];
+    if (
+      candidate.kind &&
+      destinationLevelKinds.includes(candidate.kind as string) &&
+      candidate.role !== "poi"
+    ) {
+      return false;
+    }
+
+    if (candidate.prefecture !== hub.prefecture) return false;
+
+    if (candidate.relationships?.parentDestinationId) {
+      return candidate.relationships.parentDestinationId === hub.id;
+    }
+
+    if (
+      hub.municipalityId &&
+      candidate.municipalityId &&
+      hub.municipalityId === candidate.municipalityId
+    ) {
+      if (
+        candidate.role === "standalone" &&
+        candidate.placeType === "destination"
+      ) {
+        return false;
+      }
+      return true;
+    }
+
+    return false;
+  }
+
   /** Returns child attractions assigned to a parent hub. */
   static getChildDestinations(parentId: string): Destination[] {
     this.ensureIndex();
-    return this.childrenByParentMap?.get(parentId) || [];
+    const parent = this.byIdMap?.get(parentId);
+    const children = this.childrenByParentMap?.get(parentId) || [];
+    return children.filter(
+      (place) =>
+        place.id !== parentId &&
+        place.role !== "hub" &&
+        (!parent || place.prefecture === parent.prefecture),
+    );
   }
 
   /** Returns city hubs within a straight-line radius, ordered nearest first. */
@@ -164,19 +232,37 @@ export class DestinationRelationshipService {
       .map(({ place }) => place);
   }
 
-  /** Returns editorially featured top sights for a hub page. */
+  /**
+   * Returns editorially featured top sights for a hub page.
+   *
+   * Top Sights in a hub must contain only actual attraction/POI entities
+   * belonging to that hub. Peer destinations (cities, towns, villages, onsen
+   * areas, hubs, regions) and cross-municipality / unrelated destinations
+   * are strictly excluded.
+   *
+   * Never pads sparse rails with nearby or sibling destinations.
+   */
   static getFeaturedChildDestinations(city: Destination): Destination[] {
     this.ensureIndex();
+    if (!city || city.role !== "hub") return [];
+
     const featuredIds = city.relationships?.featuredDestinationIds;
 
     if (featuredIds && featuredIds.length > 0) {
-      return featuredIds
+      const validFeatured = featuredIds
         .map((id) => this.byIdMap?.get(id))
-        .filter((d): d is Destination => Boolean(d));
+        .filter((d): d is Destination => Boolean(d))
+        .filter((d) => this.isValidChildSight(d, city));
+
+      if (validFeatured.length > 0) {
+        return validFeatured;
+      }
     }
 
     // Fallback: child attractions assigned to this hub
-    return this.getChildDestinations(city.id).slice(0, 4);
+    return this.getChildDestinations(city.id)
+      .filter((d) => this.isValidChildSight(d, city))
+      .slice(0, 4);
   }
 
   /**

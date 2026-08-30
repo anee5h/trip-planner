@@ -52,7 +52,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
+    "featuredDestinationIds": ["izu"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {

@@ -52,12 +52,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "gero-onsen",
-      "gifu-castle-gifu",
-      "gifu-gujo-hachiman",
-      "gifu-magome-juku"
-    ],
+    "featuredDestinationIds": ["gero-onsen"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {

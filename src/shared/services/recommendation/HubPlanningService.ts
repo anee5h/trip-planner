@@ -78,19 +78,20 @@ export class HubPlanningService {
       if (d.id !== hub.id) candidateMap.set(d.id, d);
     }
 
-    // Fallback to nearby destinations if child list is small
-    if (candidateMap.size < 4 && hub.coordinates) {
-      const nearby = DestinationRelationshipService.getNearbyDestinations(hub);
-      for (const d of nearby) {
-        if (d.id !== hub.id) candidateMap.set(d.id, d);
-      }
-    }
+    // KAI-257: Only direct/featured child attractions belonging to this hub are eligible.
+    // Unsafe fallback to nearby/peer destinations is removed to prevent destination leakage.
 
     // STRICT GEOGRAPHIC & CATEGORY FILTERING
-    // Stops MUST NOT be another hub/city and MUST be within 15km of the hub
+    // Stops MUST NOT be another hub/city/town/village and MUST be valid child attractions within 15km of the hub
     const candidates = Array.from(candidateMap.values()).filter((d) => {
       if (d.id === hub.id) return false;
-      if (d.role === "hub" || d.kind === "city") return false; // Never pick cities/hubs as POI stops
+      if (
+        d.role === "hub" ||
+        ["city", "town", "village", "ward", "region"].includes(d.kind as string)
+      ) {
+        return false;
+      }
+      if (d.prefecture !== hub.prefecture) return false;
 
       if (hub.coordinates && d.coordinates) {
         const dist = getDistance(
@@ -101,7 +102,7 @@ export class HubPlanningService {
         );
         return dist <= 15; // Strict 15km radius constraint around hub
       }
-      return d.prefecture === hub.prefecture;
+      return true;
     });
 
     // Target stop count: half day = 2 stops, full day = 3 stops

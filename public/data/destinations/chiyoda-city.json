@@ -52,14 +52,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "akasaka-minato",
-      "akihabara-chiyoda",
-      "chofu-tokyo",
-      "edo-castle-tokyo",
-      "edogawa-city",
-      "ghibli-museum"
-    ],
+    "featuredDestinationIds": ["akihabara-chiyoda", "edo-castle-tokyo"],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "walkingIntensity": "low",

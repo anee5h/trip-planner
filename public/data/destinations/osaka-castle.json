@@ -63,7 +63,7 @@
   "totalTripHours": 4,
   "bestMonths": [4, 5],
   "relationships": {
-    "featuredDestinationIds": ["abeno-harukas-300-osaka"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["fukuoka-city"],
     "parentDestinationId": "osaka-city"

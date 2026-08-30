@@ -534,7 +534,13 @@ export default function DestinationDetails() {
   }, [destination, locale, relationshipCatalogueReady]);
 
   const featuredChildSights = useMemo(() => {
-    if (!relationshipCatalogueReady || !destination) return [];
+    if (
+      !relationshipCatalogueReady ||
+      !destination ||
+      destination.role !== "hub"
+    ) {
+      return [];
+    }
     return DestinationRelationshipService.getFeaturedChildDestinations(
       destination,
     ).filter((place) => isPlaceAvailableInLocale(place, locale));

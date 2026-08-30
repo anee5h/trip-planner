@@ -18,7 +18,7 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -464,7 +464,7 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -557,7 +557,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": ["kumamoto-castle"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "fukuoka-city",
         "kitakyushu-city",
@@ -608,7 +608,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": ["fujinomiya-city", "ito-city", "izu"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -762,7 +762,7 @@
     "kind": "town",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -1099,11 +1099,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "kawagoe-castle-saitama",
-        "kawagoe-city",
-        "omiya-railway"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -1126,12 +1122,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "ashigara",
-        "enoshima-island",
-        "hakkeijima",
-        "hakone-town"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -1200,14 +1191,7 @@
     "kind": "ward",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "akasaka-minato",
-        "akihabara-chiyoda",
-        "chofu-tokyo",
-        "edo-castle-tokyo",
-        "edogawa-city",
-        "ghibli-museum"
-      ],
+      "featuredDestinationIds": ["akihabara-chiyoda", "edo-castle-tokyo"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -1838,11 +1822,7 @@
     "kind": "town",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "fuji-5-lake",
-        "kofu-city",
-        "takeda-castle-yamanashi"
-      ],
+      "featuredDestinationIds": ["fuji-5-lake"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -1871,7 +1851,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": ["atami-city", "ito-city", "izu"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2178,7 +2158,7 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -2295,12 +2275,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "gero-onsen",
-        "gifu-castle-gifu",
-        "gifu-gujo-hachiman",
-        "gifu-magome-juku"
-      ],
+      "featuredDestinationIds": ["gero-onsen"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2373,12 +2348,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "gero-onsen",
-        "gifu-castle-gifu",
-        "gifu-gujo-hachiman",
-        "gifu-magome-juku"
-      ],
+      "featuredDestinationIds": ["gifu-castle-gifu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2528,12 +2498,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2754,7 +2719,7 @@
     "kind": "town",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": ["ashigara", "jogashima"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
       "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
     }
@@ -2768,12 +2733,7 @@
     "kind": "village",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "karuizawa-town",
-        "kiso",
-        "matsumoto-city",
-        "nagano-bessho-onsen"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2812,12 +2772,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -3118,7 +3073,6 @@
     "relationships": {
       "featuredDestinationIds": [
         "tama-zoological-park",
-        "takahata-fudoson",
         "hijikata-toshizo-museum",
         "keio-rail-land",
         "keio-mogusaen"
@@ -3624,7 +3578,7 @@
     "kind": "town",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": ["mount-yoshino-nara", "nara-park-todaiji"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
   },
@@ -3801,11 +3755,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "atsuta-shrine-nagoya",
-        "higashiyama-sky-tower-nagoya",
-        "mirai-tower-nagoya"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -3945,7 +3895,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
+      "featuredDestinationIds": ["izu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -4619,11 +4569,7 @@
     "kind": "town",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [
-        "kiso",
-        "matsumoto-city",
-        "nagano-bessho-onsen"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -4868,12 +4814,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "kawagoe-castle-saitama",
-        "kawagoe-city",
-        "omiya-railway",
-        "chichibu-city"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -5132,12 +5073,7 @@
     "kind": "city",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -5501,7 +5437,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": ["fuji-5-lake", "takeda-castle-yamanashi"],
+      "featuredDestinationIds": ["takeda-castle-yamanashi"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -5951,7 +5887,7 @@
     "kind": "town",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": ["gunma-kusatsu-onsen", "oze-national-park"],
+      "featuredDestinationIds": ["gunma-kusatsu-onsen"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -5976,7 +5912,7 @@
     "kind": "city",
     "status": "beta",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -6753,12 +6689,7 @@
     "kind": "town",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": [
-        "gunma-ikaho-onsen",
-        "gunma-kusatsu-onsen",
-        "gunma-shima-onsen",
-        "oze-national-park"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -8513,7 +8444,7 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "koto-city",
-      "featuredDestinationIds": ["miraikan", "joypolis"]
+      "featuredDestinationIds": []
     }
   },
   {
@@ -9043,7 +8974,7 @@
     "kind": "attraction",
     "status": "published",
     "relationships": {
-      "featuredDestinationIds": ["abeno-harukas-300-osaka"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["fukuoka-city"],
       "parentDestinationId": "osaka-city"
@@ -11047,7 +10978,6 @@
         "national-museum-western-art-tokyo",
         "ueno-park",
         "asakusa-taito",
-        "ueno-taito",
         "yanaka",
         "ameya-yokocho",
         "national-museum-of-nature-and-science",
@@ -11749,7 +11679,6 @@
       "featuredDestinationIds": [
         "awa-odori-kaikan",
         "bizan-ropeway-tokushima",
-        "tokushima-castle",
         "tokushima-modern-art-museum"
       ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]

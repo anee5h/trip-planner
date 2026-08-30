@@ -57,7 +57,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["hakodate-night-view"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
   },
   "walkingIntensity": "high",

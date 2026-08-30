@@ -52,12 +52,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "gunma-ikaho-onsen",
-      "gunma-kusatsu-onsen",
-      "gunma-shima-onsen",
-      "oze-national-park"
-    ],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "walkingIntensity": "low",
