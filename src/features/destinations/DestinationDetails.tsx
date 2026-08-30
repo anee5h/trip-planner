@@ -1021,10 +1021,7 @@ export default function DestinationDetails() {
   const hasHubDiscovery =
     isHub && (featuredChildSights.length > 0 || childDestinations.length > 0);
   const hasGoNext =
-    isHub &&
-    (nearbyCombinations.length > 0 ||
-      nearbyHubs.length > 0 ||
-      nearbyPlaces.length > 0);
+    isHub && (nearbyCombinations.length > 0 || nearbyHubs.length > 0);
   const hasRelatedPlaces =
     !isHub &&
     (nearbyCombinations.length > 0 ||
@@ -1552,26 +1549,16 @@ export default function DestinationDetails() {
               id="top-sights"
               data-section="top-sights"
               aria-labelledby="hub-discovery-heading"
-              className="space-y-7"
+              className="space-y-5"
             >
-              <div>
-                <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
-                  {locale === "ja" ? "この街をめぐる" : "Explore this city"}
-                </p>
-                <h2
-                  id="hub-discovery-heading"
-                  className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
-                >
-                  {locale === "ja"
-                    ? "見どころ・エリアを探す"
-                    : "Top sights and explore"}
-                </h2>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-500 dark:text-slate-300">
-                  {locale === "ja"
-                    ? "まずはこの街の見どころから、旅の候補を探せます。"
-                    : "Start with the places that make this city worth exploring."}
-                </p>
-              </div>
+              <h2
+                id="hub-discovery-heading"
+                className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+              >
+                {locale === "ja"
+                  ? "見どころ・エリアを探す"
+                  : "Top sights and explore"}
+              </h2>
 
               {featuredChildSights.length > 0 && (
                 <DestinationDetailRail
@@ -1579,11 +1566,6 @@ export default function DestinationDetails() {
                     locale === "ja"
                       ? `${localizedDestination?.name || destination.name}の見どころ`
                       : `Top Sights in ${localizedDestination?.name || destination.name}`
-                  }
-                  description={
-                    locale === "ja"
-                      ? "このエリアで特におすすめの見どころ"
-                      : "Featured places worth adding near this destination."
                   }
                   destinations={featuredChildSights}
                   currentDestinationId={destination.id}
@@ -1603,15 +1585,12 @@ export default function DestinationDetails() {
               )}
 
               {childDestinations.length > 0 && (
-                <div
-                  data-section="explore-rails"
-                  className="space-y-7 rounded-2xl border border-slate-200/80 bg-white/60 p-4 dark:border-slate-800 dark:bg-slate-900/40 sm:p-5"
-                >
+                <div data-section="explore-rails" className="space-y-5">
                   <div>
                     <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
                       {locale === "ja" ? "エリアから探す" : "Explore by area"}
                     </h3>
-                    <div className="mt-3 flex flex-wrap gap-2">
+                    <div className="mt-2 flex flex-wrap gap-2">
                       {areaGroups.map(([areaId, places]) => {
                         const area = getCityArea(areaId);
                         return (
@@ -2671,26 +2650,6 @@ export default function DestinationDetails() {
                       : "City hubs within 50 km."
                   }
                   destinations={nearbyHubs}
-                  currentDestinationId={destination.id}
-                  partySize={partySize}
-                  carMode={navState?.carMode || "none"}
-                  publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
-                  }
-                  previousLabel={copy.scrollLeft}
-                  nextLabel={copy.scrollRight}
-                />
-              )}
-
-              {nearbyPlaces.length > 0 && (
-                <DestinationDetailRail
-                  title={locale === "ja" ? "近くの場所" : "Nearby places"}
-                  description={
-                    locale === "ja"
-                      ? `${localizedDestination?.name || destination.name}に関連する場所`
-                      : `Related places for ${localizedDestination?.name || destination.name}.`
-                  }
-                  destinations={nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
                   carMode={navState?.carMode || "none"}
