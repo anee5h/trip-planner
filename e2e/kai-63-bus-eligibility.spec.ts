@@ -101,6 +101,7 @@ async function busResultCount(page: Page): Promise<number> {
   await page.goto("/destinations?mode=bus");
   const summary = page.locator("#results-grid span").first();
   await expect(summary).toBeVisible();
+  await expect(summary).not.toHaveText(/Preparing destinations|目的地を準備中/);
   const text = (await summary.textContent()) ?? "";
   const match = text.match(/^(\d+)/);
   return match ? parseInt(match[1], 10) : NaN;
