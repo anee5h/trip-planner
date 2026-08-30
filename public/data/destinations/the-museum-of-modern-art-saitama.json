@@ -221,5 +221,10 @@
     "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Museum of Modern Art, Saitama",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama",
+  "wikipediaPageId": 75536320,
+  "wikidataId": "Q11426772"
 }

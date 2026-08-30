@@ -228,5 +228,10 @@
     "sourceUrls": ["https://www.hachimangu.or.jp/en/access/"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
-  }
+  },
+  "wikipediaTitle": "Tsurugaoka Hachimangū",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
+  "wikipediaPageId": 1674335,
+  "wikidataId": "Q701403"
 }

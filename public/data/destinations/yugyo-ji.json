@@ -225,5 +225,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Shōjōkō-ji",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Sh%C5%8Dj%C5%8Dk%C5%8D-ji",
+  "wikipediaPageId": 39719731,
+  "wikidataId": "Q11561284"
 }

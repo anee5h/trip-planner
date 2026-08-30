@@ -225,5 +225,10 @@
     "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "National Museum of Art, Osaka",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
+  "wikipediaPageId": 7738587,
+  "wikidataId": "Q1055037"
 }

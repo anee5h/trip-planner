@@ -210,5 +210,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Fukuoka",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukuoka",
+  "wikipediaPageId": 61744,
+  "wikidataId": "Q26600"
 }

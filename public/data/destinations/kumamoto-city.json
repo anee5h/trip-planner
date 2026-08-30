@@ -197,5 +197,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kumamoto",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kumamoto",
+  "wikipediaPageId": 6793346,
+  "wikidataId": "Q199889"
 }

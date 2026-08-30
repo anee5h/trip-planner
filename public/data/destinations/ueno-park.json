@@ -249,5 +249,10 @@
     "sourceUrls": ["https://www.tokyo-park.or.jp/park/ueno/"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
-  }
+  },
+  "wikipediaTitle": "Ueno Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Ueno_Park",
+  "wikipediaPageId": 626921,
+  "wikidataId": "Q746216"
 }

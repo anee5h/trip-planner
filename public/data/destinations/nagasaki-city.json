@@ -185,5 +185,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Nagasaki",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Nagasaki",
+  "wikipediaPageId": 21790,
+  "wikidataId": "Q38234"
 }

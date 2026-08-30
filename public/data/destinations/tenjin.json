@@ -235,5 +235,10 @@
     "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Nishitetsu Fukuoka (Tenjin) Station",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
+  "wikipediaPageId": 19022040,
+  "wikidataId": "Q901130"
 }
