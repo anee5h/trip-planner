@@ -162,5 +162,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Suzuka Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Suzuka_Quasi-National_Park",
+  "wikipediaPageId": 31738331,
+  "wikidataId": "Q1072809"
 }

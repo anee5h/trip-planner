@@ -850,7 +850,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Adachi, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Adachi,_Tokyo",
+    "wikipediaPageId": 335968,
+    "wikidataId": "Q213464"
   },
   {
     "id": "aizuwakamatsu-city",
@@ -3394,7 +3399,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Arakawa, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Arakawa,_Tokyo",
+    "wikipediaPageId": 335965,
+    "wikidataId": "Q232624"
   },
   {
     "id": "arakurayama-sengen-park-yamanashi",
@@ -5255,7 +5265,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "あしかがフラワーパーク",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%81%82%E3%81%97%E3%81%8B%E3%81%8C%E3%83%95%E3%83%A9%E3%83%AF%E3%83%BC%E3%83%91%E3%83%BC%E3%82%AF",
+    "wikipediaPageId": 113160,
+    "wikidataId": "Q11257294"
   },
   {
     "id": "aso-city",
@@ -11593,7 +11608,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Chōfu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%8Dfu",
+    "wikipediaPageId": 329697,
+    "wikidataId": "Q210667"
   },
   {
     "id": "choshi-city",
@@ -14166,7 +14186,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Edogawa, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Edogawa,_Tokyo",
+    "wikipediaPageId": 335972,
+    "wikidataId": "Q214056"
   },
   {
     "id": "engakuji",
@@ -19164,7 +19189,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Funabashi",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Funabashi",
+    "wikipediaPageId": 199755,
+    "wikidataId": "Q271417"
   },
   {
     "id": "furano-city",
@@ -23158,7 +23188,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "伊香保温泉",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E9%A6%99%E4%BF%9D%E6%B8%A9%E6%B3%89",
+    "wikipediaPageId": 157595,
+    "wikidataId": "Q11381013"
   },
   {
     "id": "gunma-kusatsu-onsen",
@@ -23608,7 +23643,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Shima Onsen",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shima_Onsen",
+    "wikipediaPageId": 53577983,
+    "wikidataId": "Q30595841"
   },
   {
     "id": "hachinohe-city",
@@ -27650,7 +27690,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Himeji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Himeji",
+    "wikipediaPageId": 329240,
+    "wikidataId": "Q209801"
   },
   {
     "id": "hino-city",
@@ -30193,7 +30238,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Buddhist Monuments in the Hōryū-ji Area",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Buddhist_Monuments_in_the_H%C5%8Dry%C5%AB-ji_Area",
+    "wikipediaPageId": 23844946,
+    "wikidataId": "Q1333799"
   },
   {
     "id": "ibaraki-fukuroda-falls",
@@ -30631,7 +30681,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hitachi Seaside Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hitachi_Seaside_Park",
+    "wikipediaPageId": 38900996,
+    "wikidataId": "Q10855585"
   },
   {
     "id": "ibaraki-mount-tsukuba",
@@ -33293,7 +33348,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Ishigaki, Okinawa",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ishigaki,_Okinawa",
+    "wikipediaPageId": 22315740,
+    "wikidataId": "Q838366"
   },
   {
     "id": "itabashi-city",
@@ -40301,7 +40361,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Katsushika",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Katsushika",
+    "wikipediaPageId": 335970,
+    "wikidataId": "Q232628"
   },
   {
     "id": "kawagoe-castle-saitama",
@@ -41582,7 +41647,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Kawaguchi, Saitama",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kawaguchi,_Saitama",
+    "wikipediaPageId": 328440,
+    "wikidataId": "Q387136"
   },
   {
     "id": "kawasaki-city",
@@ -45690,7 +45760,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Kobe",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe",
+    "wikipediaPageId": 59056,
+    "wikidataId": "Q48320"
   },
   {
     "id": "kobe-harborland",
@@ -53525,7 +53600,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Machida, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Machida,_Tokyo",
+    "wikipediaPageId": 329698,
+    "wikidataId": "Q210628"
   },
   {
     "id": "maizuru-park",
@@ -56447,7 +56527,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Meguro",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Meguro",
+    "wikipediaPageId": 335940,
+    "wikidataId": "Q233903"
   },
   {
     "id": "meriken-park",
@@ -56932,7 +57017,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Minakami, Gunma",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Minakami,_Gunma",
+    "wikipediaPageId": 868384,
+    "wikidataId": "Q1345518"
   },
   {
     "id": "minato-city",
@@ -59296,7 +59386,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Miyazu, Kyoto",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Miyazu,_Kyoto",
+    "wikipediaPageId": 329182,
+    "wikidataId": "Q846351"
   },
   {
     "id": "morioka-city",
@@ -59714,7 +59809,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "マザー牧場",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%B6%E3%83%BC%E7%89%A7%E5%A0%B4",
+    "wikipediaPageId": 505055,
+    "wikidataId": "Q575499"
   },
   {
     "id": "motobu-town",
@@ -59928,7 +60028,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Motobu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Motobu",
+    "wikipediaPageId": 451337,
+    "wikidataId": "Q1205928"
   },
   {
     "id": "motonosumi-shrine-yamaguchi",
@@ -65066,7 +65171,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Naha",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Naha",
+    "wikipediaPageId": 6792923,
+    "wikidataId": "Q181966"
   },
   {
     "id": "nakano-city",
@@ -68706,7 +68816,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Nerima",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nerima",
+    "wikipediaPageId": 335967,
+    "wikidataId": "Q232655"
   },
   {
     "id": "nihon-minka-en",
@@ -74736,7 +74851,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Ōme, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Cme,_Tokyo",
+    "wikipediaPageId": 329690,
+    "wikidataId": "Q237683"
   },
   {
     "id": "omiya-bonsai-art-museum",
@@ -76660,7 +76780,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Osaka Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Castle",
+    "wikipediaPageId": 405359,
+    "wikidataId": "Q321242"
   },
   {
     "id": "osaka-castle-park",
@@ -81651,7 +81776,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Sagamihara",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sagamihara",
+    "wikipediaPageId": 451296,
+    "wikidataId": "Q209779"
   },
   {
     "id": "saitama-city",
@@ -81891,7 +82021,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Saitama (city)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_(city)",
+    "wikipediaPageId": 6792822,
+    "wikidataId": "Q134635"
   },
   {
     "id": "saitama-nagatoro",
@@ -83088,7 +83223,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Sakai",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sakai",
+    "wikipediaPageId": 466743,
+    "wikidataId": "Q193428"
   },
   {
     "id": "sakura-castle-chiba",
@@ -86509,7 +86649,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Sendai",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sendai",
+    "wikipediaPageId": 329655,
+    "wikidataId": "Q46747"
   },
   {
     "id": "sendai-city-museum",
@@ -88511,7 +88656,12 @@
       "detail": "Canonical arrival Shinagawa Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Shinagawa",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shinagawa",
+    "wikipediaPageId": 335939,
+    "wikidataId": "Q233495"
   },
   {
     "id": "shingashi-river",
@@ -91858,7 +92008,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Suginami",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Suginami",
+    "wikipediaPageId": 335962,
+    "wikidataId": "Q232631"
   },
   {
     "id": "sumida-city",
@@ -96387,7 +96542,12 @@
       "detail": "Canonical arrival Shinagawa Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "森ビル デジタルアート ミュージアム:エプソン チームラボボーダレス",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%A3%AE%E3%83%93%E3%83%AB_%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E3%82%A2%E3%83%BC%E3%83%88_%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0:%E3%82%A8%E3%83%97%E3%82%BD%E3%83%B3_%E3%83%81%E3%83%BC%E3%83%A0%E3%83%A9%E3%83%9C%E3%83%9C%E3%83%BC%E3%83%80%E3%83%AC%E3%82%B9",
+    "wikipediaPageId": 4824943,
+    "wikidataId": "Q104235671"
   },
   {
     "id": "teamlab-planets",
@@ -102616,7 +102776,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Toshima",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Toshima",
+    "wikipediaPageId": 335963,
+    "wikidataId": "Q236680"
   },
   {
     "id": "tottori-city",
@@ -107737,7 +107902,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Utsunomiya",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Utsunomiya",
+    "wikipediaPageId": 328407,
+    "wikidataId": "Q200589"
   },
   {
     "id": "utsunomiya-oya",
@@ -108304,7 +108474,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Wakayama (city)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Wakayama_(city)",
+    "wikipediaPageId": 6792871,
+    "wikidataId": "Q200747"
   },
   {
     "id": "yakushima-town",
@@ -110722,7 +110897,12 @@
       "detail": "Canonical arrival Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Yokohama Cosmo World",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yokohama_Cosmo_World",
+    "wikipediaPageId": 47453469,
+    "wikidataId": "Q11262875"
   },
   {
     "id": "yokohama-landmark-tower-sky-garden",
@@ -114254,7 +114434,12 @@
       "detail": "Official access was reviewed, but multiple entrances and the unresolved Tokyo:shibuya canonical hub prevent a truthful single local fare fact. The grounds walk is documented but does not establish the missing origin leg.",
       "kind": "unavailable",
       "reason": "corridor_only"
-    }
+    },
+    "wikipediaTitle": "Meiji Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Meiji_Shrine",
+    "wikipediaPageId": 294236,
+    "wikidataId": "Q287165"
   },
   {
     "id": "yoyogi-park",
@@ -114473,7 +114658,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Yoyogi Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yoyogi_Park",
+    "wikipediaPageId": 796054,
+    "wikidataId": "Q1204253"
   },
   {
     "id": "harajuku-takeshita-street",
@@ -116423,7 +116613,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kiyosumi Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kiyosumi_Garden",
+    "wikipediaPageId": 31094915,
+    "wikidataId": "Q4388146"
   },
   {
     "id": "museum-contemporary-art-tokyo",
@@ -116950,7 +117145,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Fukagawa Edo Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukagawa_Edo_Museum",
+    "wikipediaPageId": 63768187,
+    "wikidataId": "Q3090685"
   },
   {
     "id": "sumida-hokusai-museum",
@@ -117214,7 +117414,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sumida Hokusai Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sumida_Hokusai_Museum",
+    "wikipediaPageId": 80083764,
+    "wikidataId": "Q17220332"
   },
   {
     "id": "ryogoku-kokugikan-sumo-museum",
@@ -117692,7 +117897,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Mukōjima-Hyakkaen Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Muk%C5%8Djima-Hyakkaen_Garden",
+    "wikipediaPageId": 32352328,
+    "wikidataId": "Q7076776"
   },
   {
     "id": "sumida-river-walk",
@@ -118159,7 +118369,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "トキワ荘マンガミュージアム",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%82%AD%E3%83%AF%E8%8D%98%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0",
+    "wikipediaPageId": 4164228,
+    "wikidataId": "Q96707302"
   },
   {
     "id": "zoshigaya-kishimojindo",
@@ -118596,7 +118811,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "高岩寺",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B2%A9%E5%AF%BA",
+    "wikipediaPageId": 245404,
+    "wikidataId": "Q6587321"
   },
   {
     "id": "yakushi-ike-park",
@@ -119072,7 +119292,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Machida City Museum of Graphic Arts",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Machida_City_Museum_of_Graphic_Arts",
+    "wikipediaPageId": 54807950,
+    "wikidataId": "Q11578302"
   },
   {
     "id": "serigaya-park",
@@ -119292,7 +119517,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "芹ヶ谷公園",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E8%8A%B9%E3%83%B6%E8%B0%B7%E5%85%AC%E5%9C%92",
+    "wikipediaPageId": 3314215,
+    "wikidataId": "Q21653359"
   },
   {
     "id": "buaiso",
@@ -119777,7 +120007,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "野津田公園",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%87%8E%E6%B4%A5%E7%94%B0%E5%85%AC%E5%9C%92",
+    "wikipediaPageId": 3314219,
+    "wikidataId": "Q21654130"
   },
   {
     "id": "mount-takao",
@@ -120222,7 +120457,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "高尾山薬王院",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B0%BE%E5%B1%B1%E8%96%AC%E7%8E%8B%E9%99%A2",
+    "wikipediaPageId": 66883,
+    "wikidataId": "Q8194732"
   },
   {
     "id": "takao-599-museum",
@@ -120928,7 +121168,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "金剛寺 (日野市)",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%87%91%E5%89%9B%E5%AF%BA_(%E6%97%A5%E9%87%8E%E5%B8%82)",
+    "wikipediaPageId": 47959,
+    "wikidataId": "Q6587312"
   },
   {
     "id": "hijikata-toshizo-museum",
@@ -121191,7 +121436,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "土方歳三資料館",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%9C%9F%E6%96%B9%E6%AD%B3%E4%B8%89%E8%B3%87%E6%96%99%E9%A4%A8",
+    "wikipediaPageId": 4122953,
+    "wikidataId": "Q97202254"
   },
   {
     "id": "keio-rail-land",
@@ -121683,7 +121933,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "百草園",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%99%BE%E8%8D%89%E5%9C%92",
+    "wikipediaPageId": 448181,
+    "wikidataId": "Q6631424"
   },
   {
     "id": "jindaiji",
@@ -122143,7 +122398,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Jindai Botanical Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
+    "wikipediaPageId": 2323853,
+    "wikidataId": "Q606827"
   },
   {
     "id": "kitaro-chaya",
@@ -122627,7 +122887,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "布多天神社",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B8%83%E5%A4%9A%E5%A4%A9%E7%A5%9E%E7%A4%BE",
+    "wikipediaPageId": 1275756,
+    "wikidataId": "Q11480773"
   },
   {
     "id": "chofu-historic-jindaiji-district",
@@ -123063,7 +123328,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "武蔵御嶽神社",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%AD%A6%E8%94%B5%E5%BE%A1%E5%B6%BD%E7%A5%9E%E7%A4%BE",
+    "wikipediaPageId": 306165,
+    "wikidataId": "Q6587276"
   },
   {
     "id": "gyokudo-art-museum",
@@ -123329,7 +123599,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "玉堂美術館",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E5%A0%82%E7%BE%8E%E8%A1%93%E9%A4%A8",
+    "wikipediaPageId": 3864351,
+    "wikidataId": "Q59960711"
   },
   {
     "id": "ome-railway-park",
@@ -124032,7 +124307,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Showa Memorial Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Showa_Memorial_Park",
+    "wikipediaPageId": 5799953,
+    "wikidataId": "Q3915473"
   },
   {
     "id": "polar-science-museum",
@@ -125509,7 +125789,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nakanoshima Museum of Art, Osaka",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nakanoshima_Museum_of_Art,_Osaka",
+    "wikipediaPageId": 75165143,
+    "wikidataId": "Q50375431"
   },
   {
     "id": "osaka-central-public-hall",
@@ -127269,7 +127554,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "CupNoodles Museum Osaka Ikeda",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/CupNoodles_Museum_Osaka_Ikeda",
+    "wikipediaPageId": 30864092,
+    "wikidataId": "Q899319"
   },
   {
     "id": "byodoin-temple",
@@ -128187,7 +128477,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "傘松公園",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%82%98%E6%9D%BE%E5%85%AC%E5%9C%92",
+    "wikipediaPageId": 959604,
+    "wikidataId": "Q11387301"
   },
   {
     "id": "koko-en-garden",
@@ -128357,7 +128652,12 @@
       "detail": "Canonical arrival Himeji Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kōko-en",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/K%C5%8Dko-en",
+    "wikipediaPageId": 18667725,
+    "wikidataId": "Q6426700"
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -128536,7 +128836,12 @@
       "detail": "Canonical arrival Himeji Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Engyō-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Engy%C5%8D-ji",
+    "wikipediaPageId": 2517162,
+    "wikidataId": "Q3054354"
   },
   {
     "id": "izushi-castle-town",
@@ -129288,7 +129593,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "生野銀山",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%94%9F%E9%87%8E%E9%8A%80%E5%B1%B1",
+    "wikipediaPageId": 247924,
+    "wikidataId": "Q16664574"
   },
   {
     "id": "hokki-ji-pagoda",
@@ -129828,7 +130138,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Enryaku-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Enryaku-ji",
+    "wikipediaPageId": 384114,
+    "wikidataId": "Q917195"
   },
   {
     "id": "ukimido-mangetsu-ji",
@@ -130157,7 +130472,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "玄宮園",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8E%84%E5%AE%AE%E5%9C%92",
+    "wikipediaPageId": 678638,
+    "wikidataId": "Q11572274"
   },
   {
     "id": "miho-museum-koka",
@@ -133571,7 +133891,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kimii-dera",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kimii-dera",
+    "wikipediaPageId": 83249904,
+    "wikidataId": "Q11153117"
   },
   {
     "id": "kuroshio-market-marina-city",
@@ -134511,7 +134836,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Fukushūen",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukush%C5%ABen",
+    "wikipediaPageId": 18663904,
+    "wikidataId": "Q5507745"
   },
   {
     "id": "nago-pineapple-park",
@@ -136607,7 +136937,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "伊良部大橋",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E8%89%AF%E9%83%A8%E5%A4%A7%E6%A9%8B",
+    "wikipediaPageId": 1085873,
+    "wikidataId": "Q4520855"
   },
   {
     "id": "higashi-hennazaki-cape-miyako",
@@ -162048,7 +162383,12 @@
       "detail": "Canonical arrival Okayama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Hayashibara Museum of Art",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hayashibara_Museum_of_Art",
+    "wikipediaPageId": 31173200,
+    "wikidataId": "Q4707602"
   },
   {
     "id": "orient-museum",
@@ -162273,7 +162613,12 @@
       "detail": "Canonical arrival Okayama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Okayama Orient Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Okayama_Orient_Museum",
+    "wikipediaPageId": 35004808,
+    "wikidataId": "Q4707582"
   },
   {
     "id": "ohara-museum-of-art",
@@ -163304,7 +163649,12 @@
       "detail": "Canonical arrival Shin-Kurashiki Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "倉敷民藝館",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%80%89%E6%95%B7%E6%B0%91%E8%97%9D%E9%A4%A8",
+    "wikipediaPageId": 916845,
+    "wikidataId": "Q11386763"
   },
   {
     "id": "raikyuji-temple",
@@ -163539,7 +163889,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Raikyū-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Raiky%C5%AB-ji",
+    "wikipediaPageId": 22379058,
+    "wikidataId": "Q2385052"
   },
   {
     "id": "fukiya-village",
@@ -163782,7 +164137,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "吹屋",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%90%B9%E5%B1%8B",
+    "wikipediaPageId": 711517,
+    "wikidataId": "Q11416500"
   },
   {
     "id": "genbaku-dome",
@@ -166276,7 +166636,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Lafcadio Hearn Memorial Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Lafcadio_Hearn_Memorial_Museum",
+    "wikipediaPageId": 34551144,
+    "wikidataId": "Q1778875"
   },
   {
     "id": "horikawa-pleasure-boat",
@@ -166763,7 +167128,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tanabe Art Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tanabe_Art_Museum",
+    "wikipediaPageId": 34554762,
+    "wikidataId": "Q11577460"
   },
   {
     "id": "gessho-ji-temple-matsue",
@@ -179778,7 +180148,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Taga Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Taga_Castle",
+    "wikipediaPageId": 31615456,
+    "wikidataId": "Q870867"
   },
   {
     "id": "kubota-castle",
@@ -180355,7 +180730,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Nihonmatsu Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nihonmatsu_Castle",
+    "wikipediaPageId": 13025602,
+    "wikidataId": "Q593054"
   },
   {
     "id": "shirakawa-komine-castle",
@@ -180545,7 +180925,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Komine Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Komine_Castle",
+    "wikipediaPageId": 9622531,
+    "wikidataId": "Q522630"
   },
   {
     "id": "ashikaga-shi-yakata",
@@ -180737,7 +181122,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Banna-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Banna-ji",
+    "wikipediaPageId": 50595539,
+    "wikidataId": "Q2882839"
   },
   {
     "id": "minowa-castle",
@@ -180926,7 +181316,12 @@
       "detail": "Canonical arrival Takasaki Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Minowa Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Minowa_Castle",
+    "wikipediaPageId": 17735930,
+    "wikidataId": "Q994006"
   },
   {
     "id": "kanayama-castle",
@@ -181307,7 +181702,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hachigata Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hachigata_Castle",
+    "wikipediaPageId": 16874018,
+    "wikidataId": "Q2969388"
   },
   {
     "id": "odawara-castle",
@@ -182271,7 +182671,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Shibata Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shibata_Castle",
+    "wikipediaPageId": 23415907,
+    "wikidataId": "Q1039103"
   },
   {
     "id": "kasugayama-castle",
@@ -183037,7 +183442,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Ichijōdani Asakura Family Historic Ruins",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ichij%C5%8Ddani_Asakura_Family_Historic_Ruins",
+    "wikipediaPageId": 4743687,
+    "wikidataId": "Q2968274"
   },
   {
     "id": "iwamura-castle",
@@ -184205,7 +184615,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Iga Ueno Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Iga_Ueno_Castle",
+    "wikipediaPageId": 17132887,
+    "wikidataId": "Q1333693"
   },
   {
     "id": "matsusaka-castle",
@@ -184973,7 +185388,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kannonji Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kannonji_Castle",
+    "wikipediaPageId": 13904022,
+    "wikidataId": "Q2969462"
   },
   {
     "id": "chihaya-castle",
@@ -185357,7 +185777,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sasayama Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sasayama_Castle",
+    "wikipediaPageId": 10533742,
+    "wikidataId": "Q2760134"
   },
   {
     "id": "akashi-castle",
@@ -185546,7 +185971,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Akashi Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Akashi_Castle",
+    "wikipediaPageId": 10116972,
+    "wikidataId": "Q1151831"
   },
   {
     "id": "ako-castle",
@@ -186122,7 +186552,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tottori Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tottori_Castle",
+    "wikipediaPageId": 2249805,
+    "wikidataId": "Q1073699"
   },
   {
     "id": "gassantoda-castle",
@@ -186508,7 +186943,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tsuwano Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsuwano_Castle",
+    "wikipediaPageId": 50595924,
+    "wikidataId": "Q846305"
   },
   {
     "id": "tsuyama-castle",
@@ -186701,7 +187141,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tsuyama Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsuyama_Castle",
+    "wikipediaPageId": 22486795,
+    "wikidataId": "Q767818"
   },
   {
     "id": "kinojo",
@@ -187659,7 +188104,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tokushima Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokushima_Castle",
+    "wikipediaPageId": 50598347,
+    "wikidataId": "Q8011246"
   },
   {
     "id": "imabari-castle",
@@ -187855,7 +188305,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Imabari Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Imabari_Castle",
+    "wikipediaPageId": 10153862,
+    "wikidataId": "Q1071856"
   },
   {
     "id": "ozu-castle",
@@ -188048,7 +188503,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Ōzu Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Czu_Castle",
+    "wikipediaPageId": 16464504,
+    "wikidataId": "Q1036874"
   },
   {
     "id": "ono-castle-dazaifu",
@@ -188429,7 +188889,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Nagoya Castle (Hizen Province)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nagoya_Castle_(Hizen_Province)",
+    "wikipediaPageId": 17904462,
+    "wikidataId": "Q711685"
   },
   {
     "id": "yoshinogari",
@@ -189398,7 +189863,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hitoyoshi Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hitoyoshi_Castle",
+    "wikipediaPageId": 50590713,
+    "wikidataId": "Q8011484"
   },
   {
     "id": "funai-castle",
@@ -190187,7 +190657,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Nakagusuku Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nakagusuku_Castle",
+    "wikipediaPageId": 30873628,
+    "wikidataId": "Q1013209"
   },
   {
     "id": "rishiri-rebun-sarobetsu",
@@ -190795,7 +191270,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kushiro-shitsugen National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kushiro-shitsugen_National_Park",
+    "wikipediaPageId": 9727763,
+    "wikidataId": "Q1156690"
   },
   {
     "id": "daisetsuzan",
@@ -191624,7 +192104,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Towada-Hachimantai National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Towada-Hachimantai_National_Park",
+    "wikipediaPageId": 4614355,
+    "wikidataId": "Q1155842"
   },
   {
     "id": "sanriku-fukko",
@@ -192629,7 +193114,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Myōkō-Togakushi Renzan National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/My%C5%8Dk%C5%8D-Togakushi_Renzan_National_Park",
+    "wikipediaPageId": 48676532,
+    "wikidataId": "Q20095570"
   },
   {
     "id": "chichibu-tama-kai",
@@ -193441,7 +193931,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Chūbu-Sangaku National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%ABbu-Sangaku_National_Park",
+    "wikipediaPageId": 4614178,
+    "wikidataId": "Q764357"
   },
   {
     "id": "hakusan",
@@ -194463,7 +194958,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sanin Kaigan National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sanin_Kaigan_National_Park",
+    "wikipediaPageId": 4614429,
+    "wikidataId": "Q485859"
   },
   {
     "id": "setonaikai",
@@ -195508,7 +196008,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Unzen-Amakusa National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Unzen-Amakusa_National_Park",
+    "wikipediaPageId": 4614075,
+    "wikidataId": "Q1156688"
   },
   {
     "id": "aso-kuju",
@@ -196520,7 +197025,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Yambaru National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yambaru_National_Park",
+    "wikipediaPageId": 51909196,
+    "wikidataId": "Q27134534"
   },
   {
     "id": "kerama-shoto",
@@ -196710,7 +197220,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kerama Shotō National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kerama_Shot%C5%8D_National_Park",
+    "wikipediaPageId": 42977906,
+    "wikidataId": "Q15894675"
   },
   {
     "id": "iriomote-ishigaki",
@@ -197536,7 +198051,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Niseko-Shakotan-Otaru Kaigan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Niseko-Shakotan-Otaru_Kaigan_Quasi-National_Park",
+    "wikipediaPageId": 23152462,
+    "wikidataId": "Q997438"
   },
   {
     "id": "onuma",
@@ -197725,7 +198245,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Ōnuma Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Cnuma_Quasi-National_Park",
+    "wikipediaPageId": 13884912,
+    "wikidataId": "Q997446"
   },
   {
     "id": "akkeshi-kiritappu-konbumori",
@@ -198122,7 +198647,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Shimokita Hantō Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shimokita_Hant%C5%8D_Quasi-National_Park",
+    "wikipediaPageId": 24812272,
+    "wikidataId": "Q1017113"
   },
   {
     "id": "tsugaru",
@@ -198519,7 +199049,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hayachine Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hayachine_Quasi-National_Park",
+    "wikipediaPageId": 34926443,
+    "wikidataId": "Q1072753"
   },
   {
     "id": "kurikoma",
@@ -198722,7 +199257,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kurikoma Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kurikoma_Quasi-National_Park",
+    "wikipediaPageId": 34610480,
+    "wikidataId": "Q4386002"
   },
   {
     "id": "zao",
@@ -199105,7 +199645,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Oga Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Oga_Quasi-National_Park",
+    "wikipediaPageId": 34927883,
+    "wikidataId": "Q1072585"
   },
   {
     "id": "chokai",
@@ -199335,7 +199880,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Chōkai Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%8Dkai_Quasi-National_Park",
+    "wikipediaPageId": 34929082,
+    "wikidataId": "Q1072511"
   },
   {
     "id": "echigo-sanzan-tadami",
@@ -199538,7 +200088,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Echigo Sanzan-Tadami Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Echigo_Sanzan-Tadami_Quasi-National_Park",
+    "wikipediaPageId": 31617038,
+    "wikidataId": "Q4386028"
   },
   {
     "id": "suigo-tsukuba",
@@ -199727,7 +200282,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Suigō-Tsukuba Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Suig%C5%8D-Tsukuba_Quasi-National_Park",
+    "wikipediaPageId": 34912973,
+    "wikidataId": "Q1017124"
   },
   {
     "id": "myogi-arafune-saku-kogen",
@@ -199916,7 +200476,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Myōgi-Arafune-Saku Kōgen Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/My%C5%8Dgi-Arafune-Saku_K%C5%8Dgen_Quasi-National_Park",
+    "wikipediaPageId": 35614878,
+    "wikidataId": "Q1069265"
   },
   {
     "id": "minami-boso",
@@ -200105,7 +200670,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Minami Bōsō Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Minami_B%C5%8Ds%C5%8D_Quasi-National_Park",
+    "wikipediaPageId": 29785317,
+    "wikidataId": "Q1073135"
   },
   {
     "id": "meiji-no-mori-takao",
@@ -200707,7 +201277,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sado-Yahiko-Yoneyama Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sado-Yahiko-Yoneyama_Quasi-National_Park",
+    "wikipediaPageId": 31617029,
+    "wikidataId": "Q4386013"
   },
   {
     "id": "noto-hanto",
@@ -200903,7 +201478,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Noto Hantō Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Noto_Hant%C5%8D_Quasi-National_Park",
+    "wikipediaPageId": 35888511,
+    "wikidataId": "Q11612013"
   },
   {
     "id": "echizen-kaga-kaigan",
@@ -201119,7 +201699,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Echizen-Kaga Kaigan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Echizen-Kaga_Kaigan_Quasi-National_Park",
+    "wikipediaPageId": 34596810,
+    "wikidataId": "Q1069254"
   },
   {
     "id": "wakasa-wan",
@@ -201308,7 +201893,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Wakasa Wan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Wakasa_Wan_Quasi-National_Park",
+    "wikipediaPageId": 34596677,
+    "wikidataId": "Q7960839"
   },
   {
     "id": "yatsugatake-chushin-kogen",
@@ -201691,7 +202281,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Chūō Alps Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%AB%C5%8D_Alps_Quasi-National_Park",
+    "wikipediaPageId": 35617629,
+    "wikidataId": "Q5119038"
   },
   {
     "id": "tenryu-okumikawa",
@@ -202074,7 +202669,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Ibi-Sekigahara-Yōrō Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ibi-Sekigahara-Y%C5%8Dr%C5%8D_Quasi-National_Park",
+    "wikipediaPageId": 34912142,
+    "wikidataId": "Q1072827"
   },
   {
     "id": "hida-kisogawa",
@@ -202263,7 +202863,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hida-Kisogawa Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hida-Kisogawa_Quasi-National_Park",
+    "wikipediaPageId": 29788457,
+    "wikidataId": "Q730020"
   },
   {
     "id": "ontakesan",
@@ -202854,7 +203459,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Mikawa-wan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Mikawa-wan_Quasi-National_Park",
+    "wikipediaPageId": 31738412,
+    "wikidataId": "Q1072873"
   },
   {
     "id": "suzuka",
@@ -203043,7 +203653,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Suzuka Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Suzuka_Quasi-National_Park",
+    "wikipediaPageId": 31738331,
+    "wikidataId": "Q1072809"
   },
   {
     "id": "muro-akame-aoyama",
@@ -203232,7 +203847,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Murō-Akame-Aoyama Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Mur%C5%8D-Akame-Aoyama_Quasi-National_Park",
+    "wikipediaPageId": 31738212,
+    "wikidataId": "Q1072834"
   },
   {
     "id": "biwako",
@@ -203615,7 +204235,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tango-Amanohashidate-Ōeyama Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tango-Amanohashidate-%C5%8Ceyama_Quasi-National_Park",
+    "wikipediaPageId": 34599592,
+    "wikidataId": "Q6141097"
   },
   {
     "id": "kyoto-tamba-kogen",
@@ -203804,7 +204429,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kyoto Tamba Kogen Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto_Tamba_Kogen_Quasi-National_Park",
+    "wikipediaPageId": 50920813,
+    "wikidataId": "Q23927402"
   },
   {
     "id": "meiji-no-mori-mino",
@@ -203994,7 +204624,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Meiji no Mori Minō Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Meiji_no_Mori_Min%C5%8D_Quasi-National_Park",
+    "wikipediaPageId": 19256733,
+    "wikidataId": "Q1070991"
   },
   {
     "id": "kongo-ikoma-kisen",
@@ -204191,7 +204826,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kongō-Ikoma-Kisen Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kong%C5%8D-Ikoma-Kisen_Quasi-National_Park",
+    "wikipediaPageId": 31735783,
+    "wikidataId": "Q727034"
   },
   {
     "id": "hyonosen-ushiro-yama-nagisan",
@@ -204380,7 +205020,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hyōnosen-Ushiroyama-Nagisan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hy%C5%8Dnosen-Ushiroyama-Nagisan_Quasi-National_Park",
+    "wikipediaPageId": 23059839,
+    "wikidataId": "Q1072842"
   },
   {
     "id": "yamato-aogaki",
@@ -204763,7 +205408,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kōya-Ryūjin Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/K%C5%8Dya-Ry%C5%ABjin_Quasi-National_Park",
+    "wikipediaPageId": 31735544,
+    "wikidataId": "Q1071006"
   },
   {
     "id": "hiba-dogo-taishaku",
@@ -205367,7 +206017,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kita-Nagato Kaigan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kita-Nagato_Kaigan_Quasi-National_Park",
+    "wikipediaPageId": 31735151,
+    "wikidataId": "Q1072783"
   },
   {
     "id": "akiyoshidai",
@@ -205753,7 +206408,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tsurugisan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsurugisan_Quasi-National_Park",
+    "wikipediaPageId": 31734885,
+    "wikidataId": "Q1072878"
   },
   {
     "id": "muroto-anan-kaigan",
@@ -205969,7 +206629,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Muroto-Anan Kaigan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Muroto-Anan_Kaigan_Quasi-National_Park",
+    "wikipediaPageId": 31734812,
+    "wikidataId": "Q1072799"
   },
   {
     "id": "ishizuchi",
@@ -206161,7 +206826,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Ishizuchi Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ishizuchi_Quasi-National_Park",
+    "wikipediaPageId": 31734753,
+    "wikidataId": "Q1072891"
   },
   {
     "id": "kitakyushu",
@@ -206350,7 +207020,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kitakyūshū Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kitaky%C5%ABsh%C5%AB_Quasi-National_Park",
+    "wikipediaPageId": 31734699,
+    "wikidataId": "Q1072861"
   },
   {
     "id": "genkai",
@@ -206566,7 +207241,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Genkai Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Genkai_Quasi-National_Park",
+    "wikipediaPageId": 31734620,
+    "wikidataId": "Q1072901"
   },
   {
     "id": "yaba-hita-hikosan",
@@ -206755,7 +207435,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Yaba-Hita-Hikosan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yaba-Hita-Hikosan_Quasi-National_Park",
+    "wikipediaPageId": 31734543,
+    "wikidataId": "Q3137246"
   },
   {
     "id": "iki-tsushima",
@@ -207150,7 +207835,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kyūshū Chūō Sanchi Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ky%C5%ABsh%C5%AB_Ch%C5%AB%C5%8D_Sanchi_Quasi-National_Park",
+    "wikipediaPageId": 31734277,
+    "wikidataId": "Q1072854"
   },
   {
     "id": "nippo-kaigan",
@@ -207569,7 +208259,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sobo-Katamuki Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sobo-Katamuki_Quasi-National_Park",
+    "wikipediaPageId": 31734034,
+    "wikidataId": "Q1017118"
   },
   {
     "id": "nichinan-kaigan",
@@ -207785,7 +208480,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Nichinan Kaigan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nichinan_Kaigan_Quasi-National_Park",
+    "wikipediaPageId": 31733945,
+    "wikidataId": "Q1071139"
   },
   {
     "id": "koshikijima",
@@ -207977,7 +208677,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Koshikishima Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Koshikishima_Quasi-National_Park",
+    "wikipediaPageId": 61499250,
+    "wikidataId": "Q85774920"
   },
   {
     "id": "okinawa-kaigan",
@@ -208203,7 +208908,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Okinawa Kaigan Quasi-National Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Okinawa_Kaigan_Quasi-National_Park",
+    "wikipediaPageId": 31733712,
+    "wikidataId": "Q986790"
   },
   {
     "id": "okinawa-senseki",
@@ -209098,7 +209808,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "山梨県笛吹川フルーツ公園",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E6%A2%A8%E7%9C%8C%E7%AC%9B%E5%90%B9%E5%B7%9D%E3%83%95%E3%83%AB%E3%83%BC%E3%83%84%E5%85%AC%E5%9C%92",
+    "wikipediaPageId": 325406,
+    "wikidataId": "Q15506069"
   },
   {
     "id": "wakakusayama",
@@ -210599,7 +211314,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Saruhashi Bridge",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Saruhashi_Bridge",
+    "wikipediaPageId": 60805964,
+    "wikidataId": "Q4329112"
   },
   {
     "id": "akashi-kaikyo-bridge",
@@ -211746,7 +212466,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "四季彩の丘",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%AD%A3%E5%BD%A9%E3%81%AE%E4%B8%98",
+    "wikipediaPageId": 1603201,
+    "wikidataId": "Q11419849"
   },
   {
     "id": "nabana-no-sato",
@@ -211929,7 +212654,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "なばなの里",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C",
+    "wikipediaPageId": 380398,
+    "wikidataId": "Q17229517"
   },
   {
     "id": "shomyo-falls",
@@ -213138,7 +213868,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hakone Open-Air Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hakone_Open-Air_Museum",
+    "wikipediaPageId": 31515187,
+    "wikidataId": "Q1134422"
   },
   {
     "id": "sapporo-art-park",
@@ -213319,7 +214054,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sapporo Art Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sapporo_Art_Park",
+    "wikipediaPageId": 66169753,
+    "wikidataId": "Q11249476"
   },
   {
     "id": "kanazawa-21",
@@ -213538,7 +214278,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "21st Century Museum of Contemporary Art, Kanazawa",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/21st_Century_Museum_of_Contemporary_Art,_Kanazawa",
+    "wikipediaPageId": 25224397,
+    "wikidataId": "Q3242206"
   },
   {
     "id": "ogijima",
@@ -213721,7 +214466,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Ogijima",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ogijima",
+    "wikipediaPageId": 32981519,
+    "wikidataId": "Q3349795"
   },
   {
     "id": "shikoku-henro",

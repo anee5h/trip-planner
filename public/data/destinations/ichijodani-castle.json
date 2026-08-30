@@ -176,5 +176,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Ichijōdani Asakura Family Historic Ruins",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Ichij%C5%8Ddani_Asakura_Family_Historic_Ruins",
+  "wikipediaPageId": 4743687,
+  "wikidataId": "Q2968274"
 }

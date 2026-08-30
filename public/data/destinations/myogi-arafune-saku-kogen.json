@@ -160,5 +160,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Myōgi-Arafune-Saku Kōgen Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/My%C5%8Dgi-Arafune-Saku_K%C5%8Dgen_Quasi-National_Park",
+  "wikipediaPageId": 35614878,
+  "wikidataId": "Q1069265"
 }

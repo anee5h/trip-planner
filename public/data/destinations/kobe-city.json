@@ -227,5 +227,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kobe",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe",
+  "wikipediaPageId": 59056,
+  "wikidataId": "Q48320"
 }

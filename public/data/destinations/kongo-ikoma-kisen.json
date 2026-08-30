@@ -168,5 +168,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Kongō-Ikoma-Kisen Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kong%C5%8D-Ikoma-Kisen_Quasi-National_Park",
+  "wikipediaPageId": 31735783,
+  "wikidataId": "Q727034"
 }

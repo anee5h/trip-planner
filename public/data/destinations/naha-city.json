@@ -213,5 +213,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Naha",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Naha",
+  "wikipediaPageId": 6792923,
+  "wikidataId": "Q181966"
 }

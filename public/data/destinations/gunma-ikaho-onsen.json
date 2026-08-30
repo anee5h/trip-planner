@@ -199,5 +199,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "伊香保温泉",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%BC%8A%E9%A6%99%E4%BF%9D%E6%B8%A9%E6%B3%89",
+  "wikipediaPageId": 157595,
+  "wikidataId": "Q11381013"
 }

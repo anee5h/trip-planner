@@ -7,9 +7,12 @@
   "include": [
     "scripts/lib/wikipediaLegacyMigration.ts",
     "scripts/lib/wikipediaUnmappedEnrichment.ts",
+    "scripts/lib/wikipediaPhase3Enrichment.ts",
     "scripts/migrate-wikipedia-legacy-provenance.ts",
     "scripts/enrich-wikipedia-unmapped.ts",
+    "scripts/enrich-wikipedia-phase3.ts",
     "scripts/audit/__tests__/wikipedia-legacy-migration.test.ts",
-    "scripts/audit/__tests__/wikipedia-unmapped-enrichment.test.ts"
+    "scripts/audit/__tests__/wikipedia-unmapped-enrichment.test.ts",
+    "scripts/audit/__tests__/wikipedia-phase3-enrichment.test.ts"
   ]
 }

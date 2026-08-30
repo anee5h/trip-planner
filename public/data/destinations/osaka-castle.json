@@ -224,5 +224,10 @@
     "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Osaka Castle",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Castle",
+  "wikipediaPageId": 405359,
+  "wikidataId": "Q321242"
 }

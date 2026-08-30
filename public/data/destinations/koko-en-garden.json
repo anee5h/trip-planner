@@ -156,5 +156,10 @@
     "detail": "Canonical arrival Himeji Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Kōko-en",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/K%C5%8Dko-en",
+  "wikipediaPageId": 18667725,
+  "wikidataId": "Q6426700"
 }

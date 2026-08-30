@@ -219,5 +219,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Funabashi",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Funabashi",
+  "wikipediaPageId": 199755,
+  "wikidataId": "Q271417"
 }

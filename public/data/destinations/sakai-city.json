@@ -207,5 +207,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Sakai",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Sakai",
+  "wikipediaPageId": 466743,
+  "wikidataId": "Q193428"
 }

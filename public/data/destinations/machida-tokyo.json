@@ -211,5 +211,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Machida, Tokyo",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Machida,_Tokyo",
+  "wikipediaPageId": 329698,
+  "wikidataId": "Q210628"
 }
