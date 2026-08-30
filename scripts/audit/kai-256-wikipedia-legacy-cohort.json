@@ -1,0 +1,1405 @@
+{
+  "schemaVersion": 1,
+  "scope": "published destinations with legacy Wikipedia provenance only",
+  "publishedCanonicalBefore": 19,
+  "publishedUnmappedBefore": 500,
+  "sourceFingerprint": "a6c5ed9577157dee04c57b99d9f64e9a7600c95cc5d62e1e21d08850362f11be",
+  "entries": [
+    {
+      "id": "amami-iriomote-natural-site",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island"
+      ]
+    },
+    {
+      "id": "amanoiwato-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Amanoiwato-jinja"]
+    },
+    {
+      "id": "ameya-yokocho",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D"]
+    },
+    {
+      "id": "aoshima-island-miyazaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Aoshima,_Miyazaki"]
+    },
+    {
+      "id": "aso-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Aso_City"]
+    },
+    {
+      "id": "aso-volcanic-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Aso"]
+    },
+    {
+      "id": "beppu-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Beppu_City"]
+    },
+    {
+      "id": "beppu-hells-oita",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hells_of_Beppu"]
+    },
+    {
+      "id": "beppu-tower",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Beppu_Tower"]
+    },
+    {
+      "id": "boso-no-mura",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_Prefecture"]
+    },
+    {
+      "id": "canal-city-hakata",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Canal_City_Hakata"]
+    },
+    {
+      "id": "cape-nagasakibana",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima"]
+    },
+    {
+      "id": "chiba-city-folk-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_(city)"]
+    },
+    {
+      "id": "chiba-city-museum-of-art",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_Prefecture"]
+    },
+    {
+      "id": "chiba-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_(city)"]
+    },
+    {
+      "id": "chiba-port-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_(city)"]
+    },
+    {
+      "id": "chiba-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_Shrine"]
+    },
+    {
+      "id": "chiba-zoological-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Chiba_Zoological_Park"]
+    },
+    {
+      "id": "chinatown-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown"]
+    },
+    {
+      "id": "chiringashima-island",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima"]
+    },
+    {
+      "id": "daikanbo-viewpoint-aso",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Aso"]
+    },
+    {
+      "id": "dazaifu-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Dazaifu_City"]
+    },
+    {
+      "id": "dazaifu-tenmangu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB"]
+    },
+    {
+      "id": "dejima-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Dejima"]
+    },
+    {
+      "id": "dotonbori",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/D%C5%8Dtonbori"]
+    },
+    {
+      "id": "engakuji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Engaku-ji"]
+    },
+    {
+      "id": "enoshima-aquarium",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Enoshima_Aquarium"]
+    },
+    {
+      "id": "enoshima-iwaya-caves",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Enoshima"]
+    },
+    {
+      "id": "enoshima-sea-candle",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Enoshima_Sea_Candle"]
+    },
+    {
+      "id": "enoshima-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Enoshima_Shrine"]
+    },
+    {
+      "id": "fujiko-f-fujio-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fujiko_F._Fujio_Museum"]
+    },
+    {
+      "id": "fukuoka-art-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka_Art_Museum"]
+    },
+    {
+      "id": "fukuoka-castle-ruins",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka"]
+    },
+    {
+      "id": "fukuoka-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka_City"]
+    },
+    {
+      "id": "fukuoka-city-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka_City_Museum"]
+    },
+    {
+      "id": "fukuoka-paypay-dome",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome"]
+    },
+    {
+      "id": "fukuoka-tower",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka_Tower"]
+    },
+    {
+      "id": "fushimi-inari-taisha",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fushimi_Inari-taisha"]
+    },
+    {
+      "id": "ginkaku-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ginkaku-ji"]
+    },
+    {
+      "id": "glover-garden-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Glover_Garden"]
+    },
+    {
+      "id": "golden-gai",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai"]
+    },
+    {
+      "id": "gotoku-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Setagaya"]
+    },
+    {
+      "id": "gunkanjima-hashima-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hashima_Island"]
+    },
+    {
+      "id": "hakata-machiya-folk-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka"]
+    },
+    {
+      "id": "hakata-station-area",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hakata_Station"]
+    },
+    {
+      "id": "hasedera",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)"]
+    },
+    {
+      "id": "heian-jingu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Heian_Shrine"]
+    },
+    {
+      "id": "heiwadai-park-miyazaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Heiwadai_Park"]
+    },
+    {
+      "id": "hita-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hita,_%C5%8Cita"]
+    },
+    {
+      "id": "hita-gion-yamahoko-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hita,_%C5%8Cita"]
+    },
+    {
+      "id": "hita-onsen",
+      "sourceUrls": [
+        "https://ja.wikipedia.org/wiki/%E6%97%A5%E7%94%B0%E6%B8%A9%E6%B3%89"
+      ]
+    },
+    {
+      "id": "hokokuji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji"]
+    },
+    {
+      "id": "horikawa-canal-nichinan",
+      "sourceUrls": [
+        "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_%28%E5%AE%AE%E5%B4%8E%E7%9C%8C%29"
+      ]
+    },
+    {
+      "id": "huis-ten-bosch",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Huis_Ten_Bosch_(theme_park)"
+      ]
+    },
+    {
+      "id": "ibusuki-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima"]
+    },
+    {
+      "id": "ikuta-ryokuchi",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ikuta_Ryokuchi_Park"]
+    },
+    {
+      "id": "inage-seaside-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Inagekaigan_Station"]
+    },
+    {
+      "id": "inamuragasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Inamuragasaki"]
+    },
+    {
+      "id": "ishidake-observatory",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands"]
+    },
+    {
+      "id": "iwatsuki-ningyo-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama"]
+    },
+    {
+      "id": "jochi-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kamakura"]
+    },
+    {
+      "id": "jomon-sugi-yakushima",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi"]
+    },
+    {
+      "id": "kabukicho",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kabukich%C5%8D"]
+    },
+    {
+      "id": "kagoshima-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kagoshima_City"]
+    },
+    {
+      "id": "kagoshima-city-aquarium",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kagoshima_City_Aquarium"]
+    },
+    {
+      "id": "kagurazaka",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shinjuku"]
+    },
+    {
+      "id": "kamakurakokomae-station",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station"
+      ]
+    },
+    {
+      "id": "kanayama-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kanamara_Matsuri"]
+    },
+    {
+      "id": "kangien-academy",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kangien"]
+    },
+    {
+      "id": "kannawa-onsen-district",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Beppu_Onsen"]
+    },
+    {
+      "id": "karatsu-castle",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Karatsu_Castle"]
+    },
+    {
+      "id": "karatsu-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Karatsu,_Saga"]
+    },
+    {
+      "id": "kashiya-yokocho",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kashiya_Yokocho"]
+    },
+    {
+      "id": "kasori-shell-mounds",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kasori_Shell_Mound"]
+    },
+    {
+      "id": "katase-higashihama-beach",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Enoshima_Station"]
+    },
+    {
+      "id": "katori-jingu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Katori_Shrine"]
+    },
+    {
+      "id": "kawachi-wisteria-garden",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden"]
+    },
+    {
+      "id": "kawagoe-festival-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kawagoe_Festival_Museum"]
+    },
+    {
+      "id": "kawagoe-hikawa-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)"]
+    },
+    {
+      "id": "kawasaki-daishi",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kawasaki_Daishi"]
+    },
+    {
+      "id": "kennin-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yasaka_Pagoda"]
+    },
+    {
+      "id": "kinkaku-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kinkaku-ji"]
+    },
+    {
+      "id": "kinrin-lake-yufuin",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kinrin_Lake"]
+    },
+    {
+      "id": "kita-in",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kita-in"]
+    },
+    {
+      "id": "kitakyushu-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kitakyushu_City"]
+    },
+    {
+      "id": "kitakyushu-manga-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum"]
+    },
+    {
+      "id": "kitano-ijinkan",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kobe"]
+    },
+    {
+      "id": "kobe-animal-kingdom",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kobe_Animal_Kingdom"]
+    },
+    {
+      "id": "kobe-harborland",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Harborland"]
+    },
+    {
+      "id": "kobe-maritime-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kobe_Maritime_Museum"]
+    },
+    {
+      "id": "kobe-port-tower",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kobe_Port_Tower"]
+    },
+    {
+      "id": "komachi-street",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kamakura"]
+    },
+    {
+      "id": "komyozenji-temple-dazaifu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka"]
+    },
+    {
+      "id": "kotoku-in-great-buddha",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/K%C5%8Dtoku-in"]
+    },
+    {
+      "id": "kujukushima-pearl-sea-resort",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands"]
+    },
+    {
+      "id": "kumamoto-castle",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kumamoto_Castle"]
+    },
+    {
+      "id": "kumamoto-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kumamoto_City"]
+    },
+    {
+      "id": "kumamoto-prefectural-art-museum",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art"
+      ]
+    },
+    {
+      "id": "kuromon-market",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/History_of_Tokyo"]
+    },
+    {
+      "id": "kusasenri-meadow-aso",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Aso"]
+    },
+    {
+      "id": "kushida-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kushida_Shrine"]
+    },
+    {
+      "id": "kyoto-imperial-palace",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace"]
+    },
+    {
+      "id": "kyoto-international-manga-museum",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum"
+      ]
+    },
+    {
+      "id": "kyoto-national-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kyoto_National_Museum"]
+    },
+    {
+      "id": "kyoto-railway-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kyoto_Railway_Museum"]
+    },
+    {
+      "id": "kyushu-national-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kyushu_National_Museum"]
+    },
+    {
+      "id": "lake-ikeda",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Lake_Ikeda"]
+    },
+    {
+      "id": "lazona-kawasaki-plaza",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Lazona_Kawasaki_Plaza"]
+    },
+    {
+      "id": "maizuru-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Fukuoka"]
+    },
+    {
+      "id": "makuhari-seaside-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kaihimmakuhari_Station"]
+    },
+    {
+      "id": "mameda-historic-district",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hita,_%C5%8Cita"]
+    },
+    {
+      "id": "meganebashi-bridge-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Meganebashi"]
+    },
+    {
+      "id": "meriken-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Meriken_Park"]
+    },
+    {
+      "id": "miraikan",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Miraikan"]
+    },
+    {
+      "id": "miyazaki-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Miyazaki_City"]
+    },
+    {
+      "id": "miyazaki-jingu-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB"]
+    },
+    {
+      "id": "mojiko-retro-district",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mojiko_Retro"]
+    },
+    {
+      "id": "mount-aso-kumamoto",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Aso"]
+    },
+    {
+      "id": "mount-inasa-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Inasa"]
+    },
+    {
+      "id": "mount-kaimon",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Kaimon"]
+    },
+    {
+      "id": "musashi-ichinomiya-hikawa-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Hikawa_Shrine_(Saitama)"]
+    },
+    {
+      "id": "museum-of-aeronautical-sciences",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Museum_of_Aeronautical_Sciences",
+        "https://en.wikipedia.org/wiki/Narita_International_Airport",
+        "https://www.aeromuseum.or.jp/"
+      ]
+    },
+    {
+      "id": "nagasaki-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nagasaki_City"]
+    },
+    {
+      "id": "nagasaki-peace-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nagasaki_Peace_Park"]
+    },
+    {
+      "id": "nakadake-crater-aso",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Mount_Aso"]
+    },
+    {
+      "id": "nakasu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nakasu"]
+    },
+    {
+      "id": "nanatsugama-sea-caves",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nanatsugama"]
+    },
+    {
+      "id": "nankinmachi-chinatown",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nankin-machi"]
+    },
+    {
+      "id": "nanzen-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nanzen-in"]
+    },
+    {
+      "id": "narita-airport-observation-decks",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Haneda_Airport",
+        "https://en.wikipedia.org/wiki/Narita_International_Airport",
+        "https://www.narita-airport.jp/en/fun/view/"
+      ]
+    },
+    {
+      "id": "naritasan-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Narita-san"]
+    },
+    {
+      "id": "national-museum-of-nature-and-science",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science"
+      ]
+    },
+    {
+      "id": "nichinan-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nichinan,_Miyazaki"]
+    },
+    {
+      "id": "nihon-minka-en",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nihon_Minka-en"]
+    },
+    {
+      "id": "nijinomatsubara-pine-grove",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Niji_no_Matsubara"]
+    },
+    {
+      "id": "ninna-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ninna-ji"]
+    },
+    {
+      "id": "nishiki-market",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nishiki_Market"]
+    },
+    {
+      "id": "nunobiki-falls",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nunobiki_Falls"]
+    },
+    {
+      "id": "nunobiki-herb-gardens",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden"]
+    },
+    {
+      "id": "nunobiki-ropeway",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway"]
+    },
+    {
+      "id": "obi-castle",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Obi,_Miyazaki"]
+    },
+    {
+      "id": "ohori-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/%C5%8Chori_Park"]
+    },
+    {
+      "id": "omiya-bonsai-art-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Saitama_(city)"]
+    },
+    {
+      "id": "omiya-bonsai-village",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/%C5%8Cmiya_Bonsai_Village"]
+    },
+    {
+      "id": "omiya-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/%C5%8Cmiya_Park"]
+    },
+    {
+      "id": "omoide-yokocho",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/History_of_Tokyo"]
+    },
+    {
+      "id": "onta-pottery-village",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Onta_ware"]
+    },
+    {
+      "id": "osaka-aquarium-kaiyukan",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan"]
+    },
+    {
+      "id": "osaka-castle-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Osaka_Castle_Park"]
+    },
+    {
+      "id": "osaka-museum-of-housing-and-living",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Osaka"]
+    },
+    {
+      "id": "osaka-station-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station"]
+    },
+    {
+      "id": "oura-church-nagasaki",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/%C5%8Cura_Church"]
+    },
+    {
+      "id": "philosopher-s-walk",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Philosopher%27s_Walk"]
+    },
+    {
+      "id": "renkeiji",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
+        "https://en.wikipedia.org/wiki/Renkei-ji",
+        "https://renkeiji.jp/"
+      ]
+    },
+    {
+      "id": "ryoan-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kyoto"]
+    },
+    {
+      "id": "saitama-shintoshin",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Saitama_(city)"]
+    },
+    {
+      "id": "saitama-stadium-2002",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Saitama_Stadium_2002"]
+    },
+    {
+      "id": "saitama-super-arena",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Saitama_Super_Arena"]
+    },
+    {
+      "id": "sakurajima-volcano-kagoshima",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sakurajima"]
+    },
+    {
+      "id": "samuel-cocking-garden",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Samuel_Cocking_Garden"]
+    },
+    {
+      "id": "sanjusangen-do",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D"]
+    },
+    {
+      "id": "sasebo-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sasebo"]
+    },
+    {
+      "id": "sasebo-naval-port-cruise",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/United_States_Fleet_Activities_Sasebo"
+      ]
+    },
+    {
+      "id": "sasuke-inari-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sasuke_Inari_Shrine"]
+    },
+    {
+      "id": "sengan-en-garden-kagoshima",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sengan-en"]
+    },
+    {
+      "id": "shingashi-river",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shingashi_River"]
+    },
+    {
+      "id": "shinjuku-gyo-en",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shinjuku"]
+    },
+    {
+      "id": "shinsaibashi",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shinsaibashi"]
+    },
+    {
+      "id": "shinsekai",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shinsekai"]
+    },
+    {
+      "id": "shinsho-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Narita-san"]
+    },
+    {
+      "id": "shiratani-unsuikyo-ravine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yakushima"]
+    },
+    {
+      "id": "shonan-kaigan-park",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Shonan_Kaigan_Park",
+        "https://en.wikipedia.org/wiki/Shonan_Monorail"
+      ]
+    },
+    {
+      "id": "suizenji-garden-kumamoto",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Suizen-ji_J%C5%8Dju-en"]
+    },
+    {
+      "id": "sun-messe-nichinan",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sun_Messe_Nichinan"]
+    },
+    {
+      "id": "sunamushi-onsen-saraku",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ibusuki_Onsen"]
+    },
+    {
+      "id": "sunshine-aquarium",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sunshine_Aquarium"]
+    },
+    {
+      "id": "sunshine-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo"]
+    },
+    {
+      "id": "taisho-roman-street",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Taisho-roman_Street"]
+    },
+    {
+      "id": "takachiho-gorge",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Takachiho_Gorge"]
+    },
+    {
+      "id": "takachiho-kagura-dance",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Takachiho,_Miyazaki"]
+    },
+    {
+      "id": "takachiho-town",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Takachiho_Town"]
+    },
+    {
+      "id": "takegawara-onsen-beppu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Takegawara_Onsen"]
+    },
+    {
+      "id": "taro-okamoto-museum-of-art",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Taro_Okamoto_Museum_of_Art"]
+    },
+    {
+      "id": "tempozan-ferris-wheel",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel"]
+    },
+    {
+      "id": "tenjin",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station"
+      ]
+    },
+    {
+      "id": "tennoji-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Park"]
+    },
+    {
+      "id": "the-museum-of-modern-art-saitama",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama"
+      ]
+    },
+    {
+      "id": "the-national-museum-of-art-osaka",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka"
+      ]
+    },
+    {
+      "id": "tochoji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji"]
+    },
+    {
+      "id": "todoroki-ryokuchi",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Todoroki_Ryokuchi"]
+    },
+    {
+      "id": "toki-no-kane",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Time_Bell_Tower"]
+    },
+    {
+      "id": "tokyo-national-museum",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Tokyo_National_Museum"]
+    },
+    {
+      "id": "toto-museum-kitakyushu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/TOTO_(company)"]
+    },
+    {
+      "id": "toyosu-market",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Toyosu_Market"]
+    },
+    {
+      "id": "tsujido-seaside-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Tsujido_Seaside_Park"]
+    },
+    {
+      "id": "tsurugaoka-hachimangu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB"]
+    },
+    {
+      "id": "tsutenkaku",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku"]
+    },
+    {
+      "id": "udo-jingu",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Udo-jing%C5%AB"]
+    },
+    {
+      "id": "ueno-park",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Ueno_Park"]
+    },
+    {
+      "id": "umeda-sky-building",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Umeda_Sky_Building"]
+    },
+    {
+      "id": "umi-kirara-aquarium",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands"]
+    },
+    {
+      "id": "universal-studios-japan",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Universal_Studios_Japan"]
+    },
+    {
+      "id": "yakushima-town",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yakushima_Town"]
+    },
+    {
+      "id": "yakusugi-land-yakushima",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yakushima"]
+    },
+    {
+      "id": "yanaka",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yanaka,_Tokyo"]
+    },
+    {
+      "id": "yasaka-shrine",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yasaka_Pagoda"]
+    },
+    {
+      "id": "yobuko-morning-market",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yobuko"]
+    },
+    {
+      "id": "yufu-city",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yufu_City"]
+    },
+    {
+      "id": "yufuin-floral-village",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yufuin_Onsen"]
+    },
+    {
+      "id": "yufuin-onsen-ryokan-district",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yufuin_Onsen"]
+    },
+    {
+      "id": "yugyo-ji",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Sh%C5%8Dj%C5%8Dk%C5%8D-ji"]
+    },
+    {
+      "id": "yuigahama-beach",
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Yuigahama"]
+    },
+    {
+      "id": "zeniarai-benten",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine"
+      ]
+    }
+  ],
+  "unmappedIds": [
+    "abashiri",
+    "abeno-harukas-300-osaka",
+    "adachi-city",
+    "aichi-kogen",
+    "akan-mashu",
+    "akasaka-minato",
+    "akashi-castle",
+    "akashi-kaikyo-bridge",
+    "akihabara-chiyoda",
+    "akiyoshidai",
+    "akiyoshidai-plateau",
+    "akkeshi-kiritappu-konbumori",
+    "ako-castle",
+    "amami-gunto",
+    "amanohashidate-kyoto",
+    "arakawa-city",
+    "arima-onsen",
+    "art-tower-mito",
+    "asakusa-taito",
+    "ashigara",
+    "ashikaga-flower-park-tochigi",
+    "ashikaga-shi-yakata",
+    "ashizuri-uwakai",
+    "aso-kuju",
+    "asuka-fujiwara-nara",
+    "azuchi-castle",
+    "bandai-asahi",
+    "bikan-historical-quarter",
+    "bise-fukugi-tree-road-motobu",
+    "biwako",
+    "boso-peninsula",
+    "buaiso",
+    "bunkyo-city",
+    "busena-marine-park-nago",
+    "byodoin-temple",
+    "chiba-city",
+    "chiba-nokogiriyama",
+    "chiba-port-tower",
+    "chiba-sawara",
+    "chiba-yoro-valley",
+    "chichibu-city",
+    "chichibu-tama-kai",
+    "chigasaki-city",
+    "chihaya-castle",
+    "chiyoda-city",
+    "chofu-historic-jindaiji-district",
+    "chofu-tokyo",
+    "chogosonshi-ji-temple",
+    "chokai",
+    "chubu-sangaku",
+    "chuo-alps",
+    "chuo-city",
+    "churaumi-aquarium-motobu",
+    "cup-noodles-museum-yokohama",
+    "cupnoodles-museum-osaka-ikeda",
+    "daisen-oki",
+    "daisetsuzan",
+    "daisho-in",
+    "danjo-garan-koyasan",
+    "disneyland",
+    "disneysea",
+    "echigo-sanzan-tadami",
+    "echizen-kaga-kaigan",
+    "edo-castle-tokyo",
+    "edogawa-city",
+    "engyo-ji-mount-shosha",
+    "enoshima-island",
+    "enryaku-ji-mount-hiei",
+    "farm-tomita",
+    "fudaten-shrine",
+    "fuefukigawa-fruit-park",
+    "fuji-hakone-izu",
+    "fujisawa-city",
+    "fukagawa-edo-museum",
+    "fukiya-village",
+    "fukuoka-yatai",
+    "fukushuen-garden-naha",
+    "fukuyama-castle",
+    "funabashi-city",
+    "funai-castle",
+    "gassantoda-castle",
+    "genbaku-dome",
+    "genbudo-cave-park",
+    "genkai",
+    "genkyuen-garden",
+    "gessho-ji-temple-matsue",
+    "ghibli-museum",
+    "ginza-itoya",
+    "ginza-urban",
+    "goryokaku",
+    "gunma-ikaho-onsen",
+    "gunma-kusatsu-onsen",
+    "gunma-shima-onsen",
+    "gyokudo-art-museum",
+    "hachigata-castle",
+    "hachioji-castle-tokyo",
+    "hachioji-tokyo",
+    "hagi-castle",
+    "hakkeijima",
+    "hakone-open-air-museum",
+    "hakone-town",
+    "hakusan",
+    "hamarikyu-gardens",
+    "harajuku-takeshita-street",
+    "harry-potter-studio",
+    "hayachine",
+    "hayashibara-museum-of-art",
+    "hiba-dogo-taishaku",
+    "hida-cave",
+    "hida-kisogawa",
+    "hidakasanmyaku-erimo-tokachi",
+    "hiei-zan-driveway-observatory",
+    "higashi-hennazaki-cape-miyako",
+    "hijikata-toshizo-museum",
+    "hikone-castle-shiga",
+    "hikone-city",
+    "himeji-castle",
+    "himeji-city",
+    "hinomisaki-lighthouse-izumo",
+    "hirado-castle",
+    "hiraizumi-chusonji-iwate",
+    "hirosaki-castle",
+    "hiroshima-national-peace-memorial-hall",
+    "hiroshima-peace-memorial",
+    "hiroshima-peace-memorial-park",
+    "hitoyoshi-castle",
+    "hizen-nagoya-castle",
+    "hokki-ji-pagoda",
+    "hondori",
+    "horikawa-pleasure-boat",
+    "horyuji-temple-nara",
+    "hyonosen-ushiro-yama-nagisan",
+    "ibaraki-fukuroda-falls",
+    "ibaraki-hitachi-seaside-park",
+    "ibaraki-mount-tsukuba",
+    "ibi-sekigahara-yoro",
+    "ichijodani-castle",
+    "iga-ueno-castle",
+    "ikaruga-town",
+    "ikebukuro-toshima",
+    "iki-tsushima",
+    "ikuno-silver-mine",
+    "imabari-castle",
+    "imperial-palace-chiyoda",
+    "inasa-beach-izumo",
+    "ine-funaya-boathouses",
+    "inujima",
+    "irabu-bridge-irabujima-miyako",
+    "iriomote-ishigaki",
+    "ise-grand-shrine",
+    "ise-shima",
+    "ishigaki-city",
+    "ishizuchi",
+    "itabashi-city",
+    "iwakuni-castle",
+    "iwamura-castle",
+    "izushi-castle-town",
+    "jindai-botanical-gardens",
+    "jindai-zakura",
+    "jindaiji",
+    "jogashima",
+    "joshinetsu-kogen",
+    "joypolis",
+    "kabira-bay-ishigaki",
+    "kabukiza",
+    "kagoshima-castle",
+    "kairakuen-mito",
+    "kamakura-city",
+    "kanayama-castle",
+    "kanazawa-21",
+    "kannai-yokohama",
+    "kannonji-castle",
+    "karato-market-shimonoseki",
+    "kasamatsu-park-view",
+    "kashima-jingu",
+    "kasugayama-castle",
+    "kataonami-beach-wakanoura",
+    "katsushika-city",
+    "kawagoe-castle-saitama",
+    "kawagoe-city",
+    "kawagoe-kurazukuri",
+    "kawaguchi-city",
+    "kawasaki-city",
+    "kegon-falls-nikko",
+    "keio-mogusaen",
+    "keio-rail-land",
+    "kenroku-en",
+    "kerama-shoto",
+    "kibitsu-shrine",
+    "kimii-dera-temple",
+    "kinojo",
+    "kinosaki-onsen",
+    "kinugawa-onsen",
+    "kirin-beer-yokohama-factory",
+    "kirishima-kinkowan",
+    "kisarazu-city",
+    "kishi-station-tama-cat",
+    "kita-city",
+    "kita-nagato-kaigan",
+    "kitakyushu",
+    "kitaro-chaya",
+    "kiyosumi-gardens",
+    "kobe-city",
+    "kobe-maya-night-view",
+    "kofu-castle",
+    "kojima-denim-street",
+    "koko-en-garden",
+    "kokusai-dori-naha",
+    "komoro-castle",
+    "kongo-ikoma-kisen",
+    "koshikijima",
+    "koto-city",
+    "kouri-island-okinawa",
+    "koya-ryujin",
+    "koya-town",
+    "kubota-castle",
+    "kumano-kodo-koya-wakayama",
+    "kurashiki-museum-of-folkcraft",
+    "kurikoma",
+    "kuroshio-market-marina-city",
+    "kusatsu-town",
+    "kushiro-shitsugen",
+    "kyoto-city",
+    "kyoto-historic",
+    "kyoto-tamba-kogen",
+    "kyusendo-cave",
+    "kyushu-chuo-sanchi",
+    "lafcadio-hearn-memorial-museum",
+    "lake-biwa-shiga",
+    "lake-sagami",
+    "machida-graphic-arts-museum",
+    "machida-tokyo",
+    "matsudo-city",
+    "matsue-vogel-park",
+    "matsumae-castle",
+    "matsusaka-castle",
+    "matsushima-town",
+    "matsushiro-castle",
+    "meguro-city",
+    "meiji-jingu",
+    "meiji-no-mori-mino",
+    "meiji-no-mori-takao",
+    "meoto-iwa-wedded-rocks",
+    "miharu-takizakura",
+    "miho-museum-koka",
+    "mikawa-wan",
+    "mimuroto-ji-temple",
+    "minakami-town",
+    "minami-alps",
+    "minami-boso",
+    "minato-city",
+    "minato-mirai-yokohama",
+    "minowa-castle",
+    "mito-castle-ibaraki",
+    "mito-city",
+    "miyajima-gojunoto",
+    "miyajima-omotesando",
+    "miyakojima-city",
+    "miyazu-city",
+    "momijidani-park",
+    "mother-farm-chiba",
+    "motobu-town",
+    "mount-takao",
+    "mount-yoshino-nara",
+    "mozufuruichi-kofun-osaka",
+    "mukojima-hyakkaen",
+    "muro-akame-aoyama",
+    "muroto-anan-kaigan",
+    "musashi-mitake-shrine",
+    "museum-contemporary-art-tokyo",
+    "myogi-arafune-saku-kogen",
+    "myoko-togakushi",
+    "nabana-no-sato",
+    "nachi-falls-wakayama",
+    "nagashino-castle",
+    "nago-city",
+    "nago-pineapple-park",
+    "naha-city",
+    "nakagusuku-castle",
+    "nakano-city",
+    "nakanoshima-museum-art-osaka",
+    "nakijin-castle-ruins-motobu",
+    "naminoue-shrine-naha",
+    "nanao-castle",
+    "nanatsugama-cave",
+    "nara-city",
+    "nara-historic",
+    "nara-park-todaiji",
+    "naramachi-historic-district",
+    "narita-city",
+    "national-museum-western-art-tokyo",
+    "ne-castle-hachinohe",
+    "nemuro-peninsula-chashi-sites",
+    "nerima-city",
+    "nichinan-kaigan",
+    "nichinan-kaigan-drive",
+    "nihonbashi",
+    "nihonmatsu-castle",
+    "nijo-castle-kyoto",
+    "nikko-city",
+    "nikko-national-park",
+    "nikko-toshogu-shrine-tochigi",
+    "nippara-cave",
+    "nippo-kaigan",
+    "niseko-shakotan-otaru-kaigan",
+    "nishi-chugoku-sanchi",
+    "noto-hanto",
+    "nozuta-park",
+    "oarai-marine-tower",
+    "odaiba-minato",
+    "odani-castle",
+    "odawara-castle",
+    "odawara-city",
+    "oga",
+    "ogasawara-islands-tokyo",
+    "ogasawara-national-park",
+    "ogijima",
+    "ohara-museum-of-art",
+    "oka-castle-oita",
+    "okage-yokocho-oharai-machi",
+    "okayama-castle",
+    "okazaki-castle",
+    "okinawa-kaigan",
+    "okinawa-senseki",
+    "okinoshima-munakata-fukuoka",
+    "okunoin-cemetery-koyasan",
+    "ome-railway-park",
+    "ome-retro-town",
+    "ome-tokyo",
+    "omi-hachiman-canal",
+    "omishima-bridge",
+    "omiya-railway",
+    "ono-castle-dazaifu",
+    "ontakesan",
+    "onuma",
+    "orient-museum",
+    "osaka-castle",
+    "osaka-central-public-hall",
+    "osaka-city",
+    "ota-city",
+    "oze-national-park",
+    "ozu-castle",
+    "play-museum-tachikawa",
+    "polar-science-museum",
+    "raikyuji-temple",
+    "rainbow-bridge",
+    "rishiri-rebun-sarobetsu",
+    "ritsuunkyo-viewpoint",
+    "roppongi-hills-tokyo-city-view",
+    "ryogoku-kokugikan-sumo-museum",
+    "sado-yahiko-yoneyama",
+    "saga-castle",
+    "sagamihara-city",
+    "saigoku-33",
+    "saikai",
+    "saitama-city",
+    "saitama-nagatoro",
+    "sakai-city",
+    "sakai-city-museum",
+    "sakura-castle-chiba",
+    "sanin-kaigan",
+    "sannai-maruyama-jomon-aomori",
+    "sanriku-fukko",
+    "sapporo-art-park",
+    "sarakurayama",
+    "saru-hashi",
+    "sasayama-castle",
+    "seiko-museum-ginza",
+    "sendai-city",
+    "senjojiki-sandanbeki-cliffs",
+    "senjokaku",
+    "serigaya-park",
+    "setagaya-city",
+    "seto-ohashi-bridge",
+    "setonaikai",
+    "shibata-castle",
+    "shibuya-city",
+    "shibuya-crossing-hachiko",
+    "shibuya-sky-shibuya",
+    "shikisai-no-oka",
+    "shikoku-henro",
+    "shikotsu-toya",
+    "shimabara-castle",
+    "shimokita-hanto",
+    "shin-yokohama-ramen-museum",
+    "shinagawa-city",
+    "shinjuku-city",
+    "shirahama-beach-adventure-world",
+    "shirahama-town",
+    "shirahige-shrine-lake-biwa",
+    "shiraito-falls",
+    "shirakami-sanchi-aomori",
+    "shirakawa-komine-castle",
+    "shitennoji",
+    "shodoshima",
+    "shokanbetsu-teuri-yagishiri",
+    "shomyo-falls",
+    "shoryu-cave",
+    "showa-kinen-park",
+    "shuri-castle-okinawa",
+    "sobo-katamuki",
+    "soji-ji-yokohama",
+    "sugamo-jizo-dori",
+    "suginami-city",
+    "suigo-tsukuba",
+    "sumida-city",
+    "sumida-hokusai-museum",
+    "sumida-river-walk",
+    "sunpu-castle",
+    "sunshine-60-observatory-ikebukuro",
+    "suwa-shrine-tachikawa",
+    "suzuka",
+    "tachikawa-manga-park",
+    "tachikawa-tokyo",
+    "taga-castle",
+    "taito-city",
+    "takahata-fudoson",
+    "takanawa-gateway-minato",
+    "takao-599-museum",
+    "takaoka-castle",
+    "takaoka-daibutsu",
+    "takaosan-yakuoin",
+    "takatori-castle",
+    "takayama-sanmachi",
+    "takeda-castle-ruins-hyogo",
+    "taketomi-island",
+    "tama-forest-science-garden",
+    "tama-zoological-park",
+    "tamatorizaki-viewpoint-ishigaki",
+    "tanabe-museum-matsue",
+    "tango-amanohashidate-oeyama",
+    "tanzawa-oyama",
+    "teamlab-borderless-azabudai",
+    "teamlab-planets",
+    "tenryu-okumikawa",
+    "tokiwaso-manga-museum",
+    "tokorozawa-city",
+    "tokushima-castle",
+    "tokyo-hinohara",
+    "tokyo-metropolitan-government-building-shinjuku",
+    "tokyo-mt-mitake",
+    "tokyo-okutama",
+    "tokyo-skytree-sumida",
+    "tokyo-station-chiyoda",
+    "tokyo-tower-minato",
+    "tomioka-silk-mill-gunma",
+    "tomogashima-islands",
+    "toshima-city",
+    "toshodai-ji-temple",
+    "tottori-castle",
+    "towada-hachimantai",
+    "tsugaru",
+    "tsukiji-outer-market",
+    "tsukuba-city",
+    "tsurugisan",
+    "tsuwano-castle",
+    "tsuyama-castle",
+    "ueno-taito",
+    "ueno-zoo",
+    "uji-city",
+    "uji-tea-culture-center",
+    "ukimido-mangetsu-ji",
+    "unzen-amakusa",
+    "uradome-coast",
+    "urayasu-city",
+    "ushiku-daibutsu",
+    "usuzumi-zakura",
+    "utsunomiya-city",
+    "utsunomiya-oya",
+    "wakakusayama",
+    "wakasa-wan",
+    "wakayama-castle",
+    "wakayama-city",
+    "yaba-hita-hikosan",
+    "yakushi-ike-park",
+    "yakushi-ji-temple",
+    "yakushima-national-park",
+    "yamagata-castle",
+    "yamanaka-castle",
+    "yamashita-park-yokohama",
+    "yamato-aogaki",
+    "yambaru",
+    "yatsugatake-chushin-kogen",
+    "yokohama-chinatown",
+    "yokohama-city",
+    "yokohama-cosmo-world",
+    "yokohama-marine-tower",
+    "yokohama-red-brick-warehouse",
+    "yokohama-zoorasia",
+    "yokosuka-city",
+    "yomiuriland",
+    "yonaha-maehama-beach-miyako",
+    "yonehara-beach-coral-ishigaki",
+    "yoshida-koriyama-castle",
+    "yoshino-kumano",
+    "yoshinogari",
+    "yoyogi-park",
+    "zao",
+    "zoshigaya-kishimojindo",
+    "zushi"
+  ],
+  "unmappedFingerprint": "a81c1068f757aa6ac1fbfd1f45f44df21659e058a77a40912f471800bce7fa9f"
+}

@@ -2727,7 +2727,12 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Ameya-Yokochō",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
+    "wikipediaPageId": 35728733,
+    "wikidataId": "Q864815"
   },
   {
     "id": "aoba-castle-museum",
@@ -7770,7 +7775,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Canal City Hakata",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Canal_City_Hakata",
+    "wikipediaPageId": 20389034,
+    "wikidataId": "Q1050353"
   },
   {
     "id": "chiba-city",
@@ -10085,7 +10095,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Chiba Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Chiba_Shrine",
+    "wikipediaPageId": 65800638,
+    "wikidataId": "Q11406700"
   },
   {
     "id": "chiba-yoro-valley",
@@ -10603,7 +10618,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Chiba Zoological Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
+    "wikipediaPageId": 49773939,
+    "wikidataId": "Q11405998"
   },
   {
     "id": "chichibu-city",
@@ -13665,7 +13685,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Dōtonbori",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
+    "wikipediaPageId": 998084,
+    "wikidataId": "Q964876"
   },
   {
     "id": "edo-castle-tokyo",
@@ -14374,7 +14399,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Engaku-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Engaku-ji",
+    "wikipediaPageId": 2660256,
+    "wikidataId": "Q954860"
   },
   {
     "id": "enoshima-aquarium",
@@ -15165,7 +15195,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Enoshima",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Enoshima",
+    "wikipediaPageId": 309686,
+    "wikidataId": "Q989803"
   },
   {
     "id": "enoshima-sea-candle",
@@ -15445,7 +15480,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Enoshima Sea Candle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
+    "wikipediaPageId": 57344375,
+    "wikidataId": "Q11550565"
   },
   {
     "id": "enoshima-shrine",
@@ -15728,7 +15768,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Enoshima Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Enoshima_Shrine",
+    "wikipediaPageId": 39410995,
+    "wikidataId": "Q11259219"
   },
   {
     "id": "former-hokkaido-government-office",
@@ -17550,7 +17595,12 @@
       "basis": "Hakata K11/N18 → Ohorikoen K06 on Fukuoka City Subway is ¥260 ordinary adult one-way; Ohorikoen is the museum's official station access point followed by the free museum walk.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Fukuoka Art Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukuoka_Art_Museum",
+    "wikipediaPageId": 29625409,
+    "wikidataId": "Q3073273"
   },
   {
     "id": "fukuoka-castle-ruins",
@@ -18034,7 +18084,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Fukuoka",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukuoka",
+    "wikipediaPageId": 61744,
+    "wikidataId": "Q26600"
   },
   {
     "id": "fukuoka-tower",
@@ -18321,7 +18376,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Fukuoka Tower",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukuoka_Tower",
+    "wikipediaPageId": 3647511,
+    "wikidataId": "Q847033"
   },
   {
     "id": "fukuoka-yatai",
@@ -19473,7 +19533,12 @@
       "basis": "Kyoto → Inari on JR West is ¥150 ordinary adult one-way; the official shrine access page states Inari Station is immediately adjacent to Fushimi Inari.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Fushimi Inari-taisha",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+    "wikipediaPageId": 1659910,
+    "wikidataId": "Q714828"
   },
   {
     "id": "gala-yuzawa",
@@ -21293,7 +21358,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Ginkaku-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ginkaku-ji",
+    "wikipediaPageId": 626698,
+    "wikidataId": "Q257473"
   },
   {
     "id": "ginza-urban",
@@ -21957,7 +22027,12 @@
       "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Shinjuku Golden Gai",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
+    "wikipediaPageId": 12143513,
+    "wikidataId": "Q5363705"
   },
   {
     "id": "goshikinuma-ponds-fukushima",
@@ -25955,7 +26030,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hase-dera (Kamakura)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)",
+    "wikipediaPageId": 2828615,
+    "wikidataId": "Q1034293"
   },
   {
     "id": "hatsukaichi-city",
@@ -26389,7 +26469,12 @@
       "basis": "From Kyoto Station, the official Heian Jingu access routes are Kyoto City Bus No. 5 at ¥230 or the Kyoto Municipal Subway route to Higashiyama at ¥260; both include the complete selected paid access followed by the official free walk.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Heian Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Heian_Shrine",
+    "wikipediaPageId": 626681,
+    "wikidataId": "Q385141"
   },
   {
     "id": "higashiyama-sky-tower-nagoya",
@@ -29550,7 +29635,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hōkoku-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji",
+    "wikipediaPageId": 35280342,
+    "wikidataId": "Q3146363"
   },
   {
     "id": "honmaru-palace",
@@ -31319,7 +31409,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Ikuta Ryokuchi Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ikuta_Ryokuchi_Park",
+    "wikipediaPageId": 51363214,
+    "wikidataId": "Q11574811"
   },
   {
     "id": "imperial-palace-chiyoda",
@@ -32056,7 +32151,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Inamuragasaki",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Inamuragasaki",
+    "wikipediaPageId": 18821511,
+    "wikidataId": "Q11596647"
   },
   {
     "id": "inuyama-castle-aichi",
@@ -36028,7 +36128,12 @@
       "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kabukichō",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kabukich%C5%8D",
+    "wikipediaPageId": 667914,
+    "wikidataId": "Q665216"
   },
   {
     "id": "kagoshima-city",
@@ -36234,7 +36339,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Kagoshima",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kagoshima",
+    "wikipediaPageId": 16910,
+    "wikidataId": "Q15674"
   },
   {
     "id": "kagurazaka",
@@ -37825,7 +37935,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kanamara Matsuri",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kanamara_Matsuri",
+    "wikipediaPageId": 3744413,
+    "wikidataId": "Q584642"
   },
   {
     "id": "kanazawa",
@@ -38828,7 +38943,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kashiya Yokocho",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kashiya_Yokocho",
+    "wikipediaPageId": 57074326,
+    "wikidataId": "Q11619944"
   },
   {
     "id": "kasori-shell-mounds",
@@ -39075,7 +39195,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kasori Shell Mound",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kasori_Shell_Mound",
+    "wikipediaPageId": 67562750,
+    "wikidataId": "Q11398640"
   },
   {
     "id": "katase-higashihama-beach",
@@ -39836,7 +39961,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Katori Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Katori_Shrine",
+    "wikipediaPageId": 13305284,
+    "wikidataId": "Q372380"
   },
   {
     "id": "katsushika-city",
@@ -40799,7 +40929,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kawagoe Festival Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kawagoe_Festival_Museum",
+    "wikipediaPageId": 57065846,
+    "wikidataId": "Q11479196"
   },
   {
     "id": "kawagoe-hikawa-shrine",
@@ -41081,7 +41216,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Hikawa Shrine (Kawagoe)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)",
+    "wikipediaPageId": 56028845,
+    "wikidataId": "Q11549607"
   },
   {
     "id": "kawaguchi-city",
@@ -41839,7 +41979,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kawasaki Daishi",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kawasaki_Daishi",
+    "wikipediaPageId": 15042715,
+    "wikidataId": "Q1504465"
   },
   {
     "id": "kegon-falls-nikko",
@@ -42590,7 +42735,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kinkaku-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kinkaku-ji",
+    "wikipediaPageId": 246341,
+    "wikidataId": "Q270983"
   },
   {
     "id": "kinosaki-onsen",
@@ -44239,7 +44389,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kita-in",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kita-in",
+    "wikipediaPageId": 14466570,
+    "wikidataId": "Q3080561"
   },
   {
     "id": "kitakyushu-city",
@@ -44451,7 +44606,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Kitakyushu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kitakyushu",
+    "wikipediaPageId": 6793300,
+    "wikidataId": "Q188806"
   },
   {
     "id": "kitano-ijinkan",
@@ -45135,7 +45295,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kobe Animal Kingdom",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe_Animal_Kingdom",
+    "wikipediaPageId": 24466263,
+    "wikidataId": "Q6424313"
   },
   {
     "id": "kobe-city",
@@ -45644,7 +45809,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Harborland",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Harborland",
+    "wikipediaPageId": 10050167,
+    "wikidataId": "Q5364704"
   },
   {
     "id": "kobe-maritime-museum",
@@ -45896,7 +46066,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kobe Maritime Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
+    "wikipediaPageId": 16715452,
+    "wikidataId": "Q5364119"
   },
   {
     "id": "kobe-maya-night-view",
@@ -46378,7 +46553,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kobe Port Tower",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
+    "wikipediaPageId": 1648676,
+    "wikidataId": "Q798766"
   },
   {
     "id": "kochi-castle",
@@ -47983,7 +48163,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kōtoku-in",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in",
+    "wikipediaPageId": 730217,
+    "wikidataId": "Q672056"
   },
   {
     "id": "kouri-island-okinawa",
@@ -48661,7 +48846,12 @@
       "detail": "Canonical arrival Kumamoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kumamoto Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kumamoto_Castle",
+    "wikipediaPageId": 332303,
+    "wikidataId": "Q613355"
   },
   {
     "id": "kumamoto-city",
@@ -48881,7 +49071,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Kumamoto",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kumamoto",
+    "wikipediaPageId": 6793346,
+    "wikidataId": "Q199889"
   },
   {
     "id": "kumano-kodo-koya-wakayama",
@@ -50158,7 +50353,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kushida Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kushida_Shrine",
+    "wikipediaPageId": 29526749,
+    "wikidataId": "Q865839"
   },
   {
     "id": "kushiro-city",
@@ -51105,7 +51305,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kyoto Imperial Palace",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
+    "wikipediaPageId": 1559855,
+    "wikidataId": "Q1202239"
   },
   {
     "id": "kyoto-international-manga-museum",
@@ -51372,7 +51577,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kyoto International Manga Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
+    "wikipediaPageId": 14845316,
+    "wikidataId": "Q783923"
   },
   {
     "id": "kyoto-national-museum",
@@ -51631,7 +51841,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kyoto National Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
+    "wikipediaPageId": 3173195,
+    "wikidataId": "Q147286"
   },
   {
     "id": "kyoto-railway-museum",
@@ -51890,7 +52105,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kyoto Railway Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
+    "wikipediaPageId": 24151944,
+    "wikidataId": "Q24014029"
   },
   {
     "id": "lake-hamanako",
@@ -52908,7 +53128,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Lazona Kawasaki Plaza",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Lazona_Kawasaki_Plaza",
+    "wikipediaPageId": 10279749,
+    "wikidataId": "Q6506052"
   },
   {
     "id": "machida-tokyo",
@@ -56327,7 +56552,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Meriken Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Meriken_Park",
+    "wikipediaPageId": 16715271,
+    "wikidataId": "Q5365128"
   },
   {
     "id": "minakami-town",
@@ -57584,7 +57814,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Miraikan",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Miraikan",
+    "wikipediaPageId": 9616780,
+    "wikidataId": "Q656957"
   },
   {
     "id": "mito-castle-ibaraki",
@@ -58670,7 +58905,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Miyazaki (city)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Miyazaki_(city)",
+    "wikipediaPageId": 6793360,
+    "wikidataId": "Q204308"
   },
   {
     "id": "miyazu-city",
@@ -60432,7 +60672,12 @@
       "detail": "Canonical arrival Nagasaki Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Mount Inasa",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Mount_Inasa",
+    "wikipediaPageId": 5129794,
+    "wikidataId": "Q3031841"
   },
   {
     "id": "mount-moiwa",
@@ -61564,7 +61809,12 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Hikawa Shrine (Saitama)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Saitama)",
+    "wikipediaPageId": 3663036,
+    "wikidataId": "Q703633"
   },
   {
     "id": "museum-of-aeronautical-sciences",
@@ -63193,7 +63443,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Nagasaki",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nagasaki",
+    "wikipediaPageId": 21790,
+    "wikidataId": "Q38234"
   },
   {
     "id": "nago-city",
@@ -65103,7 +65358,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nakasu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nakasu",
+    "wikipediaPageId": 2186108,
+    "wikidataId": "Q6960335"
   },
   {
     "id": "nankinmachi-chinatown",
@@ -65362,7 +65622,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nankin-machi",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nankin-machi",
+    "wikipediaPageId": 10194862,
+    "wikidataId": "Q912392"
   },
   {
     "id": "nanzen-ji",
@@ -65620,7 +65885,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nanzen-in",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nanzen-in",
+    "wikipediaPageId": 79508868,
+    "wikidataId": "Q11408325"
   },
   {
     "id": "naoshima-art-island-kagawa",
@@ -67602,7 +67872,12 @@
       "detail": "Canonical arrival Ueno Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "National Museum of Nature and Science",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science",
+    "wikipediaPageId": 2646870,
+    "wikidataId": "Q74940"
   },
   {
     "id": "national-museum-western-art-tokyo",
@@ -68502,7 +68777,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nihon Minka-en",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nihon_Minka-en",
+    "wikipediaPageId": 5402751,
+    "wikidataId": "Q1989934"
   },
   {
     "id": "niigata-city",
@@ -69846,7 +70126,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Ninna-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ninna-ji",
+    "wikipediaPageId": 2517053,
+    "wikidataId": "Q1202871"
   },
   {
     "id": "niseko-town",
@@ -70264,7 +70549,12 @@
       "basis": "From Kyoto Station, the official Nishiki Market access routes are Kyoto Municipal Subway to Shijo at ¥220 or Kyoto City Bus to Shijo Takakura at ¥230; both are complete paid access routes followed by the official short walk.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Nishiki Market",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nishiki_Market",
+    "wikipediaPageId": 14538385,
+    "wikidataId": "Q11650434"
   },
   {
     "id": "noto",
@@ -70851,7 +71141,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nunobiki Falls",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
+    "wikipediaPageId": 4709077,
+    "wikidataId": "Q3695449"
   },
   {
     "id": "nunobiki-herb-gardens",
@@ -71123,7 +71418,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Nunobiki Herb Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
+    "wikipediaPageId": 13526886,
+    "wikidataId": "Q7069905"
   },
   {
     "id": "nunobiki-ropeway",
@@ -71382,7 +71682,12 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Kobe Nunobiki Ropeway",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
+    "wikipediaPageId": 13788149,
+    "wikidataId": "Q7497110"
   },
   {
     "id": "nyuto-onsen-akita",
@@ -72982,7 +73287,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Ōhori Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Chori_Park",
+    "wikipediaPageId": 33341538,
+    "wikidataId": "Q846710"
   },
   {
     "id": "oirase-gorge-aomori",
@@ -74717,7 +75027,12 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Ōmiya Bonsai Village",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Bonsai_Village",
+    "wikipediaPageId": 5026324,
+    "wikidataId": "Q8081624"
   },
   {
     "id": "omiya-park",
@@ -74983,7 +75298,12 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Ōmiya Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Park",
+    "wikipediaPageId": 19191708,
+    "wikidataId": "Q5356064"
   },
   {
     "id": "omiya-railway",
@@ -75879,7 +76199,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Osaka Aquarium Kaiyukan",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
+    "wikipediaPageId": 466728,
+    "wikidataId": "Q1191885"
   },
   {
     "id": "osaka-castle",
@@ -76403,7 +76728,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Osaka Castle Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
+    "wikipediaPageId": 22407363,
+    "wikidataId": "Q150118"
   },
   {
     "id": "osaka-city",
@@ -76925,7 +77255,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Osaka",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka",
+    "wikipediaPageId": 52230,
+    "wikidataId": "Q35765"
   },
   {
     "id": "osaka-station-city",
@@ -79360,7 +79695,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Philosopher's Walk",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
+    "wikipediaPageId": 625778,
+    "wikidataId": "Q1510488"
   },
   {
     "id": "rakuten-mobile-park-miyagi",
@@ -82058,7 +82398,12 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Saitama Stadium 2002",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_Stadium_2002",
+    "wikipediaPageId": 1664996,
+    "wikidataId": "Q482446"
   },
   {
     "id": "saitama-super-arena",
@@ -82304,7 +82649,12 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Saitama Super Arena",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_Super_Arena",
+    "wikipediaPageId": 1673812,
+    "wikidataId": "Q1052149"
   },
   {
     "id": "sakai-city",
@@ -83202,7 +83552,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Samuel Cocking Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Samuel_Cocking_Garden",
+    "wikipediaPageId": 13121342,
+    "wikidataId": "Q10749928"
   },
   {
     "id": "sanjusangen-do",
@@ -83461,7 +83816,12 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Sanjūsangen-dō",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
+    "wikipediaPageId": 3400176,
+    "wikidataId": "Q653319"
   },
   {
     "id": "sannai-maruyama-jomon-aomori",
@@ -84805,7 +85165,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sasuke Inari Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sasuke_Inari_Shrine",
+    "wikipediaPageId": 28265587,
+    "wikidataId": "Q45470"
   },
   {
     "id": "scmaglev-and-railway-park",
@@ -88183,7 +88548,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Shingashi River",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shingashi_River",
+    "wikipediaPageId": 56584654,
+    "wikidataId": "Q11502669"
   },
   {
     "id": "shinjuku-city",
@@ -88924,7 +89294,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Shinsaibashi",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shinsaibashi",
+    "wikipediaPageId": 1034505,
+    "wikidataId": "Q1049109"
   },
   {
     "id": "shinsekai",
@@ -89176,7 +89551,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Shinsekai",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shinsekai",
+    "wikipediaPageId": 1029590,
+    "wikidataId": "Q1049117"
   },
   {
     "id": "shinsho-ji",
@@ -91964,7 +92344,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sunshine Aquarium",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
+    "wikipediaPageId": 76034188,
+    "wikidataId": "Q11250698"
   },
   {
     "id": "sunshine-city",
@@ -92219,7 +92604,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Sunshine City, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo",
+    "wikipediaPageId": 5550757,
+    "wikidataId": "Q1186018"
   },
   {
     "id": "susukino",
@@ -92938,7 +93328,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Taisho-roman Street",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Taisho-roman_Street",
+    "wikipediaPageId": 56028774,
+    "wikidataId": "Q11436715"
   },
   {
     "id": "taito-city",
@@ -95477,7 +95872,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Taro Okamoto Museum of Art",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Taro_Okamoto_Museum_of_Art",
+    "wikipediaPageId": 25923905,
+    "wikidataId": "Q7686506"
   },
   {
     "id": "teamlab-borderless-azabudai",
@@ -96236,7 +96636,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Tempozan Ferris Wheel",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
+    "wikipediaPageId": 2072609,
+    "wikidataId": "Q548263"
   },
   {
     "id": "tenjin",
@@ -96772,7 +97177,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Tennōji Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Park",
+    "wikipediaPageId": 13132571,
+    "wikidataId": "Q5364342"
   },
   {
     "id": "teshima-island-kagawa",
@@ -97160,7 +97570,12 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Museum of Modern Art, Saitama",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama",
+    "wikipediaPageId": 75536320,
+    "wikidataId": "Q11426772"
   },
   {
     "id": "the-national-museum-of-art-osaka",
@@ -97414,7 +97829,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "National Museum of Art, Osaka",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
+    "wikipediaPageId": 7738587,
+    "wikidataId": "Q1055037"
   },
   {
     "id": "tochoji",
@@ -97662,7 +98082,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Tōchō-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji",
+    "wikipediaPageId": 30245795,
+    "wikidataId": "Q3547067"
   },
   {
     "id": "todoroki-ryokuchi",
@@ -97935,7 +98360,12 @@
       "detail": "Canonical arrival Shinagawa Station / Shin-Yokohama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Todoroki Ryokuchi",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Todoroki_Ryokuchi",
+    "wikipediaPageId": 26822559,
+    "wikidataId": "Q7812852"
   },
   {
     "id": "tojinbo-cliffs-fukui",
@@ -98677,7 +99107,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Time Bell Tower",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
+    "wikipediaPageId": 56028822,
+    "wikidataId": "Q17221309"
   },
   {
     "id": "tokorozawa-city",
@@ -100487,7 +100922,12 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Tokyo National Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_National_Museum",
+    "wikipediaPageId": 1743486,
+    "wikidataId": "Q653433"
   },
   {
     "id": "tokyo-okutama",
@@ -102836,7 +103276,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Toyosu Market",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Toyosu_Market",
+    "wikipediaPageId": 58650701,
+    "wikidataId": "Q11633916"
   },
   {
     "id": "toyota-city",
@@ -103502,7 +103947,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Tsujido Seaside Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsujido_Seaside_Park",
+    "wikipediaPageId": 67979396,
+    "wikidataId": "Q11638181"
   },
   {
     "id": "tsukuba-city",
@@ -104335,7 +104785,12 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Tsurugaoka Hachimangū",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
+    "wikipediaPageId": 1674335,
+    "wikidataId": "Q701403"
   },
   {
     "id": "tsutenkaku",
@@ -104607,7 +105062,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Tsūtenkaku",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
+    "wikipediaPageId": 455161,
+    "wikidataId": "Q1148463"
   },
   {
     "id": "ueda-castle-nagano",
@@ -105058,7 +105518,12 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    }
+    },
+    "wikipediaTitle": "Ueno Park",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ueno_Park",
+    "wikipediaPageId": 626921,
+    "wikidataId": "Q746216"
   },
   {
     "id": "ueno-taito",
@@ -105986,7 +106451,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Umeda Sky Building",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Umeda_Sky_Building",
+    "wikipediaPageId": 1026313,
+    "wikidataId": "Q1151808"
   },
   {
     "id": "universal-studios-japan",
@@ -106317,7 +106787,12 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Universal Studios Japan",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
+    "wikipediaPageId": 2316044,
+    "wikidataId": "Q1375103"
   },
   {
     "id": "urayasu-city",
@@ -108940,7 +109415,12 @@
       "detail": "Canonical arrival Ueno Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Yanaka, Tokyo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yanaka,_Tokyo",
+    "wikipediaPageId": 44431039,
+    "wikidataId": "Q11632597"
   },
   {
     "id": "yasaka-shrine",
@@ -111820,7 +112300,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Shōjōkō-ji",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sh%C5%8Dj%C5%8Dk%C5%8D-ji",
+    "wikipediaPageId": 39719731,
+    "wikidataId": "Q11561284"
   },
   {
     "id": "yuigahama-beach",
@@ -112105,7 +112590,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Yuigahama",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yuigahama",
+    "wikipediaPageId": 15074529,
+    "wikidataId": "Q8060490"
   },
   {
     "id": "zao-fox-village-miyagi",
@@ -112513,7 +113003,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Zeniarai Benzaiten Ugafuku Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
+    "wikipediaPageId": 15853363,
+    "wikidataId": "Q642681"
   },
   {
     "id": "zuihoden",
@@ -136451,7 +136946,12 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Fukuoka City Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
+    "wikipediaPageId": 48139648,
+    "wikidataId": "Q11592224"
   },
   {
     "id": "nagasaki-peace-park",
@@ -136914,7 +137414,12 @@
       "detail": "Canonical arrival Nagasaki Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Glover Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Glover_Garden",
+    "wikipediaPageId": 6422541,
+    "wikidataId": "Q63465"
   },
   {
     "id": "dejima-nagasaki",
@@ -137200,7 +137705,12 @@
       "detail": "Canonical arrival Nagasaki Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    }
+    },
+    "wikipediaTitle": "Dejima",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Dejima",
+    "wikipediaPageId": 8185,
+    "wikidataId": "Q640267"
   },
   {
     "id": "chinatown-nagasaki",
@@ -138901,7 +139411,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Beppu Tower",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Beppu_Tower",
+    "wikipediaPageId": 1648754,
+    "wikidataId": "Q818646"
   },
   {
     "id": "kinrin-lake-yufuin",
@@ -140084,7 +140599,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kyushu National Museum",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
+    "wikipediaPageId": 2994284,
+    "wikidataId": "Q148543"
   },
   {
     "id": "komyozenji-temple-dazaifu",
@@ -142961,7 +143481,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Amanoiwato Shrine",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Amanoiwato_Shrine",
+    "wikipediaPageId": 29524214,
+    "wikidataId": "Q2841102"
   },
   {
     "id": "takachiho-kagura-dance",
@@ -144643,7 +145168,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Kawachi Wisteria Garden",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
+    "wikipediaPageId": 73263796,
+    "wikidataId": "Q18458746"
   },
   {
     "id": "fukuoka-paypay-dome",
@@ -145392,7 +145922,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Karatsu, Saga",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Karatsu,_Saga",
+    "wikipediaPageId": 329472,
+    "wikidataId": "Q738275"
   },
   {
     "id": "karatsu-castle",
@@ -145635,7 +146170,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Karatsu Castle",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Karatsu_Castle",
+    "wikipediaPageId": 773703,
+    "wikidataId": "Q1073585"
   },
   {
     "id": "yobuko-morning-market",
@@ -146591,7 +147131,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Sasebo",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Sasebo",
+    "wikipediaPageId": 6793326,
+    "wikidataId": "Q328000"
   },
   {
     "id": "huis-ten-bosch",
@@ -146850,7 +147395,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Huis Ten Bosch (theme park)",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Huis_Ten_Bosch_(theme_park)",
+    "wikipediaPageId": 9337433,
+    "wikidataId": "Q1191845"
   },
   {
     "id": "kujukushima-pearl-sea-resort",
@@ -148553,7 +149103,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Lake Ikeda",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Lake_Ikeda",
+    "wikipediaPageId": 17548580,
+    "wikidataId": "Q3214941"
   },
   {
     "id": "chiringashima-island",
@@ -149295,7 +149850,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Mount Kaimon",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Mount_Kaimon",
+    "wikipediaPageId": 9556201,
+    "wikidataId": "Q713847"
   },
   {
     "id": "nichinan-city",
@@ -149530,7 +150090,12 @@
     "localTransport": {
       "kind": "not_applicable",
       "reason": "canonical_arrival_hub_record_itself"
-    }
+    },
+    "wikipediaTitle": "Nichinan, Miyazaki",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+    "wikipediaPageId": 329646,
+    "wikidataId": "Q860669"
   },
   {
     "id": "obi-castle",
@@ -150036,7 +150601,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "Udo Jingū",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Udo_Jing%C5%AB",
+    "wikipediaPageId": 29523880,
+    "wikidataId": "Q704430"
   },
   {
     "id": "sun-messe-nichinan",
@@ -151963,7 +152533,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "wikipediaTitle": "堀川運河 (宮崎県)",
+    "wikipediaLanguage": "ja",
+    "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_(%E5%AE%AE%E5%B4%8E%E7%9C%8C)",
+    "wikipediaPageId": 936197,
+    "wikidataId": "Q11427459"
   },
   {
     "id": "ritsurin-garden",

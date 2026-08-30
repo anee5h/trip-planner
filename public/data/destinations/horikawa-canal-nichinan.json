@@ -204,5 +204,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "堀川運河 (宮崎県)",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_(%E5%AE%AE%E5%B4%8E%E7%9C%8C)",
+  "wikipediaPageId": 936197,
+  "wikidataId": "Q11427459"
 }

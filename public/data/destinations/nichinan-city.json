@@ -207,5 +207,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Nichinan, Miyazaki",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+  "wikipediaPageId": 329646,
+  "wikidataId": "Q860669"
 }

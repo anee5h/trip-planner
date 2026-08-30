@@ -191,5 +191,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Miyazaki (city)",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Miyazaki_(city)",
+  "wikipediaPageId": 6793360,
+  "wikidataId": "Q204308"
 }

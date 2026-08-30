@@ -1,0 +1,2945 @@
+{
+  "en:amami-ōshima island, tokunoshima island, northern okinawa island, and iriomote island": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:amanoiwato-jinja": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Amanoiwato Shrine",
+      "url": "https://en.wikipedia.org/wiki/Amanoiwato_Shrine",
+      "extract": "Amanoiwato-jinja (天岩戸神社) is a Shinto shrine located in Takachiho, Miyazaki Prefecture, Japan. It is dedicated to the sun goddess Amaterasu and sits above the gorge containing Ama-no-Iwato, the cave where, according to Japanese legend, the goddess hid after battle with her brother, plunging the world into darkness until lured out by the spirit of merriment Ame-no-Uzume.\nThe Amano-Iwato cave is an object of worship in festivals and is a rock cave on the other side of the Iwato River from nishihongū. You can see the cave from nishihongū after participating in a Shinto ritual for purification.",
+      "requestedIdentity": "en:amanoiwato-jinja",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
+      "description": "Shinto shrine in Miyazaki Prefecture, Japan",
+      "pageId": 29524214,
+      "wikidataId": "Q2841102",
+      "coordinates": {
+        "lat": 32.73444444,
+        "lng": 131.35055556
+      }
+    }
+  },
+  "en:ameya-yokochō": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ameya-Yokochō",
+      "url": "https://en.wikipedia.org/wiki/Ameya-Yokoch%C5%8D",
+      "extract": "Ameya-Yokochō (アメヤ横丁; \"Ameya alley\"), often shortened to Ameyoko  (アメ横), is an open-air market in the Taito Ward of Tokyo, Japan, located next to Ueno Station.\nThe market is approximately 164,227 square feet (15,257 m2) in area, starting just behind the Yodobashi Camera building and following the Yamanote Line south until the Komuro building.\nThere are two theories on the etymology of Ameya.  The first is that the name came from ameya (飴屋, \"candy shop\"), because of all the candy stores that lined the street in the early post-war era when sugar was hard to come by.  Even now, there are stores selling candy there.  The second theory is that it refers to アメリカ (America); there used to be stores selling surplus American army goods just after World War II.  In either case, it is now commonly referred to simply as ameyoko.\nThe market is home to over two hundred and fifty shops, which sell products ranging from food to clothing and other merchandise.",
+      "requestedIdentity": "en:ameya-yokochō",
+      "description": "Open-air market in the Taito Ward of Tokyo, Japan",
+      "pageId": 35728733,
+      "wikidataId": "Q864815"
+    }
+  },
+  "en:aoshima, miyazaki": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Aoshima, Miyazaki",
+      "url": "https://en.wikipedia.org/wiki/Aoshima,_Miyazaki",
+      "extract": "Aoshima (青島, Aoshima) is an island located in Miyazaki, Miyazaki Prefecture, Japan. The island has a surface area of 4.4 hectares (10.9 acres) and a height of 6 metres (20 feet). The island is part of the Aoshima Shrine. Miyazaki′s Aoshima neigbbourhood consists of the island and the opposite coastal strip, where the Aoshima Subtropical Botanical Garden is located.",
+      "requestedIdentity": "en:aoshima, miyazaki",
+      "description": "Island in Japan",
+      "pageId": 19353782,
+      "wikidataId": "Q4778779",
+      "coordinates": {
+        "lat": 31.805044,
+        "lng": 131.475663
+      }
+    }
+  },
+  "en:aso city": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:beppu city": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:beppu onsen": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Beppu Onsen",
+      "url": "https://en.wikipedia.org/wiki/Beppu_Onsen",
+      "extract": "Beppu Onsen (別府温泉) is an extensive hot spring system in the city of Beppu, Ōita, Japan. There are eight distinct  major thermal spring zones called \"Beppu Hatto\"（別府八湯).\nThere are rich hot spring resources in Beppu; the volume of water discharged from the Beppu system is second in volume to that of the Yellowstone National Park in the Western United States.\nThere are 2,909 hot spring vents within the city, and these account for more than 10% of the 27,644 hot spring vents in Japan, according to a survey conducted by the Ministry of the Environment in 2004. Statistics from the Beppu City Hall show that more than 130,000 tons of hot spring water gushes from the ground every day. This is the second largest amount of hot spring water discharge in the world, and the largest amount in Japan.",
+      "requestedIdentity": "en:beppu onsen",
+      "description": "Hot spring system in Japan",
+      "pageId": 33580968,
+      "wikidataId": "Q4890932",
+      "coordinates": {
+        "lat": 33.28027778,
+        "lng": 131.5
+      }
+    }
+  },
+  "en:beppu tower": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Beppu Tower",
+      "url": "https://en.wikipedia.org/wiki/Beppu_Tower",
+      "extract": "Beppu Tower (別府タワー, Beppu Tawā) is a 100-meter-tall (330-foot) lattice tower located in Beppu, Ōita, Japan. Initially built to help boost tourism in the area, today the tower is primarily used as TV transmission tower. It has an observation deck at a height of 55 metres (180 ft).",
+      "requestedIdentity": "en:beppu tower",
+      "description": "Communications tower, Observation tower in Beppu, Ōita",
+      "pageId": 1648754,
+      "wikidataId": "Q818646",
+      "coordinates": {
+        "lat": 33.28166667,
+        "lng": 131.50577778
+      }
+    }
+  },
+  "en:canal city hakata": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Canal City Hakata",
+      "url": "https://en.wikipedia.org/wiki/Canal_City_Hakata",
+      "extract": "Canal City Hakata (キャナルシティ博多) is a large shopping and entertainment complex in Fukuoka, Japan. Called the \"city within the city,\" it hosts shops, cafes, restaurants, a theater, game center, cinemas, two hotels, and a canal, which runs through the complex.\nLocated adjacent to Fukuoka's entertainment district and between the commercial and retail core of the city, Canal City has become a tourist attraction and commercial success for Fukuoka. It is the largest private development in the history of Japan ($1.4 billion for 234,460 m2 (2.5 million sq. ft.)). The complex is built with a distinctive fanciful style, with many curving sculptures and fountains and the city of Fukuoka hardly visible, to create an atmosphere like an oasis away from the rest of the town.",
+      "requestedIdentity": "en:canal city hakata",
+      "description": "Shopping and entertainment complex in Fukuoka, Japan",
+      "pageId": 20389034,
+      "wikidataId": "Q1050353",
+      "coordinates": {
+        "lat": 33.59111111,
+        "lng": 130.41055556
+      }
+    }
+  },
+  "en:chiba (city)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Chiba (city)",
+      "url": "https://en.wikipedia.org/wiki/Chiba_(city)",
+      "extract": "Chiba (千葉市, Chiba-shi; Japanese pronunciation: [tɕiꜜ.ba, tɕi.baꜜ, tɕi.baꜜɕi]) is the capital city of Chiba Prefecture, Japan. It sits about 40 kilometres (25 mi) east of the centre of Tokyo on Tokyo Bay. The city became a government-designated city in 1992. In March 2025, its population was 983,045, with a population density of 3,617 people per km2. The city has an area of 271.77 square kilometres (104.93 sq mi).\nChiba City is one of the Kantō region's primary seaports, and is home to Chiba Port, which handles one of the highest volumes of cargo in Japan. Much of the city is residential, although there are many factories and warehouses along the coast. There are several major urban centres in the city, including Makuhari, a prime waterfront business district in which Makuhari Messe is located, and Central Chiba, in which the prefectural government office and the city hall are located.\nChiba is famous for the Chiba Urban Monorail, the longest suspended monorail in the world. Some popular destinations in the city include: Kasori Shell Midden, the largest shell mound in the world at 134,000 m2 (160,000 sq yd), Inage Beach, the first artificial beach in Japan which forms part of the longest artificial beach in Japan, and the Chiba Zoological Park, popular on account of the standing red panda Futa.",
+      "requestedIdentity": "en:chiba (city)",
+      "description": "Prefecture capital and Designated city in Kantō, Japan",
+      "pageId": 6792812,
+      "wikidataId": "Q170616",
+      "coordinates": {
+        "lat": 35.60727778,
+        "lng": 140.10636111
+      }
+    }
+  },
+  "en:chiba prefecture": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Chiba Prefecture",
+      "url": "https://en.wikipedia.org/wiki/Chiba_Prefecture",
+      "extract": "Chiba Prefecture (千葉県, Chiba-ken; Japanese pronunciation: [tɕiꜜ.ba, tɕi.baꜜ, tɕi.baꜜkeɴ]) is a prefecture of Japan located in the Kantō region of Honshu. Chiba Prefecture has a population of 6,278,060 (1 June 2019) and has a geographic area of 5,157 km2 (1,991 sq mi). Chiba Prefecture borders Ibaraki Prefecture to the north, Saitama Prefecture to the northwest, and Tokyo to the west.\nChiba is the capital and largest city of Chiba Prefecture, with other major cities including Funabashi, Matsudo, Ichikawa and Kashiwa. Chiba Prefecture is located on Japan's eastern Pacific coast to the east of Tokyo, and is part of the Greater Tokyo Area, the most populous metropolitan area in the world. Chiba Prefecture largely consists of the Bōsō Peninsula, which encloses the eastern side of Tokyo Bay and separates it from Kanagawa Prefecture. Chiba Prefecture is home to Narita International Airport, the Tokyo Disney Resort, and the Keiyō Industrial Zone.",
+      "requestedIdentity": "en:chiba prefecture",
+      "description": "Prefecture of Japan",
+      "pageId": 179796,
+      "wikidataId": "Q80011",
+      "coordinates": {
+        "lat": 35.605,
+        "lng": 140.12333333
+      }
+    }
+  },
+  "en:chiba shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Chiba Shrine",
+      "url": "https://en.wikipedia.org/wiki/Chiba_Shrine",
+      "extract": "Chiba Shrine (千葉神社, Chiba-jinja) is a Shinto shrine located in Chūō-ku, Chiba City, Chiba Prefecture. Originally a Buddhist temple dedicated to the deity Myōken, the patron of the Chiba clan, it was converted into a Shinto shrine dedicated to Ame-no-Minakanushi (a kami in Japanese mythology conflated with Myōken) during the Meiji period.\nDue to its historical status as one of the principal centers of Myōken worship in Chiba Prefecture associated with the Chiba clan, the shrine is also popularly known as Chiba Dai-Myōken (千葉大妙見, \"Great Myōken [Shrine] of Chiba\"), Myōken Hongū (妙見本宮, the ″Main Shrine (Hongū) of Myōken″), or simply as Myōken-sama (妙見様).",
+      "requestedIdentity": "en:chiba shrine",
+      "description": "Shinto shrine in Chiba, Japan",
+      "pageId": 65800638,
+      "wikidataId": "Q11406700",
+      "coordinates": {
+        "lat": 35.61180556,
+        "lng": 140.12383333
+      }
+    }
+  },
+  "en:chiba zoological park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Chiba Zoological Park",
+      "url": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
+      "extract": "The Chiba Zoological Park is located in Chiba Prefecture, east of Tokyo, Japan, and near the shore of Tokyo Bay. The park can be accessed by the Chiba Monorail and is open between 9:30am and 4:30pm.\n\n",
+      "requestedIdentity": "en:chiba zoological park",
+      "description": "Zoo in Chiba Prefecture, Japan",
+      "pageId": 49773939,
+      "wikidataId": "Q11405998",
+      "coordinates": {
+        "lat": 35.645,
+        "lng": 140.127
+      }
+    }
+  },
+  "en:dazaifu city": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:dazaifu tenman-gū": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Dazaifu Tenmangū",
+      "url": "https://en.wikipedia.org/wiki/Dazaifu_Tenmang%C5%AB",
+      "extract": "Dazaifu Tenman-gū (太宰府天満宮) is a Shinto shrine in Dazaifu, Fukuoka Prefecture, Japan. It is built over the grave of Sugawara no Michizane (845–903) and is one of the main shrines dedicated to Tenjin, the deified form of Michizane.",
+      "requestedIdentity": "en:dazaifu tenman-gū",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Dazaifu_Tenman-g%C5%AB",
+      "description": "Shinto shrine in Fukuoka Prefecture, Japan",
+      "pageId": 2659691,
+      "wikidataId": "Q710786",
+      "coordinates": {
+        "lat": 33.52138889,
+        "lng": 130.535
+      }
+    }
+  },
+  "en:dazaifu, fukuoka": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Dazaifu, Fukuoka",
+      "url": "https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka",
+      "extract": "Dazaifu (太宰府市, Dazaifu-shi) is a city located in Fukuoka Prefecture, Japan. As of 31 March 2024, the city had an estimated population of 71,505 in 33204 households, and a population density of 260 persons per km2. The total area of the city is 29.60 km2 (11.43 sq mi).",
+      "requestedIdentity": "en:dazaifu, fukuoka",
+      "description": "City in Kyushu, Japan",
+      "pageId": 329453,
+      "wikidataId": "Q728218",
+      "coordinates": {
+        "lat": 33.51277778,
+        "lng": 130.52388889
+      }
+    }
+  },
+  "en:dejima": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Dejima",
+      "url": "https://en.wikipedia.org/wiki/Dejima",
+      "extract": "Dejima (Japanese: 出島; lit. 'exit island') or Deshima, in the 17th century also called Tsukishima (築島; lit. 'built island'), was an artificial island off Nagasaki, Japan, that served as a trading post for the Portuguese (1570–1639) and subsequently the Dutch (1641–1858). For 220 years, it was the central conduit for foreign trade and cultural exchange with Japan during the isolationist Edo period (1600–1869), and the only Japanese territory open to Westerners.\nDejima was created in 1636 by digging a canal through a small peninsula and linking it to the mainland with a small bridge. The island was constructed by the Tokugawa shogunate, whose isolationist policies sought to preserve the existing sociopolitical order by forbidding outsiders from entering Japan while prohibiting most Japanese from leaving. Dejima housed European merchants and separated them from Japanese society while still facilitating lucrative trade with the West.\nFollowing a rebellion by mostly Catholic converts, the Portuguese were expelled in 1639. The Dutch were moved to Dejima in 1641, under stricter control and scrutiny, and segregated from Japanese society. For over 200 years, the Dutch were not allowed to set foot in Japan, and were kept under poor conditions. Trade was highly scrutinized, and no Japanese were allowed unsupervised contact with the Dutch.\n\nThey (the Japanese) are strictly and strongly guarded, from the inside and outside by various guards, treating us (the Dutch) not like honest men, but like criminals, traitors, spies, prisoners, or, to say the least, hostages of the Shogun. This jail goes by the name of Dejima.\n— Engelbert Kaempfer, on visiting Japan\n\nThe open practice of Christianity was banned, and interactions between Dutch and Japanese traders were tightly regulated, with only a small number of foreign merchants being allowed to disembark in Dejima. Until the mid-19th century, the Dutch were the only Westerners with access to the Japanese markets. Dejima consequently played a key role in the Japanese movement of rangaku (蘭學, Dutch learning), an organized scholarly effort to learn the Dutch language in order to understand Western science, medicine, and technology.\nAfter the 1854 Treaty of Kanagawa set a precedent for more fully opening Japan to foreign trade and diplomatic relations, the Dutch negotiated their own treaty in 1858, which ended Dejima's status as exclusive trading post, greatly reducing its importance. The island was eventually subsumed into Nagasaki city through land reclamation. In 1922, the \"Dejima Dutch Trading Post\" was designated a Japanese national historic site, and there are ongoing efforts in the 21st century to restore Dejima as an island.",
+      "requestedIdentity": "en:dejima",
+      "description": "Former artificial island in Nagasaki",
+      "pageId": 8185,
+      "wikidataId": "Q640267",
+      "coordinates": {
+        "lat": 32.74352,
+        "lng": 129.87302
+      }
+    }
+  },
+  "en:dōtonbori": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Dōtonbori",
+      "url": "https://en.wikipedia.org/wiki/D%C5%8Dtonbori",
+      "extract": "Dōtonbori or Dōtombori (道頓堀; pronounced [do̞ːtõ̞mbo̞ɾʲi]) is a district in Osaka, Japan. Known as one of Osaka's principal tourist and nightlife areas, the area runs along the Dōtonbori canal from Dōtonboribashi Bridge to Nipponbashi Bridge in the Namba district of the city's Chūō ward. Historically a theater district, it is now a popular nightlife and entertainment area characterized by its eccentric atmosphere and large illuminated signboards.\nOne of the area's most prominent features is an illuminated billboard for confectionery company Glico displaying the image of a runner crossing a finishing line, which is often seen as an icon of Osaka within Japan.",
+      "requestedIdentity": "en:dōtonbori",
+      "description": "Area in Osaka, Japan",
+      "pageId": 998084,
+      "wikidataId": "Q964876",
+      "coordinates": {
+        "lat": 34.668708,
+        "lng": 135.501308
+      }
+    }
+  },
+  "en:engaku-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Engaku-ji",
+      "url": "https://en.wikipedia.org/wiki/Engaku-ji",
+      "extract": "Zuirokusan Engaku   Kōshō Zenji (瑞鹿山円覚興聖禅寺), or Engaku-ji (円覚寺), is one of the most important Zen Buddhist temple complexes in Japan and is ranked second among Kamakura's Five Mountains. It is situated in the city of Kamakura, in Kanagawa Prefecture to the south of Tokyo.\nFounded in 1282 (Kamakura period) by Chinese Zen monk Mugaku Sōgen, the temple maintains the classical Japanese Zen monastic design, and both the Shariden and the Great Bell (大鐘, Ogane) are designated National Treasures. Engaku-ji is one of the twenty-two historic sites included in Kamakura's proposal for inclusion in UNESCO's World Heritage Sites.\nIt is located in Kita-Kamakura, very close to Kita-Kamakura Station on the Yokosuka Line, and indeed the railway tracks cut across the formal entrance to the temple compound, which is by a path beside a pond which is crossed by a small bridge.",
+      "requestedIdentity": "en:engaku-ji",
+      "description": "Zen Buddhist temple in Kanagawa prefecture, Japan",
+      "pageId": 2660256,
+      "wikidataId": "Q954860",
+      "coordinates": {
+        "lat": 35.3377,
+        "lng": 139.5475
+      }
+    }
+  },
+  "en:enoshima": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Enoshima",
+      "url": "https://en.wikipedia.org/wiki/Enoshima",
+      "extract": "Enoshima (江の島) is a small offshore island, about 4 km (2.5 mi) in circumference, at the mouth of the Katase River which flows into the Sagami Bay of Kanagawa Prefecture, Japan. Administratively, Enoshima is part of the mainland city of Fujisawa, and is linked to the Katase section of that city by a 389-metre-long (1,276 ft) bridge. Home to some of the closest sandy beaches to Tokyo and Yokohama, the island and adjacent coastline are the hub of a local resort area.",
+      "requestedIdentity": "en:enoshima",
+      "description": "Offshore island in Fujisawa, Kanagawa prefecture, Japan",
+      "pageId": 309686,
+      "wikidataId": "Q989803",
+      "coordinates": {
+        "lat": 35.29972222,
+        "lng": 139.48027778
+      }
+    }
+  },
+  "en:enoshima aquarium": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Enoshima Aquarium",
+      "url": "https://en.wikipedia.org/wiki/Enoshima_Aquarium",
+      "extract": "Enoshima Aquarium or  New Enoshima Aquarium (新江ノ島水族館, Shin Enoshima Suizokukan) is a public aquarium located on Katase Beach in Fujisawa City, Kanagawa Prefecture, Japan. Its nickname is \"Enosui,\" an abbreviation of the Japanese name. The aquarium is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.",
+      "requestedIdentity": "en:enoshima aquarium",
+      "description": "Aquarium in Kanagawa, Japan",
+      "pageId": 76238916,
+      "wikidataId": "Q11502657",
+      "coordinates": {
+        "lat": 36.7985,
+        "lng": 137.3881
+      }
+    }
+  },
+  "en:enoshima sea candle": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Enoshima Sea Candle",
+      "url": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
+      "extract": "The Enoshima Sea Candle (Japanese: 江の島シーキャンドル), also known as the Shonan Observatory Lighthouse, is an observation tower and lighthouse located in the Samuel Cocking Garden on the small tidal island of Enoshima in Fujisawa, Kanagawa, Japan. The tower has two observation decks, the primary indoor deck and a secondary outdoor deck. The primary deck can be accessed via a central lift or spiral staircase, while the outdoor deck can only be accessed by a second spiral staircase.\nCompleted in 2003, the Sea Candle was built to celebrate the 2002 centenary of the Enoshima Electric Railway. The Sea Candle was constructed next to the Enoshima lighthouse that was built in 1951. On New Year's Eve 2002, a ceremony took place to transfer the lighthouse duty, after which the old lighthouse was dismantled. The observation decks on the Sea Candle opened to the general public on 29 April 2003.\nIn 2004, the lighthouse was awarded a Good Design Award under the category Architecture and Environment Design – Environment Design.",
+      "requestedIdentity": "en:enoshima sea candle",
+      "description": "Lighthouse",
+      "pageId": 57344375,
+      "wikidataId": "Q11550565",
+      "coordinates": {
+        "lat": 35.29972,
+        "lng": 139.47855
+      }
+    }
+  },
+  "en:enoshima shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Enoshima Shrine",
+      "url": "https://en.wikipedia.org/wiki/Enoshima_Shrine",
+      "extract": "Enoshima Shrine (江島神社) is a Shinto shrine in Enoshima, Fujisawa, Kanagawa, Japan. The shrine is dedicated to the worship of the kami Benten. Enoshima-jinja comprises three shrines, He-tsu-miya, Naka-tsu-miya and Oku-tsu-miya.\nAccording to legend, 12th-century Japanese ruler Hōjō Tokimasa visited the shrine to pray for prosperity, and there heard a prophecy from a mysterious woman, who left behind three scales, which became his family crest.",
+      "requestedIdentity": "en:enoshima shrine",
+      "description": "Shrine in Fujisawa, Kanagawa Prefecture, Japan",
+      "pageId": 39410995,
+      "wikidataId": "Q11259219",
+      "coordinates": {
+        "lat": 35.30055556,
+        "lng": 139.47972222
+      }
+    }
+  },
+  "en:enoshima station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Enoshima Station",
+      "url": "https://en.wikipedia.org/wiki/Enoshima_Station",
+      "extract": "Enoshima Station (Japanese: 江ノ島駅, Hepburn: Enoshima-eki) is a railway station on the Enoshima Electric Railway (Enoden) located in the city of Fujisawa, Japan. The station is the closest to the line's namesake, Enoshima island and is popular with tourists visiting the resort area.",
+      "requestedIdentity": "en:enoshima station",
+      "description": "Railway station in Fujisawa, Kanagawa Prefecture, Japan",
+      "pageId": 10748044,
+      "wikidataId": "Q846972",
+      "coordinates": {
+        "lat": 35.31111111,
+        "lng": 139.4875
+      }
+    }
+  },
+  "en:fujiko f. fujio museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fujiko Fujio",
+      "url": "https://en.wikipedia.org/wiki/Fujiko_Fujio",
+      "extract": "Fujiko Fujio (藤子 不二雄) was a manga writing duo formed by Japanese manga artists Hiroshi Fujimoto (藤本 弘, Fujimoto Hiroshi; December 1, 1933 – September 23, 1996) and Motoo Abiko (安孫子 素雄, Abiko Motoo; March 10, 1934 – April 6, 2022). They debuted in 1951 as a duo under their real names. The Fujiko Fujio name was used for their respective works from 1953 until 1987, when Fujimoto became too ill to work consistently. \nThe pair was best known for their popular children's manga series, including Obake no Q-Tarō, Ninja Hattori-kun, Kaibutsu-kun, Perman, Kiteretsu Daihyakka and Doraemon. Some of their influences include Osamu Tezuka as well as international cartoons and comic books. Both artists base their writing style on a mix of morals with a subversive and wry sense of humor; their styles would evolve to the point of diversion, where Fujimoto focused on speculative science fiction in addition to children's works, while Abiko leaned towards the surreal and black comedy.\nTheir work received critical acclaim and, on Fujimoto's part, universal recognition, with Doraemon being officially recognized as a cultural icon of modern Japan.",
+      "requestedIdentity": "en:fujiko f. fujio museum",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Fujiko_F._Fujio_Museum",
+      "description": "Pen name of Japanese manga writing duo",
+      "pageId": 387730,
+      "wikidataId": "Q3376801"
+    }
+  },
+  "en:fukuoka": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fukuoka",
+      "url": "https://en.wikipedia.org/wiki/Fukuoka",
+      "extract": "Fukuoka (福岡市, Fukuoka-shi; [ɸɯ̥.kɯꜜ.o.ka, -kɯ.o.kaꜜ.ɕi] ) is a designated city in the Kyushu region of Japan and the capital city of Fukuoka Prefecture. The city is built along the shores of Hakata Bay, and has been a center of international commerce since ancient times. The area has long been considered the gateway to the country, as it is the nearest point among Japan's main islands to the Asian mainland. Although humans have occupied the area since the Jomon period, some of the earliest settlers of the Yayoi period arrived in the Fukuoka area. The city rose to prominence during the Yamato period, and because of the cross-cultural exposure, and relatively great distance from the social and political centers of Kyoto, Osaka, and later, Edo (Tokyo), Fukuoka gained a distinctive local culture and dialect that has persisted to the present day.\nFukuoka is the most populous city on Kyūshū island, followed by Kitakyushu. It is the largest city and metropolitan area west of Keihanshin. The city was designated by government ordinance on April 1, 1972. Greater Fukuoka, with a population of 2.5 million people (2005 census), is part of the heavily industrialized Fukuoka–Kitakyushu zone.\nAs of 2015, Fukuoka is Japan's sixth largest city, having passed the population of Kobe. In July 2011, Fukuoka surpassed the population of Kyoto. Since the founding of Kyoto in 794, this marks the first time that a city west of the Kansai region has had a larger population than Kyoto.",
+      "requestedIdentity": "en:fukuoka",
+      "description": "Prefecture capital and Designated city in Kyushu, Japan",
+      "pageId": 61744,
+      "wikidataId": "Q26600",
+      "coordinates": {
+        "lat": 33.59,
+        "lng": 130.40166667
+      }
+    }
+  },
+  "en:fukuoka art museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fukuoka Art Museum",
+      "url": "https://en.wikipedia.org/wiki/Fukuoka_Art_Museum",
+      "extract": "Fukuoka Art Museum (福岡市美術館, Fukuoka-shi Bijutsukan) is an art museum in Fukuoka, Japan. It contains a notable collection of Western and Asian art, and exhibits various temporary exhibitions. In November 2010 it hosted a large exhibition of Marc Chagall's work.\nThe Madonna of Port Lligat by Salvador Dalí is exhibited at this museum.",
+      "requestedIdentity": "en:fukuoka art museum",
+      "description": "Art museum in Fukuoka, Japan",
+      "pageId": 29625409,
+      "wikidataId": "Q3073273",
+      "coordinates": {
+        "lat": 33.58388889,
+        "lng": 130.37980556
+      }
+    }
+  },
+  "en:fukuoka city": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fukuoka",
+      "url": "https://en.wikipedia.org/wiki/Fukuoka",
+      "extract": "Fukuoka (福岡市, Fukuoka-shi; [ɸɯ̥.kɯꜜ.o.ka, -kɯ.o.kaꜜ.ɕi] ) is a designated city in the Kyushu region of Japan and the capital city of Fukuoka Prefecture. The city is built along the shores of Hakata Bay, and has been a center of international commerce since ancient times. The area has long been considered the gateway to the country, as it is the nearest point among Japan's main islands to the Asian mainland. Although humans have occupied the area since the Jomon period, some of the earliest settlers of the Yayoi period arrived in the Fukuoka area. The city rose to prominence during the Yamato period, and because of the cross-cultural exposure, and relatively great distance from the social and political centers of Kyoto, Osaka, and later, Edo (Tokyo), Fukuoka gained a distinctive local culture and dialect that has persisted to the present day.\nFukuoka is the most populous city on Kyūshū island, followed by Kitakyushu. It is the largest city and metropolitan area west of Keihanshin. The city was designated by government ordinance on April 1, 1972. Greater Fukuoka, with a population of 2.5 million people (2005 census), is part of the heavily industrialized Fukuoka–Kitakyushu zone.\nAs of 2015, Fukuoka is Japan's sixth largest city, having passed the population of Kobe. In July 2011, Fukuoka surpassed the population of Kyoto. Since the founding of Kyoto in 794, this marks the first time that a city west of the Kansai region has had a larger population than Kyoto.",
+      "requestedIdentity": "en:fukuoka city",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Fukuoka_City",
+      "description": "Prefecture capital and Designated city in Kyushu, Japan",
+      "pageId": 61744,
+      "wikidataId": "Q26600",
+      "coordinates": {
+        "lat": 33.59,
+        "lng": 130.40166667
+      }
+    }
+  },
+  "en:fukuoka city museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fukuoka City Museum",
+      "url": "https://en.wikipedia.org/wiki/Fukuoka_City_Museum",
+      "extract": "Fukuoka City Museum (福岡市博物館, Fukuoka-shi hakubutsukan) opened in Fukuoka, Japan, in 1990. The permanent exhibition, which tells the history of Fukuoka, is arranged in eleven sections, including those focussing upon the King of Na gold seal (National Treasure), the Kuroda clan, and the Hakata Gion Yamakasa.",
+      "requestedIdentity": "en:fukuoka city museum",
+      "description": "Building in Fukuoka Prefecture, Japan",
+      "pageId": 48139648,
+      "wikidataId": "Q11592224",
+      "coordinates": {
+        "lat": 33.589768,
+        "lng": 130.353085
+      }
+    }
+  },
+  "en:fukuoka paypay dome": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Mizuho PayPay Dome Fukuoka",
+      "url": "https://en.wikipedia.org/wiki/Mizuho_PayPay_Dome_Fukuoka",
+      "extract": "Mizuho PayPay Dome Fukuoka (みずほPayPayドーム福岡, Mizuho Peipei Dōmu Fukuoka), officially the Fukuoka Dome (福岡ドーム, Fukuoka Dōmu) is a domed baseball field located in Chūō-ku, Fukuoka, Japan. Home to the Fukuoka SoftBank Hawks, the 40,000 seat stadium was built in 1993 and was originally named Fukuoka Dome. It is Japan's first stadium built with a retractable roof, and was the only baseball stadium in Japan with one until the opening of Es Con Field Hokkaido in 2023. It is the largest primary home stadium in the Pacific League.\n\n",
+      "requestedIdentity": "en:fukuoka paypay dome",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Fukuoka_PayPay_Dome",
+      "description": "Baseball stadium in Chūō-ku, Fukuoka",
+      "pageId": 1345102,
+      "wikidataId": "Q1365961",
+      "coordinates": {
+        "lat": 33.59527778,
+        "lng": 130.36222222
+      }
+    }
+  },
+  "en:fukuoka tower": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fukuoka Tower",
+      "url": "https://en.wikipedia.org/wiki/Fukuoka_Tower",
+      "extract": "Fukuoka Tower (福岡タワー, Fukuoka Tawā) is a 234-metre (768 ft) tall tower located in the Momochihama area of Fukuoka, Japan. It is the tallest seaside tower in Japan. The highest observation deck at 123 metres has a 360° view of the surrounding area, being most visited at sunset. Fukuoka Tower was finished in 1989, taking a total of 14 months to build at a cost of ¥6 billion (roughly equivalent US$45 million in 1989). It was designed by Nikken Sekkei and constructed on a reclaimed land out of Hakata Bay.",
+      "requestedIdentity": "en:fukuoka tower",
+      "description": "Observation tower in Fukuoka, Japan",
+      "pageId": 3647511,
+      "wikidataId": "Q847033",
+      "coordinates": {
+        "lat": 33.59325,
+        "lng": 130.35147222
+      }
+    }
+  },
+  "en:fushimi inari-taisha": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Fushimi Inari-taisha",
+      "url": "https://en.wikipedia.org/wiki/Fushimi_Inari-taisha",
+      "extract": "Fushimi Inari-taisha (Japanese: 伏見稲荷大社) is the head shrine of the kami Inari, located in Fushimi-ku, Kyoto, Japan. The shrine sits at the base of a mountain, also named Inari, which is 233 metres (764 ft) above sea level, and includes trails up the mountain to many smaller shrines which span 4 kilometres (2.5 mi) and take approximately 2 hours to walk up. It is unclear whether the mountain's name, Inariyama, or the shrine's name came first.\nThe shrine was formally founded in 711 CE by the Hata clan, an influential immigrant group from the Korean Peninsula. Inari was originally and remains primarily the kami of rice and agriculture, but merchants also worship Inari as the patron of business. Each of Fushimi Inari-taisha's roughly 10,000 torii were donated by a Japanese business, and approximately 800 of these are set in a row to form the Senbon Torii, creating the impression of a tunnel. The shrine is said to have ten thousand such gates in total that designate the entrance to the holy domain of kami and protect it against wicked forces.\nOwing to the popularity of Inari's division and re-enshrinement, this shrine is said to have as many as 32,000 sub-shrines (分社 bunsha) throughout Japan.\n\n",
+      "requestedIdentity": "en:fushimi inari-taisha",
+      "description": "Shinto shrine near Kyoto, Japan",
+      "pageId": 1659910,
+      "wikidataId": "Q714828",
+      "coordinates": {
+        "lat": 34.96722222,
+        "lng": 135.77277778
+      }
+    }
+  },
+  "en:ginkaku-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ginkaku-ji",
+      "url": "https://en.wikipedia.org/wiki/Ginkaku-ji",
+      "extract": "Ginkaku-ji (銀閣寺; Japanese pronunciation: [ɡʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Silver Pavilion'), officially named Jishō-ji (慈照寺; [dʑi.ɕoː.dʑi], lit. 'Temple of Shining Mercy'), is a Zen temple in the Sakyo ward of Kyoto, Japan. It is one of the constructions that represent the Higashiyama Culture of the Muromachi period.",
+      "requestedIdentity": "en:ginkaku-ji",
+      "description": "Zen buddhist temple in Kyoto, Japan",
+      "pageId": 626698,
+      "wikidataId": "Q257473",
+      "coordinates": {
+        "lat": 35.02666667,
+        "lng": 135.79833333
+      }
+    }
+  },
+  "en:glover garden": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Glover Garden",
+      "url": "https://en.wikipedia.org/wiki/Glover_Garden",
+      "extract": "Glover Garden (グラバー園, Gurabāen) is a park in Nagasaki, Japan, built for Thomas Blake Glover, a Scottish merchant who contributed to the modernization of Japan in shipbuilding, coal mining, and other fields. In it stands the Glover Residence, the oldest Western-style house surviving in Japan and Nagasaki's foremost tourist attraction.\nIt is located on the Minamiyamate hillside overlooking Nagasaki harbor. It was built by Hidenoshin Koyama of Amakusa island and completed in 1863. It has been designated as an Important Cultural Asset. As the house and its surroundings are reminiscent of Puccini's opera, it is also known as the \"Madame Butterfly House.\" Statues of Puccini and diva Miura Tamaki, famed for her role as Cio-Cio-san, stand in the park near the house. This house was also the venue of Glover's meetings with rebel samurai, particularly from the Chōshū and Satsuma domains.",
+      "requestedIdentity": "en:glover garden",
+      "description": "Park in Nagasaki, Japan",
+      "pageId": 6422541,
+      "wikidataId": "Q63465",
+      "coordinates": {
+        "lat": 32.73361111,
+        "lng": 129.86916667
+      }
+    }
+  },
+  "en:hakata station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hakata Station",
+      "url": "https://en.wikipedia.org/wiki/Hakata_Station",
+      "extract": "Hakata Station (Japanese: 博多駅, Hepburn: Hakata-eki) is a major railway station in Hakata-ku, Fukuoka, Japan. It is the largest and busiest railway terminal in Kyushu, and is a gateway to other cities in Kyushu for travelers coming from Honshu by rail travel. The San'yō Shinkansen from Osaka ends at this station.\nThe station was rebuilt in 2011. The main building was demolished and a new, larger station building, as well as office buildings and new platforms, was constructed. The station reconstruction project was initiated specifically for the Kyushu Shinkansen extension from Hakata to Shin-Yatsushiro Station which continues southward through its existing route to Kagoshima-Chūō Station. The new station building has a Hankyu Department Store, its first branch store in Kyushu, as a tenant, as well as other first-in-Kyushu branch retailers including Tokyu Hands.",
+      "requestedIdentity": "en:hakata station",
+      "description": "Major railway and metro station in Fukuoka, Japan",
+      "pageId": 402336,
+      "wikidataId": "Q800875",
+      "coordinates": {
+        "lat": 33.589803,
+        "lng": 130.420681
+      }
+    }
+  },
+  "en:haneda airport": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Haneda Airport",
+      "url": "https://en.wikipedia.org/wiki/Haneda_Airport",
+      "extract": "Haneda Airport (羽田空港, Haneda Kūkō; IATA: HND, ICAO: RJTT), officially Tokyo International Airport (東京国際空港, Tōkyō kokusai Kūkō) and sometimes abbreviated to Tokyo-Haneda, is a Japanese international airport, the busier of the two  serving the Greater Tokyo Area, the other being Narita International Airport (NRT). It serves as the primary domestic base of Japan's two largest airlines, Japan Airlines (Terminal 1) and All Nippon Airways (Terminal 2), as well as RegionalPlus Wings Corp. (Air Do and Solaseed Air), Skymark Airlines, and StarFlyer. It is located in Ōta, Tokyo, 15 kilometers (9.3 mi) south of Tokyo Station. The facility covers 1,522 hectares (3,761 acres) of land.\nHaneda previously carried the IATA airport code TYO, which is now used by airline reservation systems and travel agencies within the Greater Tokyo Area, and was the primary international airport serving Tokyo until 1978; from 1978 to 2010, Haneda handled almost all domestic flights to and from Tokyo as well as \"scheduled charter\" flights to a small number of major cities in East and Southeast Asia, while Narita handled the vast majority of international flights from further locations. In 2010, a dedicated international terminal, currently Terminal 3, was opened at Haneda in conjunction with the completion of a fourth runway, allowing long-haul flights to operate during nighttime. Haneda opened up to long-haul service during the daytime in March 2014, with carriers offering nonstop service to 25 cities in 17 countries. Since the resuming of international flights, airlines in Japan strategize Haneda as \"Hub of Japan\": providing connections between intercontinental flights with Japanese domestic flights, while envisioning Narita as the \"Hub of Asia\" between intercontinental destinations with Asian destinations.\nThe Japanese government encourages the use of Haneda for premium business routes and Narita for leisure routes and by low-cost carriers.  However, the major full-service carriers may have a choice to fly to both airports. Haneda handled 87,098,683 passengers in 2018; by passenger throughput, it was the third-busiest airport in Asia and the fourth-busiest in the world. It returned to the second-busiest airport in Asia after Dubai International Airport in 2023 in the Airports Council International rankings. It can handle 90 million passengers per year following its expansion in 2018. With Haneda and Narita combined, Tokyo has the third-busiest city airport system in the world, after London and New York.\nIn 2020, Haneda was named the second-best airport after Singapore's Changi Airport and the World's Best Domestic Airport. It maintained its second place in Skytrax’s world's top 100 airports for 2021 and 2022, in-between Qatar's Hamad International Airport and Singapore's Changi Airport, and maintaining its best Domestic Airport title from the previous year.",
+      "requestedIdentity": "en:haneda airport",
+      "description": "Major international airport serving Tokyo, Japan",
+      "pageId": 24071884,
+      "wikidataId": "Q204853",
+      "coordinates": {
+        "lat": 35.55333333,
+        "lng": 139.78111111
+      }
+    }
+  },
+  "en:harborland": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Harborland",
+      "url": "https://en.wikipedia.org/wiki/Harborland",
+      "extract": "Harborland (神戸ハーバーランド, kōbe-hābārando) is a shopping district in Chuo-ku, Kobe, Japan. Kobe Port Tower is located there.\nThis shopping district was made on the site of the former freight yard, Minatogawa Kamotsu Station of the Japanese National Railways. The yard was removed in 1982 and the shopping district opened in 1992.",
+      "requestedIdentity": "en:harborland",
+      "description": "Shopping district in Kobe, Japan",
+      "pageId": 10050167,
+      "wikidataId": "Q5364704",
+      "coordinates": {
+        "lat": 34.67905556,
+        "lng": 135.18180556
+      }
+    }
+  },
+  "en:hase-dera (kamakura)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hase-dera (Kamakura)",
+      "url": "https://en.wikipedia.org/wiki/Hase-dera_(Kamakura)",
+      "extract": "Hase-dera (海光山慈照院長谷寺, Kaikō-zan Jishō-in Hase-dera), commonly called the Hase-kannon (長谷観音), is one of the Buddhist temples in the city of Kamakura in Kanagawa Prefecture, Japan, famous for housing a massive wooden statue of Jūichimen Kannon, an eleven-headed manifestation of the Bodhisattva Kannon.\nThe temple originally belonged to the Tendai sect of Buddhism, but eventually became an independent temple of the Jōdo-shū.",
+      "requestedIdentity": "en:hase-dera (kamakura)",
+      "description": "Buddhist temple in Kamakura, Japan",
+      "pageId": 2828615,
+      "wikidataId": "Q1034293",
+      "coordinates": {
+        "lat": 35.3125,
+        "lng": 139.53305556
+      }
+    }
+  },
+  "en:hashima island": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hashima Island",
+      "url": "https://en.wikipedia.org/wiki/Hashima_Island",
+      "extract": "Hashima Island (端島; or simply Hashima, as -shima is a Japanese suffix for 'island'), commonly called Gunkanjima (軍艦島; meaning 'Battleship Island'), is an abandoned island about 15 kilometres (8 nautical miles) from the centre of Nagasaki, Japan. It is one of 505 uninhabited islands in Nagasaki Prefecture. The island's most notable features are its abandoned concrete buildings, undisturbed except by nature, and the surrounding seawall. While the island is a symbol of the rapid industrialisation of Japan, it is also a reminder of Japanese war crimes as a site of forced labour prior to and during World War II.\nThe 6.3-hectare (16-acre) island was known for its undersea coal mines, established in 1887, which operated during the industrialisation of Japan. The island reached a peak population of 5,259 in 1959. In 1974, with the coal reserves nearing depletion, the mine was closed and all of the residents departed soon after, leaving the island effectively abandoned for the following three decades.\nInterest in the island re-emerged in the 2000s on account of its undisturbed historic ruins, and it gradually became a tourist attraction. Certain collapsed exterior walls have since been restored, and travel to Hashima was reopened to tourists on 22 April 2009. Increasing interest in the island resulted in an initiative for its protection as a site of industrial heritage.\nAfter much controversy, the island's coal mine was formally approved as a UNESCO World Heritage Site in July 2015, as part of the Sites of Japan's Meiji Industrial Revolution series. Japan and South Korea negotiated a deal to facilitate this, in which Korea would not object to allowing Hashima Island to be included, while Japan would cover the history of forced labour on the island. All other UNESCO committee members agreed that Japan did not fulfill its obligations, and efforts to mediate this are ongoing.",
+      "requestedIdentity": "en:hashima island",
+      "description": "Abandoned island near Nagasaki, Japan",
+      "pageId": 1421543,
+      "wikidataId": "Q285468",
+      "coordinates": {
+        "lat": 32.62777778,
+        "lng": 129.73833333
+      }
+    }
+  },
+  "en:heian shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Heian Shrine",
+      "url": "https://en.wikipedia.org/wiki/Heian_Shrine",
+      "extract": "The Heian Shrine (平安神宮, Heian-jingū) is a Shinto shrine located in Sakyō-ku, Kyoto, Japan. The Shrine is ranked as a Beppyō Jinja (別表神社) (the top rank for shrines) by the Association of Shinto Shrines. It is listed as an important cultural property of Japan.",
+      "requestedIdentity": "en:heian shrine",
+      "description": "Shinto shrine in Sakyō-ku, Kyoto, Japan",
+      "pageId": 626681,
+      "wikidataId": "Q385141",
+      "coordinates": {
+        "lat": 35.01666667,
+        "lng": 135.78222222
+      }
+    }
+  },
+  "en:heiwadai park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Heiwadai Park",
+      "url": "https://en.wikipedia.org/wiki/Heiwadai_Park",
+      "extract": "Heiwadai Park (平和台公園) or Miyazaki Peace Park is a municipal park in Miyazaki, Miyazaki on Japan's Kyushu Island.  A popular honeymoon destination for Japanese couples, the park's Peace Tower has generated controversy because of its place in Japanese history.",
+      "requestedIdentity": "en:heiwadai park",
+      "description": "Municipal park on Japan's Kyushu Island",
+      "pageId": 56757084,
+      "wikidataId": "Q3364135",
+      "coordinates": {
+        "lat": 31.95,
+        "lng": 131.416
+      }
+    }
+  },
+  "en:hells of beppu": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hells of Beppu",
+      "url": "https://en.wikipedia.org/wiki/Hells_of_Beppu",
+      "extract": "The hot spring system Hells of Beppu (別府の地獄, Beppu no jigoku) is a nationally designated \"Place of Scenic Beauty\" in the onsen town of Beppu, Ōita, Japan. The \"hells,\" or \"jigoku\" (地獄) in Japanese, are for viewing rather than bathing.",
+      "requestedIdentity": "en:hells of beppu",
+      "description": "Hot springs area in Beppu, Japan",
+      "pageId": 34740139,
+      "wikidataId": "Q5709027",
+      "coordinates": {
+        "lat": 33.31611111,
+        "lng": 131.46888889
+      }
+    }
+  },
+  "en:hikawa shrine (kawagoe)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hikawa Shrine (Kawagoe)",
+      "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Kawagoe)",
+      "extract": "Hikawa Shrine (氷川神社) is a Shinto shrine in Kawagoe, Saitama Prefecture, Japan. In order to separate it from Hikawa Shrine in Omiya Ward, Saitama City, it is often called Kawagoe Hikawa Shrine. Hikawa Shrine is known for its Reitaisai, or a festival considered the origin of Kawagoe festival, which was registered as a National Important Intangible Folk Cultural Property and listed as a UNESCO Intangible Cultural Heritage. It's also well known for its \"corridor of windchiimes\".",
+      "requestedIdentity": "en:hikawa shrine (kawagoe)",
+      "description": "Shinto shrine",
+      "pageId": 56028845,
+      "wikidataId": "Q11549607",
+      "coordinates": {
+        "lat": 35.927586,
+        "lng": 139.488532
+      }
+    }
+  },
+  "en:hikawa shrine (saitama)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hikawa Shrine (Saitama)",
+      "url": "https://en.wikipedia.org/wiki/Hikawa_Shrine_(Saitama)",
+      "extract": "Hikawa Shrine (氷川神社, Hikawa-jinja) is a Shinto shrine located in Ōmiya-ku, Saitama, Saitama Prefecture, Japan. It is one of the two shrines claiming the title of ichinomiya of former Musashi Province. The main festival of the shrine is held annually on August 1. The district of Omiya, literally \"Great Shrine\", derives from the special favor shown by Emperor Meiji, who raised Hikawa above all other shrines in the Kantō region. It is the head of a network of approximately 280 Hikawa shrines mostly around the Kantō region.",
+      "requestedIdentity": "en:hikawa shrine (saitama)",
+      "description": "Shinto shrine in Saitama, Japan",
+      "pageId": 3663036,
+      "wikidataId": "Q703633",
+      "coordinates": {
+        "lat": 35.91666667,
+        "lng": 139.62944444
+      }
+    }
+  },
+  "en:history of tokyo": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "History of Tokyo",
+      "url": "https://en.wikipedia.org/wiki/History_of_Tokyo",
+      "extract": "Tokyo is Japan's capital city and prefecture. Defined by city proper area, it was the world's 12th largest city in 2018, with 13,515,271 residents. The history of Tokyo starts with archaeological remains in the area from around 5,000 years ago.   \nTokyo's oldest temple is possibly Sensō-ji in Asakusa, founded in 628. The city's original name, Edo, first appears in the 12th century. From 1457 to 1640, Edo Castle was constructed, and it became the city's center. Tokugawa Ieyasu, after conquering Edo's island of Honshu in 1600, chose Edo to replace Kyoto as Japan's capital. Japan's monarchy at Kyoto became a symbolic entity, as actual power was given to Edo's Tokugawa shogunate. By the 1650s, Edo became Japan's largest city, and by 1720, it was the world's largest. The Great Fire of Meireki in 1657 killed around 108,000 people. After Japan opened itself to most foreigners in 1854, there was conflict over Japan's governance which led to the Boshin War and Meiji Restoration. The shogunate was dissolved, and the monarchy's powers were restored at Edo, renamed Tokyo.   \nThe city was destroyed by the 1923 Great Kantō earthquake, and Allied bombings during World War II. Over 100,000 people died from the United States' 1945 bombings known as Operation Meetinghouse. After Japan surrendered to the Allies later that year, the U.S. occupied the country until 1952. The post-war Japanese economic miracle and the 1964 Summer Olympics allowed Tokyo to rebuild and grow. Its residents' transportation needs were met by the interlocking of the Tokyo Metro, Toei Subway, and Shinkansen. In the 1990s, Japan entered a period of economic stagnation called the Lost Decades, worsened by the COVID-19 pandemic which scaled back the 2020 Summer Olympics.",
+      "requestedIdentity": "en:history of tokyo",
+      "pageId": 360405,
+      "wikidataId": "Q2510783"
+    }
+  },
+  "en:hita, ōita": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hita, Ōita",
+      "url": "https://en.wikipedia.org/wiki/Hita,_%C5%8Cita",
+      "extract": "Hita (日田市, Hita-shi) is a city located in Ōita Prefecture, Japan. As of 30 November 2023, the city had an estimated population of 61,148 in 27,556 households, and a  population density of 96 persons per km2.  The total area of the city is 666.03 km2 (257.16 sq mi).",
+      "requestedIdentity": "en:hita, ōita",
+      "description": "City in Kyushu, Japan",
+      "pageId": 329634,
+      "wikidataId": "Q386968",
+      "coordinates": {
+        "lat": 33.32138889,
+        "lng": 130.94111111
+      }
+    }
+  },
+  "en:hōkoku-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hōkoku-ji",
+      "url": "https://en.wikipedia.org/wiki/H%C5%8Dkoku-ji",
+      "extract": "Hōkoku-ji (報国寺) is an old temple in the Kenchō-ji school of the Rinzai sect of Zen Buddhism located in Kamakura, Japan. Famous for its bamboo garden, it is also known as \"Bamboo Temple\".\nA statue of Gautama Buddha, called Shaka Nyorai in Japanese, in a sacred hall is the temple's principal image. The original of a statue of Sho Kan'non is on display at the Kamakura Museum of National Treasures. The temple is sometimes called Takuma-dera after the artist of a statue of Kashyap which was destroyed by a fire in 1891 in an adjacent hall.\nThe temple is No. 10 on the Kamakura 33 Kannon pilgrimage. The grounds cover approximately 13,000 square metres (140,000 sq ft).",
+      "requestedIdentity": "en:hōkoku-ji",
+      "description": "Buddhist temple in Kamakura, Japan",
+      "pageId": 35280342,
+      "wikidataId": "Q3146363",
+      "coordinates": {
+        "lat": 35.32,
+        "lng": 139.5693
+      }
+    }
+  },
+  "en:hon-kawagoe station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Hon-Kawagoe Station",
+      "url": "https://en.wikipedia.org/wiki/Hon-Kawagoe_Station",
+      "extract": "Hon-Kawagoe Station (本川越駅, Honkawagoe-eki) is a passenger railway station on the Seibu Shinjuku Line located in the city of Kawagoe, Saitama, Japan, operated by the private railway operator Seibu Railway. This is one of three main stations of the city; the other two are Kawagoe Station and Kawagoeshi Station.",
+      "requestedIdentity": "en:hon-kawagoe station",
+      "description": "Railway station in Kawagoe, Saitama Prefecture, Japan",
+      "pageId": 17240304,
+      "wikidataId": "Q842892",
+      "coordinates": {
+        "lat": 35.91376389,
+        "lng": 139.4811833
+      }
+    }
+  },
+  "en:huis ten bosch (theme park)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Huis Ten Bosch (theme park)",
+      "url": "https://en.wikipedia.org/wiki/Huis_Ten_Bosch_(theme_park)",
+      "extract": "Huis Ten Bosch (Japanese: ハウステンボス, Hepburn: Hausu Ten Bosu) is a theme park in Sasebo, Nagasaki, Japan, which recreates the Netherlands and displays life-sized copies of old Dutch buildings. The name Huis Ten Bosch translates into English as \"House at the Woods/Forest\". It is named after Huis ten Bosch in The Hague, one of the three official residences of the Dutch royal family. The park features many Dutch-style buildings such as hotels, villas, theatres, museums, shops, and restaurants, along with canals, windmills, amusement rides, and a park planted with seasonal flowers.",
+      "requestedIdentity": "en:huis ten bosch (theme park)",
+      "description": "Theme park in Nagasaki, Japan",
+      "pageId": 9337433,
+      "wikidataId": "Q1191845",
+      "coordinates": {
+        "lat": 33.08377,
+        "lng": 129.78812
+      }
+    }
+  },
+  "en:ibusuki onsen": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ibusuki Onsen",
+      "url": "https://en.wikipedia.org/wiki/Ibusuki_Onsen",
+      "extract": "Ibusuki Onsen (指宿温泉) is a group of hot springs in the east of Ibusuki, Kagoshima in Japan. It is known for hot spring-heated sand bathing which allegedly has therapeutic effects.\n90% of the water is used for industry.",
+      "requestedIdentity": "en:ibusuki onsen",
+      "description": "Hot springs system in Kagoshima Prefecture, Japan",
+      "pageId": 27972478,
+      "wikidataId": "Q5984938"
+    }
+  },
+  "en:ibusuki, kagoshima": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ibusuki",
+      "url": "https://en.wikipedia.org/wiki/Ibusuki",
+      "extract": "Ibusuki (指宿市, Ibusuki-shi) is a city located in Kagoshima Prefecture, Japan. As of 31 January 2024, the city had an estimated population of 37,594 in 17477 households, and a population density of 250 people per km2. The total area of the city is 148.81 km2 (57.46 sq mi).",
+      "requestedIdentity": "en:ibusuki, kagoshima",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima",
+      "description": "City in Kyushu, Japan",
+      "pageId": 459956,
+      "wikidataId": "Q19712",
+      "coordinates": {
+        "lat": 31.25277778,
+        "lng": 130.63305556
+      }
+    }
+  },
+  "en:ikuta ryokuchi park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ikuta Ryokuchi Park",
+      "url": "https://en.wikipedia.org/wiki/Ikuta_Ryokuchi_Park",
+      "extract": "Ikuta Ryokuchi Park (生田緑地, Ikuta Ryokuchi) is a park in Tama-ku, Kawasaki, Kanagawa Prefecture, Japan. \nAmong other features, it has an observation platform at the top of Mt. Masugata, the Japan Open-Air Folk Museum with authentic traditional houses, the Kawasaki Municipal Science Museum with a planetarium, the Taro Okamoto Museum of Art, a traditional craft center, and a large rose garden open to the public in the spring and autumn.\nThe entrance is a fifteen-minute walk from Mukōgaoka-Yūen Station on the Odakyu Odawara Line.",
+      "requestedIdentity": "en:ikuta ryokuchi park",
+      "description": "Park in Tama-ku, Kawasaki, Japan",
+      "pageId": 51363214,
+      "wikidataId": "Q11574811",
+      "coordinates": {
+        "lat": 35.6094,
+        "lng": 139.5581
+      }
+    }
+  },
+  "en:inagekaigan station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Inagekaigan Station",
+      "url": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
+      "extract": "Inagekaigan Station (稲毛海岸駅, Inage-Kaigan-eki) is a passenger railway station located in Mihama-ku, Chiba, Japan, operated by the East Japan Railway Company (JR East).",
+      "requestedIdentity": "en:inagekaigan station",
+      "description": "Railway station in Chiba, Japan",
+      "pageId": 23015033,
+      "wikidataId": "Q2583249",
+      "coordinates": {
+        "lat": 35.629525,
+        "lng": 140.07388056
+      }
+    }
+  },
+  "en:inamuragasaki": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Inamuragasaki",
+      "url": "https://en.wikipedia.org/wiki/Inamuragasaki",
+      "extract": "Inamuragasaki (稲村ケ崎) is a cape at the western end of Yuigahama (Beach) in Kamakura, Kanagawa Prefecture, Japan. The cape divides Yuigahama from Shichirigahama (Beach) and Enoshima.  Its name seems to stem from its shape, similar to a stack of rice at harvest time (an inamura (稲叢)). At its foot on the Shichirigahama side there is a park, the Inamuragasaki Park (稲村ケ崎海浜公園).",
+      "requestedIdentity": "en:inamuragasaki",
+      "description": "Headland in Kamakura, Japan",
+      "pageId": 18821511,
+      "wikidataId": "Q11596647",
+      "coordinates": {
+        "lat": 35.30166667,
+        "lng": 139.52555556
+      }
+    }
+  },
+  "en:iwatsuki-ku, saitama": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Iwatsuki-ku, Saitama",
+      "url": "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama",
+      "extract": "Iwatsuki-ku (岩槻区, Iwatsuki-ku) is one of ten wards of the city of Saitama, in Saitama Prefecture, Japan, and is located in the northeastern part of the city. As of 1 March 2021, the ward had an estimated population of 112,862 and a population density of 2,300 persons per km2. Its total area was 49.17 square kilometres (18.98 sq mi).",
+      "requestedIdentity": "en:iwatsuki-ku, saitama",
+      "description": "Ward in Kantō, Japan",
+      "pageId": 328450,
+      "wikidataId": "Q1184508",
+      "coordinates": {
+        "lat": 35.94997222,
+        "lng": 139.69430556
+      }
+    }
+  },
+  "en:jōmon sugi": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Jōmon Sugi",
+      "url": "https://en.wikipedia.org/wiki/J%C5%8Dmon_Sugi",
+      "extract": "Jōmon Sugi (縄文杉) is a large Cryptomeria tree (yakusugi) located on Yakushima, a UNESCO World Heritage Site, in Japan.  It is the oldest and largest among the old-growth cryptomeria trees on the island, and is estimated to be between 2,170 and 7,200 years old. Other estimates of the tree's age include \"at least 5,000 years\", \"more than 6,000 years\", and \"up to 7,000 years old\".  The tree's name is a reference to the Jōmon period of Japanese prehistory.",
+      "requestedIdentity": "en:jōmon sugi",
+      "description": "Exceptionally old Cryptomeria tree in Yakushima, Japan",
+      "pageId": 19017062,
+      "wikidataId": "Q589967",
+      "coordinates": {
+        "lat": 30.361,
+        "lng": 130.5319
+      }
+    }
+  },
+  "en:kabukichō": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kabukichō",
+      "url": "https://en.wikipedia.org/wiki/Kabukich%C5%8D",
+      "extract": "Kabukichō (歌舞伎町, Kabuki-chō; pronounced [kabɯki̥ tɕoː]) is an entertainment district in Shinjuku, Tokyo, Japan. Kabukichō is considered a red-light district with a high concentration of host and hostess clubs, love hotels, shops, restaurants, and nightclubs, and is often called the \"Sleepless Town\" (眠らない街, Nemuranai Machi; pronounced [nemɯɾanai matɕiꜜ]).  Shinjuku Golden Gai, famous for its plethora of small bars, is part of Kabukichō.\nThe district's name comes from late-1940s plans to build a kabuki theater, and although the theater was never built, the name stuck.\nThe area has many movie theaters, and is located near Shinjuku Station, Seibu Shinjuku Station, and several other major railway and subway stations.\nThe Shinjuku City Office / ward office is located in Kabukichō.",
+      "requestedIdentity": "en:kabukichō",
+      "description": "District located in Shinjuku-ku, Tokyo",
+      "pageId": 667914,
+      "wikidataId": "Q665216",
+      "coordinates": {
+        "lat": 35.695,
+        "lng": 139.705
+      }
+    }
+  },
+  "en:kagoshima city": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kagoshima",
+      "url": "https://en.wikipedia.org/wiki/Kagoshima",
+      "extract": "Kagoshima (Japanese: 鹿児島市, Hepburn: Kagoshima-shi; IPA: [ka.ɡo.ɕi.ma, -maꜜ.ɕi, ka.ŋo-]), is the capital city of Kagoshima Prefecture, Japan. As of 31 July 2024, the city had an estimated population of 583,966 in 285,992 households, and a  population density of 1100 persons per km2. The total area of the city is 547.61 km2 (211.43 sq mi).",
+      "requestedIdentity": "en:kagoshima city",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Kagoshima_City",
+      "description": "Prefecture capital and Core city in Kyushu, Japan",
+      "pageId": 16910,
+      "wikidataId": "Q15674",
+      "coordinates": {
+        "lat": 31.59694444,
+        "lng": 130.55722222
+      }
+    }
+  },
+  "en:kagoshima city aquarium": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:kaihimmakuhari station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kaihimmakuhari Station",
+      "url": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
+      "extract": "Kaihimmakuhari Station (海浜幕張駅, Kaihin-makuhari-eki) is a passenger railway station located in Mihama-ku, Chiba City, Chiba Prefecture, Japan, operated by the East Japan Railway Company (JR East).",
+      "requestedIdentity": "en:kaihimmakuhari station",
+      "description": "Railway station in Chiba, Japan",
+      "pageId": 23014984,
+      "wikidataId": "Q906715",
+      "coordinates": {
+        "lat": 35.648337,
+        "lng": 140.04189722
+      }
+    }
+  },
+  "en:kamakura": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kamakura",
+      "url": "https://en.wikipedia.org/wiki/Kamakura",
+      "extract": "Kamakura (鎌倉, Kamakura; [ka̠ma̠kɯ̟ɾa̠] ), officially Kamakura City (鎌倉市, Kamakura-shi), is a city of Kanagawa Prefecture in Japan. It is located in the Kantō region on the island of Honshu. The city has an estimated population of 172,929 (1 September 2020) and a population density of 4,359 people per km2 over the total area of 39.67 km2 (15.32 sq mi). Kamakura was designated as a city on 3 November 1939.\nKamakura was Japan's de facto capital when it was the seat of the Kamakura shogunate from 1185 to 1333, established by Minamoto no Yoritomo. It was the first military government in Japan's history. After the downfall of the shogunate, Kamakura saw a temporary decline. However, during the Edo period, it regained popularity as a tourist destination among the townspeople of Edo. Despite suffering significant losses of historical and cultural assets due to the Great Kantō Earthquake in 1923, Kamakura continues to be one of the major tourist attractions in the Kantō region, known for its historical landmarks such as Tsurugaoka Hachimangū and the Great Buddha of Kamakura.",
+      "requestedIdentity": "en:kamakura",
+      "description": "City in Kantō",
+      "pageId": 61759,
+      "wikidataId": "Q200267",
+      "coordinates": {
+        "lat": 35.31972222,
+        "lng": 139.5525
+      }
+    }
+  },
+  "en:kamakurakōkōmae station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kamakurakōkōmae Station",
+      "url": "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
+      "extract": "Kamakurakōkōmae Station (Japanese: 鎌倉高校前駅, Hepburn: Kamakurakōkōmae-eki; lit. 'Kamakura High School Station') is a railway station on the Enoshima Electric Railway (Enoden), located in the Koshigoe neighborhood of Kamakura, Kanagawa, Japan. Though small in size, it is known for its scenery, as it commands an open view of the Pacific Ocean and Mount Fuji from the station platform.",
+      "requestedIdentity": "en:kamakurakōkōmae station",
+      "description": "Railway station in Kamakura, Kanagawa Prefecture, Japan",
+      "pageId": 12062451,
+      "wikidataId": "Q859202",
+      "coordinates": {
+        "lat": 35.30666667,
+        "lng": 139.50055556
+      }
+    }
+  },
+  "en:kanamara matsuri": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kanamara Matsuri",
+      "url": "https://en.wikipedia.org/wiki/Kanamara_Matsuri",
+      "extract": "The Shinto Kanamara Matsuri (かなまら祭り, \"Festival of the Steel Phallus\") is an annual Japanese festival held each spring at the Kanayama Shrine (金山神社, Kanayama-jinja) in Kawasaki, Japan. The exact dates vary: the main festivities fall on the first Sunday in April. The phallus, as the central theme of the event, is reflected in illustrations, candy, carved vegetables, decorations, and a mikoshi parade. The shrine is part of the Wakamiya Hachimangu Shrine and located near Kawasaki-Daishi Station.\nThe Kanamara Matsuri is centered on the Kanayama Shrine where the god Kanayama-hiko and the goddess Kanayama-hime are venerated. They are both gods of blacksmithing, metalsmithing, and metal works, and are also prayed to for easy childbirth, marital harmony, and protection from sexually transmitted infections.\nThe festival started in 1969. Today, it has become something of a tourist attraction and is used to raise money for HIV research.",
+      "requestedIdentity": "en:kanamara matsuri",
+      "description": "Annual festival in Kawasaki, Japan",
+      "pageId": 3744413,
+      "wikidataId": "Q584642",
+      "coordinates": {
+        "lat": 35.53444444,
+        "lng": 139.72472222
+      }
+    }
+  },
+  "en:kangien": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:karatsu castle": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Karatsu Castle",
+      "url": "https://en.wikipedia.org/wiki/Karatsu_Castle",
+      "extract": "Karatsu Castle (唐津城, Karatsu-jō) is a Japanese castle located in Karatsu, Saga Prefecture, Japan. It is a hirayamajiro, a castle built on a plain rather than a hill or mountain. At the end of the Edo period, Karatsu castle was home to the Ogasawara clan, daimyō of Karatsu Domain. It was also known as \"Dancing Crane Castle\" (舞鶴城, Maizuru-jō).",
+      "requestedIdentity": "en:karatsu castle",
+      "description": "Castle in Karatsu, Saga Prefecture, Japan",
+      "pageId": 773703,
+      "wikidataId": "Q1073585",
+      "coordinates": {
+        "lat": 33.453539,
+        "lng": 129.978194
+      }
+    }
+  },
+  "en:karatsu, saga": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Karatsu, Saga",
+      "url": "https://en.wikipedia.org/wiki/Karatsu,_Saga",
+      "extract": "Karatsu (唐津市, Karatsu-shi) is a city located in Saga Prefecture on the island of Kyushu, Japan.  Its name, formed from the Japanese word roots 唐 kara (China, or continental East Asia in general), and 津 tsu (port), signifies its historical importance as an ancient trading port between Japan with China and Korea. As of 1 June 2024, the city had an estimated population of 114,695 in 51375 households, and a  population density of 200 persons per km2. The total area of the city is 487.60 km2 (188.26 sq mi). The same Chinese characters are used in the name of the city (唐津市) as for the city of Dangjin in South Chungcheong Province, South Korea.",
+      "requestedIdentity": "en:karatsu, saga",
+      "description": "City in Saga Prefecture, Japan",
+      "pageId": 329472,
+      "wikidataId": "Q738275",
+      "coordinates": {
+        "lat": 33.45,
+        "lng": 129.96833333
+      }
+    }
+  },
+  "en:kashiya yokocho": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kashiya Yokocho",
+      "url": "https://en.wikipedia.org/wiki/Kashiya_Yokocho",
+      "extract": "Kashiya Yokocho (Penny Candy Lane) is a shopping street in Kawagoe City, Saitama Prefecture. Confectionery stores including penny candy stores line both sides of the street.",
+      "requestedIdentity": "en:kashiya yokocho",
+      "description": "Street in Kawagoe, Saitama Prefecture, Japan",
+      "pageId": 57074326,
+      "wikidataId": "Q11619944",
+      "coordinates": {
+        "lat": 35.92461111,
+        "lng": 139.48105556
+      }
+    }
+  },
+  "en:kasori shell mound": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kasori Shell Mound",
+      "url": "https://en.wikipedia.org/wiki/Kasori_Shell_Mound",
+      "extract": "The Kasori Shell Mounds (加曽利貝塚, Kasori kaizuka) is an archaeological site in the Sakuragi neighborhood of Wakaba ward of the city of Chiba, Chiba Prefecture, in the Kantō region of Japan. It contains the largest known shell midden found in Japan, and was designated a National Historic Site of Japan in 1971. Its status was raised to that of a special National Historic Site in 2017.",
+      "requestedIdentity": "en:kasori shell mound",
+      "description": "Ancient shell midden in Chiba, Kantō, Japan",
+      "pageId": 67562750,
+      "wikidataId": "Q11398640"
+    }
+  },
+  "en:katori shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Katori Shrine",
+      "url": "https://en.wikipedia.org/wiki/Katori_Shrine",
+      "extract": "The Katori Shrine (香取神宮, Katori Jingū) is a Shintō shrine in the city of Katori in Chiba Prefecture, Japan. It is the ichinomiya of former Shimōsa Province, and is the head shrine of the approximately 400 Katori shrines around the country (located primarily in the Kantō region). The main festival of the shrine is held annually on April 14, with a three-day Grand Festival held every 12 years.",
+      "requestedIdentity": "en:katori shrine",
+      "description": "Shinto shrine in Chiba Prefecture, Japan",
+      "pageId": 13305284,
+      "wikidataId": "Q372380",
+      "coordinates": {
+        "lat": 35.88611111,
+        "lng": 140.52888889
+      }
+    }
+  },
+  "en:kawachi wisteria garden": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kawachi Wisteria Garden",
+      "url": "https://en.wikipedia.org/wiki/Kawachi_Wisteria_Garden",
+      "extract": "Kawachi Wisteria Garden (Japanese: 河内藤園 Kawachi fujien)  is a private garden located in  Kitakyushu founded by Higuchi Masao.\nThe garden contains over 20 kinds of wisterias in a 10,000m2 area.\nCNN listed the garden among Japan's 31 most beautiful places, and this greatly increased its visitors; access is now limited to timed, advance-purchase tickets.",
+      "requestedIdentity": "en:kawachi wisteria garden",
+      "description": "Private garden in Kitakyushu, Japan",
+      "pageId": 73263796,
+      "wikidataId": "Q18458746",
+      "coordinates": {
+        "lat": 33.83222222,
+        "lng": 130.79222222
+      }
+    }
+  },
+  "en:kawagoe festival museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kawagoe Festival Museum",
+      "url": "https://en.wikipedia.org/wiki/Kawagoe_Festival_Museum",
+      "extract": "Kawagoe Festival Museum (川越まつり会館) is a Kawagoe City local museum in Kawagoe City, Saitama Prefecture.",
+      "requestedIdentity": "en:kawagoe festival museum",
+      "description": "Museum in Kawagoe, Japan",
+      "pageId": 57065846,
+      "wikidataId": "Q11479196",
+      "coordinates": {
+        "lat": 35.92430556,
+        "lng": 139.48236111
+      }
+    }
+  },
+  "en:kawasaki daishi": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kawasaki Daishi",
+      "url": "https://en.wikipedia.org/wiki/Kawasaki_Daishi",
+      "extract": "Kawasaki Daishi (川崎大師) is the popular name of Heiken-ji (平間寺, Heiken-ji), a Buddhist temple in Kawasaki, Japan. Founded in 1128, it is the headquarters of the Chizan sect of Shingon Buddhism. Kawasaki Daishi is a popular temple for hatsumōde (the first visit to a place of worship in the new year).  In 2006, 2.72 million people engaged in hatsumōde here, the third largest figure in Japan and the largest in Kanagawa Prefecture. In 2016, the temple made preparations to receive 3 million visitors over the same period. Keihin Electric Express Railway, the oldest railroad company in the Kantō region of Japan, commenced service in January 1899 to carry passengers to Kawasaki Daishi from Tokyo.\nHeiken-ji is known formally as Kongōzan Kinjōin Heiken-ji (金剛山金乗院平間寺).",
+      "requestedIdentity": "en:kawasaki daishi",
+      "description": "Buddhist temple in Kanagawa Prefecture, Japan",
+      "pageId": 15042715,
+      "wikidataId": "Q1504465"
+    }
+  },
+  "en:kinkaku-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kinkaku-ji",
+      "url": "https://en.wikipedia.org/wiki/Kinkaku-ji",
+      "extract": "Kinkaku-ji (金閣寺; Japanese pronunciation: [kʲiꜜŋ.ka.kɯ.dʑi], lit. 'Temple of the Golden Pavilion'), officially named Rokuon-ji (鹿苑寺; [ɾoꜜ.kɯ.oɲ.dʑi], lit. 'Deer Garden Temple'), is a Zen Buddhist temple in Kyoto, Japan and a tourist attraction. It is designated as a World Heritage Site, a National Special Historic Site, a National Special Landscape, and one of the 17 Historic Monuments of Ancient Kyoto. The temple is nicknamed after its reliquary (shariden), the Golden Pavilion (金閣, Kinkaku), whose top two floors are coated in 0.5 μm gold leaf. The current pavilion was rebuilt in 1955 after being destroyed in an arson attack.\n\n",
+      "requestedIdentity": "en:kinkaku-ji",
+      "description": "Zen Buddhist temple in Kyoto, Japan",
+      "pageId": 246341,
+      "wikidataId": "Q270983",
+      "coordinates": {
+        "lat": 35.0395,
+        "lng": 135.7285
+      }
+    }
+  },
+  "en:kinrin lake": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:kita-in": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kita-in",
+      "url": "https://en.wikipedia.org/wiki/Kita-in",
+      "extract": "Seiya-san Muryōshuji Kita-in (星野山無量寿寺喜多院) is a Buddhist temple located in the city of Kawagoe in Saitama Prefecture, Japan. It is noted for its main hall, which was part of the original Edo Castle, and the statues of 540 Rakan, disciples of the Buddha. It is also known informally as the Kawagoe Daishi (川越大師).",
+      "requestedIdentity": "en:kita-in",
+      "description": "Buddhist temple in Saitama Prefecture, Japan",
+      "pageId": 14466570,
+      "wikidataId": "Q3080561",
+      "coordinates": {
+        "lat": 35.917525,
+        "lng": 139.48906667
+      }
+    }
+  },
+  "en:kitakyushu city": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kitakyushu",
+      "url": "https://en.wikipedia.org/wiki/Kitakyushu",
+      "extract": "Kitakyushu (北九州市, Kitakyūshū-shi; Japanese pronunciation: [kʲi̥.ta.kʲɯꜜː.ɕɯː, kʲi̥.ta.kʲɯː.ɕɯꜜː.ɕi]) is a city in Fukuoka Prefecture, Japan. In 2019, Kitakyushu had an estimated population of 940,978, making it the second-largest city in Fukuoka Prefecture and on the island of Kyushu, after the city of Fukuoka. It is one of Japan's 20 designated cities, one of three on Kyushu, and is divided into seven wards.\nSited at the northern tip of Kyushu, Kitakyushu was formed in 1963 from a merger of municipalities centered on the historic city of Kokura; its name means \"North Kyushu\". It is located on the Kanmon Straits which separate Kyushu from Honshu, and faces the city of Shimonoseki in Yamaguchi Prefecture. Kitakyushu and Shimonoseki are connected by numerous transport links including the Kanmon Bridge and the Kanmon Tunnels (Roadway, Railway, and Shin-Kanmon).\nKitakyushu's Urban Employment Area forms part of the Fukuoka-Kitakyushu Greater Metropolitan Region, which, with a population of 5,738,977 (2005–2006), is the largest metropolitan area in Japan west of the Keihanshin region. The city is known as one of Japan's foremost industrial areas, centred on the historic Yahata Steel Works, which is now a UNESCO World Heritage Site.\n\n",
+      "requestedIdentity": "en:kitakyushu city",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Kitakyushu_City",
+      "description": "Designated city in Kyushu, Japan",
+      "pageId": 6793300,
+      "wikidataId": "Q188806",
+      "coordinates": {
+        "lat": 33.88333333,
+        "lng": 130.88333333
+      }
+    }
+  },
+  "en:kitakyushu manga museum": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:kobe": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kobe",
+      "url": "https://en.wikipedia.org/wiki/Kobe",
+      "extract": "Kobe ( KOH-bay; Japanese: 神戸, romanized: Kōbe, pronounced [koꜜː.be] ), officially Kobe City (神戸市, Kōbe-shi; [koː.beꜜ.ɕi]), is the capital city of Hyōgo Prefecture, Japan. With a population of around 1.5 million, Kobe is Japan's seventh-largest city and the third-largest port city after Tokyo and Yokohama. It is located in the Kansai region, which makes up the southern side of the main island of Honshū, on the north shore of Osaka Bay. It is part of the Keihanshin metropolitan area along with Osaka and Kyoto. The Kobe city centre is located about 35 km (22 mi) west of Osaka and 70 km (43 mi) southwest of Kyoto.\nThe earliest written records regarding the region come from the Nihon Shoki, which describes the founding of the Ikuta Shrine by Empress Jingū in AD 201. For most of its history, the area was never a single political entity, even during the Tokugawa period, when the port was controlled directly by the Tokugawa shogunate. Kobe did not exist in its current form until its founding in 1889. Its name comes from Kanbe (神戸; an archaic title for supporters of the city's Ikuta Shrine). Kobe became one of Japan's designated cities in 1956.\nKobe was one of the cities to open for trade with the West following the 1853 end of the policy of seclusion and has retained its cosmopolitan character ever since with a rich architectural heritage dating back to the Meiji era. While the 1995 Great Hanshin earthquake diminished some of Kobe's prominence as a port city, it remains Japan's fourth-busiest container port. Companies headquartered in Kobe include ASICS, Kawasaki Heavy Industries, and Kobe Steel, while over 100 international corporations have their Asian or Japanese headquarters in the city, including Eli Lilly and Company, Procter & Gamble, Boehringer Ingelheim, and Nestlé. The city is the point of origin and namesake of Kobe beef, the home of Kobe University, and the site of one of Japan's most famous hot spring resorts, Arima Onsen.",
+      "requestedIdentity": "en:kobe",
+      "description": "City in Kansai region, Japan",
+      "pageId": 59056,
+      "wikidataId": "Q48320",
+      "coordinates": {
+        "lat": 34.69,
+        "lng": 135.19555556
+      }
+    }
+  },
+  "en:kobe animal kingdom": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kobe Animal Kingdom",
+      "url": "https://en.wikipedia.org/wiki/Kobe_Animal_Kingdom",
+      "extract": "Kobe Animal Kingdom (神戸どうぶつ王国, Kōbe Dōbutsu Ōkoku) is an animal and flower park located on Port Island in Kobe, Japan. It is mainly located in and around a greenhouse. It was called Kobe Kachoen (神戸花鳥園, Kōbe Kachōen) until 18 July 2014. It is one of several theme parks created by Japanese botanist and collector Kamo Mototeru, and was opened on 15 March 2006. This all-weather park is based on the concept of contact with birds and flowers. In the park, visitors are able to touch and feed birds.\nOn 20 November 2013, Kobe Kachoen went bankrupt. The management rights were acquired from Kobe Kachoen by the company Kobe Animal Kingdom in March 2014, and on 19 July 2014, the park was renamed Kobe Animal Kingdom.",
+      "requestedIdentity": "en:kobe animal kingdom",
+      "description": "Zoo in Hyōgo Prefecture, Japan",
+      "pageId": 24466263,
+      "wikidataId": "Q6424313",
+      "coordinates": {
+        "lat": 34.65416667,
+        "lng": 135.22305556
+      }
+    }
+  },
+  "en:kobe maritime museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kobe Maritime Museum",
+      "url": "https://en.wikipedia.org/wiki/Kobe_Maritime_Museum",
+      "extract": "Kobe Maritime Museum is a museum in Kobe, Japan focusing on the history of Japanese shipping and Kobe harbor.\nOne of the former exhibits is the Yamato 1 removed in 2016 along with the TSL Hayate.",
+      "requestedIdentity": "en:kobe maritime museum",
+      "description": "Museum in Kobe, Japan",
+      "pageId": 16715452,
+      "wikidataId": "Q5364119",
+      "coordinates": {
+        "lat": 34.68277778,
+        "lng": 135.18833333
+      }
+    }
+  },
+  "en:kobe nunobiki ropeway": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kobe Nunobiki Ropeway",
+      "url": "https://en.wikipedia.org/wiki/Kobe_Nunobiki_Ropeway",
+      "extract": "The Kobe Nunobiki Ropeway (神戸布引ロープウェイ, Kōbe Nunobiki Rōpuwē) is an Cable Car line in Kōbe, Hyōgo, Japan, operated by Kōbe City Urban Development. Opened in 1991, the line links Shin-Kōbe Station and Nunobiki Herb Garden. Its scenic view is popular among tourists.",
+      "requestedIdentity": "en:kobe nunobiki ropeway",
+      "pageId": 13788149,
+      "wikidataId": "Q7497110",
+      "coordinates": {
+        "lat": 34.71722222,
+        "lng": 135.19111111
+      }
+    }
+  },
+  "en:kobe port tower": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kobe Port Tower",
+      "url": "https://en.wikipedia.org/wiki/Kobe_Port_Tower",
+      "extract": "The Kobe Port Tower (神戸ポートタワー, Kōbe Pōto Tawā) is a landmark in the port city of Kobe, Japan. The sightseeing tower was completed in 1963 and was temporarily closed from late 2009 to 28 April 2010 and again from 27 September 2021 to 26 April 2024 for renovation. It is located in Chuo-ku, Kobe, Hyōgo Prefecture, Japan.\n\n",
+      "requestedIdentity": "en:kobe port tower",
+      "description": "Lattice tower in Kobe, Japan",
+      "pageId": 1648676,
+      "wikidataId": "Q798766",
+      "coordinates": {
+        "lat": 34.68263889,
+        "lng": 135.18669444
+      }
+    }
+  },
+  "en:kōtoku-in": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kōtoku-in",
+      "url": "https://en.wikipedia.org/wiki/K%C5%8Dtoku-in",
+      "extract": "Kōtoku-in (高徳院) is a Buddhist temple of the Jōdo-shū sect in the city of Kamakura in Kanagawa Prefecture, Japan. Its mountain name is Daii-zan (大異山), and its common temple name is Shōjōsen-ji (清浄泉寺).\nThe temple is renowned for The Great Buddha of Kamakura (鎌倉大仏, Kamakura Daibutsu), a monumental outdoor bronze statue of Amitābha, which is one of the most famous icons of Japan. It is also a designated National Treasure, and one of the twenty-two historic sites included in Kamakura's proposal for inclusion in UNESCO's World Heritage Sites.",
+      "requestedIdentity": "en:kōtoku-in",
+      "description": "Buddhist temple in Kamakura, Japan",
+      "pageId": 730217,
+      "wikidataId": "Q672056",
+      "coordinates": {
+        "lat": 35.31684,
+        "lng": 139.53573
+      }
+    }
+  },
+  "en:kujūku islands": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kujūku Islands",
+      "url": "https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands",
+      "extract": "Kujūku Islands (九十九島, Kujūku-shima) is a group of islands ranging in the west coast of Kitamatsuura Peninsula, Nagasaki Prefecture, Japan.\nThe name Kujūku-shima translates to \"ninety-nine islands\", though the total number of the islands is formally considered to be two hundred and eight. The whole area is designated as part of Saikai National Park.\nThe islands are shared between the city of Sasebo and the city of Hirado, as they dot the 25 kilometres (16 mi) long saw-toothed coastline stretching between the two cities. The two biggest islands, Kuro-shima and Taka-shima, are easily accessible by ferry from the harbour of Ainoura in the north of Sasebo three times a day.",
+      "requestedIdentity": "en:kujūku islands",
+      "description": "Island group in Nagasaki, Japan",
+      "pageId": 23957129,
+      "wikidataId": "Q1043953",
+      "coordinates": {
+        "lat": 33.16666667,
+        "lng": 129.6
+      }
+    }
+  },
+  "en:kumamoto castle": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kumamoto Castle",
+      "url": "https://en.wikipedia.org/wiki/Kumamoto_Castle",
+      "extract": "Kumamoto Castle (熊本城, Kumamoto-jō) is a hilltop Japanese castle located in Chūō-ku, Kumamoto, in Kumamoto Prefecture. It was a large and well-fortified castle. The castle keep (天守閣, tenshukaku) is a concrete reconstruction built in 1960, but a number of ancillary wooden buildings remain of the original castle. Kumamoto Castle is considered one of the three premier castles in Japan, along with Himeji Castle and Matsumoto Castle. Thirteen structures in the castle complex are designated Important Cultural Property.",
+      "requestedIdentity": "en:kumamoto castle",
+      "description": "Castle in Kumamoto, Japan",
+      "pageId": 332303,
+      "wikidataId": "Q613355",
+      "coordinates": {
+        "lat": 32.806063,
+        "lng": 130.705972
+      }
+    }
+  },
+  "en:kumamoto city": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kumamoto",
+      "url": "https://en.wikipedia.org/wiki/Kumamoto",
+      "extract": "Kumamoto (熊本市, Kumamoto-shi; Japanese pronunciation: [kɯ.ma.mo.to, -toꜜ.ɕi]) is the capital city of Kumamoto Prefecture on the island of Kyushu, Japan. As of June 1, 2019, the city had an estimated population of 738,907 and a population density of 1,893 people per km2. The total area is 390.32 km2.\nGreater Kumamoto (熊本都市圏) had a population of 1,461,000, as of the 2000 census. As of 2010, Kumamoto Metropolitan Employment Area has a GDP of US$39.8 billion. It is not considered part of the Fukuoka–Kitakyushu metropolitan area, despite their shared border. The city was designated on April 1, 2012, by government ordinance.",
+      "requestedIdentity": "en:kumamoto city",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Kumamoto_City",
+      "description": "Designated city in Kyushu, Japan",
+      "pageId": 6793346,
+      "wikidataId": "Q199889",
+      "coordinates": {
+        "lat": 32.80305556,
+        "lng": 130.70777778
+      }
+    }
+  },
+  "en:kumamoto prefectural museum of art": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kumamoto Prefectural Museum of Art",
+      "url": "https://en.wikipedia.org/wiki/Kumamoto_Prefectural_Museum_of_Art",
+      "extract": "Kumamoto Prefectural Museum of Art (熊本県立美術館, Kumamoto Kenritsu Bijutsukan) opened in the precincts of Kumamoto Castle, Kumamoto, Japan in 1976. It is one of Japan's many museums which are supported by a prefecture.\nThe permanent collection focuses on the art and crafts of Kumamoto Prefecture and also contains works by Renoir and Rodin. One room is dedicated to replicas of decorated kofun found in the prefecture.",
+      "requestedIdentity": "en:kumamoto prefectural museum of art",
+      "description": "Museum in Kumamoto, Japan",
+      "pageId": 34544346,
+      "wikidataId": "Q4556482",
+      "coordinates": {
+        "lat": 32.80752778,
+        "lng": 130.70052778
+      }
+    }
+  },
+  "en:kushida shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kushida Shrine",
+      "url": "https://en.wikipedia.org/wiki/Kushida_Shrine",
+      "extract": "Kushida-jinja (櫛田神社) is a Shinto shrine located in Hakata-ku, Fukuoka, Japan. Dedicated to Amaterasu and Susanoo, it is said to have been founded in 757. The Hakata Gion Yamakasa festival is centred on the shrine.",
+      "requestedIdentity": "en:kushida shrine",
+      "description": "Shinto shrine in Fukuoka Prefecture, Japan",
+      "pageId": 29526749,
+      "wikidataId": "Q865839",
+      "coordinates": {
+        "lat": 33.59297222,
+        "lng": 130.41047222
+      }
+    }
+  },
+  "en:kyoto": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kyoto",
+      "url": "https://en.wikipedia.org/wiki/Kyoto",
+      "extract": "Kyoto ( or ; Japanese: 京都, Kyōto [kʲoꜜːto] ), officially Kyoto City (京都市, Kyōto-shi; [kʲoːtoꜜɕi] ), is the capital city of Kyoto Prefecture in the Kansai region of Japan's largest and most populous island of Honshu. As of 2020, the city had a population of 1.46 million, making it the ninth-most populous city in Japan. More than half (56.8%) of Kyoto Prefecture's population resides in the city. The city is the cultural anchor of the substantially larger Greater Kyoto, a metropolitan statistical area home to approximately 3.8 million people. It is also part of the even larger Keihanshin metropolitan area, along with Osaka and Kobe.\nKyoto is one of the oldest municipalities in Japan, having been chosen in 794 as the new seat of Japan's imperial court by Emperor Kanmu. The original city, named Heian-kyō, was arranged in accordance with traditional Chinese feng shui following the model of the ancient Chinese capitals of Chang'an and Luoyang. The emperors of Japan ruled from Kyoto in the following eleven centuries until 1869. It was the scene of several key events of the Muromachi period, Sengoku period, and the Boshin War, such as the Ōnin War, the Honnō-ji Incident, the Kinmon incident, and the Battle of Toba–Fushimi. The capital was relocated from Kyoto to Tokyo after the Meiji Restoration. The modern municipality of Kyoto was established in 1889. The city was spared from large-scale destruction during World War II and, as a result, its prewar cultural heritage has mostly been preserved.\nKyoto is considered the cultural capital of Japan and is a major tourist destination. The Agency for Cultural Affairs of the national government is headquartered in the city. It is home to numerous Buddhist temples, Shinto shrines, palaces and gardens, some of which have been designated collectively as a World Heritage Site by UNESCO. Prominent landmarks include the Kyoto Imperial Palace, Kiyomizu-dera, Kinkaku-ji, Ginkaku-ji, and Kyoto Tower. The internationally renowned video game company Nintendo is based in Kyoto. Kyoto is also a center of higher learning in the country, and its institutions include Kyoto University, the second-oldest university in Japan.",
+      "requestedIdentity": "en:kyoto",
+      "description": "City in the Kansai region of Japan",
+      "pageId": 37652,
+      "wikidataId": "Q34600",
+      "coordinates": {
+        "lat": 35.01161,
+        "lng": 135.76811
+      }
+    }
+  },
+  "en:kyoto imperial palace": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kyoto Imperial Palace",
+      "url": "https://en.wikipedia.org/wiki/Kyoto_Imperial_Palace",
+      "extract": "The Kyōto Imperial Palace (京都御所, Kyōto-gosho), also known as Dairi (内裏) or Kinri (禁裏), is the former palace of the Emperor of Japan from 1331 to 1869 located in Kamigyō-ku, Kyoto, Japan. Since the Meiji Restoration in 1869, the Emperors have resided at the Tokyo Imperial Palace, while the preservation of the Kyoto Imperial Palace was ordered in 1877. Today, the grounds are open to the public, and the Imperial Household Agency hosts public tours of the buildings several times a day.\nThe Kyoto Imperial Palace is the latest of the imperial palaces built in the northeastern part of the old capital of Heian-kyō (now known as Kyoto) after the abandonment of the Heian Palace that was located to the west of the current palace during the Heian period. The Palace lost much of its function at the time of the Meiji Restoration, when the capital functions were moved to Tokyo in 1869. However, Emperor Taishō and Shōwa still had their enthronement ceremonies at the palace.",
+      "requestedIdentity": "en:kyoto imperial palace",
+      "description": "Former ruling palace of the Emperor of Japan",
+      "pageId": 1559855,
+      "wikidataId": "Q1202239",
+      "coordinates": {
+        "lat": 35.02527778,
+        "lng": 135.76222222
+      }
+    }
+  },
+  "en:kyoto international manga museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kyoto International Manga Museum",
+      "url": "https://en.wikipedia.org/wiki/Kyoto_International_Manga_Museum",
+      "extract": "The Kyoto International Manga Museum (京都国際マンガミュージアム, Kyōto Kokusai Manga Myūjiamu) is located in Nakagyō-ku, Kyoto, Japan. The museum's collection includes approximately 300,000 items as of 2016, with 50,000 volumes of manga that can be accessed and read by visitors and approximately 250,000 items in its closed-stack collection, which can be accessed via a dedicated research room supported by reference facilities. Collected materials include Edo period woodblock prints, pre-war magazines, post-war rental books, and popular modern series from around the world.\nThe museum is a public–private partnership of Kyoto Seika University and the city of Kyoto. The city provided the building and land. The university operates the facility under the oversight of a joint committee. The museum acts as a manga library and history resource for the public, as well as serving the manga-related research interests of Kyoto Seika University's International Manga Research Center.",
+      "requestedIdentity": "en:kyoto international manga museum",
+      "description": "Museum in Kyoto, Japan",
+      "pageId": 14845316,
+      "wikidataId": "Q783923",
+      "coordinates": {
+        "lat": 35.011649,
+        "lng": 135.759243
+      }
+    }
+  },
+  "en:kyoto national museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kyoto National Museum",
+      "url": "https://en.wikipedia.org/wiki/Kyoto_National_Museum",
+      "extract": "The Kyoto National Museum (京都国立博物館, Kyōto Kokuritsu Hakubutsukan) is one of the major art museums in Japan. Located in Kyoto's Higashiyama ward, the museum focuses on pre-modern Japanese and Asian art.",
+      "requestedIdentity": "en:kyoto national museum",
+      "description": "Art museum in Kyoto, Japan",
+      "pageId": 3173195,
+      "wikidataId": "Q147286"
+    }
+  },
+  "en:kyoto railway museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kyoto Railway Museum",
+      "url": "https://en.wikipedia.org/wiki/Kyoto_Railway_Museum",
+      "extract": "The Kyoto Railway Museum (京都鉄道博物館, Kyōto Tetsudō Hakubutsukan) (formerly the Umekoji Steam Locomotive Museum (梅小路蒸気機関車館, Umekōji Jōkikikansha-kan) until 2016) is a railway museum in Shimogyō-ku, Kyoto, Japan. The original Umekoji Steam Locomotive Museum opened in 1972, but was expanded and modernized in 2016, becoming the Kyoto Railway Museum.\nThe museum is owned by the West Japan Railway Company (JR West) and operated by the Transportation Culture Promotion Foundation.",
+      "requestedIdentity": "en:kyoto railway museum",
+      "description": "Railway museum in Kyoto, Japan",
+      "pageId": 24151944,
+      "wikidataId": "Q24014029",
+      "coordinates": {
+        "lat": 34.98722222,
+        "lng": 135.7425
+      }
+    }
+  },
+  "en:kyushu national museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Kyushu National Museum",
+      "url": "https://en.wikipedia.org/wiki/Kyushu_National_Museum",
+      "extract": "The Kyushu National Museum (九州国立博物館, Kyūshū Kokuritsu Hakubutsukan) opened on October 16, 2005, in Dazaifu near Fukuoka—the first new national museum in Japan in over 100 years, and the first to elevate the focus on history over art.  The distinct modern impression created by the architectural facade is mirrored in the museum's use of technological innovations which are put to good in making the museum's collections accessible to the public. For example, the museum's extremely high resolution video system, with the latest image processing and color management software, serves both in documenting the objects in the museum's collection and also in expanding access beyond the limits of a large, but finite exhibition space.\nThe striking wood and glass building in the hills, it hosts important collections of Japanese artifacts, particularly ceramics, related to the history of Kyūshū.\nIt hosts temporary exhibitions on the third floor, while the permanent collections are on the fourth floor. The collections cover the history of Kyūshū from prehistory to the Meiji era with particular emphasis on the rich history of cultural exchange between Kyūshū and neighboring China and Korea.\nUnlike most museums in Japan, which contract out conservation work, the Kyushu National Museum has an extensive on-site suite of conservation labs and associated staff, serving as the major conservation center for all of western Japan.\nThe museum was designed by Kiyonori Kikutake.",
+      "requestedIdentity": "en:kyushu national museum",
+      "description": "Art museum in Fukuoka, Japan",
+      "pageId": 2994284,
+      "wikidataId": "Q148543",
+      "coordinates": {
+        "lat": 33.51835556,
+        "lng": 130.53829722
+      }
+    }
+  },
+  "en:lake ikeda": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Lake Ikeda",
+      "url": "https://en.wikipedia.org/wiki/Lake_Ikeda",
+      "extract": "Lake Ikeda (池田湖, Ikeda-ko) is in Ikeda Caldera located 40 km (25 mi) south of Kagoshima city; Kyūshū island, Japan. It is perhaps best known to tourists as the location of the purported sightings of a monster named Issie, and as the largest lake on Kyūshū island with a surface area of 11 km2 (4.2 sq mi) and a shoreline length of 15 km (9.3 mi).",
+      "requestedIdentity": "en:lake ikeda",
+      "description": "Caldera on the island of Kyushu, Japan",
+      "pageId": 17548580,
+      "wikidataId": "Q3214941",
+      "coordinates": {
+        "lat": 31.23333333,
+        "lng": 130.56666667
+      }
+    }
+  },
+  "en:lazona kawasaki plaza": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Lazona Kawasaki Plaza",
+      "url": "https://en.wikipedia.org/wiki/Lazona_Kawasaki_Plaza",
+      "extract": "Lazona Kawasaki Plaza (ラゾーナ川崎プラザ, Razōna Kawasaki puraza) is a shopping mall in Saiwai-ku, Kawasaki, Japan. The mall adjoins the west side Kawasaki Station. It is the largest commercial facility in the Mitsui Fudosan affiliate and has the highest sales volume.",
+      "requestedIdentity": "en:lazona kawasaki plaza",
+      "description": "Shopping mall in Kawasaki, Japan",
+      "pageId": 10279749,
+      "wikidataId": "Q6506052",
+      "coordinates": {
+        "lat": 35.53333333,
+        "lng": 139.69583333
+      }
+    }
+  },
+  "en:meganebashi": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:meriken park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Meriken Park",
+      "url": "https://en.wikipedia.org/wiki/Meriken_Park",
+      "extract": "Meriken Park (メリケンパーク, Meriken pāku) is a waterfront park located in the port city of Kobe, Hyōgo Prefecture, Japan.  The park features the Kobe Port Tower, Kobe Maritime Museum, and a memorial to victims of the Great Hanshin earthquake.  The name of the park comes from the word \"American,\" which was commonly translated as \"Meriken\" during the Meiji era.  Meriken Park is also the location of the Hotel Okura Kobe and Kobe Meriken Park Oriental Hotel.",
+      "requestedIdentity": "en:meriken park",
+      "description": "Park in Kobe, Japan",
+      "pageId": 16715271,
+      "wikidataId": "Q5365128",
+      "coordinates": {
+        "lat": 34.68166667,
+        "lng": 135.18833333
+      }
+    }
+  },
+  "en:miraikan": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Miraikan",
+      "url": "https://en.wikipedia.org/wiki/Miraikan",
+      "extract": "The National Museum of Emerging Science and Innovation (日本科学未来館, Nippon Kagaku Mirai-kan), simply known as the Miraikan (未来館; literally \"Future Museum\"), is a museum created by Japan's Science and Technology Agency.\nIt was opened in 2001. It is situated in a purpose-built building in the Odaiba District of Tokyo. It can be reached by the Yurikamome driverless fully automated transit system from downtown Tokyo in about 20 minutes.",
+      "requestedIdentity": "en:miraikan",
+      "description": "Science and technology museum in Odaiba, Tokyo, Japan",
+      "pageId": 9616780,
+      "wikidataId": "Q656957"
+    }
+  },
+  "en:miyazaki city": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Miyazaki (city)",
+      "url": "https://en.wikipedia.org/wiki/Miyazaki_(city)",
+      "extract": "Miyazaki (宮崎市, Miyazaki-shi; Japanese pronunciation: [mʲi.jaꜜ.(d)za.kʲi, -ja.(d)za.kʲi̥ꜜ.ɕi, -(d)zaꜜ.kʲi̥.ɕi]) is the capital city of Miyazaki Prefecture on the island of Kyushu in Japan. As of September 1, 2023, the city had an estimated population of 397,381 in 187,859 households, and a population density of 620 persons per km2. The total area of the city is 643.67 km2 (248.52 sq mi).\n\n",
+      "requestedIdentity": "en:miyazaki city",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Miyazaki_City",
+      "description": "Capital city of Miyazaki Prefecture in Japan",
+      "pageId": 6793360,
+      "wikidataId": "Q204308",
+      "coordinates": {
+        "lat": 31.90777778,
+        "lng": 131.42027778
+      }
+    }
+  },
+  "en:miyazaki-jingū": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Miyazaki Jingū",
+      "url": "https://en.wikipedia.org/wiki/Miyazaki_Jing%C5%AB",
+      "extract": "Miyazaki-jingū (宮崎神宮) is a Shinto shrine located in Miyazaki, Miyazaki prefecture, Japan. It is dedicated to Emperor Jimmu, Ugayafukiaezu and Tamayori-bime.",
+      "requestedIdentity": "en:miyazaki-jingū",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB",
+      "description": "Shinto shrine in Miyazaki, Japan",
+      "pageId": 29523794,
+      "wikidataId": "Q704686",
+      "coordinates": {
+        "lat": 31.93861111,
+        "lng": 131.42333333
+      }
+    }
+  },
+  "en:mojiko retro": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:mount aso": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Mount Aso",
+      "url": "https://en.wikipedia.org/wiki/Mount_Aso",
+      "extract": "Mount Aso (阿蘇山, Aso-san) or Aso Volcano is the second largest active volcano in Japan after Mount Fuji, and among the largest in the world. Common use relates often only to the somma volcano in the centre of Aso Caldera. It stands in Aso Kujū National Park in Kumamoto Prefecture, on the island of Kyushu. Its tallest peak, Takadake, is 1,592 meters (5,223 ft) above sea level.  Mount Aso is in a fairly large caldera (25 kilometers (16 miles) north-south and 18 km (11 mi) east-west) with a circumference of around 120 km (75 mi), although sources vary on the exact distance. It is one of the 100 Famous Japanese Mountains.",
+      "requestedIdentity": "en:mount aso",
+      "description": "Volcano in Kumamoto Prefecture, Japan",
+      "pageId": 956535,
+      "wikidataId": "Q733710",
+      "coordinates": {
+        "lat": 32.88444444,
+        "lng": 131.10388889
+      }
+    }
+  },
+  "en:mount inasa": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Mount Inasa",
+      "url": "https://en.wikipedia.org/wiki/Mount_Inasa",
+      "extract": "Mount Inasa (稲佐山, Inasa-yama) is a hill to the west of Nagasaki which rises to a height of 333 metres (1,093 ft).\nThe Nagasaki Ropeway and the Nagasaki Inasa Mountain Slope Car (in Japanese) allow visitors to easily travel to the summit. A short walk from the top ropeway and slope car stations (adjacent to each other) is Mt. Inasa Overlook, a multi-level observation deck with \"360-degree panoramic view\" from the rooftop.\n\nNagasaki's night view was certified as one of the \"World's New Three Great Night Views\" by the Night View Summit held in 2021, organized by the Night View Tourism Convention Bureau. The panoramic night view from Mt. Inasa is known as Nagasaki's \"10 Million Dollar Night View\" (1000万ドルの夜景, Issenmandoru no yakei).\nIn the lower level of the observation deck there is a restaurant Mount Inasa Restaurant ITADAKI.\nThere are also several buildings that house transmitters for TV and radio stations that serve Nagasaki and the surrounding area.",
+      "requestedIdentity": "en:mount inasa",
+      "description": "Hill near Nagasaki, Kyushu, Japan",
+      "pageId": 5129794,
+      "wikidataId": "Q3031841",
+      "coordinates": {
+        "lat": 32.7527,
+        "lng": 129.8495
+      }
+    }
+  },
+  "en:mount kaimon": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Mount Kaimon",
+      "url": "https://en.wikipedia.org/wiki/Mount_Kaimon",
+      "extract": "Kaimondake (開聞岳, Kaimon-dake), or Mount Kaimon, is an undissected volcano – consisting of a basal stratovolcano and a small complex central lava dome – which rises to a height of 924 metres above sea level near the city of Ibusuki in southern Kyūshū, Japan. The last eruption occurred in the year 885 CE. Because of its conic shape, Mt. Kaimon is sometimes referred to as \"the Fuji of Satsuma\". It is one of the 100 Famous Japanese Mountains.",
+      "requestedIdentity": "en:mount kaimon",
+      "description": "Volcano on the island of Kyushu, Japan",
+      "pageId": 9556201,
+      "wikidataId": "Q713847",
+      "coordinates": {
+        "lat": 31.18,
+        "lng": 130.52833333
+      }
+    }
+  },
+  "en:museum of aeronautical sciences": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:museum of modern art, saitama": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Museum of Modern Art, Saitama",
+      "url": "https://en.wikipedia.org/wiki/Museum_of_Modern_Art,_Saitama",
+      "extract": "The Museum of Modern Art, Saitama (埼玉県立近代美術館, Saitama Kenritsu Kindai Bijutsukan) is a museum in Saitama, Saitama Prefecture, Japan.  It is one of Japan's many museums that are supported by a prefecture.",
+      "requestedIdentity": "en:museum of modern art, saitama",
+      "description": "Museum",
+      "pageId": 75536320,
+      "wikidataId": "Q11426772",
+      "coordinates": {
+        "lat": 35.8696,
+        "lng": 139.6431
+      }
+    }
+  },
+  "en:nagasaki city": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nagasaki",
+      "url": "https://en.wikipedia.org/wiki/Nagasaki",
+      "extract": "Nagasaki (長崎, Nagasaki; Japanese pronunciation: [na.ɡaꜜ.sa.kʲi, na.ŋa-], lit. 'Long Cape'), officially Nagasaki City (長崎市, Nagasaki-shi; [na.ɡa.sa.kʲi̥ꜜ.ɕi, na.ɡa.saꜜ.kʲi̥.ɕi, na.ŋa-]), is the capital and the largest city of Nagasaki Prefecture on the island of Kyushu in Japan.\nFounded by the Portuguese, the port of Nagasaki became the sole port used for trade with the Portuguese and Dutch during the 16th through 19th centuries. The Hidden Christian Sites in the Nagasaki Region have been recognized and included in the UNESCO World Heritage Sites list. Part of Nagasaki was home to a major Imperial Japanese Navy base during the First Sino-Japanese War and Russo-Japanese War. Near the end of World War II, the American atomic bombings of Hiroshima and Nagasaki made Nagasaki the second city in the world to experience a nuclear attack. The city was later rebuilt.\nAs of February 1, 2024, Nagasaki has an estimated population of 392,281, and a population density of 966 people per km2. The total area is 405.86 km2 (156.70 sq mi).",
+      "requestedIdentity": "en:nagasaki city",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Nagasaki_City",
+      "description": "Core city in Kyushu, Japan",
+      "pageId": 21790,
+      "wikidataId": "Q38234",
+      "coordinates": {
+        "lat": 32.74472222,
+        "lng": 129.87361111
+      }
+    }
+  },
+  "en:nagasaki peace park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nagasaki Peace Park",
+      "url": "https://en.wikipedia.org/wiki/Nagasaki_Peace_Park",
+      "extract": "Nagasaki Peace Park is a park located in Nagasaki, Japan, commemorating the atomic bombing of the city on August 9, 1945 during World War II. It is next to the Atomic Bomb Museum and near the Peace Memorial Hall.",
+      "requestedIdentity": "en:nagasaki peace park",
+      "description": "Park located in Nagasaki, Japan",
+      "pageId": 4322728,
+      "wikidataId": "Q93490",
+      "coordinates": {
+        "lat": 32.7757,
+        "lng": 129.8632
+      }
+    }
+  },
+  "en:nagasaki shinchi chinatown": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nagasaki Shinchi Chinatown",
+      "url": "https://en.wikipedia.org/wiki/Nagasaki_Shinchi_Chinatown",
+      "extract": "Nagasaki Shinchi Chinatown (Japanese: ながさき しんち ちゅうかがい, 長崎新地中華街, Simplified Chinese: 长崎新地中华街) is an area located in Nagasaki, Nagasaki, Japan. Today, this area is a shopping strip covering many blocks. \nMost of the Chinese members of Nagasaki Chinatown are of Fuzhounese descent. Nagasaki and Fuzhou established ties as sister cities in 1980 to recognize the historical connections between the two cities and Fuzhounese immigrant community.",
+      "requestedIdentity": "en:nagasaki shinchi chinatown",
+      "description": "Ethnic enclave in Nagasaki, Japan",
+      "pageId": 18365473,
+      "wikidataId": "Q63229",
+      "coordinates": {
+        "lat": 32.74194444,
+        "lng": 129.87583333
+      }
+    }
+  },
+  "en:nakasu": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nakasu",
+      "url": "https://en.wikipedia.org/wiki/Nakasu",
+      "extract": "Nakasu (中洲) is the red-light district of Fukuoka City, Fukuoka Prefecture, Japan. It is an island between the sandbank of the Naka River (那珂川, Nakagawa) and the Hakata River (博多川, Hakatagawa). It is named after a popular, but very short-lived, entertainment quarter of Edo, which existed in the late 18th century. The name \"Nakasu\" can be translated as \"the island in the middle\", as Nakasu is an island between two rivers.",
+      "requestedIdentity": "en:nakasu",
+      "description": "Red-light district in Fukuoka, Japan",
+      "pageId": 2186108,
+      "wikidataId": "Q6960335",
+      "coordinates": {
+        "lat": 33.593647,
+        "lng": 130.405295
+      }
+    }
+  },
+  "en:nanatsugama": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:nankin-machi": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nankin-machi",
+      "url": "https://en.wikipedia.org/wiki/Nankin-machi",
+      "extract": "Nankin-machi (南京町; lit. 'Nanjing town') is a neighborhood in Kobe, Japan located south of Motomachi station adjacent to the Daimaru Department Store and is a major tourist attraction. Considered as Kobe's Chinatown, the area has over a hundred Chinese restaurants, shops, and a Chinese temple dedicated to Lord Guan (関帝廟, Kanteibyō).",
+      "requestedIdentity": "en:nankin-machi",
+      "description": "Chinatown of Kobe, Japan",
+      "pageId": 10194862,
+      "wikidataId": "Q912392",
+      "coordinates": {
+        "lat": 34.68805556,
+        "lng": 135.18805556
+      }
+    }
+  },
+  "en:nanzen-in": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nanzen-in",
+      "url": "https://en.wikipedia.org/wiki/Nanzen-in",
+      "extract": "Nanzen-in (南禅院) is one of the tatchu sub-temples of Nanzen-ji, a Rinzai school Zen Buddhist temple in the Fukuchi neighborhood of Sakyō-ku in the city of Kyoto Japan. Its honzon is a Kamakura period statue of Emperor Kameyama, which is a National Important Cultural Property.",
+      "requestedIdentity": "en:nanzen-in",
+      "description": "Buddhist temple in Kyoto, Japan",
+      "pageId": 79508868,
+      "wikidataId": "Q11408325",
+      "coordinates": {
+        "lat": 35.0103,
+        "lng": 135.79386944
+      }
+    }
+  },
+  "en:narita international airport": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Narita International Airport",
+      "url": "https://en.wikipedia.org/wiki/Narita_International_Airport",
+      "extract": "Narita International Airport (Japanese: 成田国際空港, Hepburn: Narita Kokusai Kūkō; IATA: NRT, ICAO: RJAA), originally known as New Tokyo International Airport (新東京国際空港, Shin Tōkyō Kokusai Kūkō), is an international airport serving the Greater Tokyo Area. It is located approximately 60 kilometres (37 mi; 32 nmi) east of central Tokyo in Narita, Chiba. The airport covers approximately 1,137 hectares (2,810 acres) and is undergoing expansion that will increase its total area to approximately 2,300 ha (5,700 acres).\nThe airport's development was highly controversial and was opposed by many local residents, with opposition continuing decades after its opening. The government's decision to construct the airport without the consent of many affected landowners led to the Sanrizuka Struggle, a prolonged series of protests against the airport's construction and land expropriation. The original plan called for five runways, but only two were ultimately built amid difficulties acquiring land from opposing farmers. Some privately held properties remain within the airport complex, including a farm around which one of the runways was built. The dispute has also contributed to restrictions on airport operations, including a nighttime curfew prohibiting aircraft operations between midnight and 6 a.m. to limit aircraft noise in surrounding communities.\nNarita was historically Japan's busiest airport for international passenger and cargo traffic. In 2018, it handled 33.4 million international passengers and 2.2 million tonnes of international cargo. In 2018, Narita was also the second-busiest airport in Japan in terms of aircraft movements (after Haneda Airport in Tokyo) and the tenth-busiest air freight hub in the world. Its 4,000-metre (13,000 ft) main runway is among the longest in Japan. Narita serves as an international hub for Japan Airlines, All Nippon Airways, and Nippon Cargo Airlines, and is also an operating base for low-cost carriers Air Japan, Jetstar Japan, Peach Aviation, Spring Airlines Japan, and Zipair Tokyo.",
+      "requestedIdentity": "en:narita international airport",
+      "description": "Airport in Chiba Prefecture, Japan; serving the Greater Tokyo Area",
+      "pageId": 24086463,
+      "wikidataId": "Q36454",
+      "coordinates": {
+        "lat": 35.76527778,
+        "lng": 140.38555556
+      }
+    }
+  },
+  "en:narita-san": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Narita-san",
+      "url": "https://en.wikipedia.org/wiki/Narita-san",
+      "extract": "Narita-san (成田山 \"Narita mountain\") Shinshō-ji (新勝寺 \"New victory temple\") is a Shingon Buddhist temple located in central Narita, Chiba, Japan. It was founded in 940 by Kanchō Daisōjō, a disciple of Kōbō Daishi. It is a lead temple in the Chisan branch (Chisan-ha 智山派) of New Shingon (Shingi Shingon 新義真言宗), includes a large complex of buildings and grounds, and is one of the best-known temples in the Kantō region. It is dedicated to Ācala (Japanese: Fudō myōō (\"Unmovable Wisdom King\")) who is usually depicted holding a sword and rope and surrounded by flames. Often called a fire god, he is associated with fire rituals.\n\n",
+      "requestedIdentity": "en:narita-san",
+      "description": "Buddhist temple in Narita, Japan",
+      "pageId": 289974,
+      "wikidataId": "Q3083875",
+      "coordinates": {
+        "lat": 35.78608,
+        "lng": 140.31831
+      }
+    }
+  },
+  "en:national museum of art, osaka": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "National Museum of Art, Osaka",
+      "url": "https://en.wikipedia.org/wiki/National_Museum_of_Art,_Osaka",
+      "extract": "The National Museum of Art, Osaka (国立国際美術館, Kokuritsu Kokusai Bijutsukan) is a subterranean Japanese art museum located on the island of Nakanoshima, located between the Dōjima River and the Tosabori River, about 10 minutes west of Higobashi Station in central Osaka.\nThe official Japanese title of the museum translates as the \"National Museum of International Art\". The museum is also known by the English acronym NMAO (National Museum of Art, Osaka).",
+      "requestedIdentity": "en:national museum of art, osaka",
+      "description": "Art museum in Nakanoshima",
+      "pageId": 7738587,
+      "wikidataId": "Q1055037",
+      "coordinates": {
+        "lat": 34.691786,
+        "lng": 135.492024
+      }
+    }
+  },
+  "en:national museum of nature and science": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "National Museum of Nature and Science",
+      "url": "https://en.wikipedia.org/wiki/National_Museum_of_Nature_and_Science",
+      "extract": "The National Museum of Nature and Science (国立科学博物館, Kokuritsu Kagaku Hakubutsukan) is in the northeast corner of Ueno Park in Tokyo. The museum has exhibitions on pre-Meiji science in Japan. It is the venue of the taxidermied bodies of the legendary dogs Hachikō and Taro and Jiro. A life-size blue whale model and a steam locomotive are also on display outside.",
+      "requestedIdentity": "en:national museum of nature and science",
+      "description": "Museum in Tokyo, Japan",
+      "pageId": 2646870,
+      "wikidataId": "Q74940",
+      "coordinates": {
+        "lat": 35.715939,
+        "lng": 139.776527
+      }
+    }
+  },
+  "en:nichinan, miyazaki": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nichinan, Miyazaki",
+      "url": "https://en.wikipedia.org/wiki/Nichinan,_Miyazaki",
+      "extract": "Nichinan (日南市, Nichinan-shi) is a city in Miyazaki Prefecture, Japan.  As of 1 May 2023, the city had an estimated population of 47,872 in 21482 households, and a  population density of 89 persons per km².  The total area of the city is 536.11 km2 (206.99 sq mi).",
+      "requestedIdentity": "en:nichinan, miyazaki",
+      "description": "City in Kyushu, Japan",
+      "pageId": 329646,
+      "wikidataId": "Q860669",
+      "coordinates": {
+        "lat": 31.60194444,
+        "lng": 131.37861111
+      }
+    }
+  },
+  "en:nihon minka-en": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nihon Minka-en",
+      "url": "https://en.wikipedia.org/wiki/Nihon_Minka-en",
+      "extract": "Nihon Minka-en (日本民家園) is a park in the Ikuta Ryokuchi Park (生田緑地) of Tama-ku, Kawasaki, Kanagawa Prefecture, Japan. On display in the park is a collection of 20 traditional minka (民家) (farm houses) from various areas of Japan, especially thatched-roofed houses from eastern Japan. Of these, nine have received the designation of Important Cultural Assets from the national government. The houses are varied in design, and include examples from regions of heavy snow, lodgings for travellers, and a theatrical stage. Visitors can see regional variety and differences in construction.\nThe park is operated by the city of Kawasaki. Admission is free to visitors who are not older than junior-high-school age. The entrance is a fifteen-minute walk from Mukogaoka-Yuen Station on the Odakyu Odawara Line.",
+      "requestedIdentity": "en:nihon minka-en",
+      "description": "Park in Kanagawa Prefecture, Japan",
+      "pageId": 5402751,
+      "wikidataId": "Q1989934",
+      "coordinates": {
+        "lat": 35.609923,
+        "lng": 139.562038
+      }
+    }
+  },
+  "en:niji no matsubara": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:ninna-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ninna-ji",
+      "url": "https://en.wikipedia.org/wiki/Ninna-ji",
+      "extract": "Ninna-ji (仁和寺, Ninna-ji) is the head temple of the Omuro school of the Shingon Sect of Buddhism. Located in western Kyoto, Japan, it was first founded in AD 888 by Emperor Uda, and was later reconstructed in the 17th century. It is part of the Historic Monuments of Ancient Kyoto, a UNESCO World Heritage Site.\nNinna-ji was a monzeki temple with deep ties to the Imperial family and was called the \"Omuro Gosho\" (Omuro Imperial Palace) until the Meiji Restoration. It is also a famous sakura viewing location in spring, attracting many visitors. The temple is also the head temple of the Omuro-ryu school of ikebana (flower arrangement), which was founded by Emperor Uda.  The Omuro Cherry Blossoms and the Ninna-ji Imperial Palace Gardens are nationally designated Place of Scenic Beauty and the site of the Ninna-ji Imperial Palace is a National Historic Site.",
+      "requestedIdentity": "en:ninna-ji",
+      "description": "Historic Buddhist temple in Kyoto, Japan",
+      "pageId": 2517053,
+      "wikidataId": "Q1202871",
+      "coordinates": {
+        "lat": 35.03105556,
+        "lng": 135.71380556
+      }
+    }
+  },
+  "en:nishiki market": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nishiki Market",
+      "url": "https://en.wikipedia.org/wiki/Nishiki_Market",
+      "extract": "Nishiki Market (錦市場, Nishiki Ichiba; literally \"brocade market\") is a marketplace in downtown Kyoto, located on the east end of Nishikikōji Street, one block north and parallel to Shijō Street (四条通, Shijō-dōri) and west of Teramachi Street (寺町通, Teramachi-dōri).  Rich with history and tradition, the market is renowned as the place to obtain many of Kyoto's famous foods and goods.",
+      "requestedIdentity": "en:nishiki market",
+      "description": "Marketplace in downtown Kyoto, Japan",
+      "pageId": 14538385,
+      "wikidataId": "Q11650434",
+      "coordinates": {
+        "lat": 35.00502778,
+        "lng": 135.76613889
+      }
+    }
+  },
+  "en:nishitetsu fukuoka (tenjin) station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nishitetsu Fukuoka (Tenjin) Station",
+      "url": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
+      "extract": "Nishitetsu-Fukuoka (Tenjin) Station (西鉄福岡（天神）駅, Nishitetsu-Fukuoka (Tenjin)-eki) is a railway station in Chūō-ku, Fukuoka, operated by the private railway operator Nishi-Nippon Railroad, and has station number T01.\n\n",
+      "requestedIdentity": "en:nishitetsu fukuoka (tenjin) station",
+      "description": "Railway station in Fukuoka, Japan",
+      "pageId": 19022040,
+      "wikidataId": "Q901130",
+      "coordinates": {
+        "lat": 33.58877778,
+        "lng": 130.39988889
+      }
+    }
+  },
+  "en:nunobiki falls": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nunobiki Falls",
+      "url": "https://en.wikipedia.org/wiki/Nunobiki_Falls",
+      "extract": "Nunobiki Falls (布引の滝, Nunobiki no Taki) is a set of waterfalls near downtown Kobe, Japan, with an important significance in Japanese literature and Japanese art. In Japan, Nunobiki is considered one of the greatest \"divine falls\" together with Kegon Falls and Nachi Falls.\nNunobiki waterfalls comprises four separate falls: Ontaki, Mentaki, Tsutsumigadaki, and Meotodaki.",
+      "requestedIdentity": "en:nunobiki falls",
+      "pageId": 4709077,
+      "wikidataId": "Q3695449",
+      "coordinates": {
+        "lat": 34.70972222,
+        "lng": 135.19388889
+      }
+    }
+  },
+  "en:nunobiki herb garden": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Nunobiki Herb Garden",
+      "url": "https://en.wikipedia.org/wiki/Nunobiki_Herb_Garden",
+      "extract": "The Nunobiki Herb Garden (布引ハーブ園, Nunobiki Hābu-en; 40 acres) is a herb garden located on Mount Rokkō above Kobe, Japan. It is open daily; an admission fee is charged.\nThe garden is accessed by Shin-Kobe Ropeway gondola lift from downtown Kobe. It features over 75,000 herbs (200 varieties), plus greenhouses, restaurant and cafe, museums, exhibits, and gift shops.\nThe garden was built in 1991.",
+      "requestedIdentity": "en:nunobiki herb garden",
+      "description": "Herb garden in Kobe, Japan",
+      "pageId": 13526886,
+      "wikidataId": "Q7069905",
+      "coordinates": {
+        "lat": 34.71527778,
+        "lng": 135.19222222
+      }
+    }
+  },
+  "en:obi, miyazaki": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:ōhori park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ōhori Park",
+      "url": "https://en.wikipedia.org/wiki/%C5%8Chori_Park",
+      "extract": "Ōhori Park (大濠公園, Ōhori-kōen) is a park in Chūō-ku, Fukuoka, Japan and a registered Place of Scenic Beauty.",
+      "requestedIdentity": "en:ōhori park",
+      "description": "Park in Fukuoka, Japan",
+      "pageId": 33341538,
+      "wikidataId": "Q846710",
+      "coordinates": {
+        "lat": 33.58586111,
+        "lng": 130.37625
+      }
+    }
+  },
+  "en:ōmiya bonsai village": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ōmiya Bonsai Village",
+      "url": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Bonsai_Village",
+      "extract": "Ōmiya Bonsai Village (大宮盆栽村, Ōmiya Bonsai-mura) is the nickname for the bonsai nursery precinct in Bonsai-chō (盆栽町, Bonsai-chō), Kita-ku, Saitama, Japan.\nBonsai Village is located near Ōmiya-kōen Station on the Tobu Noda Line. It is closed on every Thursday (unless the Thursday falls on a national holiday).",
+      "requestedIdentity": "en:ōmiya bonsai village",
+      "pageId": 5026324,
+      "wikidataId": "Q8081624",
+      "coordinates": {
+        "lat": 35.927763,
+        "lng": 139.631513
+      }
+    }
+  },
+  "en:ōmiya park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ōmiya Park",
+      "url": "https://en.wikipedia.org/wiki/%C5%8Cmiya_Park",
+      "extract": "Ōmiya Park (大宮公園, Ōmiya Kōen) is a public park located 1 km (0.62 mi) northeast of Ōmiya Station and the most visited park in Saitama. The park encompasses a huge area of 67.9 ha (168 acres) (as of 2004) and is famous for Japanese Red Pine forest and cherry blossoms. In particular, the park ranks in the Top 100 Locations in Japan for Cherry Blossoms.\nThe Ōmiya Baseball Stadium was the first stadium to hold NPB's postseason game other than original homegrounds.",
+      "requestedIdentity": "en:ōmiya park",
+      "description": "Public park in Saitama, Japan",
+      "pageId": 19191708,
+      "wikidataId": "Q5356064",
+      "coordinates": {
+        "lat": 35.919024,
+        "lng": 139.630819
+      }
+    }
+  },
+  "en:onta ware": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Onta ware",
+      "url": "https://en.wikipedia.org/wiki/Onta_ware",
+      "extract": "Onta ware (小鹿田焼, Onta-yaki), also spelled Onda, is a type of Japanese pottery produced in and around the village of Onta in Ōita Prefecture, Japan.",
+      "requestedIdentity": "en:onta ware",
+      "description": "Type of Japanese pottery",
+      "pageId": 47689137,
+      "wikidataId": "Q11464497"
+    }
+  },
+  "en:osaka": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Osaka",
+      "url": "https://en.wikipedia.org/wiki/Osaka",
+      "extract": "Osaka (Japanese: 大阪市, Hepburn: Ōsaka-shi; pronounced [ò̞ó̞.sä́.kä́.ɕì, ó̞ó̞.-]; commonly just 大阪, Ōsaka [ò̞ó̞.sä́.kä́, ó̞ó̞.-] ) is a designated city in the Kansai region of Honshu in Japan. It is the capital of and most populous city in Osaka Prefecture, and the second biggest prefectural city, third-most populous city proper in Japan, following the special wards of Tokyo and Yokohama. With an estimated population of 2.8 million as of October 1, 2025 and a population density of about 12,505 people per square kilometer, it is the largest component of the Keihanshin metropolitan area, the second-largest metropolitan area in Japan and the 10th-largest urban area in the world with more than 19 million inhabitants.\nOsaka was traditionally considered Japan's economic hub. By the Kofun period (300–538) it had developed into an important regional port, and in the seventh and eighth centuries it served briefly as the imperial capital. Osaka continued to flourish during the Edo period (1603–1867) and became known as a center of Japanese culture. Following the Meiji Restoration, it greatly expanded in size and underwent rapid industrialization. This  accelerated population growth throughout the following decades, and Osaka was the industrial hub in the Meiji and Taishō eras. It made contributions to redevelopment, urban planning and zoning standards in the postwar period, and developed rapidly as one of the major financial centers in the Keihanshin Metropolitan Area.\nOsaka is a major financial center of Japan and is recognized as one of its most multicultural and cosmopolitan cities. It is home to the Osaka Exchange and the headquarters of multinational electronics corporations such as Panasonic and Sharp. Osaka is an international center of research and development and is represented by several major universities, including Osaka University, Osaka Metropolitan University, and Kansai University. Landmarks include Osaka Castle, Osaka Aquarium Kaiyukan, Dōtonbori, Tsūtenkaku in Shinsekai, Tennōji Park, Abeno Harukas, Sumiyoshi Taisha Grand Shrine, and Shitennō-ji, one of the oldest Buddhist temples in Japan.",
+      "requestedIdentity": "en:osaka",
+      "description": "Designated city in Kansai, Japan",
+      "pageId": 52230,
+      "wikidataId": "Q35765",
+      "coordinates": {
+        "lat": 34.69388889,
+        "lng": 135.50222222
+      }
+    }
+  },
+  "en:osaka aquarium kaiyukan": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Osaka Aquarium Kaiyukan",
+      "url": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
+      "extract": "The Osaka Aquarium Kaiyukan (海遊館, Kaiyūkan; known as the Kaiyukan) is an aquarium located in the ward of Minato in Osaka, Osaka Prefecture, Japan, near Osaka Bay. When it opened in 1990, it was the largest public aquarium in the world. \nThe aquarium is a member of the Japanese Association of Zoos and Aquariums and is accredited as a Museum-equivalent facilities by the Museum Act from Ministry of Education, Culture, Sports, Science and Technology.\nThe aquarium is about a five-minute walk from Osakako Station on the Osaka Municipal Subway Chūō Line, and is next to the Tempozan Ferris Wheel.",
+      "requestedIdentity": "en:osaka aquarium kaiyukan",
+      "description": "Largest aquarium in Japan",
+      "pageId": 466728,
+      "wikidataId": "Q1191885",
+      "coordinates": {
+        "lat": 34.65447222,
+        "lng": 135.42888889
+      }
+    }
+  },
+  "en:osaka castle park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Osaka Castle Park",
+      "url": "https://en.wikipedia.org/wiki/Osaka_Castle_Park",
+      "extract": "Osaka Castle Park (大阪城公園, Osaka-Jō-Kōen) is a public urban park and historical site situated at Osaka-Jō in Chūō-ku, Osaka, Japan. It lies on the south of the Ōkawa (Kyū-Yodo River) and occupies a large area in the center of the city of Osaka. This park is the second largest park in the city.\nThe park was constructed on a site with a long history. In the fifteenth century, a militant temple, Ishiyama Hongan-ji, was built here. In 1583, Toyotomi Hideyoshi destroyed Ishiyama Hongan-ji and built Osaka Castle here. From 1870 to 1945 the Osaka Arsenal used a large area, and it was destroyed at end of World War II. In 1931, Osaka Castle Park was opened to the public, but most of the area was used by the Imperial Japanese Army. After World War II, most of the military complex was removed and replaced by the public urban park.\nIn the park, there is Osaka Castle Hall, a large athletic field, baseball field, football field, open-air music theatre, open-air concert hall, and Osaka Castle Keep Tower. From the top of keep tower, the vista includes Osaka Bay to Mount Ikoma, which surround the Osaka Plain. Many busking groups perform in the park. In spring, cherry blossom and plum blossom viewing is popular at this park.\n\n",
+      "requestedIdentity": "en:osaka castle park",
+      "description": "Public urban park and historical site in Chūō-ku, Osaka",
+      "pageId": 22407363,
+      "wikidataId": "Q150118",
+      "coordinates": {
+        "lat": 34.687378,
+        "lng": 135.525844
+      }
+    }
+  },
+  "en:ōura church": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Oura Church",
+      "url": "https://en.wikipedia.org/wiki/Oura_Church",
+      "extract": "The Oura Church (大浦天主堂, Ōura Tenshudō) or Oura Cathedral, officially the Basilica of the Twenty-Six Holy Martyrs of Japan (日本二十六聖殉教者聖堂), is a Catholic minor basilica and co-cathedral in Nagasaki, Japan, built soon after the end of the Japanese government's Seclusion Policy in 1853. It is named after the 26 Japanese Martyrs. For many years it was the only Western-style building declared a national treasure, and is said to be the oldest Christian church in Japan.",
+      "requestedIdentity": "en:ōura church",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/%C5%8Cura_Church",
+      "description": "Church in Nagasaki, Japan",
+      "pageId": 8395840,
+      "wikidataId": "Q430626",
+      "coordinates": {
+        "lat": 32.734106,
+        "lng": 129.870236
+      }
+    }
+  },
+  "en:philosopher's walk": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Philosopher's Walk",
+      "url": "https://en.wikipedia.org/wiki/Philosopher%27s_Walk",
+      "extract": "The Philosopher's Walk (哲学の道, Tetsugaku-no-michi; lit. Path of Philosophy) is a pedestrian path that follows a cherry-tree-lined canal in Kyoto, Japan between Ginkaku-ji and Nanzen-ji. First opened in 1890 and extended again in 1912, the path follows the course of a shallow irrigation channel bringing water from the Lake Biwa Canal.",
+      "requestedIdentity": "en:philosopher's walk",
+      "description": "Path in Kyoto, Japan",
+      "pageId": 625778,
+      "wikidataId": "Q1510488",
+      "coordinates": {
+        "lat": 35.02512778,
+        "lng": 135.79616667
+      }
+    }
+  },
+  "en:renkei-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Renkei-ji",
+      "url": "https://en.wikipedia.org/wiki/Renkei-ji",
+      "extract": "Renkei-ji (蓮馨寺) is a Buddhist temple of the Jōdo-shū sect in Kawagoe City, Saitama Prefecture. Its mountain name (sangō) is Kōhozan, while its monastery name (ingō) is Hōchi-in. The temple is dedicated to Amida Buddha.",
+      "requestedIdentity": "en:renkei-ji",
+      "description": "Buddhist temple in Saitama Prefecture, Japan",
+      "pageId": 57048424,
+      "wikidataId": "Q11621775",
+      "coordinates": {
+        "lat": 35.91961111,
+        "lng": 139.48188889
+      }
+    }
+  },
+  "en:saitama (city)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Saitama (city)",
+      "url": "https://en.wikipedia.org/wiki/Saitama_(city)",
+      "extract": "Saitama (さいたま市, Saitama-shi; Japanese pronunciation: [saꜜi.ta.ma, sai.ta.maꜜ.ɕi]) is the capital and largest city of Saitama Prefecture, Japan. Its area incorporates the former cities of Urawa, Ōmiya, Yono and Iwatsuki. It is a city designated by government ordinance. As of 1 February 2021, the city had an estimated population of 1,324,854, and a population density of 6,093 people per km2 (15,781 people per sq mi). Its total area is 217.43 square kilometres (83.95 sq mi).",
+      "requestedIdentity": "en:saitama (city)",
+      "description": "Prefecture capital and Designated city in Kantō, Japan",
+      "pageId": 6792822,
+      "wikidataId": "Q134635",
+      "coordinates": {
+        "lat": 35.86138889,
+        "lng": 139.64555556
+      }
+    }
+  },
+  "en:saitama stadium 2002": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Saitama Stadium 2002",
+      "url": "https://en.wikipedia.org/wiki/Saitama_Stadium_2002",
+      "extract": "Saitama Stadium 2002 (埼玉スタジアム2002, Saitama Sutajiamu Nimarumaruni), a.k.a. the Saitama Stadium (埼玉スタジアム, Saitama Sutajiamu) or simply Saisuta (埼スタ), is a football stadium located in Midori-ku, Saitama, Japan.\nCurrently, J1 League club Urawa Red Diamonds use this stadium for home games. It is the largest football-specific stadium in Japan and is one of the largest stadiums in Asia. It has hosted the semi-finals of both the 2002 FIFA World Cup and the football tournament at the 2020 Summer Olympics. It is also the home stadium of Japan national football team in almost every FIFA World Cup qualifying matches.",
+      "requestedIdentity": "en:saitama stadium 2002",
+      "description": "Football stadium in Japan",
+      "pageId": 1664996,
+      "wikidataId": "Q482446",
+      "coordinates": {
+        "lat": 35.9031,
+        "lng": 139.7175
+      }
+    }
+  },
+  "en:saitama super arena": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Saitama Super Arena",
+      "url": "https://en.wikipedia.org/wiki/Saitama_Super_Arena",
+      "extract": "Saitama Super Arena (さいたまスーパーアリーナ, Saitama Sūpā Arīna), currently known as GMO Arena (GMOアリーナ, GMO Arīna) for sponsorship reasons is a multi-purpose indoor arena located in Chūō-ku, Saitama, Saitama Prefecture, Japan. It opened preliminarily on May 5, 2000, and then was officially opened on September 1 of the same year. Its maximum capacity is 36,500. The main arena capacity is between 19,000 and 22,500.\nThe arena was designed by Dan Meis, who at the time was working for architecture firm Ellerbe Becket, together with Nikken Sekkei. Meis's design was selected as a result of an international design competition. The arena features a gigantic movable section of seating which can reduce capacity for smaller events and create a more intimate setting.\nIt is a favorite venue for puroresu (Japanese professional wrestling) and mixed martial arts (MMA). It has also hosted other sports events such as boxing, basketball, volleyball, tennis, ice hockey, and gymnastics. It is the only Japanese arena equipped especially for American football.\nIt formerly housed the John Lennon Museum, which displayed John Lennon memorabilia and closed in 2010.\nThe arena has undergone two renovations: the first one beginning on December 1, 2015, and the second one beginning on January 13, 2026.",
+      "requestedIdentity": "en:saitama super arena",
+      "description": "Multi-purpose indoor arena in Saitama, Japan",
+      "pageId": 1673812,
+      "wikidataId": "Q1052149",
+      "coordinates": {
+        "lat": 35.89489,
+        "lng": 139.63083
+      }
+    }
+  },
+  "en:sakurajima": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sakurajima",
+      "url": "https://en.wikipedia.org/wiki/Sakurajima",
+      "extract": "Sakurajima (Japanese: 桜島, lit. 'Cherry Blossom Island') is an active stratovolcano, formerly an island and now a peninsula, in Kagoshima Prefecture in Kyushu, Japan. It is the most active volcano in Japan.\nAs of November 2025, the volcanic activity continues, dropping volcanic ash on the surroundings. Earlier eruptions built the white sand highlands in the region. On 13 September 2016, a team of experts from Bristol University and the Sakurajima Volcano Research Centre in Japan suggested that the volcano could have a major eruption within 30 years; since then many eruptions have occurred.\nSakurajima has a population of a few thousand residents, formerly incorporated as Sakurajima town, with a number of schools, shrines, and shops on the island. It is serviced by the Sakurajima Ferry which runs 24/7. It is a tourist destination known for its onsen, local pottery made from volcanic ash, and produce such as the Sakurajima daikon radish and Sakurajima komikan orange which grow in the immensely fertile volcanic soil.\nSakurajima has many different natural areas due to its eruptive history and the ecosystems where recent eruptions have taken place have been researched as an example of ecological succession.",
+      "requestedIdentity": "en:sakurajima",
+      "description": "Stratovolcano in Kagoshima Prefecture, Japan",
+      "pageId": 956560,
+      "wikidataId": "Q128841",
+      "coordinates": {
+        "lat": 31.58055556,
+        "lng": 130.65805556
+      }
+    }
+  },
+  "en:samuel cocking garden": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Samuel Cocking Garden",
+      "url": "https://en.wikipedia.org/wiki/Samuel_Cocking_Garden",
+      "extract": "The Samuel Cocking Garden (江の島サムエル・コッキング苑, Enoshima Samueru Kokkingu En), also known as the Enoshima Tropical Plants Garden, is a small botanical garden on the small island of Enoshima in Japan. The address is 2-3-28 Enoshima, Fujisawa, Kanagawa.",
+      "requestedIdentity": "en:samuel cocking garden",
+      "description": "Botanical garden on the island of Enoshima in Japan",
+      "pageId": 13121342,
+      "wikidataId": "Q10749928",
+      "coordinates": {
+        "lat": 35.29972222,
+        "lng": 139.47833333
+      }
+    }
+  },
+  "en:sanjūsangen-dō": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sanjūsangen-dō",
+      "url": "https://en.wikipedia.org/wiki/Sanj%C5%ABsangen-d%C5%8D",
+      "extract": "Sanjūsangen-dō (三十三間堂; Temple of thirty-three bays) is a Buddhist temple of the Tendai sect in the Higashiyama district of Kyoto, Japan.\nThe temple was founded in 1164 by Taira no Kiyomori for the cloistered Emperor Go-Shirakawa. It is officially known as Rengeō-in (蓮華王院; hall of the Lotus King) and belongs to the Myōhō-in temple complex.\nSanjūsangen-dō is most famous for its massively long hondō (main hall) dating from 1266 (Kamakura period) and designated a National Treasure of Japan, and the collection of sculptures it houses, including 1001 standing Thousand-armed Kannon, 28 standing attendants, a statue of Fūjin and a statue of Raijin, and the principal image of the temple, a big seated statue of Thousand-armed Kannon, all of them designated National Treasures in the category of sculptures, most of them dating to the Heian to Kamakura periods.",
+      "requestedIdentity": "en:sanjūsangen-dō",
+      "description": "Buddhist temple in Kyoto, Japan",
+      "pageId": 3400176,
+      "wikidataId": "Q653319",
+      "coordinates": {
+        "lat": 34.98777778,
+        "lng": 135.77166667
+      }
+    }
+  },
+  "en:sasebo": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sasebo",
+      "url": "https://en.wikipedia.org/wiki/Sasebo",
+      "extract": "Sasebo (佐世保市, Sasebo-shi) is a core city located in Nagasaki Prefecture, Japan. It is the second-largest city in Nagasaki Prefecture, after its capital, Nagasaki. As of 1 April 2024, the city had an estimated population of 230,873 in 102,670 households, and a  population density of 540 persons per km2. The total area of the city is 426.01 km2 (164.48 sq mi).",
+      "requestedIdentity": "en:sasebo",
+      "description": "Core city in Kyushu, Japan",
+      "pageId": 6793326,
+      "wikidataId": "Q328000",
+      "coordinates": {
+        "lat": 33.18,
+        "lng": 129.715
+      }
+    }
+  },
+  "en:sasuke inari shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sasuke Inari Shrine",
+      "url": "https://en.wikipedia.org/wiki/Sasuke_Inari_Shrine",
+      "extract": "Sasuke Inari Shrine (佐助稲荷神社, Sasuke Inari Jinja) is a Shinto shrine in Kamakura and the site of the Hidden Village of Kamakura. It is located very near the Zeniarai Benzaiten Ugafuku Shrine.",
+      "requestedIdentity": "en:sasuke inari shrine",
+      "description": "Shinto shrine in Kamakura, Japan",
+      "pageId": 28265587,
+      "wikidataId": "Q45470",
+      "coordinates": {
+        "lat": 35.32441111,
+        "lng": 139.53889167
+      }
+    }
+  },
+  "en:sengan-en": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sengan-en",
+      "url": "https://en.wikipedia.org/wiki/Sengan-en",
+      "extract": "Sengan-en (仙巌園) is a Japanese garden attached to a former Shimazu clan residence in Kagoshima, Kagoshima Prefecture, Japan. Designated a Place of Scenic Beauty, together with the adjacent Shōko Shūseikan it forms part of the UNESCO World Heritage Site Sites of Japan’s Meiji Industrial Revolution: Iron and Steel, Shipbuilding and Coal Mining. Sengan-en is managed by Shimadzu Ltd.",
+      "requestedIdentity": "en:sengan-en",
+      "description": "Japanese garden in Kagoshima, Japan",
+      "pageId": 48259653,
+      "wikidataId": "Q10884282",
+      "coordinates": {
+        "lat": 31.61833333,
+        "lng": 130.57944444
+      }
+    }
+  },
+  "en:setagaya": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Setagaya",
+      "url": "https://en.wikipedia.org/wiki/Setagaya",
+      "extract": "Setagaya (世田谷区, Setagaya-ku; officially called Setagaya City or the City of Setagaya) is a special ward in the Tokyo Metropolis in Japan. It is also the name of a neighborhood and administrative district within the ward. Its official bird is the azure-winged magpie, its flower is the fringed orchid, and its tree is the Zelkova serrata.\nSetagaya has the largest population and second-largest area (after Ōta) of Tokyo's special wards. As of July 1, 2023, the ward has an estimated population of 940,071, and a population density of 16,194 persons per km2 with the total area of 58.06 km2.",
+      "requestedIdentity": "en:setagaya",
+      "description": "Special ward in Tokyo, Japan",
+      "pageId": 335947,
+      "wikidataId": "Q231645",
+      "coordinates": {
+        "lat": 35.64657222,
+        "lng": 139.65324722
+      }
+    }
+  },
+  "en:shin-ōsaka station": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shin-Ōsaka Station",
+      "url": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
+      "extract": "Shin-Ōsaka Station (Japanese: 新大阪駅, Hepburn: Shin-Ōsaka-eki; lit. 'New Osaka Station') is a major interchange railway station in Yodogawa-ku, Osaka, Japan. It is the western terminus of the high-speed Tōkaidō Shinkansen from Tokyo, the eastern terminus of the San'yō Shinkansen from Fukuoka, and one of the primary rail hubs in Osaka. The two Shinkansen lines are physically connected, allowing many services to operate through between them.\nThe station opened in 1964 and was built about 3 kilometres (1.9 mi) from the older Ōsaka Station to avoid the engineering challenges of extending the Shinkansen line into the city center. The JR Kyoto Line and the Midōsuji Line subway offer convenient connections to other major destinations throughout central Osaka.",
+      "requestedIdentity": "en:shin-ōsaka station",
+      "description": "Railway and metro station in Osaka, Japan",
+      "pageId": 401650,
+      "wikidataId": "Q801438"
+    }
+  },
+  "en:shingashi river": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shingashi River",
+      "url": "https://en.wikipedia.org/wiki/Shingashi_River",
+      "extract": "The Shingashi River (新河岸川, Shingashi-gawa) is a 34.6-kilometre (21.5 mi) long river that flows through Saitama and Tokyo, Japan. It flows from the Musashino Plateau into the Sumida River at Iwabuchi in Kita, Tokyo.",
+      "requestedIdentity": "en:shingashi river",
+      "description": "River in Japan",
+      "pageId": 56584654,
+      "wikidataId": "Q11502669",
+      "coordinates": {
+        "lat": 35.7839,
+        "lng": 139.7341
+      }
+    }
+  },
+  "en:shinjuku": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shinjuku",
+      "url": "https://en.wikipedia.org/wiki/Shinjuku",
+      "extract": "Shinjuku (Japanese: 新宿区, Hepburn: Shinjuku-ku; IPA: [ɕiɲdʑɯkɯ] ), officially called Shinjuku City, is one of the 23 special wards of Tokyo.\nSince the end of World War II, Shinjuku has become a major secondary center of Tokyo (fukutoshin), rivaling the original city center in Marunouchi. Today, it is a major commercial and administrative center and houses the northern half of Shinjuku Station, the busiest railway station in the world, as well as the Tokyo Metropolitan Government Building, the administrative center of the Tokyo Metropolitan Government. \nAs of 2025, the ward has an estimated population of 355,981, living in a total area of 18.23 km2.",
+      "requestedIdentity": "en:shinjuku",
+      "description": "Special ward in Kantō, Japan",
+      "pageId": 147734,
+      "wikidataId": "Q179645",
+      "coordinates": {
+        "lat": 35.70138889,
+        "lng": 139.70972222
+      }
+    }
+  },
+  "en:shinjuku golden gai": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shinjuku Golden Gai",
+      "url": "https://en.wikipedia.org/wiki/Shinjuku_Golden_Gai",
+      "extract": "Shinjuku Golden Gai (Japanese: 新宿ゴールデン街, Hepburn: Shinjuku gōruden-gai) is a district of Kabukicho within Shinjuku, a special ward of Tokyo, Japan. It is composed of a network of six narrow alleys, connected by even narrower passageways which are about wide enough for a single person to pass through. Over 200 tiny shanty-style bars, clubs and eateries are squeezed into this area.\nThe alleys are private roads, not public roads. In this area, shooting photographs and video for all purposes on the street is prohibited without permission of the area's business promotion association.",
+      "requestedIdentity": "en:shinjuku golden gai",
+      "description": "Place in Tokyo, Japan",
+      "pageId": 12143513,
+      "wikidataId": "Q5363705",
+      "coordinates": {
+        "lat": 35.69388889,
+        "lng": 139.70472222
+      }
+    }
+  },
+  "en:shinsaibashi": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shinsaibashi",
+      "url": "https://en.wikipedia.org/wiki/Shinsaibashi",
+      "extract": "Shinsaibashi (心斎橋) is a district in the Chūō-ku ward of Osaka, Japan and the city's main shopping area. At its center is Shinsaibashi-suji (心斎橋筋), a covered shopping street, that is north of Dōtonbori and Sōemonchō, and parallel and east of Mido-suji street. Associated with Shinsaibashi, and west of Mido-suji street, is Amerika-mura, an American-themed shopping area and center of Osaka's youth culture. Major stores and boutiques concentrates are found around the area. Shinsaibashi is easily accessed via the subway.",
+      "requestedIdentity": "en:shinsaibashi",
+      "description": "District in Osaka, Japan",
+      "pageId": 1034505,
+      "wikidataId": "Q1049109",
+      "coordinates": {
+        "lat": 34.6725,
+        "lng": 135.5
+      }
+    }
+  },
+  "en:shinsekai": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shinsekai",
+      "url": "https://en.wikipedia.org/wiki/Shinsekai",
+      "extract": "Shinsekai (新世界, lit. \"New World\"; pronounced [ɕĩɰ̃se̞ꜜka̠i]) is a neighbourhood located next to south Osaka City's downtown \"Minami\" area. The neighbourhood was created in 1912 with New York (specifically, Coney Island) as a model for its southern half and Paris for its northern half. At this location, a Luna Park amusement park operated from 1912 until it closed in 1923. The centrepiece of the neighbourhood was Tsutenkaku Tower (the \"tower reaching to heaven\").\nIt is located on the northern border of Nishinari, one of Japan's poorest areas.",
+      "requestedIdentity": "en:shinsekai",
+      "description": "Area in Osaka, Japan",
+      "pageId": 1029590,
+      "wikidataId": "Q1049117",
+      "coordinates": {
+        "lat": 34.65222222,
+        "lng": 135.50611111
+      }
+    }
+  },
+  "en:shōjōkō-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shōjōkō-ji",
+      "url": "https://en.wikipedia.org/wiki/Sh%C5%8Dj%C5%8Dk%C5%8D-ji",
+      "extract": "Shōjōkō-ji (清浄光寺) is a Buddhist temple located in the city of Fujisawa, Kanagawa Prefecture, Japan. It is the headquarters of the Ji-shu branch of Pure Land Buddhism, founded in the Kamakura period by Ippen. The formal name of the temple is Tōtaku-san Muryōkō-in Shōjōkō-ji (藤沢山 無量光院 清浄光寺), and its honzon is a statue of Amida Nyorai.  As the head priest of the temple, Tōtaku Shōnin, also bears the inherited title Yugyō Shōnin (遊行上人), the temple has become familiarly known as Yugyō-ji (遊行寺) since the Edo period.  The temple is also sometimes referred to as Fujisawa-dōjō.",
+      "requestedIdentity": "en:shōjōkō-ji",
+      "description": "Buddhist temple in Fujisawa, Kanagawa, Japan",
+      "pageId": 39719731,
+      "wikidataId": "Q11561284"
+    }
+  },
+  "en:shonan kaigan park": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:shonan monorail": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Shonan Monorail",
+      "url": "https://en.wikipedia.org/wiki/Shonan_Monorail",
+      "extract": "The Shonan Monorail is a suspended, SAFEGE-type monorail in the cities of Kamakura and Fujisawa in Kanagawa Prefecture, Japan. It is operated by the Shonan Monorail Co., Ltd. which is a subsidiary of Michinori Holdings. The line opened on 7 March 1970, the first suspended monorail in Japan. Trains run on a 6.6-kilometre (4.1 mi) line called the Enoshima Line. It is a mostly single-track railway with passing loops at most stations. The line is used by locals commuting to jobs in Tokyo or Yokohama and by tourists visiting the resort area of Enoshima.",
+      "requestedIdentity": "en:shonan monorail",
+      "description": "Suspended monorail in Kanagawa, Japan",
+      "pageId": 1829955,
+      "wikidataId": "Q4390079"
+    }
+  },
+  "en:suizen-ji jōju-en": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Suizen-ji Jōju-en",
+      "url": "https://en.wikipedia.org/wiki/Suizen-ji_J%C5%8Dju-en",
+      "extract": "Suizen-ji Jōju-en (水前寺成趣園) is a tsukiyama  Japanese garden located within Suizen-ji Park (水前寺公園, Suizen-ji Kōen) in the eastern part of the city of Kumamoto, Kumamoto Prefecture, Japan. It was built during the Edo period by the Hosokawa clan, the daimyō of Kumamoto Domain. It is commonly known as \"Suizenji Park\". Its area is approximately 73,000 square meters. The garden features an artificial hill which is said to be modeled after Mount Fuji. The gardens were designated a National Place of Scenic Beauty and a National Historic Site in 1929.",
+      "requestedIdentity": "en:suizen-ji jōju-en",
+      "description": "Japanese garden located in Suizen-ji Park",
+      "pageId": 12116861,
+      "wikidataId": "Q1090968",
+      "coordinates": {
+        "lat": 32.791092,
+        "lng": 130.734594
+      }
+    }
+  },
+  "en:sun messe nichinan": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:sunshine aquarium": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sunshine Aquarium",
+      "url": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
+      "extract": "Sunshine Aquarium (サンシャイン水族館, Sanshain suizokukan), formerly known as Sunshine International Aquarium (サンシャイン国際水族館, Sanshain kokusai suizokukan), is a public aquarium located on the top floors and rooftop of the World Import Mart building in Sunshine City, Tokyo, Japan. The aquarium opened in October 1978. It was closed for one year from September 1, 2010, for a full renovation, and reopened on August 4, 2011. It is operated by Sunshine Enterprises, Inc. \nIt features around 80 tanks with 37,000 fish representing 750 species.",
+      "requestedIdentity": "en:sunshine aquarium",
+      "description": "Aquarium in Tokyo, Japan",
+      "pageId": 76034188,
+      "wikidataId": "Q11250698"
+    }
+  },
+  "en:sunshine city, tokyo": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Sunshine City, Tokyo",
+      "url": "https://en.wikipedia.org/wiki/Sunshine_City,_Tokyo",
+      "extract": "Sunshine City (サンシャインシティ, Sanshain Shiti) is a building complex located in East Ikebukuro, Toshima, Tokyo, Japan. It  consists of four buildings: the 240-meter Sunshine 60 skyscraper, which includes corporate offices and restaurants; the Prince Hotel; the World Import Mart; and the Bunka Kaikan building.  The complex sits on land once occupied by Sugamo Prison.\nThe lower floors cater toward passersby and customers, with a large shopping mall and numerous restaurants, while the higher floors tend to include corporate offices and hotel rooms.  The complex, which was opened in 1978, contains numerous attractions including an observatory (observation deck) located at the top of Sunshine 60 called Sky Circus, the Ancient Orient Museum, an aquarium, a planetarium, the Prince Hotel, a Namco-run indoor amusement park, a convention centre, and a theatre.\nWhen it was opened, Sunshine 60 office tower block was reputed to be the tallest building in Asia.  It is an early example of a \"city within a city\", a self-contained area with places to live, work, and shop all within one area.\nSince Sunshine 60's Sky Circus observatory was opened, other observation decks have opened in Tokyo, such as at Roppongi and the Tokyo Government offices.",
+      "requestedIdentity": "en:sunshine city, tokyo",
+      "description": "Building in Tokyo",
+      "pageId": 5550757,
+      "wikidataId": "Q1186018",
+      "coordinates": {
+        "lat": 35.72916667,
+        "lng": 139.71805556
+      }
+    }
+  },
+  "en:taisho-roman street": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Taisho-roman Street",
+      "url": "https://en.wikipedia.org/wiki/Taisho-roman_Street",
+      "extract": "Taisho-roman Street, meaning Taisho Romance Street, is a local shopping street in Kawagoe City, Saitama Prefecture, Japan.",
+      "requestedIdentity": "en:taisho-roman street",
+      "description": "Street in Kawagoe City, Saitama Prefecture, Japan",
+      "pageId": 56028774,
+      "wikidataId": "Q11436715"
+    }
+  },
+  "en:takachiho gorge": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:takachiho town": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:takachiho, miyazaki": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Takachiho, Miyazaki",
+      "url": "https://en.wikipedia.org/wiki/Takachiho,_Miyazaki",
+      "extract": "Takachiho (高千穂町, Takachiho-chō) is a town in Nishiusuki District, Miyazaki Prefecture, Japan. As of 1 October 2023, the town has an estimated population of 11,065 in 4865 households, and a  population density of 47 persons per km2. The total area of the town is 237.54 square kilometres (91.71 sq mi).",
+      "requestedIdentity": "en:takachiho, miyazaki",
+      "description": "Town in Kyushu, Japan",
+      "pageId": 459771,
+      "wikidataId": "Q1350939",
+      "coordinates": {
+        "lat": 32.71166667,
+        "lng": 131.30777778
+      }
+    }
+  },
+  "en:takegawara onsen": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:taro okamoto museum of art": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Taro Okamoto Museum of Art",
+      "url": "https://en.wikipedia.org/wiki/Taro_Okamoto_Museum_of_Art",
+      "extract": "Taro Okamoto Museum of Art (岡本太郎美術館, Okamoto Tarō Bijutsukan) is an art museum located in Tama-ku, Kawasaki, Kanagawa, Japan. Located within Ikuta Ryokuchi Park in Tama Ward, the museum opened in 1999.\nThe Taro Okamoto Museum of Art is dedicated to the life and work of Japanese artist Tarō Okamoto (1911–1996) and houses a collection of his paintings, sculptures, designs, and related materials. It also preserves works by his parents, the novelist Kanoko Okamoto and the cartoonist Ippei Okamoto.",
+      "requestedIdentity": "en:taro okamoto museum of art",
+      "description": "Art museum in Japan",
+      "pageId": 25923905,
+      "wikidataId": "Q7686506"
+    }
+  },
+  "en:tempozan ferris wheel": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tempozan Ferris Wheel",
+      "url": "https://en.wikipedia.org/wiki/Tempozan_Ferris_Wheel",
+      "extract": "Tempozan Ferris Wheel (Japanese: 天保山大観覧車, Hepburn: Tenpōzan Daikanransha) is a 112-meter-tall (367 ft) Ferris wheel located in Osaka, Japan, at Tempozan Harbor Village, next to Osaka Aquarium Kaiyukan, one of the largest aquariums in the world. The wheel has a height of 112.5 metres (369 ft) and diameter of 100 metres (330 ft).",
+      "requestedIdentity": "en:tempozan ferris wheel",
+      "description": "Ferris wheel in Osaka, Japan",
+      "pageId": 2072609,
+      "wikidataId": "Q548263",
+      "coordinates": {
+        "lat": 34.66,
+        "lng": 135.43
+      }
+    }
+  },
+  "en:tennōji park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tennōji Park",
+      "url": "https://en.wikipedia.org/wiki/Tenn%C5%8Dji_Park",
+      "extract": "The Tennōji Park (天王寺公園, Tennōji Kōen) is a park with botanical garden at 1–108, Chausuyama-cho, Tennōji-ku, Osaka, Japan.",
+      "requestedIdentity": "en:tennōji park",
+      "description": "Park in Osaka, Japan",
+      "pageId": 13132571,
+      "wikidataId": "Q5364342",
+      "coordinates": {
+        "lat": 34.65,
+        "lng": 135.51
+      }
+    }
+  },
+  "en:time bell tower": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Time Bell Tower",
+      "url": "https://en.wikipedia.org/wiki/Time_Bell_Tower",
+      "extract": "Time Bell Tower (Japanese: 時の鐘; Toki no Kane) is a bell tower built in the center of Kawagoe, Japan. It is considered the symbol of the city.",
+      "requestedIdentity": "en:time bell tower",
+      "description": "Building in Kawagoe, Saitama",
+      "pageId": 56028822,
+      "wikidataId": "Q17221309"
+    }
+  },
+  "en:tōchō-ji": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tōchō-ji",
+      "url": "https://en.wikipedia.org/wiki/T%C5%8Dch%C5%8D-ji",
+      "extract": "Tōchō-ji (東長寺) is a Shingon temple in Hakata, Fukuoka, Japan. Its honorary sangō prefix is Nangakuzan (南岳山). It was founded by Kūkai in 806, making it the oldest Shingon temple on the island of Kyushu.",
+      "requestedIdentity": "en:tōchō-ji",
+      "description": "Buddhist temple in Hakata, Fukuoka, Japan",
+      "pageId": 30245795,
+      "wikidataId": "Q3547067",
+      "coordinates": {
+        "lat": 33.5952,
+        "lng": 130.4141
+      }
+    }
+  },
+  "en:todoroki ryokuchi": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Todoroki Ryokuchi",
+      "url": "https://en.wikipedia.org/wiki/Todoroki_Ryokuchi",
+      "extract": "Todoroki Ryokuchi (等々力緑地) is a park located in Nakahara-ku ward, Kawasaki, in Kanagawa Prefecture, Japan. It is famous for its sport facilities including an athletics stadium, gym, a baseball field, a pool, a tennis court, and it contains a museum as well.",
+      "requestedIdentity": "en:todoroki ryokuchi",
+      "description": "Park in Japan",
+      "pageId": 26822559,
+      "wikidataId": "Q7812852",
+      "coordinates": {
+        "lat": 35.58611111,
+        "lng": 139.65
+      }
+    }
+  },
+  "en:tokyo national museum": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tokyo National Museum",
+      "url": "https://en.wikipedia.org/wiki/Tokyo_National_Museum",
+      "extract": "The Tokyo National Museum (東京国立博物館, Tōkyō Kokuritsu Hakubutsukan) or TNM is an art museum in Ueno Park in the Taitō ward of Tokyo, Japan. It is considered the oldest national museum and the largest art museum in Japan. The museum collects, preserves, and displays a comprehensive collection of artwork and cultural objects from Asia, with a focus on ancient and medieval Japanese art and Asian art along the Silk Road. There is also a large collection of Greco-Buddhist art. As of April 2023, the museum held approximately 120,000 Cultural Properties, including 89 National Treasures, 319 Horyuji Treasures, and 649 Important Cultural Properties. As of the same date, the Japanese government had designated 902 works of art and crafts as National Treasures and 10,820 works of art and crafts as Important Cultural Properties, so the museum holds about 10% of the works of art and crafts designated as National Treasures and 6% of those designated as Important Cultural Properties.\nThe museum also holds 2,651 cultural properties deposited by individuals and organisations, of which 54 are National Treasures and 262 are Important Cultural Properties. Of these, 3,000 cultural properties are on display at one time, with each changing for between four and eight weeks. The museum also conducts research and organizes educational events related to its collection.\nThe facilities consist of the Honkan, holding the Japanese Gallery; the Heiseikan and Hyokeikan, holding special exhibitions; the Toyokan, holding the Asian Gallery; the Gallery of Horyuji Treasures, holding important relics originally preserved at Nara's Horyu Temple; the Kuroda Memorial Hall, holding a collection of works by Kuroda Seiki; and the Research and Information Center. There are restaurants and shops within the museum's premises, as well as outdoor exhibitions (including the Kuromon) and a garden where visitors can enjoy seasonal views.\nThe Tokyo National Museum is one of four museums operated by the National Institutes for Cultural Heritage; the other three are Kyoto National Museum, Nara National Museum, and Kyushu National Museum. The Tokyo National Museum is a representative museum that comprehensively exhibits Japanese cultural assets, but other national museums are more complete in specific areas, such as cultural assets from the Meiji era in the 1800s to the present. The Independent Administrative Institution National Museum of Art, operates seven museums specializing in specific fields, including those focusing on modern art and Japanese crafts and those focusing on Western art. Two museums managed by the National Institutes for the Humanities focus on folklore. The Museum of the Imperial Collections, managed by the Imperial Household Agency, focuses on cultural assets donated to the nation by Japanese imperial family.",
+      "requestedIdentity": "en:tokyo national museum",
+      "description": "Art museum in Tokyo, Japan",
+      "pageId": 1743486,
+      "wikidataId": "Q653433",
+      "coordinates": {
+        "lat": 35.7189,
+        "lng": 139.7764
+      }
+    }
+  },
+  "en:toto (company)": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Toto Ltd.",
+      "url": "https://en.wikipedia.org/wiki/Toto_Ltd.",
+      "extract": "Toto Ltd. (TOTO（トートー）株式会社, Tōtō kabushiki gaisha), formerly known as Tōyō Tōki (東洋陶器株式会社; lit. 'Oriental Pottery Company'), and Tōtō Kiki (東陶機器株式会社; lit. 'Tōtō Equipment Company'), is a Japanese multinational plumbing fixtures and semiconductor manufacturer which is famous for manufacturing the Washlet (as well as the Warmlet and similar products). Toto was founded in 1917. The company is based in Kitakyushu, Japan, and owns production facilities in nine countries.\nToto acquired the German toilet manufacturer Pagette in 2009 and has been supplying the European market through this company since it first appeared at the 2009 International Sanitary and Heating Fair. The company has had its European headquarters in Düsseldorf since 2012. The pre-wall specialist Tece from Emsdetten manufactures the modules for the toilets.",
+      "requestedIdentity": "en:toto (company)",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/TOTO_(company)",
+      "description": "Japanese plumbing fixtures and semiconductor company",
+      "pageId": 1349076,
+      "wikidataId": "Q1751566"
+    }
+  },
+  "en:toyosu market": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Toyosu Market",
+      "url": "https://en.wikipedia.org/wiki/Toyosu_Market",
+      "extract": "The Toyosu Market (豊洲市場, Toyosu Shijō) is a wholesale market in Tokyo, located in the Toyosu area of the Kōtō ward. There are two markets for seafood, one for general wholesale and one for bidding, and one market for fruits and vegetables, with each in its own building. Tourists can observe the auction market on a second floor viewing deck. There are restaurants with fresh seafood and produce from the market and shops (魚河岸横丁 uogashi yokocho). The market is built on reclaimed land in Tokyo Bay, and replaces the historic Tsukiji fish market, which now is a major tourist attraction. Auction tours, events, merchandise sales and restaurants can be used by general consumers and tourists. When it opened on 11 October 2018, it became the largest wholesale fish market in the world.",
+      "requestedIdentity": "en:toyosu market",
+      "description": "Wholesale market in Tokyo, Japan",
+      "pageId": 58650701,
+      "wikidataId": "Q11633916",
+      "coordinates": {
+        "lat": 35.644167,
+        "lng": 139.783611
+      }
+    }
+  },
+  "en:tsujido seaside park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tsujido Seaside Park",
+      "url": "https://en.wikipedia.org/wiki/Tsujido_Seaside_Park",
+      "extract": "Tshujido Seaside Park (Japanese: 辻堂海浜公園)  is a 19.9-hectare Kanagawa prefectural city park, located on the west coast of Tsujido, Fujisawa City, Kanagawa, Japan. It has been selected as one of the 50 best parks in Kanagawa.",
+      "requestedIdentity": "en:tsujido seaside park",
+      "description": "Park in Fujisawa, Kanagawa, Japan",
+      "pageId": 67979396,
+      "wikidataId": "Q11638181",
+      "coordinates": {
+        "lat": 35.32083333,
+        "lng": 139.45
+      }
+    }
+  },
+  "en:tsurugaoka hachimangū": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tsurugaoka Hachimangū",
+      "url": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
+      "extract": "Tsurugaoka Hachimangū (鶴岡八幡宮) is the most important Shinto shrine in the city of Kamakura, Kanagawa Prefecture, Japan.   The shrine is a cultural center of the city of Kamakura and serves as the venue of many of its most important festivals with two museums.\nFor most of its history, it served both as a Hachiman shrine, and in latter years a Tendai Buddhist temple typical of Japanese Buddhist architecture. The famed Buddhist priest Nichiren Daishonin once reputedly visited the shrine to reprimand the kami Hachiman just before his execution at Shichirigahama beach.\nA former one thousand-year-old ginkgo tree near its entrance was uprooted by a storm on 10 March 2010. The shrine continues to serve as one of the Important Cultural Properties of Japan.",
+      "requestedIdentity": "en:tsurugaoka hachimangū",
+      "description": "Shinto shrine in Kanagawa Prefecture, Japan",
+      "pageId": 1674335,
+      "wikidataId": "Q701403",
+      "coordinates": {
+        "lat": 35.32472222,
+        "lng": 139.55583333
+      }
+    }
+  },
+  "en:tsūtenkaku": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Tsūtenkaku",
+      "url": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
+      "extract": "Tsūtenkaku (通天閣; lit. \"Tower Reaching Heaven\") is a tower and landmark of Osaka, Japan, and advertises the Hitachi company. It is located in the Shinsekai district of Naniwa-ku, Osaka. Its total height is 108 metres (354 ft); the main observation deck is at a height of 91 metres (299 ft). It is owned by Tsūtenkaku Kanko Co., Ltd. (通天閣観光株式会社, Tsūtenkaku Kankō Kabushiki-gaisha).\n\n",
+      "requestedIdentity": "en:tsūtenkaku",
+      "description": "Observation tower in Osaka, Japan",
+      "pageId": 455161,
+      "wikidataId": "Q1148463",
+      "coordinates": {
+        "lat": 34.65222222,
+        "lng": 135.50611111
+      }
+    }
+  },
+  "en:udo-jingū": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Udo Jingū",
+      "url": "https://en.wikipedia.org/wiki/Udo_Jing%C5%AB",
+      "extract": "Udo-jingū (鵜戸神宮) is a Shinto shrine in Nichinan, Miyazaki prefecture, Japan, south of Aoshima. It is the mythical birthplace of Emperor Jimmu's father  Ugayafukiaezu. According to shrine legends, it is the place where  the sea goddess Toyotamahime, the mother of said Ugayafukiaezu, built a birth-hut from the feathers of a cormorant. Other gods venerated here are Yamasachihiko (alias Hohodemi alias Hoori, Jinmu's grandfather), Amaterasu, Amenooshihomimi, Ninigi-no-Mikoto, and Emperor Jimmu. While the original myth includes a tragic divorce of Ugayafukiaezu's parents, the shrine is popular with young couples hoping for easy childbirth and a happy marriage.",
+      "requestedIdentity": "en:udo-jingū",
+      "redirectedFrom": "https://en.wikipedia.org/wiki/Udo-jing%C5%AB",
+      "description": "Shinto shrine in Miyazaki Prefecture, Japan",
+      "pageId": 29523880,
+      "wikidataId": "Q704430",
+      "coordinates": {
+        "lat": 31.65027778,
+        "lng": 131.46666667
+      }
+    }
+  },
+  "en:ueno park": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Ueno Park",
+      "url": "https://en.wikipedia.org/wiki/Ueno_Park",
+      "extract": "Ueno Park (上野公園, Ueno Kōen) is a spacious public park in the Ueno district of Taitō, Tokyo, Japan. The park was established in 1873 on lands formerly belonging to the temple of Kan'ei-ji. Amongst the country's first public parks, it was founded following the Western example as part of the borrowing and assimilation of international practices that characterizes the early Meiji period. The home of a number of major museums, Ueno Park is also celebrated in spring for its cherry blossoms and hanami. In recent times the park and its attractions have drawn over ten million visitors a year, making it Japan's most popular city park.",
+      "requestedIdentity": "en:ueno park",
+      "description": "Park in Tokyo, Japan",
+      "pageId": 626921,
+      "wikidataId": "Q746216",
+      "coordinates": {
+        "lat": 35.71222222,
+        "lng": 139.77111111
+      }
+    }
+  },
+  "en:umeda sky building": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Umeda Sky Building",
+      "url": "https://en.wikipedia.org/wiki/Umeda_Sky_Building",
+      "extract": "The Umeda Sky Building (梅田スカイビル, Umeda Sukai Biru) is a two-tower mixed-use skyscraper in Osaka, Japan. Located on the outskirts of the Umeda business district in Kita-ku, Osaka, the Umeda Sky Building consists of two 40-story towers interconnected at their two uppermost stories via glass bridges with escalators and elevators that cross an open atrium space. It is currently the fifteenth-tallest building in the prefecture.\nThe towers reach a total height of 170 m (557.74 ft) while the overall height of the tower including the spires is 190 metres (623.4 ft). The towers were designed by Hiroshi Hara, and were constructed by Takenaka Corporation They were completed in 1993.",
+      "requestedIdentity": "en:umeda sky building",
+      "description": "Skyscraper in Osaka, Japan",
+      "pageId": 1026313,
+      "wikidataId": "Q1151808",
+      "coordinates": {
+        "lat": 34.70527778,
+        "lng": 135.48972222
+      }
+    }
+  },
+  "en:united states fleet activities sasebo": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "United States Fleet Activities Sasebo",
+      "url": "https://en.wikipedia.org/wiki/United_States_Fleet_Activities_Sasebo",
+      "extract": "U.S. Fleet Activities Sasebo is a United States Navy base, in Sasebo, Japan, on the island of Kyūshū. It provides facilities for the logistic support of forward-deployed units and visiting operating forces of the United States Pacific Fleet and designated tenant activities.",
+      "requestedIdentity": "en:united states fleet activities sasebo",
+      "description": "U.S. Naval base in Japan",
+      "pageId": 1495688,
+      "wikidataId": "Q4420953",
+      "coordinates": {
+        "lat": 33.16277778,
+        "lng": 129.71138889
+      }
+    }
+  },
+  "en:universal studios japan": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Universal Studios Japan",
+      "url": "https://en.wikipedia.org/wiki/Universal_Studios_Japan",
+      "extract": "Universal Studios Japan (ユニバーサル・スタジオ・ジャパン) is a theme park located in Osaka, Japan. Opened on March 31, 2001, it is one of six Universal Studios theme parks worldwide and was the first to open outside the United States. The park is owned and operated by USJ LLC, a wholly owned subsidiary of Comcast NBCUniversal. The park is similar in layout to Universal Studios Florida and contains selected attractions from both Universal Orlando and Universal Studios Hollywood, in addition to a small number of unique attractions.\nOver 11 million guests visited the park in its opening year, making it the fastest theme park to reach the 10 million guest milestone at the time. In 2024, Universal Studios Japan hosted 16 million visitors, making it the third-most visited theme park in the world behind Magic Kingdom and Disneyland, and the most visited theme park in Asia.",
+      "requestedIdentity": "en:universal studios japan",
+      "description": "Theme park in Osaka, Japan",
+      "pageId": 2316044,
+      "wikidataId": "Q1375103",
+      "coordinates": {
+        "lat": 34.66472222,
+        "lng": 135.43305556
+      }
+    }
+  },
+  "en:yakushima": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Yakushima",
+      "url": "https://en.wikipedia.org/wiki/Yakushima",
+      "extract": "Yakushima (屋久島) is one of the Ōsumi Islands in Kagoshima Prefecture, Japan. The island, 504.88 km2 (194.94 sq mi) in area, has a population of 11,858. It is accessible by hydrofoil ferry, car ferry, or by air to Yakushima Airport.\nThe island is part of the town (chō) of Yakushima, which includes the neighbouring island of Kuchinoerabujima. 42% of the island is within the borders of the Yakushima National Park.\nAs of 2021, Yakushima's electricity generation was more than 99% hydroelectric, and surplus power has been used to produce hydrogen gas in an experiment by Kagoshima University. The island has been a test site for Honda's hydrogen fuel cell vehicle research.",
+      "requestedIdentity": "en:yakushima",
+      "description": "Island in Kagoshima Prefecture, Japan",
+      "pageId": 227452,
+      "wikidataId": "Q242176",
+      "coordinates": {
+        "lat": 30.34388889,
+        "lng": 130.52388889
+      }
+    }
+  },
+  "en:yakushima town": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:yanaka, tokyo": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Yanaka, Tokyo",
+      "url": "https://en.wikipedia.org/wiki/Yanaka,_Tokyo",
+      "extract": "Yanaka (谷中) is a sector of Taito, Tokyo, Japan and, along with nearby Nezu and Sendagi neighborhoods in Bunkyo ward, together called Yanesen, is one of the few Tokyo neighborhoods in which the old Shitamachi atmosphere can still be felt. Located north of Ueno, Yanaka includes the large Yanaka Cemetery, which takes up most of Yanaka 7-chome. The Daimyo Clock Museum is also in Yanaka. There are around 70 privately owned small stores in Yanaka.",
+      "requestedIdentity": "en:yanaka, tokyo",
+      "description": "Neighborhood in Taitō-ku, Tokyo",
+      "pageId": 44431039,
+      "wikidataId": "Q11632597",
+      "coordinates": {
+        "lat": 35.72378889,
+        "lng": 139.76842222
+      }
+    }
+  },
+  "en:yasaka pagoda": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Yasaka Pagoda",
+      "url": "https://en.wikipedia.org/wiki/Yasaka_Pagoda",
+      "extract": "The Yasaka Pagoda (Japanese: 八坂の塔, romanized: Yasaka-no-to), also known as the Tower of Yasaka, is a Buddhist pagoda located in Higashiyama-ku, Kyoto, Japan. The 5-story tall pagoda is the last remaining structure of a 6th-century temple complex known as Hōkan-ji (法観寺).  It was founded by the Goguryeo clan that established in Japan, and is the oldest temple in Kyoto. The pagoda is now a tourist attraction.",
+      "requestedIdentity": "en:yasaka pagoda",
+      "description": "Pagoda in Kyoto, Japan",
+      "pageId": 64068434,
+      "wikidataId": "Q11555353",
+      "coordinates": {
+        "lat": 34.99855,
+        "lng": 135.77925
+      }
+    }
+  },
+  "en:yobuko": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Yobuko",
+      "url": "https://en.wikipedia.org/wiki/Yobuko",
+      "extract": "Yobuko may refer to:\n\nYobuko (folklore), a creature in Japanese folklore\nYobuko, Saga, a town in Saga Prefecture, Japan",
+      "requestedIdentity": "en:yobuko",
+      "description": "Topics referred to by the same term",
+      "pageId": 81647339,
+      "wikidataId": "Q11417062",
+      "type": "disambiguation"
+    }
+  },
+  "en:yufu city": {
+    "status": "missing",
+    "message": "wikipedia-page-missing"
+  },
+  "en:yufuin onsen": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Yufuin Onsen",
+      "url": "https://en.wikipedia.org/wiki/Yufuin_Onsen",
+      "extract": "Yufuin Onsen (由布院温泉, Yufuin Onsen) is an extensive hot spring system in the city of Yufu, Ōita Prefecture, Japan.\nYufuin is famous for natural hot springs (温泉, onsen), resulting in a local economy based on domestic tourism, gift shops and hot-spring bathing. Some onsen are available to day tourists, but many are strictly for overnight guests. There are also sentō, which are the traditional public baths used by locals. One of these, the Shitanyu, can be used by tourists, while the others are for use by local residents only.\nLocated in a green valley beneath the spectacular Mount Yufu (由布岳, Yufudake), a short walk from the town centre is a mix of paddy fields, housing and upmarket ryokan, with a few temples. Mount Yufu, or Yufu-dake, can be hiked in about 90 minutes. Although still connected to its rural roots, Yufuin is a tourist town and a popular destination for coach tours, especially among South Korean, Chinese, Thai, and Taiwanese tourists. There is the picturesque Lake Kinrin and rivers flow down and across the valley. Some hotels have outdoor baths called rotenburo with a view of Mount Yufu.",
+      "requestedIdentity": "en:yufuin onsen",
+      "description": "Spa town in Ōita Prefecture, Japan",
+      "pageId": 81783707,
+      "wikidataId": "Q11264855",
+      "coordinates": {
+        "lat": 33.263247,
+        "lng": 131.356332
+      }
+    }
+  },
+  "en:yuigahama": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Yuigahama",
+      "url": "https://en.wikipedia.org/wiki/Yuigahama",
+      "extract": "Yuigahama (由比ヶ浜海岸) is a beach near Kamakura, a city in Kanagawa Prefecture, Japan. The relation between the beach and its neighboring areas is complex. Although Yuigahama is legally the entire 3.2 km beach that goes from Inamuragasaki, which separates it from Shichirigahama, to Zaimokuza's Iijima cape, which separates it from Kotsubo and the Miura Peninsula, the name is customarily used to indicate the portion west of the Namerigawa river, while the eastern half is called Zaimokuza Beach (材木座海岸). This is the reason why, although the beach gives its name to only the west part of the beachside community, traces of the name Yuigahama can be found also in Zaimokuza (for example in Moto Hachiman's official name, Yui Wakamiya). The center of Yuigahama came legally into being between 1964 and 1965 and was named after the beach. Today's Yuigahama was until then divided between Zaimokuza, Ōmachi, and Hase.\nThere are different theories about the origin of the name. According to one it derives from an earlier one, Yuigo (由比郷). According to another it derives from the presence of a cooperative (yui (結)). The name Yui itself has been written in various ways, among them 由井 and 湯井.",
+      "requestedIdentity": "en:yuigahama",
+      "description": "Beach in Kamakura, Kanagawa, Japan",
+      "pageId": 15074529,
+      "wikidataId": "Q8060490",
+      "coordinates": {
+        "lat": 35.30841667,
+        "lng": 139.54555833
+      }
+    }
+  },
+  "en:zeniarai benzaiten ugafuku shrine": {
+    "status": "ok",
+    "candidate": {
+      "language": "en",
+      "title": "Zeniarai Benzaiten Ugafuku Shrine",
+      "url": "https://en.wikipedia.org/wiki/Zeniarai_Benzaiten_Ugafuku_Shrine",
+      "extract": "Zeniarai Benzaiten Ugafuku Shrine (銭洗弁財天宇賀福神社, Zeniarai Benzaiten Ugafuku Jinja), popularly known as Zeniarai Benten, is a Shinto shrine in Kamakura, Kanagawa Prefecture, Japan. It is a small shrine, but the second most popular spot in Kamakura after Tsurugaoka Hachimangū. Zeniarai Benzaiten is popular among tourists because the waters of a spring in its cave are said to be able to multiply the money washed in it. The object of worship is a syncretic kami that fuses a traditional spirit called Ugafukujin (宇賀福神) with the Buddhist goddess of Indian origin Sarasvati, known in Japanese as Benzaiten. The shrine is one of the minority in Japan that still shows the fusion of native religious beliefs and foreign Buddhism (the so-called shinbutsu shūgō), which was normal before the Meiji restoration (end of the 19th century). Zeniarai Benzaiten used to be an external massha of Ōgigayatsu's Yazaka Daijin (八坂大神), but became independent in 1970 under its present name.\n\n",
+      "requestedIdentity": "en:zeniarai benzaiten ugafuku shrine",
+      "description": "Shinto shrine in Kanagawa Prefecture, Japan",
+      "pageId": 15853363,
+      "wikidataId": "Q642681",
+      "coordinates": {
+        "lat": 35.32581389,
+        "lng": 139.54225
+      }
+    }
+  },
+  "ja:堀川運河 (宮崎県)": {
+    "status": "ok",
+    "candidate": {
+      "language": "ja",
+      "title": "堀川運河 (宮崎県)",
+      "url": "https://ja.wikipedia.org/wiki/%E5%A0%80%E5%B7%9D%E9%81%8B%E6%B2%B3_(%E5%AE%AE%E5%B4%8E%E7%9C%8C)",
+      "extract": "堀川運河（ほりかわうんが）は、宮崎県日南市の広渡川と油津港とを結ぶ全長984m、幅約30mの運河。江戸時代初期に木材を運搬するために開削された。\n\n",
+      "requestedIdentity": "ja:堀川運河 (宮崎県)",
+      "description": "宮崎県を流れる河川",
+      "pageId": 936197,
+      "wikidataId": "Q11427459"
+    }
+  },
+  "ja:日田温泉": {
+    "status": "ok",
+    "candidate": {
+      "language": "ja",
+      "title": "日田温泉",
+      "url": "https://ja.wikipedia.org/wiki/%E6%97%A5%E7%94%B0%E6%B8%A9%E6%B3%89",
+      "extract": "日田温泉（ひたおんせん）は、大分県日田市（旧国豊後国）にある温泉。",
+      "requestedIdentity": "ja:日田温泉",
+      "pageId": 164870,
+      "wikidataId": "Q11509920",
+      "coordinates": {
+        "lat": 33.31216667,
+        "lng": 130.93194444
+      }
+    }
+  }
+}

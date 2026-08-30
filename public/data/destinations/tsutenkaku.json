@@ -243,5 +243,10 @@
     "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Tsūtenkaku",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
+  "wikipediaPageId": 455161,
+  "wikidataId": "Q1148463"
 }

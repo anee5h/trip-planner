@@ -237,5 +237,10 @@
     ],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
-  }
+  },
+  "wikipediaTitle": "Tokyo National Museum",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_National_Museum",
+  "wikipediaPageId": 1743486,
+  "wikidataId": "Q653433"
 }

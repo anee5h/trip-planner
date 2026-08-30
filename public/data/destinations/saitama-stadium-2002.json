@@ -217,5 +217,10 @@
     "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Saitama Stadium 2002",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Saitama_Stadium_2002",
+  "wikipediaPageId": 1664996,
+  "wikidataId": "Q482446"
 }

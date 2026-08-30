@@ -185,5 +185,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kagoshima",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kagoshima",
+  "wikipediaPageId": 16910,
+  "wikidataId": "Q15674"
 }

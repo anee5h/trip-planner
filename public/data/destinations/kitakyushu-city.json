@@ -191,5 +191,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kitakyushu",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kitakyushu",
+  "wikipediaPageId": 6793300,
+  "wikidataId": "Q188806"
 }
