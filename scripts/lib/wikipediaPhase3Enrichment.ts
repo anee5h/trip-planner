@@ -21,6 +21,9 @@ export type Phase3State =
 export type Phase3Source =
   "phase2" | "wikipedia-redirect" | "wikidata-search" | "wikidata-sitelink";
 
+export type Phase3ParentChildResult =
+  "same-entity" | "parent-child-conflict" | "not-evaluated";
+
 export interface Phase3Destination extends WikipediaDestination {
   id: string;
   status?: string;
@@ -112,6 +115,7 @@ export interface Phase3Discovery {
   candidates: Phase3Candidate[];
   redirects: Phase3RedirectEvidence[];
   wikidataSearches: Phase3WikidataSearchEvidence[];
+  knownParent?: Phase3Destination;
   noStandaloneArticleEvidence?: string[];
   transientFailure?: string;
 }
@@ -146,6 +150,8 @@ export interface Phase3CandidateEvidence {
   geographyBasis: string[];
   distanceKm?: number;
   rejectionReasons: string[];
+  parentChildResult: Phase3ParentChildResult;
+  parentChildBasis: string[];
   sharesVerifiedWikidataIdentity: boolean;
 }
 
@@ -175,7 +181,9 @@ export interface Phase3Classification {
     | "transient-network-failure"
     | "wikipedia-wikidata-disagreement"
     | "wikidata-sitelink-only"
-    | "disambiguation-page";
+    | "disambiguation-page"
+    | "parent-child-conflict"
+    | "parent-child-check-not-evaluated";
   identity?: Phase3Identity;
   candidate?: Phase3CandidateEvidence;
   candidates: Phase3CandidateEvidence[];
@@ -336,48 +344,69 @@ function typeText(entity: Phase3WikidataEntity | undefined): string {
     .toLocaleLowerCase();
 }
 
+const BROAD_KINDS = new Set([
+  "nature",
+  "natural",
+  "landmark",
+  "cultural",
+  "attraction",
+  "mixed",
+  "generic",
+]);
+
+function kindFromLabels(labels: string[]): string {
+  const text = labels.join(" ").toLocaleLowerCase();
+  if (/national park|quasi-national park|protected area/.test(text))
+    return "protected-area";
+  if (/museum/.test(text)) return "museum";
+  if (/castle|fort/.test(text)) return "castle";
+  if (/palace/.test(text)) return "palace";
+  if (/park/.test(text)) return "park";
+  if (/garden/.test(text)) return "garden";
+  if (/station/.test(text)) return "station";
+  if (/bridge/.test(text)) return "bridge";
+  if (/island/.test(text)) return "island";
+  if (/temple/.test(text)) return "temple";
+  if (/shrine/.test(text)) return "shrine";
+  if (/tower|skyscraper/.test(text)) return "tower";
+  if (/viewpoint|observation|observatory|lookout/.test(text))
+    return "viewpoint";
+  if (/beach/.test(text)) return "beach";
+  if (/mountain|mount/.test(text)) return "mountain";
+  if (/lake/.test(text)) return "lake";
+  if (/waterfall|falls/.test(text)) return "waterfall";
+  if (/onsen|hot spring|spa/.test(text)) return "onsen";
+  if (/theme park|amusement|attraction/.test(text)) return "attraction";
+  if (/city|ward|town|village|district|municipality/.test(text))
+    return "municipality";
+  if (/market/.test(text)) return "market";
+  if (/street/.test(text)) return "street";
+  if (/cliff/.test(text)) return "cliff";
+  if (/cape/.test(text)) return "cape";
+  if (/rock formation/.test(text)) return "rock_formation";
+  if (/cemetery/.test(text)) return "cemetery";
+  if (/zoo/.test(text)) return "zoo";
+  if (/aquarium/.test(text)) return "aquarium";
+  return "generic";
+}
+
 function inferredKind(destination: Phase3Destination): string {
   const structuredKind = destination.kind?.trim().toLocaleLowerCase();
-  if (structuredKind && structuredKind !== "generic") {
-    if (/national park|quasi-national park|protected area/.test(structuredKind))
-      return "protected-area";
-    if (/museum/.test(structuredKind)) return "museum";
-    if (/castle|fort/.test(structuredKind)) return "castle";
-    if (/park|garden/.test(structuredKind)) return "park";
-    if (/station/.test(structuredKind)) return "station";
-    if (/bridge/.test(structuredKind)) return "bridge";
-    if (/island/.test(structuredKind)) return "island";
-    if (/temple/.test(structuredKind)) return "temple";
-    if (/shrine/.test(structuredKind)) return "shrine";
-    if (/onsen|hot spring|spa/.test(structuredKind)) return "onsen";
-    if (/theme park|amusement|attraction/.test(structuredKind))
-      return "attraction";
-    if (/city|ward|town|village|district|municipality/.test(structuredKind))
-      return "municipality";
-    return structuredKind;
-  }
-
   const labels = [
-    destination.kind ?? "",
     ...(destination.categories ?? []),
     ...(destination.tags ?? []),
-  ]
-    .join(" ")
-    .toLocaleLowerCase();
-  if (/national park|quasi-national park|protected area/.test(labels))
-    return "protected-area";
-  if (/museum/.test(labels)) return "museum";
-  if (/castle|fort/.test(labels)) return "castle";
-  if (/park|garden/.test(labels)) return "park";
-  if (/station/.test(labels)) return "station";
-  if (/bridge/.test(labels)) return "bridge";
-  if (/island/.test(labels)) return "island";
-  if (/temple/.test(labels)) return "temple";
-  if (/shrine/.test(labels)) return "shrine";
-  if (/onsen|hot spring|spa/.test(labels)) return "onsen";
-  if (/theme park|amusement|attraction/.test(labels)) return "attraction";
-  if (/city|ward|town|village|district/.test(labels)) return "municipality";
-  return destination.kind ?? "generic";
+  ];
+  if (structuredKind && structuredKind !== "generic") {
+    if (BROAD_KINDS.has(structuredKind)) {
+      const refinedKind = kindFromLabels(labels);
+      return refinedKind === "generic" || BROAD_KINDS.has(refinedKind)
+        ? structuredKind
+        : refinedKind;
+    }
+    const refinedKind = kindFromLabels([structuredKind]);
+    return refinedKind === "generic" ? structuredKind : refinedKind;
+  }
+  return kindFromLabels(labels);
 }
 
 function entityTypeResult(
@@ -421,6 +450,7 @@ function entityTypeResult(
   const castle = /castle|fortress|fortification|castle ruins|城|城跡|城址/.test(
     text,
   );
+  const palace = /palace|宮殿|御殿/.test(text);
   const park =
     /park|garden|protected area|national park|nature reserve|公園|庭園|国立公園|自然公園/.test(
       text,
@@ -433,6 +463,18 @@ function entityTypeResult(
     /theme park|amusement park|attraction|observatory|facility|展望台|遊園地|施設/.test(
       text,
     );
+  const viewpoint =
+    /viewpoint|observation deck|observatory|lookout|展望台/.test(text);
+  const beach = /beach|海岸|浜/.test(text);
+  const mountain = /mountain|mount|山|岳/.test(text);
+  const lake = /lake|湖|沼/.test(text);
+  const waterfall = /waterfall|falls|滝/.test(text);
+  const cliff = /cliff|崖/.test(text);
+  const cape = /cape|岬/.test(text);
+  const rockFormation = /rock formation|岩/.test(text);
+  const monument = /monument|記念碑/.test(text);
+  const zoo = /zoo|動物園/.test(text);
+  const aquarium = /aquarium|水族館/.test(text);
 
   if (nonPlace && !["generic", "municipality"].includes(kind)) {
     return { result: "incompatible", basis };
@@ -459,7 +501,12 @@ function entityTypeResult(
       result: castle && !municipal ? "compatible" : "incompatible",
       basis,
     };
-  if (["park", "protected-area"].includes(kind))
+  if (kind === "palace")
+    return {
+      result: palace && !municipal ? "compatible" : "incompatible",
+      basis,
+    };
+  if (["park", "garden", "protected-area"].includes(kind))
     return { result: park ? "compatible" : "incompatible", basis };
   if (kind === "bridge")
     return { result: bridge ? "compatible" : "incompatible", basis };
@@ -471,6 +518,67 @@ function entityTypeResult(
     return { result: onsen ? "compatible" : "incompatible", basis };
   if (kind === "attraction")
     return { result: attraction ? "compatible" : "incompatible", basis };
+  if (kind === "viewpoint")
+    return {
+      result: viewpoint || park ? "compatible" : "incompatible",
+      basis,
+    };
+  if (kind === "beach")
+    return { result: beach ? "compatible" : "incompatible", basis };
+  if (kind === "tower")
+    return {
+      result: /tower|skyscraper|タワー/.test(text)
+        ? "compatible"
+        : "incompatible",
+      basis,
+    };
+  if (kind === "mountain")
+    return { result: mountain ? "compatible" : "incompatible", basis };
+  if (kind === "lake")
+    return { result: lake ? "compatible" : "incompatible", basis };
+  if (kind === "waterfall")
+    return { result: waterfall ? "compatible" : "incompatible", basis };
+  if (kind === "monument")
+    return { result: monument ? "compatible" : "incompatible", basis };
+  if (kind === "zoo")
+    return { result: zoo ? "compatible" : "incompatible", basis };
+  if (kind === "aquarium")
+    return { result: aquarium ? "compatible" : "incompatible", basis };
+
+  const explicitBroadKind = destination.kind?.trim().toLocaleLowerCase();
+  if (
+    BROAD_KINDS.has(kind) &&
+    explicitBroadKind !== undefined &&
+    BROAD_KINDS.has(explicitBroadKind)
+  ) {
+    if (kind === "mixed" || kind === "generic")
+      return { result: "insufficient-evidence", basis };
+    const broadCompatible =
+      kind === "nature" || kind === "natural"
+        ? park ||
+          island ||
+          mountain ||
+          lake ||
+          waterfall ||
+          beach ||
+          cliff ||
+          cape ||
+          rockFormation
+        : kind === "cultural"
+          ? museum || castle || palace || religious || monument
+          : kind === "landmark"
+            ? bridge ||
+              castle ||
+              palace ||
+              /tower|skyscraper|タワー/.test(text) ||
+              monument ||
+              attraction
+            : attraction || park || museum || monument;
+    return {
+      result: broadCompatible ? "compatible" : "incompatible",
+      basis,
+    };
+  }
 
   if (station || nonPlace) return { result: "incompatible", basis };
   return {
@@ -623,14 +731,192 @@ function preferredCandidate(candidates: Phase3Candidate[]): Phase3Candidate {
   })[0];
 }
 
+function relationshipParentId(
+  destination: Phase3Destination,
+): string | undefined {
+  const relationships = destination.relationships;
+  if (!relationships) return undefined;
+  for (const key of ["parentDestinationId", "parentId"]) {
+    const value = relationships[key];
+    if (typeof value === "string" && value.trim()) return value;
+  }
+  return undefined;
+}
+
+function requiresParentChildEvaluation(
+  destination: Phase3Destination,
+): boolean {
+  const role = destination.role?.toLocaleLowerCase();
+  const placeType = destination.placeType?.toLocaleLowerCase();
+  return Boolean(
+    relationshipParentId(destination) ||
+    role === "poi" ||
+    role === "subfeature" ||
+    placeType === "poi" ||
+    placeType === "subfeature",
+  );
+}
+
+function candidateNameForms(candidate: Phase3Candidate): string[] {
+  return [
+    candidate.page.title,
+    ...Object.values(candidate.entity?.labels ?? {}),
+    ...Object.values(candidate.entity?.aliases ?? {}).flat(),
+  ]
+    .filter((value): value is string => Boolean(value))
+    .flatMap((value) => [value, titleCore(value)])
+    .map(normalized);
+}
+
+function formsShareName(left: string[], right: string[]): boolean {
+  return left.some((value) => right.includes(value));
+}
+
+function candidateLooksLikeKind(
+  candidate: Phase3Candidate,
+  kind: string,
+): boolean {
+  const text = typeText(candidate.entity);
+  switch (kind) {
+    case "municipality":
+      return /city|ward|town|village|district|municipality|市|区|町|村/.test(
+        text,
+      );
+    case "museum":
+      return /museum|博物館|美術館|資料館/.test(text);
+    case "castle":
+      return /castle|fort|城/.test(text);
+    case "palace":
+      return /palace|宮殿|御殿/.test(text);
+    case "park":
+    case "protected-area":
+      return /park|garden|protected area|reserve|公園|庭園|自然公園/.test(text);
+    case "garden":
+      return /garden|庭園/.test(text);
+    case "station":
+      return /station|railway|metro|subway|駅|鉄道|地下鉄/.test(text);
+    case "bridge":
+      return /bridge|橋/.test(text);
+    case "island":
+      return /island|archipelago|島|諸島/.test(text);
+    case "temple":
+      return /temple|寺|寺院/.test(text);
+    case "shrine":
+      return /shrine|神社/.test(text);
+    case "tower":
+      return /tower|skyscraper|タワー/.test(text);
+    case "viewpoint":
+      return /viewpoint|observation deck|observatory|lookout|展望台/.test(text);
+    case "beach":
+      return /beach|海岸|浜/.test(text);
+    case "mountain":
+      return /mountain|mount|山|岳/.test(text);
+    case "lake":
+      return /lake|湖|沼/.test(text);
+    case "waterfall":
+      return /waterfall|falls|滝/.test(text);
+    case "onsen":
+      return /onsen|hot spring|spa|温泉/.test(text);
+    case "monument":
+      return /monument|記念碑/.test(text);
+    default:
+      return false;
+  }
+}
+
+function analyzeParentChild(
+  destination: Phase3Destination,
+  candidate: Phase3Candidate,
+  knownParent?: Phase3Destination,
+): { result: Phase3ParentChildResult; basis: string[] } {
+  if (!requiresParentChildEvaluation(destination)) {
+    return {
+      result: "not-evaluated",
+      basis: ["destination-is-not-a-known-child"],
+    };
+  }
+  const parentId = relationshipParentId(destination);
+  if (!knownParent) {
+    return {
+      result: "not-evaluated",
+      basis: [
+        parentId
+          ? `known-parent-missing=${parentId}`
+          : "POI-or-subfeature-has-no-parent-snapshot",
+      ],
+    };
+  }
+
+  const parentNames = nameForms(knownParent);
+  const targetNames = candidateNameForms(candidate);
+  const parentNameMatch = formsShareName(targetNames, parentNames);
+  const parentIdentity = extractWikipediaMapping(knownParent);
+  const candidateQid = candidate.qid ?? candidate.page.wikidataId;
+  const parentQidMatch = Boolean(
+    validWikidataId(parentIdentity?.wikidataId) &&
+    validWikidataId(candidateQid) &&
+    parentIdentity.wikidataId.toLocaleUpperCase() ===
+      candidateQid.toLocaleUpperCase(),
+  );
+  const redirectOrigin = (candidate.redirectFromTitles ?? []).find((title) =>
+    pageTitleMatchesName(destination, title),
+  );
+  const materialRedirect = Boolean(
+    candidate.sources.includes("wikipedia-redirect") &&
+    redirectOrigin &&
+    normalized(titleCore(redirectOrigin)) !==
+      normalized(titleCore(candidate.page.title)),
+  );
+  const parentKind = inferredKind(knownParent);
+  const parentKindMatch =
+    !BROAD_KINDS.has(parentKind) &&
+    candidateLooksLikeKind(candidate, parentKind);
+  const basis = [
+    `parent-id=${knownParent.id}`,
+    ...(parentNameMatch ? ["target-matches-known-parent-name"] : []),
+    ...(parentQidMatch ? ["target-qid-matches-known-parent"] : []),
+    ...(parentKindMatch ? [`target-matches-parent-kind=${parentKind}`] : []),
+    ...(materialRedirect
+      ? [`redirect=${redirectOrigin} -> ${candidate.page.title}`]
+      : []),
+  ];
+  if (
+    parentQidMatch ||
+    parentNameMatch ||
+    (materialRedirect && parentKindMatch)
+  ) {
+    return { result: "parent-child-conflict", basis };
+  }
+
+  return {
+    result: "same-entity",
+    basis: [
+      ...basis,
+      ...(materialRedirect
+        ? ["redirect-target-does-not-match-known-parent"]
+        : ["no-parent-identity-conflict"]),
+    ],
+  };
+}
+
+export function parentChildResult(
+  destination: Phase3Destination,
+  candidate: Phase3Candidate,
+  knownParent?: Phase3Destination,
+): Phase3ParentChildResult {
+  return analyzeParentChild(destination, candidate, knownParent).result;
+}
+
 function evidenceFor(
   destination: Phase3Destination,
   candidate: Phase3Candidate,
   sharesVerifiedWikidataIdentity: boolean,
+  knownParent?: Phase3Destination,
 ): Phase3CandidateEvidence {
   const identity = identitySignals(destination, candidate);
   const type = entityTypeResult(destination, candidate);
   const geography = geographyResult(destination, candidate);
+  const parent = analyzeParentChild(destination, candidate, knownParent);
   const sitelink = candidate.entity?.sitelinks[candidate.page.language];
   const wikipediaAgreement = Boolean(
     validWikidataId(candidate.qid) &&
@@ -673,6 +959,14 @@ function evidenceFor(
   if (candidate.page.type === "disambiguation") {
     rejectionReasons.push("disambiguation-page");
   }
+  if (parent.result === "parent-child-conflict") {
+    rejectionReasons.push("parent-child-conflict");
+  } else if (
+    requiresParentChildEvaluation(destination) &&
+    parent.result === "not-evaluated"
+  ) {
+    rejectionReasons.push("parent-child-check-not-evaluated");
+  }
   return {
     language: candidate.page.language,
     title: candidate.page.title,
@@ -706,6 +1000,8 @@ function evidenceFor(
       ? {}
       : { distanceKm: geography.distanceKm }),
     rejectionReasons: Array.from(new Set(rejectionReasons)).sort(),
+    parentChildResult: parent.result,
+    parentChildBasis: parent.basis,
     sharesVerifiedWikidataIdentity,
   };
 }
@@ -764,7 +1060,12 @@ export function classifyPhase3Destination(
   });
   const sameLinkedIdentity = allCandidatesShareWikidataIdentity(plausible);
   const evidence = candidates.map((candidate) =>
-    evidenceFor(destination, candidate, sameLinkedIdentity),
+    evidenceFor(
+      destination,
+      candidate,
+      sameLinkedIdentity,
+      discovery.knownParent,
+    ),
   );
 
   if (plausible.length === 0) {
@@ -806,6 +1107,23 @@ export function classifyPhase3Destination(
   const chosenEvidence = evidence[chosenIndex];
   if (!chosenEvidence) {
     return baseClassification("unresolved", "no-candidate", evidence);
+  }
+  if (chosenEvidence.rejectionReasons.includes("parent-child-conflict")) {
+    return baseClassification("unresolved", "parent-child-conflict", evidence, [
+      "Candidate resolves to the known parent entity rather than the child destination.",
+    ]);
+  }
+  if (
+    chosenEvidence.rejectionReasons.includes("parent-child-check-not-evaluated")
+  ) {
+    return baseClassification(
+      "unresolved",
+      "parent-child-check-not-evaluated",
+      evidence,
+      [
+        "A child destination lacks the parent evidence required for safe identity resolution.",
+      ],
+    );
   }
   if (chosenEvidence.rejectionReasons.includes("redirect-evidence-only")) {
     return baseClassification(

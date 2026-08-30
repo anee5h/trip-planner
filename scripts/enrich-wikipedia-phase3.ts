@@ -1347,7 +1347,18 @@ function reportFor(
   cohort: Phase3Destination[],
   cache: Phase3CacheFile,
   phase1ReviewModified: boolean,
+  allDestinations: Phase3Destination[],
 ): Phase3ReportFile {
+  const destinationsById = new Map(
+    allDestinations.map((destination) => [destination.id, destination]),
+  );
+  const parentFor = (destination: Phase3Destination) => {
+    const parentId = [
+      destination.relationships?.parentDestinationId,
+      destination.relationships?.parentId,
+    ].find((value): value is string => typeof value === "string");
+    return parentId ? destinationsById.get(parentId) : undefined;
+  };
   const records: Phase3ReportRecord[] = [];
   for (const destination of cohort) {
     const entry = cache.entries[destination.id];
@@ -1357,6 +1368,9 @@ function reportFor(
           candidates: entry.candidates,
           redirects: entry.redirects,
           wikidataSearches: entry.wikidataSearches,
+          ...(parentFor(destination)
+            ? { knownParent: parentFor(destination) }
+            : {}),
           ...(entry.transientFailure
             ? { transientFailure: entry.transientFailure }
             : {}),
@@ -1436,7 +1450,8 @@ function reportFor(
       );
     }),
     parentArticleSubstitution: candidatesForSafety.some(
-      (record) => record.reason === "parent-child-ambiguity",
+      (record) =>
+        record.chosenCandidate?.parentChildResult === "parent-child-conflict",
     ),
     phase1ReviewModified,
     transientFailures: Object.values(cache.entries).filter(
@@ -1457,7 +1472,18 @@ function reportFor(
 export function applyClassifications(
   cohort: Phase3Destination[],
   cache: Phase3CacheFile,
+  allDestinations: Phase3Destination[] = cohort,
 ): number {
+  const destinationsById = new Map(
+    allDestinations.map((destination) => [destination.id, destination]),
+  );
+  const parentFor = (destination: Phase3Destination) => {
+    const parentId = [
+      destination.relationships?.parentDestinationId,
+      destination.relationships?.parentId,
+    ].find((value): value is string => typeof value === "string");
+    return parentId ? destinationsById.get(parentId) : undefined;
+  };
   const transientIds = Object.entries(cache.entries)
     .filter(([, entry]) => entry.status === "transient-failure")
     .map(([id]) => id)
@@ -1476,6 +1502,9 @@ export function applyClassifications(
       candidates: entry.candidates,
       redirects: entry.redirects,
       wikidataSearches: entry.wikidataSearches,
+      ...(parentFor(destination)
+        ? { knownParent: parentFor(destination) }
+        : {}),
     });
     if (!classification.identity) continue;
     if (applyPhase3Identity(destination, classification.identity)) applied += 1;
@@ -1546,7 +1575,7 @@ async function main(): Promise<void> {
   );
   let applied = 0;
   if (options.apply) {
-    applied = applyClassifications(cohort, cache);
+    applied = applyClassifications(cohort, cache, inputs.destinations);
     if (applied > 0) writeJson(INDEX_PATH, inputs.destinations);
   }
   const phase1ReviewModified =
@@ -1554,7 +1583,13 @@ async function main(): Promise<void> {
     hashStable(
       phase1ReviewIdentityFingerprint(inputs.destinations, inputs.phase1),
     );
-  const report = reportFor(manifest, cohort, cache, phase1ReviewModified);
+  const report = reportFor(
+    manifest,
+    cohort,
+    cache,
+    phase1ReviewModified,
+    inputs.destinations,
+  );
   writeJson(REPORT_PATH, report);
   formatGeneratedJson([MANIFEST_PATH, CACHE_PATH, REPORT_PATH]);
   console.log(

@@ -6,6 +6,7 @@ import {
   classifyPhase3Destination,
   phase3IdentityMatches,
   phase3InputFingerprint,
+  parentChildResult,
   type Phase3Candidate,
   type Phase3Destination,
   type Phase3Discovery,
@@ -259,6 +260,157 @@ describe("classifyPhase3Destination", () => {
           sources: ["wikipedia-redirect", "wikidata-sitelink"],
           redirectFromTitles: ["Aso City"],
           entity: { sitelinks: { en: { title: "Aso" } } },
+        }),
+      ]),
+    );
+
+    expect(result.state).toBe("high-confidence-awaiting-apply");
+  });
+
+  it.each([
+    [
+      "observation deck",
+      "viewpoint",
+      "Sky Tower Observation Deck",
+      "tower",
+      "Sky Tower",
+    ],
+    ["garden", "garden", "Imperial Palace Garden", "palace", "Imperial Palace"],
+    ["beach", "beach", "Coral Beach", "island", "Coral Island"],
+    ["museum wing", "museum", "City Museum East Wing", "museum", "City Museum"],
+    [
+      "shrine sub-building",
+      "shrine",
+      "Main Shrine Treasure Hall",
+      "shrine",
+      "Main Shrine",
+    ],
+  ])(
+    "rejects %s redirects to its broader parent article",
+    (_label, childKind, childName, parentKind, parentName) => {
+      const child = destination({
+        id: "child-poi",
+        name: childName,
+        kind: childKind as Phase3Destination["kind"],
+        role: "poi",
+        relationships: { parentDestinationId: "known-parent" },
+      });
+      const parent = destination({
+        id: "known-parent",
+        name: parentName,
+        kind: parentKind as Phase3Destination["kind"],
+        role: "hub",
+      });
+      const result = classifyPhase3Destination(
+        child,
+        discovery(
+          [
+            candidate({
+              page: {
+                title: parentName,
+                url: `https://en.wikipedia.org/wiki/${parentName.replaceAll(" ", "_")}`,
+              },
+              sources: ["wikipedia-redirect", "wikidata-sitelink"],
+              redirectFromTitles: [childName],
+              entity: {
+                labels: { en: parentName },
+                p31: [{ id: "Q-parent", label: parentKind }],
+                p279: [],
+                sitelinks: { en: { title: parentName } },
+              },
+            }),
+          ],
+          { knownParent: parent },
+        ),
+      );
+
+      expect(result).toMatchObject({
+        state: "unresolved",
+        reason: "parent-child-conflict",
+      });
+      expect(result.candidate?.parentChildResult).toBe("parent-child-conflict");
+    },
+  );
+
+  it("allows a child redirect to an exact renamed article for the same entity", () => {
+    const child = destination({
+      id: "renamed-poi",
+      name: "Old Observation Deck",
+      kind: "viewpoint",
+      role: "poi",
+      relationships: { parentDestinationId: "known-parent" },
+    });
+    const parent = destination({
+      id: "known-parent",
+      name: "Sky Tower",
+      kind: "tower" as Phase3Destination["kind"],
+      role: "hub",
+    });
+    const renamed = candidate({
+      page: {
+        title: "New Observation Deck",
+        url: "https://en.wikipedia.org/wiki/New_Observation_Deck",
+      },
+      sources: ["wikipedia-redirect", "wikidata-sitelink"],
+      redirectFromTitles: ["Old Observation Deck"],
+      entity: {
+        labels: { en: "New Observation Deck" },
+        p31: [{ id: "Q-viewpoint", label: "observation deck" }],
+        p279: [],
+        sitelinks: { en: { title: "New Observation Deck" } },
+      },
+    });
+
+    expect(parentChildResult(child, renamed, parent)).toBe("same-entity");
+    expect(
+      classifyPhase3Destination(
+        child,
+        discovery([renamed], { knownParent: parent }),
+      ).state,
+    ).toBe("high-confidence-awaiting-apply");
+  });
+
+  it("requires parent evaluation for a POI without a known parent snapshot", () => {
+    const child = destination({
+      id: "unresolved-poi",
+      name: "Unresolved POI",
+      role: "poi",
+      relationships: { parentDestinationId: "missing-parent" },
+    });
+    const result = classifyPhase3Destination(
+      child,
+      discovery([
+        candidate({ sources: ["wikipedia-redirect", "wikidata-sitelink"] }),
+      ]),
+    );
+
+    expect(result).toMatchObject({
+      state: "unresolved",
+      reason: "parent-child-check-not-evaluated",
+    });
+  });
+
+  it("does not let a broad nature kind accept a city entity", () => {
+    const result = classifyPhase3Destination(
+      destination({ kind: "nature", categories: ["Nature"] }),
+      discovery([candidate()]),
+    );
+
+    expect(result).toMatchObject({
+      state: "unresolved",
+      reason: "entity-type-mismatch",
+    });
+  });
+
+  it("refines a broad cultural kind from structured categories", () => {
+    const result = classifyPhase3Destination(
+      destination({ kind: "cultural", categories: ["Museum"] }),
+      discovery([
+        candidate({
+          entity: {
+            p31: [{ id: "Q-museum", label: "museum" }],
+            p279: [],
+          },
         }),
       ]),
     );
@@ -523,6 +675,57 @@ describe("Phase 3 fingerprints and apply", () => {
     expect(target.wikidataId).toBeUndefined();
   });
 
+  it("refuses to apply a child identity that resolves to its parent", () => {
+    const child = destination({
+      id: "apply-child",
+      name: "Imperial Palace Garden",
+      kind: "garden",
+      role: "poi",
+      relationships: { parentDestinationId: "apply-parent" },
+    });
+    const parent = destination({
+      id: "apply-parent",
+      name: "Imperial Palace",
+      kind: "palace" as Phase3Destination["kind"],
+      role: "hub",
+    });
+    const cache: Phase3CacheFile = {
+      schemaVersion: 2,
+      scope: "kai-256-wikipedia-phase3",
+      manifestFingerprint: "test",
+      phase2ReportFingerprint: "test",
+      phase2CacheFingerprint: "test",
+      entries: {
+        [child.id]: {
+          status: "ok",
+          inputFingerprint: phase3InputFingerprint(child),
+          redirects: [],
+          wikidataSearches: [],
+          candidates: [
+            candidate({
+              page: {
+                title: "Imperial Palace",
+                url: "https://en.wikipedia.org/wiki/Imperial_Palace",
+              },
+              sources: ["wikipedia-redirect", "wikidata-sitelink"],
+              redirectFromTitles: ["Imperial Palace Garden"],
+              entity: {
+                labels: { en: "Imperial Palace" },
+                p31: [{ id: "Q-palace", label: "palace" }],
+                p279: [],
+                sitelinks: { en: { title: "Imperial Palace" } },
+              },
+            }),
+          ],
+        },
+      },
+    };
+
+    expect(applyClassifications([child], cache, [child, parent])).toBe(0);
+    expect(child.wikipediaTitle).toBeUndefined();
+    expect(child.wikidataId).toBeUndefined();
+  });
+
   it("applies only once and refuses an overwrite", () => {
     const target = destination();
     const identity = {
@@ -696,6 +899,25 @@ describe("Phase 3 manifest drift guards", () => {
       Object.values(cache.entries).every(
         (entry) => entry.phase2?.reportRecord && entry.phase2.cacheEntry,
       ),
+    ).toBe(true);
+    expect(
+      report.records
+        .filter((record) => record.identity)
+        .every(
+          (record) =>
+            (record.chosenCandidate as Record<string, unknown> | undefined)
+              ?.parentChildResult !== "parent-child-conflict",
+        ),
+    ).toBe(true);
+    expect(
+      report.records
+        .flatMap((record) => record.candidates)
+        .every(
+          (candidate) =>
+            candidate !== null &&
+            typeof candidate === "object" &&
+            "parentChildResult" in candidate,
+        ),
     ).toBe(true);
   });
 });
