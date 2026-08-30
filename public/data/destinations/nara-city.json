@@ -203,5 +203,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Nara (city)",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Nara_(city)",
+  "wikipediaPageId": 6792846,
+  "wikidataId": "Q169134"
 }

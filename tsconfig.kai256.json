@@ -6,7 +6,10 @@
   },
   "include": [
     "scripts/lib/wikipediaLegacyMigration.ts",
+    "scripts/lib/wikipediaUnmappedEnrichment.ts",
     "scripts/migrate-wikipedia-legacy-provenance.ts",
-    "scripts/audit/__tests__/wikipedia-legacy-migration.test.ts"
+    "scripts/enrich-wikipedia-unmapped.ts",
+    "scripts/audit/__tests__/wikipedia-legacy-migration.test.ts",
+    "scripts/audit/__tests__/wikipedia-unmapped-enrichment.test.ts"
   ]
 }

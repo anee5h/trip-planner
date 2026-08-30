@@ -166,5 +166,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Tenryū-Okumikawa Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Tenry%C5%AB-Okumikawa_Quasi-National_Park",
+  "wikipediaPageId": 23775303,
+  "wikidataId": "Q1075008"
 }

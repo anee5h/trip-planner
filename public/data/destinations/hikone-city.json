@@ -207,5 +207,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "彦根市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%BD%A6%E6%A0%B9%E5%B8%82",
+  "wikipediaPageId": 38611,
+  "wikidataId": "Q386635"
 }

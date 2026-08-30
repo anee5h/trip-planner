@@ -228,5 +228,10 @@
     "detail": "Official access was reviewed, but the repository has no Tokyo:sumida canonical intercity arrival hub. The operator Oshiage endpoint cannot replace that missing origin topology; no fare is asserted.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Tokyo Skytree",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_Skytree",
+  "wikipediaPageId": 2638104,
+  "wikidataId": "Q57965"
 }

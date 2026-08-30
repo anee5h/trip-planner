@@ -175,5 +175,10 @@
     "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "秋葉原",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%A7%8B%E8%91%89%E5%8E%9F",
+  "wikipediaPageId": 1725166,
+  "wikidataId": "Q418096"
 }

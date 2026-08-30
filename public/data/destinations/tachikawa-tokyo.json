@@ -209,5 +209,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "立川市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%AB%8B%E5%B7%9D%E5%B8%82",
+  "wikipediaPageId": 41170,
+  "wikidataId": "Q269634"
 }

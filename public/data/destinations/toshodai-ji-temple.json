@@ -170,5 +170,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "唐招提寺",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%8B%9B%E6%8F%90%E5%AF%BA",
+  "wikipediaPageId": 83924,
+  "wikidataId": "Q973175"
 }

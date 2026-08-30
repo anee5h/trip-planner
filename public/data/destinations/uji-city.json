@@ -201,5 +201,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "宇治市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%AE%87%E6%B2%BB%E5%B8%82",
+  "wikipediaPageId": 29374,
+  "wikidataId": "Q326956"
 }

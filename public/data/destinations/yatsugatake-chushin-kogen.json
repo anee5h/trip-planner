@@ -166,5 +166,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "八ヶ岳中信高原国定公園",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%85%AB%E3%83%B6%E5%B2%B3%E4%B8%AD%E4%BF%A1%E9%AB%98%E5%8E%9F%E5%9B%BD%E5%AE%9A%E5%85%AC%E5%9C%92",
+  "wikipediaPageId": 391135,
+  "wikidataId": "Q1104617"
 }

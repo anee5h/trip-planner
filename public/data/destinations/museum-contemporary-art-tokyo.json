@@ -225,5 +225,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Museum of Contemporary Art Tokyo",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Museum_of_Contemporary_Art_Tokyo",
+  "wikipediaPageId": 4941114,
+  "wikidataId": "Q1649688"
 }

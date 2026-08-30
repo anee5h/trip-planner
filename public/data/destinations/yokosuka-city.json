@@ -211,5 +211,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "横須賀市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%A8%AA%E9%A0%88%E8%B3%80%E5%B8%82",
+  "wikipediaPageId": 1368,
+  "wikidataId": "Q200578"
 }

@@ -222,5 +222,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "茅ヶ崎市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E8%8C%85%E3%83%B6%E5%B4%8E%E5%B8%82",
+  "wikipediaPageId": 16602,
+  "wikidataId": "Q633911"
 }

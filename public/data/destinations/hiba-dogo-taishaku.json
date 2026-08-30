@@ -162,5 +162,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Hiba-Dogo-Taishaku Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Hiba-Dogo-Taishaku_Quasi-National_Park",
+  "wikipediaPageId": 8081640,
+  "wikidataId": "Q1072908"
 }

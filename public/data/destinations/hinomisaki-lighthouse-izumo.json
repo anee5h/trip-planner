@@ -225,5 +225,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "出雲日御碕灯台",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%87%BA%E9%9B%B2%E6%97%A5%E5%BE%A1%E7%A2%95%E7%81%AF%E5%8F%B0",
+  "wikipediaPageId": 79479,
+  "wikidataId": "Q10896678"
 }

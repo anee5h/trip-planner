@@ -215,5 +215,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "秩父市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%A7%A9%E7%88%B6%E5%B8%82",
+  "wikipediaPageId": 16708,
+  "wikidataId": "Q647079"
 }

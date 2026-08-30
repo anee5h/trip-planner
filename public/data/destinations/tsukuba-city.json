@@ -211,5 +211,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "つくば市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%81%A4%E3%81%8F%E3%81%B0%E5%B8%82",
+  "wikipediaPageId": 26140,
+  "wikidataId": "Q273863"
 }

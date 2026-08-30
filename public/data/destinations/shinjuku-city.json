@@ -192,5 +192,10 @@
     "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "新宿区",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%96%B0%E5%AE%BF%E5%8C%BA",
+  "wikipediaPageId": 8073,
+  "wikidataId": "Q179645"
 }

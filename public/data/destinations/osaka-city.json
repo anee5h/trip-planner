@@ -240,5 +240,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Osaka",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka",
+  "wikipediaPageId": 52230,
+  "wikidataId": "Q35765"
 }

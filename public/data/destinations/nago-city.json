@@ -212,5 +212,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "名護市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%90%8D%E8%AD%B7%E5%B8%82",
+  "wikipediaPageId": 81131,
+  "wikidataId": "Q117604"
 }

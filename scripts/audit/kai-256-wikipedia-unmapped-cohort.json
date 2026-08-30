@@ -1,0 +1,2114 @@
+{
+  "schemaVersion": 1,
+  "scope": "published destinations without explicit Wikipedia identity, excluding the KAI-256 Phase 1 legacy-review ledger",
+  "baseline": {
+    "published": 732,
+    "canonical": 134,
+    "legacyReview": 98,
+    "unmapped": 500
+  },
+  "phase1ReviewIds": [
+    "amami-iriomote-natural-site",
+    "aoshima-island-miyazaki",
+    "aso-city",
+    "aso-volcanic-museum",
+    "beppu-city",
+    "beppu-hells-oita",
+    "boso-no-mura",
+    "cape-nagasakibana",
+    "chiba-city-folk-museum",
+    "chiba-city-museum-of-art",
+    "chiba-park",
+    "chiba-port-park",
+    "chinatown-nagasaki",
+    "chiringashima-island",
+    "daikanbo-viewpoint-aso",
+    "dazaifu-city",
+    "dazaifu-tenmangu",
+    "enoshima-aquarium",
+    "fujiko-f-fujio-museum",
+    "fukuoka-castle-ruins",
+    "fukuoka-paypay-dome",
+    "gotoku-ji",
+    "gunkanjima-hashima-nagasaki",
+    "hakata-machiya-folk-museum",
+    "hakata-station-area",
+    "heiwadai-park-miyazaki",
+    "hita-city",
+    "hita-gion-yamahoko-museum",
+    "hita-onsen",
+    "ibusuki-city",
+    "inage-seaside-park",
+    "ishidake-observatory",
+    "iwatsuki-ningyo-museum",
+    "jochi-ji",
+    "jomon-sugi-yakushima",
+    "kagoshima-city-aquarium",
+    "kagurazaka",
+    "kamakurakokomae-station",
+    "kangien-academy",
+    "kannawa-onsen-district",
+    "katase-higashihama-beach",
+    "kennin-ji",
+    "kinrin-lake-yufuin",
+    "kitakyushu-manga-museum",
+    "kitano-ijinkan",
+    "komachi-street",
+    "komyozenji-temple-dazaifu",
+    "kujukushima-pearl-sea-resort",
+    "kumamoto-prefectural-art-museum",
+    "kuromon-market",
+    "kusasenri-meadow-aso",
+    "maizuru-park",
+    "makuhari-seaside-park",
+    "mameda-historic-district",
+    "meganebashi-bridge-nagasaki",
+    "miyazaki-jingu-shrine",
+    "mojiko-retro-district",
+    "mount-aso-kumamoto",
+    "museum-of-aeronautical-sciences",
+    "nagasaki-peace-park",
+    "nakadake-crater-aso",
+    "nanatsugama-sea-caves",
+    "narita-airport-observation-decks",
+    "naritasan-park",
+    "nijinomatsubara-pine-grove",
+    "obi-castle",
+    "omiya-bonsai-art-museum",
+    "omoide-yokocho",
+    "onta-pottery-village",
+    "osaka-station-city",
+    "oura-church-nagasaki",
+    "renkeiji",
+    "ryoan-ji",
+    "saitama-shintoshin",
+    "sakurajima-volcano-kagoshima",
+    "sasebo-naval-port-cruise",
+    "sengan-en-garden-kagoshima",
+    "shinjuku-gyo-en",
+    "shinsho-ji",
+    "shiratani-unsuikyo-ravine",
+    "shonan-kaigan-park",
+    "suizenji-garden-kumamoto",
+    "sun-messe-nichinan",
+    "sunamushi-onsen-saraku",
+    "takachiho-gorge",
+    "takachiho-kagura-dance",
+    "takachiho-town",
+    "takegawara-onsen-beppu",
+    "tenjin",
+    "toto-museum-kitakyushu",
+    "umi-kirara-aquarium",
+    "yakushima-town",
+    "yakusugi-land-yakushima",
+    "yasaka-shrine",
+    "yobuko-morning-market",
+    "yufu-city",
+    "yufuin-floral-village",
+    "yufuin-onsen-ryokan-district"
+  ],
+  "phase1ReviewFingerprint": "982fc0ca3d2b39ed5c94de4716130f66a75230a47443e4c1e736c495f2fee376",
+  "sourceFingerprint": "31db9a032a2f6def252a14583663a323f1b114439fddd684e147eeff20fa765b",
+  "entries": [
+    {
+      "id": "abashiri",
+      "inputFingerprint": "db7a9173a8c3c82ad1abc4334e6cf01efafa87ff40d334f4fcd0e6e912e56482"
+    },
+    {
+      "id": "abeno-harukas-300-osaka",
+      "inputFingerprint": "aff95885f27dab7818b428b3e57c98a9a870bc25cee0d1c1d55ed0404dbd19b1"
+    },
+    {
+      "id": "adachi-city",
+      "inputFingerprint": "875fbbf5694ba130f949526cb76f969a0c92991c0fbb36b0c81ea04b2cef1074"
+    },
+    {
+      "id": "aichi-kogen",
+      "inputFingerprint": "0606f859690e879ea389b0f4426bd9d60e0368ac55e2a9380c5b6cd127c02e28"
+    },
+    {
+      "id": "akan-mashu",
+      "inputFingerprint": "44d90d392105471d11af6a9412cae947e67c8b2ed2841a6a48084f5f775deb0a"
+    },
+    {
+      "id": "akasaka-minato",
+      "inputFingerprint": "7f5dd84908bbc98794efff852ae5e367cbb7e5dd76eb321f26a3b8618544ce11"
+    },
+    {
+      "id": "akashi-castle",
+      "inputFingerprint": "c85acc8f5df4266d77376e8973886e98110888d4f367a7ab49ecc478f5ff5af0"
+    },
+    {
+      "id": "akashi-kaikyo-bridge",
+      "inputFingerprint": "448c3be856a6475cb8dc1b83bcc30ac2ff9cd332cb7adf35ed684856fe3d2780"
+    },
+    {
+      "id": "akihabara-chiyoda",
+      "inputFingerprint": "1645e78d67533ef97ab18b907f0878156df90146a953136bb61567d70b0a39df"
+    },
+    {
+      "id": "akiyoshidai",
+      "inputFingerprint": "2a4088394daf123fe5b2fd3fe0c4b90d0766c986ecbb33108975f2c76345d560"
+    },
+    {
+      "id": "akiyoshidai-plateau",
+      "inputFingerprint": "e38a133274243ed6193f715066269844c92a0355a2fcc5792cfbeff4868354df"
+    },
+    {
+      "id": "akkeshi-kiritappu-konbumori",
+      "inputFingerprint": "129dfe178993676554228299e5a23efa7a2f967b3eabe5e3bb969de75836fbca"
+    },
+    {
+      "id": "ako-castle",
+      "inputFingerprint": "4e0e59587e5b848b6e461db297ba1526cdb0a5a0062ba0245d04511ddda0ed93"
+    },
+    {
+      "id": "amami-gunto",
+      "inputFingerprint": "aa48d5f319e92f8c133e3745bc0980bdc753f0df8a27b6a75ecefd4537077881"
+    },
+    {
+      "id": "amanohashidate-kyoto",
+      "inputFingerprint": "c02f8edee5a2924a9ca646ff67c0ad649f18259330d964205b778b698ce24d4f"
+    },
+    {
+      "id": "arakawa-city",
+      "inputFingerprint": "642795769a4fb71daae0fa1d0a9e1c95dc735deafcfae2fe209b96e41655c14a"
+    },
+    {
+      "id": "arima-onsen",
+      "inputFingerprint": "094db549e83156bbed0a242045c799ea4387e50bf12e4170083c696bbeda7242"
+    },
+    {
+      "id": "art-tower-mito",
+      "inputFingerprint": "50eb0813db61b7be105d0010929dfd510648f3f94bb3e139db855d86f4f47806"
+    },
+    {
+      "id": "asakusa-taito",
+      "inputFingerprint": "04d34367745525391d0526fa636a35001c80b3ccf670f8d955f7034ab610f8c6"
+    },
+    {
+      "id": "ashigara",
+      "inputFingerprint": "da4de8df5ea6f568280db544e0ec31e78b60f1d24a901b02e45bfa0832888ad6"
+    },
+    {
+      "id": "ashikaga-flower-park-tochigi",
+      "inputFingerprint": "113baf5a7e7847100dd43a07d73947687615e0cf578f362090a90d8a381fbe59"
+    },
+    {
+      "id": "ashikaga-shi-yakata",
+      "inputFingerprint": "eb5cc972d88b21b1d61c397c14a998e8012bd59b67819d71cd71f6fee6e49cc5"
+    },
+    {
+      "id": "ashizuri-uwakai",
+      "inputFingerprint": "bd5c76f48eee034a58373250426cacdc1e1d882d2d8a9eeda3c36657a056f04e"
+    },
+    {
+      "id": "aso-kuju",
+      "inputFingerprint": "ffde400648e4075aad6975ec40c676d6b9c48fe2d5acbcb31e848f22245e2293"
+    },
+    {
+      "id": "asuka-fujiwara-nara",
+      "inputFingerprint": "63e3b94f6b2d5471e9230e80a6ee1e4e55c24532f3e352353be55b2a85f55da4"
+    },
+    {
+      "id": "azuchi-castle",
+      "inputFingerprint": "afbcfb8b2f1672b33bc6ea18f56e2d2e741f1620015fb6605b6d14fcb16cad33"
+    },
+    {
+      "id": "bandai-asahi",
+      "inputFingerprint": "93e944d8f37181962548fe1f96c71670274a4dff74ab4987a3d0077d63f94849"
+    },
+    {
+      "id": "bikan-historical-quarter",
+      "inputFingerprint": "a109d732de87cd5f2cbcc0a8464b52fa76ef016854d8f4263102439416454dfd"
+    },
+    {
+      "id": "bise-fukugi-tree-road-motobu",
+      "inputFingerprint": "b4a5b80ae6864b95f5364bcaee9f3b1ad4c765dcf5e82c93f9ed25ef08e844da"
+    },
+    {
+      "id": "biwako",
+      "inputFingerprint": "c08c49820b6fff5a10f8e0113acd58bb9c264101f124c30caf8830e996f5f699"
+    },
+    {
+      "id": "boso-peninsula",
+      "inputFingerprint": "713741e9cf293754fc939537707ecbd443e55da1d3c8724627a174c5dc85125a"
+    },
+    {
+      "id": "buaiso",
+      "inputFingerprint": "110e7b77136cc82b8aa40ec00944cb31a060288898e43a775dff4ed8ce04fc5f"
+    },
+    {
+      "id": "bunkyo-city",
+      "inputFingerprint": "6c8c5f42f928b9a4822162918d55f89ce61d5324d472c1d3851de3eb8efa94f0"
+    },
+    {
+      "id": "busena-marine-park-nago",
+      "inputFingerprint": "c490b4475dde4cd01730c5446970f9d1b3ca8cf530be2303206f4ce134303ef4"
+    },
+    {
+      "id": "byodoin-temple",
+      "inputFingerprint": "f8fd2ea6eb724f39f69330f2dd23de0b83eadbcef0bcbc347cbb8ae0c693e5e5"
+    },
+    {
+      "id": "chiba-city",
+      "inputFingerprint": "60b1931ff51a12d517b734277b3647f351cceacde5d8295be578251c1e2d9287"
+    },
+    {
+      "id": "chiba-nokogiriyama",
+      "inputFingerprint": "c45daebfaf318b1e5cd0fcb52043ef3a4c5faf1234135f5e1e1829fb70a50d1b"
+    },
+    {
+      "id": "chiba-port-tower",
+      "inputFingerprint": "f7a3e90723a287bab41034b9c66da707cbc634d36a740522b19ff9f32ae95fc2"
+    },
+    {
+      "id": "chiba-sawara",
+      "inputFingerprint": "f32db81b73402fbfe2caa2101fdf29f7200ebc9f89759f686856099fe50050a4"
+    },
+    {
+      "id": "chiba-yoro-valley",
+      "inputFingerprint": "a2d125ce3b8d6db7e6744d28ceafcae1d8705dacfc037cf6be8d123136504045"
+    },
+    {
+      "id": "chichibu-city",
+      "inputFingerprint": "425d278716982c06bf68d9e40d7a4264ebf396f3da225881875c3fc8dfdf6b63"
+    },
+    {
+      "id": "chichibu-tama-kai",
+      "inputFingerprint": "7e848b5e85e0f73b9de31d6da1a99d51bad998879489f6044f40546857aee629"
+    },
+    {
+      "id": "chigasaki-city",
+      "inputFingerprint": "c64513b3703d4e1b1691b08993e62f76f91b61bcdec75136e9a286bf28fa5334"
+    },
+    {
+      "id": "chihaya-castle",
+      "inputFingerprint": "2df04520a33f08c54f6ebf868771ae9d28c18ac25570aa4d5f5bda93ef6b1291"
+    },
+    {
+      "id": "chiyoda-city",
+      "inputFingerprint": "2c15de3a4a9d04d866cdb75db6727de6955a17f72903601fc501b283754dfc5c"
+    },
+    {
+      "id": "chofu-historic-jindaiji-district",
+      "inputFingerprint": "351aa2848df787004a68e91b00d3c518ea8f7918560c84669b5da5c75be19824"
+    },
+    {
+      "id": "chofu-tokyo",
+      "inputFingerprint": "b88275acf4af1cec6adc9844f036dd66298f8a1e9e39b55e0945a586c5ab01f0"
+    },
+    {
+      "id": "chogosonshi-ji-temple",
+      "inputFingerprint": "d225c439670c20011e91363cbd8de98876066cb15915665a681885921d1e541f"
+    },
+    {
+      "id": "chokai",
+      "inputFingerprint": "05a1562a22c7a0d101fb0344324ba33cc50aa257ab0efa01900436fc21d5d01c"
+    },
+    {
+      "id": "chubu-sangaku",
+      "inputFingerprint": "7a4f0f86c0a99f02467a3f8652691fc1f7458494509ffcba63382a0244856343"
+    },
+    {
+      "id": "chuo-alps",
+      "inputFingerprint": "128227b93596cc370d122a2083fafecc9d334949ab1f626d4791214ad1b7e1ae"
+    },
+    {
+      "id": "chuo-city",
+      "inputFingerprint": "bc3438d1b8a57888b0ca4761da6d6a05be5c63f3d2e3eb79e5d822b07cca5c68"
+    },
+    {
+      "id": "churaumi-aquarium-motobu",
+      "inputFingerprint": "fa16ef9d6c1a03849e9fb81bfcdabf8853e8f382c49f92a875bada0ce3054bb8"
+    },
+    {
+      "id": "cup-noodles-museum-yokohama",
+      "inputFingerprint": "527c97071394432491003f3f87a8e49cb3a6ac8fd8fa373623cd9efb7e87e33f"
+    },
+    {
+      "id": "cupnoodles-museum-osaka-ikeda",
+      "inputFingerprint": "12004be011814891bdfc64cf49ae6ce7192d51a2bf5644cb85ea59e50d6b72fd"
+    },
+    {
+      "id": "daisen-oki",
+      "inputFingerprint": "c3f33fc9c4883fa148b851a8ed11c958431b56e80062421d683856ef155c1261"
+    },
+    {
+      "id": "daisetsuzan",
+      "inputFingerprint": "1c717ff8288852c020a7ed4bbf0e322f3a9051e31e2a3fae4708dff5adf8e21d"
+    },
+    {
+      "id": "daisho-in",
+      "inputFingerprint": "b49166046eda181cb5dd3e662072a91dc8b658f5aa311603b05285715fcbdbab"
+    },
+    {
+      "id": "danjo-garan-koyasan",
+      "inputFingerprint": "e0471c6e8909bdc864d9bed96710ce493d4b33920ac388bed0dd3db3cd8cbfa8"
+    },
+    {
+      "id": "disneyland",
+      "inputFingerprint": "f29994f040f997c3d6500fbfa9e5c4ab07985aa178b8d2feca366907dd1a4410"
+    },
+    {
+      "id": "disneysea",
+      "inputFingerprint": "4e00864f0e371fa875f93434dfe99e169a0d87cb21b4cf50ee4d95bb33574469"
+    },
+    {
+      "id": "echigo-sanzan-tadami",
+      "inputFingerprint": "e0aac52e30c9e0a550ff47f6112fb2caaded706cab74b6f7b2d524699feb52ed"
+    },
+    {
+      "id": "echizen-kaga-kaigan",
+      "inputFingerprint": "67524805b3053f40f228996289eda1c45953d1fe2b878b481e2f87563e4050de"
+    },
+    {
+      "id": "edo-castle-tokyo",
+      "inputFingerprint": "8791ab6653faf6054aeacaadfd77389f8d15daafa4c2c75fe61e02939aad55aa"
+    },
+    {
+      "id": "edogawa-city",
+      "inputFingerprint": "a290cc55def758574896d2969ef1fe84d9c475c68297f7acbb84687d9b2955b2"
+    },
+    {
+      "id": "engyo-ji-mount-shosha",
+      "inputFingerprint": "5513d66fda3a08fa49b7944fdc2776d5bfef3d26c992a330f84af815782e168a"
+    },
+    {
+      "id": "enoshima-island",
+      "inputFingerprint": "972448443fd500d876df46a5e191bc076d60a07a7a8387405cc92d442200a96d"
+    },
+    {
+      "id": "enryaku-ji-mount-hiei",
+      "inputFingerprint": "af3521878381bcaaa6c23df183a8954c45b2c0a54d9eafb0c06b63b57e612bcd"
+    },
+    {
+      "id": "farm-tomita",
+      "inputFingerprint": "0aaca137a73ca237d3a5b750135657a6dd9c07cc831513f92bc194448b97fab8"
+    },
+    {
+      "id": "fudaten-shrine",
+      "inputFingerprint": "c5b5b679068ad242e7cf2d2d9a0bbd4b48380473bfbe304ed01011876d471aff"
+    },
+    {
+      "id": "fuefukigawa-fruit-park",
+      "inputFingerprint": "2aedf7e61ed3ffde2a4de3674b0b3947a234134a314bca49a5fb7829ecfe540b"
+    },
+    {
+      "id": "fuji-hakone-izu",
+      "inputFingerprint": "2ca6e7f29404859cdb47b50572d279fd085c8f5bf5569512384906c14c2c3d1c"
+    },
+    {
+      "id": "fujisawa-city",
+      "inputFingerprint": "d16a394e64f7d0546311debac680739cf3857aba05ff36f4e8ce0805816d887c"
+    },
+    {
+      "id": "fukagawa-edo-museum",
+      "inputFingerprint": "536935a4a111e9ae7c69f5117a1c5aea130aa5f4a2da096a74ebba8ac41ee7e3"
+    },
+    {
+      "id": "fukiya-village",
+      "inputFingerprint": "e9a14331135c54e43730bd76e03fa5909fcfefc9dae90908cbd18b384a62adc3"
+    },
+    {
+      "id": "fukuoka-yatai",
+      "inputFingerprint": "734a8b37327d1ea9c4ba728f56ca90ae6fa2ce34d1b6a53d5f0d65c53ab921c8"
+    },
+    {
+      "id": "fukushuen-garden-naha",
+      "inputFingerprint": "4069f23749f2480717092afcbf1be304fb110fb709833ba420f45e10421c0a6f"
+    },
+    {
+      "id": "fukuyama-castle",
+      "inputFingerprint": "fc76c1c617cfe2a1861865e891f8092de17c44bf7d0b06b79ff2e2570add74e1"
+    },
+    {
+      "id": "funabashi-city",
+      "inputFingerprint": "7cf04963f3e4f7b77ba1e01e4dfbdda31201a696fca3c56bc162f858a5e830d7"
+    },
+    {
+      "id": "funai-castle",
+      "inputFingerprint": "0cf8cb5fd943a1fbdb1f1d9e66beca5a0ebee97582bf711dab6f0a2b3b168577"
+    },
+    {
+      "id": "gassantoda-castle",
+      "inputFingerprint": "a7e9b4d6201f202b2f9ac60943cc67a5b7992c9c5b9e374f0ee548d0bdc45729"
+    },
+    {
+      "id": "genbaku-dome",
+      "inputFingerprint": "b1072a11ac863c53272d8e7a36106a8bf3df7315ec14358e2e3fcf57bc091f3a"
+    },
+    {
+      "id": "genbudo-cave-park",
+      "inputFingerprint": "9d24b42427552b937820d50dda2da630df710cadef7a2610d66e75b7247ea27a"
+    },
+    {
+      "id": "genkai",
+      "inputFingerprint": "0318a98557c797c2e4db0c991f0affa090cfddf7aa66c7ec1dbbe24889466bfa"
+    },
+    {
+      "id": "genkyuen-garden",
+      "inputFingerprint": "27d72500198377faac404bb347ee07e12e5a112125de05d538c65e53c91b49b3"
+    },
+    {
+      "id": "gessho-ji-temple-matsue",
+      "inputFingerprint": "7e94ca3ceef31be18522b3984f246cbaa19cce76069ef9f30ffe84bf7a78ac3c"
+    },
+    {
+      "id": "ghibli-museum",
+      "inputFingerprint": "1434d9b4c6536cd6316c5fd5eb363cf3884804716d19568b45db6cb3f3a402de"
+    },
+    {
+      "id": "ginza-itoya",
+      "inputFingerprint": "3f173613fa84bc26808ddc0abd00ca8dca91be1b2ca9c7135d20c165c0d5e0b2"
+    },
+    {
+      "id": "ginza-urban",
+      "inputFingerprint": "8e9ddbb6618af620e382ea3cadd5774e1e79c87566a4ed6a52f2f474f5579b78"
+    },
+    {
+      "id": "goryokaku",
+      "inputFingerprint": "82c670aeed39a0f85f537d27d8782e784bd9344c45f415fba4dfd0e2c294fc7e"
+    },
+    {
+      "id": "gunma-ikaho-onsen",
+      "inputFingerprint": "1ec5977292e469aa9049c0befd84b47245e5e789a5a5ae02844aa11c7dd04a2c"
+    },
+    {
+      "id": "gunma-kusatsu-onsen",
+      "inputFingerprint": "de5788011d4706d07057c7da3cf213443d63ac11de27739cbd849ae0154fa74d"
+    },
+    {
+      "id": "gunma-shima-onsen",
+      "inputFingerprint": "88a958fb54c63e33b6608bb0371ddc586b2c380c2e085895b936d6327d166e7a"
+    },
+    {
+      "id": "gyokudo-art-museum",
+      "inputFingerprint": "b872d1031dabf1809278e51ed2abbebd4bd84f6f10b42aa2cdac3b6ab0c201b0"
+    },
+    {
+      "id": "hachigata-castle",
+      "inputFingerprint": "a2e30f23b837453c028d1fc37b35688bf4734d2ff461dbf0dfb33348b0d03581"
+    },
+    {
+      "id": "hachioji-castle-tokyo",
+      "inputFingerprint": "dcafc7c2ebf7ec375c2338debee147291f1f1a77895c00acc4c85a3b003c6fc3"
+    },
+    {
+      "id": "hachioji-tokyo",
+      "inputFingerprint": "101616b3fdb591d86ae7de0ccef99d571128595eeb9f54fe131925fab9526e48"
+    },
+    {
+      "id": "hagi-castle",
+      "inputFingerprint": "76ac5e5ff38b1e01fcbb9e00b32c39ddc7cf3a2ea4adb6f36c2a04e891a188c4"
+    },
+    {
+      "id": "hakkeijima",
+      "inputFingerprint": "af6a7558e13cc6935257f87bdfb30796f4472aa7606836317ab7e1bd93bea3a2"
+    },
+    {
+      "id": "hakone-open-air-museum",
+      "inputFingerprint": "f6d35c538f3f597722d6379752ba779b16f7089830b23a61dfa96f28af71e28b"
+    },
+    {
+      "id": "hakone-town",
+      "inputFingerprint": "6fe64fb83d1925109da7fcf262aed7017a4b876787973a594455977aeec3842f"
+    },
+    {
+      "id": "hakusan",
+      "inputFingerprint": "fbb674e201cd23bec56954e3f858de66a661df3e56aee4de816777a60225edf5"
+    },
+    {
+      "id": "hamarikyu-gardens",
+      "inputFingerprint": "92a64cfaf452472d79076bfb14d14fb9427879f97e6da00c3efd0ba2025fcc42"
+    },
+    {
+      "id": "harajuku-takeshita-street",
+      "inputFingerprint": "2aee0c16147d68652e7cbf9c6464fe459f537bf025c6dbaa44964485e479f69f"
+    },
+    {
+      "id": "harry-potter-studio",
+      "inputFingerprint": "51a597fc65888935f0bdf6312a5efcc8572488aa2341c926d7be156eb7b6f63d"
+    },
+    {
+      "id": "hayachine",
+      "inputFingerprint": "56bae76866e7510134cc4f7249c48aeaf83ccc71d1829a00720f83dfd96411f8"
+    },
+    {
+      "id": "hayashibara-museum-of-art",
+      "inputFingerprint": "08740d9a38de0e944aaf7b54aae02a323ebb5d154e1d77e6c3a1fd2749a50947"
+    },
+    {
+      "id": "hiba-dogo-taishaku",
+      "inputFingerprint": "69ac90fe51c49843add2f4e0bdddd185db16da2b5ee93c9c4a97a54fc9204f09"
+    },
+    {
+      "id": "hida-cave",
+      "inputFingerprint": "73b3d48575095d05eae9e53e7779cf84c24da86d3e2d4a5315e0f5da890a235d"
+    },
+    {
+      "id": "hida-kisogawa",
+      "inputFingerprint": "2d343552c5d33b6d2b78944881445a55bfd09f5b4ff88b0d8ee1bad0986d0c28"
+    },
+    {
+      "id": "hidakasanmyaku-erimo-tokachi",
+      "inputFingerprint": "ab01bd96a8653eee309f609c84a46f60bd1786d8d0819b746d0e3701fa1bb4c6"
+    },
+    {
+      "id": "hiei-zan-driveway-observatory",
+      "inputFingerprint": "57e0dcce57b82dafa82745e63845872f0e9ad1670b60addcb62efaafbd5ba36c"
+    },
+    {
+      "id": "higashi-hennazaki-cape-miyako",
+      "inputFingerprint": "6de64862c88f26bd31ada52e1e420f31f653f153dbef512625b2465eb4e37bf6"
+    },
+    {
+      "id": "hijikata-toshizo-museum",
+      "inputFingerprint": "b5ed23ab3d36fc3abe4ea62a9166c49cfe0c50c38b54caefa1264c292948eccd"
+    },
+    {
+      "id": "hikone-castle-shiga",
+      "inputFingerprint": "6d64ed95d39bb0f2561d6a2ff0a44916be158bbc7680814a857e771daa9a738e"
+    },
+    {
+      "id": "hikone-city",
+      "inputFingerprint": "72733c1fc069b0e5b591cb69b56072857c7d52b9756eb5501bcc9bb1346cdac2"
+    },
+    {
+      "id": "himeji-castle",
+      "inputFingerprint": "c285f86d3e2e7970dd393aa35a5fc49f8c0a0077ce7cf9031ff5571a5a24234b"
+    },
+    {
+      "id": "himeji-city",
+      "inputFingerprint": "e6936d8404e28aa1ee70b22649666941c52c887215f3ae5931df599c1406c830"
+    },
+    {
+      "id": "hinomisaki-lighthouse-izumo",
+      "inputFingerprint": "221f19fac91a7450f9528599d8657818da23fc938785e50ce8ae24c369d722fc"
+    },
+    {
+      "id": "hirado-castle",
+      "inputFingerprint": "ca963b84e62bc7eabd8e614115e2a9ec48eb398634481ac3b71e91eef9de0375"
+    },
+    {
+      "id": "hiraizumi-chusonji-iwate",
+      "inputFingerprint": "0ae046013cbf9d683e230fa0041bfc642ee86a39a17566a4c7a75e59e00e12a6"
+    },
+    {
+      "id": "hirosaki-castle",
+      "inputFingerprint": "bc525634686aa2a4b620f0c861488efe1f8fdf2722d3ab70e33f41a2faedb9b9"
+    },
+    {
+      "id": "hiroshima-national-peace-memorial-hall",
+      "inputFingerprint": "35bd418f401813a471a7b0b332cc37d1fc968d9c8c7c3ebbf0d6f3521910a404"
+    },
+    {
+      "id": "hiroshima-peace-memorial",
+      "inputFingerprint": "8564a74c6bf058e085e057ca45eb18b6bbf371afc022015fff384c79dacc0e4f"
+    },
+    {
+      "id": "hiroshima-peace-memorial-park",
+      "inputFingerprint": "8c96ae3b1f1e593189f50342a7d094f9199eee40bdfe0662e3fd40b49888ea10"
+    },
+    {
+      "id": "hitoyoshi-castle",
+      "inputFingerprint": "a598372e0c331ed439b13f84fb7412becc755d1064032f08f6b93e50adb37cc0"
+    },
+    {
+      "id": "hizen-nagoya-castle",
+      "inputFingerprint": "8517a23f8e7ba13e3d0ffcee6cde181fb27fa367ed99bd143b2c87d369ec7392"
+    },
+    {
+      "id": "hokki-ji-pagoda",
+      "inputFingerprint": "1c2b98c7082ad734225b01f213e2f3e564749416b6dbc0c94faed6b955380a9e"
+    },
+    {
+      "id": "hondori",
+      "inputFingerprint": "06dc2a32225532030ce9790fc7fb07b9ea762e4f06674194b4e14aeb09b9fcc2"
+    },
+    {
+      "id": "horikawa-pleasure-boat",
+      "inputFingerprint": "cad12a1a70aa560142483b24cb99ca616f6c47a4aaefedd8ec8de83d2e1aaeb8"
+    },
+    {
+      "id": "horyuji-temple-nara",
+      "inputFingerprint": "3a4ed9051751c50e80316be945e32c8a77cea4b272b3176ff0e0dba82d1ddd2d"
+    },
+    {
+      "id": "hyonosen-ushiro-yama-nagisan",
+      "inputFingerprint": "d615f2bcabf6d294c7d7043be07e9bbe9ca0eed61f45c38d0e0d9229fddcf91b"
+    },
+    {
+      "id": "ibaraki-fukuroda-falls",
+      "inputFingerprint": "1316f6cc3898b38289bad14caa48a9bd90ca84f730507115f5e02f2f0e779a81"
+    },
+    {
+      "id": "ibaraki-hitachi-seaside-park",
+      "inputFingerprint": "e3d357d00c3223d56615dba077408c9b4873554dc523474aa070df89630a0c27"
+    },
+    {
+      "id": "ibaraki-mount-tsukuba",
+      "inputFingerprint": "5771c9dcf0a460a2951d37b48b9e42a9ed7ecea1328f80608cda32f8398421a4"
+    },
+    {
+      "id": "ibi-sekigahara-yoro",
+      "inputFingerprint": "712f4cc364cd29c1818367835893db00977f768f6f16128043fc752037c73da9"
+    },
+    {
+      "id": "ichijodani-castle",
+      "inputFingerprint": "686864beb07fca40a352e0e4d02790426691e05ad504ed863cd552fc1c66d034"
+    },
+    {
+      "id": "iga-ueno-castle",
+      "inputFingerprint": "ca5d0caa129fa3a99e0d7b11b258b97c85aa6c4292f3c9580a1b8dfbea2eb8e6"
+    },
+    {
+      "id": "ikaruga-town",
+      "inputFingerprint": "04027641e8f38c2a7c2573905706e5f2f5b5e359e3ed86c2214c5091a8925954"
+    },
+    {
+      "id": "ikebukuro-toshima",
+      "inputFingerprint": "370f1ae5c6e3e64554b1722e86122960759b64d8669f1d51eb85f40d837648f6"
+    },
+    {
+      "id": "iki-tsushima",
+      "inputFingerprint": "77b2a900ce4d93f7d1113c2e850b77f1581cefb944935233f8dabe559d771e2d"
+    },
+    {
+      "id": "ikuno-silver-mine",
+      "inputFingerprint": "51218fd3f451774ee7c60c6449cbc5914f04efb636b66771d1d514568f4568ec"
+    },
+    {
+      "id": "imabari-castle",
+      "inputFingerprint": "0e78b90ea807189a23bd27724eefeb6612ea85bc4b463a49092939aa33f15a19"
+    },
+    {
+      "id": "imperial-palace-chiyoda",
+      "inputFingerprint": "771f35333ccb00948aa044548ab7afcec0c5dd2f5b3e09cb401b7fb538453170"
+    },
+    {
+      "id": "inasa-beach-izumo",
+      "inputFingerprint": "348ccc30a9203f9f5fd91bd76b67723573eb829b8a7c9ff27033f93821539a11"
+    },
+    {
+      "id": "ine-funaya-boathouses",
+      "inputFingerprint": "d3bd2353e420d3c0881cbecc132ded460ef7fd56cc33bee41031d48a3f6b11dd"
+    },
+    {
+      "id": "inujima",
+      "inputFingerprint": "1f7176dc0f395d9d7752a221c0732c6c2a9a57cedfe9757125f7cf0ddd41f313"
+    },
+    {
+      "id": "irabu-bridge-irabujima-miyako",
+      "inputFingerprint": "276d242585f64a76c936664eb2c05fb15dd75dd0fcaa8d2a4d856150939dfeaa"
+    },
+    {
+      "id": "iriomote-ishigaki",
+      "inputFingerprint": "9cb596fc0c62f6947ca185dd5746591b4a1986c98f920c27fa1451454df8312f"
+    },
+    {
+      "id": "ise-grand-shrine",
+      "inputFingerprint": "748c323abd3efb2bf24003926e5765809708ebd61be74a7d3584ff572476958f"
+    },
+    {
+      "id": "ise-shima",
+      "inputFingerprint": "4ac42a23df4673adf10aa9194483dfd9f259b134de68e5705fdbe12571e40b03"
+    },
+    {
+      "id": "ishigaki-city",
+      "inputFingerprint": "7ee7f1e082da4895e2b66ba5a6fb9309df711ba48f5ba57a281ee823189db992"
+    },
+    {
+      "id": "ishizuchi",
+      "inputFingerprint": "8ca0b01871ddd82a752643133199d75d66810e9b851d2adc0c807767ebcced77"
+    },
+    {
+      "id": "itabashi-city",
+      "inputFingerprint": "0288f818dae8bcde3c4d2f7227aa58dfbf1fa2315458728153cd6962e668e7f2"
+    },
+    {
+      "id": "iwakuni-castle",
+      "inputFingerprint": "8b6a0969b61ebc1114f5efa3da271074ae1673e4cb04161108e0fb4b2aa8a474"
+    },
+    {
+      "id": "iwamura-castle",
+      "inputFingerprint": "b581e5e416ee7b06a454104ccb1e6bca41cbaea5194a7ec53c462f3508b43323"
+    },
+    {
+      "id": "izushi-castle-town",
+      "inputFingerprint": "1b5ffdb75f97660fd549a8ee7433165ed62a89ec455ddcc7f2b226f95209533c"
+    },
+    {
+      "id": "jindai-botanical-gardens",
+      "inputFingerprint": "c08453d6e11aef97e3a9c620dc005cb4ae4b0c9acd6fc9acd073f11703f6d693"
+    },
+    {
+      "id": "jindai-zakura",
+      "inputFingerprint": "75e5873cbfd7c340eef965b0b49f87405bfa0da16b8b134d7407d874de5d83ce"
+    },
+    {
+      "id": "jindaiji",
+      "inputFingerprint": "bbdd500bff6b1537d37b17921b6af7ce55af2630a123753720ea27bf7da80b35"
+    },
+    {
+      "id": "jogashima",
+      "inputFingerprint": "5f7e0dde636e5db9991b6d6d60dcb4c9dcaf8e38f618855529437ade1ccef4bc"
+    },
+    {
+      "id": "joshinetsu-kogen",
+      "inputFingerprint": "bd00fd163a078f1ca54b8c57cdf5857caab6687a0d463e5a160182350b71b9e3"
+    },
+    {
+      "id": "joypolis",
+      "inputFingerprint": "974ac14f80012915ba0955d4e7575459775351bd04b64207d686b45bf013bf10"
+    },
+    {
+      "id": "kabira-bay-ishigaki",
+      "inputFingerprint": "4365ff2f5b69d8dbd0f177e6262ffa40347f3b2dcb93669621f5bb896ba08a0c"
+    },
+    {
+      "id": "kabukiza",
+      "inputFingerprint": "50631061d3a066d0681708f264443e28d57b872ef01ff468238c15d930f9c5ea"
+    },
+    {
+      "id": "kagoshima-castle",
+      "inputFingerprint": "de6860097aa34e57c03cebc4f7c3922326c0b3190db0f09fc1f002ce23fd9545"
+    },
+    {
+      "id": "kairakuen-mito",
+      "inputFingerprint": "92192000cdd272a9c3434249c8e3e67194adca2dd751491e35f96fa448dccb5a"
+    },
+    {
+      "id": "kamakura-city",
+      "inputFingerprint": "44dcf9899aa2ccacb49767ce16414952dd765e89304d7274eedeace93e9d80ad"
+    },
+    {
+      "id": "kanayama-castle",
+      "inputFingerprint": "68c9f544ca59fa838f6cf61837da184a9a3b18574f4c0a221ea2c6a6ddd79522"
+    },
+    {
+      "id": "kanazawa-21",
+      "inputFingerprint": "5dc73ec5474e97ca41427046904742e9d758ced828c3f89a762a1097576f7b43"
+    },
+    {
+      "id": "kannai-yokohama",
+      "inputFingerprint": "d869eacc84ff22749621b56d31d6fbf799bb2a426119cda345d9152ba47a6a19"
+    },
+    {
+      "id": "kannonji-castle",
+      "inputFingerprint": "418871b5bc47253187f84c12892f70d47e377bee5190f45fb42d8fd6dfe33c7d"
+    },
+    {
+      "id": "karato-market-shimonoseki",
+      "inputFingerprint": "8f64e2d341bb85feeec2ad9e1b14c8f7aa63891057762a9c5b700809a62d83c1"
+    },
+    {
+      "id": "kasamatsu-park-view",
+      "inputFingerprint": "3390586a8204c6df29c6ba4071d13057cc44b7d8eabea61d25b26a84d8ab3da0"
+    },
+    {
+      "id": "kashima-jingu",
+      "inputFingerprint": "89825c309eb480d08a1ba5c81132e7808b5597ce17a8a95db2917c936f2c32ed"
+    },
+    {
+      "id": "kasugayama-castle",
+      "inputFingerprint": "a72fd8d789e681e9c1cd17cdf2d4f1cf9540c46957fdca4b24666f614c685c3a"
+    },
+    {
+      "id": "kataonami-beach-wakanoura",
+      "inputFingerprint": "c585371bb9ee7b86a5240ecc1289a7f557a85139417ae46d18efd9d29ede140e"
+    },
+    {
+      "id": "katsushika-city",
+      "inputFingerprint": "dcdaae1915d56d1674ce01531e2c6577ee368d50500e7d58a64b80f65cfd214d"
+    },
+    {
+      "id": "kawagoe-castle-saitama",
+      "inputFingerprint": "cde51443f63eb8de739f0a26795d16a04b713bade562c8bd481fc89ef5730939"
+    },
+    {
+      "id": "kawagoe-city",
+      "inputFingerprint": "16cfe4aff62027e6e290e205750c79b782502f2152d84a3a6508d3882ccb274f"
+    },
+    {
+      "id": "kawagoe-kurazukuri",
+      "inputFingerprint": "e7fa98a9cb663d09ce68241886fe97bc8eb20f902f469eb1b8276a1f35289ec9"
+    },
+    {
+      "id": "kawaguchi-city",
+      "inputFingerprint": "ac532dfea24ab90f0767db7ad9643985767b62811e2ac64b487ab8fa66258148"
+    },
+    {
+      "id": "kawasaki-city",
+      "inputFingerprint": "62892a2b5f0839b9c9465e1a3b970a37eedd316d0cacc9b70051205c8464bd7c"
+    },
+    {
+      "id": "kegon-falls-nikko",
+      "inputFingerprint": "f52dbff9a0800a14b66811e4a195b28ccd8c9c64a68c7f50b73d87175396194a"
+    },
+    {
+      "id": "keio-mogusaen",
+      "inputFingerprint": "7d689dc48c334cad658b33631f8ad131b44c08fac114657b2901184228f3d788"
+    },
+    {
+      "id": "keio-rail-land",
+      "inputFingerprint": "363f7b9d872a88b8b60c80af5009b882aea2f2caa1d72114bbd2df07524685ee"
+    },
+    {
+      "id": "kenroku-en",
+      "inputFingerprint": "09f4fca563fde11bb8303c72a62855d200d19370fc47c32d55be007751a4abec"
+    },
+    {
+      "id": "kerama-shoto",
+      "inputFingerprint": "76bd4b5b5e3cb5018e3f84b0b7e207fb3910682e584ef99276bbeaff4579a895"
+    },
+    {
+      "id": "kibitsu-shrine",
+      "inputFingerprint": "a63c48ab0fb630e64583902999f680f7b1d0a7394d85924a713e264b553f2027"
+    },
+    {
+      "id": "kimii-dera-temple",
+      "inputFingerprint": "af9df2a09b87d9bd8245ec1b4628e13e115f7b4d47d8b46a7a8dde6437a1a4a6"
+    },
+    {
+      "id": "kinojo",
+      "inputFingerprint": "f2abd0b6fd1fd20d11aac7708d2089d6292dcdd15da4fe06f793d1069a5eee64"
+    },
+    {
+      "id": "kinosaki-onsen",
+      "inputFingerprint": "f482754ce168a31ad723ac2215c73cbca91cf679c170dbb89adc26cedaf923c1"
+    },
+    {
+      "id": "kinugawa-onsen",
+      "inputFingerprint": "3ec5b5026b128a4c56856bef9446d61140fbbea95a67dd00a45b226a62de377e"
+    },
+    {
+      "id": "kirin-beer-yokohama-factory",
+      "inputFingerprint": "4a3c27309e69c9e88916b80cd655e2f931b9124293f97969e5c02fe7a129937a"
+    },
+    {
+      "id": "kirishima-kinkowan",
+      "inputFingerprint": "2ba9c7cd418c3b62f29eb6a1e50e3f71e0e5b2e73ef19c380bce383736848475"
+    },
+    {
+      "id": "kisarazu-city",
+      "inputFingerprint": "64dac836ae5fac105a8dde6fef501e3f4b7149524c8f97c12af3dad2f424ce04"
+    },
+    {
+      "id": "kishi-station-tama-cat",
+      "inputFingerprint": "8720f5109e41cd178304de5d881a69b4b7c2c5a4702cb587c7decc8efeadc7e9"
+    },
+    {
+      "id": "kita-city",
+      "inputFingerprint": "8d29f5b8b1454cc966f1ddc7dfcb0ccf2fa7909b31e7cdfc7e864eee364ea7fc"
+    },
+    {
+      "id": "kita-nagato-kaigan",
+      "inputFingerprint": "5354d2e87d3b7db11c5942cc51b1686a42a482f3b9f4aadc55ab672ffe44fb42"
+    },
+    {
+      "id": "kitakyushu",
+      "inputFingerprint": "9634ba994d229ad688513a83bd8edb5dafbf73c6ce5bf01db7395e7e9837da53"
+    },
+    {
+      "id": "kitaro-chaya",
+      "inputFingerprint": "9deed38d627162cce905e44943642b0f402e6c070929d4a3bdff7a8b2ba5c4f7"
+    },
+    {
+      "id": "kiyosumi-gardens",
+      "inputFingerprint": "3877bf687578afb8cbb3eeed4d9185a462bfb4b2869c837976e88f438ec9e629"
+    },
+    {
+      "id": "kobe-city",
+      "inputFingerprint": "01f47486b0feb24174e896c44743724bedb348c1aa50db8320958dbe3abb5960"
+    },
+    {
+      "id": "kobe-maya-night-view",
+      "inputFingerprint": "4b69c4bddcc5087978d041baace0189ac3e78494f66b9341b344ea0668f63874"
+    },
+    {
+      "id": "kofu-castle",
+      "inputFingerprint": "80817fe39d7893c0f5bd1a659327354130b07c8fc85157529fe1428a1398b45e"
+    },
+    {
+      "id": "kojima-denim-street",
+      "inputFingerprint": "fb6d8192f2fbebc8552d425baccf6e1704d70bcb34fdf5a9213a75e83ab5878f"
+    },
+    {
+      "id": "koko-en-garden",
+      "inputFingerprint": "a560a5a07bd88ae313edf27a087bf765d7d1ab9f575470509877a494502b604a"
+    },
+    {
+      "id": "kokusai-dori-naha",
+      "inputFingerprint": "a8e6e544082b4a73d72a27fed526a949e3468f7aa9a984e320221243dcb71521"
+    },
+    {
+      "id": "komoro-castle",
+      "inputFingerprint": "2e48347d69d1be24ba84ed93673af812fc78b13592e9a16c27a9772aea23fdae"
+    },
+    {
+      "id": "kongo-ikoma-kisen",
+      "inputFingerprint": "08de7e1fe1a8eb0f33110261c66c9d8b7b9376759244e7ff9eaa0d591caaa8a1"
+    },
+    {
+      "id": "koshikijima",
+      "inputFingerprint": "c524a649bb8402a72b15afeae5a8669bf2638467b7af62979fd51f7794855f0f"
+    },
+    {
+      "id": "koto-city",
+      "inputFingerprint": "3ce068cc51deb76b09dd5c65ae6c34eb9246d2bfcb27604fcc6ab6ccc9917038"
+    },
+    {
+      "id": "kouri-island-okinawa",
+      "inputFingerprint": "b6acc3be61b8bde3675d04db2b14fd3b6364f5898c6a4c9ca287bc968973f457"
+    },
+    {
+      "id": "koya-ryujin",
+      "inputFingerprint": "3b3ada6c41c140111b1c0601e68f82d5b1905012b4c5ad79aa67c6d604f0c0ce"
+    },
+    {
+      "id": "koya-town",
+      "inputFingerprint": "9826861f19534d35d3766ed34fc8d1973d9bc6eb0ba4c0de459bd8ee3ae6d4b4"
+    },
+    {
+      "id": "kubota-castle",
+      "inputFingerprint": "ce2929aaae47eb819aef59f192e45cc9b391e13669114f302c0b143bf4673db3"
+    },
+    {
+      "id": "kumano-kodo-koya-wakayama",
+      "inputFingerprint": "c7a068526112bdd1ad028ead7894c56b20649f3e518c1504537737a51e418f79"
+    },
+    {
+      "id": "kurashiki-museum-of-folkcraft",
+      "inputFingerprint": "2f144c806650531884cf6a56c4a2034e25b528c52ec13d2e78766c2822ab8177"
+    },
+    {
+      "id": "kurikoma",
+      "inputFingerprint": "1dd886a2dc82e196974a441e0833e56dbbcf976134de19cbf058c3e4620a955c"
+    },
+    {
+      "id": "kuroshio-market-marina-city",
+      "inputFingerprint": "53bb8baa59c24b68c7e1e8996d2ccae67a9d04e808b9166ce66ffac41f29b7b1"
+    },
+    {
+      "id": "kusatsu-town",
+      "inputFingerprint": "ee6c4af3579503bf0e0b703921927bc5b8310e2a0a274a4682ababde452cf1f0"
+    },
+    {
+      "id": "kushiro-shitsugen",
+      "inputFingerprint": "9b035f7b0486db86b7ecf9778d3762e5880d150c2f78a08a243c065503a7d505"
+    },
+    {
+      "id": "kyoto-city",
+      "inputFingerprint": "294345d27e5dfcb1cd23cec08ddf17f18395fd32f8807cc0bd1ba9fdec396faa"
+    },
+    {
+      "id": "kyoto-historic",
+      "inputFingerprint": "e79039ce0976633cde50e49906d291c666db6be0f465ad7a854bcdac2032a475"
+    },
+    {
+      "id": "kyoto-tamba-kogen",
+      "inputFingerprint": "d576ec226e1378cf034b727b56f338bc2c5f0666b68cf5afff85e57a6a20aedc"
+    },
+    {
+      "id": "kyusendo-cave",
+      "inputFingerprint": "70879cdee5d2d36fb0136ae13da65add9936b80af6e084dc27ec2791160c21e0"
+    },
+    {
+      "id": "kyushu-chuo-sanchi",
+      "inputFingerprint": "fcd468f624436a53cc8e0bcfb3aead0a1cb5ed894e5490e8822d08f13953d813"
+    },
+    {
+      "id": "lafcadio-hearn-memorial-museum",
+      "inputFingerprint": "a21d070d2336008f5dbfabb4fcf8a8eabd7abb923e01fd9aad3332648671fd06"
+    },
+    {
+      "id": "lake-biwa-shiga",
+      "inputFingerprint": "fc5cb9f0eb188b191b3f71101592c1a5f4e60d95e0964ebef65e0dc931d672c5"
+    },
+    {
+      "id": "lake-sagami",
+      "inputFingerprint": "fb2ec38031a186e81bda3158ca047bd15a16ff3555dc25f2ed7ac259aa72aaa4"
+    },
+    {
+      "id": "machida-graphic-arts-museum",
+      "inputFingerprint": "0cfc2358a5074ac3b5d1c66bc30380d2d0bb0be6c564c2785c977169ffa00d2f"
+    },
+    {
+      "id": "machida-tokyo",
+      "inputFingerprint": "a6d8d2931b7520cb8160eec7a633e9b98c3431ecc84905484a416d989127efbc"
+    },
+    {
+      "id": "matsudo-city",
+      "inputFingerprint": "bfd3d0a79857fb8252454ce958e05e165de46a8286e0f13aa3d73788f212e49d"
+    },
+    {
+      "id": "matsue-vogel-park",
+      "inputFingerprint": "549bd686d797ee95441c524c4fb0d6ad444604cad4f036418d11c6cbd771bd6e"
+    },
+    {
+      "id": "matsumae-castle",
+      "inputFingerprint": "8e22bd06e83b8a66b2f6182b08373e8552ce83f172ddef96c65b11faeb56d18b"
+    },
+    {
+      "id": "matsusaka-castle",
+      "inputFingerprint": "221dacf2bcbd0e33ff8df85ad89cc2a208f0acee198e2690f4a315d55973259d"
+    },
+    {
+      "id": "matsushima-town",
+      "inputFingerprint": "0b32beaa1ac39edb0a80cc9b6cc4cd1e6365f873de78bc3dae74d46a737a71dd"
+    },
+    {
+      "id": "matsushiro-castle",
+      "inputFingerprint": "2b9a4350023d8abbe861d9661c1fcf41570cd1dca7db11b146989f95c95b00a0"
+    },
+    {
+      "id": "meguro-city",
+      "inputFingerprint": "c4cd3ce208a1614115edea56d91ac1d8295ce13c5ae7c1c3b7dd1cdb652c36da"
+    },
+    {
+      "id": "meiji-jingu",
+      "inputFingerprint": "8b72372b7b357497d04f4dcb0ae8c3d77dadbafc30feef1df7f5bf04b12abfcc"
+    },
+    {
+      "id": "meiji-no-mori-mino",
+      "inputFingerprint": "e17c4f07a6145e14d96f32c66aeff61158a838304f0932a86091fc4399751d7b"
+    },
+    {
+      "id": "meiji-no-mori-takao",
+      "inputFingerprint": "903d4b5342f3bf5654454bdd6325b15877c586a53e5de769ae14e73093963a31"
+    },
+    {
+      "id": "meoto-iwa-wedded-rocks",
+      "inputFingerprint": "85251e657c6db744e9871af4351a763944694ccbc2c62b58d3bfe2b5f4479bd0"
+    },
+    {
+      "id": "miharu-takizakura",
+      "inputFingerprint": "1495624583c69897c75d78f7d054332ea1ef4d9aebc09cdca42646c85cc79836"
+    },
+    {
+      "id": "miho-museum-koka",
+      "inputFingerprint": "541576b79f2f3d3f54a6f64fcac5a2aba610e5901117b65703c0f17b10aa217b"
+    },
+    {
+      "id": "mikawa-wan",
+      "inputFingerprint": "c3c33d4e5958b9572f175a5e4bffc97a155703b5c594acb2124584defc1e754f"
+    },
+    {
+      "id": "mimuroto-ji-temple",
+      "inputFingerprint": "d22711d10fc9d9317d03c615b0796e5de33edf022360dac16a8239e38b6c4175"
+    },
+    {
+      "id": "minakami-town",
+      "inputFingerprint": "451542041b1e79bfc2557841db3419747b84c15287908f8c8061612931294c6b"
+    },
+    {
+      "id": "minami-alps",
+      "inputFingerprint": "0f433366e7b53b4da07f91d38d0aff27663917a37a398e0f341d10e7832a485e"
+    },
+    {
+      "id": "minami-boso",
+      "inputFingerprint": "711009bb1e1d4212abd66b9ea6f390e130fcda65878ae5cc9d1044f20779918d"
+    },
+    {
+      "id": "minato-city",
+      "inputFingerprint": "5015d14748ad8136b37c7ba5195a7be29f7185604ca061b4ea7dd1f512911604"
+    },
+    {
+      "id": "minato-mirai-yokohama",
+      "inputFingerprint": "aaed7d2903a372db98bedf143236bb9d02373e1466af42c4dbc20891203e0723"
+    },
+    {
+      "id": "minowa-castle",
+      "inputFingerprint": "6c73bd9ac72b9f50a46fd5a620589bc929fba1c5c469538b162bb57f915aa96f"
+    },
+    {
+      "id": "mito-castle-ibaraki",
+      "inputFingerprint": "efdfa1c108fe972834bb826864e2837e82af011cb5675c8f601ebfa7f618ecce"
+    },
+    {
+      "id": "mito-city",
+      "inputFingerprint": "b884a17fcce624218cc013328808c85aa7a8f5a1e316dc0127d4b93e4488e835"
+    },
+    {
+      "id": "miyajima-gojunoto",
+      "inputFingerprint": "b7040e20bfc22704b28f5479b3c5b20e998dd70672498c794ffdd3cf32c44cf5"
+    },
+    {
+      "id": "miyajima-omotesando",
+      "inputFingerprint": "f0f096df81b9b023140261004f633cb0a54a734fde268c3854ffa1a022e5c4ac"
+    },
+    {
+      "id": "miyakojima-city",
+      "inputFingerprint": "a43a7762523fc03b558d95e09377eafe97ae6b403fd35ba972c31ee496f9d225"
+    },
+    {
+      "id": "miyazu-city",
+      "inputFingerprint": "6227b75d85ccd03b40e097a8c34d970df704f76f78d96d7ae7bc038cc855992f"
+    },
+    {
+      "id": "momijidani-park",
+      "inputFingerprint": "65de29a7f9b85d1902391590cd0547299922f50ad0c71c20d9b6950be2de887b"
+    },
+    {
+      "id": "mother-farm-chiba",
+      "inputFingerprint": "43ff1e80c22a186fe4dd4ab63a8a30706dbb81f996c0667e7e713541823a80e7"
+    },
+    {
+      "id": "motobu-town",
+      "inputFingerprint": "87a5e53c605d6f3fa2788a824f1f3dabe3f6a217682680fa67ea404e3ce67fff"
+    },
+    {
+      "id": "mount-takao",
+      "inputFingerprint": "dea1a7f09643948129da5e4ff37862b5f259ec210c670a4dda8b16c4c4185f28"
+    },
+    {
+      "id": "mount-yoshino-nara",
+      "inputFingerprint": "ab3af2a1d463b402f8878d164e1e21cbce94e69f1e2e64038154e810b94c6613"
+    },
+    {
+      "id": "mozufuruichi-kofun-osaka",
+      "inputFingerprint": "017482323702b1db1b1f263c92379de0dce77d55700b84fbcec7d9bf8189d298"
+    },
+    {
+      "id": "mukojima-hyakkaen",
+      "inputFingerprint": "72c708284c41a9b3a958f2aab897e5e901432e217896cb11bfa971b01fa0ddf3"
+    },
+    {
+      "id": "muro-akame-aoyama",
+      "inputFingerprint": "940780e47c799f75f43f406068e8a9beca78c86742f177fd2db91355f246bc42"
+    },
+    {
+      "id": "muroto-anan-kaigan",
+      "inputFingerprint": "353f5b3a84f53b4e2765764a3f7ebe5a65291aaf4d0b0e88f9da139e34436068"
+    },
+    {
+      "id": "musashi-mitake-shrine",
+      "inputFingerprint": "bd8a4ecd8d9c13941f735d9d054e006782731ea3fb4319556b3acb9d64da4ec0"
+    },
+    {
+      "id": "museum-contemporary-art-tokyo",
+      "inputFingerprint": "a77f6c7d8751a66044ec078f17ad1f6d091a4773b25ebce5f79cc16244fc02ed"
+    },
+    {
+      "id": "myogi-arafune-saku-kogen",
+      "inputFingerprint": "7f6f20a961662111a41b402f29b601cb31d3a8269328f5496ba7f7520ac4f372"
+    },
+    {
+      "id": "myoko-togakushi",
+      "inputFingerprint": "4fa7737d4a3e2bf5f502bdc9628d894ee5f629a0a2270863b6c521e4dec201e2"
+    },
+    {
+      "id": "nabana-no-sato",
+      "inputFingerprint": "63bde12a32c99711d96e837663f442e5c9055e7cd21010cba66ae9e7a58f07a5"
+    },
+    {
+      "id": "nachi-falls-wakayama",
+      "inputFingerprint": "e80e50e713297662249e3745ad29710b9cc16f09c4c810f81fa41f53dce89a3d"
+    },
+    {
+      "id": "nagashino-castle",
+      "inputFingerprint": "3421c972a79944b78f663ef8b30a83004399de46b0510d53bf705f5edc53ebf4"
+    },
+    {
+      "id": "nago-city",
+      "inputFingerprint": "6307d60c53caef8d08a0efe4fda7473ddf44e26ceec8e5df0f186b0ba56521ca"
+    },
+    {
+      "id": "nago-pineapple-park",
+      "inputFingerprint": "e2f8ff2c6c140d5514a528cbc29e92793f3a59fb6db371a14b6ca985c5ab3c03"
+    },
+    {
+      "id": "naha-city",
+      "inputFingerprint": "87479311403aacc93b51e237a019af455a6af4c08ce31a0d2553906cec87f026"
+    },
+    {
+      "id": "nakagusuku-castle",
+      "inputFingerprint": "9503a8c69c8d6465d4ecb32498eaf5e7e9c4fd8cbe9de1deb9340926a2ed3e12"
+    },
+    {
+      "id": "nakano-city",
+      "inputFingerprint": "4d597871acc8af23abdbf82d385f0ea0f3efd893d7e7f030186809850fe8798c"
+    },
+    {
+      "id": "nakanoshima-museum-art-osaka",
+      "inputFingerprint": "8d6b9ea699433a1ea471c6f272041cf99d51e70837e73112544ec5cf8fcb18fb"
+    },
+    {
+      "id": "nakijin-castle-ruins-motobu",
+      "inputFingerprint": "18ab68822349dc6f4d3e0017e8b8ff89d0d485ae9bc97b5c7283a778df24fc21"
+    },
+    {
+      "id": "naminoue-shrine-naha",
+      "inputFingerprint": "dc5928cf0a35c672461fb4dc6869ab11ce7d1e663c838914a5531edc2a054a03"
+    },
+    {
+      "id": "nanao-castle",
+      "inputFingerprint": "5738c3b3ef17a08542c7cc3764fba8f84e16d75cdbf85931488a118444418b46"
+    },
+    {
+      "id": "nanatsugama-cave",
+      "inputFingerprint": "7a3dcced08b95a025c41a68ded6d03c109c548d616df93ee286e09e73cd72eb8"
+    },
+    {
+      "id": "nara-city",
+      "inputFingerprint": "3dc4d125fea437b3d4245e48a33205821bd5b5be32d0635a8c5862d5632fc00d"
+    },
+    {
+      "id": "nara-historic",
+      "inputFingerprint": "143dc45981e9c1f95d8fb7032d5729774524ddc745ea6da1f0331d9cde44e06a"
+    },
+    {
+      "id": "nara-park-todaiji",
+      "inputFingerprint": "52e8a349a0e6b292bc462aba49d4139ef4b9c67b814775dc16899c463174d71e"
+    },
+    {
+      "id": "naramachi-historic-district",
+      "inputFingerprint": "8da0f8a09a6248dc8406a03f249a83e1c5063d13b54ff984aab74a1faa90bc8c"
+    },
+    {
+      "id": "narita-city",
+      "inputFingerprint": "0846c738b80782591f8d4c8c5eb17509684934887178959aaca6f5bba76f3128"
+    },
+    {
+      "id": "national-museum-western-art-tokyo",
+      "inputFingerprint": "c153c2f2d434d7acf00eb7d82a3a5f6c0b8a18d4ccc67d1a118a0401d9086382"
+    },
+    {
+      "id": "ne-castle-hachinohe",
+      "inputFingerprint": "b88ae399d3c19cb3ddd82c13249aa61aa95b2cbb5c8e90729cc920aa54712c1b"
+    },
+    {
+      "id": "nemuro-peninsula-chashi-sites",
+      "inputFingerprint": "9f9acf23cebb5b6670481f7de7224d1330797719a18dd005c6fad25737def540"
+    },
+    {
+      "id": "nerima-city",
+      "inputFingerprint": "f01e4c8e63783c7facfb570ab3a18864867122823223d29de13305ae6c65b6e4"
+    },
+    {
+      "id": "nichinan-kaigan",
+      "inputFingerprint": "a43167dc3cff60ea20d515b3638cc5e39d9c27b3d649a94aa914df36844ff504"
+    },
+    {
+      "id": "nichinan-kaigan-drive",
+      "inputFingerprint": "166ff617817d3f0831dea4b0aef2e60c103cab4dfcc089e086473a98095c93aa"
+    },
+    {
+      "id": "nihonbashi",
+      "inputFingerprint": "d626993eb290941897b2d7e62cab658b88c0362b285113608df06ea275e1f8ec"
+    },
+    {
+      "id": "nihonmatsu-castle",
+      "inputFingerprint": "a913276b16203d4a336e4d82ed9e5c95d4a1af0e808f40053232d9545e6bf8e3"
+    },
+    {
+      "id": "nijo-castle-kyoto",
+      "inputFingerprint": "1486d7275c48a04241f5b11f02dd3055b86cfcfd75c0a59d5f3193caa5e133d8"
+    },
+    {
+      "id": "nikko-city",
+      "inputFingerprint": "7823791dffc8e13de38520288b67533ff2abadf2bdc433951d58e28c17ba1549"
+    },
+    {
+      "id": "nikko-national-park",
+      "inputFingerprint": "59a7733cd1fa7ceb19f8f697d4bb8bcd4910b271f5eb6e83762e05ceadb7528b"
+    },
+    {
+      "id": "nikko-toshogu-shrine-tochigi",
+      "inputFingerprint": "da0f114c64e02816c64ec6af61cda1e4f5a0eb7c2d6d49eedf09e30bb76aeba9"
+    },
+    {
+      "id": "nippara-cave",
+      "inputFingerprint": "5dd6d2f6ec25cc568b2e90e9e2cda05cdf7b692a41a1e9d3c3a86ebb80c63348"
+    },
+    {
+      "id": "nippo-kaigan",
+      "inputFingerprint": "12c406c5ed9c142b8a0bc5dcc99a34b59285af83faf62b766ed7fa68da281a5e"
+    },
+    {
+      "id": "niseko-shakotan-otaru-kaigan",
+      "inputFingerprint": "f6e2cff5d166434c365662ab6049f11177918b881a4fc4c7227383ff8a2c3aed"
+    },
+    {
+      "id": "nishi-chugoku-sanchi",
+      "inputFingerprint": "c9ed440962f06b449e12c788ffac087f1803d25f10b744fb6f0e3396a63d1c56"
+    },
+    {
+      "id": "noto-hanto",
+      "inputFingerprint": "53df73f32058bb7baca601ebe02a78c7ecd0e1d8c163306b94c8a90dcdc412f3"
+    },
+    {
+      "id": "nozuta-park",
+      "inputFingerprint": "16bfce2acc932b84eb4cb6b6abac0120ebdfff6b02cdcef3fe8201b2981af0ce"
+    },
+    {
+      "id": "oarai-marine-tower",
+      "inputFingerprint": "752cfa18b699e7a6a1d1facc951255d1d7c5a1fde3bd7fd0ac913f0105777760"
+    },
+    {
+      "id": "odaiba-minato",
+      "inputFingerprint": "8f6dd55d015bf512bee5a6930c8d8e5cd4d0bd8c585945c784db86d3e149d0c4"
+    },
+    {
+      "id": "odani-castle",
+      "inputFingerprint": "6903e1e901d6c604cf476e06cb9df1458d8e812c43c6c0c52381b24462c12288"
+    },
+    {
+      "id": "odawara-castle",
+      "inputFingerprint": "b37cf56ed55cd82e6dd4a51a739f7e149d024e12a12af6755a2f96054592b4f9"
+    },
+    {
+      "id": "odawara-city",
+      "inputFingerprint": "567cf06dea7570f6e02bd8f112cd53734fc5e386c794da0574e05ab3a6da8f0e"
+    },
+    {
+      "id": "oga",
+      "inputFingerprint": "65545aa1f3016023cb35cd898554bd5cb31b0e0edb8160525db26e68610e32fa"
+    },
+    {
+      "id": "ogasawara-islands-tokyo",
+      "inputFingerprint": "9d055a482b08e33f3b2611fea871355db273e3f67ce34b85774540db162ce81c"
+    },
+    {
+      "id": "ogasawara-national-park",
+      "inputFingerprint": "8b81d38fa9d68ad80dfad5aefa2cd5da0284974efbb9def7c8bac2070ba2b34f"
+    },
+    {
+      "id": "ogijima",
+      "inputFingerprint": "f00626f31fc356a79707b89341f154eefb57a2e963b19a025e5c7c34d7421acc"
+    },
+    {
+      "id": "ohara-museum-of-art",
+      "inputFingerprint": "721a0a9b44cad46f304ccbab33338f900fafa772d65b8e4b3dbdebc8da6a4ba2"
+    },
+    {
+      "id": "oka-castle-oita",
+      "inputFingerprint": "2b278a93232a994aff9d3601c9d53f2f7544b6af97cdfbd995dd3b3038720086"
+    },
+    {
+      "id": "okage-yokocho-oharai-machi",
+      "inputFingerprint": "edc9c6758237503fe8d36c1feeddb270d23023f0e67a143d9505c80476a8f879"
+    },
+    {
+      "id": "okayama-castle",
+      "inputFingerprint": "d8da4ac93103c2b9dbf28679217c3a1eacacdb9fdc689dbaba30dcbb855a1a9d"
+    },
+    {
+      "id": "okazaki-castle",
+      "inputFingerprint": "7a11ac30efca3af1c52b1dc8779cf9bfd1cf9ae6c8c0dff47bcdbe0a8c4f4680"
+    },
+    {
+      "id": "okinawa-kaigan",
+      "inputFingerprint": "53a1366e562f37e0000757f958d63100a80138155fc427b218526b18a67e7aec"
+    },
+    {
+      "id": "okinawa-senseki",
+      "inputFingerprint": "6a16de0bb8e9d0b93bc5ca1d72c4e2afacb5da2b7388030250baf856f82538c6"
+    },
+    {
+      "id": "okinoshima-munakata-fukuoka",
+      "inputFingerprint": "092ae72d2665e12bfea5a6f40b0a941cb89b9eada8013996a5b762a354552a5f"
+    },
+    {
+      "id": "okunoin-cemetery-koyasan",
+      "inputFingerprint": "b4dbdf8fd18861eef0c5d7f8ca7e932dd2fab75b5898bc2a36abe90016f22cb0"
+    },
+    {
+      "id": "ome-railway-park",
+      "inputFingerprint": "1ff78e8bd5528a95b63b61dfc5197da9c17329d9064994b8397f6db1fe1f641a"
+    },
+    {
+      "id": "ome-retro-town",
+      "inputFingerprint": "52f23c8bfd87aa222c77a0a096ad81c30f4947242090898056ef9d66c59c6923"
+    },
+    {
+      "id": "ome-tokyo",
+      "inputFingerprint": "3564a0c3f6f9798d9e9e2b68661f59ace76e8aee2ced1a450f7a2a47edddc853"
+    },
+    {
+      "id": "omi-hachiman-canal",
+      "inputFingerprint": "1f0ebb3efdc9ad40b31a81c85912bb7065069abbcc3147913f9a99cee5abc982"
+    },
+    {
+      "id": "omishima-bridge",
+      "inputFingerprint": "a2c439922fe0e2ec0b439895a2b583208e38eed1f83fa75e09de925471cf4ac1"
+    },
+    {
+      "id": "omiya-railway",
+      "inputFingerprint": "9beb192b8b2193a94e3e90193781b1de0fac4c854f3c28758c0f7b4c85b664ed"
+    },
+    {
+      "id": "ono-castle-dazaifu",
+      "inputFingerprint": "80793c63df53f6b925da627a801c30b34598834f91fbf4a24d98525896fc6a96"
+    },
+    {
+      "id": "ontakesan",
+      "inputFingerprint": "59b471e691f401b426ca289124b973f5f56cbaaa3225531d2b0d1d7b44b98fdd"
+    },
+    {
+      "id": "onuma",
+      "inputFingerprint": "fa12fcf3b27763ae6758c6a3ec7821a3307bdb1618dc669c77cf3c5012385a60"
+    },
+    {
+      "id": "orient-museum",
+      "inputFingerprint": "0cac9a719c7cdbe7fac04a12c6850ca005e71512dd9da058da959d5d785ccf9f"
+    },
+    {
+      "id": "osaka-castle",
+      "inputFingerprint": "7d27ba29b6e02a38641f37652fa3671ae7f82a962d1c568e0abace5cffa447ae"
+    },
+    {
+      "id": "osaka-central-public-hall",
+      "inputFingerprint": "98a80d5f49b5118c93eba2852c8a67d6184d71e4100931411e882155c99e3dd3"
+    },
+    {
+      "id": "osaka-city",
+      "inputFingerprint": "292c652a8977a1718ff8aaa0e01fed67a9976b5de260f1bd5216a280c7d0ba32"
+    },
+    {
+      "id": "ota-city",
+      "inputFingerprint": "f220dc6a720f6db98fd0eb58a29f41e9259ba96b5ba3a5abaf622d8b03835e7d"
+    },
+    {
+      "id": "oze-national-park",
+      "inputFingerprint": "a6c761380820f6ce281120053889074ac8bf4ff0a9bbc09376929b1241e7d69e"
+    },
+    {
+      "id": "ozu-castle",
+      "inputFingerprint": "cb3b31571a819a69b1e93f5d9cb0c633aa66447e7f4d6f54fb082f5f20e8610a"
+    },
+    {
+      "id": "play-museum-tachikawa",
+      "inputFingerprint": "2ca795666098c52fdb7c542b90ccb796e62f18bb3b60272d873d92584aa5ae2f"
+    },
+    {
+      "id": "polar-science-museum",
+      "inputFingerprint": "23ae2fb59fb84938d7939c01f18d709045455d7acfc21758b996fec4083ddd0d"
+    },
+    {
+      "id": "raikyuji-temple",
+      "inputFingerprint": "adf67c5657326495c8ddf25ccf90db7e6bc28783cf97bd77378e51d7ea274adf"
+    },
+    {
+      "id": "rainbow-bridge",
+      "inputFingerprint": "066ddf20cc80976dea62c2f0cd180798e855e4b7d67ad116f92604cd98164caf"
+    },
+    {
+      "id": "rishiri-rebun-sarobetsu",
+      "inputFingerprint": "ca11263a6b3a0970c6985683900f3608d984643a0fbec99b8fa2e2d3e0d02e0c"
+    },
+    {
+      "id": "ritsuunkyo-viewpoint",
+      "inputFingerprint": "26f382f0908a64babcf37bb79572238c5b7235338b8a54a91b47b22a254961bf"
+    },
+    {
+      "id": "roppongi-hills-tokyo-city-view",
+      "inputFingerprint": "c733e6d645cb747bb9263d684b5fdfb582d9b5253c7764911f6bcb8c86e15657"
+    },
+    {
+      "id": "ryogoku-kokugikan-sumo-museum",
+      "inputFingerprint": "2fae7dd4d909c61b2f17bc8517cc4670902cd3b5eb6d7958bc6d4c48fcbd725b"
+    },
+    {
+      "id": "sado-yahiko-yoneyama",
+      "inputFingerprint": "f376f3f21b254f63484be711c5a99b5d005cb8ed4de4850149e50340064dd4b8"
+    },
+    {
+      "id": "saga-castle",
+      "inputFingerprint": "f1d485e1da1cfe2d1c66375e10efc5d3fc60176127a458832cb4f349219fca05"
+    },
+    {
+      "id": "sagamihara-city",
+      "inputFingerprint": "fe14ee51db1b25d5235b324d7987288e89620fa15efe20e2b879ceaf77aa63d0"
+    },
+    {
+      "id": "saigoku-33",
+      "inputFingerprint": "6249810bef7ae1554ee49f65851a87948e127d3eb31ef4fe9ef99f6c111e949f"
+    },
+    {
+      "id": "saikai",
+      "inputFingerprint": "089726fc35ed4d3c440fb19c8873cc99b514c30789c4715abaf9266c1ce73e25"
+    },
+    {
+      "id": "saitama-city",
+      "inputFingerprint": "fd15999b03d1e0e5ddc42834b683c1193ffa709de0f1586d7210616a750fd644"
+    },
+    {
+      "id": "saitama-nagatoro",
+      "inputFingerprint": "16f54c267d519774ef53f8298d16f33eba3dc2a0d315f8cc4b996c726f00c63b"
+    },
+    {
+      "id": "sakai-city",
+      "inputFingerprint": "175ea8d8f31851144e8e735c57dbe3955da99b79c51590f85c8e9a8900f75e40"
+    },
+    {
+      "id": "sakai-city-museum",
+      "inputFingerprint": "c8b7f4ed8f6f1717d4ec665fe932e30238030b09be583c054de0e6c81d8aa4a3"
+    },
+    {
+      "id": "sakura-castle-chiba",
+      "inputFingerprint": "aac181788844837f45d55eec206aacc02b21cc7cbb492b0f849d6f6900a438c9"
+    },
+    {
+      "id": "sanin-kaigan",
+      "inputFingerprint": "6a6a346ed30507a68ce1be18644387dcf7664e3f3c2443cbfe890235ca328558"
+    },
+    {
+      "id": "sannai-maruyama-jomon-aomori",
+      "inputFingerprint": "a2b57e5537f6773da7b2df3c424b294cff85b3543d054ba7956a6f6823d5f805"
+    },
+    {
+      "id": "sanriku-fukko",
+      "inputFingerprint": "bc42497d948675473dbeaab2a57191df75173d26eb98c43d12fffc4c11fc22fd"
+    },
+    {
+      "id": "sapporo-art-park",
+      "inputFingerprint": "a29c6b1f20e3eda2fb55eaa245a2d8cd6f207bf92608676c34f3cb0f565ff108"
+    },
+    {
+      "id": "sarakurayama",
+      "inputFingerprint": "0885bd0523cfee59c34f5cb04cd78b592cd1766120876d7a24524c7866e83eca"
+    },
+    {
+      "id": "saru-hashi",
+      "inputFingerprint": "c23b388bfcb3ab1c34bc817ba61b09db7d599f0fe286dfd72932ede3605e63e6"
+    },
+    {
+      "id": "sasayama-castle",
+      "inputFingerprint": "e41a6e860680ce2246336920b26d53b05be1253cbb448cfe2c65bcd9d7a76b33"
+    },
+    {
+      "id": "seiko-museum-ginza",
+      "inputFingerprint": "ff862ebba1691825e0ede549d6147582c44df4adf9c948026c9b4888cd48a51d"
+    },
+    {
+      "id": "sendai-city",
+      "inputFingerprint": "7dd0821eca138f26e87d98124724c1cb84bf5b95ee8715e2bf772d6a8bac4591"
+    },
+    {
+      "id": "senjojiki-sandanbeki-cliffs",
+      "inputFingerprint": "50eb0f13400a353d014e17618c4f5c7ac54fbb7298ebee3e57473f0f8df45c15"
+    },
+    {
+      "id": "senjokaku",
+      "inputFingerprint": "be364f1a0c3d47c0dee4d233813434fa51e55ab95f1cbb5084130b65fa03323c"
+    },
+    {
+      "id": "serigaya-park",
+      "inputFingerprint": "31aa42ca8c727de49d616263e8e7abd0a1ff9a463e32fb1ecd06e56bed88915a"
+    },
+    {
+      "id": "setagaya-city",
+      "inputFingerprint": "0443da425b27c0760d52634a421438de287e5c3cbae9f58b30b186b23f6cea00"
+    },
+    {
+      "id": "seto-ohashi-bridge",
+      "inputFingerprint": "e5faf23b204ee71e6166224140144c866727bbe346f2120ae821a931728d04c1"
+    },
+    {
+      "id": "setonaikai",
+      "inputFingerprint": "66ca82ee842b39f592ad53f32ec3ce49923d49c9d62abf5a86453b5e5a7d81de"
+    },
+    {
+      "id": "shibata-castle",
+      "inputFingerprint": "2ead9ef5bf020b7a5188bef57f50e8416cdbe8f35ea6c1672c6749ca2e06fd6d"
+    },
+    {
+      "id": "shibuya-city",
+      "inputFingerprint": "bc2c9b9c1ea4caf41170f067a6de98910abfdc35b9b71fc67c41a5e28d23b050"
+    },
+    {
+      "id": "shibuya-crossing-hachiko",
+      "inputFingerprint": "5bf0467084c55295d0ab409574bc831e22b4923c1c20870f30920fab92d4503c"
+    },
+    {
+      "id": "shibuya-sky-shibuya",
+      "inputFingerprint": "ab420876cd34952a39fde05fdd1cf1ca6141bb193e033b579efee33ce903159e"
+    },
+    {
+      "id": "shikisai-no-oka",
+      "inputFingerprint": "3c9d214a2656cb40c94d2462cf301d4c015982cd1b8d69e764c479c818ed3b26"
+    },
+    {
+      "id": "shikoku-henro",
+      "inputFingerprint": "4a5ccadbf93f2b29d05f4ab12b2e0c824621ea095e9763924aac8bfcba22dac9"
+    },
+    {
+      "id": "shikotsu-toya",
+      "inputFingerprint": "79564404b156166d1c2a4b8c6ff19563d4c4ff38d8ca3bf9c04a00bfa041c682"
+    },
+    {
+      "id": "shimabara-castle",
+      "inputFingerprint": "92f0d4ec6c0f8a435bf6db431d7b347d047e8f904365d495f194706c029bc707"
+    },
+    {
+      "id": "shimokita-hanto",
+      "inputFingerprint": "c7694e1b7449e83f6033503bc068ad1577e55de3ee24d6006be417db7f703291"
+    },
+    {
+      "id": "shin-yokohama-ramen-museum",
+      "inputFingerprint": "be9dfd6f592bfdf396860491e33d8d19e1da5cef3720061c5ce494dddba02e09"
+    },
+    {
+      "id": "shinagawa-city",
+      "inputFingerprint": "3a50e2a1a01ba5fceb38765689701df3e16174f5902130177d3a93220c73547a"
+    },
+    {
+      "id": "shinjuku-city",
+      "inputFingerprint": "05a5d971bc86f17a2133f85582e93e1a448c9c96f2c31249111ba69ca58c42ed"
+    },
+    {
+      "id": "shirahama-beach-adventure-world",
+      "inputFingerprint": "168de7e19b091a457747a7593907b2fc674b7014738047ad496ce4d49461fad6"
+    },
+    {
+      "id": "shirahama-town",
+      "inputFingerprint": "baf6ff8315f1faff0bf8fcf1391ee066f3a5157f9f9c0b3b9eb76f40b062ed52"
+    },
+    {
+      "id": "shirahige-shrine-lake-biwa",
+      "inputFingerprint": "b292d431bae64238ec2eb565bdb153c2c7b53dc5f3e2863ec72643771f997c25"
+    },
+    {
+      "id": "shiraito-falls",
+      "inputFingerprint": "b70754ec0ac22a96060a444fa477f3428c431dbda17fc2ead2e2483967bc864e"
+    },
+    {
+      "id": "shirakami-sanchi-aomori",
+      "inputFingerprint": "cc8df40eb6d839bbd2e29c1f32122abae8f9680501220957fcf617a4a849caa9"
+    },
+    {
+      "id": "shirakawa-komine-castle",
+      "inputFingerprint": "cc22384fe4e28c469463aa4121663edf77af8e11ce22a54ca9193c173ed7eeeb"
+    },
+    {
+      "id": "shitennoji",
+      "inputFingerprint": "679621dfad25c609a87b6a83cd51aecdeacb0943785b3160695a3f7cfea01aff"
+    },
+    {
+      "id": "shodoshima",
+      "inputFingerprint": "1bec17f936ca8f1188cfbb9cd17d471480ecfcbe7d83bc44f1c99ebb4ba2fb41"
+    },
+    {
+      "id": "shokanbetsu-teuri-yagishiri",
+      "inputFingerprint": "7627fdb37ff728c05745e8393f46c72a0f3e9df0e85e3d515a2f140a337b20aa"
+    },
+    {
+      "id": "shomyo-falls",
+      "inputFingerprint": "fde862dd78a2e1ba655c37cb9ffad7e04ecca57cbf29cb597f66e5b9f424ae10"
+    },
+    {
+      "id": "shoryu-cave",
+      "inputFingerprint": "55bc80badd20fa617038d2ed5c129d7b1268d17872685e05c85c5ce5c9be1f82"
+    },
+    {
+      "id": "showa-kinen-park",
+      "inputFingerprint": "1035dcf98953a6eeeb294fcdf56c5d2d547d15716d16bb3994281fca339f4f59"
+    },
+    {
+      "id": "shuri-castle-okinawa",
+      "inputFingerprint": "849366bed738ea51e3b5d7fbea1561ec4af89cc8ad83becf3398926913d55518"
+    },
+    {
+      "id": "sobo-katamuki",
+      "inputFingerprint": "580383f967ea9a9c7384927a662d11842480cdbb583e1fe269dc38605937ab24"
+    },
+    {
+      "id": "soji-ji-yokohama",
+      "inputFingerprint": "e24a848350263db65083505e274f37ac01ceae59f839c29622efc78f26f8d2ee"
+    },
+    {
+      "id": "sugamo-jizo-dori",
+      "inputFingerprint": "4535f226ab54b29593375f6e9ecd8435f54aa537e6513d439ac86d9b2f9babcb"
+    },
+    {
+      "id": "suginami-city",
+      "inputFingerprint": "cb141273ba43b030d9c3c10755782842135ee558f5bde5f7db6af81f70a9f0ce"
+    },
+    {
+      "id": "suigo-tsukuba",
+      "inputFingerprint": "c8f5107331b3eaed72acb4619b109778acea5cddfea7140a8da7086c8fc707ea"
+    },
+    {
+      "id": "sumida-city",
+      "inputFingerprint": "75b1f933d5faeace3c525046c0b02b90c18fa1700c6d87d14536d8bb1ae628fe"
+    },
+    {
+      "id": "sumida-hokusai-museum",
+      "inputFingerprint": "6c72f9e909e6e0c22e64708b1926f3f412b1541ccd941742461e04e1d1cf24f7"
+    },
+    {
+      "id": "sumida-river-walk",
+      "inputFingerprint": "4bbc2b9f7e60e065a2efb37e3ac015b43f1d2fb1a49b8be97174c7a3213a0bec"
+    },
+    {
+      "id": "sunpu-castle",
+      "inputFingerprint": "995facf3cf544fafe49945ff9c3c052c3b80b1d602657ef2aa66ac13614be2f1"
+    },
+    {
+      "id": "sunshine-60-observatory-ikebukuro",
+      "inputFingerprint": "b9430c5642daca0d99d34ae9113d745066b8245746b932715cbf18d4b2375f1a"
+    },
+    {
+      "id": "suwa-shrine-tachikawa",
+      "inputFingerprint": "233bf9a2c97363444c4ebe4f4be67faf8658bf596e6f898ed987246e84d9655e"
+    },
+    {
+      "id": "suzuka",
+      "inputFingerprint": "efc88b181b68bfe1af805d2a1190312dfb1ab9dae91659cd0332266b02c24ca0"
+    },
+    {
+      "id": "tachikawa-manga-park",
+      "inputFingerprint": "eba93e0eda9618da5d4ec02d0534b6d6ad3612e8166ced46e9c5770b76938fc0"
+    },
+    {
+      "id": "tachikawa-tokyo",
+      "inputFingerprint": "9279e099dfd6f6c83dc90ae18e51458957a5b53cd18c6512093c59c5ca8a169c"
+    },
+    {
+      "id": "taga-castle",
+      "inputFingerprint": "2dac130e45e99efe4a091dbe40a6e8e1b281b630f10baee439634e7f23db2e60"
+    },
+    {
+      "id": "taito-city",
+      "inputFingerprint": "7d966ac1308433cc325c2eb07dc500ed426c3be7b4a7df1dbb66b6b7da5f2a7e"
+    },
+    {
+      "id": "takahata-fudoson",
+      "inputFingerprint": "427368a2d176b1a4e97f721b68ba5e587bf7ff898f8fd5dd8a30363b8bf86108"
+    },
+    {
+      "id": "takanawa-gateway-minato",
+      "inputFingerprint": "8fa461dc61a8bb1d32e193aecb5cd4f43edd357808fc32501a21f3bc71e1ee7b"
+    },
+    {
+      "id": "takao-599-museum",
+      "inputFingerprint": "ac60f0b87439f89aea8f5f4fe2b00d20ea38e10359b18b8ba9ddfa967eb324d5"
+    },
+    {
+      "id": "takaoka-castle",
+      "inputFingerprint": "fe08f7286b4fcfcd697fd4064ec3b7d8d92567c2c260174af5bb24754603b09d"
+    },
+    {
+      "id": "takaoka-daibutsu",
+      "inputFingerprint": "8f7ab5ad30a901a909a01db899034d230bae44a44654f60f73ef27221ec60783"
+    },
+    {
+      "id": "takaosan-yakuoin",
+      "inputFingerprint": "52e382e437af4ecf0255a296d512930f87580b239421d7a7c45b38ee200baa2b"
+    },
+    {
+      "id": "takatori-castle",
+      "inputFingerprint": "ab4184927e04c1c82b9533b4a8ba3b060b0bc10c35ba749519e11902658f061a"
+    },
+    {
+      "id": "takayama-sanmachi",
+      "inputFingerprint": "6f0ad0bf981964b0f8fcaea0dd177673462d127dc3af3ea09c970768706e6391"
+    },
+    {
+      "id": "takeda-castle-ruins-hyogo",
+      "inputFingerprint": "9a3fa40112292e7bb02c080a20a36bd558e7fc2ab633c26a982b5a1bf4d3f915"
+    },
+    {
+      "id": "taketomi-island",
+      "inputFingerprint": "0842200128c06dfa8ff76ad5013d9fc99cb07d8b979a22e443ccbf86bd1521d7"
+    },
+    {
+      "id": "tama-forest-science-garden",
+      "inputFingerprint": "17ed49d8bb661558d09da9fd3724f4f3c1c58b8d2eae852922caa502607e2670"
+    },
+    {
+      "id": "tama-zoological-park",
+      "inputFingerprint": "7d304134babf01e359e5c69e2c18b57a63846975f2e64b48c8dea9e35a3690c4"
+    },
+    {
+      "id": "tamatorizaki-viewpoint-ishigaki",
+      "inputFingerprint": "83ebc799535ef7ecb8a8a2a4238d77da9d222fb387a865fb0f7bf5c1491548fe"
+    },
+    {
+      "id": "tanabe-museum-matsue",
+      "inputFingerprint": "bf2bc8d9c179995f902cab8fd0149ccae5e8d0dd29e3681dc8e6ec626ff2f77e"
+    },
+    {
+      "id": "tango-amanohashidate-oeyama",
+      "inputFingerprint": "8b6c25c77a04031a01b84319279f00cdaa9f01fe47ece944947949755d9c4816"
+    },
+    {
+      "id": "tanzawa-oyama",
+      "inputFingerprint": "5500a0248b0433a439cb8818d18aa9b93b7f647d131730145e8d38a93e610158"
+    },
+    {
+      "id": "teamlab-borderless-azabudai",
+      "inputFingerprint": "76d152b001f84c12daab4c266f61942bd4bff80480240874ab2915e0a7d5acf7"
+    },
+    {
+      "id": "teamlab-planets",
+      "inputFingerprint": "630f3223cfaeb336da9396999070eb4af646cd3a435874b50e3da10fd62be647"
+    },
+    {
+      "id": "tenryu-okumikawa",
+      "inputFingerprint": "c475ef12cd2402fc9d2cc5d5573263b69320c552246710f9444c9e059691af45"
+    },
+    {
+      "id": "tokiwaso-manga-museum",
+      "inputFingerprint": "363cc0192b65b2fe0a9c5db1cff708dc9655fb6566ffa7195d67df1b8e548913"
+    },
+    {
+      "id": "tokorozawa-city",
+      "inputFingerprint": "d2e0d773150b27a17dd2577176415f8fd58870032cdd3a8f266a03f679b52bc2"
+    },
+    {
+      "id": "tokushima-castle",
+      "inputFingerprint": "657baa4619737f2baa2103c27698fd974adb54f6f8c3a792bb8f95956e346174"
+    },
+    {
+      "id": "tokyo-hinohara",
+      "inputFingerprint": "0e95dec4e1fc66218356f8db8c79f9504a6c0a2838c8d480b2e3cd8191c726f6"
+    },
+    {
+      "id": "tokyo-metropolitan-government-building-shinjuku",
+      "inputFingerprint": "6649b23ab01c5de67c9530b14e652cdd6ff4585d8a0c7f7652e2943ff8e06382"
+    },
+    {
+      "id": "tokyo-mt-mitake",
+      "inputFingerprint": "8921f9a09643ffc83e07999c14de9f81e37f44307102b2e3ce1851d89f6a132c"
+    },
+    {
+      "id": "tokyo-okutama",
+      "inputFingerprint": "1bf9907fa3b4522d6d746c84f0e26e6e3949fa19bd3c4f4a9f66983a717f18c3"
+    },
+    {
+      "id": "tokyo-skytree-sumida",
+      "inputFingerprint": "cdadf3f558fd794c706f95124e7377fc883c9048d39d960076c6a994fe92c0f0"
+    },
+    {
+      "id": "tokyo-station-chiyoda",
+      "inputFingerprint": "72ff03c863d860bcc0a03f2d40420aa85c5ee89e1aa900a298a8e9ec0dec2aed"
+    },
+    {
+      "id": "tokyo-tower-minato",
+      "inputFingerprint": "17664768023915098080b81d2ba9bfbc5315309d2dd77fefc46da9dde69df82a"
+    },
+    {
+      "id": "tomioka-silk-mill-gunma",
+      "inputFingerprint": "0be4e12bb13643e48ea25d3c1a041473da3f2276e4c9d59ab70715863bd1c81a"
+    },
+    {
+      "id": "tomogashima-islands",
+      "inputFingerprint": "d3e37b1ec5c0e6c5d9c1917779af035ab1364c36fa9c96731811d6bf00bdf466"
+    },
+    {
+      "id": "toshima-city",
+      "inputFingerprint": "ec1bbe4ad6f035008250eee6bc7ef8d56909b1a716bd75943e56a7413ba291e3"
+    },
+    {
+      "id": "toshodai-ji-temple",
+      "inputFingerprint": "8079fb368a20a05f59b342dbea73ec818293b5374e1a69c9744c93572c73a0d6"
+    },
+    {
+      "id": "tottori-castle",
+      "inputFingerprint": "5e9139eb8e57fc99046f916c5bbd893ced7c3bbd383a3648ebc8a0b8e29b5552"
+    },
+    {
+      "id": "towada-hachimantai",
+      "inputFingerprint": "261670cd2ee422ecae1d75efe7e443e210c6c5ff9f867712f47fbd07a24e58e5"
+    },
+    {
+      "id": "tsugaru",
+      "inputFingerprint": "145994bc6b50606265d36e0ecdfc7fa099e4aca9dbc414b511b07e7ed0f00c0b"
+    },
+    {
+      "id": "tsukiji-outer-market",
+      "inputFingerprint": "dbb0575e9eade5e34706405ba5a95726156d3a9fbd559c2569a5953ac9edc2ae"
+    },
+    {
+      "id": "tsukuba-city",
+      "inputFingerprint": "3dd5ee7006a31e68e3d1fbe65c4ac343c45156ae3b15b12b8e19933fc4e30e88"
+    },
+    {
+      "id": "tsurugisan",
+      "inputFingerprint": "2555798266557424bd0307921cea2332deda685821899b4c57ce881d910ed334"
+    },
+    {
+      "id": "tsuwano-castle",
+      "inputFingerprint": "b2cd5231ee36f650228f358d741d4e3e306b66b2dee6f11c126958aff073a315"
+    },
+    {
+      "id": "tsuyama-castle",
+      "inputFingerprint": "7b0eaabf27b033911b4951ae70cd5898e5d8754abfe3246cd147b47b298c1533"
+    },
+    {
+      "id": "ueno-taito",
+      "inputFingerprint": "742b1ffe927b0d69072e16f8bfdb6fa5efe5c329db5d3330efe5db19f9d01a2e"
+    },
+    {
+      "id": "ueno-zoo",
+      "inputFingerprint": "ab24fc3de1a03cf78da2e0214f3f56a5e7461e9b39aa8df9082a5833b5bdf8cb"
+    },
+    {
+      "id": "uji-city",
+      "inputFingerprint": "dfc29c9c4bd1eea94e52d75c4a9ed3b71c0e059d8ff15c174cf3503d43653220"
+    },
+    {
+      "id": "uji-tea-culture-center",
+      "inputFingerprint": "bedfef36f8bd349bd1c6d2b263c94ad4c4ff436cbab41fc0bdd4717b0e6cf187"
+    },
+    {
+      "id": "ukimido-mangetsu-ji",
+      "inputFingerprint": "ded04ffc8a4ed67962f3ab0a700a85919e25a0b24c47743b9a70c2cc0cd14143"
+    },
+    {
+      "id": "unzen-amakusa",
+      "inputFingerprint": "045eb3af990f17741678241a629c6507cb5ff1cd6c4cefeb209cfcbd935f6e2d"
+    },
+    {
+      "id": "uradome-coast",
+      "inputFingerprint": "f6a4ff127df5b5618172b49aaa9e9ea90453af394d9a849d2280ebf6dcd5af24"
+    },
+    {
+      "id": "urayasu-city",
+      "inputFingerprint": "4589342abd3d61364ce745e26894575743079b8b63448ceb745f973dfe5b4ef5"
+    },
+    {
+      "id": "ushiku-daibutsu",
+      "inputFingerprint": "9f6c78269c6cbf9cc639f41aa8071b0e2d11458ef02523948a7b356faffa48f7"
+    },
+    {
+      "id": "usuzumi-zakura",
+      "inputFingerprint": "3a0253dcc1feede83106ad75b46fbda8203474cf38af8ea3be0d8f240853d2bb"
+    },
+    {
+      "id": "utsunomiya-city",
+      "inputFingerprint": "bab0e4604d4e74b5a51c3febaf5383651db3ff9147843e87b6eccad007dead94"
+    },
+    {
+      "id": "utsunomiya-oya",
+      "inputFingerprint": "6e203f8d2d65438b2647c28a911c2e1b256f28909434351b1e4f48cadd44660b"
+    },
+    {
+      "id": "wakakusayama",
+      "inputFingerprint": "74a6d2856215a9f3a6ef90041a7fd8f31e6b5d9d6fe11ffd07270ce7dde9872e"
+    },
+    {
+      "id": "wakasa-wan",
+      "inputFingerprint": "6ec1b451d07b46ec8fd23087cd518ce674c48757599d97fdf4365afa87592418"
+    },
+    {
+      "id": "wakayama-castle",
+      "inputFingerprint": "cfe84d6acb0b3dd9b5e78fa015672e074676e2316a80949c6bb483dfc6cb6ec3"
+    },
+    {
+      "id": "wakayama-city",
+      "inputFingerprint": "28443bb86a4daffa3b526c6c84cc7ce6fb25379d6bfd1ff85a00d8d586876fc1"
+    },
+    {
+      "id": "yaba-hita-hikosan",
+      "inputFingerprint": "f54963f5463afaf90c3f3491908ef9fac0cfc36ae4ec4dc892ebec953711fbf9"
+    },
+    {
+      "id": "yakushi-ike-park",
+      "inputFingerprint": "ba0126ecda839f9511afda9d2c2d86e676366508a3ed1f483fd34dfd0329735d"
+    },
+    {
+      "id": "yakushi-ji-temple",
+      "inputFingerprint": "096b05ab8b89cbc8a951b7a5bd26121a5e9e3385439bb28b875a7de0ddb8524e"
+    },
+    {
+      "id": "yakushima-national-park",
+      "inputFingerprint": "d8236fefcfc60fbacd35f7153ca7cc5dcaf9e4e30f47a3d23a7552e3b060a36e"
+    },
+    {
+      "id": "yamagata-castle",
+      "inputFingerprint": "ff9c8614730c2c10b56e3b7b48d9f0db91ffb45a5fa536be6c049d976f9a9618"
+    },
+    {
+      "id": "yamanaka-castle",
+      "inputFingerprint": "bb51025a62c2ac749e259858b5da00ea33b682fdead3b74ee829d949467c9306"
+    },
+    {
+      "id": "yamashita-park-yokohama",
+      "inputFingerprint": "180f89c530656bf97d7fb2a922720727e94635c9668087d7af64e85ccdf181c2"
+    },
+    {
+      "id": "yamato-aogaki",
+      "inputFingerprint": "4d1a4b4e36969ffbd57db6dfbe7716752b34e9aab4b78d0c8b8e05042542ad3b"
+    },
+    {
+      "id": "yambaru",
+      "inputFingerprint": "a27e5cf85ab42bc29fdb08662d9502b9f9e0ca0c7b0b7d25d51829080c2552fb"
+    },
+    {
+      "id": "yatsugatake-chushin-kogen",
+      "inputFingerprint": "e61e843671b67daada5322e7a5c75faea40d4c027f35b708dbe06a3be49ad228"
+    },
+    {
+      "id": "yokohama-chinatown",
+      "inputFingerprint": "e1691a39d46621bf9215810f2802f1ff1c16fb7ae6770b6e57da2e55430d7ce5"
+    },
+    {
+      "id": "yokohama-city",
+      "inputFingerprint": "211170c094e5418137aa10fc7f11c0d489ba9217427a1d3316b3f61c853f78ec"
+    },
+    {
+      "id": "yokohama-cosmo-world",
+      "inputFingerprint": "69d6c0e98b63f7d36c3816739c1c04860213ef62ca9e719db0ec115f30d2b384"
+    },
+    {
+      "id": "yokohama-marine-tower",
+      "inputFingerprint": "8abfec8647bed86d8c17418b97f8f28425bbdb1f159abed8a9680b96a97a0736"
+    },
+    {
+      "id": "yokohama-red-brick-warehouse",
+      "inputFingerprint": "8b63b818aa349b3b111b5d5392bc15ab366e71911788846a7434321aa4880e84"
+    },
+    {
+      "id": "yokohama-zoorasia",
+      "inputFingerprint": "62281d0881c58da8d2df17f06bbef2c7a368e87252cb13bd6b834ca687ecd931"
+    },
+    {
+      "id": "yokosuka-city",
+      "inputFingerprint": "8a8bad22aadc91221d655a88a0903f094336ed0fd51219d8a9f4f4d90cb3e530"
+    },
+    {
+      "id": "yomiuriland",
+      "inputFingerprint": "048923d4aa48e8c6fffd7b037a401a1e8e13126869c87fce848bc92bdfb5f248"
+    },
+    {
+      "id": "yonaha-maehama-beach-miyako",
+      "inputFingerprint": "798b6338c67e8ee55e809091d561d7ff2757ee9824b29864a2b761d7203e78c3"
+    },
+    {
+      "id": "yonehara-beach-coral-ishigaki",
+      "inputFingerprint": "dc7fd1e836631ca8092d36bac56ee92bdb30d0a3e69c5c43502ba75b215f58dd"
+    },
+    {
+      "id": "yoshida-koriyama-castle",
+      "inputFingerprint": "4b83129d3a35d101606f29d3efed9f911b89b7215d4fd8407bd2736a097561a6"
+    },
+    {
+      "id": "yoshino-kumano",
+      "inputFingerprint": "b0c58467d0d3fd41003aae7ba80254bc552e9a11fd76ee4adadac556904ae790"
+    },
+    {
+      "id": "yoshinogari",
+      "inputFingerprint": "ab9104069cd7660a837c68103c61201249dc86abab4b52bcd40af4604364cdc6"
+    },
+    {
+      "id": "yoyogi-park",
+      "inputFingerprint": "00728ed966f431947e32b9a552b35642a029280cd74c72a4ce22b260cc3e00aa"
+    },
+    {
+      "id": "zao",
+      "inputFingerprint": "072aa825d4d1ad2093ac8a1083b498e4db5a5ef9be016de2ce6ffd374b8835dd"
+    },
+    {
+      "id": "zoshigaya-kishimojindo",
+      "inputFingerprint": "00bd9bb5618c8c0f30cfda4e568a336ca0fed7322a857cce6626ce68a044b9b8"
+    },
+    {
+      "id": "zushi",
+      "inputFingerprint": "5416eb16eb1dc539d9772c94e603fde7dfa644ba666c8db27b40bcb5391dd88e"
+    }
+  ]
+}

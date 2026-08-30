@@ -199,5 +199,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_itself"
-  }
+  },
+  "wikipediaTitle": "Tokyo Station",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokyo_Station",
+  "wikipediaPageId": 364805,
+  "wikidataId": "Q283196"
 }

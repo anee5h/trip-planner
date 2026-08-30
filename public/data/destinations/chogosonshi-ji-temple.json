@@ -152,5 +152,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "朝護孫子寺",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%9C%9D%E8%AD%B7%E5%AD%AB%E5%AD%90%E5%AF%BA",
+  "wikipediaPageId": 216985,
+  "wikidataId": "Q11092571"
 }

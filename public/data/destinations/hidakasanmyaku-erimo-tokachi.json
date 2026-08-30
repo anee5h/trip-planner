@@ -182,5 +182,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Hidakasanmyaku-Erimo-Tokachi National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Hidakasanmyaku-Erimo-Tokachi_National_Park",
+  "wikipediaPageId": 16256790,
+  "wikidataId": "Q993914"
 }

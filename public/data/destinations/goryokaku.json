@@ -174,5 +174,10 @@
     "detail": "Canonical arrival Shin-Hakodate-Hokuto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "五稜郭",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
+  "wikipediaPageId": 10577,
+  "wikidataId": "Q1196357"
 }

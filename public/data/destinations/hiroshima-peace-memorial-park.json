@@ -197,5 +197,10 @@
     "detail": "Canonical arrival Hiroshima Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Hiroshima Peace Memorial Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Hiroshima_Peace_Memorial_Park",
+  "wikipediaPageId": 4910965,
+  "wikidataId": "Q1207208"
 }
