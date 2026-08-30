@@ -5,7 +5,7 @@ import { expect, test } from "./fixtures";
  * Uses the public Abashiri record (canonical fixture used by kai-68).
  */
 
-test("Destination details render hero, tabs and cost breakdown", async ({
+test("Destination details render hero, tabs and cost breakdown for sparse destinations", async ({
   page,
 }) => {
   await page.goto("/destinations/abashiri-city");
@@ -26,6 +26,15 @@ test("Destination details render hero, tabs and cost breakdown", async ({
   await expect(
     page.getByText("On-site budget (transport excluded)", { exact: true }),
   ).toHaveCount(0);
+  // Sparse fail-closed destination has no discovery rails
+  await expect(page.locator('section[data-section="top-sights"]')).toHaveCount(
+    0,
+  );
+});
+
+test("Rich destination details render discovery rails", async ({ page }) => {
+  await page.goto("/destinations/kyoto-city");
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.locator("[data-rail]").first()).toBeVisible();
 });
 

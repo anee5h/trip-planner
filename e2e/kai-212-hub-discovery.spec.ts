@@ -142,20 +142,27 @@ test.describe("KAI-212 discovery-first hub hierarchy", () => {
     ).toBeLessThanOrEqual(page.viewportSize()?.width ?? 1024);
   });
 
-  test("keeps partial hubs on the available top-sight fallback without inventing explore rails", async ({
+  test("fails closed for hubs with zero valid sights without inventing discovery rails or substituting peer cities", async ({
     page,
   }) => {
     await waitForHub(page, PARTIAL_HUB);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+      "Abashiri City",
+    );
     await expect(
       page.locator('section[data-section="top-sights"]'),
-    ).toHaveCount(1);
-    await expect(
-      page.getByRole("heading", {
-        name: "Top Sights in Abashiri City",
-        exact: true,
-      }),
-    ).toBeVisible();
+    ).toHaveCount(0);
     await expect(page.locator('[data-section="explore-rails"]')).toHaveCount(0);
+    await expect(page.getByTestId("destination-at-a-glance")).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Plan your visit", exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Before you go", exact: true }),
+    ).toBeVisible();
+    const pageText = await page.locator("body").innerText();
+    expect(pageText).not.toContain("Hakodate Night View");
+    expect(pageText).not.toContain("Mount Hakodate");
   });
 
   test("keeps the new hub hierarchy free of English heading leakage in Japanese", async ({
