@@ -1,9 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "scope": "kai-256-wikipedia-phase4",
   "stage": "B",
-  "manifestFingerprint": "575e5165bf750f75e6892f09c9d3317a6c0fbc6def0d6ee74d8aefc676e2a099",
-  "phase4CacheFingerprint": "48c67b221b7c6d21bc3302c13e07908f36cbe899878043192494f2d6ee98cbb6",
+  "manifestFingerprint": "0a58672088f73af3c13c344cbb5420986da057b29197e762d004e7ec1a39456b",
+  "phase4CacheFingerprint": "1ba94ec7c4544a4a6504587cda25fc26e5d20d803d7edf0327ca501ff1d23182",
   "baseline": {
     "publishedDestinations": 732,
     "startingCanonicalWikipediaIdentity": 444,
@@ -1046,7 +1046,7 @@
     {
       "id": "abeno-harukas-300-osaka",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint d161984f9eee5e42aab35750f13abf424a3dd7967849295b7887b977180e6993; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies a three-story glass observatory within the Abeno Harukas skyscraper; this record is an internal observatory subfeature rather than an independently represented POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 478d0be1364f26091ede3c9be6b72ee3ccab202b4b3f894ff6a26d45f619e1f4; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies a three-story glass observatory within the Abeno Harukas skyscraper; this record is an internal observatory subfeature rather than an independently represented POI.",
       "candidateCount": 0
     },
     {
@@ -1112,7 +1112,7 @@
     {
       "id": "fukuoka-yatai",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 479a90232ffc72d209f583948d517a20da7d483b6890196f07bd80cb9c44e316; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description says more than 100 food stalls open around Fukuoka; this is a dispersed collective/mobile-stall concept, not one independently named physical POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f1eed29dcb1b64127885989db12addec9d0faa475ee1ac2bfe130268cd6accc1; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description says more than 100 food stalls open around Fukuoka; this is a dispersed collective/mobile-stall concept, not one independently named physical POI.",
       "candidateCount": 0
     },
     {
@@ -1136,7 +1136,7 @@
     {
       "id": "harajuku-takeshita-street",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0b10c92f0ab5a475d0712fd2549295a760321e2ebc0df468b8c590f00dd2755f; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name explicitly combines Harajuku and Takeshita Street and the record is a destination-hub grouping; the two named urban areas are not one independently named POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 19cc1fc42fa39e82361cea9258cdfb3f78e05d7329fca62705d02d1474a637d9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name explicitly combines Harajuku and Takeshita Street and the record is a destination-hub grouping; the two named urban areas are not one independently named POI.",
       "candidateCount": 0
     },
     {
@@ -1154,7 +1154,7 @@
     {
       "id": "hiei-zan-driveway-observatory",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 896f9d40b36b9b48a013ecbf9d59bae82019514d581bed37d665cef6cbdf0232; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name and description explicitly combine a scenic toll road with the Yumemi-ga-oka observatory; the observatory is a feature of the road experience, not the combined record's standalone entity.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 3a2bda466674a2329c3daefad7c98dc074d676020370c5687f9e7b5fbf976079; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name and description explicitly combine a scenic toll road with the Yumemi-ga-oka observatory; the observatory is a feature of the road experience, not the combined record's standalone entity.",
       "candidateCount": 0
     },
     {
@@ -1220,7 +1220,7 @@
     {
       "id": "jogashima",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0c86f013afd821234491e8acd666050fdfb12b1058c74aa7745d8fd7faf62d37; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines the Miura Peninsula and Jogashima, while the description presents a regional island/peninsula experience; it is a synthetic area grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 6397b23cc6f1e3f08c2af0a1efae0d8bb9c02f8d1a1850067f33587e47c95072; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines the Miura Peninsula and Jogashima, while the description presents a regional island/peninsula experience; it is a synthetic area grouping.",
       "candidateCount": 0
     },
     {
@@ -1244,13 +1244,13 @@
     {
       "id": "kataonami-beach-wakanoura",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0dbfd759a05b075d98e61d1073f2e93cbb003d9890671a8620ff9d92b689364a; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Kataonami Beach and Wakanoura Bay, two named coastal features, so the record does not correspond to one independently named POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 65cdf4bce6c29d6750687ec8833e4fc30d5fa8b774eac06d618aaf02b7e394c9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Kataonami Beach and Wakanoura Bay, two named coastal features, so the record does not correspond to one independently named POI.",
       "candidateCount": 0
     },
     {
       "id": "kawagoe-castle-saitama",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 8c921dcaab737273763446cfcbe86de84aaf9443e149606e10c8ed692a21dba1; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies Honmaru Goten as the surviving main palace building within Kawagoe Castle; this is an internal castle sub-building.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 9b95fd7ce9937a0f9d2d10a81b059306448eeb2361be1e59ff12d3ca124e33d1; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies Honmaru Goten as the surviving main palace building within Kawagoe Castle; this is an internal castle sub-building.",
       "candidateCount": 0
     },
     {
@@ -1304,25 +1304,25 @@
     {
       "id": "kokusai-dori-naha",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint bafa2cad1cef53f760830ce3acd6b285232d954127d6ca0f29322b84e0d64fd9; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name explicitly combines Kokusai-dori and Makishi Public Market, separate named street and market destinations, so the record is synthetic.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 8fc5620c14ef636b1d4f47ce4dab0b0123980ebd4fd4969862a3e099accf6cd3; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name explicitly combines Kokusai-dori and Makishi Public Market, separate named street and market destinations, so the record is synthetic.",
       "candidateCount": 0
     },
     {
       "id": "kouri-island-okinawa",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 6c080c2bfce22cdb768748f9579f1cc1c0aaef8fdd8fa7282742d53edcbdc8a7; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Kouri Island and Heart Rock beach; the record groups an island with a separate rock feature rather than naming one standalone POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint a058f694bf6e18354aa8db79ca917bc7a496575e390eefb68fece2e6d7ce2b65; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Kouri Island and Heart Rock beach; the record groups an island with a separate rock feature rather than naming one standalone POI.",
       "candidateCount": 0
     },
     {
       "id": "kuroshio-market-marina-city",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 121754da0ee4345110e027a0cb3ee525b127449ce8a9ffde49f3df29b6e291f0; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name pairs Kuroshio Market with Wakayama Marina City and the description identifies the market as a feature of that complex; this is an internal/complex grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f8fc2899dcb312d7cccb7f3f9c1d1a4fb6fde1ac04933f97b29065338cdcb359; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name pairs Kuroshio Market with Wakayama Marina City and the description identifies the market as a feature of that complex; this is an internal/complex grouping.",
       "candidateCount": 0
     },
     {
       "id": "kyoto-historic",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 4eb475c0d970b06e5eab2900b045c0c9807d751aafd73d3ccbc488bd3a36fea3; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly calls this a legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group and directs users to individual destination records; it is a synthetic heritage grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint bad8a64068041215fb0d0880728222b26b15921ade01b11ed12752077a03686d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly calls this a legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group and directs users to individual destination records; it is a synthetic heritage grouping.",
       "candidateCount": 0
     },
     {
@@ -1388,7 +1388,7 @@
     {
       "id": "naminoue-shrine-naha",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint f8ed01312822774fa2484d3e562a7d10e224165572e9bea60818dffdc6d2e303; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Naminoue Shrine and Naminoue Beach, distinct shrine and beach entities, so the record is not one independently named POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 4a56b92546f5102f4fb48dfda45c8b44547bcb433152ea09137bbaf35d7f810d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Naminoue Shrine and Naminoue Beach, distinct shrine and beach entities, so the record is not one independently named POI.",
       "candidateCount": 0
     },
     {
@@ -1406,7 +1406,7 @@
     {
       "id": "nara-park-todaiji",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint acc45de07123af8a7b426c06faa4d1eaed87d0ed228454716d58e0f40da7180c; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Nara Park and Tōdai-ji and the description describes the park housing the temple; these are distinct physical entities in one synthetic record.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 6c81b0a776b89b6ddb5e764be28c26373afad6bcb891723ced8912ddf67b6ac0; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Nara Park and Tōdai-ji and the description describes the park housing the temple; these are distinct physical entities in one synthetic record.",
       "candidateCount": 0
     },
     {
@@ -1448,7 +1448,7 @@
     {
       "id": "okage-yokocho-oharai-machi",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 673f009da0e4179faf07685762102ac3f08977df8f5d2461a49b31a4e565c094; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Okage Yokocho and Oharai-machi, two named historic merchant streets/districts, rather than one standalone entity.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint a4ab8c2c6465d124cd1cf91be36e22026d9127569bc951272306d65539627e15; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Okage Yokocho and Oharai-machi, two named historic merchant streets/districts, rather than one standalone entity.",
       "candidateCount": 0
     },
     {
@@ -1514,19 +1514,19 @@
     {
       "id": "roppongi-hills-tokyo-city-view",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 2c52b30deb8c18a82c5ddef482f2a0c0526c3d7bea4e25c7eea8ea7fa5e76550; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies an indoor/outdoor observation deck on the 52nd floor of Roppongi Hills; this is an internal deck subfeature of the complex.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 7dd536a758c3defc6250680c47d84c1c37160c3f92ad3056b8c814bf5521ae0f; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies an indoor/outdoor observation deck on the 52nd floor of Roppongi Hills; this is an internal deck subfeature of the complex.",
       "candidateCount": 0
     },
     {
       "id": "ryogoku-kokugikan-sumo-museum",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 574d39492f17b216601dd1f96fe736450cf3f3e83f0b0321df3e0b4199a21431; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly combines the Ryogoku Kokugikan arena with its on-site Sumo Museum; the record groups two physical entities.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 814b91398089ba6e0548b509176f0bb6f69c4a5ecf0ef394516c1263240e999e; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly combines the Ryogoku Kokugikan arena with its on-site Sumo Museum; the record groups two physical entities.",
       "candidateCount": 0
     },
     {
       "id": "saigoku-33",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint bd559dba008b3ed34834d535762714dc22fc32a8a79055db51ec699538b54740; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies a 33-temple pilgrimage spanning Wakayama to Shiga; a multi-temple route is not one standalone POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 386305513dbf22a1e4384ee86d7ad1d12fef35c5106371a6849b55dc5e690416; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies a 33-temple pilgrimage spanning Wakayama to Shiga; a multi-temple route is not one standalone POI.",
       "candidateCount": 2
     },
     {
@@ -1562,7 +1562,7 @@
     {
       "id": "senjokaku",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 97d58b7e97592ff865da716af2e4eb1c04021a5b8be54dc75244dffb184d1762; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name identifies Senjokaku with Toyokuni Shrine and the description identifies it as a hall managed by the nearby shrine; this is a sub-building/complex relationship.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint ea7c3c6ae416880323003898c342a6afc140d70025d0eff5170c47e837bf7736; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name identifies Senjokaku with Toyokuni Shrine and the description identifies it as a hall managed by the nearby shrine; this is a sub-building/complex relationship.",
       "candidateCount": 0
     },
     {
@@ -1574,7 +1574,7 @@
     {
       "id": "shikoku-henro",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 4bc4b67db9a9537a08149d12f0cef4ef3cf6966136e7daf78f67e32045246b49; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies a 1,400 km circuit of 88 temples; this is a pilgrimage route, not one standalone POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 66ad41f92b6b14a476b7682231999bf401eb09d0b85a21d23cb2f94094e445eb; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies a 1,400 km circuit of 88 temples; this is a pilgrimage route, not one standalone POI.",
       "candidateCount": 0
     },
     {
@@ -1598,19 +1598,19 @@
     {
       "id": "shuri-castle-okinawa",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 59e101fb2cbf707e7be7ab54fa84d509203cd5a80424228e2cae300db138d5a4; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Shuri Castle with the Ryukyu Gusuku Sites group and the description identifies the UNESCO group; it is a heritage grouping, not one entity.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 010bccaee648a3f9a51177a1300fbe7441aa265f36216f8fc3d261ff48ad6bcb; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Shuri Castle with the Ryukyu Gusuku Sites group and the description identifies the UNESCO group; it is a heritage grouping, not one entity.",
       "candidateCount": 0
     },
     {
       "id": "sumida-river-walk",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 55343ae90d299c31bf2c73ef022707fcad8ce12ceecb653e2b709feaa8d27bdb; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies the walkway as attached to the Tobu railway bridge; it is an internal bridge/walkway subfeature.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f87d69a5eb6e8f2f76ee809dd4d2b3f24bcd3264230a5ba1979e8c5fb35f9950; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies the walkway as attached to the Tobu railway bridge; it is an internal bridge/walkway subfeature.",
       "candidateCount": 0
     },
     {
       "id": "sunshine-60-observatory-ikebukuro",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 56e940f795c95269b6cbb01f2a1a45ce38bdfe41134be40e797359c5f7573345; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies an indoor sky park/observatory within Sunshine 60; this record is an internal building subfeature.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 2b3cfc9691f7444d884f79210061e71714b49d5b6248e5c180a3e978dccf23b4; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies an indoor sky park/observatory within Sunshine 60; this record is an internal building subfeature.",
       "candidateCount": 0
     },
     {
@@ -1658,7 +1658,7 @@
     {
       "id": "tokyo-metropolitan-government-building-shinjuku",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 54014ce808049f49f4a2503a282bd05f2c6b8a5c77b05a32a5d57587f72d9649; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies twin observation decks on the 45th floor of the Tokyo Metropolitan Government Building; these are internal building features.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 70def70fe7ed928d669bb73d3d9a3307dc3257639ed3af5d3880408e99b1eb0f; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies twin observation decks on the 45th floor of the Tokyo Metropolitan Government Building; these are internal building features.",
       "candidateCount": 0
     },
     {
@@ -1682,7 +1682,7 @@
     {
       "id": "uji-tea-culture-center",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 5752ed5bf43cbef4228251e6328e570fb07cd57785fdea824f683323a45ed878; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines the Uji Tea Culture Center and Ujigami Shrine, separate named cultural destinations, so the record is synthetic.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 5f1c6e628adff273f5db670b4378adedc1013ddb6500803188a683456f6c983d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines the Uji Tea Culture Center and Ujigami Shrine, separate named cultural destinations, so the record is synthetic.",
       "candidateCount": 0
     },
     {
@@ -1712,7 +1712,7 @@
     {
       "id": "utsunomiya-oya",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 6d7bfbcf768d47bf584752672d80cc9749f0c04ac3f07897155729cfeaf787e7; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name and description combine Utsunomiya and Oya with the Oya History Museum, Oya Kannon, and food experience; this is an area/attraction grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 15eb743710dca4c2efc4edc3ecdf6072528b4f78c73f007b05cf67173e0c8a10; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name and description combine Utsunomiya and Oya with the Oya History Museum, Oya Kannon, and food experience; this is an area/attraction grouping.",
       "candidateCount": 0
     },
     {
@@ -1748,166 +1748,166 @@
     {
       "id": "zushi",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 1e325c81f65555dafd9c575872f3314ca975a6e4b2e1172dbeb393c977ba8b67; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Zushi and Yokosuka and the description spans Zushi Beach, Hayama, and Yokosuka Verny Park; this is a synthetic regional grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 775af0c5dc56acd95f66b8f3738826f14475e45b9c1d7fd235dad66f0e2dc1c9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Zushi and Yokosuka and the description spans Zushi Beach, Hayama, and Yokosuka Verny Park; this is a synthetic regional grouping.",
       "candidateCount": 0
     }
   ],
   "noStandaloneArticleLedger": [
     {
       "id": "abeno-harukas-300-osaka",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint d161984f9eee5e42aab35750f13abf424a3dd7967849295b7887b977180e6993; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies a three-story glass observatory within the Abeno Harukas skyscraper; this record is an internal observatory subfeature rather than an independently represented POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 478d0be1364f26091ede3c9be6b72ee3ccab202b4b3f894ff6a26d45f619e1f4; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies a three-story glass observatory within the Abeno Harukas skyscraper; this record is an internal observatory subfeature rather than an independently represented POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "d161984f9eee5e42aab35750f13abf424a3dd7967849295b7887b977180e6993"
+      "adjudicationFingerprint": "478d0be1364f26091ede3c9be6b72ee3ccab202b4b3f894ff6a26d45f619e1f4"
     },
     {
       "id": "fukuoka-yatai",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 479a90232ffc72d209f583948d517a20da7d483b6890196f07bd80cb9c44e316; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description says more than 100 food stalls open around Fukuoka; this is a dispersed collective/mobile-stall concept, not one independently named physical POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f1eed29dcb1b64127885989db12addec9d0faa475ee1ac2bfe130268cd6accc1; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description says more than 100 food stalls open around Fukuoka; this is a dispersed collective/mobile-stall concept, not one independently named physical POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "479a90232ffc72d209f583948d517a20da7d483b6890196f07bd80cb9c44e316"
+      "adjudicationFingerprint": "f1eed29dcb1b64127885989db12addec9d0faa475ee1ac2bfe130268cd6accc1"
     },
     {
       "id": "harajuku-takeshita-street",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0b10c92f0ab5a475d0712fd2549295a760321e2ebc0df468b8c590f00dd2755f; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name explicitly combines Harajuku and Takeshita Street and the record is a destination-hub grouping; the two named urban areas are not one independently named POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 19cc1fc42fa39e82361cea9258cdfb3f78e05d7329fca62705d02d1474a637d9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name explicitly combines Harajuku and Takeshita Street and the record is a destination-hub grouping; the two named urban areas are not one independently named POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "0b10c92f0ab5a475d0712fd2549295a760321e2ebc0df468b8c590f00dd2755f"
+      "adjudicationFingerprint": "19cc1fc42fa39e82361cea9258cdfb3f78e05d7329fca62705d02d1474a637d9"
     },
     {
       "id": "hiei-zan-driveway-observatory",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 896f9d40b36b9b48a013ecbf9d59bae82019514d581bed37d665cef6cbdf0232; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name and description explicitly combine a scenic toll road with the Yumemi-ga-oka observatory; the observatory is a feature of the road experience, not the combined record's standalone entity.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 3a2bda466674a2329c3daefad7c98dc074d676020370c5687f9e7b5fbf976079; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name and description explicitly combine a scenic toll road with the Yumemi-ga-oka observatory; the observatory is a feature of the road experience, not the combined record's standalone entity.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "896f9d40b36b9b48a013ecbf9d59bae82019514d581bed37d665cef6cbdf0232"
+      "adjudicationFingerprint": "3a2bda466674a2329c3daefad7c98dc074d676020370c5687f9e7b5fbf976079"
     },
     {
       "id": "jogashima",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0c86f013afd821234491e8acd666050fdfb12b1058c74aa7745d8fd7faf62d37; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines the Miura Peninsula and Jogashima, while the description presents a regional island/peninsula experience; it is a synthetic area grouping.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 6397b23cc6f1e3f08c2af0a1efae0d8bb9c02f8d1a1850067f33587e47c95072; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines the Miura Peninsula and Jogashima, while the description presents a regional island/peninsula experience; it is a synthetic area grouping.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "0c86f013afd821234491e8acd666050fdfb12b1058c74aa7745d8fd7faf62d37"
+      "adjudicationFingerprint": "6397b23cc6f1e3f08c2af0a1efae0d8bb9c02f8d1a1850067f33587e47c95072"
     },
     {
       "id": "kataonami-beach-wakanoura",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0dbfd759a05b075d98e61d1073f2e93cbb003d9890671a8620ff9d92b689364a; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Kataonami Beach and Wakanoura Bay, two named coastal features, so the record does not correspond to one independently named POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 65cdf4bce6c29d6750687ec8833e4fc30d5fa8b774eac06d618aaf02b7e394c9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Kataonami Beach and Wakanoura Bay, two named coastal features, so the record does not correspond to one independently named POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "0dbfd759a05b075d98e61d1073f2e93cbb003d9890671a8620ff9d92b689364a"
+      "adjudicationFingerprint": "65cdf4bce6c29d6750687ec8833e4fc30d5fa8b774eac06d618aaf02b7e394c9"
     },
     {
       "id": "kawagoe-castle-saitama",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 8c921dcaab737273763446cfcbe86de84aaf9443e149606e10c8ed692a21dba1; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies Honmaru Goten as the surviving main palace building within Kawagoe Castle; this is an internal castle sub-building.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 9b95fd7ce9937a0f9d2d10a81b059306448eeb2361be1e59ff12d3ca124e33d1; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies Honmaru Goten as the surviving main palace building within Kawagoe Castle; this is an internal castle sub-building.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "8c921dcaab737273763446cfcbe86de84aaf9443e149606e10c8ed692a21dba1"
+      "adjudicationFingerprint": "9b95fd7ce9937a0f9d2d10a81b059306448eeb2361be1e59ff12d3ca124e33d1"
     },
     {
       "id": "kokusai-dori-naha",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint bafa2cad1cef53f760830ce3acd6b285232d954127d6ca0f29322b84e0d64fd9; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name explicitly combines Kokusai-dori and Makishi Public Market, separate named street and market destinations, so the record is synthetic.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 8fc5620c14ef636b1d4f47ce4dab0b0123980ebd4fd4969862a3e099accf6cd3; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name explicitly combines Kokusai-dori and Makishi Public Market, separate named street and market destinations, so the record is synthetic.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "bafa2cad1cef53f760830ce3acd6b285232d954127d6ca0f29322b84e0d64fd9"
+      "adjudicationFingerprint": "8fc5620c14ef636b1d4f47ce4dab0b0123980ebd4fd4969862a3e099accf6cd3"
     },
     {
       "id": "kouri-island-okinawa",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 6c080c2bfce22cdb768748f9579f1cc1c0aaef8fdd8fa7282742d53edcbdc8a7; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Kouri Island and Heart Rock beach; the record groups an island with a separate rock feature rather than naming one standalone POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint a058f694bf6e18354aa8db79ca917bc7a496575e390eefb68fece2e6d7ce2b65; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Kouri Island and Heart Rock beach; the record groups an island with a separate rock feature rather than naming one standalone POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "6c080c2bfce22cdb768748f9579f1cc1c0aaef8fdd8fa7282742d53edcbdc8a7"
+      "adjudicationFingerprint": "a058f694bf6e18354aa8db79ca917bc7a496575e390eefb68fece2e6d7ce2b65"
     },
     {
       "id": "kuroshio-market-marina-city",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 121754da0ee4345110e027a0cb3ee525b127449ce8a9ffde49f3df29b6e291f0; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name pairs Kuroshio Market with Wakayama Marina City and the description identifies the market as a feature of that complex; this is an internal/complex grouping.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f8fc2899dcb312d7cccb7f3f9c1d1a4fb6fde1ac04933f97b29065338cdcb359; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name pairs Kuroshio Market with Wakayama Marina City and the description identifies the market as a feature of that complex; this is an internal/complex grouping.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "121754da0ee4345110e027a0cb3ee525b127449ce8a9ffde49f3df29b6e291f0"
+      "adjudicationFingerprint": "f8fc2899dcb312d7cccb7f3f9c1d1a4fb6fde1ac04933f97b29065338cdcb359"
     },
     {
       "id": "kyoto-historic",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 4eb475c0d970b06e5eab2900b045c0c9807d751aafd73d3ccbc488bd3a36fea3; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly calls this a legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group and directs users to individual destination records; it is a synthetic heritage grouping.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint bad8a64068041215fb0d0880728222b26b15921ade01b11ed12752077a03686d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly calls this a legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group and directs users to individual destination records; it is a synthetic heritage grouping.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "4eb475c0d970b06e5eab2900b045c0c9807d751aafd73d3ccbc488bd3a36fea3"
+      "adjudicationFingerprint": "bad8a64068041215fb0d0880728222b26b15921ade01b11ed12752077a03686d"
     },
     {
       "id": "naminoue-shrine-naha",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint f8ed01312822774fa2484d3e562a7d10e224165572e9bea60818dffdc6d2e303; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Naminoue Shrine and Naminoue Beach, distinct shrine and beach entities, so the record is not one independently named POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 4a56b92546f5102f4fb48dfda45c8b44547bcb433152ea09137bbaf35d7f810d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Naminoue Shrine and Naminoue Beach, distinct shrine and beach entities, so the record is not one independently named POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "f8ed01312822774fa2484d3e562a7d10e224165572e9bea60818dffdc6d2e303"
+      "adjudicationFingerprint": "4a56b92546f5102f4fb48dfda45c8b44547bcb433152ea09137bbaf35d7f810d"
     },
     {
       "id": "nara-park-todaiji",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint acc45de07123af8a7b426c06faa4d1eaed87d0ed228454716d58e0f40da7180c; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Nara Park and Tōdai-ji and the description describes the park housing the temple; these are distinct physical entities in one synthetic record.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 6c81b0a776b89b6ddb5e764be28c26373afad6bcb891723ced8912ddf67b6ac0; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Nara Park and Tōdai-ji and the description describes the park housing the temple; these are distinct physical entities in one synthetic record.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "acc45de07123af8a7b426c06faa4d1eaed87d0ed228454716d58e0f40da7180c"
+      "adjudicationFingerprint": "6c81b0a776b89b6ddb5e764be28c26373afad6bcb891723ced8912ddf67b6ac0"
     },
     {
       "id": "okage-yokocho-oharai-machi",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 673f009da0e4179faf07685762102ac3f08977df8f5d2461a49b31a4e565c094; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Okage Yokocho and Oharai-machi, two named historic merchant streets/districts, rather than one standalone entity.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint a4ab8c2c6465d124cd1cf91be36e22026d9127569bc951272306d65539627e15; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Okage Yokocho and Oharai-machi, two named historic merchant streets/districts, rather than one standalone entity.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "673f009da0e4179faf07685762102ac3f08977df8f5d2461a49b31a4e565c094"
+      "adjudicationFingerprint": "a4ab8c2c6465d124cd1cf91be36e22026d9127569bc951272306d65539627e15"
     },
     {
       "id": "roppongi-hills-tokyo-city-view",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 2c52b30deb8c18a82c5ddef482f2a0c0526c3d7bea4e25c7eea8ea7fa5e76550; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies an indoor/outdoor observation deck on the 52nd floor of Roppongi Hills; this is an internal deck subfeature of the complex.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 7dd536a758c3defc6250680c47d84c1c37160c3f92ad3056b8c814bf5521ae0f; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies an indoor/outdoor observation deck on the 52nd floor of Roppongi Hills; this is an internal deck subfeature of the complex.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "2c52b30deb8c18a82c5ddef482f2a0c0526c3d7bea4e25c7eea8ea7fa5e76550"
+      "adjudicationFingerprint": "7dd536a758c3defc6250680c47d84c1c37160c3f92ad3056b8c814bf5521ae0f"
     },
     {
       "id": "ryogoku-kokugikan-sumo-museum",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 574d39492f17b216601dd1f96fe736450cf3f3e83f0b0321df3e0b4199a21431; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly combines the Ryogoku Kokugikan arena with its on-site Sumo Museum; the record groups two physical entities.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 814b91398089ba6e0548b509176f0bb6f69c4a5ecf0ef394516c1263240e999e; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly combines the Ryogoku Kokugikan arena with its on-site Sumo Museum; the record groups two physical entities.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "574d39492f17b216601dd1f96fe736450cf3f3e83f0b0321df3e0b4199a21431"
+      "adjudicationFingerprint": "814b91398089ba6e0548b509176f0bb6f69c4a5ecf0ef394516c1263240e999e"
     },
     {
       "id": "saigoku-33",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint bd559dba008b3ed34834d535762714dc22fc32a8a79055db51ec699538b54740; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies a 33-temple pilgrimage spanning Wakayama to Shiga; a multi-temple route is not one standalone POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 386305513dbf22a1e4384ee86d7ad1d12fef35c5106371a6849b55dc5e690416; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies a 33-temple pilgrimage spanning Wakayama to Shiga; a multi-temple route is not one standalone POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "bd559dba008b3ed34834d535762714dc22fc32a8a79055db51ec699538b54740"
+      "adjudicationFingerprint": "386305513dbf22a1e4384ee86d7ad1d12fef35c5106371a6849b55dc5e690416"
     },
     {
       "id": "senjokaku",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 97d58b7e97592ff865da716af2e4eb1c04021a5b8be54dc75244dffb184d1762; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name identifies Senjokaku with Toyokuni Shrine and the description identifies it as a hall managed by the nearby shrine; this is a sub-building/complex relationship.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint ea7c3c6ae416880323003898c342a6afc140d70025d0eff5170c47e837bf7736; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name identifies Senjokaku with Toyokuni Shrine and the description identifies it as a hall managed by the nearby shrine; this is a sub-building/complex relationship.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "97d58b7e97592ff865da716af2e4eb1c04021a5b8be54dc75244dffb184d1762"
+      "adjudicationFingerprint": "ea7c3c6ae416880323003898c342a6afc140d70025d0eff5170c47e837bf7736"
     },
     {
       "id": "shikoku-henro",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 4bc4b67db9a9537a08149d12f0cef4ef3cf6966136e7daf78f67e32045246b49; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies a 1,400 km circuit of 88 temples; this is a pilgrimage route, not one standalone POI.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 66ad41f92b6b14a476b7682231999bf401eb09d0b85a21d23cb2f94094e445eb; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies a 1,400 km circuit of 88 temples; this is a pilgrimage route, not one standalone POI.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "4bc4b67db9a9537a08149d12f0cef4ef3cf6966136e7daf78f67e32045246b49"
+      "adjudicationFingerprint": "66ad41f92b6b14a476b7682231999bf401eb09d0b85a21d23cb2f94094e445eb"
     },
     {
       "id": "shuri-castle-okinawa",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 59e101fb2cbf707e7be7ab54fa84d509203cd5a80424228e2cae300db138d5a4; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Shuri Castle with the Ryukyu Gusuku Sites group and the description identifies the UNESCO group; it is a heritage grouping, not one entity.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 010bccaee648a3f9a51177a1300fbe7441aa265f36216f8fc3d261ff48ad6bcb; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Shuri Castle with the Ryukyu Gusuku Sites group and the description identifies the UNESCO group; it is a heritage grouping, not one entity.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "59e101fb2cbf707e7be7ab54fa84d509203cd5a80424228e2cae300db138d5a4"
+      "adjudicationFingerprint": "010bccaee648a3f9a51177a1300fbe7441aa265f36216f8fc3d261ff48ad6bcb"
     },
     {
       "id": "sumida-river-walk",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 55343ae90d299c31bf2c73ef022707fcad8ce12ceecb653e2b709feaa8d27bdb; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies the walkway as attached to the Tobu railway bridge; it is an internal bridge/walkway subfeature.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f87d69a5eb6e8f2f76ee809dd4d2b3f24bcd3264230a5ba1979e8c5fb35f9950; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies the walkway as attached to the Tobu railway bridge; it is an internal bridge/walkway subfeature.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "55343ae90d299c31bf2c73ef022707fcad8ce12ceecb653e2b709feaa8d27bdb"
+      "adjudicationFingerprint": "f87d69a5eb6e8f2f76ee809dd4d2b3f24bcd3264230a5ba1979e8c5fb35f9950"
     },
     {
       "id": "sunshine-60-observatory-ikebukuro",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 56e940f795c95269b6cbb01f2a1a45ce38bdfe41134be40e797359c5f7573345; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies an indoor sky park/observatory within Sunshine 60; this record is an internal building subfeature.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 2b3cfc9691f7444d884f79210061e71714b49d5b6248e5c180a3e978dccf23b4; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies an indoor sky park/observatory within Sunshine 60; this record is an internal building subfeature.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "56e940f795c95269b6cbb01f2a1a45ce38bdfe41134be40e797359c5f7573345"
+      "adjudicationFingerprint": "2b3cfc9691f7444d884f79210061e71714b49d5b6248e5c180a3e978dccf23b4"
     },
     {
       "id": "tokyo-metropolitan-government-building-shinjuku",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 54014ce808049f49f4a2503a282bd05f2c6b8a5c77b05a32a5d57587f72d9649; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies twin observation decks on the 45th floor of the Tokyo Metropolitan Government Building; these are internal building features.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 70def70fe7ed928d669bb73d3d9a3307dc3257639ed3af5d3880408e99b1eb0f; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies twin observation decks on the 45th floor of the Tokyo Metropolitan Government Building; these are internal building features.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "54014ce808049f49f4a2503a282bd05f2c6b8a5c77b05a32a5d57587f72d9649"
+      "adjudicationFingerprint": "70def70fe7ed928d669bb73d3d9a3307dc3257639ed3af5d3880408e99b1eb0f"
     },
     {
       "id": "uji-tea-culture-center",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 5752ed5bf43cbef4228251e6328e570fb07cd57785fdea824f683323a45ed878; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines the Uji Tea Culture Center and Ujigami Shrine, separate named cultural destinations, so the record is synthetic.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 5f1c6e628adff273f5db670b4378adedc1013ddb6500803188a683456f6c983d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines the Uji Tea Culture Center and Ujigami Shrine, separate named cultural destinations, so the record is synthetic.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "5752ed5bf43cbef4228251e6328e570fb07cd57785fdea824f683323a45ed878"
+      "adjudicationFingerprint": "5f1c6e628adff273f5db670b4378adedc1013ddb6500803188a683456f6c983d"
     },
     {
       "id": "utsunomiya-oya",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 6d7bfbcf768d47bf584752672d80cc9749f0c04ac3f07897155729cfeaf787e7; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name and description combine Utsunomiya and Oya with the Oya History Museum, Oya Kannon, and food experience; this is an area/attraction grouping.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 15eb743710dca4c2efc4edc3ecdf6072528b4f78c73f007b05cf67173e0c8a10; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name and description combine Utsunomiya and Oya with the Oya History Museum, Oya Kannon, and food experience; this is an area/attraction grouping.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "6d7bfbcf768d47bf584752672d80cc9749f0c04ac3f07897155729cfeaf787e7"
+      "adjudicationFingerprint": "15eb743710dca4c2efc4edc3ecdf6072528b4f78c73f007b05cf67173e0c8a10"
     },
     {
       "id": "zushi",
-      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 1e325c81f65555dafd9c575872f3314ca975a6e4b2e1172dbeb393c977ba8b67; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Zushi and Yokosuka and the description spans Zushi Beach, Hayama, and Yokosuka Verny Park; this is a synthetic regional grouping.",
+      "evidence": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 775af0c5dc56acd95f66b8f3738826f14475e45b9c1d7fd235dad66f0e2dc1c9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Zushi and Yokosuka and the description spans Zushi Beach, Hayama, and Yokosuka Verny Park; this is a synthetic regional grouping.",
       "evidenceSource": "catalogue-source",
-      "sourceFingerprint": "1e325c81f65555dafd9c575872f3314ca975a6e4b2e1172dbeb393c977ba8b67"
+      "adjudicationFingerprint": "775af0c5dc56acd95f66b8f3738826f14475e45b9c1d7fd235dad66f0e2dc1c9"
     }
   ],
   "catalogueRelationshipIssues": [
@@ -4115,8 +4115,8 @@
     "unclassifiedDuplicateGroups": 0
   },
   "artifactFingerprints": {
-    "tailManifest": "60c44235097ad4daef01fe6c2a058476e60cab69f3fd99b9d5e70fd99aa6c0d4",
-    "phase4Cache": "48c67b221b7c6d21bc3302c13e07908f36cbe899878043192494f2d6ee98cbb6",
+    "tailManifest": "6bc190b75d5106ed04175a24462d865ab6e33788b890b1d826ad48f1e286ed08",
+    "phase4Cache": "1ba94ec7c4544a4a6504587cda25fc26e5d20d803d7edf0327ca501ff1d23182",
     "phase3Cohort": "7b0b88b8f921dd2e79d192f8da3621869c579d94189081e6e099f5e6ba3e877c",
     "phase3Report": "d252a4de2a068c56c36ef7805d3184ed6dbc78219b293b15ea907dfb51f679de",
     "phase3Cache": "4bb185741ee2e4c78547bb024094e4496a7652f6c1e4862bcc8840f9fd53ebee"
@@ -4127,7 +4127,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint d161984f9eee5e42aab35750f13abf424a3dd7967849295b7887b977180e6993; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies a three-story glass observatory within the Abeno Harukas skyscraper; this record is an internal observatory subfeature rather than an independently represented POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 478d0be1364f26091ede3c9be6b72ee3ccab202b4b3f894ff6a26d45f619e1f4; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies a three-story glass observatory within the Abeno Harukas skyscraper; this record is an internal observatory subfeature rather than an independently represented POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -8957,7 +8957,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 479a90232ffc72d209f583948d517a20da7d483b6890196f07bd80cb9c44e316; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description says more than 100 food stalls open around Fukuoka; this is a dispersed collective/mobile-stall concept, not one independently named physical POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f1eed29dcb1b64127885989db12addec9d0faa475ee1ac2bfe130268cd6accc1; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description says more than 100 food stalls open around Fukuoka; this is a dispersed collective/mobile-stall concept, not one independently named physical POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -10444,7 +10444,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0b10c92f0ab5a475d0712fd2549295a760321e2ebc0df468b8c590f00dd2755f; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name explicitly combines Harajuku and Takeshita Street and the record is a destination-hub grouping; the two named urban areas are not one independently named POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 19cc1fc42fa39e82361cea9258cdfb3f78e05d7329fca62705d02d1474a637d9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name explicitly combines Harajuku and Takeshita Street and the record is a destination-hub grouping; the two named urban areas are not one independently named POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -10732,7 +10732,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 896f9d40b36b9b48a013ecbf9d59bae82019514d581bed37d665cef6cbdf0232; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name and description explicitly combine a scenic toll road with the Yumemi-ga-oka observatory; the observatory is a feature of the road experience, not the combined record's standalone entity.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 3a2bda466674a2329c3daefad7c98dc074d676020370c5687f9e7b5fbf976079; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name and description explicitly combine a scenic toll road with the Yumemi-ga-oka observatory; the observatory is a feature of the road experience, not the combined record's standalone entity.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -13141,7 +13141,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0c86f013afd821234491e8acd666050fdfb12b1058c74aa7745d8fd7faf62d37; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines the Miura Peninsula and Jogashima, while the description presents a regional island/peninsula experience; it is a synthetic area grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 6397b23cc6f1e3f08c2af0a1efae0d8bb9c02f8d1a1850067f33587e47c95072; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines the Miura Peninsula and Jogashima, while the description presents a regional island/peninsula experience; it is a synthetic area grouping.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -14746,7 +14746,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 0dbfd759a05b075d98e61d1073f2e93cbb003d9890671a8620ff9d92b689364a; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Kataonami Beach and Wakanoura Bay, two named coastal features, so the record does not correspond to one independently named POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 65cdf4bce6c29d6750687ec8833e4fc30d5fa8b774eac06d618aaf02b7e394c9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Kataonami Beach and Wakanoura Bay, two named coastal features, so the record does not correspond to one independently named POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -14765,7 +14765,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 8c921dcaab737273763446cfcbe86de84aaf9443e149606e10c8ed692a21dba1; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies Honmaru Goten as the surviving main palace building within Kawagoe Castle; this is an internal castle sub-building.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 9b95fd7ce9937a0f9d2d10a81b059306448eeb2361be1e59ff12d3ca124e33d1; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies Honmaru Goten as the surviving main palace building within Kawagoe Castle; this is an internal castle sub-building.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -17950,7 +17950,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint bafa2cad1cef53f760830ce3acd6b285232d954127d6ca0f29322b84e0d64fd9; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name explicitly combines Kokusai-dori and Makishi Public Market, separate named street and market destinations, so the record is synthetic.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 8fc5620c14ef636b1d4f47ce4dab0b0123980ebd4fd4969862a3e099accf6cd3; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name explicitly combines Kokusai-dori and Makishi Public Market, separate named street and market destinations, so the record is synthetic.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -18595,7 +18595,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 6c080c2bfce22cdb768748f9579f1cc1c0aaef8fdd8fa7282742d53edcbdc8a7; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Kouri Island and Heart Rock beach; the record groups an island with a separate rock feature rather than naming one standalone POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint a058f694bf6e18354aa8db79ca917bc7a496575e390eefb68fece2e6d7ce2b65; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Kouri Island and Heart Rock beach; the record groups an island with a separate rock feature rather than naming one standalone POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -19507,7 +19507,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 121754da0ee4345110e027a0cb3ee525b127449ce8a9ffde49f3df29b6e291f0; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name pairs Kuroshio Market with Wakayama Marina City and the description identifies the market as a feature of that complex; this is an internal/complex grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f8fc2899dcb312d7cccb7f3f9c1d1a4fb6fde1ac04933f97b29065338cdcb359; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name pairs Kuroshio Market with Wakayama Marina City and the description identifies the market as a feature of that complex; this is an internal/complex grouping.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -19887,7 +19887,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 4eb475c0d970b06e5eab2900b045c0c9807d751aafd73d3ccbc488bd3a36fea3; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly calls this a legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group and directs users to individual destination records; it is a synthetic heritage grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint bad8a64068041215fb0d0880728222b26b15921ade01b11ed12752077a03686d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly calls this a legacy area page for the distributed Historic Monuments of Ancient Kyoto heritage group and directs users to individual destination records; it is a synthetic heritage grouping.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -23548,7 +23548,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint f8ed01312822774fa2484d3e562a7d10e224165572e9bea60818dffdc6d2e303; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Naminoue Shrine and Naminoue Beach, distinct shrine and beach entities, so the record is not one independently named POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 4a56b92546f5102f4fb48dfda45c8b44547bcb433152ea09137bbaf35d7f810d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Naminoue Shrine and Naminoue Beach, distinct shrine and beach entities, so the record is not one independently named POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -24192,7 +24192,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint acc45de07123af8a7b426c06faa4d1eaed87d0ed228454716d58e0f40da7180c; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Nara Park and Tōdai-ji and the description describes the park housing the temple; these are distinct physical entities in one synthetic record.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 6c81b0a776b89b6ddb5e764be28c26373afad6bcb891723ced8912ddf67b6ac0; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Nara Park and Tōdai-ji and the description describes the park housing the temple; these are distinct physical entities in one synthetic record.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -27418,7 +27418,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 673f009da0e4179faf07685762102ac3f08977df8f5d2461a49b31a4e565c094; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Okage Yokocho and Oharai-machi, two named historic merchant streets/districts, rather than one standalone entity.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint a4ab8c2c6465d124cd1cf91be36e22026d9127569bc951272306d65539627e15; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Okage Yokocho and Oharai-machi, two named historic merchant streets/districts, rather than one standalone entity.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -30305,7 +30305,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 2c52b30deb8c18a82c5ddef482f2a0c0526c3d7bea4e25c7eea8ea7fa5e76550; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies an indoor/outdoor observation deck on the 52nd floor of Roppongi Hills; this is an internal deck subfeature of the complex.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 7dd536a758c3defc6250680c47d84c1c37160c3f92ad3056b8c814bf5521ae0f; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies an indoor/outdoor observation deck on the 52nd floor of Roppongi Hills; this is an internal deck subfeature of the complex.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -30324,7 +30324,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 574d39492f17b216601dd1f96fe736450cf3f3e83f0b0321df3e0b4199a21431; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly combines the Ryogoku Kokugikan arena with its on-site Sumo Museum; the record groups two physical entities.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 814b91398089ba6e0548b509176f0bb6f69c4a5ecf0ef394516c1263240e999e; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly combines the Ryogoku Kokugikan arena with its on-site Sumo Museum; the record groups two physical entities.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -30343,7 +30343,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "entity-type-insufficient",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint bd559dba008b3ed34834d535762714dc22fc32a8a79055db51ec699538b54740; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies a 33-temple pilgrimage spanning Wakayama to Shiga; a multi-temple route is not one standalone POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 386305513dbf22a1e4384ee86d7ad1d12fef35c5106371a6849b55dc5e690416; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies a 33-temple pilgrimage spanning Wakayama to Shiga; a multi-temple route is not one standalone POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -31430,7 +31430,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 97d58b7e97592ff865da716af2e4eb1c04021a5b8be54dc75244dffb184d1762; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name identifies Senjokaku with Toyokuni Shrine and the description identifies it as a hall managed by the nearby shrine; this is a sub-building/complex relationship.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint ea7c3c6ae416880323003898c342a6afc140d70025d0eff5170c47e837bf7736; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name identifies Senjokaku with Toyokuni Shrine and the description identifies it as a hall managed by the nearby shrine; this is a sub-building/complex relationship.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -32346,7 +32346,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 4bc4b67db9a9537a08149d12f0cef4ef3cf6966136e7daf78f67e32045246b49; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies a 1,400 km circuit of 88 temples; this is a pilgrimage route, not one standalone POI.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 66ad41f92b6b14a476b7682231999bf401eb09d0b85a21d23cb2f94094e445eb; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies a 1,400 km circuit of 88 temples; this is a pilgrimage route, not one standalone POI.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -33668,7 +33668,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 59e101fb2cbf707e7be7ab54fa84d509203cd5a80424228e2cae300db138d5a4; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Shuri Castle with the Ryukyu Gusuku Sites group and the description identifies the UNESCO group; it is a heritage grouping, not one entity.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 010bccaee648a3f9a51177a1300fbe7441aa265f36216f8fc3d261ff48ad6bcb; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Shuri Castle with the Ryukyu Gusuku Sites group and the description identifies the UNESCO group; it is a heritage grouping, not one entity.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -34006,7 +34006,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 55343ae90d299c31bf2c73ef022707fcad8ce12ceecb653e2b709feaa8d27bdb; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description explicitly identifies the walkway as attached to the Tobu railway bridge; it is an internal bridge/walkway subfeature.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint f87d69a5eb6e8f2f76ee809dd4d2b3f24bcd3264230a5ba1979e8c5fb35f9950; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description explicitly identifies the walkway as attached to the Tobu railway bridge; it is an internal bridge/walkway subfeature.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -34025,7 +34025,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 56e940f795c95269b6cbb01f2a1a45ce38bdfe41134be40e797359c5f7573345; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies an indoor sky park/observatory within Sunshine 60; this record is an internal building subfeature.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 2b3cfc9691f7444d884f79210061e71714b49d5b6248e5c180a3e978dccf23b4; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies an indoor sky park/observatory within Sunshine 60; this record is an internal building subfeature.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -36352,7 +36352,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 54014ce808049f49f4a2503a282bd05f2c6b8a5c77b05a32a5d57587f72d9649; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue description identifies twin observation decks on the 45th floor of the Tokyo Metropolitan Government Building; these are internal building features.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 70def70fe7ed928d669bb73d3d9a3307dc3257639ed3af5d3880408e99b1eb0f; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue description identifies twin observation decks on the 45th floor of the Tokyo Metropolitan Government Building; these are internal building features.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -38049,7 +38049,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 5752ed5bf43cbef4228251e6328e570fb07cd57785fdea824f683323a45ed878; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines the Uji Tea Culture Center and Ujigami Shrine, separate named cultural destinations, so the record is synthetic.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 5f1c6e628adff273f5db670b4378adedc1013ddb6500803188a683456f6c983d; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines the Uji Tea Culture Center and Ujigami Shrine, separate named cultural destinations, so the record is synthetic.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -38490,7 +38490,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 6d7bfbcf768d47bf584752672d80cc9749f0c04ac3f07897155729cfeaf787e7; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name and description combine Utsunomiya and Oya with the Oya History Museum, Oya Kannon, and food experience; this is an area/attraction grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 15eb743710dca4c2efc4edc3ecdf6072528b4f78c73f007b05cf67173e0c8a10; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name and description combine Utsunomiya and Oya with the Oya History Museum, Oya Kannon, and food experience; this is an area/attraction grouping.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,
@@ -40797,7 +40797,7 @@
       "phase3State": "unresolved",
       "phase3Reason": "no-candidate",
       "finalDecision": "no-standalone-article",
-      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint 1e325c81f65555dafd9c575872f3314ca975a6e4b2e1172dbeb393c977ba8b67; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): The catalogue name combines Zushi and Yokosuka and the description spans Zushi Beach, Hayama, and Yokosuka Verny Park; this is a synthetic regional grouping.",
+      "decisionReason": "AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint 775af0c5dc56acd95f66b8f3738826f14475e45b9c1d7fd235dad66f0e2dc1c9; source fields: id, name, nameJa, aliases, description, kind, role, prefecture, region, coordinates, categories, tags, municipalityId, placeType, relationships, status): The catalogue name combines Zushi and Yokosuka and the description spans Zushi Beach, Hayama, and Yokosuka Verny Park; this is a synthetic regional grouping.",
       "approvalStatus": "NOT_APPLICABLE",
       "selectedIdentity": null,
       "selectedCandidateEvidence": null,

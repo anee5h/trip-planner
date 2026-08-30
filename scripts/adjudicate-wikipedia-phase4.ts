@@ -7,7 +7,6 @@ import {
   applyPhase3Identity,
   classifyPhase3Destination,
   hashStable,
-  phase3InputFingerprint,
   type Phase2EvidenceSnapshot,
   type Phase3Candidate,
   type Phase3CandidateEvidence,
@@ -24,6 +23,7 @@ import {
 
 const ROOT = process.cwd();
 const SCOPE = "kai-256-wikipedia-phase4" as const;
+const PHASE4_SCHEMA_VERSION = 2 as const;
 const INDEX_PATH = resolve(ROOT, "src/shared/data/destinations-index.json");
 const PHASE1_REPORT_PATH = resolve(
   ROOT,
@@ -63,6 +63,64 @@ export const PHASE4_IDENTITY_FIELDS = [
 ] as const;
 
 type Phase4IdentityField = (typeof PHASE4_IDENTITY_FIELDS)[number];
+
+/**
+ * Catalogue fields consumed by Phase 4 adjudication. Wikipedia identity fields
+ * are intentionally excluded because Stage B is allowed to mutate only those
+ * five fields; the identity snapshot is bound separately.
+ */
+export const PHASE4_ADJUDICATION_FIELDS = [
+  "id",
+  "name",
+  "nameJa",
+  "aliases",
+  "description",
+  "kind",
+  "role",
+  "prefecture",
+  "region",
+  "coordinates",
+  "categories",
+  "tags",
+  "municipalityId",
+  "placeType",
+  "relationships",
+  "status",
+] as const;
+
+type Phase4AdjudicationSource = Phase3Destination & {
+  description?: string;
+};
+
+export function phase4AdjudicationSnapshot(
+  source: Phase4AdjudicationSource,
+): Record<(typeof PHASE4_ADJUDICATION_FIELDS)[number], unknown> {
+  return {
+    id: source.id,
+    name: source.name,
+    nameJa: source.nameJa ?? null,
+    aliases: source.aliases ?? null,
+    description: source.description ?? null,
+    kind: source.kind ?? null,
+    role: source.role ?? null,
+    prefecture: source.prefecture ?? null,
+    region: source.region ?? null,
+    coordinates: source.coordinates ?? null,
+    categories: source.categories ?? null,
+    tags: source.tags ?? null,
+    municipalityId: source.municipalityId ?? null,
+    placeType: source.placeType ?? null,
+    relationships: source.relationships ?? null,
+    status: source.status ?? null,
+  };
+}
+
+export function phase4AdjudicationFingerprint(
+  source: Phase4AdjudicationSource,
+): string {
+  return hashStable(phase4AdjudicationSnapshot(source));
+}
+
 export type Phase4FinalDecision =
   | "canonical"
   | "no-standalone-article"
@@ -111,7 +169,7 @@ interface Phase3CacheFile {
 }
 
 export interface Phase4Manifest {
-  schemaVersion: 1;
+  schemaVersion: typeof PHASE4_SCHEMA_VERSION;
   scope: typeof SCOPE;
   baseline: {
     publishedDestinations: number;
@@ -124,7 +182,7 @@ export interface Phase4Manifest {
     tailPopulation: number;
   };
   ids: string[];
-  sourceFingerprints: Record<string, string>;
+  phase4AdjudicationFingerprints: Record<string, string>;
   sourceIdentityFingerprints: Record<string, string>;
   outsideTailPublishedIdentityFingerprint: string;
   phase1ReviewLedgerFingerprint: string;
@@ -147,7 +205,7 @@ interface TargetedRetrievalEvidence {
 }
 
 export interface Phase4CacheFile {
-  schemaVersion: 1;
+  schemaVersion: typeof PHASE4_SCHEMA_VERSION;
   scope: typeof SCOPE;
   source: "phase3-cache";
   retrievalMode: "offline-existing-evidence-only";
@@ -157,7 +215,7 @@ export interface Phase4CacheFile {
   entries: Record<
     string,
     {
-      inputFingerprint: string;
+      adjudicationFingerprint: string;
       phase3EntryFingerprint: string;
       targetedRetrievals: TargetedRetrievalEvidence[];
     }
@@ -654,7 +712,7 @@ function phase1ReviewInputFingerprints(
         const destination = byId.get(record.id);
         if (!destination)
           throw new Error(`Phase 1 review ID is missing: ${record.id}`);
-        return [record.id, phase3InputFingerprint(destination)];
+        return [record.id, phase4AdjudicationFingerprint(destination)];
       })
       .sort(([left], [right]) => left.localeCompare(right)),
   );
@@ -796,7 +854,7 @@ function buildPhase4Cache(
   const tail = derivePhase4Tail(destinations, phase1);
   const phase3Fingerprint = fileFingerprint(PHASE3_CACHE_PATH);
   return {
-    schemaVersion: 1,
+    schemaVersion: PHASE4_SCHEMA_VERSION,
     scope: SCOPE,
     source: "phase3-cache",
     retrievalMode: "offline-existing-evidence-only",
@@ -811,7 +869,7 @@ function buildPhase4Cache(
         return [
           destination.id,
           {
-            inputFingerprint: phase3InputFingerprint(destination),
+            adjudicationFingerprint: phase4AdjudicationFingerprint(destination),
             phase3EntryFingerprint: hashStable(entry),
             targetedRetrievals: [],
           },
@@ -906,10 +964,10 @@ function buildPhase4Manifest(
   ) {
     throw new Error("Phase 3 high-confidence ledger IDs drifted.");
   }
-  const sourceFingerprints = Object.fromEntries(
+  const phase4AdjudicationFingerprints = Object.fromEntries(
     tail.map((destination) => [
       destination.id,
-      phase3InputFingerprint(destination),
+      phase4AdjudicationFingerprint(destination),
     ]),
   );
   const sourceIdentityFingerprints = Object.fromEntries(
@@ -952,11 +1010,11 @@ function buildPhase4Manifest(
   );
   const phase1ReviewLedgerFingerprint = hashStable(phase1Ids);
   const manifestWithoutFingerprint = {
-    schemaVersion: 1,
+    schemaVersion: PHASE4_SCHEMA_VERSION,
     scope: SCOPE,
     baseline,
     ids: tailIds,
-    sourceFingerprints,
+    phase4AdjudicationFingerprints,
     sourceIdentityFingerprints,
     outsideTailPublishedIdentityFingerprint: currentOutsideTailFingerprint(
       destinations,
@@ -983,7 +1041,10 @@ export function validateFrozenTail(
   destinations: Phase3Destination[],
   phase1: Phase1ReportFile,
 ): void {
-  if (manifest.schemaVersion !== 1 || manifest.scope !== SCOPE) {
+  if (
+    manifest.schemaVersion !== PHASE4_SCHEMA_VERSION ||
+    manifest.scope !== SCOPE
+  ) {
     throw new Error("Invalid KAI-256 Phase 4 tail manifest metadata.");
   }
   if (frozenTailFingerprint(manifest) !== manifest.wholeTailFingerprint) {
@@ -995,7 +1056,10 @@ export function validateFrozenTail(
   }
   const manifestIdHash = hashStable([...manifestIds].sort());
   for (const [label, value] of [
-    ["source fingerprints", manifest.sourceFingerprints],
+    [
+      "Phase 4 adjudication fingerprints",
+      manifest.phase4AdjudicationFingerprints,
+    ],
     ["source identity fingerprints", manifest.sourceIdentityFingerprints],
     ["prior Phase 3 records", manifest.priorPhase3],
     ["proposed identity fingerprints", manifest.proposedIdentityFingerprints],
@@ -1063,9 +1127,10 @@ export function validateFrozenTail(
       );
     }
     if (
-      phase3InputFingerprint(destination) !== manifest.sourceFingerprints[id]
+      phase4AdjudicationFingerprint(destination) !==
+      manifest.phase4AdjudicationFingerprints[id]
     ) {
-      throw new Error(`Phase 4 source fingerprint drift: ${id}`);
+      throw new Error(`Phase 4 adjudication fingerprint drift: ${id}`);
     }
     const currentIdentity = identityFingerprint(destination);
     if (
@@ -1165,7 +1230,7 @@ function validatePhase4Inputs(
       `Phase 3 safety flags are active: ${unsafePhase3Flags.join(", ")}`,
     );
   }
-  if (cache.schemaVersion !== 1 || cache.scope !== SCOPE) {
+  if (cache.schemaVersion !== PHASE4_SCHEMA_VERSION || cache.scope !== SCOPE) {
     throw new Error("Invalid Phase 4 offline cache metadata.");
   }
   if (cache.manifestFingerprint !== manifest.wholeTailFingerprint) {
@@ -1188,8 +1253,11 @@ function validatePhase4Inputs(
     const cached = cache.entries[id];
     if (!entry || !cached)
       throw new Error(`Phase 3/4 cache entry is missing: ${id}`);
-    if (cached.inputFingerprint !== manifest.sourceFingerprints[id]) {
-      throw new Error(`Phase 4 cache input fingerprint drift: ${id}`);
+    if (
+      cached.adjudicationFingerprint !==
+      manifest.phase4AdjudicationFingerprints[id]
+    ) {
+      throw new Error(`Phase 4 cache adjudication fingerprint drift: ${id}`);
     }
     if (cached.phase3EntryFingerprint !== hashStable(entry)) {
       throw new Error(`Phase 4 cached Phase 3 evidence drift: ${id}`);
@@ -1324,14 +1392,19 @@ function noStandaloneDecisionReason(
   manifest: Phase4Manifest,
   evidence: string,
 ): string {
-  const frozenSourceFingerprint = manifest.sourceFingerprints[id];
-  if (!frozenSourceFingerprint) {
-    throw new Error(`${id}: no-standalone evidence has no frozen source.`);
+  const frozenAdjudicationFingerprint =
+    manifest.phase4AdjudicationFingerprints[id];
+  if (!frozenAdjudicationFingerprint) {
+    throw new Error(
+      `${id}: no-standalone evidence has no frozen adjudication source.`,
+    );
   }
-  if (phase3InputFingerprint(destination) !== frozenSourceFingerprint) {
-    throw new Error(`${id}: no-standalone source evidence drifted.`);
+  if (
+    phase4AdjudicationFingerprint(destination) !== frozenAdjudicationFingerprint
+  ) {
+    throw new Error(`${id}: no-standalone adjudication evidence drifted.`);
   }
-  return `AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen source fingerprint ${frozenSourceFingerprint}; source fields: name/nameJa/aliases/description/categories/kind/role/placeType/relationships): ${evidence}`;
+  return `AFFIRMATIVE CATALOGUE-SOURCE EVIDENCE (frozen Phase 4 adjudication fingerprint ${frozenAdjudicationFingerprint}; source fields: ${PHASE4_ADJUDICATION_FIELDS.join(", ")}): ${evidence}`;
 }
 
 function makeFinalGate(
@@ -1826,7 +1899,7 @@ function reportFor(
       duplicateAudit.counts["suspicious-needs-review"],
   };
   return {
-    schemaVersion: 1,
+    schemaVersion: PHASE4_SCHEMA_VERSION,
     scope: SCOPE,
     stage,
     manifestFingerprint: manifest.wholeTailFingerprint,
@@ -1906,7 +1979,8 @@ function reportFor(
         id: evaluation.id,
         evidence: evaluation.decisionReason,
         evidenceSource: "catalogue-source",
-        sourceFingerprint: manifest.sourceFingerprints[evaluation.id],
+        adjudicationFingerprint:
+          manifest.phase4AdjudicationFingerprints[evaluation.id],
       })),
     catalogueRelationshipIssues: catalogueIssueLedger(evaluations),
     newCanonicalMappings: canonical.map((evaluation) => ({

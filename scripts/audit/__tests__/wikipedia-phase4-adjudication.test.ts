@@ -4,6 +4,7 @@ import {
   buildDuplicateIdentityAudit,
   derivePhase4Tail,
   frozenTailFingerprint,
+  phase4AdjudicationFingerprint,
   identityFingerprint,
   identitySnapshot,
   validateFrozenTail,
@@ -12,14 +13,15 @@ import {
 } from "../../adjudicate-wikipedia-phase4";
 import {
   hashStable,
-  phase3InputFingerprint,
   type Phase3Destination,
   type Phase3Identity,
 } from "../../lib/wikipediaPhase3Enrichment";
 
+type TestDestination = Phase3Destination & { description?: string };
+
 function destination(
-  overrides: Partial<Phase3Destination> = {},
-): Phase3Destination {
+  overrides: Partial<TestDestination> = {},
+): TestDestination {
   return {
     id: "test-city",
     name: "Test City",
@@ -70,18 +72,18 @@ function evaluation(
 function manifestFor(destinations: Phase3Destination[]): Phase4Manifest {
   const tail = derivePhase4Tail(destinations, { reviewLedger: [] });
   const ids = tail.map((item) => item.id);
-  const sourceFingerprints = Object.fromEntries(
-    tail.map((item) => [item.id, phase3InputFingerprint(item)]),
+  const phase4AdjudicationFingerprints = Object.fromEntries(
+    tail.map((item) => [item.id, phase4AdjudicationFingerprint(item)]),
   );
   const sourceIdentityFingerprints = Object.fromEntries(
     tail.map((item) => [item.id, identityFingerprint(item)]),
   );
   const manifest: Phase4Manifest = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     scope: "kai-256-wikipedia-phase4",
     baseline: {
       publishedDestinations: destinations.length,
-      startingCanonicalWikipediaIdentity: 0,
+      startingCanonicalWikipediaIdentity: 444,
       phase1ReviewRecords: 0,
       phase3HighConfidenceAwaitingApply: 0,
       phase3AmbiguousCandidate: 0,
@@ -90,9 +92,9 @@ function manifestFor(destinations: Phase3Destination[]): Phase4Manifest {
       tailPopulation: ids.length,
     },
     ids,
-    sourceFingerprints,
+    phase4AdjudicationFingerprints,
     sourceIdentityFingerprints,
-    outsideTailPublishedIdentityFingerprint: "outside",
+    outsideTailPublishedIdentityFingerprint: hashStable({}),
     phase1ReviewLedgerFingerprint: hashStable([]),
     phase1ReviewInputFingerprints: {},
     phase1ReviewIdentityFingerprints: {},
@@ -172,6 +174,25 @@ describe("Phase 4 duplicate audit", () => {
 });
 
 describe("Phase 4 frozen tail", () => {
+  it("includes description in the adjudication fingerprint", () => {
+    const original = destination({ description: "Original catalogue copy" });
+    const changed = destination({ description: "Changed catalogue copy" });
+
+    expect(phase4AdjudicationFingerprint(original)).not.toBe(
+      phase4AdjudicationFingerprint(changed),
+    );
+  });
+
+  it("fails closed when only the catalogue description changes", () => {
+    const original = destination({ description: "Original catalogue copy" });
+    const manifest = manifestFor([original]);
+    const current = [destination({ description: "Changed catalogue copy" })];
+
+    expect(() =>
+      validateFrozenTail(manifest, current, { reviewLedger: [] }),
+    ).toThrow("adjudication fingerprint drift");
+  });
+
   it("fails closed when a new eligible record appears", () => {
     const original = destination();
     const manifest = manifestFor([original]);
