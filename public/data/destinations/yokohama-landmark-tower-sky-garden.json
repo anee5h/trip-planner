@@ -3,6 +3,11 @@
   "name": "Yokohama Landmark Tower (Sky Garden)",
   "prefecture": "Kanagawa",
   "region": "Kanto",
+  "wikipediaTitle": "Yokohama Landmark Tower",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+  "wikipediaPageId": 1404793,
+  "wikidataId": "Q587108",
   "categories": ["Observation Deck", "Landmark", "Port", "Modern"],
   "heroImage": "https://images.unsplash.com/photo-1609375855883-411e45d77365?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "image": "https://images.unsplash.com/photo-1609375855883-411e45d77365?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -108,6 +113,12 @@
         "url": "https://www.yokohama-landmark.jp/skygarden/",
         "title": "Yokohama Landmark Tower (Sky Garden) official website",
         "accessedAt": "2026-08-02"
+      },
+      {
+        "type": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+        "title": "Yokohama Landmark Tower",
+        "accessedAt": "2026-08-30"
       }
     ],
     "freshness": "current",

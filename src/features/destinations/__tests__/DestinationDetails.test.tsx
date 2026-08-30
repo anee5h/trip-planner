@@ -48,8 +48,18 @@ vi.mock("@/shared/hooks/useWeather", () => ({
 }));
 
 const wikipediaMock = vi.hoisted(() => ({
-  fetchSummary: vi.fn(async () => null),
+  fetchSummary: vi.fn(),
 }));
+
+const validWikipediaSummary = {
+  extract:
+    "A trustworthy destination article with enough detail for the summary card.",
+  url: "https://en.wikipedia.org/wiki/Example_Destination",
+  title: "Example Destination",
+  language: "en" as const,
+  confidence: "high" as const,
+  matchMethod: "exact-title" as const,
+};
 
 vi.mock("@/shared/services/wikipedia/WikipediaService", () => ({
   WikipediaService: wikipediaMock,
@@ -241,7 +251,76 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     expect(host.textContent).toContain(
       "信頼できるWikipedia記事は見つかりませんでした。",
     );
-    expect(host.querySelector('[role="status"]')).not.toBeNull();
+    const unavailable = host.querySelector('[role="status"]');
+    expect(unavailable).not.toBeNull();
+    expect(unavailable?.className).toContain("border-l-2");
+    expect(unavailable?.className).not.toContain("p-4");
+    expect(
+      host.querySelector(
+        'button[data-testid="wikipedia-toggle"][aria-expanded="true"]',
+      ),
+    ).not.toBeNull();
+  });
+
+  it("keeps intentional Wikipedia spacing for a POI in collapsed and expanded states", async () => {
+    localeState.locale = "en";
+    wikipediaMock.fetchSummary.mockResolvedValue(validWikipediaSummary);
+    render("/destinations/yokohama-landmark-tower-sky-garden");
+    await act(async () => {
+      await flush(120);
+    });
+
+    let toggle = host.querySelector<HTMLButtonElement>(
+      'button[data-testid="wikipedia-toggle"]',
+    );
+    expect(toggle?.textContent).toContain("Read more");
+    expect(toggle?.parentElement?.className).toContain("mt-5");
+
+    await act(async () => {
+      toggle?.click();
+      await flush(40);
+    });
+    toggle = host.querySelector('button[data-testid="wikipedia-toggle"]');
+    expect(toggle?.textContent).toContain("Show less");
+    expect(toggle?.parentElement?.className).toContain("mt-5");
+  });
+
+  it("keeps intentional Wikipedia spacing for a hub in collapsed and expanded states", async () => {
+    localeState.locale = "en";
+    wikipediaMock.fetchSummary.mockResolvedValue(validWikipediaSummary);
+    render("/destinations/otsu-city");
+    await act(async () => {
+      await flush(220);
+    });
+
+    let toggle = host.querySelector<HTMLButtonElement>(
+      'button[data-testid="wikipedia-toggle"]',
+    );
+    expect(toggle?.textContent).toContain("Read more");
+    expect(toggle?.parentElement?.className).toContain("mt-5");
+
+    await act(async () => {
+      toggle?.click();
+      await flush(40);
+    });
+    toggle = host.querySelector('button[data-testid="wikipedia-toggle"]');
+    expect(toggle?.textContent).toContain("Show less");
+    expect(toggle?.parentElement?.className).toContain("mt-5");
+  });
+
+  it("does not repeat header location in the POI at-a-glance facts", async () => {
+    localeState.locale = "en";
+    render("/destinations/yokohama-landmark-tower-sky-garden");
+    await act(async () => {
+      await flush(120);
+    });
+
+    expect(host.textContent).toContain("Located In:");
+    const atAGlance = host.querySelector(
+      '[data-testid="destination-at-a-glance"]',
+    );
+    expect(atAGlance?.textContent).not.toContain("Located in");
+    expect(atAGlance?.textContent).not.toContain("Yokohama City");
   });
 
   it("keeps a retry action for transient Wikipedia failures", async () => {

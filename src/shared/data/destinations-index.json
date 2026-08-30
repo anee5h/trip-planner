@@ -78278,6 +78278,11 @@
     "importance": "notable",
     "prefecture": "Shiga",
     "region": "Kansai",
+    "wikipediaTitle": "Ōtsu",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Ctsu",
+    "wikipediaPageId": 6792853,
+    "wikidataId": "Q202907",
     "categories": [
       "Travel Hub",
       "City Hub"
@@ -78362,6 +78367,12 @@
           "url": "https://www.city.otsu.lg.jp/",
           "title": "Otsu City official website",
           "accessedAt": "2026-08-13"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/%C5%8Ctsu",
+          "title": "Ōtsu",
+          "accessedAt": "2026-08-30"
         }
       ],
       "reviewedAt": "2026-08-03T00:00:00Z",
@@ -109933,6 +109944,11 @@
     "name": "Yokohama Landmark Tower (Sky Garden)",
     "prefecture": "Kanagawa",
     "region": "Kanto",
+    "wikipediaTitle": "Yokohama Landmark Tower",
+    "wikipediaLanguage": "en",
+    "wikipediaUrl": "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+    "wikipediaPageId": 1404793,
+    "wikidataId": "Q587108",
     "categories": [
       "Observation Deck",
       "Landmark",
@@ -110056,6 +110072,12 @@
           "url": "https://www.yokohama-landmark.jp/skygarden/",
           "title": "Yokohama Landmark Tower (Sky Garden) official website",
           "accessedAt": "2026-08-02"
+        },
+        {
+          "type": "wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Yokohama_Landmark_Tower",
+          "title": "Yokohama Landmark Tower",
+          "accessedAt": "2026-08-30"
         }
       ],
       "freshness": "current",
