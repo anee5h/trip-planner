@@ -280,9 +280,9 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Flight");
     // KAI-217B round-3: the ferry corridor fare is corridor_only (access
     // legs not modeled) + required local transport is unavailable → the
-    // engine result is PARTIAL → no complete range → the on-site-excluded
-    // copy legitimately shows (origin trip is not whole-journey complete).
-    expect(text).toContain("On-site budget (transport excluded)");
+    // The page-level legacy on-site budget card is intentionally removed;
+    // Budget v2 remains covered by the planning widget.
+    expect(text).not.toContain("On-site budget (transport excluded)");
   });
 
   it("Ogasawara from Fukuoka shows no ferry note, unavailable copy, and on-site budget", async () => {
@@ -295,7 +295,7 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).toContain("Transport estimate unavailable");
     expect(text).not.toContain("Ferry route available");
-    expect(text).toContain("On-site budget (transport excluded)");
+    expect(text).not.toContain("On-site budget (transport excluded)");
     expect(text).not.toContain("Local transport");
   });
 
@@ -307,9 +307,9 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    // KAI-217B round-3: the ferry corridor is partial (access + local
-    // transport not modeled) → the on-site-excluded copy legitimately shows.
-    expect(text).toContain("On-site budget (transport excluded)");
+    // KAI-217B round-3: partial ferry access still must not resurrect the
+    // removed page-level legacy budget card.
+    expect(text).not.toContain("On-site budget (transport excluded)");
   });
 
   it("Japanese locale no longer shows on-site-only budget when ferry estimable", async () => {
@@ -321,9 +321,9 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    // KAI-217B round-3: partial ferry corridor → the transport-excluded
-    // copy legitimately shows (origin trip is not whole-journey complete).
-    expect(text).toContain("現地予算（往復交通費を除く）");
+    // KAI-217B round-3: partial ferry access must not resurrect the removed
+    // page-level legacy budget card in Japanese either.
+    expect(text).not.toContain("現地予算（往復交通費を除く）");
   });
 
   it("Tomogashima ferry row follows the planned travel date (August)", async () => {
@@ -403,7 +403,7 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).toContain("Flight");
     expect(text).toContain("Cost unavailable");
-    expect(text).toContain("On-site budget (transport excluded)");
+    expect(text).not.toContain("On-site budget (transport excluded)");
     expect(text).not.toContain("Couple Budget");
     expect(text).not.toContain("Solo Budget");
     expect(text).not.toContain("Group Budget");
@@ -420,7 +420,7 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).toContain("飛行機");
     expect(text).toContain("料金不明");
-    expect(text).toContain("現地予算（往復交通費を除く）");
+    expect(text).not.toContain("現地予算（往復交通費を除く）");
     expect(text).not.toContain("カップル予算");
     expect(text).not.toContain("グループ予算");
   });

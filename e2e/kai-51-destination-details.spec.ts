@@ -10,10 +10,19 @@ test("Destination details render hero, tabs and cost breakdown", async ({
 }) => {
   await page.goto("/destinations/abashiri-city");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "At a glance", level: 2 }),
+  ).toBeVisible();
+  await expect(page.getByTestId("destination-at-a-glance")).toBeVisible();
   // Cost breakdown widget (kai-89 selector contract).
   await expect(
     page.getByRole("button", { name: "View cost breakdown" }),
   ).toBeVisible();
+  await expect(page.getByTestId("trip-cost-breakdown")).toHaveCount(1);
+  await expect(
+    page.getByText("On-site budget (transport excluded)", { exact: true }),
+  ).toHaveCount(0);
+  await expect(page.locator("[data-rail]").first()).toBeVisible();
   await page.getByRole("button", { name: "View cost breakdown" }).click();
   await expect(page.getByText(/total|合計/i).first()).toBeVisible();
 });
@@ -30,6 +39,8 @@ test("Japanese destination details render with the JA card", async ({
     .textContent();
   expect(h1?.trim().length).toBeGreaterThan(0);
   await expect(page.getByText(/合計|交通|概要/).first()).toBeVisible();
+  await expect(page.getByTestId("destination-at-a-glance")).toBeVisible();
+  await expect(page.getByTestId("trip-cost-breakdown")).toHaveCount(1);
 });
 
 test("Collections directory lists collections", async ({ page }) => {
