@@ -196,5 +196,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "世田谷区",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%B8%96%E7%94%B0%E8%B0%B7%E5%8C%BA",
+  "wikipediaPageId": 258785,
+  "wikidataId": "Q231645"
 }

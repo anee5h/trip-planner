@@ -223,5 +223,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "成田市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%88%90%E7%94%B0%E5%B8%82",
+  "wikipediaPageId": 17387,
+  "wikidataId": "Q273798"
 }

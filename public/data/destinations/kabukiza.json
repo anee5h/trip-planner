@@ -224,5 +224,10 @@
     "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "歌舞伎座",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%AD%8C%E8%88%9E%E4%BC%8E%E5%BA%A7",
+  "wikipediaPageId": 29237,
+  "wikidataId": "Q3082575"
 }

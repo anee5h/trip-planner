@@ -168,5 +168,10 @@
     "detail": "Canonical arrival Okayama Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "犬島",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8A%AC%E5%B3%B6",
+  "wikipediaPageId": 157590,
+  "wikidataId": "Q75322"
 }

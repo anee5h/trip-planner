@@ -197,5 +197,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "墨田区",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%A2%A8%E7%94%B0%E5%8C%BA",
+  "wikipediaPageId": 12594,
+  "wikidataId": "Q235135"
 }

@@ -171,5 +171,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "小豆島",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B1%86%E5%B3%B6",
+  "wikipediaPageId": 6118,
+  "wikidataId": "Q2166413"
 }

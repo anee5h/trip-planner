@@ -152,5 +152,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "平等院",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E7%AD%89%E9%99%A2",
+  "wikipediaPageId": 83541,
+  "wikidataId": "Q61094"
 }

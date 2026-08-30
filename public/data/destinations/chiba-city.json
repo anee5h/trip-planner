@@ -217,5 +217,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Chiba (city)",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Chiba_(city)",
+  "wikipediaPageId": 6792812,
+  "wikidataId": "Q170616"
 }

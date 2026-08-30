@@ -222,5 +222,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "木更津市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%9C%A8%E6%9B%B4%E6%B4%A5%E5%B8%82",
+  "wikipediaPageId": 47647,
+  "wikidataId": "Q335427"
 }

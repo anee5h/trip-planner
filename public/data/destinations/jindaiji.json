@@ -200,5 +200,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "深大寺",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%B7%B1%E5%A4%A7%E5%AF%BA",
+  "wikipediaPageId": 69941,
+  "wikidataId": "Q500736"
 }

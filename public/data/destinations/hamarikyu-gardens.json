@@ -227,5 +227,10 @@
     "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "Hama-rikyū Gardens",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Hama-riky%C5%AB_Gardens",
+  "wikipediaPageId": 2774164,
+  "wikidataId": "Q1033333"
 }

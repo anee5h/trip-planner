@@ -175,5 +175,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Aso Kujū National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Aso_Kuj%C5%AB_National_Park",
+  "wikipediaPageId": 4614595,
+  "wikidataId": "Q1156555"
 }

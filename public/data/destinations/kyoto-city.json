@@ -231,5 +231,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kyoto",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kyoto",
+  "wikipediaPageId": 37652,
+  "wikidataId": "Q34600"
 }

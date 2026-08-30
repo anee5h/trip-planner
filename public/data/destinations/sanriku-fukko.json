@@ -173,5 +173,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "三陸復興国立公園",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%B8%89%E9%99%B8%E5%BE%A9%E8%88%88%E5%9B%BD%E7%AB%8B%E5%85%AC%E5%9C%92",
+  "wikipediaPageId": 378010,
+  "wikidataId": "Q1206082"
 }

@@ -168,5 +168,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Komoro Castle",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Komoro_Castle",
+  "wikipediaPageId": 17374303,
+  "wikidataId": "Q1197137"
 }

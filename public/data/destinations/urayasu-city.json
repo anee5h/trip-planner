@@ -211,5 +211,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "浦安市",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%B5%A6%E5%AE%89%E5%B8%82",
+  "wikipediaPageId": 35426,
+  "wikidataId": "Q319729"
 }
