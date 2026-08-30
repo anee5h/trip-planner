@@ -28,6 +28,8 @@ export interface LegacyCandidate extends WikipediaCandidate {
   extract: string;
   pageId?: number;
   wikidataId?: string;
+  requestedIdentity?: string;
+  redirectedFrom?: string;
 }
 
 export interface LegacyCandidateFailure {
@@ -165,6 +167,39 @@ function candidateMapping(candidate: LegacyCandidate): WikipediaMapping {
   };
 }
 
+function candidateEntityTypeMismatch(
+  destination: LegacyDestination,
+  candidate: LegacyCandidate,
+): string | undefined {
+  const descriptor =
+    `${candidate.description ?? ""} ${candidate.extract}`.trim();
+  const kind = destination.kind ?? "";
+  const stationKind = kind === "station";
+  const municipalKind = new Set([
+    "city",
+    "ward",
+    "town",
+    "village",
+    "district",
+  ]).has(kind);
+
+  if (
+    !stationKind &&
+    /^(?:railway|metro|subway|train)(?:\s+and\s+(?:railway|metro|subway|train))*\s+station\b/i.test(
+      descriptor,
+    )
+  ) {
+    return "entity-type-mismatch";
+  }
+  if (
+    !municipalKind &&
+    /^(?:city|ward|town|village|municipality|prefecture)\b/i.test(descriptor)
+  ) {
+    return "entity-type-mismatch";
+  }
+  return undefined;
+}
+
 export function classifyLegacyDestination(
   destination: LegacyDestination,
   candidates: CandidateLookup,
@@ -216,16 +251,23 @@ export function classifyLegacyDestination(
 
   const parsedCandidateUrl = parseWikipediaUrl(candidate.url);
   const candidateIdentity = canonicalWikipediaIdentity(candidate.url);
+  const redirectedFromIdentity = candidate.redirectedFrom
+    ? canonicalWikipediaIdentity(candidate.redirectedFrom)
+    : undefined;
   if (
     !parsedCandidateUrl ||
     !candidateIdentity ||
+    candidate.requestedIdentity !== sourceIdentity ||
+    (candidateIdentity !== sourceIdentity &&
+      redirectedFromIdentity !== sourceIdentity) ||
     parsedCandidateUrl.language !== candidate.language ||
     normalizedTitle(parsedCandidateUrl.title) !==
       normalizedTitle(candidate.title)
   ) {
     return review("candidate-identity-mismatch", sourceUrls);
   }
-  if (!Number.isInteger(candidate.pageId) || candidate.pageId <= 0) {
+  const pageId = candidate.pageId;
+  if (typeof pageId !== "number" || !Number.isInteger(pageId) || pageId <= 0) {
     return review("no-usable-identity", sourceUrls);
   }
   if (candidate.wikidataId && !/^Q\d+$/i.test(candidate.wikidataId)) {
@@ -233,6 +275,10 @@ export function classifyLegacyDestination(
   }
   if (!titleMatchesDestination(destination, candidate.title)) {
     return review("destination-title-mismatch", sourceUrls);
+  }
+  const entityMismatch = candidateEntityTypeMismatch(destination, candidate);
+  if (entityMismatch) {
+    return review("validator-rejected", sourceUrls, [entityMismatch]);
   }
 
   const validation = validateWikipediaCandidate(destination, candidate, {
@@ -250,7 +296,7 @@ export function classifyLegacyDestination(
       wikipediaTitle: candidate.title,
       wikipediaLanguage: candidate.language,
       wikipediaUrl: candidate.url,
-      wikipediaPageId: candidate.pageId,
+      wikipediaPageId: pageId,
       ...(candidate.wikidataId ? { wikidataId: candidate.wikidataId } : {}),
     },
     sourceUrls,

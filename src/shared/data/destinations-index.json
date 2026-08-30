@@ -31893,12 +31893,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Inagekaigan Station",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Inagekaigan_Station",
-    "wikipediaPageId": 23015033,
-    "wikidataId": "Q2583249"
+    }
   },
   {
     "id": "inamuragasaki",
@@ -34099,12 +34094,7 @@
       "detail": "Canonical arrival Omiya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    },
-    "wikipediaTitle": "Iwatsuki-ku, Saitama",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama",
-    "wikipediaPageId": 328450,
-    "wikidataId": "Q1184508"
+    }
   },
   {
     "id": "iya-valley-tokushima",
@@ -37685,12 +37675,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Kamakurakōkōmae Station",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
-    "wikipediaPageId": 12062451,
-    "wikidataId": "Q859202"
+    }
   },
   {
     "id": "kanayama-shrine",
@@ -39494,12 +39479,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Enoshima Station",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Enoshima_Station",
-    "wikipediaPageId": 10748044,
-    "wikidataId": "Q846972"
+    }
   },
   {
     "id": "katori-city",
@@ -44898,12 +44878,7 @@
       "detail": "Canonical arrival Shin-Kobe Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    },
-    "wikipediaTitle": "Kobe",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kobe",
-    "wikipediaPageId": 59056,
-    "wikidataId": "Q48320"
+    }
   },
   {
     "id": "kiyotsu-gorge-niigata",
@@ -53907,12 +53882,7 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    },
-    "wikipediaTitle": "Kaihimmakuhari Station",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Kaihimmakuhari_Station",
-    "wikipediaPageId": 23014984,
-    "wikidataId": "Q906715"
+    }
   },
   {
     "id": "marugame-castle",
@@ -77561,12 +77531,7 @@
       "basis": "Shin-Osaka → Osaka on JR West is ¥180 ordinary adult one-way; Osaka Station City is at the Osaka Station endpoint shown by its official rail-access map.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
-    },
-    "wikipediaTitle": "Shin-Ōsaka Station",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station",
-    "wikipediaPageId": 401650,
-    "wikidataId": "Q801438"
+    }
   },
   {
     "id": "osaki-hachimangu",
@@ -96938,12 +96903,7 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
-    },
-    "wikipediaTitle": "Nishitetsu Fukuoka (Tenjin) Station",
-    "wikipediaLanguage": "en",
-    "wikipediaUrl": "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
-    "wikipediaPageId": 19022040,
-    "wikidataId": "Q901130"
+    }
   },
   {
     "id": "tennoji-park",

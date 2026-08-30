@@ -223,10 +223,5 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  },
-  "wikipediaTitle": "Kamakurakōkōmae Station",
-  "wikipediaLanguage": "en",
-  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
-  "wikipediaPageId": 12062451,
-  "wikidataId": "Q859202"
+  }
 }

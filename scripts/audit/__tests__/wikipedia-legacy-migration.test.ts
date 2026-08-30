@@ -37,6 +37,7 @@ function candidate(overrides: Partial<LegacyCandidate> = {}): LegacyCandidate {
     url: "https://en.wikipedia.org/wiki/Aso_City",
     pageId: 12345,
     wikidataId: "Q12345",
+    requestedIdentity: "en:aso city",
     extract:
       "Aso City is a city in Kumamoto Prefecture, Japan, with a population and municipal government.",
     description: "City in Kumamoto Prefecture, Japan",
@@ -88,6 +89,7 @@ describe("classifyLegacyDestination", () => {
           url: "https://en.wikipedia.org/wiki/Mount_Aso",
           pageId: 54321,
           wikidataId: "Q54321",
+          requestedIdentity: "en:mount aso",
           extract:
             "Mount Aso is the largest active volcano in Japan and includes a broad volcanic area.",
           description: "Volcano in Japan",
@@ -97,7 +99,7 @@ describe("classifyLegacyDestination", () => {
 
     expect(result.state).toBe("review");
     expect(result.reason).toBe("destination-title-mismatch");
-    expect(result.identity).toBeUndefined();
+    expect("identity" in result).toBe(false);
   });
 
   it("keeps records with conflicting legacy URLs in review", () => {
@@ -162,5 +164,62 @@ describe("classifyLegacyDestination", () => {
       details: ["HTTP 503"],
       sourceUrls: ["https://en.wikipedia.org/wiki/Aso_City"],
     });
+  });
+
+  it("rejects a swapped cache candidate even when the candidate title looks valid", () => {
+    const result = classifyLegacyDestination(destination(), {
+      "en:aso city": candidate({
+        requestedIdentity: "en:other title",
+      }),
+    });
+
+    expect(result.state).toBe("review");
+    expect(result.reason).toBe("candidate-identity-mismatch");
+  });
+
+  it("accepts a verified redirect only when it records the requested source", () => {
+    const result = classifyLegacyDestination(
+      destination({
+        id: "amanoiwato-shrine",
+        name: "Amanoiwato Shrine",
+        nameJa: "天岩戸神社",
+        editorial: {
+          sources: [
+            {
+              type: "wikipedia",
+              url: "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
+              title: "Amanoiwato-jinja",
+            },
+          ],
+        },
+      }),
+      {
+        "en:amanoiwato-jinja": candidate({
+          requestedIdentity: "en:amanoiwato-jinja",
+          title: "Amanoiwato Shrine",
+          url: "https://en.wikipedia.org/wiki/Amanoiwato_Shrine",
+          pageId: 29524214,
+          wikidataId: "Q2841102",
+          redirectedFrom: "https://en.wikipedia.org/wiki/Amanoiwato-jinja",
+        }),
+      },
+    );
+
+    expect(result.state).toBe("canonicalizable");
+  });
+
+  it("keeps a station article in review for a non-station destination kind", () => {
+    const result = classifyLegacyDestination(destination({ kind: "park" }), {
+      "en:aso city": candidate({
+        description: "Railway station in Kumamoto, Japan",
+      }),
+    });
+
+    expect(result.state).toBe("review");
+    expect(result.reason).toBe("validator-rejected");
+    if (result.state === "canonicalizable") {
+      throw new Error("Expected an entity-type review result");
+    }
+    expect(result.details).toContain("entity-type-mismatch");
   });
 });

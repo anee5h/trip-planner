@@ -6,14 +6,14 @@
     "destinations": 1057,
     "published": 732,
     "publishedCanonicalBefore": 19,
-    "publishedCanonicalAfter": 142,
+    "publishedCanonicalAfter": 134,
     "publishedUnmappedBefore": 500,
     "publishedUnmappedAfter": 500,
     "legacyProvenanceExamined": 213
   },
   "migration": {
-    "automaticallyCanonicalized": 123,
-    "reviewRequired": 90,
+    "automaticallyCanonicalized": 115,
+    "reviewRequired": 98,
     "transientNetworkFailures": 0,
     "invalidProvenance": 3,
     "noUsableIdentity": 19
@@ -56,19 +56,15 @@
       "horikawa-canal-nichinan",
       "huis-ten-bosch",
       "ikuta-ryokuchi",
-      "inage-seaside-park",
       "inamuragasaki",
       "ise-city",
-      "iwatsuki-ningyo-museum",
       "kabukicho",
       "kagoshima-city",
-      "kamakurakokomae-station",
       "kanayama-shrine",
       "karatsu-castle",
       "karatsu-city",
       "kashiya-yokocho",
       "kasori-shell-mounds",
-      "katase-higashihama-beach",
       "katori-city",
       "katori-jingu",
       "kawachi-wisteria-garden",
@@ -78,7 +74,6 @@
       "kinkaku-ji",
       "kita-in",
       "kitakyushu-city",
-      "kitano-ijinkan",
       "kobe-animal-kingdom",
       "kobe-harborland",
       "kobe-maritime-museum",
@@ -95,7 +90,6 @@
       "kyushu-national-museum",
       "lake-ikeda",
       "lazona-kawasaki-plaza",
-      "makuhari-seaside-park",
       "meriken-park",
       "miraikan",
       "miyazaki-city",
@@ -121,7 +115,6 @@
       "osaka-aquarium-kaiyukan",
       "osaka-castle-park",
       "osaka-museum-of-housing-and-living",
-      "osaka-station-city",
       "otsu-city",
       "philosopher-s-walk",
       "saitama-stadium-2002",
@@ -139,7 +132,6 @@
       "taisho-roman-street",
       "taro-okamoto-museum-of-art",
       "tempozan-ferris-wheel",
-      "tenjin",
       "tennoji-park",
       "the-museum-of-modern-art-saitama",
       "the-national-museum-of-art-osaka",
@@ -190,18 +182,14 @@
       "horikawa-canal-nichinan",
       "huis-ten-bosch",
       "ikuta-ryokuchi",
-      "inage-seaside-park",
       "inamuragasaki",
-      "iwatsuki-ningyo-museum",
       "kabukicho",
       "kagoshima-city",
-      "kamakurakokomae-station",
       "kanayama-shrine",
       "karatsu-castle",
       "karatsu-city",
       "kashiya-yokocho",
       "kasori-shell-mounds",
-      "katase-higashihama-beach",
       "katori-jingu",
       "kawachi-wisteria-garden",
       "kawagoe-festival-museum",
@@ -210,7 +198,6 @@
       "kinkaku-ji",
       "kita-in",
       "kitakyushu-city",
-      "kitano-ijinkan",
       "kobe-animal-kingdom",
       "kobe-harborland",
       "kobe-maritime-museum",
@@ -226,7 +213,6 @@
       "kyushu-national-museum",
       "lake-ikeda",
       "lazona-kawasaki-plaza",
-      "makuhari-seaside-park",
       "meriken-park",
       "miraikan",
       "miyazaki-city",
@@ -251,7 +237,6 @@
       "osaka-aquarium-kaiyukan",
       "osaka-castle-park",
       "osaka-museum-of-housing-and-living",
-      "osaka-station-city",
       "philosopher-s-walk",
       "saitama-stadium-2002",
       "saitama-super-arena",
@@ -267,7 +252,6 @@
       "taisho-roman-street",
       "taro-okamoto-museum-of-art",
       "tempozan-ferris-wheel",
-      "tenjin",
       "tennoji-park",
       "the-museum-of-modern-art-saitama",
       "the-national-museum-of-art-osaka",
@@ -319,16 +303,21 @@
       "hita-gion-yamahoko-museum",
       "hita-onsen",
       "ibusuki-city",
+      "inage-seaside-park",
       "ishidake-observatory",
+      "iwatsuki-ningyo-museum",
       "jochi-ji",
       "jomon-sugi-yakushima",
       "kagoshima-city-aquarium",
       "kagurazaka",
+      "kamakurakokomae-station",
       "kangien-academy",
       "kannawa-onsen-district",
+      "katase-higashihama-beach",
       "kennin-ji",
       "kinrin-lake-yufuin",
       "kitakyushu-manga-museum",
+      "kitano-ijinkan",
       "komachi-street",
       "komyozenji-temple-dazaifu",
       "kujukushima-pearl-sea-resort",
@@ -336,6 +325,7 @@
       "kuromon-market",
       "kusasenri-meadow-aso",
       "maizuru-park",
+      "makuhari-seaside-park",
       "mameda-historic-district",
       "meganebashi-bridge-nagasaki",
       "miyazaki-jingu-shrine",
@@ -352,6 +342,7 @@
       "omiya-bonsai-art-museum",
       "omoide-yokocho",
       "onta-pottery-village",
+      "osaka-station-city",
       "oura-church-nagasaki",
       "renkeiji",
       "ryoan-ji",
@@ -370,6 +361,7 @@
       "takachiho-kagura-dance",
       "takachiho-town",
       "takegawara-onsen-beppu",
+      "tenjin",
       "toto-museum-kitakyushu",
       "umi-kirara-aquarium",
       "yakushima-town",
@@ -1079,9 +1071,24 @@
       "sourceUrls": ["https://en.wikipedia.org/wiki/Ibusuki,_Kagoshima"]
     },
     {
+      "id": "inage-seaside-park",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Inagekaigan_Station"]
+    },
+    {
       "id": "ishidake-observatory",
       "reason": "shared-provenance-identity",
       "sourceUrls": ["https://en.wikipedia.org/wiki/Kuj%C5%ABku_Islands"]
+    },
+    {
+      "id": "iwatsuki-ningyo-museum",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama",
+        "https://en.wikipedia.org/wiki/Iwatsuki-ku,_Saitama"
+      ]
     },
     {
       "id": "jochi-ji",
@@ -1111,6 +1118,15 @@
       ]
     },
     {
+      "id": "kamakurakokomae-station",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station",
+        "https://en.wikipedia.org/wiki/Kamakurak%C5%8Dk%C5%8Dmae_Station"
+      ]
+    },
+    {
       "id": "kangien-academy",
       "reason": "missing-api-candidate",
       "details": ["wikipedia-page-missing"],
@@ -1120,6 +1136,12 @@
       "id": "kannawa-onsen-district",
       "reason": "destination-title-mismatch",
       "sourceUrls": ["https://en.wikipedia.org/wiki/Beppu_Onsen"]
+    },
+    {
+      "id": "katase-higashihama-beach",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Enoshima_Station"]
     },
     {
       "id": "kennin-ji",
@@ -1137,6 +1159,12 @@
       "reason": "missing-api-candidate",
       "details": ["wikipedia-page-missing"],
       "sourceUrls": ["https://en.wikipedia.org/wiki/Kitakyushu_Manga_Museum"]
+    },
+    {
+      "id": "kitano-ijinkan",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kobe"]
     },
     {
       "id": "komachi-street",
@@ -1180,6 +1208,12 @@
         "https://en.wikipedia.org/wiki/Fukuoka",
         "https://en.wikipedia.org/wiki/Fukuoka"
       ]
+    },
+    {
+      "id": "makuhari-seaside-park",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Kaihimmakuhari_Station"]
     },
     {
       "id": "mameda-historic-district",
@@ -1282,6 +1316,12 @@
       "id": "onta-pottery-village",
       "reason": "destination-title-mismatch",
       "sourceUrls": ["https://en.wikipedia.org/wiki/Onta_ware"]
+    },
+    {
+      "id": "osaka-station-city",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": ["https://en.wikipedia.org/wiki/Shin-%C5%8Csaka_Station"]
     },
     {
       "id": "oura-church-nagasaki",
@@ -1395,6 +1435,15 @@
       "reason": "missing-api-candidate",
       "details": ["wikipedia-page-missing"],
       "sourceUrls": ["https://en.wikipedia.org/wiki/Takegawara_Onsen"]
+    },
+    {
+      "id": "tenjin",
+      "reason": "validator-rejected",
+      "details": ["entity-type-mismatch"],
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station",
+        "https://en.wikipedia.org/wiki/Nishitetsu_Fukuoka_(Tenjin)_Station"
+      ]
     },
     {
       "id": "toto-museum-kitakyushu",

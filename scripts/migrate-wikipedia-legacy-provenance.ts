@@ -18,6 +18,8 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
+import { format } from "prettier";
 import {
   canonicalWikipediaIdentity,
   extractWikipediaMapping,
@@ -78,15 +80,16 @@ interface AuditReport {
   };
 }
 
-type PriorAuditReport = Pick<
-  AuditReport,
-  | "schemaVersion"
-  | "generatedBy"
-  | "scope"
-  | "population"
-  | "groups"
-  | "reviewLedger"
->;
+interface LegacyCohortManifest {
+  schemaVersion: 1;
+  scope: string;
+  publishedCanonicalBefore: number;
+  publishedUnmappedBefore: number;
+  sourceFingerprint: string;
+  entries: Array<{ id: string; sourceUrls: string[] }>;
+  unmappedIds: string[];
+  unmappedFingerprint: string;
+}
 
 const root = process.cwd();
 const indexPath = path.join(root, "src/shared/data/destinations-index.json");
@@ -97,6 +100,10 @@ const defaultReportPath = path.join(
 const defaultCachePath = path.join(
   root,
   "scripts/audit/kai-256-wikipedia-legacy-api-cache.json",
+);
+const cohortManifestPath = path.join(
+  root,
+  "scripts/audit/kai-256-wikipedia-legacy-cohort.json",
 );
 const API_CONCURRENCY = 1;
 const API_DELAY_MS = 800;
@@ -211,46 +218,101 @@ function readJson<T>(filePath: string, fallback?: T): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 
-function writeJson(filePath: string, value: unknown): void {
+async function writeJson(filePath: string, value: unknown): Promise<void> {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+  fs.writeFileSync(
+    filePath,
+    await format(JSON.stringify(value), { parser: "json" }),
+  );
 }
 
-function readPriorReport(reportPath: string): PriorAuditReport | undefined {
-  const paths = [...new Set([defaultReportPath, reportPath])];
-  for (const candidatePath of paths) {
-    if (!fs.existsSync(candidatePath)) continue;
-    try {
-      const candidate = readJson<Partial<PriorAuditReport>>(candidatePath);
-      if (
-        candidate.schemaVersion === 1 &&
-        candidate.generatedBy ===
-          "scripts/migrate-wikipedia-legacy-provenance.ts" &&
-        candidate.scope ===
-          "published destinations with legacy Wikipedia provenance only" &&
-        candidate.population &&
-        candidate.groups &&
-        candidate.reviewLedger
-      ) {
-        return candidate as PriorAuditReport;
-      }
-    } catch {
-      // Report files are outputs, so stale or malformed files are ignored.
+function sourceWikipediaUrls(destination: LegacyDestination): string[] {
+  return [
+    ...new Set(
+      rawWikipediaReferences(destination)
+        .map((reference) => reference.url)
+        .filter((url): url is string => Boolean(url)),
+    ),
+  ].sort();
+}
+
+function cohortFingerprint(
+  entries: Array<{ id: string; sourceUrls: string[] }>,
+): string {
+  return createHash("sha256").update(JSON.stringify(entries)).digest("hex");
+}
+
+function loadCohortManifest(destinations: LegacyDestination[]): {
+  manifest: LegacyCohortManifest;
+  legacy: LegacyDestination[];
+} {
+  const manifest = readJson<LegacyCohortManifest>(cohortManifestPath);
+  if (
+    manifest.schemaVersion !== 1 ||
+    manifest.scope !==
+      "published destinations with legacy Wikipedia provenance only" ||
+    manifest.entries.length !== 213 ||
+    manifest.unmappedIds.length !== 500
+  ) {
+    throw new Error("Invalid KAI-256 cohort manifest metadata.");
+  }
+
+  const entries = manifest.entries.map((entry) => ({
+    id: entry.id,
+    sourceUrls: [...new Set(entry.sourceUrls)].sort(),
+  }));
+  if (
+    JSON.stringify(entries) !== JSON.stringify(manifest.entries) ||
+    cohortFingerprint(entries) !== manifest.sourceFingerprint ||
+    new Set(entries.map((entry) => entry.id)).size !== entries.length
+  ) {
+    throw new Error(
+      "KAI-256 cohort manifest is not canonical or has a bad fingerprint.",
+    );
+  }
+
+  const byId = new Map(
+    destinations.map((destination) => [destination.id, destination]),
+  );
+  for (const entry of entries) {
+    const destination = byId.get(entry.id);
+    if (!destination || destination.status !== "published") {
+      throw new Error(
+        `KAI-256 cohort record is missing or unpublished: ${entry.id}`,
+      );
+    }
+    if (
+      JSON.stringify(sourceWikipediaUrls(destination)) !==
+      JSON.stringify(entry.sourceUrls)
+    ) {
+      throw new Error(`KAI-256 provenance drift detected: ${entry.id}`);
     }
   }
-  return undefined;
-}
 
-function priorLegacyIds(
-  report: PriorAuditReport | undefined,
-): ReadonlySet<string> {
-  if (!report) return new Set();
-  return new Set([
-    ...(report.groups["legacy-canonicalizable"] ?? []),
-    ...(report.groups["legacy-needs-review"] ?? []),
-    ...(report.groups["legacy-transient-network-failure"] ?? []),
-    ...report.reviewLedger.map((entry) => entry.id),
-  ]);
+  const currentUnmappedIds = sortIds(
+    destinations
+      .filter(
+        (destination) =>
+          destination.status === "published" &&
+          !hasExplicitIdentity(destination) &&
+          !isLegacyProvenance(destination),
+      )
+      .map((destination) => destination.id),
+  );
+  if (
+    JSON.stringify(currentUnmappedIds) !==
+      JSON.stringify(manifest.unmappedIds) ||
+    createHash("sha256")
+      .update(JSON.stringify(currentUnmappedIds))
+      .digest("hex") !== manifest.unmappedFingerprint
+  ) {
+    throw new Error("KAI-256 unmapped cohort drift detected.");
+  }
+
+  return {
+    manifest,
+    legacy: entries.map((entry) => byId.get(entry.id)!),
+  };
 }
 
 function cacheEntryFor(
@@ -270,7 +332,10 @@ function delay(milliseconds: number): Promise<void> {
 
 async function fetchApiEntry(sourceUrl: string): Promise<ApiCacheEntry> {
   const parsed = parseWikipediaUrl(sourceUrl);
-  if (!parsed) return { status: "missing", message: "invalid-provenance-url" };
+  const requestedIdentity = canonicalWikipediaIdentity(sourceUrl);
+  if (!parsed || !requestedIdentity) {
+    return { status: "missing", message: "invalid-provenance-url" };
+  }
   const endpoint = `https://${parsed.language}.wikipedia.org/w/api.php`;
   const query = new URLSearchParams({
     action: "query",
@@ -306,7 +371,10 @@ async function fetchApiEntry(sourceUrl: string): Promise<ApiCacheEntry> {
         continue;
       }
       const payload = (await response.json()) as {
-        query?: { pages?: Array<Record<string, unknown>> };
+        query?: {
+          pages?: Array<Record<string, unknown>>;
+          redirects?: Array<Record<string, unknown>>;
+        };
       };
       const page = payload.query?.pages?.[0];
       if (!page) return { status: "missing", message: "missing-api-page" };
@@ -348,6 +416,11 @@ async function fetchApiEntry(sourceUrl: string): Promise<ApiCacheEntry> {
           : typeof pageProps["wikibase-shortdesc"] === "string"
             ? pageProps["wikibase-shortdesc"]
             : undefined;
+      const redirectedFrom = payload.query?.redirects?.some(
+        (redirect) => typeof redirect.from === "string",
+      )
+        ? sourceUrl
+        : undefined;
 
       return {
         status: "ok",
@@ -356,6 +429,8 @@ async function fetchApiEntry(sourceUrl: string): Promise<ApiCacheEntry> {
           title: pageTitle,
           url: pageUrl,
           extract,
+          requestedIdentity,
+          ...(redirectedFrom ? { redirectedFrom } : {}),
           ...(description ? { description } : {}),
           ...(pageId !== undefined ? { pageId } : {}),
           ...(wikidataId ? { wikidataId } : {}),
@@ -385,6 +460,8 @@ async function loadOrFetchCache(
     return (
       !entry ||
       entry.status === "transient" ||
+      (entry.status === "ok" &&
+        entry.candidate.requestedIdentity !== identity) ||
       (entry.status === "missing" && entry.message === "invalid-provenance-url")
     );
   });
@@ -402,17 +479,25 @@ async function loadOrFetchCache(
           left.localeCompare(right),
         ),
       );
-      writeJson(cachePath, sortedCache);
+      await writeJson(cachePath, sortedCache);
     }
   }
   return cache;
+}
+
+function classificationDetails(
+  classification: LegacyClassification,
+): string[] | undefined {
+  return classification.state === "canonicalizable"
+    ? undefined
+    : classification.details;
 }
 
 function buildReport(
   destinations: LegacyDestination[],
   legacy: LegacyDestination[],
   classifications: Map<string, LegacyClassification>,
-  priorReport?: PriorAuditReport,
+  manifest: LegacyCohortManifest,
 ): AuditReport {
   const published = destinations.filter(
     (destination) => destination.status === "published",
@@ -438,7 +523,9 @@ function buildReport(
       return {
         id: destination.id,
         reason: classification.reason,
-        ...(classification.details ? { details: classification.details } : {}),
+        ...(classificationDetails(classification)
+          ? { details: classificationDetails(classification) }
+          : {}),
         sourceUrls: classification.sourceUrls,
       };
     })
@@ -449,7 +536,9 @@ function buildReport(
       return {
         id: destination.id,
         reason: classification.reason,
-        ...(classification.details ? { details: classification.details } : {}),
+        ...(classificationDetails(classification)
+          ? { details: classificationDetails(classification) }
+          : {}),
         sourceUrls: classification.sourceUrls,
       };
     })
@@ -483,15 +572,12 @@ function buildReport(
       reason === "no-usable-identity" || reason === "missing-api-candidate"
     );
   }).length;
-  const publishedCanonicalBefore =
-    priorReport?.population.publishedCanonicalBefore ?? canonicalBefore.length;
-  const publishedCanonicalAfter =
-    priorReport &&
-    canonicalBefore.length >= priorReport.population.publishedCanonicalAfter
-      ? canonicalBefore.length
-      : canonicalBefore.length + canonicalizable.length;
-  const publishedUnmappedBefore =
-    priorReport?.population.publishedUnmappedBefore ?? unmappedBefore.length;
+  const publishedCanonicalBefore = manifest.publishedCanonicalBefore;
+  const publishedCanonicalAfter = Math.max(
+    canonicalBefore.length,
+    manifest.publishedCanonicalBefore + canonicalizable.length,
+  );
+  const publishedUnmappedBefore = manifest.publishedUnmappedBefore;
 
   return {
     schemaVersion: 1,
@@ -504,7 +590,7 @@ function buildReport(
       publishedCanonicalAfter,
       publishedUnmappedBefore,
       publishedUnmappedAfter: unmappedBefore.length,
-      legacyProvenanceExamined: legacy.length,
+      legacyProvenanceExamined: manifest.entries.length,
     },
     migration: {
       automaticallyCanonicalized: canonicalizable.length,
@@ -566,19 +652,8 @@ function applyCanonicalIdentities(
 
 async function main(): Promise<void> {
   const options = parseArgs();
-  const priorReport = readPriorReport(options.reportPath);
   const destinations = readJson<LegacyDestination[]>(indexPath);
-  const published = destinations.filter(
-    (destination) => destination.status === "published",
-  );
-  const priorIds = priorLegacyIds(priorReport);
-  const legacy = priorIds.size
-    ? published.filter(
-        (destination) =>
-          priorIds.has(destination.id) &&
-          rawWikipediaReferences(destination).length > 0,
-      )
-    : published.filter(isLegacyProvenance);
+  const { manifest, legacy } = loadCohortManifest(destinations);
   const identityToIds = new Map<string, Set<string>>();
   const identityToUrl = new Map<string, string>();
   for (const destination of legacy) {
@@ -622,13 +697,8 @@ async function main(): Promise<void> {
       ),
     );
   }
-  const report = buildReport(
-    destinations,
-    legacy,
-    classifications,
-    priorReport,
-  );
-  writeJson(options.reportPath, report);
+  const report = buildReport(destinations, legacy, classifications, manifest);
+  await writeJson(options.reportPath, report);
 
   const transientCount = report.migration.transientNetworkFailures;
   if (options.apply && transientCount > 0) {
