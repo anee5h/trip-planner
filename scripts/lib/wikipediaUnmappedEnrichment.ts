@@ -77,6 +77,7 @@ export interface UnmappedCandidateEvidence {
     | "coordinates-unavailable"
     | "not-evaluated";
   distanceKm?: number;
+  sharesVerifiedWikidataIdentity: boolean;
 }
 
 export interface UnmappedClassification {
@@ -236,6 +237,20 @@ function identityKey(candidate: UnmappedCandidate): string {
   return `${candidate.language}:url:${canonicalWikipediaIdentity(candidate.url) ?? candidate.url}`;
 }
 
+function allCandidatesShareWikidataIdentity(
+  candidates: UnmappedCandidate[],
+): boolean {
+  if (candidates.length < 2) return false;
+
+  const qids = candidates.map((candidate) =>
+    candidate.wikidataId?.toLocaleUpperCase(),
+  );
+
+  return (
+    qids.every((qid): qid is string => Boolean(qid)) && new Set(qids).size === 1
+  );
+}
+
 function evidenceFor(
   destination: UnmappedDestination,
   candidate: UnmappedCandidate,
@@ -274,6 +289,7 @@ function evidenceFor(
     matchSignals: matchSignals(destination, candidate.title),
     entityTypeResult: entityMismatch ? "incompatible" : "compatible",
     geographyResult,
+    sharesVerifiedWikidataIdentity: false,
     ...(validation.distanceKm === undefined
       ? {}
       : { distanceKm: validation.distanceKm }),
@@ -366,27 +382,29 @@ export function classifyUnmappedDestination(
       `${second.language}:${second.title}:${second.pageId ?? 0}`,
     ),
   );
+  const sameLinkedIdentity =
+    uniqueCandidates.length > 1 &&
+    allCandidatesShareWikidataIdentity(uniqueCandidates);
   let candidatesForEvaluation = uniqueCandidates;
-  if (uniqueCandidates.length > 1) {
-    const qids = new Set(
-      uniqueCandidates
-        .map((candidate) => candidate.wikidataId?.toLocaleUpperCase())
-        .filter(Boolean),
-    );
-    const sameLinkedIdentity = qids.size === 1 && qids.size > 0;
-    if (sameLinkedIdentity) {
-      candidatesForEvaluation = [
-        [...uniqueCandidates].sort((first, second) =>
-          `${first.language === "en" ? 0 : 1}:${first.source === "direct-title" ? 0 : 1}:${first.title}`.localeCompare(
-            `${second.language === "en" ? 0 : 1}:${second.source === "direct-title" ? 0 : 1}:${second.title}`,
-          ),
-        )[0],
-      ];
-    }
+  if (sameLinkedIdentity) {
+    candidatesForEvaluation = [
+      [...uniqueCandidates].sort((first, second) =>
+        `${first.language === "en" ? 0 : 1}:${first.source === "direct-title" ? 0 : 1}:${first.title}`.localeCompare(
+          `${second.language === "en" ? 0 : 1}:${second.source === "direct-title" ? 0 : 1}:${second.title}`,
+        ),
+      )[0],
+    ];
   }
-  const evidence = candidatesForEvaluation.map((candidate) =>
-    evidenceFor(destination, candidate, candidatesForEvaluation.length),
-  );
+  const evidence = uniqueCandidates.map((candidate) => ({
+    ...evidenceFor(
+      destination,
+      candidate,
+      sameLinkedIdentity
+        ? candidatesForEvaluation.length
+        : uniqueCandidates.length,
+    ),
+    sharesVerifiedWikidataIdentity: sameLinkedIdentity,
+  }));
 
   if (uniqueCandidates.length === 0) {
     if (discovery.parentOnlyEvidence?.length) {
@@ -418,12 +436,8 @@ export function classifyUnmappedDestination(
       const languages = new Set(
         uniqueCandidates.map((candidate) => candidate.language),
       );
-      const qids = new Set(
-        uniqueCandidates
-          .map((candidate) => candidate.wikidataId?.toLocaleUpperCase())
-          .filter(Boolean),
-      );
-      const sameLinkedIdentity = qids.size === 1 && qids.size > 0;
+      const sameLinkedIdentity =
+        allCandidatesShareWikidataIdentity(uniqueCandidates);
       if (!sameLinkedIdentity) {
         const reason: UnmappedReason =
           languages.size > 1 &&
@@ -446,7 +460,7 @@ export function classifyUnmappedDestination(
   }
 
   const chosen = candidatesForEvaluation[0];
-  const chosenEvidence = evidence[0];
+  const chosenEvidence = evidence[uniqueCandidates.indexOf(chosen)];
   const identity = canonicalIdentity(chosen);
   const accepted =
     identity !== undefined &&

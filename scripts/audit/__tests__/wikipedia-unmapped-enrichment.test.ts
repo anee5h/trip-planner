@@ -106,6 +106,82 @@ describe("classifyUnmappedDestination", () => {
     if (!result.identity) throw new Error("Expected a canonical identity");
     expect(result.identity.wikipediaLanguage).toBe("en");
     expect(result.identity.wikidataId).toBe("Q12345");
+    expect(result.candidates).toHaveLength(2);
+  });
+
+  it("keeps EN and JA candidates ambiguous when the JA page has no QID", () => {
+    const result = classifyUnmappedDestination(destination(), {
+      candidates: [
+        candidate(),
+        candidate({
+          language: "ja",
+          title: "阿蘇市",
+          url: "https://ja.wikipedia.org/wiki/阿蘇市",
+          pageId: 67890,
+          wikidataId: undefined,
+          description: "熊本県の市",
+          extract:
+            "阿蘇市は熊本県にある市で、人口と市役所があり、観光と行政の中心です。",
+        }),
+      ],
+    });
+
+    expect(result).toMatchObject({
+      state: "ambiguous-candidate",
+      ambiguityResult: "competing-candidates",
+    });
+  });
+
+  it("keeps EN and JA candidates ambiguous when the EN page has no QID", () => {
+    const result = classifyUnmappedDestination(destination(), {
+      candidates: [
+        candidate({ wikidataId: undefined }),
+        candidate({
+          language: "ja",
+          title: "阿蘇市",
+          url: "https://ja.wikipedia.org/wiki/阿蘇市",
+          pageId: 67890,
+          wikidataId: "Q12345",
+          description: "熊本県の市",
+          extract:
+            "阿蘇市は熊本県にある市で、人口と市役所があり、観光と行政の中心です。",
+        }),
+      ],
+    });
+
+    expect(result).toMatchObject({
+      state: "ambiguous-candidate",
+      ambiguityResult: "competing-candidates",
+    });
+  });
+
+  it("keeps three candidates ambiguous when one matching QID is missing", () => {
+    const result = classifyUnmappedDestination(destination(), {
+      candidates: [
+        candidate(),
+        candidate({
+          pageId: 54321,
+          wikidataId: "Q12345",
+          title: "Aso City (Kumamoto)",
+          url: "https://en.wikipedia.org/wiki/Aso_City_(Kumamoto)",
+        }),
+        candidate({
+          language: "ja",
+          title: "阿蘇市",
+          url: "https://ja.wikipedia.org/wiki/阿蘇市",
+          pageId: 67890,
+          wikidataId: undefined,
+          description: "熊本県の市",
+          extract:
+            "阿蘇市は熊本県にある市で、人口と市役所があり、観光と行政の中心です。",
+        }),
+      ],
+    });
+
+    expect(result).toMatchObject({
+      state: "ambiguous-candidate",
+      ambiguityResult: "competing-candidates",
+    });
   });
 
   it("keeps same-name entities in different prefectures ambiguous", () => {
