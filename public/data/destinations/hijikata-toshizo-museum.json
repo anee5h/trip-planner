@@ -230,5 +230,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "土方歳三資料館",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%9C%9F%E6%96%B9%E6%AD%B3%E4%B8%89%E8%B3%87%E6%96%99%E9%A4%A8",
+  "wikipediaPageId": 4122953,
+  "wikidataId": "Q97202254"
 }

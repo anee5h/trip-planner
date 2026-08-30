@@ -227,5 +227,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "玉堂美術館",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8E%89%E5%A0%82%E7%BE%8E%E8%A1%93%E9%A4%A8",
+  "wikipediaPageId": 3864351,
+  "wikidataId": "Q59960711"
 }

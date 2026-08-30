@@ -196,5 +196,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Sendai",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Sendai",
+  "wikipediaPageId": 329655,
+  "wikidataId": "Q46747"
 }

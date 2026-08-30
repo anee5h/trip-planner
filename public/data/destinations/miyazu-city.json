@@ -207,5 +207,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Miyazu, Kyoto",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Miyazu,_Kyoto",
+  "wikipediaPageId": 329182,
+  "wikidataId": "Q846351"
 }

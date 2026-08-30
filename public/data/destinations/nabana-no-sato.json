@@ -167,5 +167,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "なばなの里",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%81%AA%E3%81%B0%E3%81%AA%E3%81%AE%E9%87%8C",
+  "wikipediaPageId": 380398,
+  "wikidataId": "Q17229517"
 }

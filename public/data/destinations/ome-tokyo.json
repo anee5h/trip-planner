@@ -204,5 +204,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Ōme, Tokyo",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Cme,_Tokyo",
+  "wikipediaPageId": 329690,
+  "wikidataId": "Q237683"
 }

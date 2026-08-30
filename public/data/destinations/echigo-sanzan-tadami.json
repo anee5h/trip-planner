@@ -174,5 +174,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Echigo Sanzan-Tadami Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Echigo_Sanzan-Tadami_Quasi-National_Park",
+  "wikipediaPageId": 31617038,
+  "wikidataId": "Q4386028"
 }

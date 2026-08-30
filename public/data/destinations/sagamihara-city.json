@@ -217,5 +217,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Sagamihara",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Sagamihara",
+  "wikipediaPageId": 451296,
+  "wikidataId": "Q209779"
 }

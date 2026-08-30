@@ -222,5 +222,10 @@
     "detail": "Canonical arrival Shin-Kurashiki Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
-  }
+  },
+  "wikipediaTitle": "倉敷民藝館",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%80%89%E6%95%B7%E6%B0%91%E8%97%9D%E9%A4%A8",
+  "wikipediaPageId": 916845,
+  "wikidataId": "Q11386763"
 }

@@ -206,5 +206,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Utsunomiya",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Utsunomiya",
+  "wikipediaPageId": 328407,
+  "wikidataId": "Q200589"
 }

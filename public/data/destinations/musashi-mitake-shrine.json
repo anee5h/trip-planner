@@ -194,5 +194,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "武蔵御嶽神社",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E6%AD%A6%E8%94%B5%E5%BE%A1%E5%B6%BD%E7%A5%9E%E7%A4%BE",
+  "wikipediaPageId": 306165,
+  "wikidataId": "Q6587276"
 }

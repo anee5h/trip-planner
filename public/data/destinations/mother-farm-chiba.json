@@ -188,5 +188,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "マザー牧場",
+  "wikipediaLanguage": "ja",
+  "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%B6%E3%83%BC%E7%89%A7%E5%A0%B4",
+  "wikipediaPageId": 505055,
+  "wikidataId": "Q575499"
 }

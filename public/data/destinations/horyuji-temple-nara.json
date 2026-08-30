@@ -199,5 +199,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Buddhist Monuments in the Hōryū-ji Area",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Buddhist_Monuments_in_the_H%C5%8Dry%C5%AB-ji_Area",
+  "wikipediaPageId": 23844946,
+  "wikidataId": "Q1333799"
 }

@@ -166,5 +166,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Ibi-Sekigahara-Yōrō Quasi-National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Ibi-Sekigahara-Y%C5%8Dr%C5%8D_Quasi-National_Park",
+  "wikipediaPageId": 34912142,
+  "wikidataId": "Q1072827"
 }

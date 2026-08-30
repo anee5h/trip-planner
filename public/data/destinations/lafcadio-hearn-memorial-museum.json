@@ -224,5 +224,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Lafcadio Hearn Memorial Museum",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Lafcadio_Hearn_Memorial_Museum",
+  "wikipediaPageId": 34551144,
+  "wikidataId": "Q1778875"
 }

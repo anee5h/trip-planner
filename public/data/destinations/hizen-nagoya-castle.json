@@ -171,5 +171,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Nagoya Castle (Hizen Province)",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Nagoya_Castle_(Hizen_Province)",
+  "wikipediaPageId": 17904462,
+  "wikidataId": "Q711685"
 }

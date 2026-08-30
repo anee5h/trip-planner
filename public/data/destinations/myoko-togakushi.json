@@ -182,5 +182,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
-  }
+  },
+  "wikipediaTitle": "Myōkō-Togakushi Renzan National Park",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/My%C5%8Dk%C5%8D-Togakushi_Renzan_National_Park",
+  "wikipediaPageId": 48676532,
+  "wikidataId": "Q20095570"
 }

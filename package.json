@@ -28,6 +28,7 @@
     "audit:wikipedia": "tsx scripts/audit-wikipedia-mappings.ts",
     "migrate:wikipedia-legacy": "tsx scripts/migrate-wikipedia-legacy-provenance.ts",
     "enrich:wikipedia-unmapped": "tsx scripts/enrich-wikipedia-unmapped.ts",
+    "enrich:wikipedia-phase3": "tsx scripts/enrich-wikipedia-phase3.ts",
     "typecheck:kai256": "tsc -p tsconfig.kai256.json --noEmit",
     "check:catalog-warnings": "tsx scripts/check-catalog-warnings.ts",
     "check:catalog-warnings:update": "tsx scripts/check-catalog-warnings.ts --update",
