@@ -228,5 +228,10 @@
   "localTransport": {
     "kind": "not_applicable",
     "reason": "canonical_arrival_hub_record_itself"
-  }
+  },
+  "wikipediaTitle": "Kawasaki, Kanagawa",
+  "wikipediaLanguage": "en",
+  "wikipediaUrl": "https://en.wikipedia.org/wiki/Kawasaki,_Kanagawa",
+  "wikipediaPageId": 6793101,
+  "wikidataId": "Q164234"
 }
