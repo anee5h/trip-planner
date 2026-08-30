@@ -138,23 +138,31 @@ export class DestinationRelationshipService {
    *
    * Rules:
    * 1. Hub cannot feature itself.
-   * 2. Candidate must NOT be a destination-level container entity (role === "hub",
-   *    or kind in ["city", "town", "village", "ward", "region"]).
+   * 2. Candidate must NOT be an administrative container entity (role === "hub",
+   *    or kind in ["city", "town", "village", "ward", "region", "prefecture"] when not a POI).
    * 3. Candidate must be in the same prefecture.
    * 4. Candidate must belong to this hub:
    *    - If candidate has parentDestinationId, it MUST match hub.id.
-   *    - If candidate has no parentDestinationId, it must match municipalityId
-   *      and cannot be a root standalone destination.
+   *    - If candidate has no parentDestinationId, candidate and hub must share the same municipality,
+   *      and candidate must be a valid attraction entity (castle, temple, shrine, museum, park, onsen, etc.),
+   *      excluding unparented multi-area natural regions / peninsulas.
    */
   static isValidChildSight(candidate: Destination, hub: Destination): boolean {
     if (!candidate || !hub) return false;
     if (candidate.id === hub.id) return false;
     if (candidate.role === "hub") return false;
 
-    const destinationLevelKinds = ["city", "town", "village", "ward", "region"];
+    const containerKinds = [
+      "city",
+      "town",
+      "village",
+      "ward",
+      "region",
+      "prefecture",
+    ];
     if (
       candidate.kind &&
-      destinationLevelKinds.includes(candidate.kind as string) &&
+      containerKinds.includes(candidate.kind as string) &&
       candidate.role !== "poi"
     ) {
       return false;
@@ -173,7 +181,7 @@ export class DestinationRelationshipService {
     ) {
       if (
         candidate.role === "standalone" &&
-        candidate.placeType === "destination"
+        ["nature", "mountain", "peninsula"].includes(candidate.kind ?? "")
       ) {
         return false;
       }

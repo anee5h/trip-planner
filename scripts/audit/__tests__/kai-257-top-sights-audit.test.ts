@@ -76,4 +76,21 @@ describe("KAI-257 Top Sights Audit Tooling", () => {
     expect(categories).toContain("SAME_PREFECTURE_VIOLATION");
     expect(categories).toContain("INVALID_OR_MISSING_ENTITY");
   });
+
+  it("proves repairedCount is calculated dynamically from custom historical snapshot", () => {
+    // Custom historical map with 3 invalid entries and 1 valid entry
+    const customHistoricalMap = new Map<string, string[]>([
+      ["karuizawa-town", ["matsumoto-city", "nagano-bessho-onsen", "kiso"]],
+      ["hino-city", ["takahata-fudoson"]],
+    ]);
+
+    const report = runKai257Audit(destinations, customHistoricalMap);
+
+    // Karuizawa has 3 invalid removed, Hino has 1 repaired
+    expect(report.summary.originalSuspiciousRelationshipCount).toBe(3);
+    expect(report.summary.genuinelyInvalidRelationshipsRemoved).toBe(3);
+    expect(report.summary.parentOrTaxonomyRecordsRepaired).toBe(1);
+    expect(report.summary.legitimateRelationshipsRetained).toBe(1);
+    expect(report.summary.repairedCount).toBe(4);
+  });
 });

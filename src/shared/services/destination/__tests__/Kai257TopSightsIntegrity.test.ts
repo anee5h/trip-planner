@@ -170,6 +170,38 @@ describe("KAI-257 Top Sights and Geographic Relationship Integrity", () => {
       expect(sightIds).not.toContain("ghibli-museum");
     });
 
+    it("City Hub: Hino City retains Takahata Fudoson after relationship metadata is corrected", () => {
+      const hino = byId.get("hino-city")!;
+      const takahata = byId.get("takahata-fudoson")!;
+
+      expect(takahata.municipalityId).toBe("Tokyo:hino");
+      expect(takahata.relationships?.parentDestinationId).toBe("hino-city");
+
+      const sights =
+        DestinationRelationshipService.getFeaturedChildDestinations(hino);
+      const sightIds = sights.map((s) => s.id);
+
+      expect(sightIds).toContain("takahata-fudoson");
+      expect(sightIds).toContain("tama-zoological-park");
+      expect(sightIds).toContain("hijikata-toshizo-museum");
+    });
+
+    it("City Hub: Tokushima City retains Tokushima Castle as a legitimate attraction", () => {
+      const tokushima = byId.get("tokushima-city")!;
+      const castle = byId.get("tokushima-castle")!;
+
+      expect(castle.municipalityId).toBe("Tokushima:tokushima");
+      expect(castle.kind).toBe("castle");
+
+      const sights =
+        DestinationRelationshipService.getFeaturedChildDestinations(tokushima);
+      const sightIds = sights.map((s) => s.id);
+
+      expect(sightIds).toContain("tokushima-castle");
+      expect(sightIds).toContain("awa-odori-kaikan");
+      expect(sightIds).toContain("bizan-ropeway-tokushima");
+    });
+
     it("City Hub: Taito City Top Sights contains POIs and excludes sub-hub ueno-taito", () => {
       const taito = byId.get("taito-city")!;
       const sights =
@@ -411,6 +443,90 @@ describe("KAI-257 Top Sights and Geographic Relationship Integrity", () => {
         DestinationRelationshipService.isValidChildSight(
           differentParentPoi,
           dummyHub,
+        ),
+      ).toBe(false);
+    });
+
+    it("distinguishes legitimate standalone attractions from administrative containers", () => {
+      const cityHub = {
+        id: "sample-city-hub",
+        name: "Sample City Hub",
+        role: "hub",
+        kind: "city",
+        prefecture: "Tokyo",
+        region: "Kanto",
+        municipalityId: "Tokyo:sample",
+      } as unknown as Destination;
+
+      const standaloneCastle = {
+        id: "sample-castle",
+        name: "Sample Castle",
+        role: "standalone",
+        kind: "castle",
+        placeType: "destination",
+        prefecture: "Tokyo",
+        region: "Kanto",
+        municipalityId: "Tokyo:sample",
+      } as unknown as Destination;
+
+      const standaloneTemple = {
+        id: "sample-temple",
+        name: "Sample Temple",
+        role: "standalone",
+        kind: "temple",
+        placeType: "destination",
+        prefecture: "Tokyo",
+        region: "Kanto",
+        municipalityId: "Tokyo:sample",
+      } as unknown as Destination;
+
+      const administrativeContainerTown = {
+        id: "neighbor-town",
+        name: "Neighbor Town",
+        role: "standalone",
+        kind: "town",
+        placeType: "destination",
+        prefecture: "Tokyo",
+        region: "Kanto",
+        municipalityId: "Tokyo:sample",
+      } as unknown as Destination;
+
+      const administrativeContainerVillage = {
+        id: "sample-village",
+        name: "Sample Village",
+        role: "hub",
+        kind: "village",
+        placeType: "hub",
+        prefecture: "Tokyo",
+        region: "Kanto",
+        municipalityId: "Tokyo:sample",
+      } as unknown as Destination;
+
+      // Standalone castle and temple in same municipality qualify
+      expect(
+        DestinationRelationshipService.isValidChildSight(
+          standaloneCastle,
+          cityHub,
+        ),
+      ).toBe(true);
+      expect(
+        DestinationRelationshipService.isValidChildSight(
+          standaloneTemple,
+          cityHub,
+        ),
+      ).toBe(true);
+
+      // Administrative town and village containers are strictly rejected
+      expect(
+        DestinationRelationshipService.isValidChildSight(
+          administrativeContainerTown,
+          cityHub,
+        ),
+      ).toBe(false);
+      expect(
+        DestinationRelationshipService.isValidChildSight(
+          administrativeContainerVillage,
+          cityHub,
         ),
       ).toBe(false);
     });

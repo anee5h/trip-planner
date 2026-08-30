@@ -3073,6 +3073,7 @@
     "relationships": {
       "featuredDestinationIds": [
         "tama-zoological-park",
+        "takahata-fudoson",
         "hijikata-toshizo-museum",
         "keio-rail-land",
         "keio-mogusaen"
@@ -11052,7 +11053,7 @@
     "kind": "temple",
     "status": "published",
     "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
+      "parentDestinationId": "hino-city"
     }
   },
   {
@@ -11665,7 +11666,9 @@
     "role": "standalone",
     "kind": "castle",
     "status": "published",
-    "relationships": {}
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    }
   },
   {
     "id": "tokushima-city",
@@ -11679,6 +11682,7 @@
       "featuredDestinationIds": [
         "awa-odori-kaikan",
         "bizan-ropeway-tokushima",
+        "tokushima-castle",
         "tokushima-modern-art-museum"
       ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]

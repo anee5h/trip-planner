@@ -29,7 +29,7 @@
   "role": "poi",
   "placeType": "destination",
   "relationships": {
-    "parentDestinationId": "hachioji-tokyo"
+    "parentDestinationId": "hino-city"
   },
   "officialWebsiteRequirement": "recommended",
   "categories": ["History", "Culture", "Temple"],
@@ -140,7 +140,7 @@
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
-  "municipalityId": "Tokyo:hachioji",
+  "municipalityId": "Tokyo:hino",
   "transportMetadata": {
     "method": "legacy-fallback",
     "modelVersion": "transport-access-v1",

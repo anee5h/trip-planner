@@ -11815,6 +11815,7 @@
     "relationships": {
       "featuredDestinationIds": [
         "tama-zoological-park",
+        "takahata-fudoson",
         "hijikata-toshizo-museum",
         "keio-rail-land",
         "keio-mogusaen"
@@ -42570,6 +42571,7 @@
       "featuredDestinationIds": [
         "awa-odori-kaikan",
         "bizan-ropeway-tokushima",
+        "tokushima-castle",
         "tokushima-modern-art-museum"
       ],
       "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
@@ -51074,7 +51076,7 @@
     "kind": "temple",
     "role": "poi",
     "placeType": "destination",
-    "municipalityId": "Tokyo:hachioji",
+    "municipalityId": "Tokyo:hino",
     "aliases": [],
     "prefecture": "Tokyo",
     "region": "Kanto",
@@ -51156,7 +51158,7 @@
     "businessHours": "Open access",
     "openingHours": "08:30 - 16:30",
     "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
+      "parentDestinationId": "hino-city"
     }
   },
   {
@@ -78084,7 +78086,9 @@
     },
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
-    "relationships": {}
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    }
   },
   {
     "id": "imabari-castle",

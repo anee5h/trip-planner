@@ -27740,6 +27740,7 @@
     "relationships": {
       "featuredDestinationIds": [
         "tama-zoological-park",
+        "takahata-fudoson",
         "hijikata-toshizo-museum",
         "keio-rail-land",
         "keio-mogusaen"
@@ -100318,6 +100319,7 @@
       "featuredDestinationIds": [
         "awa-odori-kaikan",
         "bizan-ropeway-tokushima",
+        "tokushima-castle",
         "tokushima-modern-art-museum"
       ],
       "nearbyDestinationIds": [
@@ -121005,7 +121007,7 @@
     "role": "poi",
     "placeType": "destination",
     "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
+      "parentDestinationId": "hino-city"
     },
     "officialWebsiteRequirement": "recommended",
     "categories": [
@@ -121124,7 +121126,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
     "openingHoursJa": "08:30 - 16:30（境内自由）",
-    "municipalityId": "Tokyo:hachioji",
+    "municipalityId": "Tokyo:hino",
     "transportMetadata": {
       "method": "legacy-fallback",
       "modelVersion": "transport-access-v1",
@@ -188092,7 +188094,9 @@
         "sortOrder": 87
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    },
     "content": {
       "en": {
         "name": "Tokushima Castle",
