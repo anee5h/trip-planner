@@ -28,7 +28,7 @@ describe("Japanese localization coverage guard (KAI-141)", () => {
 
   it("records current catalogue coverage without treating Latin names as missing prose", () => {
     const coverage = summarizeJapaneseCoverage(getFullPlaces());
-    expect(coverage).toEqual({ name: 1081, description: 947, highlights: 947 });
+    expect(coverage).toEqual({ name: 1096, description: 962, highlights: 962 });
   });
 
   it("fails when a newly supported record omits a required Japanese field", () => {

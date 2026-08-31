@@ -1,0 +1,230 @@
+{
+  "id": "utsukushigahara-highlands",
+  "name": "Utsukushigahara Highlands",
+  "nameJa": "美ヶ原高原",
+  "aliases": ["Utsukushigahara", "Utsukushigahara Plateau"],
+  "officialWebsite": "https://www.utsukushi2034.jp/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Nagano:ueda",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "categories": ["Nature", "Mountain", "Viewpoint"],
+  "tags": ["Highlands", "Viewpoint", "Ueda", "Matsumoto"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg/1280px-%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Yobito KAYANUMA",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.2307236,
+    "lng": 138.140291
+  },
+  "description": "Utsukushigahara is a high open plateau on the Matsumoto-Ueda side of Nagano, best treated as a broad nature destination rather than as a museum shell.",
+  "highlights": [
+    "Open plateau landscapes",
+    "Highland viewpoints",
+    "Broad nature destination"
+  ],
+  "content": {
+    "en": {
+      "name": "Utsukushigahara Highlands",
+      "description": "Utsukushigahara is a high open plateau on the Matsumoto-Ueda side of Nagano, best treated as a broad nature destination rather than as a museum shell.",
+      "highlights": [
+        "Open plateau landscapes",
+        "Highland viewpoints",
+        "Broad nature destination"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "美ヶ原高原",
+      "description": "美ヶ原は、松本・上田側に広がる開放的な高原で、単一施設ではなく広域の自然目的地として扱います。",
+      "highlights": ["開けた高原景観", "高原の展望", "広域の自然目的地"],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://www.utsukushi2034.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {
+    "relatedDestinationIds": ["matsumoto-city"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.utsukushi2034.jp/",
+        "title": "Utsukushigahara Tourism Association",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/way/117369484",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.utsukushi2034.jp/",
+          "title": "Utsukushigahara Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.utsukushi2034.jp/",
+          "title": "Utsukushigahara Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.utsukushi2034.jp/",
+          "title": "Utsukushigahara Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/117369484",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+          "title": "Utsukushigahara Highlands image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.utsukushi2034.jp/",
+          "title": "Utsukushigahara Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 6h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'mountain'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 290,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 6h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain'"
+  }
+}

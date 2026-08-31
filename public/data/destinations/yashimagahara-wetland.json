@@ -1,0 +1,226 @@
+{
+  "id": "yashimagahara-wetland",
+  "name": "Yashimagahara Wetland",
+  "nameJa": "八島ヶ原湿原",
+  "aliases": ["Yashimagahara Marsh", "Yashimagahara Shitsugen"],
+  "officialWebsite": "https://shimosuwaonsen.jp/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Nagano:shimosuwa",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "categories": ["Nature", "Wetland", "Hiking"],
+  "tags": ["Wetland", "Nature", "Shimosuwa", "Nagano"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Yashimagahara_Wetland_05.jpg/1280px-Yashimagahara_Wetland_05.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yashimagahara_Wetland_05.jpg",
+    "license": "CC BY 3.0",
+    "attribution": "Σ64",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.1190053,
+    "lng": 138.166393
+  },
+  "description": "Yashimagahara Wetland is a highland marsh with a distinct walking and seasonal plant landscape, separate from the broader Kirigamine record.",
+  "highlights": ["Highland wetland", "Boardwalk landscape", "Seasonal plants"],
+  "content": {
+    "en": {
+      "name": "Yashimagahara Wetland",
+      "description": "Yashimagahara Wetland is a highland marsh with a distinct walking and seasonal plant landscape, separate from the broader Kirigamine record.",
+      "highlights": [
+        "Highland wetland",
+        "Boardwalk landscape",
+        "Seasonal plants"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "八島ヶ原湿原",
+      "description": "八島ヶ原湿原は、季節の植物と木道散策が特徴の高層湿原で、霧ヶ峰全体とは別の自然見どころです。",
+      "highlights": ["高層湿原", "木道の景観", "季節の植物"],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://shimosuwaonsen.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 6
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {
+    "relatedDestinationIds": ["kirigamine-highlands"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://shimosuwaonsen.jp/",
+        "title": "Shimosuwa Tourism Association",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/way/386612549",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://shimosuwaonsen.jp/",
+          "title": "Shimosuwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://shimosuwaonsen.jp/",
+          "title": "Shimosuwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://shimosuwaonsen.jp/",
+          "title": "Shimosuwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/386612549",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Yashimagahara_Wetland_05.jpg",
+          "title": "Yashimagahara Wetland image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://shimosuwaonsen.jp/",
+          "title": "Shimosuwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'nature'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  }
+}

@@ -64,7 +64,7 @@
   "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -91,7 +91,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 2 children, metro=false"
+    "basis": "hub exploration window: importance major, 3 children, metro=false"
   },
   "walkingMetadata": {
     "method": "model",

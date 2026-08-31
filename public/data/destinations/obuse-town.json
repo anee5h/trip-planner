@@ -194,7 +194,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance notable, 0 children, metro=false",
+          "title": "hub-window-model-v1; hub exploration window: importance notable, 2 children, metro=false",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -225,7 +225,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance notable, 0 children, metro=false"
+    "basis": "hub exploration window: importance notable, 2 children, metro=false"
   },
   "walkingMin": 360,
   "walkingIntensity": "high",

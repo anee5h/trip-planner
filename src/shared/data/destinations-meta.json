@@ -328,6 +328,18 @@
     }
   },
   {
+    "id": "anrakuji-temple-ueda",
+    "name": "Anrakuji Temple",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["nagano-bessho-onsen", "kitamuki-kannon"]
+    }
+  },
+  {
     "id": "aoba-castle-museum",
     "name": "Aoba Castle Museum",
     "prefecture": "Miyagi",
@@ -1780,6 +1792,18 @@
     }
   },
   {
+    "id": "former-mikasa-hotel",
+    "name": "Former Mikasa Hotel",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "historic",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "karuizawa-town"
+    }
+  },
+  {
     "id": "fudaten-shrine",
     "name": "Fudaten Shrine",
     "prefecture": "Tokyo",
@@ -2203,6 +2227,18 @@
     "kind": "attraction",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "gansho-in-temple",
+    "name": "Gansho-in Temple",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "obuse-town"
+    }
   },
   {
     "id": "gassantoda-castle",
@@ -3334,6 +3370,16 @@
     }
   },
   {
+    "id": "hirugami-onsen",
+    "name": "Hirugami Onsen",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "hita-city",
     "name": "Hita City",
     "prefecture": "Oita",
@@ -3456,6 +3502,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kamakura-city"
+    }
+  },
+  {
+    "id": "hokusai-museum-obuse",
+    "name": "Hokusai Museum",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "obuse-town"
     }
   },
   {
@@ -4347,6 +4405,18 @@
     }
   },
   {
+    "id": "kagami-pond",
+    "name": "Kagami Pond",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["togakushi-shrine"]
+    }
+  },
+  {
     "id": "kagoshima-castle",
     "name": "Kagoshima Castle",
     "prefecture": "Kagoshima",
@@ -5129,6 +5199,18 @@
     }
   },
   {
+    "id": "kirigamine-highlands",
+    "name": "Kirigamine Highlands",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["suwa-taisha"]
+    }
+  },
+  {
     "id": "kirin-beer-yokohama-factory",
     "name": "Kirin Beer Yokohama Factory",
     "prefecture": "Kanagawa",
@@ -5294,6 +5376,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kitakyushu-city"
+    }
+  },
+  {
+    "id": "kitamuki-kannon",
+    "name": "Kitamuki Kannon",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["anrakuji-temple-ueda", "nagano-bessho-onsen"]
     }
   },
   {
@@ -6270,6 +6364,18 @@
     }
   },
   {
+    "id": "lake-shirakaba",
+    "name": "Lake Shirakaba",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["kirigamine-highlands"]
+    }
+  },
+  {
     "id": "lake-tazawa-akita",
     "name": "Lake Tazawa",
     "prefecture": "Akita",
@@ -6588,6 +6694,18 @@
     "relationships": {
       "featuredDestinationIds": [],
       "nearbyDestinationIds": ["karuizawa-town", "nagano-city", "kiso"]
+    }
+  },
+  {
+    "id": "matsumoto-nakamachi-nawate",
+    "name": "Nakamachi and Nawate Streets",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "street",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
     }
   },
   {
@@ -10314,6 +10432,16 @@
     "relationships": {}
   },
   {
+    "id": "shibu-onsen",
+    "name": "Shibu Onsen",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "shibuya-city",
     "name": "Shibuya City",
     "prefecture": "Tokyo",
@@ -10356,6 +10484,16 @@
     "relationships": {
       "parentDestinationId": "shibuya-city"
     }
+  },
+  {
+    "id": "shiga-kogen",
+    "name": "Shiga Kogen",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "shikisai-no-oka",
@@ -12583,6 +12721,18 @@
     }
   },
   {
+    "id": "utsukushigahara-highlands",
+    "name": "Utsukushigahara Highlands",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["matsumoto-city"]
+    }
+  },
+  {
     "id": "utsunomiya-city",
     "name": "Utsunomiya City",
     "prefecture": "Tochigi",
@@ -12953,6 +13103,18 @@
     "relationships": {}
   },
   {
+    "id": "yanagimachi-street-ueda",
+    "name": "Yanagimachi Street",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "street",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["ueda-castle-nagano"]
+    }
+  },
+  {
     "id": "yanaka",
     "name": "Yanaka",
     "prefecture": "Tokyo",
@@ -12986,6 +13148,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "takamatsu-city"
+    }
+  },
+  {
+    "id": "yashimagahara-wetland",
+    "name": "Yashimagahara Wetland",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["kirigamine-highlands"]
     }
   },
   {

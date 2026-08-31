@@ -1,0 +1,230 @@
+{
+  "id": "kirigamine-highlands",
+  "name": "Kirigamine Highlands",
+  "nameJa": "霧ヶ峰高原",
+  "aliases": ["Kirigamine", "Kirigamine Plateau"],
+  "officialWebsite": "https://www.suwakanko.jp/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Nagano:suwa",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "categories": ["Nature", "Mountain", "Outdoor Activities"],
+  "tags": ["Highlands", "Nature", "Suwa", "Nagano"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kirigamine_seen_from_the_east_2018-03-04.jpg/1280px-Kirigamine_seen_from_the_east_2018-03-04.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirigamine_seen_from_the_east_2018-03-04.jpg",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Koda6029",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.0973159,
+    "lng": 138.1674446
+  },
+  "description": "Kirigamine is an open highland area east of Lake Suwa, offering a separate nature identity from the shrine and lake destinations around Suwa.",
+  "highlights": [
+    "Open highland scenery",
+    "Highland walking",
+    "Suwa-area nature context"
+  ],
+  "content": {
+    "en": {
+      "name": "Kirigamine Highlands",
+      "description": "Kirigamine is an open highland area east of Lake Suwa, offering a separate nature identity from the shrine and lake destinations around Suwa.",
+      "highlights": [
+        "Open highland scenery",
+        "Highland walking",
+        "Suwa-area nature context"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "霧ヶ峰高原",
+      "description": "霧ヶ峰は諏訪湖東側に広がる開放的な高原で、諏訪の社寺や湖とは異なる自然の目的地です。",
+      "highlights": ["開放的な高原景観", "高原散策", "諏訪周辺の自然"],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://www.suwakanko.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {
+    "relatedDestinationIds": ["suwa-taisha"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.suwakanko.jp/",
+        "title": "Suwa Tourism Association",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/node/2430769431",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.suwakanko.jp/",
+          "title": "Suwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.suwakanko.jp/",
+          "title": "Suwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.suwakanko.jp/",
+          "title": "Suwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/2430769431",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Kirigamine_seen_from_the_east_2018-03-04.jpg",
+          "title": "Kirigamine Highlands image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.suwakanko.jp/",
+          "title": "Suwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'mountain'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 190,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain'"
+  }
+}

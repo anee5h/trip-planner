@@ -1,0 +1,220 @@
+{
+  "id": "former-mikasa-hotel",
+  "name": "Former Mikasa Hotel",
+  "nameJa": "旧三笠ホテル",
+  "aliases": ["Old Mikasa Hotel", "Kyu-Mikasa Hotel"],
+  "officialWebsite": "https://karuizawa-kankokyokai.jp/spot/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Nagano:karuizawa",
+  "kind": "historic",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "notable",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "categories": ["History", "Architecture", "Culture"],
+  "tags": ["Historic Building", "Architecture", "Karuizawa", "Nagano"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Old_mikasa_hotel02s3872.jpg/1280px-Old_mikasa_hotel02s3872.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_mikasa_hotel02s3872.jpg",
+    "license": "CC BY-SA 4.0",
+    "attribution": "663highland",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.3731331,
+    "lng": 138.6262318
+  },
+  "description": "The Former Mikasa Hotel is a preserved Western-style resort hotel and a distinct heritage stop within Karuizawa's historic landscape.",
+  "highlights": [
+    "Historic resort architecture",
+    "Karuizawa heritage context",
+    "Distinct from the town-wide Karuizawa record"
+  ],
+  "content": {
+    "en": {
+      "name": "Former Mikasa Hotel",
+      "description": "The Former Mikasa Hotel is a preserved Western-style resort hotel and a distinct heritage stop within Karuizawa's historic landscape.",
+      "highlights": [
+        "Historic resort architecture",
+        "Karuizawa heritage context",
+        "Distinct from the town-wide Karuizawa record"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "旧三笠ホテル",
+      "description": "旧三笠ホテルは、軽井沢の歴史的な景観を伝える保存された西洋式のリゾートホテル建築です。",
+      "highlights": [
+        "歴史的なリゾート建築",
+        "軽井沢の近代史",
+        "軽井沢町全体のレコードとは別の見どころ"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://karuizawa-kankokyokai.jp/spot/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "karuizawa-town"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://karuizawa-kankokyokai.jp/spot/",
+        "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/node/4365279592",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/spot/",
+          "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/spot/",
+          "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/spot/",
+          "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/4365279592",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Old_mikasa_hotel02s3872.jpg",
+          "title": "Former Mikasa Hotel image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/spot/",
+          "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
