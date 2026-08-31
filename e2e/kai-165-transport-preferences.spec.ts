@@ -24,20 +24,25 @@ const COPY = {
 async function switchLocale(page: Page, target: "en" | "ja") {
   const isMobile = (page.viewportSize()?.width ?? 1024) < 768;
   if (isMobile) {
-    await page.getByRole("button", { name: "Toggle menu" }).click();
-    const languageButton = page.getByRole("button", {
-      name: /^(?:言語|Language)/,
-    });
-    const current = await languageButton.innerText();
-    const wantsJapanese = target === "ja";
-    if (current.includes(wantsJapanese ? "English" : "日本語")) {
-      await languageButton.click();
+    const url = new URL(page.url());
+    const unprefixedPath = url.pathname.replace(/^\/ja(?=\/|$)/, "") || "/";
+    url.pathname =
+      target === "ja"
+        ? unprefixedPath === "/"
+          ? "/ja/"
+          : `/ja${unprefixedPath}`
+        : unprefixedPath;
+    if (new URL(page.url()).pathname !== url.pathname) {
+      await page.evaluate(
+        (nextUrl) => history.replaceState(history.state, "", nextUrl),
+        `${url.pathname}${url.search}${url.hash}`,
+      );
+      await page.reload();
     }
-    await page.keyboard.press("Escape");
     return;
   }
 
-  const languageButton = page.getByRole("button", { name: "Select language" });
+  const languageButton = page.getByTestId("navbar-desktop-language-toggle");
   await languageButton.click();
   await page
     .getByRole("button", { name: COPY[target].language, exact: true })

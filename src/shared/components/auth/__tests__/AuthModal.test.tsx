@@ -6,15 +6,27 @@ import { AuthModal } from "../AuthModal";
 
 const authMock = vi.hoisted(() => ({
   signInWithEmail: vi.fn(),
+  signUpWithEmail: vi.fn(),
+  signInWithGoogle: vi.fn(),
+}));
+const analyticsMock = vi.hoisted(() => ({
+  trackSignupStarted: vi.fn(),
+  trackSignupCompleted: vi.fn(),
+  markPendingSignup: vi.fn(),
+  clearPendingSignup: vi.fn(),
 }));
 
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({
-    signInWithGoogle: vi.fn(),
+    signInWithGoogle: authMock.signInWithGoogle,
     signInWithEmail: authMock.signInWithEmail,
-    signUpWithEmail: vi.fn(),
+    signUpWithEmail: authMock.signUpWithEmail,
     resetPasswordForEmail: vi.fn(),
   }),
+}));
+
+vi.mock("@/shared/services/analytics/RecommendationAnalyticsService", () => ({
+  recommendationAnalytics: analyticsMock,
 }));
 
 vi.mock("react-i18next", () => ({
@@ -35,6 +47,7 @@ afterEach(() => {
     .forEach((node) => node.closest(".fixed")?.remove());
   root = undefined;
   host = undefined;
+  vi.clearAllMocks();
 });
 
 function renderAuthModal() {
@@ -89,5 +102,51 @@ describe("AuthModal", () => {
     expect(markFrame?.className).toContain("dark:bg-white");
     expect(emailInput?.className).toContain("border-slate-300 bg-white");
     expect(emailInput?.className).toContain("dark:bg-slate-950/60");
+  });
+
+  it("records signup start and completion only after a successful email signup", async () => {
+    authMock.signUpWithEmail.mockResolvedValueOnce({ error: null });
+    renderAuthModal();
+
+    const toggle = Array.from(document.body.querySelectorAll("button")).find(
+      (button) => button.textContent === "actions.signUp",
+    );
+    await act(async () => toggle?.click());
+    expect(analyticsMock.trackSignupStarted).toHaveBeenCalledTimes(1);
+
+    await act(async () => {
+      document.body
+        .querySelector("form")
+        ?.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true }),
+        );
+    });
+
+    expect(analyticsMock.trackSignupCompleted).toHaveBeenCalledWith(
+      "email",
+      "auth_modal",
+      "en",
+    );
+  });
+
+  it("does not record signup completion when signup fails", async () => {
+    authMock.signUpWithEmail.mockResolvedValueOnce({
+      error: new Error("user already registered"),
+    });
+    renderAuthModal();
+
+    const toggle = Array.from(document.body.querySelectorAll("button")).find(
+      (button) => button.textContent === "actions.signUp",
+    );
+    act(() => toggle?.click());
+    await act(async () => {
+      document.body
+        .querySelector("form")
+        ?.dispatchEvent(
+          new Event("submit", { bubbles: true, cancelable: true }),
+        );
+    });
+
+    expect(analyticsMock.trackSignupCompleted).not.toHaveBeenCalled();
   });
 });

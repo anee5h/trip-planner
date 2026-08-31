@@ -4,6 +4,8 @@ import type {
   AnyRecommendationAnalyticsEvent,
   BaseAnalyticsEvent,
   PlanningToolAnalyticsEvent,
+  SignupAuthProvider,
+  SignupSource,
 } from "./RecommendationAnalyticsTypes";
 import { telemetryPipeline } from "./RecommendationTelemetryPipeline";
 
@@ -12,6 +14,9 @@ const SESSION_ID_STORAGE_KEY = "tabimap_analytics_session_id";
 const EVENT_QUEUE_STORAGE_KEY = "tabimap_analytics_event_queue";
 const DEDUP_WINDOW_MS = 2000;
 const MAX_QUEUE_SIZE = 200;
+const PENDING_SIGNUP_STORAGE_KEY = "meguruto_pending_signup";
+const PENDING_SIGNUP_TTL_MS = 10 * 60 * 1000;
+const SIGNUP_CTA_IMPRESSION_STORAGE_KEY = "meguruto_signup_cta_impression";
 
 class RecommendationAnalyticsService {
   private eventQueue: AnyRecommendationAnalyticsEvent[] = [];
@@ -115,6 +120,12 @@ class RecommendationAnalyticsService {
     this.clearQueue();
     telemetryPipeline.purge();
     this.isOptedOut = false;
+    this.clearPendingSignup();
+    try {
+      window.sessionStorage?.removeItem(SIGNUP_CTA_IMPRESSION_STORAGE_KEY);
+    } catch {
+      // Ignore storage failures in tests and privacy-restricted browsers.
+    }
   }
 
   private isDuplicate(dedupKey: string): boolean {
@@ -160,7 +171,7 @@ class RecommendationAnalyticsService {
         (event as { destinationId?: string }).destinationId ||
         (event as { destinationIds?: string[] }).destinationIds?.join(",") ||
         "";
-      const dedupKey = `${event.eventType}:${destId}:${(event as { reasonCode?: string }).reasonCode || ""}:${(event as { isHelpful?: boolean }).isHelpful ?? ""}:${(event as { planType?: string }).planType || ""}`;
+      const dedupKey = `${event.eventType}:${destId}:${(event as { reasonCode?: string }).reasonCode || ""}:${(event as { isHelpful?: boolean }).isHelpful ?? ""}:${(event as { planType?: string }).planType || ""}:${(event as { source?: string }).source || ""}:${(event as { authProvider?: string }).authProvider || ""}`;
 
       if (this.isDuplicate(dedupKey)) {
         return false;
@@ -172,6 +183,7 @@ class RecommendationAnalyticsService {
       }
       this.saveQueue();
       telemetryPipeline.enqueue(event);
+      this.dispatchSignupEventToGoogleAnalytics(event);
       return true;
     } catch {
       return false;
@@ -333,6 +345,203 @@ class RecommendationAnalyticsService {
       source: "destination_details",
       ...details,
     });
+  }
+
+  public trackSignupCtaImpression(
+    source: "header" = "header",
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    try {
+      if (
+        typeof window !== "undefined" &&
+        window.sessionStorage?.getItem(SIGNUP_CTA_IMPRESSION_STORAGE_KEY) ===
+          source
+      ) {
+        return false;
+      }
+    } catch {
+      // Fall back to the in-memory deduplication guard below.
+    }
+
+    const base = this.createBaseEvent("signup_cta_impression", locale);
+    const emitted = this.emitEvent({
+      ...base,
+      eventType: "signup_cta_impression",
+      source,
+    });
+    if (emitted) {
+      try {
+        window.sessionStorage?.setItem(
+          SIGNUP_CTA_IMPRESSION_STORAGE_KEY,
+          source,
+        );
+      } catch {
+        // Ignore storage failures; the component-level ref still protects
+        // ordinary rerenders for the current header instance.
+      }
+    }
+    return emitted;
+  }
+
+  public trackSignupCtaClick(
+    source: "header" = "header",
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("signup_cta_click", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "signup_cta_click",
+      source,
+    });
+  }
+
+  public trackSignupStarted(
+    source: SignupSource = "auth_modal",
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("signup_started", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "signup_started",
+      source,
+    });
+  }
+
+  public trackSignupCompleted(
+    authProvider: SignupAuthProvider,
+    source: SignupSource = "auth_modal",
+    locale: "en" | "ja" = "en",
+  ): boolean {
+    const base = this.createBaseEvent("signup_completed", locale);
+    return this.emitEvent({
+      ...base,
+      eventType: "signup_completed",
+      source,
+      authProvider,
+    });
+  }
+
+  /**
+   * Keep the OAuth signup intent across the provider redirect without
+   * persisting an email, token, or any other auth payload.
+   */
+  public markPendingSignup(
+    authProvider: SignupAuthProvider,
+    source: SignupSource = "header",
+  ): void {
+    try {
+      if (typeof window === "undefined" || !window.sessionStorage) return;
+      window.sessionStorage.setItem(
+        PENDING_SIGNUP_STORAGE_KEY,
+        JSON.stringify({ authProvider, source, createdAt: Date.now() }),
+      );
+    } catch {
+      // Auth navigation still works when sessionStorage is unavailable.
+    }
+  }
+
+  public clearPendingSignup(): void {
+    try {
+      window.sessionStorage?.removeItem(PENDING_SIGNUP_STORAGE_KEY);
+    } catch {
+      // Ignore storage failures.
+    }
+  }
+
+  /**
+   * Consume a pending OAuth signup only after a real authenticated session
+   * arrives. A stale or malformed intent is discarded and never completed.
+   */
+  public trackPendingSignupCompletion(): boolean {
+    let pending: {
+      authProvider: SignupAuthProvider;
+      source: SignupSource;
+      createdAt: number;
+    } | null = null;
+    try {
+      if (typeof window === "undefined" || !window.sessionStorage) return false;
+      const raw = window.sessionStorage.getItem(PENDING_SIGNUP_STORAGE_KEY);
+      if (!raw) return false;
+      const parsed = JSON.parse(raw) as {
+        authProvider?: SignupAuthProvider;
+        source?: SignupSource;
+        createdAt?: number;
+      } | null;
+      this.clearPendingSignup();
+      if (!parsed) return false;
+      if (
+        (parsed.authProvider !== "google" &&
+          parsed.authProvider !== "twitter" &&
+          parsed.authProvider !== "line" &&
+          parsed.authProvider !== "email") ||
+        (parsed.source !== undefined &&
+          parsed.source !== "header" &&
+          parsed.source !== "auth_modal") ||
+        typeof parsed.createdAt !== "number" ||
+        Date.now() - parsed.createdAt > PENDING_SIGNUP_TTL_MS
+      ) {
+        return false;
+      }
+      pending = {
+        authProvider: parsed.authProvider,
+        source: parsed.source ?? "header",
+        createdAt: parsed.createdAt,
+      };
+    } catch {
+      this.clearPendingSignup();
+      return false;
+    }
+
+    return pending
+      ? this.trackSignupCompleted(
+          pending.authProvider,
+          pending.source,
+          this.getCurrentLocale(),
+        )
+      : false;
+  }
+
+  private getCurrentLocale(): "en" | "ja" {
+    if (typeof window !== "undefined") {
+      if (window.location.pathname.startsWith("/ja")) return "ja";
+      if (document.documentElement.lang === "ja") return "ja";
+    }
+    return "en";
+  }
+
+  private dispatchSignupEventToGoogleAnalytics(
+    event: AnyRecommendationAnalyticsEvent,
+  ): void {
+    if (
+      event.eventType !== "signup_cta_impression" &&
+      event.eventType !== "signup_cta_click" &&
+      event.eventType !== "signup_started" &&
+      event.eventType !== "signup_completed"
+    ) {
+      return;
+    }
+
+    try {
+      if (typeof window === "undefined") return;
+      const gtag = (
+        window as Window & {
+          gtag?: (...args: unknown[]) => void;
+        }
+      ).gtag;
+      if (typeof gtag !== "function") return;
+
+      const params: Record<string, string> = {
+        locale: event.locale,
+        schema_version: event.schemaVersion,
+      };
+      if ("source" in event) params.source = event.source;
+      if ("authProvider" in event) {
+        params.auth_provider = event.authProvider;
+      }
+      gtag("event", event.eventType, params);
+    } catch {
+      // Analytics must never block auth or navigation.
+    }
   }
 }
 

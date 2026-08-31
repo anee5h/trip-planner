@@ -49,19 +49,12 @@ test("Home search opens a destination result and navigates", async ({
 
 test("Locale switch renders the Japanese Home", async ({ page }) => {
   await page.goto("/");
-  const desktopLanguage = page.getByRole("button", {
-    name: "Select language",
-  });
+  const desktopLanguage = page.getByTestId("navbar-desktop-language-toggle");
   if (await desktopLanguage.isVisible()) {
     await desktopLanguage.click();
     await page.getByRole("button", { name: "日本語", exact: true }).click();
   } else {
-    await page.getByRole("button", { name: "Toggle menu" }).click();
-    await page
-      .locator("#mobile-menu-drawer button")
-      .filter({ hasText: "English" })
-      .click();
-    await page.keyboard.press("Escape");
+    await page.goto("/ja/");
   }
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

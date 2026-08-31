@@ -59,7 +59,7 @@ export default function Passport() {
           <p className="text-sm text-slate-500 dark:text-slate-300 max-w-sm">
             {t("passport.signedOutDescription")}
           </p>
-          <Button onClick={openAuthModal}>{t("actions.signIn")}</Button>
+          <Button onClick={() => openAuthModal()}>{t("actions.signIn")}</Button>
         </div>
       ) : hasHydrationError ? (
         <div

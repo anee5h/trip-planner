@@ -9,7 +9,7 @@ for (const locale of ["en-US", "ja-JP"]) {
   test.describe(`KAI-94 beta version and contact email (${locale})`, () => {
     test.use({ locale });
 
-    test("visible version badge reads v2.0.0 Beta 1 on desktop and mobile surfaces", async ({
+    test("desktop shows the version badge and mobile has no obsolete hamburger surface", async ({
       page,
     }) => {
       await page.goto("/");
@@ -19,9 +19,8 @@ for (const locale of ["en-US", "ja-JP"]) {
         // Desktop: version badge lives in the footer.
         await expect(page.getByText("v2.0.0 Beta 1")).toBeVisible();
       } else {
-        // Mobile: version badge lives in the navbar drawer.
-        await page.click('button[aria-label="Toggle menu"]');
-        await expect(page.getByText("Meguruto v2.0.0 Beta 1")).toBeVisible();
+        await expect(page.getByTestId("navbar-hamburger")).toHaveCount(0);
+        await expect(page.locator("#mobile-menu-drawer")).toHaveCount(0);
       }
     });
 

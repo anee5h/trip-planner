@@ -30,13 +30,23 @@ const FORBIDDEN_JA_UI_TEXT = [
 async function switchLocale(page: Page, target: "en" | "ja") {
   const isMobile = (page.viewportSize()?.width ?? 1024) < 768;
   if (isMobile) {
-    const menu = page.getByRole("button", { name: "Toggle menu" });
-    await menu.click();
-    await page.getByRole("button", { name: /^(?:言語|Language)/ }).click();
+    const url = new URL(page.url());
+    const unprefixedPath = url.pathname.replace(/^\/ja(?=\/|$)/, "") || "/";
+    url.pathname =
+      target === "ja"
+        ? unprefixedPath === "/"
+          ? "/ja/"
+          : `/ja${unprefixedPath}`
+        : unprefixedPath;
+    await page.evaluate(
+      (nextUrl) => history.replaceState(history.state, "", nextUrl),
+      `${url.pathname}${url.search}${url.hash}`,
+    );
+    await page.reload();
     return;
   }
 
-  await page.getByRole("button", { name: "Select language" }).click();
+  await page.getByTestId("navbar-desktop-language-toggle").click();
   await page
     .getByRole("button", { name: target === "en" ? "English" : "日本語" })
     .click();

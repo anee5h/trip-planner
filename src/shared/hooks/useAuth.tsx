@@ -6,12 +6,14 @@ import type {
   AuthResponse,
   UserResponse,
   AuthError,
+  Session,
 } from "@supabase/supabase-js";
 import { supabase } from "@/lib/supabase";
 import { executeClearProfile } from "./clearProfileOrchestration";
 import type { ClearProfileResult } from "./clearProfileResult";
 import { reportAuthFailureIfOperational } from "@/shared/utils/errorReporter";
 import { executePendingAccountDeletionIfRequested } from "@/shared/utils/pendingAccountDeletion";
+import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 
 export interface UserPreferencesPayload {
   partySize?: number;
@@ -66,6 +68,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
 
+    // OAuth providers return cancellation/failure in the URL. Discard a
+    // pending signup intent before any auth event can mistake a later login
+    // for a completed registration.
+    if (typeof window !== "undefined") {
+      const authError =
+        new URLSearchParams(window.location.search).get("error") ||
+        new URLSearchParams(window.location.hash.slice(1)).get("error");
+      if (authError) recommendationAnalytics.clearPendingSignup();
+    }
+
+    const handleSession = (session: Session | null) => {
+      setUser(session?.user ?? null);
+      setLoading(false);
+      if (session?.access_token) {
+        void executePendingAccountDeletionIfRequested();
+        recommendationAnalytics.trackPendingSignupCompletion();
+      }
+    };
+
     // Get initial session. KAI-46: a failing session bootstrap is an
     // operational auth failure — report it (best-effort, feature auth).
     // KAI-44: a session arriving with a pending-deletion flag (OAuth
@@ -73,11 +94,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     supabase.auth
       .getSession()
       .then(({ data }) => {
-        setUser(data.session?.user ?? null);
-        setLoading(false);
-        if (data.session?.access_token) {
-          void executePendingAccountDeletionIfRequested();
-        }
+        handleSession(data.session);
       })
       .catch((err) => {
         reportAuthFailureIfOperational(err, "session");
@@ -88,11 +105,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-      if (session?.access_token) {
-        void executePendingAccountDeletionIfRequested();
-      }
+      handleSession(session);
     });
 
     return () => subscription.unsubscribe();
