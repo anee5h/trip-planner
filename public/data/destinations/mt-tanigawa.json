@@ -1,0 +1,273 @@
+{
+  "id": "mt-tanigawa",
+  "officialWebsite": "https://tanigawadake-joch.com/en/",
+  "officialWebsiteRequirement": "required",
+  "name": "Mount Tanigawa",
+  "nameJa": "谷川岳",
+  "aliases": ["Tanigawadake", "Tanigawadake Joch", "谷川岳ヨッホ"],
+  "municipalityId": "Gunma:minakami",
+  "prefecture": "Gunma",
+  "region": "Kanto",
+  "kind": "mountain",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "flagship",
+  "coordinates": {
+    "lat": 36.8343949,
+    "lng": 138.9302115
+  },
+  "categories": ["Nature", "Outdoor Activities"],
+  "tags": ["Mountains", "Nature", "Hiking", "Minakami", "Gunma Travel"],
+  "description": "Mount Tanigawa is Minakami's major alpine destination, presented by the ropeway operator as Tanigawadake Joch with access into the mountain landscape.",
+  "highlights": [
+    "Alpine mountain destination in Minakami",
+    "Tanigawadake Joch ropeway gateway",
+    "Distinct mountain anchor for Minakami outings"
+  ],
+  "content": {
+    "en": {
+      "description": "Mount Tanigawa is Minakami's major alpine destination, presented by the ropeway operator as Tanigawadake Joch with access into the mountain landscape.",
+      "highlights": [
+        "Alpine mountain destination in Minakami",
+        "Tanigawadake Joch ropeway gateway",
+        "Distinct mountain anchor for Minakami outings"
+      ],
+      "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
+      "name": "Mount Tanigawa"
+    },
+    "ja": {
+      "description": "谷川岳はみなかみを代表する山岳景観で、ロープウェイ事業者は谷川岳ヨッホとして山の玄関口を案内しています。",
+      "highlights": [
+        "みなかみを代表する山岳の目的地",
+        "谷川岳ヨッホのロープウェイ玄関口",
+        "みなかみの山旅を支える独立した拠点"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
+      "name": "谷川岳"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Tanigawa-dake%2C_October_2007.jpg/1280px-Tanigawa-dake%2C_October_2007.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tanigawa-dake,_October_2007.jpg",
+    "license": "Public domain",
+    "attribution": "Brian Adler",
+    "verifiedAt": "2026-08-31"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "modelVersion": "kai-258-transport-v1",
+    "confidence": "unknown",
+    "basis": "Official source confirms destination access modes, but no origin-specific route estimate was promoted."
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The reviewed official source was retained, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://tanigawadake-joch.com/en/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain'"
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable seasonality claim was promoted from the reviewed source."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No current general-entry amount was promoted from the reviewed official source."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
+  },
+  "reservation": {
+    "required": "unknown",
+    "notes": "Check the official source for current reservation requirements."
+  },
+  "parking": {
+    "available": "unknown",
+    "notes": "Check the official source for current parking arrangements."
+  },
+  "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
+  "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "minakami-town",
+    "relatedDestinationIds": ["takaragawa-onsen"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://tanigawadake-joch.com/en/",
+        "accessedAt": "2026-08-31",
+        "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/node/3261275246",
+        "accessedAt": "2026-08-31",
+        "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+      }
+    ],
+    "fieldSources": {
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/3261275246",
+          "accessedAt": "2026-08-31",
+          "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "content": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "admission": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "localTransport": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://tanigawadake-joch.com/en/",
+          "accessedAt": "2026-08-31",
+          "quote": "The operator identifies Tanigawadake Joch as the Mount Tanigawa mountain gateway in Minakami."
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'mountain'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "walkingMin": 190,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 4.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.5,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

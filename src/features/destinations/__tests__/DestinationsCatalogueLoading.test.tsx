@@ -225,8 +225,8 @@ describe("deferred full catalogue sort loading", () => {
     const container = await render("/destinations?sort=walking");
 
     expect(container.querySelectorAll("[data-card]")).toHaveLength(20);
-    expect(resultCount(container)).toContain("1069 destinations matching");
-    expect(resultCount(container)).not.toContain("0 destinations");
+    expect(resultCount(container)).toContain("1080 destinations matching");
+    expect(resultCount(container)).not.toMatch(/^0 destinations/);
     expect(resultCount(container)).not.toContain("No destinations");
     expect(container.querySelector("[data-sort-loading]")).not.toBeNull();
 
@@ -238,7 +238,7 @@ describe("deferred full catalogue sort loading", () => {
     });
 
     expect(container.querySelector("[data-sort-loading]")).toBeNull();
-    expect(resultCount(container)).toContain("1069 destinations matching");
+    expect(resultCount(container)).toContain("1080 destinations matching");
     expect(container.querySelectorAll("[data-card]")).toHaveLength(20);
   });
 
@@ -255,7 +255,7 @@ describe("deferred full catalogue sort loading", () => {
     });
 
     expect(container.querySelector("[data-catalogue-error]")).not.toBeNull();
-    expect(resultCount(container)).not.toContain("0 destinations");
+    expect(resultCount(container)).not.toMatch(/^0 destinations/);
 
     await act(async () => {
       container
@@ -274,7 +274,7 @@ describe("deferred full catalogue sort loading", () => {
       await catalogueMock.fullDeferred!.promise;
     });
     expect(container.querySelector("[data-sort-loading]")).toBeNull();
-    expect(resultCount(container)).toContain("1069 destinations matching");
+    expect(resultCount(container)).toContain("1080 destinations matching");
   });
 
   it("can switch back to Recommended while full sorting is still pending", async () => {
@@ -288,7 +288,7 @@ describe("deferred full catalogue sort loading", () => {
     });
 
     expect(container.querySelector("[data-sort-loading]")).toBeNull();
-    expect(resultCount(container)).toContain("1069 destinations matching");
+    expect(resultCount(container)).toContain("1080 destinations matching");
   });
 
   it("normalizes a legacy Budget URL without requesting the full catalogue", async () => {
@@ -300,6 +300,6 @@ describe("deferred full catalogue sort loading", () => {
     expect(container.querySelector("[data-sort-loading]")).toBeNull();
     expect(catalogueMock.fullRequestCount).toBe(0);
     expect(container.querySelectorAll("[data-card]")).toHaveLength(20);
-    expect(resultCount(container)).toContain("1069 destinations matching");
+    expect(resultCount(container)).toContain("1080 destinations matching");
   });
 });

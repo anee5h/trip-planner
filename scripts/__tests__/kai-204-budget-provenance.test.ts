@@ -191,7 +191,7 @@ describe("KAI-204 on-site budget provenance repair", () => {
     expect(counts).toEqual({
       manual: 38,
       model: 112,
-      unknown: 475,
+      unknown: 486,
       legacy: 353,
       absent: 92,
     });

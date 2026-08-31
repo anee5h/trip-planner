@@ -494,7 +494,12 @@
       "happo-pond",
       "hakuba-iwatake-mountain-resort",
       "tsugaike-nature-park",
-      "suwa-taisha"
+      "suwa-taisha",
+      "mt-tanigawa",
+      "takaragawa-onsen",
+      "lake-haruna",
+      "lake-okushima",
+      "onioshidashi-park"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -862,7 +867,18 @@
       "daio-wasabi-farm",
       "senjojiki-cirque",
       "suwa-taisha",
-      "obuse-town"
+      "obuse-town",
+      "kusatsu-yubatake",
+      "sainokawara-park",
+      "mt-tanigawa",
+      "takaragawa-onsen",
+      "lake-haruna",
+      "haruna-shrine",
+      "lake-okushima",
+      "fukiware-falls",
+      "usui-third-bridge",
+      "shorinzan-darumaji",
+      "onioshidashi-park"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1924,7 +1940,18 @@
       "daio-wasabi-farm",
       "senjojiki-cirque",
       "suwa-taisha",
-      "obuse-town"
+      "obuse-town",
+      "kusatsu-yubatake",
+      "sainokawara-park",
+      "mt-tanigawa",
+      "takaragawa-onsen",
+      "lake-haruna",
+      "haruna-shrine",
+      "lake-okushima",
+      "fukiware-falls",
+      "usui-third-bridge",
+      "shorinzan-darumaji",
+      "onioshidashi-park"
     ]
   },
   "modelClusterIds": [
@@ -1973,26 +2000,44 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-31T03:03",
-    "changeCount": 2,
+    "at": "2026-08-31T03:30",
+    "changeCount": 5,
     "byModel": [
       [
         "duration-model-v1",
-        2
+        5
       ]
     ],
     "sample": [
       {
-        "id": "togakushi-shrine",
+        "id": "mt-tanigawa",
         "model": "duration-model-v1",
         "action": "set",
-        "reason": "kind band 'shrine'"
+        "reason": "kind band 'mountain'"
       },
       {
-        "id": "suwa-taisha",
+        "id": "takaragawa-onsen",
         "model": "duration-model-v1",
         "action": "set",
-        "reason": "kind band 'shrine'"
+        "reason": "kind band 'onsen'"
+      },
+      {
+        "id": "lake-haruna",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'lake'"
+      },
+      {
+        "id": "lake-okushima",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'lake'"
+      },
+      {
+        "id": "onioshidashi-park",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'park'"
       }
     ]
   }
