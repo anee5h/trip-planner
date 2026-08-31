@@ -52,11 +52,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "atsuta-shrine-nagoya",
-      "higashiyama-sky-tower-nagoya",
-      "mirai-tower-nagoya"
-    ],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {

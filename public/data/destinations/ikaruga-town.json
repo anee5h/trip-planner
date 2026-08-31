@@ -48,7 +48,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["mount-yoshino-nara", "nara-park-todaiji"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
   },
   "walkingIntensity": "high",

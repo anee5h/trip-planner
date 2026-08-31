@@ -53,7 +53,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["fujinomiya-city", "ito-city", "izu"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "budgetBreakdown": {

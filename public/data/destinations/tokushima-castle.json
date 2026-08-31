@@ -68,7 +68,9 @@
       "sortOrder": 87
     }
   ],
-  "relationships": {},
+  "relationships": {
+    "parentDestinationId": "tokushima-city"
+  },
   "content": {
     "en": {
       "name": "Tokushima Castle",

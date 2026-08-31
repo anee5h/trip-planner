@@ -51,7 +51,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": ["kumamoto-castle"],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "dazaifu-city"]
   },
   "budgetBreakdown": {

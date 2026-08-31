@@ -82,7 +82,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -1877,7 +1877,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -2337,7 +2337,7 @@
     },
     "openingHours": "No fixed opening hours (city area)",
     "relationships": {
-      "featuredDestinationIds": ["kumamoto-castle"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "fukuoka-city",
         "kitakyushu-city",
@@ -2517,7 +2517,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["fujinomiya-city", "ito-city", "izu"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2866,7 +2866,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -4531,11 +4531,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "kawagoe-castle-saitama",
-        "kawagoe-city",
-        "omiya-railway"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -4626,12 +4622,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "ashigara",
-        "enoshima-island",
-        "hakkeijima",
-        "hakone-town"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -4713,14 +4704,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "akasaka-minato",
-        "akihabara-chiyoda",
-        "chofu-tokyo",
-        "edo-castle-tokyo",
-        "edogawa-city",
-        "ghibli-museum"
-      ],
+      "featuredDestinationIds": ["akihabara-chiyoda", "edo-castle-tokyo"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -6741,11 +6725,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "fuji-5-lake",
-        "kofu-city",
-        "takeda-castle-yamanashi"
-      ],
+      "featuredDestinationIds": ["fuji-5-lake"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -6927,7 +6907,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["atami-city", "ito-city", "izu"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -7946,7 +7926,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -8309,12 +8289,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "gero-onsen",
-        "gifu-castle-gifu",
-        "gifu-gujo-hachiman",
-        "gifu-magome-juku"
-      ],
+      "featuredDestinationIds": ["gero-onsen"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -8684,12 +8659,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "gero-onsen",
-        "gifu-castle-gifu",
-        "gifu-gujo-hachiman",
-        "gifu-magome-juku"
-      ],
+      "featuredDestinationIds": ["gifu-castle-gifu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -9443,12 +9413,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -10731,7 +10696,7 @@
     "businessHours": "Open access",
     "openingHours": "24 Hours (Open access)",
     "relationships": {
-      "featuredDestinationIds": ["ashigara", "jogashima"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
       "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
     }
@@ -10804,12 +10769,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "karuizawa-town",
-        "kiso",
-        "matsumoto-city",
-        "nagano-bessho-onsen"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -10901,12 +10861,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -13191,7 +13146,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["mount-yoshino-nara", "nara-park-todaiji"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
   },
@@ -13848,11 +13803,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "atsuta-shrine-nagoya",
-        "higashiyama-sky-tower-nagoya",
-        "mirai-tower-nagoya"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -14288,7 +14239,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["atami-city", "fujinomiya-city", "izu"],
+      "featuredDestinationIds": ["izu"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -16613,11 +16564,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": [
-        "kiso",
-        "matsumoto-city",
-        "nagano-bessho-onsen"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -17667,12 +17614,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "kawagoe-castle-saitama",
-        "kawagoe-city",
-        "omiya-railway",
-        "chichibu-city"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -18629,12 +18571,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -20033,7 +19970,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["fuji-5-lake", "takeda-castle-yamanashi"],
+      "featuredDestinationIds": ["takeda-castle-yamanashi"],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -21330,7 +21267,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": ["gunma-kusatsu-onsen", "oze-national-park"],
+      "featuredDestinationIds": ["gunma-kusatsu-onsen"],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -21506,7 +21443,7 @@
     },
     "businessHours": "Open access",
     "relationships": {
-      "featuredDestinationIds": ["hakodate-night-view"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["sapporo-city", "otaru-city", "hakodate-city"]
     }
   },
@@ -24220,12 +24157,7 @@
     "businessHours": "Open access",
     "openingHours": "09:00 - 17:00",
     "relationships": {
-      "featuredDestinationIds": [
-        "gunma-ikaho-onsen",
-        "gunma-kusatsu-onsen",
-        "gunma-shima-onsen",
-        "oze-national-park"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
     }
   },
@@ -31095,7 +31027,7 @@
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "parentDestinationId": "koto-city",
-      "featuredDestinationIds": ["miraikan", "joypolis"]
+      "featuredDestinationIds": []
     }
   },
   {
@@ -32860,7 +32792,7 @@
     },
     "businessHours": "09:00 - 17:00 (Last admission 16:30)",
     "relationships": {
-      "featuredDestinationIds": ["abeno-harukas-300-osaka"],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
       "relatedDestinationIds": ["fukuoka-city"],
       "parentDestinationId": "osaka-city"
@@ -39944,7 +39876,6 @@
         "national-museum-western-art-tokyo",
         "ueno-park",
         "asakusa-taito",
-        "ueno-taito",
         "yanaka",
         "ameya-yokocho",
         "national-museum-of-nature-and-science",
@@ -51145,7 +51076,7 @@
     "kind": "temple",
     "role": "poi",
     "placeType": "destination",
-    "municipalityId": "Tokyo:hachioji",
+    "municipalityId": "Tokyo:hino",
     "aliases": [],
     "prefecture": "Tokyo",
     "region": "Kanto",
@@ -51227,7 +51158,7 @@
     "businessHours": "Open access",
     "openingHours": "08:30 - 16:30",
     "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
+      "parentDestinationId": "hino-city"
     }
   },
   {
@@ -78155,7 +78086,9 @@
     },
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
-    "relationships": {}
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    }
   },
   {
     "id": "imabari-castle",

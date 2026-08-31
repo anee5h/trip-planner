@@ -49,11 +49,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "fuji-5-lake",
-      "kofu-city",
-      "takeda-castle-yamanashi"
-    ],
+    "featuredDestinationIds": ["fuji-5-lake"],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "walkingIntensity": "high",

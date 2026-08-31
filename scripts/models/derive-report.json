@@ -1941,32 +1941,26 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-26T02:52",
-    "changeCount": 3,
+    "at": "2026-08-30T23:31",
+    "changeCount": 2,
     "byModel": [
       [
-        "budget-model-v1",
-        3
+        "hub-window-model-v1",
+        2
       ]
     ],
     "sample": [
       {
-        "id": "cupnoodles-museum-osaka-ikeda",
-        "model": "budget-model-v1",
-        "action": "keep",
-        "reason": "verified ticket ¥0 preserved; peer cell 'museum|short|destination' has 0 samples (< 5); components left as accepted debt"
+        "id": "hino-city",
+        "model": "hub-window-model-v1",
+        "action": "set",
+        "reason": "hub exploration window: importance notable, 5 children, metro=false"
       },
       {
-        "id": "genkyuen-garden",
-        "model": "budget-model-v1",
-        "action": "keep",
-        "reason": "verified ticket ¥400 preserved; peer cell 'garden|short|destination' has 0 samples (< 5); components left as accepted debt"
-      },
-      {
-        "id": "shikisai-no-oka",
-        "model": "budget-model-v1",
-        "action": "keep",
-        "reason": "verified ticket ¥800 preserved; peer cell 'park|half|standalone' has 0 samples (< 5); components left as accepted debt"
+        "id": "tokushima-city",
+        "model": "hub-window-model-v1",
+        "action": "set",
+        "reason": "hub exploration window: importance notable, 4 children, metro=false"
       }
     ]
   }

@@ -3,9 +3,9 @@ import { HubPlanningService } from "../HubPlanningService";
 import type { Destination } from "@/shared/types/destination";
 
 const mockHub = {
-  id: "osaka-station-city",
-  name: "Osaka Station City",
-  nameJa: "大阪ステーションシティ",
+  id: "osaka-city",
+  name: "Osaka City",
+  nameJa: "大阪市",
   kind: "city",
   role: "hub",
   prefecture: "Osaka",
@@ -33,7 +33,7 @@ describe("HubPlanningService", () => {
       partySize: 2,
     });
 
-    expect(plan.hub.id).toBe("osaka-station-city");
+    expect(plan.hub.id).toBe("osaka-city");
     expect(plan.planType).toBe("half_day");
     expect(plan.items.length).toBeGreaterThanOrEqual(2);
     expect(plan.items[0].isHub).toBe(true);

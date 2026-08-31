@@ -73,9 +73,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "hakodate-night-view"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "sapporo-city",
         "otaru-city",
@@ -4313,9 +4311,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "hakodate-night-view"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "sapporo-city",
         "otaru-city",
@@ -5340,9 +5336,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "kumamoto-castle"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "fukuoka-city",
         "kitakyushu-city",
@@ -5753,11 +5747,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -6515,9 +6505,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "hakodate-night-view"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "sapporo-city",
         "otaru-city",
@@ -10754,11 +10742,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "kawagoe-castle-saitama",
-        "kawagoe-city",
-        "omiya-railway"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "shibuya-city",
         "hakone-town",
@@ -10989,12 +10973,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "ashigara",
-        "enoshima-island",
-        "hakkeijima",
-        "hakone-town"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "shibuya-city",
         "hakone-town",
@@ -11229,12 +11208,8 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "akasaka-minato",
         "akihabara-chiyoda",
-        "chofu-tokyo",
-        "edo-castle-tokyo",
-        "edogawa-city",
-        "ghibli-museum"
+        "edo-castle-tokyo"
       ],
       "nearbyDestinationIds": [
         "shibuya-city",
@@ -16350,9 +16325,7 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "fuji-5-lake",
-        "kofu-city",
-        "takeda-castle-yamanashi"
+        "fuji-5-lake"
       ],
       "nearbyDestinationIds": [
         "nagoya-city",
@@ -16786,11 +16759,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -19280,9 +19249,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "hakodate-night-view"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "sapporo-city",
         "otaru-city",
@@ -20068,10 +20035,7 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "gero-onsen",
-        "gifu-castle-gifu",
-        "gifu-gujo-hachiman",
-        "gifu-magome-juku"
+        "gero-onsen"
       ],
       "nearbyDestinationIds": [
         "nagoya-city",
@@ -20803,10 +20767,7 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "gero-onsen",
-        "gifu-castle-gifu",
-        "gifu-gujo-hachiman",
-        "gifu-magome-juku"
+        "gifu-castle-gifu"
       ],
       "nearbyDestinationIds": [
         "nagoya-city",
@@ -22435,12 +22396,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -25216,10 +25172,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": [
-        "ashigara",
-        "jogashima"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "shibuya-city",
         "chiba-city",
@@ -25427,12 +25380,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "karuizawa-town",
-        "kiso",
-        "matsumoto-city",
-        "nagano-bessho-onsen"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -25583,12 +25531,7 @@
       }
     ],
     "relationships": {
-      "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
-        "ito-city",
-        "izu"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -27842,7 +27785,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance notable, 4 children, metro=false",
+            "title": "hub-window-model-v1; hub exploration window: importance notable, 5 children, metro=false",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -27913,7 +27856,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance notable, 4 children, metro=false"
+      "basis": "hub exploration window: importance notable, 5 children, metro=false"
     },
     "comfortMetadata": {
       "method": "model",
@@ -31004,10 +30947,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "mount-yoshino-nara",
-        "nara-park-todaiji"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "kyoto-city",
         "osaka-city",
@@ -32604,11 +32544,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "atsuta-shrine-nagoya",
-        "higashiyama-sky-tower-nagoya",
-        "mirai-tower-nagoya"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -33660,8 +33596,6 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "atami-city",
-        "fujinomiya-city",
         "izu"
       ],
       "nearbyDestinationIds": [
@@ -38796,11 +38730,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "kiso",
-        "matsumoto-city",
-        "nagano-bessho-onsen"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -41517,12 +41447,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "kawagoe-castle-saitama",
-        "kawagoe-city",
-        "omiya-railway",
-        "chichibu-city"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "shibuya-city",
         "hakone-town",
@@ -43855,12 +43780,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "boso-peninsula",
-        "chiba-nokogiriyama",
-        "chiba-port-tower",
-        "chiba-sawara"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "shibuya-city",
         "hakone-town",
@@ -47223,7 +47143,6 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "fuji-5-lake",
         "takeda-castle-yamanashi"
       ],
       "nearbyDestinationIds": [
@@ -50223,8 +50142,7 @@
     "collections": [],
     "relationships": {
       "featuredDestinationIds": [
-        "gunma-kusatsu-onsen",
-        "oze-national-park"
+        "gunma-kusatsu-onsen"
       ],
       "nearbyDestinationIds": [
         "shibuya-city",
@@ -50704,9 +50622,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "hakodate-night-view"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "sapporo-city",
         "otaru-city",
@@ -56920,12 +56836,7 @@
     },
     "collections": [],
     "relationships": {
-      "featuredDestinationIds": [
-        "gunma-ikaho-onsen",
-        "gunma-kusatsu-onsen",
-        "gunma-shima-onsen",
-        "oze-national-park"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "shibuya-city",
         "hakone-town",
@@ -72588,10 +72499,7 @@
     "collections": [],
     "relationships": {
       "parentDestinationId": "koto-city",
-      "featuredDestinationIds": [
-        "miraikan",
-        "joypolis"
-      ]
+      "featuredDestinationIds": []
     },
     "bestSeason": "Summer",
     "weatherDependence": "moderate",
@@ -76687,9 +76595,7 @@
       5
     ],
     "relationships": {
-      "featuredDestinationIds": [
-        "abeno-harukas-300-osaka"
-      ],
+      "featuredDestinationIds": [],
       "nearbyDestinationIds": [
         "kyoto-city",
         "uji-city",
@@ -93900,7 +93806,6 @@
         "national-museum-western-art-tokyo",
         "ueno-park",
         "asakusa-taito",
-        "ueno-taito",
         "yanaka",
         "ameya-yokocho",
         "national-museum-of-nature-and-science",
@@ -100459,7 +100364,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance notable, 3 children, metro=false"
+      "basis": "hub exploration window: importance notable, 4 children, metro=false"
     },
     "walkingMetadata": {
       "method": "model",
@@ -121102,7 +121007,7 @@
     "role": "poi",
     "placeType": "destination",
     "relationships": {
-      "parentDestinationId": "hachioji-tokyo"
+      "parentDestinationId": "hino-city"
     },
     "officialWebsiteRequirement": "recommended",
     "categories": [
@@ -121221,7 +121126,7 @@
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "08:30 - 16:30",
     "openingHoursJa": "08:30 - 16:30（境内自由）",
-    "municipalityId": "Tokyo:hachioji",
+    "municipalityId": "Tokyo:hino",
     "transportMetadata": {
       "method": "legacy-fallback",
       "modelVersion": "transport-access-v1",
@@ -188189,7 +188094,9 @@
         "sortOrder": 87
       }
     ],
-    "relationships": {},
+    "relationships": {
+      "parentDestinationId": "tokushima-city"
+    },
     "content": {
       "en": {
         "name": "Tokushima Castle",

@@ -55,12 +55,7 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [
-      "ashigara",
-      "enoshima-island",
-      "hakkeijima",
-      "hakone-town"
-    ],
+    "featuredDestinationIds": [],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
   "budgetBreakdown": {
