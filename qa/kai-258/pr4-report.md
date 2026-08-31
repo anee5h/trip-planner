@@ -70,8 +70,8 @@ No candidate was rejected. The four DEFER decisions remain explicit and are not 
 
 The audit passed:
 
-- Exact ancestry: `main` `85ef6740` → KAI-258A `ce51de8b` → KAI-258B `f2cf9d3c` → KAI-258C `31fac290` → KAI-258D `8d155f2e`.
-- Remote branch heads exactly match those four PR heads.
+- Implementation ancestry: `main` `85ef6740` → KAI-258A `ce51de8b` → KAI-258B `f2cf9d3c` → KAI-258C `31fac290` → KAI-258D implementation `8d155f2e`; report-only metadata commits follow the implementation commits on each open branch.
+- Remote branch heads were checked against the open PR heads after creation; PR4's current head includes its report-only follow-up.
 - PRs #294, #295, #296, and #297 are all `OPEN`, `MERGEABLE`, and `mergedAt: null`.
 - Base branches are respectively `main`, A, B, and C; no merge or rebase was performed.
 - Generated-file parity, relationship integrity, 1,107-record counts, representative EN/JA catalogue tests, and the full validation matrix all passed.
