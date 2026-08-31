@@ -6,8 +6,8 @@
 - Branch: `data/kai-258c-nagano-p1-hub-completion`
 - Base branch: `data/kai-258b-gunma-p0-anchor-depth`
 - Base head: `f2cf9d3c5d0f92a888f5a1688cb74427c394bf74` (KAI-258B head)
-- Commit: to be filled after the verified commit
-- Pull request: to be filled after push/open
+- Commit: `88ed952fd20d58bd6c2522fc2f0fee0f810ccf68`
+- Pull request: [#296](https://github.com/anee5h/trip-planner/pull/296)
 - Merge status: **STOPPED — not merged**
 
 ## Evidence / duplicate / relationship matrix
