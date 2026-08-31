@@ -7,6 +7,7 @@ import {
   MapPin,
 } from "lucide-react";
 import type { TripCostResult } from "@/shared/services/budget/budgetV2";
+import type { TripEstimateResult } from "@/shared/services/budget/tripEstimateEngine";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 
 export interface DestinationAtAGlanceLabels {
@@ -34,7 +35,7 @@ interface DestinationAtAGlanceProps {
   locale: "en" | "ja";
   travelTime?: string;
   visitDuration?: string;
-  onSiteCost?: TripCostResult;
+  onSiteCost?: TripCostResult | TripEstimateResult;
   labels: DestinationAtAGlanceLabels;
   parentLabel?: string;
   headerExposesLocation?: boolean;
@@ -57,11 +58,12 @@ function getOfficialWebsiteLabel(website: string): string {
  * no legacy budget fields are consulted here.
  */
 function getOnSiteCostLabel(
-  result: TripCostResult | undefined,
+  result: TripCostResult | TripEstimateResult | undefined,
   locale: "en" | "ja",
   labels: Pick<DestinationAtAGlanceLabels, "free">,
 ): string | undefined {
-  if (!result || result.completeness !== "complete") return undefined;
+  const total = result && "total" in result ? result.total : undefined;
+  if (!result || !total) return undefined;
 
   const numericOnSiteComponent = result.components.some(
     (component) =>
@@ -71,10 +73,10 @@ function getOnSiteCostLabel(
   );
   if (!numericOnSiteComponent) return undefined;
 
-  if (result.total.min === 0 && result.total.max === 0) {
+  if (total.min === 0 && total.max === 0) {
     return labels.free;
   }
-  return formatLocalizedJPYRange([result.total.min, result.total.max], locale);
+  return formatLocalizedJPYRange([total.min, total.max], locale);
 }
 
 export function DestinationAtAGlance({

@@ -3,7 +3,7 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
@@ -49,14 +49,12 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const engineBudgetRanges = compareDestinations.map((d) => {
     // KAI-217B: Compare has no origin context — compare the canonical
     // ON-SITE total (admission + local transport).
-    const r = calculateTripCost({
+    const r = calculateTripEstimate({
       dest: d,
       tripMode: "day_trip",
       includeOriginTravel: false,
     });
-    return r.completeness === "complete" && r.total
-      ? ([r.total.min, r.total.max] as [number, number])
-      : null;
+    return r.total ? ([r.total.min, r.total.max] as [number, number]) : null;
   });
   const budgets = engineBudgetRanges.map((range) =>
     range ? (range[0] + range[1]) / 2 : null,

@@ -52,8 +52,8 @@ vi.mock("lucide-react", () => ({
 // components (origin_travel 800, local_transport 3000, admission 3000,
 // accommodation = allowance) so the rows + total are derived from the SAME
 // source.
-vi.mock("@/shared/services/budget/tripCostEngine", () => ({
-  calculateTripCost: ({
+vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
+  calculateTripEstimate: ({
     accommodationAllowance,
   }: {
     accommodationAllowance?: number;
@@ -342,6 +342,7 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
       knownSubtotal: [3000, 3000],
       hasNumericTotal: true,
       confidence: "estimated",
+      estimateQuality: "estimated",
       assumptions: [],
     };
     host = document.createElement("div");
@@ -382,10 +383,10 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
     // Override the engine mock to a PARTIAL result: local_transport
     // unavailable (no canonical fact), admission + origin bounded.
     const engineMock =
-      (await import("@/shared/services/budget/tripCostEngine")) as unknown as {
-        calculateTripCost: ReturnType<typeof vi.fn>;
+      (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
+        calculateTripEstimate: ReturnType<typeof vi.fn>;
       };
-    engineMock.calculateTripCost = vi.fn().mockReturnValue({
+    engineMock.calculateTripEstimate = vi.fn().mockReturnValue({
       completeness: "partial",
       components: [
         {
@@ -431,10 +432,10 @@ describe("TripCostBreakdownWidget accommodation allowance", () => {
   // ── Round-6 regressions: component-level semantics ─────────────────────────
   async function renderWithEngine(engineResult: unknown) {
     const engineMock =
-      (await import("@/shared/services/budget/tripCostEngine")) as unknown as {
-        calculateTripCost: ReturnType<typeof vi.fn>;
+      (await import("@/shared/services/budget/tripEstimateEngine")) as unknown as {
+        calculateTripEstimate: ReturnType<typeof vi.fn>;
       };
-    engineMock.calculateTripCost = vi.fn().mockReturnValue(engineResult);
+    engineMock.calculateTripEstimate = vi.fn().mockReturnValue(engineResult);
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -588,6 +589,7 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
       knownSubtotal: [0, 0],
       hasNumericTotal: true,
       confidence: "verified",
+      estimateQuality: "verified",
       assumptions: [],
     };
   }

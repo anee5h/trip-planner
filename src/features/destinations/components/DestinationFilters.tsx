@@ -645,6 +645,12 @@ export default function DestinationFilters({
                   {isJa ? "近い順" : "Nearest"}
                 </div>
               )}
+              {sortBy === "budget" && (
+                <div className="flex items-center whitespace-nowrap">
+                  <Coins className="w-3.5 h-3.5 mr-1.5 text-emerald-500 shrink-0" />{" "}
+                  {isJa ? "費用が安い順" : "Lowest cost"}
+                </div>
+              )}
             </SelectTrigger>
             <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
               <SelectItem
@@ -672,6 +678,15 @@ export default function DestinationFilters({
                 <div className="flex items-center whitespace-nowrap">
                   <MapPin className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
                   {isJa ? "近い順" : "Nearest"}
+                </div>
+              </SelectItem>
+              <SelectItem
+                value="budget"
+                className="py-2 px-3 text-xs cursor-pointer"
+              >
+                <div className="flex items-center whitespace-nowrap">
+                  <Coins className="w-3.5 h-3.5 mr-2 text-emerald-500" />{" "}
+                  {isJa ? "費用が安い順" : "Lowest cost"}
                 </div>
               </SelectItem>
             </SelectContent>

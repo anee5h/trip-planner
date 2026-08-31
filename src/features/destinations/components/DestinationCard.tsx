@@ -18,7 +18,7 @@ import {
   CardHeader,
 } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { Button } from "@/shared/components/ui/button";
 import {
   MapPin,
@@ -266,25 +266,32 @@ export default function DestinationCard({
         validModes,
       ).estimate;
   const preferredTransport = isWeekend ? undefined : dayTravelEstimate;
-  // KAI-217B round-2: the card's budget chip shows the CANONICAL engine
-  // range for the actual context (fastest valid mode, actual party size,
-  // actual trip mode). NO v1 generic budgetMin/budgetMax fallback: an
-  // incomplete result renders unavailable, never a fabricated range.
-  const cardBudgetRange = useMemo<[number, number] | null>(() => {
+  // KAI-260: cards render the bounded traveller range even when the engine
+  // used an explicit model/profile fallback. Evidence quality is disclosed
+  // compactly, not used as a visibility gate.
+  const cardEstimate = useMemo<{
+    range: [number, number];
+    quality: "verified" | "estimated" | "rough";
+  } | null>(() => {
     const mode =
       preferredTransport?.mode ??
       (validModes.length > 0 ? validModes[0] : undefined);
     if (!mode) return null;
-    const r = calculateTripCost({
+    const r = calculateTripEstimate({
       dest: destination,
       mode,
       partySize,
       homeCoords: homeStationCoords ?? undefined,
+      includeOriginTravel: Boolean(homeStationCoords),
       tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
       ferryTemporal,
     });
-    if (r.completeness !== "complete" || !r.total) return null;
-    return [r.total.min, r.total.max];
+    return r.total
+      ? {
+          range: [r.total.min, r.total.max],
+          quality: r.estimateQuality,
+        }
+      : null;
   }, [
     destination,
     validModes,
@@ -294,6 +301,8 @@ export default function DestinationCard({
     isWeekend,
     ferryTemporal,
   ]);
+  const cardBudgetRange = cardEstimate?.range ?? null;
+
   const durationEst = isWeekend
     ? estimateTripDuration(
         destination,
@@ -547,12 +556,10 @@ export default function DestinationCard({
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                     <span className="truncate">
                       {(() => {
-                        // KAI-217B round-2: the budget chip renders the
-                        // CANONICAL engine range (complete only). Unknown/
-                        // partial renders unavailable — never a v1 generic
-                        // budgetMin/budgetMax fallback.
+                        // KAI-260: a bounded estimate is displayable even
+                        // when its ingredients are model/profile derived.
                         return cardBudgetRange
-                          ? formatLocalizedJPYRange(cardBudgetRange, locale)
+                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "Approx. "}${formatLocalizedJPYRange(cardBudgetRange, locale)}`
                           : formatLocalizedJPYRange(null, locale);
                       })()}
                       {partySize > 1

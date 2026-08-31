@@ -18,8 +18,7 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import { hasKnownBudgetRange } from "@/shared/services/budget/BudgetService";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import StationInput from "@/shared/components/StationInput";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
@@ -556,47 +555,33 @@ export default function Destinations() {
       const filterModes =
         publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
-        if (!hasKnownBudgetRange(dest)) return false;
-        // KAI-217B repair: the tier filter evaluates ONLY the CANONICAL
-        // engine cost. When no complete engine result exists (partial /
-        // open-ended / unavailable), the destination does NOT pass the
-        // strict tier filter — a raw budgetMax fallback would hard-pass on
-        // the very generic field we're retiring (food/cafe/generic-budget
-        // assumptions). Unknown stays unknown: no fabricated fit.
         let costMax: number | undefined;
         if (homeStationCoords) {
-          let best: number | undefined;
           for (const mode of filterModes) {
-            const engineResult = calculateTripCost({
+            const estimate = calculateTripEstimate({
               dest,
               mode,
               partySize,
               homeCoords: homeStationCoords,
               tripMode: "day_trip",
+              budgetTier,
             });
-            if (
-              engineResult.completeness === "complete" &&
-              engineResult.total
-            ) {
-              best =
-                best === undefined
-                  ? engineResult.total.max
-                  : Math.min(best, engineResult.total.max);
+            if (estimate.total) {
+              costMax =
+                costMax === undefined
+                  ? estimate.total.max
+                  : Math.min(costMax, estimate.total.max);
             }
           }
-          costMax = best;
         } else {
-          // No origin context: evaluate the canonical ON-SITE total
-          // (admission + local transport, origin excluded).
-          const onSite = calculateTripCost({
+          const estimate = calculateTripEstimate({
             dest,
             partySize,
             tripMode: "day_trip",
             includeOriginTravel: false,
+            budgetTier,
           });
-          if (onSite.completeness === "complete" && onSite.total) {
-            costMax = onSite.total.max;
-          }
+          costMax = estimate.total?.max;
         }
         return costMax !== undefined && costMax <= tierLimit;
       });
@@ -1073,6 +1058,7 @@ export default function Destinations() {
         carMode,
         publicModes: effectivePublicModes,
         partySize,
+        budgetTier: budgetTier === "any" ? undefined : budgetTier,
       },
       sortBy,
     );

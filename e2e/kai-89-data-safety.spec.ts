@@ -142,7 +142,9 @@ test.describe("KAI-89 rendered data safety", () => {
       // tagged (untrusted provenance), so it renders "Cost unavailable"
       // rather than "Free Admission". Verified free requires ledger proof.
       ["hiroshima-national-peace-memorial-hall", /Cost unavailable|料金不明/],
-      ["cupnoodles-museum-osaka-ikeda", /Cost unavailable|料金不明/],
+      // KAI-260: the canonical range-first engine supplies a bounded
+      // planning estimate for the previously unavailable admission state.
+      ["cupnoodles-museum-osaka-ikeda", /Estimated visit cost|概算滞在費用/],
       // KAI-89 drift correction (KAI-132's deterministic fixture surfaced
       // it): shinjuku-gyo-en's canonical data now carries
       // budgetMetadata.method "manual", and BudgetService treats ONLY

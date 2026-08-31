@@ -398,10 +398,12 @@ export function DayPlanWidget({
               </div>
               <div className="w-px h-4 bg-slate-200 dark:bg-slate-700" />
               <div>
-                {formatLocalizedJPYRange(
-                  generatedCostRange ?? generatedPlan.totalBudgetRange,
-                  locale,
-                )}
+                {generatedCostRange || generatedPlan.totalBudgetRange
+                  ? `${locale === "ja" ? "約 " : "Approx. "}${formatLocalizedJPYRange(
+                      generatedCostRange ?? generatedPlan.totalBudgetRange,
+                      locale,
+                    )}`
+                  : formatLocalizedJPYRange(undefined, locale)}
               </div>
             </div>
           )}

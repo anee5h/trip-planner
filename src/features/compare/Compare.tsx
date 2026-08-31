@@ -13,7 +13,7 @@ import {
 } from "@/shared/components/ui/table";
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
@@ -136,14 +136,12 @@ export default function Compare() {
   //   - ranking value  = midpoint (INTERNAL ranking only, never displayed)
   // Only COMPLETE results qualify; partial/unavailable show unavailable.
   const engineBudgetRanges = compareDestinations.map((d) => {
-    const r = calculateTripCost({
+    const r = calculateTripEstimate({
       dest: d,
       tripMode: "day_trip",
       includeOriginTravel: false,
     });
-    return r.completeness === "complete" && r.total
-      ? ([r.total.min, r.total.max] as [number, number])
-      : null;
+    return r.total ? ([r.total.min, r.total.max] as [number, number]) : null;
   });
   const engineBudgetMidpoints = engineBudgetRanges.map((range) =>
     range ? (range[0] + range[1]) / 2 : null,

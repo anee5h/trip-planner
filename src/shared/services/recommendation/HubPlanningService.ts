@@ -1,9 +1,7 @@
 import type { Destination } from "@/shared/types/destination";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
-import {
-  calculateItemizedTripCost,
-  getTransportCost,
-} from "@/shared/services/budget/BudgetService";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import type { PriceRange } from "@/shared/types/planner";
 import { getDistance } from "@/shared/utils/distance";
 import rawCollections from "@/shared/data/collections-index.json";
 
@@ -20,7 +18,13 @@ export interface HubPlanItem {
 }
 
 export interface HubPlanBudget {
-  travelToHubCost: number; // Counted ONCE for the whole plan
+  /** Canonical range; scalar fields below are compatibility projections. */
+  estimateRange: PriceRange;
+  estimateQuality: "verified" | "estimated" | "rough";
+  originTransportIncluded: boolean;
+  /** @deprecated Use estimateRange and originTransportIncluded. */
+  travelToHubCost: number;
+  /** @deprecated compatibility upper-bound projections. */
   localTransitCost: number;
   ticketCost: number;
   foodCost: number;
@@ -28,12 +32,6 @@ export interface HubPlanBudget {
   partyTotal: number;
   perPersonRange: { min: number; max: number };
   partyRange: { min: number; max: number };
-  /**
-   * KAI-89: true when any itinerary POI has an UNKNOWN budget (absent
-   * values). Unknown items contribute 0 to the totals — they are never
-   * treated as free — so the estimate covers only the known items; the
-   * plan must not claim a complete cost.
-   */
   hasUnknownBudgetItems: boolean;
 }
 
@@ -52,6 +50,7 @@ export interface HubPlanOptions {
   planType?: "half_day" | "full_day";
   partySize?: number;
   travelMode?: "train" | "bus" | "car" | "shinkansen";
+  homeCoords?: { lat: number; lng: number };
 }
 
 export class HubPlanningService {
@@ -164,61 +163,135 @@ export class HubPlanningService {
       prevCoords = poi.coordinates || prevCoords;
     }
 
-    // 3. Single Travel-to-Hub Transport Fare (Counted ONCE!)
-    const rawHubCost = getTransportCost(hub, travelMode, 1);
-    const travelToHubCost =
-      Number.isNaN(rawHubCost) || !rawHubCost ? 500 : rawHubCost;
+    // 3–5. Canonical range-first aggregation. Origin travel is calculated
+    // once for the hub only; each POI contributes on-site local + admission,
+    // and one canonical day-trip meal band covers the plan.
+    const hubEstimate = calculateTripEstimate({
+      dest: hub,
+      mode: travelMode,
+      partySize: 1,
+      homeCoords: options.homeCoords,
+      includeOriginTravel: Boolean(options.homeCoords),
+      tripMode: "day_trip",
+    });
+    const hubOnSite = hubEstimate.components.filter(
+      (component) =>
+        component.evidence.scope !== "origin_travel" &&
+        component.evidence.scope !== "meals",
+    );
+    const originComponent = hubEstimate.components.find(
+      (component) => component.evidence.scope === "origin_travel",
+    );
+    const mealComponent = hubEstimate.components.find(
+      (component) => component.evidence.scope === "meals",
+    );
 
-    // 4. Calculate Itemized Costs across all POIs
-    let totalLocalTransit = 0;
-    let totalTickets = 0;
-    let totalFood = 0;
-    let hasUnknownBudgetItems = false;
-
+    let localRange: PriceRange = [0, 0];
+    let ticketRange: PriceRange = [0, 0];
+    let unknown = hubEstimate.total === undefined;
     for (const item of items) {
-      totalLocalTransit += item.localTransitCost;
-
-      if (!item.isHub) {
-        const itemBreakdown = calculateItemizedTripCost(item.destination, {
-          partySize: 1,
-          activeMode: travelMode,
-        });
-        // KAI-89: an unknown-budget POI contributes NOTHING to the totals
-        // (0 is 'free', which is a false claim); the plan flags the gap so
-        // the estimate is never presented as a complete cost.
-        if (!itemBreakdown.budgetAvailable) {
-          hasUnknownBudgetItems = true;
-          continue;
-        }
-        totalTickets += itemBreakdown.tickets || 0;
-        const foodAvg = itemBreakdown.food
-          ? Math.round((itemBreakdown.food[0] + itemBreakdown.food[1]) / 2)
-          : 0;
-        const cafeVal = Number(itemBreakdown.cafe || 0);
-        totalFood += foodAvg + cafeVal;
+      if (item.isHub) continue;
+      const estimate = calculateTripEstimate({
+        dest: item.destination,
+        mode: travelMode,
+        partySize: 1,
+        includeOriginTravel: false,
+        tripMode: "day_trip",
+      });
+      const local = estimate.components.find(
+        (component) => component.evidence.scope === "local_transport",
+      );
+      const admission = estimate.components.find(
+        (component) => component.evidence.scope === "admission",
+      );
+      if (local?.cost.kind === "bounded") {
+        localRange = [
+          localRange[0] + local.cost.min,
+          localRange[1] + local.cost.max,
+        ];
+      } else {
+        unknown = true;
+      }
+      if (admission?.cost.kind === "bounded") {
+        ticketRange = [
+          ticketRange[0] + admission.cost.min,
+          ticketRange[1] + admission.cost.max,
+        ];
+      } else if (admission?.evidence.state !== "not_applicable") {
+        unknown = true;
       }
     }
 
-    // 5. Total Budget Math (Deduplicated Single Hub Transit)
-    const perPersonBase =
-      travelToHubCost + totalLocalTransit + totalTickets + totalFood;
-    const perPersonMin = Math.round(perPersonBase * 0.85);
-    const perPersonMax = Math.round(perPersonBase * 1.25);
+    // The inter-stop movement is a profile estimate, not a fabricated ¥210
+    // fare. It is intentionally broad and scales with the number of legs.
+    const movementCount = Math.max(0, items.length - 1);
+    const movementRange: PriceRange = [
+      400 * movementCount,
+      1600 * movementCount,
+    ];
+    localRange = [
+      localRange[0] + movementRange[0],
+      localRange[1] + movementRange[1],
+    ];
+    for (const component of hubOnSite) {
+      if (
+        component.evidence.scope === "local_transport" &&
+        component.cost.kind === "bounded"
+      ) {
+        localRange = [
+          localRange[0] + component.cost.min,
+          localRange[1] + component.cost.max,
+        ];
+      }
+      if (
+        component.evidence.scope === "admission" &&
+        component.cost.kind === "bounded"
+      ) {
+        ticketRange = [
+          ticketRange[0] + component.cost.min,
+          ticketRange[1] + component.cost.max,
+        ];
+      }
+    }
 
-    const partyBase = perPersonBase * partySize;
-    const partyMin = Math.round(partyBase * 0.85);
-    const partyMax = Math.round(partyBase * 1.25);
-
+    const originRange: PriceRange =
+      originComponent?.cost.kind === "bounded"
+        ? [originComponent.cost.min, originComponent.cost.max]
+        : [0, 0];
+    if (options.homeCoords && originComponent?.cost.kind !== "bounded")
+      unknown = true;
+    const mealsRange: PriceRange =
+      mealComponent?.cost.kind === "bounded"
+        ? [mealComponent.cost.min, mealComponent.cost.max]
+        : [0, 0];
+    if (mealComponent?.cost.kind !== "bounded") unknown = true;
+    const partyOnSite: PriceRange = [
+      (localRange[0] + ticketRange[0] + mealsRange[0]) * partySize,
+      (localRange[1] + ticketRange[1] + mealsRange[1]) * partySize,
+    ];
+    const partyRange: PriceRange = [
+      partyOnSite[0] + originRange[0] * partySize,
+      partyOnSite[1] + originRange[1] * partySize,
+    ];
+    const perPersonRange: PriceRange = [
+      Math.round(partyRange[0] / partySize),
+      Math.round(partyRange[1] / partySize),
+    ];
     const budget: HubPlanBudget = {
-      travelToHubCost,
-      localTransitCost: totalLocalTransit,
-      ticketCost: totalTickets,
-      foodCost: totalFood,
-      hasUnknownBudgetItems,
-      perPersonTotal: Math.round(perPersonBase),
-      partyTotal: Math.round(partyBase),
-      perPersonRange: { min: perPersonMin, max: perPersonMax },
-      partyRange: { min: partyMin, max: partyMax },
+      estimateRange: partyRange,
+      estimateQuality: unknown ? "rough" : "estimated",
+      originTransportIncluded: Boolean(
+        options.homeCoords && originComponent?.cost.kind === "bounded",
+      ),
+      travelToHubCost: originRange[1] * partySize,
+      localTransitCost: localRange[1] * partySize,
+      ticketCost: ticketRange[1] * partySize,
+      foodCost: mealsRange[1] * partySize,
+      perPersonTotal: perPersonRange[1],
+      partyTotal: partyRange[1],
+      perPersonRange: { min: perPersonRange[0], max: perPersonRange[1] },
+      partyRange: { min: partyRange[0], max: partyRange[1] },
+      hasUnknownBudgetItems: unknown,
     };
 
     // 6. Find Related Collections for this Hub

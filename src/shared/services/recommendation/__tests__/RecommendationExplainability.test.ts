@@ -116,11 +116,13 @@ describe("RecommendationExplainability Unit Tests", () => {
     const match = createRecommendationMatch(baseDest, context, 85);
     expect(match.confidence).toBe(71);
     expect(match.reasons.length).toBeGreaterThan(0);
-    // KAI-217B round-2: baseDest's explicit train fare is corridor_only AND
-    // required local transport is unavailable (no explicit localTransport
-    // fact) → the engine result is PARTIAL → no strict "Within Budget"/
-    // "Great Value" claim. Transport access is the first reason.
-    expect(match.reasons[0].title).toBe("Fast Train Access");
+    // The range-first engine can now make the within-budget claim even when
+    // the total includes clearly labelled modeled components; transport
+    // remains present as a separate explanation.
+    expect(match.reasons[0].title).toBe("Within Budget");
+    expect(
+      match.reasons.some((reason) => reason.title === "Fast Train Access"),
+    ).toBe(true);
   });
 
   it("explains weather from the current recommendation context", () => {

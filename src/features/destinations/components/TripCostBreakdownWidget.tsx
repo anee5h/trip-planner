@@ -1,11 +1,7 @@
 import { useState, useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
-import {
-  formatLocalizedJPYRange,
-  hasKnownBudgetRange,
-} from "@/shared/services/budget/BudgetService";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
-import { isVerifiedFree } from "@/shared/services/budget/budgetState";
+import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
 import { Button } from "@/shared/components/ui/button";
@@ -18,6 +14,7 @@ import {
   Users,
   User,
   Sparkles,
+  Utensils,
   ChevronDown,
   ChevronUp,
   BedDouble,
@@ -35,7 +32,7 @@ export interface TripCostBreakdownWidgetProps {
   destination: Destination;
   locale: "en" | "ja";
   partySize?: number;
-  /** null = no estimable origin route; the total must not claim origin transport. */
+  homeCoords?: { lat: number; lng: number };
   activeTransportMode?: string | null;
   /** Hub pages keep an unavailable on-site fact compact instead of reserving
    *  the full itemized cost card. */
@@ -56,6 +53,7 @@ export function TripCostBreakdownWidget({
   destination,
   locale,
   partySize = 2,
+  homeCoords,
   activeTransportMode = null,
   compactUnavailableCost = false,
   ferryTemporal,
@@ -76,8 +74,9 @@ export function TripCostBreakdownWidget({
   // calculateItemizedTripCost / budgetBreakdown legacy scalars.
   const engineResult = useMemo(() => {
     if (planCostBreakdown) return undefined;
-    return calculateTripCost({
+    return calculateTripEstimate({
       dest: destination,
+      mode: activeTransportMode ?? undefined,
       // KAI-217B round-2: the ACTUAL trip mode — 2D1N includes the
       // party-total accommodation allowance × 1 night (never hardcoded
       // day_trip, which would falsely omit overnight cost).
@@ -86,11 +85,14 @@ export function TripCostBreakdownWidget({
       partySize,
       accommodationAllowance,
       ferryTemporal,
-      includeOriginTravel: false,
+      homeCoords,
+      includeOriginTravel: Boolean(homeCoords),
     });
   }, [
     destination,
     partySize,
+    homeCoords,
+    activeTransportMode,
     accommodationAllowance,
     planCostBreakdown,
     tripMode,
@@ -104,12 +106,11 @@ export function TripCostBreakdownWidget({
   const originTravelComp = engineComponent("origin_travel");
   const localTransportComp = engineComponent("local_transport");
   const admissionComp = engineComponent("admission");
+  const mealsComp = engineComponent("meals");
   const accommodationComp = engineComponent("accommodation");
 
-  const engineTotal = engineResult
-    ? engineResult.completeness === "complete" && engineResult.total
-      ? ([engineResult.total.min, engineResult.total.max] as [number, number])
-      : undefined
+  const engineTotal = engineResult?.total
+    ? ([engineResult.total.min, engineResult.total.max] as [number, number])
     : undefined;
   // KAI-217B round-4: engine partial metadata for non-generated results —
   // the header shows "Known ¥X–Y" + missing indication instead of a generic
@@ -131,20 +132,12 @@ export function TripCostBreakdownWidget({
     range: [number, number] | undefined,
   ): [number, number] | undefined => (range ? displayRange(range) : undefined);
   const hasKnownCost = planCostBreakdown
-    ? // KAI-204 phase 3: a populated plan cost object is only "known" when
-      // its admission component carries trusted provenance. A plan built
-      // from legacy absent-metadata or unknown-ticket destinations sets
-      // admission.source="unknown" — the widget must not present those
-      // unverified totals as a known cost.
-      planCostBreakdown.admission.source !== "unknown" &&
-      Boolean(
-        planCostBreakdown.originTransport.applicable ||
-        planCostBreakdown.localTransit.applicable ||
-        planCostBreakdown.admission.applicable ||
-        planCostBreakdown.meals.applicable ||
-        planCostBreakdown.parking.applicable,
+    ? Boolean(
+        planCostBreakdown.totalRange ??
+        (planCostBreakdown.completeness === "complete" &&
+          planCostBreakdown.hasNumericTotal),
       )
-    : engineResult?.completeness === "complete" || false;
+    : Boolean(engineResult?.total);
   // KAI-217B round-3: partial-plan UI — when the plan is partial, surface
   // the KNOWN subtotal instead of a generic "Cost unavailable" (known parts
   // are still honest information).
@@ -195,8 +188,17 @@ export function TripCostBreakdownWidget({
       ? undefined
       : [planCostBreakdown.admission.min, planCostBreakdown.admission.max]
     : componentRange(admissionComp);
+  const mealsRange: [number, number] | undefined = planCostBreakdown
+    ? planCostBreakdown.meals.applicable && planCostBreakdown.meals.knownNumeric
+      ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
+      : undefined
+    : componentRange(mealsComp);
   const accommodationRange: [number, number] | undefined =
     componentRange(accommodationComp);
+  const hasOriginTransport = planCostBreakdown
+    ? planCostBreakdown.originTransport.applicable &&
+      planCostBreakdown.originTransport.knownNumeric
+    : originTravelComp?.cost.kind === "bounded";
   const hasTransport = (transportRange?.[1] ?? 0) > 0;
   const originTransportExcluded =
     !planCostBreakdown &&
@@ -213,6 +215,7 @@ export function TripCostBreakdownWidget({
     ? [
         ...(hasTransport && transportRange ? [transportRange] : []),
         ...(admissionRange ? [admissionRange] : []),
+        ...(mealsRange ? [mealsRange] : []),
         ...(hasAccommodationAllowance ? [accommodationAllowanceRange] : []),
       ]
     : [];
@@ -326,17 +329,15 @@ export function TripCostBreakdownWidget({
         : undefined;
 
   const totalRange: [number, number] | undefined = planCostBreakdown
-    ? // KAI-219A final N/A guard: a COMPLETE plan with NO numeric cost
-      // claim (all-N/A, hasNumericTotal=false) must NOT reduce empty
-      // visiblePartyRanges to [0,0] — N/A ≠ verified ¥0. Show no overall
-      // numeric total (the widget renders the honest non-numeric summary).
-      planCostBreakdown.completeness === "complete" &&
+    ? (planCostBreakdown.totalRange ??
+      // Compatibility fallback for pre-KAI-260 persisted plan results.
+      (planCostBreakdown.completeness === "complete" &&
       planCostBreakdown.hasNumericTotal === false
-      ? undefined
-      : visiblePartyRanges.reduce<[number, number]>(
-          (total, range) => [total[0] + range[0], total[1] + range[1]],
-          [0, 0],
-        )
+        ? undefined
+        : visiblePartyRanges.reduce<[number, number]>(
+            (total, range) => [total[0] + range[0], total[1] + range[1]],
+            [0, 0],
+          )))
     : engineTotal;
   const displayedTotalRange: [number, number] | undefined =
     viewMode === "party"
@@ -365,24 +366,23 @@ export function TripCostBreakdownWidget({
 
   const lowerCostAlternatives = useMemo(() => {
     const combos = findNearbyCombinations(destination, undefined, 5);
-    // KAI-89 + KAI-215: only TRUSTED finite known ranges may be compared —
-    // an unknown/legacy/absent budget must never qualify as "Lower-Cost" via
-    // a (?? 0) fallback or a raw budgetMin read. Both sides must be trusted
-    // (normalized) and finite.
-    const destMin = destination.budgetMin;
-    if (!hasKnownBudgetRange(destination) || !Number.isFinite(destMin)) {
-      return [];
-    }
+    const destMin = totalRange?.[0];
+    if (destMin === undefined) return [];
     return combos
       .map((c) => c.secondary)
-      .filter(
-        (sec) =>
-          hasKnownBudgetRange(sec) &&
-          Number.isFinite(sec.budgetMin) &&
-          sec.budgetMin! <= destMin!,
-      )
+      .filter((sec) => {
+        const estimate = calculateTripEstimate({
+          dest: sec,
+          mode: activeTransportMode ?? undefined,
+          homeCoords,
+          includeOriginTravel: Boolean(homeCoords),
+          tripMode: "day_trip",
+          partySize,
+        });
+        return estimate.total !== undefined && estimate.total.min <= destMin;
+      })
       .slice(0, 2);
-  }, [destination]);
+  }, [destination, partySize, homeCoords, activeTransportMode, totalRange]);
 
   const showCompactUnavailableCost =
     compactUnavailableCost &&
@@ -469,10 +469,10 @@ export function TripCostBreakdownWidget({
               )}
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-300">
-              {!hasTransport
+              {!hasOriginTransport
                 ? locale === "ja"
-                  ? `現地費用の概算（交通費を除く） (グループ: ${partySize}名)`
-                  : `Estimated on-site total — transport excluded (${partySize} guests)`
+                  ? `現地費用の概算（広域交通費を除く） (グループ: ${partySize}名)`
+                  : `Estimated on-site total — origin transport excluded (${partySize} guests)`
                 : locale === "ja"
                   ? `交通・チケット・宿泊を含む予想合計 (グループ: ${partySize}名)`
                   : `Est. total including transport, tickets & accommodation (${partySize} guests)`}
@@ -707,8 +707,35 @@ export function TripCostBreakdownWidget({
                 </div>
               </div>
 
-              {/* KAI-217B round-5: food/cafe/parking rows REMOVED — excluded
-                  from canonical affordability; no legacy itemized ranges. */}
+              {mealsRange && (
+                <div className="space-y-1.5">
+                  <div className="flex justify-between text-xs font-bold">
+                    <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                      <Utensils className="w-4 h-4 text-orange-500 shrink-0" />
+                      {locale === "ja" ? "食費" : "Meals"}
+                    </span>
+                    <span className="text-slate-900 dark:text-white">
+                      {formatLocalizedJPYRange(
+                        displayRangeOrUndefined(mealsRange),
+                        locale,
+                      )}
+                    </span>
+                  </div>
+                  <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-xl overflow-hidden">
+                    <div
+                      className="h-full bg-orange-500 rounded-xl transition-all"
+                      style={{
+                        width: `${getCategoryWidth(
+                          displayRangeOrUndefined(mealsRange)?.[1] ?? 0,
+                        )}%`,
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* Parking remains absent unless a future canonical component
+                  supplies an explicit, bounded parking fact. */}
 
               {hasAccommodationAllowance && (
                 <div className="space-y-1.5">
@@ -743,12 +770,13 @@ export function TripCostBreakdownWidget({
               )}
             </div>
 
-            {/* Scope Note Banner */}
-            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300">
-              {locale === "ja"
-                ? "※ 現地までの広域移動交通費（航空券・新幹線等）は含まれません。"
-                : "Note: Origin transport (flights, shinkansen) to the area is not included."}
-            </div>
+            {!hasOriginTransport && (
+              <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-500 dark:text-slate-300">
+                {locale === "ja"
+                  ? "※ 現地までの広域移動交通費（航空券・新幹線等）は含まれません。"
+                  : "Note: Origin transport (flights, shinkansen) to the area is not included."}
+              </div>
+            )}
 
             {lowerCostAlternatives.length > 0 && (
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
@@ -761,6 +789,20 @@ export function TripCostBreakdownWidget({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {lowerCostAlternatives.map((alt) => {
                     const altLocalized = getLocalizedPlace(alt, locale);
+                    const altEstimate = calculateTripEstimate({
+                      dest: alt,
+                      mode: activeTransportMode ?? undefined,
+                      homeCoords,
+                      includeOriginTravel: Boolean(homeCoords),
+                      tripMode: "day_trip",
+                      partySize,
+                    });
+                    const altRange = altEstimate.total
+                      ? ([altEstimate.total.min, altEstimate.total.max] as [
+                          number,
+                          number,
+                        ])
+                      : null;
                     return (
                       <Link
                         key={alt.id}
@@ -781,15 +823,8 @@ export function TripCostBreakdownWidget({
                           </h5>
                           <div className="text-[11px] text-slate-500 dark:text-slate-300 flex items-center gap-1 font-semibold">
                             <Sparkles className="w-3 h-3 text-amber-500 shrink-0" />
-                            {hasKnownBudgetRange(alt)
-                              ? isVerifiedFree(alt)
-                                ? locale === "ja"
-                                  ? "無料"
-                                  : "Free"
-                                : formatLocalizedJPYRange(
-                                    [alt.budgetMin, alt.budgetMax],
-                                    locale,
-                                  )
+                            {altRange
+                              ? `${locale === "ja" ? "約 " : "Approx. "}${formatLocalizedJPYRange(altRange, locale)}`
                               : locale === "ja"
                                 ? "料金不明"
                                 : "Cost unavailable"}

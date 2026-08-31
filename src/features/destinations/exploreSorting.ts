@@ -1,13 +1,18 @@
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
+import type { BudgetTier } from "@/shared/types/planner";
 
-export type ExploreSortKey = "recommended" | "walking" | "nearest";
+export type ExploreSortKey = "recommended" | "walking" | "nearest" | "budget";
 
 export interface ExploreSortMetrics {
   /** Straight-line kilometres from the selected origin. */
   nearestKm: number | null;
   /** Published destination on-site walking time, in minutes. */
   walkingMinutes: number | null;
+  /** Lowest canonical day-trip range ceiling across eligible modes. */
+  budgetMax?: number | null;
 }
 
 export interface ExploreSortContext {
@@ -15,6 +20,7 @@ export interface ExploreSortContext {
   carMode: string;
   publicModes: readonly string[];
   partySize: number;
+  budgetTier?: BudgetTier;
 }
 
 /**
@@ -74,6 +80,47 @@ export function getExploreWalkingMinutes(
   return normalizeExploreNumericValue(destination.walkingMin);
 }
 
+function getExploreBudgetMax(
+  destination: Destination,
+  context: ExploreSortContext,
+): number | null {
+  if (!context.originCoords) {
+    const estimate = calculateTripEstimate({
+      dest: destination,
+      partySize: context.partySize,
+      tripMode: "day_trip",
+      includeOriginTravel: false,
+      budgetTier: context.budgetTier,
+    });
+    return estimate.total?.max ?? null;
+  }
+  const validModes = getValidModes(
+    destination,
+    context.carMode,
+    [...context.publicModes],
+    context.originCoords,
+    context.budgetTier ?? "standard",
+  );
+  let lowest: number | null = null;
+  for (const mode of validModes) {
+    const estimate = calculateTripEstimate({
+      dest: destination,
+      mode,
+      partySize: context.partySize,
+      homeCoords: context.originCoords,
+      tripMode: "day_trip",
+      budgetTier: context.budgetTier,
+    });
+    if (estimate.total) {
+      lowest =
+        lowest === null
+          ? estimate.total.max
+          : Math.min(lowest, estimate.total.max);
+    }
+  }
+  return lowest;
+}
+
 /** Compute every explicit Explore metric once per eligible destination. */
 export function computeExploreSortMetrics(
   destinations: readonly Destination[],
@@ -92,6 +139,10 @@ export function computeExploreSortMetrics(
         computeAll || sortBy === "walking"
           ? getExploreWalkingMinutes(destination)
           : null,
+      budgetMax:
+        computeAll || sortBy === "budget"
+          ? getExploreBudgetMax(destination, context)
+          : null,
     });
   }
   return metrics;
@@ -104,7 +155,9 @@ export function sortExploreDestinations<T extends Pick<Destination, "id">>(
   recommendedScoresById?: ReadonlyMap<string, number>,
 ): T[] {
   const sortKey: ExploreSortKey =
-    sortBy === "walking" || sortBy === "nearest" ? sortBy : "recommended";
+    sortBy === "walking" || sortBy === "nearest" || sortBy === "budget"
+      ? sortBy
+      : "recommended";
 
   return [...destinations].sort((left, right) => {
     let comparison = 0;
@@ -115,7 +168,12 @@ export function sortExploreDestinations<T extends Pick<Destination, "id">>(
     } else {
       const leftMetrics = metricsById.get(left.id);
       const rightMetrics = metricsById.get(right.id);
-      const metricName = sortKey === "walking" ? "walkingMinutes" : "nearestKm";
+      const metricName =
+        sortKey === "walking"
+          ? "walkingMinutes"
+          : sortKey === "budget"
+            ? "budgetMax"
+            : "nearestKm";
       comparison = compareExploreNumericValues(
         leftMetrics?.[metricName],
         rightMetrics?.[metricName],

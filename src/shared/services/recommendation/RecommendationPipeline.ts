@@ -1,9 +1,8 @@
 import type { Destination } from "@/shared/types/destination";
-import { getEstimatedBudgetRange } from "@/shared/services/budget/BudgetService";
 import {
-  calculateTripCost,
+  calculateTripEstimate,
   evaluateAffordability,
-} from "@/shared/services/budget/tripCostEngine";
+} from "@/shared/services/budget/tripEstimateEngine";
 import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import {
@@ -245,12 +244,13 @@ export function runRecommendationPipeline(
     //                  may_exceed/neutral alternative mode (per-mode, the
     //                  destination still has other usable modes).
     const modeResults = modes.map((mode) =>
-      calculateTripCost({
+      calculateTripEstimate({
         dest: destination,
         mode,
         partySize: context.partySize,
         homeCoords: context.homeStationCoords || undefined,
         tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+        includeOriginTravel: Boolean(context.homeStationCoords),
         // KAI-217B repair: overnight recommendation affordability MUST
         // include the user's accommodation selection — the engine sees
         // missing accommodation as partial without it.
@@ -271,10 +271,25 @@ export function runRecommendationPipeline(
     // No usable modes (e.g. no origin context): neutral retain — never
     // hard-fail on the absence of a mode.
     if (affordances.length === 0) return true;
-    // Only when EVERY mode is definitely over (complete, min > budget, and
-    // no fits/may_exceed/neutral alternative exists) does the destination
-    // hard-fail.
-    if (affordances.every((a) => a === "over")) return false;
+    // An estimated range is useful for planning but is not strong enough to
+    // exclude a destination outright. Hard rejection requires every mode to
+    // be definitely over on source-backed evidence; model/profile ranges stay
+    // eligible and are surfaced as affordability warnings.
+    const definitelyOver = modeResults.every((result, index) => {
+      if (affordances[index] !== "over") return false;
+      const origin = result.components.find(
+        (component) => component.evidence.scope === "origin_travel",
+      );
+      // Modelled origin transport is intentionally advisory: its range can
+      // inform scoring, but it is not strong enough to remove a destination.
+      return (
+        origin?.cost.kind === "not_applicable" ||
+        (origin?.cost.kind === "bounded" &&
+          origin.evidence.derivation === "source_fact" &&
+          origin.evidence.fareScope !== "corridor_only")
+      );
+    });
+    if (definitelyOver) return false;
     return true;
   });
 
@@ -357,32 +372,36 @@ export function runRecommendationPipeline(
       // source of truth for the card's mode and matching budget status. Its
       // evidence still distinguishes bounded access from a verified corridor.
       const cardTransportMode = transportEstimate?.mode ?? scoreResult.bestMode;
-      // KAI-217B: the card's displayed cost range comes from the CANONICAL
-      // engine — a COMPLETE result only (food/cafe/parking/5% excluded).
-      // Partial/open-ended/unavailable results yield NO cost chip on the
-      // card (honest: no strict cost claim on incomplete evidence).
+      // KAI-260: the card's displayed cost range comes from the canonical
+      // engine. Bounded model/profile estimates remain displayable with an
+      // explicit estimated label; only truly unbounded results omit the chip.
       const cardEngineResult = cardTransportMode
-        ? calculateTripCost({
+        ? calculateTripEstimate({
             dest: candidate,
             mode: cardTransportMode,
             partySize: context.partySize,
             homeCoords: context.homeStationCoords || undefined,
+            includeOriginTravel: Boolean(context.homeStationCoords),
             tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
-            // KAI-217B repair: pass the accommodation allowance so an
-            // overnight card range is not falsely partial.
+            budgetTier: context.budgetTier,
             accommodationAllowance: context.accommodationAllowance,
             ferryTemporal: context.ferryTemporal,
           })
         : null;
-      const budgetResult = cardTransportMode
-        ? getEstimatedBudgetRange(
-            candidate,
-            cardTransportMode,
-            context.partySize,
-            context.budgetTier,
-            context.homeStationCoords || undefined,
-            context.ferryTemporal,
-          )
+      const originComponent = cardEngineResult?.components.find(
+        (component) => component.evidence.scope === "origin_travel",
+      );
+      const budgetResult = cardEngineResult
+        ? {
+            range: cardEngineResult.total
+              ? [cardEngineResult.total.min, cardEngineResult.total.max]
+              : null,
+            transportIncluded: originComponent?.cost.kind === "bounded",
+            transportFareScope:
+              originComponent?.evidence.fareScope ?? ("unknown" as const),
+            durationIncluded: Boolean(transportEstimate),
+            food: null,
+          }
         : {
             range: null,
             transportIncluded: false,
@@ -390,10 +409,9 @@ export function runRecommendationPipeline(
             durationIncluded: false,
             food: null,
           };
-      const estimatedCostRange =
-        cardEngineResult?.completeness === "complete" && cardEngineResult.total
-          ? [cardEngineResult.total.min, cardEngineResult.total.max]
-          : undefined;
+      const estimatedCostRange = cardEngineResult?.total
+        ? [cardEngineResult.total.min, cardEngineResult.total.max]
+        : undefined;
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
       const estimatedCostTransportScope = budgetResult.transportFareScope;
 

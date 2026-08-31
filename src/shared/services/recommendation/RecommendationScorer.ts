@@ -12,9 +12,9 @@ import {
   type RecommendationContext,
 } from "./RecommendationContext";
 import {
-  calculateTripCost,
+  calculateTripEstimate,
   evaluateAffordability,
-} from "@/shared/services/budget/tripCostEngine";
+} from "@/shared/services/budget/tripEstimateEngine";
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
@@ -416,48 +416,43 @@ export function calculateScore(
     let budgetScore = 0;
 
     let adjustedBudget = Number.POSITIVE_INFINITY;
-    const budgetRecommended = dest.budgetRecommended;
-    if (
-      typeof budgetRecommended === "number" &&
-      Number.isFinite(budgetRecommended) &&
-      budgetRecommended >= 0
-    ) {
-      // KAI-217B: the budget score evaluates the CANONICAL engine cost
-      // (food/cafe/parking/5% excluded). The legacy midpoint is NOT a valid
-      // affordability notion — bonus only on complete fit (max <= C),
-      // penalty only on definite over (min > C), nothing when the range
-      // straddles the ceiling or the result is partial/open-ended.
-      const engineResult = calculateTripCost({
-        dest,
-        mode,
-        partySize,
-        homeCoords: context.homeStationCoords || undefined,
-        // KAI-217B repair: respect the ACTUAL trip mode — overnight
-        // affordability must include the accommodation selection.
-        tripMode:
-          context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
-        accommodationAllowance: context.accommodationAllowance,
-        ferryTemporal: context.ferryTemporal,
-      });
-      const affordability = evaluateAffordability(engineResult, budget);
-      if (affordability === "fits" && engineResult.total) {
-        // Complete fit: bonus proportional to headroom under the ceiling.
+    // KAI-260: every candidate gets the same range-first estimate. A missing
+    // legacy budgetRecommended must not disable custom-budget scoring.
+    const engineResult = calculateTripEstimate({
+      dest,
+      mode,
+      partySize,
+      homeCoords: context.homeStationCoords || undefined,
+      tripMode:
+        context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+      accommodationAllowance: context.accommodationAllowance,
+      budgetTier: context.budgetTier,
+      ferryTemporal: context.ferryTemporal,
+    });
+    const affordability = evaluateAffordability(engineResult, budget);
+    if (engineResult.total) {
+      // Always retain a finite comparison value for a bounded estimate. The
+      // old branch left `may_exceed` at Infinity, so a custom budget could not
+      // affect ties or ranking.
+      adjustedBudget =
+        affordability === "over"
+          ? engineResult.total.min
+          : engineResult.total.max;
+      if (affordability === "fits") {
         budgetScore += Math.min(
           SCORING_WEIGHTS.BUDGET_UNDER_BONUS_MAX,
           (budget - engineResult.total.max) /
             SCORING_WEIGHTS.BUDGET_UNDER_DIVISOR,
         );
-        adjustedBudget = engineResult.total.max;
-      } else if (affordability === "over" && engineResult.total) {
-        // Definite over: penalty proportional to the overshoot.
+      } else if (affordability === "over") {
         budgetScore -=
           ((engineResult.total.min - budget) /
             SCORING_WEIGHTS.BUDGET_OVER_DIVISOR) *
           SCORING_WEIGHTS.BUDGET_OVER_PENALTY_MULTIPLIER;
-        adjustedBudget = engineResult.total.min;
       }
-      // may_exceed / unknown: no bonus, no penalty (no strict claim).
     }
+    // may_exceed is intentionally mild/neutral: the range overlaps the
+    // ceiling, so affordability is possible but not comfortable.
 
     let transportScore = 0;
     if (mode === "train") {
