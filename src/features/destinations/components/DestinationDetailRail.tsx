@@ -13,6 +13,8 @@ interface DestinationDetailRailProps {
   publicModes?: string[];
   previousLabel: string;
   nextLabel: string;
+  /** Keep detail-page discovery rails scannable without removing actions. */
+  compact?: boolean;
 }
 
 const RAIL_CARD_CLASS =
@@ -28,6 +30,7 @@ export function DestinationDetailRail({
   publicModes = ["train", "shinkansen", "bus", "flight"],
   previousLabel,
   nextLabel,
+  compact = false,
 }: DestinationDetailRailProps) {
   const headingId = `destination-rail-${useId().replace(/:/g, "")}`;
   const uniqueDestinations = destinations
@@ -73,6 +76,7 @@ export function DestinationDetailRail({
               carMode={carMode}
               publicModes={publicModes}
               activeTransportMode="all"
+              compact={compact}
             />
           </div>
         ))}

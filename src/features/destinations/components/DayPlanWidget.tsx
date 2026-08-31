@@ -408,7 +408,7 @@ export function DayPlanWidget({
         </div>
       </div>
 
-      <CardContent className="p-5 sm:p-6 space-y-6">
+      <CardContent className="p-4 sm:p-5 space-y-4">
         {/* DEFAULT COMPACT ENTRY STATE */}
         {!hasGenerated && !showConfig && (
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

@@ -376,7 +376,7 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     expect(host.textContent).toContain("Explore by area");
   });
 
-  it("renders Otsu's existing child and area relationship sections in discovery-first order", async () => {
+  it("renders Otsu's existing child and area relationship sections after planning", async () => {
     render("/destinations/otsu-city");
     await act(async () => {
       await flush(220);
@@ -392,12 +392,15 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     const sections = Array.from(host.querySelectorAll("[data-section]")).map(
       (section) => section.getAttribute("data-section"),
     );
-    expect(sections.indexOf("top-sights")).toBeGreaterThanOrEqual(0);
+    expect(sections.indexOf("overview")).toBeGreaterThanOrEqual(0);
     expect(sections.indexOf("plan-your-visit")).toBeGreaterThan(
-      sections.indexOf("top-sights"),
+      sections.indexOf("overview"),
+    );
+    expect(sections.indexOf("top-sights")).toBeGreaterThan(
+      sections.indexOf("plan-your-visit"),
     );
     expect(sections.indexOf("before-you-go")).toBeGreaterThan(
-      sections.indexOf("plan-your-visit"),
+      sections.indexOf("top-sights"),
     );
     expect(text).toContain("この街を計画");
   });
@@ -410,8 +413,8 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).toContain("Top sights and explore");
-    expect(text).toContain("Top Sights in Otsu City");
+    expect(text).toContain("Top sights in Otsu City");
+    expect(text).toContain("Top sights");
     expect(text).toContain("Explore by area");
     expect(text).toContain("Explore Otsu City");
     expect(text).toContain("Plan your visit");

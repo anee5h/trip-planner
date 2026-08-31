@@ -15,13 +15,7 @@ async function waitForHub(
 async function assertHierarchy(page: Parameters<typeof test>[0]["page"]) {
   await expect(
     page.getByRole("heading", {
-      name: "Top sights and explore",
-      exact: true,
-    }),
-  ).toBeVisible();
-  await expect(
-    page.getByRole("heading", {
-      name: "Top Sights in Kyoto City",
+      name: "Top sights in Kyoto City",
       exact: true,
     }),
   ).toBeVisible();
@@ -34,6 +28,13 @@ async function assertHierarchy(page: Parameters<typeof test>[0]["page"]) {
   await expect(
     page.getByRole("heading", { name: "Go next", exact: true }),
   ).toBeVisible();
+  await expect(page.getByTestId("trip-cost-breakdown")).toHaveCount(1);
+  await expect(
+    page.locator("details").filter({ hasText: "More practical information" }),
+  ).toHaveJSProperty("open", false);
+  await expect(
+    page.getByRole("heading", { name: "More things to do", exact: true }),
+  ).toBeVisible();
 
   const sectionNames = await page
     .locator("[data-section]")
@@ -41,9 +42,10 @@ async function assertHierarchy(page: Parameters<typeof test>[0]["page"]) {
       sections.map((section) => section.getAttribute("data-section")),
     );
   const indexOf = (name: string) => sectionNames.indexOf(name);
-  expect(indexOf("top-sights")).toBeGreaterThanOrEqual(0);
-  expect(indexOf("plan-your-visit")).toBeGreaterThan(indexOf("top-sights"));
-  expect(indexOf("before-you-go")).toBeGreaterThan(indexOf("plan-your-visit"));
+  expect(indexOf("overview")).toBeGreaterThanOrEqual(0);
+  expect(indexOf("plan-your-visit")).toBeGreaterThan(indexOf("overview"));
+  expect(indexOf("top-sights")).toBeGreaterThan(indexOf("plan-your-visit"));
+  expect(indexOf("before-you-go")).toBeGreaterThan(indexOf("top-sights"));
   expect(indexOf("go-next")).toBeGreaterThan(indexOf("before-you-go"));
 
   await expect(
@@ -99,8 +101,8 @@ async function assertTopRailResponsive(
   }
 }
 
-test.describe("KAI-212 discovery-first hub hierarchy", () => {
-  test("moves Kyoto discovery before planning and keeps the top rail usable", async ({
+test.describe("KAI-206 detail-page information architecture", () => {
+  test("prioritizes planning before Kyoto discovery and keeps the top rail usable", async ({
     page,
   }) => {
     await waitForHub(page, RICH_HUB);
@@ -172,7 +174,7 @@ test.describe("KAI-212 discovery-first hub hierarchy", () => {
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     await expect(
       page.getByRole("heading", {
-        name: "見どころ・エリアを探す",
+        name: "京都の見どころ",
         exact: true,
       }),
     ).toBeVisible();

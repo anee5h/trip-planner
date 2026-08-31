@@ -24,6 +24,7 @@ interface DestinationCombinationRailProps {
   addLabel: string;
   savedLabel: (count: number) => string;
   onSave: (combo: DestinationCombo) => void;
+  compact?: boolean;
 }
 
 const CARD_CLASS =
@@ -40,6 +41,7 @@ export function DestinationCombinationRail({
   addLabel,
   savedLabel,
   onSave,
+  compact = false,
 }: DestinationCombinationRailProps) {
   const uniqueCombinations = combinations
     .filter(
@@ -105,9 +107,11 @@ export function DestinationCombinationRail({
                 responsive
                 deferUntilVisible
                 sizes="(min-width: 640px) 320px, 84vw"
-                className="h-36 w-full shrink-0 object-cover sm:h-40"
+                className={`w-full shrink-0 object-cover ${compact ? "h-28 sm:h-32" : "h-36 sm:h-40"}`}
               />
-              <div className="flex flex-1 flex-col gap-3 p-4">
+              <div
+                className={`flex flex-1 flex-col ${compact ? "gap-2 p-3" : "gap-3 p-4"}`}
+              >
                 <div className="flex items-start justify-between gap-2">
                   <h4 className="min-w-0 text-base font-bold leading-snug text-slate-900 dark:text-white">
                     {formatPlaceName(localized, locale)}
