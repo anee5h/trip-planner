@@ -96482,7 +96482,7 @@
     },
     "officialWebsite": "https://www.town.obuse.nagano.jp/sightseeing/",
     "officialWebsiteRequirement": "required",
-    "status": "verified",
+    "status": "published",
     "budgetMetadata": {
       "method": "unknown",
       "modelVersion": "budget-model-v1",
