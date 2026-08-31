@@ -32,6 +32,42 @@ test("Destination details render hero, tabs and cost breakdown for sparse destin
   );
 });
 
+test("standard detail pages keep the planner and supporting details in a compact order", async ({
+  page,
+}) => {
+  await page.goto("/destinations/ueno-park");
+  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+
+  const sectionNames = await page
+    .locator("[data-section]")
+    .evaluateAll((sections) =>
+      sections.map((section) => section.getAttribute("data-section")),
+    );
+  const indexOf = (name: string) => sectionNames.indexOf(name);
+  expect(indexOf("overview")).toBeGreaterThanOrEqual(0);
+  expect(indexOf("plan-this-trip")).toBeGreaterThan(indexOf("overview"));
+  expect(indexOf("before-you-go")).toBeGreaterThan(indexOf("plan-this-trip"));
+  expect(indexOf("related-places")).toBeGreaterThan(indexOf("before-you-go"));
+
+  await expect(page.getByTestId("trip-cost-breakdown")).toHaveCount(1);
+  await expect(
+    page
+      .locator('[data-section="overview"]')
+      .getByText("Estimated visit cost", { exact: true }),
+  ).toHaveCount(0);
+  const supportingDetails = page
+    .locator("details")
+    .filter({ hasText: "More practical information" });
+  await expect(supportingDetails).toHaveJSProperty("open", false);
+  await supportingDetails.locator("summary").click();
+  await expect(
+    supportingDetails.getByRole("heading", {
+      name: "Practical Information",
+      exact: true,
+    }),
+  ).toBeVisible();
+});
+
 test("Rich destination details render discovery rails", async ({ page }) => {
   await page.goto("/destinations/kyoto-city");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

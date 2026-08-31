@@ -89,6 +89,8 @@ interface DestinationCardProps {
   conditionLabel?: string;
   /** Selected travel date for date-aware transport metadata. */
   ferryTemporal?: FerryTemporalContext;
+  /** Detail-page rails use a denser card while retaining all actions. */
+  compact?: boolean;
 }
 
 export default function DestinationCard({
@@ -101,6 +103,7 @@ export default function DestinationCard({
   weekendSummary,
   conditionLabel,
   ferryTemporal,
+  compact = false,
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -314,8 +317,12 @@ export default function DestinationCard({
       );
 
   return (
-    <Card className="overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800">
-      <div className="relative h-[145px] overflow-hidden sm:h-[155px] md:h-[160px]">
+    <Card
+      className={`overflow-hidden flex flex-col h-full group rounded-card shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-300 border-slate-200 dark:border-slate-800 ${compact ? "rounded-xl" : ""}`}
+    >
+      <div
+        className={`relative overflow-hidden ${compact ? "h-[112px] sm:h-[128px] md:h-[132px]" : "h-[145px] sm:h-[155px] md:h-[160px]"}`}
+      >
         <LazyImage
           src={localizedDestination.heroImage}
           alt={localizedDestination.name}
@@ -406,7 +413,7 @@ export default function DestinationCard({
                 ? t("destination.tokyoWardsGroup")
                 : formatPlaceName(localizedDestination, locale)
           }
-          className="line-clamp-2 min-h-10 min-w-0 text-lg font-extrabold leading-[1.15] tracking-tight sm:text-xl"
+          className={`${compact ? "text-base sm:text-lg" : "text-lg sm:text-xl"} line-clamp-2 min-h-10 min-w-0 font-extrabold leading-[1.15] tracking-tight`}
         >
           {virtualGroup
             ? virtualGroup.name

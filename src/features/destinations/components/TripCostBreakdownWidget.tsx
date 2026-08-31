@@ -444,7 +444,7 @@ export function TripCostBreakdownWidget({
       data-testid="trip-cost-breakdown"
       className="overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900"
     >
-      <CardContent className="p-5 sm:p-6 space-y-5">
+      <CardContent className="p-4 sm:p-5 space-y-4">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 flex-wrap mb-1">

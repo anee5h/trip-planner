@@ -26,7 +26,16 @@ const DESTINATION_MATRIX = [
   "ashikaga-flower-park-tochigi", // seasonal access
 ] as const;
 
+async function expandDetailsForSafety(page: Page) {
+  for (const summary of await page.locator("details > summary").all()) {
+    if (await summary.isVisible()) {
+      await summary.click();
+    }
+  }
+}
+
 async function assertVisibleDataIsSafe(page: Page) {
+  await expandDetailsForSafety(page);
   const text = await page.locator("body").innerText();
   for (const pattern of BAD_VISIBLE_COPY) {
     expect(text, `visible text matched ${pattern}`).not.toMatch(pattern);
@@ -268,6 +277,16 @@ test.describe("KAI-89 rendered data safety", () => {
     // Wait for the actual detail content (SPA navigation can race the body
     // read if the router lands on the home shell first).
     await expect(page.locator("h1").first()).toBeVisible();
+    await expect(
+      page.getByText("Opening hours", { exact: true }),
+    ).toBeVisible();
+    await expect(
+      page.locator('a[href="https://www.tokyo-park.or.jp/park/hama-rikyu/"]'),
+    ).toBeVisible();
+    await expect(
+      page.getByText("More practical information", { exact: true }),
+    ).toBeVisible();
+    await expandDetailsForSafety(page);
     const body = await page.locator("body").innerText();
     expect(body).not.toMatch(/24 Hours|Open access|24時間開放|散策自由/i);
     expect(body).toMatch(/09:00-17:00/);

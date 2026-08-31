@@ -73,6 +73,25 @@ afterEach(() => {
 });
 
 describe("DestinationAtAGlance", () => {
+  it("keeps primary practical facts visible with the official site link", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          openingHours="09:00–17:00"
+          officialWebsite="https://www.example.com/visit"
+          labels={labels}
+        />,
+      );
+    });
+
+    expect(host.textContent).toContain("09:00–17:00");
+    expect(host.textContent).toContain("example.com");
+    expect(
+      host.querySelector('a[href="https://www.example.com/visit"]'),
+    ).not.toBeNull();
+  });
+
   it("shows a compact complete numeric on-site fact from Budget v2", () => {
     act(() => {
       root.render(

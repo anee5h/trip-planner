@@ -1,0 +1,554 @@
+[
+  {
+    "id": "destination-mobile",
+    "url": "/destinations/ueno-park",
+    "viewport": {
+      "width": 390,
+      "height": 664
+    },
+    "document": {
+      "scrollHeight": 4235,
+      "scrollWidth": 390,
+      "clientWidth": 390
+    },
+    "atAGlance": {
+      "top": 461,
+      "height": 571
+    },
+    "sections": [
+      {
+        "id": "plan-this-trip",
+        "top": 1064,
+        "height": 635,
+        "heading": "Plan this trip"
+      },
+      {
+        "id": "before-you-go",
+        "top": 1730,
+        "height": 1348,
+        "heading": "Before you go"
+      }
+    ],
+    "rails": [
+      {
+        "label": "Nearby places",
+        "scrollWidth": 1288,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "More half-day options",
+        "scrollWidth": 976,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 0,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 1
+    }
+  },
+  {
+    "id": "destination-desktop",
+    "url": "/destinations/ueno-park",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "scrollHeight": 3739,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "atAGlance": {
+      "top": 541,
+      "height": 374
+    },
+    "sections": [
+      {
+        "id": "plan-this-trip",
+        "top": 955,
+        "height": 439,
+        "heading": "Plan this trip"
+      },
+      {
+        "id": "before-you-go",
+        "top": 1434,
+        "height": 885,
+        "heading": "Before you go"
+      }
+    ],
+    "rails": [
+      {
+        "label": "Nearby places",
+        "scrollWidth": 1328,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "More half-day options",
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 0,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 1
+    }
+  },
+  {
+    "id": "hub-mobile",
+    "url": "/destinations/kyoto-city",
+    "viewport": {
+      "width": 390,
+      "height": 664
+    },
+    "document": {
+      "scrollHeight": 5760,
+      "scrollWidth": 390,
+      "clientWidth": 390
+    },
+    "atAGlance": {
+      "top": 461,
+      "height": 641
+    },
+    "sections": [
+      {
+        "id": "top-sights",
+        "top": 1134,
+        "height": 1788,
+        "heading": "Top sights and explore"
+      },
+      {
+        "id": "explore-rails",
+        "top": 1579,
+        "height": 1343,
+        "heading": "Explore by area"
+      },
+      {
+        "id": "plan-your-visit",
+        "top": 2954,
+        "height": 622,
+        "heading": "Plan your visit"
+      },
+      {
+        "id": "plan-duration-links",
+        "top": 3484,
+        "height": 79,
+        "heading": "Plan by duration"
+      },
+      {
+        "id": "before-you-go",
+        "top": 3608,
+        "height": 1361,
+        "heading": "Before you go"
+      },
+      {
+        "id": "go-next",
+        "top": 5001,
+        "height": 515,
+        "heading": "Go next"
+      }
+    ],
+    "rails": [
+      {
+        "label": "Top Sights in Kyoto City",
+        "scrollWidth": 3784,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "Best for rainy days",
+        "scrollWidth": 976,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "Food and evening options",
+        "scrollWidth": 976,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "Nearby hubs",
+        "scrollWidth": 1600,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 1,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 2
+    }
+  },
+  {
+    "id": "hub-desktop",
+    "url": "/destinations/kyoto-city",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "scrollHeight": 5452,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "atAGlance": {
+      "top": 541,
+      "height": 456
+    },
+    "sections": [
+      {
+        "id": "top-sights",
+        "top": 1037,
+        "height": 1923,
+        "heading": "Top sights and explore"
+      },
+      {
+        "id": "explore-rails",
+        "top": 1560,
+        "height": 1401,
+        "heading": "Explore by area"
+      },
+      {
+        "id": "plan-your-visit",
+        "top": 3000,
+        "height": 506,
+        "heading": "Plan your visit"
+      },
+      {
+        "id": "plan-duration-links",
+        "top": 3402,
+        "height": 79,
+        "heading": "Plan by duration"
+      },
+      {
+        "id": "before-you-go",
+        "top": 3546,
+        "height": 885,
+        "heading": "Before you go"
+      },
+      {
+        "id": "go-next",
+        "top": 4471,
+        "height": 592,
+        "heading": "Go next"
+      }
+    ],
+    "rails": [
+      {
+        "label": "Top Sights in Kyoto City",
+        "scrollWidth": 3856,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "Best for rainy days",
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "Food and evening options",
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "Nearby hubs",
+        "scrollWidth": 1644,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 1,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 2
+    }
+  },
+  {
+    "id": "hub-ja-mobile",
+    "url": "/ja/destinations/kyoto-city",
+    "viewport": {
+      "width": 390,
+      "height": 664
+    },
+    "document": {
+      "scrollHeight": 5675,
+      "scrollWidth": 390,
+      "clientWidth": 390
+    },
+    "atAGlance": {
+      "top": 461,
+      "height": 613
+    },
+    "sections": [
+      {
+        "id": "top-sights",
+        "top": 1106,
+        "height": 1749,
+        "heading": "見どころ・エリアを探す"
+      },
+      {
+        "id": "explore-rails",
+        "top": 1551,
+        "height": 1304,
+        "heading": "エリアから探す"
+      },
+      {
+        "id": "plan-your-visit",
+        "top": 2887,
+        "height": 606,
+        "heading": "この街を計画"
+      },
+      {
+        "id": "plan-duration-links",
+        "top": 3400,
+        "height": 79,
+        "heading": "滞在時間から探す"
+      },
+      {
+        "id": "before-you-go",
+        "top": 3524,
+        "height": 1359,
+        "heading": "出発前に確認"
+      },
+      {
+        "id": "go-next",
+        "top": 4916,
+        "height": 515,
+        "heading": "次に見る"
+      }
+    ],
+    "rails": [
+      {
+        "label": "京都の見どころ",
+        "scrollWidth": 3784,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "雨の日におすすめ",
+        "scrollWidth": 976,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "グルメと夜の楽しみ",
+        "scrollWidth": 976,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "近くの都市ハブ",
+        "scrollWidth": 1600,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 1,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 0
+    }
+  },
+  {
+    "id": "destination-ja-mobile",
+    "url": "/ja/destinations/ueno-park",
+    "viewport": {
+      "width": 390,
+      "height": 664
+    },
+    "document": {
+      "scrollHeight": 4157,
+      "scrollWidth": 390,
+      "clientWidth": 390
+    },
+    "atAGlance": {
+      "top": 461,
+      "height": 543
+    },
+    "sections": [
+      {
+        "id": "plan-this-trip",
+        "top": 1036,
+        "height": 591,
+        "heading": "このスポットを計画"
+      },
+      {
+        "id": "before-you-go",
+        "top": 1658,
+        "height": 1346,
+        "heading": "出発前に確認"
+      }
+    ],
+    "rails": [
+      {
+        "label": "近くの場所",
+        "scrollWidth": 1288,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      },
+      {
+        "label": "同じ街の半日スポット",
+        "scrollWidth": 976,
+        "clientWidth": 358,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 0,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 0
+    }
+  },
+  {
+    "id": "destination-ja-desktop",
+    "url": "/ja/destinations/ueno-park",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "scrollHeight": 3747,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "atAGlance": {
+      "top": 541,
+      "height": 374
+    },
+    "sections": [
+      {
+        "id": "plan-this-trip",
+        "top": 955,
+        "height": 439,
+        "heading": "このスポットを計画"
+      },
+      {
+        "id": "before-you-go",
+        "top": 1434,
+        "height": 905,
+        "heading": "出発前に確認"
+      }
+    ],
+    "rails": [
+      {
+        "label": "近くの場所",
+        "scrollWidth": 1328,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "同じ街の半日スポット",
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 0,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 0
+    }
+  },
+  {
+    "id": "hub-ja-desktop",
+    "url": "/ja/destinations/kyoto-city",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "scrollHeight": 5380,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    "atAGlance": {
+      "top": 541,
+      "height": 428
+    },
+    "sections": [
+      {
+        "id": "top-sights",
+        "top": 1009,
+        "height": 1917,
+        "heading": "見どころ・エリアを探す"
+      },
+      {
+        "id": "explore-rails",
+        "top": 1532,
+        "height": 1395,
+        "heading": "エリアから探す"
+      },
+      {
+        "id": "plan-your-visit",
+        "top": 2966,
+        "height": 506,
+        "heading": "この街を計画"
+      },
+      {
+        "id": "plan-duration-links",
+        "top": 3368,
+        "height": 79,
+        "heading": "滞在時間から探す"
+      },
+      {
+        "id": "before-you-go",
+        "top": 3512,
+        "height": 847,
+        "heading": "出発前に確認"
+      },
+      {
+        "id": "go-next",
+        "top": 4399,
+        "height": 592,
+        "heading": "次に見る"
+      }
+    ],
+    "rails": [
+      {
+        "label": "京都の見どころ",
+        "scrollWidth": 3856,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "雨の日におすすめ",
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "グルメと夜の楽しみ",
+        "scrollWidth": 1120,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      },
+      {
+        "label": "近くの都市ハブ",
+        "scrollWidth": 1644,
+        "clientWidth": 1120,
+        "overflowX": "auto"
+      }
+    ],
+    "costSurfaces": 1,
+    "costUnavailableSurfaces": 1,
+    "text": {
+      "estimatedVisitCost": 0,
+      "onSiteCostLabels": 0
+    }
+  }
+]

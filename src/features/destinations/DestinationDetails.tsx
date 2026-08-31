@@ -51,10 +51,7 @@ import { DestinationPlanningSection } from "./components/DestinationPlanningSect
 import { DestinationAtAGlance } from "./components/DestinationAtAGlance";
 import { DestinationCombinationRail } from "./components/DestinationCombinationRail";
 import { DestinationDetailRail } from "./components/DestinationDetailRail";
-import {
-  requiresOpeningHours,
-  getOpeningHoursAssessment,
-} from "@/shared/services/recommendation/OpeningHoursPolicy";
+import { requiresOpeningHours } from "@/shared/services/recommendation/OpeningHoursPolicy";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -180,6 +177,21 @@ function localizeEditorialValue(value: string, locale: "en" | "ja") {
   );
 }
 
+function getLocalizedOpeningHours(
+  destination: Destination,
+  locale: "en" | "ja",
+): string | undefined {
+  const rawHours = destination.businessHours || destination.openingHours;
+  if (locale === "ja") {
+    return (
+      destination.content?.ja?.openingHours ||
+      destination.openingHoursJa ||
+      rawHours?.replace(/\(Last admission ([^)]+)\)/i, "（最終入場 $1）")
+    );
+  }
+  return destination.content?.en?.openingHours || rawHours;
+}
+
 const DETAIL_COPY = {
   en: {
     notFound: "Destination Not Found",
@@ -221,6 +233,7 @@ const DETAIL_COPY = {
     localBoundedFare: "Local fare estimate (bounded)",
     atAGlance: "At a glance",
     visitDuration: "Visit duration",
+    openingHours: "Opening hours",
     onSiteCost: "On-site cost",
     transportExcludedShort: "Origin transport excluded",
     free: "Free",
@@ -268,6 +281,7 @@ const DETAIL_COPY = {
     localBoundedFare: "近距離運賃の概算（範囲推定）",
     atAGlance: "概要",
     visitDuration: "滞在時間",
+    openingHours: "営業時間",
     onSiteCost: "現地費用",
     transportExcludedShort: "出発地からの交通費を除く",
     free: "無料",
@@ -593,6 +607,15 @@ export default function DestinationDetails() {
     [childDestinations],
   );
 
+  const hubMoreDestinations = useMemo(() => {
+    const seen = new Set<string>();
+    return [...indoorChildren, ...foodAndEveningChildren].filter((place) => {
+      if (seen.has(place.id)) return false;
+      seen.add(place.id);
+      return !featuredChildSights.some((featured) => featured.id === place.id);
+    });
+  }, [indoorChildren, foodAndEveningChildren, featuredChildSights]);
+
   const halfDaySiblings = useMemo(() => {
     if (
       !relationshipCatalogueReady ||
@@ -916,34 +939,6 @@ export default function DestinationDetails() {
     return findNearbyCombinations(destination, undefined, 3);
   }, [destination]);
 
-  // The compact At a glance fact is the same canonical Budget v2 engine path
-  // used by the planning cost surface, with origin travel explicitly omitted.
-  // Partial, unavailable, and all-non-numeric results are intentionally passed
-  // through so the presentation can omit them instead of inventing ¥0.
-  const onSiteCost = useMemo(
-    () =>
-      destination
-        ? calculateTripCost({
-            dest: destination,
-            partySize,
-            tripMode:
-              navState?.tripMode === "weekend_2d1n"
-                ? "weekend_2d1n"
-                : "day_trip",
-            accommodationAllowance,
-            ferryTemporal,
-            includeOriginTravel: false,
-          })
-        : undefined,
-    [
-      destination,
-      partySize,
-      navState?.tripMode,
-      accommodationAllowance,
-      ferryTemporal,
-    ],
-  );
-
   const handleSaveCombination = (combo: DestinationCombo) => {
     const pairKey = getCombinationKey(combo.primary.id, combo.secondary.id);
     const comboGroup: ItineraryGroup = {
@@ -1023,6 +1018,18 @@ export default function DestinationDetails() {
     }
     return destination.recommendedDuration;
   })();
+  const glanceOpeningHours = requiresOpeningHours(destination)
+    ? getLocalizedOpeningHours(destination, locale) ||
+      (locale === "ja"
+        ? "未確認（公式ウェブサイトで確認してください）"
+        : "Not yet verified — check official website before visiting")
+    : locale === "ja"
+      ? "散策自由（個別施設により営業時間が異なります）"
+      : "Open access; individual facilities may have separate hours";
+  const glanceOfficialWebsite =
+    destination.placeType === "destination"
+      ? destination.officialWebsite
+      : undefined;
   const isHub = destination.role === "hub";
   const hasHubDiscovery =
     isHub && (featuredChildSights.length > 0 || childDestinations.length > 0);
@@ -1364,8 +1371,9 @@ export default function DestinationDetails() {
       </div>
 
       <div className="container mx-auto max-w-6xl px-4 py-6 sm:py-8">
-        <div className="space-y-8 sm:space-y-10">
+        <div className="space-y-6 sm:space-y-8">
           <section
+            data-section="overview"
             data-testid="destination-at-a-glance-section"
             className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"
           >
@@ -1401,7 +1409,8 @@ export default function DestinationDetails() {
               locale={locale}
               travelTime={glanceTravelTime}
               visitDuration={glanceVisitDuration}
-              onSiteCost={onSiteCost}
+              openingHours={glanceOpeningHours}
+              officialWebsite={glanceOfficialWebsite}
               parentLabel={
                 parentDestination
                   ? getLocalizedPlace(parentDestination, locale).name
@@ -1416,6 +1425,8 @@ export default function DestinationDetails() {
               labels={{
                 travelTime: copy.travelTime,
                 visitDuration: copy.visitDuration,
+                openingHours: copy.openingHours,
+                officialWebsite: copy.officialWebsite,
                 onSiteCost: copy.onSiteCost,
                 transportExcluded: copy.transportExcludedShort,
                 free: copy.free,
@@ -1554,111 +1565,6 @@ export default function DestinationDetails() {
                 ))}
             </div>
           </section>
-
-          {hasHubDiscovery && (
-            <section
-              id="top-sights"
-              data-section="top-sights"
-              aria-labelledby="hub-discovery-heading"
-              className="space-y-5"
-            >
-              <h2
-                id="hub-discovery-heading"
-                className="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
-              >
-                {locale === "ja"
-                  ? "見どころ・エリアを探す"
-                  : "Top sights and explore"}
-              </h2>
-
-              {featuredChildSights.length > 0 && (
-                <DestinationDetailRail
-                  title={
-                    locale === "ja"
-                      ? `${localizedDestination?.name || destination.name}の見どころ`
-                      : `Top Sights in ${localizedDestination?.name || destination.name}`
-                  }
-                  destinations={featuredChildSights}
-                  currentDestinationId={destination.id}
-                  partySize={partySize}
-                  carMode={navState?.carMode || "none"}
-                  publicModes={
-                    navState?.publicModes || [
-                      "train",
-                      "shinkansen",
-                      "bus",
-                      "flight",
-                    ]
-                  }
-                  previousLabel={copy.scrollLeft}
-                  nextLabel={copy.scrollRight}
-                />
-              )}
-
-              {childDestinations.length > 0 && (
-                <div data-section="explore-rails" className="space-y-5">
-                  <div>
-                    <h3 className="text-lg font-extrabold text-slate-900 dark:text-white">
-                      {locale === "ja" ? "エリアから探す" : "Explore by area"}
-                    </h3>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {areaGroups.map(([areaId, places]) => {
-                        const area = getCityArea(areaId);
-                        return (
-                          <Link
-                            key={areaId}
-                            to={`/destinations?city=${destination.id}${area ? `&area=${area.id}` : ""}`}
-                            className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300"
-                          >
-                            {area?.name[locale] ||
-                              (locale === "ja" ? "その他" : "Other")}{" "}
-                            · {places.length}
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {indoorChildren.length > 0 && (
-                    <DestinationDetailRail
-                      title={
-                        locale === "ja"
-                          ? "雨の日におすすめ"
-                          : "Best for rainy days"
-                      }
-                      destinations={indoorChildren}
-                      currentDestinationId={destination.id}
-                      partySize={partySize}
-                      previousLabel={copy.scrollLeft}
-                      nextLabel={copy.scrollRight}
-                    />
-                  )}
-                  {foodAndEveningChildren.length > 0 && (
-                    <DestinationDetailRail
-                      title={
-                        locale === "ja"
-                          ? "グルメと夜の楽しみ"
-                          : "Food and evening options"
-                      }
-                      destinations={foodAndEveningChildren}
-                      currentDestinationId={destination.id}
-                      partySize={partySize}
-                      previousLabel={copy.scrollLeft}
-                      nextLabel={copy.scrollRight}
-                    />
-                  )}
-
-                  <DestinationMap
-                    destinations={childDestinations}
-                    locale={locale}
-                    carMode={navState?.carMode}
-                    publicModes={navState?.publicModes}
-                  />
-                </div>
-              )}
-            </section>
-          )}
-
           <div data-section={isHub ? "plan-your-visit" : "plan-this-trip"}>
             {/* Unified "Plan your visit" progressive section */}
             <section
@@ -1738,6 +1644,98 @@ export default function DestinationDetails() {
               )}
             </section>
           </div>
+
+          {hasHubDiscovery && (
+            <section
+              id="top-sights"
+              data-section="top-sights"
+              aria-labelledby="hub-discovery-heading"
+              className="space-y-4"
+            >
+              <div>
+                <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+                  {locale === "ja" ? "ハブを探す" : "Explore the hub"}
+                </p>
+                <h2
+                  id="hub-discovery-heading"
+                  className="mt-1 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white"
+                >
+                  {locale === "ja"
+                    ? `${localizedDestination?.name || destination.name}の見どころ`
+                    : `Top sights in ${localizedDestination?.name || destination.name}`}
+                </h2>
+              </div>
+
+              {featuredChildSights.length > 0 && (
+                <DestinationDetailRail
+                  title={locale === "ja" ? "注目の見どころ" : "Top sights"}
+                  destinations={featuredChildSights}
+                  currentDestinationId={destination.id}
+                  partySize={partySize}
+                  carMode={navState?.carMode || "none"}
+                  publicModes={
+                    navState?.publicModes || [
+                      "train",
+                      "shinkansen",
+                      "bus",
+                      "flight",
+                    ]
+                  }
+                  compact
+                  previousLabel={copy.scrollLeft}
+                  nextLabel={copy.scrollRight}
+                />
+              )}
+
+              {childDestinations.length > 0 && (
+                <div className="space-y-3">
+                  <div>
+                    <h3 className="text-sm font-extrabold text-slate-900 dark:text-white">
+                      {locale === "ja" ? "エリアから探す" : "Explore by area"}
+                    </h3>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {areaGroups.map(([areaId, places]) => {
+                        const area = getCityArea(areaId);
+                        return (
+                          <Link
+                            key={areaId}
+                            to={`/destinations?city=${destination.id}${area ? `&area=${area.id}` : ""}`}
+                            className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700 hover:bg-emerald-100 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300"
+                          >
+                            {area?.name[locale] ||
+                              (locale === "ja" ? "その他" : "Other")}{" "}
+                            · {places.length}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {hubMoreDestinations.length > 0 && (
+                    <DestinationDetailRail
+                      title={
+                        locale === "ja" ? "さらに楽しむ" : "More things to do"
+                      }
+                      destinations={hubMoreDestinations}
+                      currentDestinationId={destination.id}
+                      partySize={partySize}
+                      compact
+                      previousLabel={copy.scrollLeft}
+                      nextLabel={copy.scrollRight}
+                    />
+                  )}
+
+                  <DestinationMap
+                    destinations={childDestinations}
+                    locale={locale}
+                    carMode={navState?.carMode}
+                    publicModes={navState?.publicModes}
+                    className="h-[280px] w-full overflow-hidden rounded-xl shadow-inner sm:h-[320px]"
+                  />
+                </div>
+              )}
+            </section>
+          )}
 
           <section
             id="before-you-go"
@@ -2315,8 +2313,19 @@ export default function DestinationDetails() {
                   )}
                 </TabsContent>
               </Tabs>
-              {/* Sidebar */}
-              <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {/* Supporting details stay available without competing with the primary planner. */}
+              {/* prettier-ignore */}
+              <details className="group rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3 text-sm font-extrabold text-slate-900 marker:hidden dark:text-white [&::-webkit-details-marker]:hidden">
+                  <span>
+                    {locale === "ja"
+                      ? "その他の旅行情報"
+                      : "More practical information"}
+                  </span>
+                  <ChevronDown className="h-4 w-4 shrink-0 text-slate-400 transition-transform group-open:rotate-180" />
+                </summary>
+                <div className="border-t border-slate-100 p-3 dark:border-slate-800 sm:p-4">
+                  <div className="grid grid-cols-1 items-start gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {(() => {
                   const notesText =
                     locale === "ja"
@@ -2452,105 +2461,6 @@ export default function DestinationDetails() {
                         : "Practical Information"}
                     </h3>
 
-                    {/* Opening Hours & Access Status */}
-                    {requiresOpeningHours(destination) && (
-                      <div>
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                            {locale === "ja" ? "営業時間" : "Opening hours"}
-                          </h4>
-                          {(() => {
-                            const assessment =
-                              getOpeningHoursAssessment(destination);
-                            const badgeConfigs: Record<
-                              string,
-                              { bg: string; labelEn: string; labelJa: string }
-                            > = {
-                              verified: {
-                                bg: "bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800",
-                                labelEn: "Verified hours",
-                                labelJa: "確認済み営業時間",
-                              },
-                              sourced: {
-                                bg: "bg-blue-100 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-800",
-                                labelEn: "Official hours listed",
-                                labelJa: "公式営業時間掲載",
-                              },
-                              stale: {
-                                bg: "bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border-amber-300 dark:border-amber-800",
-                                labelEn: "Hours may be stale",
-                                labelJa: "情報更新が必要",
-                              },
-                              unverified: {
-                                bg: "bg-rose-100 dark:bg-rose-950/60 text-rose-700 dark:text-rose-300 border-rose-300 dark:border-rose-800",
-                                labelEn: "Unverified hours",
-                                labelJa: "営業時間未確認",
-                              },
-                              not_required: {
-                                bg: "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700",
-                                labelEn: "Open access",
-                                labelJa: "散策自由",
-                              },
-                            };
-                            const cfg =
-                              badgeConfigs[assessment.status] ||
-                              badgeConfigs.unverified;
-                            return (
-                              <span
-                                className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${cfg.bg}`}
-                              >
-                                {locale === "ja" ? cfg.labelJa : cfg.labelEn}
-                              </span>
-                            );
-                          })()}
-                        </div>
-                        <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                          {(() => {
-                            const rawHours =
-                              destination.businessHours ||
-                              destination.openingHours;
-                            const displayHours =
-                              locale === "ja"
-                                ? destination.content?.ja?.openingHours ||
-                                  destination.openingHoursJa ||
-                                  (rawHours
-                                    ? rawHours.replace(
-                                        /\(Last admission ([^)]+)\)/i,
-                                        "（最終入場 $1）",
-                                      )
-                                    : null)
-                                : destination.content?.en?.openingHours ||
-                                  rawHours;
-                            return (
-                              displayHours || (
-                                <span className="text-amber-600 dark:text-amber-400">
-                                  {locale === "ja"
-                                    ? "未確認（公式ウェブサイトで確認してください）"
-                                    : "Not yet verified — check official website before visiting"}
-                                </span>
-                              )
-                            );
-                          })()}
-                        </p>
-                      </div>
-                    )}
-                    {!requiresOpeningHours(destination) && (
-                      <div>
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-                            {locale === "ja" ? "アクセス状態" : "Access"}
-                          </h4>
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-300 dark:border-slate-700">
-                            {locale === "ja" ? "散策自由" : "Open access"}
-                          </span>
-                        </div>
-                        <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
-                          {locale === "ja"
-                            ? "散策自由（個別施設により営業時間が異なります）"
-                            : "Open access; individual facilities may have separate hours"}
-                        </p>
-                      </div>
-                    )}
 
                     {(locale === "en"
                       ? destination.reservation
@@ -2569,23 +2479,6 @@ export default function DestinationDetails() {
                         </p>
                       </div>
                     )}
-                    {destination.placeType === "destination" &&
-                      destination.officialWebsite && (
-                        <div>
-                          <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1">
-                            {copy.officialWebsite}
-                          </h4>
-                          <a
-                            href={destination.officialWebsite}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-700 hover:text-emerald-700 dark:text-emerald-300 dark:hover:text-emerald-300 break-all"
-                          >
-                            {destination.officialWebsite}
-                            <ExternalLink className="w-3.5 h-3.5 shrink-0" />
-                          </a>
-                        </div>
-                      )}
                     {(locale === "en"
                       ? destination.parking
                       : destination.content?.ja?.parking ||
@@ -2605,7 +2498,9 @@ export default function DestinationDetails() {
                     )}
                   </CardContent>
                 </Card>
-              </div>
+                  </div>
+                </div>
+              </details>
             </div>
           </section>
 
@@ -2614,7 +2509,7 @@ export default function DestinationDetails() {
               id="go-next"
               data-section="go-next"
               aria-labelledby="go-next-heading"
-              className="space-y-8"
+              className="space-y-5"
             >
               <div>
                 <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
@@ -2650,6 +2545,7 @@ export default function DestinationDetails() {
                     : `Saved in ${count} ${count === 1 ? "trip" : "trips"}`
                 }
                 onSave={handleSaveCombination}
+                compact
               />
 
               {nearbyHubs.length > 0 && (
@@ -2667,6 +2563,7 @@ export default function DestinationDetails() {
                   publicModes={
                     navState?.publicModes || ["train", "shinkansen", "bus"]
                   }
+                  compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
                 />
@@ -2677,8 +2574,9 @@ export default function DestinationDetails() {
           {hasRelatedPlaces && (
             <section
               id="related-places"
+              data-section="related-places"
               aria-labelledby="related-places-heading"
-              className="space-y-8"
+              className="space-y-5"
             >
               <div>
                 <p className="text-xs font-extrabold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
@@ -2711,6 +2609,7 @@ export default function DestinationDetails() {
                     : `Saved in ${count} ${count === 1 ? "trip" : "trips"}`
                 }
                 onSave={handleSaveCombination}
+                compact
               />
 
               {nearbyPlaces.length > 0 && (
@@ -2728,6 +2627,7 @@ export default function DestinationDetails() {
                   publicModes={
                     navState?.publicModes || ["train", "shinkansen", "bus"]
                   }
+                  compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
                 />
@@ -2743,6 +2643,7 @@ export default function DestinationDetails() {
                   destinations={halfDaySiblings}
                   currentDestinationId={destination.id}
                   partySize={partySize}
+                  compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
                 />

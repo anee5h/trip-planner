@@ -119,7 +119,7 @@ export function DestinationPlanningSection({
       : undefined;
 
   return (
-    <div className="space-y-6 pb-4 md:pb-0">
+    <div className="space-y-3 pb-2 md:pb-0">
       {/* Unified Progressive Day Plan Generator */}
       <DayPlanWidget
         destination={destination}
