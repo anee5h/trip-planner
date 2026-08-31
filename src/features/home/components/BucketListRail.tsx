@@ -77,7 +77,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
             ) : (
               <button
                 type="button"
-                onClick={openAuthModal}
+                onClick={() => openAuthModal()}
                 className="inline-flex items-center gap-1.5 text-xs font-extrabold px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
               >
                 <LogIn className="w-3.5 h-3.5" />

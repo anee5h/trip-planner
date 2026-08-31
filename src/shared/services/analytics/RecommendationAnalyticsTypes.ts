@@ -16,7 +16,14 @@ export type RecommendationEventType =
   | "day_plan_saved"
   | "day_plan_start_over"
   | "day_plan_preferences_opened"
-  | "cost_breakdown_opened";
+  | "cost_breakdown_opened"
+  | "signup_cta_impression"
+  | "signup_cta_click"
+  | "signup_started"
+  | "signup_completed";
+
+export type SignupSource = "header" | "auth_modal";
+export type SignupAuthProvider = "email" | "google" | "twitter" | "line";
 
 export interface BaseAnalyticsEvent {
   eventId: string;
@@ -106,6 +113,27 @@ export interface PlanningToolAnalyticsEvent extends BaseAnalyticsEvent {
   source: "destination_details";
 }
 
+export interface SignupCtaImpressionEvent extends BaseAnalyticsEvent {
+  eventType: "signup_cta_impression";
+  source: "header";
+}
+
+export interface SignupCtaClickEvent extends BaseAnalyticsEvent {
+  eventType: "signup_cta_click";
+  source: "header";
+}
+
+export interface SignupStartedEvent extends BaseAnalyticsEvent {
+  eventType: "signup_started";
+  source: SignupSource;
+}
+
+export interface SignupCompletedEvent extends BaseAnalyticsEvent {
+  eventType: "signup_completed";
+  source: SignupSource;
+  authProvider: SignupAuthProvider;
+}
+
 export type AnyRecommendationAnalyticsEvent =
   | RecommendationFeedbackEvent
   | RecommendationClickEvent
@@ -116,4 +144,8 @@ export type AnyRecommendationAnalyticsEvent =
   | RecommendationImpressionEvent
   | NoResultImpressionEvent
   | FallbackImpressionEvent
-  | PlanningToolAnalyticsEvent;
+  | PlanningToolAnalyticsEvent
+  | SignupCtaImpressionEvent
+  | SignupCtaClickEvent
+  | SignupStartedEvent
+  | SignupCompletedEvent;

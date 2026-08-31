@@ -1,19 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
 
 async function switchToJapanese(page: Page) {
-  const desktopLanguage = page.getByRole("button", {
-    name: "Select language",
-  });
+  const desktopLanguage = page.getByTestId("navbar-desktop-language-toggle");
   if (await desktopLanguage.isVisible()) {
     await desktopLanguage.click();
     await page.getByRole("button", { name: "日本語", exact: true }).click();
   } else {
-    await page.getByRole("button", { name: "Toggle menu" }).click();
-    await page
-      .locator("#mobile-menu-drawer button")
-      .filter({ hasText: "English" })
-      .click();
-    await page.keyboard.press("Escape");
+    const url = new URL(page.url());
+    url.pathname = url.pathname === "/" ? "/ja/" : `/ja${url.pathname}`;
+    await page.goto(url.toString());
   }
   await expect(page.locator("html")).toHaveAttribute("lang", "ja");
 }

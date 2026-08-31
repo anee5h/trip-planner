@@ -4,13 +4,21 @@ import { Link } from "react-router-dom";
 import { MegurutoMark } from "@/shared/components/brand/MegurutoMark";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useTranslation } from "react-i18next";
+import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 
 interface AuthModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialMode?: "signin" | "signup";
+  source?: "header" | "auth_modal";
 }
 
-export function AuthModal({ isOpen, onClose }: AuthModalProps) {
+export function AuthModal({
+  isOpen,
+  onClose,
+  initialMode = "signin",
+  source: initialSource = "auth_modal",
+}: AuthModalProps) {
   const {
     signInWithGoogle,
     signInWithEmail,
@@ -18,12 +26,16 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
     resetPasswordForEmail,
   } = useAuth();
   const { t, i18n } = useTranslation();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
+  const [mode, setMode] = useState<"signin" | "signup">(initialMode);
+  const [signupSource, setSignupSource] = useState<"header" | "auth_modal">(
+    initialMode === "signup" ? initialSource : "auth_modal",
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const dialogRef = useRef<HTMLDivElement>(null);
+  const signupStartTrackedRef = useRef(false);
 
   // KAI-80: complete modal focus semantics — initial focus inside,
   // Tab/Shift+Tab containment, Escape closes, focus returns to the opener.
@@ -76,11 +88,10 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
       if (validOpener) {
         previouslyFocused.focus();
       } else {
-        // The opener (e.g. a mobile drawer button) unmounted while the
-        // modal was open (or focus was already on <body>) — restore focus
-        // to the stable hamburger instead of losing it to <body>.
+        // If the opener unmounted while the modal was open (or focus was on
+        // <body>), return focus to the stable header auth control.
         const fallback = document.querySelector<HTMLElement>(
-          'button[aria-label="Toggle menu"]',
+          '[data-testid="navbar-signup-cta"], [data-testid="navbar-avatar-trigger"]',
         );
         (fallback ?? document.body).focus();
       }
@@ -88,6 +99,22 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   }, [isOpen, onClose]);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
+
+  // The provider remounts this modal for each open request, so the initial
+  // mode is applied without a render-triggering synchronization effect.
+  useEffect(() => {
+    if (!isOpen) signupStartTrackedRef.current = false;
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || mode !== "signup" || signupStartTrackedRef.current) return;
+    const locale =
+      i18n.resolvedLanguage?.startsWith("ja") || i18n.language.startsWith("ja")
+        ? "ja"
+        : "en";
+    recommendationAnalytics.trackSignupStarted(signupSource, locale);
+    signupStartTrackedRef.current = true;
+  }, [i18n.language, i18n.resolvedLanguage, isOpen, mode, signupSource]);
 
   if (!isOpen) return null;
 
@@ -138,14 +165,38 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
         if (error) throw error;
         onClose();
       } else {
-        const { error } = (await signUpWithEmail(email, password)) ?? {};
+        const result = await signUpWithEmail(email, password);
+        if (!result) throw new Error("Signup did not complete");
+        const { error } = result;
         if (error) throw error;
+        recommendationAnalytics.trackSignupCompleted(
+          "email",
+          signupSource,
+          i18n.resolvedLanguage?.startsWith("ja") ||
+            i18n.language.startsWith("ja")
+            ? "ja"
+            : "en",
+        );
         setSuccess(t("auth.confirmEmailSent"));
       }
     } catch (err: any) {
       setError(formatAuthError(err.message));
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleGoogle = async () => {
+    if (mode !== "signup") {
+      await signInWithGoogle();
+      return;
+    }
+
+    recommendationAnalytics.markPendingSignup("google", signupSource);
+    const result = await signInWithGoogle();
+    if (!result || result.error) {
+      recommendationAnalytics.clearPendingSignup();
+      if (result?.error) setError(formatAuthError(result.error.message));
     }
   };
 
@@ -232,7 +283,8 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
           <div className="flex flex-col gap-3 mb-6">
             {/* Google */}
             <button
-              onClick={() => signInWithGoogle()}
+              type="button"
+              onClick={() => void handleGoogle()}
               className="flex items-center gap-3 w-full px-4 py-3 rounded-xl bg-white dark:bg-white text-gray-800 font-medium text-sm border border-slate-200 dark:border-transparent hover:bg-slate-50 dark:hover:bg-gray-100 transition-all duration-200 hover:scale-[1.01]"
             >
               <svg width="20" height="20" viewBox="0 0 24 24">
@@ -352,7 +404,12 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
             {mode === "signin" ? t("auth.noAccount") : t("auth.hasAccount")}{" "}
             <button
               onClick={() => {
-                setMode(mode === "signin" ? "signup" : "signin");
+                const nextMode = mode === "signin" ? "signup" : "signin";
+                setMode(nextMode);
+                setSignupSource("auth_modal");
+                if (nextMode === "signin") {
+                  recommendationAnalytics.clearPendingSignup();
+                }
                 setError("");
                 setSuccess("");
               }}

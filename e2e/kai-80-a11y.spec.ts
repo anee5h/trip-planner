@@ -52,7 +52,10 @@ async function signInAsTestUser(page: import("@playwright/test").Page) {
     role: "authenticated",
     email: "a11y-fixture@example.com",
     app_metadata: { provider: "email" },
-    user_metadata: { full_name: "A11y Fixture" },
+    user_metadata: {
+      full_name: "A11y Fixture",
+      preferences: { preferences_set: true },
+    },
     created_at: "2026-01-01T00:00:00.000Z",
     updated_at: "2026-01-01T00:00:00.000Z",
   };
@@ -108,46 +111,40 @@ async function signInAsTestUser(page: import("@playwright/test").Page) {
   });
 }
 
-/** The signed-in-as text shown in the user menu. */
-function signedInAsLabel() {
-  return /Signed in as|ログイン中/;
-}
-
 /**
- * Opens the guest auth modal from either layout: desktop navbar "Sign In"
- * button, or the mobile hamburger menu's "Sign In" entry. Required —
- * asserts the control exists (no conditional no-op).
+ * Opens the guest auth modal through the existing header signup flow. The
+ * auth modal's built-in toggle remains the login entry point.
  */
 async function openSignIn(page: import("@playwright/test").Page) {
   const desktopSignIn = page
     .locator("header button", { hasText: "Sign In" })
     .first();
-  const mobileMenu = page.locator('button[aria-label="Toggle menu"]');
   if (await desktopSignIn.isVisible().catch(() => false)) {
     await desktopSignIn.click();
-  } else {
-    await expect(mobileMenu).toBeVisible();
-    await mobileMenu.focus();
-    await mobileMenu.press("Enter");
-    const menuSignIn = page
-      .locator("#mobile-menu-drawer")
-      .locator("button", { hasText: "Sign In" })
-      .first();
-    await expect(menuSignIn).toBeVisible();
-    await menuSignIn.evaluate((el) => (el as HTMLButtonElement).click());
+    return;
   }
+
+  const signup = page.getByTestId("navbar-signup-cta");
+  await expect(signup).toBeVisible();
+  await signup.click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toBeVisible();
+  await dialog
+    .getByRole("button", { name: "Sign In", exact: true })
+    .last()
+    .click();
 }
 
 /**
- * Switches the UI language to `target` ("en" | "ja") from either layout:
- * desktop uses the "Select language" dropdown's explicit option; mobile
- * uses the hamburger menu's single language toggle (switches en<->ja).
+ * Switches the UI language to `target` ("en" | "ja"). Desktop uses the
+ * explicit language menu; mobile follows the locale URL because the compact
+ * header no longer has a hamburger navigation surface.
  */
 async function switchLocale(
   page: import("@playwright/test").Page,
   target: "en" | "ja",
 ) {
-  const desktopLang = page.locator('button[aria-label="Select language"]');
+  const desktopLang = page.getByTestId("navbar-desktop-language-toggle");
   if (await desktopLang.isVisible().catch(() => false)) {
     await desktopLang.click();
     const option = page.getByRole("button", {
@@ -157,26 +154,17 @@ async function switchLocale(
     await option.click();
     return;
   }
-  // Mobile: hamburger -> language toggle (switches to the other locale).
-  const mobileMenu = page.locator('button[aria-label="Toggle menu"]');
-  await expect(mobileMenu).toBeVisible();
-  await mobileMenu.click();
-  const toggle = page
-    .locator("#mobile-menu-drawer")
-    .locator("button", { hasText: /Language|言語/ })
-    .first();
-  await expect(toggle).toBeVisible();
-  await toggle.click();
-  // The toggle switches en<->ja; if already at target, toggle again.
-  const currentLang = await page.evaluate(() => document.documentElement.lang);
-  if (currentLang !== target) {
-    await mobileMenu.click();
-    const toggle2 = page
-      .locator("#mobile-menu-drawer")
-      .locator("button", { hasText: /Language|言語/ })
-      .first();
-    await expect(toggle2).toBeVisible();
-    await toggle2.click();
+
+  const url = new URL(page.url());
+  const unprefixedPath = url.pathname.replace(/^\/ja(?=\/|$)/, "") || "/";
+  url.pathname =
+    target === "ja"
+      ? unprefixedPath === "/"
+        ? "/ja/"
+        : `/ja${unprefixedPath}`
+      : unprefixedPath;
+  if (new URL(page.url()).pathname !== url.pathname) {
+    await page.goto(url.toString());
   }
 }
 
@@ -321,10 +309,7 @@ test.describe("KAI-80 public routes (light)", () => {
     // Escape closes.
     await page.keyboard.press("Escape");
     await expect(dialog).toHaveCount(0);
-    // Focus returns to the opener: the Sign In control on desktop; on
-    // mobile the drawer (and its Sign In button) unmounted when the modal
-    // opened, so focus falls back to the hamburger — accept either, and
-    // never a lost-focus body (mobile fallback: any button).
+    // Focus returns to the existing header auth opener after dismissal.
     await expect
       .poll(() =>
         page.evaluate(() => {
@@ -334,7 +319,8 @@ test.describe("KAI-80 public routes (light)", () => {
           const text = el.textContent ?? "";
           return (
             text.includes("Sign In") ||
-            el.getAttribute("aria-label") === "Toggle menu"
+            text.includes("Sign Up") ||
+            el.getAttribute("data-testid") === "navbar-signup-cta"
           );
         }),
       )
@@ -659,11 +645,8 @@ test.describe("KAI-80 keyboard-only navigation", () => {
   }) => {
     await page.goto("/");
     let nav = page.locator("header nav").first();
-    const mobileMenu = page.locator('button[aria-label="Toggle menu"]');
     if (!(await nav.isVisible().catch(() => false))) {
-      await expect(mobileMenu).toBeVisible();
-      await mobileMenu.click();
-      nav = page.locator("#mobile-menu-drawer nav").first();
+      nav = page.getByRole("navigation", { name: "Mobile Navigation" });
     }
     await expect(nav).toBeVisible();
     const firstLink = nav.locator("a").first();
@@ -697,11 +680,10 @@ test.describe("KAI-80 visible focus (focus-visible ring present)", () => {
   }) => {
     await page.goto("/");
     await expect(page.locator("main")).toBeVisible();
-    // Mobile: BottomNav Search or hamburger; Desktop: Ctrl-K chip or the
-    // theme toggle. Pick the first visible keyboard control.
+    // Mobile: BottomNav Search; Desktop: Ctrl-K chip or the theme toggle.
+    // Pick the first visible keyboard control.
     const candidates = [
       page.locator('button[aria-label="Search"]').first(),
-      page.locator('button[aria-label="Toggle menu"]').first(),
       page.locator("button:has-text('Ctrl K'), button:has-text('⌘K')").first(),
       page.locator('button[aria-label="Toggle theme"]').first(),
     ];
@@ -755,10 +737,9 @@ test.describe("KAI-80 reflow (narrow)", () => {
         document.documentElement.clientWidth,
     );
     expect(overflow).toBe(false);
-    // Primary control still present in guest state (mobile header).
-    await expect(
-      page.locator('button[aria-label="Toggle menu"]'),
-    ).toBeVisible();
+    // Primary control remains present in guest state (mobile header).
+    await expect(page.getByTestId("navbar-signup-cta")).toBeVisible();
+    await expect(page.getByTestId("navbar-hamburger")).toHaveCount(0);
   });
 
   test("destination detail at narrow width: no horizontal overflow", async ({
@@ -825,28 +806,18 @@ test.describe("KAI-80 authenticated state (fixture, no production mutation)", ()
     await signInAsTestUser(page);
     await page.goto("/");
     await expect(page.locator("main")).toBeVisible();
-    // Desktop: the User menu button; mobile: the hamburger drawer shows
-    // the signed-in account links.
+    // The avatar sheet is the single authenticated navigation surface at all
+    // viewport sizes.
     const userMenu = page.locator('button[aria-label="User menu"]').first();
-    if (await userMenu.isVisible().catch(() => false)) {
-      await expectNoA11yViolations(page);
-      await userMenu.focus();
-      await page.keyboard.press("Enter");
-    } else {
-      const toggleMenu = page
-        .locator('button[aria-label="Toggle menu"]')
-        .first();
-      await expect(toggleMenu).toBeVisible();
-      await toggleMenu.focus();
-      await page.keyboard.press("Enter");
-      await expect(page.locator("#mobile-menu-drawer")).toBeVisible();
-      await expectNoA11yViolations(page);
-    }
-    await expect(page.getByText(signedInAsLabel())).toBeVisible();
+    await expect(userMenu).toBeVisible();
+    await userMenu.focus();
+    await page.keyboard.press("Enter");
+    await expect(page.locator('[role="dialog"]').first()).toBeVisible();
+    await expectNoA11yViolations(page);
     await expect(page.getByText("a11y-fixture@example.com")).toBeVisible();
     // Account navigation target works.
     await page
-      .getByRole("link", { name: /Edit Profile|プロフィール編集/ })
+      .getByRole("menuitem", { name: /Edit Profile|プロフィール編集/ })
       .first()
       .evaluate((el) => (el as HTMLAnchorElement).click());
     await expect(page).toHaveURL(/\/settings\?section=account/);
