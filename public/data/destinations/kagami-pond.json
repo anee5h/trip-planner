@@ -1,0 +1,220 @@
+{
+  "id": "kagami-pond",
+  "name": "Kagami Pond",
+  "nameJa": "鏡池",
+  "aliases": ["Kagami-ike", "Togakushi Kagami Pond"],
+  "officialWebsite": "https://togakushi-21.jp/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Nagano:nagano",
+  "kind": "lake",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "categories": ["Nature", "Lake", "Photography"],
+  "tags": ["Lake", "Nature", "Togakushi", "Nagano"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Kagami_Pond_and_Mount_Togakushi_at_the_back%2C_Nagano_Prefecture%3B_September_2019.jpg/1280px-Kagami_Pond_and_Mount_Togakushi_at_the_back%2C_Nagano_Prefecture%3B_September_2019.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kagami_Pond_and_Mount_Togakushi_at_the_back,_Nagano_Prefecture;_September_2019.jpg",
+    "license": "CC BY-SA 2.0",
+    "attribution": "Big Ben in Japan",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.7503693,
+    "lng": 138.0619696
+  },
+  "description": "Kagami Pond is a reflective forest lake in Togakushi with a direct visual relationship to the surrounding mountain and shrine landscape.",
+  "highlights": [
+    "Reflective mountain views",
+    "Forest setting",
+    "Distinct from Togakushi Shrine"
+  ],
+  "content": {
+    "en": {
+      "name": "Kagami Pond",
+      "description": "Kagami Pond is a reflective forest lake in Togakushi with a direct visual relationship to the surrounding mountain and shrine landscape.",
+      "highlights": [
+        "Reflective mountain views",
+        "Forest setting",
+        "Distinct from Togakushi Shrine"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "鏡池",
+      "description": "鏡池は、戸隠の森と山々を水面に映す湖で、戸隠神社周辺の自然景観を補う見どころです。",
+      "highlights": [
+        "山々を映す水面",
+        "森に囲まれた景観",
+        "戸隠神社とは別の自然スポット"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://togakushi-21.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {
+    "relatedDestinationIds": ["togakushi-shrine"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://togakushi-21.jp/",
+        "title": "Togakushi Tourism Association",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/node/5122390221",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://togakushi-21.jp/",
+          "title": "Togakushi Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://togakushi-21.jp/",
+          "title": "Togakushi Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://togakushi-21.jp/",
+          "title": "Togakushi Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/5122390221",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Kagami_Pond_and_Mount_Togakushi_at_the_back,_Nagano_Prefecture;_September_2019.jpg",
+          "title": "Kagami Pond image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://togakushi-21.jp/",
+          "title": "Togakushi Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

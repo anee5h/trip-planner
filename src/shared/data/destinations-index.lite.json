@@ -23586,7 +23586,7 @@
     "walkingMin": 360,
     "indoorPercent": 50,
     "recommendedVisitHours": {
-      "min": 7,
+      "min": 8,
       "max": 12
     },
     "collections": [],
@@ -97443,5 +97443,1252 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "relationships": {}
+  },
+  {
+    "id": "former-mikasa-hotel",
+    "name": "Former Mikasa Hotel",
+    "nameJa": "旧三笠ホテル",
+    "kind": "historic",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:karuizawa",
+    "aliases": ["Old Mikasa Hotel", "Kyu-Mikasa Hotel"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["History", "Architecture", "Culture"],
+    "tags": ["Historic Building", "Architecture", "Karuizawa", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Old_mikasa_hotel02s3872.jpg/1280px-Old_mikasa_hotel02s3872.jpg",
+    "description": "The Former Mikasa Hotel is a preserved Western-style resort hotel and a distinct heritage stop within Karuizawa's historic landscape.",
+    "highlights": [
+      "Historic resort architecture",
+      "Karuizawa heritage context",
+      "Distinct from the town-wide Karuizawa record"
+    ],
+    "coordinates": {
+      "lat": 36.3731331,
+      "lng": 138.6262318
+    },
+    "officialWebsite": "https://karuizawa-kankokyokai.jp/spot/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "karuizawa-town"
+    }
+  },
+  {
+    "id": "kagami-pond",
+    "name": "Kagami Pond",
+    "nameJa": "鏡池",
+    "kind": "lake",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:nagano",
+    "aliases": ["Kagami-ike", "Togakushi Kagami Pond"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Nature", "Lake", "Photography"],
+    "tags": ["Lake", "Nature", "Togakushi", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Kagami_Pond_and_Mount_Togakushi_at_the_back%2C_Nagano_Prefecture%3B_September_2019.jpg/1280px-Kagami_Pond_and_Mount_Togakushi_at_the_back%2C_Nagano_Prefecture%3B_September_2019.jpg",
+    "description": "Kagami Pond is a reflective forest lake in Togakushi with a direct visual relationship to the surrounding mountain and shrine landscape.",
+    "highlights": [
+      "Reflective mountain views",
+      "Forest setting",
+      "Distinct from Togakushi Shrine"
+    ],
+    "coordinates": {
+      "lat": 36.7503693,
+      "lng": 138.0619696
+    },
+    "officialWebsite": "https://togakushi-21.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["togakushi-shrine"]
+    }
+  },
+  {
+    "id": "shibu-onsen",
+    "name": "Shibu Onsen",
+    "nameJa": "渋温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nagano:yamanouchi",
+    "aliases": ["Shibu Hot Spring", "Shibu Onsen Town"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Hot Springs", "Culture", "History"],
+    "tags": ["Onsen", "Ryokan", "Yamanouchi", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Shibu_onsen_night_view.jpg/1280px-Shibu_onsen_night_view.jpg",
+    "description": "Shibu Onsen is a historic hot-spring settlement in Yamanouchi known for its compact streetscape, bathhouse culture, and ryokan setting.",
+    "highlights": [
+      "Historic onsen streets",
+      "Ryokan town atmosphere",
+      "Yamanouchi hot-spring culture"
+    ],
+    "coordinates": {
+      "lat": 36.7343852,
+      "lng": 138.4305856
+    },
+    "officialWebsite": "https://www.shibuonsen.net/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "shiga-kogen",
+    "name": "Shiga Kogen",
+    "nameJa": "志賀高原",
+    "kind": "mountain",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nagano:yamanouchi",
+    "aliases": ["Shiga Highlands", "Shiga Kogen Highlands"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Nature", "Mountain", "Outdoor Activities"],
+    "tags": ["Highlands", "Mountains", "Yamanouchi", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Shiga_Kogen_from_Nozoki04n4272.jpg/1280px-Shiga_Kogen_from_Nozoki04n4272.jpg",
+    "description": "Shiga Kogen is a broad highland recreation and nature area in Yamanouchi, distinct from the smaller Shibu Onsen settlement.",
+    "highlights": [
+      "Highland landscapes",
+      "Large mountain recreation area",
+      "Distinct from Shibu Onsen"
+    ],
+    "coordinates": {
+      "lat": 36.7330511,
+      "lng": 138.4316714
+    },
+    "officialWebsite": "https://www.shigakogen.gr.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 385,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "matsumoto-nakamachi-nawate",
+    "name": "Nakamachi and Nawate Streets",
+    "nameJa": "中町通り・縄手通り",
+    "kind": "street",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nagano:matsumoto",
+    "aliases": [
+      "Nakamachi Street",
+      "Nawate Street",
+      "Matsumoto Historic Streets"
+    ],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["History", "Shopping", "Culture"],
+    "tags": ["Historic Street", "Shopping", "Matsumoto", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Nakamachi_street_Matsumoto_Nagano_pref_Japan07n.jpg/1280px-Nakamachi_street_Matsumoto_Nagano_pref_Japan07n.jpg",
+    "description": "Nakamachi and Nawate Streets form a walkable historic and shopping pair in central Matsumoto, complementing the castle without duplicating it.",
+    "highlights": [
+      "Historic storehouses",
+      "Riverside Nawate streetscape",
+      "Central Matsumoto walking route"
+    ],
+    "coordinates": {
+      "lat": 36.2344,
+      "lng": 137.971
+    },
+    "officialWebsite": "https://visitmatsumoto.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    }
+  },
+  {
+    "id": "utsukushigahara-highlands",
+    "name": "Utsukushigahara Highlands",
+    "nameJa": "美ヶ原高原",
+    "kind": "mountain",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nagano:ueda",
+    "aliases": ["Utsukushigahara", "Utsukushigahara Plateau"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Nature", "Mountain", "Viewpoint"],
+    "tags": ["Highlands", "Viewpoint", "Ueda", "Matsumoto"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg/1280px-%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+    "description": "Utsukushigahara is a high open plateau on the Matsumoto-Ueda side of Nagano, best treated as a broad nature destination rather than as a museum shell.",
+    "highlights": [
+      "Open plateau landscapes",
+      "Highland viewpoints",
+      "Broad nature destination"
+    ],
+    "coordinates": {
+      "lat": 36.2307236,
+      "lng": 138.140291
+    },
+    "officialWebsite": "https://www.utsukushi2034.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 290,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["matsumoto-city"]
+    }
+  },
+  {
+    "id": "anrakuji-temple-ueda",
+    "name": "Anrakuji Temple",
+    "nameJa": "安楽寺",
+    "kind": "temple",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nagano:ueda",
+    "aliases": ["Anraku-ji", "Anrakuji Octagonal Pagoda"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Temple", "History", "Culture"],
+    "tags": ["Temple", "Pagoda", "Bessho Onsen", "Ueda"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Anrakuji_Hakkakusanjyuunotou_BessyoOnsen.jpg?width=1280",
+    "description": "Anrakuji is a Soto Zen temple in Bessho Onsen, known for its historic octagonal pagoda and distinct religious heritage.",
+    "highlights": [
+      "Historic octagonal pagoda",
+      "Bessho Onsen heritage",
+      "Distinct temple identity"
+    ],
+    "coordinates": {
+      "lat": 36.3521426,
+      "lng": 138.1531466
+    },
+    "officialWebsite": "https://www.bessho-spa.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["nagano-bessho-onsen", "kitamuki-kannon"]
+    }
+  },
+  {
+    "id": "kitamuki-kannon",
+    "name": "Kitamuki Kannon",
+    "nameJa": "北向観音",
+    "kind": "temple",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:ueda",
+    "aliases": ["Kitamuki Kannon Temple", "Kitamuki Kannon-do"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Temple", "Culture", "History"],
+    "tags": ["Temple", "Kannon", "Bessho Onsen", "Ueda"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Interior_of_Kitamuki_Iwaya_Juichimen_Kannon_201602.jpg",
+    "description": "Kitamuki Kannon is a separate Kannon temple in Bessho Onsen, forming a natural cultural counterpart to Anrakuji rather than a duplicate of it.",
+    "highlights": [
+      "Kannon worship",
+      "Bessho Onsen temple walk",
+      "Related but distinct from Anrakuji"
+    ],
+    "coordinates": {
+      "lat": 36.3498913,
+      "lng": 138.1564174
+    },
+    "officialWebsite": "https://www.bessho-spa.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["anrakuji-temple-ueda", "nagano-bessho-onsen"]
+    }
+  },
+  {
+    "id": "yanagimachi-street-ueda",
+    "name": "Yanagimachi Street",
+    "nameJa": "柳町通り",
+    "kind": "street",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:ueda",
+    "aliases": ["Ueda Yanagimachi", "Old Hokkokukaido Yanagimachi"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["History", "Shopping", "Food"],
+    "tags": ["Historic Street", "Food", "Ueda", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ueda-Yanagimachi1.jpg",
+    "description": "Yanagimachi Street preserves a section of Ueda's old Hokkokukaido atmosphere with historic buildings, food, and small-scale town walking.",
+    "highlights": [
+      "Historic highway streetscape",
+      "Small shops and food",
+      "Distinct Ueda town walk"
+    ],
+    "coordinates": {
+      "lat": 36.4058268,
+      "lng": 138.2531181
+    },
+    "officialWebsite": "https://ueda-kanko.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["ueda-castle-nagano"]
+    }
+  },
+  {
+    "id": "kirigamine-highlands",
+    "name": "Kirigamine Highlands",
+    "nameJa": "霧ヶ峰高原",
+    "kind": "mountain",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:suwa",
+    "aliases": ["Kirigamine", "Kirigamine Plateau"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Nature", "Mountain", "Outdoor Activities"],
+    "tags": ["Highlands", "Nature", "Suwa", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kirigamine_seen_from_the_east_2018-03-04.jpg/1280px-Kirigamine_seen_from_the_east_2018-03-04.jpg",
+    "description": "Kirigamine is an open highland area east of Lake Suwa, offering a separate nature identity from the shrine and lake destinations around Suwa.",
+    "highlights": [
+      "Open highland scenery",
+      "Highland walking",
+      "Suwa-area nature context"
+    ],
+    "coordinates": {
+      "lat": 36.0973159,
+      "lng": 138.1674446
+    },
+    "officialWebsite": "https://www.suwakanko.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["suwa-taisha"]
+    }
+  },
+  {
+    "id": "yashimagahara-wetland",
+    "name": "Yashimagahara Wetland",
+    "nameJa": "八島ヶ原湿原",
+    "kind": "nature",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:shimosuwa",
+    "aliases": ["Yashimagahara Marsh", "Yashimagahara Shitsugen"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Nature", "Wetland", "Hiking"],
+    "tags": ["Wetland", "Nature", "Shimosuwa", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Yashimagahara_Wetland_05.jpg/1280px-Yashimagahara_Wetland_05.jpg",
+    "description": "Yashimagahara Wetland is a highland marsh with a distinct walking and seasonal plant landscape, separate from the broader Kirigamine record.",
+    "highlights": [
+      "Highland wetland",
+      "Boardwalk landscape",
+      "Seasonal plants"
+    ],
+    "coordinates": {
+      "lat": 36.1190053,
+      "lng": 138.166393
+    },
+    "officialWebsite": "https://shimosuwaonsen.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["kirigamine-highlands"]
+    }
+  },
+  {
+    "id": "lake-shirakaba",
+    "name": "Lake Shirakaba",
+    "nameJa": "白樺湖",
+    "kind": "lake",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:chino",
+    "aliases": ["Shirakaba-ko", "Shirakaba Lake"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Nature", "Lake", "Outdoor Activities"],
+    "tags": ["Lake", "Highlands", "Chino", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Shirakaba11bs4272.jpg/1280px-Lake_Shirakaba11bs4272.jpg",
+    "description": "Lake Shirakaba is a highland lake and resort landscape on the Venus Line, distinct from Lake Suwa and the Kirigamine wetland.",
+    "highlights": ["Highland lake", "Resort landscape", "Venus Line context"],
+    "coordinates": {
+      "lat": 36.1057761,
+      "lng": 138.237963
+    },
+    "officialWebsite": "https://www.shirakabako.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["kirigamine-highlands"]
+    }
+  },
+  {
+    "id": "hirugami-onsen",
+    "name": "Hirugami Onsen",
+    "nameJa": "昼神温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:achi",
+    "aliases": ["Hirugami Hot Spring", "Hirugami Onsen Village"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Hot Springs", "Relaxation", "Nature"],
+    "tags": ["Onsen", "Achi", "Wellness", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Hirugami001.JPG/1280px-Hirugami001.JPG",
+    "description": "Hirugami Onsen is a hot-spring settlement in Achi, providing a concrete southern Nagano wellness anchor alongside the area's night-sky attractions.",
+    "highlights": [
+      "Hot-spring settlement",
+      "Achi village context",
+      "Southern Nagano stay base"
+    ],
+    "coordinates": {
+      "lat": 35.4562619,
+      "lng": 137.7146019
+    },
+    "officialWebsite": "https://hirugamionsen.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "hokusai-museum-obuse",
+    "name": "Hokusai Museum",
+    "nameJa": "北斎館",
+    "kind": "museum",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Nagano:obuse",
+    "aliases": ["Hokusai-kan", "Obuse Hokusai Museum"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Museum", "Art", "Culture"],
+    "tags": ["Hokusai", "Museum", "Obuse", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Hokusai_Museum.jpg/1280px-Hokusai_Museum.jpg",
+    "description": "The Hokusai Museum is Obuse's dedicated art anchor, preserving a discoverable museum identity within the wider chestnut and historic-town destination.",
+    "highlights": [
+      "Hokusai-focused collection",
+      "Obuse cultural anchor",
+      "Distinct museum identity"
+    ],
+    "coordinates": {
+      "lat": 36.6940706,
+      "lng": 138.3172117
+    },
+    "officialWebsite": "https://hokusai-kan.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "obuse-town"
+    }
+  },
+  {
+    "id": "gansho-in-temple",
+    "name": "Gansho-in Temple",
+    "nameJa": "岩松院",
+    "kind": "temple",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Nagano:obuse",
+    "aliases": ["Ganshoin", "Gansho-in Temple Obuse"],
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": ["Temple", "History", "Culture"],
+    "tags": ["Temple", "History", "Obuse", "Nagano"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Ganshoin_Hondo_01.jpg/1280px-Ganshoin_Hondo_01.jpg",
+    "description": "Gansho-in is a historic temple in Obuse with a distinct cultural identity from the Hokusai Museum and the town-wide record.",
+    "highlights": [
+      "Historic temple setting",
+      "Obuse cultural walk",
+      "Distinct from Hokusai Museum"
+    ],
+    "coordinates": {
+      "lat": 36.6984606,
+      "lng": 138.3338805
+    },
+    "officialWebsite": "https://www.gansho-in.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "obuse-town"
+    }
   }
 ]

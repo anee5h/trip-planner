@@ -255,7 +255,8 @@
       "kikkoman-soy-sauce-museum-noda",
       "national-museum-japanese-history-sakura",
       "inubosaki-lighthouse-choshi",
-      "byobugaura-choshi"
+      "byobugaura-choshi",
+      "hokusai-museum-obuse"
     ],
     "duration-model-v1": [
       "abeno-harukas-300-osaka",
@@ -499,7 +500,14 @@
       "takaragawa-onsen",
       "lake-haruna",
       "lake-okushima",
-      "onioshidashi-park"
+      "onioshidashi-park",
+      "shibu-onsen",
+      "shiga-kogen",
+      "utsukushigahara-highlands",
+      "kirigamine-highlands",
+      "yashimagahara-wetland",
+      "lake-shirakaba",
+      "hirugami-onsen"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -878,7 +886,22 @@
       "fukiware-falls",
       "usui-third-bridge",
       "shorinzan-darumaji",
-      "onioshidashi-park"
+      "onioshidashi-park",
+      "former-mikasa-hotel",
+      "kagami-pond",
+      "shibu-onsen",
+      "shiga-kogen",
+      "matsumoto-nakamachi-nawate",
+      "utsukushigahara-highlands",
+      "anrakuji-temple-ueda",
+      "kitamuki-kannon",
+      "yanagimachi-street-ueda",
+      "kirigamine-highlands",
+      "yashimagahara-wetland",
+      "lake-shirakaba",
+      "hirugami-onsen",
+      "hokusai-museum-obuse",
+      "gansho-in-temple"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -2000,44 +2023,56 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-31T03:30",
-    "changeCount": 5,
+    "at": "2026-08-31T04:18",
+    "changeCount": 7,
     "byModel": [
       [
         "duration-model-v1",
-        5
+        7
       ]
     ],
     "sample": [
       {
-        "id": "mt-tanigawa",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'mountain'"
-      },
-      {
-        "id": "takaragawa-onsen",
+        "id": "shibu-onsen",
         "model": "duration-model-v1",
         "action": "set",
         "reason": "kind band 'onsen'"
       },
       {
-        "id": "lake-haruna",
+        "id": "shiga-kogen",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'mountain'"
+      },
+      {
+        "id": "utsukushigahara-highlands",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'mountain'"
+      },
+      {
+        "id": "kirigamine-highlands",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'mountain'"
+      },
+      {
+        "id": "yashimagahara-wetland",
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'nature'"
+      },
+      {
+        "id": "lake-shirakaba",
         "model": "duration-model-v1",
         "action": "set",
         "reason": "kind band 'lake'"
       },
       {
-        "id": "lake-okushima",
+        "id": "hirugami-onsen",
         "model": "duration-model-v1",
         "action": "set",
-        "reason": "kind band 'lake'"
-      },
-      {
-        "id": "onioshidashi-park",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'park'"
+        "reason": "kind band 'onsen'"
       }
     ]
   }

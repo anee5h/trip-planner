@@ -38770,7 +38770,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance major, 3 children, metro=false"
+      "basis": "hub exploration window: importance major, 4 children, metro=false"
     },
     "walkingMetadata": {
       "method": "model",
@@ -55681,7 +55681,7 @@
     "walkingIntensity": "high",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 7,
+      "min": 8,
       "max": 12
     },
     "businessHours": "Open access",
@@ -55708,7 +55708,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance major, 2 children, metro=false"
+      "basis": "hub exploration window: importance major, 3 children, metro=false"
     },
     "walkingMetadata": {
       "method": "model",
@@ -242911,7 +242911,6 @@
     "collections": [],
     "relationships": {},
     "editorial": {
-      "lifecycle": "approved",
       "freshness": "current",
       "checkedAt": "2026-08-31",
       "reviewedAt": "2026-08-31",
@@ -242984,7 +242983,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance notable, 0 children, metro=false",
+            "title": "hub-window-model-v1; hub exploration window: importance notable, 2 children, metro=false",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -243015,7 +243014,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance notable, 0 children, metro=false"
+      "basis": "hub exploration window: importance notable, 2 children, metro=false"
     },
     "walkingMin": 360,
     "walkingIntensity": "high",
@@ -246240,6 +246239,3716 @@
       "provenance": {
         "sourceClass": "model",
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "former-mikasa-hotel",
+    "name": "Former Mikasa Hotel",
+    "nameJa": "旧三笠ホテル",
+    "aliases": [
+      "Old Mikasa Hotel",
+      "Kyu-Mikasa Hotel"
+    ],
+    "officialWebsite": "https://karuizawa-kankokyokai.jp/spot/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:karuizawa",
+    "kind": "historic",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "History",
+      "Architecture",
+      "Culture"
+    ],
+    "tags": [
+      "Historic Building",
+      "Architecture",
+      "Karuizawa",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Old_mikasa_hotel02s3872.jpg/1280px-Old_mikasa_hotel02s3872.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_mikasa_hotel02s3872.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.3731331,
+      "lng": 138.6262318
+    },
+    "description": "The Former Mikasa Hotel is a preserved Western-style resort hotel and a distinct heritage stop within Karuizawa's historic landscape.",
+    "highlights": [
+      "Historic resort architecture",
+      "Karuizawa heritage context",
+      "Distinct from the town-wide Karuizawa record"
+    ],
+    "content": {
+      "en": {
+        "name": "Former Mikasa Hotel",
+        "description": "The Former Mikasa Hotel is a preserved Western-style resort hotel and a distinct heritage stop within Karuizawa's historic landscape.",
+        "highlights": [
+          "Historic resort architecture",
+          "Karuizawa heritage context",
+          "Distinct from the town-wide Karuizawa record"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "旧三笠ホテル",
+        "description": "旧三笠ホテルは、軽井沢の歴史的な景観を伝える保存された西洋式のリゾートホテル建築です。",
+        "highlights": [
+          "歴史的なリゾート建築",
+          "軽井沢の近代史",
+          "軽井沢町全体のレコードとは別の見どころ"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://karuizawa-kankokyokai.jp/spot/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "karuizawa-town"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/spot/",
+          "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/4365279592",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://karuizawa-kankokyokai.jp/spot/",
+            "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://karuizawa-kankokyokai.jp/spot/",
+            "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://karuizawa-kankokyokai.jp/spot/",
+            "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/4365279592",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Old_mikasa_hotel02s3872.jpg",
+            "title": "Former Mikasa Hotel image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://karuizawa-kankokyokai.jp/spot/",
+            "title": "Karuizawa Tourism Association — Former Mikasa Hotel",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 60,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kagami-pond",
+    "name": "Kagami Pond",
+    "nameJa": "鏡池",
+    "aliases": [
+      "Kagami-ike",
+      "Togakushi Kagami Pond"
+    ],
+    "officialWebsite": "https://togakushi-21.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:nagano",
+    "kind": "lake",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Nature",
+      "Lake",
+      "Photography"
+    ],
+    "tags": [
+      "Lake",
+      "Nature",
+      "Togakushi",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Kagami_Pond_and_Mount_Togakushi_at_the_back%2C_Nagano_Prefecture%3B_September_2019.jpg/1280px-Kagami_Pond_and_Mount_Togakushi_at_the_back%2C_Nagano_Prefecture%3B_September_2019.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kagami_Pond_and_Mount_Togakushi_at_the_back,_Nagano_Prefecture;_September_2019.jpg",
+      "license": "CC BY-SA 2.0",
+      "attribution": "Big Ben in Japan",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.7503693,
+      "lng": 138.0619696
+    },
+    "description": "Kagami Pond is a reflective forest lake in Togakushi with a direct visual relationship to the surrounding mountain and shrine landscape.",
+    "highlights": [
+      "Reflective mountain views",
+      "Forest setting",
+      "Distinct from Togakushi Shrine"
+    ],
+    "content": {
+      "en": {
+        "name": "Kagami Pond",
+        "description": "Kagami Pond is a reflective forest lake in Togakushi with a direct visual relationship to the surrounding mountain and shrine landscape.",
+        "highlights": [
+          "Reflective mountain views",
+          "Forest setting",
+          "Distinct from Togakushi Shrine"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "鏡池",
+        "description": "鏡池は、戸隠の森と山々を水面に映す湖で、戸隠神社周辺の自然景観を補う見どころです。",
+        "highlights": [
+          "山々を映す水面",
+          "森に囲まれた景観",
+          "戸隠神社とは別の自然スポット"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://togakushi-21.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "togakushi-shrine"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://togakushi-21.jp/",
+          "title": "Togakushi Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/5122390221",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://togakushi-21.jp/",
+            "title": "Togakushi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://togakushi-21.jp/",
+            "title": "Togakushi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://togakushi-21.jp/",
+            "title": "Togakushi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/5122390221",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Kagami_Pond_and_Mount_Togakushi_at_the_back,_Nagano_Prefecture;_September_2019.jpg",
+            "title": "Kagami Pond image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://togakushi-21.jp/",
+            "title": "Togakushi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 95,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "shibu-onsen",
+    "name": "Shibu Onsen",
+    "nameJa": "渋温泉",
+    "aliases": [
+      "Shibu Hot Spring",
+      "Shibu Onsen Town"
+    ],
+    "officialWebsite": "https://www.shibuonsen.net/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:yamanouchi",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Hot Springs",
+      "Culture",
+      "History"
+    ],
+    "tags": [
+      "Onsen",
+      "Ryokan",
+      "Yamanouchi",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Shibu_onsen_night_view.jpg/1280px-Shibu_onsen_night_view.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shibu_onsen_night_view.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Totti",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.7343852,
+      "lng": 138.4305856
+    },
+    "description": "Shibu Onsen is a historic hot-spring settlement in Yamanouchi known for its compact streetscape, bathhouse culture, and ryokan setting.",
+    "highlights": [
+      "Historic onsen streets",
+      "Ryokan town atmosphere",
+      "Yamanouchi hot-spring culture"
+    ],
+    "content": {
+      "en": {
+        "name": "Shibu Onsen",
+        "description": "Shibu Onsen is a historic hot-spring settlement in Yamanouchi known for its compact streetscape, bathhouse culture, and ryokan setting.",
+        "highlights": [
+          "Historic onsen streets",
+          "Ryokan town atmosphere",
+          "Yamanouchi hot-spring culture"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "渋温泉",
+        "description": "渋温泉は、共同浴場文化と旅館街の景観が残る山ノ内町の歴史ある温泉街です。",
+        "highlights": [
+          "歴史ある温泉街",
+          "旅館街の雰囲気",
+          "山ノ内の温泉文化"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.shibuonsen.net/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shibuonsen.net/",
+          "title": "Shibu Onsen official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/5209200386",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.shibuonsen.net/",
+            "title": "Shibu Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.shibuonsen.net/",
+            "title": "Shibu Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.shibuonsen.net/",
+            "title": "Shibu Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/5209200386",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Shibu_onsen_night_view.jpg",
+            "title": "Shibu Onsen image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.shibuonsen.net/",
+            "title": "Shibu Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'onsen'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'onsen'"
+    }
+  },
+  {
+    "id": "shiga-kogen",
+    "name": "Shiga Kogen",
+    "nameJa": "志賀高原",
+    "aliases": [
+      "Shiga Highlands",
+      "Shiga Kogen Highlands"
+    ],
+    "officialWebsite": "https://www.shigakogen.gr.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:yamanouchi",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Nature",
+      "Mountain",
+      "Outdoor Activities"
+    ],
+    "tags": [
+      "Highlands",
+      "Mountains",
+      "Yamanouchi",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Shiga_Kogen_from_Nozoki04n4272.jpg/1280px-Shiga_Kogen_from_Nozoki04n4272.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiga_Kogen_from_Nozoki04n4272.jpg",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.7330511,
+      "lng": 138.4316714
+    },
+    "description": "Shiga Kogen is a broad highland recreation and nature area in Yamanouchi, distinct from the smaller Shibu Onsen settlement.",
+    "highlights": [
+      "Highland landscapes",
+      "Large mountain recreation area",
+      "Distinct from Shibu Onsen"
+    ],
+    "content": {
+      "en": {
+        "name": "Shiga Kogen",
+        "description": "Shiga Kogen is a broad highland recreation and nature area in Yamanouchi, distinct from the smaller Shibu Onsen settlement.",
+        "highlights": [
+          "Highland landscapes",
+          "Large mountain recreation area",
+          "Distinct from Shibu Onsen"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "志賀高原",
+        "description": "志賀高原は、渋温泉街とは異なる、山ノ内町の広域的な高原自然・レクリエーションエリアです。",
+        "highlights": [
+          "高原の景観",
+          "広い山岳レクリエーションエリア",
+          "渋温泉とは別の自然エリア"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.shigakogen.gr.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shigakogen.gr.jp/",
+          "title": "Shiga Kogen official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/4687972416",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.shigakogen.gr.jp/",
+            "title": "Shiga Kogen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.shigakogen.gr.jp/",
+            "title": "Shiga Kogen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.shigakogen.gr.jp/",
+            "title": "Shiga Kogen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/4687972416",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Shiga_Kogen_from_Nozoki04n4272.jpg",
+            "title": "Shiga Kogen image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.shigakogen.gr.jp/",
+            "title": "Shiga Kogen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'mountain'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 385,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 8h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'mountain'"
+    }
+  },
+  {
+    "id": "matsumoto-nakamachi-nawate",
+    "name": "Nakamachi and Nawate Streets",
+    "nameJa": "中町通り・縄手通り",
+    "aliases": [
+      "Nakamachi Street",
+      "Nawate Street",
+      "Matsumoto Historic Streets"
+    ],
+    "officialWebsite": "https://visitmatsumoto.com/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:matsumoto",
+    "kind": "street",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "History",
+      "Shopping",
+      "Culture"
+    ],
+    "tags": [
+      "Historic Street",
+      "Shopping",
+      "Matsumoto",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Nakamachi_street_Matsumoto_Nagano_pref_Japan07n.jpg/1280px-Nakamachi_street_Matsumoto_Nagano_pref_Japan07n.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nakamachi_street_Matsumoto_Nagano_pref_Japan07n.jpg",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.2344,
+      "lng": 137.971
+    },
+    "description": "Nakamachi and Nawate Streets form a walkable historic and shopping pair in central Matsumoto, complementing the castle without duplicating it.",
+    "highlights": [
+      "Historic storehouses",
+      "Riverside Nawate streetscape",
+      "Central Matsumoto walking route"
+    ],
+    "content": {
+      "en": {
+        "name": "Nakamachi and Nawate Streets",
+        "description": "Nakamachi and Nawate Streets form a walkable historic and shopping pair in central Matsumoto, complementing the castle without duplicating it.",
+        "highlights": [
+          "Historic storehouses",
+          "Riverside Nawate streetscape",
+          "Central Matsumoto walking route"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "中町通り・縄手通り",
+        "description": "中町通りと縄手通りは、松本城とは別に歩いて楽しめる、中心市街地の歴史・商店街エリアです。",
+        "highlights": [
+          "土蔵造りの町並み",
+          "川沿いの縄手通り",
+          "松本中心部の散策ルート"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://visitmatsumoto.com/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "matsumoto-city"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://visitmatsumoto.com/",
+          "title": "Matsumoto Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/4643762692",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://visitmatsumoto.com/",
+            "title": "Matsumoto Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://visitmatsumoto.com/",
+            "title": "Matsumoto Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://visitmatsumoto.com/",
+            "title": "Matsumoto Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/4643762692",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Nakamachi_street_Matsumoto_Nagano_pref_Japan07n.jpg",
+            "title": "Nakamachi and Nawate Streets image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://visitmatsumoto.com/",
+            "title": "Matsumoto Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 90,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 3h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "utsukushigahara-highlands",
+    "name": "Utsukushigahara Highlands",
+    "nameJa": "美ヶ原高原",
+    "aliases": [
+      "Utsukushigahara",
+      "Utsukushigahara Plateau"
+    ],
+    "officialWebsite": "https://www.utsukushi2034.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:ueda",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Nature",
+      "Mountain",
+      "Viewpoint"
+    ],
+    "tags": [
+      "Highlands",
+      "Viewpoint",
+      "Ueda",
+      "Matsumoto"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg/1280px-%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Yobito KAYANUMA",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.2307236,
+      "lng": 138.140291
+    },
+    "description": "Utsukushigahara is a high open plateau on the Matsumoto-Ueda side of Nagano, best treated as a broad nature destination rather than as a museum shell.",
+    "highlights": [
+      "Open plateau landscapes",
+      "Highland viewpoints",
+      "Broad nature destination"
+    ],
+    "content": {
+      "en": {
+        "name": "Utsukushigahara Highlands",
+        "description": "Utsukushigahara is a high open plateau on the Matsumoto-Ueda side of Nagano, best treated as a broad nature destination rather than as a museum shell.",
+        "highlights": [
+          "Open plateau landscapes",
+          "Highland viewpoints",
+          "Broad nature destination"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "美ヶ原高原",
+        "description": "美ヶ原は、松本・上田側に広がる開放的な高原で、単一施設ではなく広域の自然目的地として扱います。",
+        "highlights": [
+          "開けた高原景観",
+          "高原の展望",
+          "広域の自然目的地"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.utsukushi2034.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "matsumoto-city"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.utsukushi2034.jp/",
+          "title": "Utsukushigahara Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/117369484",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.utsukushi2034.jp/",
+            "title": "Utsukushigahara Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.utsukushi2034.jp/",
+            "title": "Utsukushigahara Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.utsukushi2034.jp/",
+            "title": "Utsukushigahara Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/117369484",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:%E7%BE%8E%E3%83%B6%E5%8E%9F%E3%82%B9%E3%82%AB%E3%82%A4%E3%83%A9%E3%82%A4%E3%83%B3_-_panoramio_-_Yobito_KAYANUMA.jpg",
+            "title": "Utsukushigahara Highlands image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.utsukushi2034.jp/",
+            "title": "Utsukushigahara Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 6h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'mountain'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 290,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 6h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'mountain'"
+    }
+  },
+  {
+    "id": "anrakuji-temple-ueda",
+    "name": "Anrakuji Temple",
+    "nameJa": "安楽寺",
+    "aliases": [
+      "Anraku-ji",
+      "Anrakuji Octagonal Pagoda"
+    ],
+    "officialWebsite": "https://www.bessho-spa.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:ueda",
+    "kind": "temple",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Temple",
+      "History",
+      "Culture"
+    ],
+    "tags": [
+      "Temple",
+      "Pagoda",
+      "Bessho Onsen",
+      "Ueda"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Anrakuji_Hakkakusanjyuunotou_BessyoOnsen.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anrakuji_Hakkakusanjyuunotou_BessyoOnsen.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Wikimedia Commons contributor",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.3521426,
+      "lng": 138.1531466
+    },
+    "description": "Anrakuji is a Soto Zen temple in Bessho Onsen, known for its historic octagonal pagoda and distinct religious heritage.",
+    "highlights": [
+      "Historic octagonal pagoda",
+      "Bessho Onsen heritage",
+      "Distinct temple identity"
+    ],
+    "content": {
+      "en": {
+        "name": "Anrakuji Temple",
+        "description": "Anrakuji is a Soto Zen temple in Bessho Onsen, known for its historic octagonal pagoda and distinct religious heritage.",
+        "highlights": [
+          "Historic octagonal pagoda",
+          "Bessho Onsen heritage",
+          "Distinct temple identity"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "安楽寺",
+        "description": "安楽寺は別所温泉にある曹洞宗の寺院で、歴史的な八角三重塔と独自の文化遺産で知られます。",
+        "highlights": [
+          "歴史ある八角三重塔",
+          "別所温泉の文化遺産",
+          "独立した寺院レコード"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.bessho-spa.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "nagano-bessho-onsen",
+        "kitamuki-kannon"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.bessho-spa.jp/",
+          "title": "Bessho Onsen Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/5210313925",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/5210313925",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Anrakuji_Hakkakusanjyuunotou_BessyoOnsen.jpg",
+            "title": "Anrakuji Temple image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kitamuki-kannon",
+    "name": "Kitamuki Kannon",
+    "nameJa": "北向観音",
+    "aliases": [
+      "Kitamuki Kannon Temple",
+      "Kitamuki Kannon-do"
+    ],
+    "officialWebsite": "https://www.bessho-spa.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:ueda",
+    "kind": "temple",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Temple",
+      "Culture",
+      "History"
+    ],
+    "tags": [
+      "Temple",
+      "Kannon",
+      "Bessho Onsen",
+      "Ueda"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Interior_of_Kitamuki_Iwaya_Juichimen_Kannon_201602.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Interior_of_Kitamuki_Iwaya_Juichimen_Kannon_201602.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Kazuindahouse5201",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.3498913,
+      "lng": 138.1564174
+    },
+    "description": "Kitamuki Kannon is a separate Kannon temple in Bessho Onsen, forming a natural cultural counterpart to Anrakuji rather than a duplicate of it.",
+    "highlights": [
+      "Kannon worship",
+      "Bessho Onsen temple walk",
+      "Related but distinct from Anrakuji"
+    ],
+    "content": {
+      "en": {
+        "name": "Kitamuki Kannon",
+        "description": "Kitamuki Kannon is a separate Kannon temple in Bessho Onsen, forming a natural cultural counterpart to Anrakuji rather than a duplicate of it.",
+        "highlights": [
+          "Kannon worship",
+          "Bessho Onsen temple walk",
+          "Related but distinct from Anrakuji"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "北向観音",
+        "description": "北向観音は別所温泉にある独立した観音堂で、安楽寺とは異なる文化的見どころとして位置づけます。",
+        "highlights": [
+          "観音信仰",
+          "別所温泉の寺社散策",
+          "安楽寺とは関連する別の寺院"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.bessho-spa.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "anrakuji-temple-ueda",
+        "nagano-bessho-onsen"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.bessho-spa.jp/",
+          "title": "Bessho Onsen Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/3393797481",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/3393797481",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Interior_of_Kitamuki_Iwaya_Juichimen_Kannon_201602.jpg",
+            "title": "Kitamuki Kannon image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.bessho-spa.jp/",
+            "title": "Bessho Onsen Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "yanagimachi-street-ueda",
+    "name": "Yanagimachi Street",
+    "nameJa": "柳町通り",
+    "aliases": [
+      "Ueda Yanagimachi",
+      "Old Hokkokukaido Yanagimachi"
+    ],
+    "officialWebsite": "https://ueda-kanko.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:ueda",
+    "kind": "street",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "History",
+      "Shopping",
+      "Food"
+    ],
+    "tags": [
+      "Historic Street",
+      "Food",
+      "Ueda",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Ueda-Yanagimachi1.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ueda-Yanagimachi1.jpg",
+      "license": "Public domain",
+      "attribution": "大友ディミトリ",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.4058268,
+      "lng": 138.2531181
+    },
+    "description": "Yanagimachi Street preserves a section of Ueda's old Hokkokukaido atmosphere with historic buildings, food, and small-scale town walking.",
+    "highlights": [
+      "Historic highway streetscape",
+      "Small shops and food",
+      "Distinct Ueda town walk"
+    ],
+    "content": {
+      "en": {
+        "name": "Yanagimachi Street",
+        "description": "Yanagimachi Street preserves a section of Ueda's old Hokkokukaido atmosphere with historic buildings, food, and small-scale town walking.",
+        "highlights": [
+          "Historic highway streetscape",
+          "Small shops and food",
+          "Distinct Ueda town walk"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "柳町通り",
+        "description": "柳町通りは、歴史的な建物や食の店が残る、上田の旧北国街道を感じられる町歩きエリアです。",
+        "highlights": [
+          "旧街道の町並み",
+          "小さな店と食",
+          "上田の町歩き"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://ueda-kanko.or.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "ueda-castle-nagano"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://ueda-kanko.or.jp/",
+          "title": "Ueda Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/13065174901",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://ueda-kanko.or.jp/",
+            "title": "Ueda Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://ueda-kanko.or.jp/",
+            "title": "Ueda Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://ueda-kanko.or.jp/",
+            "title": "Ueda Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/13065174901",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Ueda-Yanagimachi1.jpg",
+            "title": "Yanagimachi Street image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://ueda-kanko.or.jp/",
+            "title": "Ueda Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 60,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "kirigamine-highlands",
+    "name": "Kirigamine Highlands",
+    "nameJa": "霧ヶ峰高原",
+    "aliases": [
+      "Kirigamine",
+      "Kirigamine Plateau"
+    ],
+    "officialWebsite": "https://www.suwakanko.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:suwa",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Nature",
+      "Mountain",
+      "Outdoor Activities"
+    ],
+    "tags": [
+      "Highlands",
+      "Nature",
+      "Suwa",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Kirigamine_seen_from_the_east_2018-03-04.jpg/1280px-Kirigamine_seen_from_the_east_2018-03-04.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kirigamine_seen_from_the_east_2018-03-04.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Koda6029",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.0973159,
+      "lng": 138.1674446
+    },
+    "description": "Kirigamine is an open highland area east of Lake Suwa, offering a separate nature identity from the shrine and lake destinations around Suwa.",
+    "highlights": [
+      "Open highland scenery",
+      "Highland walking",
+      "Suwa-area nature context"
+    ],
+    "content": {
+      "en": {
+        "name": "Kirigamine Highlands",
+        "description": "Kirigamine is an open highland area east of Lake Suwa, offering a separate nature identity from the shrine and lake destinations around Suwa.",
+        "highlights": [
+          "Open highland scenery",
+          "Highland walking",
+          "Suwa-area nature context"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "霧ヶ峰高原",
+        "description": "霧ヶ峰は諏訪湖東側に広がる開放的な高原で、諏訪の社寺や湖とは異なる自然の目的地です。",
+        "highlights": [
+          "開放的な高原景観",
+          "高原散策",
+          "諏訪周辺の自然"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.suwakanko.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "suwa-taisha"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.suwakanko.jp/",
+          "title": "Suwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/2430769431",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.suwakanko.jp/",
+            "title": "Suwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.suwakanko.jp/",
+            "title": "Suwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.suwakanko.jp/",
+            "title": "Suwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/2430769431",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Kirigamine_seen_from_the_east_2018-03-04.jpg",
+            "title": "Kirigamine Highlands image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.suwakanko.jp/",
+            "title": "Suwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'mountain'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 190,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'mountain'"
+    }
+  },
+  {
+    "id": "yashimagahara-wetland",
+    "name": "Yashimagahara Wetland",
+    "nameJa": "八島ヶ原湿原",
+    "aliases": [
+      "Yashimagahara Marsh",
+      "Yashimagahara Shitsugen"
+    ],
+    "officialWebsite": "https://shimosuwaonsen.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:shimosuwa",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Nature",
+      "Wetland",
+      "Hiking"
+    ],
+    "tags": [
+      "Wetland",
+      "Nature",
+      "Shimosuwa",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Yashimagahara_Wetland_05.jpg/1280px-Yashimagahara_Wetland_05.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yashimagahara_Wetland_05.jpg",
+      "license": "CC BY 3.0",
+      "attribution": "Σ64",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.1190053,
+      "lng": 138.166393
+    },
+    "description": "Yashimagahara Wetland is a highland marsh with a distinct walking and seasonal plant landscape, separate from the broader Kirigamine record.",
+    "highlights": [
+      "Highland wetland",
+      "Boardwalk landscape",
+      "Seasonal plants"
+    ],
+    "content": {
+      "en": {
+        "name": "Yashimagahara Wetland",
+        "description": "Yashimagahara Wetland is a highland marsh with a distinct walking and seasonal plant landscape, separate from the broader Kirigamine record.",
+        "highlights": [
+          "Highland wetland",
+          "Boardwalk landscape",
+          "Seasonal plants"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "八島ヶ原湿原",
+        "description": "八島ヶ原湿原は、季節の植物と木道散策が特徴の高層湿原で、霧ヶ峰全体とは別の自然見どころです。",
+        "highlights": [
+          "高層湿原",
+          "木道の景観",
+          "季節の植物"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://shimosuwaonsen.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "kirigamine-highlands"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://shimosuwaonsen.jp/",
+          "title": "Shimosuwa Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/386612549",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://shimosuwaonsen.jp/",
+            "title": "Shimosuwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://shimosuwaonsen.jp/",
+            "title": "Shimosuwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://shimosuwaonsen.jp/",
+            "title": "Shimosuwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/386612549",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Yashimagahara_Wetland_05.jpg",
+            "title": "Yashimagahara Wetland image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://shimosuwaonsen.jp/",
+            "title": "Shimosuwa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'nature'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'nature'"
+    }
+  },
+  {
+    "id": "lake-shirakaba",
+    "name": "Lake Shirakaba",
+    "nameJa": "白樺湖",
+    "aliases": [
+      "Shirakaba-ko",
+      "Shirakaba Lake"
+    ],
+    "officialWebsite": "https://www.shirakabako.com/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:chino",
+    "kind": "lake",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Nature",
+      "Lake",
+      "Outdoor Activities"
+    ],
+    "tags": [
+      "Lake",
+      "Highlands",
+      "Chino",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Lake_Shirakaba11bs4272.jpg/1280px-Lake_Shirakaba11bs4272.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lake_Shirakaba11bs4272.jpg",
+      "license": "CC BY 2.5",
+      "attribution": "663highland",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.1057761,
+      "lng": 138.237963
+    },
+    "description": "Lake Shirakaba is a highland lake and resort landscape on the Venus Line, distinct from Lake Suwa and the Kirigamine wetland.",
+    "highlights": [
+      "Highland lake",
+      "Resort landscape",
+      "Venus Line context"
+    ],
+    "content": {
+      "en": {
+        "name": "Lake Shirakaba",
+        "description": "Lake Shirakaba is a highland lake and resort landscape on the Venus Line, distinct from Lake Suwa and the Kirigamine wetland.",
+        "highlights": [
+          "Highland lake",
+          "Resort landscape",
+          "Venus Line context"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "白樺湖",
+        "description": "白樺湖はビーナスライン沿いの高原湖・リゾート景観で、諏訪湖や霧ヶ峰湿原とは異なる目的地です。",
+        "highlights": [
+          "高原湖",
+          "リゾート景観",
+          "ビーナスライン周辺"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.shirakabako.com/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "kirigamine-highlands"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shirakabako.com/",
+          "title": "Lake Shirakaba Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/relation/2314066",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.shirakabako.com/",
+            "title": "Lake Shirakaba Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.shirakabako.com/",
+            "title": "Lake Shirakaba Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.shirakabako.com/",
+            "title": "Lake Shirakaba Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/relation/2314066",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Lake_Shirakaba11bs4272.jpg",
+            "title": "Lake Shirakaba image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.shirakabako.com/",
+            "title": "Lake Shirakaba Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'lake'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 190,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'lake'"
+    }
+  },
+  {
+    "id": "hirugami-onsen",
+    "name": "Hirugami Onsen",
+    "nameJa": "昼神温泉",
+    "aliases": [
+      "Hirugami Hot Spring",
+      "Hirugami Onsen Village"
+    ],
+    "officialWebsite": "https://hirugamionsen.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:achi",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Hot Springs",
+      "Relaxation",
+      "Nature"
+    ],
+    "tags": [
+      "Onsen",
+      "Achi",
+      "Wellness",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Hirugami001.JPG/1280px-Hirugami001.JPG",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hirugami001.JPG",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Opqr",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 35.4562619,
+      "lng": 137.7146019
+    },
+    "description": "Hirugami Onsen is a hot-spring settlement in Achi, providing a concrete southern Nagano wellness anchor alongside the area's night-sky attractions.",
+    "highlights": [
+      "Hot-spring settlement",
+      "Achi village context",
+      "Southern Nagano stay base"
+    ],
+    "content": {
+      "en": {
+        "name": "Hirugami Onsen",
+        "description": "Hirugami Onsen is a hot-spring settlement in Achi, providing a concrete southern Nagano wellness anchor alongside the area's night-sky attractions.",
+        "highlights": [
+          "Hot-spring settlement",
+          "Achi village context",
+          "Southern Nagano stay base"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "昼神温泉",
+        "description": "昼神温泉は阿智村の温泉街で、星空観賞など阿智地域の観光と組み合わせられる南信州の滞在拠点です。",
+        "highlights": [
+          "温泉街",
+          "阿智村の観光",
+          "南信州の滞在拠点"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://hirugamionsen.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://hirugamionsen.jp/",
+          "title": "Hirugami Onsen official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/8207895833",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://hirugamionsen.jp/",
+            "title": "Hirugami Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://hirugamionsen.jp/",
+            "title": "Hirugami Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://hirugamionsen.jp/",
+            "title": "Hirugami Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/8207895833",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Hirugami001.JPG",
+            "title": "Hirugami Onsen image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://hirugamionsen.jp/",
+            "title": "Hirugami Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'onsen'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'onsen'"
+    }
+  },
+  {
+    "id": "hokusai-museum-obuse",
+    "name": "Hokusai Museum",
+    "nameJa": "北斎館",
+    "aliases": [
+      "Hokusai-kan",
+      "Obuse Hokusai Museum"
+    ],
+    "officialWebsite": "https://hokusai-kan.com/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:obuse",
+    "kind": "museum",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Museum",
+      "Art",
+      "Culture"
+    ],
+    "tags": [
+      "Hokusai",
+      "Museum",
+      "Obuse",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Hokusai_Museum.jpg/1280px-Hokusai_Museum.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hokusai_Museum.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "キャンター",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.6940706,
+      "lng": 138.3172117
+    },
+    "description": "The Hokusai Museum is Obuse's dedicated art anchor, preserving a discoverable museum identity within the wider chestnut and historic-town destination.",
+    "highlights": [
+      "Hokusai-focused collection",
+      "Obuse cultural anchor",
+      "Distinct museum identity"
+    ],
+    "content": {
+      "en": {
+        "name": "Hokusai Museum",
+        "description": "The Hokusai Museum is Obuse's dedicated art anchor, preserving a discoverable museum identity within the wider chestnut and historic-town destination.",
+        "highlights": [
+          "Hokusai-focused collection",
+          "Obuse cultural anchor",
+          "Distinct museum identity"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "北斎館",
+        "description": "北斎館は、小布施の栗や歴史的な町並みとは別に、北斎作品を軸とする美術館として訪ねられる文化拠点です。",
+        "highlights": [
+          "北斎を軸にした展示",
+          "小布施の文化拠点",
+          "独立した美術館レコード"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://hokusai-kan.com/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "obuse-town"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://hokusai-kan.com/",
+          "title": "Hokusai Museum official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/228926051",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://hokusai-kan.com/",
+            "title": "Hokusai Museum official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://hokusai-kan.com/",
+            "title": "Hokusai Museum official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://hokusai-kan.com/",
+            "title": "Hokusai Museum official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/228926051",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Hokusai_Museum.jpg",
+            "title": "Hokusai Museum image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://hokusai-kan.com/",
+            "title": "Hokusai Museum official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "season": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "bestMonths": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "bestSeason": "All Year (indoor)",
+    "seasonMetadata": {
+      "method": "model",
+      "modelVersion": "season-model-v1",
+      "confidence": "low",
+      "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+    },
+    "walkingMin": 60,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "gansho-in-temple",
+    "name": "Gansho-in Temple",
+    "nameJa": "岩松院",
+    "aliases": [
+      "Ganshoin",
+      "Gansho-in Temple Obuse"
+    ],
+    "officialWebsite": "https://www.gansho-in.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Nagano:obuse",
+    "kind": "temple",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "categories": [
+      "Temple",
+      "History",
+      "Culture"
+    ],
+    "tags": [
+      "Temple",
+      "History",
+      "Obuse",
+      "Nagano"
+    ],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Ganshoin_Hondo_01.jpg/1280px-Ganshoin_Hondo_01.jpg",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ganshoin_Hondo_01.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Tawashi2006",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.6984606,
+      "lng": 138.3338805
+    },
+    "description": "Gansho-in is a historic temple in Obuse with a distinct cultural identity from the Hokusai Museum and the town-wide record.",
+    "highlights": [
+      "Historic temple setting",
+      "Obuse cultural walk",
+      "Distinct from Hokusai Museum"
+    ],
+    "content": {
+      "en": {
+        "name": "Gansho-in Temple",
+        "description": "Gansho-in is a historic temple in Obuse with a distinct cultural identity from the Hokusai Museum and the town-wide record.",
+        "highlights": [
+          "Historic temple setting",
+          "Obuse cultural walk",
+          "Distinct from Hokusai Museum"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "岩松院",
+        "description": "岩松院は小布施にある歴史ある寺院で、北斎館や小布施町全体のレコードとは異なる文化的な見どころです。",
+        "highlights": [
+          "歴史ある寺院の景観",
+          "小布施の文化散策",
+          "北斎館とは別の見どころ"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.gansho-in.or.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "obuse-town"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gansho-in.or.jp/",
+          "title": "Gansho-in Temple official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/916914777",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.gansho-in.or.jp/",
+            "title": "Gansho-in Temple official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.gansho-in.or.jp/",
+            "title": "Gansho-in Temple official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.gansho-in.or.jp/",
+            "title": "Gansho-in Temple official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/916914777",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Ganshoin_Hondo_01.jpg",
+            "title": "Gansho-in Temple image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.gansho-in.or.jp/",
+            "title": "Gansho-in Temple official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }

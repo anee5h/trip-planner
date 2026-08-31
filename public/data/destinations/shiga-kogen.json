@@ -1,0 +1,232 @@
+{
+  "id": "shiga-kogen",
+  "name": "Shiga Kogen",
+  "nameJa": "志賀高原",
+  "aliases": ["Shiga Highlands", "Shiga Kogen Highlands"],
+  "officialWebsite": "https://www.shigakogen.gr.jp/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Nagano:yamanouchi",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "categories": ["Nature", "Mountain", "Outdoor Activities"],
+  "tags": ["Highlands", "Mountains", "Yamanouchi", "Nagano"],
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Shiga_Kogen_from_Nozoki04n4272.jpg/1280px-Shiga_Kogen_from_Nozoki04n4272.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shiga_Kogen_from_Nozoki04n4272.jpg",
+    "license": "CC BY 2.5",
+    "attribution": "663highland",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.7330511,
+    "lng": 138.4316714
+  },
+  "description": "Shiga Kogen is a broad highland recreation and nature area in Yamanouchi, distinct from the smaller Shibu Onsen settlement.",
+  "highlights": [
+    "Highland landscapes",
+    "Large mountain recreation area",
+    "Distinct from Shibu Onsen"
+  ],
+  "content": {
+    "en": {
+      "name": "Shiga Kogen",
+      "description": "Shiga Kogen is a broad highland recreation and nature area in Yamanouchi, distinct from the smaller Shibu Onsen settlement.",
+      "highlights": [
+        "Highland landscapes",
+        "Large mountain recreation area",
+        "Distinct from Shibu Onsen"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "志賀高原",
+      "description": "志賀高原は、渋温泉街とは異なる、山ノ内町の広域的な高原自然・レクリエーションエリアです。",
+      "highlights": [
+        "高原の景観",
+        "広い山岳レクリエーションエリア",
+        "渋温泉とは別の自然エリア"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://www.shigakogen.gr.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 8
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.shigakogen.gr.jp/",
+        "title": "Shiga Kogen official website",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/node/4687972416",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.shigakogen.gr.jp/",
+          "title": "Shiga Kogen official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.shigakogen.gr.jp/",
+          "title": "Shiga Kogen official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.shigakogen.gr.jp/",
+          "title": "Shiga Kogen official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/4687972416",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Shiga_Kogen_from_Nozoki04n4272.jpg",
+          "title": "Shiga Kogen image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.shigakogen.gr.jp/",
+          "title": "Shiga Kogen official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'mountain'",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 385,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 8h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'mountain'"
+  }
+}

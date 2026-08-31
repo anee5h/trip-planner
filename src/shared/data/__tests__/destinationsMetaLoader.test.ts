@@ -9,10 +9,10 @@ import { formatPrefectureId } from "@/shared/hooks/useTripStore";
 import { loadDestinationsMeta } from "@/shared/data/destinationsMetaLoader";
 
 describe("KAI-147 destinations-meta lazy loader", () => {
-  it("resolves the full 1081-entry meta index at runtime", async () => {
+  it("resolves the full 1096-entry meta index at runtime", async () => {
     const meta = await loadDestinationsMeta();
     expect(Array.isArray(meta)).toBe(true);
-    expect(meta.length).toBe(1081);
+    expect(meta.length).toBe(1096);
     const sample = meta.find((d) => d.id === "abashiri-city");
     expect(sample?.prefecture).toBe("Hokkaido");
   });
