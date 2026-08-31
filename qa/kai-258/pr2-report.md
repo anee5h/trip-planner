@@ -43,7 +43,7 @@ KAI-177 overlap ownership: Mount Tanigawa, Lake Haruna, Haruna Shrine, Fukiware 
 - Branch: `data/kai-258b-gunma-p0-anchor-depth`
 - Base branch: `data/kai-258a-nagano-p0-anchor-depth`
 - Base head: `ce51de8bd0bd664207727e4afbc7c31cb88b8bf4`
-- Commit: to be filled after the verified commit
+- Commit: `1de540b605df5c01d8592287d9896c7121726dd5`
 - Pull request: to be filled after push/open
 - Merge status: **STOPPED — not merged**
 
