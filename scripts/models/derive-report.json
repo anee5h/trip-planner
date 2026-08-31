@@ -256,7 +256,8 @@
       "national-museum-japanese-history-sakura",
       "inubosaki-lighthouse-choshi",
       "byobugaura-choshi",
-      "hokusai-museum-obuse"
+      "hokusai-museum-obuse",
+      "usui-pass-railway-heritage-park"
     ],
     "duration-model-v1": [
       "abeno-harukas-300-osaka",
@@ -507,7 +508,13 @@
       "kirigamine-highlands",
       "yashimagahara-wetland",
       "lake-shirakaba",
-      "hirugami-onsen"
+      "hirugami-onsen",
+      "mt-myogi",
+      "usui-pass-railway-heritage-park",
+      "oigami-onsen",
+      "manza-onsen",
+      "mt-akagi",
+      "lake-onuma-akagi"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -901,7 +908,18 @@
       "lake-shirakaba",
       "hirugami-onsen",
       "hokusai-museum-obuse",
-      "gansho-in-temple"
+      "gansho-in-temple",
+      "doai-station",
+      "ikaho-stone-steps",
+      "mt-myogi",
+      "myogi-shrine",
+      "usui-pass-railway-heritage-park",
+      "oigami-onsen",
+      "manza-onsen",
+      "mt-akagi",
+      "lake-onuma-akagi",
+      "akagi-shrine",
+      "watarase-keikoku-railway"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1989,7 +2007,6 @@
     "visitDuration:480983978476",
     "visitDuration:b2a5eb034cbe",
     "visitDuration:fe496e42c678",
-    "season:248edaf45789",
     "season:96690f810f73",
     "season:6b05ba8b5e86",
     "season:cf719c225387",
@@ -2023,56 +2040,20 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-31T04:18",
-    "changeCount": 7,
+    "at": "2026-08-31T05:05",
+    "changeCount": 1,
     "byModel": [
       [
-        "duration-model-v1",
-        7
+        "hub-window-model-v1",
+        1
       ]
     ],
     "sample": [
       {
-        "id": "shibu-onsen",
-        "model": "duration-model-v1",
+        "id": "kusatsu-town",
+        "model": "hub-window-model-v1",
         "action": "set",
-        "reason": "kind band 'onsen'"
-      },
-      {
-        "id": "shiga-kogen",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'mountain'"
-      },
-      {
-        "id": "utsukushigahara-highlands",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'mountain'"
-      },
-      {
-        "id": "kirigamine-highlands",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'mountain'"
-      },
-      {
-        "id": "yashimagahara-wetland",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'nature'"
-      },
-      {
-        "id": "lake-shirakaba",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'lake'"
-      },
-      {
-        "id": "hirugami-onsen",
-        "model": "duration-model-v1",
-        "action": "set",
-        "reason": "kind band 'onsen'"
+        "reason": "hub exploration window: importance major, 3 children, metro=false"
       }
     ]
   }

@@ -24124,7 +24124,7 @@
     "walkingMin": 40,
     "indoorPercent": 50,
     "recommendedVisitHours": {
-      "min": 6,
+      "min": 7,
       "max": 12
     },
     "collections": [],
@@ -98690,5 +98690,917 @@
     "relationships": {
       "parentDestinationId": "obuse-town"
     }
+  },
+  {
+    "id": "doai-station",
+    "name": "Doai Station",
+    "nameJa": "土合駅",
+    "kind": "station",
+    "role": "poi",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:minakami",
+    "aliases": ["Doai Underground Station", "Doai Station Staircase"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Railway", "History", "Architecture"],
+    "tags": ["Station", "Railway Heritage", "Minakami", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Gunma_Doai_station_xl.jpg?width=1280",
+    "description": "Doai Station is Minakami's distinctive railway heritage stop, known for its deep underground platform and mountain gateway setting.",
+    "highlights": [
+      "Deep underground platform",
+      "Railway heritage",
+      "Gateway to Tanigawa area"
+    ],
+    "coordinates": {
+      "lat": 36.830723,
+      "lng": 138.9664447
+    },
+    "officialWebsite": "https://www.enjoy-minakami.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "minakami-town"
+    }
+  },
+  {
+    "id": "ikaho-stone-steps",
+    "name": "Ikaho Stone Steps",
+    "nameJa": "伊香保石段街",
+    "kind": "street",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:shibukawa",
+    "aliases": ["Ishidan-gai", "Ikaho Stone Stairway"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["History", "Shopping", "Hot Springs"],
+    "tags": ["Historic Street", "Onsen", "Ikaho", "Shibukawa"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Ikaho_Onsen_steps_from_above_2.jpg?width=1280",
+    "description": "Ikaho's stone steps are the defining walk through the historic onsen town, with shops, shrines, and hot-spring culture along the ascent.",
+    "highlights": [
+      "Historic onsen street",
+      "Stone stairway walk",
+      "Shops and shrine culture"
+    ],
+    "coordinates": {
+      "lat": 36.497658,
+      "lng": 138.9163875
+    },
+    "officialWebsite": "https://www.shibukawa-kanko.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 90,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["gunma-ikaho-onsen"]
+    }
+  },
+  {
+    "id": "mt-myogi",
+    "name": "Mount Myogi",
+    "nameJa": "妙義山",
+    "kind": "mountain",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:tomioka",
+    "aliases": ["Myogisan", "Mount Myogi Rock Peaks"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Mountain", "Photography"],
+    "tags": ["Mountains", "Rock Formations", "Tomioka", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Mt-myogi-in-summer.jpg?width=1280",
+    "description": "Mount Myogi is a dramatic jagged mountain landscape in western Gunma, distinct from the broader Myogi-Arafune-Saku park shell.",
+    "highlights": [
+      "Jagged rock peaks",
+      "Western Gunma landscape",
+      "Distinct mountain identity"
+    ],
+    "coordinates": {
+      "lat": 36.2998,
+      "lng": 138.7416
+    },
+    "officialWebsite": "https://www.tomioka-silk.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 290,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["myogi-arafune-saku-kogen", "myogi-shrine"]
+    }
+  },
+  {
+    "id": "myogi-shrine",
+    "name": "Myogi Shrine",
+    "nameJa": "妙義神社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:tomioka",
+    "aliases": ["Myogi-jinja", "Myogi Shrine Gate"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Shrine", "History", "Culture"],
+    "tags": ["Shrine", "Myogi", "Tomioka", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Myogi_Shrine_-_panoramio.jpg?width=1280",
+    "description": "Myogi Shrine is a historic mountain shrine at the foot of Mount Myogi, pairing naturally with the mountain while remaining a separate cultural destination.",
+    "highlights": [
+      "Mountain shrine setting",
+      "Historic architecture",
+      "Related to Mount Myogi"
+    ],
+    "coordinates": {
+      "lat": 36.2861,
+      "lng": 138.7399
+    },
+    "officialWebsite": "https://www.tomioka-silk.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["mt-myogi"]
+    }
+  },
+  {
+    "id": "usui-pass-railway-heritage-park",
+    "name": "Usui Pass Railway Heritage Park",
+    "nameJa": "碓氷峠鉄道文化むら",
+    "kind": "theme_park",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:annaka",
+    "aliases": [
+      "Usui Toge Railway Culture Village",
+      "Usui Railway Heritage Park"
+    ],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Railway", "History", "Museum"],
+    "tags": ["Railway Heritage", "Museum", "Annaka", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Usui_family-train_2023-11-04.jpg?width=1280",
+    "description": "The Usui Pass Railway Heritage Park preserves the railway history of the Usui route with rolling stock, exhibits, and a concrete heritage experience.",
+    "highlights": [
+      "Railway rolling stock",
+      "Usui route history",
+      "Hands-on heritage setting"
+    ],
+    "coordinates": {
+      "lat": 36.3368121,
+      "lng": 138.7324976
+    },
+    "officialWebsite": "https://www.usuitouge.com/bunkamura/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "oigami-onsen",
+    "name": "Oigami Onsen",
+    "nameJa": "老神温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:numata",
+    "aliases": ["Oigami Hot Spring", "Oigami Onsen Village"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Hot Springs", "Culture", "Nature"],
+    "tags": ["Onsen", "Numata", "Gunma", "Wellness"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Oigami_Onsen_view_from_Nairaku_Bridge.jpg?width=1280",
+    "description": "Oigami Onsen is a historic hot-spring settlement in northern Gunma, adding a distinct stay-and-culture anchor beyond Kusatsu and Shima.",
+    "highlights": [
+      "Northern Gunma onsen",
+      "Valley settlement",
+      "Distinct hot-spring identity"
+    ],
+    "coordinates": {
+      "lat": 36.6758998,
+      "lng": 139.207887
+    },
+    "officialWebsite": "https://www.numata-kankou.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "manza-onsen",
+    "name": "Manza Onsen",
+    "nameJa": "万座温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:tsumagoi",
+    "aliases": ["Manza Hot Spring", "Manza Onsen Resort"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Hot Springs", "Nature", "Relaxation"],
+    "tags": ["Onsen", "Highlands", "Tsumagoi", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Manza_Onsen_Tsumagoi_Gunma01bs4272.jpg?width=1280",
+    "description": "Manza Onsen is a high-elevation hot-spring resort in Tsumagoi, giving the Gunma catalogue a distinct volcanic highland stay option.",
+    "highlights": [
+      "High-elevation onsen",
+      "Volcanic highland setting",
+      "Tsumagoi stay anchor"
+    ],
+    "coordinates": {
+      "lat": 36.6400581,
+      "lng": 138.4999501
+    },
+    "officialWebsite": "https://www.manzaonsen.gr.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "mt-akagi",
+    "name": "Mount Akagi",
+    "nameJa": "赤城山",
+    "kind": "mountain",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:maebashi",
+    "aliases": ["Akagiyama", "Mount Akagi Area"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Mountain", "Outdoor Activities"],
+    "tags": ["Mountains", "Highlands", "Maebashi", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Mt.Akagi.jpg?width=1280",
+    "description": "Mount Akagi is a major Gunma massif with lakes, shrines, and highland recreation, adding a concrete nature hub to the city-facing side of the prefecture.",
+    "highlights": [
+      "Gunma mountain massif",
+      "Lake and shrine landscape",
+      "Highland recreation"
+    ],
+    "coordinates": {
+      "lat": 36.496769,
+      "lng": 139.1487481
+    },
+    "officialWebsite": "https://www.maebashi-cvb.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 385,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["lake-onuma-akagi", "akagi-shrine"]
+    }
+  },
+  {
+    "id": "lake-onuma-akagi",
+    "name": "Lake Onuma",
+    "nameJa": "大沼（赤城山）",
+    "kind": "lake",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:maebashi",
+    "aliases": ["Akagi Onuma", "Onuma Pond Mount Akagi"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Lake", "Photography"],
+    "tags": ["Lake", "Akagi", "Maebashi", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Lakeside_path_near_Lake_Onuma_@_Mount_Akagi_area_(14018455990).jpg?width=1280",
+    "description": "Lake Onuma is Mount Akagi's central highland lake, a concrete nature destination distinct from the broader mountain record.",
+    "highlights": ["Highland lake", "Mount Akagi scenery", "Lakeside nature"],
+    "coordinates": {
+      "lat": 36.5605,
+      "lng": 139.1765
+    },
+    "officialWebsite": "https://www.maebashi-cvb.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["mt-akagi", "akagi-shrine"]
+    }
+  },
+  {
+    "id": "akagi-shrine",
+    "name": "Akagi Shrine",
+    "nameJa": "赤城神社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:maebashi",
+    "aliases": ["Akagi Jinja", "Akagi Shrine at Lake Onuma"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Shrine", "Culture", "Nature"],
+    "tags": ["Shrine", "Akagi", "Lake Onuma", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Akagi_Shrine_@_Lake_Onuma_@_Trail_from_Mount_Kurobi_to_Lake_Onuma_@_Mount_Akagi_area_(14181943776).jpg?width=1280",
+    "description": "Akagi Shrine is the lakeside cultural anchor of Mount Akagi, related to the mountain and Lake Onuma but independently discoverable.",
+    "highlights": [
+      "Lakeside shrine",
+      "Akagi mountain worship",
+      "Distinct cultural identity"
+    ],
+    "coordinates": {
+      "lat": 36.5439,
+      "lng": 139.1838
+    },
+    "officialWebsite": "https://www.akagijinja.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 70,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "relatedDestinationIds": ["mt-akagi", "lake-onuma-akagi"]
+    }
+  },
+  {
+    "id": "watarase-keikoku-railway",
+    "name": "Watarase Keikoku Railway",
+    "nameJa": "わたらせ渓谷鐵道",
+    "kind": "cultural",
+    "role": "standalone",
+    "importance": "major",
+    "placeType": "destination",
+    "municipalityId": "Gunma:kiryu",
+    "aliases": ["Watarase Valley Railway", "Watarase Keikoku Line"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Railway", "Nature", "History"],
+    "tags": ["Railway", "Watarase Valley", "Kiryu", "Gunma"],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg?width=1280",
+    "description": "Watarase Keikoku Railway follows the Watarase Valley between Kiryu and Tochigi, adding a concrete rail-and-landscape experience to Gunma's city depth.",
+    "highlights": [
+      "Valley railway journey",
+      "Kiryu-area rail heritage",
+      "Landscape and city connection"
+    ],
+    "coordinates": {
+      "lat": 36.4113225,
+      "lng": 139.3326744
+    },
+    "officialWebsite": "https://www.watetsu.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "walkingMin": 240,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

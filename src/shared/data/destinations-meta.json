@@ -111,6 +111,18 @@
     }
   },
   {
+    "id": "akagi-shrine",
+    "name": "Akagi Shrine",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["mt-akagi", "lake-onuma-akagi"]
+    }
+  },
+  {
     "id": "akan-mashu",
     "name": "Akan-Mashu National Park",
     "prefecture": "Hokkaido",
@@ -1517,6 +1529,18 @@
     "relationships": {
       "nearbyDestinationIds": ["naha-city"],
       "relatedDestinationIds": ["churaumi-aquarium-motobu"]
+    }
+  },
+  {
+    "id": "doai-station",
+    "name": "Doai Station",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "station",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "minakami-town"
     }
   },
   {
@@ -3697,6 +3721,18 @@
     "status": "beta",
     "relationships": {
       "parentDestinationId": "fukushima-city"
+    }
+  },
+  {
+    "id": "ikaho-stone-steps",
+    "name": "Ikaho Stone Steps",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "street",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["gunma-ikaho-onsen"]
     }
   },
   {
@@ -6352,6 +6388,18 @@
     }
   },
   {
+    "id": "lake-onuma-akagi",
+    "name": "Lake Onuma",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["mt-akagi", "akagi-shrine"]
+    }
+  },
+  {
     "id": "lake-sagami",
     "name": "Lake Sagami",
     "prefecture": "Kanagawa",
@@ -6521,6 +6569,16 @@
     "relationships": {
       "parentDestinationId": "hita-city"
     }
+  },
+  {
+    "id": "manza-onsen",
+    "name": "Manza Onsen",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "marine-world-uminonakamichi",
@@ -7486,6 +7544,30 @@
     }
   },
   {
+    "id": "mt-akagi",
+    "name": "Mount Akagi",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["lake-onuma-akagi", "akagi-shrine"]
+    }
+  },
+  {
+    "id": "mt-myogi",
+    "name": "Mount Myogi",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["myogi-arafune-saku-kogen", "myogi-shrine"]
+    }
+  },
+  {
     "id": "mt-rokko-kobe",
     "name": "Mt. Rokko",
     "prefecture": "Hyogo",
@@ -7597,6 +7679,18 @@
     "kind": "nature",
     "status": "published",
     "relationships": {}
+  },
+  {
+    "id": "myogi-shrine",
+    "name": "Myogi Shrine",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["mt-myogi"]
+    }
   },
   {
     "id": "myoko-togakushi",
@@ -8854,6 +8948,16 @@
     "relationships": {
       "parentDestinationId": "fukuoka-city"
     }
+  },
+  {
+    "id": "oigami-onsen",
+    "name": "Oigami Onsen",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "oirase-gorge-aomori",
@@ -12698,6 +12802,16 @@
     "relationships": {}
   },
   {
+    "id": "usui-pass-railway-heritage-park",
+    "name": "Usui Pass Railway Heritage Park",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "theme_park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "usui-third-bridge",
     "name": "Usui Third Bridge",
     "prefecture": "Gunma",
@@ -12893,6 +13007,16 @@
     "relationships": {
       "parentDestinationId": "uwajima-city"
     }
+  },
+  {
+    "id": "watarase-keikoku-railway",
+    "name": "Watarase Keikoku Railway",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "cultural",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "yaba-hita-hikosan",
