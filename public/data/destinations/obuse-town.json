@@ -114,14 +114,13 @@
   "openingHoursJa": "開場時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。",
   "notes": "The Obuse municipal site is authoritative for current town tourism information. This PR adds the hub only; its candidate museums, temples, and streets remain deliberately unadded until the KAI-258C evidence review.",
   "notesJa": "町の観光情報は小布施町公式サイトをご確認ください。本PRではハブのみを追加し、候補の美術館・寺院・通りはKAI-258Cの証拠確認まで意図的に追加しません。",
-  "status": "published",
+  "status": "verified",
   "travelEstimate": {
     "confidence": "beta"
   },
   "collections": [],
   "relationships": {},
   "editorial": {
-    "lifecycle": "published",
     "freshness": "current",
     "checkedAt": "2026-08-31",
     "reviewedAt": "2026-08-31",
