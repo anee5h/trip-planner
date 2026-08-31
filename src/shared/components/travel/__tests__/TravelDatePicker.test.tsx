@@ -55,6 +55,8 @@ let root: Root | undefined;
 let host: HTMLDivElement | undefined;
 
 beforeEach(() => {
+  vi.useFakeTimers();
+  vi.setSystemTime(new Date("2026-06-15T12:00:00Z"));
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -67,6 +69,7 @@ afterEach(() => {
   host?.remove();
   root = undefined;
   host = undefined;
+  vi.useRealTimers();
 });
 
 function iso(d: Date): string {
@@ -77,10 +80,9 @@ function iso(d: Date): string {
 }
 
 describe("TravelDatePicker Component", () => {
-  const today = new Date();
+  const today = new Date("2026-06-15T12:00:00Z");
   const todayIso = iso(today);
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  const tomorrow = new Date("2026-06-16T12:00:00Z");
   const tomorrowIso = iso(tomorrow);
 
   const forecastMap = new Map<string, DayForecastData>([
