@@ -1,0 +1,283 @@
+{
+  "id": "kyu-karuizawa-ginza",
+  "officialWebsite": "https://karuizawa-kankokyokai.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Kyu-Karuizawa Ginza",
+  "nameJa": "旧軽井沢銀座",
+  "aliases": [
+    "Old Karuizawa Ginza Street",
+    "Kyu-Karuizawa Ginza Street",
+    "旧軽銀座"
+  ],
+  "municipalityId": "Nagano:karuizawa",
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "street",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 36.3598831,
+    "lng": 138.6368547
+  },
+  "categories": ["Shopping", "Street", "Food", "History"],
+  "tags": ["Shopping Street", "Historic Street", "Food", "Karuizawa"],
+  "description": "Karuizawa's historic main shopping street, lined with cafes, bakeries, restaurants, and long-established shops in the old resort district.",
+  "highlights": [
+    "Historic resort-town shopping and food stops",
+    "Independent cafes, bakeries, and long-established shops",
+    "A walkable urban complement to Karuizawa's nature attractions"
+  ],
+  "content": {
+    "en": {
+      "name": "Kyu-Karuizawa Ginza",
+      "description": "Karuizawa's historic main shopping street, lined with cafes, bakeries, restaurants, and long-established shops in the old resort district.",
+      "highlights": [
+        "Historic resort-town shopping and food stops",
+        "Independent cafes, bakeries, and long-established shops",
+        "A walkable urban complement to Karuizawa's nature attractions"
+      ],
+      "notes": "The Karuizawa Tourist Association is the authority for current district guidance. The street is represented as one heritage-shopping proposition; individual shops are not duplicated as destination shells.",
+      "reservation": "Reservation and admission conditions can change; check the official visitor guidance before visiting.",
+      "parking": "Parking conditions vary by site and date; check the official visitor guidance before visiting.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "旧軽井沢銀座",
+      "description": "旧軽井沢の中心にある歴史的な商店街。カフェやベーカリー、飲食店、老舗店が並ぶ、リゾートの街歩きの核です。",
+      "highlights": [
+        "歴史ある避暑地の商店街と食べ歩き",
+        "カフェ・ベーカリー・老舗店めぐり",
+        "軽井沢の自然スポットを補う街歩きの選択肢"
+      ],
+      "notes": "現在のエリア案内は軽井沢観光協会をご確認ください。商店街全体を一つの歴史・買い物体験として扱い、個別店舗の重複シェルは作成していません。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "駐車条件は場所や時期により異なるため、訪問前に公式案内をご確認ください。",
+      "openingHours": "開場時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Old_Karuizawa_ginza04s3200.jpg/1280px-Old_Karuizawa_ginza04s3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Old_Karuizawa_ginza04s3200.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "Official visitor guidance establishes available access modes, but no complete origin-aware duration or fare is authored in this catalogue expansion."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred.",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Reservation and admission conditions can change; check the official visitor guidance before visiting.",
+  "reservationJa": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+  "parking": "Parking conditions vary by site and date; check the official visitor guidance before visiting.",
+  "parkingJa": "駐車条件は場所や時期により異なるため、訪問前に公式案内をご確認ください。",
+  "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting.",
+  "openingHoursJa": "開場時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。",
+  "notes": "The Karuizawa Tourist Association is the authority for current district guidance. The street is represented as one heritage-shopping proposition; individual shops are not duplicated as destination shells.",
+  "notesJa": "現在のエリア案内は軽井沢観光協会をご確認ください。商店街全体を一つの歴史・買い物体験として扱い、個別店舗の重複シェルは作成していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "karuizawa-town"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-31",
+    "reviewedAt": "2026-08-31",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added one current, independently recommendable Nagano P0 destination after identity and duplicate review.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://karuizawa-kankokyokai.jp/",
+        "title": "Karuizawa Tourist Association official website",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/148792053",
+        "title": "OpenStreetMap coordinate reference: Kyu-Karuizawa Ginza",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/",
+          "title": "Karuizawa Tourist Association official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/",
+          "title": "Karuizawa Tourist Association official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/",
+          "title": "Karuizawa Tourist Association official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/148792053",
+          "title": "OpenStreetMap coordinate reference: Kyu-Karuizawa Ginza",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/",
+          "title": "Karuizawa Tourist Association official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/",
+          "title": "Karuizawa Tourist Association official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://karuizawa-kankokyokai.jp/",
+          "title": "Karuizawa Tourist Association official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "kai-258-editorial-duration-v1; Bounded planning band for this attraction's on-site scope; not an origin-to-destination travel duration or opening-hours claim.",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-31",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed Nagano P0 destination depth without static cost, duration, opening-status, or seasonality claims.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-31",
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 3
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "kai-258-editorial-duration-v1",
+    "confidence": "low",
+    "basis": "Bounded planning band for this attraction's on-site scope; not an origin-to-destination travel duration or opening-hours claim."
+  },
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 3h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.1,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The official destination identity describes an open area or multi-site destination rather than one required admission product; optional facilities and purchases are not promoted as admission.",
+    "sourceUrls": ["https://karuizawa-kankokyokai.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  }
+}

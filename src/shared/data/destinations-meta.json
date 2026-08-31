@@ -1352,6 +1352,16 @@
     }
   },
   {
+    "id": "daio-wasabi-farm",
+    "name": "Daio Wasabi Farm",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "garden",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "daisen-oki",
     "name": "Daisen-Oki National Park",
     "prefecture": "Tottori",
@@ -2725,6 +2735,18 @@
     }
   },
   {
+    "id": "hakuba-iwatake-mountain-resort",
+    "name": "Hakuba Iwatake Mountain Resort",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "hakuba-village"
+    }
+  },
+  {
     "id": "hakuba-village",
     "name": "Hakuba Village",
     "prefecture": "Nagano",
@@ -2733,7 +2755,10 @@
     "kind": "village",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "happo-pond",
+        "hakuba-iwatake-mountain-resort"
+      ],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -2793,6 +2818,18 @@
     }
   },
   {
+    "id": "happo-pond",
+    "name": "Happo Pond",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "hakuba-village"
+    }
+  },
+  {
     "id": "harajuku-takeshita-street",
     "name": "Harajuku and Takeshita Street",
     "prefecture": "Tokyo",
@@ -2826,6 +2863,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "nerima-city"
+    }
+  },
+  {
+    "id": "harunire-terrace",
+    "name": "Harunire Terrace",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "shopping",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "karuizawa-town"
     }
   },
   {
@@ -4080,6 +4129,16 @@
     }
   },
   {
+    "id": "jigokudani-monkey-park",
+    "name": "Jigokudani Monkey Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "zoo",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "jindai-botanical-gardens",
     "name": "Jindai Botanical Gardens",
     "prefecture": "Tokyo",
@@ -4570,7 +4629,11 @@
     "kind": "town",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": [
+        "kumoba-pond",
+        "kyu-karuizawa-ginza",
+        "harunire-terrace"
+      ],
       "nearbyDestinationIds": [
         "nagoya-city",
         "shirakawa-village",
@@ -5768,6 +5831,18 @@
     "relationships": {}
   },
   {
+    "id": "kumoba-pond",
+    "name": "Kumoba Pond",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "karuizawa-town"
+    }
+  },
+  {
     "id": "kurama-dera-kyoto",
     "name": "Kurama-dera Temple",
     "prefecture": "Kyoto",
@@ -6031,6 +6106,18 @@
     "kind": "nature",
     "status": "published",
     "relationships": {}
+  },
+  {
+    "id": "kyu-karuizawa-ginza",
+    "name": "Kyu-Karuizawa Ginza",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "street",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "karuizawa-town"
+    }
   },
   {
     "id": "kyusendo-cave",
@@ -7375,7 +7462,7 @@
     "kind": "city",
     "status": "verified",
     "relationships": {
-      "featuredDestinationIds": [],
+      "featuredDestinationIds": ["zenkoji-temple", "togakushi-shrine"],
       "nearbyDestinationIds": [
         "nagano-narai-juku",
         "matsumoto-city",
@@ -8420,6 +8507,16 @@
     "region": "Shikoku",
     "role": "standalone",
     "kind": "nature",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "obuse-town",
+    "name": "Obuse Town",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "hub",
+    "kind": "town",
     "status": "verified",
     "relationships": {}
   },
@@ -10030,6 +10127,16 @@
     }
   },
   {
+    "id": "senjojiki-cirque",
+    "name": "Senjojiki Cirque",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "rock_formation",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "senjojiki-sandanbeki-cliffs",
     "name": "Senjojiki & Sandanbeki Rock Cliffs",
     "prefecture": "Wakayama",
@@ -10895,6 +11002,16 @@
     }
   },
   {
+    "id": "suwa-taisha",
+    "name": "Suwa Taisha",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "suzuka",
     "name": "Suzuka Quasi-National Park",
     "prefecture": "Mie",
@@ -11561,6 +11678,18 @@
     }
   },
   {
+    "id": "togakushi-shrine",
+    "name": "Togakushi Shrine",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "nagano-city"
+    }
+  },
+  {
     "id": "tojinbo-cliffs-fukui",
     "name": "Tojinbo Cliffs",
     "prefecture": "Fukui",
@@ -11995,6 +12124,16 @@
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
+  },
+  {
+    "id": "tsugaike-nature-park",
+    "name": "Tsugaike Nature Park",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "tsugaru",
@@ -13064,6 +13203,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "kamakura-city"
+    }
+  },
+  {
+    "id": "zenkoji-temple",
+    "name": "Zenko-ji Temple",
+    "prefecture": "Nagano",
+    "region": "Chubu",
+    "role": "poi",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "nagano-city"
     }
   },
   {

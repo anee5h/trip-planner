@@ -185,13 +185,13 @@ describe("KAI-204 on-site budget provenance repair", () => {
       const m = d.budgetMetadata?.method ?? "absent";
       counts[m as keyof typeof counts]++;
     }
-    // KAI-204 phase 3 state (hub hardening): 38 manual, 112 model, 462
+    // KAI-204 phase 3 state (hub hardening): 38 manual, 112 model, 475
     // unknown, 353 legacy (incl. 24 numeric hubs), 92 absent (no numbers),
     // 0 invalid.
     expect(counts).toEqual({
       manual: 38,
       model: 112,
-      unknown: 462,
+      unknown: 475,
       legacy: 353,
       absent: 92,
     });
