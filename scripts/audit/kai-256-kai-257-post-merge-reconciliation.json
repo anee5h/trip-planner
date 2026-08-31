@@ -1,0 +1,2210 @@
+{
+  "baseSha": "710813288cbce1c591696adbb6dd2bb6c4885811",
+  "mergedPull": {
+    "kai291Present": true,
+    "kai291MergeSha": "fb164a012a7cef3952c73b002fc3e7b8795acfca",
+    "kai292Present": true,
+    "kai292MergeSha": "710813288cbce1c591696adbb6dd2bb6c4885811"
+  },
+  "publishedDestinations": 732,
+  "canonicalWikipediaIdentities": 492,
+  "phase1": {
+    "expectedReviewRecords": 98,
+    "actualReviewRecords": 98,
+    "reviewIds": [
+      "amami-iriomote-natural-site",
+      "aoshima-island-miyazaki",
+      "aso-city",
+      "aso-volcanic-museum",
+      "beppu-city",
+      "beppu-hells-oita",
+      "boso-no-mura",
+      "cape-nagasakibana",
+      "chiba-city-folk-museum",
+      "chiba-city-museum-of-art",
+      "chiba-park",
+      "chiba-port-park",
+      "chinatown-nagasaki",
+      "chiringashima-island",
+      "daikanbo-viewpoint-aso",
+      "dazaifu-city",
+      "dazaifu-tenmangu",
+      "enoshima-aquarium",
+      "fujiko-f-fujio-museum",
+      "fukuoka-castle-ruins",
+      "fukuoka-paypay-dome",
+      "gotoku-ji",
+      "gunkanjima-hashima-nagasaki",
+      "hakata-machiya-folk-museum",
+      "hakata-station-area",
+      "heiwadai-park-miyazaki",
+      "hita-city",
+      "hita-gion-yamahoko-museum",
+      "hita-onsen",
+      "ibusuki-city",
+      "inage-seaside-park",
+      "ishidake-observatory",
+      "iwatsuki-ningyo-museum",
+      "jochi-ji",
+      "jomon-sugi-yakushima",
+      "kagoshima-city-aquarium",
+      "kagurazaka",
+      "kamakurakokomae-station",
+      "kangien-academy",
+      "kannawa-onsen-district",
+      "katase-higashihama-beach",
+      "kennin-ji",
+      "kinrin-lake-yufuin",
+      "kitakyushu-manga-museum",
+      "kitano-ijinkan",
+      "komachi-street",
+      "komyozenji-temple-dazaifu",
+      "kujukushima-pearl-sea-resort",
+      "kumamoto-prefectural-art-museum",
+      "kuromon-market",
+      "kusasenri-meadow-aso",
+      "maizuru-park",
+      "makuhari-seaside-park",
+      "mameda-historic-district",
+      "meganebashi-bridge-nagasaki",
+      "miyazaki-jingu-shrine",
+      "mojiko-retro-district",
+      "mount-aso-kumamoto",
+      "museum-of-aeronautical-sciences",
+      "nagasaki-peace-park",
+      "nakadake-crater-aso",
+      "nanatsugama-sea-caves",
+      "narita-airport-observation-decks",
+      "naritasan-park",
+      "nijinomatsubara-pine-grove",
+      "obi-castle",
+      "omiya-bonsai-art-museum",
+      "omoide-yokocho",
+      "onta-pottery-village",
+      "osaka-station-city",
+      "oura-church-nagasaki",
+      "renkeiji",
+      "ryoan-ji",
+      "saitama-shintoshin",
+      "sakurajima-volcano-kagoshima",
+      "sasebo-naval-port-cruise",
+      "sengan-en-garden-kagoshima",
+      "shinjuku-gyo-en",
+      "shinsho-ji",
+      "shiratani-unsuikyo-ravine",
+      "shonan-kaigan-park",
+      "suizenji-garden-kumamoto",
+      "sun-messe-nichinan",
+      "sunamushi-onsen-saraku",
+      "takachiho-gorge",
+      "takachiho-kagura-dance",
+      "takachiho-town",
+      "takegawara-onsen-beppu",
+      "tenjin",
+      "toto-museum-kitakyushu",
+      "umi-kirara-aquarium",
+      "yakushima-town",
+      "yakusugi-land-yakushima",
+      "yasaka-shrine",
+      "yobuko-morning-market",
+      "yufu-city",
+      "yufuin-floral-village",
+      "yufuin-onsen-ryokan-district"
+    ],
+    "membershipChanged": false,
+    "phase1MembershipChanged": false,
+    "sourceModified": 1,
+    "sourceModifiedIds": ["aso-city"],
+    "sourceModificationDetails": [
+      {
+        "id": "aso-city",
+        "changedFields": ["relationships"],
+        "previousRelationships": {
+          "featuredDestinationIds": ["kumamoto-castle"],
+          "nearbyDestinationIds": [
+            "fukuoka-city",
+            "kitakyushu-city",
+            "dazaifu-city"
+          ]
+        },
+        "currentRelationships": {
+          "featuredDestinationIds": [],
+          "nearbyDestinationIds": [
+            "fukuoka-city",
+            "kitakyushu-city",
+            "dazaifu-city"
+          ]
+        }
+      }
+    ],
+    "protectedFields": [
+      "wikipediaTitle",
+      "wikipediaLanguage",
+      "wikipediaUrl",
+      "wikipediaPageId",
+      "wikidataId",
+      "name",
+      "nameJa",
+      "aliases",
+      "kind",
+      "role",
+      "categories",
+      "tags",
+      "coordinates",
+      "status"
+    ],
+    "wikipediaIdentityModified": 0,
+    "wikipediaIdentityModifiedIds": [],
+    "provenanceModified": 0,
+    "provenanceModifiedIds": [],
+    "adjudicationBoundaryViolated": 0,
+    "adjudicationBoundaryViolatedIds": [],
+    "laterPhaseBroadInputFingerprintChanged": 1,
+    "laterPhaseBroadInputFingerprintChangedIds": ["aso-city"],
+    "unrelatedCatalogueRepairs": 1,
+    "unrelatedCatalogueRepairDetails": [
+      {
+        "id": "aso-city",
+        "fields": ["relationships.featuredDestinationIds"],
+        "reason": "KAI-257 invalid cross-area Top Sights repair",
+        "previousRelationships": {
+          "featuredDestinationIds": ["kumamoto-castle"],
+          "nearbyDestinationIds": [
+            "fukuoka-city",
+            "kitakyushu-city",
+            "dazaifu-city"
+          ]
+        },
+        "currentRelationships": {
+          "featuredDestinationIds": [],
+          "nearbyDestinationIds": [
+            "fukuoka-city",
+            "kitakyushu-city",
+            "dazaifu-city"
+          ]
+        }
+      }
+    ],
+    "pulledIntoLaterPhases": [],
+    "reviewLedgerIntact": true,
+    "semanticBoundaryPreserved": true
+  },
+  "phase4": {
+    "originalTail": 190,
+    "canonicalMappingsChecked": 48,
+    "canonicalMappingIds": [
+      "asakusa-taito",
+      "chiba-nokogiriyama",
+      "cup-noodles-museum-yokohama",
+      "disneysea",
+      "fukuyama-castle",
+      "gessho-ji-temple-matsue",
+      "hakone-town",
+      "hokki-ji-pagoda",
+      "ibaraki-fukuroda-falls",
+      "iki-tsushima",
+      "inasa-beach-izumo",
+      "kamakura-city",
+      "kanayama-castle",
+      "kawasaki-city",
+      "kibitsu-shrine",
+      "koto-city",
+      "koya-town",
+      "kubota-castle",
+      "kusatsu-town",
+      "matsushiro-castle",
+      "minato-city",
+      "mito-city",
+      "miyakojima-city",
+      "nachi-falls-wakayama",
+      "nanao-castle",
+      "ne-castle-hachinohe",
+      "nikko-city",
+      "nippo-kaigan",
+      "oarai-marine-tower",
+      "odani-castle",
+      "oka-castle-oita",
+      "okinawa-senseki",
+      "ota-city",
+      "rainbow-bridge",
+      "sarakurayama",
+      "shibuya-sky-shibuya",
+      "shiraito-falls",
+      "shitennoji",
+      "shokanbetsu-teuri-yagishiri",
+      "soji-ji-yokohama",
+      "takaoka-castle",
+      "takatori-castle",
+      "takeda-castle-ruins-hyogo",
+      "tokyo-mt-mitake",
+      "wakakusayama",
+      "wakayama-castle",
+      "yokohama-city",
+      "yoshida-koriyama-castle"
+    ],
+    "canonicalMappingsInvalidated": 0,
+    "canonicalMappingAudits": [
+      {
+        "id": "asakusa-taito",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "taito-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "chiba-nokogiriyama",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "cup-noodles-museum-yokohama",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "yokohama-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "disneysea",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "urayasu-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "fukuyama-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "gessho-ji-temple-matsue",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "matsue-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "hakone-town",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": false,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": true,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "hokki-ji-pagoda",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "ikaruga-town",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "ibaraki-fukuroda-falls",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "iki-tsushima",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "inasa-beach-izumo",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "izumo-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kamakura-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kanayama-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kawasaki-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kibitsu-shrine",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "okayama-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "koto-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "koya-town",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kubota-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kusatsu-town",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": false,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": true,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "matsushiro-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "minato-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "mito-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "miyakojima-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "nachi-falls-wakayama",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "nanao-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "ne-castle-hachinohe",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "nikko-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "nippo-kaigan",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "oarai-marine-tower",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "odani-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "oka-castle-oita",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "okinawa-senseki",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "ota-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "rainbow-bridge",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "sarakurayama",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "shibuya-sky-shibuya",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "shibuya-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "shiraito-falls",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "shitennoji",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "osaka-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "shokanbetsu-teuri-yagishiri",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "soji-ji-yokohama",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "yokohama-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "takaoka-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "takatori-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "takeda-castle-ruins-hyogo",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "asago-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "tokyo-mt-mitake",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "ome-tokyo",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "wakakusayama",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "wakayama-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": "wakayama-city",
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "yokohama-city",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      },
+      {
+        "id": "yoshida-koriyama-castle",
+        "publishedAndExists": true,
+        "identityUnchangedSinceKai291": true,
+        "titleLanguageUrlPageIdQidUnchanged": true,
+        "identityValid": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "phase4AdjudicationFingerprintDriftAllowedByKai257": false,
+        "entityTypeCompatible": true,
+        "geographyCompatible": true,
+        "parentChildValidation": {
+          "valid": true,
+          "parentId": null,
+          "reasons": []
+        },
+        "noNewCompetingQid": true,
+        "parentArticleSubstitutionExposed": false,
+        "finalGatePasses": true,
+        "sourceFieldsStableOrExplained": true,
+        "valid": true,
+        "invalidationReasons": []
+      }
+    ],
+    "adjudicationFingerprintDrift": [
+      {
+        "id": "hakone-town",
+        "fields": ["phase4-adjudication-fingerprint"]
+      },
+      {
+        "id": "kusatsu-town",
+        "fields": ["phase4-adjudication-fingerprint"]
+      }
+    ],
+    "adjudicationFingerprintDriftAllowedByKai257": [
+      "hakone-town",
+      "kusatsu-town"
+    ],
+    "unexplainedAdjudicationFingerprintDrift": [],
+    "noStandaloneChecked": 26,
+    "noStandaloneIds": [
+      "abeno-harukas-300-osaka",
+      "fukuoka-yatai",
+      "harajuku-takeshita-street",
+      "hiei-zan-driveway-observatory",
+      "jogashima",
+      "kataonami-beach-wakanoura",
+      "kawagoe-castle-saitama",
+      "kokusai-dori-naha",
+      "kouri-island-okinawa",
+      "kuroshio-market-marina-city",
+      "kyoto-historic",
+      "naminoue-shrine-naha",
+      "nara-park-todaiji",
+      "okage-yokocho-oharai-machi",
+      "roppongi-hills-tokyo-city-view",
+      "ryogoku-kokugikan-sumo-museum",
+      "saigoku-33",
+      "senjokaku",
+      "shikoku-henro",
+      "shuri-castle-okinawa",
+      "sumida-river-walk",
+      "sunshine-60-observatory-ikebukuro",
+      "tokyo-metropolitan-government-building-shinjuku",
+      "uji-tea-culture-center",
+      "utsunomiya-oya",
+      "zushi"
+    ],
+    "noStandaloneInvalidated": 0,
+    "noStandaloneAudits": [
+      {
+        "id": "abeno-harukas-300-osaka",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "fukuoka-yatai",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "harajuku-takeshita-street",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "hiei-zan-driveway-observatory",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "jogashima",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kataonami-beach-wakanoura",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kawagoe-castle-saitama",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kokusai-dori-naha",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kouri-island-okinawa",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kuroshio-market-marina-city",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "kyoto-historic",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "naminoue-shrine-naha",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "nara-park-todaiji",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "okage-yokocho-oharai-machi",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "roppongi-hills-tokyo-city-view",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "ryogoku-kokugikan-sumo-museum",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "saigoku-33",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "senjokaku",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "shikoku-henro",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "shuri-castle-okinawa",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "sumida-river-walk",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "sunshine-60-observatory-ikebukuro",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "tokyo-metropolitan-government-building-shinjuku",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "uji-tea-culture-center",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "utsunomiya-oya",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      },
+      {
+        "id": "zushi",
+        "existsAndPublished": true,
+        "phase4AdjudicationFingerprintMatches": true,
+        "sourceSemanticsUnchangedSinceKai291": true,
+        "identityRemainsAbsent": true,
+        "invalidated": false,
+        "invalidationReasons": []
+      }
+    ],
+    "humanReviewChecked": 104,
+    "humanReviewIntegrity": {
+      "expectedCount": 104,
+      "actualCount": 104,
+      "ids": [
+        "ashigara",
+        "asuka-fujiwara-nara",
+        "azuchi-castle",
+        "bise-fukugi-tree-road-motobu",
+        "busena-marine-park-nago",
+        "chiba-yoro-valley",
+        "chofu-historic-jindaiji-district",
+        "chuo-city",
+        "daisho-in",
+        "danjo-garan-koyasan",
+        "edo-castle-tokyo",
+        "farm-tomita",
+        "fujisawa-city",
+        "genbudo-cave-park",
+        "ginza-itoya",
+        "hachioji-castle-tokyo",
+        "harry-potter-studio",
+        "hida-cave",
+        "higashi-hennazaki-cape-miyako",
+        "hikone-castle-shiga",
+        "himeji-castle",
+        "hiraizumi-chusonji-iwate",
+        "hiroshima-national-peace-memorial-hall",
+        "horikawa-pleasure-boat",
+        "ine-funaya-boathouses",
+        "ise-grand-shrine",
+        "izushi-castle-town",
+        "jindai-zakura",
+        "joypolis",
+        "kabira-bay-ishigaki",
+        "karato-market-shimonoseki",
+        "kawagoe-city",
+        "kawagoe-kurazukuri",
+        "kegon-falls-nikko",
+        "keio-rail-land",
+        "kinojo",
+        "kirin-beer-yokohama-factory",
+        "kishi-station-tama-cat",
+        "kita-city",
+        "kitaro-chaya",
+        "kobe-maya-night-view",
+        "kojima-denim-street",
+        "kyusendo-cave",
+        "lake-biwa-shiga",
+        "matsudo-city",
+        "meoto-iwa-wedded-rocks",
+        "miharu-takizakura",
+        "mito-castle-ibaraki",
+        "miyajima-gojunoto",
+        "miyajima-omotesando",
+        "momijidani-park",
+        "mount-yoshino-nara",
+        "mozufuruichi-kofun-osaka",
+        "nago-pineapple-park",
+        "nakijin-castle-ruins-motobu",
+        "nanatsugama-cave",
+        "nara-historic",
+        "naramachi-historic-district",
+        "national-museum-western-art-tokyo",
+        "nemuro-peninsula-chashi-sites",
+        "nichinan-kaigan-drive",
+        "nikko-toshogu-shrine-tochigi",
+        "nippara-cave",
+        "okinoshima-munakata-fukuoka",
+        "okunoin-cemetery-koyasan",
+        "ome-railway-park",
+        "ome-retro-town",
+        "omi-hachiman-canal",
+        "omiya-railway",
+        "ono-castle-dazaifu",
+        "ontakesan",
+        "osaka-central-public-hall",
+        "play-museum-tachikawa",
+        "polar-science-museum",
+        "ritsuunkyo-viewpoint",
+        "sakai-city-museum",
+        "sakura-castle-chiba",
+        "sannai-maruyama-jomon-aomori",
+        "seiko-museum-ginza",
+        "senjojiki-sandanbeki-cliffs",
+        "shibuya-city",
+        "shibuya-crossing-hachiko",
+        "shirahama-beach-adventure-world",
+        "shirahige-shrine-lake-biwa",
+        "shoryu-cave",
+        "suwa-shrine-tachikawa",
+        "tachikawa-manga-park",
+        "takao-599-museum",
+        "takaoka-daibutsu",
+        "takayama-sanmachi",
+        "tamatorizaki-viewpoint-ishigaki",
+        "teamlab-planets",
+        "tomioka-silk-mill-gunma",
+        "tomogashima-islands",
+        "tsukiji-outer-market",
+        "ukimido-mangetsu-ji",
+        "uradome-coast",
+        "ushiku-daibutsu",
+        "usuzumi-zakura",
+        "yakushi-ike-park",
+        "yonaha-maehama-beach-miyako",
+        "yonehara-beach-coral-ishigaki",
+        "yoshinogari",
+        "zoshigaya-kishimojindo"
+      ],
+      "recordLedgerMatches": true,
+      "missingIds": [],
+      "promotedWithIdentityIds": [],
+      "directIdentityChangesSinceKai291": [],
+      "potentiallyReconsiderableAfterKai257": [],
+      "humanReviewSilentlyModified": 0
+    },
+    "phase4EvidenceBinding": {
+      "phase3CohortInputFingerprintDriftIds": [],
+      "phase3CacheInputFingerprintDriftIds": [
+        "hakone-town",
+        "kawaguchi-city",
+        "kusatsu-town",
+        "minakami-town",
+        "osaka-castle",
+        "takahata-fudoson",
+        "tokushima-castle"
+      ],
+      "phase3CohortChangedSinceKai291": [
+        "hakone-town",
+        "kawaguchi-city",
+        "kusatsu-town",
+        "minakami-town",
+        "osaka-castle",
+        "takahata-fudoson",
+        "tokushima-castle"
+      ],
+      "phase3ArtifactChecks": {
+        "cohortFile": {
+          "expectedFromPhase4Manifest": "7b0b88b8f921dd2e79d192f8da3621869c579d94189081e6e099f5e6ba3e877c",
+          "current": "cc74a51beab7ffa0599dc2484af94c2d7e9cbf144b7b6e5048efbe18e25d7798",
+          "matches": false
+        },
+        "cohortWholeFingerprint": {
+          "expectedFromPhase4Manifest": "0f54d3046bb6c17faaea2aff51a1bf453dcb9115af9e38725966fd51531f6902",
+          "current": "910dbdf4cf44005e72f5b71e0ee1cf8dbf683600e27ef1acb4754a4933c5da42",
+          "matches": false
+        },
+        "reportFile": {
+          "expectedFromPhase4Manifest": "d252a4de2a068c56c36ef7805d3184ed6dbc78219b293b15ea907dfb51f679de",
+          "current": "d252a4de2a068c56c36ef7805d3184ed6dbc78219b293b15ea907dfb51f679de",
+          "matches": true
+        },
+        "cacheFile": {
+          "expectedFromPhase4Manifest": "4bb185741ee2e4c78547bb024094e4496a7652f6c1e4862bcc8840f9fd53ebee",
+          "current": "4bb185741ee2e4c78547bb024094e4496a7652f6c1e4862bcc8840f9fd53ebee",
+          "matches": true
+        }
+      },
+      "phase4ApiCache": {
+        "manifestBindingValid": true,
+        "phase3CacheBindingValid": true,
+        "expectedEntryCount": 190,
+        "actualEntryCount": 190,
+        "targetedRetrievalCount": 0,
+        "failures": []
+      },
+      "phase4AdjudicationFingerprintDriftIds": ["hakone-town", "kusatsu-town"],
+      "phase4InputValidation": {
+        "passes": false,
+        "failures": [
+          "phase4-adjudication-fingerprint-drift:hakone-town,kusatsu-town",
+          "phase3-cohort-artifact-drift",
+          "phase3-whole-cohort-fingerprint-drift",
+          "phase3-cache-input-fingerprint-drift:hakone-town,kawaguchi-city,kusatsu-town,minakami-town,osaka-castle,takahata-fudoson,tokushima-castle"
+        ]
+      }
+    },
+    "phase4EvidenceBindingExplained": true,
+    "transientFailures": 0
+  },
+  "catalogueRelationshipIssues": {
+    "original": 12,
+    "resolvedByKai257": 0,
+    "partiallyResolved": 0,
+    "stillDebt": 12,
+    "supersededByNewModel": 0,
+    "regressions": 0,
+    "audits": [
+      {
+        "destinationId": "akasaka-minato",
+        "originalPhase4Diagnosis": "The catalogue description calls Akasaka a Minato district, but categories include City and no structured kind distinguishes the district; the candidate evidence therefore rejects the neighborhood entity on type.",
+        "current": {
+          "kind": null,
+          "role": null,
+          "placeType": null,
+          "parentDestinationId": "minato-city",
+          "municipalityId": "Tokyo:minato"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "chiba-sawara",
+        "originalPhase4Diagnosis": "The catalogue describes Sawara's preserved historic canal district, while the only type-compatible candidate is the dissolved municipality 佐原町; the historic-streets candidate has insufficient type evidence.",
+        "current": {
+          "kind": null,
+          "role": "standalone",
+          "placeType": "destination",
+          "parentDestinationId": "katori-city",
+          "municipalityId": "Chiba:katori"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "hondori",
+        "originalPhase4Diagnosis": "The catalogue describes a covered shopping arcade, while the preserved candidate is explicitly a shopping street/arcade and the current type gate does not recognize the record's district modelling.",
+        "current": {
+          "kind": "district",
+          "role": "poi",
+          "placeType": "destination",
+          "parentDestinationId": "hiroshima-city",
+          "municipalityId": "Hiroshima:hiroshima"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "ikebukuro-toshima",
+        "originalPhase4Diagnosis": "The catalogue record is a Toshima neighborhood but its categories include City and it has no structured kind; the neighborhood candidate is rejected by the independent type gate.",
+        "current": {
+          "kind": null,
+          "role": null,
+          "placeType": null,
+          "parentDestinationId": "toshima-city",
+          "municipalityId": "Tokyo:toshima"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "kannai-yokohama",
+        "originalPhase4Diagnosis": "The catalogue description explicitly calls Kannai a historic downtown district, but no structured district kind is present and the preserved candidate has insufficient type/geography evidence for a safe mapping.",
+        "current": {
+          "kind": null,
+          "role": "poi",
+          "placeType": "destination",
+          "parentDestinationId": "yokohama-city",
+          "municipalityId": "Kanagawa:yokohama"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "minato-mirai-yokohama",
+        "originalPhase4Diagnosis": "The catalogue describes Minato Mirai 21 as a waterfront redevelopment district, while the candidates are a human settlement and neighborhood with insufficient type evidence for the current record.",
+        "current": {
+          "kind": null,
+          "role": "poi",
+          "placeType": "destination",
+          "parentDestinationId": "yokohama-city",
+          "municipalityId": "Kanagawa:yokohama"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "saitama-nagatoro",
+        "originalPhase4Diagnosis": "The catalogue description combines Arakawa boat cruises, Iwadatami rock formations, and Mount Hodo ropeway; the preserved candidates are the municipality or separate valley, not the whole composite record.",
+        "current": {
+          "kind": "nature",
+          "role": "standalone",
+          "placeType": "destination",
+          "parentDestinationId": "chichibu-city",
+          "municipalityId": "Saitama:chichibu"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "takanawa-gateway-minato",
+        "originalPhase4Diagnosis": "The catalogue describes a station complex but categories include City and no structured kind; the preserved candidate is Takanawa Gateway Station and is rejected by the type gate.",
+        "current": {
+          "kind": null,
+          "role": null,
+          "placeType": null,
+          "parentDestinationId": "minato-city",
+          "municipalityId": "Tokyo:minato"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "tokyo-hinohara",
+        "originalPhase4Diagnosis": "The catalogue uses a nature record for Hinohara while the preserved candidates are the Tokyo village or a dissolved municipality; the source modelling does not state which entity is intended.",
+        "current": {
+          "kind": "nature",
+          "role": "standalone",
+          "placeType": "destination",
+          "parentDestinationId": null,
+          "municipalityId": "Tokyo:hinohara"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "tokyo-okutama",
+        "originalPhase4Diagnosis": "The catalogue describes the Okutama mountainous escape, while the preserved candidates are the municipality and Okutama Mountains; the current record does not distinguish them.",
+        "current": {
+          "kind": "nature",
+          "role": "standalone",
+          "placeType": "destination",
+          "parentDestinationId": null,
+          "municipalityId": "Tokyo:okutama"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "ueno-taito",
+        "originalPhase4Diagnosis": "The catalogue describes Ueno as a cultural hub spanning a park, zoo, museums, and market, but has no structured district/hub kind and the neighborhood candidate fails the current type gate.",
+        "current": {
+          "kind": null,
+          "role": "hub",
+          "placeType": null,
+          "parentDestinationId": "taito-city",
+          "municipalityId": "Tokyo:taito"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      },
+      {
+        "destinationId": "yokohama-marine-tower",
+        "originalPhase4Diagnosis": "The catalogue description identifies the Yokohama Marine Tower and its categories identify a tower/observation deck, but no structured kind is present; the exact Q1207989 candidate is rejected by the current independent type gate.",
+        "current": {
+          "kind": null,
+          "role": null,
+          "placeType": null,
+          "parentDestinationId": "yokohama-city",
+          "municipalityId": "Kanagawa:yokohama"
+        },
+        "currentDuplicateIdentityStatus": {
+          "status": "unmapped",
+          "pageIdGroup": null,
+          "qidGroup": null
+        },
+        "kai257ChangeAffectingIt": null,
+        "finalStatus": "STILL_VALID_DEBT",
+        "evidence": {
+          "destinationExists": true,
+          "published": true,
+          "phase4AdjudicationFingerprintMatches": true,
+          "noRelationshipOrTaxonomyChangeSinceKai291": true,
+          "explanation": "No KAI-257 kind/role/placeType/municipality/relationship change touched this record; the original Phase 4 diagnosis remains explicit debt."
+        }
+      }
+    ]
+  },
+  "duplicateIdentityAudit": {
+    "duplicatePageIdGroups": 2,
+    "duplicateQidGroups": 2,
+    "intentionalSameEntity": 0,
+    "parentChildConflict": 2,
+    "duplicateCatalogueRecord": 0,
+    "suspiciousNeedsReview": 0,
+    "pageIdGroups": [
+      {
+        "identity": "309686",
+        "destinationIds": ["enoshima-island", "enoshima-iwaya-caves"]
+      },
+      {
+        "identity": "52230",
+        "destinationIds": ["osaka-city", "osaka-museum-of-housing-and-living"]
+      }
+    ],
+    "qidGroups": [
+      {
+        "identity": "Q35765",
+        "destinationIds": ["osaka-city", "osaka-museum-of-housing-and-living"]
+      },
+      {
+        "identity": "Q989803",
+        "destinationIds": ["enoshima-island", "enoshima-iwaya-caves"]
+      }
+    ],
+    "semanticGroups": [
+      {
+        "destinationIds": ["enoshima-island", "enoshima-iwaya-caves"],
+        "classification": "parent-child-conflict",
+        "status": "still-intentionally-deferred",
+        "evidence": "Enoshima Iwaya Caves is a distinct attraction on Enoshima, but both records currently use Enoshima's page/QID; KAI-257 did not alter either record's identity or relationship semantics."
+      },
+      {
+        "destinationIds": ["osaka-city", "osaka-museum-of-housing-and-living"],
+        "classification": "parent-child-conflict",
+        "status": "still-intentionally-deferred",
+        "evidence": "The Osaka hub and the distinct Osaka Museum of Housing and Living child share Osaka's page/QID; the child points to osaka-city and the duplicate is an article/parent substitution, not one catalogue entity."
+      }
+    ],
+    "historicalPairs": {
+      "osaka": {
+        "destinationIds": ["osaka-city", "osaka-museum-of-housing-and-living"],
+        "changedByKai257": false,
+        "status": "still-intentionally-deferred",
+        "classification": "parent-child-conflict"
+      },
+      "enoshima": {
+        "destinationIds": ["enoshima-island", "enoshima-iwaya-caves"],
+        "changedByKai257": false,
+        "status": "still-intentionally-deferred",
+        "classification": "parent-child-conflict"
+      }
+    }
+  },
+  "kai257": {
+    "totalDefectsFound": 0,
+    "groupedCounts": {
+      "DESTINATION_LEVEL_AS_SIGHT": 0,
+      "INVALID_OR_MISSING_ENTITY": 0,
+      "PARENT_MUNICIPALITY_MISMATCH": 0,
+      "SAME_PREFECTURE_VIOLATION": 0,
+      "NEARBY_OR_SIBLING_FALLBACK_CONTAMINATION": 0,
+      "TAXONOMY_MISMATCH": 0,
+      "AMBIGUOUS_IDENTITY": 0,
+      "DUPLICATE_RELATIONSHIP": 0
+    },
+    "originalSuspiciousRelationshipCount": 74,
+    "genuinelyInvalidRelationshipsRemoved": 73,
+    "legitimateRelationshipsRetained": 24,
+    "parentOrTaxonomyRecordsRepaired": 1,
+    "repairedCount": 74,
+    "ambiguousReviewLedgerCount": 55,
+    "cleanTopSightsHubCount": 122,
+    "omittedTopSightsHubCount": 41,
+    "activeTopSightDefects": 0,
+    "invalidPeerLeakage": 0,
+    "groupedDefectCounts": {
+      "DESTINATION_LEVEL_AS_SIGHT": 0,
+      "INVALID_OR_MISSING_ENTITY": 0,
+      "PARENT_MUNICIPALITY_MISMATCH": 0,
+      "SAME_PREFECTURE_VIOLATION": 0,
+      "NEARBY_OR_SIBLING_FALLBACK_CONTAMINATION": 0,
+      "TAXONOMY_MISMATCH": 0,
+      "AMBIGUOUS_IDENTITY": 0,
+      "DUPLICATE_RELATIONSHIP": 0
+    },
+    "parentChildContainmentErrors": 0,
+    "parentChildContainmentLedger": [],
+    "municipalityContainmentErrors": 0,
+    "municipalityContainmentLedger": [],
+    "administrativeContainerErrors": 0,
+    "administrativeContainerLedger": [],
+    "arbitraryHubIdentityErrors": 0,
+    "unsafePeerFallbackErrors": 0,
+    "unsafePeerFallbackLedger": [],
+    "sparseHubsFailClosed": true,
+    "sparseHubsOmitted": 41,
+    "topSightReferenceCount": 368,
+    "reviewLedgerCount": 55,
+    "relationshipInvariantErrors": 0,
+    "generatedDestinationModelSync": {
+      "generatedDetailFiles": 1057,
+      "staleOutputCount": 0,
+      "staleOutputs": [],
+      "changedOnRegenerationCount": 0,
+      "changedOnRegeneration": []
+    }
+  },
+  "safety": {
+    "phase1BoundaryPreserved": true,
+    "phase1WikipediaIdentityModified": false,
+    "phase1AdjudicationBoundaryViolated": false,
+    "unrelatedPhase1CatalogueRepairs": 1,
+    "phase4MappingsPreserved": true,
+    "noSilentHumanReviewPromotion": true,
+    "noSuspiciousIdentityDuplicates": true,
+    "noTransientFailures": true,
+    "noRegression": true,
+    "phase4EvidenceBindingPasses": false,
+    "phase4EvidenceBindingExplained": true,
+    "sourceDestinationMutations": 0,
+    "noUnexplainedPhase4FingerprintDrift": true,
+    "catalogueSyncAndIdempotencyPass": true
+  },
+  "sourceMutation": {
+    "expectedDestinationMutations": 0,
+    "actualDestinationMutations": 0,
+    "destinationIndexByteIdenticalDuringAudit": true,
+    "destinationIndexSha256": "63f8505e938af52b43a96629c8ec8805833fbaf31763c599f88334bacca99e1e",
+    "changedDestinationIds": []
+  },
+  "kai256CloseoutRecommendation": "CLOSE"
+}
