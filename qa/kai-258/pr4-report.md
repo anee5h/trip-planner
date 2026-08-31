@@ -6,8 +6,8 @@
 - Branch: `data/kai-258d-gunma-p1-depth-integrity`
 - Base branch: `data/kai-258c-nagano-p1-hub-completion`
 - Base head: `88ed952fd20d58bd6c2522fc2f0fee0f810ccf68` (KAI-258C head)
-- Commit: `to be filled after the verified commit`
-- Pull request: `to be filled after push/open`
+- Commit: `8d155f2e406ab471c07a96c82ec4394d8731c21d`
+- Pull request: [#297](https://github.com/anee5h/trip-planner/pull/297)
 - Merge: **not performed**
 
 ## Candidate matrix
@@ -68,4 +68,10 @@ No candidate was rejected. The four DEFER decisions remain explicit and are not 
 
 ## Final stack audit
 
-The final audit will verify exact ancestry `main → KAI-258A → KAI-258B → KAI-258C → KAI-258D`, exact remote heads, generated-file parity, relationship integrity, representative EN/JA recommendations, and that all four PRs remain open/unmerged.
+The audit passed:
+
+- Exact ancestry: `main` `85ef6740` → KAI-258A `ce51de8b` → KAI-258B `f2cf9d3c` → KAI-258C `31fac290` → KAI-258D `8d155f2e`.
+- Remote branch heads exactly match those four PR heads.
+- PRs #294, #295, #296, and #297 are all `OPEN`, `MERGEABLE`, and `mergedAt: null`.
+- Base branches are respectively `main`, A, B, and C; no merge or rebase was performed.
+- Generated-file parity, relationship integrity, 1,107-record counts, representative EN/JA catalogue tests, and the full validation matrix all passed.
