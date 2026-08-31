@@ -5,8 +5,8 @@
 - Issue: KAI-258
 - Branch: `data/kai-258a-nagano-p0-anchor-depth`
 - Base: `main` at `85ef67400d3952c57f772b7bfcf3701e91452451`
-- Commit: `9576813517543f31cccd4ab00219e923ccdd00b9`
-- Pull request: to be filled after push/open
+- Commit: `c8d6402f6c8d10acfee008e8a3759ff5399c4c2e`
+- Pull request: [#294](https://github.com/anee5h/trip-planner/pull/294)
 - Merge status: **STOPPED — not merged**
 
 ## Scope
