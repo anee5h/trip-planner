@@ -1450,12 +1450,12 @@
       "genericTemplateCopyRecords": 0,
       "missingBudgetRecords": 0,
       "missingSeasonRecords": 0,
-      "explicitlyUnknownBudget": 382,
-      "explicitlyUnknownSeason": 391
+      "explicitlyUnknownBudget": 383,
+      "explicitlyUnknownSeason": 392
     },
     "publishedScoreStates": {
       "verified": 17,
-      "estimated": 688,
+      "estimated": 689,
       "unavailable": 27
     },
     "dispositionCounts": {
