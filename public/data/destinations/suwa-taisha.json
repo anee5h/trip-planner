@@ -1,0 +1,268 @@
+{
+  "id": "suwa-taisha",
+  "officialWebsite": "https://suwataisha.or.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Suwa Taisha",
+  "nameJa": "諏訪大社",
+  "aliases": ["Suwa Grand Shrine", "Suwa Taisha Four Shrines", "諏訪大社四社"],
+  "prefecture": "Nagano",
+  "region": "Chubu",
+  "kind": "shrine",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "coordinates": {
+    "lat": 35.99849,
+    "lng": 138.1190236
+  },
+  "categories": ["Shrine", "History", "Culture"],
+  "tags": ["Shrine", "Four Shrines", "Shinshu", "Suwa"],
+  "description": "One of Japan's ancient shrine traditions, represented by four major precincts around the Lake Suwa region and its distinctive sacred architecture and festivals.",
+  "highlights": [
+    "The Kamisha and Shimosha four-shrine pilgrimage",
+    "Distinctive sacred architecture and traditions",
+    "A regional shrine proposition rather than a single-site duplicate"
+  ],
+  "content": {
+    "en": {
+      "name": "Suwa Taisha",
+      "description": "One of Japan's ancient shrine traditions, represented by four major precincts around the Lake Suwa region and its distinctive sacred architecture and festivals.",
+      "highlights": [
+        "The Kamisha and Shimosha four-shrine pilgrimage",
+        "Distinctive sacred architecture and traditions",
+        "A regional shrine proposition rather than a single-site duplicate"
+      ],
+      "notes": "The official Suwa Taisha site is authoritative for the four shrines, worship guidance, access, and current events. The map anchor is Kamisha Honmiya; this multi-site record intentionally has no guessed parent or single-municipality containment edge.",
+      "reservation": "Reservation and admission conditions can change; check the official visitor guidance before visiting.",
+      "parking": "Parking conditions vary by site and date; check the official visitor guidance before visiting.",
+      "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting."
+    },
+    "ja": {
+      "name": "諏訪大社",
+      "description": "諏訪湖周辺の四つの主要な社からなる古社。独自の社殿建築や祭礼を伝える、諏訪地域を代表する信仰文化の目的地です。",
+      "highlights": [
+        "上社・下社の四社めぐり",
+        "独自の社殿建築と伝統行事",
+        "単一境内の重複ではなく諏訪地域の巡拝体験としての登録"
+      ],
+      "notes": "四社の案内・参拝・アクセス・行事は諏訪大社公式サイトをご確認ください。地図の代表点は上社本宮とし、複数自治体にまたがるため推測による親子関係や単一自治体への包含は設定していません。",
+      "reservation": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+      "parking": "駐車条件は場所や時期により異なるため、訪問前に公式案内をご確認ください。",
+      "openingHours": "開場時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Suwa_taisha_harumiya13bs3200.jpg/1280px-Suwa_taisha_harumiya13bs3200.jpg",
+  "imageMetadata": {
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.5",
+    "attribution": "663highland, via Wikimedia Commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Suwa_taisha_harumiya13bs3200.jpg"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "confidence": "unknown",
+    "basis": "Official visitor guidance establishes available access modes, but no complete origin-aware duration or fare is authored in this catalogue expansion."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred.",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing"
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred from attraction type."
+  },
+  "reservation": "Reservation and admission conditions can change; check the official visitor guidance before visiting.",
+  "reservationJa": "予約・入場条件は変更される場合があるため、訪問前に公式案内をご確認ください。",
+  "parking": "Parking conditions vary by site and date; check the official visitor guidance before visiting.",
+  "parkingJa": "駐車条件は場所や時期により異なるため、訪問前に公式案内をご確認ください。",
+  "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting.",
+  "openingHoursJa": "開場時間・休業日は変更される場合があるため、訪問前に公式案内をご確認ください。",
+  "notes": "The official Suwa Taisha site is authoritative for the four shrines, worship guidance, access, and current events. The map anchor is Kamisha Honmiya; this multi-site record intentionally has no guessed parent or single-municipality containment edge.",
+  "notesJa": "四社の案内・参拝・アクセス・行事は諏訪大社公式サイトをご確認ください。地図の代表点は上社本宮とし、複数自治体にまたがるため推測による親子関係や単一自治体への包含は設定していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "freshness": "current",
+    "checkedAt": "2026-08-31",
+    "reviewedAt": "2026-08-31",
+    "reviewedBy": "Meguruto editorial",
+    "changeSummary": "Added one current, independently recommendable Nagano P0 destination after identity and duplicate review.",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://suwataisha.or.jp/",
+        "title": "Suwa Taisha official website",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/182516539",
+        "title": "OpenStreetMap coordinate reference: Suwa Taisha Kamisha Honmiya",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://suwataisha.or.jp/",
+          "title": "Suwa Taisha official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "nameJa": [
+        {
+          "type": "official",
+          "url": "https://suwataisha.or.jp/",
+          "title": "Suwa Taisha official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "municipalityId": [
+        {
+          "type": "official",
+          "url": "https://suwataisha.or.jp/",
+          "title": "Suwa Taisha official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/182516539",
+          "title": "OpenStreetMap coordinate reference: Suwa Taisha Kamisha Honmiya",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "status": [
+        {
+          "type": "official",
+          "url": "https://suwataisha.or.jp/",
+          "title": "Suwa Taisha official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://suwataisha.or.jp/",
+          "title": "Suwa Taisha official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'shrine'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-08-31",
+        "changedBy": "Meguruto editorial",
+        "summary": "Added source-backed Nagano P0 destination depth without static cost, duration, opening-status, or seasonality claims.",
+        "method": "manual"
+      }
+    ]
+  },
+  "addedAt": "2026-08-31",
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'shrine'"
+  },
+  "walkingMin": 70,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 60% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "The official destination identity describes an open area or multi-site destination rather than one required admission product; optional facilities and purchases are not promoted as admission.",
+    "sourceUrls": ["https://suwataisha.or.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  }
+}

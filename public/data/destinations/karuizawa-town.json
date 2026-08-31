@@ -10,8 +10,12 @@
   "categories": ["Travel Hub", "City Hub"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Mt.Asama%2C_Karuizawa.jpg",
-  "description": "Elegant alpine mountain resort town featuring Kyu-Karuizawa Ginza shopping street and Prince Shopping Plaza.",
-  "highlights": ["Explore Karuizawa Town", "Local Culture & Cuisine"],
+  "description": "Elegant alpine mountain resort town with distinct nature, heritage-shopping, and forest dining choices including Kumoba Pond, Kyu-Karuizawa Ginza, and Harunire Terrace.",
+  "highlights": [
+    "Kumoba Pond woodland reflections",
+    "Kyu-Karuizawa Ginza heritage shopping street",
+    "Harunire Terrace forest restaurants and shops"
+  ],
   "totalTripHours": 6,
   "walkingMin": 360,
   "indoorPercent": 50,
@@ -50,13 +54,17 @@
   },
   "collections": [],
   "relationships": {
-    "featuredDestinationIds": [],
+    "featuredDestinationIds": [
+      "kumoba-pond",
+      "kyu-karuizawa-ginza",
+      "harunire-terrace"
+    ],
     "nearbyDestinationIds": ["nagoya-city", "shirakawa-village", "nagano-city"]
   },
   "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -77,7 +85,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 0 children, metro=false"
+    "basis": "hub exploration window: importance major, 3 children, metro=false"
   },
   "walkingMetadata": {
     "method": "model",

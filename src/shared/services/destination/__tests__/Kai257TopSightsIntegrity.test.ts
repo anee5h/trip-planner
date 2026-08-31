@@ -43,11 +43,22 @@ describe("KAI-257 Top Sights and Geographic Relationship Integrity", () => {
       expect(sightIds).not.toContain("kiso");
     });
 
-    it("fails closed on sparse rails: Karuizawa Town returns 0 sights rather than being padded", () => {
+    it("returns the canonical Karuizawa child POIs instead of padding with peers", () => {
       const sights =
         DestinationRelationshipService.getFeaturedChildDestinations(karuizawa);
-      // Karuizawa has no catalogued child POIs; it must return empty instead of padding with peers
-      expect(sights).toEqual([]);
+      const sightIds = sights.map((s) => s.id);
+
+      expect(sightIds).toEqual(
+        expect.arrayContaining([
+          "kumoba-pond",
+          "kyu-karuizawa-ginza",
+          "harunire-terrace",
+        ]),
+      );
+      expect(sightIds).toHaveLength(3);
+      expect(sightIds).not.toContain("matsumoto-city");
+      expect(sightIds).not.toContain("nagano-bessho-onsen");
+      expect(sightIds).not.toContain("kiso");
     });
 
     it("still returns legitimate Karuizawa POIs when present in relationships", () => {

@@ -489,7 +489,12 @@
       "higashiyama-zoo-and-botanical-gardens",
       "mt-rokko-kobe",
       "kobe-suma-sea-world",
-      "marine-world-uminonakamichi"
+      "marine-world-uminonakamichi",
+      "togakushi-shrine",
+      "happo-pond",
+      "hakuba-iwatake-mountain-resort",
+      "tsugaike-nature-park",
+      "suwa-taisha"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -651,7 +656,8 @@
       "hita-city",
       "miyoshi-city",
       "uwajima-city",
-      "matsushima-town"
+      "matsushima-town",
+      "obuse-town"
     ],
     "walking-model-v1": [
       "abashiri-city",
@@ -843,7 +849,20 @@
       "kumano-hongu-taisha-oyunohara",
       "kumano-hayatama-taisha-shingu",
       "yunomine-onsen",
-      "kumano-kodo-takijiri-takahara"
+      "kumano-kodo-takijiri-takahara",
+      "zenkoji-temple",
+      "jigokudani-monkey-park",
+      "togakushi-shrine",
+      "kumoba-pond",
+      "kyu-karuizawa-ginza",
+      "harunire-terrace",
+      "happo-pond",
+      "hakuba-iwatake-mountain-resort",
+      "tsugaike-nature-park",
+      "daio-wasabi-farm",
+      "senjojiki-cirque",
+      "suwa-taisha",
+      "obuse-town"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1892,7 +1911,20 @@
       "kumano-hongu-taisha-oyunohara",
       "kumano-hayatama-taisha-shingu",
       "yunomine-onsen",
-      "kumano-kodo-takijiri-takahara"
+      "kumano-kodo-takijiri-takahara",
+      "zenkoji-temple",
+      "jigokudani-monkey-park",
+      "togakushi-shrine",
+      "kumoba-pond",
+      "kyu-karuizawa-ginza",
+      "harunire-terrace",
+      "happo-pond",
+      "hakuba-iwatake-mountain-resort",
+      "tsugaike-nature-park",
+      "daio-wasabi-farm",
+      "senjojiki-cirque",
+      "suwa-taisha",
+      "obuse-town"
     ]
   },
   "modelClusterIds": [
@@ -1941,26 +1973,26 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-30T23:31",
+    "at": "2026-08-31T03:03",
     "changeCount": 2,
     "byModel": [
       [
-        "hub-window-model-v1",
+        "duration-model-v1",
         2
       ]
     ],
     "sample": [
       {
-        "id": "hino-city",
-        "model": "hub-window-model-v1",
+        "id": "togakushi-shrine",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "hub exploration window: importance notable, 5 children, metro=false"
+        "reason": "kind band 'shrine'"
       },
       {
-        "id": "tokushima-city",
-        "model": "hub-window-model-v1",
+        "id": "suwa-taisha",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "hub exploration window: importance notable, 4 children, metro=false"
+        "reason": "kind band 'shrine'"
       }
     ]
   }
