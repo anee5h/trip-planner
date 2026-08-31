@@ -56855,7 +56855,7 @@
     "walkingIntensity": "low",
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 6,
+      "min": 7,
       "max": 12
     },
     "businessHours": "Open access",
@@ -56879,7 +56879,7 @@
           {
             "type": "calculated",
             "url": "catalogue-model://kai-89",
-            "title": "hub-window-model-v1; hub exploration window: importance notable, 2 children, metro=false",
+            "title": "hub-window-model-v1; hub exploration window: importance notable, 3 children, metro=false",
             "accessedAt": "2026-08-14"
           }
         ],
@@ -56952,7 +56952,7 @@
       "method": "model",
       "modelVersion": "hub-window-model-v1",
       "confidence": "low",
-      "basis": "hub exploration window: importance notable, 2 children, metro=false"
+      "basis": "hub exploration window: importance notable, 3 children, metro=false"
     },
     "comfortMetadata": {
       "method": "model",
@@ -242915,7 +242915,7 @@
       "checkedAt": "2026-08-31",
       "reviewedAt": "2026-08-31",
       "reviewedBy": "Meguruto editorial",
-      "changeSummary": "Added one current, independently recommendable Nagano P0 destination after identity and duplicate review.",
+      "changeSummary": "Retained the source-backed Obuse hub while preserving verified child relationships.",
       "sources": [
         {
           "type": "official",
@@ -249949,6 +249949,2745 @@
       "provenance": {
         "sourceClass": "model",
         "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "doai-station",
+    "name": "Doai Station",
+    "nameJa": "土合駅",
+    "aliases": [
+      "Doai Underground Station",
+      "Doai Station Staircase"
+    ],
+    "officialWebsite": "https://www.enjoy-minakami.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:minakami",
+    "kind": "station",
+    "role": "poi",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Railway",
+      "History",
+      "Architecture"
+    ],
+    "tags": [
+      "Station",
+      "Railway Heritage",
+      "Minakami",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Gunma_Doai_station_xl.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunma_Doai_station_xl.jpg",
+      "license": "CC BY 4.0",
+      "attribution": "Yasuyuki Kawano",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.830723,
+      "lng": 138.9664447
+    },
+    "description": "Doai Station is Minakami's distinctive railway heritage stop, known for its deep underground platform and mountain gateway setting.",
+    "highlights": [
+      "Deep underground platform",
+      "Railway heritage",
+      "Gateway to Tanigawa area"
+    ],
+    "content": {
+      "en": {
+        "name": "Doai Station",
+        "description": "Doai Station is Minakami's distinctive railway heritage stop, known for its deep underground platform and mountain gateway setting.",
+        "highlights": [
+          "Deep underground platform",
+          "Railway heritage",
+          "Gateway to Tanigawa area"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "土合駅",
+        "description": "土合駅は、地下深くにあるホームと谷川岳への玄関口として知られる、みなかみの特徴的な鉄道遺産スポットです。",
+        "highlights": [
+          "地下深くのホーム",
+          "鉄道遺産",
+          "谷川岳周辺の玄関口"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.enjoy-minakami.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "parentDestinationId": "minakami-town"
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.enjoy-minakami.jp/",
+          "title": "Minakami Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/13950762890",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.enjoy-minakami.jp/",
+            "title": "Minakami Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.enjoy-minakami.jp/",
+            "title": "Minakami Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.enjoy-minakami.jp/",
+            "title": "Minakami Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/13950762890",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Gunma_Doai_station_xl.jpg",
+            "title": "Doai Station image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.enjoy-minakami.jp/",
+            "title": "Minakami Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 60,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "ikaho-stone-steps",
+    "name": "Ikaho Stone Steps",
+    "nameJa": "伊香保石段街",
+    "aliases": [
+      "Ishidan-gai",
+      "Ikaho Stone Stairway"
+    ],
+    "officialWebsite": "https://www.shibukawa-kanko.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:shibukawa",
+    "kind": "street",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "History",
+      "Shopping",
+      "Hot Springs"
+    ],
+    "tags": [
+      "Historic Street",
+      "Onsen",
+      "Ikaho",
+      "Shibukawa"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Ikaho_Onsen_steps_from_above_2.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ikaho_Onsen_steps_from_above_2.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "NMaia",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.497658,
+      "lng": 138.9163875
+    },
+    "description": "Ikaho's stone steps are the defining walk through the historic onsen town, with shops, shrines, and hot-spring culture along the ascent.",
+    "highlights": [
+      "Historic onsen street",
+      "Stone stairway walk",
+      "Shops and shrine culture"
+    ],
+    "content": {
+      "en": {
+        "name": "Ikaho Stone Steps",
+        "description": "Ikaho's stone steps are the defining walk through the historic onsen town, with shops, shrines, and hot-spring culture along the ascent.",
+        "highlights": [
+          "Historic onsen street",
+          "Stone stairway walk",
+          "Shops and shrine culture"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "伊香保石段街",
+        "description": "伊香保石段街は、店や社寺、温泉文化が連なる歴史ある温泉街の中心的な散策路です。",
+        "highlights": [
+          "歴史ある温泉街",
+          "石段の散策",
+          "店と社寺の文化"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.shibukawa-kanko.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "gunma-ikaho-onsen"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.shibukawa-kanko.jp/",
+          "title": "Shibukawa Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/311066092",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.shibukawa-kanko.jp/",
+            "title": "Shibukawa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.shibukawa-kanko.jp/",
+            "title": "Shibukawa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.shibukawa-kanko.jp/",
+            "title": "Shibukawa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/311066092",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Ikaho_Onsen_steps_from_above_2.jpg",
+            "title": "Ikaho Stone Steps image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.shibukawa-kanko.jp/",
+            "title": "Shibukawa Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 3h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 90,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 3h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "mt-myogi",
+    "name": "Mount Myogi",
+    "nameJa": "妙義山",
+    "aliases": [
+      "Myogisan",
+      "Mount Myogi Rock Peaks"
+    ],
+    "officialWebsite": "https://www.tomioka-silk.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:tomioka",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Nature",
+      "Mountain",
+      "Photography"
+    ],
+    "tags": [
+      "Mountains",
+      "Rock Formations",
+      "Tomioka",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Mt-myogi-in-summer.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt-myogi-in-summer.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Jesse Fuller",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.2998,
+      "lng": 138.7416
+    },
+    "description": "Mount Myogi is a dramatic jagged mountain landscape in western Gunma, distinct from the broader Myogi-Arafune-Saku park shell.",
+    "highlights": [
+      "Jagged rock peaks",
+      "Western Gunma landscape",
+      "Distinct mountain identity"
+    ],
+    "content": {
+      "en": {
+        "name": "Mount Myogi",
+        "description": "Mount Myogi is a dramatic jagged mountain landscape in western Gunma, distinct from the broader Myogi-Arafune-Saku park shell.",
+        "highlights": [
+          "Jagged rock peaks",
+          "Western Gunma landscape",
+          "Distinct mountain identity"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "妙義山",
+        "description": "妙義山は群馬西部の特徴的な岩峰景観で、広域の妙義荒船佐久高原レコードとは別に発見できます。",
+        "highlights": [
+          "特徴的な岩峰",
+          "群馬西部の景観",
+          "独立した山岳レコード"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.tomioka-silk.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "myogi-arafune-saku-kogen",
+        "myogi-shrine"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.tomioka-silk.jp/",
+          "title": "Tomioka Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/search?query=妙義山%20群馬",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/search?query=妙義山%20群馬",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Mt-myogi-in-summer.jpg",
+            "title": "Mount Myogi image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 6h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'mountain'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 290,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 6h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'mountain'"
+    }
+  },
+  {
+    "id": "myogi-shrine",
+    "name": "Myogi Shrine",
+    "nameJa": "妙義神社",
+    "aliases": [
+      "Myogi-jinja",
+      "Myogi Shrine Gate"
+    ],
+    "officialWebsite": "https://www.tomioka-silk.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:tomioka",
+    "kind": "shrine",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Shrine",
+      "History",
+      "Culture"
+    ],
+    "tags": [
+      "Shrine",
+      "Myogi",
+      "Tomioka",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Myogi_Shrine_-_panoramio.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myogi_Shrine_-_panoramio.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Koichi Shibata",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.2861,
+      "lng": 138.7399
+    },
+    "description": "Myogi Shrine is a historic mountain shrine at the foot of Mount Myogi, pairing naturally with the mountain while remaining a separate cultural destination.",
+    "highlights": [
+      "Mountain shrine setting",
+      "Historic architecture",
+      "Related to Mount Myogi"
+    ],
+    "content": {
+      "en": {
+        "name": "Myogi Shrine",
+        "description": "Myogi Shrine is a historic mountain shrine at the foot of Mount Myogi, pairing naturally with the mountain while remaining a separate cultural destination.",
+        "highlights": [
+          "Mountain shrine setting",
+          "Historic architecture",
+          "Related to Mount Myogi"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "妙義神社",
+        "description": "妙義神社は妙義山麓にある歴史ある神社で、山とは関連しつつ独立した文化目的地として扱います。",
+        "highlights": [
+          "山麓の神社景観",
+          "歴史的な建築",
+          "妙義山と関連する文化スポット"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.tomioka-silk.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "mt-myogi"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.tomioka-silk.jp/",
+          "title": "Tomioka Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/search?query=妙義神社%20群馬",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/search?query=妙義神社%20群馬",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Myogi_Shrine_-_panoramio.jpg",
+            "title": "Myogi Shrine image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.tomioka-silk.jp/",
+            "title": "Tomioka Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "usui-pass-railway-heritage-park",
+    "name": "Usui Pass Railway Heritage Park",
+    "nameJa": "碓氷峠鉄道文化むら",
+    "aliases": [
+      "Usui Toge Railway Culture Village",
+      "Usui Railway Heritage Park"
+    ],
+    "officialWebsite": "https://www.usuitouge.com/bunkamura/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:annaka",
+    "kind": "theme_park",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Railway",
+      "History",
+      "Museum"
+    ],
+    "tags": [
+      "Railway Heritage",
+      "Museum",
+      "Annaka",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Usui_family-train_2023-11-04.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Usui_family-train_2023-11-04.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "快速踊り子",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.3368121,
+      "lng": 138.7324976
+    },
+    "description": "The Usui Pass Railway Heritage Park preserves the railway history of the Usui route with rolling stock, exhibits, and a concrete heritage experience.",
+    "highlights": [
+      "Railway rolling stock",
+      "Usui route history",
+      "Hands-on heritage setting"
+    ],
+    "content": {
+      "en": {
+        "name": "Usui Pass Railway Heritage Park",
+        "description": "The Usui Pass Railway Heritage Park preserves the railway history of the Usui route with rolling stock, exhibits, and a concrete heritage experience.",
+        "highlights": [
+          "Railway rolling stock",
+          "Usui route history",
+          "Hands-on heritage setting"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "碓氷峠鉄道文化むら",
+        "description": "碓氷峠鉄道文化むらは、車両や展示を通じて碓氷線の鉄道史を伝える、具体的な鉄道遺産施設です。",
+        "highlights": [
+          "鉄道車両",
+          "碓氷線の歴史",
+          "体験できる遺産施設"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.usuitouge.com/bunkamura/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.usuitouge.com/bunkamura/",
+          "title": "Usui Pass Railway Heritage Park official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/478865314",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.usuitouge.com/bunkamura/",
+            "title": "Usui Pass Railway Heritage Park official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.usuitouge.com/bunkamura/",
+            "title": "Usui Pass Railway Heritage Park official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.usuitouge.com/bunkamura/",
+            "title": "Usui Pass Railway Heritage Park official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/478865314",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Usui_family-train_2023-11-04.jpg",
+            "title": "Usui Pass Railway Heritage Park image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.usuitouge.com/bunkamura/",
+            "title": "Usui Pass Railway Heritage Park official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "season": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "bestMonths": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'theme_park'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "bestSeason": "All Year (indoor)",
+    "seasonMetadata": {
+      "method": "model",
+      "modelVersion": "season-model-v1",
+      "confidence": "low",
+      "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+    },
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'theme_park'"
+    }
+  },
+  {
+    "id": "oigami-onsen",
+    "name": "Oigami Onsen",
+    "nameJa": "老神温泉",
+    "aliases": [
+      "Oigami Hot Spring",
+      "Oigami Onsen Village"
+    ],
+    "officialWebsite": "https://www.numata-kankou.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:numata",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Hot Springs",
+      "Culture",
+      "Nature"
+    ],
+    "tags": [
+      "Onsen",
+      "Numata",
+      "Gunma",
+      "Wellness"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Oigami_Onsen_view_from_Nairaku_Bridge.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Oigami_Onsen_view_from_Nairaku_Bridge.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Qurren",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.6758998,
+      "lng": 139.207887
+    },
+    "description": "Oigami Onsen is a historic hot-spring settlement in northern Gunma, adding a distinct stay-and-culture anchor beyond Kusatsu and Shima.",
+    "highlights": [
+      "Northern Gunma onsen",
+      "Valley settlement",
+      "Distinct hot-spring identity"
+    ],
+    "content": {
+      "en": {
+        "name": "Oigami Onsen",
+        "description": "Oigami Onsen is a historic hot-spring settlement in northern Gunma, adding a distinct stay-and-culture anchor beyond Kusatsu and Shima.",
+        "highlights": [
+          "Northern Gunma onsen",
+          "Valley settlement",
+          "Distinct hot-spring identity"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "老神温泉",
+        "description": "老神温泉は群馬北部の歴史ある温泉地で、草津・四万とは異なる滞在と文化の拠点です。",
+        "highlights": [
+          "群馬北部の温泉",
+          "渓谷の温泉街",
+          "独立した温泉地"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.numata-kankou.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.numata-kankou.jp/",
+          "title": "Numata Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/795286146",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.numata-kankou.jp/",
+            "title": "Numata Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.numata-kankou.jp/",
+            "title": "Numata Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.numata-kankou.jp/",
+            "title": "Numata Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/795286146",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Oigami_Onsen_view_from_Nairaku_Bridge.jpg",
+            "title": "Oigami Onsen image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.numata-kankou.jp/",
+            "title": "Numata Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'onsen'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'onsen'"
+    }
+  },
+  {
+    "id": "manza-onsen",
+    "name": "Manza Onsen",
+    "nameJa": "万座温泉",
+    "aliases": [
+      "Manza Hot Spring",
+      "Manza Onsen Resort"
+    ],
+    "officialWebsite": "https://www.manzaonsen.gr.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:tsumagoi",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Hot Springs",
+      "Nature",
+      "Relaxation"
+    ],
+    "tags": [
+      "Onsen",
+      "Highlands",
+      "Tsumagoi",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Manza_Onsen_Tsumagoi_Gunma01bs4272.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Manza_Onsen_Tsumagoi_Gunma01bs4272.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "663highland",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.6400581,
+      "lng": 138.4999501
+    },
+    "description": "Manza Onsen is a high-elevation hot-spring resort in Tsumagoi, giving the Gunma catalogue a distinct volcanic highland stay option.",
+    "highlights": [
+      "High-elevation onsen",
+      "Volcanic highland setting",
+      "Tsumagoi stay anchor"
+    ],
+    "content": {
+      "en": {
+        "name": "Manza Onsen",
+        "description": "Manza Onsen is a high-elevation hot-spring resort in Tsumagoi, giving the Gunma catalogue a distinct volcanic highland stay option.",
+        "highlights": [
+          "High-elevation onsen",
+          "Volcanic highland setting",
+          "Tsumagoi stay anchor"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "万座温泉",
+        "description": "万座温泉は嬬恋村の高地にある温泉地で、群馬に火山性高原の異なる滞在先を加えます。",
+        "highlights": [
+          "高地の温泉",
+          "火山性高原の景観",
+          "嬬恋村の滞在拠点"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.manzaonsen.gr.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.manzaonsen.gr.jp/",
+          "title": "Manza Onsen official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/way/1158882270",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.manzaonsen.gr.jp/",
+            "title": "Manza Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.manzaonsen.gr.jp/",
+            "title": "Manza Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.manzaonsen.gr.jp/",
+            "title": "Manza Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/way/1158882270",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Manza_Onsen_Tsumagoi_Gunma01bs4272.jpg",
+            "title": "Manza Onsen image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.manzaonsen.gr.jp/",
+            "title": "Manza Onsen official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'onsen'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 120,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'onsen'"
+    }
+  },
+  {
+    "id": "mt-akagi",
+    "name": "Mount Akagi",
+    "nameJa": "赤城山",
+    "aliases": [
+      "Akagiyama",
+      "Mount Akagi Area"
+    ],
+    "officialWebsite": "https://www.maebashi-cvb.com/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:maebashi",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Nature",
+      "Mountain",
+      "Outdoor Activities"
+    ],
+    "tags": [
+      "Mountains",
+      "Highlands",
+      "Maebashi",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Mt.Akagi.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mt.Akagi.jpg",
+      "license": "CC BY-SA 3.0",
+      "attribution": "Batholith",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.496769,
+      "lng": 139.1487481
+    },
+    "description": "Mount Akagi is a major Gunma massif with lakes, shrines, and highland recreation, adding a concrete nature hub to the city-facing side of the prefecture.",
+    "highlights": [
+      "Gunma mountain massif",
+      "Lake and shrine landscape",
+      "Highland recreation"
+    ],
+    "content": {
+      "en": {
+        "name": "Mount Akagi",
+        "description": "Mount Akagi is a major Gunma massif with lakes, shrines, and highland recreation, adding a concrete nature hub to the city-facing side of the prefecture.",
+        "highlights": [
+          "Gunma mountain massif",
+          "Lake and shrine landscape",
+          "Highland recreation"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "赤城山",
+        "description": "赤城山は湖や神社、高原レクリエーションを含む群馬の主要な山域で、県央の自然拠点として発見できます。",
+        "highlights": [
+          "群馬の主要山域",
+          "湖と神社の景観",
+          "高原レクリエーション"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.maebashi-cvb.com/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "lake-onuma-akagi",
+        "akagi-shrine"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.maebashi-cvb.com/",
+          "title": "Maebashi Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/3891609594",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/3891609594",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Mt.Akagi.jpg",
+            "title": "Mount Akagi image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'mountain'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 385,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 8h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'mountain'"
+    }
+  },
+  {
+    "id": "lake-onuma-akagi",
+    "name": "Lake Onuma",
+    "nameJa": "大沼（赤城山）",
+    "aliases": [
+      "Akagi Onuma",
+      "Onuma Pond Mount Akagi"
+    ],
+    "officialWebsite": "https://www.maebashi-cvb.com/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:maebashi",
+    "kind": "lake",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Nature",
+      "Lake",
+      "Photography"
+    ],
+    "tags": [
+      "Lake",
+      "Akagi",
+      "Maebashi",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Lakeside_path_near_Lake_Onuma_@_Mount_Akagi_area_(14018455990).jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lakeside_path_near_Lake_Onuma_@_Mount_Akagi_area_(14018455990).jpg",
+      "license": "CC BY 2.0",
+      "attribution": "Guilhem Vellut",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.5605,
+      "lng": 139.1765
+    },
+    "description": "Lake Onuma is Mount Akagi's central highland lake, a concrete nature destination distinct from the broader mountain record.",
+    "highlights": [
+      "Highland lake",
+      "Mount Akagi scenery",
+      "Lakeside nature"
+    ],
+    "content": {
+      "en": {
+        "name": "Lake Onuma",
+        "description": "Lake Onuma is Mount Akagi's central highland lake, a concrete nature destination distinct from the broader mountain record.",
+        "highlights": [
+          "Highland lake",
+          "Mount Akagi scenery",
+          "Lakeside nature"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "大沼（赤城山）",
+        "description": "大沼は赤城山の中心的な高原湖で、赤城山全体とは別に訪ねられる具体的な自然目的地です。",
+        "highlights": [
+          "高原湖",
+          "赤城山の景観",
+          "湖畔の自然"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.maebashi-cvb.com/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "mt-akagi",
+        "akagi-shrine"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.maebashi-cvb.com/",
+          "title": "Maebashi Tourism Association",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/search?query=赤城大沼",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/search?query=赤城大沼",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Lakeside_path_near_Lake_Onuma_@_Mount_Akagi_area_(14018455990).jpg",
+            "title": "Lake Onuma image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.maebashi-cvb.com/",
+            "title": "Maebashi Tourism Association",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'lake'",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 190,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 80% of 4h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "durationMetadata": {
+      "method": "model",
+      "modelVersion": "duration-model-v1",
+      "confidence": "medium",
+      "basis": "kind band 'lake'"
+    }
+  },
+  {
+    "id": "akagi-shrine",
+    "name": "Akagi Shrine",
+    "nameJa": "赤城神社",
+    "aliases": [
+      "Akagi Jinja",
+      "Akagi Shrine at Lake Onuma"
+    ],
+    "officialWebsite": "https://www.akagijinja.jp/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:maebashi",
+    "kind": "shrine",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "notable",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Shrine",
+      "Culture",
+      "Nature"
+    ],
+    "tags": [
+      "Shrine",
+      "Akagi",
+      "Lake Onuma",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Akagi_Shrine_@_Lake_Onuma_@_Trail_from_Mount_Kurobi_to_Lake_Onuma_@_Mount_Akagi_area_(14181943776).jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Akagi_Shrine_@_Lake_Onuma_@_Trail_from_Mount_Kurobi_to_Lake_Onuma_@_Mount_Akagi_area_(14181943776).jpg",
+      "license": "CC BY 2.0",
+      "attribution": "Guilhem Vellut",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.5439,
+      "lng": 139.1838
+    },
+    "description": "Akagi Shrine is the lakeside cultural anchor of Mount Akagi, related to the mountain and Lake Onuma but independently discoverable.",
+    "highlights": [
+      "Lakeside shrine",
+      "Akagi mountain worship",
+      "Distinct cultural identity"
+    ],
+    "content": {
+      "en": {
+        "name": "Akagi Shrine",
+        "description": "Akagi Shrine is the lakeside cultural anchor of Mount Akagi, related to the mountain and Lake Onuma but independently discoverable.",
+        "highlights": [
+          "Lakeside shrine",
+          "Akagi mountain worship",
+          "Distinct cultural identity"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "赤城神社",
+        "description": "赤城神社は赤城山・大沼と関連する湖畔の文化拠点ですが、独立して訪ねられる神社です。",
+        "highlights": [
+          "湖畔の神社",
+          "赤城山信仰",
+          "独立した文化的見どころ"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.akagijinja.jp/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {
+      "relatedDestinationIds": [
+        "mt-akagi",
+        "lake-onuma-akagi"
+      ]
+    },
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.akagijinja.jp/",
+          "title": "Akagi Shrine official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/search?query=赤城神社%20大沼",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.akagijinja.jp/",
+            "title": "Akagi Shrine official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.akagijinja.jp/",
+            "title": "Akagi Shrine official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.akagijinja.jp/",
+            "title": "Akagi Shrine official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/search?query=赤城神社%20大沼",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Akagi_Shrine_@_Lake_Onuma_@_Trail_from_Mount_Kurobi_to_Lake_Onuma_@_Mount_Akagi_area_(14181943776).jpg",
+            "title": "Akagi Shrine image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.akagijinja.jp/",
+            "title": "Akagi Shrine official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 60% of 2h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 70,
+    "walkingIntensity": "medium",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 60% of 2h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    }
+  },
+  {
+    "id": "watarase-keikoku-railway",
+    "name": "Watarase Keikoku Railway",
+    "nameJa": "わたらせ渓谷鐵道",
+    "aliases": [
+      "Watarase Valley Railway",
+      "Watarase Keikoku Line"
+    ],
+    "officialWebsite": "https://www.watetsu.com/",
+    "officialWebsiteRequirement": "required",
+    "municipalityId": "Gunma:kiryu",
+    "kind": "cultural",
+    "role": "standalone",
+    "placeType": "destination",
+    "importance": "major",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": [
+      "Railway",
+      "Nature",
+      "History"
+    ],
+    "tags": [
+      "Railway",
+      "Watarase Valley",
+      "Kiryu",
+      "Gunma"
+    ],
+    "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg?width=1280",
+    "imageMetadata": {
+      "source": "wikimedia-commons",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg",
+      "license": "CC BY-SA 4.0",
+      "attribution": "Raita Futo, cropped by Tmv",
+      "verifiedAt": "2026-08-31"
+    },
+    "coordinates": {
+      "lat": 36.4113225,
+      "lng": 139.3326744
+    },
+    "description": "Watarase Keikoku Railway follows the Watarase Valley between Kiryu and Tochigi, adding a concrete rail-and-landscape experience to Gunma's city depth.",
+    "highlights": [
+      "Valley railway journey",
+      "Kiryu-area rail heritage",
+      "Landscape and city connection"
+    ],
+    "content": {
+      "en": {
+        "name": "Watarase Keikoku Railway",
+        "description": "Watarase Keikoku Railway follows the Watarase Valley between Kiryu and Tochigi, adding a concrete rail-and-landscape experience to Gunma's city depth.",
+        "highlights": [
+          "Valley railway journey",
+          "Kiryu-area rail heritage",
+          "Landscape and city connection"
+        ],
+        "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+      },
+      "ja": {
+        "name": "わたらせ渓谷鐵道",
+        "description": "わたらせ渓谷鐵道は桐生から栃木方面へ渓谷沿いを走り、群馬に鉄道と景観を組み合わせた具体的な都市周辺の体験を加えます。",
+        "highlights": [
+          "渓谷沿いの鉄道",
+          "桐生周辺の鉄道遺産",
+          "景観と都市をつなぐ体験"
+        ],
+        "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+      }
+    },
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+    },
+    "admission": {
+      "state": "unavailable",
+      "provenance": "verified_source",
+      "reasonCode": "source_missing",
+      "scope": "general_entry",
+      "cost": {
+        "kind": "unavailable"
+      },
+      "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+      "sourceUrls": [
+        "https://www.watetsu.com/"
+      ],
+      "checkedAt": "2026-08-31",
+      "reviewIntervalMonths": 12
+    },
+    "transportOptions": {},
+    "localAccessModes": [
+      "train",
+      "bus",
+      "car"
+    ],
+    "localAccessUnestimated": true,
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "fare_not_found",
+      "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+    },
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 8
+    },
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingsSchemaVersion": 2,
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "collections": [],
+    "relationships": {},
+    "editorial": {
+      "lifecycle": "approved",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.watetsu.com/",
+          "title": "Watarase Keikoku Railway official website",
+          "accessedAt": "2026-08-31"
+        },
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/3721641449",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "fieldSources": {
+        "name": [
+          {
+            "type": "official",
+            "url": "https://www.watetsu.com/",
+            "title": "Watarase Keikoku Railway official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "description": [
+          {
+            "type": "official",
+            "url": "https://www.watetsu.com/",
+            "title": "Watarase Keikoku Railway official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "highlights": [
+          {
+            "type": "official",
+            "url": "https://www.watetsu.com/",
+            "title": "Watarase Keikoku Railway official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "coordinates": [
+          {
+            "type": "calculated",
+            "url": "https://www.openstreetmap.org/node/3721641449",
+            "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "heroImage": [
+          {
+            "type": "official",
+            "url": "https://commons.wikimedia.org/wiki/File:Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg",
+            "title": "Watarase Keikoku Railway image provenance",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "relationships": [
+          {
+            "type": "official",
+            "url": "https://www.watetsu.com/",
+            "title": "Watarase Keikoku Railway official website",
+            "accessedAt": "2026-08-31"
+          }
+        ],
+        "walkingMin": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "walking-model-v1; walk-share estimate: 50% of 8h visit",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
+    },
+    "addedAt": "2026-08-31",
+    "status": "verified",
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "seasonMetadata": {
+      "method": "unknown",
+      "modelVersion": "season-model-v1",
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
+    },
+    "walkingMin": 240,
+    "walkingIntensity": "high",
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "walk-share estimate: 50% of 8h visit"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 6.7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     }

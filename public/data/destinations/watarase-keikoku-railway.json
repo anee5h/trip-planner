@@ -1,0 +1,218 @@
+{
+  "id": "watarase-keikoku-railway",
+  "name": "Watarase Keikoku Railway",
+  "nameJa": "わたらせ渓谷鐵道",
+  "aliases": ["Watarase Valley Railway", "Watarase Keikoku Line"],
+  "officialWebsite": "https://www.watetsu.com/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Gunma:kiryu",
+  "kind": "cultural",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "major",
+  "prefecture": "Gunma",
+  "region": "Kanto",
+  "categories": ["Railway", "Nature", "History"],
+  "tags": ["Railway", "Watarase Valley", "Kiryu", "Gunma"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg?width=1280",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Raita Futo, cropped by Tmv",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.4113225,
+    "lng": 139.3326744
+  },
+  "description": "Watarase Keikoku Railway follows the Watarase Valley between Kiryu and Tochigi, adding a concrete rail-and-landscape experience to Gunma's city depth.",
+  "highlights": [
+    "Valley railway journey",
+    "Kiryu-area rail heritage",
+    "Landscape and city connection"
+  ],
+  "content": {
+    "en": {
+      "name": "Watarase Keikoku Railway",
+      "description": "Watarase Keikoku Railway follows the Watarase Valley between Kiryu and Tochigi, adding a concrete rail-and-landscape experience to Gunma's city depth.",
+      "highlights": [
+        "Valley railway journey",
+        "Kiryu-area rail heritage",
+        "Landscape and city connection"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "わたらせ渓谷鐵道",
+      "description": "わたらせ渓谷鐵道は桐生から栃木方面へ渓谷沿いを走り、群馬に鉄道と景観を組み合わせた具体的な都市周辺の体験を加えます。",
+      "highlights": [
+        "渓谷沿いの鉄道",
+        "桐生周辺の鉄道遺産",
+        "景観と都市をつなぐ体験"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://www.watetsu.com/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 8
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.watetsu.com/",
+        "title": "Watarase Keikoku Railway official website",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/node/3721641449",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.watetsu.com/",
+          "title": "Watarase Keikoku Railway official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.watetsu.com/",
+          "title": "Watarase Keikoku Railway official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.watetsu.com/",
+          "title": "Watarase Keikoku Railway official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/3721641449",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Watarase_Keikoku_Railway_banner_Scenery_in_Midori_City.jpg",
+          "title": "Watarase Keikoku Railway image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.watetsu.com/",
+          "title": "Watarase Keikoku Railway official website",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 8h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 240,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 8h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

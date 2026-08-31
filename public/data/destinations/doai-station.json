@@ -1,0 +1,216 @@
+{
+  "id": "doai-station",
+  "name": "Doai Station",
+  "nameJa": "土合駅",
+  "aliases": ["Doai Underground Station", "Doai Station Staircase"],
+  "officialWebsite": "https://www.enjoy-minakami.jp/",
+  "officialWebsiteRequirement": "required",
+  "municipalityId": "Gunma:minakami",
+  "kind": "station",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "major",
+  "prefecture": "Gunma",
+  "region": "Kanto",
+  "categories": ["Railway", "History", "Architecture"],
+  "tags": ["Station", "Railway Heritage", "Minakami", "Gunma"],
+  "heroImage": "https://commons.wikimedia.org/wiki/Special:FilePath/Gunma_Doai_station_xl.jpg?width=1280",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gunma_Doai_station_xl.jpg",
+    "license": "CC BY 4.0",
+    "attribution": "Yasuyuki Kawano",
+    "verifiedAt": "2026-08-31"
+  },
+  "coordinates": {
+    "lat": 36.830723,
+    "lng": 138.9664447
+  },
+  "description": "Doai Station is Minakami's distinctive railway heritage stop, known for its deep underground platform and mountain gateway setting.",
+  "highlights": [
+    "Deep underground platform",
+    "Railway heritage",
+    "Gateway to Tanigawa area"
+  ],
+  "content": {
+    "en": {
+      "name": "Doai Station",
+      "description": "Doai Station is Minakami's distinctive railway heritage stop, known for its deep underground platform and mountain gateway setting.",
+      "highlights": [
+        "Deep underground platform",
+        "Railway heritage",
+        "Gateway to Tanigawa area"
+      ],
+      "notes": "Check the official source for current access, facility rules, and seasonal restrictions before travel."
+    },
+    "ja": {
+      "name": "土合駅",
+      "description": "土合駅は、地下深くにあるホームと谷川岳への玄関口として知られる、みなかみの特徴的な鉄道遺産スポットです。",
+      "highlights": ["地下深くのホーム", "鉄道遺産", "谷川岳周辺の玄関口"],
+      "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
+    }
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The official source was reviewed, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://www.enjoy-minakami.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "transportOptions": {},
+  "localAccessModes": ["train", "bus", "car"],
+  "localAccessUnestimated": true,
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain explicitly unestimated."
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "minakami-town"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.enjoy-minakami.jp/",
+        "title": "Minakami Tourism Association",
+        "accessedAt": "2026-08-31"
+      },
+      {
+        "type": "calculated",
+        "url": "https://www.openstreetmap.org/node/13950762890",
+        "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+        "accessedAt": "2026-08-31"
+      }
+    ],
+    "fieldSources": {
+      "name": [
+        {
+          "type": "official",
+          "url": "https://www.enjoy-minakami.jp/",
+          "title": "Minakami Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.enjoy-minakami.jp/",
+          "title": "Minakami Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.enjoy-minakami.jp/",
+          "title": "Minakami Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "coordinates": [
+        {
+          "type": "calculated",
+          "url": "https://www.openstreetmap.org/node/13950762890",
+          "title": "OpenStreetMap feature used as a map anchor; not a route-time claim",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "heroImage": [
+        {
+          "type": "official",
+          "url": "https://commons.wikimedia.org/wiki/File:Gunma_Doai_station_xl.jpg",
+          "title": "Doai Station image provenance",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.enjoy-minakami.jp/",
+          "title": "Minakami Tourism Association",
+          "accessedAt": "2026-08-31"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 6.7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
