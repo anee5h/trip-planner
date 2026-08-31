@@ -58,7 +58,7 @@
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
-    "min": 7,
+    "min": 8,
     "max": 12
   },
   "businessHours": "Open access",
@@ -82,7 +82,7 @@
         {
           "type": "calculated",
           "url": "catalogue-model://kai-89",
-          "title": "hub-window-model-v1; hub exploration window: importance major, 1 children, metro=false",
+          "title": "hub-window-model-v1; hub exploration window: importance major, 3 children, metro=false",
           "accessedAt": "2026-08-14"
         }
       ],
@@ -155,7 +155,7 @@
     "method": "model",
     "modelVersion": "hub-window-model-v1",
     "confidence": "low",
-    "basis": "hub exploration window: importance major, 1 children, metro=false"
+    "basis": "hub exploration window: importance major, 3 children, metro=false"
   },
   "comfortMetadata": {
     "method": "model",

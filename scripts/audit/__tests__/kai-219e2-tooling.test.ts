@@ -153,7 +153,7 @@ describe("KAI-219E2 residual admission manifest", () => {
     const after = fs.readFileSync(indexPath, "utf8");
     expect(after).not.toBe(before);
     const authored = JSON.parse(after) as Destination[];
-    expect(authored).toHaveLength(1070);
+    expect(authored).toHaveLength(1081);
     expect(
       authored.every((destination) => destination.admission !== undefined),
     ).toBe(true);

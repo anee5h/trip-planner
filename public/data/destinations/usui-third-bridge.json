@@ -1,0 +1,270 @@
+{
+  "id": "usui-third-bridge",
+  "officialWebsite": "https://www.city.annaka.lg.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Usui Third Bridge",
+  "nameJa": "碓氷第三橋梁（めがね橋）",
+  "aliases": ["Usui Megane Bridge", "Megane-bashi", "碓氷第三橋梁"],
+  "municipalityId": "Gunma:annaka",
+  "prefecture": "Gunma",
+  "region": "Kanto",
+  "kind": "bridge",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.3579734,
+    "lng": 138.6982767
+  },
+  "categories": ["History", "Architecture"],
+  "tags": ["History", "Architecture", "Railway", "Annaka", "Gunma Travel"],
+  "description": "Usui Third Bridge, widely called Megane Bridge, is Annaka's historic brick railway viaduct and a discrete heritage destination.",
+  "highlights": [
+    "Historic brick railway viaduct in Annaka",
+    "Qualified identity avoids collision with other Megane Bridges",
+    "Discrete railway-heritage stop"
+  ],
+  "content": {
+    "en": {
+      "description": "Usui Third Bridge, widely called Megane Bridge, is Annaka's historic brick railway viaduct and a discrete heritage destination.",
+      "highlights": [
+        "Historic brick railway viaduct in Annaka",
+        "Qualified identity avoids collision with other Megane Bridges",
+        "Discrete railway-heritage stop"
+      ],
+      "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
+      "name": "Usui Third Bridge"
+    },
+    "ja": {
+      "description": "碓氷第三橋梁（めがね橋）は、安中市に残る歴史的な煉瓦造りの鉄道橋で、独立した近代化遺産の目的地です。",
+      "highlights": [
+        "安中市に残る歴史的な煉瓦造りの鉄道橋",
+        "他地域の眼鏡橋と区別できる正式な呼称",
+        "鉄道遺産として訪ねられる見どころ"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
+      "name": "碓氷第三橋梁（めがね橋）"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Detail_of_Usui_Bridge_No._3_01.jpg/1280px-Detail_of_Usui_Bridge_No._3_01.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Detail_of_Usui_Bridge_No._3_01.jpg",
+    "license": "CC BY 2.0",
+    "attribution": "TANAKA Juuyoh (田中十洋)",
+    "verifiedAt": "2026-08-31"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "modelVersion": "kai-258-transport-v1",
+    "confidence": "unknown",
+    "basis": "Official source confirms destination access modes, but no origin-specific route estimate was promoted."
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "not_applicable",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "basis": "The official source presents an open landscape or heritage structure rather than one general-entry ticket product.",
+    "sourceUrls": ["https://www.city.annaka.lg.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "kai-258-editorial-duration-v1",
+    "confidence": "low",
+    "basis": "Bounded planning band for this attraction's on-site scope; not an origin-to-destination travel duration or opening-hours claim."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable seasonality claim was promoted from the reviewed source."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No current general-entry amount was promoted from the reviewed official source."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
+  },
+  "reservation": {
+    "required": "unknown",
+    "notes": "Check the official source for current reservation requirements."
+  },
+  "parking": {
+    "available": "unknown",
+    "notes": "Check the official source for current parking arrangements."
+  },
+  "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
+  "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {},
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.city.annaka.lg.jp/",
+        "accessedAt": "2026-08-31",
+        "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/node/5729776197",
+        "accessedAt": "2026-08-31",
+        "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+      }
+    ],
+    "fieldSources": {
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/node/5729776197",
+          "accessedAt": "2026-08-31",
+          "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "content": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "admission": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "localTransport": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.city.annaka.lg.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "Annaka City identifies Usui Third Bridge / Megane Bridge as the historic railway bridge attraction."
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "kai-258-editorial-duration-v1; Bounded planning band for this attraction's on-site scope; not an origin-to-destination travel duration or opening-hours claim.",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 50% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 50% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

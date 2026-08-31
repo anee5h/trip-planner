@@ -1930,6 +1930,16 @@
     }
   },
   {
+    "id": "fukiware-falls",
+    "name": "Fukiware Falls",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "waterfall",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "fukiya-village",
     "name": "Fukiya Village (Fukiya Furusato Village)",
     "prefecture": "Okayama",
@@ -2863,6 +2873,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "nerima-city"
+    }
+  },
+  {
+    "id": "haruna-shrine",
+    "name": "Haruna Shrine",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "shrine",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["lake-haruna"]
     }
   },
   {
@@ -5968,6 +5990,18 @@
     }
   },
   {
+    "id": "kusatsu-yubatake",
+    "name": "Yubatake",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    }
+  },
+  {
     "id": "kushida-shrine",
     "name": "Kushida Shrine",
     "prefecture": "Fukuoka",
@@ -6188,6 +6222,18 @@
     }
   },
   {
+    "id": "lake-haruna",
+    "name": "Lake Haruna",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["haruna-shrine"]
+    }
+  },
+  {
     "id": "lake-ikeda",
     "name": "Lake Ikeda",
     "prefecture": "Kagoshima",
@@ -6197,6 +6243,18 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "ibusuki-city"
+    }
+  },
+  {
+    "id": "lake-okushima",
+    "name": "Lake Okushima",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "lake",
+    "status": "verified",
+    "relationships": {
+      "relatedDestinationIds": ["gunma-shima-onsen"]
     }
   },
   {
@@ -7318,6 +7376,19 @@
     "kind": "mountain",
     "status": "verified",
     "relationships": {}
+  },
+  {
+    "id": "mt-tanigawa",
+    "name": "Mount Tanigawa",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "minakami-town",
+      "relatedDestinationIds": ["takaragawa-onsen"]
+    }
   },
   {
     "id": "mukojima-hyakkaen",
@@ -8963,6 +9034,16 @@
     }
   },
   {
+    "id": "onioshidashi-park",
+    "name": "Onioshidashi Park",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "onjuku-beach",
     "name": "Onjuku Beach",
     "prefecture": "Chiba",
@@ -9575,6 +9656,18 @@
     "kind": "nature",
     "status": "published",
     "relationships": {}
+  },
+  {
+    "id": "sainokawara-park",
+    "name": "Sainokawara Park",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "park",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    }
   },
   {
     "id": "saisho-in",
@@ -10689,6 +10782,16 @@
     }
   },
   {
+    "id": "shorinzan-darumaji",
+    "name": "Shorinzan Darumaji Temple",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "shoryu-cave",
     "name": "Shoryu Cave",
     "prefecture": "Kagoshima",
@@ -11282,6 +11385,19 @@
     "status": "published",
     "relationships": {
       "parentDestinationId": "hachioji-tokyo"
+    }
+  },
+  {
+    "id": "takaragawa-onsen",
+    "name": "Takaragawa Onsen Osenkaku",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "poi",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {
+      "parentDestinationId": "minakami-town",
+      "relatedDestinationIds": ["mt-tanigawa"]
     }
   },
   {
@@ -12441,6 +12557,16 @@
     "role": "standalone",
     "kind": "attraction",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "usui-third-bridge",
+    "name": "Usui Third Bridge",
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "bridge",
+    "status": "verified",
     "relationships": {}
   },
   {

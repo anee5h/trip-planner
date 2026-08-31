@@ -1,0 +1,272 @@
+{
+  "id": "sainokawara-park",
+  "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
+  "officialWebsiteRequirement": "required",
+  "name": "Sainokawara Park",
+  "nameJa": "西の河原公園",
+  "aliases": ["Sai-no-kawara Park", "Sainokawara"],
+  "municipalityId": "Gunma:kusatsu",
+  "prefecture": "Gunma",
+  "region": "Kanto",
+  "kind": "park",
+  "role": "poi",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.6243024,
+    "lng": 138.5894948
+  },
+  "categories": ["Nature", "Parks"],
+  "tags": ["Nature", "Park", "Hot Springs", "Kusatsu", "Gunma Travel"],
+  "description": "Sainokawara Park is Kusatsu's open volcanic streamscape, where warm water emerges among rocks and paths west of the onsen town.",
+  "highlights": [
+    "Open volcanic streamscape within the Kusatsu onsen area",
+    "Rocky paths and warm-water landscape",
+    "Separate park anchor from the town's Yubatake core"
+  ],
+  "content": {
+    "en": {
+      "description": "Sainokawara Park is Kusatsu's open volcanic streamscape, where warm water emerges among rocks and paths west of the onsen town.",
+      "highlights": [
+        "Open volcanic streamscape within the Kusatsu onsen area",
+        "Rocky paths and warm-water landscape",
+        "Separate park anchor from the town's Yubatake core"
+      ],
+      "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
+      "name": "Sainokawara Park"
+    },
+    "ja": {
+      "description": "西の河原公園は、温泉街の西側に広がる岩場と湯の流れが特徴の火山性の公園です。",
+      "highlights": [
+        "草津温泉にある開放的な火山性の水景",
+        "岩場と温かい湯の流れを歩く景観",
+        "湯畑中心部とは別の公園の見どころ"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
+      "name": "西の河原公園"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/251128_Sainokawara_Park_06.jpg/1280px-251128_Sainokawara_Park_06.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:251128_Sainokawara_Park_06.jpg",
+    "license": "CC0",
+    "attribution": "Aspere",
+    "verifiedAt": "2026-08-31"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "modelVersion": "kai-258-transport-v1",
+    "confidence": "unknown",
+    "basis": "Official source confirms destination access modes, but no origin-specific route estimate was promoted."
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  },
+  "admission": {
+    "state": "unavailable",
+    "provenance": "verified_source",
+    "reasonCode": "source_missing",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "unavailable"
+    },
+    "basis": "The reviewed official source was retained, but no current general-entry amount was promoted without a source-specific fee statement.",
+    "sourceUrls": ["https://www.kusatsu-onsen.ne.jp/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "kai-258-editorial-duration-v1",
+    "confidence": "low",
+    "basis": "Bounded planning band for this attraction's on-site scope; not an origin-to-destination travel duration or opening-hours claim."
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable seasonality claim was promoted from the reviewed source."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No current general-entry amount was promoted from the reviewed official source."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
+  },
+  "reservation": {
+    "required": "unknown",
+    "notes": "Check the official source for current reservation requirements."
+  },
+  "parking": {
+    "available": "unknown",
+    "notes": "Check the official source for current parking arrangements."
+  },
+  "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
+  "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "parentDestinationId": "kusatsu-town"
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.kusatsu-onsen.ne.jp/",
+        "accessedAt": "2026-08-31",
+        "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/way/1252074447",
+        "accessedAt": "2026-08-31",
+        "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+      }
+    ],
+    "fieldSources": {
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/way/1252074447",
+          "accessedAt": "2026-08-31",
+          "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "content": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "admission": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "localTransport": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.kusatsu-onsen.ne.jp/",
+          "accessedAt": "2026-08-31",
+          "quote": "The Kusatsu Onsen Tourism Association presents Sainokawara Park as a named Kusatsu attraction west of the town core."
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "kai-258-editorial-duration-v1; Bounded planning band for this attraction's on-site scope; not an origin-to-destination travel duration or opening-hours claim.",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 2h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "walkingMin": 95,
+  "walkingIntensity": "medium",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 2h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}

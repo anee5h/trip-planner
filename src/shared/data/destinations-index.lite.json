@@ -21234,7 +21234,7 @@
     "walkingMin": 40,
     "indoorPercent": 50,
     "recommendedVisitHours": {
-      "min": 7,
+      "min": 8,
       "max": 12
     },
     "collections": [],
@@ -96535,6 +96535,913 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "openingHours": "Visitor hours and closures vary by date; check the official visitor guidance before visiting.",
+    "relationships": {}
+  },
+  {
+    "id": "kusatsu-yubatake",
+    "name": "Yubatake",
+    "nameJa": "湯畑",
+    "kind": "onsen",
+    "role": "poi",
+    "importance": "flagship",
+    "placeType": "destination",
+    "municipalityId": "Gunma:kusatsu",
+    "aliases": ["Hot Water Field", "Kusatsu Yubatake"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Culture"],
+    "tags": ["Hot Springs", "Nature", "Kusatsu", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/251128_Yubatake%2C_Kusatsu_14.jpg/1280px-251128_Yubatake%2C_Kusatsu_14.jpg",
+    "description": "Kusatsu's central hot-water field is the town's defining geothermal landmark, with the steam, channels, and public streets of the onsen core arranged around the source.",
+    "highlights": [
+      "Central geothermal landmark in Kusatsu Onsen",
+      "Steam, hot-water channels, and onsen-town streets",
+      "Distinct anchor for exploring the Kusatsu town core"
+    ],
+    "coordinates": {
+      "lat": 36.6231,
+      "lng": 138.5965
+    },
+    "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 4.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.5,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    }
+  },
+  {
+    "id": "sainokawara-park",
+    "name": "Sainokawara Park",
+    "nameJa": "西の河原公園",
+    "kind": "park",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:kusatsu",
+    "aliases": ["Sai-no-kawara Park", "Sainokawara"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Parks"],
+    "tags": ["Nature", "Park", "Hot Springs", "Kusatsu", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/251128_Sainokawara_Park_06.jpg/1280px-251128_Sainokawara_Park_06.jpg",
+    "description": "Sainokawara Park is Kusatsu's open volcanic streamscape, where warm water emerges among rocks and paths west of the onsen town.",
+    "highlights": [
+      "Open volcanic streamscape within the Kusatsu onsen area",
+      "Rocky paths and warm-water landscape",
+      "Separate park anchor from the town's Yubatake core"
+    ],
+    "coordinates": {
+      "lat": 36.6243024,
+      "lng": 138.5894948
+    },
+    "officialWebsite": "https://www.kusatsu-onsen.ne.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 95,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {
+      "parentDestinationId": "kusatsu-town"
+    }
+  },
+  {
+    "id": "mt-tanigawa",
+    "name": "Mount Tanigawa",
+    "nameJa": "谷川岳",
+    "kind": "mountain",
+    "role": "poi",
+    "importance": "flagship",
+    "placeType": "destination",
+    "municipalityId": "Gunma:minakami",
+    "aliases": ["Tanigawadake", "Tanigawadake Joch", "谷川岳ヨッホ"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Outdoor Activities"],
+    "tags": ["Mountains", "Nature", "Hiking", "Minakami", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Tanigawa-dake%2C_October_2007.jpg/1280px-Tanigawa-dake%2C_October_2007.jpg",
+    "description": "Mount Tanigawa is Minakami's major alpine destination, presented by the ropeway operator as Tanigawadake Joch with access into the mountain landscape.",
+    "highlights": [
+      "Alpine mountain destination in Minakami",
+      "Tanigawadake Joch ropeway gateway",
+      "Distinct mountain anchor for Minakami outings"
+    ],
+    "coordinates": {
+      "lat": 36.8343949,
+      "lng": 138.9302115
+    },
+    "officialWebsite": "https://tanigawadake-joch.com/en/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 4,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 4.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.5,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "minakami-town",
+      "relatedDestinationIds": ["takaragawa-onsen"]
+    }
+  },
+  {
+    "id": "takaragawa-onsen",
+    "name": "Takaragawa Onsen Osenkaku",
+    "nameJa": "宝川温泉 汪泉閣",
+    "kind": "onsen",
+    "role": "poi",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:minakami",
+    "aliases": ["Takaragawa Onsen", "Takaragawa Hot Spring"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Hot Springs", "Nature"],
+    "tags": ["Hot Springs", "Nature", "Minakami", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Takaragawa_Onsen_01.jpg/1280px-Takaragawa_Onsen_01.jpg",
+    "description": "Takaragawa Onsen Osenkaku is a distinct riverside onsen destination in Minakami, known for its bathhouse and mountain-valley setting.",
+    "highlights": [
+      "Riverside onsen destination in Minakami",
+      "Osenkaku operator and bathing complex",
+      "Separate choice from Minakami town and Kusatsu onsen records"
+    ],
+    "coordinates": {
+      "lat": 36.8479555,
+      "lng": 139.0468165
+    },
+    "officialWebsite": "http://www.takaragawa.com/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 120,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "parentDestinationId": "minakami-town",
+      "relatedDestinationIds": ["mt-tanigawa"]
+    }
+  },
+  {
+    "id": "lake-haruna",
+    "name": "Lake Haruna",
+    "nameJa": "榛名湖",
+    "kind": "lake",
+    "role": "standalone",
+    "importance": "flagship",
+    "placeType": "destination",
+    "municipalityId": "Gunma:takasaki",
+    "aliases": ["Harunako", "Haruna Lake"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Lakes"],
+    "tags": ["Lakes", "Nature", "Mount Haruna", "Takasaki", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Lake_Haruna_in_February_%28a%29.jpg/1280px-Lake_Haruna_in_February_%28a%29.jpg",
+    "description": "Lake Haruna is the highland lake at the centre of Mount Haruna's scenic area, a concrete nature destination within Takasaki.",
+    "highlights": [
+      "Highland lake in Mount Haruna's scenic area",
+      "Concrete nature anchor within Takasaki",
+      "Distinct from the broader Ikaho Onsen record"
+    ],
+    "coordinates": {
+      "lat": 36.4752798,
+      "lng": 138.8659063
+    },
+    "officialWebsite": "https://www.takasaki-kankoukyoukai.or.jp/en/?p=82",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 4.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.5,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["haruna-shrine"]
+    }
+  },
+  {
+    "id": "haruna-shrine",
+    "name": "Haruna Shrine",
+    "nameJa": "榛名神社",
+    "kind": "shrine",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:takasaki",
+    "aliases": ["Haruna-jinja", "Haruna Jinja"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Culture", "History"],
+    "tags": ["Shrines", "Culture", "History", "Takasaki", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Haruna_Shrine_panorama_April_2010.jpg/1280px-Haruna_Shrine_panorama_April_2010.jpg",
+    "description": "Haruna Shrine is a mountain shrine in Takasaki's Haruna area, a separate cultural destination from the lake and the wider mountain landscape.",
+    "highlights": [
+      "Mountain shrine in Takasaki's Haruna area",
+      "Distinct cultural visit beside the lake landscape",
+      "Official shrine source retained for current visitor guidance"
+    ],
+    "coordinates": {
+      "lat": 36.4584395,
+      "lng": 138.8524464
+    },
+    "officialWebsite": "http://www.haruna.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 110,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["lake-haruna"]
+    }
+  },
+  {
+    "id": "lake-okushima",
+    "name": "Lake Okushima",
+    "nameJa": "奥四万湖",
+    "kind": "lake",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:nakanojo",
+    "aliases": ["Okushima Lake", "Shima Blue"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Lakes"],
+    "tags": ["Lakes", "Nature", "Shima", "Nakanojo", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Shimagawa_Dam_lake.jpg/1280px-Shimagawa_Dam_lake.jpg",
+    "description": "Lake Okushima is the deep, blue-water lake at the back of the Shima area, a separate nature destination from the Shima Onsen town record.",
+    "highlights": [
+      "Blue-water lake in the deeper Shima area",
+      "Separate from the Shima Onsen town aggregate",
+      "Concrete nature choice for a Nakanojo outing"
+    ],
+    "coordinates": {
+      "lat": 36.7014659,
+      "lng": 138.7838334
+    },
+    "officialWebsite": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {
+      "relatedDestinationIds": ["gunma-shima-onsen"]
+    }
+  },
+  {
+    "id": "fukiware-falls",
+    "name": "Fukiware Falls",
+    "nameJa": "吹割の滝",
+    "kind": "waterfall",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:numata",
+    "aliases": ["Fukiware-no-taki", "Fukiware Waterfall"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Waterfalls"],
+    "tags": ["Waterfalls", "Nature", "Numata", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Fukiware_Falls_01.jpg/1280px-Fukiware_Falls_01.jpg",
+    "description": "Fukiware Falls is a named waterfall destination in Numata, where the river cuts through a distinctive rocky gorge.",
+    "highlights": [
+      "Named waterfall destination in Numata",
+      "Rock-cut river gorge landscape",
+      "Independent nature stop rather than an onsen-town mention"
+    ],
+    "coordinates": {
+      "lat": 36.7020468,
+      "lng": 139.2070519
+    },
+    "officialWebsite": "https://www.numata-kankou.jp/fukiwarenotaki/index.html",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 145,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "usui-third-bridge",
+    "name": "Usui Third Bridge",
+    "nameJa": "碓氷第三橋梁（めがね橋）",
+    "kind": "bridge",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:annaka",
+    "aliases": ["Usui Megane Bridge", "Megane-bashi", "碓氷第三橋梁"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["History", "Architecture"],
+    "tags": ["History", "Architecture", "Railway", "Annaka", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Detail_of_Usui_Bridge_No._3_01.jpg/1280px-Detail_of_Usui_Bridge_No._3_01.jpg",
+    "description": "Usui Third Bridge, widely called Megane Bridge, is Annaka's historic brick railway viaduct and a discrete heritage destination.",
+    "highlights": [
+      "Historic brick railway viaduct in Annaka",
+      "Qualified identity avoids collision with other Megane Bridges",
+      "Discrete railway-heritage stop"
+    ],
+    "coordinates": {
+      "lat": 36.3579734,
+      "lng": 138.6982767
+    },
+    "officialWebsite": "https://www.city.annaka.lg.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 60,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "shorinzan-darumaji",
+    "name": "Shorinzan Darumaji Temple",
+    "nameJa": "少林山達磨寺",
+    "kind": "temple",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:takasaki",
+    "aliases": ["Shorinzan Daruma-ji", "Daruma Temple"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Culture", "History"],
+    "tags": ["Temples", "Culture", "Daruma", "Takasaki", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/%E5%B0%91%E6%9E%97%E5%B1%B1%E9%81%94%E7%A3%A8%E5%AF%BA%E9%9C%8A%E7%AC%A6%E5%A0%82.JPG/1280px-%E5%B0%91%E6%9E%97%E5%B1%B1%E9%81%94%E7%A3%A8%E5%AF%BA%E9%9C%8A%E7%AC%A6%E5%A0%82.JPG",
+    "description": "Shorinzan Darumaji Temple is a distinct Takasaki cultural destination associated with the city's daruma tradition and temple grounds.",
+    "highlights": [
+      "Distinct temple destination in Takasaki",
+      "Daruma cultural association",
+      "Separate cultural depth from the broader Gunma landscape records"
+    ],
+    "coordinates": {
+      "lat": 36.3299532,
+      "lng": 138.9573645
+    },
+    "officialWebsite": "https://www.daruma.or.jp/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 110,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["train", "bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "onioshidashi-park",
+    "name": "Onioshidashi Park",
+    "nameJa": "鬼押出し園",
+    "kind": "park",
+    "role": "standalone",
+    "importance": "notable",
+    "placeType": "destination",
+    "municipalityId": "Gunma:tsumagoi",
+    "aliases": ["Onioshidashi-en", "Onioshidashi Volcanic Park"],
+    "prefecture": "Gunma",
+    "region": "Kanto",
+    "categories": ["Nature", "Parks"],
+    "tags": ["Nature", "Parks", "Volcano", "Tsumagoi", "Gunma Travel"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/%E9%AC%BC%E6%8A%BC%E5%87%BA%E3%81%97%E5%9C%92_-_panoramio.jpg/1280px-%E9%AC%BC%E6%8A%BC%E5%87%BA%E3%81%97%E5%9C%92_-_panoramio.jpg",
+    "description": "Onioshidashi Park is a volcanic-rock landscape in Tsumagoi, operated as a named park and separate from the Kusatsu onsen-town aggregate.",
+    "highlights": [
+      "Volcanic-rock landscape in Tsumagoi",
+      "Named operator-run park destination",
+      "Distinct from Kusatsu Town and Kusatsu Onsen records"
+    ],
+    "coordinates": {
+      "lat": 36.4438285,
+      "lng": 138.5324873
+    },
+    "officialWebsite": "https://www.princehotels.co.jp/amuse/onioshidashi/history/",
+    "officialWebsiteRequirement": "required",
+    "status": "verified",
+    "budgetMetadata": {
+      "method": "unknown",
+      "state": "unavailable",
+      "provenance": "none",
+      "reasonCode": "source_missing",
+      "modelVersion": "budget-model-v1",
+      "confidence": "unknown",
+      "basis": "No current general-entry amount was promoted from the reviewed official source."
+    },
+    "walkingMin": 190,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 5,
+      "couple": 5,
+      "summer": 5,
+      "winter": 5,
+      "rain": 5,
+      "food": 5,
+      "photography": 5,
+      "relaxation": 5,
+      "value": 5,
+      "uniqueness": 5
+    },
+    "ratingMetadata": {
+      "rubricVersion": 2,
+      "method": "manual",
+      "confidence": "low"
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.9,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {},
+    "localAccessModes": ["bus", "car"],
+    "localAccessUnestimated": true,
+    "walkingIntensity": "high",
     "relationships": {}
   }
 ]

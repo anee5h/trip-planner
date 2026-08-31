@@ -1,0 +1,272 @@
+{
+  "id": "lake-okushima",
+  "officialWebsite": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+  "officialWebsiteRequirement": "required",
+  "name": "Lake Okushima",
+  "nameJa": "奥四万湖",
+  "aliases": ["Okushima Lake", "Shima Blue"],
+  "municipalityId": "Gunma:nakanojo",
+  "prefecture": "Gunma",
+  "region": "Kanto",
+  "kind": "lake",
+  "role": "standalone",
+  "placeType": "destination",
+  "importance": "notable",
+  "coordinates": {
+    "lat": 36.7014659,
+    "lng": 138.7838334
+  },
+  "categories": ["Nature", "Lakes"],
+  "tags": ["Lakes", "Nature", "Shima", "Nakanojo", "Gunma Travel"],
+  "description": "Lake Okushima is the deep, blue-water lake at the back of the Shima area, a separate nature destination from the Shima Onsen town record.",
+  "highlights": [
+    "Blue-water lake in the deeper Shima area",
+    "Separate from the Shima Onsen town aggregate",
+    "Concrete nature choice for a Nakanojo outing"
+  ],
+  "content": {
+    "en": {
+      "description": "Lake Okushima is the deep, blue-water lake at the back of the Shima area, a separate nature destination from the Shima Onsen town record.",
+      "highlights": [
+        "Blue-water lake in the deeper Shima area",
+        "Separate from the Shima Onsen town aggregate",
+        "Concrete nature choice for a Nakanojo outing"
+      ],
+      "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
+      "name": "Lake Okushima"
+    },
+    "ja": {
+      "description": "奥四万湖は四万地域の奥にある青い湖で、四万温泉街のレコードとは別に発見できる自然の目的地です。",
+      "highlights": [
+        "四万地域の奥にある青い湖",
+        "四万温泉街の広域レコードとは別の見どころ",
+        "中之条の自然旅で選べる具体的な目的地"
+      ],
+      "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
+      "name": "奥四万湖"
+    }
+  },
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Shimagawa_Dam_lake.jpg/1280px-Shimagawa_Dam_lake.jpg",
+  "imageMetadata": {
+    "source": "wikimedia-commons",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shimagawa_Dam_lake.jpg",
+    "license": "CC BY-SA 3.0",
+    "attribution": "Qurren",
+    "verifiedAt": "2026-08-31"
+  },
+  "transportOptions": {},
+  "localAccessModes": ["bus", "car"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "unknown",
+    "modelVersion": "kai-258-transport-v1",
+    "confidence": "unknown",
+    "basis": "Official source confirms destination access modes, but no origin-specific route estimate was promoted."
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "fare_not_found",
+    "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  },
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "not_applicable",
+    "scope": "general_entry",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "basis": "The official source presents an open landscape or heritage structure rather than one general-entry ticket product.",
+    "sourceUrls": ["https://www.visit-gunma.jp/en/spots/lake-okushima/"],
+    "checkedAt": "2026-08-31",
+    "reviewIntervalMonths": 12
+  },
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'lake'"
+  },
+  "ratings": {
+    "overall": 5,
+    "couple": 5,
+    "summer": 5,
+    "winter": 5,
+    "rain": 5,
+    "food": 5,
+    "photography": 5,
+    "relaxation": 5,
+    "value": 5,
+    "uniqueness": 5
+  },
+  "ratingsSchemaVersion": 2,
+  "ratingMetadata": {
+    "rubricVersion": 2,
+    "method": "manual",
+    "confidence": "low"
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable seasonality claim was promoted from the reviewed source."
+  },
+  "budgetMetadata": {
+    "method": "unknown",
+    "state": "unavailable",
+    "provenance": "none",
+    "reasonCode": "source_missing",
+    "modelVersion": "budget-model-v1",
+    "confidence": "unknown",
+    "basis": "No current general-entry amount was promoted from the reviewed official source."
+  },
+  "crowdMetadata": {
+    "method": "unknown",
+    "modelVersion": "crowd-model-v1",
+    "confidence": "unknown",
+    "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
+  },
+  "reservation": {
+    "required": "unknown",
+    "notes": "Check the official source for current reservation requirements."
+  },
+  "parking": {
+    "available": "unknown",
+    "notes": "Check the official source for current parking arrangements."
+  },
+  "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
+  "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
+  "status": "verified",
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "collections": [],
+  "relationships": {
+    "relatedDestinationIds": ["gunma-shima-onsen"]
+  },
+  "editorial": {
+    "lifecycle": "approved",
+    "sources": [
+      {
+        "type": "official",
+        "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+        "accessedAt": "2026-08-31",
+        "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+      },
+      {
+        "type": "manual",
+        "url": "https://www.openstreetmap.org/relation/10994358",
+        "accessedAt": "2026-08-31",
+        "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+      }
+    ],
+    "fieldSources": {
+      "coordinates": [
+        {
+          "type": "manual",
+          "url": "https://www.openstreetmap.org/relation/10994358",
+          "accessedAt": "2026-08-31",
+          "quote": "OpenStreetMap feature used as the map anchor; no route duration inferred."
+        }
+      ],
+      "officialWebsite": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "description": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "highlights": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "content": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "admission": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "localTransport": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "relationships": [
+        {
+          "type": "official",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "accessedAt": "2026-08-31",
+          "quote": "Gunma Official Tourist Guide identifies Lake Okushima as a named spot in Nakanojo's Shima area."
+        }
+      ],
+      "recommendedVisitHours": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "duration-model-v1; kind band 'lake'",
+          "accessedAt": "2026-08-14"
+        }
+      ],
+      "walkingMin": [
+        {
+          "type": "calculated",
+          "url": "catalogue-model://kai-89",
+          "title": "walking-model-v1; walk-share estimate: 80% of 4h visit",
+          "accessedAt": "2026-08-14"
+        }
+      ]
+    }
+  },
+  "addedAt": "2026-08-31",
+  "walkingMin": 190,
+  "walkingIntensity": "high",
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "walk-share estimate: 80% of 4h visit"
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.9,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  }
+}
