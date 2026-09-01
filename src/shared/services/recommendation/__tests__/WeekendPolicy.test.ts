@@ -549,6 +549,44 @@ describe("evaluateWeekendCandidate", () => {
     expect(result.capacity.eligible).toBe(false);
   });
 
+  it("uses longer capacity requirements for 3D2N than 2D1N", () => {
+    const d = dest({
+      id: "capacity-by-duration",
+      recommendedVisitHours: { min: 1, max: 8 }, // 480 minutes
+    });
+
+    expect(evaluateWeekendCapacity(d, [d], "2d1n").eligible).toBe(true);
+    expect(evaluateWeekendCapacity(d, [d], "3d2n").eligible).toBe(false);
+  });
+
+  it("evaluates all three weather days and uses a 3-day reason for 3D2N", () => {
+    const d = dest({
+      id: "three-day-weather",
+      recommendedVisitHours: { min: 1, max: 12 },
+      indoorPercent: 0,
+      transportOptions: { train: 90 },
+    });
+    const ctx = context({
+      tripDuration: "3d2n",
+      destinationWeather: {
+        days: [
+          { date: "2026-08-05", condition: "clear" },
+          { date: "2026-08-06", condition: "clear" },
+          { date: "2026-08-07", condition: "stormy" },
+        ],
+      },
+      publicModes: ["train"],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    });
+
+    const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
+    expect(result.weatherDays).toHaveLength(3);
+    expect(result.weatherScore).toBeCloseTo(-35, 5);
+    expect(result.reasons.map((reason) => reason.title)).toContain(
+      "3-Day Trip Ready",
+    );
+  });
+
   it("includes weekendTripReady reason when eligible (strong) ", () => {
     const d = dest({
       id: "test",
@@ -576,45 +614,6 @@ describe("evaluateWeekendCandidate", () => {
     expect(codes).toContain("weekendCapacityStrong");
     expect(codes).toContain("weekendTravelStrong");
     expect(codes).toContain("weekendWeatherGood");
-  });
-
-  it("includes stay allowance reason when accommodationAllowance > 0", () => {
-    const d = dest({
-      id: "test",
-      recommendedVisitHours: { min: 1, max: 10 },
-      transportOptions: { train: 90 },
-    });
-    const ctx = context({
-      publicModes: ["train"],
-      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
-      accommodationAllowance: 15000,
-    });
-
-    const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
-    const stayReason = result.reasons.find(
-      (r) => r.code === "weekendStayAllowance",
-    );
-    expect(stayReason).toBeDefined();
-    expect(stayReason?.params?.amount).toBe(15000);
-  });
-
-  it("skips stay allowance reason when accommodationAllowance is 0", () => {
-    const d = dest({
-      id: "test",
-      recommendedVisitHours: { min: 1, max: 10 },
-      transportOptions: { train: 90 },
-    });
-    const ctx = context({
-      publicModes: ["train"],
-      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
-      accommodationAllowance: 0,
-    });
-
-    const result = evaluateWeekendCandidate(d, ctx, [d], ["train"]);
-    const stayReason = result.reasons.find(
-      (r) => r.code === "weekendStayAllowance",
-    );
-    expect(stayReason).toBeUndefined();
   });
 
   it("weather summary mixed → weekendWeatherDayRain reason with day param", () => {

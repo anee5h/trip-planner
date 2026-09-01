@@ -80,7 +80,7 @@ export interface RecommendationMatch {
   summary?: string;
 }
 
-export interface WeekendRecommendationMetadata {
+export interface OvernightRecommendationMetadata {
   travelFit: WeekendTravelFit;
   capacity: WeekendCapacityResult;
   weatherDays: {
@@ -88,7 +88,6 @@ export interface WeekendRecommendationMetadata {
     condition: ActualWeatherCondition;
     temperatureC?: number;
   }[];
-  accommodationAllowance?: number;
   estimatedCostTransportIncluded: boolean;
   /** Hub-first classification of the primary weekend result. */
   areaKind?: WeekendResultKind;
@@ -107,7 +106,7 @@ export interface ScoredDestination extends Destination {
   transportEstimate?: TravelDurationEstimate;
   /** Present only on the virtual Tokyo 23 Wards super-hub result. */
   wardGroup?: TokyoWardsGroupMetadata;
-  weekend?: WeekendRecommendationMetadata;
+  overnight?: OvernightRecommendationMetadata;
   /**
    * Forecast/seasonal/unknown evaluation for the planned trip dates.
    * Present only when the context carries explicit travelDates.

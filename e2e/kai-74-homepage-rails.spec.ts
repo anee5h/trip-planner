@@ -8,6 +8,25 @@ function isMobile(projectName: string) {
   return projectName.includes("mobile");
 }
 
+async function selectDuration(
+  page: Page,
+  projectName: string,
+  triggerName: RegExp,
+  optionName: RegExp,
+) {
+  if (isMobile(projectName)) {
+    await page.getByRole("button", { name: triggerName }).first().click();
+    await page
+      .getByRole("dialog")
+      .getByRole("button", { name: optionName })
+      .click();
+    return;
+  }
+
+  await page.getByRole("combobox", { name: triggerName }).click();
+  await page.getByRole("option", { name: optionName }).click();
+}
+
 async function mockHomeWeather(page: Page) {
   await page.clock.install({ time: "2026-08-12T12:00:00+09:00" });
   await page.route("**/v1/forecast**", async (route) => {
@@ -109,7 +128,7 @@ test.describe("KAI-74 homepage rails", () => {
       }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Weekend getaways", exact: true }),
+      page.getByRole("heading", { name: "Overnight getaways", exact: true }),
     ).toHaveCount(0);
     await expect(
       page.getByText("Good for today's weather", { exact: true }),
@@ -169,12 +188,17 @@ test.describe("KAI-74 homepage rails", () => {
     await expect(right).toBeHidden();
   });
 
-  test("uses the weekend-only hierarchy after applying 2D1N", async ({
+  test("uses the overnight hierarchy after applying 2D1N", async ({
     page,
-  }) => {
+  }, testInfo) => {
     await page.goto("/");
     await page.clock.runFor(10000);
-    await page.getByRole("radio", { name: /Weekend/i }).click();
+    await selectDuration(
+      page,
+      testInfo.project.name,
+      /Duration/,
+      /2 days \/ 1 night/,
+    );
     await page
       .getByRole("button", { name: /Find matches|View matches|Update matches/ })
       .first()
@@ -184,7 +208,7 @@ test.describe("KAI-74 homepage rails", () => {
       page.getByRole("heading", { name: "Top matches for you", exact: true }),
     ).toBeVisible();
     await expect(
-      page.getByRole("heading", { name: "Weekend getaways", exact: true }),
+      page.getByRole("heading", { name: "Overnight getaways", exact: true }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", {
@@ -205,7 +229,7 @@ test.describe("KAI-74 homepage rails", () => {
       }),
     ).toHaveCount(0);
 
-    await assertRailCardLimit(railSection(page, "Weekend getaways"));
+    await assertRailCardLimit(railSection(page, "Overnight getaways"));
     await assertRailCardLimit(railSection(page, "Worth the longer journey"));
   });
 
@@ -244,7 +268,7 @@ test.describe("KAI-74 homepage rails", () => {
 
   test("renders the KAI-74 homepage without Japanese key or English leakage", async ({
     page,
-  }) => {
+  }, testInfo) => {
     await page.clock.setFixedTime("2026-08-15T12:00:00+09:00");
     await page.goto("/?date=2026-08-15");
     await switchToJapanese(page);
@@ -269,19 +293,14 @@ test.describe("KAI-74 homepage rails", () => {
       page.locator('[aria-label*="混雑する可能性があります"]'),
     ).toHaveCount(0);
 
-    await page
-      .getByRole("radio", { name: "週末・2日間1泊" })
-      .click({ force: true });
-    await expect(
-      page.getByRole("radio", { name: "週末・2日間1泊" }),
-    ).toHaveAttribute("aria-checked", "true");
+    await selectDuration(page, testInfo.project.name, /時間/, /2日間/);
     await page
       .getByRole("button", { name: /旅先を探す|おすすめを見る|条件で更新/ })
       .first()
       .click({ force: true });
 
     await expect(
-      page.getByRole("heading", { name: "週末のおすすめ", exact: true }),
+      page.getByRole("heading", { name: "宿泊旅行のおすすめ", exact: true }),
     ).toBeVisible();
     await expect(
       page.getByRole("heading", {
@@ -295,7 +314,7 @@ test.describe("KAI-74 homepage rails", () => {
     for (const forbidden of [
       "Top matches for you",
       "Continue exploring",
-      "Weekend getaways",
+      "Overnight getaways",
       "Best places to visit this summer",
       "Great escapes under 60 minutes",
       "Unexplored places near you",

@@ -2,10 +2,7 @@ import { useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import type {
-  TripDuration,
-  TripMode,
-} from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
 import type { TravelDateSelection } from "@/shared/services/recommendation/TravelConditions";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
@@ -25,8 +22,10 @@ function adjacentDurations(duration: TripDuration): TripDuration[] {
       return ["shortOuting", "fullDay"];
     case "fullDay":
       return ["halfDay"];
-    case "weekend":
-      return ["fullDay"];
+    case "2d1n":
+      return ["3d2n"];
+    case "3d2n":
+      return ["2d1n"];
     default:
       return [];
   }
@@ -66,13 +65,9 @@ interface UseTripRecommendationsProps {
     | "partySize"
     | "budgetTier"
     | "tripDuration"
-    | "tripMode"
-    | "accommodationAllowance"
   >;
-  /** Explicit trip dates (Day 1 + derived Day 2 for 2D1N). */
+  /** Explicit trip dates (Day 1 + derived dates for overnight duration). */
   travelDates?: TravelDateSelection;
-  tripMode: TripMode;
-  accommodationAllowance: number;
   /**
    * Roulette is only needed after the modal opens. Keeping the expansion pool
    * lazy prevents the homepage discovery rails from waiting on several full
@@ -96,8 +91,6 @@ export function useTripRecommendations({
   ferryTemporal,
   isVisited,
   rouletteConstraints,
-  tripMode,
-  accommodationAllowance,
   travelDates,
   rouletteEnabled = true,
 }: UseTripRecommendationsProps) {
@@ -127,8 +120,6 @@ export function useTripRecommendations({
       originZoneId: homeStationTransportZoneId,
       tripDuration,
       ferryTemporal,
-      tripMode,
-      accommodationAllowance,
       travelDates,
       // KAI-130: forecastMap deliberately NOT passed — the origin forecast
       // is display-only. TravelConditions evaluates explicit dates
@@ -151,8 +142,6 @@ export function useTripRecommendations({
     ferryTemporal,
     destinationRatings,
     visitedIds,
-    tripMode,
-    accommodationAllowance,
     travelDates,
     // KAI-130: forecastMap deliberately excluded — origin weather is
     // display-only and never contributes a destination score delta.
@@ -173,8 +162,6 @@ export function useTripRecommendations({
       partySize,
       budgetTier,
       tripDuration,
-      tripMode,
-      accommodationAllowance,
     };
     const getPool = (budgetLimit: number, durations: TripDuration[]) =>
       uniqueCandidates(
@@ -196,20 +183,14 @@ export function useTripRecommendations({
             tripDuration: duration,
             ferryTemporal,
             travelDates,
-            tripMode: constraints.tripMode,
-            accommodationAllowance: constraints.accommodationAllowance,
           }),
         ),
       );
 
-    // Weekend mode: no adjacent-duration expansion
-    const durations =
-      constraints.tripMode === "weekend_2d1n"
-        ? [constraints.tripDuration]
-        : [
-            constraints.tripDuration,
-            ...adjacentDurations(constraints.tripDuration),
-          ];
+    const durations = [
+      constraints.tripDuration,
+      ...adjacentDurations(constraints.tripDuration),
+    ];
 
     const exact = getPool(constraints.budget, [constraints.tripDuration]);
     if (exact.length >= MIN_EXACT_ROULETTE_CANDIDATES) {
@@ -247,8 +228,6 @@ export function useTripRecommendations({
     publicModes,
     rouletteConstraints,
     tripDuration,
-    tripMode,
-    accommodationAllowance,
     visitedIds,
     travelDates,
     preferredWeather,

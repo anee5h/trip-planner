@@ -6,8 +6,16 @@ import type {
 import type { MatchReason } from "./RecommendationTypes";
 import { evaluateWeekendWeather } from "@/shared/services/weather/WeekendWeatherScoring";
 import { getBestOneWayTravelMinutes } from "./TripDurationService";
+import {
+  getTripDays,
+  normalizeTripDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 import { isOriginLocalDestination } from "./OriginAreaService";
-import { isPublishedDestination } from "./WeekendAreaPolicy";
+import {
+  getOvernightCapacityThresholds,
+  isPublishedDestination,
+} from "./WeekendAreaPolicy";
 
 // ── Travel Policy ────────────────────────────────────────────────────────────
 
@@ -96,10 +104,10 @@ export function evaluateWeekendTravelFit(
 
 // ── Capacity Policy ──────────────────────────────────────────────────────────
 
-export const WEEKEND_CAPACITY_POLICY = {
-  MIN_ELIGIBLE_MINUTES: 480,
-  STRONG_MINUTES: 600,
-} as const;
+export {
+  getOvernightCapacityThresholds,
+  OVERNIGHT_CAPACITY_POLICY as WEEKEND_CAPACITY_POLICY,
+} from "./WeekendAreaPolicy";
 
 export interface WeekendCapacityResult {
   eligible: boolean;
@@ -111,7 +119,9 @@ export interface WeekendCapacityResult {
 export function evaluateWeekendCapacity(
   destination: Destination,
   pool: readonly Destination[],
+  duration: TripDuration | string = "2d1n",
 ): WeekendCapacityResult {
+  const thresholds = getOvernightCapacityThresholds(duration);
   const ownMinutes = (destination.recommendedVisitHours?.max ?? 0) * 60;
   const children = pool.filter(
     (d) =>
@@ -139,7 +149,7 @@ export function evaluateWeekendCapacity(
     eligiblePlaceCount = ownMinutes > 0 ? 1 : 0;
   }
 
-  const eligible = minutes >= WEEKEND_CAPACITY_POLICY.MIN_ELIGIBLE_MINUTES;
+  const eligible = minutes >= thresholds.minEligibleMinutes;
   const reason =
     minutes === 0 ? "unknown" : eligible ? "sufficient" : "insufficient";
 
@@ -265,20 +275,31 @@ export function evaluateWeekendCandidate(
   modes: string[],
   originMunicipalityId?: string,
 ): WeekendCandidateEvaluation {
+  const canonicalDuration =
+    normalizeTripDuration(context.tripDuration ?? "2d1n") ?? "2d1n";
+  const durationDays = Math.max(2, getTripDays(canonicalDuration));
+  const capacityThresholds = getOvernightCapacityThresholds(canonicalDuration);
   // DESTINATION-specific forecast days only. The live origin forecast is
   // never passed here, so without destination weather the weather score is
   // zero and no weekendWeather* reason is generated.
-  const weatherDays = (context.destinationWeather?.days ?? []).slice(0, 2);
+  const weatherDays = (context.destinationWeather?.days ?? []).slice(
+    0,
+    durationDays,
+  );
 
   const oneWayMinutes = getBestOneWayTravelMinutes(destination, context, modes);
   const travelFit = evaluateWeekendTravelFit(oneWayMinutes, {
     overnightWorthy: hasOvernightWorthyWeekendSemantics(destination, pool),
   });
-  const capacity = evaluateWeekendCapacity(destination, pool);
+  const capacity = evaluateWeekendCapacity(
+    destination,
+    pool,
+    canonicalDuration,
+  );
 
   const travelScore = weekendTravelScoreDelta(travelFit);
   const capacityScore =
-    capacity.activityMinutes >= WEEKEND_CAPACITY_POLICY.STRONG_MINUTES
+    capacity.activityMinutes >= capacityThresholds.strongMinutes
       ? WEEKEND_SCORING.CAPACITY_STRONG_BONUS
       : 0;
   const weatherResult = evaluateWeekendWeather(destination, weatherDays);
@@ -296,16 +317,18 @@ export function evaluateWeekendCandidate(
     reasons.push({
       type: "Weekend",
       code: "weekendTripReady",
-      title: "2-Day Trip Ready",
-      description: "Enough published places for a full weekend",
+      params: { days: durationDays },
+      title: `${durationDays}-Day Trip Ready`,
+      description: `Enough published places for ${durationDays} days`,
     });
   }
-  if (capacity.activityMinutes >= WEEKEND_CAPACITY_POLICY.STRONG_MINUTES) {
+  if (capacity.activityMinutes >= capacityThresholds.strongMinutes) {
     reasons.push({
       type: "Weekend",
       code: "weekendCapacityStrong",
+      params: { days: durationDays },
       title: "Plenty to Do",
-      description: "Enough places for a full weekend",
+      description: `Enough places for ${durationDays} days`,
     });
   }
   if (travelFit.band === "strong") {
@@ -334,8 +357,8 @@ export function evaluateWeekendCandidate(
     reasons.push({
       type: "Weekend",
       code: "weekendWeatherGood",
-      title: "Good Weather Across Both Days",
-      description: "Favorable weather for both days of your trip",
+      title: "Good Weather Across All Days",
+      description: `Favorable weather for all ${durationDays} days of your trip`,
     });
   } else if (weatherResult.summary === "mixed") {
     reasons.push({
@@ -353,19 +376,6 @@ export function evaluateWeekendCandidate(
       description: "Poor weather expected for most outdoor activities",
     });
   }
-  if (
-    context.accommodationAllowance !== undefined &&
-    context.accommodationAllowance > 0
-  ) {
-    reasons.push({
-      type: "Budget",
-      code: "weekendStayAllowance",
-      params: { amount: context.accommodationAllowance },
-      title: "Stay Allowance Included",
-      description: `Estimated total includes ¥${context.accommodationAllowance} stay allowance`,
-    });
-  }
-
   return {
     eligible,
     travelFit,

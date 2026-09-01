@@ -70,8 +70,13 @@ import {
 import { getCityArea } from "@/shared/data/cityAreas";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 import type { ExploreBudgetEstimate } from "../exploreBudget";
+import { getOvernightCapacityThresholds } from "@/shared/services/recommendation/WeekendPolicy";
+import {
+  isOvernightDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 
-export interface WeekendCardSummary {
+export interface OvernightCardSummary {
   placeCount: number;
   capacityMinutes: number;
   oneWayMinutes?: number;
@@ -89,14 +94,15 @@ interface DestinationCardProps {
   /** Explore's cached estimate shared by filtering, sorting, and display. */
   resolvedBudgetEstimate?: ExploreBudgetEstimate;
   availableTimeHours?: number;
-  /** 2D1N trip-area summary shown on the card's compact weekend line. */
-  weekendSummary?: WeekendCardSummary;
+  /** Overnight trip-area summary shown on the card's compact duration line. */
+  overnightSummary?: OvernightCardSummary;
   /** One-line forecast/seasonal condition label for the planned date. */
   conditionLabel?: string;
   /** Selected travel date for date-aware transport metadata. */
   ferryTemporal?: FerryTemporalContext;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
+  duration?: TripDuration;
 }
 
 export default function DestinationCard({
@@ -107,10 +113,11 @@ export default function DestinationCard({
   publicModes,
   resolvedBudgetEstimate,
   availableTimeHours,
-  weekendSummary,
+  overnightSummary,
   conditionLabel,
   ferryTemporal,
   compact = false,
+  duration = "fullDay",
 }: DestinationCardProps) {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -199,9 +206,10 @@ export default function DestinationCard({
 
   const scoredDestination = destination as Partial<ScoredDestination>;
   const match = scoredDestination.match;
-  const isWeekend = Boolean(weekendSummary);
+  const isOvernight = isOvernightDuration(duration);
+  const overnightCapacity = getOvernightCapacityThresholds(duration);
   const strongestReason = getPrimaryDisplayReason(match?.reasons ?? [], {
-    weekend: isWeekend,
+    overnight: isOvernight,
   });
   const strongestReasonCopy = strongestReason
     ? localizeRecommendationReason(strongestReason, locale)
@@ -264,7 +272,7 @@ export default function DestinationCard({
   const displayModes = resolvedBudgetEstimate?.mode
     ? [resolvedBudgetEstimate.mode]
     : validModes;
-  const dayTravelEstimate = isWeekend
+  const dayTravelEstimate = isOvernight
     ? undefined
     : getDayTripTravelDurationEvidence(
         destination,
@@ -275,7 +283,7 @@ export default function DestinationCard({
         },
         displayModes,
       ).estimate;
-  const preferredTransport = isWeekend ? undefined : dayTravelEstimate;
+  const preferredTransport = isOvernight ? undefined : dayTravelEstimate;
   // KAI-260: cards render the bounded traveller range even when the engine
   // used an explicit model/profile fallback. Evidence quality is disclosed
   // compactly, not used as a visibility gate.
@@ -302,7 +310,7 @@ export default function DestinationCard({
       partySize,
       homeCoords: homeStationCoords ?? undefined,
       includeOriginTravel: Boolean(homeStationCoords),
-      tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+      duration,
       ferryTemporal,
     });
     return r.total
@@ -318,12 +326,13 @@ export default function DestinationCard({
     preferredTransport,
     partySize,
     homeStationCoords,
-    isWeekend,
+    isOvernight,
+    duration,
     ferryTemporal,
   ]);
   const cardBudgetRange = cardEstimate?.range ?? null;
 
-  const durationEst = isWeekend
+  const durationEst = isOvernight
     ? estimateTripDuration(
         destination,
         {
@@ -641,34 +650,39 @@ export default function DestinationCard({
                   </div>
                 </div>
 
-                {weekendSummary && (
+                {isOvernight && overnightSummary && (
                   <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs font-bold text-emerald-700 dark:text-emerald-300">
-                    {weekendSummary.placeCount > 0 && (
+                    {overnightSummary.placeCount > 0 && (
                       <span>
                         {t("destination.tripAreas.places", {
-                          places: weekendSummary.placeCount,
+                          places: overnightSummary.placeCount,
                         })}
                       </span>
                     )}
-                    {weekendSummary.placeCount > 0 && <span>·</span>}
+                    {overnightSummary.placeCount > 0 && <span>·</span>}
                     <span>
-                      {weekendSummary.capacityMinutes >= 600
-                        ? t("destination.tripAreas.plentyForTwoDays")
-                        : t("destination.tripAreas.readyForTwoDays")}
+                      {overnightSummary.capacityMinutes >=
+                      overnightCapacity.strongMinutes
+                        ? t("destination.tripAreas.plentyForDays", {
+                            days: overnightCapacity.days,
+                          })
+                        : t("destination.tripAreas.readyForDays", {
+                            days: overnightCapacity.days,
+                          })}
                     </span>
-                    {weekendSummary.oneWayMinutes !== undefined &&
-                      weekendSummary.bestMode && (
+                    {overnightSummary.oneWayMinutes !== undefined &&
+                      overnightSummary.bestMode && (
                         <span className="text-slate-500">
                           ·{" "}
                           {t("destination.tripAreas.travelBy", {
                             time: formatWeekendMinutes(
-                              weekendSummary.oneWayMinutes,
+                              overnightSummary.oneWayMinutes,
                               locale,
                             ),
                             mode:
                               modeLabels[
-                                weekendSummary.bestMode as keyof typeof modeLabels
-                              ] ?? weekendSummary.bestMode,
+                                overnightSummary.bestMode as keyof typeof modeLabels
+                              ] ?? overnightSummary.bestMode,
                           })}
                         </span>
                       )}
@@ -760,7 +774,7 @@ export default function DestinationCard({
             virtualGroup
               ? virtualGroup.href
               : wardGroup
-                ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+                ? buildTokyoWardsLink(wardGroup.wardHubIds, duration)
                 : {
                     pathname: `/destinations/${destination.id}`,
                     search: location.search,

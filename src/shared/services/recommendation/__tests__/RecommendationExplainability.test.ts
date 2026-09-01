@@ -97,7 +97,7 @@ describe("RecommendationExplainability Unit Tests", () => {
       },
     ];
 
-    expect(getPrimaryDisplayReason(reasons, { weekend: true })?.code).toBe(
+    expect(getPrimaryDisplayReason(reasons, { overnight: true })?.code).toBe(
       "weekendWeatherDayRain",
     );
   });

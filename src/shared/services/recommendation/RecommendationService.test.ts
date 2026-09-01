@@ -299,7 +299,7 @@ describe("RecommendationService Unit Tests", () => {
     expect(matchesTripDuration(3, "shortOuting")).toBe(true);
     expect(matchesTripDuration(5, "halfDay")).toBe(true);
     expect(matchesTripDuration(8, "fullDay")).toBe(true);
-    expect(matchesTripDuration(15, "weekend")).toBe(true);
+    expect(matchesTripDuration(15, "2d1n")).toBe(true);
   });
 
   it("requires canonical travel for constrained personalized day trips", () => {

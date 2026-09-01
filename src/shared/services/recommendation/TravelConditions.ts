@@ -4,7 +4,12 @@ import {
   getNextCalendarDate,
   travelDateToDate,
 } from "@/shared/utils/travelDate";
-import type { TripMode } from "./RecommendationContext";
+import {
+  getTripDays,
+  getTripNights,
+  normalizeTripDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 import type { MatchReason } from "./RecommendationTypes";
 
 export { normalizeTravelDateParam } from "@/shared/types/homePlannerState";
@@ -21,8 +26,15 @@ import { getOriginAwareTransportEstimate } from "@/shared/services/transport/Ori
 export interface TravelDateSelection {
   /** YYYY-MM-DD local calendar date. */
   day1: string;
+  /** Canonical aliases for consumers that need a date range. */
+  startDate?: string;
+  endDate?: string;
   /** Derived next calendar date; only present for 2D1N. */
   day2?: string;
+  /** Derived dates for trips longer than two days. */
+  day3?: string;
+  /** Generic derived date list for future multi-night durations. */
+  days?: string[];
 }
 
 export type TravelConditionSource =
@@ -36,9 +48,9 @@ export interface TravelConditionEvaluation {
 }
 
 /**
- * Derives the trip dates for a trip mode. Day trips evaluate only the
- * selected date; 2D1N always evaluates the selected date plus the following
- * calendar date. A third day never enters the model.
+ * Derives the selected date range from the canonical duration. Day durations
+ * evaluate only the selected date; overnight durations evaluate every calendar
+ * day implied by their N-day value.
  */
 export {
   getNextCalendarDate,
@@ -47,12 +59,27 @@ export {
 
 export function deriveTripDates(
   day1: string,
-  tripMode: TripMode,
+  duration: TripDuration | string,
 ): TravelDateSelection {
-  if (tripMode === "weekend_2d1n") {
-    return { day1, day2: getNextCalendarDate(day1) };
-  }
-  return { day1 };
+  const canonicalDuration = normalizeTripDuration(duration) ?? "fullDay";
+  const days = getTripDays(canonicalDuration);
+  const nights = getTripNights(canonicalDuration);
+  if (nights === 0) return { day1, startDate: day1, endDate: day1 };
+  const derivedDays = Array.from({ length: days }, (_, index) => {
+    let date = day1;
+    for (let offset = 0; offset < index; offset += 1) {
+      date = getNextCalendarDate(date);
+    }
+    return date;
+  });
+  return {
+    day1: derivedDays[0],
+    startDate: derivedDays[0],
+    endDate: derivedDays[derivedDays.length - 1],
+    ...(derivedDays[1] ? { day2: derivedDays[1] } : {}),
+    ...(derivedDays[2] ? { day3: derivedDays[2] } : {}),
+    ...(derivedDays.length > 3 ? { days: derivedDays } : {}),
+  };
 }
 
 /**
@@ -91,8 +118,13 @@ export function isTripDatesTransportEligible(
     }
   }
   if (!homeCoords) return true;
-  const dates = [travelDateToDate(travelDates.day1)];
-  if (travelDates.day2) dates.push(travelDateToDate(travelDates.day2));
+  const dates = (
+    travelDates.days ?? [
+      travelDates.day1,
+      ...(travelDates.day2 ? [travelDates.day2] : []),
+      ...(travelDates.day3 ? [travelDates.day3] : []),
+    ]
+  ).map(travelDateToDate);
   return isFerryTripAvailable(dest, homeCoords, dates);
 }
 
@@ -147,7 +179,13 @@ export function formatTravelConditionParams(
 }
 
 function allDatesOf(selection: TravelDateSelection): string[] {
-  return selection.day2 ? [selection.day1, selection.day2] : [selection.day1];
+  return (
+    selection.days ?? [
+      selection.day1,
+      ...(selection.day2 ? [selection.day2] : []),
+      ...(selection.day3 ? [selection.day3] : []),
+    ]
+  );
 }
 
 function forecastReason(days: readonly DayForecastData[]): MatchReason {
@@ -165,7 +203,7 @@ function forecastReason(days: readonly DayForecastData[]): MatchReason {
     code: "conditionForecastRange",
     params: { day1: days[0].date, day2: days[days.length - 1].date },
     title: "Forecast",
-    description: "Live weather forecast for both days",
+    description: `Live weather forecast for all ${days.length} selected trip days`,
   };
 }
 
@@ -175,7 +213,7 @@ function unknownReason(missingDates: readonly string[]): MatchReason {
     params.date = missingDates[0];
   } else {
     params.day1 = missingDates[0];
-    params.day2 = missingDates[1];
+    params.day2 = missingDates[missingDates.length - 1];
   }
   return {
     type: "Seasonal",

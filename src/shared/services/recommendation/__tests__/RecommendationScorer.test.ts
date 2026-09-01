@@ -93,6 +93,21 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(res.bestMode).toBe("train");
   });
 
+  it("keeps Explore Any duration-neutral even with a personalized origin", () => {
+    const result = calculateScore(mockDest, {
+      tripType: "any",
+      tripDuration: "any",
+      budget: 20000,
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 1,
+      visitedIds: [],
+      homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    });
+
+    expect(result.dayTripTravelEfficiency).toBeUndefined();
+  });
+
   it("preserves a legitimate zero overall rating", () => {
     const context = {
       tripType: "any",
@@ -297,7 +312,6 @@ describe("RecommendationScorer Unit Tests", () => {
       visitedIds: [],
       homeStationCoords: { lat: 35.6812, lng: 139.7671 },
       originZoneId: "mainland-honshu" as const,
-      tripMode: "day_trip" as const,
       tripDuration: "fullDay" as const,
     };
     const result = calculateScore(destination, context);

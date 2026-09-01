@@ -11,14 +11,14 @@ const NAKAYAMA = { lat: 35.5147, lng: 139.5393 };
 const ALL_PUBLIC_MODES = ["train", "shinkansen", "bus", "flight", "ferry"];
 
 function context(
-  tripMode: ExploreBudgetContext["tripMode"],
+  tripDuration: ExploreBudgetContext["duration"],
 ): ExploreBudgetContext {
   return {
     originCoords: NAKAYAMA,
     carMode: "none",
     publicModes: ALL_PUBLIC_MODES,
     partySize: 2,
-    tripMode,
+    duration: tripDuration,
   };
 }
 
@@ -42,11 +42,8 @@ describe("Explore shared budget estimate", () => {
       ALL_PUBLIC_MODES,
       NAKAYAMA,
     );
-    const day = resolveExploreBudgetEstimate(destination, context("day_trip"));
-    const weekend = resolveExploreBudgetEstimate(
-      destination,
-      context("weekend_2d1n"),
-    );
+    const day = resolveExploreBudgetEstimate(destination, context("fullDay"));
+    const weekend = resolveExploreBudgetEstimate(destination, context("2d1n"));
 
     expect(day).not.toBeNull();
     expect(weekend).not.toBeNull();
@@ -61,7 +58,7 @@ describe("Explore shared budget estimate", () => {
               mode,
               partySize: 2,
               homeCoords: NAKAYAMA,
-              tripMode: "day_trip",
+              duration: "fullDay",
             }).total!.max,
         ),
       ),

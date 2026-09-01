@@ -59,6 +59,20 @@ describe("DayPlanGeneratorService", () => {
     }
   });
 
+  it("generates an explicit three-day itinerary for 3D2N", () => {
+    const plan = generateDayPlan(mockDestPrimary, { duration: "3d2n" });
+    expect(plan.duration).toBe("3d2n");
+    expect(plan.dayCount).toBe(3);
+
+    if (!plan.isUnfeasible) {
+      const realStops = plan.steps.filter(isRealDestinationStop);
+      expect(realStops.length).toBeGreaterThanOrEqual(3);
+      expect(new Set(realStops.map((step) => step.day))).toEqual(
+        new Set([1, 2, 3]),
+      );
+    }
+  });
+
   it("fails gracefully with half-day fallback when full day stops are insufficient", () => {
     const unfeasiblePlan = generateDayPlan(mockDestPrimary, {
       planType: "full_day",

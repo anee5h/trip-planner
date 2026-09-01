@@ -107,7 +107,7 @@ test.describe("KAI-68 destination deep-link + title sync", () => {
       .locator('meta[name="description"]')
       .getAttribute("content");
     expect(destinationDescription).not.toBe(
-      "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
+      "Discover short outings and overnight trips that fit your time, budget, weather, and travel style.",
     );
 
     // Client-side navigation back home must restore the shell defaults
@@ -121,7 +121,7 @@ test.describe("KAI-68 destination deep-link + title sync", () => {
       .locator('meta[name="description"]')
       .getAttribute("content");
     expect(description).toBe(
-      "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
+      "Discover short outings and overnight trips that fit your time, budget, weather, and travel style.",
     );
   });
 });
@@ -230,7 +230,7 @@ test.describe("KAI-101 localized share URLs", () => {
       carMode: "driving",
       publicModes: ["car"],
       partySize: 4,
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     };
     const { key: entryKey, idx: entryIdx } = await page.evaluate((state) => {
       const current = window.history.state || {};

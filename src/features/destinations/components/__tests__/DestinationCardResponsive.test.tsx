@@ -194,7 +194,7 @@ describe("DestinationCard responsive content", () => {
         mode: "train",
         homeCoords: state.homeStationCoords,
         partySize: 2,
-        tripMode: "day_trip",
+        duration: "fullDay",
       }),
     } satisfies ExploreBudgetEstimate;
 
@@ -409,7 +409,7 @@ describe("DestinationCard badges", () => {
         placeCount: 57,
         memberIds: ["shibuya-city", "tokyo-station-chiyoda"],
         wardHubIds: ["shibuya-city"],
-        tripMode: "weekend_2d1n",
+        duration: "2d1n",
       } as never,
     });
     expect(badgeContainerText()).toContain("destination.tokyoWardsBadge");
@@ -493,7 +493,8 @@ describe("DestinationCard badges", () => {
         <MemoryRouter>
           <DestinationCard
             destination={destination}
-            weekendSummary={{
+            duration="2d1n"
+            overnightSummary={{
               placeCount: 4,
               capacityMinutes: 720,
               oneWayMinutes: 90,
@@ -506,7 +507,7 @@ describe("DestinationCard badges", () => {
 
     const text = host.textContent ?? "";
     expect(text).toContain("destination.tripAreas.places");
-    expect(text).toContain("destination.tripAreas.plentyForTwoDays");
+    expect(text).toContain("destination.tripAreas.plentyForDays");
     expect(text).toContain("destination.tripAreas.travelBy");
   });
 

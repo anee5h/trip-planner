@@ -385,6 +385,18 @@ describe("passesNoOriginWeekendGate", () => {
     expect(passesNoOriginWeekendGate(hub, [hub, ...kids])).toBe(true);
   });
 
+  it("requires the selected number of days without an origin", () => {
+    const area = dest({
+      id: "three-day-area",
+      role: "standalone",
+      kind: "mountain" as DestinationKind,
+      recommendedVisitHours: { min: 1, max: 8 }, // 480 min
+    });
+
+    expect(passesNoOriginWeekendGate(area, [area], "2d1n")).toBe(true);
+    expect(passesNoOriginWeekendGate(area, [area], "3d2n")).toBe(false);
+  });
+
   it("POI never passes the no-origin gate", () => {
     const museum = dest({
       id: "museum",

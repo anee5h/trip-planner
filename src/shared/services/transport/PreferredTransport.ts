@@ -52,7 +52,7 @@ export function getFastestPreferredTransport(
     mode: estimate.mode,
     partySize,
     homeCoords,
-    tripMode: "day_trip",
+    duration: "fullDay",
     ferryTemporal,
   });
   const estimatedBudgetRange = estimateResult.total

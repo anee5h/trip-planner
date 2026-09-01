@@ -1,4 +1,9 @@
 import type { Destination } from "@/shared/types/destination";
+import {
+  getTripDays,
+  normalizeTripDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 import type { CatchmentScope } from "@/shared/types/planner";
 import { findNearbyCombinations } from "./DestinationCombinationService";
 import {
@@ -201,6 +206,8 @@ export interface PlanAssumption {
 
 export interface DayPlanStep {
   id: string;
+  /** Calendar day within the selected canonical duration (1-based). */
+  day?: number;
   type: "destination" | "meal" | "buffer" | "travel";
   timeBlock: "morning" | "afternoon" | "evening";
   startTime: string;
@@ -221,6 +228,10 @@ export type PlanFailureReason =
 
 export interface DayPlan {
   id: string;
+  /** Canonical planner duration used to generate this plan. */
+  duration?: TripDuration;
+  /** Number of calendar days represented by the plan. */
+  dayCount?: number;
   title: { en: string; ja: string };
   steps: DayPlanStep[];
   routeLegs?: RouteLeg[];
@@ -240,6 +251,7 @@ export interface DayPlan {
   unfeasibleErrorMessage?: { en: string; ja: string };
   failureReason?: PlanFailureReason;
   generatedWith?: {
+    duration: TripDuration;
     planType: DayPlanType;
     startTime: string;
     availableMinutes: number;
@@ -251,6 +263,8 @@ export interface DayPlan {
 }
 
 export interface DayPlanOptions {
+  /** Canonical duration; overnight values generate multiple day groups. */
+  duration?: TripDuration;
   planType?: DayPlanType;
   startTime?: string;
   availableMinutes?: number;
@@ -408,6 +422,10 @@ export function generateDayPlan(
 
   const isPrimaryHub = isHubPrimary(primary);
   const planType: DayPlanType = options?.planType || "full_day";
+  const duration =
+    normalizeTripDuration(options?.duration) ??
+    (planType === "half_day" ? "halfDay" : "fullDay");
+  const dayCount = getTripDays(duration);
   const pace: DayPlanPace = options?.pace || "balanced";
   const partySize = Math.max(1, options?.partySize || 1);
   const catchmentScope: CatchmentScope = options?.catchmentScope || "nearby";
@@ -430,7 +448,8 @@ export function generateDayPlan(
     : defaultWindow;
   const hardAvailableMinutes = Math.max(
     1,
-    options?.availableMinutes ?? legacyEndWindow,
+    options?.availableMinutes ??
+      (options?.maxEndTime ? legacyEndWindow : defaultWindow * dayCount),
   );
 
   const { required: requiredCandidates, optional: optionalCandidates } =
@@ -449,6 +468,8 @@ export function generateDayPlan(
 
   const buildUnfeasiblePlan = (failureReason: PlanFailureReason): DayPlan => ({
     id: `plan-${primary.id}`,
+    duration,
+    dayCount,
     title: {
       en: isPrimaryHub
         ? `Plan a day in ${getLocalizedPlace(primary, "en").name}`
@@ -672,6 +693,56 @@ export function generateDayPlan(
   const builtRoute = bestSim.route;
   const activeCandidates = bestSim.candidates;
 
+  const routeForPlan = (() => {
+    if (dayCount <= 1) return builtRoute;
+
+    const dayGroups: PlannedCandidate[][] = Array.from(
+      { length: dayCount },
+      () => [],
+    );
+    activeCandidates.forEach((candidate, index) => {
+      dayGroups[index % dayCount].push(candidate);
+    });
+
+    const combined = {
+      steps: [] as DayPlanStep[],
+      routeLegs: [] as RouteLeg[],
+      assumptions: [] as PlanAssumption[],
+      totalMins: 0,
+      returnEndpoint: null as Destination | null,
+    };
+
+    for (const [index, group] of dayGroups.entries()) {
+      if (group.length === 0) return builtRoute;
+      const dayRoute = simulateRouteIncremental(
+        primary,
+        isPrimaryHub,
+        group,
+        false,
+        startMinsFromMidnight,
+        catchmentScope,
+        index === dayGroups.length - 1 ? returnMode : "none",
+        catalogue,
+      );
+      if (!dayRoute.feasible) return builtRoute;
+
+      const day = index + 1;
+      combined.steps.push(
+        ...dayRoute.steps.map((step) => ({
+          ...step,
+          id: `${step.id}-day-${day}`,
+          day,
+        })),
+      );
+      combined.routeLegs.push(...dayRoute.routeLegs);
+      combined.assumptions.push(...dayRoute.assumptions);
+      combined.totalMins += dayRoute.totalMins;
+      combined.returnEndpoint = dayRoute.returnEndpoint;
+    }
+
+    return combined;
+  })();
+
   const uncertainHoursDisclosures: Array<{
     destinationId: string;
     name: string;
@@ -693,6 +764,8 @@ export function generateDayPlan(
 
   const rawPlan: DayPlan = {
     id: `plan-${primary.id}`,
+    duration,
+    dayCount,
     title: {
       en: isPrimaryHub
         ? `Plan a day in ${primLocEn.name}`
@@ -701,18 +774,19 @@ export function generateDayPlan(
         ? `${primLocJa.name}の1日モデルコース`
         : `${primLocJa.name} 周辺モデルコース`,
     },
-    steps: builtRoute.steps,
-    routeLegs: builtRoute.routeLegs,
-    assumptions: builtRoute.assumptions,
+    steps: routeForPlan.steps,
+    routeLegs: routeForPlan.routeLegs,
+    assumptions: routeForPlan.assumptions,
     returnMode,
-    returnEndpointId: builtRoute.returnEndpoint?.id,
-    totalDurationMinutes: builtRoute.totalMins,
+    returnEndpointId: routeForPlan.returnEndpoint?.id,
+    totalDurationMinutes: routeForPlan.totalMins,
     // KAI-260: totalBudgetRange is assigned below whenever the generated
     // aggregate is bounded, including model/profile-derived estimates.
     isOverfilled: false,
     isUnfeasible: false,
     uncertainHoursDisclosures,
     generatedWith: {
+      duration,
       planType,
       startTime: formatTimeFromMidnight(startMinsFromMidnight),
       availableMinutes: hardAvailableMinutes,

@@ -121,7 +121,7 @@ describe("seasonal rules — closed ferry (restricted fixture data)", () => {
 
   it("Tomogashima Nov 30–Dec 1 is ineligible because the return ferry is suspended", () => {
     const dest = ferryOnlyDestination();
-    const dates = deriveTripDates("2026-11-30", "weekend_2d1n");
+    const dates = deriveTripDates("2026-11-30", "2d1n");
     expect(dates.day2).toBe("2026-12-01");
     const modes = getValidModes(
       dest,
@@ -156,7 +156,7 @@ describe("seasonal rules — closed ferry (restricted fixture data)", () => {
 
   it("a December day trip is ineligible when the ferry is closed", () => {
     const dest = ferryOnlyDestination();
-    const winter = deriveTripDates("2026-12-15", "day_trip");
+    const winter = deriveTripDates("2026-12-15", "fullDay");
     const winterModes = getValidModes(
       dest,
       "none",
@@ -184,11 +184,9 @@ describe("seasonal rules — closed ferry (restricted fixture data)", () => {
         budgetTier: "standard",
         visitedIds: [],
         homeStationCoords: WAKAYAMA_COORDS,
-        tripDuration: "weekend",
-        tripMode: "weekend_2d1n",
-        accommodationAllowance: 10000,
+        tripDuration: "2d1n",
         ferryTemporal: { travelDate: travelDateToDate(day1) },
-        travelDates: deriveTripDates(day1, "weekend_2d1n"),
+        travelDates: deriveTripDates(day1, "2d1n"),
       });
     // Both legs inside the window: recommended.
     expect(runWeekend("2026-11-29").some((r) => r.id === dest.id)).toBe(true);

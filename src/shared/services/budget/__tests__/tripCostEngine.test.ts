@@ -42,7 +42,7 @@ function paidDest(overrides: Partial<Destination> = {}): Destination {
 function ctx(overrides: Partial<TripCostContext> = {}): TripCostContext {
   return {
     dest: paidDest(),
-    tripMode: "day_trip",
+    duration: "fullDay",
     partySize: 2,
     mode: "train",
     ...overrides,
@@ -139,7 +139,7 @@ describe("KAI-217A engine — travel completeness", () => {
         dest,
         mode: "bus",
         homeCoords: { lat: 35.6812, lng: 139.7671 }, // Tokyo
-        tripMode: "day_trip",
+        duration: "fullDay",
       }),
     );
     const c = byScope(r, "origin_travel")!;
@@ -192,7 +192,7 @@ describe("KAI-217A engine — travel completeness", () => {
         dest,
         mode: "train",
         homeCoords: { lat: 35.6812, lng: 139.7671 },
-        tripMode: "day_trip",
+        duration: "fullDay",
         partySize: 2,
       }),
     );
@@ -273,70 +273,59 @@ describe("KAI-217A engine — local transport", () => {
 });
 
 describe("KAI-217A engine — accommodation", () => {
-  it("day trip has 0 nights → accommodation not_applicable, no allowance claim", () => {
-    const r = calculateTripCost(ctx({ tripMode: "day_trip" }));
+  it("day trip has 0 nights → accommodation is bounded at ¥0", () => {
+    const r = calculateTripCost(ctx({ duration: "fullDay" }));
     const c = byScope(r, "accommodation")!;
-    expect(c.cost).toEqual({ kind: "not_applicable" });
-    // No allowance supplied → no accommodation claim (unknown ≠ ¥0).
-    expect(r.accommodation).toBeUndefined();
+    expect(c.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
+    expect(r.accommodation).toEqual({ perNight: 0, nights: 0 });
   });
 
   it("2D1N → 1 night × per-night allowance (never × party)", () => {
     const r = calculateTripCost(
       ctx({
-        tripMode: "weekend_2d1n",
-        accommodationAllowance: 12000,
+        duration: "2d1n",
         partySize: 4,
       }),
     );
     const c = byScope(r, "accommodation")!;
-    expect(r.accommodation).toEqual({ perNight: 12000, nights: 1 });
-    expect(accommodationTotal(r.accommodation!)).toBe(12000);
-    expect(c.cost).toEqual({ kind: "bounded", min: 12000, max: 12000 });
-    expect(c.evidence.derivation).toBe("user_allowance");
-    expect(c.evidence.provenance).toBeUndefined();
+    expect(r.accommodation).toEqual({ perNight: 10000, nights: 1 });
+    expect(accommodationTotal(r.accommodation!)).toBe(10000);
+    expect(c.cost).toEqual({ kind: "bounded", min: 10000, max: 22000 });
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 
   it("multi-night → perNight × explicit nights", () => {
     const r = calculateTripCost(
       ctx({
-        tripMode: "multi_night",
-        nights: 4,
-        accommodationAllowance: 10000,
+        duration: "5d4n",
       }),
     );
     expect(r.accommodation).toEqual({ perNight: 10000, nights: 4 });
     expect(accommodationTotal(r.accommodation!)).toBe(40000);
     const c = byScope(r, "accommodation")!;
-    expect(c.cost).toEqual({ kind: "bounded", min: 40000, max: 40000 });
+    expect(c.cost).toEqual({ kind: "bounded", min: 40000, max: 88000 });
   });
 
   it("accommodation is party-total per night — NEVER multiplies by party size", () => {
     const r = calculateTripCost(
       ctx({
-        tripMode: "multi_night",
-        nights: 2,
-        accommodationAllowance: 8000,
+        duration: "3d2n",
         partySize: 4,
       }),
     );
-    expect(accommodationTotal(r.accommodation!)).toBe(16000);
-    expect(accommodationTotal(r.accommodation!)).not.toBe(16000 * 4);
+    expect(accommodationTotal(r.accommodation!)).toBe(20000);
+    expect(accommodationTotal(r.accommodation!)).not.toBe(20000 * 4);
   });
 
   it("uses the standard overnight default when allowance is absent", () => {
-    const r = calculateTripCost(
-      ctx({ tripMode: "weekend_2d1n", accommodationAllowance: undefined }),
-    );
+    const r = calculateTripCost(ctx({ duration: "2d1n" }));
     const c = byScope(r, "accommodation")!;
     expect(c.cost.kind).toBe("bounded");
     expect(r.accommodation).toEqual({ perNight: 10000, nights: 1 });
   });
 
   it("missing overnight allowance uses a non-zero default instead of leaking ¥0", () => {
-    const r = calculateTripCost(
-      ctx({ tripMode: "weekend_2d1n", accommodationAllowance: undefined }),
-    );
+    const r = calculateTripCost(ctx({ duration: "2d1n" }));
     expect(r.accommodation).toEqual({ perNight: 10000, nights: 1 });
     const c = byScope(r, "accommodation")!;
     expect(c.cost.kind).toBe("bounded");

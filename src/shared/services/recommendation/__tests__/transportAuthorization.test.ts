@@ -427,7 +427,7 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: TOKYO,
       originZoneId: "mainland-honshu",
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     // Retained (neutral), and the verified route fare IS included in the
     // transport estimate.
@@ -445,7 +445,7 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: TOKYO,
       originZoneId: "mainland-honshu",
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     expect(highResults.length).toBe(1);
     expect(highResults[0].estimatedCostTransportIncluded).toBe(true);
@@ -478,7 +478,7 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: omiya,
       originZoneId: "mainland-honshu",
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     expect(results.length).toBe(1);
     expect(results[0].estimatedCostTransportScope).toBe("corridor_only");
@@ -519,7 +519,7 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: tokyo,
       originZoneId: "mainland-honshu",
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     expect(low.length).toBe(0);
 
@@ -532,7 +532,7 @@ describe("pipeline-level budget filtering and metadata", () => {
       visitedIds: [],
       homeStationCoords: tokyo,
       originZoneId: "mainland-honshu",
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     expect(high.length).toBe(1);
   });

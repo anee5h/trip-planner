@@ -1,10 +1,10 @@
 import {
   calculateTripEstimate,
   type TripEstimateResult,
-  type TripModeV2,
 } from "@/shared/services/budget/tripEstimateEngine";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import type { BudgetTier, PriceRange } from "@/shared/types/planner";
+import type { BudgetTier } from "@/shared/types/planner";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import type { Destination } from "@/shared/types/destination";
@@ -15,9 +15,8 @@ export interface ExploreBudgetContext {
   carMode: string;
   publicModes: readonly string[];
   partySize: number;
-  tripMode: TripModeV2;
+  duration: TripDuration;
   budgetTier?: BudgetTier;
-  accommodationAllowance?: number | PriceRange;
   ferryTemporal?: FerryTemporalContext;
 }
 
@@ -38,9 +37,8 @@ function calculateForMode(
     partySize: context.partySize,
     homeCoords: context.originCoords ?? undefined,
     includeOriginTravel: Boolean(context.originCoords),
-    tripMode: context.tripMode,
+    duration: context.duration,
     budgetTier: context.budgetTier,
-    accommodationAllowance: context.accommodationAllowance,
     ferryTemporal: context.ferryTemporal,
   });
 }

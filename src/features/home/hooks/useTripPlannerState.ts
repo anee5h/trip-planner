@@ -9,7 +9,6 @@ import {
 import { useHomePlannerState } from "@/features/home/state/HomePlannerStateContext";
 import { getPlannerBudgetLimit } from "../services/PlannerBudgetPolicy";
 import { resolveTransportSelection } from "../services/TransportResolver";
-import type { TripMode } from "@/shared/types/homePlannerState";
 
 export { DEFAULT_PLANNER_BUDGET_TIER };
 export type {
@@ -44,8 +43,6 @@ export function useTripPlannerState(
         controls.budgetTier,
         controls.partySize,
         controls.tripDuration,
-        controls.tripMode,
-        controls.accommodationAllowance,
       );
       return { ...controls, budget, carMode, publicModes };
     },
@@ -67,5 +64,3 @@ export function useTripPlannerState(
     resolvedApplied,
   };
 }
-
-export type { TripMode };

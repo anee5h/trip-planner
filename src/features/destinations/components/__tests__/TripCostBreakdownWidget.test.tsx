@@ -15,11 +15,20 @@ import type { GeneratedPlanCostResult } from "@/shared/services/budget/Generated
 // ── Mock heavy dependencies ───────────────────────────────────────────────────
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string) =>
-      ({
-        "planner.stayAllowanceRow": "Stay allowance (1 night)",
-        "planner.stayAllowanceNote": "User-set estimate, not a real hotel rate",
-      })[key] ?? key,
+    t: (key: string, opts?: { count?: number }) => {
+      if (key === "planner.stayAllowanceRow") {
+        const count = opts?.count ?? 0;
+        return `Stay allowance (${count} night${count === 1 ? "" : "s"})`;
+      }
+      return (
+        (
+          {
+            "planner.stayAllowanceNote":
+              "Inferred planning estimate, not a real hotel rate",
+          } as Record<string, string>
+        )[key] ?? key
+      );
+    },
     i18n: { language: "en" },
   }),
   initReactI18next: { type: "3rdParty", init: vi.fn() },
@@ -53,12 +62,9 @@ vi.mock("lucide-react", () => ({
 // accommodation = allowance) so the rows + total are derived from the SAME
 // source.
 vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: ({
-    accommodationAllowance,
-  }: {
-    accommodationAllowance?: number;
-  }) => {
-    const allowance = accommodationAllowance ?? 0;
+  calculateTripEstimate: ({ duration }: { duration?: string }) => {
+    const allowance =
+      duration === "2d1n" ? 10000 : duration === "3d2n" ? 20000 : 0;
     const components = [
       {
         cost: { kind: "bounded", min: 800, max: 800 },
@@ -86,7 +92,7 @@ vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
         cost: { kind: "bounded", min: allowance, max: allowance },
         evidence: {
           scope: "accommodation",
-          derivation: "user_allowance",
+          derivation: "model_estimate",
         },
       },
     ];
@@ -241,7 +247,7 @@ afterEach(() => {
 });
 
 function renderWidget(props: {
-  accommodationAllowance?: number;
+  duration?: "shortOuting" | "halfDay" | "fullDay" | "2d1n" | "3d2n";
   partySize?: number;
   activeTransportMode?: string;
   defaultExpanded?: boolean;
@@ -257,7 +263,7 @@ function renderWidget(props: {
         partySize={props.partySize ?? 2}
         activeTransportMode={props.activeTransportMode ?? "train"}
         defaultExpanded={props.defaultExpanded ?? false}
-        accommodationAllowance={props.accommodationAllowance}
+        duration={props.duration ?? "fullDay"}
       />,
     );
   });
@@ -265,70 +271,30 @@ function renderWidget(props: {
 }
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
-describe("TripCostBreakdownWidget accommodation allowance", () => {
-  it("renders accommodation allowance row when allowance > 0 and expanded", () => {
-    const container = renderWidget({
-      accommodationAllowance: 15000,
-      defaultExpanded: true,
-    });
-
+describe("TripCostBreakdownWidget canonical duration", () => {
+  it("renders an inferred one-night allowance", () => {
+    const container = renderWidget({ duration: "2d1n", defaultExpanded: true });
     expect(container.textContent).toContain("Stay allowance (1 night)");
-    expect(container.textContent).toContain("User-set estimate");
+    expect(container.textContent).not.toContain("User-set estimate");
   });
 
-  it("does not render accommodation allowance row when allowance is 0", () => {
+  it("omits accommodation for zero nights", () => {
     const container = renderWidget({
-      accommodationAllowance: 0,
+      duration: "fullDay",
       defaultExpanded: true,
     });
-
-    expect(container.textContent).not.toContain("Stay allowance (1 night)");
+    expect(container.textContent).not.toContain("Stay allowance");
   });
 
-  it("does not render accommodation allowance row when allowance is undefined", () => {
+  it("uses two inferred nights without multiplying by party size", () => {
     const container = renderWidget({
+      duration: "3d2n",
+      partySize: 4,
       defaultExpanded: true,
     });
-
-    expect(container.textContent).not.toContain("Stay allowance (1 night)");
-  });
-
-  it("renders allowance in party view mode", () => {
-    const container = renderWidget({
-      accommodationAllowance: 15000,
-      defaultExpanded: true,
-    });
-
-    // In party view, the allowance should show as ¥15,000 (full amount)
-    expect(container.textContent).toContain("¥15,000");
-  });
-
-  it("renders allowance divided in per-person view mode", () => {
-    const container = renderWidget({
-      accommodationAllowance: 15000,
-      partySize: 2,
-      defaultExpanded: true,
-    });
-
-    // Switch to per-person view
-    const perPersonBtn = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent === "Per Person",
-    );
-    act(() => perPersonBtn?.click());
-
-    // Allowance should be divided by partySize: 15000/2 = 7500
-    expect(container.textContent).toContain("¥7,500");
-  });
-
-  it("party view shows full allowance amount", () => {
-    const container = renderWidget({
-      accommodationAllowance: 25000,
-      partySize: 2,
-      defaultExpanded: true,
-    });
-
-    // In party view (default), the allowance should show the full 25000
-    expect(container.textContent).toContain("¥25,000");
+    expect(container.textContent).toContain("Stay allowance (2 nights)");
+    expect(container.textContent).toContain("¥20,000");
+    expect(container.textContent).not.toContain("¥80,000");
   });
 
   it("partial generated plan: collapsed header says Known, expanded says Known subtotal NOT Total Party Cost (KAI-217B round-4)", () => {

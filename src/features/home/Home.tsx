@@ -18,6 +18,10 @@ import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabServic
 import { HOME_RAIL_SECTION_SPACING } from "./components/HomeRailLayout";
 import type { HomePendingAction } from "./state/HomeAction";
 import type { TransportSelection } from "./services/TransportResolver";
+import {
+  isOvernightDuration,
+  type HomepageTripDuration,
+} from "@/shared/types/tripDuration";
 
 const HeavyHome = lazy(() => import("./HomeHeavy"));
 
@@ -115,10 +119,7 @@ function HomeSurface() {
     setPublicTransport,
     carMode,
     setCarMode,
-    tripMode,
-    setTripMode,
-    accommodationAllowance,
-    setAccommodationAllowance,
+
     hasUserApplied,
     isDirty,
     applyPlannerState,
@@ -244,7 +245,7 @@ function HomeSurface() {
                         ? t("origin.currentLocation")
                         : getLocalizedStationLabel(homeStation, locale)
                     }
-                    tripMode={tripMode}
+                    duration={tripDuration}
                     allowAnyDate={false}
                   />
                 </div>
@@ -269,8 +270,8 @@ function HomeSurface() {
             )}
             <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-300 sm:block md:text-base">
               {t(
-                tripMode === "weekend_2d1n"
-                  ? "home.subtitleWeekend"
+                isOvernightDuration(tripDuration)
+                  ? "home.subtitleOvernight"
                   : "home.subtitle",
               )}
             </p>
@@ -290,10 +291,7 @@ function HomeSurface() {
               onPublicTransportChange={setPublicTransport}
               carMode={carMode}
               onCarModeChange={setCarMode}
-              tripMode={tripMode}
-              onTripModeChange={setTripMode}
-              accommodationAllowance={accommodationAllowance}
-              onAccommodationAllowanceChange={setAccommodationAllowance}
+
               hasUserApplied={hasUserApplied}
               isDirty={isDirty}
               onApplyMatches={() => {
@@ -319,8 +317,12 @@ function HomeSurface() {
 export default function Home() {
   const { user, updateUserProfile } = useAuth();
   const { homeStationCoords } = useTripStore();
-  const persistTransportPreferences = useCallback(
-    (selection: TransportSelection) => {
+  const persistPlannerPreferences = useCallback(
+    (
+      preferences: TransportSelection & {
+        tripDuration: HomepageTripDuration;
+      },
+    ) => {
       if (!user) return;
       const existingPreferences =
         (user.user_metadata?.preferences as
@@ -328,8 +330,9 @@ export default function Home() {
       void updateUserProfile({
         preferences: {
           ...existingPreferences,
-          carMode: selection.carMode,
-          publicModes: selection.publicModes,
+          carMode: preferences.carMode,
+          publicModes: preferences.publicModes,
+          tripDuration: preferences.tripDuration,
           preferences_set: true,
         },
       });
@@ -339,7 +342,7 @@ export default function Home() {
   return (
     <HomePlannerStateProvider
       user={user}
-      onTransportPreferencesPersist={persistTransportPreferences}
+      onPlannerPreferencesPersist={persistPlannerPreferences}
     >
       <HomeDateStateProvider homeStationCoords={homeStationCoords ?? null}>
         <HomeSurface />

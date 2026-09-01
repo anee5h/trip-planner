@@ -60,7 +60,7 @@ describe("KAI-260 TripEstimateEngine", () => {
         admission: verifiedAdmission,
         localTransport: verifiedLocal,
       }),
-      tripMode: "day_trip",
+      duration: "fullDay",
       partySize: 2,
       includeOriginTravel: false,
     });
@@ -85,7 +85,7 @@ describe("KAI-260 TripEstimateEngine", () => {
         admission: verifiedAdmission,
         municipalityId: "yokohama",
       }),
-      tripMode: "day_trip",
+      duration: "fullDay",
       partySize: 2,
       includeOriginTravel: false,
     });
@@ -103,7 +103,7 @@ describe("KAI-260 TripEstimateEngine", () => {
         role: "standalone",
         municipalityId: "yokohama",
       }),
-      tripMode: "day_trip",
+      duration: "fullDay",
       partySize: 2,
       includeOriginTravel: false,
     });
@@ -125,7 +125,7 @@ describe("KAI-260 TripEstimateEngine", () => {
           basis: "official free admission",
         },
       }),
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     expect(component(free, "admission").cost).toEqual({
@@ -137,7 +137,7 @@ describe("KAI-260 TripEstimateEngine", () => {
 
     const missing = calculateTripEstimate({
       dest: destination({ admission: undefined }),
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     expect(component(missing, "admission").cost).toEqual({
@@ -157,7 +157,7 @@ describe("KAI-260 TripEstimateEngine", () => {
       dest: destination({ transportFares: undefined }),
       mode: "train",
       homeCoords: origin,
-      tripMode: "day_trip",
+      duration: "fullDay",
       partySize: 2,
     });
     const travel = component(result, "origin_travel");
@@ -171,13 +171,13 @@ describe("KAI-260 TripEstimateEngine", () => {
   it("scales person-cost ranges for one vs two people", () => {
     const one = calculateTripEstimate({
       dest: destination(),
-      tripMode: "day_trip",
+      duration: "fullDay",
       partySize: 1,
       includeOriginTravel: false,
     });
     const two = calculateTripEstimate({
       dest: destination(),
-      tripMode: "day_trip",
+      duration: "fullDay",
       partySize: 2,
       includeOriginTravel: false,
     });
@@ -188,7 +188,7 @@ describe("KAI-260 TripEstimateEngine", () => {
   it("uses party-total default accommodation for 2D1N without multiplying by party size", () => {
     const result = calculateTripEstimate({
       dest: destination(),
-      tripMode: "weekend_2d1n",
+      duration: "2d1n",
       partySize: 2,
       includeOriginTravel: false,
       budgetTier: "standard",
@@ -202,34 +202,31 @@ describe("KAI-260 TripEstimateEngine", () => {
     expect(result.accommodation).toEqual({ perNight: 10000, nights: 1 });
   });
 
-  it("lets custom lodging override defaults without party scaling", () => {
+  it("ignores stale custom lodging input and uses the Budget v2 tier", () => {
     const result = calculateTripEstimate({
       dest: destination(),
-      tripMode: "weekend_2d1n",
-      partySize: 2,
+      duration: "2d1n",
       includeOriginTravel: false,
-      accommodationAllowance: [12000, 18000],
+      partySize: 2,
     });
     expect(component(result, "accommodation").cost).toEqual({
       kind: "bounded",
-      min: 12000,
-      max: 18000,
+      min: ACCOMMODATION_PROFILES.standard[0],
+      max: ACCOMMODATION_PROFILES.standard[1],
     });
-    expect(result.accommodation).toEqual({ perNight: 12000, nights: 1 });
+    expect(result.accommodation).toEqual({ perNight: 10000, nights: 1 });
   });
 
   it("adds three meals for each multi-night extension beyond 2D1N", () => {
     const oneNight = calculateTripEstimate({
       dest: destination(),
-      tripMode: "multi_night",
-      nights: 1,
+      duration: "2d1n",
       includeOriginTravel: false,
       partySize: 1,
     });
     const twoNights = calculateTripEstimate({
       dest: destination(),
-      tripMode: "multi_night",
-      nights: 2,
+      duration: "3d2n",
       includeOriginTravel: false,
       partySize: 1,
     });
@@ -243,7 +240,7 @@ describe("KAI-260 TripEstimateEngine", () => {
   it("uses the same bounded range for low/middle/high affordability", () => {
     const result = calculateTripEstimate({
       dest: destination(),
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     const range = result.total!;
@@ -258,7 +255,7 @@ describe("KAI-260 TripEstimateEngine", () => {
   it("never represents an unknown component as silent zero", () => {
     const result = calculateTripEstimate({
       dest: destination({ admission: undefined }),
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     const local = component(result, "local_transport");
@@ -270,7 +267,7 @@ describe("KAI-260 TripEstimateEngine", () => {
   it("formats estimated EN and JA ranges without midpoint collapse", () => {
     const result = calculateTripEstimate({
       dest: destination(),
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     const range: [number, number] = [result.total!.min, result.total!.max];

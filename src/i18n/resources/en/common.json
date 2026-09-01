@@ -204,12 +204,12 @@
         "description": "Accessible by ferry ({{operator}})"
       },
       "weekendTripReady": {
-        "title": "2-Day Trip Ready",
-        "description": "Enough published places for a full weekend"
+        "title": "{{days}}-Day Trip Ready",
+        "description": "Enough published places for {{days}} days"
       },
       "weekendCapacityStrong": {
         "title": "Plenty to Do",
-        "description": "Enough places for a full weekend"
+        "description": "Enough places for {{days}} days"
       },
       "weekendTravelStrong": {
         "title": "Good for a Longer Journey",
@@ -224,8 +224,8 @@
         "description": "Travel takes most of a day — plan time carefully"
       },
       "weekendWeatherGood": {
-        "title": "Good Weather Across Both Days",
-        "description": "Favorable weather for both days of your trip"
+        "title": "Good Weather for Your Trip",
+        "description": "Favorable weather across your planned dates"
       },
       "weekendWeatherDayRain": {
         "title": "Indoor Options Available",
@@ -249,7 +249,7 @@
       },
       "conditionForecastRange": {
         "title": "Forecast for {{day1}}–{{day2}}",
-        "description": "Live weather forecast for both days"
+        "description": "Live weather forecast for all selected trip days"
       },
       "conditionSeasonalMonth": {
         "title": "Typical conditions for {{month}}",
@@ -304,8 +304,9 @@
       "scope": "for the whole party",
       "explanation": "Estimated budget for the whole party"
     },
-    "stayAllowanceRow": "Stay allowance (1 night)",
-    "stayAllowanceNote": "User allowance — not a live hotel quote"
+    "stayAllowanceRow": "Stay allowance ({{count}} night)",
+    "stayAllowanceRow_other": "Stay allowance ({{count}} nights)",
+    "stayAllowanceNote": "Inferred planning estimate — not a live hotel quote"
   },
   "origin": {
     "from": "From",
@@ -336,7 +337,8 @@
     "headline": "Where will you go next?",
     "brandAssociation": "Meguruto",
     "subtitle": "Personalized day-trip ideas based on your time, budget, and travel style.",
-    "subtitleWeekend": "Personalized 2-day / 1-night weekend ideas based on your time, budget, and travel style.",
+    "subtitleOvernight": "Personalized overnight ideas based on your time, budget, and travel style.",
+    "durationBadge": "Overnight trip",
     "change": "Change",
     "planner": "Trip Planner",
     "plannerHint": "Find your match in 30s",
@@ -362,7 +364,7 @@
     },
     "vibe": "Vibe",
     "duration": "Duration",
-    "timeAvailable": "Time available",
+    "timeAvailable": "Duration",
     "party": "Travel party",
     "budget": "Budget",
     "transport": "Getting around",
@@ -390,12 +392,16 @@
     "durations": {
       "shortOuting": "Short outing",
       "halfDay": "Half day",
-      "fullDay": "Full day"
+      "fullDay": "Full day",
+      "2d1n": "2 days / 1 night",
+      "3d2n": "3 days / 2 nights"
     },
     "durationHints": {
       "shortOuting": "≤ 4h total",
       "halfDay": "≤ 7.5h total",
-      "fullDay": "≤ 14h total"
+      "fullDay": "≤ 14h total",
+      "2d1n": "Overnight",
+      "3d2n": "Overnight"
     },
     "budgets": {
       "economy": "Economy",
@@ -420,6 +426,8 @@
     "topMatchesForYou": "Top matches for you",
     "yourMatches": "Your best matches right now",
     "matchesDescription": "Smart picks tailored to your current situation and preferences.",
+    "matchesErrorTitle": "Couldn't load recommendations",
+    "matchesErrorBody": "Please try again in a moment.",
     "viewAll": "View all",
     "bucketList": "Your bucket list",
     "bucketDescription": "Places you've saved for later.",
@@ -452,9 +460,9 @@
     "greatEscapesUnder60": "Great escapes under 60 minutes",
     "greatEscapesUnder60Description": "Origin-aware journeys with trustworthy travel-time evidence of 60 minutes or less.",
     "viewAllGreatEscapesUnder60": "View all great escapes under 60 minutes",
-    "weekendGetawaysRail": "Weekend getaways",
-    "weekendGetawaysDescription": "Genuine 2-day / 1-night destinations from your origin.",
-    "viewAllWeekendGetaways": "View all weekend getaways",
+    "overnightGetawaysRail": "Overnight getaways",
+    "overnightGetawaysDescription": "Destinations suited to an overnight stay from your origin.",
+    "viewAllOvernightGetaways": "View all overnight getaways",
     "worthLongerJourney": "Worth the longer journey",
     "worthLongerJourneyDescription": "Farther destinations with enough value for a 2-day stay.",
     "viewAllLongerJourney": "View all longer-journey destinations",
@@ -524,29 +532,13 @@
       "expanded": "Expanded the search slightly to give you more variety.",
       "reason": "Selected because it fits your {{duration}} plan, budget, and transport preference."
     },
-    "tripLength": "Trip length",
-    "tripMode": "Trip type",
-    "tripModes": {
-      "day_trip": "Day trip",
-      "weekend_2d1n": "Weekend · 2 days / 1 night"
-    },
-    "weekendBadge": "2 days / 1 night",
-    "weekendDates": "{{day1}} – {{day2}}",
-    "accommodation": "Stay allowance (1 night)",
-    "accommodationHelp": "Total one-night allowance for the whole party — a planning estimate, not a live hotel quote.",
-    "accommodationPresets": {
-      "economy": "Economy · ¥8,000",
-      "standard": "Standard · ¥15,000",
-      "comfortable": "Comfortable · ¥25,000",
-      "custom": "Custom"
-    },
-    "customStayAllowance": "Custom stay allowance",
-    "weekendMatches": "Weekend getaways",
-    "weekendYourMatches": "Your best weekend getaways",
-    "weekendNoResultsTitle": "No weekend-ready destinations found",
-    "weekendNoResultsBody": "No destination met the two-day travel, content, weather and budget constraints. Try widening your budget or transport, or switch back to Day trip.",
+    "overnightMatches": "Overnight getaways",
+    "overnightYourMatches": "Your best overnight getaways",
+    "overnightNoResultsTitle": "No overnight destinations found",
+    "overnightNoResultsBody": "No destination met the overnight travel, content, weather and budget constraints. Try widening your budget or transport, or choose a day duration.",
     "day1Label": "Day 1",
     "day2Label": "Day 2",
+    "dayLabel": "Day {{day}}",
     "anyFutureDate": "Any future date",
     "originForecastHint": "Forecast shows weather near your origin"
   },
@@ -557,25 +549,22 @@
     "tokyoWardsGroup": "Tokyo 23 Wards",
     "tokyoWardsCount": "{{count}} wards",
     "tokyoWardsBadge": "23 Wards",
-    "tripModes": {
-      "any": "Any",
-      "day_trip": "Day trip",
-      "weekend_2d1n": "2 days / 1 night"
-    },
     "tripDuration": "Trip duration",
-    "timeAvailable": "Time available",
+    "timeAvailable": "Duration",
     "durationOptions": {
       "any": "Any",
       "shortOuting": "≤ 4h total",
       "halfDay": "≤ 7.5h total",
-      "fullDay": "≤ 14h total"
+      "fullDay": "≤ 14h total",
+      "2d1n": "Overnight",
+      "3d2n": "Overnight"
     },
     "tripAreas": {
       "summary": "{{areas}} trip areas · {{places}} places",
       "show": "Show {{count}} trip areas",
       "places": "{{places}} places",
-      "plentyForTwoDays": "Plenty for 2 days",
-      "readyForTwoDays": "Ready for 2 days",
+      "plentyForDays": "Plenty for {{days}} days",
+      "readyForDays": "Ready for {{days}} days",
       "travelBy": "{{time}} by {{mode}}"
     },
     "dateCondition": {
@@ -859,6 +848,8 @@
     "chooseTravelDate": "Choose travel date",
     "forecastNearOrigin": "Forecast near {{origin}}",
     "originForecastDefault": "Origin weather forecast for {{date}}",
+    "endDate": "End date",
+    "derivedDateHint": "derived from trip duration",
     "day2DerivedHint": "Day 2 (derived for 2D1N trip)",
     "day2": "Day 2: {{date}}",
     "anyDate": "Any date",

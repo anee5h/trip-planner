@@ -1,5 +1,9 @@
 import type { AppLocale } from "@/shared/context/LocaleContext";
-import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  getTripDays,
+  getTripNights,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 
 /** Returns the next local calendar date after a YYYY-MM-DD value. */
 export function getNextCalendarDate(isoDate: string): string {
@@ -50,7 +54,7 @@ export function formatTravelDateShort(iso: string, locale: AppLocale): string {
 /** Formats the compact visible date capsule shared by Home and the picker. */
 export function formatCapsuleLabel(
   value: string | undefined,
-  tripMode: TripMode,
+  duration: TripDuration,
   allowAnyDate: boolean | undefined,
   locale: "en" | "ja",
   todayIso: string,
@@ -73,7 +77,7 @@ export function formatCapsuleLabel(
     return t("datePicker.selectDate", { defaultValue: "Select date" });
   }
 
-  if (tripMode === "day_trip") {
+  if (getTripNights(duration) === 0) {
     if (value === todayIso) {
       return t("datePicker.today", { defaultValue: "Today" });
     }
@@ -83,17 +87,20 @@ export function formatCapsuleLabel(
     return formatTravelDateShort(value, locale);
   }
 
-  const day2Iso = getNextCalendarDate(value);
-  if (value === todayIso && day2Iso === tomorrowIso) {
+  const endDate = Array.from(
+    { length: getTripDays(duration) - 1 },
+    (_, index) => index,
+  ).reduce((date) => getNextCalendarDate(date), value);
+  if (value === todayIso && endDate === tomorrowIso) {
     return locale === "ja" ? "今日〜明日" : "Today – Tomorrow";
   }
 
   if (locale === "ja") {
-    return `${formatTravelDateShort(value, "ja")}〜${formatTravelDateShort(day2Iso, "ja")}`;
+    return `${formatTravelDateShort(value, "ja")}〜${formatTravelDateShort(endDate, "ja")}`;
   }
 
   const [y1, m1, d1] = value.split("-").map(Number);
-  const [y2, m2, d2] = day2Iso.split("-").map(Number);
+  const [y2, m2, d2] = endDate.split("-").map(Number);
   if (y1 === y2 && m1 === m2) {
     const monthName = new Intl.DateTimeFormat("en-US", {
       month: "short",
@@ -101,5 +108,5 @@ export function formatCapsuleLabel(
     return `${monthName} ${d1}–${d2}`;
   }
 
-  return `${formatTravelDateShort(value, "en")} – ${formatTravelDateShort(day2Iso, "en")}`;
+  return `${formatTravelDateShort(value, "en")} – ${formatTravelDateShort(endDate, "en")}`;
 }

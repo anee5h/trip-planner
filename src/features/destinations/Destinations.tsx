@@ -40,11 +40,9 @@ import {
   scoreForCatalog,
 } from "@/shared/services/recommendation/RecommendationService";
 
-import type {
-  RecommendationContext,
-  TripMode,
-} from "@/shared/services/recommendation/RecommendationContext";
-import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/types/tripDuration";
+import { isOvernightDuration } from "@/shared/types/tripDuration";
 import {
   BUDGET_TIER_LIMITS,
   partyProfileForSize,
@@ -57,6 +55,7 @@ import {
   matchesPersonalizedDayTripDuration,
 } from "@/shared/services/recommendation/TripDurationService";
 import {
+  getOvernightCapacityThresholds,
   evaluateWeekendTravelFit,
   evaluateWeekendCapacity,
   hasOvernightWorthyWeekendSemantics,
@@ -184,12 +183,7 @@ export default function Destinations() {
   const [tripDuration, setTripDuration] = useState<TripDuration>(
     initialExplorerState.tripDuration,
   );
-  const [tripMode, setTripMode] = useState<"any" | TripMode>(
-    initialExplorerState.tripMode as "any" | TripMode,
-  );
-  const [accommodationAllowance, setAccommodationAllowance] = useState<number>(
-    initialExplorerState.accommodationAllowance,
-  );
+
   const [walkingIntensity, setWalkingIntensity] = useState(
     initialExplorerState.walkingIntensity,
   );
@@ -239,11 +233,8 @@ export default function Destinations() {
   // means no explicit date — any-date browsing is never silently "today".
   const travelDates = useMemo(() => {
     if (!date) return undefined;
-    return deriveTripDates(
-      date,
-      tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
-    );
-  }, [date, tripMode]);
+    return deriveTripDates(date, tripDuration);
+  }, [date, tripDuration]);
   const ferryTemporal = useMemo(
     () =>
       travelDates
@@ -298,8 +289,6 @@ export default function Destinations() {
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
-    setTripMode(restored.tripMode);
-    setAccommodationAllowance(restored.accommodationAllowance);
     setWalkingIntensity(restored.walkingIntensity);
     setSuitabilities(restored.suitabilities);
     setInterests(restored.interests);
@@ -332,8 +321,6 @@ export default function Destinations() {
       vibe,
       weather,
       tripDuration,
-      tripMode,
-      accommodationAllowance,
       walkingIntensity,
       suitabilities,
       interests,
@@ -364,8 +351,6 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
-    tripMode,
-    accommodationAllowance,
     walkingIntensity,
     suitabilities,
     interests,
@@ -401,7 +386,6 @@ export default function Destinations() {
       originZoneId: homeStationTransportZoneId,
       userRatings: destinationRatings,
       tripDuration,
-      tripMode: tripMode === "any" ? undefined : tripMode,
       // Selected travel date: keeps every origin-aware estimate, budget and
       // duration read inside the explorer on the same temporal context.
       ferryTemporal,
@@ -418,7 +402,6 @@ export default function Destinations() {
     partySize,
     carMode,
     publicModes,
-    tripMode,
     ferryTemporal,
   ]);
 
@@ -454,7 +437,6 @@ export default function Destinations() {
     vibe,
     weather,
     tripDuration,
-    tripMode,
     walkingIntensity,
     suitabilities,
     interests,
@@ -465,7 +447,7 @@ export default function Destinations() {
   // model for counts, the modal button, and the rendered cards.
   const {
     destinations: filteredAndSortedDestinations,
-    weekend: weekendResult,
+    overnight: overnightResult,
     weekendTravelById,
     conditionById,
     budgetEstimatesById,
@@ -474,7 +456,7 @@ export default function Destinations() {
       homeStationCoords ?? undefined,
       allDestinations,
     );
-    let weekendConsolidation: WeekendAreaConsolidation | null = null;
+    let overnightConsolidation: WeekendAreaConsolidation | null = null;
     let result = allDestinations
       .filter((destination) => destination.recommendationEligible !== false)
       .map((destination) =>
@@ -482,8 +464,6 @@ export default function Destinations() {
       );
     const effectivePublicModes =
       publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
-    const exploreTripMode =
-      tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip";
     const budgetEstimatesById = new Map<string, ExploreBudgetEstimate>();
     const budgetEstimateFor = (destination: Destination) => {
       const cached = budgetEstimatesById.get(destination.id);
@@ -494,9 +474,8 @@ export default function Destinations() {
         carMode,
         publicModes: effectivePublicModes,
         partySize,
-        tripMode: exploreTripMode,
+        duration: tripDuration,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
-        accommodationAllowance,
         ferryTemporal,
       });
       if (resolved) budgetEstimatesById.set(destination.id, resolved);
@@ -701,16 +680,16 @@ export default function Destinations() {
       return evaluation;
     };
 
-    // Weekend mode uses its own eligibility gate instead of duration bands.
-    if (tripMode === "weekend_2d1n") {
+    // Overnight durations use their dedicated eligibility gate.
+    if (isOvernightDuration(tripDuration)) {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
       result = result.filter((dest) => {
         // Origin-local destinations are never getaways (same municipality as base).
         if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
         if (!hasOrigin) {
           // No-origin: no travel claims, but coherent area classification
-          // and 480+ published activity minutes are still required.
-          return passesNoOriginWeekendGate(dest, allDestinations);
+          // and duration-aware published activity capacity are still required.
+          return passesNoOriginWeekendGate(dest, allDestinations, tripDuration);
         }
         const modes = getValidModes(
           dest,
@@ -748,13 +727,14 @@ export default function Destinations() {
         )
           return false;
         // Capacity is required with or without an origin.
-        return evaluateWeekendCapacity(dest, allDestinations).eligible;
+        return evaluateWeekendCapacity(dest, allDestinations, tripDuration)
+          .eligible;
       });
 
-      // Hub-first: primary 2D1N results are trip areas, never isolated POIs.
+      // Hub-first: primary overnight results are trip areas, never isolated POIs.
       if (result.length > 0) {
         const consolidated = consolidateWeekendAreas(result, allDestinations);
-        weekendConsolidation = consolidated;
+        overnightConsolidation = consolidated;
         result = consolidated.areas;
 
         if (homeStationCoords) {
@@ -805,8 +785,9 @@ export default function Destinations() {
               );
             }
             if (
-              evaluateWeekendCapacity(area, allDestinations).activityMinutes >=
-              600
+              evaluateWeekendCapacity(area, allDestinations, tripDuration)
+                .activityMinutes >=
+              getOvernightCapacityThresholds(tripDuration).strongMinutes
             ) {
               delta += 3;
             }
@@ -857,7 +838,7 @@ export default function Destinations() {
               wardCount,
               wardHubIds,
               placeCount: seenPlaces.size,
-              tripMode,
+              duration: tripDuration,
               gatewayEstimate,
             });
             const memberIdSet = new Set(memberIds);
@@ -883,7 +864,7 @@ export default function Destinations() {
               }
             }
 
-            weekendConsolidation = {
+            overnightConsolidation = {
               areas: result,
               placeCountById: new Map(
                 result.map((area) => [
@@ -908,20 +889,18 @@ export default function Destinations() {
         }
       }
     } else if (
-      tripMode === "day_trip" ||
       tripDuration !== "any" ||
       hasRestrictedTransportSelection(carMode, publicModes)
     ) {
       const hasOrigin = hasPersonalizedOrigin(catalogContext);
       // KAI-63 D4: duration filtering applies ONLY under an explicit
-      // duration/trip-mode constraint. With "Any" duration and no explicit
-      // day-trip mode, transport selection is pure reachability eligibility:
+      // duration constraint. With "Any" duration, transport selection is pure
+      // reachability eligibility:
       // a destination reachable by the selected mode stays visible even when
       // its travel duration is unknown (cards show "Travel time
       // unavailable"). The 14 h day-trip envelope belongs exclusively to the
-      // explicit Day-trip toggle / selected duration.
-      const durationConstrained =
-        tripMode === "day_trip" || tripDuration !== "any";
+      // the selected duration.
+      const durationConstrained = tripDuration !== "any";
       result = result.filter((dest) => {
         // Keep no-origin browsing neutral, while using the same personalized
         // day-trip duration contract as Home when an origin is selected.
@@ -1007,7 +986,7 @@ export default function Destinations() {
     if (sortPreparationPending) {
       return {
         destinations: result,
-        weekend: weekendConsolidation,
+        overnight: overnightConsolidation,
         weekendTravelById,
         conditionById,
         budgetEstimatesById,
@@ -1052,9 +1031,8 @@ export default function Destinations() {
         carMode,
         publicModes: effectivePublicModes,
         partySize,
+        duration: tripDuration,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
-        tripMode: exploreTripMode,
-        accommodationAllowance,
         ferryTemporal,
         budgetEstimatesById,
       },
@@ -1069,7 +1047,7 @@ export default function Destinations() {
 
     return {
       destinations: result,
-      weekend: weekendConsolidation,
+      overnight: overnightConsolidation,
       weekendTravelById,
       conditionById,
       budgetEstimatesById,
@@ -1085,7 +1063,6 @@ export default function Destinations() {
     partySize,
     budgetTier,
     tripDuration,
-    tripMode,
     walkingIntensity,
     homeStationCoords,
     homeStationTransportZoneId,
@@ -1105,7 +1082,6 @@ export default function Destinations() {
     travelDates,
     forecastMap,
     ferryTemporal,
-    accommodationAllowance,
   ]);
 
   const resetFilters = () => {
@@ -1131,7 +1107,6 @@ export default function Destinations() {
     setWalkingIntensity(defaults.walkingIntensity);
     setSuitabilities(defaults.suitabilities);
     setInterests(defaults.interests);
-    setTripMode(defaults.tripMode);
     setViewMode(defaults.viewMode);
   };
 
@@ -1265,8 +1240,6 @@ export default function Destinations() {
         setVibe={setVibe}
         tripDuration={tripDuration}
         setTripDuration={setTripDuration}
-        tripMode={tripMode}
-        setTripMode={setTripMode}
         walkingIntensity={walkingIntensity}
         setWalkingIntensity={setWalkingIntensity}
         suitabilities={suitabilities}
@@ -1289,10 +1262,10 @@ export default function Destinations() {
               ? locale === "ja"
                 ? "目的地を準備中…"
                 : "Preparing destinations…"
-              : weekendResult
+              : overnightResult
                 ? t("destination.tripAreas.summary", {
                     areas: filteredAndSortedDestinations.length,
-                    places: weekendResult.totalPlaceCount,
+                    places: overnightResult.totalPlaceCount,
                   })
                 : t("ui.destinationsMatching", {
                     count: filteredAndSortedDestinations.length,
@@ -1352,6 +1325,7 @@ export default function Destinations() {
                   <DestinationCard
                     key={dest.id}
                     destination={dest}
+                    duration={tripDuration}
                     partySize={partySize}
                     carMode={carMode}
                     resolvedBudgetEstimate={budgetEstimatesById.get(dest.id)}
@@ -1367,14 +1341,15 @@ export default function Destinations() {
                     publicModes={
                       publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES
                     }
-                    weekendSummary={
-                      weekendResult
+                    overnightSummary={
+                      overnightResult
                         ? {
                             placeCount:
-                              weekendResult.placeCountById.get(dest.id) ?? 0,
+                              overnightResult.placeCountById.get(dest.id) ?? 0,
                             capacityMinutes:
-                              weekendResult.capacityMinutesById.get(dest.id) ??
-                              0,
+                              overnightResult.capacityMinutesById.get(
+                                dest.id,
+                              ) ?? 0,
                             oneWayMinutes: travel?.oneWayMinutes,
                             bestMode: travel?.bestMode,
                           }

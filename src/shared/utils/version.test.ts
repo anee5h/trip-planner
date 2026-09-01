@@ -3,8 +3,8 @@ import { APP_VERSION, formatAppVersion } from "./version";
 import pkg from "../../../package.json";
 
 describe("formatAppVersion", () => {
-  it("renders the beta machine version as v2.0.0 Beta 1", () => {
-    expect(formatAppVersion("2.0.0-beta.1")).toBe("v2.0.0 Beta 1");
+  it("renders the beta machine version as v2.0.0 Beta 2", () => {
+    expect(formatAppVersion("2.0.0-beta.2")).toBe("v2.0.0 Beta 2");
   });
 
   it("does not double-prefix versions that already start with v", () => {
@@ -16,7 +16,7 @@ describe("formatAppVersion", () => {
   });
 
   it("exposes the canonical package version", () => {
-    expect(pkg.version).toBe("2.0.0-beta.1");
-    expect(APP_VERSION).toBe("2.0.0-beta.1");
+    expect(pkg.version).toBe("2.0.0-beta.2");
+    expect(APP_VERSION).toBe("2.0.0-beta.2");
   });
 });

@@ -7,6 +7,7 @@ import {
   serializePlannerSearchParams,
 } from "../destinationSearchParams";
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
 import destinations from "@/shared/data/destinations-index.json";
 
@@ -256,7 +257,7 @@ describe("destinationSearchParams", () => {
       partySize: 4,
       weather: "hot",
       budgetTier: "luxury",
-      tripDuration: "weekend" as const,
+      tripDuration: "3d2n" as const,
       budget: BUDGET_TIER_LIMITS.luxury,
       carMode: "none",
       publicModes: ["train", "shinkansen", "bus", "flight"],
@@ -350,82 +351,64 @@ describe("destinationSearchParams", () => {
     expect(economyDestinations.length).toBeLessThan(destinations.length);
   });
 
-  // -------------------------------------------------------------------------
-  // Weekend tripMode & accommodation allowance (stay)
-  // -------------------------------------------------------------------------
-
-  it("defaults tripMode to any and accommodationAllowance to 15000", () => {
+  // Canonical duration replaces the old trip-mode/stay pair.
+  it("defaults duration to any", () => {
     const parsed = parseDestinationSearchParams(new URLSearchParams(""));
-    expect(parsed.tripMode).toBe("any");
-    expect(parsed.accommodationAllowance).toBe(15000);
+    expect(parsed.tripDuration).toBe("any");
   });
 
-  it("any omits tripMode and stay params in serialization", () => {
-    const state = { ...DEFAULT_DESTINATION_EXPLORER_STATE };
-    const serialized = serializeDestinationSearchParams(state).toString();
+  it("round-trips both overnight duration choices", () => {
+    for (const duration of ["2d1n", "3d2n"] as const) {
+      const plannerParams = serializePlannerSearchParams({
+        vibe: "food",
+        partySize: 2,
+        budgetTier: "standard",
+        tripDuration: duration,
+        budget: 95000,
+        carMode: "none",
+        publicModes: ["train"],
+      });
+      const parsed = parseDestinationSearchParams(
+        new URLSearchParams(plannerParams),
+      );
+      expect(parsed.tripDuration).toBe(duration);
+    }
+  });
+
+  it("rejects arbitrary generic durations at the Explorer URL boundary", () => {
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("duration=4d3n"))
+        .tripDuration,
+    ).toBe("any");
+
+    const serialized = serializeDestinationSearchParams({
+      ...DEFAULT_DESTINATION_EXPLORER_STATE,
+      tripDuration: "4d3n" as TripDuration,
+    });
+    expect(serialized.get("duration")).toBe("any");
+  });
+
+  it("migrates legacy day and weekend URLs without writing legacy keys", () => {
+    expect(
+      parseDestinationSearchParams(new URLSearchParams("tripMode=day_trip"))
+        .tripDuration,
+    ).toBe("halfDay");
+    const legacyWeekend = parseDestinationSearchParams(
+      new URLSearchParams("tripMode=weekend_2d1n&stay=8000"),
+    );
+    expect(legacyWeekend.tripDuration).toBe("2d1n");
+    const serialized =
+      serializeDestinationSearchParams(legacyWeekend).toString();
+    expect(serialized).toContain("duration=2d1n");
     expect(serialized).not.toContain("tripMode=");
     expect(serialized).not.toContain("stay=");
   });
 
-  it("round-trips weekend_2d1n with stay allowance via planner serialization", () => {
-    const plannerParams = serializePlannerSearchParams({
-      vibe: "food",
-      partySize: 2,
-      budgetTier: "standard",
-      tripDuration: "fullDay",
-      budget: 95000,
-      carMode: "none",
-      publicModes: ["train"],
-      tripMode: "weekend_2d1n",
-      accommodationAllowance: 20000,
-    });
-
+  it("prefers canonical duration over a conflicting legacy trip mode", () => {
     const parsed = parseDestinationSearchParams(
-      new URLSearchParams(plannerParams),
+      new URLSearchParams("duration=3d2n&tripMode=day_trip"),
     );
-
-    expect(parsed.tripMode).toBe("weekend_2d1n");
-    expect(parsed.accommodationAllowance).toBe(20000);
-  });
-
-  it("parses stay from URL params with tripMode weekend_2d1n", () => {
-    const params = new URLSearchParams("tripMode=weekend_2d1n&stay=8000");
-    const parsed = parseDestinationSearchParams(params);
-    expect(parsed.tripMode).toBe("weekend_2d1n");
-    expect(parsed.accommodationAllowance).toBe(8000);
-  });
-
-  it("falls back to default stay when stay param is invalid", () => {
-    const params = new URLSearchParams("stay=notanumber");
-    const parsed = parseDestinationSearchParams(params);
-    expect(parsed.accommodationAllowance).toBe(15000);
-  });
-
-  it("falls back to default stay when stay exceeds MAX", () => {
-    const params = new URLSearchParams("stay=999999");
-    const parsed = parseDestinationSearchParams(params);
-    expect(parsed.accommodationAllowance).toBe(15000);
-  });
-
-  it("omits stay param when at default 15000 in explorer serialization", () => {
-    const state = {
-      ...DEFAULT_DESTINATION_EXPLORER_STATE,
-      tripMode: "weekend_2d1n" as const,
-      accommodationAllowance: 15000,
-    };
-    const serialized = serializeDestinationSearchParams(state).toString();
-    expect(serialized).toContain("tripMode=weekend_2d1n");
-    expect(serialized).not.toContain("stay=15000");
-  });
-
-  it("serializes stay when different from default 15000", () => {
-    const state = {
-      ...DEFAULT_DESTINATION_EXPLORER_STATE,
-      tripMode: "weekend_2d1n" as const,
-      accommodationAllowance: 8000,
-    };
-    const serialized = serializeDestinationSearchParams(state).toString();
-    expect(serialized).toContain("stay=8000");
+    expect(parsed.tripDuration).toBe("3d2n");
   });
 });
 
@@ -464,13 +447,13 @@ describe("destination date parameter", () => {
   });
 
   it("reload restores the date from the URL", () => {
-    const url = `?tripMode=weekend_2d1n&date=${future}`;
+    const url = `?duration=2d1n&date=${future}`;
     const parsed = parseDestinationSearchParams(new URLSearchParams(url));
     expect(parsed.date).toBe(future);
-    expect(parsed.tripMode).toBe("weekend_2d1n");
+    expect(parsed.tripDuration).toBe("2d1n");
     const serialized = serializeDestinationSearchParams(parsed).toString();
     expect(serialized).toContain(`date=${future}`);
-    expect(serialized).toContain("tripMode=weekend_2d1n");
+    expect(serialized).toContain("duration=2d1n");
     // Day 2 is derived, never serialized.
     expect(serialized).not.toContain("06-16");
   });

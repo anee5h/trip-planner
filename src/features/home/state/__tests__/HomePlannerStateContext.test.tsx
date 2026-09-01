@@ -1,6 +1,4 @@
-/**
- * @vitest-environment jsdom
- */
+/** @vitest-environment jsdom */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, expect, it } from "vitest";
@@ -10,8 +8,9 @@ import {
   useHomePlannerState,
 } from "../HomePlannerStateContext";
 
-(globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
-
+(
+  globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }
+).IS_REACT_ACT_ENVIRONMENT = true;
 let root: Root | undefined;
 let host: HTMLDivElement | undefined;
 
@@ -26,8 +25,9 @@ function Harness({
 }
 
 afterEach(() => {
-  if (root) act(() => root!.unmount());
+  if (root) act(() => root?.unmount());
   host?.remove();
+  window.history.replaceState({}, "", "/");
   root = undefined;
   host = undefined;
 });
@@ -38,7 +38,7 @@ function renderState(user: User | null = null) {
   root = createRoot(host);
   let current!: ReturnType<typeof useHomePlannerState>;
   act(() => {
-    root!.render(
+    root?.render(
       <HomePlannerStateProvider user={user}>
         <Harness onState={(value) => (current = value)} />
       </HomePlannerStateProvider>,
@@ -48,31 +48,77 @@ function renderState(user: User | null = null) {
 }
 
 describe("HomePlannerStateProvider", () => {
-  it("owns one clean draft/applied state with lightweight actions", () => {
+  it("keeps canonical duration as the only trip-length state", () => {
     const getState = renderState();
     expect(getState().draftState).toEqual(getState().appliedState);
-    expect(getState().tripMode).toBe("day_trip");
-    expect(getState().partySize).toBe(2);
-    expect(getState().isDirty).toBe(false);
+    expect(getState().draftState.tripDuration).toBe("halfDay");
+    expect("tripMode" in getState().draftState).toBe(false);
+    expect("accommodationAllowance" in getState().draftState).toBe(false);
 
-    act(() => getState().setTripMode("weekend_2d1n"));
-    expect(getState().draftState.tripMode).toBe("weekend_2d1n");
-    expect(getState().appliedState.tripMode).toBe("day_trip");
+    act(() => getState().setTripDuration("3d2n"));
+    expect(getState().draftState.tripDuration).toBe("3d2n");
+    expect(getState().appliedState.tripDuration).toBe("halfDay");
     expect(getState().isDirty).toBe(true);
-
     act(() => getState().applyPlannerState());
-    expect(getState().appliedState.tripMode).toBe("weekend_2d1n");
+    expect(getState().appliedState.tripDuration).toBe("3d2n");
     expect(getState().isDirty).toBe(false);
+  });
+
+  it("hydrates canonical duration from the homepage URL", () => {
+    window.history.replaceState({}, "", "/?duration=3d2n");
+    const getState = renderState();
+    expect(getState().draftState.tripDuration).toBe("3d2n");
+    expect(getState().appliedState.tripDuration).toBe("3d2n");
+  });
+
+  it("migrates a legacy homepage duration URL to canonical duration", () => {
+    window.history.replaceState({}, "", "/?tripMode=weekend_2d1n");
+    const getState = renderState();
+    expect(getState().draftState.tripDuration).toBe("2d1n");
+    expect(new URLSearchParams(window.location.search).get("duration")).toBe(
+      "2d1n",
+    );
+    expect(new URLSearchParams(window.location.search).has("tripMode")).toBe(
+      false,
+    );
+  });
+
+  it("rejects unsupported generic durations from the homepage URL", () => {
+    window.history.replaceState({}, "", "/?duration=4d3n");
+    const getState = renderState();
+    expect(getState().draftState.tripDuration).toBe("halfDay");
+    expect(getState().appliedState.tripDuration).toBe("halfDay");
+    expect(new URLSearchParams(window.location.search).has("duration")).toBe(
+      false,
+    );
+  });
+
+  it("rejects unsupported generic durations from persisted homepage state", () => {
+    const user = {
+      id: "user-unsupported-duration",
+      user_metadata: { preferences: { tripDuration: "4d3n" } },
+    } as unknown as User;
+    const getState = renderState(user);
+    expect(getState().draftState.tripDuration).toBe("halfDay");
+    expect(getState().appliedState.tripDuration).toBe("halfDay");
+  });
+
+  it("migrates legacy weekend state to canonical 2d1n", () => {
+    const user = {
+      id: "user-1",
+      user_metadata: { preferences: { tripMode: "weekend_2d1n" } },
+    } as unknown as User;
+    const getState = renderState(user);
+    expect(getState().draftState.tripDuration).toBe("2d1n");
+    expect(getState().appliedState.tripDuration).toBe("2d1n");
   });
 
   it("hydrates party size and car mode into both draft and applied state", () => {
     const user = {
-      id: "user-1",
+      id: "user-2",
       user_metadata: { preferences: { partySize: 4, carMode: "my_car" } },
     } as unknown as User;
     const getState = renderState(user);
-
-    act(() => {});
     expect(getState().partySize).toBe(4);
     expect(getState().draftState.partySize).toBe(4);
     expect(getState().appliedState.partySize).toBe(4);

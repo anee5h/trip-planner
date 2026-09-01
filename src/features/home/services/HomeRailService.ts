@@ -8,10 +8,11 @@ import {
 } from "@/shared/services/recommendation/WeekendPolicy";
 import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
-import type {
-  TripDuration,
-  TripMode,
-} from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  getTripNights,
+  isOvernightDuration,
+} from "@/shared/types/tripDuration";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import {
@@ -33,22 +34,21 @@ export const DAY_TRIP_RAILS = [
   "nearby",
 ] as const;
 
-export const WEEKEND_RAILS = [
+export const OVERNIGHT_RAILS = [
   "topMatches",
   "bucketList",
-  "weekendGetaways",
+  "overnightGetaways",
   "seasonal",
   "longerJourney",
 ] as const;
 
 export type HomepageRailType =
-  (typeof DAY_TRIP_RAILS)[number] | (typeof WEEKEND_RAILS)[number];
+  (typeof DAY_TRIP_RAILS)[number] | (typeof OVERNIGHT_RAILS)[number];
 
 export function getHomepageRailConfig(
-  tripMode: TripMode,
-  _tripDuration?: TripDuration,
+  tripDuration: TripDuration,
 ): readonly HomepageRailType[] {
-  return tripMode === "weekend_2d1n" ? WEEKEND_RAILS : DAY_TRIP_RAILS;
+  return isOvernightDuration(tripDuration) ? OVERNIGHT_RAILS : DAY_TRIP_RAILS;
 }
 
 export function orderRecentlyViewedDestinations(
@@ -164,13 +164,13 @@ export interface OriginRailContext {
   budgetTier?: BudgetTier;
   ferryTemporal?: FerryTemporalContext;
   visitedIds?: readonly string[];
-  tripMode: TripMode;
+  tripDuration: TripDuration;
   /** Reuse origin evidence when multiple rails inspect the same destination. */
   estimateCache?: Map<string, TravelDurationEstimate | null>;
 }
 
 function originEstimate(destination: Destination, context: OriginRailContext) {
-  if (!context.homeStationCoords || context.tripMode !== "day_trip") {
+  if (!context.homeStationCoords || getTripNights(context.tripDuration) > 0) {
     return null;
   }
   if (context.estimateCache?.has(destination.id)) {
@@ -255,7 +255,7 @@ export function getUnder60Destinations(
   context: OriginRailContext,
   count?: number,
 ): RankedDestination[] {
-  if (context.tripMode !== "day_trip") return [];
+  if (getTripNights(context.tripDuration) > 0) return [];
   return limit(
     sortOriginCandidates(candidates, context, (maxMinutes) => maxMinutes <= 60),
     count,
@@ -267,7 +267,7 @@ export function getUnexploredNearbyDestinations(
   context: OriginRailContext,
   count?: number,
 ): RankedDestination[] {
-  if (context.tripMode !== "day_trip") return [];
+  if (getTripNights(context.tripDuration) > 0) return [];
   return limit(
     sortOriginCandidates(
       candidates.filter((destination) => destination.coordinates),
@@ -295,20 +295,20 @@ const CORE_WEEKEND_GETAWAY_BANDS = new Set<WeekendTravelBand>([
 ]);
 
 function weekendRank(destination: RankedDestination): number {
-  const band = (destination as ScoredDestination).weekend?.travelFit.band;
+  const band = (destination as ScoredDestination).overnight?.travelFit.band;
   const index = band ? WEEKEND_BAND_ORDER.indexOf(band) : -1;
   return index < 0 ? Number.MAX_SAFE_INTEGER : index;
 }
 
 function isWeekendCandidate(destination: RankedDestination): boolean {
-  const weekend = (destination as ScoredDestination).weekend;
+  const weekend = (destination as ScoredDestination).overnight;
   return Boolean(weekend?.travelFit.eligible && weekend.capacity.eligible);
 }
 
 function isCoreWeekendGetawayCandidate(
   destination: RankedDestination,
 ): boolean {
-  const weekend = (destination as ScoredDestination).weekend;
+  const weekend = (destination as ScoredDestination).overnight;
   return Boolean(
     isWeekendCandidate(destination) &&
     weekend &&
@@ -316,7 +316,7 @@ function isCoreWeekendGetawayCandidate(
   );
 }
 
-export function getWeekendGetawayDestinations(
+export function getOvernightGetawayDestinations(
   candidates: readonly RankedDestination[],
   count?: number,
 ): RankedDestination[] {
@@ -340,7 +340,7 @@ export function getWorthLongerJourneyDestinations(
   return limit(
     candidates
       .filter((destination) => {
-        const weekend = (destination as ScoredDestination).weekend;
+        const weekend = (destination as ScoredDestination).overnight;
         const minutes = weekend?.travelFit.oneWayMinutes;
         return Boolean(
           isWeekendCandidate(destination) &&
@@ -352,8 +352,9 @@ export function getWorthLongerJourneyDestinations(
         (a, b) =>
           scoreOf(b) - scoreOf(a) ||
           weekendRank(a) - weekendRank(b) ||
-          ((a as ScoredDestination).weekend?.travelFit.oneWayMinutes ?? 0) -
-            ((b as ScoredDestination).weekend?.travelFit.oneWayMinutes ?? 0) ||
+          ((a as ScoredDestination).overnight?.travelFit.oneWayMinutes ?? 0) -
+            ((b as ScoredDestination).overnight?.travelFit.oneWayMinutes ??
+              0) ||
           a.id.localeCompare(b.id),
       ),
     count,

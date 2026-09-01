@@ -450,19 +450,19 @@ describe("KAI-68 prerender: localized home shell", () => {
     const html = buildShellPage(SHELL, "ja");
     expect(html).toContain('<html lang="ja">');
     expect(html).toContain(
-      `<title>メグルト（Meguruto）｜日帰り・週末旅行をもっと簡単に</title>`,
+      `<title>メグルト（Meguruto）｜日帰り・宿泊旅行をもっと簡単に</title>`,
     );
     expect(html).toContain(
-      `<meta property="og:title" content="メグルト（Meguruto）— 次の週末、日本のどこへ行く？" />`,
+      `<meta property="og:title" content="メグルト（Meguruto）— 次の宿泊旅行、日本のどこへ行く？" />`,
     );
     expect(html).toContain(
-      `<meta property="og:description" content="メグルト（Meguruto）は、時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つける日本旅行プランナー。" />`,
+      `<meta property="og:description" content="メグルト（Meguruto）は、時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・宿泊旅行先を見つける日本旅行プランナー。" />`,
     );
     expect(html).toContain(
       `<meta property="og:image" content="${SITE_URL}/og/og-ja.png" />`,
     );
     expect(html).toContain(
-      `<meta name="twitter:title" content="メグルト（Meguruto）— 次の週末、日本のどこへ行く？" />`,
+      `<meta name="twitter:title" content="メグルト（Meguruto）— 次の宿泊旅行、日本のどこへ行く？" />`,
     );
     expect(html).toContain(
       `<meta name="twitter:image" content="${SITE_URL}/og/og-ja.png" />`,

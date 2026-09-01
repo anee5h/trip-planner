@@ -1,13 +1,13 @@
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
-import type { BudgetTier, PriceRange } from "@/shared/types/planner";
+import type { BudgetTier } from "@/shared/types/planner";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
-import type { TripModeV2 } from "@/shared/services/budget/tripEstimateEngine";
 
 export type ExploreSortKey = "recommended" | "walking" | "nearest" | "budget";
 
@@ -27,8 +27,7 @@ export interface ExploreSortContext {
   publicModes: readonly string[];
   partySize: number;
   budgetTier?: BudgetTier;
-  tripMode?: TripModeV2;
-  accommodationAllowance?: number | PriceRange;
+  duration?: TripDuration;
   ferryTemporal?: FerryTemporalContext;
   budgetEstimatesById?: ReadonlyMap<string, ExploreBudgetEstimate>;
 }
@@ -102,9 +101,8 @@ function getExploreBudgetMax(
       carMode: context.carMode,
       publicModes: context.publicModes,
       partySize: context.partySize,
-      tripMode: context.tripMode ?? "day_trip",
+      duration: context.duration ?? "fullDay",
       budgetTier: context.budgetTier,
-      accommodationAllowance: context.accommodationAllowance,
       ferryTemporal: context.ferryTemporal,
     });
   return resolved?.estimate.total?.max ?? null;

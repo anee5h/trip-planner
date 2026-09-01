@@ -4,7 +4,10 @@ import { getDistance } from "@/shared/utils/distance";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  isOvernightDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 import type { Season } from "@/shared/utils/season";
 import DiscoveryRail from "./DiscoveryRail";
 import UnexploredNearbyRail from "./UnexploredNearbyRail";
@@ -12,7 +15,7 @@ import {
   getSeasonalDiscoveryDestinations,
   getUnder60Destinations,
   getUnexploredNearbyDestinations,
-  getWeekendGetawayDestinations,
+  getOvernightGetawayDestinations,
   getWorthLongerJourneyDestinations,
   softDeduplicateRail,
   type OriginRailContext,
@@ -22,7 +25,7 @@ export interface HomeDiscoveryRails {
   seasonal: Destination[];
   under60: Destination[];
   nearby: Destination[];
-  weekendGetaways: Destination[];
+  overnightGetaways: Destination[];
   longerJourney: Destination[];
 }
 
@@ -34,7 +37,6 @@ export interface HomeDiscoveryRailStage {
 }
 
 interface BuildHomeDiscoveryRailsInput {
-  isWeekendMode: boolean;
   recommendedDestinations: Destination[];
   allDestinations: Destination[];
   topMatchIds: readonly string[];
@@ -47,7 +49,7 @@ interface BuildHomeDiscoveryRailsInput {
   budgetTier?: BudgetTier;
   ferryTemporal?: FerryTemporalContext;
   visitedIds: readonly string[];
-  tripMode: TripMode;
+  tripDuration: TripDuration;
   seasonalReferenceDate: Date;
 }
 
@@ -60,7 +62,6 @@ export function createHomeDiscoveryRailStages(
   input: BuildHomeDiscoveryRailsInput,
 ): { next: () => HomeDiscoveryRailStage | null } {
   const {
-    isWeekendMode,
     recommendedDestinations,
     allDestinations,
     topMatchIds,
@@ -73,9 +74,10 @@ export function createHomeDiscoveryRailStages(
     budgetTier,
     ferryTemporal,
     visitedIds,
-    tripMode,
+    tripDuration,
     seasonalReferenceDate,
   } = input;
+  const isOvernightMode = isOvernightDuration(tripDuration);
   const originRailContext: OriginRailContext = {
     homeStationCoords,
     homeStationTransportZoneId,
@@ -84,7 +86,7 @@ export function createHomeDiscoveryRailStages(
     budgetTier,
     ferryTemporal,
     visitedIds,
-    tripMode,
+    tripDuration,
     estimateCache: new Map(),
   };
   const usedIds = new Set(topMatchIds);
@@ -114,12 +116,12 @@ export function createHomeDiscoveryRailStages(
     getCandidates: () => Destination[];
     qualityOf?: (candidate: Destination) => number;
     duplicateQualityMargin?: number;
-  }> = isWeekendMode
+  }> = isOvernightMode
     ? [
         {
-          key: "weekendGetaways",
+          key: "overnightGetaways",
           getCandidates: () =>
-            getWeekendGetawayDestinations(recommendedDestinations),
+            getOvernightGetawayDestinations(recommendedDestinations),
         },
         {
           key: "seasonal",
@@ -196,7 +198,7 @@ export function buildHomeDiscoveryRails(
     seasonal: [],
     under60: [],
     nearby: [],
-    weekendGetaways: [],
+    overnightGetaways: [],
     longerJourney: [],
   };
   let stage: HomeDiscoveryRailStage | null;
@@ -215,12 +217,11 @@ const EMPTY_DISCOVERY_RAILS: HomeDiscoveryRails = {
   seasonal: [],
   under60: [],
   nearby: [],
-  weekendGetaways: [],
+  overnightGetaways: [],
   longerJourney: [],
 };
 
 export default function DeferredDiscoveryRails({
-  isWeekendMode,
   recommendedDestinations,
   allDestinations,
   topMatchIds,
@@ -233,17 +234,17 @@ export default function DeferredDiscoveryRails({
   budgetTier,
   ferryTemporal,
   visitedIds,
-  tripMode,
+  tripDuration,
   seasonalReferenceDate,
   currentSeason,
   partySize,
   travelDate,
   isVisited,
 }: DeferredDiscoveryRailsProps) {
+  const isOvernightMode = isOvernightDuration(tripDuration);
   const stages = useMemo(
     () =>
       createHomeDiscoveryRailStages({
-        isWeekendMode,
         recommendedDestinations,
         allDestinations,
         topMatchIds,
@@ -256,11 +257,10 @@ export default function DeferredDiscoveryRails({
         budgetTier,
         ferryTemporal,
         visitedIds,
-        tripMode,
+        tripDuration,
         seasonalReferenceDate,
       }),
     [
-      isWeekendMode,
       recommendedDestinations,
       allDestinations,
       topMatchIds,
@@ -273,7 +273,7 @@ export default function DeferredDiscoveryRails({
       budgetTier,
       ferryTemporal,
       visitedIds,
-      tripMode,
+      tripDuration,
       seasonalReferenceDate,
     ],
   );
@@ -314,11 +314,11 @@ export default function DeferredDiscoveryRails({
     };
   }, [stages]);
 
-  return isWeekendMode ? (
+  return isOvernightMode ? (
     <>
       <DiscoveryRail
-        kind="weekendGetaways"
-        destinations={discoveryRails.weekendGetaways}
+        kind="overnightGetaways"
+        destinations={discoveryRails.overnightGetaways}
         partySize={partySize}
         carMode={carMode}
         publicModes={publicModes}

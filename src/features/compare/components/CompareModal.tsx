@@ -51,7 +51,7 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
     // ON-SITE total (admission + local transport).
     const r = calculateTripEstimate({
       dest: d,
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     return r.total ? ([r.total.min, r.total.max] as [number, number]) : null;

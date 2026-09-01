@@ -75,7 +75,7 @@ function wardResult(
       source: "verified_ground_route",
       evidence: "verified",
     },
-    weekend: {
+    overnight: {
       travelFit: { eligible: true, band: "strong", oneWayMinutes: 210 },
       capacity: {
         eligible: true,
@@ -290,7 +290,7 @@ describe("consolidateTokyoWards", () => {
     });
     const group = out.find((r) => r.id === TOKYO_WARDS_GROUP_ID)!;
     expect(group.wardGroup?.placeCount).toBe(2); // published, deduped
-    expect(group.weekend?.placeCount).toBe(2);
+    expect(group.overnight?.placeCount).toBe(2);
   });
 
   it("gateway time is the verified estimate of the best-served member", () => {
@@ -338,7 +338,7 @@ describe("buildExplorerWardGroup", () => {
       wardCount: 3,
       wardHubIds: WARD_IDS.slice(0, 3),
       placeCount: 9,
-      tripMode: "weekend_2d1n",
+      duration: "2d1n",
     });
     expect(group.id).toBe(TOKYO_WARDS_GROUP_ID);
     expect(group.name).toBe("Tokyo 23 Wards");
@@ -348,7 +348,7 @@ describe("buildExplorerWardGroup", () => {
     expect(meta?.placeCount).toBe(9);
     expect(meta?.memberIds).toEqual(WARD_IDS.slice(0, 3));
     expect(meta?.wardHubIds).toEqual(WARD_IDS.slice(0, 3));
-    expect(meta?.tripMode).toBe("weekend_2d1n");
+    expect(meta?.duration).toBe("2d1n");
   });
 
   it("returns undefined metadata for ordinary destinations", () => {
@@ -361,16 +361,13 @@ describe("buildExplorerWardGroup", () => {
 
 describe("buildTokyoWardsLink", () => {
   it("preserves the matching ward filter and trip mode", () => {
-    const url = buildTokyoWardsLink(
-      ["shinjuku-city", "shibuya-city"],
-      "weekend_2d1n",
-    );
+    const url = buildTokyoWardsLink(["shinjuku-city", "shibuya-city"], "2d1n");
     expect(url).toBe(
-      "/destinations?city=shinjuku-city&city=shibuya-city&tripMode=weekend_2d1n",
+      "/destinations?city=shinjuku-city&city=shibuya-city&duration=2d1n",
     );
   });
 
-  it("omits tripMode for neutral browsing", () => {
+  it("omits duration for neutral browsing", () => {
     expect(buildTokyoWardsLink(["taito-city"])).toBe(
       "/destinations?city=taito-city",
     );
@@ -393,7 +390,7 @@ describe("runRecommendationPipeline — Tokyo wards consolidation", () => {
       partySize: 2,
       visitedIds: [],
       homeStationCoords: OSAKA,
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     const ids = results.map((r) => r.id);
     expect(ids).toContain(TOKYO_WARDS_GROUP_ID);
@@ -416,7 +413,7 @@ describe("runRecommendationPipeline — Tokyo wards consolidation", () => {
       partySize: 2,
       visitedIds: [],
       homeStationCoords: YOKOHAMA,
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain(TOKYO_WARDS_GROUP_ID);
@@ -434,7 +431,7 @@ describe("runRecommendationPipeline — Tokyo wards consolidation", () => {
       publicModes: ["train"],
       partySize: 2,
       visitedIds: [],
-      tripMode: "day_trip",
+      tripDuration: "fullDay",
     });
     expect(results.map((r) => r.id)).not.toContain(TOKYO_WARDS_GROUP_ID);
   });
@@ -572,7 +569,7 @@ describe("computeTokyoWardStats", () => {
       wardHub("taito-city"),
     ]);
     expect(new Set(stats.wardHubIds).size).toBe(stats.wardHubIds.length);
-    const url = buildTokyoWardsLink(stats.wardHubIds, "weekend_2d1n");
+    const url = buildTokyoWardsLink(stats.wardHubIds, "2d1n");
     const cityParams = [
       ...new URLSearchParams(url.split("?")[1]).getAll("city"),
     ];

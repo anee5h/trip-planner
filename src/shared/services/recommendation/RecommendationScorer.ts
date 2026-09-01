@@ -27,6 +27,7 @@ import {
   hasPersonalizedOrigin,
 } from "./TripDurationService";
 import type { DayTripTravelEfficiency } from "./TripDurationService";
+import { isOvernightDuration } from "@/shared/types/tripDuration";
 
 const MAX_VALID_MODES_CONTEXTS_PER_DESTINATION = 8;
 // Catalogue records are immutable after load, so object identity is a valid
@@ -401,8 +402,12 @@ export function calculateScore(
   );
 
   // Budget and Transport Logic
+  const explicitDayDuration =
+    context.tripDuration !== undefined &&
+    context.tripDuration !== "any" &&
+    !isOvernightDuration(context.tripDuration);
   const personalizedDayTrip =
-    context.tripMode === "day_trip" && hasPersonalizedOrigin(context);
+    explicitDayDuration && hasPersonalizedOrigin(context);
   let bestMode: string | undefined = personalizedDayTrip
     ? undefined
     : validModesForDest[0];
@@ -423,9 +428,7 @@ export function calculateScore(
       mode,
       partySize,
       homeCoords: context.homeStationCoords || undefined,
-      tripMode:
-        context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
-      accommodationAllowance: context.accommodationAllowance,
+      duration: context.tripDuration ?? "any",
       budgetTier: context.budgetTier,
       ferryTemporal: context.ferryTemporal,
     });
@@ -584,8 +587,8 @@ export function calculateScore(
       break;
   }
 
-  // Environmental Logic — only applies to day trips; weekend weather is handled separately
-  if (context.tripMode !== "weekend_2d1n") {
+  // Environmental Logic — only applies to day durations; overnight weather is handled separately
+  if (!isOvernightDuration(context.tripDuration ?? "any")) {
     const isRaining =
       actual?.condition === "rainy" || actual?.condition === "stormy";
     const isHot =

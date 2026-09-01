@@ -138,7 +138,7 @@ export default function Compare() {
   const engineBudgetRanges = compareDestinations.map((d) => {
     const r = calculateTripEstimate({
       dest: d,
-      tripMode: "day_trip",
+      duration: "fullDay",
       includeOriginTravel: false,
     });
     return r.total ? ([r.total.min, r.total.max] as [number, number]) : null;

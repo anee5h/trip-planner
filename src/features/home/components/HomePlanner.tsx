@@ -9,7 +9,6 @@ import {
   Landmark,
   Snowflake,
   Clock,
-  CalendarDays,
   Car,
   Train,
   Shuffle,
@@ -30,17 +29,9 @@ import {
   SelectTrigger,
 } from "@/shared/components/ui/select";
 import type { BudgetTier } from "@/shared/types/planner";
-import type {
-  HomepageTripDuration,
-  TripMode,
-} from "@/shared/types/homePlannerState";
+import type { HomepageTripDuration } from "@/shared/types/homePlannerState";
 import type { CarMode } from "@/shared/utils/carMode";
 import { useTranslation } from "react-i18next";
-import {
-  ACCOMMODATION_ALLOWANCE_PRESETS,
-  MAX_ACCOMMODATION_ALLOWANCE,
-  isValidAccommodationAllowance,
-} from "@/shared/types/homePlannerState";
 
 interface HomePlannerProps {
   vibe: string;
@@ -59,11 +50,6 @@ interface HomePlannerProps {
   onPublicTransportChange: (enabled: boolean) => void;
   carMode: CarMode;
   onCarModeChange: (mode: CarMode) => void;
-
-  tripMode: TripMode;
-  onTripModeChange: (mode: TripMode) => void;
-  accommodationAllowance: number;
-  onAccommodationAllowanceChange: (value: number) => void;
 
   hasUserApplied: boolean;
   isDirty: boolean;
@@ -173,32 +159,42 @@ function MobileOptionSheet({
             const Icon = option.icon;
             const selected = option.value === value;
             return (
-              <button
-                key={option.value}
-                type="button"
-                onClick={() => {
-                  onChange(option.value);
-                  onClose();
-                }}
-                className={`flex min-h-14 w-full items-center gap-3 rounded-xl px-3 text-left transition-colors ${
-                  selected
-                    ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200"
-                    : "text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-[hsl(var(--surface-raised))]"
-                }`}
-              >
-                {Icon && <Icon className="h-4 w-4 shrink-0 text-emerald-500" />}
-                <span className="min-w-0 flex-1">
-                  <span className="block text-sm font-bold">
-                    {option.label}
-                  </span>
-                  {option.description && (
-                    <span className="block text-xs text-slate-500 dark:text-slate-300">
-                      {option.description}
-                    </span>
+              <React.Fragment key={option.value}>
+                {option.value === "2d1n" && (
+                  <div
+                    aria-hidden="true"
+                    className="my-2 border-t border-slate-200 dark:border-slate-700"
+                  />
+                )}
+                <button
+                  key={option.value}
+                  type="button"
+                  onClick={() => {
+                    onChange(option.value);
+                    onClose();
+                  }}
+                  className={`flex min-h-14 w-full items-center gap-3 rounded-xl px-3 text-left transition-colors ${
+                    selected
+                      ? "bg-emerald-50 text-emerald-800 dark:bg-emerald-950/50 dark:text-emerald-200"
+                      : "text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-[hsl(var(--surface-raised))]"
+                  }`}
+                >
+                  {Icon && (
+                    <Icon className="h-4 w-4 shrink-0 text-emerald-500" />
                   )}
-                </span>
-                {selected && <Check className="h-4 w-4 shrink-0" />}
-              </button>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-bold">
+                      {option.label}
+                    </span>
+                    {option.description && (
+                      <span className="block text-xs text-slate-500 dark:text-slate-300">
+                        {option.description}
+                      </span>
+                    )}
+                  </span>
+                  {selected && <Check className="h-4 w-4 shrink-0" />}
+                </button>
+              </React.Fragment>
             );
           })}
         </div>
@@ -405,6 +401,8 @@ const DURATION_OPTIONS: HomepageTripDuration[] = [
   "shortOuting",
   "halfDay",
   "fullDay",
+  "2d1n",
+  "3d2n",
 ];
 
 const BUDGET_TIER_LABELS: Record<BudgetTier, { label: string; desc: string }> =
@@ -428,10 +426,6 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   onPublicTransportChange,
   carMode,
   onCarModeChange,
-  tripMode,
-  onTripModeChange,
-  accommodationAllowance,
-  onAccommodationAllowanceChange,
   hasUserApplied,
   isDirty,
   onApplyMatches,
@@ -531,159 +525,8 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
     })),
   };
 
-  const isWeekend = tripMode === "weekend_2d1n";
-  const [isCustomAllowanceMode, setIsCustomAllowanceMode] =
-    React.useState(false);
-
-  const isCustomAllowance =
-    isCustomAllowanceMode ||
-    !Object.values(ACCOMMODATION_ALLOWANCE_PRESETS).includes(
-      accommodationAllowance as (typeof ACCOMMODATION_ALLOWANCE_PRESETS)[keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS],
-    );
-
-  const accommodationPresetValue = (() => {
-    if (!isWeekend) return undefined;
-    if (isCustomAllowance) return "custom";
-    for (const [key, amount] of Object.entries(
-      ACCOMMODATION_ALLOWANCE_PRESETS,
-    )) {
-      if (amount === accommodationAllowance) return key;
-    }
-    return "custom";
-  })();
-
-  const handleCustomAllowanceBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const raw = parseInt(e.target.value, 10);
-    if (isNaN(raw)) {
-      setIsCustomAllowanceMode(false);
-      onAccommodationAllowanceChange(ACCOMMODATION_ALLOWANCE_PRESETS.standard);
-      return;
-    }
-    const clamped = Math.max(0, Math.min(MAX_ACCOMMODATION_ALLOWANCE, raw));
-    onAccommodationAllowanceChange(clamped);
-  };
-
   return (
     <div className="w-full">
-      {/* Trip Type Toggle — always visible above the filter bar */}
-      <div className="mb-4 flex flex-wrap items-center gap-3">
-        <div
-          role="group"
-          aria-label={t("home.tripMode")}
-          className="inline-flex rounded-xl border border-slate-200 dark:border-[hsl(var(--border-subtle))] bg-white dark:bg-[hsl(var(--surface-card))] p-1 shadow-sm"
-        >
-          <button
-            type="button"
-            role="radio"
-            aria-checked={tripMode === "day_trip"}
-            onClick={() => onTripModeChange("day_trip")}
-            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
-              tripMode === "day_trip"
-                ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
-            }`}
-          >
-            {t("home.tripModes.day_trip")}
-          </button>
-          <button
-            type="button"
-            role="radio"
-            aria-checked={tripMode === "weekend_2d1n"}
-            onClick={() => onTripModeChange("weekend_2d1n")}
-            className={`inline-flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all ${
-              tripMode === "weekend_2d1n"
-                ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
-            }`}
-          >
-            {t("home.tripModes.weekend_2d1n")}
-          </button>
-        </div>
-
-        {isWeekend && (
-          <div className="flex items-center gap-2">
-            <label className="text-xs font-bold text-slate-600 dark:text-slate-300">
-              {t("home.accommodation")}
-            </label>
-            <Select
-              value={accommodationPresetValue ?? ""}
-              onValueChange={(val: string | null) => {
-                if (!val) return;
-                if (val === "custom") {
-                  setIsCustomAllowanceMode(true);
-                  return;
-                }
-                setIsCustomAllowanceMode(false);
-                const amount =
-                  ACCOMMODATION_ALLOWANCE_PRESETS[
-                    val as keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS
-                  ];
-                if (amount !== undefined)
-                  onAccommodationAllowanceChange(amount);
-              }}
-            >
-              <SelectTrigger
-                className="h-8 min-w-[160px] rounded-lg border-slate-200 text-xs font-bold"
-                aria-describedby="accommodation-help"
-                aria-label={t("home.accommodation")}
-              >
-                {(() => {
-                  const presetKey = accommodationPresetValue as
-                    keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS | "custom";
-                  if (presetKey === "custom")
-                    return t("home.accommodationPresets.custom");
-                  return translate(`home.accommodationPresets.${presetKey}`);
-                })()}
-              </SelectTrigger>
-              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
-                {Object.entries(ACCOMMODATION_ALLOWANCE_PRESETS).map(
-                  ([key]) => (
-                    <SelectItem
-                      key={key}
-                      value={key}
-                      className="py-2.5 px-3 cursor-pointer text-xs font-semibold"
-                    >
-                      {translate(`home.accommodationPresets.${key}`)}
-                    </SelectItem>
-                  ),
-                )}
-                <SelectItem
-                  value="custom"
-                  className="py-2.5 px-3 cursor-pointer text-xs font-semibold"
-                >
-                  {translate("home.accommodationPresets.custom")}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-            {accommodationPresetValue === "custom" && (
-              <input
-                type="number"
-                min={0}
-                max={MAX_ACCOMMODATION_ALLOWANCE}
-                step={1000}
-                value={accommodationAllowance}
-                onChange={(e) => {
-                  setIsCustomAllowanceMode(true);
-                  const val = parseInt(e.target.value, 10);
-                  if (isValidAccommodationAllowance(val)) {
-                    onAccommodationAllowanceChange(val);
-                  }
-                }}
-                onBlur={handleCustomAllowanceBlur}
-                aria-label={t("home.customStayAllowance")}
-                className="h-8 w-28 rounded-lg border border-slate-200 px-2 text-base sm:text-xs font-bold dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-overlay))]"
-              />
-            )}
-            <span
-              id="accommodation-help"
-              className="text-[10px] text-slate-500 hidden sm:inline"
-            >
-              {t("home.accommodationHelp")}
-            </span>
-          </div>
-        )}
-      </div>
-
       {/* DESKTOP VIEW: Skyscanner-Style Full-Width Horizontal Bar (lg:flex) */}
       <div className="hidden lg:flex flex-col items-center w-full max-w-6xl mx-auto">
         {/* Row 1: Filter Bar (5 Equal Segments) */}
@@ -734,52 +577,45 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
 
           <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
 
-          {/* Segment 2: Total available time / Trip length */}
+          {/* Segment 2: Duration */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-0.5">
-              {isWeekend ? t("home.tripLength") : t("home.timeAvailable")}
+              {t("home.duration")}
             </span>
-            {isWeekend ? (
-              <div className="flex items-center gap-2 text-xs font-bold text-slate-900 dark:text-white">
-                <CalendarDays className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>{t("home.weekendBadge")}</span>
-              </div>
-            ) : (
-              <Select
-                value={tripDuration}
-                onValueChange={(val: string | null) => {
-                  if (val) onTripDurationChange(val as HomepageTripDuration);
-                }}
+            <Select
+              value={tripDuration}
+              onValueChange={(val: string | null) => {
+                if (val) onTripDurationChange(val as HomepageTripDuration);
+              }}
+            >
+              <SelectTrigger
+                className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between"
+                aria-label={t("home.duration")}
               >
-                <SelectTrigger
-                  className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between"
-                  aria-label={t("home.duration")}
-                >
-                  <div className="flex items-center gap-2 truncate">
-                    <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
-                    <span className="truncate">
-                      {translate(`home.durations.${tripDuration}`)}
-                    </span>
-                  </div>
-                </SelectTrigger>
-                <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
-                  {DURATION_OPTIONS.map((key) => (
-                    <SelectItem
-                      key={key}
-                      value={key}
-                      className="cursor-pointer py-2.5 pl-3 pr-8"
-                    >
-                      <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
-                        <span>{translate(`home.durations.${key}`)}</span>
-                        <span className="shrink-0 whitespace-nowrap text-[10px] text-slate-500">
-                          {translate(`home.durationHints.${key}`)}
-                        </span>
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
+                <div className="flex items-center gap-2 truncate">
+                  <Clock className="w-4 h-4 text-emerald-500 shrink-0" />
+                  <span className="truncate">
+                    {translate(`home.durations.${tripDuration}`)}
+                  </span>
+                </div>
+              </SelectTrigger>
+              <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
+                {DURATION_OPTIONS.map((key, index) => (
+                  <SelectItem
+                    key={key}
+                    value={key}
+                    className={`cursor-pointer py-2.5 pl-3 pr-8 ${index === 3 ? "mt-1 border-t border-slate-200 pt-3 dark:border-slate-700" : ""}`}
+                  >
+                    <div className="flex w-full items-center justify-between gap-2 text-xs font-semibold">
+                      <span>{translate(`home.durations.${key}`)}</span>
+                      <span className="shrink-0 whitespace-nowrap text-[10px] text-slate-500">
+                        {translate(`home.durationHints.${key}`)}
+                      </span>
+                    </div>
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           <div className="w-px h-8 bg-slate-200 dark:bg-[hsl(var(--border-subtle))] shrink-0" />
@@ -954,35 +790,23 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               </span>
             </button>
 
-            {/* Duration row — static when weekend, clickable when day trip */}
-            {isWeekend ? (
-              <div className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]">
-                <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
-                  {t("home.duration")}
+            {/* Duration row */}
+            <button
+              type="button"
+              onClick={() => openMobileField("duration")}
+              className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+            >
+              <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                {t("home.duration")}
+              </span>
+              <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
+                <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
+                <span className="truncate">
+                  {translate(`home.durations.${tripDuration}`)}
                 </span>
-                <span className="flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
-                  <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                  <span>{t("home.weekendBadge")}</span>
-                </span>
-              </div>
-            ) : (
-              <button
-                type="button"
-                onClick={() => openMobileField("duration")}
-                className="flex h-14 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
-              >
-                <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
-                  {t("home.timeAvailable")}
-                </span>
-                <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
-                  <Clock className="h-3.5 w-3.5 shrink-0 text-emerald-500" />
-                  <span className="truncate">
-                    {translate(`home.durations.${tripDuration}`)}
-                  </span>
-                  <ChevronRight className="h-4 w-4 shrink-0 text-slate-500" />
-                </span>
-              </button>
-            )}
+                <ChevronRight className="h-4 w-4 shrink-0 text-slate-500" />
+              </span>
+            </button>
             <div className="flex h-14 items-center justify-between rounded-[14px] border border-slate-200 px-3 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]">
               <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.party")}

@@ -99,33 +99,32 @@ describe("date handling", () => {
   });
 
   it("month rollover works for 2D1N Day 2", () => {
-    expect(deriveTripDates("2026-08-31", "weekend_2d1n").day2).toBe(
-      "2026-09-01",
-    );
-    expect(deriveTripDates("2026-11-30", "weekend_2d1n").day2).toBe(
-      "2026-12-01",
-    );
+    expect(deriveTripDates("2026-08-31", "2d1n").day2).toBe("2026-09-01");
+    expect(deriveTripDates("2026-11-30", "2d1n").day2).toBe("2026-12-01");
   });
 
   it("year rollover works for 2D1N Day 2", () => {
-    expect(deriveTripDates("2026-12-31", "weekend_2d1n").day2).toBe(
-      "2027-01-01",
-    );
+    expect(deriveTripDates("2026-12-31", "2d1n").day2).toBe("2027-01-01");
   });
 
   it("leap day works", () => {
     expect(normalizeTravelDateParam("2028-02-29")).toBe("2028-02-29");
     expect(normalizeTravelDateParam("2027-02-29")).toBeUndefined();
-    expect(deriveTripDates("2028-02-29", "weekend_2d1n").day2).toBe(
-      "2028-03-01",
-    );
+    expect(deriveTripDates("2028-02-29", "2d1n").day2).toBe("2028-03-01");
   });
 
   it("2D1N derives Day 2 as the following calendar date; day trips do not", () => {
-    const weekend = deriveTripDates("2026-11-14", "weekend_2d1n");
-    expect(weekend).toEqual({ day1: "2026-11-14", day2: "2026-11-15" });
-    expect(deriveTripDates("2026-11-14", "day_trip")).toEqual({
+    const overnight = deriveTripDates("2026-11-14", "2d1n");
+    expect(overnight).toEqual({
       day1: "2026-11-14",
+      day2: "2026-11-15",
+      startDate: "2026-11-14",
+      endDate: "2026-11-15",
+    });
+    expect(deriveTripDates("2026-11-14", "fullDay")).toEqual({
+      day1: "2026-11-14",
+      startDate: "2026-11-14",
+      endDate: "2026-11-14",
     });
   });
 
@@ -137,21 +136,19 @@ describe("date handling", () => {
     expect(normalizeTravelDateParam(null)).toBeUndefined();
   });
 
-  it("View all preserves date and tripMode (Day 2 is never serialized)", () => {
+  it("View all preserves canonical duration and date (Day 2 is never serialized)", () => {
     const params = serializePlannerSearchParams({
       vibe: "nature",
       partySize: 2,
       budgetTier: "standard",
-      tripDuration: "weekend",
+      tripDuration: "2d1n",
       budget: 30000,
       carMode: "none",
       publicModes: ["train"],
-      tripMode: "weekend_2d1n",
-      accommodationAllowance: 15000,
       date: "2026-11-14",
     });
     expect(params).toContain("date=2026-11-14");
-    expect(params).toContain("tripMode=weekend_2d1n");
+    expect(params).toContain("duration=2d1n");
     expect(params).not.toContain("2026-11-15");
   });
 });
@@ -244,24 +241,19 @@ describe("condition source selection", () => {
     expect(evaluation.scoreDelta).toBe(0);
   });
 
-  it("a third day never affects 2D1N scoring", () => {
+  it("3D2N includes the third calendar day in condition scoring", () => {
     const map = forecastMapOf([
       forecastDay("2026-08-08", "Rainy", 22),
       forecastDay("2026-08-09", "Clear", 25),
       forecastDay("2026-08-10", "Stormy", 20),
     ]);
-    const twoDay = evaluateTravelConditions(
-      dest,
-      { day1: "2026-08-08", day2: "2026-08-09" },
-      map,
-    );
-    const threeDay = evaluateTravelConditions(
-      dest,
-      { day1: "2026-08-08", day2: "2026-08-09", day3: "2026-08-10" } as never,
-      map,
-    );
-    expect(threeDay.dates).toEqual(["2026-08-08", "2026-08-09"]);
-    expect(threeDay.scoreDelta).toBe(twoDay.scoreDelta);
+    const selection = deriveTripDates("2026-08-08", "3d2n");
+    const evaluation = evaluateTravelConditions(dest, selection, map);
+    expect(evaluation.dates).toEqual([
+      "2026-08-08",
+      "2026-08-09",
+      "2026-08-10",
+    ]);
   });
 });
 
@@ -377,7 +369,7 @@ function ferryOnlyDestination(
 describe("trip-date ferry eligibility (canonical check)", () => {
   it("Tomogashima Nov 29–30 is eligible when both legs operate", () => {
     const dest = ferryOnlyDestination();
-    const dates = deriveTripDates("2026-11-29", "weekend_2d1n");
+    const dates = deriveTripDates("2026-11-29", "2d1n");
     const modes = getValidModes(
       dest,
       "none",
@@ -398,7 +390,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     // Nov→Dec is fully eligible. The closure path is pinned in the
     // "closed ferry" describe with restricted fixture data.
     const dest = ferryOnlyDestination();
-    const dates = deriveTripDates("2026-11-30", "weekend_2d1n");
+    const dates = deriveTripDates("2026-11-30", "2d1n");
     expect(dates.day2).toBe("2026-12-01");
     const modes = getValidModes(
       dest,
@@ -435,7 +427,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     const dest = getDestinationList("en").find(
       (d) => d.id === "abeno-harukas-300-osaka",
     ) as Destination;
-    const dates = deriveTripDates("2026-12-01", "weekend_2d1n");
+    const dates = deriveTripDates("2026-12-01", "2d1n");
     expect(
       isTripDatesTransportEligible(
         dest,
@@ -459,7 +451,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
     const dest = ferryOnlyDestination({
       transportOptions: { ferry: 30, train: 260 },
     });
-    const dates = deriveTripDates("2026-11-30", "weekend_2d1n");
+    const dates = deriveTripDates("2026-11-30", "2d1n");
     expect(dates.day2).toBe("2026-12-01");
     expect(
       isTripDatesTransportEligible(
@@ -470,7 +462,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
       ),
     ).toBe(true);
     // In season with both legs running, the same destination is eligible.
-    const openDates = deriveTripDates("2026-11-29", "weekend_2d1n");
+    const openDates = deriveTripDates("2026-11-29", "2d1n");
     expect(
       isTripDatesTransportEligible(
         dest,
@@ -483,7 +475,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
 
   it("day trips evaluate the single date: ferry must run outbound and return that day", () => {
     const dest = ferryOnlyDestination();
-    const inSeason = deriveTripDates("2026-11-15", "day_trip");
+    const inSeason = deriveTripDates("2026-11-15", "fullDay");
     const modes = getValidModes(
       dest,
       "none",
@@ -497,7 +489,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
       isTripDatesTransportEligible(dest, modes, WAKAYAMA_COORDS, inSeason),
     ).toBe(true);
     // Winter operation: a December day trip is eligible too (not suspended).
-    const winter = deriveTripDates("2026-12-15", "day_trip");
+    const winter = deriveTripDates("2026-12-15", "fullDay");
     const winterModes = getValidModes(
       dest,
       "none",
@@ -516,7 +508,7 @@ describe("trip-date ferry eligibility (canonical check)", () => {
 
 describe("trip-date ferry eligibility (pipeline enforcement)", () => {
   function runWeekend(dest: Destination, day1: string) {
-    const travelDates = deriveTripDates(day1, "weekend_2d1n");
+    const travelDates = deriveTripDates(day1, "2d1n");
     return runRecommendationPipeline([dest], {
       vibe: "any",
       budget: 200000,
@@ -526,9 +518,7 @@ describe("trip-date ferry eligibility (pipeline enforcement)", () => {
       budgetTier: "standard",
       visitedIds: [],
       homeStationCoords: WAKAYAMA_COORDS,
-      tripDuration: "weekend",
-      tripMode: "weekend_2d1n",
-      accommodationAllowance: 10000,
+      tripDuration: "2d1n",
       ferryTemporal: { travelDate: travelDateToDate(day1) },
       travelDates,
     });
@@ -667,13 +657,13 @@ describe("day trip vs 2D1N date count", () => {
     const dest = makeDestination();
     const day = evaluateTravelConditions(
       dest,
-      deriveTripDates("2026-11-14", "day_trip"),
+      deriveTripDates("2026-11-14", "fullDay"),
       forecastMapOf([]),
     );
     expect(day.dates).toEqual(["2026-11-14"]);
     const weekend = evaluateTravelConditions(
       dest,
-      deriveTripDates("2026-11-14", "weekend_2d1n"),
+      deriveTripDates("2026-11-14", "2d1n"),
       forecastMapOf([]),
     );
     expect(weekend.dates).toEqual(["2026-11-14", "2026-11-15"]);

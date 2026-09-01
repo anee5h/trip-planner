@@ -13,6 +13,12 @@ import type {
   TripDuration,
   TripDurationContext,
 } from "./RecommendationContext";
+import {
+  getTripDays,
+  getTripNights,
+  isOvernightDuration,
+  type TripDuration as CanonicalTripDuration,
+} from "@/shared/types/tripDuration";
 
 /** Extra uncertainty allowance applied only to estimated one-way travel. */
 export const ESTIMATED_TRAVEL_PADDING_MINUTES = 30;
@@ -41,18 +47,18 @@ export interface TripDurationEstimate {
   };
 }
 
-export function getBand(hours: number): TripDuration {
+export function getBand(hours: number): CanonicalTripDuration {
   if (hours < 4) return "shortOuting";
   if (hours < 7.5) return "halfDay";
   if (hours <= 14) return "fullDay";
-  return "weekend";
+  return "fullDay";
 }
 
 /**
  * Pure visit-duration band using only published recommendedVisitHours.
  * Changing origin must not change the result.
  */
-export type VisitDuration = Exclude<TripDuration, "weekend">;
+export type VisitDuration = "shortOuting" | "halfDay" | "fullDay";
 
 export function getVisitBand(destination: Destination): VisitDuration | null {
   if (!destination.recommendedVisitHours) return null;
@@ -70,7 +76,7 @@ export function matchesVisitDuration(
   requested: TripDuration,
 ): boolean {
   if (requested === "any") return true;
-  if (requested === "weekend") return true; // trip-mode gate handles this
+  if (isOvernightDuration(requested)) return true;
   const band = getVisitBand(destination);
   return band === requested;
 }
@@ -298,6 +304,13 @@ export function formatTripDurationLabel(
   estimate: TripDurationEstimate,
   locale: "en" | "ja",
 ): string {
+  if (isOvernightDuration(estimate.band)) {
+    const days = getTripDays(estimate.band);
+    const nights = getTripNights(estimate.band);
+    return locale === "ja"
+      ? `${days}日間・${nights}泊`
+      : `${days} days / ${nights} night${nights === 1 ? "" : "s"}`;
+  }
   if (locale === "ja") {
     switch (estimate.band) {
       case "shortOuting":
@@ -306,8 +319,6 @@ export function formatTripDurationLabel(
         return "半日";
       case "fullDay":
         return "1日";
-      case "weekend":
-        return "週末";
       default:
         return "滞在時間目安";
     }
@@ -319,8 +330,6 @@ export function formatTripDurationLabel(
       return "Half day";
     case "fullDay":
       return "Full day";
-    case "weekend":
-      return "Weekend";
     default:
       return "Visit duration";
   }

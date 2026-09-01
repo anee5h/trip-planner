@@ -54,12 +54,12 @@ vi.mock("@/shared/services/recommendation/RecommendationScorer", () => ({
 
 import {
   DAY_TRIP_RAILS,
-  WEEKEND_RAILS,
+  OVERNIGHT_RAILS,
   getHomepageRailConfig,
   getSeasonalDiscoveryDestinations,
   getUnder60Destinations,
   getUnexploredNearbyDestinations,
-  getWeekendGetawayDestinations,
+  getOvernightGetawayDestinations,
   getWorthLongerJourneyDestinations,
   orderRecentlyViewedDestinations,
   softDeduplicateRail,
@@ -85,28 +85,22 @@ const dayContext = {
   homeStationCoords: { lat: 35.68, lng: 139.76 },
   carMode: "none",
   publicModes: ["train"],
-  tripMode: "day_trip" as const,
+  tripDuration: "fullDay" as const,
   visitedIds: [],
 };
 
 describe("homepage rail configuration", () => {
   it("uses one five-rail day-trip hierarchy for half and full day", () => {
-    expect(getHomepageRailConfig("day_trip", "halfDay")).toEqual(
-      DAY_TRIP_RAILS,
-    );
-    expect(getHomepageRailConfig("day_trip", "fullDay")).toEqual(
-      DAY_TRIP_RAILS,
-    );
+    expect(getHomepageRailConfig("halfDay")).toEqual(DAY_TRIP_RAILS);
+    expect(getHomepageRailConfig("fullDay")).toEqual(DAY_TRIP_RAILS);
     expect(DAY_TRIP_RAILS).not.toContain("weekendGetaways");
   });
 
   it("uses the weekend hierarchy only for 2D1N", () => {
-    expect(getHomepageRailConfig("weekend_2d1n", "weekend")).toEqual(
-      WEEKEND_RAILS,
-    );
-    expect(WEEKEND_RAILS).toContain("weekendGetaways");
-    expect(WEEKEND_RAILS).not.toContain("under60");
-    expect(WEEKEND_RAILS).not.toContain("nearby");
+    expect(getHomepageRailConfig("2d1n")).toEqual(OVERNIGHT_RAILS);
+    expect(OVERNIGHT_RAILS).toContain("overnightGetaways");
+    expect(OVERNIGHT_RAILS).not.toContain("under60");
+    expect(OVERNIGHT_RAILS).not.toContain("nearby");
   });
 
   it("keeps seasonal titles and rail navigation labels localized", () => {
@@ -289,40 +283,40 @@ describe("homepage discovery eligibility", () => {
   it("requires weekend fit and destination capacity, then separates longer journeys", () => {
     const candidates = [
       destination("strong", 10, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "strong", oneWayMinutes: 180 },
           capacity: { eligible: true },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
       destination("long", 9, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "weak", oneWayMinutes: 300 },
           capacity: { eligible: true },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
       destination("acceptable", 8, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "acceptable", oneWayMinutes: 270 },
           capacity: { eligible: true },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
       destination("local", 100, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "local", oneWayMinutes: 45 },
           capacity: { eligible: true },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
       destination("reachOnly", 100),
       destination("notEnough", 100, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "acceptable", oneWayMinutes: 200 },
           capacity: { eligible: false },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
     ];
 
     expect(
-      getWeekendGetawayDestinations(candidates).map(({ id }) => id),
+      getOvernightGetawayDestinations(candidates).map(({ id }) => id),
     ).toEqual(["strong", "acceptable"]);
     expect(
       getWorthLongerJourneyDestinations(candidates).map(({ id }) => id),
@@ -332,16 +326,16 @@ describe("homepage discovery eligibility", () => {
   it("ranks a stronger 250-minute journey above a weaker 400-minute journey", () => {
     const candidates = [
       destination("farther-but-weaker", 10, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "weak", oneWayMinutes: 400 },
           capacity: { eligible: true },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
       destination("closer-but-stronger", 90, {
-        weekend: {
+        overnight: {
           travelFit: { eligible: true, band: "acceptable", oneWayMinutes: 250 },
           capacity: { eligible: true },
-        } as ScoredDestination["weekend"],
+        } as ScoredDestination["overnight"],
       }),
     ];
 
@@ -360,14 +354,14 @@ describe("soft homepage deduplication", () => {
         {
           season: { spring: 8, summer: 5, autumn: 5, winter: 5 },
           bestMonths: [4],
-          weekend: {
+          overnight: {
             travelFit: {
               eligible: true,
               band: "acceptable",
               oneWayMinutes: 250,
             },
             capacity: { eligible: true },
-          } as ScoredDestination["weekend"],
+          } as ScoredDestination["overnight"],
         },
       ),
     );
@@ -389,7 +383,7 @@ describe("soft homepage deduplication", () => {
         () => getUnexploredNearbyDestinations(nearbyCandidates, dayContext),
         nearbyCandidates,
       ],
-      [() => getWeekendGetawayDestinations(candidates), candidates],
+      [() => getOvernightGetawayDestinations(candidates), candidates],
       [() => getWorthLongerJourneyDestinations(candidates), candidates],
     ];
 

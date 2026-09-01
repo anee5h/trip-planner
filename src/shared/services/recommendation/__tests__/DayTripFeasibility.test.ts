@@ -56,7 +56,6 @@ function contextFor(
     homeStationCoords: coordinates,
     originZoneId: resolveOriginTransportZone({ coordinates }),
     tripDuration,
-    tripMode: "day_trip" as const,
   };
 }
 
@@ -115,14 +114,11 @@ describe("day-trip travel evidence", () => {
       transportOptions: { train: 30 },
     } as Destination;
 
-    // Duration evidence is independent of mode eligibility: "Any" with no
-    // explicit trip mode imposes no hidden cap and must not exclude a
-    // reachable destination whose duration is unknown. (An explicit
-    // tripMode=day_trip DOES apply the envelope — covered by the
-    // duration-gate contract tests in WeekendPipeline.test.ts.)
+    // Duration evidence is independent of mode eligibility: "Any" imposes no
+    // hidden cap and must not exclude a reachable destination whose duration
+    // is unknown. An explicit day duration does apply the envelope below.
     const results = getRecommendations([unknownTravelCandidate], {
       ...contextFor(NAKAYAMA, "halfDay"),
-      tripMode: undefined,
       tripDuration: "any",
     });
 

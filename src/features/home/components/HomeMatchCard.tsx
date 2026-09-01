@@ -36,6 +36,7 @@ import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService"
 import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { formatTravelConditionParams } from "@/shared/services/recommendation/TravelConditions";
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
+import { getOvernightCapacityThresholds } from "@/shared/services/recommendation/WeekendPolicy";
 import { Sun, Cloud, CloudRain, CloudSnow, CloudLightning } from "lucide-react";
 import { localizeRecommendationReason } from "@/shared/utils/recommendationLabels";
 import {
@@ -45,6 +46,11 @@ import {
 } from "@/shared/data/busyPeriodCues";
 
 import { ALL_PUBLIC_MODES } from "../services/TransportResolver";
+import {
+  getTripDays,
+  isOvernightDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 
 interface HomeMatchCardProps {
   destination: Destination;
@@ -55,6 +61,7 @@ interface HomeMatchCardProps {
   publicModes?: string[];
   /** Planned travel date (ISO) forwarded to the destination details page. */
   travelDate?: string;
+  duration?: TripDuration;
   /**
    * @deprecated Kept for call-site compatibility. Day-trip cards now use the
    * shared evidence-aware resolver whenever a configured origin is present.
@@ -85,6 +92,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   carMode = "none",
   publicModes = ALL_PUBLIC_MODES,
   travelDate,
+  duration = "fullDay",
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -92,7 +100,9 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   const localized = getLocalizedPlace(destination, locale);
   const scoredDestination = destination as ScoredDestination;
   const wardGroup = scoredDestination.wardGroup;
-  const weekend = scoredDestination.weekend;
+  const isOvernight = isOvernightDuration(duration);
+  const overnightCapacity = getOvernightCapacityThresholds(duration);
+  const overnight = isOvernight ? scoredDestination.overnight : undefined;
   const parsedTitle = parseCleanTitle(localized.name);
   const title = wardGroup
     ? t("destination.tokyoWardsGroup")
@@ -118,7 +128,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     homeStationTransportZoneId,
     ferryTemporal,
   );
-  const sharedDayEstimate = weekend
+  const sharedDayEstimate = isOvernight
     ? undefined
     : getDayTripTravelDurationEvidence(
         destination,
@@ -130,7 +140,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         validModes,
       ).estimate;
   const recommendationEstimate = scoredDestination.transportEstimate;
-  const fallbackWeekendTransport = weekend
+  const fallbackOvernightTransport = isOvernight
     ? getFastestPreferredTransport(
         destination,
         carMode,
@@ -142,7 +152,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
       )
     : undefined;
   const displayTransport =
-    recommendationEstimate ?? sharedDayEstimate ?? fallbackWeekendTransport;
+    recommendationEstimate ?? sharedDayEstimate ?? fallbackOvernightTransport;
   const isApproximateDisplay = Boolean(
     displayTransport &&
     "evidence" in displayTransport &&
@@ -233,15 +243,15 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   }, [condition, locale, t]);
   // Use the shared display-only priority so raw reason construction order does
   // not make budget or transport displace a more useful reason.
-  const weekendReason = weekend
+  const overnightReason = isOvernight
     ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [], {
-        weekend: true,
+        overnight: true,
       })
     : undefined;
-  const showWeekendReason = Boolean(
-    weekendReason && !weekendReason.code.startsWith("weekendTravel"),
+  const showOvernightReason = Boolean(
+    overnightReason && !overnightReason.code.startsWith("weekendTravel"),
   );
-  const dayTripReason = !weekend
+  const dayTripReason = !isOvernight
     ? getPrimaryDisplayReason(scoredDestination.match?.reasons ?? [])
     : undefined;
   const dayTripReasonLabel =
@@ -280,7 +290,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     }
   };
   const cardHref = wardGroup
-    ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+    ? buildTokyoWardsLink(wardGroup.wardHubIds, duration)
     : `/destinations/${destination.id}`;
 
   return (
@@ -288,12 +298,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
       to={cardHref}
       state={{
         ...(travelDate ? { travelDate } : {}),
-        ...(weekend
-          ? {
-              tripMode: "weekend_2d1n" as const,
-              accommodationAllowance: weekend.accommodationAllowance,
-            }
-          : {}),
+        duration,
       }}
       className="group relative flex h-full flex-1 cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
     >
@@ -314,19 +319,19 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
 
-        {/* Rank + Weekend Badges - stacked in one flex column */}
+        {/* Rank + overnight badge - stacked in one flex column */}
         <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 flex flex-col items-start gap-1">
           {showRank && (
             <div className="flex items-center gap-1 rounded-full border border-white/20 bg-slate-900/90 px-2 py-0.5 text-[10px] font-black text-white shadow-md sm:px-2.5 sm:py-1 sm:text-xs">
               <span className="text-emerald-400 font-black">#{rank}</span>
             </div>
           )}
-          {weekend && (
+          {isOvernight && (
             <div
               className="rounded-full bg-emerald-700/90 px-2 py-0.5 text-[9px] font-bold text-white shadow-md sm:text-[10px]"
-              aria-label={t("home.weekendBadge")}
+              aria-label={t("home.durationBadge")}
             >
-              {t("home.weekendBadge")}
+              {t("home.durationBadge")}
             </div>
           )}
         </div>
@@ -351,7 +356,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
       <div className="flex flex-1 flex-col p-3">
         <div
-          className={`flex flex-col ${weekend ? "min-h-0" : "min-h-[2.5rem] sm:min-h-[3.25rem]"}`}
+          className={`flex flex-col ${isOvernight ? "min-h-0" : "min-h-[2.5rem] sm:min-h-[3.25rem]"}`}
         >
           <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
             {title}
@@ -365,21 +370,26 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
         <div className="pt-2">
           {/* Trip-area line: wards · places · capacity */}
-          {(weekend || wardGroup) && (
+          {(isOvernight || wardGroup) && (
             <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 sm:text-xs">
               {[
                 wardGroup &&
                   t("destination.tokyoWardsCount", {
                     count: wardGroup.wardCount,
                   }),
-                (weekend?.placeCount ?? wardGroup?.placeCount ?? 0) > 0 &&
+                (overnight?.placeCount ?? wardGroup?.placeCount ?? 0) > 0 &&
                   t("home.places", {
-                    count: weekend?.placeCount ?? wardGroup?.placeCount ?? 0,
+                    count: overnight?.placeCount ?? wardGroup?.placeCount ?? 0,
                   }),
-                weekend &&
-                  (weekend.capacity.activityMinutes >= 600
-                    ? t("destination.tripAreas.plentyForTwoDays")
-                    : t("destination.tripAreas.readyForTwoDays")),
+                isOvernight &&
+                  ((overnight?.capacity?.activityMinutes ?? 0) >=
+                  overnightCapacity.strongMinutes
+                    ? t("destination.tripAreas.plentyForDays", {
+                        days: overnightCapacity.days,
+                      })
+                    : t("destination.tripAreas.readyForDays", {
+                        days: overnightCapacity.days,
+                      })),
               ]
                 .filter(Boolean)
                 .join(" · ")}
@@ -388,10 +398,10 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
 
           {/* A travel reason repeats the detailed row below, so keep only
               distinct weekend explanations such as weather guidance. */}
-          {showWeekendReason && weekendReason && (
+          {showOvernightReason && overnightReason && (
             <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 sm:text-xs">
-              {t(`recommendation.reasons.${weekendReason.code}.title`, {
-                ...(weekendReason.params ?? {}),
+              {t(`recommendation.reasons.${overnightReason.code}.title`, {
+                ...(overnightReason.params ?? {}),
               })}
             </p>
           )}
@@ -432,26 +442,28 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
             </p>
           )}
 
-          {/* Weekend Day 1 / Day 2 weather chips */}
-          {weekend?.weatherDays && weekend.weatherDays.length > 0 && (
+          {/* Selected trip-day weather chips */}
+          {overnight?.weatherDays && overnight.weatherDays.length > 0 && (
             <div className="mt-1 hidden flex-wrap items-center gap-1.5 sm:flex">
-              {weekend.weatherDays.slice(0, 2).map((day, idx) => {
-                const DayIcon = weatherIconForCondition(day.condition);
-                return (
-                  <span
-                    key={idx}
-                    className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:text-xs"
-                    aria-label={t(
-                      idx === 0 ? "home.day1Label" : "home.day2Label",
-                    )}
-                  >
-                    <DayIcon className="w-3 h-3 shrink-0" />
-                    {day.temperatureC != null && (
-                      <span>{day.temperatureC}°</span>
-                    )}
-                  </span>
-                );
-              })}
+              {overnight.weatherDays
+                .slice(0, getTripDays(duration))
+                .map((day, idx) => {
+                  const DayIcon = weatherIconForCondition(day.condition);
+                  return (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-0.5 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:text-xs"
+                      aria-label={t("home.dayLabel", {
+                        day: idx + 1,
+                      })}
+                    >
+                      <DayIcon className="w-3 h-3 shrink-0" />
+                      {day.temperatureC != null && (
+                        <span>{day.temperatureC}°</span>
+                      )}
+                    </span>
+                  );
+                })}
             </div>
           )}
 

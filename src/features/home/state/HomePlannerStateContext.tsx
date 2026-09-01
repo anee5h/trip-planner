@@ -13,15 +13,57 @@ import {
   type TransportSelection,
 } from "@/features/home/services/TransportResolver";
 import {
-  ACCOMMODATION_ALLOWANCE_PRESETS,
   createDefaultPlannerControls,
-  isValidAccommodationAllowance,
-  MAX_ACCOMMODATION_ALLOWANCE,
   type PlannerControlsState,
   type HomepageTripDuration,
   type BudgetTier,
-  type TripMode,
 } from "@/shared/types/homePlannerState";
+import { normalizeHomepageTripDuration } from "@/shared/types/tripDuration";
+
+function homepageDurationFromUrl(): HomepageTripDuration | undefined {
+  if (typeof window === "undefined") return undefined;
+  const params = new URLSearchParams(window.location.search);
+  const explicitDuration = normalizeHomepageTripDuration(
+    params.get("duration"),
+  );
+  const legacyDuration = normalizeHomepageTripDuration(params.get("tripMode"));
+  return explicitDuration ?? legacyDuration;
+}
+
+function replaceHomepageUrl(params: URLSearchParams) {
+  const query = params.toString();
+  window.history.replaceState(
+    window.history.state,
+    "",
+    `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`,
+  );
+}
+
+function migrateHomepageDurationUrl() {
+  if (typeof window === "undefined") return;
+  const params = new URLSearchParams(window.location.search);
+  const explicitDuration = normalizeHomepageTripDuration(
+    params.get("duration"),
+  );
+  const legacyDuration = normalizeHomepageTripDuration(params.get("tripMode"));
+  const duration = explicitDuration ?? legacyDuration;
+  if (!duration) {
+    if (params.has("duration") || params.has("tripMode")) {
+      params.delete("duration");
+      params.delete("tripMode");
+      replaceHomepageUrl(params);
+    }
+    return;
+  }
+
+  if (params.get("duration") === duration && !params.has("tripMode")) {
+    return;
+  }
+
+  params.delete("tripMode");
+  params.set("duration", duration);
+  replaceHomepageUrl(params);
+}
 
 export interface HomePlannerStateValue {
   draftState: PlannerControlsState;
@@ -40,10 +82,6 @@ export interface HomePlannerStateValue {
   setPublicTransport: (enabled: boolean) => void;
   carMode: CarMode;
   setCarMode: (mode: CarMode) => void;
-  tripMode: TripMode;
-  setTripMode: (mode: TripMode) => void;
-  accommodationAllowance: number;
-  setAccommodationAllowance: (value: number) => void;
   hasUserApplied: boolean;
   isDirty: boolean;
   applyPlannerState: () => void;
@@ -57,16 +95,27 @@ export function HomePlannerStateProvider({
   user,
   children,
   onTransportPreferencesPersist,
+  onPlannerPreferencesPersist,
 }: {
   user: User | null;
   children: React.ReactNode;
   onTransportPreferencesPersist?: (selection: TransportSelection) => void;
+  onPlannerPreferencesPersist?: (
+    preferences: TransportSelection & { tripDuration: HomepageTripDuration },
+  ) => void;
 }) {
-  const [draftState, setDraftState] = useState(createDefaultPlannerControls);
-  const [appliedState, setAppliedState] = useState(
-    createDefaultPlannerControls,
-  );
+  const urlDuration = homepageDurationFromUrl();
+  const createInitialPlannerState = () => {
+    const defaults = createDefaultPlannerControls();
+    return urlDuration ? { ...defaults, tripDuration: urlDuration } : defaults;
+  };
+  const [draftState, setDraftState] = useState(createInitialPlannerState);
+  const [appliedState, setAppliedState] = useState(createInitialPlannerState);
   const [hasUserApplied, setHasUserApplied] = useState(false);
+
+  useEffect(() => {
+    migrateHomepageDurationUrl();
+  }, []);
 
   useEffect(() => {
     const preferences = user?.user_metadata?.preferences;
@@ -77,6 +126,13 @@ export function HomePlannerStateProvider({
       ? persistedPublicModes.length > 0
       : true;
     const userPartySize = preferences.partySize || 2;
+    const persistedDuration = normalizeHomepageTripDuration(
+      preferences.tripDuration ?? preferences.duration,
+    );
+    const migratedDuration =
+      urlDuration ??
+      persistedDuration ??
+      normalizeHomepageTripDuration(preferences.tripMode);
     setDraftState((previous) => ({
       ...previous,
       publicModes: Array.isArray(persistedPublicModes)
@@ -85,6 +141,7 @@ export function HomePlannerStateProvider({
       carMode: userCarMode,
       publicTransport: userPublicTransport,
       partySize: userPartySize,
+      ...(migratedDuration ? { tripDuration: migratedDuration } : {}),
     }));
     setAppliedState((previous) => ({
       ...previous,
@@ -94,8 +151,9 @@ export function HomePlannerStateProvider({
       carMode: userCarMode,
       publicTransport: userPublicTransport,
       partySize: userPartySize,
+      ...(migratedDuration ? { tripDuration: migratedDuration } : {}),
     }));
-  }, [user]);
+  }, [user, urlDuration]);
 
   const isDirty = useMemo(
     () =>
@@ -118,14 +176,17 @@ export function HomePlannerStateProvider({
   const applyPlannerState = useCallback(() => {
     setAppliedState(draftState);
     setHasUserApplied(true);
-    onTransportPreferencesPersist?.(
-      resolveTransportSelection(
-        draftState.publicTransport,
-        draftState.carMode,
-        draftState.publicModes,
-      ),
+    const transportSelection = resolveTransportSelection(
+      draftState.publicTransport,
+      draftState.carMode,
+      draftState.publicModes,
     );
-  }, [draftState, onTransportPreferencesPersist]);
+    onTransportPreferencesPersist?.(transportSelection);
+    onPlannerPreferencesPersist?.({
+      ...transportSelection,
+      tripDuration: draftState.tripDuration,
+    });
+  }, [draftState, onTransportPreferencesPersist, onPlannerPreferencesPersist]);
 
   const setVibe = useCallback((vibe: string) => {
     setDraftState((previous) => ({ ...previous, vibe }));
@@ -146,21 +207,6 @@ export function HomePlannerStateProvider({
   const setCarMode = useCallback((carMode: CarMode) => {
     setDraftState((previous) => ({ ...previous, carMode }));
   }, []);
-  const setTripMode = useCallback((tripMode: TripMode) => {
-    setDraftState((previous) => ({ ...previous, tripMode }));
-  }, []);
-  const setAccommodationAllowance = useCallback((value: number) => {
-    const nextValue = isValidAccommodationAllowance(value)
-      ? value
-      : value < 0
-        ? 0
-        : MAX_ACCOMMODATION_ALLOWANCE;
-    setDraftState((previous) => ({
-      ...previous,
-      accommodationAllowance: nextValue,
-    }));
-  }, []);
-
   const value = useMemo<HomePlannerStateValue>(
     () => ({
       draftState,
@@ -179,10 +225,6 @@ export function HomePlannerStateProvider({
       setPublicTransport,
       carMode: draftState.carMode,
       setCarMode,
-      tripMode: draftState.tripMode,
-      setTripMode,
-      accommodationAllowance: draftState.accommodationAllowance,
-      setAccommodationAllowance,
       hasUserApplied,
       isDirty,
       applyPlannerState,
@@ -196,8 +238,6 @@ export function HomePlannerStateProvider({
       setBudgetTier,
       setPublicTransport,
       setCarMode,
-      setTripMode,
-      setAccommodationAllowance,
       hasUserApplied,
       isDirty,
       applyPlannerState,
@@ -220,5 +260,3 @@ export function useHomePlannerState(): HomePlannerStateValue {
   }
   return context;
 }
-
-export { ACCOMMODATION_ALLOWANCE_PRESETS };
