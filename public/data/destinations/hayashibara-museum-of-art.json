@@ -32,15 +32,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 2000,
-  "budgetRecommended": 4000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 600,
-    "food": 1600,
-    "cafe": 800
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg/1280px-160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg/1280px-160319_Hayashibara_Museum_of_Art_Okayama_Japan02n.jpg",
   "imageMetadata": {
@@ -184,11 +175,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

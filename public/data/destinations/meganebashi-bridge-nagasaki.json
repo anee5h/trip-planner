@@ -53,15 +53,6 @@
     "Spectacle-shaped reflection on the water",
     "Survived 1945 atomic bombing intact"
   ],
-  "budgetMin": 1000,
-  "budgetRecommended": 3000,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 350,
-    "tickets": 0,
-    "food": 400,
-    "cafe": 100
-  },
   "transportOptions": {
     "train": 270,
     "shinkansen": 370
@@ -180,11 +171,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

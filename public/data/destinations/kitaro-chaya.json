@@ -46,15 +46,6 @@
   },
   "description": "A charming retro cafe and shop celebrating manga artist Shigeru Mizuki's GeGeGe no Kitaro, located in front of Jindaiji Temple. Visitors can enjoy monster-themed sweets and photo spots with life-sized Yokai figures.",
   "highlights": ["Culture", "Manga", "Food"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 28
   },
@@ -177,12 +168,6 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥0 preserved; peer cell 'museum|half|poi' has 1 samples (< 5); components left as accepted debt"
   },
   "comfortMetadata": {
     "method": "model",

@@ -12,9 +12,6 @@
     "Hachioji Castle Ruins",
     "TAKAO 599 MUSEUM"
   ],
-  "budgetMin": 6500,
-  "budgetMax": 15000,
-  "budgetRecommended": 10750,
   "transportOptions": {
     "train": 40,
     "car": 50
@@ -77,12 +74,6 @@
       "takao-599-museum",
       "tama-forest-science-garden"
     ]
-  },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3738,
-    "cafe": 2012
   },
   "comfort": {
     "heatTolerance": 5,
@@ -180,11 +171,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

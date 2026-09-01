@@ -4,7 +4,7 @@ import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   getWalkingIntensity,
@@ -46,16 +46,21 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);
 
   // KAI-217B round-2: display RANGE + internal midpoint ranking.
-  const engineBudgetRanges = compareDestinations.map((d) => {
+  const engineBudgetEstimates = compareDestinations.map((d) => {
     // KAI-217B: Compare has no origin context — compare the canonical
     // ON-SITE total (admission + local transport).
-    const r = calculateTripEstimate({
+    return calculateTripEstimate({
       dest: d,
       duration: "fullDay",
       includeOriginTravel: false,
     });
-    return r.total ? ([r.total.min, r.total.max] as [number, number]) : null;
   });
+  const engineBudgetRanges = engineBudgetEstimates.map((r) =>
+    r.total ? ([r.total.min, r.total.max] as [number, number]) : null,
+  );
+  const engineBudgetQualities = engineBudgetEstimates.map(
+    (r) => r.estimateQuality,
+  );
   const budgets = engineBudgetRanges.map((range) =>
     range ? (range[0] + range[1]) / 2 : null,
   );
@@ -210,7 +215,11 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                           <span className="font-bold text-slate-900 dark:text-white text-xs">
                             {costRange === null
                               ? t("compare.unavailable")
-                              : formatLocalizedJPYRange(costRange, locale)}
+                              : formatTravellerEstimateRange(
+                                  costRange,
+                                  engineBudgetQualities[idx],
+                                  locale,
+                                )}
                           </span>
                           {cost !== null && isLowestBudget && (
                             <Badge className="bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300 text-[10px] font-extrabold px-1.5 py-0">

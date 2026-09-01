@@ -32,15 +32,6 @@
     "bus": 40,
     "car": 35
   },
-  "budgetMin": 0,
-  "budgetRecommended": 1500,
-  "budgetMax": 3000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 0,
-    "food": 500,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg/1280px-191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg/1280px-191208_Saishoin_Hirosaki_Aomori_pref_Japan02s3.jpg",
   "imageMetadata": {
@@ -216,11 +207,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

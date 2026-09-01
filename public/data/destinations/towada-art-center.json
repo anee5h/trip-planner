@@ -37,15 +37,6 @@
     "bus": 60,
     "car": 45
   },
-  "budgetMin": 1000,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 1800,
-    "food": 800,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Towada_Art_Center_in_Aomori.jpg/1280px-Towada_Art_Center_in_Aomori.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Towada_Art_Center_in_Aomori.jpg/1280px-Towada_Art_Center_in_Aomori.jpg",
   "imageMetadata": {
@@ -237,11 +228,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

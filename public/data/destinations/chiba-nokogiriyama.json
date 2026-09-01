@@ -13,15 +13,6 @@
     "Nokogiriyama Ropeway",
     "Hyaku-shaku Kannon"
   ],
-  "budgetMin": 3000,
-  "budgetMax": 9500,
-  "budgetRecommended": 6250,
-  "budgetBreakdown": {
-    "transport": 2692,
-    "tickets": 1635,
-    "food": 1250,
-    "cafe": 673
-  },
   "transportOptions": {
     "train": 56,
     "car": 85
@@ -179,11 +170,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

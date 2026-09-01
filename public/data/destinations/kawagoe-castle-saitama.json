@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/1280px-Kawagoe-Castle_Honmaru-Goten.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Kawagoe-Castle_Honmaru-Goten.jpg/1280px-Kawagoe-Castle_Honmaru-Goten.jpg",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
   "walkingMin": 35,
   "indoorPercent": 85,
   "ratings": {
@@ -52,12 +49,6 @@
     "Karo-no-Ma Council Chambers"
   ],
   "description": "The only surviving Honmaru Goten (main palace building) in eastern Japan, showcasing Edo period samurai architecture.",
-  "budgetBreakdown": {
-    "transport": 770,
-    "tickets": 110,
-    "food": 3520,
-    "cafe": 1100
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -205,11 +196,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

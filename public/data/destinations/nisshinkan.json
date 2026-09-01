@@ -32,15 +32,6 @@
     "bus": 45,
     "car": 40
   },
-  "budgetMin": 1800,
-  "budgetRecommended": 4500,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 1800,
-    "food": 1100,
-    "cafe": 700
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg/1280px-Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg/1280px-Nisshinkan_Samurai_School_exterior_in_2013-10-18.jpg",
   "imageMetadata": {
@@ -218,11 +209,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

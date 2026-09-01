@@ -13,15 +13,6 @@
     "Hinohara Tokyo Citizens Forest",
     "Kazuma Hot Spring"
   ],
-  "budgetMin": 2000,
-  "budgetMax": 7000,
-  "budgetRecommended": 4500,
-  "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 500,
-    "food": 1500,
-    "cafe": 700
-  },
   "transportOptions": {
     "train": 105,
     "car": 90
@@ -173,11 +164,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

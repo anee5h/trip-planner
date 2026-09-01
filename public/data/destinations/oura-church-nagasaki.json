@@ -11,9 +11,6 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 10000,
-  "budgetMax": 12000,
-  "budgetRecommended": 11000,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -70,12 +67,6 @@
   "relationships": {
     "parentDestinationId": "nagasaki-city"
   },
-  "budgetBreakdown": {
-    "transport": 2100,
-    "tickets": 1000,
-    "food": 5800,
-    "cafe": 2100
-  },
   "nameJa": "長崎と天草地方の潜伏キリシタン関連遺産",
   "comfort": {
     "heatTolerance": 6,
@@ -112,14 +103,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'none|full|poi' n=12; tickets source-verified",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -167,12 +150,6 @@
     "modelVersion": "crowd-model-v1",
     "confidence": "unknown",
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
   },
   "scoreMetadata": {
     "state": "estimated",

@@ -203,12 +203,6 @@
   "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
   "municipalityId": "Chiba:chiba",
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",

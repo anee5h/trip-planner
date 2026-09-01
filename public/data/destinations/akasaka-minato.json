@@ -6,9 +6,6 @@
   "categories": ["City", "Food", "History"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Akasaka_skyline_201806.jpg/960px-Akasaka_skyline_201806.jpg",
   "totalTripHours": 5,
-  "budgetMin": 7600,
-  "budgetRecommended": 11600,
-  "budgetMax": 15600,
   "walkingMin": 50,
   "indoorPercent": 70,
   "ratings": {
@@ -51,12 +48,6 @@
   },
   "highlights": ["Hie Shrine", "Tokyo Midtown", "Akasaka Sacas"],
   "description": "A sophisticated Minato district featuring Hie Shrine, luxury dining, Tokyo Midtown, and broadcasting headquarters.",
-  "budgetBreakdown": {
-    "transport": 1094,
-    "tickets": 1751,
-    "food": 6566,
-    "cafe": 2189
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -170,11 +161,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

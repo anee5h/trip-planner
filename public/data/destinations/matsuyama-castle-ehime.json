@@ -60,20 +60,12 @@
   "description": "One of Japan's twelve original castle keeps, Iyo Matsuyama Castle is a hilltop fortress reached by scenic chairlift or ropeway.",
   "notes": "Features 21 historically designated important cultural properties.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 4000,
-  "budgetMax": 16000,
-  "budgetRecommended": 10000,
   "walkingMin": 150,
   "indoorPercent": 20,
   "relationships": {
     "parentDestinationId": "matsuyama-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Matsuyama_castle%28Iyo%296.JPG/330px-Matsuyama_castle%28Iyo%296.JPG",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "food": 3890,
-    "cafe": 2070
-  },
   "highlights": ["Explore Iyo Matsuyama Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -132,11 +124,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -25,15 +25,6 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3APineapple_Winery_%40_Nago_Pineapple_Park%2C_Okinawa_no.3.jpg",
     "source": "Wikimedia Commons"
   },
-  "budgetMin": 1200,
-  "budgetRecommended": 1600,
-  "budgetMax": 2500,
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 1200,
-    "food": 0,
-    "cafe": 0
-  },
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
@@ -190,11 +181,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

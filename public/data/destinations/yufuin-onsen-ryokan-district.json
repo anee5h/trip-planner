@@ -53,15 +53,6 @@
     "Charming ryokan & boutique inns",
     "Lake Kinrin morning mist & café street"
   ],
-  "budgetMin": 3000,
-  "budgetRecommended": 10000,
-  "budgetMax": 25000,
-  "budgetBreakdown": {
-    "transport": 1050,
-    "tickets": 0,
-    "food": 1200,
-    "cafe": 300
-  },
   "transportOptions": {
     "train": 300,
     "shinkansen": 410
@@ -175,11 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

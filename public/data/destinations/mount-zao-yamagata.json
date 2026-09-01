@@ -35,9 +35,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "budgetMin": 1700,
-  "budgetRecommended": 8350,
-  "budgetMax": 15000,
   "transportOptions": {
     "shinkansen": 80,
     "bus": 50
@@ -85,7 +82,6 @@
     ],
     "parentDestinationId": "yamagata-city"
   },
-  "budgetBreakdown": null,
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -126,11 +122,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

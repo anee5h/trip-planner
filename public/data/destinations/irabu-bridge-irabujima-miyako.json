@@ -26,15 +26,6 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AMiyako_irabu_ohashi_2014_1.jpg",
     "source": "Wikimedia Commons"
   },
-  "budgetMin": 0,
-  "budgetRecommended": 500,
-  "budgetMax": 1500,
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 0,
-    "food": 0,
-    "cafe": 0
-  },
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
@@ -174,11 +165,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

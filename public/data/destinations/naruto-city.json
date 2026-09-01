@@ -13,9 +13,6 @@
   "description": "Strait city famous for Naruto Whirlpools, Otsuka Museum of Art, and Naruto Bridge walk.",
   "highlights": ["Explore Naruto City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 6600,
-  "budgetRecommended": 7600,
-  "budgetMax": 8600,
   "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
@@ -61,12 +58,6 @@
     ],
     "nearbyDestinationIds": ["takamatsu-city", "matsuyama-city", "kochi-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
-  },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 7,
@@ -92,12 +83,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "hub records span multiple microclimates; single vector would be fabricated"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

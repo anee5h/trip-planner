@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Coast", "Nature"],
   "tags": ["Scenic Drive", "Seafood", "Rugged"],
-  "budgetRecommended": 12000,
   "ratings": {
     "overall": 8.6,
     "photography": 9,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
   "prefecture": "Ishikawa",
-  "budgetMin": 8000,
-  "budgetMax": 16000,
   "totalTripHours": 8,
   "walkingMin": 290,
   "comfort": {
@@ -53,11 +50,6 @@
   ],
   "description": "Discover Noto Peninsula, a prominent destination in Ishikawa. With its rich mix of scenic drive, seafood, rugged, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [7, 8],
-  "budgetBreakdown": {
-    "transport": 4800,
-    "food": 3600,
-    "cafe": 1200
-  },
   "notes": "A fantastic trip to Noto Peninsula. Known for its scenic drive and seafood vibes, it offers a great escape with an overall score of 8.6.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Noto_Peninsula_Ishikawa_Japan_SRTM.jpg",
@@ -122,11 +114,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

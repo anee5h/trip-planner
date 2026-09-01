@@ -5,7 +5,6 @@
   "region": "Kanto",
   "categories": ["Lake", "Nature", "Theme Park"],
   "tags": ["Illumination", "Outdoors"],
-  "budgetRecommended": 10000,
   "ratings": {
     "overall": 8.1,
     "photography": 8.5,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",
   "prefecture": "Kanagawa",
-  "budgetMin": 6000,
-  "budgetMax": 14000,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -44,12 +41,6 @@
     "Illumillion Light Display"
   ],
   "description": "A picturesque artificial lake resort in Kanagawa offering boat rentals, Pleasure Forest amusement park, and mountain views.",
-  "budgetBreakdown": {
-    "transport": 4000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1000
-  },
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Lake_Sagami_-_2005_Nov_10_various_10.jpg/3840px-Lake_Sagami_-_2005_Nov_10_various_10.jpg",
@@ -189,11 +180,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

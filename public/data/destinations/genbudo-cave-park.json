@@ -113,12 +113,6 @@
   },
   "walkingMin": 70,
   "walkingIntensity": "medium",
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥500 (ledger FIXED_PAID); source: https://genbudo-park.jp/"
-  },
   "scoreMetadata": {
     "state": "unavailable",
     "value": null,
@@ -130,12 +124,6 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
-  },
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 500,
-    "food": 0,
-    "cafe": 0
   },
   "admission": {
     "state": "verified_paid",

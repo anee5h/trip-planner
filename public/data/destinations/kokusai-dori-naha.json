@@ -25,15 +25,6 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File%3AKokusai-dori08s3s4440.jpg",
     "source": "Wikimedia Commons"
   },
-  "budgetMin": 1500,
-  "budgetRecommended": 2500,
-  "budgetMax": 4000,
-  "budgetBreakdown": {
-    "transport": 200,
-    "tickets": 0,
-    "food": 1300,
-    "cafe": 0
-  },
   "editorial": {
     "lifecycle": "published",
     "freshness": "current",
@@ -158,11 +149,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

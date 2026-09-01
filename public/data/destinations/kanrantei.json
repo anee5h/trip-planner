@@ -32,15 +32,6 @@
     "bus": 50,
     "car": 45
   },
-  "budgetMin": 300,
-  "budgetRecommended": 2000,
-  "budgetMax": 4000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 300,
-    "food": 700,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Matsushima_Kanran-tei_01.jpg/1280px-Matsushima_Kanran-tei_01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Matsushima_Kanran-tei_01.jpg/1280px-Matsushima_Kanran-tei_01.jpg",
   "imageMetadata": {
@@ -188,11 +179,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

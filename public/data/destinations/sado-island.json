@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Island", "History", "Nature"],
   "tags": ["Gold Mine", "UNESCO World Heritage", "Tub Boats", "Remote"],
-  "budgetRecommended": 16000,
   "ratings": {
     "overall": 8.4,
     "photography": 8.5,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg/1280px-%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg",
   "prefecture": "Niigata",
-  "budgetMin": 12000,
-  "budgetMax": 20000,
   "totalTripHours": 8,
   "walkingMin": 480,
   "comfort": {
@@ -51,11 +48,6 @@
   ],
   "description": "Sado Island Gold Mines is a serial UNESCO World Heritage property on Sado Island, comprising the Nishimikawa Placer Gold Mine and the Aikawa-Tsurushi Gold and Silver Mine areas that preserve unmechanised mining and processing landscapes.",
   "bestMonths": [7, 8],
-  "budgetBreakdown": {
-    "transport": 6400,
-    "food": 4800,
-    "cafe": 1600
-  },
   "notes": "The serial property spans three component parts; check the official Niigata and Sado sites for current access and tour information.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg/1280px-%E4%BD%90%E6%B8%A1%E9%87%91%E5%B1%B1.jpg",
@@ -140,11 +132,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -4,7 +4,6 @@
   "region": "Kanto",
   "categories": ["Theme Park", "Aquarium"],
   "tags": ["Family", "Entertainment"],
-  "budgetRecommended": 21800,
   "ratings": {
     "overall": 8.4,
     "photography": 7.5,
@@ -24,8 +23,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg/330px-Yokohama_Hakkeijima_Sea_Paradise_-_01.jpg",
   "prefecture": "Kanagawa",
-  "budgetMin": 17800,
-  "budgetMax": 25800,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -50,12 +47,6 @@
   ],
   "description": "Discover Hakkeijima Sea Paradise, a prominent destination in Kanagawa. With its rich mix of family, entertainment, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [7, 8],
-  "budgetBreakdown": {
-    "transport": 5031,
-    "tickets": 11738,
-    "food": 3773,
-    "cafe": 1258
-  },
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -182,11 +173,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

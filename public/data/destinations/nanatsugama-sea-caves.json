@@ -60,14 +60,6 @@
     "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/9",
     "hoursNote": "Cruise departures are weather-dependent and may be cancelled in high waves"
   },
-  "budgetMin": 2000,
-  "budgetRecommended": 5000,
-  "budgetMax": 9000,
-  "budgetBreakdown": {
-    "transport": 600,
-    "food": 900,
-    "cafe": 200
-  },
   "transportOptions": {
     "bus": 400
   },
@@ -204,11 +196,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

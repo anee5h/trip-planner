@@ -26,8 +26,6 @@
     "uniqueness": 9.8
   },
   "categories": ["nature", "sightseeing", "romance"],
-  "budgetMin": 3000,
-  "budgetMax": 12000,
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"
@@ -55,7 +53,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
   "description": "Amanohashidate is a natural 3.3-kilometer pine-covered sandbar spanning Miyazu Bay, famed for the Matanozoki upside-down viewing technique making it look like a bridge floating into heaven.",
-  "budgetRecommended": 7500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -64,12 +61,6 @@
     "parentDestinationId": "miyazu-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Amanohashidate_aerial_view_2026.jpg/3840px-Amanohashidate_aerial_view_2026.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 1625,
-    "cafe": 875
-  },
   "highlights": [
     "Explore Amanohashidate (Bridge to Heaven)",
     "Local Culture & Scenery"
@@ -183,11 +174,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

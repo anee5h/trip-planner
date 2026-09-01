@@ -21,9 +21,6 @@
     "Sleeping Cat (Nemuri-neko)"
   ],
   "totalTripHours": 3,
-  "budgetMin": 1300,
-  "budgetRecommended": 3150,
-  "budgetMax": 5000,
   "walkingMin": 120,
   "indoorPercent": 20,
   "ratings": {
@@ -198,11 +195,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

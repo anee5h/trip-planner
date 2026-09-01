@@ -60,9 +60,6 @@
     "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/obi/",
     "hoursNote": "Castle grounds and museum hours per the Nichinan tourism office; check individual facilities."
   },
-  "budgetMin": 2000,
-  "budgetRecommended": 6000,
-  "budgetMax": 12000,
   "transportOptions": {
     "train": 220,
     "bus": 200
@@ -216,11 +213,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

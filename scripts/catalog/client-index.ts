@@ -43,10 +43,7 @@ export const CLIENT_INDEX_FIELDS = [
   "bestMonths",
   "bestSeason",
   "weatherDependence",
-  "budgetMin",
-  "budgetRecommended",
-  "budgetMax",
-  "budgetMetadata",
+
   "totalTripHours",
   "walkingMin",
   "indoorPercent",
@@ -78,6 +75,10 @@ export type ClientDestination = Pick<Destination, ClientIndexField>;
 const DROPPED_FIELDS: ReadonlySet<string> = new Set([
   "content",
   "editorial",
+  "budgetMin",
+  "budgetRecommended",
+  "budgetMax",
+  "budgetMetadata",
   "budgetBreakdown",
   // KAI-219B: scoped cost facts are detail/audit fields — the client lite
   // index does NOT need them; detail surfaces hydrate from the per-

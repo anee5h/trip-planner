@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Coast", "Hot Spring"],
   "tags": ["Beaches", "Onsen", "Scuba"],
-  "budgetRecommended": 13000,
   "ratings": {
     "overall": 8.6,
     "photography": 8.8,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Izu_Peninsula_Shizuoka_Japan_SRTM.jpg",
   "prefecture": "Shizuoka",
-  "budgetMin": 9000,
-  "budgetMax": 17000,
   "totalTripHours": 8,
   "walkingMin": 290,
   "comfort": {
@@ -52,12 +49,6 @@
   ],
   "description": "Discover Izu Peninsula, a prominent destination in Shizuoka. With its rich mix of beaches, onsen, scuba, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [7, 8],
-  "budgetBreakdown": {
-    "transport": 5200,
-    "tickets": 2600,
-    "food": 3900,
-    "cafe": 1300
-  },
   "notes": "A fantastic trip to Izu Peninsula. Known for its beaches and onsen vibes, it offers a great escape with an overall score of 8.6.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Izu_Peninsula_Shizuoka_Japan_SRTM.jpg",
@@ -119,11 +110,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

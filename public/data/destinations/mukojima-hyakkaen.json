@@ -47,15 +47,6 @@
   },
   "description": "The only surviving Edo-period flower garden built by merchant literati, famous for its romantic 30-meter bush clover tunnel in autumn. It preserves classical poetic flowers and natural flora praised in Japanese literature.",
   "highlights": ["Nature", "Garden", "History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 150,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 18
   },
@@ -161,12 +152,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥150 (ledger FIXED_PAID); source: https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/index.html"
   },
   "comfortMetadata": {
     "method": "model",

@@ -183,12 +183,6 @@
   "parkingJa": "【駐車場】専用駐車場は無いため、公共交通機関をご利用ください。",
   "openingHoursJa": "08:30〜17:00（12〜2月 09:00〜16:30）",
   "municipalityId": "Kyoto:kyoto",
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",

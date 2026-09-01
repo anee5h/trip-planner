@@ -30,8 +30,6 @@
     "uniqueness": 10
   },
   "categories": ["nature", "culture", "sightseeing"],
-  "budgetMin": 3000,
-  "budgetMax": 10000,
   "status": "published",
   "travelEstimate": {
     "confidence": "high"
@@ -71,7 +69,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG/1280px-Kumano_Kodo_World_heritage_Nachi-no-taki_%E7%86%8A%E9%87%8E%E5%8F%A4%E9%81%93_%E9%82%A3%E6%99%BA%E5%A4%A7%E6%BB%9D10.JPG",
   "description": "Nachi Falls is Japan's tallest uninterrupted single-drop waterfall (133 meters), framing the three-story red Seiganto-ji pagoda against the sacred Nachi primeval forest.",
   "notes": "Anraku-ji's octagonal three-storied pagoda is a national treasure and the only one of its kind in Japan.",
-  "budgetRecommended": 6500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -79,12 +76,6 @@
     "gatewayHubId": "shirahama-town"
   },
   "image": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?q=80&w=1000",
-  "budgetBreakdown": {
-    "transport": 2786,
-    "tickets": 1857,
-    "food": 1207,
-    "cafe": 650
-  },
   "highlights": ["Explore Nachi Falls & Pagoda", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -191,11 +182,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

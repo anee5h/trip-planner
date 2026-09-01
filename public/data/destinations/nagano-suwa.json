@@ -13,15 +13,6 @@
     "Tateishi Park (anime lake view)",
     "Suwa Lakefront Footbaths"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 13000,
-  "budgetRecommended": 8500,
-  "budgetBreakdown": {
-    "transport": 3500,
-    "tickets": 1000,
-    "food": 2500,
-    "cafe": 1500
-  },
   "transportOptions": {
     "train": 120,
     "car": 130
@@ -112,11 +103,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

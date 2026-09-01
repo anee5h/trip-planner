@@ -13,15 +13,6 @@
     "Sainokawara Park",
     "Otowanoyu Public Baths"
   ],
-  "budgetMin": 5000,
-  "budgetMax": 16000,
-  "budgetRecommended": 10500,
-  "budgetBreakdown": {
-    "transport": 4295,
-    "tickets": 1432,
-    "food": 3341,
-    "cafe": 1432
-  },
   "transportOptions": {
     "train": 150,
     "car": 180,
@@ -182,11 +173,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

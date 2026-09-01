@@ -11,9 +11,6 @@
     "East Building permanent exhibition (¥200)",
     "Peace education; exhibits on the August 6, 1945 bombing and its aftermath"
   ],
-  "budgetMin": 800,
-  "budgetMax": 2500,
-  "budgetRecommended": 1500,
   "transportOptions": {},
   "totalTripHours": 6,
   "walkingMin": 120,
@@ -67,12 +64,6 @@
   "collections": [],
   "relationships": {
     "parentDestinationId": "hiroshima-city"
-  },
-  "budgetBreakdown": {
-    "transport": 300,
-    "tickets": 200,
-    "food": 800,
-    "cafe": 200
   },
   "nameJa": "広島平和記念資料館",
   "comfort": {
@@ -211,11 +202,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

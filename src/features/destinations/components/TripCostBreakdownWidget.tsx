@@ -1,6 +1,9 @@
 import { useState, useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedJPYRange,
+  formatTravellerEstimateRange,
+} from "@/shared/services/budget/BudgetService";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { Card, CardContent } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
@@ -126,6 +129,8 @@ export function TripCostBreakdownWidget({
           planCostBreakdown.hasNumericTotal),
       )
     : Boolean(engineResult?.total);
+  const estimateQuality =
+    planCostBreakdown?.estimateQuality ?? engineResult?.estimateQuality;
   // KAI-217B round-3: partial-plan UI — when the plan is partial, surface
   // the KNOWN subtotal instead of a generic "Cost unavailable" (known parts
   // are still honest information).
@@ -504,7 +509,11 @@ export function TripCostBreakdownWidget({
                       ? "対象となる料金項目なし"
                       : "No applicable priced components"
                     : hasKnownCost
-                      ? formatLocalizedJPYRange(totalRange, locale)
+                      ? formatTravellerEstimateRange(
+                          totalRange,
+                          estimateQuality,
+                          locale,
+                        )
                       : locale === "ja"
                         ? "料金不明"
                         : "Cost unavailable"}
@@ -597,7 +606,11 @@ export function TripCostBreakdownWidget({
                         ? "対象となる料金項目なし"
                         : "No applicable priced components"
                       : hasKnownCost
-                        ? formatLocalizedJPYRange(displayedTotalRange, locale)
+                        ? formatTravellerEstimateRange(
+                            displayedTotalRange,
+                            estimateQuality,
+                            locale,
+                          )
                         : locale === "ja"
                           ? "料金不明"
                           : "Cost unavailable"}

@@ -27,15 +27,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 800,
-  "budgetRecommended": 2500,
-  "budgetMax": 4500,
-  "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 700,
-    "food": 600,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg/1280px-080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg/1280px-080720_Gessho-ji_Matsue_Shimane_pref_Japan13s5.jpg",
   "imageMetadata": {
@@ -171,11 +162,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -6,9 +6,6 @@
   "categories": ["Art", "Theme Park", "Indoor"],
   "heroImage": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Photos_at_teamlab_planets_tokyo.jpg?width=1600",
   "totalTripHours": 4,
-  "budgetMin": 11600,
-  "budgetRecommended": 15600,
-  "budgetMax": 19600,
   "walkingMin": 30,
   "indoorPercent": 100,
   "ratings": {
@@ -56,12 +53,6 @@
     "Infinite Mirror Rooms"
   ],
   "description": "An immersive water-filled digital art museum in Toyosu where visitors walk barefoot through water pools and flower gardens.",
-  "budgetBreakdown": {
-    "transport": 1068,
-    "tickets": 3600,
-    "food": 4488,
-    "cafe": 1923
-  },
   "reservation": "Mandatory online timed entry ticket; walk-ins rarely available.",
   "parking": "No dedicated parking; paid parking available near Shin-Toyosu Station.",
   "notes": "Wear barefoot-friendly clothing that can be rolled up above knees for knee-deep water exhibits.",
@@ -187,11 +178,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

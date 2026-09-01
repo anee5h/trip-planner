@@ -38,50 +38,32 @@ describe("KAI-89 final-pass regression tests", () => {
   });
 
   describe("budget corrections keep factual integrity over arithmetic sums", () => {
-    it("verified ticket prices are applied without rescaling other components", () => {
-      // A verified admission price is NOT evidence about food/transport
-      // costs: transport/food/cafe must remain byte-identical to their
-      // pre-KAI-89 baseline (no synthetic precision from rebalancing).
+    it("verified admission prices are stored on the explicit admission axis", () => {
       for (const c of corrections.sections.budgetTicketCorrections) {
         const d = get(c.id);
-        const baseline = corrections.sections.budgetComponentBaseline[c.id];
-        expect(baseline, `baseline for ${c.id}`).toBeDefined();
-        expect(d.budgetBreakdown.tickets, `${c.id} tickets`).toBe(c.value);
-        expect(d.budgetBreakdown.transport, `${c.id} transport untouched`).toBe(
-          baseline.transport,
-        );
-        expect(d.budgetBreakdown.food, `${c.id} food untouched`).toBe(
-          baseline.food,
-        );
-        expect(d.budgetBreakdown.cafe, `${c.id} cafe untouched`).toBe(
-          baseline.cafe,
+        if (c.value === 0) {
+          expect(d.admission?.state, c.id).toBe("verified_free");
+        } else {
+          expect(d.admission?.state, c.id).toBe("verified_paid");
+        }
+        expect(d.admission?.cost, c.id).toEqual(
+          c.value === 0
+            ? { kind: "bounded", min: 0, max: 0 }
+            : { kind: "bounded", min: c.value, max: c.value },
         );
       }
     });
 
-    it("rebalance-only records use the documented midpoint, components untouched", () => {
+    it("retired range fields are absent from the reconciled records", () => {
       for (const c of corrections.sections.budgetRebalanceOnly) {
         const d = get(c.id);
-        const baseline = corrections.sections.budgetComponentBaseline[c.id];
-        expect(baseline, `baseline for ${c.id}`).toBeDefined();
-        expect(d.budgetRecommended).toBe(
-          Math.round((d.budgetMin + d.budgetMax) / 2),
-        );
-        // KAI-219C1/D1 migration (narrowed per review R6): ONLY the legacy
-        // budgetBreakdown.tickets field may be exempt when it was
-        // intentionally retired because an authoritative v2 admission fact
-        // exists. transport / food / cafe MUST remain asserted unchanged —
-        // an authoritative admission fact never justifies changing them.
-        const hasAuthoritativeAdmission =
-          d.admission &&
-          (d.admission.state === "verified_paid" ||
-            d.admission.state === "verified_free" ||
-            d.admission.state === "not_applicable");
-        expect(d.budgetBreakdown.transport).toBe(baseline.transport);
-        expect(d.budgetBreakdown.food).toBe(baseline.food);
-        expect(d.budgetBreakdown.cafe).toBe(baseline.cafe);
-        if (hasAuthoritativeAdmission) continue;
-        expect(d.budgetBreakdown.tickets).toBe(baseline.tickets);
+        expect(d.admission, c.id).toBeDefined();
+        expect(d.localTransport, c.id).toBeDefined();
+        expect(d).not.toHaveProperty("budgetMin");
+        expect(d).not.toHaveProperty("budgetRecommended");
+        expect(d).not.toHaveProperty("budgetMax");
+        expect(d).not.toHaveProperty("budgetBreakdown");
+        expect(d).not.toHaveProperty("budgetMetadata");
       }
     });
   });
@@ -114,8 +96,12 @@ describe("KAI-89 final-pass regression tests", () => {
       );
       expect(h.editorial.fieldSources?.openingHours).toBeDefined();
       expect(h.editorial.fieldSources?.parking).toBeDefined();
-      // Admission 300 remains the verified value.
-      expect(h.budgetBreakdown.tickets).toBe(300);
+      // Admission is now represented by the explicit v2 fact.
+      expect(h.admission?.cost).toEqual({
+        kind: "bounded",
+        min: 300,
+        max: 300,
+      });
     });
 
     it("Engakuji: no on-site parking claim; admission 500 current", () => {
@@ -123,7 +109,11 @@ describe("KAI-89 final-pass regression tests", () => {
       expect(e.parking).toMatch(/No on-site parking/i);
       expect(e.content?.en?.parking).toMatch(/No on-site parking/i);
       expect(e.parkingJa).toMatch(/周辺の有料駐車場/);
-      expect(e.budgetBreakdown.tickets).toBe(500);
+      expect(e.admission?.cost).toEqual({
+        kind: "bounded",
+        min: 500,
+        max: 500,
+      });
       expect(e.editorial.fieldSources?.parking).toBeDefined();
     });
 

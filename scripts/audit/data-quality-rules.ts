@@ -580,9 +580,12 @@ export function collectDestinationIssues(
       "published record lacks travelEstimate.confidence",
     );
   }
+  const hasExplicitBudgetV2State =
+    dest.admission !== undefined && dest.localTransport !== undefined;
   if (
     dest.status === "published" &&
     dest.role !== "hub" &&
+    !hasExplicitBudgetV2State &&
     dest.budgetRecommended === undefined &&
     // Explicit neutral state written by the KAI-89 budget model (template
     // budget deliberately returned to unknown) is NOT missing data, and a
@@ -670,11 +673,10 @@ export function collectDestinationIssues(
     );
   }
 
-  // KAI-214 Blocker 2: completely absent budget state is also transitional
-  // debt. A production record with NO budgetMetadata and NO explicit state
-  // is unclassified. Identity-baselined; NEW missing-state records produce
-  // a new fingerprint and fail CI. KAI-218 classifies these (state=...).
-  if (!dest.budgetMetadata) {
+  // KAI-260 replaces the overloaded destination-level budget metadata with
+  // explicit admission/localTransport facts. Records carrying both facts are
+  // classified; they must not be reported as legacy-state debt.
+  if (!dest.budgetMetadata && !hasExplicitBudgetV2State) {
     push(
       "KAI214_TRANSITIONAL_STATE_MISSING",
       "no budgetMetadata / explicit budget state — new records must author state/provenance/reasonCode explicitly",

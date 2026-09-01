@@ -27,15 +27,6 @@
     "bus": 115,
     "car": 120
   },
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 400,
-    "food": 1500,
-    "cafe": 600
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bansuiso%2CMatsuyama-city%2CJapan.jpg/1280px-Bansuiso%2CMatsuyama-city%2CJapan.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bansuiso%2CMatsuyama-city%2CJapan.jpg/1280px-Bansuiso%2CMatsuyama-city%2CJapan.jpg",
   "imageMetadata": {
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

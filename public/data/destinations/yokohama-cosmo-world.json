@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Yokohama_Cosmoworld_2022.jpg/1920px-Yokohama_Cosmoworld_2022.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
   "totalTripHours": 3,
-  "budgetMin": 5200,
-  "budgetRecommended": 5700,
-  "budgetMax": 6200,
   "walkingMin": 40,
   "indoorPercent": 75,
   "ratings": {
@@ -48,12 +45,6 @@
   },
   "highlights": ["Amusement Park", "Family", "Waterfront"],
   "description": "An amusement park in Minato Mirai featuring the Cosmo Clock 21 ferris wheel, an indoor roller coaster, and family rides with waterfront views.",
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 0,
-    "food": 3700,
-    "cafe": 1200
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -123,14 +114,6 @@
           "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'none|half|poi' n=19; tickets source-verified",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -185,12 +168,6 @@
     "modelVersion": "crowd-model-v1",
     "confidence": "unknown",
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'none|half|poi' n=19; tickets source-verified"
   },
   "scoreMetadata": {
     "state": "estimated",

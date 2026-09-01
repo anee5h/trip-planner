@@ -6,9 +6,6 @@
   "categories": ["Museum", "Indoor"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Namakubi0kei.JPG/330px-Namakubi0kei.JPG",
   "totalTripHours": 8,
-  "budgetMin": 9700,
-  "budgetRecommended": 13700,
-  "budgetMax": 17700,
   "walkingMin": 40,
   "indoorPercent": 95,
   "ratings": {
@@ -55,11 +52,6 @@
     "Interactive Train Exhibits"
   ],
   "description": "Japan's premier railway museum in Saitama, featuring real historic trains, Bullet train simulators, and interactive exhibits.",
-  "budgetBreakdown": {
-    "transport": 3236,
-    "food": 5286,
-    "cafe": 2158
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -178,11 +170,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

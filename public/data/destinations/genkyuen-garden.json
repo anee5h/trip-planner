@@ -117,12 +117,6 @@
   },
   "walkingMin": 70,
   "walkingIntensity": "medium",
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
-  },
   "scoreMetadata": {
     "state": "unavailable",
     "value": null,

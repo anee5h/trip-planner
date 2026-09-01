@@ -27,15 +27,6 @@
     "bus": 125,
     "car": 130
   },
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 510,
-    "food": 1300,
-    "cafe": 690
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Oh_Naruto_Bridge_inside.JPG/1280px-Oh_Naruto_Bridge_inside.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Oh_Naruto_Bridge_inside.JPG/1280px-Oh_Naruto_Bridge_inside.JPG",
   "imageMetadata": {
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

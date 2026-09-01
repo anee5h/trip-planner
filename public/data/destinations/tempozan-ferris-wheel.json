@@ -40,15 +40,6 @@
   },
   "description": "A large Ferris wheel in Osaka Bay offering elevated views across the harbor and the Tempozan waterfront.",
   "highlights": ["Culture"],
-  "budgetMin": 2500,
-  "budgetRecommended": 4000,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 900,
-    "food": 1600,
-    "cafe": 600
-  },
   "transportOptions": {
     "train": 190,
     "bus": 210,
@@ -214,11 +205,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

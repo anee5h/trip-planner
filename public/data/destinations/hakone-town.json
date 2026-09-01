@@ -17,9 +17,6 @@
     "Hakone Open-Air Museum"
   ],
   "totalTripHours": 8,
-  "budgetMin": 6000,
-  "budgetRecommended": 25500,
-  "budgetMax": 45000,
   "walkingMin": 40,
   "indoorPercent": 50,
   "ratings": {
@@ -80,12 +77,6 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["shibuya-city", "chiba-city", "saitama-city"],
     "relatedDestinationIds": ["kusatsu-town", "yufu-city"]
-  },
-  "budgetBreakdown": {
-    "transport": 4250,
-    "tickets": 2125,
-    "food": 12431,
-    "cafe": 6694
   },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
@@ -187,11 +178,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

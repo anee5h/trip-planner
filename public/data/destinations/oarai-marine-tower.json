@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Oarai_Marine_Tower.jpg/1280px-Oarai_Marine_Tower.jpg",
   "totalTripHours": 3,
-  "budgetMin": 2000,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
   "walkingMin": 30,
   "indoorPercent": 75,
   "ratings": {
@@ -53,12 +50,6 @@
     "Oarai Port Panorama"
   ],
   "description": "A 60-meter glass triangular tower overlooking the Pacific Ocean and Oarai Port, featuring a 360-degree observation deck.",
-  "budgetBreakdown": {
-    "transport": 1333,
-    "tickets": 378,
-    "food": 2444,
-    "cafe": 845
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -178,11 +169,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

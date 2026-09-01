@@ -5,7 +5,6 @@
   "region": "Kanto",
   "categories": ["Coast", "Beach"],
   "tags": ["Surfing", "Cafes", "Sunset"],
-  "budgetRecommended": 7000,
   "ratings": {
     "overall": 8,
     "photography": 8.2,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg/1280px-%E5%A4%AA%E9%99%BD%E3%81%AE%E5%A1%94%E3%81%A8%E9%80%97%E5%AD%90%E6%B5%B7%E5%B2%B8.jpg",
   "prefecture": "Kanagawa",
-  "budgetMin": 3000,
-  "budgetMax": 11000,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -51,12 +48,6 @@
   ],
   "description": "A charming Miura Peninsula area featuring Zushi Beach resort, Hayama coastal views, and Yokosuka Verny Park.",
   "bestMonths": [7, 8],
-  "budgetBreakdown": {
-    "transport": 2800,
-    "tickets": 1400,
-    "food": 2100,
-    "cafe": 700
-  },
   "schemaVersion": 2,
   "status": "published",
   "travelEstimate": {
@@ -205,11 +196,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

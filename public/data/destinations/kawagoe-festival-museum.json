@@ -48,15 +48,6 @@
   },
   "description": "Museum devoted to the Kawagoe Festival (Kawagoe Matsuri), famous for its hikiyama float processions and lively festival music. Actual festival floats are exhibited in the hall, with video displays of the festival's atmosphere, near Toki no Kane.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 300,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 41
   },
@@ -208,12 +199,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.kawagoematsuri.jp/English/museum.html"
   },
   "admission": {
     "state": "verified_paid",

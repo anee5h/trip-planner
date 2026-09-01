@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nagoya_TV_Tower2.jpg/3840px-Nagoya_TV_Tower2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Nagoya_TV_Tower2.jpg/3840px-Nagoya_TV_Tower2.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3000,
-  "budgetRecommended": 7000,
-  "budgetMax": 11000,
   "walkingMin": 70,
   "indoorPercent": 80,
   "ratings": {
@@ -60,11 +57,6 @@
     "Tower Hotel Nagoya"
   ],
   "description": "Completed in 1954 as Japan's first TV broadcasting tower, this 180-meter Registered Tangible Cultural Property in Nagoya's Hisaya-odori Park features outdoor observation decks and projection mapping art.",
-  "budgetBreakdown": {
-    "transport": 1400,
-    "food": 3150,
-    "cafe": 933
-  },
   "reservation": "No reservation required for observation decks.",
   "parking": "Underground paid parking structure at Hisaya-odori Park.",
   "notes": "Illuminated every night with energy-efficient LED light displays.",
@@ -130,11 +122,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -59,15 +59,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://oidehita.com/archives/51871"
   },
-  "budgetMin": 500,
-  "budgetRecommended": 2000,
-  "budgetMax": 20000,
-  "budgetBreakdown": {
-    "transport": 150,
-    "tickets": 0,
-    "food": 225,
-    "cafe": 50
-  },
   "transportOptions": {},
   "totalTripHours": 3,
   "recommendedVisitHours": {
@@ -194,11 +185,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

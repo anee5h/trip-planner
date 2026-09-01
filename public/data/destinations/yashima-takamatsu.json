@@ -27,15 +27,6 @@
     "bus": 125,
     "car": 130
   },
-  "budgetMin": 2000,
-  "budgetRecommended": 5000,
-  "budgetMax": 9000,
-  "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 500,
-    "food": 1800,
-    "cafe": 900
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Yashimaji_06.JPG/1280px-Yashimaji_06.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Yashimaji_06.JPG/1280px-Yashimaji_06.JPG",
   "imageMetadata": {
@@ -183,11 +174,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

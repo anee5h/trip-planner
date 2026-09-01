@@ -4,8 +4,9 @@ export type Vibe =
 export type PartyProfile = "solo" | "couple" | "group";
 export type BudgetTier = "economy" | "standard" | "comfortable" | "luxury";
 /** Explore budget filter: "any" = no restriction (a REAL tier never doubles
- *  as the unselected state); a tier caps the party-aware, transport-inclusive
- *  trip cost at BUDGET_TIER_LIMITS[tier]. */
+ * as the unselected state); a tier caps the party-aware, transport-inclusive
+ * trip cost at BUDGET_TIER_LIMITS[tier]. The `luxury` compatibility value is
+ * rendered as Flexible and is intentionally unconstrained. */
 export type BudgetFilter = "any" | BudgetTier;
 export type PriceRange = readonly [min: number, max: number];
 export type CatchmentScope = "nearby" | "wider";
@@ -23,11 +24,20 @@ export function partyProfileForSize(partySize: number): PartyProfile {
 }
 
 export const BUDGET_TIER_LIMITS: Record<BudgetTier, number> = {
-  economy: 20000,
-  standard: 40000,
-  comfortable: 75000,
-  luxury: 150000,
+  // Party-total ceilings for the baseline two-person full-day context. Home
+  // scales these same ceilings by party size and trip duration.
+  economy: 50000,
+  standard: 100000,
+  comfortable: 200_000,
+  luxury: Number.POSITIVE_INFINITY,
 };
+
+/** `luxury` is the persisted compatibility value for the Flexible choice. */
+export function isFlexibleBudgetTier(
+  tier: BudgetTier | BudgetFilter | undefined,
+): boolean {
+  return tier === "luxury";
+}
 
 export function budgetTierForLimit(budget: number): BudgetTier {
   if (budget <= BUDGET_TIER_LIMITS.economy) return "economy";

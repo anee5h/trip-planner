@@ -47,15 +47,6 @@
   },
   "description": "A tranquil Japanese stroll garden renowned for its expansive pond, stepping stones, and rare landscape rocks collected from across Japan. Built by Mitsubishi founder Iwasaki Yataro, it is an oasis of calm in eastern Tokyo.",
   "highlights": ["Nature", "Garden", "Relaxation"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 150,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 15
   },
@@ -179,12 +170,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥150 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/teien/en/kiyosumi/outline.html"
   },
   "admission": {
     "state": "verified_paid",

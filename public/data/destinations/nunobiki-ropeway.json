@@ -40,15 +40,6 @@
   },
   "description": "A Kobe ropeway linking Shin-Kobe with Nunobiki Herb Gardens, offering elevated views over the city and harbor.",
   "highlights": ["Viewpoint"],
-  "budgetMin": 3500,
-  "budgetRecommended": 5000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 1560,
-    "food": 2000,
-    "cafe": 640
-  },
   "transportOptions": {
     "train": 205,
     "shinkansen": 175
@@ -207,11 +198,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

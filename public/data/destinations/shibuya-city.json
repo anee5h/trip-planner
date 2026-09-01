@@ -17,9 +17,6 @@
     "Meiji Jingu Shrine"
   ],
   "totalTripHours": 5,
-  "budgetMin": 3000,
-  "budgetRecommended": 14000,
-  "budgetMax": 25000,
   "walkingMin": 45,
   "indoorPercent": 65,
   "ratings": {
@@ -66,12 +63,6 @@
     ],
     "nearbyDestinationIds": ["hakone-town", "chiba-city", "saitama-city"],
     "relatedDestinationIds": ["shinjuku-city"]
-  },
-  "budgetBreakdown": {
-    "transport": 4200,
-    "tickets": 2100,
-    "food": 5005,
-    "cafe": 2695
   },
   "walkingIntensity": "medium",
   "ratingsSchemaVersion": 2,
@@ -181,11 +172,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

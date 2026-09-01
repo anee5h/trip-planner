@@ -32,15 +32,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 2000,
-  "budgetRecommended": 4500,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 400,
-    "food": 1200,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg/1280px-220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg/1280px-220101_Raikyuji_Takahashi_Okayama_pref_Japan09s3.jpg",
   "imageMetadata": {
@@ -197,11 +188,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

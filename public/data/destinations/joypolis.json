@@ -6,9 +6,6 @@
   "categories": ["Indoor Park", "Gaming"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sega_Joypolis_Odaiba.jpg/1920px-Sega_Joypolis_Odaiba.jpg",
   "totalTripHours": 4,
-  "budgetMin": 16000,
-  "budgetRecommended": 20000,
-  "budgetMax": 24000,
   "walkingMin": 40,
   "indoorPercent": 90,
   "ratings": {
@@ -56,12 +53,6 @@
     "Interactive Arcade Attractions"
   ],
   "description": "Japan's largest indoor theme park located in Odaiba, featuring high-tech VR rides, roller coasters, and arcade attractions.",
-  "budgetBreakdown": {
-    "transport": 1053,
-    "tickets": 10526,
-    "food": 6316,
-    "cafe": 2105
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

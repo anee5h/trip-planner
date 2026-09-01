@@ -40,15 +40,6 @@
   },
   "description": "A 531-meter peak southwest of central Sapporo, reached by ropeway and cable car. The summit observatory commands sweeping views over the city and is counted among Japan's finest night views.",
   "highlights": ["Nature"],
-  "budgetMin": 4000,
-  "budgetRecommended": 6500,
-  "budgetMax": 9000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 1700,
-    "food": 2600,
-    "cafe": 800
-  },
   "transportOptions": {
     "train": 203
   },
@@ -224,11 +215,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

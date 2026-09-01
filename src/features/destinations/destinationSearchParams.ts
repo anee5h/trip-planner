@@ -145,9 +145,10 @@ export function parseDestinationSearchParams(
     rawBudgetTier === "economy" ||
     rawBudgetTier === "standard" ||
     rawBudgetTier === "comfortable" ||
-    rawBudgetTier === "luxury"
+    rawBudgetTier === "luxury" ||
+    rawBudgetTier === "flexible"
   ) {
-    budgetTier = rawBudgetTier;
+    budgetTier = rawBudgetTier === "flexible" ? "luxury" : rawBudgetTier;
   } else if (rawBudgetTier === "budget") {
     budgetTier = "economy";
   } else if (rawBudgetTier === "premium") {
@@ -159,11 +160,13 @@ export function parseDestinationSearchParams(
   }
 
   const maxBudget =
-    rawBudget !== null && /^\d+$/.test(rawBudget)
-      ? parseNumber(rawBudget, defaults.maxBudget)
-      : budgetTier === "any"
-        ? defaults.maxBudget
-        : BUDGET_TIER_LIMITS[budgetTier];
+    budgetTier === "luxury"
+      ? Number.POSITIVE_INFINITY
+      : rawBudget !== null && /^\d+$/.test(rawBudget)
+        ? parseNumber(rawBudget, defaults.maxBudget)
+        : budgetTier === "any"
+          ? defaults.maxBudget
+          : BUDGET_TIER_LIMITS[budgetTier];
 
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
@@ -236,7 +239,12 @@ export function serializeDestinationSearchParams(
   if (state.budgetTier === "any") {
     params.set("budget", "any");
   } else {
-    params.set("budget", String(state.maxBudget));
+    params.set(
+      "budget",
+      state.budgetTier === "luxury" || !Number.isFinite(state.maxBudget)
+        ? "flexible"
+        : String(state.maxBudget),
+    );
   }
   params.set("sort", sanitizeSort(state.sortBy));
   params.set("car", sanitizeCarMode(state.carMode));
@@ -284,7 +292,12 @@ export function serializePlannerSearchParams(input: {
   if (input.tripDuration && input.tripDuration !== "any") {
     params.set("duration", input.tripDuration);
   }
-  params.set("budget", String(input.budget));
+  params.set(
+    "budget",
+    input.budgetTier === "luxury" || !Number.isFinite(input.budget)
+      ? "flexible"
+      : String(input.budget),
+  );
   if (input.carMode && input.carMode !== "none") {
     params.set("car", input.carMode);
   }

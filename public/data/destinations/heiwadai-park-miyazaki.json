@@ -53,15 +53,6 @@
     "Hundreds of replica haniwa clay figures",
     "Panoramic hilltop views of Miyazaki"
   ],
-  "budgetMin": 1000,
-  "budgetRecommended": 3000,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 350,
-    "tickets": 0,
-    "food": 400,
-    "cafe": 100
-  },
   "transportOptions": {
     "train": 335,
     "shinkansen": 445
@@ -184,11 +175,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

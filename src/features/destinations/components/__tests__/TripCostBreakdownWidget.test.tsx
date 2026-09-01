@@ -139,6 +139,8 @@ vi.mock("@/shared/services/budget/BudgetService", () => ({
   },
   formatLocalizedJPYRange: ([min, max]: [number, number]) =>
     `¥${min.toLocaleString()} - ¥${max.toLocaleString()}`,
+  formatTravellerEstimateRange: ([min, max]: [number, number]) =>
+    `¥${min.toLocaleString()} - ¥${max.toLocaleString()}`,
   getEstimatedBudgetRange: () => ({
     range: [5000, 8000] as [number, number],
     transportIncluded: true,

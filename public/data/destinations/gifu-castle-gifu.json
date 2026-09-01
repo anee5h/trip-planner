@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/01/Gifu_Castle.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/0/01/Gifu_Castle.jpg",
   "totalTripHours": 4,
-  "budgetMin": 3000,
-  "budgetRecommended": 6500,
-  "budgetMax": 10000,
   "walkingMin": 90,
   "indoorPercent": 70,
   "ratings": {
@@ -60,12 +57,6 @@
     "Kinka-zan Squirrel Village"
   ],
   "description": "Perched 329 meters atop Mt. Kinka, Gifu Castle was Oda Nobunaga's formidable mountain stronghold, offering panoramic views over the Nagara River and Nobi Plain.",
-  "budgetBreakdown": {
-    "transport": 1300,
-    "tickets": 200,
-    "food": 2925,
-    "cafe": 1083
-  },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Gifu Park ropeway station base.",
   "notes": "Top 100 Castle of Japan #39. Special night ropeway operates during summer weekends for night views.",
@@ -121,11 +112,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "unavailable",

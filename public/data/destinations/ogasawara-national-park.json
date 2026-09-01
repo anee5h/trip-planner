@@ -144,12 +144,6 @@
   },
   "walkingMin": 2305,
   "walkingIntensity": "high",
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "scoreMetadata": {
     "state": "estimated",
     "value": 6.5,

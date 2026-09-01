@@ -37,7 +37,7 @@ import {
   findNearbyCombinations,
   type DestinationCombo,
 } from "@/shared/services/recommendation/DestinationCombinationService";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import {
   ItineraryPickerModal,
   type PendingItinerarySave,
@@ -804,12 +804,12 @@ export default function DestinationDetails() {
 
   // KAI-260: a bounded canonical range remains displayable when its
   // ingredients are model/profile derived. The range itself is never collapsed.
-  const modeCostRange = (
+  const modeEstimate = (
     mode: string,
     opts?: { includeOriginTravel?: boolean },
-  ): [number, number] | undefined => {
+  ) => {
     if (!destination) return undefined;
-    const r = calculateTripEstimate({
+    return calculateTripEstimate({
       dest: destination,
       mode,
       partySize,
@@ -818,15 +818,16 @@ export default function DestinationDetails() {
       ferryTemporal,
       ...(opts ?? {}),
     });
-    if (r.total === undefined) return undefined;
-    return [r.total.min, r.total.max];
   };
 
   const formatGroundCost = (mode: GroundMode): string => {
-    if (!destination) return copy.costUnavailable;
-    const range = modeCostRange(mode);
-    if (!range) return copy.costUnavailable;
-    return `${copy.estimated} ${formatLocalizedJPYRange(range, locale)}`;
+    const result = modeEstimate(mode);
+    if (!result?.total) return copy.costUnavailable;
+    return `${copy.estimated} ${formatTravellerEstimateRange(
+      [result.total.min, result.total.max],
+      result.estimateQuality,
+      locale,
+    )}`;
   };
 
   const isModeVisible = (mode: string) => {
@@ -1951,15 +1952,22 @@ export default function DestinationDetails() {
                                     // KAI-260: canonical range-first estimate;
                                     // transport evidence quality does not hide a
                                     // bounded planning range.
-                                    const ferryRange = modeCostRange("ferry");
-                                    if (!ferryRange) {
+                                    const ferryResult = modeEstimate("ferry");
+                                    const ferryRange = ferryResult?.total
+                                      ? ([
+                                          ferryResult.total.min,
+                                          ferryResult.total.max,
+                                        ] as [number, number])
+                                      : undefined;
+                                    if (!ferryResult?.total) {
                                       return copy.costUnavailable;
                                     }
                                     return (
                                       <>
                                         {copy.estimated}{" "}
-                                        {formatLocalizedJPYRange(
+                                        {formatTravellerEstimateRange(
                                           ferryRange,
+                                          ferryResult.estimateQuality,
                                           locale,
                                         )}
                                       </>
@@ -1987,15 +1995,22 @@ export default function DestinationDetails() {
                                     // KAI-260: canonical range-first estimate;
                                     // unavailable source fare may still have a
                                     // bounded model range.
-                                    const flightRange = modeCostRange("flight");
-                                    if (!flightRange) {
+                                    const flightResult = modeEstimate("flight");
+                                    const flightRange = flightResult?.total
+                                      ? ([
+                                          flightResult.total.min,
+                                          flightResult.total.max,
+                                        ] as [number, number])
+                                      : undefined;
+                                    if (!flightResult?.total) {
                                       return copy.costUnavailable;
                                     }
                                     return (
                                       <>
                                         {copy.estimated}{" "}
-                                        {formatLocalizedJPYRange(
+                                        {formatTravellerEstimateRange(
                                           flightRange,
+                                          flightResult.estimateQuality,
                                           locale,
                                         )}
                                       </>

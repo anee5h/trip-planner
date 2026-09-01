@@ -53,9 +53,6 @@
   "description": "Hirosaki Castle in Aomori is the northernmost original keep in Japan, surrounded by over 2,600 cherry trees making it one of Japan's most celebrated spring destinations.",
   "notes": "One of Japan's 12 original surviving castle keeps (the northernmost). The keep interior is closed for seismic repair (since late 2025) — check before visiting; the park and cherry blossoms remain accessible.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "season": {
     "spring": 10,
     "summer": 7,
@@ -71,11 +68,6 @@
     "parentDestinationId": "hirosaki-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Hirosaki-castle_Aomori_with_Sakura_blossoms.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "food": 2925,
-    "cafe": 1575
-  },
   "highlights": ["Explore Hirosaki Castle", "Local Culture & Scenery"],
   "bestSeason": "Spring",
   "weatherDependence": "moderate",
@@ -166,11 +158,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

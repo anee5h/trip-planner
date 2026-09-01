@@ -27,15 +27,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 1000,
-  "budgetRecommended": 2500,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 500,
-    "tickets": 0,
-    "food": 1500,
-    "cafe": 500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg/1280px-%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg/1280px-%E5%94%90%E6%88%B8%E5%B8%82%E5%A0%B4202309.jpg",
   "imageMetadata": {
@@ -179,11 +170,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

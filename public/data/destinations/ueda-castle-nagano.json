@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ueda_Castle_Amagafuchi.jpg/3840px-Ueda_Castle_Amagafuchi.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Ueda_Castle_Amagafuchi.jpg/3840px-Ueda_Castle_Amagafuchi.jpg",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5750,
-  "budgetMax": 9000,
   "walkingMin": 70,
   "indoorPercent": 75,
   "ratings": {
@@ -60,12 +57,6 @@
     "Thousands of Cherry Trees"
   ],
   "description": "Built in 1583 by Sanada Masayuki, this impregnable fortress famously repelled the massive Tokugawa army twice, featuring surviving corner turrets and Sanada Shrine.",
-  "budgetBreakdown": {
-    "transport": 1610,
-    "tickets": 345,
-    "food": 2645,
-    "cafe": 1150
-  },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Ueda Castle Park entrance.",
   "notes": "Top 100 Castle of Japan #27. Spectacular cherry blossom festival every mid-April.",
@@ -127,11 +118,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

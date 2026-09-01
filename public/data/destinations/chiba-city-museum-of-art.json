@@ -48,15 +48,6 @@
   },
   "description": "A Chiba museum with collections spanning early-modern and modern Japanese painting and prints, post-1945 contemporary art, and works connected with the Boso region.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 300,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 67,
     "car": 57
@@ -233,12 +224,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.ccma-net.jp/"
   },
   "admission": {
     "state": "verified_paid",

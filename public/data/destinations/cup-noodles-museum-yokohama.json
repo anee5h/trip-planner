@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cupnoodles-Museum-Yokohama.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Cupnoodles-Museum-Yokohama.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3000,
-  "budgetRecommended": 6500,
-  "budgetMax": 10000,
   "walkingMin": 40,
   "indoorPercent": 75,
   "ratings": {
@@ -48,12 +45,6 @@
   },
   "highlights": ["Museum", "Family", "Food"],
   "description": "Hands-on food museum where visitors can learn how instant ramen was invented and create their own noodles in the My CUPNOODLES FACTORY and Chicken Ramen Factory workshops.",
-  "budgetBreakdown": {
-    "transport": 650,
-    "tickets": 500,
-    "food": 3250,
-    "cafe": 1300
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -189,12 +180,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.cupnoodles-museum.jp/en/yokohama/guide/admission/"
   },
   "admission": {
     "state": "verified_paid",

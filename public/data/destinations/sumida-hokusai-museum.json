@@ -46,15 +46,6 @@
   },
   "description": "Kazuyo Sejima's angular aluminum museum dedicated to ukiyo-e master Katsushika Hokusai in his birthplace of Sumida. It displays high-resolution digital interactive exhibits and rare prints of the famous Thirty-Six Views of Mount Fuji.",
   "highlights": ["Museum", "Art", "Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 400,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 16
   },
@@ -207,11 +198,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

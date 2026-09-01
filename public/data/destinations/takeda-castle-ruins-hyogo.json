@@ -166,12 +166,6 @@
     "confidence": "medium",
     "basis": "foliage category; calibrated 4/4 trusted autumn peaks"
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",

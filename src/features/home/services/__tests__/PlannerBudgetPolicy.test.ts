@@ -7,24 +7,24 @@ import {
 
 describe("PlannerBudgetPolicy", () => {
   it("calculates correct budget limits for various tiers, party sizes, and durations", () => {
-    // Standard, 2 people, fullDay -> 20000 * 2 * 1.0 = 40000
-    expect(getPlannerBudgetLimit("standard", 2, "fullDay")).toBe(40000);
+    // Standard, 2 people, fullDay -> ¥100,000 party-total ceiling.
+    expect(getPlannerBudgetLimit("standard", 2, "fullDay")).toBe(100000);
 
-    // Economy, 1 person, shortOuting -> 10000 * 1 * 0.5 = 5000
-    expect(getPlannerBudgetLimit("economy", 1, "shortOuting")).toBe(5000);
+    // Economy, 1 person, shortOuting -> 25000 * 1 * 0.5 = 12500
+    expect(getPlannerBudgetLimit("economy", 1, "shortOuting")).toBe(12500);
 
-    // Comfortable, 4 people, halfDay -> 35000 * 4 * 0.75 = 105000
-    expect(getPlannerBudgetLimit("comfortable", 4, "halfDay")).toBe(105000);
+    // Comfortable, 4 people, halfDay -> 100000 * 4 * 0.75 = 300000
+    expect(getPlannerBudgetLimit("comfortable", 4, "halfDay")).toBe(300000);
 
-    // Luxury, 2 people, fullDay -> 75000 * 2 * 1.0 = 150000
-    expect(getPlannerBudgetLimit("luxury", 2, "fullDay")).toBe(150000);
+    // Flexible has no affordability ceiling, regardless of context.
+    expect(getPlannerBudgetLimit("luxury", 2, "fullDay")).toBe(Infinity);
   });
 
   it("exports correct per-person daily limits", () => {
-    expect(PER_PERSON_DAILY_LIMITS.economy).toBe(10000);
-    expect(PER_PERSON_DAILY_LIMITS.standard).toBe(20000);
-    expect(PER_PERSON_DAILY_LIMITS.comfortable).toBe(35000);
-    expect(PER_PERSON_DAILY_LIMITS.luxury).toBe(75000);
+    expect(PER_PERSON_DAILY_LIMITS.economy).toBe(25000);
+    expect(PER_PERSON_DAILY_LIMITS.standard).toBe(50000);
+    expect(PER_PERSON_DAILY_LIMITS.comfortable).toBe(100000);
+    expect(PER_PERSON_DAILY_LIMITS.luxury).toBe(Infinity);
   });
 
   it("exports correct duration multipliers", () => {

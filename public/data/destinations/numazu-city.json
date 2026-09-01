@@ -13,9 +13,6 @@
   "description": "Suruga Bay port city famous for Numazu Deep Sea Aquarium and fresh seafood dining.",
   "highlights": ["Explore Numazu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 7100,
-  "budgetRecommended": 8100,
-  "budgetMax": 9100,
   "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
@@ -55,12 +52,6 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["fujinomiya-city", "atami-city", "ito-city", "izu"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3300,
-    "cafe": 1800
-  },
   "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -80,12 +71,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "hub records span multiple microclimates; single vector would be fabricated"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

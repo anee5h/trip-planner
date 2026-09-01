@@ -6,6 +6,7 @@ import type { WeekendTravelFit } from "./WeekendPolicy";
 import type { WeekendCapacityResult } from "./WeekendPolicy";
 import type { WeekendResultKind } from "./WeekendAreaPolicy";
 import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type { EstimateQuality } from "@/shared/services/budget/tripEstimateEngine";
 import type { TokyoWardsGroupMetadata } from "./TokyoWardsConsolidation";
 
 export type MatchReasonType =
@@ -100,6 +101,7 @@ export interface ScoredDestination extends Destination {
   match: RecommendationMatch;
   bestTransportMode?: string;
   estimatedCostRange?: PriceRange;
+  estimatedCostQuality?: EstimateQuality;
   estimatedCostTransportIncluded?: boolean;
   estimatedCostTransportScope?: EstimatedBudgetRangeResult["transportFareScope"];
   /** The shared origin-aware duration used by cards and roulette. */
@@ -118,6 +120,7 @@ export interface RecommendationStageResult {
   eligible: boolean;
   estimatedCost?: number;
   estimatedCostRange?: PriceRange;
+  estimatedCostQuality?: EstimateQuality;
   estimatedCostTransportIncluded?: boolean;
   estimatedCostTransportScope?: EstimatedBudgetRangeResult["transportFareScope"];
   bestTransportMode?: string;

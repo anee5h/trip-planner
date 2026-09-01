@@ -32,15 +32,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 3500,
-  "budgetRecommended": 7000,
-  "budgetMax": 13000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 2000,
-    "food": 2500,
-    "cafe": 1500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Ohara_Museum_of_Art_20190324.jpg/1280px-Ohara_Museum_of_Art_20190324.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Ohara_Museum_of_Art_20190324.jpg/1280px-Ohara_Museum_of_Art_20190324.jpg",
   "imageMetadata": {
@@ -241,11 +232,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

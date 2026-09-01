@@ -26,8 +26,6 @@
     "uniqueness": 9.8
   },
   "categories": ["onsen", "relaxation", "culture"],
-  "budgetMin": 6000,
-  "budgetMax": 30000,
   "status": "published",
   "travelEstimate": {
     "confidence": "high"
@@ -52,7 +50,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
   "description": "Arima Onsen is Japan's oldest recorded hot spring resort, nestled behind Mount Rokko and famous for its iron-rich golden 'Kinsen' and clear radium 'Ginsen' waters.",
   "notes": "Arima is one of Japan's three oldest hot springs (日本三名泉), with iron-rich gold waters and carbonated silver waters; the onsen town sits in a valley of Mount Rokko.",
-  "budgetRecommended": 18000,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -60,12 +57,6 @@
     "parentDestinationId": "kobe-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/170811_Rokko-Arima_Ropeway_Kobe_Japan00n.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 8450,
-    "cafe": 4550
-  },
   "highlights": ["Explore Arima Onsen", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

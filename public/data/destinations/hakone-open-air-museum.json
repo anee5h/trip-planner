@@ -155,12 +155,6 @@
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
   },
   "walkingMin": 105,
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.hakone-oam.or.jp/contact/"
-  },
   "scoreMetadata": {
     "state": "estimated",
     "value": 6,
@@ -172,12 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 2000,
-    "food": 0,
-    "cafe": 0
   },
   "admission": {
     "state": "verified_paid",

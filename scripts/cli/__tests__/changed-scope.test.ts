@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { parseChangedFiles, parseCatalogueScope } from "../changed-scope";
+import {
+  parseChangedFiles,
+  parseChangedImageDiff,
+  parseCatalogueScope,
+} from "../changed-scope";
 
 describe("parseChangedFiles", () => {
   it("returns empty scope for no changes", () => {
@@ -62,6 +66,24 @@ describe("parseChangedFiles", () => {
     const r = parseChangedFiles(raw);
     expect(r.changedDestinationIds.size).toBe(1);
     expect(r.changedDestinationIds.has("uji-tea-culture-center")).toBe(true);
+  });
+});
+
+describe("parseChangedImageDiff", () => {
+  it("scopes only detail files whose image fields changed", () => {
+    const raw = [
+      "diff --git a/public/data/destinations/alpha.json b/public/data/destinations/alpha.json",
+      "@@ -1 +1 @@",
+      '+  "heroImage": "https://example.com/new.jpg",',
+      "diff --git a/public/data/destinations/beta.json b/public/data/destinations/beta.json",
+      "@@ -1 +1 @@",
+      '+  "budgetMin": 1000,',
+      "diff --git a/public/data/destinations/gamma.json b/public/data/destinations/gamma.json",
+      "@@ -1 +1 @@",
+      '-  "image": "https://example.com/old.jpg",',
+    ].join("\n");
+
+    expect(parseChangedImageDiff(raw)).toEqual(new Set(["alpha", "gamma"]));
   });
 });
 

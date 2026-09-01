@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Lake", "Nature", "Theme Park"],
   "tags": ["Fuji Views", "Fuji-Q", "Cycling"],
-  "budgetRecommended": 12000,
   "ratings": {
     "overall": 9,
     "photography": 9.8,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Fuji_Five_Lakes_and_Mount_Fuji.jpg",
   "prefecture": "Yamanashi",
-  "budgetMin": 8000,
-  "budgetMax": 16000,
   "totalTripHours": 8,
   "walkingMin": 190,
   "comfort": {
@@ -46,12 +43,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Fuji Five Lakes, a prominent destination in Yamanashi. With its rich mix of fuji views, fuji-q, cycling, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 4800,
-    "tickets": 2400,
-    "food": 3600,
-    "cafe": 1200
-  },
   "notes": "A fantastic trip to Fuji Five Lakes. Known for its fuji views and fuji-q vibes, it offers a great escape with an overall score of 9.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Fuji_Five_Lakes_and_Mount_Fuji.jpg",
@@ -118,11 +109,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

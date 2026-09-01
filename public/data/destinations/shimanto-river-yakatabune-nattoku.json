@@ -107,12 +107,6 @@
     "confidence": "unknown",
     "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "Admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
-  },
   "crowdMetadata": {
     "method": "unknown",
     "modelVersion": "crowd-model-v1",

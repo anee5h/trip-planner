@@ -54,15 +54,6 @@
     "Several named 1,000+ year-old cedars",
     "Range of trails from 30min to 2.5h"
   ],
-  "budgetMin": 2000,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 500,
-    "food": 800,
-    "cafe": 200
-  },
   "transportOptions": {
     "ferry": 240
   },
@@ -166,11 +157,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -7,9 +7,6 @@
   "categories": ["Zoo", "Nature", "Family", "Historic"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ueno_Zoo_20220414a1.jpg/1920px-Ueno_Zoo_20220414a1.jpg",
   "totalTripHours": 4,
-  "budgetMin": 4000,
-  "budgetRecommended": 7000,
-  "budgetMax": 10000,
   "walkingMin": 50,
   "indoorPercent": 25,
   "ratings": {
@@ -51,11 +48,6 @@
     "Shinobazu Pond Waterfront Aviary"
   ],
   "description": "Japan's oldest zoo located in Ueno Park, home to giant pandas, historic 5-story pagoda backdrop, and 300+ animal species.",
-  "budgetBreakdown": {
-    "transport": 800,
-    "food": 3600,
-    "cafe": 1400
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -183,11 +175,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

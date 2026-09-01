@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/1280px-Kanazawa-M-5932.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Kanazawa-M-5932.jpg/1280px-Kanazawa-M-5932.jpg",
   "totalTripHours": 4,
-  "budgetMin": 3000,
-  "budgetRecommended": 7000,
-  "budgetMax": 11000,
   "walkingMin": 90,
   "indoorPercent": 75,
   "ratings": {
@@ -60,12 +57,6 @@
     "Ishikawamon Gate"
   ],
   "description": "The magnificent seat of the powerful Maeda clan (Kaga Domain), featuring meticulously reconstructed wooden turrets, white lead tile roofs, and Gyokusen'inmaru feudal garden adjacent to Kenrokuen.",
-  "budgetBreakdown": {
-    "transport": 1938,
-    "tickets": 0,
-    "food": 3446,
-    "cafe": 1271
-  },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Kenrokuen / Kanazawa Castle Park entrance.",
   "notes": "Top 100 Castle of Japan #35. Beautiful night illumination of Gyokusen'inmaru garden on weekends.",
@@ -120,11 +111,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -14,14 +14,6 @@
     "Kotoku-ji Temple",
     "Tsumago-Magome Nakasendo Trail"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 11500,
-  "budgetRecommended": 7750,
-  "budgetBreakdown": {
-    "transport": 3776,
-    "food": 1987,
-    "cafe": 993
-  },
   "transportOptions": {
     "train": 150,
     "car": 160
@@ -122,11 +114,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -19,9 +19,6 @@
     "Osu Shopping Street"
   ],
   "totalTripHours": 6,
-  "budgetMin": 4000,
-  "budgetRecommended": 14500,
-  "budgetMax": 25000,
   "walkingMin": 360,
   "indoorPercent": 60,
   "ratings": {
@@ -87,12 +84,6 @@
     ],
     "relatedDestinationIds": ["kyoto-city", "osaka-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3625,
-    "tickets": 1813,
-    "food": 5891,
-    "cafe": 3171
-  },
   "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -149,11 +140,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

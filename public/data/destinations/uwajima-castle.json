@@ -53,9 +53,6 @@
   "description": "Founded by master castle builder Tōdō Takatora in 1601, Uwajima Castle has a Date-family keep that is one of Japan's twelve original castle keeps.",
   "notes": "The keep is an Important Cultural Property and the castle hill is a National Historic Site in Uwajima City, Ehime.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -65,12 +62,6 @@
     "nearbyDestinationIds": []
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Uwajima_Castle_Keep_Tower_20170611.jpg/1280px-Uwajima_Castle_Keep_Tower_20170611.jpg",
-  "budgetBreakdown": {
-    "transport": 2375,
-    "tickets": 200,
-    "food": 4517,
-    "cafe": 2408
-  },
   "highlights": ["Explore Uwajima Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -119,11 +110,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

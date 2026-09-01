@@ -11,9 +11,6 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -69,12 +66,6 @@
   ],
   "relationships": {
     "parentDestinationId": "ikaruga-town"
-  },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1500
   },
   "nameJa": "法隆寺地域の仏教建造物",
   "comfort": {
@@ -175,12 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥2000 (ledger FIXED_PAID); source: https://www.horyuji.or.jp/en/annai/"
   },
   "admission": {
     "state": "verified_paid",

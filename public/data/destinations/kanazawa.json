@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["City", "Garden", "History"],
   "tags": ["Kenrokuen", "Gold Leaf", "Geisha District"],
-  "budgetRecommended": 13000,
   "ratings": {
     "overall": 9.4,
     "photography": 9.2,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/3840px-Stone_lantern_Kenrokuen.jpg",
   "prefecture": "Ishikawa",
-  "budgetMin": 9000,
-  "budgetMax": 17000,
   "totalTripHours": 8,
   "walkingMin": 360,
   "comfort": {
@@ -46,12 +43,6 @@
     "Perfect for a active day out"
   ],
   "description": "Kanazawa is the capital of Ishikawa Prefecture in central Japan.  As of 1 January 2018, the city had an estimated population of 466,029 in 203,271 households, and a population density of 990 persons per km2.",
-  "budgetBreakdown": {
-    "transport": 5200,
-    "tickets": 2600,
-    "food": 3900,
-    "cafe": 1300
-  },
   "notes": "A fantastic trip to Kanazawa. Known for its kenrokuen and gold leaf vibes, it offers a great escape with an overall score of 9.4.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Stone_lantern_Kenrokuen.jpg/3840px-Stone_lantern_Kenrokuen.jpg",
@@ -122,11 +113,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

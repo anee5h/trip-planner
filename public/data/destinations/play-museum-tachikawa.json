@@ -64,15 +64,6 @@
     "Interactive Play Space",
     "GREEN SPRINGS Complex Setting"
   ],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 1800,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 37
   },
@@ -218,12 +209,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥1800 (ledger LEDGER_VERIFIED); source: https://play2020.jp/en/"
   },
   "admission": {
     "state": "verified_paid",

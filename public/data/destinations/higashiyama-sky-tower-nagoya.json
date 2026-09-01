@@ -8,9 +8,6 @@
   "heroImage": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "image": "https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=1200",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
   "walkingMin": 70,
   "indoorPercent": 80,
   "ratings": {
@@ -60,12 +57,6 @@
     "Japan Top 100 Night Views"
   ],
   "description": "Perched atop an 80m hill inside Higashiyama Zoo & Botanical Gardens, this 134-meter pencil tower reaches a total elevation of 214 meters, offering panoramic views of Central Japan Alps.",
-  "budgetBreakdown": {
-    "transport": 1100,
-    "tickets": 330,
-    "food": 2970,
-    "cafe": 1100
-  },
   "reservation": "No reservation required.",
   "parking": "Large paid parking lots serving Higashiyama Zoo & Sky Tower.",
   "notes": "Combination tickets available for both Higashiyama Zoo and Sky Tower.",
@@ -128,11 +119,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

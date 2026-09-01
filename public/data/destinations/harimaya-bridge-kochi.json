@@ -27,15 +27,6 @@
     "bus": 115,
     "car": 120
   },
-  "budgetMin": 500,
-  "budgetRecommended": 2000,
-  "budgetMax": 4000,
-  "budgetBreakdown": {
-    "transport": 500,
-    "tickets": 0,
-    "food": 1000,
-    "cafe": 500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Kochi_Harimaya-bashi_Bridge.jpeg/1280px-Kochi_Harimaya-bashi_Bridge.jpeg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Kochi_Harimaya-bashi_Bridge.jpeg/1280px-Kochi_Harimaya-bashi_Bridge.jpeg",
   "imageMetadata": {
@@ -163,11 +154,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

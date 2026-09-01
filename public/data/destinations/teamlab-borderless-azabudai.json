@@ -6,9 +6,6 @@
   "categories": ["Art", "Digital Art", "Museum", "Indoor"],
   "heroImage": "https://images.unsplash.com/photo-1593073862407-a3ce22748763?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGVhbWxhYiUyMHBsYW5ldHMlMjB0b2t5b3xlbnwwfHwwfHx8MA%3D%3D",
   "totalTripHours": 4,
-  "budgetMin": 11600,
-  "budgetRecommended": 15600,
-  "budgetMax": 19600,
   "walkingMin": 30,
   "indoorPercent": 100,
   "ratings": {
@@ -50,12 +47,6 @@
     "EN TEA HOUSE Experience"
   ],
   "description": "An extraordinary digital art museum in Azabudai Hills where artworks move, interact, and blend without boundaries.",
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 8600,
-    "food": 4200,
-    "cafe": 1800
-  },
   "reservation": "Advance online booking required.",
   "parking": "Paid parking structure available at Azabudai Hills.",
   "notes": "Explore the maze of light and digital projection art freely without fixed map routes.",
@@ -203,11 +194,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

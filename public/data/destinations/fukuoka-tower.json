@@ -43,15 +43,6 @@
   },
   "description": "A 234-meter seaside observation tower in Momochihama with 360-degree views from its 123-meter observation deck, cafes, and seasonal illumination.",
   "highlights": ["Viewpoint"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 1000,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 197,
     "shinkansen": 297
@@ -236,12 +227,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥1000 (ledger FIXED_PAID); source: https://www.fukuokatower.co.jp/charge/"
   },
   "admission": {
     "state": "verified_paid",

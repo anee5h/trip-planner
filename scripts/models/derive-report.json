@@ -4,120 +4,7 @@
   "pendingChanges": 0,
   "pendingByModel": [],
   "touchedRecords": {
-    "budget-model-v1": [
-      "abashiri-city",
-      "aizuwakamatsu-city",
-      "akita-city",
-      "aomori-city",
-      "asago-city",
-      "asahikawa-city",
-      "ashikaga-city",
-      "aso-city",
-      "atami-city",
-      "beppu-city",
-      "chichibu-city",
-      "chigasaki-city",
-      "choshi-city",
-      "dazaifu-city",
-      "fujinomiya-city",
-      "fujisawa-city",
-      "fujiyoshida-city",
-      "fukuoka-city",
-      "fukushima-city",
-      "funabashi-city",
-      "furano-city",
-      "gero-city",
-      "gifu-city",
-      "gotemba-city",
-      "hachinohe-city",
-      "hakodate-city",
-      "hamamatsu-city",
-      "hatsukaichi-city",
-      "hikone-city",
-      "himeji-city",
-      "hino-city",
-      "hiraizumi-chusonji-iwate",
-      "hirosaki-city",
-      "hiroshima-city",
-      "inuyama-city",
-      "ise-city",
-      "ishigaki-city",
-      "ito-city",
-      "iwakuni-city",
-      "izumo-city",
-      "kagoshima-city",
-      "kamakura-city",
-      "katori-city",
-      "kawagoe-city",
-      "kawaguchi-city",
-      "kawasaki-city",
-      "kisarazu-city",
-      "kitakyushu-city",
-      "kobe-city",
-      "kochi-city",
-      "kofu-city",
-      "koriyama-city",
-      "kumamoto-city",
-      "kurashiki-city",
-      "kushiro-city",
-      "marugame-city",
-      "matsudo-city",
-      "matsue-city",
-      "matsumoto-city",
-      "matsuyama-city",
-      "mine-city",
-      "mito-city",
-      "miyakojima-city",
-      "miyazaki-city",
-      "miyazu-city",
-      "morioka-city",
-      "nagasaki-city",
-      "nago-city",
-      "naha-city",
-      "nara-city",
-      "narita-city",
-      "naruto-city",
-      "national-museum-western-art-tokyo",
-      "nikko-city",
-      "numazu-city",
-      "odawara-city",
-      "okayama-city",
-      "okazaki-city",
-      "onomichi-city",
-      "otaru-city",
-      "otsu-city",
-      "oura-church-nagasaki",
-      "sagamihara-city",
-      "sakai-city",
-      "sannai-maruyama-jomon-aomori",
-      "sapporo-city",
-      "semboku-city",
-      "shimonoseki-city",
-      "shizuoka-city",
-      "takahashi-city",
-      "takamatsu-city",
-      "takayama-city",
-      "tokorozawa-city",
-      "tokushima-city",
-      "tomioka-silk-mill-gunma",
-      "tottori-city",
-      "toyooka-city",
-      "toyota-city",
-      "tsukuba-city",
-      "uji-city",
-      "urayasu-city",
-      "utsunomiya-city",
-      "wakayama-city",
-      "yamagata-city",
-      "yokohama-cosmo-world",
-      "yokosuka-city",
-      "yufu-city",
-      "karatsu-city",
-      "sasebo-city",
-      "ibusuki-city",
-      "nichinan-city",
-      "hita-city"
-    ],
+    "budget-model-v1": [],
     "season-model-v1": [
       "abashiri-city",
       "abeno-harukas-300-osaka",
@@ -1996,8 +1883,6 @@
     ]
   },
   "modelClusterIds": [
-    "budget:3bcb2a3c5cdd",
-    "budget:c178216b2bef",
     "visitDuration:3339bcb2ae09",
     "visitDuration:c7f7bd9ca006",
     "visitDuration:a8d277c24598",
@@ -2007,6 +1892,7 @@
     "visitDuration:480983978476",
     "visitDuration:b2a5eb034cbe",
     "visitDuration:fe496e42c678",
+    "season:248edaf45789",
     "season:96690f810f73",
     "season:6b05ba8b5e86",
     "season:cf719c225387",
@@ -2040,20 +1926,164 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-08-31T05:05",
-    "changeCount": 1,
+    "at": "2026-09-01T13:30",
+    "changeCount": 691,
     "byModel": [
       [
-        "hub-window-model-v1",
-        1
+        "budget-model-v1",
+        691
       ]
     ],
     "sample": [
       {
-        "id": "kusatsu-town",
-        "model": "hub-window-model-v1",
-        "action": "set",
-        "reason": "hub exploration window: importance major, 3 children, metro=false"
+        "id": "abeno-harukas-300-osaka",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "akasaka-minato",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "akihabara-chiyoda",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "amami-iriomote-natural-site",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "amanohashidate-kyoto",
+        "model": "budget-model-v1",
+        "action": "keep",
+        "reason": "verified ticket ¥0 preserved; peer cell 'none|half|destination' has 0 samples (< 5); components left as accepted debt"
+      },
+      {
+        "id": "ameya-yokocho",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "arima-onsen",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "art-tower-mito",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "asakusa-taito",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "ashigara",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "ashikaga-flower-park-tochigi",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "asuka-fujiwara-nara",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "beppu-hells-oita",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "boso-no-mura",
+        "model": "budget-model-v1",
+        "action": "keep",
+        "reason": "verified ticket ¥300 preserved; peer cell 'museum|half|standalone' has 0 samples (< 5); components left as accepted debt"
+      },
+      {
+        "id": "boso-peninsula",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "canal-city-hakata",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-city-folk-museum",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-city-museum-of-art",
+        "model": "budget-model-v1",
+        "action": "keep",
+        "reason": "verified ticket ¥300 preserved; peer cell 'museum|half|poi' has 0 samples (< 5); components left as accepted debt"
+      },
+      {
+        "id": "chiba-nokogiriyama",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-park",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-port-park",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-port-tower",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-sawara",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-shrine",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+      },
+      {
+        "id": "chiba-yoro-valley",
+        "model": "budget-model-v1",
+        "action": "clear-to-unknown",
+        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
       }
     ]
   }

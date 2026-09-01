@@ -117,12 +117,6 @@
     "confidence": "unknown",
     "basis": "The attraction is primarily outdoor and weather-dependent; no defensible four-season score model was verified from current authoritative material."
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "Current admission and access costs are volatile or origin-dependent; no numeric budget is published here."
-  },
   "crowdMetadata": {
     "method": "unknown",
     "modelVersion": "crowd-model-v1",

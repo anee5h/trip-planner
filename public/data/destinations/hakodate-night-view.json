@@ -30,8 +30,6 @@
     "uniqueness": 9.8
   },
   "categories": ["sightseeing", "nature", "romance"],
-  "budgetMin": 3000,
-  "budgetMax": 10000,
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -56,7 +54,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
   "description": "Mount Hakodate offers one of Japan's Three Great Night Views, overlooking a stunning hourglass-shaped peninsula illuminated between Tsugaru Strait and Hakodate Bay.",
   "notes": "One of Japan's Three Great Night Views — sweeping views over Hakodate Bay from Mount Hakodate.",
-  "budgetRecommended": 6500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -67,12 +64,6 @@
     "relatedDestinationIds": []
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg/3840px-Kanemori_Red_Brick_Warehouse_Hakodate_Hokkaido_pref_Japan01n.jpg",
-  "budgetBreakdown": {
-    "transport": 1083,
-    "tickets": 0,
-    "food": 3169,
-    "cafe": 1706
-  },
   "highlights": [
     "Explore Mount Hakodate Night View",
     "Local Culture & Scenery"
@@ -123,11 +114,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

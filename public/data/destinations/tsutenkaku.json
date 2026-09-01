@@ -40,14 +40,6 @@
   },
   "description": "A landmark tower in Shinsekai with observation decks, the Billiken figure, cafes, shops, and views over southern Osaka.",
   "highlights": ["Viewpoint"],
-  "budgetMin": 2500,
-  "budgetRecommended": 4000,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "food": 1600,
-    "cafe": 600
-  },
   "transportOptions": {
     "train": 190,
     "bus": 210,
@@ -219,11 +211,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

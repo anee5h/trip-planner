@@ -49,15 +49,6 @@
     "Jozenji Street Jazz Festival",
     "Seasonal illuminations"
   ],
-  "budgetMin": 1500,
-  "budgetRecommended": 3200,
-  "budgetMax": 4500,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 26,
     "bus": 36,
@@ -183,11 +174,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -7,9 +7,6 @@
   "heroImage": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
   "description": "Sprawling 250-hectare mountain farm overlooking Tokyo Bay with alpaca feeding, sheep shearing shows, and flower fields.",
   "highlights": ["Sheep Shearing Show", "Alpaca Farm", "Flower Fields"],
-  "budgetMin": 8000,
-  "budgetMax": 18000,
-  "budgetRecommended": 13000,
   "transportOptions": {
     "train": 50,
     "car": 75
@@ -61,11 +58,6 @@
     "gatewayHubId": "kisarazu-city"
   },
   "image": "https://images.unsplash.com/photo-1500595046743-cd271d694d30?q=80&w=1000",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "food": 5200,
-    "cafe": 2800
-  },
   "comfort": {
     "heatTolerance": 5,
     "rainFriendly": 4,
@@ -162,11 +154,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

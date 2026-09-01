@@ -18,9 +18,6 @@
     "Arashiyama Bamboo Grove"
   ],
   "totalTripHours": 8,
-  "budgetMin": 5000,
-  "budgetRecommended": 20000,
-  "budgetMax": 35000,
   "walkingMin": 360,
   "indoorPercent": 40,
   "ratings": {
@@ -95,12 +92,6 @@
     ],
     "nearbyDestinationIds": ["osaka-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["nara-city"]
-  },
-  "budgetBreakdown": {
-    "transport": 4000,
-    "tickets": 2000,
-    "food": 9100,
-    "cafe": 4900
   },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
@@ -212,11 +203,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

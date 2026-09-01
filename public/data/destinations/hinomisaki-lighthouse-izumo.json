@@ -32,15 +32,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 300,
-  "budgetRecommended": 1800,
-  "budgetMax": 4000,
-  "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 300,
-    "food": 400,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hinomisaki_lighthouse_Izumo01bs3200.jpg/1280px-Hinomisaki_lighthouse_Izumo01bs3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Hinomisaki_lighthouse_Izumo01bs3200.jpg/1280px-Hinomisaki_lighthouse_Izumo01bs3200.jpg",
   "imageMetadata": {
@@ -199,11 +190,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

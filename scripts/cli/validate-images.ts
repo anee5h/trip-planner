@@ -1,6 +1,9 @@
 import { createValidationContext } from "../catalog/loader";
 import { imagesValidator } from "../validators/images";
-import { getChangedDestinationScope, type ChangedScope } from "./changed-scope";
+import {
+  getChangedDestinationImageScope,
+  type ChangedScope,
+} from "./changed-scope";
 
 function parseArgs(argv: string[]): { mode: "all" | "changed" } {
   const flag = argv.find((a) => a === "--changed" || a === "--all");
@@ -15,7 +18,7 @@ async function main() {
   let usedScope: ChangedScope | null = null;
 
   if (mode === "changed") {
-    const scope = getChangedDestinationScope();
+    const scope = getChangedDestinationImageScope();
     usedScope = scope;
     const ids = scope.changedDestinationIds;
     if (ids.size === 0 && !scope.indexChanged) {

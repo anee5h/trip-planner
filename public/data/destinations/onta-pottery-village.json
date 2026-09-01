@@ -59,15 +59,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://oidehita.com/archives/51821"
   },
-  "budgetMin": 500,
-  "budgetRecommended": 3000,
-  "budgetMax": 10000,
-  "budgetBreakdown": {
-    "transport": 150,
-    "tickets": 0,
-    "food": 225,
-    "cafe": 50
-  },
   "transportOptions": {
     "bus": 500
   },
@@ -212,11 +203,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

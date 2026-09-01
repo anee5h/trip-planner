@@ -14,15 +14,6 @@
     "Shosenkyo Ropeway (Panorama view)",
     "Kakutozan Rock Pinnacle"
   ],
-  "budgetMin": 3500,
-  "budgetMax": 10000,
-  "budgetRecommended": 6750,
-  "budgetBreakdown": {
-    "transport": 2779,
-    "tickets": 1489,
-    "food": 1688,
-    "cafe": 794
-  },
   "transportOptions": {
     "train": 110,
     "car": 100
@@ -118,11 +109,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

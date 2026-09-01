@@ -28,15 +28,6 @@
     "bus": 125,
     "car": 130
   },
-  "budgetMin": 7000,
-  "budgetRecommended": 14000,
-  "budgetMax": 22000,
-  "budgetBreakdown": {
-    "transport": 4000,
-    "tickets": 3000,
-    "food": 5000,
-    "cafe": 2000
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Iya_Valley_01.jpg/1280px-Iya_Valley_01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Iya_Valley_01.jpg/1280px-Iya_Valley_01.jpg",
   "imageMetadata": {
@@ -145,11 +136,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

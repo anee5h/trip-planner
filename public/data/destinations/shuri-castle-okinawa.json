@@ -11,9 +11,6 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 400,
-  "budgetMax": 1000,
-  "budgetRecommended": 600,
   "transportOptions": {
     "train": 25,
     "bus": 50,
@@ -70,12 +67,6 @@
   ],
   "relationships": {
     "parentDestinationId": "naha-city"
-  },
-  "budgetBreakdown": {
-    "transport": 200,
-    "tickets": 400,
-    "food": 0,
-    "cafe": 0
   },
   "nameJa": "首里城と琉球王国のグスク",
   "comfort": {
@@ -200,11 +191,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

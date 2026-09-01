@@ -6,9 +6,6 @@
   "categories": ["City", "Shopping", "Theme Park"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg/3840px-Sunshine_60_Observatory_%40_Sunshine_Building_%40_Ikebukuro_%2811547419543%29.jpg",
   "totalTripHours": 8,
-  "budgetMin": 9000,
-  "budgetRecommended": 13000,
-  "budgetMax": 17000,
   "walkingMin": 60,
   "indoorPercent": 80,
   "ratings": {
@@ -50,12 +47,6 @@
     "Otome Road"
   ],
   "description": "Ikebukuro (Toshima) is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-  "budgetBreakdown": {
-    "transport": 1083,
-    "tickets": 0,
-    "food": 2275,
-    "cafe": 975
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
@@ -152,12 +143,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified free admission (ledger LEDGER_VERIFIED)"
   },
   "admission": {
     "state": "verified_free",

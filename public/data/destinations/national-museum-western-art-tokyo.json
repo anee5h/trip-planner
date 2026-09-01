@@ -11,9 +11,6 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 9500,
-  "budgetMax": 11500,
-  "budgetRecommended": 10500,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -69,12 +66,6 @@
   "relationships": {
     "parentDestinationId": "taito-city"
   },
-  "budgetBreakdown": {
-    "transport": 2100,
-    "tickets": 500,
-    "food": 5800,
-    "cafe": 2100
-  },
   "nameJa": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-",
   "comfort": {
     "heatTolerance": 6,
@@ -110,14 +101,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'none|full|poi' n=12; tickets source-verified",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -180,12 +163,6 @@
     "modelVersion": "crowd-model-v1",
     "confidence": "unknown",
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
   },
   "scoreMetadata": {
     "state": "estimated",

@@ -32,15 +32,6 @@
     "bus": 30,
     "car": 25
   },
-  "budgetMin": 600,
-  "budgetRecommended": 2500,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 600,
-    "food": 800,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kaminoyama_Castle_20230806b.jpg/1280px-Kaminoyama_Castle_20230806b.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kaminoyama_Castle_20230806b.jpg/1280px-Kaminoyama_Castle_20230806b.jpg",
   "imageMetadata": {
@@ -216,11 +207,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

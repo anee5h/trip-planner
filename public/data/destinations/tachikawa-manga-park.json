@@ -52,15 +52,6 @@
   },
   "description": "A cozy public reading lounge holding over 40,000 manga volumes, where visitors can relax on tatami mats and wooden cubbies for a small day-pass fee. It is a beloved haven for comic fans of all ages.",
   "highlights": ["Manga", "Culture", "Indoor"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 400,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 36
   },
@@ -183,12 +174,6 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://mangapark.jp/guide/info/"
   },
   "comfortMetadata": {
     "method": "model",

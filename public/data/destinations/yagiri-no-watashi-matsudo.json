@@ -105,12 +105,6 @@
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "Current admission, food, and access costs are volatile or destination-dependent; no numeric budget is published here."
-  },
   "crowdMetadata": {
     "method": "unknown",
     "modelVersion": "crowd-model-v1",

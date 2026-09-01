@@ -53,9 +53,6 @@
   "description": "A 400-year-old hilltop castle famous for Japan's tallest stone walls and one of the twelve original castle keeps.",
   "notes": "The official city site lists free castle-museum parking and nearby paid municipal lots; check restoration notices before visiting.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 3000,
-  "budgetMax": 12000,
-  "budgetRecommended": 7500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -64,12 +61,6 @@
     "parentDestinationId": "marugame-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Marugame_Castle01.jpg/1280px-Marugame_Castle01.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 400,
-    "food": 2692,
-    "cafe": 1408
-  },
   "highlights": ["Explore Marugame Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -123,11 +114,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

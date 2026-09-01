@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg/1280px-SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg/1280px-SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3500,
-  "budgetRecommended": 8250,
-  "budgetMax": 13000,
   "walkingMin": 35,
   "indoorPercent": 70,
   "ratings": {
@@ -57,12 +54,6 @@
     "Shibuya Scramble Crossing Overlook"
   ],
   "description": "A breathtaking 229-meter rooftop observation deck at Shibuya Scramble Square offering 360-degree views of Tokyo and Mount Fuji.",
-  "budgetBreakdown": {
-    "transport": 236,
-    "tickets": 2500,
-    "food": 3771,
-    "cafe": 1297
-  },
   "reservation": "Online timed entry ticket required; sunset slots sell out early.",
   "parking": "Paid parking garages available at Shibuya Scramble Square and nearby complexes.",
   "notes": "Book sunset timeslots 2-4 weeks in advance for breathtaking Golden Hour photos over Shibuya Crossing.",
@@ -205,11 +196,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

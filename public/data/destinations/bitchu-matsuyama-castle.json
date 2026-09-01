@@ -58,9 +58,6 @@
   "description": "Bitchu Matsuyama Castle is Japan's highest original mountain castle (430 meters above sea level), celebrated for floating above a sea of clouds on autumn mornings.",
   "notes": "Japan's only surviving mountain castle with its original keep.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 4000,
-  "budgetMax": 14000,
-  "budgetRecommended": 9000,
   "walkingMin": 180,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -68,11 +65,6 @@
     "parentDestinationId": "takahashi-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Bitchu_Matsuyama_Castle_1.JPG/1280px-Bitchu_Matsuyama_Castle_1.JPG",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "food": 2600,
-    "cafe": 1400
-  },
   "highlights": ["Explore Bitchu Matsuyama Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -149,11 +141,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

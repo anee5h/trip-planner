@@ -13,9 +13,6 @@
     "Regional Cultural Museums",
     "Downtown Food District"
   ],
-  "budgetMin": 8000,
-  "budgetMax": 20000,
-  "budgetRecommended": 14000,
   "transportOptions": {
     "train": 30,
     "bus": 40,
@@ -78,12 +75,6 @@
       "osaki-hachimangu",
       "rakuten-mobile-park-miyagi"
     ]
-  },
-  "budgetBreakdown": {
-    "transport": 4000,
-    "tickets": 3000,
-    "food": 4500,
-    "cafe": 2500
   },
   "comfort": {
     "heatTolerance": 6,
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

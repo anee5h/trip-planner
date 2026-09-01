@@ -12,15 +12,6 @@
     "Nagare-no-Kannon Shrine",
     "Fukuroda Hot Springs (nearby)"
   ],
-  "budgetMin": 3500,
-  "budgetMax": 9500,
-  "budgetRecommended": 6500,
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 500,
-    "food": 2000,
-    "cafe": 1000
-  },
   "transportOptions": {
     "train": 150,
     "car": 120
@@ -183,11 +174,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

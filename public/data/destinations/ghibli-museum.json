@@ -6,9 +6,6 @@
   "categories": ["Theme Park", "Museum", "Art"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ghibli_Museum_2024.JPG/3840px-Ghibli_Museum_2024.JPG",
   "totalTripHours": 6,
-  "budgetMin": 6900,
-  "budgetRecommended": 10900,
-  "budgetMax": 14900,
   "walkingMin": 50,
   "indoorPercent": 90,
   "ratings": {
@@ -46,12 +43,6 @@
   },
   "highlights": ["Giant Robot Soldier", "Catbus Room", "Exclusive Short Films"],
   "description": "Ghibli Museum is a scenic destination in the Tokyo region of Japan, offering rich history and cultural attractions.",
-  "budgetBreakdown": {
-    "transport": 1101,
-    "tickets": 1000,
-    "food": 5395,
-    "cafe": 2202
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -175,11 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

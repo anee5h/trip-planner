@@ -127,12 +127,6 @@
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "walkingMin": 170,
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "ambiguous evidence (ledger kind flags product decision); budget unknown (UNKNOWN_NOT_FREE)"
-  },
   "scoreMetadata": {
     "state": "estimated",
     "value": 6,

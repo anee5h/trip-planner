@@ -40,15 +40,6 @@
   },
   "description": "Tokyo's leading venue for cutting-edge modern art, housing over 5,500 works by influential postwar and international artists in Koto City. Its spacious architectural galleries host major temporary exhibitions and design retrospectives.",
   "highlights": ["Museum", "Art", "Indoor"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 500,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 16
   },
@@ -201,11 +192,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

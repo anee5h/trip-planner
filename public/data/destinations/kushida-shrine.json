@@ -182,12 +182,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://yokanavi.com/en/spot/26906/"
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",

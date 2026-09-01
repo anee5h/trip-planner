@@ -115,15 +115,6 @@
     "confidence": "unknown",
     "basis": "No stable seasonality claim was promoted from the reviewed source."
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "No current general-entry amount was promoted from the reviewed official source."
-  },
   "crowdMetadata": {
     "method": "unknown",
     "modelVersion": "crowd-model-v1",

@@ -27,15 +27,6 @@
     "bus": 115,
     "car": 120
   },
-  "budgetMin": 1000,
-  "budgetRecommended": 3000,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 600
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg/1280px-%E9%81%93%E5%BE%8C%E5%95%86%E5%BA%97%E8%A1%97_Dogo_Shopping_Street_-_panoramio.jpg",
   "imageMetadata": {
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

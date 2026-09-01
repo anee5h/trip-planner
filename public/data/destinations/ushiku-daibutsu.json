@@ -4,7 +4,6 @@
   "region": "Kanto",
   "categories": ["Shrine", "Park"],
   "tags": ["Giant Statue", "Record Breaking"],
-  "budgetRecommended": 7500,
   "ratings": {
     "overall": 7.6,
     "photography": 8.5,
@@ -24,8 +23,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/en/6/62/Ushiku.jpg",
   "prefecture": "Ibaraki",
-  "budgetMin": 3500,
-  "budgetMax": 11500,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -43,11 +40,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Ushiku Daibutsu, a prominent destination in Ibaraki. With its rich mix of giant statue, record breaking, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "food": 2250,
-    "cafe": 750
-  },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/en/6/62/Ushiku.jpg",
   "imageMetadata": {
@@ -163,11 +155,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

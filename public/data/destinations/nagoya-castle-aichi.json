@@ -13,9 +13,6 @@
   "description": "Iconic landmark of Nagoya featuring reconstructed Hommaru Palace and golden shachihoko roof ornaments.",
   "highlights": ["Hommaru Palace", "Golden Shachihoko", "Ninja Performance"],
   "totalTripHours": 3,
-  "budgetMin": 500,
-  "budgetRecommended": 1750,
-  "budgetMax": 3000,
   "walkingMin": 120,
   "indoorPercent": 40,
   "ratings": {
@@ -108,11 +105,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

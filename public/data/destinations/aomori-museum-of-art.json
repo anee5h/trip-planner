@@ -32,15 +32,6 @@
     "bus": 70,
     "car": 50
   },
-  "budgetMin": 700,
-  "budgetRecommended": 2800,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 700,
-    "food": 900,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/140913_Aomori_Museum_of_Art_Japan02bs3.jpg/1280px-140913_Aomori_Museum_of_Art_Japan02bs3.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/140913_Aomori_Museum_of_Art_Japan02bs3.jpg/1280px-140913_Aomori_Museum_of_Art_Japan02bs3.jpg",
   "imageMetadata": {
@@ -232,11 +223,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -113,12 +113,6 @@
   },
   "walkingMin": 70,
   "walkingIntensity": "medium",
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥400 (ledger FIXED_PAID); source: https://www.himeji-machishin.jp/ryokka/kokoen/en/info_detail.php?eid=00105"
-  },
   "scoreMetadata": {
     "state": "unavailable",
     "value": null,
@@ -130,12 +124,6 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
-  },
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 400,
-    "food": 0,
-    "cafe": 0
   },
   "admission": {
     "state": "verified_paid",

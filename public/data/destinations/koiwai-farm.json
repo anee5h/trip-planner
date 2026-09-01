@@ -32,14 +32,6 @@
     "bus": 40,
     "car": 35
   },
-  "budgetMin": 0,
-  "budgetRecommended": 2500,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "food": 1000,
-    "cafe": 500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cherry_tree_and_Mount_Iwate.jpg/1280px-Cherry_tree_and_Mount_Iwate.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Cherry_tree_and_Mount_Iwate.jpg/1280px-Cherry_tree_and_Mount_Iwate.jpg",
   "imageMetadata": {
@@ -209,11 +201,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

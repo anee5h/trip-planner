@@ -21,19 +21,10 @@
     "Kondoi Beach"
   ],
   "notes": "Ferry from Ishigaki takes ~10 min; rent a bicycle (¥500+) to tour the village and beaches.",
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 9000,
   "budget": {
     "low": 1500,
     "mid": 4000,
     "high": 9000
-  },
-  "budgetBreakdown": {
-    "transport": 2000,
-    "tickets": 800,
-    "food": 800,
-    "cafe": 400
   },
   "transportOptions": {
     "ferry": 10
@@ -178,11 +169,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

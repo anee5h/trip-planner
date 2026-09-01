@@ -32,7 +32,8 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
 import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
+import { estimateQualityLabel } from "@/shared/services/budget/tripEstimateEngine";
 import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { formatTravelConditionParams } from "@/shared/services/recommendation/TravelConditions";
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
@@ -508,16 +509,27 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                 <span
                   className="flex items-center gap-1 truncate"
                   title={
-                    scoredDestination.estimatedCostTransportScope ===
-                    "corridor_only"
-                      ? t("home.transportModes.corridorFareOnly")
-                      : undefined
+                    [
+                      scoredDestination.estimatedCostQuality
+                        ? estimateQualityLabel(
+                            scoredDestination.estimatedCostQuality,
+                            locale,
+                          )
+                        : undefined,
+                      scoredDestination.estimatedCostTransportScope ===
+                      "corridor_only"
+                        ? t("home.transportModes.corridorFareOnly")
+                        : undefined,
+                    ]
+                      .filter(Boolean)
+                      .join(" · ") || undefined
                   }
                 >
                   <JapaneseYen className="h-3 w-3 shrink-0 text-slate-500 sm:h-3.5 sm:w-3.5" />
                   <span className="truncate">
-                    {formatLocalizedJPYRange(
+                    {formatTravellerEstimateRange(
                       scoredDestination.estimatedCostRange,
+                      scoredDestination.estimatedCostQuality,
                       locale,
                     )}
                   </span>

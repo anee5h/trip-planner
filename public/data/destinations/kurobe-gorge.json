@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Nature", "Mountain"],
   "tags": ["Scenic Railway", "Ravine", "Onsen"],
-  "budgetRecommended": 21000,
   "ratings": {
     "overall": 8.9,
     "photography": 9.4,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",
   "prefecture": "Toyama",
-  "budgetMin": 17000,
-  "budgetMax": 25000,
   "totalTripHours": 8,
   "walkingMin": 385,
   "comfort": {
@@ -53,12 +50,6 @@
   ],
   "description": "Discover Kurobe Gorge, a prominent destination in Toyama. With its rich mix of scenic railway, ravine, onsen, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [5, 6, 7, 8, 9, 10, 11],
-  "budgetBreakdown": {
-    "transport": 6300,
-    "tickets": 8400,
-    "food": 4725,
-    "cafe": 1575
-  },
   "notes": "A fantastic trip to Kurobe Gorge. Known for its scenic railway and ravine vibes, it offers a great escape with an overall score of 8.9.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Kurobe_kyokoku_view_from_Kurobe_Dam.jpg/1280px-Kurobe_kyokoku_view_from_Kurobe_Dam.jpg",
@@ -129,11 +120,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

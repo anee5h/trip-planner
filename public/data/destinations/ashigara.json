@@ -5,7 +5,6 @@
   "region": "Kanto",
   "categories": ["Nature", "Mountain"],
   "tags": ["Hiking", "Quiet"],
-  "budgetRecommended": 5500,
   "ratings": {
     "overall": 7.8,
     "photography": 8.2,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Wizyta_japo%C5%84skiego_kr%C4%85%C5%BCownika_Ashigara_w_Niemczech_%281-E-8502%29.jpg",
   "prefecture": "Kanagawa",
-  "budgetMin": 2000,
-  "budgetMax": 9000,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -45,12 +42,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Ashigara, a prominent destination in Kanagawa. With its rich mix of hiking, quiet, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 2200,
-    "tickets": 1100,
-    "food": 1650,
-    "cafe": 550
-  },
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "status": "published",
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

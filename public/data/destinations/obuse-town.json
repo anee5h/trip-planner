@@ -91,15 +91,6 @@
     "confidence": "unknown",
     "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred.",
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing"
-  },
   "crowdMetadata": {
     "method": "unknown",
     "modelVersion": "crowd-model-v1",

@@ -55,21 +55,12 @@
   "description": "Kochi Castle is unique among Japan's 12 original keep castles for retaining both its main keep and the original feudal palace (Honmaru Goten) intact.",
   "notes": "Built by Yamauchi Kazutoyo following the Battle of Sekigahara.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 5000,
-  "budgetMax": 18000,
-  "budgetRecommended": 11500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "relationships": {
     "parentDestinationId": "kochi-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/1280px-Kochi_Castle%2C_Outemon-3.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 500,
-    "food": 5225,
-    "cafe": 2775
-  },
   "highlights": ["Explore Kochi Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -128,11 +119,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",
