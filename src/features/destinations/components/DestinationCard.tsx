@@ -569,23 +569,6 @@ export default function DestinationCard({
                       </div>
                     );
                   })()}
-                  <div className="flex min-w-0 items-center whitespace-nowrap">
-                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
-                    <span className="truncate">
-                      {(() => {
-                        // KAI-260: a bounded estimate is displayable even
-                        // when its ingredients are model/profile derived.
-                        return cardBudgetRange
-                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "~"}${formatLocalizedJPYRange(cardBudgetRange, locale)}`
-                          : formatLocalizedJPYRange(null, locale);
-                      })()}
-                      {partySize > 1
-                        ? locale === "ja"
-                          ? `（${partySize}人分）`
-                          : ` for ${partySize}`
-                        : ""}
-                    </span>
-                  </div>
                   <div
                     data-testid="destination-card-visit-duration"
                     className="hidden min-w-0 items-center whitespace-nowrap md:flex"
@@ -601,6 +584,23 @@ export default function DestinationCard({
                           : locale === "ja"
                             ? "滞在時間目安なし"
                             : "Visit time unavailable"}
+                    </span>
+                  </div>
+                  <div className="flex min-w-0 items-center whitespace-nowrap md:col-span-2">
+                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
+                    <span className="truncate">
+                      {(() => {
+                        // KAI-260: a bounded estimate is displayable even
+                        // when its ingredients are model/profile derived.
+                        return cardBudgetRange
+                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "~"}${formatLocalizedJPYRange(cardBudgetRange, locale)}`
+                          : formatLocalizedJPYRange(null, locale);
+                      })()}
+                      {partySize > 1
+                        ? locale === "ja"
+                          ? `（${partySize}人分）`
+                          : ` for ${partySize}`
+                        : ""}
                     </span>
                   </div>
                   {(durationEst?.isBorderline || durationEst?.isImpossible) && (
