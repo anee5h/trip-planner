@@ -122,7 +122,10 @@ vi.mock("react-i18next", () => ({
       const map: Record<string, string> = {
         "home.dateTabs.today": "Today",
         "home.dateTabs.tomorrow": "Tomorrow",
-        "home.brandAssociation": "Meguruto（メグルト）",
+        "home.valueProposition":
+          localeState.value === "ja"
+            ? "時間・予算・天気・興味にぴったりの旅先を見つけよう。"
+            : "Find trips that fit your time, budget, weather, and interests.",
         "datePicker.today": "Today",
         "datePicker.tomorrow": "Tomorrow",
         "datePicker.anyDate": "Any date",
@@ -158,6 +161,7 @@ let host: HTMLDivElement | undefined;
 
 afterEach(() => {
   weatherMockState.ready = true;
+  localeState.value = "en";
   if (root) {
     act(() => root!.unmount());
   }
@@ -197,16 +201,62 @@ describe("Home Integration Tests", () => {
     expect(today?.textContent).toContain("28°");
     expect(today?.textContent).toContain("Sunny 28°");
 
-    const subtitle = Array.from(container.querySelectorAll("p")).find(
-      (node) => node.textContent === "home.subtitle",
-    );
-    expect(subtitle?.className).toContain("hidden");
-    expect(subtitle?.className).toContain("sm:block");
+    expect(container.textContent).not.toContain("home.subtitle");
 
     const weekend = Array.from(container.querySelectorAll("button")).find(
       (node) => node.textContent === "This Weekend",
     );
     expect(weekend).toBeUndefined();
+  });
+
+  it("renders the English value proposition below the H1 without brand association", async () => {
+    localeState.value = "en";
+    const container = await renderHome();
+    const valueProposition = container.querySelector(
+      '[data-testid="home-value-proposition"]',
+    );
+    const headline = container.querySelector('[data-testid="home-headline"]');
+
+    expect(valueProposition?.textContent).toBe(
+      "Find trips that fit your time, budget, weather, and interests.",
+    );
+    expect(
+      container.querySelector('[data-testid="home-brand-association"]'),
+    ).toBeNull();
+    expect(valueProposition).not.toBeNull();
+    expect(headline).not.toBeNull();
+    expect(
+      Boolean(
+        headline!.compareDocumentPosition(valueProposition!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBe(true);
+    expect(headline!.nextElementSibling).toBe(valueProposition);
+  });
+
+  it("renders the Japanese value proposition below the H1 without brand association", async () => {
+    localeState.value = "ja";
+    const container = await renderHome();
+    const valueProposition = container.querySelector(
+      '[data-testid="home-value-proposition"]',
+    );
+    const headline = container.querySelector('[data-testid="home-headline"]');
+
+    expect(valueProposition?.textContent).toBe(
+      "時間・予算・天気・興味にぴったりの旅先を見つけよう。",
+    );
+    expect(
+      container.querySelector('[data-testid="home-brand-association"]'),
+    ).toBeNull();
+    expect(valueProposition).not.toBeNull();
+    expect(headline).not.toBeNull();
+    expect(
+      Boolean(
+        headline!.compareDocumentPosition(valueProposition!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBe(true);
+    expect(headline!.nextElementSibling).toBe(valueProposition);
   });
 
   it("preserves the origin/date → H1 → planner DOM order with one real H1", async () => {
@@ -443,27 +493,27 @@ describe("overnight date capsule", () => {
   });
 });
 
-describe("KAI-114 Japanese brand association (visible DOM)", () => {
-  it("renders Meguruto（メグルト） visibly under the JA hero on all screen sizes", async () => {
+describe("KAI-114 Japanese brand association removal", () => {
+  it("renders the JA value proposition without the brand association", async () => {
     localeState.value = "ja";
-    const container = await await renderHome();
+    const container = await renderHome();
+    const valueProposition = container.querySelector<HTMLElement>(
+      '[data-testid="home-value-proposition"]',
+    );
     const association = container.querySelector<HTMLElement>(
       '[data-testid="home-brand-association"]',
     );
-    expect(association).not.toBeNull();
-    expect(association?.textContent).toContain("メグルト");
-    expect(association?.textContent).toContain("Meguruto");
-    // Visible on mobile AND desktop: no responsive-hide class, and the
-    // element is actually laid out (display != none).
-    expect(association?.className).not.toContain("hidden");
-    expect(getComputedStyle(association as HTMLElement).display).not.toBe(
-      "none",
+
+    expect(valueProposition?.textContent).toBe(
+      "時間・予算・天気・興味にぴったりの旅先を見つけよう。",
     );
+    expect(association).toBeNull();
+    expect(container.textContent).not.toContain("メグルト");
   });
 
-  it("does not render the Katakana association on the EN home", async () => {
+  it("does not render a brand association on the EN home", async () => {
     localeState.value = "en";
-    const container = await await renderHome();
+    const container = await renderHome();
     expect(
       container.querySelector('[data-testid="home-brand-association"]'),
     ).toBeNull();
