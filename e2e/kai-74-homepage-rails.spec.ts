@@ -293,7 +293,7 @@ test.describe("KAI-74 homepage rails", () => {
       page.locator('[aria-label*="混雑する可能性があります"]'),
     ).toHaveCount(0);
 
-    await selectDuration(page, testInfo.project.name, /時間/, /2日間/);
+    await selectDuration(page, testInfo.project.name, /時間/, /1泊2日/);
     await page
       .getByRole("button", { name: /旅先を探す|おすすめを見る|条件で更新/ })
       .first()

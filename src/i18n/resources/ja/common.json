@@ -393,15 +393,15 @@
       "shortOuting": "短時間",
       "halfDay": "半日",
       "fullDay": "一日",
-      "2d1n": "2日間 / 1泊",
-      "3d2n": "3日間 / 2泊"
+      "2d1n": "1泊2日",
+      "3d2n": "2泊3日"
     },
     "durationHints": {
       "shortOuting": "合計4時間以内",
       "halfDay": "合計7.5時間以内",
       "fullDay": "合計14時間以内",
-      "2d1n": "宿泊あり",
-      "3d2n": "宿泊あり"
+      "2d1n": "1泊2日",
+      "3d2n": "2泊3日"
     },
     "budgets": {
       "economy": "節約",
@@ -556,8 +556,8 @@
       "shortOuting": "合計4時間以内",
       "halfDay": "合計7.5時間以内",
       "fullDay": "合計14時間以内",
-      "2d1n": "宿泊あり",
-      "3d2n": "宿泊あり"
+      "2d1n": "1泊2日",
+      "3d2n": "2泊3日"
     },
     "tripAreas": {
       "summary": "旅行エリア{{areas}}件・スポット{{places}}件",

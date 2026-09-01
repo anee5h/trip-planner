@@ -400,8 +400,8 @@
       "shortOuting": "≤ 4h total",
       "halfDay": "≤ 7.5h total",
       "fullDay": "≤ 14h total",
-      "2d1n": "Overnight",
-      "3d2n": "Overnight"
+      "2d1n": "2 days / 1 night",
+      "3d2n": "3 days / 2 nights"
     },
     "budgets": {
       "economy": "Economy",
@@ -556,8 +556,8 @@
       "shortOuting": "≤ 4h total",
       "halfDay": "≤ 7.5h total",
       "fullDay": "≤ 14h total",
-      "2d1n": "Overnight",
-      "3d2n": "Overnight"
+      "2d1n": "2 days / 1 night",
+      "3d2n": "3 days / 2 nights"
     },
     "tripAreas": {
       "summary": "{{areas}} trip areas · {{places}} places",

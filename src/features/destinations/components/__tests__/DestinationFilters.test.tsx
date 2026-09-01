@@ -15,9 +15,18 @@ vi.mock("react-i18next", () => ({
         "search.label": "Search",
         "search.clear": "Clear search",
         "destination.tripDuration": "Trip duration",
-        "destination.durationOptions.shortOuting": "Short outing",
-        "destination.durationOptions.halfDay": "Half day",
-        "destination.durationOptions.fullDay": "Full day",
+        "destination.durationOptions.any":
+          localeMock.value === "ja" ? "指定なし" : "Any",
+        "destination.durationOptions.shortOuting":
+          localeMock.value === "ja" ? "合計4時間以内" : "≤ 4h total",
+        "destination.durationOptions.halfDay":
+          localeMock.value === "ja" ? "合計7.5時間以内" : "≤ 7.5h total",
+        "destination.durationOptions.fullDay":
+          localeMock.value === "ja" ? "合計14時間以内" : "≤ 14h total",
+        "destination.durationOptions.2d1n":
+          localeMock.value === "ja" ? "1泊2日" : "2 days / 1 night",
+        "destination.durationOptions.3d2n":
+          localeMock.value === "ja" ? "2泊3日" : "3 days / 2 nights",
         "home.transportModes.car": "Car",
       })[key] ?? key,
     i18n: { language: "en" },
@@ -196,7 +205,10 @@ function renderStatefulFilters({
 }
 
 function openFiltersModal(container: HTMLDivElement) {
-  const filtersButton = buttonContainingText(container, "Filters");
+  const filtersButton = buttonContainingText(
+    container,
+    localeMock.value === "ja" ? "フィルター" : "Filters",
+  );
   act(() => filtersButton?.click());
 }
 
@@ -219,6 +231,45 @@ function buttonContainingText(container: HTMLDivElement, text: string) {
     button.textContent?.includes(text),
   );
 }
+
+describe("duration option labels and values", () => {
+  it("shows distinct overnight labels and sends distinct canonical values", () => {
+    const selected: string[] = [];
+    const container = renderFilters({
+      setTripDuration: (value) => selected.push(value),
+    });
+    openFiltersModal(container);
+
+    expect(buttonByText(container, "Any")).toBeTruthy();
+    expect(buttonByText(container, "≤ 4h total")).toBeTruthy();
+    expect(buttonByText(container, "≤ 7.5h total")).toBeTruthy();
+    expect(buttonByText(container, "≤ 14h total")).toBeTruthy();
+    const twoDay = buttonByText(container, "2 days / 1 night");
+    const threeDay = buttonByText(container, "3 days / 2 nights");
+    expect(twoDay).toBeTruthy();
+    expect(threeDay).toBeTruthy();
+
+    act(() => twoDay?.click());
+    act(() => threeDay?.click());
+    expect(selected).toEqual(["2d1n", "3d2n"]);
+  });
+
+  it("uses Japanese overnight labels without collapsing the values", () => {
+    localeMock.value = "ja";
+    const selected: string[] = [];
+    const container = renderFilters({
+      setTripDuration: (value) => selected.push(value),
+    });
+    openFiltersModal(container);
+    const twoDay = buttonByText(container, "1泊2日");
+    const threeDay = buttonByText(container, "2泊3日");
+    expect(twoDay).toBeTruthy();
+    expect(threeDay).toBeTruthy();
+    act(() => twoDay?.click());
+    act(() => threeDay?.click());
+    expect(selected).toEqual(["2d1n", "3d2n"]);
+  });
+});
 
 describe("DestinationFilters score-sort presentation", () => {
   it("does not expose the hidden overall-score sort", () => {

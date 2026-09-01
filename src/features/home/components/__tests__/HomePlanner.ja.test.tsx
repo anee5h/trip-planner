@@ -19,13 +19,13 @@ vi.mock("react-i18next", () => ({
         "home.durations.shortOuting": "短時間",
         "home.durations.halfDay": "半日",
         "home.durations.fullDay": "一日",
-        "home.durations.2d1n": "2日間 / 1泊",
-        "home.durations.3d2n": "3日間 / 2泊",
+        "home.durations.2d1n": "1泊2日",
+        "home.durations.3d2n": "2泊3日",
         "home.durationHints.shortOuting": "合計4時間以内",
         "home.durationHints.halfDay": "合計7.5時間以内",
         "home.durationHints.fullDay": "合計14時間以内",
-        "home.durationHints.2d1n": "1泊",
-        "home.durationHints.3d2n": "2泊",
+        "home.durationHints.2d1n": "1泊2日",
+        "home.durationHints.3d2n": "2泊3日",
         "home.budgets.standard": "スタンダード",
         "home.budgetHints.standard": "バランス重視",
         "home.transportOptions.public": "公共交通",
@@ -91,12 +91,12 @@ describe("HomePlanner 期間 / Japanese", () => {
     expect(sheet?.textContent).toContain("短時間");
     expect(sheet?.textContent).toContain("半日");
     expect(sheet?.textContent).toContain("一日");
-    expect(sheet?.textContent).toContain("2日間 / 1泊");
-    expect(sheet?.textContent).toContain("3日間 / 2泊");
+    expect(sheet?.textContent).toContain("1泊2日");
+    expect(sheet?.textContent).toContain("2泊3日");
     expect(sheet?.textContent).not.toContain("週末");
   });
 
-  it("selects 3日間 / 2泊 and preserves it as selected", () => {
+  it("selects 2泊3日 and preserves it as selected", () => {
     const onChange = vi.fn();
     const { container } = renderPlanner({ onTripDurationChange: onChange });
     const trigger = [...container.querySelectorAll("button")]
@@ -106,7 +106,7 @@ describe("HomePlanner 期間 / Japanese", () => {
     act(() => trigger?.click());
     const option = [
       ...container.querySelectorAll('[role="dialog"] button'),
-    ].find((button) => button.textContent?.includes("3日間 / 2泊"));
+    ].find((button) => button.textContent?.includes("2泊3日"));
     act(() => (option as HTMLButtonElement | undefined)?.click());
     expect(onChange).toHaveBeenCalledWith("3d2n");
   });
