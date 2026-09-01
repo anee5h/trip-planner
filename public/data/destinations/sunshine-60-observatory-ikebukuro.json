@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sunshine_60.JPG/1280px-Sunshine_60.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Sunshine_60.JPG/1280px-Sunshine_60.JPG",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5750,
-  "budgetMax": 9000,
   "walkingMin": 30,
   "indoorPercent": 95,
   "ratings": {
@@ -52,12 +49,6 @@
     "Panoramic Tokyo Views"
   ],
   "description": "An indoor sky park 251 meters above Ikebukuro featuring artificial turf lawns, panoramic Tokyo views, and relaxing cafes.",
-  "budgetBreakdown": {
-    "transport": 460,
-    "tickets": 1035,
-    "food": 3105,
-    "cafe": 1150
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -197,11 +188,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

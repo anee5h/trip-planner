@@ -38,7 +38,6 @@ function calculateForMode(
     homeCoords: context.originCoords ?? undefined,
     includeOriginTravel: Boolean(context.originCoords),
     duration: context.duration,
-    budgetTier: context.budgetTier,
     ferryTemporal: context.ferryTemporal,
   });
 }

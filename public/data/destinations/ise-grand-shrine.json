@@ -26,8 +26,6 @@
     "uniqueness": 10
   },
   "categories": ["culture", "history", "religion"],
-  "budgetMin": 3000,
-  "budgetMax": 12000,
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"
@@ -50,7 +48,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
   "description": "Ise Grand Shrine is the spiritual heart of Shinto, dedicated to the Sun Goddess Amaterasu and rebuilt every 20 years in accordance with ancient Shikinen Sengu ritual.",
-  "budgetRecommended": 7500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -60,12 +57,6 @@
     "parentDestinationId": "ise-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Naiku_04.jpg",
-  "budgetBreakdown": {
-    "transport": 1875,
-    "tickets": 0,
-    "food": 3047,
-    "cafe": 1641
-  },
   "highlights": [
     "Explore Ise Grand Shrine (Ise Jingu)",
     "Local Culture & Scenery"
@@ -179,11 +170,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

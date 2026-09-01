@@ -28,9 +28,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "budgetMin": 2000,
-  "budgetRecommended": 4900,
-  "budgetMax": 8000,
   "transportOptions": {
     "train": 120,
     "car": 110
@@ -74,7 +71,6 @@
     "nearbyDestinationIds": ["hiraizumi-chusonji-iwate"],
     "gatewayHubId": "morioka-city"
   },
-  "budgetBreakdown": null,
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -147,11 +143,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

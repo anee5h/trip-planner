@@ -46,15 +46,6 @@
   },
   "description": "The historic former residence of diplomat Jiro Shirasu and essayist Masako Shirasu, preserved as a museum and traditional restaurant. Visitors can admire their refined antique collection and tranquil thatched garden.",
   "highlights": ["Museum", "History", "Culture"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 1500,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 34
   },
@@ -177,12 +168,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "low",
     "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥1500 (ledger FIXED_PAID); source: https://buaiso.com/access_guide/new_ticket.html"
   },
   "comfortMetadata": {
     "method": "model",

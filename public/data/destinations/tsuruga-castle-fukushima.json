@@ -33,9 +33,6 @@
       "sortOrder": 30
     }
   ],
-  "budgetMin": 410,
-  "budgetRecommended": 3205,
-  "budgetMax": 6000,
   "transportOptions": {
     "shinkansen": 80,
     "train": 30
@@ -87,7 +84,6 @@
     ],
     "parentDestinationId": "aizuwakamatsu-city"
   },
-  "budgetBreakdown": null,
   "recommendedVisitHours": {
     "min": 2,
     "max": 4
@@ -158,11 +154,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -5,7 +5,6 @@
   "region": "Kanto",
   "categories": ["Hot Spring", "Theme Park"],
   "tags": ["Onsen", "Edo Wonderland"],
-  "budgetRecommended": 17400,
   "ratings": {
     "overall": 8,
     "photography": 7.5,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kinugawa_Onsen_03.JPG/1280px-Kinugawa_Onsen_03.JPG",
   "prefecture": "Tochigi",
-  "budgetMin": 13400,
-  "budgetMax": 21400,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -45,12 +42,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Kinugawa Onsen, a prominent destination in Tochigi. With its rich mix of onsen, edo wonderland, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 5517,
-    "tickets": 6366,
-    "food": 4138,
-    "cafe": 1379
-  },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kinugawa_Onsen_03.JPG/1280px-Kinugawa_Onsen_03.JPG",
   "imageMetadata": {
@@ -188,11 +179,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

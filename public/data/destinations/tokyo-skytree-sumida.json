@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/1280px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
   "totalTripHours": 4,
-  "budgetMin": 4000,
-  "budgetRecommended": 9500,
-  "budgetMax": 15000,
   "walkingMin": 45,
   "indoorPercent": 90,
   "ratings": {
@@ -64,12 +61,6 @@
     "Planetarium Ten"
   ],
   "description": "Rising 634 meters over Tokyo, Tokyo Skytree is the world's tallest broadcasting tower, offering breath-taking 360-degree views of Mt. Fuji and the Kanto Plain from two observation decks.",
-  "budgetBreakdown": {
-    "transport": 559,
-    "tickets": 2600,
-    "food": 3912,
-    "cafe": 1564
-  },
   "reservation": "Advance online booking recommended to skip ticket queues.",
   "parking": "Paid underground parking structure at Tokyo Solamachi complex.",
   "notes": "Best visibility of Mt. Fuji occurs on crisp, clear winter mornings from the Tembo Deck.",
@@ -203,11 +194,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

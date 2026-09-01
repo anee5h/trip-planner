@@ -17,9 +17,6 @@
     "Wada House"
   ],
   "totalTripHours": 5,
-  "budgetMin": 3000,
-  "budgetRecommended": 11500,
-  "budgetMax": 20000,
   "walkingMin": 330,
   "indoorPercent": 40,
   "ratings": {
@@ -87,11 +84,6 @@
     "nearbyDestinationIds": ["nagoya-city", "nagano-city", "inuyama-city"],
     "relatedDestinationIds": ["takayama-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3833,
-    "food": 3737,
-    "cafe": 2013
-  },
   "nameJa": "白川郷・荻町合掌造り集落",
   "walkingIntensity": "high",
   "ratingsSchemaVersion": 2,
@@ -125,11 +117,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

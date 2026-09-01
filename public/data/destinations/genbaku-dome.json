@@ -34,15 +34,6 @@
     }
   ],
   "transportOptions": {},
-  "budgetMin": 0,
-  "budgetRecommended": 1000,
-  "budgetMax": 2000,
-  "budgetBreakdown": {
-    "transport": 200,
-    "tickets": 0,
-    "food": 600,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/1280px-Genbaku_Dome04-r.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/1280px-Genbaku_Dome04-r.JPG",
   "imageMetadata": {
@@ -169,11 +160,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

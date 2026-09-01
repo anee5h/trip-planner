@@ -13,15 +13,6 @@
     "Kogane-no-yu (Golden Water) Baths",
     "Kajika Bridge"
   ],
-  "budgetMin": 4000,
-  "budgetMax": 12000,
-  "budgetRecommended": 8000,
-  "budgetBreakdown": {
-    "transport": 3500,
-    "tickets": 1000,
-    "food": 2500,
-    "cafe": 1000
-  },
   "transportOptions": {
     "train": 130,
     "car": 140,
@@ -176,11 +167,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

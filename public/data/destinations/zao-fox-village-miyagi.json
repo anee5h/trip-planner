@@ -28,9 +28,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "budgetMin": 1000,
-  "budgetRecommended": 3000,
-  "budgetMax": 5000,
   "transportOptions": {
     "shinkansen": 40,
     "car": 60
@@ -71,7 +68,6 @@
     "nearbyDestinationIds": ["sendai-city", "mount-zao-yamagata"],
     "gatewayHubId": "sendai-city"
   },
-  "budgetBreakdown": null,
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -105,11 +101,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

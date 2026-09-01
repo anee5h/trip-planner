@@ -33,9 +33,6 @@
       "sortOrder": 25
     }
   ],
-  "budgetMin": 700,
-  "budgetRecommended": 2850,
-  "budgetMax": 5000,
   "transportOptions": {
     "shinkansen": 90,
     "train": 90
@@ -83,7 +80,6 @@
     ],
     "parentDestinationId": "sendai-city"
   },
-  "budgetBreakdown": null,
   "recommendedVisitHours": {
     "min": 1,
     "max": 3
@@ -165,11 +161,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

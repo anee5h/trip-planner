@@ -5,7 +5,6 @@
   "region": "Kanto",
   "categories": ["Coast", "Nature"],
   "tags": ["Ocean", "Scenic", "Hiking"],
-  "budgetRecommended": 6000,
   "ratings": {
     "overall": 8,
     "photography": 8.8,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Miura_Peninsula_Kanagawa_Japan_SRTM.jpg",
   "prefecture": "Kanagawa",
-  "budgetMin": 2000,
-  "budgetMax": 10000,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -52,12 +49,6 @@
   ],
   "description": "A scenic island at the southern tip of the Miura Peninsula, famous for dramatic sea-eroded rock formations and fresh tuna dining.",
   "bestMonths": [7, 8],
-  "budgetBreakdown": {
-    "transport": 2400,
-    "tickets": 1200,
-    "food": 1800,
-    "cafe": 600
-  },
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
   "schemaVersion": 2,
   "status": "published",
@@ -208,11 +199,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

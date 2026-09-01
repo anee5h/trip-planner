@@ -32,15 +32,6 @@
     "bus": 35,
     "car": 30
   },
-  "budgetMin": 400,
-  "budgetRecommended": 2000,
-  "budgetMax": 3500,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 400,
-    "food": 600,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sazaedou_Aidu_Japan01.jpg/1280px-Sazaedou_Aidu_Japan01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Sazaedou_Aidu_Japan01.jpg/1280px-Sazaedou_Aidu_Japan01.jpg",
   "imageMetadata": {
@@ -210,11 +201,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

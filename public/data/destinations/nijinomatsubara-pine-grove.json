@@ -59,14 +59,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.karatsu-kankou.jp/en/spots/detail/4"
   },
-  "budgetMin": 1000,
-  "budgetRecommended": 3500,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 300,
-    "food": 450,
-    "cafe": 100
-  },
   "transportOptions": {
     "train": 250,
     "bus": 150
@@ -189,11 +181,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_free",

@@ -32,15 +32,6 @@
     "bus": 25,
     "car": 25
   },
-  "budgetMin": 0,
-  "budgetRecommended": 1500,
-  "budgetMax": 3000,
-  "budgetBreakdown": {
-    "transport": 600,
-    "tickets": 0,
-    "food": 600,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bunshokan%2C_Yamagata_20170401-3.jpg/1280px-Bunshokan%2C_Yamagata_20170401-3.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Bunshokan%2C_Yamagata_20170401-3.jpg/1280px-Bunshokan%2C_Yamagata_20170401-3.jpg",
   "imageMetadata": {
@@ -196,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_free",

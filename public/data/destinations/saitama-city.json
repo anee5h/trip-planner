@@ -4,7 +4,6 @@
   "region": "Kanto",
   "categories": ["City", "Museum", "Shrine"],
   "tags": ["Bonsai", "Railway Museum"],
-  "budgetRecommended": 7000,
   "ratings": {
     "overall": 7.8,
     "photography": 7,
@@ -24,8 +23,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg",
   "prefecture": "Saitama",
-  "budgetMin": 3000,
-  "budgetMax": 11000,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -42,12 +39,6 @@
     "Musashi Ichinomiya Hikawa Shrine"
   ],
   "description": "Saitama's capital city combining Omiya Railway Museum, Omiya Bonsai Village, Musashi Ichinomiya Hikawa Shrine, and Super Arena.",
-  "budgetBreakdown": {
-    "transport": 2800,
-    "tickets": 1400,
-    "food": 2100,
-    "cafe": 700
-  },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Saitama_city_montage.jpg",
   "imageMetadata": {
@@ -203,11 +194,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

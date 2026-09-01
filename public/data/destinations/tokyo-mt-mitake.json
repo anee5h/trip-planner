@@ -12,15 +12,6 @@
     "Mitake Cable Car",
     "Scenic Rock Garden Stream Trail"
   ],
-  "budgetMin": 3000,
-  "budgetMax": 8500,
-  "budgetRecommended": 5750,
-  "budgetBreakdown": {
-    "transport": 2614,
-    "tickets": 1255,
-    "food": 1255,
-    "cafe": 626
-  },
   "transportOptions": {
     "train": 85,
     "car": 100
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

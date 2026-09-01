@@ -47,15 +47,6 @@
   },
   "description": "A magnificent Edo-period landscape garden featuring seawater ponds regulated by Tokyo Bay tides and a traditional teahouse on the water. It offers a striking contrast of historic pine trees against modern skyscraper backdrops.",
   "highlights": ["Nature", "Garden", "History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 300,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 15
   },
@@ -203,12 +194,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥300 (ledger LEDGER_VERIFIED); source: https://www.tokyo-park.or.jp/park/hama-rikyu/"
   },
   "admission": {
     "state": "verified_paid",

@@ -53,12 +53,6 @@
   },
   "description": "A massive 180-hectare national park featuring vibrant ginkgo tree avenues, vast cosmos fields, boating lakes, and a traditional Japanese garden. It is Tachikawa's premier green space for outdoor recreation and seasonal flower festivals.",
   "highlights": ["Nature", "Park", "Seasonal"],
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 450,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 38
   },
@@ -157,12 +151,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "no rule matched; owner policy: unknown stays unknown"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥450 preserved; peer cell 'park|half|poi' has 0 samples (< 5); components left as accepted debt"
   },
   "comfortMetadata": {
     "method": "model",

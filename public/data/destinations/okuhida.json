@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Hot Spring", "Mountain", "Nature"],
   "tags": ["Onsen", "Ropeway", "Alps"],
-  "budgetRecommended": 19000,
   "ratings": {
     "overall": 8.9,
     "photography": 9.2,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/05/YariKamikohchiTagged.jpg",
   "prefecture": "Gifu",
-  "budgetMin": 15000,
-  "budgetMax": 23000,
   "totalTripHours": 8,
   "walkingMin": 150,
   "comfort": {
@@ -46,11 +43,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Okuhida, a prominent destination in Gifu. With its rich mix of onsen, ropeway, alps, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 7600,
-    "food": 5700,
-    "cafe": 1900
-  },
   "notes": "A fantastic trip to Okuhida. Known for its onsen and ropeway vibes, it offers a great escape with an overall score of 8.9.",
   "schemaVersion": 2,
   "status": "verified",
@@ -105,11 +97,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

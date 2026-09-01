@@ -60,15 +60,6 @@
     "sourceUrl": "https://www.kankou-nichinan.jp/tourisms/316/",
     "hoursNote": "Public outdoor canal; the official tourism page does not publish facility hours."
   },
-  "budgetMin": 500,
-  "budgetRecommended": 500,
-  "budgetMax": 1000,
-  "budgetBreakdown": {
-    "transport": 150,
-    "tickets": 0,
-    "food": 225,
-    "cafe": 50
-  },
   "transportOptions": {},
   "totalTripHours": 1.5,
   "recommendedVisitHours": {
@@ -181,11 +172,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

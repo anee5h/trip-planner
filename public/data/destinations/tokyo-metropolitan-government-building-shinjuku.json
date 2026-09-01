@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Tokyo_Metropolitan_Government_Building_No.1_200908.jpg/1280px-Tokyo_Metropolitan_Government_Building_No.1_200908.jpg",
   "totalTripHours": 3,
-  "budgetMin": 1500,
-  "budgetRecommended": 4250,
-  "budgetMax": 7000,
   "walkingMin": 30,
   "indoorPercent": 95,
   "ratings": {
@@ -58,12 +55,6 @@
     "Mount Fuji & Tokyo Skyline Views"
   ],
   "description": "A famous free twin-tower observation deck on the 45th floor of Kenzo Tange's skyscraper, offering views of Mount Fuji.",
-  "budgetBreakdown": {
-    "transport": 364,
-    "tickets": 0,
-    "food": 2671,
-    "cafe": 1215
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -196,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

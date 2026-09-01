@@ -12,15 +12,6 @@
     "Seaside Biking Trail",
     "Dune Garden"
   ],
-  "budgetMin": 3000,
-  "budgetMax": 9000,
-  "budgetRecommended": 6000,
-  "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 1000,
-    "food": 1700,
-    "cafe": 800
-  },
   "transportOptions": {
     "train": 90,
     "car": 100
@@ -162,11 +153,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

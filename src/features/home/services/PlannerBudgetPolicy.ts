@@ -1,18 +1,18 @@
-import type { BudgetTier } from "@/shared/types/planner";
+import { BUDGET_TIER_LIMITS, type BudgetTier } from "@/shared/types/planner";
 import {
   getTripDays,
   getTripNights,
-  type HomepageTripDuration,
+  type TripDuration,
 } from "@/shared/types/tripDuration";
 import { ACCOMMODATION_PROFILES } from "@/shared/services/budget/tripEstimateEngine";
 
 export type { HomepageTripDuration } from "@/shared/types/tripDuration";
 
 export const PER_PERSON_DAILY_LIMITS = {
-  economy: 10_000,
-  standard: 20_000,
-  comfortable: 35_000,
-  luxury: 75_000,
+  economy: BUDGET_TIER_LIMITS.economy / 2,
+  standard: BUDGET_TIER_LIMITS.standard / 2,
+  comfortable: BUDGET_TIER_LIMITS.comfortable / 2,
+  luxury: Number.POSITIVE_INFINITY,
 } satisfies Record<BudgetTier, number>;
 
 export const DURATION_BUDGET_MULTIPLIERS = {
@@ -26,15 +26,19 @@ export const DURATION_BUDGET_MULTIPLIERS = {
  * Budget-v2 party-total-per-night profile as the estimate engine, so the
  * planner never invents a second hotel band or scales lodging by party size.
  */
+export type BudgetPolicyDuration = TripDuration | "any";
+
 export function getPlannerBudgetLimit(
   tier: BudgetTier,
   partySize: number,
-  duration: HomepageTripDuration,
+  duration: BudgetPolicyDuration,
 ): number {
+  if (tier === "luxury") return Number.POSITIVE_INFINITY;
   const dailyLimit =
     PER_PERSON_DAILY_LIMITS[tier] ?? PER_PERSON_DAILY_LIMITS.standard;
-  const days = getTripDays(duration);
-  const nights = getTripNights(duration);
+  const effectiveDuration = duration === "any" ? "fullDay" : duration;
+  const days = getTripDays(effectiveDuration);
+  const nights = getTripNights(effectiveDuration);
   const daySpend =
     nights > 0
       ? dailyLimit * partySize * days

@@ -9,9 +9,6 @@
   "categories": ["City", "Sea", "Theme Park"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/3840px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
   "totalTripHours": 8,
-  "budgetMin": 9000,
-  "budgetRecommended": 13000,
-  "budgetMax": 17000,
   "walkingMin": 60,
   "indoorPercent": 60,
   "ratings": {
@@ -50,12 +47,6 @@
   },
   "highlights": ["Gundam Statue", "Odaiba Seaside Park", "Rainbow Bridge View"],
   "description": "A high-tech entertainment hub on an artificial island in Tokyo Bay, featuring shopping malls, beaches, and a giant Gundam.",
-  "budgetBreakdown": {
-    "transport": 1083,
-    "tickets": 0,
-    "food": 2275,
-    "cafe": 975
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -194,12 +185,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified free admission (ledger LEDGER_VERIFIED)"
   },
   "admission": {
     "state": "verified_free",

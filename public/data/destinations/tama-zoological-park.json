@@ -7,9 +7,6 @@
   "categories": ["Zoo", "Nature", "Family", "Outdoor"],
   "heroImage": "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
   "totalTripHours": 5,
-  "budgetMin": 4500,
-  "budgetRecommended": 7250,
-  "budgetMax": 10000,
   "walkingMin": 60,
   "indoorPercent": 15,
   "ratings": {
@@ -51,11 +48,6 @@
     "Koala House & Butterfly Pavilion"
   ],
   "description": "A vast 50-hectare hillside zoo in Hino, Tokyo, featuring free-roaming African animals, Koala House, and Lion Bus tours.",
-  "budgetBreakdown": {
-    "transport": 1372,
-    "food": 3527,
-    "cafe": 1175
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -181,11 +173,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

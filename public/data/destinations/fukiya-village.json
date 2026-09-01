@@ -32,15 +32,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 3000,
-  "budgetRecommended": 6000,
-  "budgetMax": 11000,
-  "budgetBreakdown": {
-    "transport": 1600,
-    "tickets": 1000,
-    "food": 2000,
-    "cafe": 1400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Fukiya01s3200.jpg/1280px-Fukiya01s3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Fukiya01s3200.jpg/1280px-Fukiya01s3200.jpg",
   "imageMetadata": {
@@ -204,11 +195,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

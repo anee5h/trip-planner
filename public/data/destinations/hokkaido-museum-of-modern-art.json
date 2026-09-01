@@ -41,15 +41,6 @@
   },
   "description": "Hokkaido's leading modern art museum, opened in 1977 in central Sapporo. Its collection of more than 5,000 works focuses on Hokkaido-linked artists and includes an École de Paris section (Jules Pascin among others), with sculpture displayed on the grounds.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 510,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 199
   },
@@ -196,12 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥510 (ledger LEDGER_VERIFIED); source: https://artmuseum.pref.hokkaido.lg.jp/knb/english/guide/about"
   },
   "admission": {
     "state": "verified_paid",

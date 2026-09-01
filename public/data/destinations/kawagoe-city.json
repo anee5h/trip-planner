@@ -16,9 +16,6 @@
     "Kashiya Yokocho Penny Candy Lane"
   ],
   "totalTripHours": 6,
-  "budgetMin": 6600,
-  "budgetRecommended": 7600,
-  "budgetMax": 8600,
   "walkingMin": 40,
   "indoorPercent": 50,
   "ratings": {
@@ -69,12 +66,6 @@
     ],
     "nearbyDestinationIds": ["shibuya-city", "hakone-town", "chiba-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
-  },
   "walkingIntensity": "low",
   "ratingsSchemaVersion": 2,
   "recommendedVisitHours": {
@@ -98,14 +89,6 @@
     "reviewedBy": "Meguruto Editorial Reviewer",
     "changeSummary": "Stage 3 PR 12A Kanto Editorial Review & Coordinate Calibration",
     "fieldSources": {
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "recommendedVisitHours": [
         {
           "type": "calculated",
@@ -174,12 +157,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "hub records span multiple microclimates; single vector would be fabricated"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

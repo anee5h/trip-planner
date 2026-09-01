@@ -162,12 +162,6 @@
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "walkingMin": 240,
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥320 (ledger FIXED_PAID); source: https://kenrokuen.or.jp/information/"
-  },
   "durationMetadata": {
     "method": "model",
     "modelVersion": "duration-model-v1",
@@ -185,12 +179,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 320,
-    "food": 0,
-    "cafe": 0
   },
   "admission": {
     "state": "verified_paid",

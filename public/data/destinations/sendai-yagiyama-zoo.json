@@ -32,15 +32,6 @@
     "bus": 40,
     "car": 40
   },
-  "budgetMin": 480,
-  "budgetRecommended": 3500,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 480,
-    "food": 1400,
-    "cafe": 700
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg/1280px-%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg/1280px-%E5%85%AB%E6%9C%A8%E5%B1%B1%E5%8B%95%E7%89%A9%E5%85%AC%E5%9C%92_Yagiyama_Zoological_Park_%2855089719967%29.jpg",
   "imageMetadata": {
@@ -196,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

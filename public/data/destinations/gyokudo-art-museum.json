@@ -41,15 +41,6 @@
   },
   "description": "A serene museum nestled along the clear waters of the Tama River in Mitake, showcasing the delicate Nihonga paintings of Gyokudo Kawai. It features a refined dry landscape garden overlooking the river gorge.",
   "highlights": ["Museum", "Art", "Nature"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 600,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 205
   },
@@ -203,12 +194,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥600 (ledger LEDGER_VERIFIED); source: http://www.gyokudo.jp/guide_english.html"
   },
   "admission": {
     "state": "verified_paid",

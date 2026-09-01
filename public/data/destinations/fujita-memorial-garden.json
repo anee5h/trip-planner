@@ -32,15 +32,6 @@
     "bus": 40,
     "car": 35
   },
-  "budgetMin": 320,
-  "budgetRecommended": 2120,
-  "budgetMax": 3500,
-  "budgetBreakdown": {
-    "transport": 600,
-    "tickets": 320,
-    "food": 800,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fujita_Memorial_Garden_in_June_2022_%282%29.jpg/1280px-Fujita_Memorial_Garden_in_June_2022_%282%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Fujita_Memorial_Garden_in_June_2022_%282%29.jpg/1280px-Fujita_Memorial_Garden_in_June_2022_%282%29.jpg",
   "imageMetadata": {
@@ -188,11 +179,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

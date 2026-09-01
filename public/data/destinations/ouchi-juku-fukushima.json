@@ -40,9 +40,6 @@
       "sortOrder": 6
     }
   ],
-  "budgetMin": 1000,
-  "budgetRecommended": 4500,
-  "budgetMax": 8000,
   "transportOptions": {
     "shinkansen": 80,
     "car": 50
@@ -86,7 +83,6 @@
     "nearbyDestinationIds": ["tsuruga-castle-fukushima"],
     "gatewayHubId": "aizuwakamatsu-city"
   },
-  "budgetBreakdown": null,
   "role": "standalone",
   "placeType": "destination",
   "recommendedVisitHours": {
@@ -146,11 +142,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

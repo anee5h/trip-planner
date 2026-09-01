@@ -5,7 +5,6 @@
   "region": "Chubu",
   "categories": ["Mountain", "Nature"],
   "tags": ["Iconic", "Climbing", "Views"],
-  "budgetRecommended": 6000,
   "ratings": {
     "overall": 9.6,
     "photography": 10,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop",
   "prefecture": "Shizuoka",
-  "budgetMin": 2000,
-  "budgetMax": 10000,
   "totalTripHours": 8,
   "walkingMin": 480,
   "comfort": {
@@ -52,12 +49,6 @@
   ],
   "description": "Mount Fuji is an active stratovolcano located on the Japanese island of Honshu, with a summit elevation of 3,776. 24 m.",
   "bestMonths": [7, 8, 9],
-  "budgetBreakdown": {
-    "transport": 2400,
-    "tickets": 1200,
-    "food": 1800,
-    "cafe": 600
-  },
   "notes": "A fantastic trip to Mount Fuji. Known for its iconic and climbing vibes, it offers a great escape with an overall score of 9.6.",
   "schemaVersion": 2,
   "image": "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?q=80&w=1280&auto=format&fit=crop",
@@ -137,11 +128,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

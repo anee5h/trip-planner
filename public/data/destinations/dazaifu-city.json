@@ -12,9 +12,6 @@
   "description": "Ancient administrative center home to Dazaifu Tenmangu Shrine, dedicated to the deity of learning.",
   "highlights": ["Explore Dazaifu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 6600,
-  "budgetRecommended": 7600,
-  "budgetMax": 8600,
   "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
@@ -62,12 +59,6 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "nagasaki-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
-  },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 7,
@@ -92,14 +83,6 @@
       }
     ],
     "fieldSources": {
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "recommendedVisitHours": [
         {
           "type": "calculated",
@@ -165,12 +148,6 @@
     "modelVersion": "transport-access-v1",
     "confidence": "low",
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

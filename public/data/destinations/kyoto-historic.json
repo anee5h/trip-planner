@@ -216,12 +216,6 @@
     "confidence": "unknown",
     "basis": "The heritage group spans distributed sites and has no single origin-aware route or venue endpoint; individual destination records carry their own transport behavior."
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "A group page has no single admission, food, or access cost; individual destination records carry their own costs where known."
-  },
   "durationMetadata": {
     "method": "unknown",
     "modelVersion": "duration-model-v1",

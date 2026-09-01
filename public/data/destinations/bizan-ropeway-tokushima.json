@@ -27,15 +27,6 @@
     "bus": 115,
     "car": 120
   },
-  "budgetMin": 2000,
-  "budgetRecommended": 5000,
-  "budgetMax": 9000,
-  "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 1500,
-    "food": 1000,
-    "cafe": 700
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bizan01.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Bizan01.jpg",
   "imageMetadata": {
@@ -184,11 +175,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

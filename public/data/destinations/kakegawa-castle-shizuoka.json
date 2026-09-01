@@ -13,9 +13,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Kakegawajo_20090321.jpg/1280px-Kakegawajo_20090321.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3000,
-  "budgetRecommended": 6250,
-  "budgetMax": 9500,
   "walkingMin": 70,
   "indoorPercent": 80,
   "ratings": {
@@ -65,12 +62,6 @@
     "Otemon Gate"
   ],
   "description": "Rebuilt in 1994 using traditional Japanese carpentry techniques, Kakegawa Castle is Japan's first authentically reconstructed wooden keep, featuring the original 1855 Ninomaru Goten palace.",
-  "budgetBreakdown": {
-    "transport": 1364,
-    "tickets": 466,
-    "food": 3182,
-    "cafe": 1238
-  },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot near Kakegawa Castle park.",
   "notes": "Top 100 Castle of Japan #42. Ninomaru Goten is an Important Cultural Property.",
@@ -134,11 +125,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

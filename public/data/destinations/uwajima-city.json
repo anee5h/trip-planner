@@ -28,15 +28,6 @@
     "bus": 125,
     "car": 130
   },
-  "budgetMin": 6000,
-  "budgetRecommended": 12000,
-  "budgetMax": 20000,
-  "budgetBreakdown": {
-    "transport": 3500,
-    "tickets": 2500,
-    "food": 4500,
-    "cafe": 1500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uwajima-jo.JPG/1280px-Uwajima-jo.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Uwajima-jo.JPG/1280px-Uwajima-jo.JPG",
   "imageMetadata": {
@@ -144,11 +135,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

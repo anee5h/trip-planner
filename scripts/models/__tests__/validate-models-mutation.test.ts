@@ -15,7 +15,39 @@ const ROOT = path.resolve(__dirname, "..", "..", "..");
 const INDEX_PATH = path.join(ROOT, "src/shared/data/destinations-index.json");
 
 function loadIndex(): Array<Record<string, any>> {
-  return JSON.parse(fs.readFileSync(INDEX_PATH, "utf8"));
+  const index = JSON.parse(fs.readFileSync(INDEX_PATH, "utf8")) as Array<
+    Record<string, any>
+  >;
+  // KAI-220 removed these fields from production data. Keep one isolated
+  // legacy-shaped fixture in mutation tests so the validator's historical
+  // fail-closed gates remain exercised without reintroducing catalogue debt.
+  const fixture = index.find((item) => item.role === "hub")!;
+  fixture.budgetMin = 1000;
+  fixture.budgetRecommended = 2000;
+  fixture.budgetMax = 3000;
+  fixture.budgetBreakdown = {
+    transport: 0,
+    tickets: 0,
+    food: 1000,
+    cafe: 1000,
+  };
+  fixture.budgetMetadata = {
+    method: "model",
+    modelVersion: "budget-model-v1",
+    confidence: "low",
+    basis: "hub convention",
+  };
+  fixture.editorial = fixture.editorial ?? { sources: [], fieldSources: {} };
+  fixture.editorial.fieldSources = fixture.editorial.fieldSources ?? {};
+  fixture.editorial.fieldSources.budgetRecommended = [
+    {
+      type: "calculated",
+      url: "catalogue-model://kai-89",
+      title: "budget-model-v1; hub convention",
+      accessedAt: "2026-08-14",
+    },
+  ];
+  return index;
 }
 
 function withMutations(
@@ -238,9 +270,11 @@ describe("KAI-89 provenance-drift guards", () => {
     // fields) must also fail — getEffectiveBudgetBreakdown would otherwise
     // consume the supposedly-unknown breakdown.
     const p = withMutations((idx) => {
-      const d = idx.find(
-        (x) => x.budgetBreakdown !== undefined && x.budgetMin === undefined,
-      )!;
+      const d = idx.find((x) => x.budgetBreakdown !== undefined)!;
+      expect(d).toBeTruthy();
+      delete d.budgetMin;
+      delete d.budgetRecommended;
+      delete d.budgetMax;
       d.budgetMetadata = { method: "unknown" };
     });
     const results = validateCatalogue(p);

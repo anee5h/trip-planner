@@ -12,15 +12,6 @@
     "Ino Tadataka Museum",
     "Sawara Canal Boat Tour"
   ],
-  "budgetMin": 3000,
-  "budgetMax": 9000,
-  "budgetRecommended": 6000,
-  "budgetBreakdown": {
-    "transport": 2200,
-    "tickets": 1300,
-    "food": 1800,
-    "cafe": 700
-  },
   "transportOptions": {
     "train": 90,
     "car": 75
@@ -166,11 +157,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

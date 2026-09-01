@@ -26,8 +26,6 @@
     "uniqueness": 9.6
   },
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 4000,
-  "budgetMax": 12000,
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"
@@ -51,7 +49,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
   "description": "Kumamoto Castle is one of Japan's most formidable castles, engineered by master builder Kato Kiyomasa with steep curved Musha-gaeshi stone walls designed to prevent ninja scaling.",
   "notes": "Check the official website for currently accessible areas as restoration continues.",
-  "budgetRecommended": 8000,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -61,11 +58,6 @@
     "parentDestinationId": "kumamoto-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Kumamoto_Castle_Keep_Tower_20221022-3.jpg/3840px-Kumamoto_Castle_Keep_Tower_20221022-3.jpg",
-  "budgetBreakdown": {
-    "transport": 2000,
-    "food": 3250,
-    "cafe": 1750
-  },
   "highlights": ["Explore Kumamoto Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -173,11 +165,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

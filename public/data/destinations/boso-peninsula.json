@@ -7,9 +7,6 @@
   "categories": ["Coast", "Nature", "Drive"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/B%C5%8Ds%C5%8D_Peninsula_by_Sentinel-2%2C_2018-10-30.jpg/3840px-B%C5%8Ds%C5%8D_Peninsula_by_Sentinel-2%2C_2018-10-30.jpg",
   "totalTripHours": 12,
-  "budgetMin": 12000,
-  "budgetRecommended": 16000,
-  "budgetMax": 20000,
   "walkingMin": 50,
   "indoorPercent": 20,
   "ratings": {
@@ -58,12 +55,6 @@
     "Coastal Seafood Dining"
   ],
   "description": "A scenic coastal peninsula in Chiba featuring Mount Nokogiri ropeway, Kamogawa Sea World, seafood markets, and flower fields.",
-  "budgetBreakdown": {
-    "transport": 7467,
-    "tickets": 0,
-    "food": 6400,
-    "cafe": 2133
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -170,11 +161,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

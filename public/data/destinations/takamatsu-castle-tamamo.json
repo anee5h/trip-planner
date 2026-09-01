@@ -32,15 +32,6 @@
     "bus": 120,
     "car": 125
   },
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 300,
-    "food": 1500,
-    "cafe": 700
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/1280px-Takamatsu_castle09s3872.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Takamatsu_castle09s3872.jpg/1280px-Takamatsu_castle09s3872.jpg",
   "imageMetadata": {
@@ -176,11 +167,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -22,7 +22,6 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import type { Destination } from "../src/shared/types/destination";
 import { loadTruth } from "./models/calibration";
-import { budgetModel } from "./models/budget-model-v1";
 import { seasonModel } from "./models/season-model-v1";
 import { durationModel } from "./models/duration-model-v1";
 import {
@@ -238,52 +237,7 @@ function main() {
     }
     manualByField[cat.category] = set;
   }
-  const budgetEligible = new Set(manualByField.budget ?? []);
-  // Records without a budget (published non-hub, unmarked) are eligible so
-  // the budget model can either fill them (verified ticket + sufficient
-  // peers) or write the explicit-unknown marker (owner policy: unknown stays
-  // unknown, but it must be MARKED neutral, not silently missing).
-  for (const d of destinations) {
-    if (
-      d.status === "published" &&
-      d.role !== "hub" &&
-      d.budgetRecommended === undefined &&
-      d.budgetMetadata?.method !== "unknown"
-    ) {
-      budgetEligible.add(d.id);
-    }
-    // KAI-204 provenance rescue: a record cleared to method "unknown" that
-    // LATER gained ledger ticket evidence (the calibration truth ledger
-    // postdates the KAI-89 model run) must be re-eligible so the budget
-    // model can restore the source-verified admission. Without this, the
-    // explicit-unknown state is a dead-end and verified tickets are lost.
-    // The budget model itself still enforces override precedence: it only
-    // writes a ticket when truth.ticketEvidence has one, and only upgrades
-    // to "manual"/"model" with that evidence.
-    //
-    // Ambiguous evidence kinds stay excluded: a FIXED_PAID_WITH_BUNDLE /
-    // FIXED_ENTRY_PLUS_ACTIVITIES / FREE_ENTRY_PAID_EXPERIENCES etc price is
-    // not a clean admission fact (the ledger itself flags the product
-    // ambiguity), so re-eligibility must not manufacture a budget from it.
-    if (
-      d.budgetMetadata?.method === "unknown" &&
-      truth.ticketEvidence?.[d.id] !== undefined
-    ) {
-      const ev = truth.ticketEvidence[d.id];
-      const ambiguousKinds = new Set([
-        "FIXED_PAID_WITH_BUNDLE",
-        "FIXED_ENTRY_PLUS_ACTIVITIES",
-        "FREE_AREA_SEPARATE_PAID_FACILITIES",
-        "FREE_ENTRY_PAID_EXPERIENCES",
-        "FREE_ENTRY_PAY_PER_RIDE",
-        "FREE_ENTRY_PURCHASES_VARIABLE",
-        "FIXED_COLLECTION_PLUS_VARIABLE_SPECIAL",
-      ]);
-      if (!ambiguousKinds.has(ev.kind ?? "")) {
-        budgetEligible.add(d.id);
-      }
-    }
-  }
+
   const seasonEligible = new Set(manualByField.season ?? []);
   for (const d of destinations) {
     if (!d.season || !d.bestMonths?.length) seasonEligible.add(d.id);
@@ -343,125 +297,6 @@ function main() {
   };
 
   for (const d of destinations) {
-    const beforeBudget = {
-      min: d.budgetMin,
-      rec: d.budgetRecommended,
-      max: d.budgetMax,
-      breakdown: d.budgetBreakdown,
-      metadata: d.budgetMetadata,
-    };
-    const b = budgetModel(d, budgetEligible, destinations, truth);
-    if (b.action !== "keep") markTouched("budget-model-v1", d.id);
-    if (b.action === "fill" && b.budget) {
-      d.budgetMin = b.budget.budgetMin;
-      d.budgetRecommended = b.budget.budgetRecommended;
-      d.budgetMax = b.budget.budgetMax;
-      d.budgetBreakdown = b.budget.breakdown;
-      // budgetMetadata written unconditionally (idempotent): already-filled
-      // records must keep their model provenance marker.
-      if (d.budgetMetadata?.method !== "model") {
-        d.budgetMetadata = {
-          method: "model",
-          modelVersion: "budget-model-v1",
-          confidence: b.confidence,
-          basis: b.reason,
-        };
-      }
-      // Metadata participates in change detection: deleting/corrupting
-      // budgetMetadata with the numbers intact must fail --check (provenance
-      // is part of the derived state, not decoration).
-      if (
-        changed(beforeBudget, {
-          min: d.budgetMin,
-          rec: d.budgetRecommended,
-          max: d.budgetMax,
-          breakdown: d.budgetBreakdown,
-          metadata: d.budgetMetadata,
-        })
-      ) {
-        addFieldSource(d, "budgetRecommended", `budget-model-v1; ${b.reason}`);
-        touch(d, "budget-model-v1", "fill", b.reason, [
-          "budgetMin",
-          "budgetRecommended",
-          "budgetMax",
-          "budgetBreakdown",
-          "budgetMetadata",
-        ]);
-      }
-    } else if (b.action === "keep" && b.reason.includes("verified ticket")) {
-      // Verified admission preserved but no model budget (insufficient
-      // peers): the record's budget is ACCEPTED DEBT (legacy numbers with a
-      // verified ticket), not unknown and not model-derived. method "manual"
-      // keeps the numbers usable while the basis states the ticket fact;
-      // "unknown" would create two competing truths (metadata unknown but
-      // numbers present) — the budget guards treat "unknown" as authoritative
-      // and would hide the verified ticket.
-      const beforeMeta = d.budgetMetadata;
-      if (d.budgetMetadata?.method !== "manual") {
-        d.budgetMetadata = {
-          method: "manual",
-          modelVersion: "budget-model-v1",
-          confidence: "low",
-          basis: b.reason,
-        };
-      }
-      if (changed(beforeMeta, d.budgetMetadata)) {
-        touch(d, "budget-model-v1", "keep", b.reason, ["budgetMetadata"]);
-      }
-    } else if (b.action === "clear-to-unknown") {
-      const before = {
-        min: d.budgetMin,
-        rec: d.budgetRecommended,
-        max: d.budgetMax,
-        breakdown: d.budgetBreakdown,
-        metadata: d.budgetMetadata,
-      };
-      delete (d as Partial<Destination>).budgetMin;
-      delete (d as Partial<Destination>).budgetRecommended;
-      delete (d as Partial<Destination>).budgetMax;
-      delete (d as Partial<Destination>).budgetBreakdown;
-      // budgetMetadata is written unconditionally (idempotent): records
-      // already cleared by a previous run must still carry the explicit
-      // unknown marker so validators treat it as neutral, not missing.
-      if (d.budgetMetadata?.method !== "unknown") {
-        d.budgetMetadata = {
-          method: "unknown",
-          modelVersion: "budget-model-v1",
-          confidence: "unknown",
-          basis: b.reason,
-        };
-      }
-      // Obsolete field sources die with the numbers (no stale 'calculated'
-      // claims on a cleared record).
-      if (d.editorial?.fieldSources) {
-        for (const f of [
-          "budgetMin",
-          "budgetRecommended",
-          "budgetMax",
-          "budgetBreakdown",
-        ]) {
-          delete d.editorial.fieldSources[f];
-        }
-      }
-      if (
-        changed(before, {
-          min: d.budgetMin,
-          rec: d.budgetRecommended,
-          max: d.budgetMax,
-          breakdown: d.budgetBreakdown,
-          metadata: d.budgetMetadata,
-        })
-      ) {
-        touch(d, "budget-model-v1", "clear-to-unknown", b.reason, [
-          "budgetMin",
-          "budgetRecommended",
-          "budgetMax",
-          "budgetBreakdown",
-          "budgetMetadata",
-        ]);
-      }
-    }
-
     const beforeSeason = {
       season: d.season,
       bestMonths: d.bestMonths,
@@ -1023,7 +858,6 @@ function main() {
         field: string;
         meta: Destination["comfortMetadata"] | undefined;
       }> = [
-        { field: "budgetRecommended", meta: d.budgetMetadata },
         { field: "season", meta: d.seasonMetadata },
         { field: "bestMonths", meta: d.seasonMetadata },
         { field: "recommendedVisitHours", meta: d.durationMetadata },
@@ -1100,8 +934,7 @@ function main() {
         confidence,
         basis,
       };
-      if (modelVersion === "budget-model-v1") d.budgetMetadata = metaObj;
-      else if (modelVersion === "season-model-v1") d.seasonMetadata = metaObj;
+      if (modelVersion === "season-model-v1") d.seasonMetadata = metaObj;
       else if (
         modelVersion === "duration-model-v1" ||
         modelVersion === "hub-window-model-v1"
@@ -1119,66 +952,6 @@ function main() {
       );
     };
 
-    // Budget: migrate pre-metadata model fills ONLY on positive provenance
-    // evidence — a calculated budgetRecommended source carrying the model
-    // version — plus a current value matching the deterministic model output.
-    // Value shape alone is NEVER provenance (a manual/source-verified record
-    // must not be promoted to model ownership by coincidence).
-    if (
-      d.budgetMetadata?.method !== "model" &&
-      fs.budgetRecommended !== undefined &&
-      /^budget-model-v1(?:;|$)/.test(fs.budgetRecommended[0]?.title ?? "")
-    ) {
-      const out = budgetModel(d, new Set([d.id]), destinations, truth);
-      const b = out.budget;
-      const shapeMatches =
-        out.action === "fill" &&
-        b !== undefined &&
-        d.budgetRecommended === b.budgetRecommended &&
-        JSON.stringify(d.budgetBreakdown) === JSON.stringify(b.breakdown);
-      if (shapeMatches) {
-        // Adopt the canonical model output (min/max re-calibrated) so the
-        // provenance describes the actual stored values.
-        d.budgetMin = b!.budgetMin;
-        d.budgetRecommended = b!.budgetRecommended;
-        d.budgetMax = b!.budgetMax;
-        d.budgetBreakdown = b!.breakdown;
-        writeMeta(
-          "budgetRecommended",
-          "budget-model-v1",
-          out.reason,
-          out.confidence,
-        );
-        touch(
-          d,
-          "budget-model-v1",
-          "migrate",
-          "budget reconciled to current model output with metadata",
-          [
-            "budgetMin",
-            "budgetRecommended",
-            "budgetMax",
-            "budgetBreakdown",
-            "budgetMetadata",
-          ],
-        );
-      } else {
-        // Remove ONLY the stale calculated entry — legitimate factual
-        // sources in the same array (official etc.) are preserved.
-        const kept = fs.budgetRecommended.filter(
-          (s) => s.type !== "calculated",
-        );
-        if (kept.length > 0) fs.budgetRecommended = kept;
-        else delete fs.budgetRecommended;
-        touch(
-          d,
-          "budget-model-v1",
-          "clear",
-          "stale calculated budget source removed (no model metadata)",
-          ["budgetRecommended"],
-        );
-      }
-    }
     // Duration: migrate model-shaped windows (matches durationModel output)
     // to structured metadata. Source-gated: a duration source is the model
     // marker — value-shape alone is not (manual records share common kind
@@ -1343,17 +1116,6 @@ function main() {
         const rec = byId.get(id);
         if (!rec) return false;
         switch (cat.category) {
-          case "budget": {
-            const out = budgetModel(rec, new Set([id]), destinations, truth);
-            if (out.action !== "fill" || !out.budget) return false;
-            return (
-              rec.budgetMin === out.budget.budgetMin &&
-              rec.budgetRecommended === out.budget.budgetRecommended &&
-              rec.budgetMax === out.budget.budgetMax &&
-              JSON.stringify(rec.budgetBreakdown) ===
-                JSON.stringify(out.budget.breakdown)
-            );
-          }
           case "season": {
             const out = seasonModel(rec, new Set([id]));
             if (out.action === "set" && out.season) {
@@ -1438,8 +1200,6 @@ function main() {
   // source-verified > model enforced by construction).
   const ownedByModel = (model: string, d: Destination): boolean => {
     switch (model) {
-      case "budget-model-v1":
-        return d.budgetMetadata?.method === "model";
       case "season-model-v1":
         return d.seasonMetadata?.method === "model";
       case "duration-model-v1":
@@ -1465,7 +1225,6 @@ function main() {
     }
   };
   const LEDGER_MODELS = [
-    "budget-model-v1",
     "season-model-v1",
     "duration-model-v1",
     "hub-window-model-v1",

@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Tokyo-STA_Marunouchi-Entrance_2023.jpg/3840px-Tokyo-STA_Marunouchi-Entrance_2023.jpg",
   "totalTripHours": 4,
-  "budgetMin": 5000,
-  "budgetRecommended": 10000,
-  "budgetMax": 15000,
   "walkingMin": 40,
   "indoorPercent": 85,
   "ratings": {
@@ -57,12 +54,6 @@
     "Tokyo Ramen Street"
   ],
   "description": "Japan's primary railway hub featuring Kingo Tatsuno's restored 1914 red-brick station building, Marunouchi plaza, and Ramen Street.",
-  "budgetBreakdown": {
-    "transport": 667,
-    "tickets": 0,
-    "food": 7333,
-    "cafe": 2000
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
@@ -180,11 +171,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

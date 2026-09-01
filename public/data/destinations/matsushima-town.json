@@ -33,15 +33,6 @@
     "bus": 50,
     "car": 45
   },
-  "budgetMin": 7000,
-  "budgetRecommended": 10500,
-  "budgetMax": 14000,
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 1500,
-    "food": 4500,
-    "cafe": 1500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Matsushima_Town-Hall.jpg/1280px-Matsushima_Town-Hall.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Matsushima_Town-Hall.jpg/1280px-Matsushima_Town-Hall.jpg",
   "imageMetadata": {
@@ -232,11 +223,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

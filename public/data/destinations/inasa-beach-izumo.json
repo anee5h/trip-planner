@@ -27,15 +27,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 0,
-  "budgetRecommended": 1000,
-  "budgetMax": 2500,
-  "budgetBreakdown": {
-    "transport": 600,
-    "tickets": 0,
-    "food": 300,
-    "cafe": 100
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bentenjima_on_Inasa_Beach.jpg/1280px-Bentenjima_on_Inasa_Beach.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bentenjima_on_Inasa_Beach.jpg/1280px-Bentenjima_on_Inasa_Beach.jpg",
   "imageMetadata": {
@@ -180,11 +171,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

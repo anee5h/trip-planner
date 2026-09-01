@@ -14,9 +14,6 @@
   "notes": "Yaeyama island hub with Kabira Bay, coral reefs, and ferry access to nearby islands.",
   "highlights": ["Explore Ishigaki City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 6600,
-  "budgetRecommended": 7600,
-  "budgetMax": 8600,
   "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
@@ -59,12 +56,6 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["naha-city", "nago-city", "motobu-town"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
-  },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 8,
@@ -100,14 +91,6 @@
     ],
     "reviewedBy": "Okinawa Regional Editorial Batch",
     "fieldSources": {
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "recommendedVisitHours": [
         {
           "type": "calculated",
@@ -166,12 +149,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "hub records span multiple microclimates; single vector would be fabricated"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

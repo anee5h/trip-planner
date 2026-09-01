@@ -13,15 +13,6 @@
     "Kannon Bridge",
     "Yoro Gorge Onsen"
   ],
-  "budgetMin": 2500,
-  "budgetMax": 7500,
-  "budgetRecommended": 5000,
-  "budgetBreakdown": {
-    "transport": 2000,
-    "tickets": 300,
-    "food": 1800,
-    "cafe": 900
-  },
   "transportOptions": {
     "train": 115,
     "car": 80
@@ -174,11 +165,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

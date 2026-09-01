@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shinyokohama_ramen_museum.jpg/1920px-Shinyokohama_ramen_museum.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Yokohama_Marine_Tower_Dscn1518a.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3000,
-  "budgetRecommended": 6500,
-  "budgetMax": 10000,
   "walkingMin": 40,
   "indoorPercent": 75,
   "ratings": {
@@ -48,12 +45,6 @@
   },
   "highlights": ["Museum", "Food", "Indoor"],
   "description": "A ramen theme park in museum form: a recreated 1958 Showa-era street in the basement where visitors can compare regional ramen from shops across Japan.",
-  "budgetBreakdown": {
-    "transport": 650,
-    "tickets": 450,
-    "food": 3250,
-    "cafe": 1300
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -189,12 +180,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥450 (ledger LEDGER_VERIFIED); source: https://www.raumen.co.jp/english/"
   },
   "admission": {
     "state": "verified_paid",

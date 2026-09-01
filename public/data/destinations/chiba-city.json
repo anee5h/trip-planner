@@ -4,7 +4,6 @@
   "region": "Kanto",
   "categories": ["City", "Museum"],
   "tags": ["Urban", "Shopping"],
-  "budgetRecommended": 8000,
   "ratings": {
     "overall": 7.5,
     "photography": 6.5,
@@ -24,8 +23,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg",
   "prefecture": "Chiba",
-  "budgetMin": 4000,
-  "budgetMax": 12000,
   "totalTripHours": 8,
   "walkingMin": 60,
   "comfort": {
@@ -43,12 +40,6 @@
     "Chiba Urban Monorail"
   ],
   "description": "Chiba Prefecture's capital facing Tokyo Bay, home to Makuhari Messe, Chiba Port Tower, and urban monorail system.",
-  "budgetBreakdown": {
-    "transport": 3200,
-    "tickets": 1600,
-    "food": 2400,
-    "cafe": 800
-  },
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Chiba_montage.jpg",
   "imageMetadata": {
@@ -198,11 +189,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"notable\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

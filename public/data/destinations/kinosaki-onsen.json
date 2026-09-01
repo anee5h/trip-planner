@@ -26,8 +26,6 @@
     "uniqueness": 9.8
   },
   "categories": ["onsen", "relaxation", "culture"],
-  "budgetMin": 7000,
-  "budgetMax": 28000,
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"
@@ -52,7 +50,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
   "description": "Kinosaki Onsen is a quintessential hot spring town centered around a willow-lined canal, where visitors stroll between seven distinct public bathhouses in traditional yukata robes.",
   "notes": "Founded over 1,300 years ago when a stork was observed healing its wounded leg in the thermal springs.",
-  "budgetRecommended": 17500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -60,12 +57,6 @@
     "parentDestinationId": "toyooka-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Kinosaki_Onsen_by_day.jpg/3840px-Kinosaki_Onsen_by_day.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 8125,
-    "cafe": 4375
-  },
   "highlights": ["Explore Kinosaki Onsen", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -176,11 +167,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

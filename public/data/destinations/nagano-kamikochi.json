@@ -14,14 +14,6 @@
     "Myojin Pond",
     "Hotaka Mountain Range views"
   ],
-  "budgetMin": 6000,
-  "budgetMax": 18000,
-  "budgetRecommended": 12000,
-  "budgetBreakdown": {
-    "transport": 5000,
-    "food": 3000,
-    "cafe": 1500
-  },
   "transportOptions": {
     "train": 180,
     "car": 190
@@ -112,11 +104,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_free",

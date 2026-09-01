@@ -9,6 +9,7 @@ import {
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import destinations from "@/shared/data/destinations-index.json";
 
 describe("destinationSearchParams", () => {
@@ -61,7 +62,7 @@ describe("destinationSearchParams", () => {
       new URLSearchParams("budget=invalid&party=0&page=0&view=invalid"),
     );
 
-    expect(parsed.maxBudget).toBe(40000);
+    expect(parsed.maxBudget).toBe(BUDGET_TIER_LIMITS.standard);
     expect(parsed.partySize).toBe(2);
     expect(parsed.currentPage).toBe(1);
     expect(parsed.viewMode).toBe("grid");
@@ -312,6 +313,18 @@ describe("destinationSearchParams", () => {
     );
   });
 
+  it("parses and serializes Flexible without inventing a numeric ceiling", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("budgetTier=flexible"),
+    );
+    expect(parsed.budgetTier).toBe("luxury");
+    expect(parsed.maxBudget).toBe(Infinity);
+
+    const serialized = serializeDestinationSearchParams(parsed);
+    expect(serialized.get("budget")).toBe("flexible");
+    expect(serialized.get("budgetTier")).toBe("luxury");
+  });
+
   it("KAI-91: retains Standard tier for numeric-only legacy budget parameters without budgetTier", () => {
     const parsed = parseDestinationSearchParams(
       new URLSearchParams("budget=45000"),
@@ -343,15 +356,27 @@ describe("destinationSearchParams", () => {
     );
   });
 
-  it("filters destination count when budgetTier is set to economy", () => {
-    const economyDestinations = destinations.filter(
-      (dest) => (dest.budgetMax ?? dest.budgetMin ?? Infinity) < 10000,
+  it("uses canonical estimate ceilings rather than retired destination fields", () => {
+    const legacyFieldCount = destinations.filter((dest) =>
+      [
+        "budgetMin",
+        "budgetRecommended",
+        "budgetMax",
+        "budgetBreakdown",
+        "budgetMetadata",
+      ].some((key) => key in dest),
+    ).length;
+    const canonicalEstimates = destinations.map((dest) =>
+      calculateTripEstimate({
+        dest,
+        duration: "fullDay",
+        partySize: 1,
+      }),
     );
-    expect(economyDestinations.length).toBeGreaterThan(0);
-    expect(economyDestinations.length).toBeLessThan(destinations.length);
+    expect(legacyFieldCount).toBe(0);
+    expect(canonicalEstimates.some((estimate) => estimate.total)).toBe(true);
   });
 
-  // Canonical duration replaces the old trip-mode/stay pair.
   it("defaults duration to any", () => {
     const parsed = parseDestinationSearchParams(new URLSearchParams(""));
     expect(parsed.tripDuration).toBe("any");

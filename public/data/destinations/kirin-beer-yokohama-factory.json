@@ -15,15 +15,6 @@
     "lng": 139.6855
   },
   "totalTripHours": 2.5,
-  "budgetMin": 1500,
-  "budgetRecommended": 4500,
-  "budgetMax": 7500,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 500,
-    "food": 2400,
-    "cafe": 800
-  },
   "transportOptions": {
     "train": 30
   },
@@ -150,11 +141,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

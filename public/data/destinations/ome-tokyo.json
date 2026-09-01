@@ -11,9 +11,6 @@
     "Ome Retro Movie Poster Street",
     "Gyokudo Art Museum"
   ],
-  "budgetMin": 7000,
-  "budgetMax": 16000,
-  "budgetRecommended": 11500,
   "transportOptions": {
     "train": 65,
     "car": 75
@@ -71,12 +68,6 @@
     ]
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Mitake_Shrine.jpg/1280px-Mitake_Shrine.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 4225,
-    "cafe": 2275
-  },
   "comfort": {
     "heatTolerance": 6,
     "rainFriendly": 5,
@@ -185,11 +176,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

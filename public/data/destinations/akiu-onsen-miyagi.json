@@ -28,9 +28,6 @@
     "confidence": "high"
   },
   "collections": [],
-  "budgetMin": 2000,
-  "budgetRecommended": 23500,
-  "budgetMax": 45000,
   "transportOptions": {
     "train": 80,
     "bus": 60
@@ -74,7 +71,6 @@
     "nearbyDestinationIds": ["sendai-city", "matsushima-bay"],
     "parentDestinationId": "sendai-city"
   },
-  "budgetBreakdown": null,
   "recommendedVisitHours": {
     "min": 5,
     "max": 7
@@ -138,11 +134,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -53,15 +53,6 @@
       "notes": "訪問前に公式情報で最新のアクセス、施設ルール、季節ごとの制限を確認してください。"
     }
   },
-  "budgetMetadata": {
-    "method": "unknown",
-    "state": "unavailable",
-    "provenance": "none",
-    "reasonCode": "source_missing",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "No complete destination-specific budget evidence was verified; missing numeric costs remain unknown rather than being inferred."
-  },
   "admission": {
     "state": "unavailable",
     "provenance": "verified_source",

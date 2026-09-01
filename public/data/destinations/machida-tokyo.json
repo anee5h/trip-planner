@@ -12,9 +12,6 @@
     "Grandberry Park",
     "Nakamachi Shopping Street"
   ],
-  "budgetMin": 5000,
-  "budgetMax": 12000,
-  "budgetRecommended": 8500,
   "transportOptions": {
     "train": 35,
     "car": 45
@@ -67,12 +64,6 @@
     ]
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Machida_city.jpg/1280px-Machida_city.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 2275,
-    "cafe": 1225
-  },
   "comfort": {
     "heatTolerance": 6,
     "rainFriendly": 5,
@@ -192,11 +183,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

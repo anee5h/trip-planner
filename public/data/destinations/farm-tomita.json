@@ -131,12 +131,6 @@
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "walkingMin": 170,
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified free admission (ledger FREE_ENTRY); source: https://www.farm-tomita.co.jp/en/"
-  },
   "scoreMetadata": {
     "state": "estimated",
     "value": 6,
@@ -148,12 +142,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 0,
-    "food": 0,
-    "cafe": 0
   },
   "admission": {
     "state": "verified_free",

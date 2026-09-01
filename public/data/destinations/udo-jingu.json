@@ -59,15 +59,6 @@
     "verifiedAt": "2026-08-05",
     "sourceUrl": "https://www.kankou-nichinan.jp/en/spot/udo-jingu/"
   },
-  "budgetMin": 1500,
-  "budgetRecommended": 4500,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 450,
-    "tickets": 0,
-    "food": 675,
-    "cafe": 150
-  },
   "transportOptions": {
     "bus": 350
   },
@@ -202,11 +193,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

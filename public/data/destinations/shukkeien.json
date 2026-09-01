@@ -39,15 +39,6 @@
   },
   "description": "Shukkeien is a distinct visitor stop within Hiroshima City, selected to support a varied local itinerary.",
   "highlights": ["Nature", "Garden", "History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 350,
-    "food": 1400,
-    "cafe": 850
-  },
   "transportOptions": {},
   "totalTripHours": 5,
   "recommendedVisitHours": {
@@ -171,11 +162,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

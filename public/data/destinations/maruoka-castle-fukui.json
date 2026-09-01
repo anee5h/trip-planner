@@ -13,9 +13,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg/1280px-Maruoka_Castle_Keep_Tower%2C_Maruoka-cho_Sakai_2013.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3000,
-  "budgetRecommended": 6250,
-  "budgetMax": 9500,
   "walkingMin": 70,
   "indoorPercent": 75,
   "ratings": {
@@ -66,12 +63,6 @@
     "Mist Legend Park"
   ],
   "description": "Built in 1576, Maruoka Castle is one of Japan's 12 original surviving castle keeps and features the oldest architectural keep style in Japan, complete with rare stone roof tiles.",
-  "budgetBreakdown": {
-    "transport": 2045,
-    "tickets": 511,
-    "food": 2727,
-    "cafe": 967
-  },
   "reservation": "No reservation required.",
   "parking": "Free parking lot at Maruoka Castle Kasumi Park.",
   "notes": "Top 100 Castle of Japan #36. Known as Kasumi-ga-jyo (Mist Castle) due to legend of fog concealing the tower from enemies.",
@@ -137,11 +128,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

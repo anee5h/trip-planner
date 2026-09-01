@@ -32,15 +32,6 @@
     "bus": 50,
     "car": 40
   },
-  "budgetMin": 0,
-  "budgetRecommended": 2000,
-  "budgetMax": 4000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 0,
-    "food": 900,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg/1280px-Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg/1280px-Asamushi_hot_spring_and_Yonoshima_island_aerial_photo.jpg",
   "imageMetadata": {
@@ -196,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -53,15 +53,6 @@
     "80m moss-covered basalt cliffs",
     "Mythological setting of Amaterasu legend"
   ],
-  "budgetMin": 2500,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 875,
-    "tickets": 0,
-    "food": 1000,
-    "cafe": 250
-  },
   "transportOptions": {
     "train": 355,
     "shinkansen": 465
@@ -208,11 +199,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

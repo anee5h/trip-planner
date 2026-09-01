@@ -47,15 +47,6 @@
   },
   "description": "A major theme park in Osaka with Hollywood-inspired rides, shows, themed areas, and character entertainment for all ages.",
   "highlights": ["Theme Park"],
-  "budgetMin": 10900,
-  "budgetRecommended": 16000,
-  "budgetMax": 22000,
-  "budgetBreakdown": {
-    "transport": 2100,
-    "tickets": 8800,
-    "food": 3900,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 192,
     "bus": 212,
@@ -279,11 +270,6 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "notes": "Super Nintendo World, including the Donkey Kong Country area that opened December 2024, is part of the single Universal Studios Japan park. Attraction availability and entry rules (timed entry for themed areas, show schedules) change; check the official site rather than relying on stored ride details.",
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
-  },
   "admission": {
     "state": "variable_price",
     "provenance": "verified_source",

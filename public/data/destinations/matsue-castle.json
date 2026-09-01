@@ -58,9 +58,6 @@
   "description": "Matsue Castle, completed in 1611, is one of Japan's five castles designated as National Treasures, featuring striking black wooden siding nicknamed the Black Plover Castle.",
   "notes": "National Treasure keep, one of Japan's 12 surviving original wooden castle keeps (five of which are National Treasures, designated 2015); nicknamed Chidori-jo (Black Plover Castle). Adjacent to Horikawa moat and Shiomi Nawate samurai street.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 4000,
-  "budgetMax": 15000,
-  "budgetRecommended": 9500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -70,12 +67,6 @@
     "parentDestinationId": "matsue-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg/1280px-080720_Matsue_Castle_Matsue_Shimane_pref_Japan01s.jpg",
-  "budgetBreakdown": {
-    "transport": 2375,
-    "tickets": 1200,
-    "food": 3859,
-    "cafe": 2079
-  },
   "highlights": ["Explore Matsue Castle", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -130,11 +121,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

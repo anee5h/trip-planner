@@ -49,15 +49,6 @@
   },
   "description": "A major Rinzai Zen temple in Kamakura, ranked second among the city’s Five Mountains and known for lectures and zazen sessions.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 500,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 44
   },
@@ -242,12 +233,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://www.engakuji.or.jp/en/access/"
   },
   "admission": {
     "state": "verified_paid",

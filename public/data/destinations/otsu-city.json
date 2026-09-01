@@ -17,9 +17,6 @@
   "description": "Port city on southern tip of Lake Biwa, featuring Ishiyamadera Temple and Enryaku-ji Temple on Mt. Hiei.",
   "highlights": ["Explore Otsu City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 6600,
-  "budgetRecommended": 7600,
-  "budgetMax": 8600,
   "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
@@ -59,12 +56,6 @@
     "featuredDestinationIds": [],
     "nearbyDestinationIds": ["hikone-castle-shiga", "kyoto-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
-  },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 7,
@@ -94,14 +85,6 @@
     "checkedAt": "2026-08-03T00:00:00Z",
     "freshness": "current",
     "fieldSources": {
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "recommendedVisitHours": [
         {
           "type": "calculated",
@@ -162,12 +145,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "hub records span multiple microclimates; single vector would be fabricated"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

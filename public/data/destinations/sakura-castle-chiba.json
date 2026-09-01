@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Sakura_Castle_2.JPG/3840px-Sakura_Castle_2.JPG",
   "totalTripHours": 4,
-  "budgetMin": 2500,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
   "walkingMin": 45,
   "indoorPercent": 50,
   "ratings": {
@@ -58,12 +55,6 @@
     "Cherry Blossom Park"
   ],
   "description": "A historic castle park in Chiba surrounded by dry moats and earthen ramparts, housing National Museum of Japanese History.",
-  "budgetBreakdown": {
-    "transport": 990,
-    "tickets": 660,
-    "food": 2750,
-    "cafe": 1100
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -171,11 +162,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

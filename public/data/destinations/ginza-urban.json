@@ -6,9 +6,6 @@
   "categories": ["City", "Shopping", "Art", "History"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/1280px-Ginza-WAKO_at_night.jpg",
   "totalTripHours": 6,
-  "budgetMin": 8000,
-  "budgetRecommended": 12000,
-  "budgetMax": 16000,
   "walkingMin": 60,
   "indoorPercent": 80,
   "ratings": {
@@ -51,12 +48,6 @@
     "Pedestrian Paradise (Weekends)"
   ],
   "description": "Ginza is a district of Chūō, Tokyo, located south of Yaesu and Kyōbashi, west of Tsukiji, east of Yūrakuchō and Uchisaiwaichō, and north of Shinbashi. It is a popular upscale shopping area of Tokyo, with numerous internationally renowned department stores, boutiques, restaurants and coffeehouses located in the vicinity.",
-  "budgetBreakdown": {
-    "transport": 1091,
-    "tickets": 2182,
-    "food": 6545,
-    "cafe": 2182
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
@@ -160,11 +151,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

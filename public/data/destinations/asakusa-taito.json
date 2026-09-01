@@ -6,9 +6,6 @@
   "categories": ["History", "City"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Day2-2_%2840909714314%29.jpg/3840px-Day2-2_%2840909714314%29.jpg",
   "totalTripHours": 5,
-  "budgetMin": 6500,
-  "budgetRecommended": 10500,
-  "budgetMax": 14500,
   "walkingMin": 60,
   "indoorPercent": 20,
   "ratings": {
@@ -50,12 +47,6 @@
     "Sumida River Cruises"
   ],
   "description": "Tokyo's historic cultural heart, centered on Senso-ji Temple, Nakamise shopping street, and traditional rickshaw tours.",
-  "budgetBreakdown": {
-    "transport": 1105,
-    "tickets": 1768,
-    "food": 5416,
-    "cafe": 2211
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -150,11 +141,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

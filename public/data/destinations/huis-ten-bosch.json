@@ -60,15 +60,6 @@
     "sourceUrl": "https://english.huistenbosch.co.jp/opentime/",
     "hoursNote": "Hours and ticket prices vary daily — always check the official calendar"
   },
-  "budgetMin": 5000,
-  "budgetRecommended": 15000,
-  "budgetMax": 30000,
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 7000,
-    "food": 2250,
-    "cafe": 500
-  },
   "transportOptions": {
     "train": 280,
     "bus": 200
@@ -211,11 +202,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

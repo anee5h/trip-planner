@@ -278,4 +278,24 @@ describe("KAI-260 TripEstimateEngine", () => {
     );
     expect(estimateQualityLabel(result.estimateQuality, "ja")).toBe("概算");
   });
+
+  it("treats Flexible as unconstrained while using a neutral display estimate", () => {
+    const flexible = calculateTripEstimate({
+      dest: destination(),
+      duration: "2d1n",
+      budgetTier: "luxury",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+    const standard = calculateTripEstimate({
+      dest: destination(),
+      duration: "2d1n",
+      budgetTier: "standard",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+
+    expect(flexible.total).toEqual(standard.total);
+    expect(evaluateAffordability(flexible, Infinity)).toBe("unknown");
+  });
 });

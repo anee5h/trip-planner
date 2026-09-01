@@ -6,9 +6,6 @@
   "categories": ["Theme Park"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg/1920px-Tokyo_Disneyland_Cinderella_Castle_2023-07-02.jpg",
   "totalTripHours": 12,
-  "budgetMin": 26800,
-  "budgetRecommended": 30800,
-  "budgetMax": 34800,
   "walkingMin": 60,
   "indoorPercent": 40,
   "ratings": {
@@ -46,12 +43,6 @@
   },
   "highlights": ["Cinderella Castle", "Space Mountain", "Electrical Parade"],
   "description": "Tokyo Disneyland is a scenic destination in the Chiba region of Japan, offering rich history and cultural attractions.",
-  "budgetBreakdown": {
-    "transport": 3101,
-    "tickets": 8900,
-    "food": 6201,
-    "cafe": 2067
-  },
   "reservation": "Date-specific tickets must be purchased in advance via the official website/app; ticket booths at the parks are currently closed. Ticket prices and park hours vary by date — check the official calendar.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -168,11 +159,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

@@ -47,14 +47,6 @@
   },
   "description": "A seaside aquarium on the Shonan coast, with marine-life exhibitions, access information, and daily keeper updates.",
   "highlights": ["Aquarium"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 49
   },
@@ -236,11 +228,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

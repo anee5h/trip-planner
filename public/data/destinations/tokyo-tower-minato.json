@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/5/58/Tokyo_Tower_2023.jpg",
   "totalTripHours": 3,
-  "budgetMin": 3500,
-  "budgetRecommended": 7750,
-  "budgetMax": 12000,
   "walkingMin": 35,
   "indoorPercent": 85,
   "ratings": {
@@ -58,11 +55,6 @@
     "Landmark Light Night Illumination"
   ],
   "description": "Built in 1958 and standing 332.9 meters tall, Tokyo Tower is the beloved red-and-white lattice symbol of post-war Tokyo, offering glass-floor lookouts and romantic night views.",
-  "budgetBreakdown": {
-    "transport": 443,
-    "food": 4429,
-    "cafe": 1549
-  },
   "reservation": "Advance booking recommended for Top Deck Tour; Main Deck tickets available on site.",
   "parking": "Paid underground parking structure at Tokyo Tower footprint.",
   "notes": "Visit the Top Deck Tour (250m) for voice-guided historic commentary and glass floor photo spots.",
@@ -202,11 +194,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

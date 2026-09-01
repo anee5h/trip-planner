@@ -302,7 +302,7 @@ export default function DestinationFilters({
       economy: isJa ? "エコノミー" : "Economy",
       standard: isJa ? "スタンダード" : "Standard",
       comfortable: isJa ? "コンフォート" : "Comfort",
-      luxury: isJa ? "贅沢" : "Flexible",
+      luxury: isJa ? "制約なし" : "Flexible",
     };
     activeChips.push({
       id: "budget",
@@ -975,7 +975,7 @@ export default function DestinationFilters({
                       },
                       {
                         val: "luxury",
-                        label: isJa ? "贅沢" : "Flexible",
+                        label: isJa ? "制約なし" : "Flexible",
                         desc: isJa ? "選択肢を広く" : "Keep options open",
                         icon: CircleDollarSign,
                         color: "text-amber-500",

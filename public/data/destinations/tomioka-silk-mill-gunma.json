@@ -11,9 +11,6 @@
     "Four component sites of the UNESCO property",
     "UNESCO World Heritage (2014)"
   ],
-  "budgetMin": 5800,
-  "budgetMax": 7800,
-  "budgetRecommended": 6800,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -68,12 +65,6 @@
     }
   ],
   "relationships": {},
-  "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 1000,
-    "food": 2300,
-    "cafe": 1000
-  },
   "nameJa": "富岡製糸場と絹産業遺産群",
   "comfort": {
     "heatTolerance": 6,
@@ -111,14 +102,6 @@
           "type": "calculated",
           "url": "catalogue-model://kai-89",
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
-          "accessedAt": "2026-08-14"
-        }
-      ],
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'none|full|standalone' n=7; tickets source-verified",
           "accessedAt": "2026-08-14"
         }
       ]
@@ -185,12 +168,6 @@
     "modelVersion": "crowd-model-v1",
     "confidence": "unknown",
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'none|full|standalone' n=7; tickets source-verified"
   },
   "scoreMetadata": {
     "state": "estimated",

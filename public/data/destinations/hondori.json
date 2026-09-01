@@ -27,15 +27,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 1000,
-  "budgetRecommended": 2500,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 200,
-    "tickets": 0,
-    "food": 1600,
-    "cafe": 700
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Hiroshima-Hondori_Shopping_Street_at_dusk.jpg/1280px-Hiroshima-Hondori_Shopping_Street_at_dusk.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Hiroshima-Hondori_Shopping_Street_at_dusk.jpg/1280px-Hiroshima-Hondori_Shopping_Street_at_dusk.jpg",
   "imageMetadata": {
@@ -181,11 +172,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

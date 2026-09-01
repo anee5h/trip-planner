@@ -13,15 +13,6 @@
     "Nantaimasan Peak Trail",
     "Benten Rock Path"
   ],
-  "budgetMin": 3000,
-  "budgetMax": 9000,
-  "budgetRecommended": 6000,
-  "budgetBreakdown": {
-    "transport": 2500,
-    "tickets": 1500,
-    "food": 1400,
-    "cafe": 600
-  },
   "transportOptions": {
     "train": 80,
     "car": 90
@@ -175,11 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

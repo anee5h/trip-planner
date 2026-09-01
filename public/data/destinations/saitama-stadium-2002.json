@@ -170,12 +170,6 @@
   "openingHours": "09:30 - 17:00 (Last admission 16:30)",
   "openingHoursJa": "09:30 - 17:00（最終入館 16:30）",
   "municipalityId": "Saitama:saitama",
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "comfortMetadata": {
     "method": "model",
     "modelVersion": "comfort-model-v1",

@@ -6,9 +6,6 @@
   "categories": ["History", "Food"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Utsunomiya_montage.jpg/250px-Utsunomiya_montage.jpg",
   "totalTripHours": 10,
-  "budgetMin": 9600,
-  "budgetRecommended": 13600,
-  "budgetMax": 17600,
   "walkingMin": 50,
   "indoorPercent": 80,
   "ratings": {
@@ -51,12 +48,6 @@
     "Utsunomiya Gyoza Dining"
   ],
   "description": "A unique destination near Utsunomiya featuring Oya History Museum's vast underground stone quarry chamber and Oya Kannon Buddha.",
-  "budgetBreakdown": {
-    "transport": 3238,
-    "tickets": 1727,
-    "food": 6476,
-    "cafe": 2159
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -149,11 +140,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

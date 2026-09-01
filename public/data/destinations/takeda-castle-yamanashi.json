@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Takedasi-Yakata20251017.jpg/1280px-Takedasi-Yakata20251017.jpg",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5750,
-  "budgetMax": 9000,
   "walkingMin": 70,
   "indoorPercent": 70,
   "ratings": {
@@ -55,12 +52,6 @@
     "Princess Sanjo Well"
   ],
   "description": "The fortified residence of legendary Sengoku warlord Takeda Shingen, featuring original earthwork ramparts, triple moats, and Takeda Shrine.",
-  "budgetBreakdown": {
-    "transport": 1725,
-    "tickets": 345,
-    "food": 2760,
-    "cafe": 920
-  },
   "reservation": "No reservation required.",
   "parking": "Free parking lot at Takeda Shrine entrance.",
   "notes": "Top 100 Castle of Japan #24. Shingen-ko Festival held every April features 1,000 armor-clad samurai parade.",
@@ -124,11 +115,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

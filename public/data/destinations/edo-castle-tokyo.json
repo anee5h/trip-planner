@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Edo_P_detail.jpg",
   "totalTripHours": 4,
-  "budgetMin": 2000,
-  "budgetRecommended": 5500,
-  "budgetMax": 9000,
   "walkingMin": 45,
   "indoorPercent": 60,
   "ratings": {
@@ -49,12 +46,6 @@
     "Imperial Palace East Gardens"
   ],
   "description": "The massive historic castle grounds of Tokugawa Shogunate, featuring stone ramparts, Fujimi-yagura watchtower, and East Gardens.",
-  "budgetBreakdown": {
-    "transport": 489,
-    "tickets": 0,
-    "food": 3789,
-    "cafe": 1222
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

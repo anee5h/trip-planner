@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mito_castle_sannomaru_karabori.jpg/3840px-Mito_castle_sannomaru_karabori.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Mito_castle_sannomaru_karabori.jpg/3840px-Mito_castle_sannomaru_karabori.jpg",
   "totalTripHours": 4,
-  "budgetMin": 3000,
-  "budgetRecommended": 6250,
-  "budgetMax": 9500,
   "walkingMin": 40,
   "indoorPercent": 75,
   "ratings": {
@@ -53,12 +50,6 @@
     "Mito Tokugawa Clan History"
   ],
   "description": "The historical center of Mito featuring the restored Otemon gate, Kodokan clan school (Japan's largest), and moat trails.",
-  "budgetBreakdown": {
-    "transport": 1705,
-    "tickets": 455,
-    "food": 2955,
-    "cafe": 1135
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -175,11 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

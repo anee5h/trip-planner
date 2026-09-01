@@ -40,15 +40,6 @@
   },
   "description": "An open-air railway museum established in 1962, exhibiting ten historic steam locomotives and early Shinkansen cars. Visitors can climb inside retired train cabs and watch a detailed model train layout.",
   "highlights": ["Museum", "Railway", "Family"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 100,
-    "food": 1400,
-    "cafe": 1200
-  },
   "transportOptions": {
     "train": 48
   },
@@ -200,12 +191,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥100 (ledger LEDGER_VERIFIED); source: https://www.jreast.co.jp/ome-railway-park/"
   },
   "admission": {
     "state": "verified_paid",

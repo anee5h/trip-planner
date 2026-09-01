@@ -176,7 +176,20 @@ describe("KAI-219B migration tooling — cohort semantics (authoritative)", () =
     const clean = {
       ...migrated,
       admission: undefined,
-      budgetBreakdown: { ...migrated.budgetBreakdown!, tickets: 300 },
+      budgetMetadata: {
+        method: "manual",
+        confidence: "low",
+        basis: "legacy fixture",
+      },
+      budgetMin: 300,
+      budgetRecommended: 300,
+      budgetMax: 300,
+      budgetBreakdown: {
+        transport: 0,
+        tickets: 300,
+        food: 0,
+        cafe: 0,
+      },
     };
     expect(isTransitionalNumericUsed(clean as Destination)).toBe(true);
     // normalizer agrees

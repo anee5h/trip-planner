@@ -7,9 +7,6 @@
   "categories": ["Sea", "Coast", "History", "Nature"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/83/EnoshimaAeralPhoto1988JP14.jpg",
   "totalTripHours": 8,
-  "budgetMin": 8000,
-  "budgetRecommended": 12000,
-  "budgetMax": 16000,
   "walkingMin": 60,
   "indoorPercent": 10,
   "ratings": {
@@ -52,12 +49,6 @@
   },
   "highlights": ["Enoshima Shrine", "Iwaya Caves", "Enoshima Sea Candle"],
   "description": "A delightfully pleasant island just off the coast, full of shrines, coastal cliffs, and sweeping views of Mt. Fuji.",
-  "budgetBreakdown": {
-    "transport": 3273,
-    "tickets": 3273,
-    "food": 3818,
-    "cafe": 1636
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -171,11 +162,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

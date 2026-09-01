@@ -137,12 +137,6 @@
   "bestMonths": [10, 11, 12, 1, 2, 3, 4],
   "walkingMin": 90,
   "indoorPercent": 10,
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "crowdMetadata": {
     "method": "unknown",
     "modelVersion": "crowd-model-v1",

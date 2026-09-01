@@ -6,9 +6,6 @@
   "categories": ["History", "Nature", "Parks"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Edo_P_detail.jpg/960px-Edo_P_detail.jpg",
   "totalTripHours": 4,
-  "budgetMin": 2000,
-  "budgetRecommended": 5300,
-  "budgetMax": 8600,
   "walkingMin": 60,
   "indoorPercent": 10,
   "ratings": {
@@ -50,12 +47,6 @@
     "Edo Castle Moat Walk"
   ],
   "description": "The residence of Japan's Imperial Family, built on the site of Edo Castle, featuring Nijubashi bridge and East Gardens.",
-  "budgetBreakdown": {
-    "transport": 1472,
-    "tickets": 0,
-    "food": 1031,
-    "cafe": 441
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -176,11 +167,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

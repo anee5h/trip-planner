@@ -61,15 +61,6 @@
     "lastAdmission": "16:30",
     "closedDays": "Mondays (including public holiday Mondays), summer holidays, and year-end/New Year holidays"
   },
-  "budgetMin": 500,
-  "budgetRecommended": 1500,
-  "budgetMax": 3000,
-  "budgetBreakdown": {
-    "transport": 175,
-    "tickets": 0,
-    "food": 200,
-    "cafe": 50
-  },
   "transportOptions": {
     "train": 200
   },
@@ -198,11 +189,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_free",

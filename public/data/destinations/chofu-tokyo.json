@@ -11,9 +11,6 @@
     "Jindai Botanical Gardens",
     "Kitaro Chaya Soba"
   ],
-  "budgetMin": 5500,
-  "budgetMax": 13000,
-  "budgetRecommended": 9250,
   "transportOptions": {
     "train": 25,
     "car": 35
@@ -76,12 +73,6 @@
       "fudaten-shrine",
       "chofu-historic-jindaiji-district"
     ]
-  },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 2763,
-    "cafe": 1487
   },
   "comfort": {
     "heatTolerance": 6,
@@ -191,11 +182,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

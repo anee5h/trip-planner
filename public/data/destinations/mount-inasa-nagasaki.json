@@ -30,8 +30,6 @@
     "uniqueness": 9.8
   },
   "categories": ["sightseeing", "nature", "romance"],
-  "budgetMin": 3000,
-  "budgetMax": 10000,
   "status": "published",
   "travelEstimate": {
     "confidence": "beta"
@@ -56,7 +54,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
   "description": "Mount Inasa in Nagasaki is designated as one of the World's New Three Great Night Views, offering a 360° illuminated bowl view of Nagasaki harbor and surrounding hills.",
   "notes": "Bring a jacket — it can be windy and cool at the summit even in summer.",
-  "budgetRecommended": 6500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -70,7 +67,6 @@
     "parentDestinationId": "nagasaki-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mt.Inasa_2010.jpg/1280px-Mt.Inasa_2010.jpg",
-  "budgetBreakdown": null,
   "highlights": [
     "Explore Mount Inasa (Nagasaki Night View)",
     "Local Culture & Scenery"
@@ -174,11 +170,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

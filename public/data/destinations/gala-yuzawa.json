@@ -4,7 +4,6 @@
   "region": "Chubu",
   "categories": ["Mountain", "Theme Park"],
   "tags": ["Skiing", "Snow", "Shinkansen Access"],
-  "budgetRecommended": 30000,
   "ratings": {
     "overall": 8.6,
     "photography": 8,
@@ -24,8 +23,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/73/F8_Tanigawa_79_Gala-Yuzawa_20060115.JPG",
   "prefecture": "Niigata",
-  "budgetMin": 26000,
-  "budgetMax": 34000,
   "totalTripHours": 8,
   "walkingMin": 270,
   "comfort": {
@@ -50,12 +47,6 @@
   ],
   "description": "Discover Gala Yuzawa, a prominent destination in Niigata. With its rich mix of skiing, snow, shinkansen access, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [12, 1, 2, 3, 4, 5],
-  "budgetBreakdown": {
-    "transport": 8276,
-    "tickets": 13448,
-    "food": 6207,
-    "cafe": 2069
-  },
   "notes": "A fantastic trip to Gala Yuzawa. Known for its skiing and snow vibes, it offers a great escape with an overall score of 8.6.",
   "schemaVersion": 2,
   "status": "verified",
@@ -109,11 +100,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "variable_price",

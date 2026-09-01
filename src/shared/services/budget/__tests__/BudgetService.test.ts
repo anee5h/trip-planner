@@ -11,6 +11,7 @@ import {
   isFreeDestination,
   formatLocalizedJPYRange,
   formatLocalizedApproximateJPYRange,
+  formatTravellerEstimateRange,
 } from "../BudgetService";
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
@@ -109,6 +110,18 @@ describe("BudgetService", () => {
     );
     expect(formatLocalizedApproximateJPYRange([9400, 20200], "ja")).toBe(
       "¥9千〜2.1万",
+    );
+  });
+
+  it("marks non-verified traveller ranges consistently in both locales", () => {
+    expect(formatTravellerEstimateRange([9500, 21300], "estimated", "en")).toBe(
+      "~¥9k–22k",
+    );
+    expect(formatTravellerEstimateRange([9400, 20200], "rough", "ja")).toBe(
+      "約 ¥9千〜2.1万",
+    );
+    expect(formatTravellerEstimateRange([1000, 1000], "verified", "en")).toBe(
+      "¥1k",
     );
   });
 
@@ -601,7 +614,7 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
     const unknown = (await fullList()).find(
       (d) => d.id === "amami-iriomote-natural-site",
     ) as unknown as Destination;
-    expect(unknown.budgetMetadata?.method).toBe("unknown");
+    expect(unknown.budgetMetadata).toBeUndefined();
     expect(unknown.budgetMin).toBeUndefined();
     expect(unknown.budgetRecommended).toBeUndefined();
     expect(unknown.budgetMax).toBeUndefined();

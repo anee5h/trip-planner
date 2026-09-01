@@ -32,15 +32,6 @@
     "bus": 40,
     "car": 30
   },
-  "budgetMin": 0,
-  "budgetRecommended": 3000,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 800,
-    "tickets": 0,
-    "food": 1400,
-    "cafe": 800
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morioka_Handi-Works_Square_20170715a.jpg/1280px-Morioka_Handi-Works_Square_20170715a.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Morioka_Handi-Works_Square_20170715a.jpg/1280px-Morioka_Handi-Works_Square_20170715a.jpg",
   "imageMetadata": {
@@ -191,11 +182,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

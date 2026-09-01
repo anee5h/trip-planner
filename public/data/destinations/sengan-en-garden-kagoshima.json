@@ -53,14 +53,6 @@
     "Shimazu clan samurai villa & gardens",
     "Adjacent Shoko Shuseikan industrial heritage museum"
   ],
-  "budgetMin": 2500,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 875,
-    "food": 1000,
-    "cafe": 250
-  },
   "transportOptions": {
     "train": 310,
     "shinkansen": 420
@@ -202,11 +194,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

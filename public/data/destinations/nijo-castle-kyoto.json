@@ -31,8 +31,6 @@
     "uniqueness": 9.8
   },
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 3000,
-  "budgetMax": 10000,
   "status": "published",
   "travelEstimate": {
     "confidence": "high"
@@ -61,7 +59,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
   "description": "Nijo Castle in Kyoto was the residence of Tokugawa Ieyasu, famous for its Ninomaru Palace featuring squeaking 'nightingale floors' designed to alert guards to intruders.",
-  "budgetRecommended": 6500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -71,11 +68,6 @@
     "parentDestinationId": "kyoto-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg/1280px-%E4%BA%8C%E6%9D%A1%E5%9F%8E_%E5%94%90%E9%96%80_2025.jpg",
-  "budgetBreakdown": {
-    "transport": 1625,
-    "food": 2641,
-    "cafe": 1422
-  },
   "highlights": ["Explore Nijo Castle (Kyoto)", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -188,11 +180,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -11,9 +11,6 @@
     "Historic Landmark",
     "Cultural Preservation Area"
   ],
-  "budgetMin": 9410,
-  "budgetMax": 11410,
-  "budgetRecommended": 10410,
   "transportOptions": {
     "train": 45,
     "bus": 50,
@@ -70,12 +67,6 @@
   "relationships": {
     "parentDestinationId": "aomori-city"
   },
-  "budgetBreakdown": {
-    "transport": 2100,
-    "tickets": 410,
-    "food": 5800,
-    "cafe": 2100
-  },
   "nameJa": "三内丸山遺跡",
   "comfort": {
     "heatTolerance": 6,
@@ -122,14 +113,6 @@
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
           "accessedAt": "2026-08-14"
         }
-      ],
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'none|full|poi' n=12; tickets source-verified",
-          "accessedAt": "2026-08-14"
-        }
       ]
     }
   },
@@ -156,12 +139,6 @@
     "modelVersion": "crowd-model-v1",
     "confidence": "unknown",
     "basis": "crowd has no runtime consumer; kind-derived band would be manufactured evidence; neutralized (UNKNOWN_NOT_FREE)"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'none|full|poi' n=12; tickets source-verified"
   },
   "scoreMetadata": {
     "state": "estimated",

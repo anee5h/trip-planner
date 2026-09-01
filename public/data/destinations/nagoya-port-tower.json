@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Nagoya_port_Sea-Train_Land_01.JPG/1280px-Nagoya_port_Sea-Train_Land_01.JPG",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
   "walkingMin": 70,
   "indoorPercent": 85,
   "ratings": {
@@ -60,12 +57,6 @@
     "Antarctic Research Ship Fuji"
   ],
   "description": "Designed in the shape of a white ocean sailboat, this 63-meter maritime tower offers 360-degree views over Nagoya Port, Meiko Triton bridges, and cargo container docks.",
-  "budgetBreakdown": {
-    "transport": 1210,
-    "tickets": 330,
-    "food": 2860,
-    "cafe": 1100
-  },
   "reservation": "No reservation required.",
   "parking": "Paid parking lot at Nagoya Port Garden plaza.",
   "notes": "Four-facility discount ticket available combining Port Building, Icebreaker Fuji, Aquarium, and Maritime Museum.",
@@ -122,11 +113,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -32,15 +32,6 @@
     "bus": 50,
     "car": 45
   },
-  "budgetMin": 300,
-  "budgetRecommended": 1900,
-  "budgetMax": 3500,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 300,
-    "food": 600,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fukuura_Bridge_With_Fukuura_Island.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/2/22/Fukuura_Bridge_With_Fukuura_Island.JPG",
   "imageMetadata": {
@@ -192,11 +183,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

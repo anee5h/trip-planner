@@ -30,15 +30,6 @@
     "ferry": 10
   },
   "transportZoneId": "miyajima",
-  "budgetMin": 1000,
-  "budgetRecommended": 2500,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 200,
-    "tickets": 0,
-    "food": 1800,
-    "cafe": 500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Evening_shops%2C_Miyajima_-_DSC02522.JPG/1280px-Evening_shops%2C_Miyajima_-_DSC02522.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Evening_shops%2C_Miyajima_-_DSC02522.JPG/1280px-Evening_shops%2C_Miyajima_-_DSC02522.JPG",
   "imageMetadata": {
@@ -175,11 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

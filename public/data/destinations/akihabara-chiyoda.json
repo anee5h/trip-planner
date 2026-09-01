@@ -6,9 +6,6 @@
   "categories": ["City", "Shopping"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png/3840px-Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png",
   "totalTripHours": 6,
-  "budgetMin": 6000,
-  "budgetRecommended": 10000,
-  "budgetMax": 14000,
   "walkingMin": 60,
   "indoorPercent": 60,
   "ratings": {
@@ -50,12 +47,6 @@
     "Anime & Gaming Culture"
   ],
   "description": "Japan's global capital for electronics, anime, gaming culture, maid cafes, and iconic multi-story hobby complexes.",
-  "budgetBreakdown": {
-    "transport": 1111,
-    "tickets": 0,
-    "food": 6667,
-    "cafe": 2222
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
@@ -152,11 +143,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -5,7 +5,6 @@
   "region": "Chubu",
   "categories": ["City", "Shrine", "History"],
   "tags": ["Zenkoji", "Olympics"],
-  "budgetRecommended": 10000,
   "ratings": {
     "overall": 8.2,
     "photography": 8,
@@ -25,8 +24,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
   "prefecture": "Nagano",
-  "budgetMin": 6000,
-  "budgetMax": 14000,
   "totalTripHours": 8,
   "walkingMin": 360,
   "comfort": {
@@ -45,12 +42,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Nagano & Snow Monkeys, a prominent destination in Nagano. With its rich mix of zenkoji, olympics, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 4000,
-    "tickets": 2000,
-    "food": 3000,
-    "cafe": 1000
-  },
   "notes": "A fantastic trip to Nagano & Snow Monkeys. Known for its zenkoji and olympics vibes, it offers a great escape with an overall score of 8.2.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/160501_Zenkoji_Nagano_Japan06s3.jpg/3840px-160501_Zenkoji_Nagano_Japan06s3.jpg",
@@ -129,11 +120,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

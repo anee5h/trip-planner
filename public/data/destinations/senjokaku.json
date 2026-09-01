@@ -35,14 +35,6 @@
     "ferry": 10
   },
   "transportZoneId": "miyajima",
-  "budgetMin": 100,
-  "budgetRecommended": 900,
-  "budgetMax": 1500,
-  "budgetBreakdown": {
-    "transport": 200,
-    "food": 400,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Senjokaku_2011.JPG/1280px-Senjokaku_2011.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Senjokaku_2011.JPG/1280px-Senjokaku_2011.JPG",
   "imageMetadata": {
@@ -183,11 +175,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -49,9 +49,6 @@
   "description": "Korakuen in Okayama is a celebrated landscape garden built by feudal lord Ikeda Tsunamasa in 1700, featuring spacious lawns, ponds, tea trees, and borrowed scenery of Okayama Castle.",
   "notes": "Special Place of Scenic Beauty (designated 1952). Admission: adults (15–64) ¥500; 65+ ¥200; high-school students and under free until Mar 31, 2027. Combined Korakuen+Okayama Castle ¥800.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 3000,
-  "budgetMax": 12000,
-  "budgetRecommended": 7500,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -60,12 +57,6 @@
     "parentDestinationId": "okayama-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/250505_Korakuen_Okayama_Japan06s3.jpg/1280px-250505_Korakuen_Okayama_Japan06s3.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 500,
-    "food": 1625,
-    "cafe": 875
-  },
   "highlights": ["Explore Korakuen Garden", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -125,12 +116,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥500 (ledger LEDGER_VERIFIED); source: https://okayama-korakuen.jp/section/english/info/index.html"
   },
   "admission": {
     "state": "verified_paid",

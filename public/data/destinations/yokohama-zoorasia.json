@@ -6,9 +6,6 @@
   "categories": ["Zoo", "Nature", "Family", "Outdoor"],
   "heroImage": "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0",
   "totalTripHours": 5,
-  "budgetMin": 5000,
-  "budgetRecommended": 8500,
-  "budgetMax": 12000,
   "walkingMin": 60,
   "indoorPercent": 20,
   "ratings": {
@@ -51,11 +48,6 @@
     "Vast Natural Park Setting"
   ],
   "description": "One of Japan's largest state-of-the-art zoos in Yokohama, reproducing natural habitats across 8 global ecological zones.",
-  "budgetBreakdown": {
-    "transport": 1563,
-    "food": 3908,
-    "cafe": 1466
-  },
   "reservation": "Open access; no entrance reservation required.",
   "parking": "Park parking lot available on site.",
   "notes": "Best visited during clear weather for relaxing walking tours and seasonal foliage photos.",
@@ -189,11 +181,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -32,15 +32,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 3000,
-  "budgetRecommended": 8000,
-  "budgetMax": 20000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 0,
-    "food": 2500,
-    "cafe": 4500
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kojima_Jeans_Street_2021-08_ac_%285%29.jpg/1280px-Kojima_Jeans_Street_2021-08_ac_%285%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kojima_Jeans_Street_2021-08_ac_%285%29.jpg/1280px-Kojima_Jeans_Street_2021-08_ac_%285%29.jpg",
   "imageMetadata": {
@@ -219,11 +210,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -40,15 +40,6 @@
   },
   "description": "A Kyoto Zen temple famous for its restrained rock garden, temple grounds, and the quiet atmosphere of its historic precincts.",
   "highlights": ["History"],
-  "budgetMin": 1500,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "tickets": 600,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 228,
     "bus": 228,
@@ -215,11 +206,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-1\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

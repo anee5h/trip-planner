@@ -27,15 +27,6 @@
     "bus": 125,
     "car": 130
   },
-  "budgetMin": 2500,
-  "budgetRecommended": 6000,
-  "budgetMax": 10000,
-  "budgetBreakdown": {
-    "transport": 1800,
-    "tickets": 1600,
-    "food": 1800,
-    "cafe": 800
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shikokumura27s3200.jpg/1280px-Shikokumura27s3200.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Shikokumura27s3200.jpg/1280px-Shikokumura27s3200.jpg",
   "imageMetadata": {
@@ -191,11 +182,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

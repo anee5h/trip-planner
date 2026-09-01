@@ -404,6 +404,7 @@ export function runRecommendationPipeline(
       const estimatedCostRange = cardEngineResult?.total
         ? [cardEngineResult.total.min, cardEngineResult.total.max]
         : undefined;
+      const estimatedCostQuality = cardEngineResult?.estimateQuality;
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
       const estimatedCostTransportScope = budgetResult.transportFareScope;
 
@@ -440,6 +441,7 @@ export function runRecommendationPipeline(
         transportEstimate,
         bestTransportMode: scoreResult.bestMode,
         estimatedCostRange,
+        estimatedCostQuality,
         estimatedCostTransportIncluded,
         estimatedCostTransportScope,
         condition,
@@ -459,6 +461,7 @@ export function runRecommendationPipeline(
           eligible: true,
           estimatedCost: estimatedCostRange?.[0],
           estimatedCostRange,
+          estimatedCostQuality,
           estimatedCostTransportIncluded,
           estimatedCostTransportScope,
           bestTransportMode: scoreResult.bestMode,

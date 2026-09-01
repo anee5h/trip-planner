@@ -181,12 +181,6 @@
   "openingHours": "24 Hours (Open access)",
   "openingHoursJa": "散策自由（24時間開放）",
   "municipalityId": "Chiba:chiba",
-  "budgetMetadata": {
-    "method": "unknown",
-    "modelVersion": "budget-model-v1",
-    "confidence": "unknown",
-    "basis": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-  },
   "durationMetadata": {
     "method": "model",
     "modelVersion": "duration-model-v1",

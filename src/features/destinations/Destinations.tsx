@@ -44,11 +44,11 @@ import type { RecommendationContext } from "@/shared/services/recommendation/Rec
 import type { TripDuration } from "@/shared/types/tripDuration";
 import { isOvernightDuration } from "@/shared/types/tripDuration";
 import {
-  BUDGET_TIER_LIMITS,
   partyProfileForSize,
   type BudgetTier,
   type BudgetFilter,
 } from "@/shared/types/planner";
+import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
 import {
   getBestOneWayTravelMinutes,
   hasPersonalizedOrigin,
@@ -555,8 +555,12 @@ export default function Destinations() {
     // back to the on-site party cost — the UI label says transport is
     // included only when known, so no false claim is made. Unknown
     // budgets never pass a restricted tier.
-    if (budgetTier !== "any") {
-      const tierLimit = BUDGET_TIER_LIMITS[budgetTier as BudgetTier];
+    if (budgetTier !== "any" && budgetTier !== "luxury") {
+      const tierLimit = getPlannerBudgetLimit(
+        budgetTier as BudgetTier,
+        partySize,
+        tripDuration,
+      );
       result = result.filter((dest) => {
         const costMax = budgetEstimateFor(dest)?.estimate.total?.max;
         return costMax !== undefined && costMax <= tierLimit;
@@ -1228,12 +1232,14 @@ export default function Destinations() {
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);
-          // 'any' (no filter) keeps the numeric default; a tier syncs the
-          // numeric scorer budget to its shared limit.
+          // 'any' (no filter) keeps the standard planning ceiling; a tier
+          // syncs the numeric scorer budget to the same context-aware limit.
           setMaxBudget(
-            tier === "any"
-              ? BUDGET_TIER_LIMITS.standard
-              : BUDGET_TIER_LIMITS[tier],
+            getPlannerBudgetLimit(
+              tier === "any" ? "standard" : tier,
+              partySize,
+              tripDuration,
+            ),
           );
         }}
         vibe={vibe}

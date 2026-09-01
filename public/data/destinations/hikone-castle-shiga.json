@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/1280px-Hikone_Castle_November_2016_-02.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Hikone_Castle_November_2016_-02.jpg/1280px-Hikone_Castle_November_2016_-02.jpg",
   "totalTripHours": 4,
-  "budgetMin": 3500,
-  "budgetRecommended": 7750,
-  "budgetMax": 12000,
   "walkingMin": 90,
   "indoorPercent": 75,
   "ratings": {
@@ -67,11 +64,6 @@
     "Hikonyan Mascot Show"
   ],
   "description": "Completed in 1622, Hikone Castle is one of Japan's five original surviving National Treasure keeps, overlooking Lake Biwa with pristine feudal turrets and Genkyuen garden.",
-  "budgetBreakdown": {
-    "transport": 1993,
-    "food": 3764,
-    "cafe": 1107
-  },
   "reservation": "No advance reservation required.",
   "parking": "Paid parking lot at Hikone Castle Otemae.",
   "notes": "Top 100 Castle of Japan #50. Steep wooden stairs inside keep require sturdy footwear.",
@@ -167,11 +159,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

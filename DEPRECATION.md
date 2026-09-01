@@ -1,84 +1,81 @@
-# DEPRECATION — generic destination budget fields (KAI-218)
+# DEPRECATION — generic destination budget fields (KAI-218 / KAI-220)
 
 This document is the retirement contract for the generic destination budget
-fields, per KAI-218 ("introduce scoped destination cost facts and retire
-generic budget fields"). It is binding: new/changed production data must
-follow it, and CI enforces it (see the no-new-debt ratchet below).
+fields. KAI-220 completed the catalogue field strip after KAI-260 made the
+range-first estimator the canonical traveller-facing source.
 
-## Deprecated fields
+## Retired fields
 
-The following fields are DEPRECATED (new/changed destinations must not
-author them):
+The following generic fields are no longer authored in the canonical catalogue
+or generated detail assets:
 
-| Field                       | Replacement                                                                                                    |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `budgetMin`                 | scoped cost facts (`admission` / `localTransport`); legacy range derived by one-way projection if still needed |
-| `budgetRecommended`         | scoped cost facts; projection-derived midpoint if still needed                                                 |
-| `budgetMax`                 | scoped cost facts; projection-derived ceiling if still needed                                                  |
-| `budgetBreakdown.transport` | `localTransport` cost fact (required local transport)                                                          |
-| `budgetBreakdown.food`      | none — food is NOT canonical affordability (KAI-217)                                                           |
-| `budgetBreakdown.cafe`      | none — cafe is NOT canonical affordability (KAI-217)                                                           |
+- `budgetMin`, `budgetRecommended`, `budgetMax`
+- `budgetBreakdown` (including `transport`, `food`, `cafe`, and legacy
+  `tickets`)
+- `budgetMetadata`
 
-`budgetBreakdown.tickets` is NOT deprecated as a storage field: it is the
-legacy admission value. It may be migrated into the explicit `admission`
-fact where defensible; legacy ticket values are NOT presumed trustworthy
-(see the mapping table in `docs/KAI-218A-admission-schema-design.md`
-— only the 38 manual records carry verified provenance).
+Their semantic replacements are the scoped `admission` and `localTransport`
+facts plus the context-sensitive `TripEstimateEngine` result. Food, cafe,
+parking, shopping, and optional activities are not silently folded into the
+canonical required-trip total.
 
 ## The new facts
 
 - `admission?: AdmissionCostFact` — explicit on-site admission truth,
   KAI-214 state/provenance/reasonCode, per-person.
 - `localTransport?: LocalTransportAccess` — explicit required local
-  transport, NEVER a generic city allowance, per-person.
+  transport, never a generic city allowance, per-person.
 
-Invariants are enforced by the KAI-218* PREVENTIVE_CODES validators
-(`scripts/audit/data-quality-rules.ts`).
+Facts preserve verified free, verified paid, bounded variable, open-ended,
+not-applicable, and unavailable semantics. Missing or unknown values are never
+converted to numeric zero. Validators live in
+`scripts/audit/data-quality-rules.ts`.
 
-## Retirement path (one-way projection, never a second editable truth)
+## Canonical estimate boundary
 
-1. **V2 facts are the single source.** New/changed destinations author
-   `admission` / `localTransport` (and, when the destination-level state is
-   explicit, `budgetMetadata.state`).
-2. **One-way compatibility projection.** Any legacy consumer that still
-   needs `budgetMin/budgetRecommended/budgetMax/budgetBreakdown` reads them
-   through a projection computed FROM the v2 facts at read time. The
-   projection is DERIVED, never independently edited.
-3. **Never write the projection back.** No generator/script may emit the
-   deprecated fields for new/changed records. Existing writer scripts are
-   scheduled for conversion or deletion.
-4. **Scheduled deletion.** When every reader is on the projection and the
-   projection output matches the current legacy values across the catalogue
-   (or a documented per-record delta list is accepted), the deprecated
-   fields are stripped from the JSON, the projection is deleted, and the
-   `Destination` type fields are removed.
+`src/shared/services/budget/tripEstimateEngine.ts` is the only runtime engine
+for traveller-facing trip ranges. It combines scoped facts with deterministic
+transport/local/admission/meal/accommodation models and returns:
 
-## No-new-debt ratchet (CI-enforced)
+- `total` only when every required component is bounded;
+- `knownSubtotal` plus explicit missing components for partial results;
+- `evidenceCompleteness` separately from bounded usability;
+- `estimateQuality` (`verified`, `estimated`, or `rough`) for honest display.
 
-`scripts/check-deprecated-fields.ts` (wired into `check:catalog-ci`):
+A bounded model range may be used for planning and budget matching. A source
+fact is never presented as verified merely because the total is bounded.
+Flexible is a matching policy: it has an infinite ceiling and uses a neutral
+standard profile only when a display estimate is needed.
 
-- counts catalogue records still AUTHORING the deprecated fields
-  (range writers / breakdown writers / transport-or-food-or-cafe writers);
-- compares against `scripts/audit/deprecated-fields-baseline.json`
-  (current baseline: 493 / 477 / 477);
-- SHRINK-ONLY: the counts may only stay flat or decrease. Any growth is a
-  CI failure. `--update` refuses when a count grew.
+## Reader migration
 
-## Freshness / review cadence
+All production traveller surfaces now consume the canonical engine or a
+canonical generated-plan result:
 
-Verified source-backed cost facts carry `sourceUrls` + `checkedAt`. The
-12-month review cadence follows the collections precedent
-(`reviewIntervalMonths`, default 12): a fact whose `checkedAt` is older than
-`reviewIntervalMonths` becomes review-due (never silently refreshed or
-discarded). Date/product-variable prices are authored `variable_price`:
-either an open-ended/variable cost shape, or a VERIFIED OFFICIAL BOUNDED
-range (e.g. ¥2,000–3,500 published by the attraction) backed by
-`verified_source` provenance + sourceUrl + checkedAt — never a
-fabricated/legacy bounded guess.
+| Surface                             | Canonical path                                             |
+| ----------------------------------- | ---------------------------------------------------------- |
+| Home cards / recommendation scoring | `RecommendationPipeline` → `calculateTripEstimate`         |
+| Explore filter and Budget sort      | `Destinations` / `exploreSorting` → canonical range        |
+| Destination cards and detail        | `DestinationCard` / `DestinationDetails` → canonical range |
+| Hub and cost breakdown widgets      | `TripCostBreakdownWidget` / `DestinationAtAGlance`         |
+| Compare page and modal              | `calculateTripEstimate` on-site context                    |
+| Generated itinerary summaries       | `GeneratedPlanCostService` canonical component result      |
 
-## Status
+`BudgetService` retains a small deprecated compatibility facade for historical
+fixtures and external callers; it is not imported by production cost
+calculation paths and no catalogue record supplies its old fields. New code
+must use `calculateTripEstimate` and must not add another projection or scalar
+writer. `check:deprecated-fields` is now a zero-writer ratchet.
 
-- Schema + validators + ratchet: LANDED (KAI-218A).
-- Mass backfill of 1,057 destinations: NOT started (explicitly out of
-  KAI-218A scope; do not bulk-promote legacy values).
-- Projection layer + reader migration + field strip: FUTURE work.
+## Verification status
+
+- Catalogue: 1,107 records with explicit admission and local-transport state.
+- Generic-field authoring: 0 records; generated detail assets are synchronized.
+- KAI-219 debt audit: all four debt counters are zero; prose conflicts are
+  empty.
+- `check:catalog-sync`: two-generation idempotency and byte-identical committed
+  outputs pass.
+
+The old KAI-218 scheduled-deletion milestone is therefore complete. The
+remaining compatibility facade is intentionally bounded and documented rather
+than a second source of truth.

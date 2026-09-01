@@ -31,8 +31,6 @@
     "uniqueness": 10
   },
   "categories": ["culture", "history", "sightseeing"],
-  "budgetMin": 3000,
-  "budgetMax": 12000,
   "status": "beta",
   "travelEstimate": {
     "confidence": "beta"
@@ -64,7 +62,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
   "description": "Itsukushima Shrine on Miyajima Island is world-renowned for its iconic vermilion O-Torii gate that appears to float magically upon the Seto Inland Sea during high tide.",
   "notes": "Miyajima (Itsukushima) Island is in Hatsukaichi City, Hiroshima Prefecture. Reached by ferry from Miyajimaguchi (JR West Miyajima Ferry or Matsudai); no private cars on the island.",
-  "budgetRecommended": 7500,
   "walkingMin": 480,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -74,12 +71,6 @@
     "parentDestinationId": "hatsukaichi-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
-  "budgetBreakdown": {
-    "transport": 1875,
-    "tickets": 300,
-    "food": 3047,
-    "cafe": 1641
-  },
   "highlights": [
     "Explore Itsukushima Shrine (Miyajima Island)",
     "Local Culture & Scenery"
@@ -151,11 +142,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

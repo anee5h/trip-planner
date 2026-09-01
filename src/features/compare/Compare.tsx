@@ -14,7 +14,7 @@ import {
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -135,14 +135,19 @@ export default function Compare() {
   //   - display range  = engine [min,max] (the UI shows the RANGE)
   //   - ranking value  = midpoint (INTERNAL ranking only, never displayed)
   // Only COMPLETE results qualify; partial/unavailable show unavailable.
-  const engineBudgetRanges = compareDestinations.map((d) => {
-    const r = calculateTripEstimate({
+  const engineBudgetEstimates = compareDestinations.map((d) =>
+    calculateTripEstimate({
       dest: d,
       duration: "fullDay",
       includeOriginTravel: false,
-    });
-    return r.total ? ([r.total.min, r.total.max] as [number, number]) : null;
-  });
+    }),
+  );
+  const engineBudgetRanges = engineBudgetEstimates.map((r) =>
+    r.total ? ([r.total.min, r.total.max] as [number, number]) : null,
+  );
+  const engineBudgetQualities = engineBudgetEstimates.map(
+    (r) => r.estimateQuality,
+  );
   const engineBudgetMidpoints = engineBudgetRanges.map((range) =>
     range ? (range[0] + range[1]) / 2 : null,
   );
@@ -261,7 +266,11 @@ export default function Compare() {
                     >
                       {budgetRange === null
                         ? t("compare.unavailable")
-                        : formatLocalizedJPYRange(budgetRange, locale)}
+                        : formatTravellerEstimateRange(
+                            budgetRange,
+                            engineBudgetQualities[destIdx],
+                            locale,
+                          )}
                     </span>
                     {budget !== null && budget === minBudget && (
                       <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800">
@@ -447,7 +456,11 @@ export default function Compare() {
                   <p className="font-bold text-slate-900 dark:text-white">
                     {budgetRange === null
                       ? t("compare.unavailable")
-                      : formatLocalizedJPYRange(budgetRange, locale)}
+                      : formatTravellerEstimateRange(
+                          budgetRange,
+                          engineBudgetQualities[destIdx],
+                          locale,
+                        )}
                     {budgetVal !== null && budgetVal === minBudget && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.lowest")}

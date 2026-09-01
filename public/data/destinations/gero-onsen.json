@@ -26,8 +26,6 @@
     "uniqueness": 9.6
   },
   "categories": ["onsen", "relaxation", "culture"],
-  "budgetMin": 5000,
-  "budgetMax": 25000,
   "status": "verified",
   "travelEstimate": {
     "confidence": "high"
@@ -51,7 +49,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
   "description": "Gero Onsen is one of Japan's Three Great Hot Springs (Nihon Sanmeisen), famed since the 9th century for its silky alkaline waters known as 'beauty baths'.",
   "notes": "No photography allowed inside the museum.",
-  "budgetRecommended": 15000,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -59,12 +56,6 @@
     "parentDestinationId": "gero-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg/3840px-260125_Gero_Onsen_Gero_Gifu_pref_Japan02s3.jpg",
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 2000,
-    "food": 6500,
-    "cafe": 3500
-  },
   "highlights": ["Explore Gero Onsen", "Local Culture & Scenery"],
   "weatherDependence": "moderate",
   "comfort": {
@@ -121,11 +112,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

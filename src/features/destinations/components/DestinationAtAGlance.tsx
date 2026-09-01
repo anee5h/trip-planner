@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 import type { TripCostResult } from "@/shared/services/budget/budgetV2";
 import type { TripEstimateResult } from "@/shared/services/budget/tripEstimateEngine";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 
 export interface DestinationAtAGlanceLabels {
   travelTime: string;
@@ -76,7 +76,9 @@ function getOnSiteCostLabel(
   if (total.min === 0 && total.max === 0) {
     return labels.free;
   }
-  return formatLocalizedJPYRange([total.min, total.max], locale);
+  const quality =
+    "estimateQuality" in result ? result.estimateQuality : undefined;
+  return formatTravellerEstimateRange([total.min, total.max], quality, locale);
 }
 
 export function DestinationAtAGlance({

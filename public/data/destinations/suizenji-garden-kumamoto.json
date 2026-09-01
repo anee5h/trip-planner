@@ -53,15 +53,6 @@
     "53 Stations of Tokaido landscape",
     "Traditional teahouse with garden views"
   ],
-  "budgetMin": 2000,
-  "budgetRecommended": 4000,
-  "budgetMax": 7000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 400,
-    "food": 800,
-    "cafe": 200
-  },
   "transportOptions": {
     "train": 275,
     "shinkansen": 375
@@ -196,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

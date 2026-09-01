@@ -54,15 +54,6 @@
     "Epic 8-10h hike through UNESCO forest",
     "Inspiration for Princess Mononoke landscape"
   ],
-  "budgetMin": 3000,
-  "budgetRecommended": 8000,
-  "budgetMax": 15000,
-  "budgetBreakdown": {
-    "transport": 1050,
-    "tickets": 0,
-    "food": 1200,
-    "cafe": 300
-  },
   "transportOptions": {
     "ferry": 240
   },
@@ -188,11 +179,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

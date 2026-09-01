@@ -31,8 +31,6 @@
     "uniqueness": 10
   },
   "categories": ["culture", "history", "sightseeing"],
-  "budgetMin": 2000,
-  "budgetMax": 8000,
   "status": "published",
   "travelEstimate": {
     "confidence": "high"
@@ -62,7 +60,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
   "description": "Nara Park houses the world's largest wooden building (Todai-ji Daibutsuden), sheltering the 15-meter bronze Great Buddha alongside over 1,200 friendly freely roaming sika deer.",
-  "budgetRecommended": 5000,
   "walkingMin": 150,
   "indoorPercent": 20,
   "totalTripHours": 4,
@@ -72,12 +69,6 @@
     "parentDestinationId": "nara-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg/1280px-%E6%9D%B1%E5%A4%A7%E5%AF%BA_%E5%A4%A7%E4%BB%8F%E6%AE%BF%EF%BC%882024%E5%B9%B4%EF%BC%89.jpg",
-  "budgetBreakdown": {
-    "transport": 1250,
-    "tickets": 800,
-    "food": 2031,
-    "cafe": 1094
-  },
   "highlights": [
     "Explore Historic Nara (Todai-ji Great Buddha)",
     "Local Culture & Scenery"
@@ -193,11 +184,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

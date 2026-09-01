@@ -32,15 +32,6 @@
     "bus": 60,
     "car": 50
   },
-  "budgetMin": 2500,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 2500,
-    "food": 700,
-    "cafe": 300
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hakkoda_Ropeway_2019.jpg/1280px-Hakkoda_Ropeway_2019.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hakkoda_Ropeway_2019.jpg/1280px-Hakkoda_Ropeway_2019.jpg",
   "imageMetadata": {
@@ -210,11 +201,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

@@ -149,12 +149,6 @@
   },
   "walkingMin": 90,
   "walkingIntensity": "medium",
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥1300 (ledger FIXED_PAID); source: https://www.miho.jp/en/information/"
-  },
   "durationMetadata": {
     "method": "model",
     "modelVersion": "duration-model-v1",
@@ -172,12 +166,6 @@
       "basis": "evidence coverage 0.30 below threshold 0.5"
     },
     "noteKey": "destination.scoreUnavailable"
-  },
-  "budgetBreakdown": {
-    "transport": 0,
-    "tickets": 1300,
-    "food": 0,
-    "cafe": 0
   },
   "admission": {
     "state": "verified_paid",

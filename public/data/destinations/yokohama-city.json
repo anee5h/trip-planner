@@ -6,9 +6,6 @@
   "categories": ["City", "Food", "Shopping"],
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Minato_Mirai_In_Blue_%28cropped%29.jpg/1280px-Minato_Mirai_In_Blue_%28cropped%29.jpg",
   "totalTripHours": 8,
-  "budgetMin": 8000,
-  "budgetRecommended": 12000,
-  "budgetMax": 16000,
   "walkingMin": 60,
   "indoorPercent": 70,
   "ratings": {
@@ -56,12 +53,6 @@
     "Yamashita Seaside Park"
   ],
   "description": "Kanagawa's vibrant port capital, combining Minato Mirai waterfront skyscrapers, historic Yokohama Chinatown, and Yamashita Park.",
-  "budgetBreakdown": {
-    "transport": 3273,
-    "tickets": 0,
-    "food": 6545,
-    "cafe": 2182
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Commercial district paid parking garages available nearby.",
   "notes": "Explore local specialty food stalls and boutique shops at a relaxed pace.",
@@ -198,11 +189,6 @@
       "basis": "editorially reviewed 2026-08-14 against 1 authoritative source(s)"
     },
     "noteKey": "destination.scoreVerifiedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

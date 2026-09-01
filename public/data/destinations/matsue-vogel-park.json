@@ -33,15 +33,6 @@
   },
   "collections": [],
   "transportOptions": {},
-  "budgetMin": 1200,
-  "budgetRecommended": 3500,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 1750,
-    "food": 500,
-    "cafe": 250
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg/1280px-Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg/1280px-Matsue_Vogel_Park_-_Center_Greenhouse_2.jpg",
   "imageMetadata": {
@@ -193,11 +184,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

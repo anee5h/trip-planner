@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["City", "Shrine", "History"],
   "tags": ["Great Buddha", "Doraemon", "Crafts"],
-  "budgetRecommended": 9000,
   "ratings": {
     "overall": 7.7,
     "photography": 7.8,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Takaoka_montage.JPG/330px-Takaoka_montage.JPG",
   "prefecture": "Toyama",
-  "budgetMin": 5000,
-  "budgetMax": 13000,
   "totalTripHours": 8,
   "walkingMin": 360,
   "comfort": {
@@ -46,12 +43,6 @@
     "Perfect for a active day out"
   ],
   "description": "Discover Takaoka, a prominent destination in Toyama. With its rich mix of great buddha, doraemon, crafts, it's a highly recommended spot for a 8-hour getaway.",
-  "budgetBreakdown": {
-    "transport": 3600,
-    "tickets": 1800,
-    "food": 2700,
-    "cafe": 900
-  },
   "notes": "A fantastic trip to Takaoka. Known for its great buddha and doraemon vibes, it offers a great escape with an overall score of 7.7.",
   "schemaVersion": 2,
   "status": "verified",
@@ -122,11 +113,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

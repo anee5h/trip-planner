@@ -7,9 +7,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/15/Chiba_Port_Tower_2023-1.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/Chiba_Port_Tower_2023-1.jpg",
   "totalTripHours": 3,
-  "budgetMin": 2500,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
   "walkingMin": 35,
   "indoorPercent": 80,
   "ratings": {
@@ -54,12 +51,6 @@
     "Chiba Port Park Beach"
   ],
   "description": "Clad in over 5,500 heat-reflecting glass mirrors, this 125-meter waterfront tower stands in Chiba Port Park, offering panoramic sunset views across Tokyo Bay to Mt. Fuji.",
-  "budgetBreakdown": {
-    "transport": 880,
-    "tickets": 462,
-    "food": 3080,
-    "cafe": 1078
-  },
   "reservation": "No advance reservation required; tickets available on arrival.",
   "parking": "Paid public parking options available nearby.",
   "schemaVersion": 2,
@@ -204,11 +195,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

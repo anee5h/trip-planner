@@ -60,14 +60,6 @@
     "sourceUrl": "https://www.sasebo99.com/en/spot/556",
     "hoursNote": "Cruises may be cancelled due to weather or naval base operations"
   },
-  "budgetMin": 2500,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 750,
-    "food": 1125,
-    "cafe": 250
-  },
   "transportOptions": {
     "bus": 200
   },
@@ -195,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

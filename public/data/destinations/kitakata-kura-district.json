@@ -32,15 +32,6 @@
     "bus": 60,
     "car": 55
   },
-  "budgetMin": 0,
-  "budgetRecommended": 2500,
-  "budgetMax": 5000,
-  "budgetBreakdown": {
-    "transport": 900,
-    "tickets": 0,
-    "food": 1200,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%E5%9C%9F%E8%94%B5_%281389928661%29.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%E5%9C%9F%E8%94%B5_%281389928661%29.jpg",
   "imageMetadata": {
@@ -205,11 +196,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -27,15 +27,6 @@
     "bus": 115,
     "car": 120
   },
-  "budgetMin": 1000,
-  "budgetRecommended": 3000,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 1000,
-    "tickets": 200,
-    "food": 1200,
-    "cafe": 600
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tokushima_21st_century_cultural_information_center01n3872.jpg/1280px-Tokushima_21st_century_cultural_information_center01n3872.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Tokushima_21st_century_cultural_information_center01n3872.jpg/1280px-Tokushima_21st_century_cultural_information_center01n3872.jpg",
   "imageMetadata": {
@@ -177,11 +168,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

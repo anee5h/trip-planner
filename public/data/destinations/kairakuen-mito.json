@@ -48,9 +48,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
   "description": "Kairakuen in Mito is one of Japan's Three Great Gardens, famous for its over 3,000 plum trees of 100 different varieties that bloom brilliantly in early spring.",
   "categories": ["history", "culture", "sightseeing"],
-  "budgetMin": 2000,
-  "budgetMax": 8000,
-  "budgetRecommended": 5000,
   "season": {
     "spring": 9,
     "summer": 6,
@@ -65,11 +62,6 @@
     "parentDestinationId": "mito-city"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kairaku-en%2C_Ibaraki_24.jpg/3840px-Kairaku-en%2C_Ibaraki_24.jpg",
-  "budgetBreakdown": {
-    "transport": 2143,
-    "food": 929,
-    "cafe": 499
-  },
   "highlights": ["Explore Kairakuen Garden", "Local Culture & Scenery"],
   "bestSeason": "Spring",
   "weatherDependence": "moderate",
@@ -174,11 +166,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

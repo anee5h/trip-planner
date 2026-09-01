@@ -43,15 +43,6 @@
   },
   "description": "Museum housed in restored Hakata merchant townhouses (machiya), presenting the traditional architecture, crafts and daily life of old Hakata. Exhibits cover local crafts such as Hakata weaving and Hakata dolls, plus the townscape of the merchant quarter.",
   "highlights": ["Museum"],
-  "budgetMin": 3000,
-  "budgetRecommended": 5500,
-  "budgetMax": 8500,
-  "budgetBreakdown": {
-    "transport": 1925,
-    "tickets": 200,
-    "food": 1925,
-    "cafe": 550
-  },
   "transportOptions": {
     "train": 196,
     "shinkansen": 296
@@ -206,12 +197,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-1\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "manual",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "verified ticket ¥200 (ledger LEDGER_VERIFIED); source: http://www.hakatamachiya.com/"
   },
   "admission": {
     "state": "verified_paid",

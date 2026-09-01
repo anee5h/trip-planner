@@ -6,7 +6,6 @@
   "region": "Chubu",
   "categories": ["Nature", "Mountain"],
   "tags": ["Snow Wall", "Dam", "Scenic"],
-  "budgetRecommended": 24000,
   "ratings": {
     "overall": 9.3,
     "photography": 9.8,
@@ -26,8 +25,6 @@
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
   "prefecture": "Toyama",
-  "budgetMin": 20000,
-  "budgetMax": 28000,
   "totalTripHours": 8,
   "walkingMin": 290,
   "comfort": {
@@ -53,12 +50,6 @@
   ],
   "description": "Discover Tateyama Kurobe Alpine Route, a prominent destination in Toyama. With its rich mix of snow wall, dam, scenic, it's a highly recommended spot for a 8-hour getaway.",
   "bestMonths": [4, 5, 6, 10, 11],
-  "budgetBreakdown": {
-    "transport": 10435,
-    "tickets": 5217,
-    "food": 6261,
-    "cafe": 2087
-  },
   "notes": "A fantastic trip to Tateyama Kurobe Alpine Route. Known for its snow wall and dam vibes, it offers a great escape with an overall score of 9.3.",
   "schemaVersion": 2,
   "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Murodoh.jpg",
@@ -117,11 +108,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

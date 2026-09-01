@@ -32,15 +32,6 @@
     "bus": 90,
     "car": 60
   },
-  "budgetMin": 660,
-  "budgetRecommended": 3500,
-  "budgetMax": 6000,
-  "budgetBreakdown": {
-    "transport": 1500,
-    "tickets": 660,
-    "food": 900,
-    "cafe": 400
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG/1280px-Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG/1280px-Entrance_of_Namahage_Museum%2C_Oga%2C_Akita.JPG",
   "imageMetadata": {
@@ -196,11 +187,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

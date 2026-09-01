@@ -19,10 +19,7 @@ const RELATIONSHIP_FIELDS = [
   "tags",
   "heroImage",
   "coordinates",
-  "budgetRecommended",
-  "budgetMin",
-  "budgetMax",
-  "budgetMetadata",
+
   "transportOptions",
   "transportZoneId",
   "localAccessModes",

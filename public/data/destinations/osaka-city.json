@@ -13,9 +13,6 @@
   "description": "Kansai's vibrant commercial metropolis, famous for neon-lit Dotonbori canals, Osaka Castle, street food culture, and warm hospitality.",
   "highlights": ["Dotonbori", "Osaka Castle", "Abeno Harukas 300", "Shinsekai"],
   "totalTripHours": 6,
-  "budgetMin": 4000,
-  "budgetRecommended": 17000,
-  "budgetMax": 30000,
   "walkingMin": 215,
   "indoorPercent": 70,
   "ratings": {
@@ -80,12 +77,6 @@
     ],
     "nearbyDestinationIds": ["kyoto-city", "uji-city", "miyazu-city"],
     "relatedDestinationIds": ["fukuoka-city"]
-  },
-  "budgetBreakdown": {
-    "transport": 4250,
-    "tickets": 2125,
-    "food": 6906,
-    "cafe": 3719
   },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
@@ -221,11 +212,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-4\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

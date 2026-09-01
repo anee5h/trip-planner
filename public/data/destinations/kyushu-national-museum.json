@@ -53,15 +53,6 @@
     "Cutting-edge cultural exchange exhibits",
     "Silk Road & Asian trade history displays"
   ],
-  "budgetMin": 2000,
-  "budgetRecommended": 5000,
-  "budgetMax": 8000,
-  "budgetBreakdown": {
-    "transport": 700,
-    "tickets": 700,
-    "food": 800,
-    "cafe": 200
-  },
   "transportOptions": {
     "train": 220,
     "shinkansen": 320
@@ -226,11 +217,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "verified_paid",

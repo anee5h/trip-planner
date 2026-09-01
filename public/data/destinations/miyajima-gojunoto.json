@@ -35,15 +35,6 @@
     "ferry": 10
   },
   "transportZoneId": "miyajima",
-  "budgetMin": 0,
-  "budgetRecommended": 800,
-  "budgetMax": 1500,
-  "budgetBreakdown": {
-    "transport": 200,
-    "tickets": 0,
-    "food": 400,
-    "cafe": 200
-  },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg/1280px-Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg/1280px-Autumnal_leaves_and_Itsukushima_shrine_five-storied_pagoda.jpg",
   "imageMetadata": {
@@ -197,11 +188,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

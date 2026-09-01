@@ -40,14 +40,6 @@
   },
   "description": "Sendai's covered morning market arcade near the station's west exit, known as 'Sendai's kitchen' for its fresh Miyagi produce, seafood and casual eateries.",
   "highlights": ["Food", "Market"],
-  "budgetMin": 1500,
-  "budgetRecommended": 3200,
-  "budgetMax": 4500,
-  "budgetBreakdown": {
-    "transport": 1400,
-    "food": 1400,
-    "cafe": 400
-  },
   "transportOptions": {
     "train": 32,
     "bus": 42,
@@ -199,11 +191,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"transport-3\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

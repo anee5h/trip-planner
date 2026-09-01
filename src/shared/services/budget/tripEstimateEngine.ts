@@ -114,6 +114,15 @@ export const ACCOMMODATION_PROFILES = {
   luxury: [35000, 70000],
 } as const satisfies Record<BudgetTier, PriceRange>;
 
+/**
+ * Flexible is a matching policy, not a luxury-spend preset. Keep a neutral
+ * standard estimate for its display range while the affordability layer uses
+ * an infinite ceiling and therefore applies no budget penalty.
+ */
+function estimateTierForBudget(tier: BudgetTier | undefined): BudgetTier {
+  return tier === "luxury" ? "standard" : (tier ?? "standard");
+}
+
 const DEFAULT_ADMISSION_OPEN_AREA: PriceRange = [0, 1200];
 const DEFAULT_ADMISSION_ATTRACTION: PriceRange = [500, 3000];
 
@@ -869,17 +878,15 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
       );
   const admission = admissionComponent(context.dest, partySize);
   const local = localTransportComponent(context.dest, partySize);
+  const estimateTier = estimateTierForBudget(context.budgetTier);
   const meals = mealsComponent(
     context.dest,
     context.duration,
-    context.budgetTier ?? "standard",
+    estimateTier,
     partySize,
     mealDurationHours(context, origin),
   );
-  const accommodation = accommodationComponent(
-    nights,
-    context.budgetTier ?? "standard",
-  );
+  const accommodation = accommodationComponent(nights, estimateTier);
   const components = [
     origin,
     admission,

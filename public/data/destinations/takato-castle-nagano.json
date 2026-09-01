@@ -8,9 +8,6 @@
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG/1280px-TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG/1280px-TakatoCastle%EF%BC%88%E9%AB%98%E9%81%A0%E5%9F%8E%EF%BC%89.JPG",
   "totalTripHours": 4,
-  "budgetMin": 3000,
-  "budgetRecommended": 6500,
-  "budgetMax": 10000,
   "walkingMin": 4500,
   "indoorPercent": 40,
   "ratings": {
@@ -55,12 +52,6 @@
     "Shinshu Alps Backcountry"
   ],
   "description": "Renowned as one of Japan's top three cherry blossom viewing spots, Takato Castle ruins feature 1,500 rare reddish Kohigan cherry trees frame over ancient stone moats.",
-  "budgetBreakdown": {
-    "transport": 1950,
-    "tickets": 542,
-    "food": 2925,
-    "cafe": 1083
-  },
   "reservation": "No reservation required.",
   "parking": "Large temporary parking lots open during cherry blossom festival.",
   "notes": "Top 100 Castle of Japan #28. Cherry blossoms bloom mid-to-late April.",
@@ -111,11 +102,6 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-4\",\"accessibility\":\"transport-2\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  },
-  "budgetMetadata": {
-    "method": "legacy",
-    "confidence": "unknown",
-    "basis": "legacy numeric budget without recoverable provenance (KAI-204 phase 3); numbers preserved for storage, not trusted for consumption"
   },
   "admission": {
     "state": "not_applicable",

@@ -12,9 +12,6 @@
   "description": "Historic castle metropolis home to magnificent Kumamoto Castle and Suizenji Jojuen Garden.",
   "highlights": ["Explore Kumamoto City", "Local Culture & Cuisine"],
   "totalTripHours": 6,
-  "budgetMin": 6600,
-  "budgetRecommended": 7600,
-  "budgetMax": 8600,
   "walkingMin": 360,
   "indoorPercent": 50,
   "ratings": {
@@ -60,12 +57,6 @@
     "featuredDestinationIds": ["kumamoto-castle"],
     "nearbyDestinationIds": ["fukuoka-city", "kitakyushu-city", "dazaifu-city"]
   },
-  "budgetBreakdown": {
-    "transport": 3000,
-    "tickets": 0,
-    "food": 3000,
-    "cafe": 1600
-  },
   "walkingIntensity": "high",
   "recommendedVisitHours": {
     "min": 8,
@@ -90,14 +81,6 @@
       }
     ],
     "fieldSources": {
-      "budgetRecommended": [
-        {
-          "type": "calculated",
-          "url": "catalogue-model://kai-89",
-          "title": "budget-model-v1; peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)",
-          "accessedAt": "2026-08-14"
-        }
-      ],
       "recommendedVisitHours": [
         {
           "type": "calculated",
@@ -147,12 +130,6 @@
     "modelVersion": "season-model-v1",
     "confidence": "unknown",
     "basis": "hub records span multiple microclimates; single vector would be fabricated"
-  },
-  "budgetMetadata": {
-    "method": "model",
-    "modelVersion": "budget-model-v1",
-    "confidence": "low",
-    "basis": "peer cell 'city|full|hub' n=8; tickets source-verified (hub class convention)"
   },
   "durationMetadata": {
     "method": "model",

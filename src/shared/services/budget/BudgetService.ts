@@ -11,6 +11,7 @@ import type {
 } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import type { EstimateQuality } from "@/shared/services/budget/tripEstimateEngine";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import {
@@ -152,6 +153,25 @@ export function formatLocalizedApproximateJPYRange(
     Math.ceil(range[1] / unit) * unit,
   ];
   return formatLocalizedJPYRange(rounded, locale);
+}
+
+/**
+ * Traveller-facing range formatting. Verified values stay unprefixed; model
+ * and broad fallback ranges carry the same compact approximation marker on
+ * every surface, while the caller can expose the full quality label in a
+ * tooltip or secondary metadata.
+ */
+export function formatTravellerEstimateRange(
+  range: PriceRange | null | undefined,
+  quality: EstimateQuality | undefined,
+  locale: "en" | "ja" = "en",
+): string {
+  const value =
+    quality === "verified"
+      ? formatLocalizedJPYRange(range, locale)
+      : formatLocalizedApproximateJPYRange(range, locale);
+  if (!range || quality === "verified") return value;
+  return locale === "ja" ? `約 ${value}` : `~${value}`;
 }
 
 export function formatJPYRange(range: PriceRange | null | undefined): string {
