@@ -103,6 +103,8 @@ describe("KAI-260 range-first benchmark", () => {
       const row = first[origin.key];
       expect(row.routable + row.unavailable).toBeLessThanOrEqual(row.total);
       expect(row.bounded).toBeLessThanOrEqual(row.routable);
+      expect(row.routable).toBeGreaterThan(0);
+      expect(row.usablePct).toBeGreaterThanOrEqual(90);
     }
     console.log(JSON.stringify(first, null, 2));
   });

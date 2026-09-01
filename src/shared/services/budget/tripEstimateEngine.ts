@@ -362,6 +362,9 @@ function localProfileFor(
   ) {
     return "special_access";
   }
+  if (dest.role === "standalone") {
+    return dest.municipalityId || dest.areaId ? "urban_transit" : "regional";
+  }
   if (
     dest.kind === "mountain" ||
     dest.kind === "waterfall" ||
@@ -370,8 +373,7 @@ function localProfileFor(
     dest.kind === "village" ||
     dest.kind === "cape" ||
     dest.kind === "cliff" ||
-    dest.kind === "rock_formation" ||
-    dest.role === "standalone"
+    dest.kind === "rock_formation"
   ) {
     return "rural_spread_out";
   }
@@ -663,8 +665,21 @@ function mealNames(
   dest: Destination,
   tripMode: TripModeV2,
   totalDurationHours?: number,
+  nights?: number,
 ): (keyof (typeof MEAL_PRICE_RANGES)[BudgetTier])[] {
-  if (tripMode !== "day_trip") return ["lunch", "dinner", "breakfast", "lunch"];
+  if (tripMode !== "day_trip") {
+    const meals: (keyof (typeof MEAL_PRICE_RANGES)[BudgetTier])[] = [
+      "lunch",
+      "dinner",
+      "breakfast",
+      "lunch",
+    ];
+    const extensionNights = Math.max(0, (nights ?? 1) - 1);
+    for (let index = 0; index < extensionNights; index += 1) {
+      meals.push("dinner", "breakfast", "lunch");
+    }
+    return meals;
+  }
   const duration = totalDurationHours ?? dest.recommendedVisitHours?.max;
   if (duration !== undefined && Number.isFinite(duration)) {
     if (duration <= 4) return ["lunch"];
@@ -714,8 +729,9 @@ function mealsComponent(
   tier: BudgetTier,
   partySize: number,
   totalDurationHours?: number,
+  nights?: number,
 ): TripCostComponent {
-  const ranges = mealNames(dest, tripMode, totalDurationHours).map(
+  const ranges = mealNames(dest, tripMode, totalDurationHours, nights).map(
     (meal) => MEAL_PRICE_RANGES[tier][meal],
   );
   const perPerson: PriceRange = [
@@ -814,19 +830,35 @@ function qualityFor(components: readonly TripCostComponent[]): EstimateQuality {
   if (
     components.some(
       (item) =>
-        item.evidence.derivation === "model_estimate" &&
-        item.evidence.provenance === "model",
+        item.cost.kind === "open_ended" ||
+        item.cost.kind === "variable" ||
+        item.cost.kind === "unavailable",
     )
   ) {
-    if (
-      components.some(
-        (item) => item.evidence.reason === "insufficient_model_evidence",
-      )
-    )
-      return "rough";
-    return "estimated";
+    return "rough";
   }
-  return "verified";
+
+  const hasModelEstimate = components.some(
+    (item) =>
+      item.evidence.derivation === "model_estimate" &&
+      item.evidence.provenance === "model",
+  );
+  const hasUserAllowance = components.some(
+    (item) => item.evidence.derivation === "user_allowance",
+  );
+  if (!hasModelEstimate && !hasUserAllowance) return "verified";
+
+  // Deterministic profiles (including meals) are intentionally modeled but
+  // usable. Reserve rough for broad source-missing fallbacks or non-bounded
+  // required components rather than making every estimate look equally weak.
+  return components.some(
+    (item) =>
+      item.evidence.reason === "source_missing" ||
+      (item.evidence.scope === "admission" &&
+        item.evidence.reason === "insufficient_model_evidence"),
+  )
+    ? "rough"
+    : "estimated";
 }
 
 function evidenceCompletenessFor(
@@ -887,6 +919,7 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
     context.budgetTier ?? "standard",
     partySize,
     mealDurationHours(context, origin),
+    nights,
   );
   const accommodation = accommodationComponent(
     context,

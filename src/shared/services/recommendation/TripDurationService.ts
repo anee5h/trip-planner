@@ -298,34 +298,31 @@ export function formatTripDurationLabel(
   estimate: TripDurationEstimate,
   locale: "en" | "ja",
 ): string {
-  const hours = Math.round(estimate.representativeHours * 10) / 10;
-  const approximate = estimate.travelEvidence === "estimated";
-  const prefix = approximate ? (locale === "ja" ? "約" : "~") : "";
   if (locale === "ja") {
     switch (estimate.band) {
       case "shortOuting":
-        return `サクッと外出 (${prefix}${hours}時間)`;
+        return "短時間";
       case "halfDay":
-        return `半日日帰り (${prefix}${hours}時間)`;
+        return "半日";
       case "fullDay":
-        return `1日日帰り (${prefix}${hours}時間)`;
+        return "1日";
       case "weekend":
-        return `1泊2日/週末 (${prefix}${hours}時間)`;
+        return "週末";
       default:
-        return `${prefix}${hours}時間`;
+        return "滞在時間目安";
     }
   }
   switch (estimate.band) {
     case "shortOuting":
-      return `Short Outing (${prefix}${hours}h)`;
+      return "Short outing";
     case "halfDay":
-      return `Half-Day (${prefix}${hours}h)`;
+      return "Half day";
     case "fullDay":
-      return `Full-Day (${prefix}${hours}h)`;
+      return "Full day";
     case "weekend":
-      return `Weekend (${prefix}${hours}h)`;
+      return "Weekend";
     default:
-      return `${prefix}${hours}h total`;
+      return "Visit duration";
   }
 }
 

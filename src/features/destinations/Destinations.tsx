@@ -18,7 +18,6 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { getPaginationItems } from "./pagination";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import StationInput from "@/shared/components/StationInput";
 import { useWeatherContext } from "@/features/home/hooks/useWeatherContext";
 import {
@@ -107,6 +106,10 @@ import {
   computeExploreSortMetrics,
   sortExploreDestinations,
 } from "./exploreSorting";
+import {
+  resolveExploreBudgetEstimate,
+  type ExploreBudgetEstimate,
+} from "./exploreBudget";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
 export default function Destinations() {
@@ -465,6 +468,7 @@ export default function Destinations() {
     weekend: weekendResult,
     weekendTravelById,
     conditionById,
+    budgetEstimatesById,
   } = useMemo(() => {
     const originMunicipalityId = resolveOriginMunicipalityId(
       homeStationCoords ?? undefined,
@@ -476,6 +480,28 @@ export default function Destinations() {
       .map((destination) =>
         buildRecommendationCandidate(destination, catalogContext),
       );
+    const effectivePublicModes =
+      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
+    const exploreTripMode =
+      tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip";
+    const budgetEstimatesById = new Map<string, ExploreBudgetEstimate>();
+    const budgetEstimateFor = (destination: Destination) => {
+      const cached = budgetEstimatesById.get(destination.id);
+      if (cached) return cached;
+      const resolved = resolveExploreBudgetEstimate(destination, {
+        originCoords: homeStationCoords,
+        originZoneId: homeStationTransportZoneId,
+        carMode,
+        publicModes: effectivePublicModes,
+        partySize,
+        tripMode: exploreTripMode,
+        budgetTier: budgetTier === "any" ? undefined : budgetTier,
+        accommodationAllowance,
+        ferryTemporal,
+      });
+      if (resolved) budgetEstimatesById.set(destination.id, resolved);
+      return resolved;
+    };
 
     // 0. Filter by Curated Collections (OR Semantics)
     if (selectedCollections.length > 0) {
@@ -552,37 +578,8 @@ export default function Destinations() {
     // budgets never pass a restricted tier.
     if (budgetTier !== "any") {
       const tierLimit = BUDGET_TIER_LIMITS[budgetTier as BudgetTier];
-      const filterModes =
-        publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
       result = result.filter((dest) => {
-        let costMax: number | undefined;
-        if (homeStationCoords) {
-          for (const mode of filterModes) {
-            const estimate = calculateTripEstimate({
-              dest,
-              mode,
-              partySize,
-              homeCoords: homeStationCoords,
-              tripMode: "day_trip",
-              budgetTier,
-            });
-            if (estimate.total) {
-              costMax =
-                costMax === undefined
-                  ? estimate.total.max
-                  : Math.min(costMax, estimate.total.max);
-            }
-          }
-        } else {
-          const estimate = calculateTripEstimate({
-            dest,
-            partySize,
-            tripMode: "day_trip",
-            includeOriginTravel: false,
-            budgetTier,
-          });
-          costMax = estimate.total?.max;
-        }
+        const costMax = budgetEstimateFor(dest)?.estimate.total?.max;
         return costMax !== undefined && costMax <= tierLimit;
       });
     }
@@ -703,12 +700,6 @@ export default function Destinations() {
       }
       return evaluation;
     };
-
-    // Empty transport preference means "any public transport" everywhere in
-    // this explorer (weekend path, day-trip gate, sorts, cards) — never
-    // "ignore transport".
-    const effectivePublicModes =
-      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
 
     // Weekend mode uses its own eligibility gate instead of duration bands.
     if (tripMode === "weekend_2d1n") {
@@ -1019,6 +1010,7 @@ export default function Destinations() {
         weekend: weekendConsolidation,
         weekendTravelById,
         conditionById,
+        budgetEstimatesById,
       };
     }
 
@@ -1051,14 +1043,20 @@ export default function Destinations() {
     // 6. Resolve each explicit sort metric once for the complete eligible set,
     // then sort before the render-time page slice. Unknown values are handled
     // by the shared boundary and never participate as accidental zeroes.
+    result.forEach(budgetEstimateFor);
     const exploreSortMetrics = computeExploreSortMetrics(
       result,
       {
         originCoords: homeStationCoords,
+        originZoneId: homeStationTransportZoneId,
         carMode,
         publicModes: effectivePublicModes,
         partySize,
         budgetTier: budgetTier === "any" ? undefined : budgetTier,
+        tripMode: exploreTripMode,
+        accommodationAllowance,
+        ferryTemporal,
+        budgetEstimatesById,
       },
       sortBy,
     );
@@ -1074,6 +1072,7 @@ export default function Destinations() {
       weekend: weekendConsolidation,
       weekendTravelById,
       conditionById,
+      budgetEstimatesById,
     };
   }, [
     allDestinations,
@@ -1106,6 +1105,7 @@ export default function Destinations() {
     travelDates,
     forecastMap,
     ferryTemporal,
+    accommodationAllowance,
   ]);
 
   const resetFilters = () => {
@@ -1354,6 +1354,7 @@ export default function Destinations() {
                     destination={dest}
                     partySize={partySize}
                     carMode={carMode}
+                    resolvedBudgetEstimate={budgetEstimatesById.get(dest.id)}
                     conditionLabel={
                       condition
                         ? localizeTravelConditionSummary(condition, locale)

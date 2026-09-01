@@ -93,7 +93,26 @@ describe("KAI-260 TripEstimateEngine", () => {
     expect(local.cost).toEqual({ kind: "bounded", min: 800, max: 3200 });
     expect(local.evidence.derivation).toBe("model_estimate");
     expect(local.evidence.provenance).toBe("model");
+    expect(result.estimateQuality).toBe("estimated");
     expect(result.total).toBeDefined();
+  });
+
+  it("does not classify an urban standalone POI as rural by role alone", () => {
+    const result = calculateTripEstimate({
+      dest: destination({
+        role: "standalone",
+        municipalityId: "yokohama",
+      }),
+      tripMode: "day_trip",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+
+    expect(component(result, "local_transport").cost).toEqual({
+      kind: "bounded",
+      min: 800,
+      max: 3200,
+    });
   });
 
   it("keeps verified-free admission explicit and resolves missing admission via a model band", () => {
@@ -129,6 +148,7 @@ describe("KAI-260 TripEstimateEngine", () => {
     expect(component(missing, "admission").evidence.derivation).toBe(
       "model_estimate",
     );
+    expect(missing.estimateQuality).toBe("rough");
     expect(missing.total).toBeDefined();
   });
 
@@ -196,6 +216,28 @@ describe("KAI-260 TripEstimateEngine", () => {
       max: 18000,
     });
     expect(result.accommodation).toEqual({ perNight: 12000, nights: 1 });
+  });
+
+  it("adds three meals for each multi-night extension beyond 2D1N", () => {
+    const oneNight = calculateTripEstimate({
+      dest: destination(),
+      tripMode: "multi_night",
+      nights: 1,
+      includeOriginTravel: false,
+      partySize: 1,
+    });
+    const twoNights = calculateTripEstimate({
+      dest: destination(),
+      tripMode: "multi_night",
+      nights: 2,
+      includeOriginTravel: false,
+      partySize: 1,
+    });
+    const oneNightMeals = component(oneNight, "meals").cost;
+    const twoNightMeals = component(twoNights, "meals").cost;
+
+    expect(oneNightMeals).toEqual({ kind: "bounded", min: 5200, max: 9500 });
+    expect(twoNightMeals).toEqual({ kind: "bounded", min: 9200, max: 17000 });
   });
 
   it("uses the same bounded range for low/middle/high affordability", () => {

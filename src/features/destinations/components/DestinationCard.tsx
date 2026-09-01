@@ -66,6 +66,7 @@ import {
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { getCityArea } from "@/shared/data/cityAreas";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import type { ExploreBudgetEstimate } from "../exploreBudget";
 
 export interface WeekendCardSummary {
   placeCount: number;
@@ -82,6 +83,8 @@ interface DestinationCardProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  /** Explore's cached estimate shared by filtering, sorting, and display. */
+  resolvedBudgetEstimate?: ExploreBudgetEstimate;
   availableTimeHours?: number;
   /** 2D1N trip-area summary shown on the card's compact weekend line. */
   weekendSummary?: WeekendCardSummary;
@@ -99,6 +102,7 @@ export default function DestinationCard({
   partySize = 2,
   carMode,
   publicModes,
+  resolvedBudgetEstimate,
   availableTimeHours,
   weekendSummary,
   conditionLabel,
@@ -254,6 +258,9 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     ferryTemporal,
   );
+  const displayModes = resolvedBudgetEstimate?.mode
+    ? [resolvedBudgetEstimate.mode]
+    : validModes;
   const dayTravelEstimate = isWeekend
     ? undefined
     : getDayTripTravelDurationEvidence(
@@ -263,7 +270,7 @@ export default function DestinationCard({
           originZoneId: homeStationTransportZoneId,
           ferryTemporal,
         },
-        validModes,
+        displayModes,
       ).estimate;
   const preferredTransport = isWeekend ? undefined : dayTravelEstimate;
   // KAI-260: cards render the bounded traveller range even when the engine
@@ -273,6 +280,15 @@ export default function DestinationCard({
     range: [number, number];
     quality: "verified" | "estimated" | "rough";
   } | null>(() => {
+    if (resolvedBudgetEstimate?.estimate.total) {
+      return {
+        range: [
+          resolvedBudgetEstimate.estimate.total.min,
+          resolvedBudgetEstimate.estimate.total.max,
+        ],
+        quality: resolvedBudgetEstimate.estimate.estimateQuality,
+      };
+    }
     const mode =
       preferredTransport?.mode ??
       (validModes.length > 0 ? validModes[0] : undefined);
@@ -295,6 +311,7 @@ export default function DestinationCard({
   }, [
     destination,
     validModes,
+    resolvedBudgetEstimate,
     preferredTransport,
     partySize,
     homeStationCoords,
@@ -312,7 +329,7 @@ export default function DestinationCard({
           availableTimeHours,
           ferryTemporal,
         },
-        validModes,
+        displayModes,
       )
     : estimateDayTripDuration(
         destination,
@@ -322,7 +339,7 @@ export default function DestinationCard({
           availableTimeHours,
           ferryTemporal,
         },
-        validModes,
+        displayModes,
       );
 
   return (
@@ -559,7 +576,7 @@ export default function DestinationCard({
                         // KAI-260: a bounded estimate is displayable even
                         // when its ingredients are model/profile derived.
                         return cardBudgetRange
-                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "Approx. "}${formatLocalizedJPYRange(cardBudgetRange, locale)}`
+                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "~"}${formatLocalizedJPYRange(cardBudgetRange, locale)}`
                           : formatLocalizedJPYRange(null, locale);
                       })()}
                       {partySize > 1

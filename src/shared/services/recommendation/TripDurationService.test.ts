@@ -43,21 +43,17 @@ describe("TripDurationService", () => {
     const estFull = { representativeHours: 10.0, band: "fullDay" } as never;
     const estWeekend = { representativeHours: 18.0, band: "weekend" } as never;
 
-    expect(formatTripDurationLabel(estShort, "en")).toBe("Short Outing (2.5h)");
-    expect(formatTripDurationLabel(estShort, "ja")).toBe(
-      "サクッと外出 (2.5時間)",
-    );
+    expect(formatTripDurationLabel(estShort, "en")).toBe("Short outing");
+    expect(formatTripDurationLabel(estShort, "ja")).toBe("短時間");
 
-    expect(formatTripDurationLabel(estHalf, "en")).toBe("Half-Day (6h)");
-    expect(formatTripDurationLabel(estHalf, "ja")).toBe("半日日帰り (6時間)");
+    expect(formatTripDurationLabel(estHalf, "en")).toBe("Half day");
+    expect(formatTripDurationLabel(estHalf, "ja")).toBe("半日");
 
-    expect(formatTripDurationLabel(estFull, "en")).toBe("Full-Day (10h)");
-    expect(formatTripDurationLabel(estFull, "ja")).toBe("1日日帰り (10時間)");
+    expect(formatTripDurationLabel(estFull, "en")).toBe("Full day");
+    expect(formatTripDurationLabel(estFull, "ja")).toBe("1日");
 
-    expect(formatTripDurationLabel(estWeekend, "en")).toBe("Weekend (18h)");
-    expect(formatTripDurationLabel(estWeekend, "ja")).toBe(
-      "1泊2日/週末 (18時間)",
-    );
+    expect(formatTripDurationLabel(estWeekend, "en")).toBe("Weekend");
+    expect(formatTripDurationLabel(estWeekend, "ja")).toBe("週末");
   });
 
   it("uses visit time when origin is unavailable", () => {

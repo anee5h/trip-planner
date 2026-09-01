@@ -1,8 +1,13 @@
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
-import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import type { BudgetTier } from "@/shared/types/planner";
+import type { BudgetTier, PriceRange } from "@/shared/types/planner";
+import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import {
+  resolveExploreBudgetEstimate,
+  type ExploreBudgetEstimate,
+} from "./exploreBudget";
+import type { TripModeV2 } from "@/shared/services/budget/tripEstimateEngine";
 
 export type ExploreSortKey = "recommended" | "walking" | "nearest" | "budget";
 
@@ -17,10 +22,15 @@ export interface ExploreSortMetrics {
 
 export interface ExploreSortContext {
   originCoords?: { lat: number; lng: number } | null;
+  originZoneId?: TransportZoneId;
   carMode: string;
   publicModes: readonly string[];
   partySize: number;
   budgetTier?: BudgetTier;
+  tripMode?: TripModeV2;
+  accommodationAllowance?: number | PriceRange;
+  ferryTemporal?: FerryTemporalContext;
+  budgetEstimatesById?: ReadonlyMap<string, ExploreBudgetEstimate>;
 }
 
 /**
@@ -84,41 +94,20 @@ function getExploreBudgetMax(
   destination: Destination,
   context: ExploreSortContext,
 ): number | null {
-  if (!context.originCoords) {
-    const estimate = calculateTripEstimate({
-      dest: destination,
+  const resolved =
+    context.budgetEstimatesById?.get(destination.id) ??
+    resolveExploreBudgetEstimate(destination, {
+      originCoords: context.originCoords,
+      originZoneId: context.originZoneId,
+      carMode: context.carMode,
+      publicModes: context.publicModes,
       partySize: context.partySize,
-      tripMode: "day_trip",
-      includeOriginTravel: false,
+      tripMode: context.tripMode ?? "day_trip",
       budgetTier: context.budgetTier,
+      accommodationAllowance: context.accommodationAllowance,
+      ferryTemporal: context.ferryTemporal,
     });
-    return estimate.total?.max ?? null;
-  }
-  const validModes = getValidModes(
-    destination,
-    context.carMode,
-    [...context.publicModes],
-    context.originCoords,
-    context.budgetTier ?? "standard",
-  );
-  let lowest: number | null = null;
-  for (const mode of validModes) {
-    const estimate = calculateTripEstimate({
-      dest: destination,
-      mode,
-      partySize: context.partySize,
-      homeCoords: context.originCoords,
-      tripMode: "day_trip",
-      budgetTier: context.budgetTier,
-    });
-    if (estimate.total) {
-      lowest =
-        lowest === null
-          ? estimate.total.max
-          : Math.min(lowest, estimate.total.max);
-    }
-  }
-  return lowest;
+  return resolved?.estimate.total?.max ?? null;
 }
 
 /** Compute every explicit Explore metric once per eligible destination. */
