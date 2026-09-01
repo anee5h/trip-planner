@@ -229,9 +229,9 @@ export interface DayPlan {
   returnEndpointId?: string;
   totalDurationMinutes: number;
   /**
-   * KAI-217B round-4: OPTIONAL — set ONLY when the generated plan cost is
-   * COMPLETE (admission + all required route legs curated). A partial or
-   * unavailable plan MUST NOT carry a numeric range (never [0,0]).
+   * KAI-260: optional when the generated plan has a bounded cost estimate.
+   * Estimated/profile-derived totals are displayable with provenance; only
+   * genuinely unbounded or unavailable totals omit this field.
    */
   totalBudgetRange?: [number, number];
   isOverfilled: boolean;
@@ -707,8 +707,8 @@ export function generateDayPlan(
     returnMode,
     returnEndpointId: builtRoute.returnEndpoint?.id,
     totalDurationMinutes: builtRoute.totalMins,
-    // KAI-217B round-4: totalBudgetRange set below ONLY when the plan cost
-    // is complete — never initialized [0,0] here.
+    // KAI-260: totalBudgetRange is assigned below whenever the generated
+    // aggregate is bounded, including model/profile-derived estimates.
     isOverfilled: false,
     isUnfeasible: false,
     uncertainHoursDisclosures,
@@ -723,13 +723,10 @@ export function generateDayPlan(
   };
 
   const planCost = calculateGeneratedPlanCost(rawPlan, partySize);
-  // KAI-217B round-3: complete-only — a partial plan must NOT carry a
-  // numeric totalBudgetRange (never [0,0] or a partial subtotal).
-  // KAI-219A final N/A guard: an all-N/A complete plan has NO numeric
-  // cost claim (hasNumericTotal=false) → totalBudgetRange undefined
-  // (N/A ≠ verified ¥0; verified free [0,0] still counts as numeric).
-  if (planCost.completeness === "complete" && planCost.hasNumericTotal) {
-    rawPlan.totalBudgetRange = planCost.knownSubtotal;
+  // KAI-260: bounded estimated totals are valid plan outputs; the adapter
+  // omits the range only when no bounded aggregate exists.
+  if (planCost.totalRange) {
+    rawPlan.totalBudgetRange = planCost.totalRange;
   }
   if (planCost.assumptions.length > 0) {
     rawPlan.assumptions = [
@@ -1141,8 +1138,8 @@ export function rebuildPlanFromEditedStops(
   const planCost = calculateGeneratedPlanCost(newPlan, partySize);
   // KAI-217B round-3: complete-only totalBudgetRange.
   // KAI-219A final N/A guard: no numeric cost claim → undefined.
-  if (planCost.completeness === "complete" && planCost.hasNumericTotal) {
-    newPlan.totalBudgetRange = planCost.knownSubtotal;
+  if (planCost.totalRange) {
+    newPlan.totalBudgetRange = planCost.totalRange;
   }
 
   return newPlan;

@@ -224,7 +224,7 @@ describe("DestinationDetails transport rows", () => {
     ["Shin-Yokohama", SHIN_YOKOHAMA],
     ["Chiba", CHIBA],
   ])(
-    "%s shows the canonical partial cost state (bounded local fare + no complete range)",
+    "%s shows the canonical estimated cost range (bounded despite partial evidence)",
     async (_originName, originCoords) => {
       storeState.homeStationCoords = originCoords;
       storeState.homeStationTransportZoneId = "mainland-honshu";
@@ -233,13 +233,9 @@ describe("DestinationDetails transport rows", () => {
         await flush(80);
       });
       const text = host.textContent ?? "";
-      // KAI-217B round-3: the local-bounded origin fare is corridor_only →
-      // the engine result is PARTIAL → no complete range is displayed; the
-      // train row is present with honest unavailable cost copy (never a
-      // fabricated scalar).
       expect(text).toContain("Train");
-      expect(text).toContain("Cost unavailable");
-      expect(text).not.toContain("Local fare estimate (bounded)");
+      expect(text).toContain("est.");
+      expect(text).toMatch(/¥[0-9.]+k–[0-9.]+k/);
     },
   );
 
@@ -369,10 +365,7 @@ describe("DestinationDetails transport rows", () => {
     expect(text).not.toContain("Train");
     expect(text).not.toContain("Shinkansen");
     expect(text).toContain("Travel Time Bus");
-    // KAI-217B round-3: the highway-bus corridor fare is corridor_only →
-    // the engine result is PARTIAL → the cost row honestly shows
-    // unavailable (no fabricated scalar, no intercity-only label).
-    expect(text).toContain("Cost unavailable");
+    expect(text).toContain("est.");
     expect(text).not.toContain(
       "Intercity fare only; local access cost is not modeled",
     );
@@ -393,7 +386,7 @@ describe("DestinationDetails transport rows", () => {
     expect(text).toContain("Ferry");
   });
 
-  it("Fukuoka → Ishigaki rendered UI shows Flight, Cost unavailable, transport-excluded title, and no full-trip label in English", async () => {
+  it("Fukuoka → Ishigaki rendered UI shows an estimated Flight range", async () => {
     storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
     storeState.homeStationTransportZoneId = "mainland-kyushu";
     render("/destinations/ishigaki-city");
@@ -402,14 +395,14 @@ describe("DestinationDetails transport rows", () => {
     });
     const text = host.textContent ?? "";
     expect(text).toContain("Flight");
-    expect(text).toContain("Cost unavailable");
+    expect(text).toContain("est.");
     expect(text).not.toContain("On-site budget (transport excluded)");
     expect(text).not.toContain("Couple Budget");
     expect(text).not.toContain("Solo Budget");
     expect(text).not.toContain("Group Budget");
   });
 
-  it("Fukuoka → Ishigaki rendered UI shows transport-excluded title and 料金不明 in Japanese", async () => {
+  it("Fukuoka → Ishigaki rendered UI shows an estimated Flight range in Japanese", async () => {
     storeState.homeStationCoords = { lat: 33.5902, lng: 130.4017 };
     storeState.homeStationTransportZoneId = "mainland-kyushu";
     localeState.locale = "ja";
@@ -419,7 +412,7 @@ describe("DestinationDetails transport rows", () => {
     });
     const text = host.textContent ?? "";
     expect(text).toContain("飛行機");
-    expect(text).toContain("料金不明");
+    expect(text).toContain("目安");
     expect(text).not.toContain("現地予算（往復交通費を除く）");
     expect(text).not.toContain("カップル予算");
     expect(text).not.toContain("グループ予算");

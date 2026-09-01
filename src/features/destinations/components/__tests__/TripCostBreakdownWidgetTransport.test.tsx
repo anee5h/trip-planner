@@ -72,8 +72,8 @@ let scenario: Scenario = {
 // canonical components (origin_travel / local_transport / admission —
 // food/cafe excluded) so the transport-row presentation contract stays the
 // focus.
-vi.mock("@/shared/services/budget/tripCostEngine", () => ({
-  calculateTripCost: () => {
+vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
+  calculateTripEstimate: () => {
     const s = scenario;
     const components: unknown[] = [];
     if (s.transport > 0 || s.transportAvailable) {

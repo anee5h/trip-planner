@@ -320,7 +320,8 @@ describe("KAI-219E1 variable-price manifest semantics", () => {
     expect(adm1.cost).toEqual({ kind: "bounded", min: 5800, max: 7400 });
     expect(adm1.evidence.state).toBe("variable_price");
 
-    // Open-ended: from survives × partySize, completeness stays partial.
+    // Open-ended: lower bound survives × partySize and receives a
+    // deterministic planning ceiling, so the aggregate can be bounded.
     const r2 = calculateTripCost({
       dest: teamlab,
       tripMode: "day_trip",
@@ -331,8 +332,9 @@ describe("KAI-219E1 variable-price manifest semantics", () => {
     const adm2 = r2.components.find(
       (c: any) => c.evidence.scope === "admission",
     );
-    expect(adm2.cost).toEqual({ kind: "open_ended", from: 7200 });
-    expect(r2.completeness).toBe("partial");
+    expect(adm2.cost).toEqual({ kind: "bounded", min: 7200, max: 12600 });
+    expect(adm2.evidence.state).toBe("variable_price");
+    expect(r2.completeness).toBe("complete");
   });
 
   it("manifest matches the committed candidates file (all entries valid)", () => {

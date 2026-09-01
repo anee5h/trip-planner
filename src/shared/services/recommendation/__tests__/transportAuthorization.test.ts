@@ -288,7 +288,7 @@ describe("flight registry expansion (PR #102)", () => {
     }
   });
 
-  it("unverified fare routes keep the explicit adjusted budget unavailable", () => {
+  it("unverified fare routes receive a bounded adjusted budget without zero-cost fallback", () => {
     const dest = byId.get("ishigaki-city")!;
     const estimate = getFlightTransportEstimate(dest, FUKUOKA);
     expect(estimate?.costUnavailable).toBe(true);
@@ -306,10 +306,10 @@ describe("flight registry expansion (PR #102)", () => {
       FUKUOKA,
       "mainland-kyushu",
     );
-    expect(adjustedBudget).toBeNull();
+    expect(adjustedBudget).toBeGreaterThan(0);
   });
 
-  it("Fukuoka → Ishigaki is not scored as a zero-cost Flight and budget is transport-excluded", () => {
+  it("Fukuoka → Ishigaki is not scored as a zero-cost Flight and includes a modeled transport range", () => {
     const dest = byId.get("ishigaki-city")!;
     const budgetEst = getEstimatedBudgetRange(
       dest,
@@ -318,7 +318,7 @@ describe("flight registry expansion (PR #102)", () => {
       "standard",
       FUKUOKA,
     );
-    expect(budgetEst.transportIncluded).toBe(false);
+    expect(budgetEst.transportIncluded).toBe(true);
 
     // Score for unverified flight cost must not receive a BUDGET_UNDER_BONUS
     const lowBudgetContext = {
@@ -382,7 +382,7 @@ describe("flight registry expansion (PR #102)", () => {
 });
 
 describe("pipeline-level budget filtering and metadata", () => {
-  it("Fukuoka → Ishigaki is retained as affordability-unknown with transportIncluded=false", () => {
+  it("Fukuoka → Ishigaki is retained with a modeled transport range", () => {
     const dest = byId.get("ishigaki-city")!;
     const results = runRecommendationPipeline([dest], {
       vibe: "any",
@@ -398,8 +398,8 @@ describe("pipeline-level budget filtering and metadata", () => {
     expect(results.length).toBe(1);
     const candidate = results[0];
     expect(candidate.id).toBe("ishigaki-city");
-    expect(candidate.estimatedCostTransportIncluded).toBe(false);
-    expect(candidate.pipeline.estimatedCostTransportIncluded).toBe(false);
+    expect(candidate.estimatedCostTransportIncluded).toBe(true);
+    expect(candidate.pipeline.estimatedCostTransportIncluded).toBe(true);
 
     // Verify downstream explainability creates NO full-trip budget reasons
     const match = candidate.match;
@@ -705,7 +705,7 @@ describe("no-route budget excludes origin transport", () => {
     expect(cost.originTransport.applicable).toBe(false);
   });
 
-  it("generated plan with null transport uses no Train local-fare assumptions", () => {
+  it("generated plan with null transport does not invent a train fare", () => {
     const leg = {
       destinationId: "test-dest",
       durationMinutes: 30,

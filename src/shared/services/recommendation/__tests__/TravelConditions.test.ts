@@ -639,10 +639,9 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
         niigata,
         afterWindow,
       ).transportIncluded,
-    ).toBe(false);
-    // Sortable budget: in-window is a finite verified complete cost;
-    // out-of-window has NO verified cost and must sort after every
-    // verified-cost candidate — never as a cheaper zero-transport price.
+    ).toBe(true);
+    // The out-of-window fare is replaced by a broad modeled band rather than
+    // pretending transport is free; its sortable ceiling remains comparable.
     const withFare = getSortableVerifiedBudget(
       sado,
       ["ferry"],
@@ -659,7 +658,7 @@ describe("mode agreement across eligibility, travel-time, budget and card", () =
     );
     expect(withFare).toBeGreaterThan(0);
     expect(withFare).toBeLessThan(Number.POSITIVE_INFINITY);
-    expect(withoutFare).toBe(Number.POSITIVE_INFINITY);
+    expect(withoutFare).toBeGreaterThan(withFare);
   });
 });
 

@@ -291,11 +291,11 @@ describe("deferred full catalogue sort loading", () => {
     expect(resultCount(container)).toContain("1106 destinations matching");
   });
 
-  it("normalizes a legacy Budget URL without requesting the full catalogue", async () => {
+  it("preserves the canonical Budget URL sort without requesting the full catalogue", async () => {
     const container = await render("/destinations?sort=budget");
 
     expect(container.querySelector("[data-sort-control]")?.textContent).toBe(
-      "recommended",
+      "budget",
     );
     expect(container.querySelector("[data-sort-loading]")).toBeNull();
     expect(catalogueMock.fullRequestCount).toBe(0);

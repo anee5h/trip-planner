@@ -8,9 +8,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
 import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { formatApproximateTransportTime } from "@/shared/services/transport/formatters";
 import * as TripDurationService from "@/shared/services/recommendation/TripDurationService";
 import DestinationCard from "../DestinationCard";
+import type { ExploreBudgetEstimate } from "../../exploreBudget";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -181,6 +183,55 @@ describe("DestinationCard responsive content", () => {
     expect(host.textContent).toContain(
       formatApproximateTransportTime(displayOnlyEstimate!.timeRange, "en"),
     );
+  });
+
+  it("renders Explore's shared estimate with a compact approximate prefix", () => {
+    const resolvedBudgetEstimate = {
+      mode: "train",
+      validModes: ["train"],
+      estimate: calculateTripEstimate({
+        dest: destination,
+        mode: "train",
+        homeCoords: state.homeStationCoords,
+        partySize: 2,
+        tripMode: "day_trip",
+      }),
+    } satisfies ExploreBudgetEstimate;
+
+    act(() =>
+      root.render(
+        <MemoryRouter>
+          <DestinationCard
+            destination={destination}
+            resolvedBudgetEstimate={resolvedBudgetEstimate}
+          />
+        </MemoryRouter>,
+      ),
+    );
+
+    const budgetText = Array.from(host.querySelectorAll("span"))
+      .map((node) => node.textContent ?? "")
+      .find((text) => text.includes("for 2"));
+    expect(budgetText).toMatch(/^~/);
+    expect(budgetText).not.toContain("Approx");
+  });
+
+  it("places duration on the first desktop row and budget across the second", () => {
+    render();
+
+    const duration = host.querySelector(
+      '[data-testid="destination-card-visit-duration"]',
+    );
+    const grid = duration?.parentElement;
+    const gridChildren = grid ? Array.from(grid.children) : [];
+    const budget = Array.from(host.querySelectorAll("span")).find((node) =>
+      node.textContent?.includes(" for 2"),
+    )?.parentElement;
+
+    expect(grid).not.toBeNull();
+    expect(gridChildren.indexOf(duration!)).toBe(1);
+    expect(gridChildren.indexOf(budget!)).toBe(2);
+    expect(budget?.className).toContain("col-span-2");
   });
 
   it("keeps unknown travel visibly unavailable instead of filling from legacy options", () => {

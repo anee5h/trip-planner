@@ -141,7 +141,7 @@ import {
   useWeekendWeather,
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
@@ -805,16 +805,14 @@ export default function DestinationDetails() {
       groundEstimateFor(mode)?.evidence,
     );
 
-  // KAI-217B round-3: canonical per-mode cost RANGE from the engine.
-  // complete → [min,max]; partial → undefined (callers render the known
-  // subtotal + missing via the engine's partial semantics); unavailable →
-  // undefined. NEVER a scalar midpoint projection.
+  // KAI-260: a bounded canonical range remains displayable when its
+  // ingredients are model/profile derived. The range itself is never collapsed.
   const modeCostRange = (
     mode: string,
     opts?: { includeOriginTravel?: boolean },
   ): [number, number] | undefined => {
     if (!destination) return undefined;
-    const r = calculateTripCost({
+    const r = calculateTripEstimate({
       dest: destination,
       mode,
       partySize,
@@ -825,7 +823,7 @@ export default function DestinationDetails() {
       ferryTemporal,
       ...(opts ?? {}),
     });
-    if (r.completeness !== "complete" || !r.total) return undefined;
+    if (r.total === undefined) return undefined;
     return [r.total.min, r.total.max];
   };
 
@@ -833,14 +831,7 @@ export default function DestinationDetails() {
     if (!destination) return copy.costUnavailable;
     const range = modeCostRange(mode);
     if (!range) return copy.costUnavailable;
-    const estimate = groundEstimateFor(mode);
-    const label =
-      estimate?.fareScope === "local_bounded_estimate"
-        ? copy.localBoundedFare
-        : estimate?.evidence === "estimated"
-          ? copy.corridorFareOnly
-          : copy.estimated;
-    return `${label} ${formatLocalizedJPYRange(range, locale)}`;
+    return `${copy.estimated} ${formatLocalizedJPYRange(range, locale)}`;
   };
 
   const isModeVisible = (mode: string) => {
@@ -1597,6 +1588,7 @@ export default function DestinationDetails() {
                 destination={destination}
                 locale={locale}
                 partySize={partySize}
+                homeCoords={homeStationCoords}
                 selectedTransport={selectedTransport}
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
@@ -1956,13 +1948,11 @@ export default function DestinationDetails() {
                                 </div>
                                 <div className="text-xs text-slate-500">
                                   {(() => {
-                                    // KAI-217B round-3: canonical RANGE, never
-                                    // a scalar getTransportCost midpoint.
+                                    // KAI-260: canonical range-first estimate;
+                                    // transport evidence quality does not hide a
+                                    // bounded planning range.
                                     const ferryRange = modeCostRange("ferry");
-                                    if (
-                                      ferryEstimate.costUnavailable ||
-                                      !ferryRange
-                                    ) {
+                                    if (!ferryRange) {
                                       return copy.costUnavailable;
                                     }
                                     return (
@@ -1994,13 +1984,11 @@ export default function DestinationDetails() {
                                 </div>
                                 <div className="text-xs text-slate-500">
                                   {(() => {
-                                    // KAI-217B round-3: canonical RANGE, never
-                                    // a scalar getTransportCost midpoint.
+                                    // KAI-260: canonical range-first estimate;
+                                    // unavailable source fare may still have a
+                                    // bounded model range.
                                     const flightRange = modeCostRange("flight");
-                                    if (
-                                      flightEstimate.costUnavailable ||
-                                      !flightRange
-                                    ) {
+                                    if (!flightRange) {
                                       return copy.costUnavailable;
                                     }
                                     return (

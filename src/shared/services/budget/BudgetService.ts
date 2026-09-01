@@ -1,10 +1,4 @@
 import type { Destination } from "@/shared/types/destination";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
-import {
-  getEligibleOriginModes,
-  resolveDestinationTransportZone,
-  resolveOriginTransportZone,
-} from "@/shared/services/transport/TransportTopologyService";
 import {
   getCanonicalTransportCost,
   canonicalTransportCostToNumber,
@@ -14,10 +8,9 @@ import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type {
   FerryTemporalContext,
   TransportFareScope,
-  TransportMode,
 } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
-import { estimateTripDuration } from "@/shared/services/recommendation/TripDurationService";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { isValidAccommodationAllowance } from "@/shared/types/homePlannerState";
 import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import {
@@ -114,29 +107,6 @@ export function hasKnownBudgetRange(
  * returns `undefined` when the destination cannot be duration-planned or the
  * requested mode has no origin-aware estimate.
  */
-function deriveTripDurationHours(
-  dest: Destination,
-  mode?: string,
-  homeCoords?: { lat: number; lng: number },
-  ferryTemporal?: FerryTemporalContext,
-): number | undefined {
-  if (!dest.recommendedVisitHours) return undefined;
-  const modes =
-    mode && mode !== "all" && mode !== "any" ? [mode as TransportMode] : [];
-  // With no concrete mode there is no travel to price; meals then use the
-  // visit duration only. A concrete mode without a verified origin estimate
-  // remains unknown rather than being approximated.
-  return estimateTripDuration(
-    dest,
-    {
-      homeStationCoords:
-        modes.length > 0 ? (homeCoords ?? undefined) : undefined,
-      ferryTemporal,
-    },
-    modes,
-  )?.representativeHours;
-}
-
 function formatSingleJPYValue(val: number, locale: "en" | "ja" = "en"): string {
   if (locale === "ja") {
     if (val >= 10000) {
@@ -173,6 +143,22 @@ export function formatLocalizedJPYRange(
   }
 
   return `¥${formatSingleJPYValue(min, locale)}${rangeSep}${formatSingleJPYValue(max, locale)}`;
+}
+
+/** Format estimated ranges with honest, outward-rounded presentation values. */
+export function formatLocalizedApproximateJPYRange(
+  range: PriceRange | null | undefined,
+  locale: "en" | "ja" = "en",
+): string {
+  if (!range || !isValidPriceRange(range)) {
+    return COST_UNAVAILABLE[locale];
+  }
+  const unit = range[1] >= 1000 ? 1000 : 100;
+  const rounded: PriceRange = [
+    Math.floor(range[0] / unit) * unit,
+    Math.ceil(range[1] / unit) * unit,
+  ];
+  return formatLocalizedJPYRange(rounded, locale);
 }
 
 export function formatJPYRange(range: PriceRange | null | undefined): string {
@@ -231,47 +217,6 @@ export interface EstimatedBudgetRangeResult {
   food: PriceRange | null;
 }
 
-function getTransportFareScope(
-  dest: Destination,
-  mode: string,
-  homeCoords: { lat: number; lng: number } | undefined,
-  ferryTemporal: FerryTemporalContext | undefined,
-  transportIncluded: boolean,
-): EstimatedBudgetRangeResult["transportFareScope"] {
-  if (!transportIncluded || !homeCoords) return "unknown";
-  // KAI-216 repair: an explicit catalogue transportFares[mode] entry has NO
-  // origin identity and NO provenance — it is a route (corridor) fare with
-  // an unspecified origin, so it can never claim whole-journey "complete"
-  // scope from an arbitrary user origin. It is corridor_only (access legs
-  // unknown) for ground transit, consistent with the canonical ladder
-  // (transportCostV2). car/my_car static estimates are UNAVAILABLE (no
-  // origin-specific defensible car model) → unknown.
-  if (
-    dest.transportFares &&
-    typeof dest.transportFares[mode as keyof typeof dest.transportFares] ===
-      "number"
-  ) {
-    if (mode === "car" || mode === "my_car") return "unknown";
-    return "corridor_only";
-  }
-  // Flight and ferry fares cover the verified air/sea ROUTE only — origin
-  // airport/port access and destination-side access are NOT included. A
-  // verified airline/ferry ticket is a verified corridor/service fare, not
-  // a complete trip from the user's origin → corridor_only.
-  if (mode === "flight" || mode === "ferry") return "corridor_only";
-  if (mode !== "train" && mode !== "shinkansen" && mode !== "bus") {
-    return "unknown";
-  }
-  const estimate = getOriginAwareTransportEstimate(
-    dest,
-    { homeStationCoords: homeCoords, ferryTemporal },
-    [mode as TransportMode],
-  );
-  if (!estimate?.fare) return "unknown";
-  if (estimate.fareScope) return estimate.fareScope;
-  return estimate.evidence === "estimated" ? "corridor_only" : "complete";
-}
-
 export function getEstimatedBudgetRange(
   dest: Destination,
   mode: string,
@@ -280,73 +225,38 @@ export function getEstimatedBudgetRange(
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
 ): EstimatedBudgetRangeResult {
-  const effectiveTripDurationHours = deriveTripDurationHours(
-    dest,
-    mode,
-    homeCoords,
-    ferryTemporal,
-  );
-  const breakdown = getEffectiveBudgetBreakdown(dest);
-  // KAI-89 contract: catalogue budget values are PER-PERSON (budgetMin/Max
-  // multiply by partySize in the card; the budget model emits per-person
-  // components). The legacy couple-scale assumption (partySize / 2) made
-  // solo travellers pay half and masked the bug at party size 2.
-  const scale = partySize;
-  const rawTransport = getTransportCost(
+  // Compatibility projection for older callers. The range itself is always
+  // produced by TripEstimateEngine; this adapter never adds food/cafe/5% or
+  // collapses the canonical range to a scalar.
+  const result = calculateTripEstimate({
     dest,
     mode,
     partySize,
+    budgetTier,
     homeCoords,
+    tripMode: "day_trip",
     ferryTemporal,
-    effectiveTripDurationHours,
+    // Without an origin there is no honest origin fare to include; callers
+    // are asking for an on-site planning estimate rather than an unavailable
+    // trip total.
+    includeOriginTravel: Boolean(homeCoords),
+  });
+  const origin = result.components.find(
+    (item) => item.evidence.scope === "origin_travel",
   );
-  const transportIncluded = rawTransport !== null;
-  const transportFareScope = getTransportFareScope(
-    dest,
-    mode,
-    homeCoords,
-    ferryTemporal,
-    transportIncluded,
+  const meals = result.components.find(
+    (item) => item.evidence.scope === "meals",
   );
-  if (!breakdown) {
-    return {
-      range: null,
-      transportIncluded,
-      transportFareScope,
-      durationIncluded: false,
-      food: null,
-    };
-  }
-  const transport = rawTransport ?? 0;
-  const food =
-    effectiveTripDurationHours === undefined
-      ? null
-      : getDiningFoodRange(budgetTier, effectiveTripDurationHours, partySize);
-  if (!food) {
-    return {
-      range: null,
-      transportIncluded,
-      transportFareScope,
-      durationIncluded: false,
-      food: null,
-    };
-  }
-  // KAI-89 on-site transport contract: budgetBreakdown.transport is the
-  // PER-PERSON on-site/local-transit allowance and is part of the trip cost.
-  // It replaces the legacy hardcoded per-tier transfer band (which was a
-  // synthetic stand-in — keeping both would double count local transit).
-  const onsiteTransit = breakdown.transport * scale;
-  const tickets = breakdown.tickets * scale;
-  const cafe = breakdown.cafe * scale;
+  const range = result.total
+    ? ([result.total.min, result.total.max] as PriceRange)
+    : null;
   return {
-    range: [
-      Math.round((transport + onsiteTransit + tickets + food[0] + cafe) * 1.05),
-      Math.round((transport + onsiteTransit + tickets + food[1] + cafe) * 1.05),
-    ],
-    transportIncluded,
-    transportFareScope,
-    durationIncluded: true,
-    food,
+    range,
+    transportIncluded: origin?.cost.kind === "bounded",
+    transportFareScope: origin?.evidence.fareScope ?? "unknown",
+    durationIncluded: Boolean(dest.recommendedVisitHours),
+    food:
+      meals?.cost.kind === "bounded" ? [meals.cost.min, meals.cost.max] : null,
   };
 }
 
@@ -455,96 +365,33 @@ export function getAdjustedBudget(
   activeMode: string,
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
-  originZoneId?: TransportZoneId,
+  _originZoneId?: TransportZoneId,
   ferryTemporal?: FerryTemporalContext,
 ): number | null {
   if (!isFiniteNonNegative(partySize)) return null;
-  const normalizedPartySize = Math.max(1, Math.floor(partySize));
-  const hasExplicitMode = activeMode !== "all" && activeMode !== "any";
-  let mode: string | undefined;
-
-  const effectiveOriginZoneId =
-    originZoneId ??
-    (homeCoords
-      ? resolveOriginTransportZone({ coordinates: homeCoords })
-      : undefined);
-  const destinationZoneId = resolveDestinationTransportZone(dest);
-  const canonicalActiveMode =
-    homeCoords && (activeMode === "bus" || activeMode === "shinkansen")
-      ? Boolean(
-          getOriginAwareTransportEstimate(
-            dest,
-            {
-              homeStationCoords: homeCoords,
-              originZoneId: effectiveOriginZoneId,
-              ferryTemporal,
-            },
-            [activeMode],
-          ),
-        )
-      : false;
-  // With a personalized coordinate origin, Bus/Shinkansen mode selection is
-  // canonical-only: stale transportOptions must not resurrect a missing
-  // personalized corridor. Without coordinates (neutral/zone-only) the
-  // legacy metadata display path remains.
-  const activeModeSupported =
-    homeCoords && (activeMode === "bus" || activeMode === "shinkansen")
-      ? canonicalActiveMode
-      : dest.transportOptions?.[
-          activeMode as keyof typeof dest.transportOptions
-        ] !== undefined;
-
-  if (
-    hasExplicitMode &&
-    (activeModeSupported || activeMode === "flight" || activeMode === "ferry")
-  ) {
-    mode = activeMode;
-  } else if (hasExplicitMode) {
-    return null;
-  } else if (effectiveOriginZoneId && destinationZoneId !== "unknown") {
-    const topologyModes = getEligibleOriginModes({
-      originZoneId: effectiveOriginZoneId,
-      destinationZoneId,
-      destination: dest,
-    });
-    const authorized = new Set<string>(
-      effectiveOriginZoneId === destinationZoneId
-        ? topologyModes.localModes
-        : topologyModes.crossZoneModes,
-    );
-    const entries = Object.entries(dest.transportOptions || {}).filter(
-      ([_, v]) => v !== undefined,
-    ) as [string, number][];
-    const candidates = entries.filter(([m]) => authorized.has(m));
-    if (candidates.length > 0) {
-      mode = candidates.reduce((min, curr) =>
-        curr[1] < min[1] ? curr : min,
-      )[0];
-    }
-  }
-
-  const transportCost =
-    mode === undefined
-      ? null
-      : getTransportCost(dest, mode, partySize, homeCoords, ferryTemporal);
-  if (hasExplicitMode && transportCost === null) return null;
-  const breakdown = getEffectiveBudgetBreakdown(dest);
-  if (!breakdown) return null;
-  const recBudget = isFiniteNonNegative(dest.budgetRecommended)
-    ? dest.budgetRecommended
-    : isFiniteNonNegative(dest.budgetMin) && isFiniteNonNegative(dest.budgetMax)
-      ? Math.max(dest.budgetMin, dest.budgetMax)
-      : breakdown.transport +
-        breakdown.tickets +
-        breakdown.food +
-        breakdown.cafe;
-  // KAI-89 contract: catalogue values are per-person; ALL on-site components
-  // (transport/tickets/food/cafe) scale directly with the party, and the
-  // per-person on-site/local-transit allowance is included (previously
-  // subtracted and never re-added — the adjusted total omitted on-site
-  // transit entirely). Origin transport is added separately by the caller.
-  const otherCosts = Math.max(0, recBudget) * normalizedPartySize;
-  return otherCosts + (transportCost ?? 0);
+  const explicitMode = activeMode !== "all" && activeMode !== "any";
+  const mode = explicitMode
+    ? activeMode
+    : Object.keys(dest.transportOptions ?? {}).find(
+        (candidate) =>
+          dest.transportOptions[
+            candidate as keyof Destination["transportOptions"]
+          ] !== undefined,
+      );
+  const result = calculateTripEstimate({
+    dest,
+    mode,
+    partySize,
+    homeCoords,
+    tripMode: "day_trip",
+    ferryTemporal,
+    // No origin context means this compatibility API returns the bounded
+    // on-site estimate, not an origin-travel unknown.
+    includeOriginTravel: Boolean(homeCoords),
+  });
+  // This scalar is a compatibility ceiling only. New UI and ranking code
+  // consumes result.total as a range and never uses this projection.
+  return result.total?.max ?? null;
 }
 
 export function getEffectiveBudgetBreakdown(dest: Destination): {
@@ -677,7 +524,6 @@ export function calculateItemizedTripCost(
     activeMode?: string | null;
     partySize?: number;
     budgetTier?: BudgetTier;
-    /** Intentional caller-known trip duration for the active mode. */
     tripDurationHours?: number;
     homeCoords?: { lat: number; lng: number };
     ferryTemporal?: FerryTemporalContext;
@@ -688,119 +534,69 @@ export function calculateItemizedTripCost(
   const partySize = isFiniteNonNegative(requestedPartySize)
     ? Math.max(1, Math.floor(requestedPartySize))
     : 2;
-  const accommodationAllowance = isValidAccommodationAllowance(
-    options.accommodationAllowance ?? 0,
-  )
-    ? (options.accommodationAllowance ?? 0)
-    : 0;
-  // null means no estimable origin route: origin transport is excluded
-  // from the total, never defaulted to Train.
-  const mode = options.activeMode ?? null;
-  const budgetTier = options.budgetTier ?? "standard";
-  const tripDurationHours =
-    options.tripDurationHours ??
-    deriveTripDurationHours(
-      dest,
-      options.activeMode ?? undefined,
-      options.homeCoords,
-      options.ferryTemporal,
+  const result = calculateTripEstimate({
+    dest,
+    mode: options.activeMode ?? undefined,
+    partySize,
+    budgetTier: options.budgetTier ?? "standard",
+    homeCoords: options.homeCoords,
+    ferryTemporal: options.ferryTemporal,
+    tripMode: "day_trip",
+    includeOriginTravel: Boolean(options.homeCoords),
+  });
+  const rangeFor = (scope: string): PriceRange | null => {
+    const item = result.components.find(
+      (entry) => entry.evidence.scope === scope,
     );
-  const durationKnown =
-    tripDurationHours !== undefined &&
-    Number.isFinite(tripDurationHours) &&
-    tripDurationHours >= 0;
-
-  const breakdown = getEffectiveBudgetBreakdown(dest);
-
-  const rawTransport: number | null =
-    mode === null
-      ? null
-      : getTransportCost(
-          dest,
-          mode,
-          partySize,
-          options.homeCoords,
-          options.ferryTemporal,
-          tripDurationHours,
-        );
-  const transportAvailable = rawTransport !== null;
-  const transport =
-    transportAvailable && Number.isFinite(rawTransport) ? rawTransport : 0;
-  if (!breakdown) {
-    return {
-      transport,
-      transportAvailable: transportAvailable && Number.isFinite(rawTransport),
-      localTransit: 0,
-      tickets: 0,
-      food: null,
-      cafe: 0,
-      parking: 0,
-      perPersonRange: [0, 0],
-      partyRange: [0, 0],
-      isFreeTicket: false,
-      confidence: "estimated",
-      accommodationAllowance,
-      durationKnown: false,
-      budgetAvailable: false,
-    };
-  }
-  const isFreeTicket = isFreeDestination(dest);
-  const tickets = isFreeTicket ? 0 : (breakdown.tickets || 0) * partySize;
-  const food = durationKnown
-    ? getDiningFoodRange(budgetTier, tripDurationHours, partySize)
-    : null;
-  const cafe = (breakdown.cafe || 0) * partySize;
-  // KAI-89 on-site transport contract: budgetBreakdown.transport is the
-  // per-person on-site/local-transit allowance; it is part of the trip cost.
-  const localTransit = (breakdown.transport || 0) * partySize;
-  const parking = mode === "car" || mode === "my_car" ? 1200 : 0;
-  const minPartyTotal = Math.round(
-    transport +
-      localTransit +
-      tickets +
-      (food?.[0] ?? 0) +
-      cafe +
-      parking +
-      accommodationAllowance,
-  );
-  const maxPartyTotal = Math.round(
-    transport +
-      localTransit +
-      tickets +
-      (food?.[1] ?? 0) +
-      cafe +
-      parking +
-      accommodationAllowance,
-  );
-
-  const perPersonMin = Math.round(minPartyTotal / partySize);
-  const perPersonMax = Math.round(maxPartyTotal / partySize);
-
-  let confidence: "high" | "medium" | "estimated" = "estimated";
-  if (
-    dest.transportFares?.[mode as keyof typeof dest.transportFares] !==
-    undefined
-  ) {
-    confidence = "high";
-  } else if (dest.budgetBreakdown) {
-    confidence = "medium";
-  }
-
+    return item?.cost.kind === "bounded"
+      ? [item.cost.min, item.cost.max]
+      : null;
+  };
+  const originRange = rangeFor("origin_travel");
+  const localRange = rangeFor("local_transport");
+  const admissionRange = rangeFor("admission");
+  const food = rangeFor("meals");
+  const baseTotal: PriceRange = result.total
+    ? [result.total.min, result.total.max]
+    : [0, 0];
+  // Preserve the legacy adapter's explicit allowance option without changing
+  // the canonical default (day trip has no lodging component).
+  const accommodationAllowance =
+    options.accommodationAllowance !== undefined &&
+    isValidAccommodationAllowance(options.accommodationAllowance)
+      ? options.accommodationAllowance
+      : 0;
+  const total: PriceRange = [
+    baseTotal[0] + accommodationAllowance,
+    baseTotal[1] + accommodationAllowance,
+  ];
+  const isFreeTicket = isVerifiedFree(dest);
+  const confidence =
+    result.estimateQuality === "verified"
+      ? "high"
+      : result.estimateQuality === "estimated"
+        ? "medium"
+        : "estimated";
   return {
-    transport,
-    transportAvailable,
-    localTransit,
-    tickets,
+    transport: originRange?.[1] ?? 0,
+    transportAvailable: Boolean(originRange),
+    localTransit: localRange?.[1] ?? 0,
+    tickets: isFreeTicket ? 0 : (admissionRange?.[1] ?? 0),
     food,
-    cafe,
-    parking,
-    perPersonRange: [perPersonMin, perPersonMax],
-    partyRange: [minPartyTotal, maxPartyTotal],
+    cafe: 0,
+    parking: 0,
+    perPersonRange: [
+      Math.round(total[0] / partySize),
+      Math.round(total[1] / partySize),
+    ],
+    partyRange: total,
     isFreeTicket,
     confidence,
     accommodationAllowance,
-    durationKnown,
-    budgetAvailable: true,
+    durationKnown: Boolean(
+      options.tripDurationHours ?? dest.recommendedVisitHours,
+    ),
+    budgetAvailable: result.bounded,
   };
 }
 

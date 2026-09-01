@@ -28,7 +28,7 @@ describe("destinationSearchParams", () => {
       indoorMin: 70,
       season: "summer",
       maxBudget: 45000,
-      sortBy: "recommended",
+      sortBy: "budget",
       carMode: "rental",
       publicModes: ["flight", "bus"],
       partySize: 3,
@@ -81,10 +81,10 @@ describe("destinationSearchParams", () => {
     ).toBe("recommended");
   });
 
-  it("normalizes removed Explore budget and travel-time sorts to Recommended", () => {
+  it("preserves Budget sort while normalizing removed travel-time sort", () => {
     expect(
       parseDestinationSearchParams(new URLSearchParams("sort=budget")).sortBy,
-    ).toBe("recommended");
+    ).toBe("budget");
     expect(
       parseDestinationSearchParams(new URLSearchParams("sort=travelTime"))
         .sortBy,
@@ -94,8 +94,9 @@ describe("destinationSearchParams", () => {
         ...DEFAULT_DESTINATION_EXPLORER_STATE,
         sortBy: "budget",
       }).get("sort"),
-    ).toBe("recommended");
+    ).toBe("budget");
   });
+
   it("keeps the default transport selection non-restrictive", () => {
     expect(
       hasRestrictedTransportSelection(

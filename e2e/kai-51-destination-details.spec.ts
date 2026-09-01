@@ -14,14 +14,14 @@ test("Destination details render hero, tabs and cost breakdown for sparse destin
     page.getByRole("heading", { name: "At a glance", level: 2 }),
   ).toBeVisible();
   await expect(page.getByTestId("destination-at-a-glance")).toBeVisible();
-  // KAI-212 hub cost contract: unavailable on-site spend is compact and
-  // explicitly transport-excluding instead of an expandable empty card.
+  // KAI-260: sparse hubs now receive a bounded planning estimate instead of
+  // the retired unavailable-only compact state.
   await expect(
-    page.locator('[data-cost-state="unavailable-compact"]'),
+    page.getByRole("heading", { name: "Estimated visit cost", exact: true }),
   ).toHaveCount(1);
   await expect(
     page.getByRole("button", { name: "View cost breakdown" }),
-  ).toHaveCount(0);
+  ).toHaveCount(1);
   await expect(page.getByTestId("trip-cost-breakdown")).toHaveCount(1);
   await expect(
     page.getByText("On-site budget (transport excluded)", { exact: true }),

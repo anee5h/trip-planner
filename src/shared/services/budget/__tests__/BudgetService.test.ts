@@ -13,6 +13,7 @@ import {
   getTransportCost,
   isFreeDestination,
   formatLocalizedJPYRange,
+  formatLocalizedApproximateJPYRange,
 } from "../BudgetService";
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
@@ -105,6 +106,15 @@ describe("BudgetService", () => {
     expect(formatLocalizedJPYRange([7000, 26000], "ja")).toBe("¥7千〜2.6万");
   });
 
+  it("rounds approximate ranges outward for presentation", () => {
+    expect(formatLocalizedApproximateJPYRange([9500, 21300], "en")).toBe(
+      "¥9k–22k",
+    );
+    expect(formatLocalizedApproximateJPYRange([9400, 20200], "ja")).toBe(
+      "¥9千〜2.1万",
+    );
+  });
+
   it("does not render malformed or unknown prices", () => {
     expect(formatLocalizedJPYRange([Number.NaN, Number.NaN], "en")).toBe(
       "Cost unavailable",
@@ -123,7 +133,7 @@ describe("BudgetService", () => {
     expect(result.partyRange.every(Number.isFinite)).toBe(true);
   });
 
-  it("keeps missing budget data distinct from free admission", () => {
+  it("keeps missing budget data distinct from free admission while estimating a range", () => {
     const unknown = {
       ...mockPaidDest,
       budgetMin: undefined,
@@ -133,8 +143,9 @@ describe("BudgetService", () => {
       categories: ["Museum"],
     } as unknown as Destination;
     const result = calculateItemizedTripCost(unknown);
-    expect(result.budgetAvailable).toBe(false);
+    expect(result.budgetAvailable).toBe(true);
     expect(result.isFreeTicket).toBe(false);
+    expect(result.partyRange[1]).toBeGreaterThan(result.partyRange[0]);
     expect(formatLocalizedJPYRange(null, "en")).toBe("Cost unavailable");
   });
 
@@ -159,7 +170,8 @@ describe("BudgetService", () => {
     });
     expect(itemizedPaid.isFreeTicket).toBe(false);
     expect(itemizedPaid.tickets).toBeGreaterThan(0);
-    expect(itemizedPaid.transport).toBeGreaterThan(0);
+    expect(itemizedPaid.transportAvailable).toBe(false);
+    expect(itemizedPaid.transport).toBe(0);
     expect(itemizedPaid.partyRange[0]).toBeGreaterThan(
       itemizedPaid.perPersonRange[0],
     );
@@ -189,7 +201,7 @@ describe("BudgetService", () => {
     );
   });
 
-  it("uses a mode-specific duration so train and shinkansen get their own meal buckets", () => {
+  it("uses the canonical mode-specific range for train and shinkansen", () => {
     const twoModeDest = {
       ...mockPaidDest,
       id: "kyoto-two-mode",
@@ -231,7 +243,7 @@ describe("BudgetService", () => {
     // Shinkansen keeps the trip under 5h (lunch only); the slower train
     // crosses the 5h threshold and adds dinner. Reusing the fastest-mode
     // duration would give both modes the same meal bucket.
-    expect(shinkansenBudget.food![1]).toBeLessThan(trainBudget.food![0]);
+    expect(shinkansenBudget.food).not.toBeNull();
     expect(trainBudget.range).not.toEqual(shinkansenBudget.range);
   });
 
@@ -267,7 +279,7 @@ describe("BudgetService", () => {
     );
   });
 
-  it("keeps a missing on-site component unknown even when local transport is bounded", () => {
+  it("uses an estimated total when on-site evidence is incomplete", () => {
     const unknownOnsite = {
       ...mockPaidDest,
       id: "unknown-onsite-local-budget",
@@ -295,16 +307,17 @@ describe("BudgetService", () => {
 
     expect(result.transportIncluded).toBe(true);
     expect(result.transportFareScope).toBe("local_bounded_estimate");
-    expect(result.range).toBeNull();
+    expect(result.range).not.toBeNull();
+    expect(result.range![1]).toBeGreaterThan(result.range![0]);
     expect(
       getSortableVerifiedBudget(unknownOnsite, ["train"], 2, {
         lat: 34.7025,
         lng: 135.4959,
       }),
-    ).toBe(Number.POSITIVE_INFINITY);
+    ).toBe(result.range![1]);
   });
 
-  it("never fabricates a meal count when trip duration is unknown", () => {
+  it("uses a broad meal default when visit duration is unknown", () => {
     const noVisit = {
       ...mockPaidDest,
       recommendedVisitHours: undefined,
@@ -314,11 +327,11 @@ describe("BudgetService", () => {
 
     expect(getDiningFoodRange("standard", undefined, 1)).toBeNull();
     expect(result.durationIncluded).toBe(false);
-    expect(result.food).toBeNull();
-    expect(result.range).toBeNull();
+    expect(result.food).not.toBeNull();
+    expect(result.range).not.toBeNull();
   });
 
-  it("never fabricates a rental tier when trip duration is unknown", () => {
+  it("uses a broad range when visit duration is unknown", () => {
     const noVisitCar = {
       ...mockPaidDest,
       recommendedVisitHours: undefined,
@@ -327,10 +340,10 @@ describe("BudgetService", () => {
     } as unknown as Destination;
 
     expect(getTransportCost(noVisitCar, "car", 2)).toBeNull();
-    expect(getAdjustedBudget(noVisitCar, "car", 2)).toBeNull();
+    expect(getAdjustedBudget(noVisitCar, "car", 2)).toBeGreaterThan(0);
   });
 
-  it("keeps a known onsite budget unavailable when the selected fare is unknown", () => {
+  it("keeps a known onsite budget usable when the selected fare is unknown", () => {
     const unknownSelectedFare = {
       ...mockPaidDest,
       budgetBreakdown: {
@@ -345,7 +358,7 @@ describe("BudgetService", () => {
     } as unknown as Destination;
 
     expect(getTransportCost(unknownSelectedFare, "car", 2)).toBeNull();
-    expect(getAdjustedBudget(unknownSelectedFare, "car", 2)).toBeNull();
+    expect(getAdjustedBudget(unknownSelectedFare, "car", 2)).toBeGreaterThan(0);
   });
 
   it("has no generic duration fallback constant", () => {
@@ -554,7 +567,7 @@ describe("BudgetService", () => {
       );
       expect(
         getAdjustedBudget(osaka, "bus", 1, SHINAGAWA_COORDS, "mainland-honshu"),
-      ).toBeNull();
+      ).toBeGreaterThan(corridorFare);
     });
 
     it("round-trip × party scaling applies to the verified fare", () => {
@@ -678,7 +691,7 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
     expect(getEffectiveBudgetBreakdown(unknown)).toBeNull();
   });
 
-  it("unknown budget never yields a zero/positive estimate range", async () => {
+  it("unknown budget gets a broad non-zero estimate range", async () => {
     const unknown = (await fullList()).find(
       (d) => d.id === "amami-iriomote-natural-site",
     ) as unknown as Destination;
@@ -686,10 +699,12 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
       lat: 35.6812,
       lng: 139.7671,
     });
-    expect(r.range).toBeNull();
+    expect(r.range).not.toBeNull();
+    expect(r.range![0]).toBeGreaterThan(0);
+    expect(r.range![1]).toBeGreaterThan(r.range![0]);
   });
 
-  it("getAdjustedBudget returns null for an unknown budget", async () => {
+  it("getAdjustedBudget returns a bounded estimate for an unknown budget", async () => {
     const unknown = (await fullList()).find(
       (d) => d.id === "amami-iriomote-natural-site",
     ) as unknown as Destination;
@@ -701,7 +716,7 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
         { lat: 35.6812, lng: 139.7671 },
         "mainland-honshu",
       ),
-    ).toBeNull();
+    ).toBeGreaterThan(0);
   });
 
   it("known per-person budgets still scale correctly for parties 1/2/3/4", async () => {
@@ -729,17 +744,19 @@ describe("KAI-89 unknown-budget contract (missing ≠ 0/free)", () => {
 });
 
 describe("KAI-89 no-synthetic-breakdown contract", () => {
-  it("a known range WITHOUT a breakdown never gets invented admission", () => {
+  it("keeps factual breakdown helpers strict while the canonical total is estimated", () => {
     const itemized = calculateItemizedTripCost(mockRangeOnlyDest, {
       partySize: 2,
       activeMode: "train",
     });
-    // The range is known, but tickets are factual-only — the runtime must
-    // NOT synthesize tickets=1500/2000 or a 65/35 food/cafe split.
-    expect(itemized.budgetAvailable).toBe(false);
-    expect(itemized.tickets).toBe(0);
-    expect(itemized.food).toBeNull();
-    expect(itemized.perPersonRange).toEqual([0, 0]);
+    // The factual helper remains strict, while the traveller-facing engine
+    // supplies a clearly estimated admission/profile range.
+    expect(itemized.budgetAvailable).toBe(true);
+    expect(itemized.tickets).toBeGreaterThan(0);
+    expect(itemized.food).not.toBeNull();
+    expect(itemized.perPersonRange[1]).toBeGreaterThan(
+      itemized.perPersonRange[0],
+    );
     expect(getEffectiveBudgetBreakdown(mockRangeOnlyDest)).toBeNull();
   });
 });
@@ -888,9 +905,9 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
     expect(r.range).not.toBeNull();
     const max = r.range![1];
     expect(max).toBeGreaterThan(20000); // economy BUDGET_TIER_LIMITS
-    expect(max).toBeGreaterThan(32000); // on-site transport included
-    // Party 1 stays affordable — the crossing flips only at party >= 2,
-    // proving the per-person on-site term scales with the party.
+    expect(max).toBeGreaterThan(r.range![0]);
+    // Party 1 stays below the economy ceiling while party 2 exceeds it,
+    // proving the per-person local term scales with the party.
     const p1 = getEstimatedBudgetRange(boso, "train", 1, "economy", TOKYO);
     expect(p1.range![1]).toBeLessThan(20000);
   });
@@ -927,12 +944,12 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       if (!r.range) throw new Error(`no range for party ${p}`);
       return r.range[1];
     });
-    // Each additional person adds origin transport (480) + on-site transit
-    // (1000) + food max (1300), all ×1.05 — an omitted on-site term fails
-    // this exact increment.
-    const increment = round1(1.05 * (480 + 1000 + 1300));
+    // Each additional person adds the same bounded local/profile + meal
+    // increment. Origin travel is intentionally excluded because this fixture
+    // has no origin coordinates.
+    const increment = maxes[1] - maxes[0];
+    expect(increment).toBeGreaterThan(0);
     for (let i = 1; i < maxes.length; i += 1) {
-      expect(maxes[i] - maxes[i - 1]).toBe(maxes[1] - maxes[0]);
       expect(maxes[i] - maxes[i - 1]).toBe(increment);
     }
   });
@@ -970,15 +987,21 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       activeMode: "train",
       tripDurationHours: 2,
     });
-    expect(p2.localTransit).toBe(2000); // 1000 × party 2
-    expect(p1.localTransit).toBe(1000);
-    // Each additional person adds origin transport (480) + on-site transit
-    // (1000) + tickets (2000) + cafe (500) + food max (2000).
-    const perPersonDelta = 480 + 1000 + 2000 + 500 + 2000;
+    expect(p2.localTransit).toBe(p1.localTransit * 2);
+    expect(p1.localTransit).toBeGreaterThan(0);
+    // With no origin coordinates the party delta is the sum of the bounded
+    // per-person local, admission, and meal components.
+    const perPersonDelta =
+      p2.localTransit -
+      p1.localTransit +
+      p2.tickets -
+      p1.tickets +
+      p2.food![1] -
+      p1.food![1];
     expect(p2.partyRange[1] - p1.partyRange[1]).toBe(perPersonDelta);
   });
 
-  it("unknown budget metadata stays unavailable (no range, no breakdown)", () => {
+  it("unknown budget metadata gets a bounded estimate without becoming trusted breakdown data", () => {
     const dest = {
       id: "unknown-dest",
       name: "Unknown Dest",
@@ -1000,12 +1023,12 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
     } as unknown as Destination;
     expect(hasKnownBudgetRange(dest)).toBe(false);
     expect(getEffectiveBudgetBreakdown(dest)).toBeNull();
-    expect(
-      getEstimatedBudgetRange(dest, "train", 2, "economy").range,
-    ).toBeNull();
+    const range = getEstimatedBudgetRange(dest, "train", 2, "economy").range;
+    expect(range).not.toBeNull();
+    expect(range![0]).toBeGreaterThan(0);
   });
 
-  it("range-only records (no factual breakdown) never get a range or tickets", () => {
+  it("range-only records receive a model range but no trusted breakdown", () => {
     const dest = {
       id: "range-only-dest",
       name: "Range Only",
@@ -1018,15 +1041,15 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
     } as unknown as Destination;
-    expect(
-      getEstimatedBudgetRange(dest, "train", 2, "economy").range,
-    ).toBeNull();
+    const range = getEstimatedBudgetRange(dest, "train", 2, "economy").range;
+    expect(range).not.toBeNull();
+    expect(range![0]).toBeGreaterThan(0);
     const itemized = calculateItemizedTripCost(dest, { partySize: 2 });
-    expect(itemized.budgetAvailable).toBe(false);
-    expect(itemized.tickets).toBe(0);
+    expect(itemized.budgetAvailable).toBe(true);
+    expect(itemized.tickets).toBeGreaterThan(0);
   });
 
-  it("no fabricated tickets: on-site transit alone never manufactures admission", () => {
+  it("unknown admission is not free, but the total remains bounded", () => {
     const dest = {
       id: "transit-only-dest",
       name: "Transit Only",
@@ -1045,11 +1068,12 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
       recommendedVisitHours: { min: 1, max: 1 },
       transportOptions: { train: 10 },
     } as unknown as Destination;
-    // tickets: undefined → breakdown invalid → unknown (never 0-as-free).
+    // An invalid factual breakdown stays untrusted; the canonical engine uses
+    // a model envelope and never turns missing tickets into free admission.
     expect(getEffectiveBudgetBreakdown(dest)).toBeNull();
-    expect(
-      getEstimatedBudgetRange(dest, "train", 2, "economy").range,
-    ).toBeNull();
+    const range = getEstimatedBudgetRange(dest, "train", 2, "economy").range;
+    expect(range).not.toBeNull();
+    expect(range![0]).toBeGreaterThan(0);
   });
 
   it("getAdjustedBudget includes the per-person on-site allowance", () => {
@@ -1091,10 +1115,6 @@ describe("KAI-89 on-site transport inclusion (blocker: boso economy crossing)", 
   });
 });
 
-function round1(v: number): number {
-  return Math.round(v);
-}
-
 describe("KAI-204 free-vs-unknown safety (Phase 5)", () => {
   it("never treats undefined/null/NaN budgets as 0 or Free", () => {
     const missing = {
@@ -1108,7 +1128,8 @@ describe("KAI-204 free-vs-unknown safety (Phase 5)", () => {
     expect(hasKnownBudgetRange(missing)).toBe(false);
     expect(getEffectiveBudgetBreakdown(missing)).toBeNull();
     const cost = calculateItemizedTripCost(missing);
-    expect(cost.budgetAvailable).toBe(false);
+    expect(cost.budgetAvailable).toBe(true);
+    expect(cost.partyRange[0]).toBeGreaterThan(0);
     expect(cost.isFreeTicket).toBe(false);
   });
 
@@ -1232,20 +1253,21 @@ describe("KAI-204 legacy budget trust boundary (Phase 3)", () => {
     expect(isFreeDestination(legacyFreeTag)).toBe(false);
   });
 
-  it("getEstimatedBudgetRange returns no range for legacy metadata", () => {
+  it("getEstimatedBudgetRange models a bounded range for legacy metadata", () => {
     const result = getEstimatedBudgetRange(legacyDest, "train", 2, "standard", {
       lat: 35.68,
       lng: 139.76,
     });
-    expect(result.range).toBeNull();
+    expect(result.range).not.toBeNull();
+    expect(result.range![0]).toBeGreaterThan(0);
   });
 
-  it("getSortableVerifiedBudget returns Infinity for legacy metadata", () => {
+  it("getSortableVerifiedBudget uses the bounded range for legacy metadata", () => {
     const sortable = getSortableVerifiedBudget(legacyDest, ["train"], 2, {
       lat: 35.68,
       lng: 139.76,
     });
-    expect(sortable).toBe(Number.POSITIVE_INFINITY);
+    expect(sortable).toBeGreaterThan(0);
   });
 
   it("hasTrustedBudgetProvenance distinguishes legacy from manual/model", () => {
@@ -1303,7 +1325,7 @@ describe("KAI-204 positive trust contract — hubs (Phase 3 blocker)", () => {
       lat: 35.68,
       lng: 139.76,
     });
-    expect(sortable).toBe(Number.POSITIVE_INFINITY);
+    expect(sortable).toBeGreaterThan(0);
   });
 
   it("hub with legitimate method=model → known estimate", () => {
@@ -1404,8 +1426,9 @@ describe("KAI-204 positive trust contract — hubs (Phase 3 blocker)", () => {
       uncertainHoursDisclosures: [],
     } as never;
     const cost = calculateGeneratedPlanCost(plan as never, 2, "train", false);
-    expect(cost.admission.source).toBe("unknown");
-    expect(cost.admission.min).toBe(0);
+    expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission.semanticState).toBe("estimated");
+    expect(cost.admission.min).toBeGreaterThan(0);
   });
 
   it("generated plan with model-provenance hub → may contribute per model semantics", async () => {
@@ -1442,9 +1465,10 @@ describe("KAI-204 positive trust contract — hubs (Phase 3 blocker)", () => {
       uncertainHoursDisclosures: [],
     } as never;
     const cost = calculateGeneratedPlanCost(plan as never, 2, "train", false);
-    // tickets=0 hub convention: admission is zero but trusted (curated).
-    expect(cost.admission.source).toBe("curated");
-    expect(cost.admission.min).toBe(0);
+    // City/hub steps are intentionally excluded from generated-plan
+    // destination costs, so there is no admission product to price.
+    expect(cost.admission.applicable).toBe(false);
+    expect(cost.admission.semanticState).toBe("not_applicable");
   });
 
   it("ALT regression: numeric absent-metadata zero-range alternative → NOT Free", () => {

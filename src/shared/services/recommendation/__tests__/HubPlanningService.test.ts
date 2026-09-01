@@ -31,6 +31,8 @@ describe("HubPlanningService", () => {
     const plan = HubPlanningService.generateHubPlan(mockHub, {
       planType: "half_day",
       partySize: 2,
+      travelMode: "train",
+      homeCoords: { lat: 35.6812, lng: 139.7671 },
     });
 
     expect(plan.hub.id).toBe("osaka-city");

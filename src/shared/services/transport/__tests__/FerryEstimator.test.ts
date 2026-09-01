@@ -409,7 +409,7 @@ describe("planned date drives availability, never the clock", () => {
         WAKAYAMA,
         JANUARY_TRIP,
       ).transportIncluded,
-    ).toBe(false);
+    ).toBe(true);
     // August: ferry everywhere in the stack, with the current fare.
     const augModes = getValidModes(
       dest,
@@ -458,7 +458,7 @@ describe("planned date drives availability, never the clock", () => {
 });
 
 describe("fare validity windows", () => {
-  it("expired fare keeps the route available but the cost unavailable", () => {
+  it("expired fare keeps the route available and the budget uses a model fallback", () => {
     const dest = byId.get("sado-island")!;
     // Sado fares are published for Jul 1 – Sep 30 2026.
     const lateTrip = { travelDate: new Date("2026-11-10T12:00:00+09:00") };
@@ -472,7 +472,7 @@ describe("fare validity windows", () => {
     expect(
       getEstimatedBudgetRange(dest, "ferry", 2, "standard", NIIGATA, lateTrip)
         .transportIncluded,
-    ).toBe(false);
+    ).toBe(true);
     // Ferry stays selectable: the service is running year-round.
     const modes = getValidModes(
       dest,

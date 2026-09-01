@@ -1,7 +1,7 @@
 import type { Destination } from "@/shared/types/destination";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "./types";
-import { getAdjustedBudget } from "@/shared/services/budget/BudgetService";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
 
@@ -9,6 +9,8 @@ export interface PreferredTransport {
   mode: string;
   timeRange: [number, number];
   estimatedBudget: number | null;
+  /** Canonical traveller-facing range for this selected mode. */
+  estimatedBudgetRange: [number, number] | null;
   evidence: "verified" | "estimated";
   corridorEvidence?: "verified";
 }
@@ -45,18 +47,25 @@ export function getFastestPreferredTransport(
   );
   if (!estimate) return null;
 
+  const estimateResult = calculateTripEstimate({
+    dest: destination,
+    mode: estimate.mode,
+    partySize,
+    homeCoords,
+    tripMode: "day_trip",
+    ferryTemporal,
+  });
+  const estimatedBudgetRange = estimateResult.total
+    ? ([estimateResult.total.min, estimateResult.total.max] as [number, number])
+    : null;
+
   return {
     mode: estimate.mode,
     timeRange: estimate.timeRange,
     evidence: estimate.evidence,
     corridorEvidence: estimate.corridorEvidence,
-    estimatedBudget: getAdjustedBudget(
-      destination,
-      estimate.mode,
-      partySize,
-      homeCoords,
-      originZoneId,
-      ferryTemporal,
-    ),
+    estimatedBudgetRange,
+    // Compatibility ceiling only; new callers must use estimatedBudgetRange.
+    estimatedBudget: estimatedBudgetRange?.[1] ?? null,
   };
 }

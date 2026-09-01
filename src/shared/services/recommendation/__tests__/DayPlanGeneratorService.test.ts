@@ -305,16 +305,18 @@ describe("getPlanEligibility", () => {
     }
   });
 
-  it("partial generated plan has NO totalBudgetRange (KAI-217B round-4)", () => {
+  it("partial generated plan keeps its bounded estimated total range", () => {
     const plan = generateDayPlan(mockDestPrimary, {
       planType: "full_day",
       startTime: "09:00",
     });
-    // The fixture destinations lack trusted admission provenance → the
-    // extraction is partial/unavailable → totalBudgetRange MUST be absent
-    // (never [0,0]).
+    // Fixture stops lack trusted fare provenance, but the range-first engine
+    // still returns an explicit estimated envelope.
     if (!plan.isUnfeasible) {
-      expect(plan.totalBudgetRange).toBeUndefined();
+      expect(plan.totalBudgetRange).not.toBeNull();
+      expect(plan.totalBudgetRange![1]).toBeGreaterThan(
+        plan.totalBudgetRange![0],
+      );
     }
   });
 
@@ -331,14 +333,15 @@ describe("getPlanEligibility", () => {
       totalBudgetRange: [3000, 3000],
     };
     const realStops = plan.steps.filter(isRealDestinationStop);
-    // Rebuild with the same steps — the fixture stops lack trusted fare
-    // provenance, so the rebuilt extraction is partial and the stale
-    // [3000,3000] must be cleared.
     const rebuilt = rebuildPlanFromEditedStops(completePlan, realStops);
-    // The rebuilt plan must NOT retain the stale [3000,3000] when its
-    // extraction is not complete (unknown route fare → partial).
+    // Rebuilding recalculates the range-first estimate and must not retain the
+    // stale [3000,3000] value.
     if (rebuilt) {
-      expect(rebuilt.totalBudgetRange).toBeUndefined();
+      expect(rebuilt.totalBudgetRange).toBeDefined();
+      expect(rebuilt.totalBudgetRange).not.toEqual([3000, 3000]);
+      expect(rebuilt.totalBudgetRange![1]).toBeGreaterThan(
+        rebuilt.totalBudgetRange![0],
+      );
     }
   });
 });

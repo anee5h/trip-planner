@@ -12,7 +12,8 @@ interface DestinationPlanningSectionProps {
   destination: Destination;
   locale: "en" | "ja";
   partySize: number;
-  /** null = no estimable origin route; origin transport stays unavailable. */
+  homeCoords?: { lat: number; lng: number };
+  /** null = no selected local transit mode; canonical profiles still apply. */
   selectedTransport: string | null;
   /** Hub pages keep an unavailable on-site fact compact instead of reserving
    *  the full itemized cost card. Non-hub callers retain the existing UI. */
@@ -32,6 +33,7 @@ export function DestinationPlanningSection({
   destination,
   locale,
   partySize,
+  homeCoords,
   selectedTransport,
   compactUnavailableCost,
   ferryTemporal,
@@ -88,10 +90,9 @@ export function DestinationPlanningSection({
     generatedPlan && !generatedPlan.isUnfeasible,
   );
 
-  // Origin transport mode and local transit mode are separate concerns.
-  // Origin transport is never priced (hasOriginInfo is never set). Local
-  // transit is only estimated when an actual on-site mode is known: a null
-  // or flight/bus selection must not default to Train fare assumptions.
+  // Origin transport is priced once when a saved origin is available; local
+  // transit remains a separate profile/fact and is never inferred from an
+  // origin fare.
   const localTransitMode: "car" | "train" | null =
     selectedTransport === "car" || selectedTransport === "my_car"
       ? "car"
@@ -104,19 +105,16 @@ export function DestinationPlanningSection({
           generatedPlan,
           activePartySize,
           localTransitMode,
+          Boolean(homeCoords),
+          homeCoords,
         )
       : undefined;
 
-  // KAI-217B round-3 + KAI-219A final N/A guard: the generated-plan cost
-  // feeds are COMPLETE-ONLY **AND** require a numeric cost claim. A
-  // partial/unavailable plan must NOT present [0,0] or a partial subtotal
-  // as the plan's cost range; an all-N/A complete plan is epistemically
-  // complete but has NO numeric total (N/A ≠ verified ¥0) → undefined.
+  // KAI-260: generated-plan summaries use the canonical bounded range. A
+  // rough/estimated ingredient is disclosed by the breakdown badge, not used
+  // to suppress a useful total.
   const completePlanCostRange: [number, number] | undefined =
-    costBreakdown?.completeness === "complete" &&
-    costBreakdown.hasNumericTotal === true
-      ? costBreakdown.knownSubtotal
-      : undefined;
+    costBreakdown?.totalRange;
 
   return (
     <div className="space-y-3 pb-2 md:pb-0">
@@ -138,19 +136,7 @@ export function DestinationPlanningSection({
             generatedPlan
               ? {
                   ...generatedPlan,
-                  // KAI-217B round-4: a saved plan carries a numeric total
-                  // ONLY when the CURRENT extraction is complete. NEVER
-                  // fall back to generatedPlan.totalBudgetRange for a known
-                  // partial costBreakdown (a stale complete range would
-                  // survive on a partial plan).
-                  // KAI-219A final N/A guard: an all-N/A complete plan has
-                  // NO numeric cost claim (hasNumericTotal=false) → saved
-                  // totalBudgetRange undefined (N/A ≠ verified ¥0).
-                  totalBudgetRange:
-                    costBreakdown?.completeness === "complete" &&
-                    costBreakdown.hasNumericTotal === true
-                      ? costBreakdown.knownSubtotal
-                      : undefined,
+                  totalBudgetRange: costBreakdown?.totalRange,
                 }
               : undefined,
           )
@@ -163,6 +149,7 @@ export function DestinationPlanningSection({
         destination={destination}
         locale={locale}
         partySize={activePartySize}
+        homeCoords={homeCoords}
         activeTransportMode={selectedTransport}
         compactUnavailableCost={compactUnavailableCost}
         ferryTemporal={ferryTemporal}

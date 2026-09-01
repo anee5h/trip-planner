@@ -18,7 +18,7 @@ import {
   CardHeader,
 } from "@/shared/components/ui/card";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { Button } from "@/shared/components/ui/button";
 import {
   MapPin,
@@ -34,7 +34,10 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedApproximateJPYRange,
+  formatLocalizedJPYRange,
+} from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -66,6 +69,7 @@ import {
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { getCityArea } from "@/shared/data/cityAreas";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
+import type { ExploreBudgetEstimate } from "../exploreBudget";
 
 export interface WeekendCardSummary {
   placeCount: number;
@@ -82,6 +86,8 @@ interface DestinationCardProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
+  /** Explore's cached estimate shared by filtering, sorting, and display. */
+  resolvedBudgetEstimate?: ExploreBudgetEstimate;
   availableTimeHours?: number;
   /** 2D1N trip-area summary shown on the card's compact weekend line. */
   weekendSummary?: WeekendCardSummary;
@@ -99,6 +105,7 @@ export default function DestinationCard({
   partySize = 2,
   carMode,
   publicModes,
+  resolvedBudgetEstimate,
   availableTimeHours,
   weekendSummary,
   conditionLabel,
@@ -254,6 +261,9 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     ferryTemporal,
   );
+  const displayModes = resolvedBudgetEstimate?.mode
+    ? [resolvedBudgetEstimate.mode]
+    : validModes;
   const dayTravelEstimate = isWeekend
     ? undefined
     : getDayTripTravelDurationEvidence(
@@ -263,37 +273,56 @@ export default function DestinationCard({
           originZoneId: homeStationTransportZoneId,
           ferryTemporal,
         },
-        validModes,
+        displayModes,
       ).estimate;
   const preferredTransport = isWeekend ? undefined : dayTravelEstimate;
-  // KAI-217B round-2: the card's budget chip shows the CANONICAL engine
-  // range for the actual context (fastest valid mode, actual party size,
-  // actual trip mode). NO v1 generic budgetMin/budgetMax fallback: an
-  // incomplete result renders unavailable, never a fabricated range.
-  const cardBudgetRange = useMemo<[number, number] | null>(() => {
+  // KAI-260: cards render the bounded traveller range even when the engine
+  // used an explicit model/profile fallback. Evidence quality is disclosed
+  // compactly, not used as a visibility gate.
+  const cardEstimate = useMemo<{
+    range: [number, number];
+    quality: "verified" | "estimated" | "rough";
+  } | null>(() => {
+    if (resolvedBudgetEstimate?.estimate.total) {
+      return {
+        range: [
+          resolvedBudgetEstimate.estimate.total.min,
+          resolvedBudgetEstimate.estimate.total.max,
+        ],
+        quality: resolvedBudgetEstimate.estimate.estimateQuality,
+      };
+    }
     const mode =
       preferredTransport?.mode ??
       (validModes.length > 0 ? validModes[0] : undefined);
     if (!mode) return null;
-    const r = calculateTripCost({
+    const r = calculateTripEstimate({
       dest: destination,
       mode,
       partySize,
       homeCoords: homeStationCoords ?? undefined,
+      includeOriginTravel: Boolean(homeStationCoords),
       tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
       ferryTemporal,
     });
-    if (r.completeness !== "complete" || !r.total) return null;
-    return [r.total.min, r.total.max];
+    return r.total
+      ? {
+          range: [r.total.min, r.total.max],
+          quality: r.estimateQuality,
+        }
+      : null;
   }, [
     destination,
     validModes,
+    resolvedBudgetEstimate,
     preferredTransport,
     partySize,
     homeStationCoords,
     isWeekend,
     ferryTemporal,
   ]);
+  const cardBudgetRange = cardEstimate?.range ?? null;
+
   const durationEst = isWeekend
     ? estimateTripDuration(
         destination,
@@ -303,7 +332,7 @@ export default function DestinationCard({
           availableTimeHours,
           ferryTemporal,
         },
-        validModes,
+        displayModes,
       )
     : estimateDayTripDuration(
         destination,
@@ -313,7 +342,7 @@ export default function DestinationCard({
           availableTimeHours,
           ferryTemporal,
         },
-        validModes,
+        displayModes,
       );
 
   return (
@@ -543,25 +572,6 @@ export default function DestinationCard({
                       </div>
                     );
                   })()}
-                  <div className="flex min-w-0 items-center whitespace-nowrap">
-                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
-                    <span className="truncate">
-                      {(() => {
-                        // KAI-217B round-2: the budget chip renders the
-                        // CANONICAL engine range (complete only). Unknown/
-                        // partial renders unavailable — never a v1 generic
-                        // budgetMin/budgetMax fallback.
-                        return cardBudgetRange
-                          ? formatLocalizedJPYRange(cardBudgetRange, locale)
-                          : formatLocalizedJPYRange(null, locale);
-                      })()}
-                      {partySize > 1
-                        ? locale === "ja"
-                          ? `（${partySize}人分）`
-                          : ` for ${partySize}`
-                        : ""}
-                    </span>
-                  </div>
                   <div
                     data-testid="destination-card-visit-duration"
                     className="hidden min-w-0 items-center whitespace-nowrap md:flex"
@@ -577,6 +587,23 @@ export default function DestinationCard({
                           : locale === "ja"
                             ? "滞在時間目安なし"
                             : "Visit time unavailable"}
+                    </span>
+                  </div>
+                  <div className="flex min-w-0 items-center whitespace-nowrap md:col-span-2">
+                    <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
+                    <span className="truncate">
+                      {(() => {
+                        // KAI-260: a bounded estimate is displayable even
+                        // when its ingredients are model/profile derived.
+                        return cardBudgetRange
+                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "~"}${cardEstimate?.quality === "verified" ? formatLocalizedJPYRange(cardBudgetRange, locale) : formatLocalizedApproximateJPYRange(cardBudgetRange, locale)}`
+                          : formatLocalizedJPYRange(null, locale);
+                      })()}
+                      {partySize > 1
+                        ? locale === "ja"
+                          ? `（${partySize}人分）`
+                          : ` for ${partySize}`
+                        : ""}
                     </span>
                   </div>
                   {(durationEst?.isBorderline || durationEst?.isImpossible) && (

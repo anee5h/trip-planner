@@ -520,10 +520,10 @@ describe("runRecommendationPipeline — weekend mode", () => {
 // ── Weekend transport-excluded reason ────────────────────────────────────────
 
 describe("runRecommendationPipeline — weekend transport excluded reason", () => {
-  // Real production fixture: Ishigaki from Fukuoka has a verified flight route
-  // (FUK→ISG) whose fare is unverified (costUnavailable), so the pipeline must
-  // retain the candidate but mark transport excluded — never zero-cost.
-  it("appends weekendTransportExcluded when transport cost is genuinely unavailable", () => {
+  // Real production fixture: Ishigaki from Fukuoka has a flight route whose
+  // fare is not source-backed. KAI-260 supplies a broad model estimate so the
+  // candidate remains priced without a zero-cost claim.
+  it("includes a modeled transport range when the fare is unavailable", () => {
     const ishigaki = byId.get("ishigaki-city")!;
     const FUKUOKA = { lat: 33.5902, lng: 130.4017 };
     const budgetEst = getEstimatedBudgetRange(
@@ -533,7 +533,7 @@ describe("runRecommendationPipeline — weekend transport excluded reason", () =
       "standard",
       FUKUOKA,
     );
-    expect(budgetEst.transportIncluded).toBe(false);
+    expect(budgetEst.transportIncluded).toBe(true);
 
     const results = runRecommendationPipeline([ishigaki], {
       vibe: "any",
@@ -549,10 +549,10 @@ describe("runRecommendationPipeline — weekend transport excluded reason", () =
 
     expect(results.map((r) => r.id)).toContain("ishigaki-city");
     const result = results[0];
-    expect(result.estimatedCostTransportIncluded).toBe(false);
-    expect(result.weekend?.estimatedCostTransportIncluded).toBe(false);
+    expect(result.estimatedCostTransportIncluded).toBe(true);
+    expect(result.weekend?.estimatedCostTransportIncluded).toBe(true);
     const codes = result.match.reasons.map((r) => r.code);
-    expect(codes).toContain("weekendTransportExcluded");
+    expect(codes).not.toContain("weekendTransportExcluded");
   });
 });
 
@@ -1188,7 +1188,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     },
   );
 
-  it("keeps transport excluded when the displayed flight fare is genuinely null", () => {
+  it("includes a modeled range when the displayed flight fare is null", () => {
     const destination = byId.get("ishigaki-city")!;
     const results = runRecommendationPipeline(
       [destination],
@@ -1204,8 +1204,8 @@ describe("runRecommendationPipeline — estimate consistency", () => {
 
     const result = results[0];
     expect(result.transportEstimate?.mode).toBe("flight");
-    expect(result.estimatedCostTransportIncluded).toBe(false);
-    expect(result.match.reasons.map((reason) => reason.code)).toContain(
+    expect(result.estimatedCostTransportIncluded).toBe(true);
+    expect(result.match.reasons.map((reason) => reason.code)).not.toContain(
       "weekendTransportExcluded",
     );
   });

@@ -4,7 +4,7 @@ import { getDistance } from "@/shared/utils/distance";
 import type { RecommendationContext } from "./RecommendationContext";
 import { getEffectiveVisitDuration } from "./VisitDurationPolicy";
 import { isRatingVerified } from "./RecommendationScorer";
-import { hasKnownBudgetRange } from "@/shared/services/budget/BudgetService";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import {
   estimateLocalTransitMinutes,
   hasCoordinates,
@@ -41,6 +41,45 @@ function getCandidateTier(
     return 3;
   }
   return 4;
+}
+
+function getCombinationBudgetRange(
+  primary: Destination,
+  secondary: Destination,
+  context?: Partial<RecommendationContext>,
+): [number, number] | null {
+  const mode = context?.publicModes?.[0] ?? "train";
+  const partySize = context?.partySize ?? 2;
+  const estimates = [primary, secondary].map((dest) =>
+    calculateTripEstimate({
+      dest,
+      mode,
+      partySize,
+      includeOriginTravel: false,
+      tripMode: "day_trip",
+    }),
+  );
+  const total: [number, number] = [0, 0];
+  let meals: [number, number] | undefined;
+  for (const estimate of estimates) {
+    for (const item of estimate.components) {
+      if (item.cost.kind !== "bounded") return null;
+      if (item.evidence.scope === "meals") {
+        meals ??= [item.cost.min, item.cost.max];
+      } else if (
+        item.evidence.scope === "local_transport" ||
+        item.evidence.scope === "admission"
+      ) {
+        total[0] += item.cost.min;
+        total[1] += item.cost.max;
+      }
+    }
+  }
+  if (meals) {
+    total[0] += meals[0];
+    total[1] += meals[1];
+  }
+  return total;
 }
 
 export function findNearbyCombinations(
@@ -165,15 +204,11 @@ export function findNearbyCombinations(
 
     const clampedTotalMaxMins = Math.min(600, totalMaxMins);
 
-    // KAI-89: unknown budgets (absent) must not contribute a fabricated 0
-    // to the combined range — require finite known values on both sides.
-    const combinedBudgetRange: [number, number] | null =
-      hasKnownBudgetRange(primary) && hasKnownBudgetRange(secondary)
-        ? [
-            primary.budgetMin + secondary.budgetMin,
-            primary.budgetMax + secondary.budgetMax,
-          ]
-        : null;
+    const combinedBudgetRange = getCombinationBudgetRange(
+      primary,
+      secondary,
+      context,
+    );
 
     const primaryName = primary.name;
     const secondaryName = secondary.name;

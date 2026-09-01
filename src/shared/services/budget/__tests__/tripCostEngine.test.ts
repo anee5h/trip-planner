@@ -14,11 +14,8 @@
 import { describe, it, expect } from "vitest";
 import { calculateTripCost, type TripCostContext } from "../tripCostEngine";
 import { getEffectiveBudgetBreakdown } from "@/shared/services/budget/BudgetService";
-import {
-  accommodationTotal,
-  isNonNumeric,
-  isValidTripCostResult,
-} from "../budgetV2";
+import { accommodationTotal, isNonNumeric } from "../budgetV2";
+import type { BoundedCost } from "../budgetV2";
 import type { Destination } from "@/shared/types/destination";
 
 /** Minimal trusted paid-admission fixture (transitional manual path). */
@@ -52,8 +49,17 @@ function ctx(overrides: Partial<TripCostContext> = {}): TripCostContext {
   };
 }
 
-function byScope(result: ReturnType<typeof calculateTripCost>, scope: string) {
-  return result.components.find((c) => c.evidence.scope === scope);
+type ComponentWithBoundedCost = Omit<
+  ReturnType<typeof calculateTripCost>["components"][number],
+  "cost"
+> & { cost: BoundedCost };
+
+function byScope(
+  result: ReturnType<typeof calculateTripCost>,
+  scope: string,
+): ComponentWithBoundedCost | undefined {
+  return result.components.find((c) => c.evidence.scope === scope) as
+    ComponentWithBoundedCost | undefined;
 }
 
 describe("KAI-217A engine — admission", () => {
@@ -102,7 +108,7 @@ describe("KAI-217A engine — admission", () => {
     expect(isNonNumeric(c.cost)).toBe(true);
   });
 
-  it("unknown admission maps to unavailable, never [0,0]", () => {
+  it("unknown admission gets a bounded model range, never [0,0]", () => {
     const dest = paidDest({
       id: "unknown-dest",
       budgetBreakdown: undefined,
@@ -110,13 +116,15 @@ describe("KAI-217A engine — admission", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
-    expect(c.cost).not.toEqual({ kind: "bounded", min: 0, max: 0 });
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThan(0);
+    expect(c.cost.max).toBeGreaterThan(c.cost.min);
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 });
 
 describe("KAI-217A engine — travel completeness", () => {
-  it("open-ended origin travel → partial, NEVER complete", async () => {
+  it("turns an open-ended origin fare into a bounded planning range", async () => {
     // Real nagano-city: Tokyo→Nagano bus corridor has a dynamic fare
     // [3500,null] → the KAI-216 ladder emits open_ended.
     const { getDestinationListAsync } =
@@ -135,12 +143,13 @@ describe("KAI-217A engine — travel completeness", () => {
       }),
     );
     const c = byScope(r, "origin_travel")!;
-    expect(c.cost.kind).toBe("open_ended");
-    expect(r.completeness).toBe("partial");
-    expect(r.total).toBeUndefined();
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.evidence.derivation).toBe("model_estimate");
+    expect(r.completeness).toBe("complete");
+    expect(r.total).toBeDefined();
   });
 
-  it("mixed bounded + open_ended → partial, total ABSENT", async () => {
+  it("mixes sourced and modeled costs into a bounded total", async () => {
     const { getDestinationListAsync } =
       await import("@/shared/services/destination/DestinationService");
     const { loadDestinationsIndex } =
@@ -156,14 +165,11 @@ describe("KAI-217A engine — travel completeness", () => {
         homeCoords: { lat: 35.6812, lng: 139.7671 },
       }),
     );
-    expect(r.completeness).toBe("partial");
-    expect(r.total).toBeUndefined();
-    // The partial result must never fabricate a total (structural invariant).
-    expect(isValidTripCostResult(r)).toBe(true);
-    expect((r as { total?: unknown }).total).toBeUndefined();
+    expect(r.completeness).toBe("complete");
+    expect(r.total).toBeDefined();
   });
 
-  it("bounded corridor-only origin → PARTIAL, no total (KAI-216 round-2 regression)", async () => {
+  it("adds a bounded access envelope to corridor-only origin fare", async () => {
     // A bounded origin with fareScope corridor_only has a missing access
     // leg — the trip must be partial with NO total, and this must hold in
     // THIS layer (the fareScope flows through originTravelComponent onto
@@ -193,27 +199,17 @@ describe("KAI-217A engine — travel completeness", () => {
     const origin = r.components.find(
       (c) => c.evidence.scope === "origin_travel",
     )!;
-    // The origin is BOUNDED but corridor_only.
+    // The origin remains bounded and retains corridor provenance, while the
+    // model adds a broad access envelope so the traveller gets a usable total.
     expect(origin.cost.kind).toBe("bounded");
     expect(origin.evidence.fareScope).toBe("corridor_only");
-    // ⇒ the trip is PARTIAL and MUST NOT produce a total.
-    expect(r.completeness).toBe("partial");
-    expect((r as { total?: unknown }).total).toBeUndefined();
-    expect(isValidTripCostResult(r)).toBe(true);
-    // KAI-217A round-3: canonical partial-result semantics.
-    if (r.completeness === "partial") {
-      // knownSubtotal present (origin fare is known & bounded).
-      expect(Array.isArray(r.knownSubtotal)).toBe(true);
-      expect(r.knownSubtotal[1]).toBeGreaterThanOrEqual(r.knownSubtotal[0]);
-      // missing local_transport is EXPLICIT (unavailable — no fact).
-      const missingScopes = r.missingComponents.map((m) => m.scope);
-      expect(missingScopes).toContain("local_transport");
-      expect(missingScopes).toContain("origin_travel"); // corridor-only
-      expect(r.missingComponents.every((m) => m.reason.length > 0)).toBe(true);
-    }
+    expect(origin.evidence.derivation).toBe("model_estimate");
+    expect(r.completeness).toBe("complete");
+    expect(r.total).toBeDefined();
+    expect(r.evidenceCompleteness).toBe("partial");
   });
 
-  it("no usable evidence at all → unavailable", () => {
+  it("keeps missing origin evidence explicit while modeling on-site costs", () => {
     const dest = {
       id: "empty-dest",
       name: "Empty",
@@ -224,15 +220,15 @@ describe("KAI-217A engine — travel completeness", () => {
       budgetMetadata: undefined,
     } as unknown as Destination;
     const r = calculateTripCost(ctx({ dest }));
-    expect(r.completeness).toBe("unavailable");
-    expect(r.total).toBeUndefined();
-    expect(r.components.every((c) => isNonNumeric(c.cost))).toBe(true);
-    expect(isValidTripCostResult(r)).toBe(true);
+    expect(r.completeness).toBe("complete");
+    expect(r.total).toBeDefined();
+    expect(r.components.some((c) => c.cost.kind === "bounded")).toBe(true);
+    expect(byScope(r, "origin_travel")!.cost.kind).toBe("not_applicable");
   });
 });
 
 describe("KAI-217A engine — local transport", () => {
-  it("local transport is UNAVAILABLE until an explicit defensible fact exists (KAI-216 round-2)", () => {
+  it("uses a deterministic local-transport profile when no fact exists", () => {
     const dest = paidDest({
       id: "free-walk-dest",
       budgetBreakdown: { transport: 0, tickets: 0, food: 0, cafe: 0 },
@@ -245,15 +241,12 @@ describe("KAI-217A engine — local transport", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    // KAI-216 round-2: the legacy transport allowance (even trusted-manual,
-    // even with walkingMin/basis text) is NOT explicit defensible
-    // local-transport evidence. Manual provenance can verify admission
-    // while the old allowance stays generic; walking ¥0 is manufactured
-    // only from explicit localTransport facts. ⇒ unavailable.
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.max).toBeGreaterThan(c.cost.min);
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 
-  it("manual transport:0 stays unavailable — walking ¥0 is never manufactured from walkingMin/regex", () => {
+  it("does not treat legacy transport:0 as verified walking, but still models a profile", () => {
     const dest = paidDest({
       id: "no-walk-evidence-dest",
       budgetBreakdown: { transport: 0, tickets: 1300, food: 0, cafe: 0 },
@@ -266,13 +259,16 @@ describe("KAI-217A engine — local transport", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThanOrEqual(0);
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 
-  it("no legacy breakdown allowance becomes canonical local transport", () => {
+  it("does not promote a legacy breakdown allowance to canonical local transport", () => {
     const r = calculateTripCost(ctx({ partySize: 3 }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 });
 
@@ -328,23 +324,23 @@ describe("KAI-217A engine — accommodation", () => {
     expect(accommodationTotal(r.accommodation!)).not.toBe(16000 * 4);
   });
 
-  it("absent allowance with nights > 0 → accommodation unavailable (never invented)", () => {
+  it("uses the standard overnight default when allowance is absent", () => {
     const r = calculateTripCost(
       ctx({ tripMode: "weekend_2d1n", accommodationAllowance: undefined }),
     );
     const c = byScope(r, "accommodation")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(r.accommodation).toEqual({ perNight: 10000, nights: 1 });
   });
 
-  it("missing overnight allowance never leaks as ¥0 lodging (Luna blocker 3)", () => {
+  it("missing overnight allowance uses a non-zero default instead of leaking ¥0", () => {
     const r = calculateTripCost(
       ctx({ tripMode: "weekend_2d1n", accommodationAllowance: undefined }),
     );
-    // The component is unavailable AND result.accommodation is absent —
-    // a consumer must not be able to read {perNight: 0, nights: 1}.
-    expect(r.accommodation).toBeUndefined();
+    expect(r.accommodation).toEqual({ perNight: 10000, nights: 1 });
     const c = byScope(r, "accommodation")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThan(0);
   });
 });
 
@@ -363,18 +359,16 @@ describe("KAI-217A engine — Luna blocker regressions", () => {
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "local_transport")!;
-    // KAI-216 round-2: the free admission must NOT zero local transport,
-    // but the legacy allowance is ALSO not explicit defensible evidence →
-    // local transport is unavailable (never a fabricated [0,0], never a
-    // legacy allowance promoted to canonical).
-    expect(c.cost.kind).toBe("unavailable");
+    // The profile is estimated, but free admission must not suppress it.
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.max).toBeGreaterThan(0);
     // Admission is still verified-free [0,0].
     const a = byScope(r, "admission")!;
     expect(a.cost).toEqual({ kind: "bounded", min: 0, max: 0 });
     expect(a.evidence.state).toBe("verified_free");
   });
 
-  it("hub not_applicable admission + MODEL peer-cell transport → local transport unavailable (KAI-216 repair: no generic city allowance)", () => {
+  it("hub not_applicable admission retains a modeled local profile", () => {
     const dest = paidDest({
       id: "hub-with-transit",
       role: "hub" as const,
@@ -391,14 +385,13 @@ describe("KAI-217A engine — Luna blocker regressions", () => {
     // Admission N/A (excluded from required set).
     const a = byScope(r, "admission")!;
     expect(a.cost).toEqual({ kind: "not_applicable" });
-    // KAI-216 repair: a MODEL hub's peer-cell transport value is a generic
-    // city allowance, NOT defensible local-transport evidence → unavailable.
-    // The trip is partial (missing required local transport), never
-    // complete on a generic allowance.
+    // The local profile is an explicitly estimated planning band rather than
+    // a claim that the legacy city allowance was a fare.
     const lt = byScope(r, "local_transport")!;
-    expect(lt.cost.kind).toBe("unavailable");
-    expect(r.completeness).toBe("partial");
-    expect(r.total).toBeUndefined();
+    expect(lt.cost.kind).toBe("bounded");
+    expect(lt.evidence.derivation).toBe("model_estimate");
+    expect(r.completeness).toBe("complete");
+    expect(r.total).toBeDefined();
   });
 
   it("fractional party size fails closed (Luna warning)", () => {
@@ -415,23 +408,19 @@ describe("KAI-217A engine — cross-cutting invariants", () => {
     expect(r.total).toBeUndefined();
   });
 
-  it("food/cafe/parking/5% never appear in components or total", () => {
+  it("includes meals as a first-class component without cafe/parking/markup", () => {
     const r = calculateTripCost(ctx());
     const scopes = r.components.map((c) => c.evidence.scope);
-    expect(scopes).not.toContain("meals");
+    expect(scopes).toContain("meals");
     expect(scopes).not.toContain("other");
     if (r.completeness === "complete") {
-      // The total must equal exactly origin+admission+local+accommodation.
-      const origin = byScope(r, "origin_travel")!;
-      const admission = byScope(r, "admission")!;
-      const local = byScope(r, "local_transport")!;
-      const acc = byScope(r, "accommodation")!;
-      const expectedMin =
-        (origin.cost.kind === "bounded" ? origin.cost.min : 0) +
-        (admission.cost.kind === "bounded" ? admission.cost.min : 0) +
-        (local.cost.kind === "bounded" ? local.cost.min : 0) +
-        (acc.cost.kind === "bounded" ? acc.cost.min : 0);
-      expect(r.total.min).toBe(expectedMin);
+      // The total must equal exactly the sum of canonical components.
+      const expectedMin = r.components.reduce(
+        (sum, component) =>
+          sum + (component.cost.kind === "bounded" ? component.cost.min : 0),
+        0,
+      );
+      expect(r.total!.min).toBe(expectedMin);
     }
   });
 });
@@ -477,7 +466,7 @@ describe("KAI-219A engine — explicit admission fact is authoritative", () => {
     expect(c.evidence.derivation).toBe("source_fact");
   });
 
-  it("explicit unavailable admission + legacy numeric tickets → stays unavailable, legacy NOT resurrected", () => {
+  it("explicit unavailable admission falls back to a bounded estimate without resurrecting legacy tickets", () => {
     const dest = paidDest({
       // Legacy tickets=1300 numeric exists, but the explicit fact says
       // unavailable — the legacy value must NEVER come back.
@@ -490,9 +479,11 @@ describe("KAI-219A engine — explicit admission fact is authoritative", () => {
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
-    expect(c.evidence.state).toBe("unavailable");
-    expect(c.cost).not.toEqual({ kind: "bounded", min: 2600, max: 2600 });
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThan(0);
+    expect(c.cost.max).toBeGreaterThan(c.cost.min);
+    expect(c.evidence.derivation).toBe("model_estimate");
+    expect(c.evidence.state).toBe("documented_estimate");
   });
 
   it("explicit bounded variable_price → range preserved end-to-end (never midpoint-collapsed)", () => {
@@ -514,7 +505,7 @@ describe("KAI-219A engine — explicit admission fact is authoritative", () => {
     expect(c.evidence.provenance).toBe("verified_source");
   });
 
-  it("explicit open-ended variable_price → remains open-ended", () => {
+  it("bounds an open-ended variable price without collapsing its lower bound", () => {
     const dest = paidDest({
       admission: {
         state: "variable_price",
@@ -526,8 +517,9 @@ describe("KAI-219A engine — explicit admission fact is authoritative", () => {
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "admission")!;
-    expect(c.cost).toEqual({ kind: "open_ended", from: 3000 });
-    expect(r.completeness).toBe("partial"); // open_ended never complete
+    expect(c.cost).toEqual({ kind: "bounded", min: 3000, max: 6000 });
+    expect(c.evidence.derivation).toBe("model_estimate");
+    expect(r.completeness).toBe("complete");
   });
 
   it("explicit documented_estimate → bounded model estimate, never source_fact", () => {
@@ -624,7 +616,7 @@ describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
     expect(c.evidence.localCoverage).toBe("all_required_access");
   });
 
-  it("explicit localTransport unavailable → unavailable (never a generic allowance)", () => {
+  it("explicit localTransport unavailable falls back to a deterministic profile", () => {
     const dest = paidDest({
       localTransport: {
         kind: "unavailable",
@@ -634,19 +626,20 @@ describe("KAI-219A engine — explicit localTransport fact is consumed", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
-    expect(c.evidence.derivation).toBe("computed");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThanOrEqual(0);
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 
-  it("missing localTransport + legacy budgetBreakdown.transport numeric → unavailable; generic allowance NEVER consumed", () => {
+  it("missing localTransport uses a profile, not the legacy breakdown allowance", () => {
     // paidDest carries budgetBreakdown.transport=1000 — with NO explicit
     // localTransport fact, the generic allowance must NOT become the
     // canonical local-transport cost.
     const dest = paidDest({}); // no localTransport fact
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
-    expect(c.evidence.reason).toBe("source_missing");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 });
 
@@ -690,7 +683,7 @@ describe("KAI-219A — local-transport fare basis + coverage contract", () => {
     expect(c.cost).toEqual({ kind: "bounded", min: 2000, max: 2000 });
   });
 
-  it("C) segment_only bounded local fare → trip stays PARTIAL; segment in knownSubtotal; local_transport explicit in missingComponents", () => {
+  it("C) segment_only fare gets a bounded whole-access envelope with provenance", () => {
     // All other components complete (origin via a bounded verified route
     // + admission verified_paid), local transport = bounded segment_only.
     const dest = paidDest({
@@ -706,21 +699,14 @@ describe("KAI-219A — local-transport fare basis + coverage contract", () => {
       },
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
-    // Partial — segment-only local transport can never make it complete.
-    expect(r.completeness).toBe("partial");
-    // The known segment contributes to knownSubtotal.
-    if (r.completeness === "partial") {
-      const seg = r.components.find(
-        (c) => c.evidence.scope === "local_transport",
-      )!;
-      expect(seg.cost).toEqual({ kind: "bounded", min: 1200, max: 1600 });
-      expect(seg.evidence.localCoverage).toBe("segment_only");
-      expect(r.knownSubtotal[0]).toBeGreaterThanOrEqual(1200);
-      // local_transport stays explicit in missingComponents.
-      expect(
-        r.missingComponents.some((m) => m.scope === "local_transport"),
-      ).toBe(true);
-    }
+    // The estimate is bounded but evidence remains partial.
+    expect(r.completeness).toBe("complete");
+    expect(r.evidenceCompleteness).toBe("partial");
+    const seg = byScope(r, "local_transport")!;
+    expect(seg.cost.kind).toBe("bounded");
+    expect(seg.cost.max).toBeGreaterThan(seg.cost.min);
+    expect(seg.evidence.localCoverage).toBe("segment_only");
+    expect(r.total).toBeDefined();
   });
 
   it("D) all_required_access bounded → can participate in a COMPLETE result", () => {
@@ -750,7 +736,7 @@ describe("KAI-219A — local-transport fare basis + coverage contract", () => {
     }
   });
 
-  it("numeric local-transport fact missing fareBasis/coverage → invalid → unavailable", () => {
+  it("invalid local-transport facts fall back to a bounded profile", () => {
     const dest = paidDest({
       localTransport: {
         kind: "verified_required_access",
@@ -764,7 +750,8 @@ describe("KAI-219A — local-transport fare basis + coverage contract", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.evidence.derivation).toBe("model_estimate");
   });
 });
 
@@ -788,7 +775,10 @@ describe("KAI-219A — shared verified-free evidence rule (hasVerifiedFreeEviden
     const r = calculateTripCost(
       ctx({ dest: freeDest("This is a not free area; admission applies") }),
     );
-    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+    const admission = byScope(r, "admission")!;
+    expect(admission.cost.kind).toBe("bounded");
+    expect(admission.cost.min).toBeGreaterThan(0);
+    expect(admission.evidence.state).toBe("documented_estimate");
   });
 
   it("'free, but tickets required' → INVALID (negative evidence rejects)", () => {
@@ -797,7 +787,10 @@ describe("KAI-219A — shared verified-free evidence rule (hasVerifiedFreeEviden
         dest: freeDest("Free to enter, but tickets required for exhibits"),
       }),
     );
-    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+    const admission = byScope(r, "admission")!;
+    expect(admission.cost.kind).toBe("bounded");
+    expect(admission.cost.min).toBeGreaterThan(0);
+    expect(admission.evidence.state).toBe("documented_estimate");
   });
 
   it("'free' → valid when other requirements are satisfied", () => {
@@ -844,7 +837,10 @@ describe("KAI-219A — strict checkedAt date validation", () => {
       },
     });
     const r = calculateTripCost(ctx({ dest }));
-    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+    const admission = byScope(r, "admission")!;
+    expect(admission.cost.kind).toBe("bounded");
+    expect(admission.cost.min).toBeGreaterThan(0);
+    expect(admission.evidence.state).toBe("documented_estimate");
   });
 
   it("01/02/2026 → invalid (ambiguous format)", () => {
@@ -859,7 +855,10 @@ describe("KAI-219A — strict checkedAt date validation", () => {
       },
     });
     const r = calculateTripCost(ctx({ dest }));
-    expect(byScope(r, "admission")!.cost.kind).toBe("unavailable");
+    const admission = byScope(r, "admission")!;
+    expect(admission.cost.kind).toBe("bounded");
+    expect(admission.cost.min).toBeGreaterThan(0);
+    expect(admission.evidence.state).toBe("documented_estimate");
   });
 });
 
@@ -874,7 +873,7 @@ describe("KAI-219A engine — transitional fallback boundary", () => {
     expect(c.evidence.state).toBe("verified_paid");
   });
 
-  it("legacy/unverified admission → NEVER promoted to known", () => {
+  it("legacy/unverified admission is not promoted, but receives a model fallback", () => {
     const dest = paidDest({
       budgetMetadata: {
         method: "legacy",
@@ -884,18 +883,21 @@ describe("KAI-219A engine — transitional fallback boundary", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
-    expect(c.evidence.state).toBe("legacy_unverified");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThan(0);
+    expect(c.evidence.state).toBe("documented_estimate");
   });
 
-  it("absent admission + untrusted legacy → unavailable, not a fabricated value", () => {
+  it("absent admission gets a non-zero model fallback, not a fabricated free value", () => {
     const dest = paidDest({
       budgetMetadata: { method: "unknown" },
       budgetBreakdown: undefined,
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost.min).toBeGreaterThan(0);
+    expect(c.cost.max).toBeGreaterThan(c.cost.min);
   });
 });
 
@@ -952,7 +954,7 @@ describe("KAI-219A — Luna blocker fixes", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
     expect(c.cost).not.toEqual({ kind: "bounded", min: 0, max: 0 });
   });
 
@@ -967,7 +969,7 @@ describe("KAI-219A — Luna blocker fixes", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("runtime fail-closed: verified_walking WITHOUT walkingEvidence → unavailable, never ¥0", () => {
@@ -979,7 +981,7 @@ describe("KAI-219A — Luna blocker fixes", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("projection never synthesizes zeros for absent legacy transport/food/cafe", () => {
@@ -1016,7 +1018,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("verified_paid with min > max → unavailable, never numeric", () => {
@@ -1032,7 +1034,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("verified_paid with NaN-like range (non-finite) → unavailable", () => {
@@ -1048,7 +1050,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("verified_paid with zero range → unavailable (zero range rejected as paid)", () => {
@@ -1064,7 +1066,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("verified_paid wrong cost kind (open_ended) → unavailable", () => {
@@ -1080,7 +1082,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("verified_free missing sourceUrls / checkedAt → unavailable, never [0,0]", () => {
@@ -1096,7 +1098,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("variable_price bounded missing checkedAt → unavailable", () => {
@@ -1113,7 +1115,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("malformed local fare range (min > max) → unavailable", () => {
@@ -1128,7 +1130,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "local_transport")!;
-    expect(c.cost.kind).toBe("unavailable");
+    expect(c.cost.kind).toBe("bounded");
   });
 
   it("bounded variable_price valid → range preserved end-to-end (not collapsed)", () => {

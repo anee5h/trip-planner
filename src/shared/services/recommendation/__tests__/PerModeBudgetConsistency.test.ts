@@ -8,21 +8,24 @@ const { engineCalls } = vi.hoisted(() => ({
   engineCalls: [] as unknown[][],
 }));
 
-vi.mock("@/shared/services/budget/tripCostEngine", async (importOriginal) => {
-  const actual =
-    await importOriginal<
-      typeof import("@/shared/services/budget/tripCostEngine")
-    >();
-  return {
-    ...actual,
-    calculateTripCost: (
-      ...args: Parameters<typeof actual.calculateTripCost>
-    ) => {
-      engineCalls.push(args);
-      return actual.calculateTripCost(...args);
-    },
-  };
-});
+vi.mock(
+  "@/shared/services/budget/tripEstimateEngine",
+  async (importOriginal) => {
+    const actual =
+      await importOriginal<
+        typeof import("@/shared/services/budget/tripEstimateEngine")
+      >();
+    return {
+      ...actual,
+      calculateTripEstimate: (
+        ...args: Parameters<typeof actual.calculateTripEstimate>
+      ) => {
+        engineCalls.push(args);
+        return actual.calculateTripEstimate(...args);
+      },
+    };
+  },
+);
 
 const OSAKA = { lat: 34.6937, lng: 135.5023 };
 
@@ -81,7 +84,7 @@ function context() {
 }
 
 function modeCallsFromEngine(): string[] {
-  // Each calculateTripCost call carries { mode } in args[0].
+  // Each calculateTripEstimate call carries { mode } in args[0].
   return engineCalls
     .map((args) => (args[0] as { mode?: string }).mode)
     .filter((m): m is string => Boolean(m));

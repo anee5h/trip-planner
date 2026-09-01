@@ -14,7 +14,7 @@ import {
   getValidModes,
 } from "./RecommendationScorer";
 import { formatJPYRange } from "@/shared/services/budget/BudgetService";
-import { calculateTripCost } from "@/shared/services/budget/tripCostEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { PriceRange } from "@/shared/types/planner";
@@ -150,30 +150,23 @@ export function createRecommendationMatch(
 
   for (const mode of validModesForDest) {
     let estimatedBudget: PriceRange | undefined;
-    if (dest.budgetRecommended) {
-      // KAI-217B: the budget reason evaluates the CANONICAL engine cost.
-      // A strict "within budget" claim requires a COMPLETE result that
-      // fits (max <= C). Partial/open-ended/unavailable results never
-      // produce "Within Budget"/"Great Value".
-      const engineResult = calculateTripCost({
-        dest,
-        mode,
-        partySize,
-        homeCoords: context.homeStationCoords ?? undefined,
-        // KAI-217B repair: respect the ACTUAL trip mode — overnight budget
-        // reasons must include the accommodation selection.
-        tripMode:
-          context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
-        accommodationAllowance: context.accommodationAllowance,
-        ferryTemporal: context.ferryTemporal,
-      });
-      if (
-        engineResult.completeness === "complete" &&
-        engineResult.total &&
-        engineResult.total.max <= budget
-      ) {
-        estimatedBudget = [engineResult.total.min, engineResult.total.max];
-      }
+    // A bounded canonical estimate can support an affordability reason even
+    // when one or more ingredients are model-derived.
+    const engineResult = calculateTripEstimate({
+      dest,
+      mode,
+      partySize,
+      homeCoords: context.homeStationCoords ?? undefined,
+      includeOriginTravel: Boolean(context.homeStationCoords),
+      budgetTier: context.budgetTier,
+      // KAI-260: use the same range-first trip mode as the scorer.
+      tripMode:
+        context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
+      accommodationAllowance: context.accommodationAllowance,
+      ferryTemporal: context.ferryTemporal,
+    });
+    if (engineResult.total && engineResult.total.max <= budget) {
+      estimatedBudget = [engineResult.total.min, engineResult.total.max];
     }
 
     if (
@@ -201,7 +194,7 @@ export function createRecommendationMatch(
   }
 
   // Budget Reason
-  if (dest.budgetRecommended) {
+  if (bestModeBudget) {
     if (bestModeBudget && bestModeBudget[1] <= budget) {
       matchedPreferences.push("budget");
       if (budget - bestModeBudget[1] >= 5000) {
