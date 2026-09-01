@@ -27,6 +27,7 @@ vi.mock("react-i18next", () => ({
           localeMock.value === "ja" ? "1泊2日" : "2 days / 1 night",
         "destination.durationOptions.3d2n":
           localeMock.value === "ja" ? "2泊3日" : "3 days / 2 nights",
+        "home.vibe": localeMock.value === "ja" ? "興味" : "Interest",
         "home.transportModes.car": "Car",
       })[key] ?? key,
     i18n: { language: "en" },
@@ -268,6 +269,23 @@ describe("duration option labels and values", () => {
     act(() => twoDay?.click());
     act(() => threeDay?.click());
     expect(selected).toEqual(["2d1n", "3d2n"]);
+  });
+});
+
+describe("Interest terminology", () => {
+  it("uses Interest for the English preference selector", () => {
+    const container = renderFilters();
+    openFiltersModal(container);
+    expect(container.textContent).toContain("Interest");
+    expect(container.textContent).not.toContain("Vibe");
+  });
+
+  it("uses 興味 for the Japanese preference selector", () => {
+    localeMock.value = "ja";
+    const container = renderFilters();
+    openFiltersModal(container);
+    expect(container.textContent).toContain("興味");
+    expect(container.textContent).not.toContain("気分");
   });
 });
 

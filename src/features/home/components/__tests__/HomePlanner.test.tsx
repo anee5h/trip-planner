@@ -11,7 +11,7 @@ vi.mock("react-i18next", () => ({
     t: (key: string) =>
       ({
         "ui.close": "Close",
-        "home.vibe": "Vibe",
+        "home.vibe": "Interest",
         "home.duration": "Duration",
         "home.party": "Travel party",
         "home.budget": "Budget",
@@ -80,6 +80,14 @@ function renderPlanner(
   act(() => root?.render(<HomePlanner {...props} />));
   return { container: host, props };
 }
+
+describe("HomePlanner terminology", () => {
+  it("uses Interest as the selector label without the old Vibe label", () => {
+    const { container } = renderPlanner();
+    expect(container.textContent).toContain("Interest");
+    expect(container.textContent).not.toContain("Vibe");
+  });
+});
 
 describe("HomePlanner duration", () => {
   it("has only the five canonical duration values in the mobile sheet", () => {

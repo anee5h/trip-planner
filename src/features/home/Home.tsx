@@ -18,10 +18,7 @@ import { getTabWeatherSummary } from "@/shared/services/weather/WeatherTabServic
 import { HOME_RAIL_SECTION_SPACING } from "./components/HomeRailLayout";
 import type { HomePendingAction } from "./state/HomeAction";
 import type { TransportSelection } from "./services/TransportResolver";
-import {
-  isOvernightDuration,
-  type HomepageTripDuration,
-} from "@/shared/types/tripDuration";
+import type { HomepageTripDuration } from "@/shared/types/tripDuration";
 
 const HeavyHome = lazy(() => import("./HomeHeavy"));
 
@@ -176,11 +173,11 @@ function HomeSurface() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <section className="relative overflow-x-clip bg-slate-50 pb-6 pt-6 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
+      <section className="home-compact-surface relative overflow-x-clip bg-slate-50 pb-4 pt-4 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
         <div className="container mx-auto max-w-6xl px-4">
           <div
-            className="mb-3 flex flex-col items-center gap-1.5 sm:mb-5 sm:gap-2"
+            className="mb-2 flex flex-col items-center gap-1 sm:mb-5 sm:gap-2"
             data-home-origin-date-ready
           >
             <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-200">
@@ -253,27 +250,18 @@ function HomeSurface() {
             </div>
           </div>
 
-          <div className="mx-auto mb-4 max-w-3xl text-center sm:mb-6">
+          <div className="home-compact-heading mx-auto mb-2 max-w-3xl text-center sm:mb-6">
             <h1
               data-testid="home-headline"
-              className="text-[27px] font-extrabold leading-[1.08] tracking-tight text-slate-900 dark:text-white sm:text-4xl lg:text-5xl"
+              className="text-[27px] font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-4xl sm:leading-[1.08] lg:text-5xl"
             >
               {t("home.headline")}
             </h1>
-            {locale === "ja" && (
-              <p
-                data-testid="home-brand-association"
-                className="mt-1.5 text-xs font-semibold tracking-wide text-slate-500 dark:text-slate-300"
-              >
-                {t("home.brandAssociation")}
-              </p>
-            )}
-            <p className="mt-2 hidden text-sm font-medium leading-relaxed text-slate-500 dark:text-slate-300 sm:block md:text-base">
-              {t(
-                isOvernightDuration(tripDuration)
-                  ? "home.subtitleOvernight"
-                  : "home.subtitle",
-              )}
+            <p
+              data-testid="home-value-proposition"
+              className="home-value-proposition mt-2 text-sm font-semibold leading-snug text-slate-500 dark:text-slate-300 sm:mt-3 sm:text-base"
+            >
+              {t("home.valueProposition")}
             </p>
           </div>
 

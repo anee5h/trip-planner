@@ -422,22 +422,28 @@ test.describe("KAI-80 Home planner controls (light)", () => {
 
   test("planner select controls are keyboard-operable", async ({ page }) => {
     await page.goto("/");
-    const desktopVibe = page.locator('button[aria-label="Vibe"]').first();
-    let vibeTrigger: import("@playwright/test").Locator;
+    const desktopInterest = page
+      .locator('button[aria-label="Interest"]')
+      .first();
+    let interestTrigger: import("@playwright/test").Locator;
     let isMobile = false;
     try {
-      await desktopVibe.waitFor({ state: "visible", timeout: 8000 });
-      vibeTrigger = desktopVibe;
+      await desktopInterest.waitFor({ state: "visible", timeout: 8000 });
+      interestTrigger = desktopInterest;
     } catch {
       // Mobile: the planner rows open per-field bottom-sheet dialogs.
       isMobile = true;
-      vibeTrigger = page.locator("button", { hasText: /Vibe|雰囲気/ }).first();
+      interestTrigger = page
+        .locator("button", { hasText: /Interest|興味/ })
+        .first();
     }
-    await expect(vibeTrigger).toBeVisible();
-    await vibeTrigger.focus();
+    await expect(interestTrigger).toBeVisible();
+    await interestTrigger.focus();
     await page.keyboard.press(isMobile ? "Space" : "Enter");
     if (isMobile) {
-      const dialog = page.locator('[role="dialog"][aria-label="Vibe"]').first();
+      const dialog = page
+        .locator('[role="dialog"][aria-label="Interest"]')
+        .first();
       await expect(dialog).toBeVisible();
       // Focus enters the sheet (KAI-80 fix) and stays trapped.
       await expect
@@ -471,7 +477,7 @@ test.describe("KAI-80 Home planner controls (light)", () => {
       await expectNoA11yViolations(page);
       // Selecting completes the choice (value changes).
       const before = await page
-        .locator('button[aria-label="Vibe"]')
+        .locator('button[aria-label="Interest"]')
         .first()
         .textContent();
       await page.locator('[role="option"]').nth(1).click();
@@ -479,7 +485,7 @@ test.describe("KAI-80 Home planner controls (light)", () => {
         .poll(async () =>
           (
             await page
-              .locator('button[aria-label="Vibe"]')
+              .locator('button[aria-label="Interest"]')
               .first()
               .textContent()
           )
@@ -497,10 +503,12 @@ test.describe("KAI-80 Home planner controls (light)", () => {
     await expect(page.locator("main")).toBeVisible();
     // Mobile-only: if the desktop Vibe trigger is visible, this is the
     // desktop layout — skip (test.skip throws; must NOT be caught).
-    const desktopVibe = page.locator('button[aria-label="Vibe"]').first();
+    const desktopInterest = page
+      .locator('button[aria-label="Interest"]')
+      .first();
     let desktopVisible = false;
     try {
-      await desktopVibe.waitFor({ state: "visible", timeout: 15000 });
+      await desktopInterest.waitFor({ state: "visible", timeout: 15000 });
       desktopVisible = true;
     } catch {
       desktopVisible = false;
@@ -509,11 +517,15 @@ test.describe("KAI-80 Home planner controls (light)", () => {
       test.skip(true, "desktop layout — mobile sheet not present");
       return;
     }
-    const vibeRow = page.locator("button", { hasText: /Vibe|雰囲気/ }).first();
-    await expect(vibeRow).toBeVisible();
-    await vibeRow.focus();
+    const interestRow = page
+      .locator("button", { hasText: /Interest|興味/ })
+      .first();
+    await expect(interestRow).toBeVisible();
+    await interestRow.focus();
     await page.keyboard.press("Space");
-    const dialog = page.locator('[role="dialog"][aria-label="Vibe"]').first();
+    const dialog = page
+      .locator('[role="dialog"][aria-label="Interest"]')
+      .first();
     await expect(dialog).toBeVisible();
     // Escape closes and focus returns to the opener row.
     await page.keyboard.press("Escape");
@@ -522,7 +534,7 @@ test.describe("KAI-80 Home planner controls (light)", () => {
       .poll(() =>
         page.evaluate(() => {
           const text = document.activeElement?.textContent ?? "";
-          return text.includes("Vibe") || text.includes("雰囲気");
+          return text.includes("Interest") || text.includes("興味");
         }),
       )
       .toBe(true);

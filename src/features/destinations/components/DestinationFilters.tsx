@@ -1167,12 +1167,12 @@ export default function DestinationFilters({
                   </div>
                 </div>
 
-                {/* Vibe / Atmosphere Multi-Select Chips */}
+                {/* Interest category multi-select chips */}
                 <details className="group border-t border-slate-100 dark:border-[hsl(var(--border-subtle))] pt-3">
                   <summary className="flex items-center justify-between cursor-pointer list-none text-xs font-bold text-slate-700 dark:text-slate-300">
                     <span className="flex items-center gap-2">
                       <Palette className="w-4 h-4 text-emerald-700" />
-                      {isJa ? "旅の雰囲気・テーマ" : "Vibe & atmosphere"}
+                      {t("home.vibe")}
                     </span>
                     <span className="flex items-center gap-2 text-[11px] font-medium text-slate-500 dark:text-slate-300">
                       {preferenceSummaries.vibe}

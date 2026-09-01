@@ -48,6 +48,7 @@ const WEIGHTS = {
   "kai-166-itinerary-action-row": 20,
   "kai-212-hub-discovery": 20, // discovery-first hub hierarchy (mobile + desktop)
   "kai-259-signup-header": 20, // guest header + deterministic auth header flow
+  "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
   "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
@@ -77,6 +78,7 @@ const BINS = {
     "kai-166-itinerary-action-row",
     "kai-212-hub-discovery",
     "kai-259-signup-header",
+    "kai-138-compact-mobile-homepage",
     "kai-64-pwa",
     "kai-64-upgrade",
     "kai-80-a11y",

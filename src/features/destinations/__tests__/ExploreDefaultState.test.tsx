@@ -76,7 +76,7 @@ vi.mock("react-i18next", () => ({
           localeMock.language === "ja" ? "目的地" : "Destinations",
         "ui.destinationsDescription":
           localeMock.language === "ja"
-            ? "日本全国の旅先を探してみましょう。地域・都道府県・コレクション・予算・雰囲気でフィルタリングできます。"
+            ? "日本全国の旅先を探してみましょう。地域・都道府県・コレクション・予算・興味でフィルタリングできます。"
             : "Find the perfect adventure across Japan.",
         "ui.gridView":
           localeMock.language === "ja"

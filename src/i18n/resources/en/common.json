@@ -335,9 +335,7 @@
   },
   "home": {
     "headline": "Where will you go next?",
-    "brandAssociation": "Meguruto",
-    "subtitle": "Personalized day-trip ideas based on your time, budget, and travel style.",
-    "subtitleOvernight": "Personalized overnight ideas based on your time, budget, and travel style.",
+    "valueProposition": "Find trips that fit your time, budget, weather, and interests.",
     "durationBadge": "Overnight trip",
     "change": "Change",
     "planner": "Trip Planner",
@@ -362,7 +360,7 @@
       "snowshowers": "Snow showers",
       "stormy": "Stormy"
     },
-    "vibe": "Vibe",
+    "vibe": "Interest",
     "duration": "Duration",
     "timeAvailable": "Duration",
     "party": "Travel party",
@@ -711,7 +709,7 @@
     "mapView": "Switch to map view",
     "grid": "Grid",
     "map": "Map",
-    "destinationsDescription": "Find the perfect adventure across Japan. Filter by region, prefecture, collections, budget, and vibe.",
+    "destinationsDescription": "Find the perfect adventure across Japan. Filter by region, prefecture, collections, budget, and interests.",
     "budgetTransportWhenKnown": "Incl. transport when known",
     "allRegionsAndPrefectures": "All Regions & Prefectures",
     "anywhere": "Anywhere",

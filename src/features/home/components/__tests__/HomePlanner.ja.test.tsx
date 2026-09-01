@@ -10,7 +10,7 @@ vi.mock("react-i18next", () => ({
     t: (key: string) =>
       ({
         "ui.close": "閉じる",
-        "home.vibe": "旅の雰囲気",
+        "home.vibe": "興味",
         "home.duration": "期間",
         "home.party": "旅行人数",
         "home.budget": "予算",
@@ -80,6 +80,12 @@ function renderPlanner(
 }
 
 describe("HomePlanner 期間 / Japanese", () => {
+  it("uses 興味 as the selector label without the old 気分 label", () => {
+    const { container } = renderPlanner();
+    expect(container.textContent).toContain("興味");
+    expect(container.textContent).not.toContain("気分");
+  });
+
   it("shows the five duration choices without the old trip-mode toggle", () => {
     const { container } = renderPlanner();
     const trigger = [...container.querySelectorAll("button")]

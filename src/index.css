@@ -115,6 +115,14 @@
       "calt" 1;
   }
 
+  /* KAI-274: keep Geist for Latin while using the installed platform Japanese
+     UI font for Japanese glyphs. No additional web-font payload is loaded. */
+  html:lang(ja) body {
+    font-family:
+      "Geist", "Noto Sans CJK JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+      "Yu Gothic", "Meiryo", sans-serif;
+  }
+
   /* KAI-95: prevent iOS Safari auto-zoom on mobile form control focus.
      When computed font-size is < 16px, iOS Safari auto-zooms the viewport in
      and retains the zoomed scale (>1.0) after overlay/modal dismissal.
@@ -291,5 +299,52 @@
   .animate-drawer-slide,
   .animate-progress-fill {
     animation: none !important;
+  }
+}
+
+/* KAI-271: keep the supporting hero copy balanced at narrow widths. */
+.home-value-proposition {
+  text-wrap: balance;
+}
+
+/* KAI-138: reclaim the last few rows on short phone viewports while keeping
+   every planner row and CTA at or above the 44px touch-target floor. */
+@media (max-width: 767px) and (max-height: 740px) {
+  .home-compact-surface {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .home-compact-surface [data-home-origin-date-ready] {
+    gap: 0.125rem;
+    margin-bottom: 0.125rem;
+  }
+
+  .home-compact-heading {
+    margin-bottom: 0;
+  }
+
+  .home-planner-card {
+    padding: 0.5rem;
+  }
+
+  .home-planner-header {
+    margin-bottom: 0;
+  }
+
+  .home-planner-rows > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.125rem;
+  }
+
+  .home-planner-row {
+    height: 2.875rem;
+  }
+
+  .home-planner-actions {
+    margin-top: 0;
+  }
+
+  .home-planner-cta {
+    height: 2.75rem;
   }
 }

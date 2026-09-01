@@ -363,7 +363,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 bg-white/80 shadow-xs shadow-slate-900/5 backdrop-blur-xl dark:border-slate-800/80 dark:bg-slate-950/85 dark:shadow-slate-950/20">
-      <div className="container mx-auto flex h-14 w-full items-center gap-2 px-3 md:h-[68px] md:gap-3 md:px-2 lg:gap-4 lg:px-4">
+      <div className="container mx-auto flex h-[52px] w-full items-center gap-2 px-3 md:h-[68px] md:gap-3 md:px-2 lg:gap-4 lg:px-4">
         <div className="flex min-w-0 shrink-0 items-center gap-2">
           {/^\/destinations\/[^/]+$/.test(location.pathname) && (
             <button
