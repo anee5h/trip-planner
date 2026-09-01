@@ -31,6 +31,10 @@ vi.mock("react-i18next", () => ({
         "datePicker.day2DerivedHint": isJa
           ? "2日目 (1泊2日)"
           : "Day 2 (derived for 2D1N trip)",
+        "datePicker.endDate": isJa ? "終了日" : "End date",
+        "datePicker.derivedDateHint": isJa
+          ? "旅行日数から算出"
+          : "derived from trip duration",
         "datePicker.previousMonth": isJa ? "前月" : "Previous month",
         "datePicker.nextMonth": isJa ? "次月" : "Next month",
         "datePicker.close": isJa ? "日付選択を閉じる" : "Close date picker",
@@ -117,7 +121,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -134,7 +138,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           minDate={todayIso}
           locale="en"
         />,
@@ -160,7 +164,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={tomorrowIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -184,7 +188,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -206,7 +210,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -231,7 +235,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           allowAnyDate={true}
           locale="en"
         />,
@@ -255,7 +259,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           allowAnyDate={false}
           locale="en"
         />,
@@ -276,7 +280,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           forecastMap={forecastMap}
           originLabel="Tokyo"
           locale="en"
@@ -298,7 +302,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={futureIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           forecastMap={forecastMap}
           locale="en"
         />,
@@ -373,7 +377,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -391,7 +395,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="weekend_2d1n"
+          duration="2d1n"
           locale="en"
         />,
       );
@@ -407,6 +411,26 @@ describe("TravelDatePicker Component", () => {
     expect(tomorrowBtn?.className).toContain("bg-emerald-100");
   });
 
+  it("12a. 3D2N labels the derived end date without calling it Day 2", () => {
+    const handleChange = vi.fn();
+    act(() => {
+      root!.render(
+        <TravelDatePicker
+          value={todayIso}
+          onChange={handleChange}
+          duration="3d2n"
+          locale="en"
+        />,
+      );
+    });
+    act(() => host!.querySelector("button")!.click());
+
+    const footer = host!.querySelector("[role=dialog] p:last-of-type");
+    expect(footer?.textContent).toContain("End date:");
+    expect(footer?.textContent).toContain("Jun 17");
+    expect(footer?.textContent).not.toContain("Day 2:");
+  });
+
   it("13. Month rollover works", () => {
     const handleChange = vi.fn();
     act(() => {
@@ -414,7 +438,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value="2026-08-31"
           onChange={handleChange}
-          tripMode="weekend_2d1n"
+          duration="2d1n"
           locale="en"
         />,
       );
@@ -430,7 +454,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value="2026-12-31"
           onChange={handleChange}
-          tripMode="weekend_2d1n"
+          duration="2d1n"
           locale="en"
         />,
       );
@@ -446,7 +470,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value="2028-02-28"
           onChange={handleChange}
-          tripMode="weekend_2d1n"
+          duration="2d1n"
           locale="en"
         />,
       );
@@ -462,7 +486,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -484,7 +508,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -509,7 +533,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="ja"
           allowAnyDate={true}
         />,
@@ -527,7 +551,7 @@ describe("TravelDatePicker Component", () => {
           <TravelDatePicker
             value={todayIso}
             onChange={handleChange}
-            tripMode="day_trip"
+            duration="fullDay"
             locale="en"
           />
         </div>,
@@ -545,7 +569,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );
@@ -577,7 +601,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={tomorrowIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           forecastMap={tomorrowMap}
           locale="en"
         />,
@@ -613,7 +637,7 @@ describe("TravelDatePicker Component", () => {
         <TravelDatePicker
           value={todayIso}
           onChange={handleChange}
-          tripMode="day_trip"
+          duration="fullDay"
           locale="en"
         />,
       );

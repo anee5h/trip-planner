@@ -1,7 +1,7 @@
 import { lazy, Suspense, useMemo, useState } from "react";
 import { Calendar as CalendarIcon, ChevronDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import {
   formatCapsuleLabel,
   formatDateISO,
@@ -19,7 +19,7 @@ function LightDateTrigger({
   onRequestCalendar,
   triggerLabel,
   className,
-  tripMode = "day_trip",
+  duration = "halfDay",
   allowAnyDate = false,
   locale: propLocale,
   hasExplicitSelection,
@@ -33,7 +33,7 @@ function LightDateTrigger({
     triggerLabel ||
     formatCapsuleLabel(
       value,
-      tripMode as TripMode,
+      duration as TripDuration,
       allowAnyDate,
       locale,
       todayIso,

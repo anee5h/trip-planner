@@ -11,7 +11,7 @@ import type {
 } from "@/shared/services/transport/types";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
-import { isValidAccommodationAllowance } from "@/shared/types/homePlannerState";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import { validateAdmissionFact } from "@/shared/services/budget/factValidation";
 import {
   hasDisplayableBudget,
@@ -19,13 +19,6 @@ import {
   isVerifiedFree,
   normalizeBudgetState,
 } from "@/shared/services/budget/budgetState";
-export {
-  ACCOMMODATION_ALLOWANCE_PRESETS,
-  MAX_ACCOMMODATION_ALLOWANCE,
-} from "@/shared/types/homePlannerState";
-export { isValidAccommodationAllowance };
-export type { AccommodationAllowancePreset } from "@/shared/types/homePlannerState";
-
 const COST_UNAVAILABLE = { en: "Cost unavailable", ja: "料金不明" } as const;
 
 function isFiniteNonNegative(value: unknown): value is number {
@@ -234,7 +227,7 @@ export function getEstimatedBudgetRange(
     partySize,
     budgetTier,
     homeCoords,
-    tripMode: "day_trip",
+    duration: "fullDay",
     ferryTemporal,
     // Without an origin there is no honest origin fare to include; callers
     // are asking for an on-site planning estimate rather than an unavailable
@@ -383,7 +376,7 @@ export function getAdjustedBudget(
     mode,
     partySize,
     homeCoords,
-    tripMode: "day_trip",
+    duration: "fullDay",
     ferryTemporal,
     // No origin context means this compatibility API returns the bounded
     // on-site estimate, not an origin-travel unknown.
@@ -525,9 +518,9 @@ export function calculateItemizedTripCost(
     partySize?: number;
     budgetTier?: BudgetTier;
     tripDurationHours?: number;
+    duration?: TripDuration;
     homeCoords?: { lat: number; lng: number };
     ferryTemporal?: FerryTemporalContext;
-    accommodationAllowance?: number;
   } = {},
 ): ItemizedCostBreakdown {
   const requestedPartySize = options.partySize ?? 2;
@@ -541,7 +534,7 @@ export function calculateItemizedTripCost(
     budgetTier: options.budgetTier ?? "standard",
     homeCoords: options.homeCoords,
     ferryTemporal: options.ferryTemporal,
-    tripMode: "day_trip",
+    duration: options.duration ?? "fullDay",
     includeOriginTravel: Boolean(options.homeCoords),
   });
   const rangeFor = (scope: string): PriceRange | null => {
@@ -559,17 +552,7 @@ export function calculateItemizedTripCost(
   const baseTotal: PriceRange = result.total
     ? [result.total.min, result.total.max]
     : [0, 0];
-  // Preserve the legacy adapter's explicit allowance option without changing
-  // the canonical default (day trip has no lodging component).
-  const accommodationAllowance =
-    options.accommodationAllowance !== undefined &&
-    isValidAccommodationAllowance(options.accommodationAllowance)
-      ? options.accommodationAllowance
-      : 0;
-  const total: PriceRange = [
-    baseTotal[0] + accommodationAllowance,
-    baseTotal[1] + accommodationAllowance,
-  ];
+  const total: PriceRange = baseTotal;
   const isFreeTicket = isVerifiedFree(dest);
   const confidence =
     result.estimateQuality === "verified"
@@ -592,7 +575,7 @@ export function calculateItemizedTripCost(
     partyRange: total,
     isFreeTicket,
     confidence,
-    accommodationAllowance,
+    accommodationAllowance: rangeFor("accommodation")?.[1] ?? 0,
     durationKnown: Boolean(
       options.tripDurationHours ?? dest.recommendedVisitHours,
     ),

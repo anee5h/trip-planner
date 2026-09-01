@@ -59,8 +59,8 @@ export function localizeTravelConditionSummary(
 /**
  * Date-level (destination-independent) summary of the selected dates for
  * the Destinations explorer header: forecast label inside the forecast
- * window, typical-conditions label beyond it, mixed when only one day of a
- * 2D1N trip has a forecast.
+ * forecast window, typical-conditions label beyond it, mixed when only one day of
+ * the selected trip has a forecast.
  */
 export function localizeDateConditionSummary(
   dates: readonly string[],

@@ -58,7 +58,7 @@ describe("DiscoveryRail Japanese rendering", () => {
     const expected: Record<DiscoveryRailKind, string> = {
       seasonal: "この夏に訪れたい場所",
       under60: "60分以内の小さな旅",
-      weekendGetaways: "週末のおすすめ",
+      overnightGetaways: "宿泊旅行のおすすめ",
       longerJourney: "遠くても行く価値のある旅",
     };
 

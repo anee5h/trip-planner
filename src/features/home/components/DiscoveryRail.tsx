@@ -14,7 +14,7 @@ import {
 } from "./HomeRailLayout";
 
 export type DiscoveryRailKind =
-  "seasonal" | "under60" | "weekendGetaways" | "longerJourney";
+  "seasonal" | "under60" | "overnightGetaways" | "longerJourney";
 
 interface DiscoveryRailProps {
   kind: DiscoveryRailKind;
@@ -50,18 +50,18 @@ const meta: Record<
     to: "/destinations?sort=nearest",
     Icon: Clock3,
   },
-  weekendGetaways: {
-    titleKey: "home.weekendGetawaysRail",
-    descriptionKey: "home.weekendGetawaysDescription",
-    viewAllKey: "home.viewAllWeekendGetaways",
-    to: "/destinations?tripMode=weekend_2d1n",
+  overnightGetaways: {
+    titleKey: "home.overnightGetawaysRail",
+    descriptionKey: "home.overnightGetawaysDescription",
+    viewAllKey: "home.viewAllOvernightGetaways",
+    to: "/destinations?duration=2d1n",
     Icon: CalendarDays,
   },
   longerJourney: {
     titleKey: "home.worthLongerJourney",
     descriptionKey: "home.worthLongerJourneyDescription",
     viewAllKey: "home.viewAllLongerJourney",
-    to: "/destinations?tripMode=weekend_2d1n",
+    to: "/destinations?duration=2d1n",
     Icon: Route,
   },
 };

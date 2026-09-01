@@ -49,11 +49,7 @@ function Harness() {
       partySize: 3,
       budgetTier: "economy",
       tripDuration: "halfDay",
-      tripMode: "day_trip",
-      accommodationAllowance: 0,
     },
-    tripMode: "day_trip",
-    accommodationAllowance: 0,
   });
   return null;
 }
@@ -77,11 +73,7 @@ function FallbackHarness() {
       partySize: 3,
       budgetTier: "economy",
       tripDuration: "halfDay",
-      tripMode: "day_trip",
-      accommodationAllowance: 0,
     },
-    tripMode: "day_trip",
-    accommodationAllowance: 0,
   });
   return null;
 }
@@ -95,7 +87,6 @@ function WeekendHarness() {
     publicModes: ["train"],
     partySize: 2,
     budgetTier: "standard",
-    tripDuration: "fullDay",
     homeStationCoords: CURRENT_LOCATION,
     isVisited: () => false,
     rouletteConstraints: {
@@ -104,12 +95,9 @@ function WeekendHarness() {
       publicModes: ["train"],
       partySize: 2,
       budgetTier: "standard",
-      tripDuration: "fullDay",
-      tripMode: "weekend_2d1n",
-      accommodationAllowance: 15000,
+      tripDuration: "2d1n",
     },
-    tripMode: "weekend_2d1n",
-    accommodationAllowance: 15000,
+    tripDuration: "2d1n",
   });
   return null;
 }
@@ -126,8 +114,6 @@ function DisabledRouletteHarness() {
     tripDuration: "fullDay",
     homeStationCoords: CURRENT_LOCATION,
     isVisited: () => false,
-    tripMode: "day_trip",
-    accommodationAllowance: 0,
     rouletteEnabled: false,
   });
   return null;
@@ -154,8 +140,7 @@ describe("useTripRecommendations", () => {
     const mainContext = getRecommendations.mock.calls[0]?.[1];
     expect(mainContext).toMatchObject({
       vibe: "art",
-      tripMode: "day_trip",
-      accommodationAllowance: 0,
+      tripDuration: "fullDay",
     });
 
     const rouletteContext = getRecommendations.mock.calls[1]?.[1];
@@ -228,39 +213,30 @@ describe("useTripRecommendations", () => {
     );
   });
 
-  it("passes tripMode and accommodationAllowance into recommendation context for weekend mode", () => {
+  it("passes canonical overnight duration into recommendation contexts", () => {
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
     act(() => root!.render(<WeekendHarness />));
 
     const mainContext = getRecommendations.mock.calls[0]?.[1];
-    expect(mainContext).toMatchObject({
-      tripMode: "weekend_2d1n",
-      accommodationAllowance: 15000,
-    });
+    expect(mainContext).toMatchObject({ tripDuration: "2d1n" });
 
-    // Roulette context should also carry tripMode and accommodationAllowance
     const rouletteContexts = getRecommendations.mock.calls
       .slice(1)
-      .map(
-        ([, context]) =>
-          context as {
-            tripMode?: string;
-            accommodationAllowance?: number;
-            vibe?: string;
-          },
-      )
+      .map(([, context]) => context as { tripDuration?: string; vibe?: string })
       .filter((context) => context.vibe === "any");
 
     expect(rouletteContexts.length).toBeGreaterThan(0);
-    for (const ctx of rouletteContexts) {
-      expect(ctx.tripMode).toBe("weekend_2d1n");
-      expect(ctx.accommodationAllowance).toBe(15000);
-    }
+    expect(
+      rouletteContexts.every(
+        (context) =>
+          context.tripDuration === "2d1n" || context.tripDuration === "3d2n",
+      ),
+    ).toBe(true);
   });
 
-  it("weekend roulette does not perform adjacent day-trip duration expansion", () => {
+  it("overnight roulette does not expand into day durations", () => {
     host = document.createElement("div");
     document.body.appendChild(host);
     root = createRoot(host);
@@ -272,10 +248,10 @@ describe("useTripRecommendations", () => {
       .filter((context) => context.vibe === "any");
 
     expect(rouletteContexts.length).toBeGreaterThan(0);
-    for (const ctx of rouletteContexts) {
-      // Weekend mode evaluates exactly the selected duration — never the
-      // adjacent day-trip bands.
-      expect(ctx.tripDuration).toBe("fullDay");
-    }
+    expect(
+      rouletteContexts.every(
+        (ctx) => ctx.tripDuration === "2d1n" || ctx.tripDuration === "3d2n",
+      ),
+    ).toBe(true);
   });
 });

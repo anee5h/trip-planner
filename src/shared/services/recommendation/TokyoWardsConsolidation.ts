@@ -1,5 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
-import type { TripMode } from "./RecommendationContext";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import type { PipelineRecommendation } from "./RecommendationTypes";
 import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import { getContainedPlaces } from "./WeekendAreaPolicy";
@@ -94,7 +94,7 @@ export interface TokyoWardsGroupMetadata {
   memberIds: string[];
   /** One canonical kind=ward hub id per matching municipality (<= 23). */
   wardHubIds: string[];
-  tripMode?: TripMode;
+  duration?: TripDuration;
 }
 
 export interface TokyoWardStats {
@@ -156,7 +156,7 @@ export interface TokyoWardsConsolidationInput {
   originPrefecture?: string;
   /** Full candidate pool for unique published place counting. */
   pool: readonly Destination[];
-  tripMode?: TripMode;
+  duration?: TripDuration;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface TokyoWardsConsolidationInput {
 export function consolidateTokyoWards(
   input: TokyoWardsConsolidationInput,
 ): PipelineRecommendation[] {
-  const { results, originPrefecture, pool, tripMode } = input;
+  const { results, originPrefecture, pool, duration } = input;
   if (!originPrefecture || KANTO_PREFECTURES.has(originPrefecture)) {
     return results;
   }
@@ -223,9 +223,9 @@ export function consolidateTokyoWards(
     name: "Tokyo 23 Wards",
     score: groupScore,
     transportEstimate: gatewayEstimate,
-    weekend: topMember.weekend
+    overnight: topMember.overnight
       ? {
-          ...topMember.weekend,
+          ...topMember.overnight,
           placeCount: seenPlaceIds.size,
         }
       : undefined,
@@ -236,7 +236,7 @@ export function consolidateTokyoWards(
       gatewayEstimate,
       memberIds,
       wardHubIds,
-      tripMode,
+      duration,
     },
   };
 
@@ -253,14 +253,14 @@ export function consolidateTokyoWards(
  */
 export function buildTokyoWardsLink(
   memberIds: readonly string[],
-  tripMode?: TripMode,
+  duration?: TripDuration,
 ): string {
   const params = new URLSearchParams();
   for (const id of memberIds) {
     params.append("city", id);
   }
-  if (tripMode) {
-    params.set("tripMode", tripMode);
+  if (duration && duration !== "any") {
+    params.set("duration", duration);
   }
   return `/destinations?${params.toString()}`;
 }
@@ -273,7 +273,7 @@ export interface ExplorerWardGroupBuildInput {
   wardHubIds: string[];
   /** Unique published supporting places across members. */
   placeCount: number;
-  tripMode?: TripMode;
+  duration?: TripDuration;
   /** Fastest shared origin-aware estimate across the members. */
   gatewayEstimate?: TravelDurationEstimate;
 }
@@ -291,7 +291,7 @@ export function buildExplorerWardGroup(
     wardCount,
     wardHubIds,
     placeCount,
-    tripMode,
+    duration,
     gatewayEstimate,
   } = input;
   const topMember = members.reduce((best, member) =>
@@ -310,7 +310,7 @@ export function buildExplorerWardGroup(
       gatewayEstimate,
       memberIds: members.map((member) => member.id),
       wardHubIds,
-      tripMode,
+      duration,
     },
   } as Destination;
 }

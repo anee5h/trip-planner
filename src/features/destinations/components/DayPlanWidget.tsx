@@ -39,6 +39,7 @@ import {
 import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import { useTranslation } from "react-i18next";
 
 interface DayPlanWidgetProps {
@@ -52,6 +53,8 @@ interface DayPlanWidgetProps {
   /** When false, the plan-creation entry point is hidden because the
    *  destination has too few nearby candidate stops to build an itinerary. */
   eligible?: boolean;
+  /** Canonical duration selected for this destination plan. */
+  duration?: TripDuration;
   /** Plan type selected when the planner first opens. */
   defaultPlanType?: DayPlanType;
   /** When true, full-day plans are hidden because there are not enough stops. */
@@ -72,6 +75,7 @@ export function DayPlanWidget({
   onSaveToItinerary,
   onPlanGenerated,
   eligible = true,
+  duration = "fullDay",
   defaultPlanType,
   fullDayDisabled = false,
   catalogueLoading = false,
@@ -123,7 +127,7 @@ export function DayPlanWidget({
     setGeneratedPlan(null);
     setHasGenerated(false);
     setShowConfig(false);
-  }, [destination.id, defaultPlanType, fullDayDisabled]);
+  }, [destination.id, duration, defaultPlanType, fullDayDisabled]);
 
   const resultRef = useRef<HTMLDivElement>(null);
 
@@ -170,6 +174,7 @@ export function DayPlanWidget({
     const isRegen = hasGenerated;
 
     const newPlan = generateDayPlan(destination, {
+      duration,
       planType: activePlanType,
       startTime,
       availableMinutes,
@@ -324,7 +329,8 @@ export function DayPlanWidget({
 
   const preferencesChanged = Boolean(
     generatedPlan?.generatedWith &&
-    (generatedPlan.generatedWith.planType !== planType ||
+    ((generatedPlan.generatedWith.duration ?? duration) !== duration ||
+      generatedPlan.generatedWith.planType !== planType ||
       generatedPlan.generatedWith.startTime !== startTime ||
       generatedPlan.generatedWith.availableMinutes !== availableMinutes ||
       generatedPlan.generatedWith.returnMode !== returnMode ||
@@ -942,6 +948,18 @@ export function DayPlanWidget({
                               </span>
                               <div className="space-y-1 min-w-0 flex-1">
                                 <div className="flex items-center gap-2 flex-wrap">
+                                  {generatedPlan.dayCount &&
+                                    generatedPlan.dayCount > 1 &&
+                                    step.day && (
+                                      <Badge
+                                        variant="outline"
+                                        className="text-[10px] font-bold"
+                                      >
+                                        {locale === "ja"
+                                          ? `${step.day}日目`
+                                          : `Day ${step.day}`}
+                                      </Badge>
+                                    )}
                                   {step.destination?.id ? (
                                     <Link
                                       to={`/destinations/${step.destination.id}`}

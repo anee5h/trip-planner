@@ -80,7 +80,7 @@ const VALID_BODY = {
   feature: "test-feature",
   route: "/settings",
   locale: "en",
-  appVersion: "2.0.0-beta.1",
+  appVersion: "2.0.0-beta.2",
   commitSha: "abc123def456",
   browser: "macos",
   errorName: "Error",

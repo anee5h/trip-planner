@@ -69,9 +69,9 @@ vi.mock("react-i18next", () => ({
       const value: Record<string, string> = {
         "destination.tripAreas.summary": "{{areas}} areas · {{places}} places",
         "destination.tripAreas.show": "Show {{count}}",
-        "destination.tripModes.any": "Any",
-        "destination.tripModes.day_trip": "Day trip",
-        "destination.tripModes.weekend_2d1n": "2D1N",
+        "destination.durationOptions.any": "Any",
+        "destination.durationOptions.fullDay": "Day trip",
+        "destination.durationOptions.2d1n": "2D1N",
         "ui.destinations":
           localeMock.language === "ja" ? "目的地" : "Destinations",
         "ui.destinationsDescription":
@@ -579,7 +579,7 @@ describe("URL state restoration — no invisible defaults", () => {
     expect(hasSpecificModes).toBe(false);
   });
 
-  it("URL with tripMode=any+sort=recommended produces same count as blank URL", async () => {
+  it("URL with duration=any+sort=recommended produces same count as blank URL", async () => {
     const containerBlank = await renderDestinations("/destinations");
     const blankCount = getResultCount(containerBlank);
     act(() => root!.unmount());
@@ -588,7 +588,7 @@ describe("URL state restoration — no invisible defaults", () => {
     host = undefined;
 
     const containerParams = await renderDestinations(
-      "/destinations?sort=recommended&tripMode=any",
+      "/destinations?sort=recommended&duration=any",
     );
     const paramsCount = getResultCount(containerParams);
 
@@ -623,11 +623,11 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     expect(headings.some((text) => text.includes("Kyoto City"))).toBe(true);
   }, 15000);
 
-  it("explicit Day-trip mode still applies the duration gate", async () => {
+  it("explicit Full-day duration still applies the duration gate", async () => {
     setYokohamaOrigin();
 
     const container = await renderDestinations(
-      "/destinations?mode=train&tripMode=day_trip&q=kyoto",
+      "/destinations?mode=train&duration=fullDay&q=kyoto",
     );
     const headings = Array.from(container.querySelectorAll("h3")).map(
       (heading) => heading.textContent ?? "",
@@ -648,7 +648,7 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     host = undefined;
 
     const containerDayTrip = await renderDestinations(
-      "/destinations?mode=train&tripMode=day_trip",
+      "/destinations?mode=train&duration=fullDay",
     );
     const dayTripCount = getResultCount(containerDayTrip);
 

@@ -27,6 +27,7 @@ import { recommendationAnalytics } from "@/shared/services/analytics/Recommendat
 import { useTranslation } from "react-i18next";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import { getTripNights, type TripDuration } from "@/shared/types/tripDuration";
 
 export interface TripCostBreakdownWidgetProps {
   destination: Destination;
@@ -42,11 +43,7 @@ export interface TripCostBreakdownWidgetProps {
   defaultExpanded?: boolean;
   hasGeneratedPlan?: boolean;
   planCostBreakdown?: GeneratedPlanCostResult;
-  accommodationAllowance?: number;
-  /** KAI-217B round-2: the actual trip mode — overnight trips must include
-   *  the party-total accommodation allowance × nights. */
-  tripMode?: "day_trip" | "weekend_2d1n" | "multi_night";
-  nights?: number;
+  duration?: TripDuration;
 }
 
 export function TripCostBreakdownWidget({
@@ -60,9 +57,7 @@ export function TripCostBreakdownWidget({
   defaultExpanded = false,
   hasGeneratedPlan = false,
   planCostBreakdown,
-  accommodationAllowance,
-  tripMode = "day_trip",
-  nights,
+  duration = "fullDay",
 }: TripCostBreakdownWidgetProps) {
   const { t } = useTranslation();
   const location = useLocation();
@@ -77,13 +72,8 @@ export function TripCostBreakdownWidget({
     return calculateTripEstimate({
       dest: destination,
       mode: activeTransportMode ?? undefined,
-      // KAI-217B round-2: the ACTUAL trip mode — 2D1N includes the
-      // party-total accommodation allowance × 1 night (never hardcoded
-      // day_trip, which would falsely omit overnight cost).
-      tripMode,
-      nights,
+      duration,
       partySize,
-      accommodationAllowance,
       ferryTemporal,
       homeCoords,
       includeOriginTravel: Boolean(homeCoords),
@@ -93,10 +83,8 @@ export function TripCostBreakdownWidget({
     partySize,
     homeCoords,
     activeTransportMode,
-    accommodationAllowance,
     planCostBreakdown,
-    tripMode,
-    nights,
+    duration,
     ferryTemporal,
   ]);
 
@@ -193,8 +181,15 @@ export function TripCostBreakdownWidget({
       ? [planCostBreakdown.meals.min, planCostBreakdown.meals.max]
       : undefined
     : componentRange(mealsComp);
-  const accommodationRange: [number, number] | undefined =
-    componentRange(accommodationComp);
+  const accommodationRange: [number, number] | undefined = planCostBreakdown
+    ? planCostBreakdown.accommodation?.applicable &&
+      planCostBreakdown.accommodation.knownNumeric
+      ? [
+          planCostBreakdown.accommodation.min,
+          planCostBreakdown.accommodation.max,
+        ]
+      : undefined
+    : componentRange(accommodationComp);
   const hasOriginTransport = planCostBreakdown
     ? planCostBreakdown.originTransport.applicable &&
       planCostBreakdown.originTransport.knownNumeric
@@ -204,12 +199,12 @@ export function TripCostBreakdownWidget({
     !planCostBreakdown &&
     hasTransport &&
     originTravelComp?.cost.kind !== "bounded";
+  const accommodationNights = getTripNights(duration);
   const hasAccommodationAllowance =
-    // A ¥0 accommodation component (no real allowance) is not a row.
-    (accommodationRange?.[1] ?? accommodationAllowance ?? 0) > 0;
+    // A ¥0 accommodation component (zero-night duration) is not a row.
+    (accommodationRange?.[1] ?? 0) > 0;
   const accommodationAllowanceRange: [number, number] = accommodationRange ?? [
-    accommodationAllowance ?? 0,
-    accommodationAllowance ?? 0,
+    0, 0,
   ];
   const visiblePartyRanges = planCostBreakdown
     ? [
@@ -260,6 +255,12 @@ export function TripCostBreakdownWidget({
           planCostBreakdown.admission.source === "curated"
             ? []
             : [scopeLabel("admission")]),
+          ...(planCostBreakdown.accommodation?.applicable &&
+          planCostBreakdown.accommodation.source === "curated"
+            ? []
+            : planCostBreakdown.accommodation?.applicable
+              ? [scopeLabel("accommodation")]
+              : []),
         ]
       : [];
   const missingComponentsText: string | undefined =
@@ -376,13 +377,20 @@ export function TripCostBreakdownWidget({
           mode: activeTransportMode ?? undefined,
           homeCoords,
           includeOriginTravel: Boolean(homeCoords),
-          tripMode: "day_trip",
+          duration,
           partySize,
         });
         return estimate.total !== undefined && estimate.total.min <= destMin;
       })
       .slice(0, 2);
-  }, [destination, partySize, homeCoords, activeTransportMode, totalRange]);
+  }, [
+    destination,
+    partySize,
+    homeCoords,
+    activeTransportMode,
+    duration,
+    totalRange,
+  ]);
 
   const showCompactUnavailableCost =
     compactUnavailableCost &&
@@ -742,7 +750,9 @@ export function TripCostBreakdownWidget({
                   <div className="flex justify-between text-xs font-bold">
                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                       <BedDouble className="w-4 h-4 text-teal-500 shrink-0" />
-                      {t("planner.stayAllowanceRow")}
+                      {t("planner.stayAllowanceRow", {
+                        count: accommodationNights,
+                      })}
                     </span>
                     <span className="text-slate-900 dark:text-white">
                       {formatLocalizedJPYRange(
@@ -794,7 +804,7 @@ export function TripCostBreakdownWidget({
                       mode: activeTransportMode ?? undefined,
                       homeCoords,
                       includeOriginTravel: Boolean(homeCoords),
-                      tripMode: "day_trip",
+                      duration,
                       partySize,
                     });
                     const altRange = altEstimate.total

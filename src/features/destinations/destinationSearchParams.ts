@@ -5,11 +5,8 @@ import {
   type BudgetFilter,
   type PartyProfile,
 } from "@/shared/types/planner";
-import type {
-  TripDuration,
-  TripMode,
-} from "@/shared/services/recommendation/RecommendationContext";
-import { MAX_ACCOMMODATION_ALLOWANCE } from "@/shared/services/budget/BudgetService";
+import type { TripDuration } from "@/shared/types/tripDuration";
+import { normalizeExplorerTripDuration } from "@/shared/types/tripDuration";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
 
 /** "any" | BudgetTier, expressed via the canonical planner BudgetFilter. */
@@ -43,8 +40,6 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   interests: [] as string[],
   viewMode: "grid" as "grid" | "map",
   currentPage: 1,
-  tripMode: "any" as "any" | TripMode,
-  accommodationAllowance: 15000,
 };
 
 export type DestinationExplorerState =
@@ -117,6 +112,12 @@ export function parseDestinationSearchParams(
   params: URLSearchParams,
 ): DestinationExplorerState {
   const defaults = DEFAULT_DESTINATION_EXPLORER_STATE;
+  const explicitDuration = normalizeExplorerTripDuration(
+    params.get("duration"),
+  );
+  const legacyModeDuration = normalizeExplorerTripDuration(
+    params.get("tripMode"),
+  );
   const view = params.get("view");
   const rawParty = params.get("party");
   const rawBudgetTier = params.get("budgetTier") ?? params.get("dining");
@@ -204,14 +205,7 @@ export function parseDestinationSearchParams(
     budgetTier,
     vibe: params.get("vibe") ?? defaults.vibe,
     tripDuration:
-      params.get("duration") === "shortOuting" ||
-      params.get("duration") === "halfDay" ||
-      params.get("duration") === "fullDay" ||
-      params.get("duration") === "weekend"
-        ? (params.get("duration") as TripDuration)
-        : params.get("duration") === "dayTrip"
-          ? "fullDay"
-          : defaults.tripDuration,
+      explicitDuration ?? legacyModeDuration ?? defaults.tripDuration,
     walkingIntensity: params.get("walking") ?? defaults.walkingIntensity,
     suitabilities: params.getAll("suitability"),
     interests: params.getAll("interest"),
@@ -220,20 +214,6 @@ export function parseDestinationSearchParams(
       1,
       Math.floor(parseNumber(params.get("page"), defaults.currentPage)),
     ),
-    tripMode:
-      params.get("tripMode") === "weekend_2d1n"
-        ? "weekend_2d1n"
-        : params.get("tripMode") === "day_trip"
-          ? "day_trip"
-          : "any",
-    accommodationAllowance: (() => {
-      const raw = params.get("stay");
-      if (raw === null || !/^\d+$/.test(raw))
-        return defaults.accommodationAllowance;
-      const value = parseInt(raw, 10);
-      if (value >= 0 && value <= MAX_ACCOMMODATION_ALLOWANCE) return value;
-      return defaults.accommodationAllowance;
-    })(),
   };
 }
 
@@ -268,11 +248,9 @@ export function serializeDestinationSearchParams(
   if (state.weather !== "any") params.set("weather", state.weather);
   params.set("budgetTier", state.budgetTier);
   params.set("vibe", state.vibe);
-  params.set("duration", state.tripDuration);
-  if (state.tripMode === "weekend_2d1n") params.set("tripMode", "weekend_2d1n");
-  else if (state.tripMode === "day_trip") params.set("tripMode", "day_trip");
-  if (state.accommodationAllowance !== 15000)
-    params.set("stay", String(state.accommodationAllowance));
+  const canonicalDuration =
+    normalizeExplorerTripDuration(state.tripDuration) ?? "any";
+  params.set("duration", canonicalDuration);
   params.set("walking", state.walkingIntensity);
   appendAll("suitability", state.suitabilities);
   appendAll("interest", state.interests);
@@ -292,9 +270,6 @@ export function serializePlannerSearchParams(input: {
   budget: number;
   carMode: string;
   publicModes: string[];
-  tripMode?: TripMode;
-  accommodationAllowance?: number;
-  /** YYYY-MM-DD planned travel date (omitted = today/no explicit date). */
   date?: string;
 }): string {
   const params = new URLSearchParams();
@@ -316,13 +291,5 @@ export function serializePlannerSearchParams(input: {
   if (input.publicModes.length === 0) params.set("mode", "none");
   else input.publicModes.forEach((mode) => params.append("mode", mode));
   if (input.date) params.set("date", input.date);
-  if (input.tripMode === "weekend_2d1n") {
-    params.set("tripMode", "weekend_2d1n");
-    if (input.accommodationAllowance !== undefined) {
-      params.set("stay", String(input.accommodationAllowance));
-    }
-  } else if (input.tripMode === "day_trip") {
-    params.set("tripMode", "day_trip");
-  }
   return params.toString();
 }

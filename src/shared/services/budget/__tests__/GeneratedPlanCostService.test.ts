@@ -6,9 +6,13 @@ import {
 import type { DayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
 
-function makePlan(dest: Destination): DayPlan {
+function makePlan(
+  dest: Destination,
+  duration: DayPlan["duration"] = "fullDay",
+): DayPlan {
   return {
     id: "plan-test",
+    duration,
     title: { en: "Test", ja: "テスト" },
     steps: [
       {
@@ -76,6 +80,23 @@ describe("GeneratedPlanCostService", () => {
     expect(cost.completeness).toBe("complete");
     expect(cost.knownSubtotal[0]).toBeGreaterThan(0);
     expect(cost.confidence).toBe("estimated");
+  });
+
+  it("infers one party-level accommodation range from 3D2N", () => {
+    const cost = calculateGeneratedPlanCost(
+      makePlan(BASE_DEST, "3d2n"),
+      4,
+      "train",
+      false,
+    );
+
+    expect(cost.accommodation).toMatchObject({
+      min: 20000,
+      max: 44000,
+      source: "estimated",
+      applicable: true,
+    });
+    expect(cost.knownSubtotal[0]).toBeGreaterThanOrEqual(20000);
   });
 
   it("models absent-metadata admission without consuming it as trusted legacy data", () => {

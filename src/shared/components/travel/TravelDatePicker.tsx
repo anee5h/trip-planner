@@ -16,7 +16,11 @@ import {
   type DayButtonProps,
 } from "react-day-picker";
 import { ja, enUS } from "date-fns/locale";
-import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import {
+  getTripDays,
+  getTripNights,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import { getNextCalendarDate } from "@/shared/utils/travelDate";
 import {
@@ -24,6 +28,7 @@ import {
   formatTravelDateShort,
   travelDateToDate,
 } from "@/shared/utils/travelDate";
+import { deriveTripDates } from "@/shared/services/recommendation/TravelConditions";
 import { cn } from "@/shared/utils/utils";
 
 export interface OriginForecastCalendarMarker {
@@ -77,7 +82,7 @@ export interface TravelDatePickerProps {
   value?: string;
   onChange: (date: string | undefined) => void;
   hasExplicitSelection?: boolean;
-  tripMode?: TripMode;
+  duration?: TripDuration;
   forecastMap?: ReadonlyMap<string, DayForecastData>;
   allowAnyDate?: boolean;
   originLabel?: string;
@@ -92,7 +97,7 @@ export default function TravelDatePicker({
   value,
   onChange,
   hasExplicitSelection: propHasExplicitSelection,
-  tripMode = "day_trip",
+  duration = "halfDay",
   forecastMap,
   allowAnyDate = false,
   originLabel,
@@ -224,7 +229,7 @@ export default function TravelDatePicker({
     if (propTriggerLabel) return propTriggerLabel;
     return formatCapsuleLabel(
       value,
-      tripMode,
+      duration,
       allowAnyDate,
       currentLocale,
       todayIso,
@@ -235,7 +240,7 @@ export default function TravelDatePicker({
   }, [
     propTriggerLabel,
     value,
-    tripMode,
+    duration,
     allowAnyDate,
     currentLocale,
     todayIso,
@@ -249,22 +254,28 @@ export default function TravelDatePicker({
     [value],
   );
 
-  const day2Iso = useMemo(() => {
-    if (value && tripMode === "weekend_2d1n") {
-      return getNextCalendarDate(value);
+  const endDateIso = useMemo(() => {
+    if (value && duration) {
+      const days = getTripDays(duration);
+      if (getTripNights(duration) === 0) return undefined;
+      let endDate = value;
+      for (let index = 1; index < days; index += 1) {
+        endDate = getNextCalendarDate(endDate);
+      }
+      return endDate;
     }
     return undefined;
-  }, [value, tripMode]);
+  }, [value, duration]);
 
-  const day2DateObj = useMemo(
-    () => (day2Iso ? travelDateToDate(day2Iso) : undefined),
-    [day2Iso],
+  const endDateObj = useMemo(
+    () => (endDateIso ? travelDateToDate(endDateIso) : undefined),
+    [endDateIso],
   );
 
   const modifiers = useMemo(() => {
     const mods: Record<string, Date[]> = {};
-    if (day2DateObj) {
-      mods.day2 = [day2DateObj];
+    if (endDateObj) {
+      mods.tripEnd = [endDateObj];
     }
     if (forecastMap) {
       const dates: Date[] = [];
@@ -278,7 +289,7 @@ export default function TravelDatePicker({
       }
     }
     return mods;
-  }, [day2DateObj, forecastMap, minDateIso]);
+  }, [endDateObj, forecastMap, minDateIso]);
 
   const CustomDayButton = useCallback(
     (props: DayButtonProps) => {
@@ -295,7 +306,7 @@ export default function TravelDatePicker({
         originLabel,
         currentLocale,
       );
-      const isDay2 = dayModifiers.day2;
+      const isTripEnd = dayModifiers.tripEnd;
       const isSelected = dayModifiers.selected;
       const isToday = dayModifiers.today;
 
@@ -309,8 +320,11 @@ export default function TravelDatePicker({
       if (marker) {
         ariaText += `. ${marker.ariaLabel}`;
       }
-      if (isDay2) {
-        ariaText += `. ${t("datePicker.day2DerivedHint", "Day 2 (derived for 2D1N trip)")}`;
+      if (isTripEnd) {
+        ariaText += `. ${t(
+          "datePicker.derivedDateHint",
+          "End date derived from trip duration",
+        )}`;
       }
 
       return (
@@ -323,15 +337,15 @@ export default function TravelDatePicker({
             "relative flex flex-col items-center justify-center h-10 w-full rounded-xl text-xs font-bold transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50",
             isSelected &&
               "bg-emerald-700 text-white shadow-sm z-10 hover:bg-emerald-800 font-extrabold",
-            isDay2 &&
+            isTripEnd &&
               !isSelected &&
               "bg-emerald-100 dark:bg-emerald-950/80 text-emerald-900 dark:text-emerald-200 font-extrabold border border-emerald-400/80 dark:border-emerald-700/80 z-10 hover:bg-emerald-200 dark:hover:bg-emerald-900",
             !isSelected &&
-              !isDay2 &&
+              !isTripEnd &&
               isToday &&
               "border-2 border-emerald-700/90 text-emerald-700 dark:text-emerald-300 font-bold bg-emerald-50/40 dark:bg-emerald-950/20",
             !isSelected &&
-              !isDay2 &&
+              !isTripEnd &&
               !isToday &&
               !dayModifiers.disabled &&
               "hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-100",
@@ -346,7 +360,7 @@ export default function TravelDatePicker({
                 "flex items-center gap-0.5 text-[9px] leading-none mt-0.5 font-normal",
                 isSelected
                   ? "text-emerald-100"
-                  : isDay2
+                  : isTripEnd
                     ? "text-emerald-800 dark:text-emerald-300"
                     : "text-slate-500 dark:text-slate-300",
               )}
@@ -549,18 +563,23 @@ export default function TravelDatePicker({
               />
             </div>
 
-            {/* 2D1N Day 2 Derived Hint Footer */}
-            {tripMode === "weekend_2d1n" && value && (
+            {/* Derived end-date hint for overnight durations */}
+            {getTripNights(duration) > 0 && value && (
               <div className="mt-2.5 border-t border-slate-100 dark:border-slate-800 pt-2 text-center">
                 <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-300">
-                  {t("datePicker.day2", "Day 2")}:{" "}
+                  {t("datePicker.endDate", "End date")}:{" "}
                   <span className="font-bold text-emerald-700 dark:text-emerald-300">
                     {formatTravelDateShort(
-                      getNextCalendarDate(value),
+                      deriveTripDates(value, duration).endDate ?? value,
                       currentLocale,
                     )}
                   </span>{" "}
-                  ({t("datePicker.day2DerivedHint", "derived for 2D1N trip")})
+                  (
+                  {t(
+                    "datePicker.derivedDateHint",
+                    "derived from trip duration",
+                  )}
+                  )
                 </p>
               </div>
             )}

@@ -172,7 +172,7 @@ export class HubPlanningService {
       partySize: 1,
       homeCoords: options.homeCoords,
       includeOriginTravel: Boolean(options.homeCoords),
-      tripMode: "day_trip",
+      duration: "fullDay",
     });
     const hubOnSite = hubEstimate.components.filter(
       (component) =>
@@ -196,7 +196,7 @@ export class HubPlanningService {
         mode: travelMode,
         partySize: 1,
         includeOriginTravel: false,
-        tripMode: "day_trip",
+        duration: "fullDay",
       });
       const local = estimate.components.find(
         (component) => component.evidence.scope === "local_transport",

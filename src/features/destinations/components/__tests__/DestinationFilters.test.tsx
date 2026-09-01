@@ -125,8 +125,6 @@ function makeDefaults(): Props {
     setVibe: vi.fn(),
     tripDuration: "any",
     setTripDuration: vi.fn(),
-    tripMode: "any",
-    setTripMode: vi.fn(),
     walkingIntensity: "all",
     setWalkingIntensity: vi.fn(),
     suitabilities: [],

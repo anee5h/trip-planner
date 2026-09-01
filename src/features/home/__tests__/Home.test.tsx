@@ -127,8 +127,8 @@ vi.mock("react-i18next", () => ({
         "datePicker.tomorrow": "Tomorrow",
         "datePicker.anyDate": "Any date",
         "origin.cancel": "Cancel",
-        "home.tripModes.day_trip": "Day trip",
-        "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
+        "home.durations.fullDay": "Full day",
+        "home.durations.2d1n": "2 days / 1 night",
         "home.weekendMatches": "Weekend getaways",
         "home.weekendYourMatches": "Your best weekend getaways",
         "home.topMatchesForYou": "Top matches for you",
@@ -326,38 +326,29 @@ describe("Home Integration Tests", () => {
     ).toBe(true);
   });
 
-  it("weekend mode: toggling to Weekend changes heading after apply", async () => {
+  it("selecting 2D1N updates the canonical duration after apply", async () => {
     const container = await await renderHome();
 
-    // Find and click the weekend toggle button
-    const weekendToggle = Array.from(container.querySelectorAll("button")).find(
-      (btn) =>
-        btn.textContent?.includes("Weekend") &&
-        btn.getAttribute("role") === "radio",
-    );
-    expect(weekendToggle).toBeDefined();
+    const durationTrigger = container.querySelector(
+      'button[aria-label="home.duration"]',
+    ) as HTMLButtonElement | null;
+    expect(durationTrigger).not.toBeNull();
+    act(() => durationTrigger?.click());
+    const durationOption = Array.from(
+      document.querySelectorAll('[role="option"]'),
+    ).find((option) => option.textContent?.includes("2 days / 1 night"));
+    expect(durationOption).toBeDefined();
+    act(() => (durationOption as HTMLElement | undefined)?.click());
 
-    act(() => {
-      weekendToggle?.click();
-    });
-
-    expect(weekendToggle?.getAttribute("aria-checked")).toBe("true");
-
-    // Click Find/Apply to see if weekend heading appears
     const applyBtn = Array.from(container.querySelectorAll("button")).find(
       (b) =>
         b.textContent?.includes("home.find") ||
         b.textContent?.includes("home.view") ||
         b.textContent?.includes("home.update"),
     );
-    act(() => {
-      applyBtn?.click();
-    });
-    expect(
-      Array.from(container.querySelectorAll("button")).some((button) =>
-        button.textContent?.includes("home.view"),
-      ),
-    ).toBe(true);
+    act(() => applyBtn?.click());
+    expect(container.textContent).toContain("2 days / 1 night");
+    expect(container.textContent).not.toContain("home.tripModes");
   });
 });
 
@@ -397,19 +388,27 @@ describe("formatCompactDateRange", () => {
   });
 });
 
-describe("weekend date capsule", () => {
+describe("overnight date capsule", () => {
   it("keeps the compact visible label and the full range in aria/title", async () => {
     const container = await await renderHome();
 
-    // Switch to weekend and apply it.
-    const weekendToggle = Array.from(container.querySelectorAll("button")).find(
-      (btn) =>
-        btn.textContent?.includes("Weekend") &&
-        btn.getAttribute("role") === "radio",
-    );
-    act(() => weekendToggle?.click());
+    // Switch to 2D1N and apply it.
+    const durationTrigger = container.querySelector(
+      'button[aria-label="home.duration"]',
+    ) as HTMLButtonElement | null;
+    expect(durationTrigger).not.toBeNull();
+    act(() => durationTrigger?.click());
+    const durationOption = Array.from(
+      document.querySelectorAll('[role="option"]'),
+    ).find((option) => option.textContent?.includes("2 days / 1 night"));
+    expect(durationOption).toBeDefined();
+    act(() => (durationOption as HTMLElement | undefined)?.click());
+
     const applyBtn = Array.from(container.querySelectorAll("button")).find(
-      (b) => /home.find|home.view|home.update/.test(b.textContent ?? ""),
+      (b) =>
+        b.textContent?.includes("home.find") ||
+        b.textContent?.includes("home.view") ||
+        b.textContent?.includes("home.update"),
     );
     act(() => applyBtn?.click());
 

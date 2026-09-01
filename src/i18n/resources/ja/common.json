@@ -204,12 +204,12 @@
         "description": "フェリーでアクセス可能（{{operator}}）"
       },
       "weekendTripReady": {
-        "title": "2日間の旅に十分",
-        "description": "週末1泊2日を楽しめる場所が揃っています"
+        "title": "{{days}}日間の旅に十分",
+        "description": "{{days}}日間の旅に見どころが揃っています"
       },
       "weekendCapacityStrong": {
         "title": "見どころ多数",
-        "description": "週末を満喚できる十分な見どころがあります"
+        "description": "{{days}}日間の旅に十分な見どころがあります"
       },
       "weekendTravelStrong": {
         "title": "長めの移動も快適",
@@ -224,8 +224,8 @@
         "description": "移動に1日分かかります。時間に余裕をもって計画を"
       },
       "weekendWeatherGood": {
-        "title": "2日間とも良い天気",
-        "description": "旅行期間中2日間とも天気に恵まれそうです"
+        "title": "旅程全体の天候良好",
+        "description": "選択した旅行日程の天候が良好です"
       },
       "weekendWeatherDayRain": {
         "title": "室内の代替あり",
@@ -249,7 +249,7 @@
       },
       "conditionForecastRange": {
         "title": "{{day1}}〜{{day2}}の天気予報",
-        "description": "両日の実際の天気予報"
+        "description": "選択した旅行日程の全日程の天気予報"
       },
       "conditionSeasonalMonth": {
         "title": "{{month}}の平年並みの気候",
@@ -304,8 +304,9 @@
       "scope": "グループ合計",
       "explanation": "グループ全体の合計予算"
     },
-    "stayAllowanceRow": "宿泊費目安（1泊）",
-    "stayAllowanceNote": "ユーザー設定の目安であり、実際の料金ではありません"
+    "stayAllowanceRow": "宿泊費目安（{{count}}泊）",
+    "stayAllowanceRow_other": "宿泊費目安（{{count}}泊）",
+    "stayAllowanceNote": "期間と予算帯から算出した目安で、実際の宿泊料金ではありません"
   },
   "origin": {
     "from": "出発地",
@@ -336,7 +337,8 @@
     "headline": "次はどこへ行きますか？",
     "brandAssociation": "Meguruto（メグルト）",
     "subtitle": "時間、予算、旅のスタイルに合わせた日帰り旅の提案です。",
-    "subtitleWeekend": "時間、予算、旅のスタイルに合わせた週末2日間1泊の提案です。",
+    "subtitleOvernight": "時間、予算、旅のスタイルに合わせた宿泊旅行の提案です。",
+    "durationBadge": "宿泊旅行",
     "change": "変更",
     "planner": "旅のプランナー",
     "plannerHint": "30秒でぴったりの旅先を提案",
@@ -362,7 +364,7 @@
     },
     "vibe": "気分",
     "duration": "時間",
-    "timeAvailable": "使える時間",
+    "timeAvailable": "期間",
     "party": "人数",
     "budget": "予算",
     "transport": "移動手段",
@@ -390,12 +392,16 @@
     "durations": {
       "shortOuting": "短時間",
       "halfDay": "半日",
-      "fullDay": "一日"
+      "fullDay": "一日",
+      "2d1n": "2日間 / 1泊",
+      "3d2n": "3日間 / 2泊"
     },
     "durationHints": {
       "shortOuting": "合計4時間以内",
       "halfDay": "合計7.5時間以内",
-      "fullDay": "合計14時間以内"
+      "fullDay": "合計14時間以内",
+      "2d1n": "宿泊あり",
+      "3d2n": "宿泊あり"
     },
     "budgets": {
       "economy": "節約",
@@ -420,6 +426,8 @@
     "topMatchesForYou": "あなたへのおすすめ",
     "yourMatches": "今のあなたに合う旅先",
     "matchesDescription": "現在の条件と好みに合わせたおすすめです。",
+    "matchesErrorTitle": "おすすめを読み込めませんでした",
+    "matchesErrorBody": "しばらくしてから、もう一度お試しください。",
     "viewAll": "すべて見る",
     "bucketList": "行きたい場所",
     "bucketDescription": "あとで行きたい場所です。",
@@ -452,9 +460,9 @@
     "greatEscapesUnder60": "60分以内の小さな旅",
     "greatEscapesUnder60Description": "現在の出発地から、信頼できる所要時間が60分以内の旅先です。",
     "viewAllGreatEscapesUnder60": "60分以内の旅先をすべて見る",
-    "weekendGetawaysRail": "週末のおすすめ",
-    "weekendGetawaysDescription": "現在の出発地から行ける、2日間1泊向けの旅先です。",
-    "viewAllWeekendGetaways": "週末の旅先をすべて見る",
+    "overnightGetawaysRail": "宿泊旅行のおすすめ",
+    "overnightGetawaysDescription": "現在の出発地から行ける、宿泊向けの旅先です。",
+    "viewAllOvernightGetaways": "宿泊旅行の旅先をすべて見る",
     "worthLongerJourney": "遠くても行く価値のある旅",
     "worthLongerJourneyDescription": "2日間の滞在に十分な魅力がある、少し遠めの旅先です。",
     "viewAllLongerJourney": "遠めの旅先をすべて見る",
@@ -524,29 +532,13 @@
       "expanded": "候補を増やすため、検索条件を少し広げました。",
       "reason": "{{duration}}の予定、予算、移動手段に合うため選ばれました。"
     },
-    "tripLength": "旅行長",
-    "tripMode": "旅行タイプ",
-    "tripModes": {
-      "day_trip": "日帰り",
-      "weekend_2d1n": "週末・2日間1泊"
-    },
-    "weekendBadge": "2日間1泊",
-    "weekendDates": "{{day1}}〜{{day2}}",
-    "accommodation": "宿泊費目安（1泊）",
-    "accommodationHelp": "同行者全員分の1泊分の目安です。予約・料金保証ではありません。",
-    "accommodationPresets": {
-      "economy": "節約・¥8,000",
-      "standard": "標準・¥15,000",
-      "comfortable": "ゆったり・¥25,000",
-      "custom": "カスタム"
-    },
-    "customStayAllowance": "カスタム宿泊費目安",
-    "weekendMatches": "週末のおすすめ",
-    "weekendYourMatches": "あなたにぴったりの週末旅",
-    "weekendNoResultsTitle": "週末にぴったりの行き先が見つかりませんでした",
-    "weekendNoResultsBody": "2日間の移動・コンテンツ・天気・予算の条件に合う行き先がありませんでした。予算や移動手段を広げるか、日帰りに切り替えてみてください。",
+    "overnightMatches": "宿泊旅行のおすすめ",
+    "overnightYourMatches": "あなたにぴったりの宿泊旅行",
+    "overnightNoResultsTitle": "宿泊旅行の目的地が見つかりません",
+    "overnightNoResultsBody": "宿泊旅行の条件、コンテンツ、天候、予算に合う目的地が見つかりませんでした。予算や交通手段を広げるか、日帰りの期間を選んでください。",
     "day1Label": "1日目",
     "day2Label": "2日目",
+    "dayLabel": "{{day}}日目",
     "anyFutureDate": "好きな日付を選択",
     "originForecastHint": "予報は出発地付近の天気です"
   },
@@ -557,25 +549,22 @@
     "tokyoWardsGroup": "東京23区",
     "tokyoWardsCount": "{{count}}区",
     "tokyoWardsBadge": "23区",
-    "tripModes": {
-      "any": "すべて",
-      "day_trip": "日帰り",
-      "weekend_2d1n": "2日間・1泊"
-    },
     "tripDuration": "旅行時間",
-    "timeAvailable": "使える時間",
+    "timeAvailable": "期間",
     "durationOptions": {
       "any": "指定なし",
       "shortOuting": "合計4時間以内",
       "halfDay": "合計7.5時間以内",
-      "fullDay": "合計14時間以内"
+      "fullDay": "合計14時間以内",
+      "2d1n": "宿泊あり",
+      "3d2n": "宿泊あり"
     },
     "tripAreas": {
       "summary": "旅行エリア{{areas}}件・スポット{{places}}件",
       "show": "旅行エリア{{count}}件を表示",
       "places": "スポット{{places}}件",
-      "plentyForTwoDays": "2日間たっぷり",
-      "readyForTwoDays": "2日間で十分",
+      "plentyForDays": "{{days}}日間たっぷり",
+      "readyForDays": "{{days}}日間で十分",
       "travelBy": "{{mode}}で{{time}}"
     },
     "dateCondition": {
@@ -859,6 +848,8 @@
     "chooseTravelDate": "旅行日を選択",
     "forecastNearOrigin": "{{origin}}付近の予報",
     "originForecastDefault": "{{date}}の出発地天気予報",
+    "endDate": "終了日",
+    "derivedDateHint": "旅行日数から算出",
     "day2DerivedHint": "2日目（1泊2日の推測）",
     "day2": "2日目: {{date}}",
     "anyDate": "いつでも",

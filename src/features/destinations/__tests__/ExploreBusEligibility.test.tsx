@@ -71,9 +71,9 @@ vi.mock("react-i18next", () => ({
       const value: Record<string, string> = {
         "destination.tripAreas.summary": "{{areas}} areas · {{places}} places",
         "destination.tripAreas.show": "Show {{count}}",
-        "destination.tripModes.any": "Any",
-        "destination.tripModes.day_trip": "Day trip",
-        "destination.tripModes.weekend_2d1n": "2D1N",
+        "destination.durationOptions.any": "Any",
+        "destination.durationOptions.fullDay": "Day trip",
+        "destination.durationOptions.2d1n": "2D1N",
         // KAI-49: Explore page i18n keys — required for getResultCount and
         // empty-state assertions to resolve correctly under the test mock.
         "ui.destinationsMatching": "{{count}} destinations matching",
@@ -336,10 +336,10 @@ describe("KAI-63 Explore bus eligibility", () => {
     // no Fukuoka destination may appear in a day-trip bus filter. (Under
     // "Any" duration the night coach is legitimate reachability and those
     // destinations ARE bus-eligible — KAI-63 D4; the night gate lives in
-    // the day-trip envelope, so this test pins the explicit day_trip mode.)
+    // the full-day envelope, so this test pins the explicit fullDay duration.)
     setOrigin(TOKYO);
     const hostEl = await renderDestinations(
-      "/destinations?mode=bus&tripMode=day_trip",
+      "/destinations?mode=bus&duration=fullDay",
     );
     const ids = cardIds(hostEl);
     expect(

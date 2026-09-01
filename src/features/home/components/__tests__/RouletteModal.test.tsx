@@ -38,10 +38,12 @@ const KEY_LABELS: Record<string, string> = {
   "home.roulette.viewDetails": "View details",
   "home.roulette.empty": "No candidates available to spin.",
   "home.roulette.expanded": "Expanded the search slightly",
-  "home.weekendBadge": "2 days / 1 night",
+  "home.durationBadge": "2 days / 1 night",
   "home.durations.shortOuting": "Short outing",
   "home.durations.halfDay": "Half day",
   "home.durations.fullDay": "Full day",
+  "home.durations.2d1n": "2 days / 1 night",
+  "home.durations.3d2n": "3 days / 2 nights",
   "home.transportModes.shinkansen": "Shinkansen",
   "home.transportModes.train": "Train",
   "home.transportModes.travel": "Travel",
@@ -94,7 +96,7 @@ const weekendCandidate = {
     source: "verified_ground_route" as const,
     evidence: "verified" as const,
   },
-  weekend: {
+  overnight: {
     travelFit: { eligible: true, band: "local" as const, oneWayMinutes: 25 },
     capacity: {
       eligible: true,
@@ -130,8 +132,7 @@ function renderModal(
 describe("RouletteModal weekend mode", () => {
   it("weekend roulette displays 2 days / 1 night", () => {
     const { host, root } = renderModal({
-      tripMode: "weekend_2d1n",
-      tripDuration: "fullDay",
+      tripDuration: "2d1n",
     });
     const text = host.textContent ?? "";
     expect(text).toContain("2 days / 1 night");
@@ -141,8 +142,7 @@ describe("RouletteModal weekend mode", () => {
 
   it("weekend roulette never displays Half day", () => {
     const { host, root } = renderModal({
-      tripMode: "weekend_2d1n",
-      tripDuration: "halfDay",
+      tripDuration: "2d1n",
     });
     const text = host.textContent ?? "";
     expect(text).not.toContain("Half day");
@@ -152,7 +152,6 @@ describe("RouletteModal weekend mode", () => {
 
   it("day-trip roulette retains its duration label", () => {
     const { host, root } = renderModal({
-      tripMode: "day_trip",
       tripDuration: "halfDay",
     });
     const text = host.textContent ?? "";
@@ -163,7 +162,7 @@ describe("RouletteModal weekend mode", () => {
   });
 
   it("roulette transport equals the pipeline estimate (mode, time, places)", () => {
-    const { host, root } = renderModal({ tripMode: "weekend_2d1n" });
+    const { host, root } = renderModal({ tripDuration: "2d1n" });
     const text = host.textContent ?? "";
     // The candidate's transportEstimate: shinkansen 15–35 min, 12 places.
     expect(text).toContain("Shinkansen");
@@ -190,7 +189,7 @@ describe("RouletteModal weekend mode", () => {
         },
         memberIds: ["shinjuku-city", "shibuya-city"],
         wardHubIds: ["shinjuku-city", "shibuya-city"],
-        tripMode: "weekend_2d1n" as const,
+        tripDuration: "2d1n" as const,
       },
     };
     const host = document.createElement("div");
@@ -202,7 +201,7 @@ describe("RouletteModal weekend mode", () => {
           isOpen
           onClose={() => {}}
           candidates={[groupCandidate as unknown as Destination]}
-          tripMode="weekend_2d1n"
+          tripDuration="2d1n"
         />,
       );
     });
@@ -218,7 +217,7 @@ describe("RouletteModal weekend mode", () => {
     );
     const link = host.querySelector("a");
     expect(link?.getAttribute("href")).toBe(
-      "/destinations?city=shinjuku-city&city=shibuya-city&tripMode=weekend_2d1n",
+      "/destinations?city=shinjuku-city&city=shibuya-city&duration=2d1n",
     );
     act(() => root.unmount());
     host.remove();

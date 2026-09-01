@@ -88,7 +88,7 @@ describe("check-bundle-secrets", () => {
 
   it("allows benign bundle content", () => {
     const violations = findSecretViolations(
-      'export const VERSION = "2.0.0-beta.1"; const api = "https://meguruto.app";',
+      'export const VERSION = "2.0.0-beta.2"; const api = "https://meguruto.app";',
     );
     expect(violations).toEqual([]);
   });

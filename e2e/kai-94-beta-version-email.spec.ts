@@ -17,7 +17,7 @@ for (const locale of ["en-US", "ja-JP"]) {
       const { width } = page.viewportSize() ?? { width: 1280, height: 720 };
       if (width >= 768) {
         // Desktop: version badge lives in the footer.
-        await expect(page.getByText("v2.0.0 Beta 1")).toBeVisible();
+        await expect(page.getByText("v2.0.0 Beta 2")).toBeVisible();
       } else {
         await expect(page.getByTestId("navbar-hamburger")).toHaveCount(0);
         await expect(page.locator("#mobile-menu-drawer")).toHaveCount(0);

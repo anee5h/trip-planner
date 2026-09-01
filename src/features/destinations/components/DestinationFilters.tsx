@@ -54,10 +54,8 @@ import {
 import { getCollections } from "@/shared/data/collections";
 import { getCollectionContent } from "@/shared/utils/collections";
 import type { BudgetFilter } from "@/shared/types/planner";
-import type {
-  TripDuration,
-  TripMode,
-} from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/types/tripDuration";
+import { isOvernightDuration } from "@/shared/types/tripDuration";
 import { formatTravelDateShort } from "@/shared/utils/recommendationLabels";
 import type { DayForecastData } from "@/shared/services/weather/WeatherTabService";
 import WhereLocationPicker from "./WhereLocationPicker";
@@ -103,8 +101,6 @@ interface DestinationFiltersProps {
   setVibe: (val: string) => void;
   tripDuration: TripDuration;
   setTripDuration: (val: TripDuration) => void;
-  tripMode: "any" | TripMode;
-  setTripMode: (val: "any" | TripMode) => void;
   walkingIntensity: string;
   setWalkingIntensity: (val: string) => void;
   suitabilities: string[];
@@ -154,8 +150,6 @@ export default function DestinationFilters({
   setVibe,
   tripDuration,
   setTripDuration,
-  tripMode,
-  setTripMode,
   walkingIntensity,
   setWalkingIntensity,
   suitabilities,
@@ -607,7 +601,7 @@ export default function DestinationFilters({
               onChange={(newDate) => {
                 setDate(newDate || "");
               }}
-              tripMode={tripMode === "any" ? undefined : tripMode}
+              duration={tripDuration}
               forecastMap={forecastMap}
               originLabel={originLabel}
               allowAnyDate={true}
@@ -1087,124 +1081,91 @@ export default function DestinationFilters({
                     {isJa ? "フィルター" : "Filter"}
                   </span>
                 </div>
-                <div className="flex items-center gap-0.5 p-1 bg-slate-100 dark:bg-[hsl(var(--surface-card))] rounded-xl">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setTripDuration("any");
-                      setTripMode("any");
-                    }}
-                    className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
-                      tripMode !== "day_trip" && tripMode !== "weekend_2d1n"
-                        ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
-                    }`}
-                  >
-                    {t("destination.tripModes.any")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTripMode("day_trip")}
-                    className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
-                      tripMode === "day_trip"
-                        ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
-                    }`}
-                  >
-                    {t("destination.tripModes.day_trip")}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setTripMode("weekend_2d1n")}
-                    className={`flex-1 rounded-lg px-3 py-2 text-xs font-bold transition-all ${
-                      tripMode === "weekend_2d1n"
-                        ? "bg-emerald-700 text-white shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
-                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-200"
-                    }`}
-                  >
-                    {t("destination.tripModes.weekend_2d1n")}
-                  </button>
-                </div>
-
-                {tripMode === "day_trip" && (
-                  <div className="grid grid-cols-1 sm:grid-cols-[11fr_9fr] gap-3">
-                    {/* Total available time segmented track */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                        {t("destination.timeAvailable")}
-                      </label>
-                      <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-[hsl(var(--surface-card))] rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
-                        {[
-                          {
-                            val: "any",
-                            label: t("destination.durationOptions.any"),
-                          },
-                          {
-                            val: "shortOuting",
-                            label: t("destination.durationOptions.shortOuting"),
-                          },
-                          {
-                            val: "halfDay",
-                            label: t("destination.durationOptions.halfDay"),
-                          },
-                          {
-                            val: "fullDay",
-                            label: t("destination.durationOptions.fullDay"),
-                          },
-                        ].map((opt) => {
-                          const isSelected = tripDuration === opt.val;
-                          return (
-                            <button
-                              key={opt.val}
-                              type="button"
-                              onClick={() =>
-                                setTripDuration(opt.val as TripDuration)
-                              }
-                              className={`min-h-[32px] px-1 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
-                                isSelected
-                                  ? "bg-white dark:bg-[hsl(var(--surface-overlay))] text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-[hsl(var(--border-subtle))] font-extrabold"
-                                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                              }`}
-                            >
-                              {opt.label}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Indoor Preference Segmented Track */}
-                    <div className="space-y-1.5">
-                      <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
-                        {isJa ? "屋内の快適性" : "Indoor preference"}
-                      </label>
-                      <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-[hsl(var(--surface-card))] rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
-                        {[
-                          { val: 0, label: isJa ? "指定なし" : "Any" },
-                          { val: 30, label: isJa ? "屋外中心" : "Outdoors" },
-                          { val: 50, label: isJa ? "バランス" : "Mixed" },
-                          { val: 70, label: isJa ? "屋内中心" : "Indoors" },
-                        ].map((opt) => {
-                          const isSelected = indoorMin === opt.val;
-                          return (
-                            <button
-                              key={opt.val}
-                              type="button"
-                              onClick={() => setIndoorMin(opt.val)}
-                              className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
-                                isSelected
-                                  ? "bg-white dark:bg-[hsl(var(--surface-overlay))] text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-[hsl(var(--border-subtle))] font-extrabold"
-                                  : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                              }`}
-                            >
-                              {opt.label}
-                            </button>
-                          );
-                        })}
-                      </div>
+                <div className="grid grid-cols-1 gap-3">
+                  {/* Total available time segmented track */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                      {t("destination.timeAvailable")}
+                    </label>
+                    <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-[hsl(var(--surface-card))] rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
+                      {[
+                        {
+                          val: "any",
+                          label: t("destination.durationOptions.any"),
+                        },
+                        {
+                          val: "shortOuting",
+                          label: t("destination.durationOptions.shortOuting"),
+                        },
+                        {
+                          val: "halfDay",
+                          label: t("destination.durationOptions.halfDay"),
+                        },
+                        {
+                          val: "fullDay",
+                          label: t("destination.durationOptions.fullDay"),
+                        },
+                        {
+                          val: "2d1n",
+                          label: t("destination.durationOptions.2d1n"),
+                        },
+                        {
+                          val: "3d2n",
+                          label: t("destination.durationOptions.3d2n"),
+                        },
+                      ].map((opt) => {
+                        const isSelected = tripDuration === opt.val;
+                        return (
+                          <button
+                            key={opt.val}
+                            type="button"
+                            onClick={() =>
+                              setTripDuration(opt.val as TripDuration)
+                            }
+                            className={`min-h-[32px] px-1 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
+                              isSelected
+                                ? "bg-white dark:bg-[hsl(var(--surface-overlay))] text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-[hsl(var(--border-subtle))] font-extrabold"
+                                : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
-                )}
+
+                  {/* Indoor Preference Segmented Track */}
+                  <div className="space-y-1.5">
+                    <label className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                      {isJa ? "屋内の快適性" : "Indoor preference"}
+                    </label>
+                    <div className="min-h-[40px] p-1 bg-slate-100 dark:bg-[hsl(var(--surface-card))] rounded-xl grid grid-cols-2 sm:grid-cols-4 gap-1">
+                      {[
+                        { val: 0, label: isJa ? "指定なし" : "Any" },
+                        { val: 30, label: isJa ? "屋外中心" : "Outdoors" },
+                        { val: 50, label: isJa ? "バランス" : "Mixed" },
+                        { val: 70, label: isJa ? "屋内中心" : "Indoors" },
+                      ].map((opt) => {
+                        const isSelected = indoorMin === opt.val;
+                        return (
+                          <button
+                            key={opt.val}
+                            type="button"
+                            onClick={() => setIndoorMin(opt.val)}
+                            className={`min-h-[32px] px-2 py-1 rounded-xl text-xs font-bold text-center flex items-center justify-center transition-all leading-tight whitespace-normal break-words ${
+                              isSelected
+                                ? "bg-white dark:bg-[hsl(var(--surface-overlay))] text-slate-950 dark:text-white shadow-xs border border-slate-200/80 dark:border-[hsl(var(--border-subtle))] font-extrabold"
+                                : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                            }`}
+                          >
+                            {opt.label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
 
                 {/* Vibe / Atmosphere Multi-Select Chips */}
                 <details className="group border-t border-slate-100 dark:border-[hsl(var(--border-subtle))] pt-3">
@@ -1500,7 +1461,7 @@ export default function DestinationFilters({
                 onClick={() => setModalOpen(false)}
                 className="px-5 sm:px-6 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold text-xs rounded-xl shadow-md hover:shadow-lg transition-all active:scale-95 whitespace-nowrap"
               >
-                {tripMode === "weekend_2d1n"
+                {isOvernightDuration(tripDuration)
                   ? t("destination.tripAreas.show", {
                       count: totalResultsCount,
                     })

@@ -92,11 +92,25 @@ describe("useTripPlannerState", () => {
     expect(result.carMode).toBe("none");
   });
 
-  it("defaults Home trip mode to day_trip (weekend is opt-in)", () => {
+  it("defaults to the canonical half-day duration", () => {
+    const result = setupHook()();
+    expect(result.tripDuration).toBe("halfDay");
+    expect(result.resolvedApplied.tripDuration).toBe("halfDay");
+  });
+
+  it("updates duration in draft state and derives overnight budget", () => {
     const getResult = setupHook();
-    const result = getResult();
-    expect(result.tripMode).toBe("day_trip");
-    expect(result.resolvedApplied.tripMode).toBe("day_trip");
+
+    act(() => {
+      getResult().setTripDuration("3d2n");
+    });
+
+    expect(getResult().tripDuration).toBe("3d2n");
+    expect(getResult().resolvedDraft.tripDuration).toBe("3d2n");
+    expect(getResult().resolvedDraft.budget).toBeGreaterThan(
+      getResult().resolvedDraft.budget - 1,
+    );
+    expect(getResult().isDirty).toBe(true);
   });
 
   it("updates draft state without mutating applied state until applyPlannerState is called", () => {
@@ -134,100 +148,6 @@ describe("useTripPlannerState", () => {
       getResult().setPartySize(10);
     });
     expect(getResult().partySize).toBe(8);
-  });
-
-  describe("tripMode and accommodationAllowance", () => {
-    it("defaults tripMode to day_trip and accommodationAllowance to 15000", () => {
-      const getResult = setupHook();
-      const result = getResult();
-
-      expect(result.tripMode).toBe("day_trip");
-      expect(result.accommodationAllowance).toBe(15000);
-    });
-
-    it("setTripMode updates draft tripMode", () => {
-      const getResult = setupHook();
-
-      act(() => {
-        getResult().setTripMode("weekend_2d1n");
-      });
-
-      expect(getResult().tripMode).toBe("weekend_2d1n");
-      expect(getResult().isDirty).toBe(true);
-    });
-
-    it("setAccommodationAllowance updates draft value", () => {
-      const getResult = setupHook();
-
-      act(() => {
-        getResult().setAccommodationAllowance(20000);
-      });
-
-      expect(getResult().accommodationAllowance).toBe(20000);
-      expect(getResult().isDirty).toBe(true);
-    });
-
-    it("setAccommodationAllowance clamps invalid values to nearest bound", () => {
-      const getResult = setupHook();
-
-      act(() => {
-        getResult().setAccommodationAllowance(-500);
-      });
-      expect(getResult().accommodationAllowance).toBe(0);
-
-      act(() => {
-        getResult().setAccommodationAllowance(1000000);
-      });
-      expect(getResult().accommodationAllowance).toBe(500000);
-    });
-
-    it("weekend budget equals day budget * 2 + accommodationAllowance", () => {
-      const getResult = setupHook();
-
-      act(() => {
-        getResult().setTripMode("weekend_2d1n");
-        getResult().setAccommodationAllowance(15000);
-      });
-
-      const weekendResolved = getResult().resolvedDraft;
-      expect(weekendResolved.budget).toBe(95000);
-    });
-
-    it("switching weekend to day removes accommodation from budget", () => {
-      const getResult = setupHook();
-
-      act(() => {
-        getResult().setTripMode("weekend_2d1n");
-        getResult().setAccommodationAllowance(20000);
-      });
-
-      const weekendBudget = getResult().resolvedDraft.budget;
-
-      act(() => {
-        getResult().setTripMode("day_trip");
-      });
-
-      const dayBudget = getResult().resolvedDraft.budget;
-      expect(dayBudget).toBeLessThan(weekendBudget);
-    });
-
-    it("dirty flag flips on tripMode change", () => {
-      const getResult = setupHook();
-
-      expect(getResult().isDirty).toBe(false);
-
-      act(() => {
-        getResult().setTripMode("weekend_2d1n");
-      });
-
-      expect(getResult().isDirty).toBe(true);
-
-      act(() => {
-        getResult().applyPlannerState();
-      });
-
-      expect(getResult().isDirty).toBe(false);
-    });
   });
 
   describe("transport selection with mock user", () => {

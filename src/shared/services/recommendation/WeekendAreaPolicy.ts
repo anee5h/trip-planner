@@ -1,7 +1,12 @@
 import type { Destination } from "@/shared/types/destination";
+import {
+  getTripDays,
+  normalizeTripDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 
 /**
- * Hub-first weekend policy: 2D1N primary results are coherent trip areas
+ * Hub-first overnight policy: primary results are coherent trip areas
  * (hubs and standalone area-like destinations), never isolated POIs.
  *
  * Classification uses only structured catalogue data (role, placeType,
@@ -81,6 +86,35 @@ export function computeAreaCapacityMinutes(
   return Math.max(ownMinutes, childrenSum);
 }
 
+export interface OvernightCapacityThresholds {
+  days: number;
+  minEligibleMinutes: number;
+  strongMinutes: number;
+}
+
+/**
+ * Overnight capacity scales with the selected number of days. The default
+ * keeps legacy 2D1N callers at 480/600 minutes, while 3D2N requires
+ * 720/900 minutes and future N-day durations scale without another policy.
+ */
+export const OVERNIGHT_CAPACITY_POLICY = {
+  MIN_ELIGIBLE_MINUTES_PER_DAY: 240,
+  STRONG_MINUTES_PER_DAY: 300,
+} as const;
+
+export function getOvernightCapacityThresholds(
+  duration: TripDuration | string = "2d1n",
+): OvernightCapacityThresholds {
+  const canonicalDuration = normalizeTripDuration(duration) ?? "2d1n";
+  const days = Math.max(2, getTripDays(canonicalDuration));
+  return {
+    days,
+    minEligibleMinutes:
+      days * OVERNIGHT_CAPACITY_POLICY.MIN_ELIGIBLE_MINUTES_PER_DAY,
+    strongMinutes: days * OVERNIGHT_CAPACITY_POLICY.STRONG_MINUTES_PER_DAY,
+  };
+}
+
 /**
  * Classifies a weekend candidate against the full candidate pool.
  *
@@ -148,23 +182,22 @@ export interface WeekendAreaConsolidation {
 }
 
 /**
- * No-origin weekend browsing gate: no personalized travel claims, but the
- * candidate still needs coherent trip-area classification and at least 480
- * published activity minutes. Thin areas are never 2D1N bases.
+ * No-origin overnight browsing gate: no personalized travel claims, but the
+ * candidate still needs coherent trip-area classification and duration-aware
+ * published activity capacity. Thin areas are never overnight bases.
  */
 export function passesNoOriginWeekendGate(
   destination: Destination,
   pool: readonly Destination[],
+  duration: TripDuration | string = "2d1n",
 ): boolean {
   const children = getContainedPlaces(destination, pool);
   if (classifyWithChildren(destination, children).kind === "poi") return false;
   return (
     computeAreaCapacityMinutes(destination, children) >=
-    WEEKEND_CAPACITY_MIN_MINUTES
+    getOvernightCapacityThresholds(duration).minEligibleMinutes
   );
 }
-
-const WEEKEND_CAPACITY_MIN_MINUTES = 480;
 
 /**
  * Hub-first consolidation step: runs after weekend eligibility, before final

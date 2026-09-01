@@ -10,6 +10,7 @@ import { DestinationRelationshipService } from "@/shared/services/destination/De
 import DestinationMap from "./components/DestinationMap";
 import { getCityArea } from "@/shared/data/cityAreas";
 import type { Destination } from "@/shared/types/destination";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import type { Collection } from "@/shared/types/collection";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
@@ -327,8 +328,7 @@ export default function DestinationDetails() {
     budget?: number;
     /** Planned travel date (ISO) forwarded from the planner. */
     travelDate?: string;
-    tripMode?: "day_trip" | "weekend_2d1n";
-    accommodationAllowance?: number;
+    duration?: TripDuration;
   } | null;
   const { user } = useAuth();
   const partySize =
@@ -340,10 +340,7 @@ export default function DestinationDetails() {
     retry: retryRelationshipCatalogue,
   } = useDestinationRelationships();
   const relationshipCatalogueReady = relationshipCatalogueStatus === "ready";
-  const accommodationAllowance =
-    navState?.tripMode === "weekend_2d1n"
-      ? navState?.accommodationAllowance
-      : undefined;
+  const duration = navState?.duration ?? "fullDay";
 
   const {
     isVisited,
@@ -817,9 +814,7 @@ export default function DestinationDetails() {
       mode,
       partySize,
       homeCoords: homeStationCoords ?? undefined,
-      tripMode:
-        navState?.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
-      accommodationAllowance,
+      duration,
       ferryTemporal,
       ...(opts ?? {}),
     });
@@ -1592,13 +1587,7 @@ export default function DestinationDetails() {
                 selectedTransport={selectedTransport}
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
-                accommodationAllowance={accommodationAllowance}
-                tripMode={
-                  navState?.tripMode === "weekend_2d1n"
-                    ? "weekend_2d1n"
-                    : "day_trip"
-                }
-                nights={navState?.tripMode === "weekend_2d1n" ? 1 : 0}
+                duration={duration}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
                   if (plan) {
@@ -1619,9 +1608,20 @@ export default function DestinationDetails() {
                   </h3>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {[
+                      [
+                        "shortOuting",
+                        locale === "ja" ? "短時間" : "Short outing",
+                      ],
                       ["halfDay", locale === "ja" ? "半日" : "Half day"],
-                      ["dayTrip", locale === "ja" ? "日帰り" : "Full day"],
-                      ["weekend", locale === "ja" ? "週末" : "Weekend"],
+                      ["fullDay", locale === "ja" ? "日帰り" : "Full day"],
+                      [
+                        "2d1n",
+                        locale === "ja" ? "2日間・1泊" : "2 days / 1 night",
+                      ],
+                      [
+                        "3d2n",
+                        locale === "ja" ? "3日間・2泊" : "3 days / 2 nights",
+                      ],
                     ].map(([duration, label]) => (
                       <Link
                         key={duration}

@@ -54,7 +54,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
         homeStationTransportZoneId,
         carMode,
         publicModes,
-        tripMode: "day_trip",
+        tripDuration: "fullDay",
         visitedIds: destinations
           .filter((destination) => isVisited(destination.id))
           .map((destination) => destination.id),

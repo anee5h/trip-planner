@@ -1,4 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
+import { isOvernightDuration } from "@/shared/types/tripDuration";
 import {
   calculateTripEstimate,
   evaluateAffordability,
@@ -141,10 +142,9 @@ export function runRecommendationPipeline(
   destinations: Destination[],
   context: RecommendationContext,
 ): PipelineRecommendation[] {
-  const tripMode = context.tripMode ?? "day_trip";
-  const isWeekend = tripMode === "weekend_2d1n";
-  const scoreContext =
-    context.tripMode === undefined ? { ...context, tripMode } : context;
+  const tripDuration = context.tripDuration ?? "any";
+  const isOvernight = isOvernightDuration(tripDuration);
+  const scoreContext = context;
   // Resolved for every mode: weekend uses it for the origin-local
   // exclusion, and the Tokyo wards consolidation uses the origin region.
   const originMunicipalityId = resolveOriginMunicipalityId(
@@ -177,7 +177,7 @@ export function runRecommendationPipeline(
           context.ferryTemporal,
         )
       : [];
-    if (modes.length === 0 && (hasOrigin || isWeekend)) return false;
+    if (modes.length === 0 && (hasOrigin || isOvernight)) return false;
     // Canonical trip-date transport eligibility: a ferry-only trip must be
     // covered on every travel day (outbound Day 1 / return Day 2).
     if (
@@ -197,7 +197,7 @@ export function runRecommendationPipeline(
     // evaluateWeekendCandidate. Day trips keep the pure visit band as their
     // on-site source, then apply verified-or-bounded-estimated origin-aware
     // feasibility when an origin and constrained duration are present.
-    if (isWeekend) {
+    if (isOvernight) {
       const eval_ = evaluateWeekendCandidate(
         destination,
         context,
@@ -210,14 +210,11 @@ export function runRecommendationPipeline(
     } else {
       // KAI-63 D4: duration filtering applies only under an explicit
       // duration/trip-mode constraint — mirroring the Explore gate
-      // (Destinations.tsx). An explicit tripMode=day_trip (even with
-      // duration "any") applies the day-trip envelope; an explicit
-      // duration applies that duration; absent both (no explicit trip
-      // mode, duration absent/"any") eligibility stays pure reachability.
+      // An explicit day duration applies its duration envelope; absent or
+      // "any" stays pure reachability.
       const requestedDuration = context.tripDuration;
       const durationConstrained =
-        context.tripMode === "day_trip" ||
-        (requestedDuration !== undefined && requestedDuration !== "any");
+        requestedDuration !== undefined && requestedDuration !== "any";
       if (
         durationConstrained &&
         !matchesPersonalizedDayTripDuration(
@@ -249,12 +246,8 @@ export function runRecommendationPipeline(
         mode,
         partySize: context.partySize,
         homeCoords: context.homeStationCoords || undefined,
-        tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+        duration: tripDuration,
         includeOriginTravel: Boolean(context.homeStationCoords),
-        // KAI-217B repair: overnight recommendation affordability MUST
-        // include the user's accommodation selection — the engine sees
-        // missing accommodation as partial without it.
-        accommodationAllowance: context.accommodationAllowance,
         ferryTemporal: context.ferryTemporal,
       }),
     );
@@ -293,24 +286,24 @@ export function runRecommendationPipeline(
     return true;
   });
 
-  // Hub-first consolidation: 2D1N primary results are coherent trip areas
+  // Hub-first consolidation: overnight primary results are coherent trip areas
   // (hubs / standalone areas); child POIs and standalone POIs are dropped.
-  let weekendAreas: WeekendAreaConsolidation | undefined;
-  if (isWeekend) {
-    weekendAreas = consolidateWeekendAreas(eligible, candidates);
+  let overnightAreas: WeekendAreaConsolidation | undefined;
+  if (isOvernight) {
+    overnightAreas = consolidateWeekendAreas(eligible, candidates);
   }
-  const weekendPrimaryIds = weekendAreas
-    ? new Set(weekendAreas.areas.map((area) => area.id))
+  const overnightPrimaryIds = overnightAreas
+    ? new Set(overnightAreas.areas.map((area) => area.id))
     : null;
 
   const scored = eligible
     .filter(
       (candidate) =>
-        !isWeekend || (weekendPrimaryIds?.has(candidate.id) ?? false),
+        !isOvernight || (overnightPrimaryIds?.has(candidate.id) ?? false),
     )
     .map((candidate) => {
       const scoreResult = calculateScore(candidate, scoreContext);
-      const weekend = isWeekend
+      const weekend = isOvernight
         ? weekendEvalCache.get(candidate.id)
         : undefined;
       // Shared forecast/seasonal/unknown evaluation for explicit trip dates.
@@ -355,7 +348,7 @@ export function runRecommendationPipeline(
       );
       // Day-trip cards may use the same bounded estimated evidence as the
       // feasibility gate. Weekend keeps its separate canonical-only policy.
-      const transportEstimate = isWeekend
+      const transportEstimate = isOvernight
         ? getOriginAwareTransportEstimate(
             candidate,
             {
@@ -382,9 +375,8 @@ export function runRecommendationPipeline(
             partySize: context.partySize,
             homeCoords: context.homeStationCoords || undefined,
             includeOriginTravel: Boolean(context.homeStationCoords),
-            tripMode: isWeekend ? "weekend_2d1n" : "day_trip",
+            duration: tripDuration,
             budgetTier: context.budgetTier,
-            accommodationAllowance: context.accommodationAllowance,
             ferryTemporal: context.ferryTemporal,
           })
         : null;
@@ -451,16 +443,16 @@ export function runRecommendationPipeline(
         estimatedCostTransportIncluded,
         estimatedCostTransportScope,
         condition,
-        weekend: weekend
+        overnight: weekend
           ? {
               travelFit: weekend.travelFit,
               capacity: weekend.capacity,
               weatherDays: weekend.weatherDays,
-              accommodationAllowance: context.accommodationAllowance,
+
               estimatedCostTransportIncluded,
               estimatedCostTransportScope,
-              areaKind: weekendAreas?.kindById.get(candidate.id),
-              placeCount: weekendAreas?.placeCountById.get(candidate.id) ?? 0,
+              areaKind: overnightAreas?.kindById.get(candidate.id),
+              placeCount: overnightAreas?.placeCountById.get(candidate.id) ?? 0,
             }
           : undefined,
         pipeline: {
@@ -483,7 +475,7 @@ export function runRecommendationPipeline(
     results: scored,
     originPrefecture: originMunicipalityId?.split(":")[0]?.toLowerCase(),
     pool: destinations,
-    tripMode,
+    duration: tripDuration,
   });
 
   return diversifyRecommendations(consolidated);

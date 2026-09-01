@@ -25,7 +25,8 @@ import {
 } from "@/shared/utils/placeLabels";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useTranslation } from "react-i18next";
-import type { TripMode } from "@/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "@/shared/types/tripDuration";
+import { isOvernightDuration } from "@/shared/types/tripDuration";
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
@@ -38,9 +39,7 @@ interface RouletteModalProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
-  tripDuration?: "shortOuting" | "halfDay" | "fullDay";
-  /** The same trip mode the candidate pool was built with. */
-  tripMode?: TripMode;
+  tripDuration?: TripDuration;
   expansion?: "exact" | "duration" | "budget";
 }
 
@@ -48,6 +47,8 @@ const DAY_TRIP_DURATION_LABELS = {
   shortOuting: "home.durations.shortOuting",
   halfDay: "home.durations.halfDay",
   fullDay: "home.durations.fullDay",
+  "2d1n": "home.durations.2d1n",
+  "3d2n": "home.durations.3d2n",
 } as const;
 
 const MODE_LABELS = {
@@ -68,7 +69,6 @@ export default function RouletteModal({
   carMode,
   publicModes,
   tripDuration = "halfDay",
-  tripMode = "day_trip",
   expansion = "exact",
 }: RouletteModalProps) {
   const { locale } = useLocale();
@@ -153,7 +153,7 @@ export default function RouletteModal({
   // recommendation pipeline.
   const scoredCandidate = displayedCandidate as ScoredDestination;
   const pipelineEstimate = scoredCandidate?.transportEstimate;
-  const isWeekend = tripMode === "weekend_2d1n";
+  const isOvernight = isOvernightDuration(tripDuration);
   const validModes = displayedCandidate
     ? getValidModes(
         displayedCandidate,
@@ -165,7 +165,7 @@ export default function RouletteModal({
       )
     : [];
   const dayEstimate =
-    !isWeekend && displayedCandidate
+    !isOvernight && displayedCandidate
       ? getDayTripTravelDurationEvidence(
           displayedCandidate,
           {
@@ -200,11 +200,17 @@ export default function RouletteModal({
           "home.transportModes.travel",
       ) as string)
     : t("home.transportModes.travel");
-  const durationLabel = isWeekend
-    ? t("home.weekendBadge")
-    : (t(DAY_TRIP_DURATION_LABELS[tripDuration]) as string);
-  const weekendPlaceCount = isWeekend
-    ? (scoredCandidate?.weekend?.placeCount ?? 0)
+  const durationLabelKey =
+    tripDuration === "any"
+      ? DAY_TRIP_DURATION_LABELS.fullDay
+      : tripDuration in DAY_TRIP_DURATION_LABELS
+        ? DAY_TRIP_DURATION_LABELS[
+            tripDuration as keyof typeof DAY_TRIP_DURATION_LABELS
+          ]
+        : DAY_TRIP_DURATION_LABELS["3d2n"];
+  const durationLabel = t(durationLabelKey);
+  const weekendPlaceCount = isOvernight
+    ? (scoredCandidate?.overnight?.placeCount ?? 0)
     : 0;
   const wardGroup = scoredCandidate?.wardGroup;
   const displayName =
@@ -212,7 +218,7 @@ export default function RouletteModal({
       ? t("destination.tokyoWardsGroup")
       : localized?.name || displayedCandidate?.name || "";
   const detailHref = wardGroup
-    ? buildTokyoWardsLink(wardGroup.wardHubIds, wardGroup.tripMode)
+    ? buildTokyoWardsLink(wardGroup.wardHubIds, tripDuration)
     : winner
       ? `/destinations/${winner.id}`
       : "/destinations";

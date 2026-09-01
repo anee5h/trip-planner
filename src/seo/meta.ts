@@ -25,14 +25,14 @@ export function localePathPrefix(locale: PageLocale): string {
  *  destination so stale localized metadata never outlives the route. */
 export const DEFAULT_PAGE_TITLE = "Meguruto: めぐると、見つかる。";
 export const DEFAULT_PAGE_DESCRIPTION =
-  "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.";
+  "Discover short outings and overnight trips that fit your time, budget, weather, and travel style.";
 
 /** Home-page <title> per locale (KAI-114: the Japanese home declares the
  *  Katakana brand — メグルト — alongside the Latin brand so users who hear
  *  the product name and search in Katakana can find the site). */
 export const HOME_TITLE: Record<PageLocale, string> = {
   en: DEFAULT_PAGE_TITLE,
-  ja: "メグルト（Meguruto）｜日帰り・週末旅行をもっと簡単に",
+  ja: "メグルト（Meguruto）｜日帰り・宿泊旅行をもっと簡単に",
 };
 
 /** Share-preview (OG/Twitter) copy per locale. This is what messaging apps
@@ -46,12 +46,12 @@ export const SHARE_COPY: Record<
   en: {
     title: "Meguruto — Find Your Next Trip in Japan",
     description:
-      "Discover day trips and weekend getaways that fit your time, budget, weather, and travel style.",
+      "Discover short outings and overnight trips that fit your time, budget, weather, and travel style.",
   },
   ja: {
-    title: "メグルト（Meguruto）— 次の週末、日本のどこへ行く？",
+    title: "メグルト（Meguruto）— 次の宿泊旅行、日本のどこへ行く？",
     description:
-      "メグルト（Meguruto）は、時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・週末旅行先を見つける日本旅行プランナー。",
+      "メグルト（Meguruto）は、時間・予算・天気・好みに合わせて、あなたにぴったりの日帰り・宿泊旅行先を見つける日本旅行プランナー。",
   },
 };
 

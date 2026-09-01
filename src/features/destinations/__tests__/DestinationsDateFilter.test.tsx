@@ -130,7 +130,7 @@ describe("Destinations date filter", () => {
 
   it("restores a selected date from the URL with a seasonal label", () => {
     const container = renderDestinations(
-      "/destinations?tripMode=weekend_2d1n&date=2030-06-15",
+      "/destinations?duration=2d1n&date=2030-06-15",
     );
     expect(dateFilterButton(container)?.textContent).toContain("Jun 15");
     // Real i18n resources render the date-level seasonal label.
@@ -143,7 +143,7 @@ describe("Destinations date filter", () => {
       ["2030-06-16", { date: "2030-06-16", desc: "Cloudy", icon: "cloud" }],
     ]);
     const container = renderDestinations(
-      "/destinations?tripMode=weekend_2d1n&date=2030-06-15",
+      "/destinations?duration=2d1n&date=2030-06-15",
     );
     expect(container.textContent).toContain(
       "Origin forecast for Jun 15–Jun 16",

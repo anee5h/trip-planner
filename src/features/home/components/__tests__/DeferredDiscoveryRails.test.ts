@@ -21,7 +21,6 @@ function destination(id: string, score: number, season: number): Destination {
 describe("buildHomeDiscoveryRails", () => {
   it("keeps deterministic seasonal order and existing soft de-duplication", () => {
     const result = buildHomeDiscoveryRails({
-      isWeekendMode: false,
       recommendedDestinations: [
         destination("top-match", 100, 10),
         destination("seasonal-high", 80, 10),
@@ -35,7 +34,7 @@ describe("buildHomeDiscoveryRails", () => {
       carMode: "none",
       publicModes: [],
       visitedIds: [],
-      tripMode: "day_trip",
+      tripDuration: "fullDay",
       seasonalReferenceDate: new Date("2026-08-01T12:00:00"),
     });
 
@@ -46,25 +45,25 @@ describe("buildHomeDiscoveryRails", () => {
     ]);
     expect(result.under60).toEqual([]);
     expect(result.nearby).toEqual([]);
-    expect(result.weekendGetaways).toEqual([]);
+    expect(result.overnightGetaways).toEqual([]);
     expect(result.longerJourney).toEqual([]);
   });
 
   it("preserves weekend rail order while applying shared de-duplication", () => {
     const result = buildHomeDiscoveryRails({
-      isWeekendMode: true,
+      tripDuration: "2d1n",
       recommendedDestinations: [
         destination("top-match", 100, 10),
         {
           ...destination("weekend-high", 90, 10),
-          weekend: {
+          overnight: {
             travelFit: { eligible: true, band: "strong", oneWayMinutes: 90 },
             capacity: { eligible: true },
           },
         } as unknown as Destination,
         {
           ...destination("longer", 80, 10),
-          weekend: {
+          overnight: {
             travelFit: { eligible: true, band: "strong", oneWayMinutes: 240 },
             capacity: { eligible: true },
           },
@@ -78,11 +77,10 @@ describe("buildHomeDiscoveryRails", () => {
       carMode: "none",
       publicModes: [],
       visitedIds: [],
-      tripMode: "weekend_2d1n",
       seasonalReferenceDate: new Date("2026-08-01T12:00:00"),
     });
 
-    expect(result.weekendGetaways.map(({ id }) => id)).toEqual([
+    expect(result.overnightGetaways.map(({ id }) => id)).toEqual([
       "weekend-high",
       "longer",
     ]);

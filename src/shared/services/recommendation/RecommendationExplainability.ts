@@ -80,7 +80,7 @@ function getDayTripDisplayTier(code: RecommendationReasonCode): number {
   return DAY_TRIP_DISPLAY_PRIORITY.findIndex((tier) => tier.includes(code));
 }
 
-const WEEKEND_DISPLAY_PRIORITY: readonly RecommendationReasonCode[] = [
+const OVERNIGHT_DISPLAY_PRIORITY: readonly RecommendationReasonCode[] = [
   "weekendWeatherGood",
   "weekendWeatherDayRain",
   "weekendWeatherPoorOutdoor",
@@ -97,10 +97,10 @@ const WEEKEND_DISPLAY_PRIORITY: readonly RecommendationReasonCode[] = [
  */
 export function getPrimaryDisplayReason(
   reasons: readonly MatchReason[],
-  options: { weekend?: boolean } = {},
+  options: { overnight?: boolean } = {},
 ): MatchReason | undefined {
-  if (options.weekend) {
-    for (const code of WEEKEND_DISPLAY_PRIORITY) {
+  if (options.overnight) {
+    for (const code of OVERNIGHT_DISPLAY_PRIORITY) {
       const reason = reasons.find((candidate) => candidate.code === code);
       if (reason) return reason;
     }
@@ -159,10 +159,8 @@ export function createRecommendationMatch(
       homeCoords: context.homeStationCoords ?? undefined,
       includeOriginTravel: Boolean(context.homeStationCoords),
       budgetTier: context.budgetTier,
-      // KAI-260: use the same range-first trip mode as the scorer.
-      tripMode:
-        context.tripMode === "weekend_2d1n" ? "weekend_2d1n" : "day_trip",
-      accommodationAllowance: context.accommodationAllowance,
+      // KAI-260: use the same canonical duration as the scorer.
+      duration: context.tripDuration ?? "fullDay",
       ferryTemporal: context.ferryTemporal,
     });
     if (engineResult.total && engineResult.total.max <= budget) {

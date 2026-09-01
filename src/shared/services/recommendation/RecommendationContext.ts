@@ -5,11 +5,9 @@ import type {
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import type { TravelDateSelection } from "./TravelConditions";
+import type { TripDuration } from "@/shared/types/tripDuration";
 
-export type TripDuration =
-  "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
-
-export type TripMode = "day_trip" | "weekend_2d1n";
+export type { TripDuration } from "@/shared/types/tripDuration";
 export type ActualWeatherCondition =
   "clear" | "cloudy" | "rainy" | "stormy" | "snowy" | "unknown";
 export interface RecommendationWeatherDay {
@@ -29,7 +27,7 @@ export interface RecommendationWeatherContext {
     condition: ActualWeatherCondition;
     temperatureC?: number;
   };
-  /** DESTINATION-specific per-day weather (e.g. a 2D1N trip at the place). */
+  /** DESTINATION-specific per-day weather for the selected trip duration. */
   days?: RecommendationWeatherDay[];
   /** User preference, not weather data. */
   preferred?: "any" | "rainy" | "hot" | "cold";
@@ -103,8 +101,6 @@ export interface RecommendationContext {
   availableTimeHours?: number;
   userProfile?: ImplicitUserProfile;
   personalizationSettings?: PersonalizationSettings;
-  tripMode?: TripMode;
-  accommodationAllowance?: number;
 }
 
 export interface TripDurationContext {

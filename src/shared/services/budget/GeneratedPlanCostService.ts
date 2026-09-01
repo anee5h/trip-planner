@@ -36,6 +36,7 @@ export interface GeneratedPlanCostResult {
   localTransit: CostComponent;
   admission: CostComponent;
   meals: CostComponent;
+  accommodation?: CostComponent;
   parking: CostComponent;
   completeness: "complete" | "partial" | "unavailable";
   knownSubtotal: [number, number];
@@ -188,12 +189,13 @@ export function calculateGeneratedPlanCost(
     ).values(),
   );
 
+  const duration = plan.duration ?? "fullDay";
   const estimates = destinations.map((dest) => {
     const result = calculateTripEstimate({
       dest,
       mode: transportMode ?? undefined,
       partySize: safeParty,
-      tripMode: "day_trip",
+      duration,
       includeOriginTravel: false,
     });
     if (result.estimateQuality !== "verified")
@@ -224,6 +226,15 @@ export function calculateGeneratedPlanCost(
         estimates[0].components.find((c) => c.evidence.scope === "meals")!,
       )
     : NA;
+  // Accommodation is a plan-level component: estimate it once for the
+  // selected duration, never once per destination stop.
+  const accommodation = estimates.length
+    ? toPlanComponent(
+        estimates[0].components.find(
+          (c) => c.evidence.scope === "accommodation",
+        )!,
+      )
+    : NA;
   const anchorDestination = plan.steps.find(
     (step) => step.type === "destination" && step.destination,
   )?.destination;
@@ -235,7 +246,7 @@ export function calculateGeneratedPlanCost(
           partySize: safeParty,
           homeCoords,
           includeOriginTravel: true,
-          tripMode: "day_trip",
+          duration,
         })
       : undefined;
   const originTransport = originEstimate
@@ -257,7 +268,13 @@ export function calculateGeneratedPlanCost(
     });
   }
 
-  const components = [originTransport, localTransit, admission, meals];
+  const components = [
+    originTransport,
+    localTransit,
+    admission,
+    meals,
+    accommodation,
+  ];
   const applicable = components.filter((component) => component.applicable);
   const allNumeric =
     applicable.length > 0 &&
@@ -279,6 +296,7 @@ export function calculateGeneratedPlanCost(
     localTransit,
     admission,
     meals,
+    accommodation,
     parking: NA,
     completeness: allNumeric
       ? "complete"

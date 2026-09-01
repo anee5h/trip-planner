@@ -31,7 +31,7 @@ describe("TripDurationService", () => {
     expect(getBand(2.5)).toBe("shortOuting");
     expect(getBand(5)).toBe("halfDay");
     expect(getBand(10)).toBe("fullDay");
-    expect(getBand(16)).toBe("weekend");
+    expect(getBand(16)).toBe("fullDay");
   });
 
   it("formats localized trip duration labels in English and Japanese", () => {
@@ -41,7 +41,7 @@ describe("TripDurationService", () => {
     } as never;
     const estHalf = { representativeHours: 6.0, band: "halfDay" } as never;
     const estFull = { representativeHours: 10.0, band: "fullDay" } as never;
-    const estWeekend = { representativeHours: 18.0, band: "weekend" } as never;
+    const estOvernight = { representativeHours: 18.0, band: "2d1n" } as never;
 
     expect(formatTripDurationLabel(estShort, "en")).toBe("Short outing");
     expect(formatTripDurationLabel(estShort, "ja")).toBe("短時間");
@@ -52,8 +52,10 @@ describe("TripDurationService", () => {
     expect(formatTripDurationLabel(estFull, "en")).toBe("Full day");
     expect(formatTripDurationLabel(estFull, "ja")).toBe("1日");
 
-    expect(formatTripDurationLabel(estWeekend, "en")).toBe("Weekend");
-    expect(formatTripDurationLabel(estWeekend, "ja")).toBe("週末");
+    expect(formatTripDurationLabel(estOvernight, "en")).toBe(
+      "2 days / 1 night",
+    );
+    expect(formatTripDurationLabel(estOvernight, "ja")).toBe("2日間・1泊");
   });
 
   it("uses visit time when origin is unavailable", () => {
@@ -404,7 +406,6 @@ describe("TripDurationService", () => {
       destination,
       {
         homeStationCoords: { lat: 34.4, lng: 132.45 },
-        tripMode: "day_trip",
         tripDuration: "halfDay",
       } as never,
       "train",
@@ -427,7 +428,6 @@ describe("TripDurationService", () => {
       { ...destination, recommendedVisitHours: { min: 2, max: 2 } },
       {
         homeStationCoords: origin,
-        tripMode: "day_trip",
         tripDuration: "fullDay",
       } as never,
       "train",
@@ -436,7 +436,6 @@ describe("TripDurationService", () => {
       { ...destination, recommendedVisitHours: { min: 8, max: 8 } },
       {
         homeStationCoords: origin,
-        tripMode: "day_trip",
         tripDuration: "fullDay",
       } as never,
       "train",

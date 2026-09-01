@@ -1,8 +1,5 @@
 import { describe, expect, it, beforeAll } from "vitest";
 import {
-  ACCOMMODATION_ALLOWANCE_PRESETS,
-  MAX_ACCOMMODATION_ALLOWANCE,
-  isValidAccommodationAllowance,
   calculateItemizedTripCost,
   getAdjustedBudget,
   getEffectiveBudgetBreakdown,
@@ -368,111 +365,32 @@ describe("BudgetService", () => {
     ).toBeUndefined();
   });
 
-  describe("ACCOMMODATION_ALLOWANCE_PRESETS", () => {
-    it("has exact preset values", () => {
-      expect(ACCOMMODATION_ALLOWANCE_PRESETS.economy).toBe(8000);
-      expect(ACCOMMODATION_ALLOWANCE_PRESETS.standard).toBe(15000);
-      expect(ACCOMMODATION_ALLOWANCE_PRESETS.comfortable).toBe(25000);
-    });
-  });
-
-  describe("isValidAccommodationAllowance", () => {
-    it("rejects negative values", () => {
-      expect(isValidAccommodationAllowance(-1)).toBe(false);
-    });
-
-    it("accepts zero", () => {
-      expect(isValidAccommodationAllowance(0)).toBe(true);
-    });
-
-    it("accepts standard preset", () => {
-      expect(isValidAccommodationAllowance(15000)).toBe(true);
-    });
-
-    it("accepts MAX_ACCOMMODATION_ALLOWANCE", () => {
-      expect(isValidAccommodationAllowance(MAX_ACCOMMODATION_ALLOWANCE)).toBe(
-        true,
-      );
-    });
-
-    it("rejects value above MAX_ACCOMMODATION_ALLOWANCE", () => {
-      expect(
-        isValidAccommodationAllowance(MAX_ACCOMMODATION_ALLOWANCE + 1),
-      ).toBe(false);
-    });
-
-    it("rejects non-integer values", () => {
-      expect(isValidAccommodationAllowance(12.5)).toBe(false);
-    });
-
-    it("rejects NaN", () => {
-      expect(isValidAccommodationAllowance(NaN)).toBe(false);
-    });
-  });
-
-  describe("calculateItemizedTripCost with accommodationAllowance", () => {
-    it("adds accommodationAllowance to party range exactly once", () => {
-      const base = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
-        activeMode: "train",
-        accommodationAllowance: 0,
-      });
-      const withAllowance = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
-        activeMode: "train",
-        accommodationAllowance: 15000,
-      });
-
-      expect(withAllowance.partyRange[0]).toBe(base.partyRange[0] + 15000);
-      expect(withAllowance.partyRange[1]).toBe(base.partyRange[1] + 15000);
-      expect(withAllowance.accommodationAllowance).toBe(15000);
-    });
-
-    it("includes accommodation in perPerson range", () => {
-      const base = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
-        activeMode: "train",
-        accommodationAllowance: 0,
-      });
-      const withAllowance = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
-        activeMode: "train",
-        accommodationAllowance: 10000,
-      });
-
-      expect(withAllowance.perPersonRange[0]).toBe(
-        base.perPersonRange[0] + 5000,
-      );
-      expect(withAllowance.perPersonRange[1]).toBe(
-        base.perPersonRange[1] + 5000,
-      );
-    });
-
-    it("defaults accommodationAllowance to 0 and field to 0", () => {
+  describe("canonical duration accommodation", () => {
+    it("returns ¥0 for every zero-night duration and ignores stale allowance concepts", () => {
       const result = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
+        partySize: 4,
         activeMode: "train",
+        duration: "fullDay",
       });
       expect(result.accommodationAllowance).toBe(0);
     });
 
-    it("still includes allowance when transport is unavailable", () => {
-      const baseNoTransport = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
-        accommodationAllowance: 0,
+    it("infers the existing Budget v2 allowance for one and two nights", () => {
+      const oneNight = calculateItemizedTripCost(mockPaidDest, {
+        partySize: 4,
+        activeMode: "train",
+        duration: "2d1n",
+        budgetTier: "standard",
       });
-      const withAllowance = calculateItemizedTripCost(mockPaidDest, {
-        partySize: 2,
-        accommodationAllowance: 20000,
+      const twoNights = calculateItemizedTripCost(mockPaidDest, {
+        partySize: 4,
+        activeMode: "train",
+        duration: "3d2n",
+        budgetTier: "standard",
       });
-
-      expect(withAllowance.partyRange[0]).toBe(
-        baseNoTransport.partyRange[0] + 20000,
-      );
-      expect(withAllowance.partyRange[1]).toBe(
-        baseNoTransport.partyRange[1] + 20000,
-      );
-      expect(withAllowance.transport).toBe(0);
+      expect(oneNight.accommodationAllowance).toBe(22000);
+      expect(twoNights.accommodationAllowance).toBe(44000);
+      expect(twoNights.accommodationAllowance).not.toBe(44000 * 4);
     });
   });
 

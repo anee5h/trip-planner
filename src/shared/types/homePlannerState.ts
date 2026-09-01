@@ -1,11 +1,11 @@
 import type { BudgetTier } from "@/shared/types/planner";
 import type { CarMode } from "@/shared/utils/carMode";
+import {
+  DEFAULT_HOME_TRIP_DURATION,
+  type HomepageTripDuration,
+} from "./tripDuration";
 
-export type TripDuration =
-  "any" | "shortOuting" | "halfDay" | "fullDay" | "weekend";
-
-export type HomepageTripDuration = Exclude<TripDuration, "any" | "weekend">;
-export type TripMode = "day_trip" | "weekend_2d1n";
+export type { HomepageTripDuration, TripDuration } from "./tripDuration";
 
 export type ForecastDateSelection =
   { type: "today" } | { type: "tomorrow" } | { type: "custom"; date: string };
@@ -24,23 +24,9 @@ export interface PlannerControlsState extends PlannerTransportSelection {
   tripDuration: HomepageTripDuration;
   partySize: number;
   budgetTier: BudgetTier;
-  tripMode: TripMode;
-  accommodationAllowance: number;
 }
 
 export const DEFAULT_PLANNER_BUDGET_TIER: BudgetTier = "standard";
-export const DEFAULT_HOME_TRIP_DURATION: HomepageTripDuration = "halfDay";
-export const DEFAULT_ACCOMMODATION_ALLOWANCE = 15_000;
-export const MAX_ACCOMMODATION_ALLOWANCE = 500_000;
-
-export const ACCOMMODATION_ALLOWANCE_PRESETS = {
-  economy: 8_000,
-  standard: DEFAULT_ACCOMMODATION_ALLOWANCE,
-  comfortable: 25_000,
-} as const;
-export type AccommodationAllowancePreset =
-  keyof typeof ACCOMMODATION_ALLOWANCE_PRESETS;
-
 export function createDefaultPlannerControls(): PlannerControlsState {
   return {
     vibe: "any",
@@ -50,18 +36,7 @@ export function createDefaultPlannerControls(): PlannerControlsState {
     publicModes: [],
     publicTransport: true,
     carMode: "none",
-    tripMode: "day_trip",
-    accommodationAllowance: DEFAULT_ACCOMMODATION_ALLOWANCE,
   };
-}
-
-export function isValidAccommodationAllowance(value: number): boolean {
-  return (
-    Number.isFinite(value) &&
-    Number.isInteger(value) &&
-    value >= 0 &&
-    value <= MAX_ACCOMMODATION_ALLOWANCE
-  );
 }
 
 /** Normalize a URL date without importing recommendation or transport code. */

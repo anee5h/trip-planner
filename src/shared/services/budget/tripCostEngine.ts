@@ -8,10 +8,8 @@ export {
   calculateTripEstimate as calculateTripCost,
   evaluateAffordability,
 } from "./tripEstimateEngine";
-export type {
-  TripEstimateContext as TripCostContext,
-  TripModeV2,
-} from "./tripEstimateEngine";
+export type { TripEstimateContext as TripCostContext } from "./tripEstimateEngine";
+export type { TripDuration } from "@/shared/types/tripDuration";
 export {
   TripEstimateEngine,
   calculateTripEstimate,

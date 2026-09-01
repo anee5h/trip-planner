@@ -7,6 +7,7 @@ import { getPlanEligibility } from "@/shared/services/recommendation/DayPlanGene
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { useFullCatalogue } from "@/shared/hooks/useFullCatalogue";
+import type { TripDuration } from "@/shared/types/tripDuration";
 
 interface DestinationPlanningSectionProps {
   destination: Destination;
@@ -20,11 +21,7 @@ interface DestinationPlanningSectionProps {
   compactUnavailableCost?: boolean;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
-  accommodationAllowance?: number;
-  /** KAI-217B round-2: the actual trip mode, threaded to the widget so
-   *  2D1N includes the accommodation allowance × 1 night. */
-  tripMode?: "day_trip" | "weekend_2d1n" | "multi_night";
-  nights?: number;
+  duration?: TripDuration;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
 }
@@ -37,9 +34,7 @@ export function DestinationPlanningSection({
   selectedTransport,
   compactUnavailableCost,
   ferryTemporal,
-  accommodationAllowance,
-  tripMode,
-  nights,
+  duration = "fullDay",
   onSaveToItinerary,
   onPlanGenerated,
 }: DestinationPlanningSectionProps) {
@@ -122,6 +117,7 @@ export function DestinationPlanningSection({
       <DayPlanWidget
         destination={destination}
         locale={locale}
+        duration={duration}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
         generatedCostRange={completePlanCostRange}
@@ -153,9 +149,7 @@ export function DestinationPlanningSection({
         activeTransportMode={selectedTransport}
         compactUnavailableCost={compactUnavailableCost}
         ferryTemporal={ferryTemporal}
-        accommodationAllowance={accommodationAllowance}
-        tripMode={tripMode}
-        nights={nights}
+        duration={duration}
         hasGeneratedPlan={hasValidGeneratedPlan}
         planCostBreakdown={costBreakdown}
       />

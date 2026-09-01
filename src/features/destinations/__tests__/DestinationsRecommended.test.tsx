@@ -49,9 +49,9 @@ vi.mock("react-i18next", () => ({
           "destination.tripAreas.summary":
             "{{areas}} areas · {{places}} places",
           "destination.tripAreas.show": "Show {{count}}",
-          "destination.tripModes.any": "Any",
-          "destination.tripModes.day_trip": "Day trip",
-          "destination.tripModes.weekend_2d1n": "2D1N",
+          "destination.durationOptions.any": "Any",
+          "destination.durationOptions.fullDay": "Day trip",
+          "destination.durationOptions.2d1n": "2D1N",
         }[key] ?? key;
       return options
         ? value.replace(/\{\{(\w+)\}\}/g, (_, name: string) =>
@@ -155,7 +155,7 @@ async function clickExactButton(container: HTMLDivElement, label: string) {
   });
 }
 
-async function switchTripMode(container: HTMLDivElement, label: string) {
+async function switchDuration(container: HTMLDivElement, label: string) {
   await clickExactButton(container, "Filters");
   await clickExactButton(container, label);
 }
@@ -163,7 +163,7 @@ async function switchTripMode(container: HTMLDivElement, label: string) {
 describe("Explore Recommended Day Trip ranking", () => {
   it("applies Nakayama Day Trip + Any feasibility before sorting", async () => {
     const container = await renderDestinations(
-      "/destinations?sort=recommended&tripMode=day_trip",
+      "/destinations?sort=recommended&duration=fullDay",
     );
     const names = Array.from(container.querySelectorAll("h3")).map(
       (heading) => heading.textContent ?? "",
@@ -192,7 +192,7 @@ describe("Explore Recommended Day Trip ranking", () => {
       },
     };
     const container = await renderDestinations(
-      "/destinations?sort=recommended&tripMode=day_trip&mode=train&car=none",
+      "/destinations?sort=recommended&duration=fullDay&mode=train&car=none",
     );
     const names = Array.from(container.querySelectorAll("h3")).map(
       (heading) => heading.textContent ?? "",
@@ -211,19 +211,19 @@ describe("Explore Recommended Day Trip ranking", () => {
   }, 60000);
 
   it.each([
-    ["day trip", "Day trip"],
+    ["full day", "Full day"],
     ["2D1N", "2D1N"],
   ])(
     "clears hidden Half-day state when switching from %s to Any",
     async (_label, intermediateMode) => {
       const transitioned = await renderDestinations(
-        "/destinations?sort=recommended&tripMode=day_trip&duration=halfDay",
+        "/destinations?sort=recommended&duration=halfDay",
       );
 
       if (intermediateMode === "2D1N") {
-        await switchTripMode(transitioned, "2D1N");
+        await switchDuration(transitioned, "2D1N");
       }
-      await switchTripMode(transitioned, "Any");
+      await switchDuration(transitioned, "Any");
       const transitionedSnapshot = snapshot(transitioned);
 
       expect(transitionedSnapshot.search).toContain("duration=any");

@@ -10,7 +10,7 @@ export const APP_VERSION: string = version;
 export const COMMIT_SHA: string =
   typeof __COMMIT_SHA__ !== "undefined" ? __COMMIT_SHA__ : "unknown";
 
-/** "2.0.0-beta.1" -> "v2.0.0 Beta 1"; prerelease labels otherwise rendered verbatim. */
+/** "2.0.0-beta.2" -> "v2.0.0 Beta 2"; prerelease labels otherwise rendered verbatim. */
 export function formatAppVersion(v: string): string {
   return v.startsWith("v") ? v : `v${v.replace("-beta.", " Beta ")}`;
 }

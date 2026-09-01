@@ -56,7 +56,7 @@ function getCombinationBudgetRange(
       mode,
       partySize,
       includeOriginTravel: false,
-      tripMode: "day_trip",
+      duration: "fullDay",
     }),
   );
   const total: [number, number] = [0, 0];

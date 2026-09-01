@@ -4,6 +4,7 @@ import { Sparkles } from "lucide-react";
 import type { Destination } from "@/shared/types/destination";
 import HomeMatchCard from "./HomeMatchCard";
 import { serializePlannerSearchParams } from "@/features/destinations/destinationSearchParams";
+import { isOvernightDuration } from "@/shared/types/tripDuration";
 import type { ResolvedPlannerState } from "../hooks/useTripPlannerState";
 import { useTranslation } from "react-i18next";
 import { SectionViewAllLink } from "./SectionViewAllLink";
@@ -32,7 +33,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
 }) => {
   const { t } = useTranslation();
   const topMatches = recommendations.slice(0, 10);
-  const isWeekend = appliedState.tripMode === "weekend_2d1n";
+  const isOvernight = isOvernightDuration(appliedState.tripDuration);
 
   const headingText = t("home.topMatchesForYou", {
     defaultValue: hasUserApplied ? t("home.yourMatches") : t("home.topMatches"),
@@ -47,8 +48,6 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     budget: appliedState.budget,
     carMode: appliedState.carMode,
     publicModes: appliedState.publicModes,
-    tripMode: appliedState.tripMode,
-    accommodationAllowance: appliedState.accommodationAllowance,
     date: viewAllDate,
   });
 
@@ -80,13 +79,13 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
         </div>
 
         {/* Top matches horizontal scroll rail */}
-        {isEmpty && isWeekend ? (
+        {isEmpty && isOvernight ? (
           <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
             <h3 className="text-lg font-extrabold text-slate-700 dark:text-slate-300 mb-2">
-              {t("home.weekendNoResultsTitle")}
+              {t("home.overnightNoResultsTitle")}
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-300 max-w-md">
-              {t("home.weekendNoResultsBody")}
+              {t("home.overnightNoResultsBody")}
             </p>
           </div>
         ) : (
@@ -94,7 +93,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
             ariaLabel={headingText}
             previousLabel={t("home.previousRail")}
             nextLabel={t("home.nextRail")}
-            resetKey={`${recommendations.map((destination) => destination.id).join(",")}:${appliedState.tripMode}`}
+            resetKey={`${recommendations.map((destination) => destination.id).join(",")}:${appliedState.tripDuration}`}
             className="-mx-4 flex gap-3 px-4 py-2 md:mx-0 md:px-10 sm:gap-4"
           >
             {topMatches.map((dest, index) => (
@@ -107,6 +106,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
                   carMode={appliedState.carMode}
                   publicModes={appliedState.publicModes}
                   travelDate={travelDate}
+                  duration={appliedState.tripDuration}
                 />
               </div>
             ))}

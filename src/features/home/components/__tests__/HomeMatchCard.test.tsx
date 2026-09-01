@@ -45,9 +45,12 @@ vi.mock("@/shared/context/LocaleContext", () => ({
 
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
-    t: (key: string, options?: { count?: number }) => {
+    t: (key: string, options?: { count?: number; day?: number }) => {
       if (key === "home.places" && options?.count !== undefined) {
         return `${options.count} ${options.count === 1 ? "place" : "places"}`;
+      }
+      if (key === "home.dayLabel" && options?.day !== undefined) {
+        return `Day ${options.day}`;
       }
       return key;
     },
@@ -150,7 +153,7 @@ describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
         },
         memberIds: ["shinjuku-city", "shibuya-city"],
         wardHubIds: ["shinjuku-city", "shibuya-city"],
-        tripMode: "weekend_2d1n" as const,
+        duration: "2d1n" as const,
       },
     };
 
@@ -162,6 +165,7 @@ describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
         <HomeMatchCard
           destination={groupDestination as unknown as Destination}
           rank={1}
+          duration="2d1n"
         />,
       );
     });
@@ -171,7 +175,7 @@ describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
     expect(text).toContain("destination.tokyoWardsCount");
     const link = host.querySelector("a");
     expect(link?.getAttribute("href")).toBe(
-      "/destinations?city=shinjuku-city&city=shibuya-city&tripMode=weekend_2d1n",
+      "/destinations?city=shinjuku-city&city=shibuya-city&duration=2d1n",
     );
     act(() => root.unmount());
     host.remove();
@@ -537,7 +541,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
           },
         ],
       },
-      weekend: {
+      overnight: {
         travelFit: {
           oneWayMinutes: 150,
         },
@@ -550,11 +554,13 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     } as unknown as Destination;
 
     await act(async () => {
-      root.render(<HomeMatchCard destination={scoredWeekend} rank={1} />);
+      root.render(
+        <HomeMatchCard destination={scoredWeekend} rank={1} duration="2d1n" />,
+      );
     });
 
     const text = host.textContent ?? "";
-    expect(text).toContain("destination.tripAreas.plentyForTwoDays");
+    expect(text).toContain("destination.tripAreas.plentyForDays");
     expect(text).toContain("4 places");
     expect(text).toContain("Transport Excluded");
     expect(text).not.toContain(
@@ -564,11 +570,38 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     expect(text).toContain("¥12k–18k");
   });
 
+  it("renders weather chips for every selected 3D2N day", async () => {
+    const scoredThreeDay = {
+      ...seikoMuseum,
+      overnight: {
+        travelFit: { oneWayMinutes: 150 },
+        capacity: { activityMinutes: 900 },
+        weatherDays: [
+          { date: "2026-06-15", condition: "clear", temperatureC: 24 },
+          { date: "2026-06-16", condition: "cloudy", temperatureC: 22 },
+          { date: "2026-06-17", condition: "rainy", temperatureC: 20 },
+        ],
+        estimatedCostTransportIncluded: true,
+        placeCount: 3,
+      },
+    } as unknown as Destination;
+
+    await act(async () => {
+      root.render(
+        <HomeMatchCard destination={scoredThreeDay} rank={1} duration="3d2n" />,
+      );
+    });
+
+    expect(host.querySelector('[aria-label="Day 1"]')).not.toBeNull();
+    expect(host.querySelector('[aria-label="Day 2"]')).not.toBeNull();
+    expect(host.querySelector('[aria-label="Day 3"]')).not.toBeNull();
+  });
+
   it("uses singular English copy for one weekend place", async () => {
     const { HomeMatchCard } = await import("../HomeMatchCard");
     const scoredWeekend = {
       ...seikoMuseum,
-      weekend: {
+      overnight: {
         travelFit: { oneWayMinutes: 150 },
         capacity: { activityMinutes: 720 },
         weatherDays: [],
@@ -578,7 +611,9 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     } as unknown as Destination;
 
     await act(async () => {
-      root.render(<HomeMatchCard destination={scoredWeekend} rank={1} />);
+      root.render(
+        <HomeMatchCard destination={scoredWeekend} rank={1} duration="2d1n" />,
+      );
     });
 
     expect(host.textContent).toContain("1 place");

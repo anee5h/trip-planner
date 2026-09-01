@@ -52,8 +52,8 @@ import type {
   CostScope,
   TripCostComponent,
 } from "@/shared/services/budget/budgetV2";
+import { getTripNights, type TripDuration } from "@/shared/types/tripDuration";
 
-export type TripModeV2 = "day_trip" | "weekend_2d1n" | "multi_night";
 export type EstimateQuality = "verified" | "estimated" | "rough";
 export type EvidenceCompleteness = "complete" | "partial" | "unavailable";
 
@@ -62,10 +62,7 @@ export interface TripEstimateContext {
   readonly mode?: string;
   readonly partySize?: number;
   readonly homeCoords?: { lat: number; lng: number };
-  readonly tripMode: TripModeV2;
-  readonly nights?: number;
-  /** Party-total lodging allowance per night. A range is also accepted. */
-  readonly accommodationAllowance?: number | PriceRange;
+  readonly duration: TripDuration;
   readonly budgetTier?: BudgetTier;
   readonly ferryTemporal?: FerryTemporalContext;
   /** false means this is an on-site-only estimate (Compare/detail widgets). */
@@ -124,29 +121,11 @@ function finiteNonNegative(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value) && value >= 0;
 }
 
-function validRange(
-  value: readonly unknown[] | undefined,
-): value is PriceRange {
-  return Boolean(
-    value &&
-    value.length === 2 &&
-    finiteNonNegative(value[0]) &&
-    finiteNonNegative(value[1]) &&
-    value[0] <= value[1],
-  );
-}
-
 function normalizePartySize(value: number | undefined): number {
   const party = value ?? 2;
   return Number.isInteger(party) && finiteNonNegative(party) && party > 0
     ? party
     : Number.NaN;
-}
-
-function nightsFor(context: TripEstimateContext): number | undefined {
-  if (context.tripMode === "day_trip") return 0;
-  if (context.tripMode === "weekend_2d1n") return 1;
-  return context.nights;
 }
 
 function scalePerPerson(range: PriceRange, partySize: number): PriceRange {
@@ -663,27 +642,27 @@ function originComponent(
 
 function mealNames(
   dest: Destination,
-  tripMode: TripModeV2,
+  duration: TripDuration,
   totalDurationHours?: number,
-  nights?: number,
 ): (keyof (typeof MEAL_PRICE_RANGES)[BudgetTier])[] {
-  if (tripMode !== "day_trip") {
+  const nights = getTripNights(duration);
+  if (nights > 0) {
     const meals: (keyof (typeof MEAL_PRICE_RANGES)[BudgetTier])[] = [
       "lunch",
       "dinner",
       "breakfast",
       "lunch",
     ];
-    const extensionNights = Math.max(0, (nights ?? 1) - 1);
+    const extensionNights = Math.max(0, nights - 1);
     for (let index = 0; index < extensionNights; index += 1) {
       meals.push("dinner", "breakfast", "lunch");
     }
     return meals;
   }
-  const duration = totalDurationHours ?? dest.recommendedVisitHours?.max;
-  if (duration !== undefined && Number.isFinite(duration)) {
-    if (duration <= 4) return ["lunch"];
-    if (duration <= 9) return ["lunch", "dinner"];
+  const availableHours = totalDurationHours ?? dest.recommendedVisitHours?.max;
+  if (availableHours !== undefined && Number.isFinite(availableHours)) {
+    if (availableHours <= 4) return ["lunch"];
+    if (availableHours <= 9) return ["lunch", "dinner"];
     return ["breakfast", "lunch", "dinner"];
   }
   // A normal day trip without a duration record still needs a practical
@@ -725,13 +704,12 @@ function mealDurationHours(
 
 function mealsComponent(
   dest: Destination,
-  tripMode: TripModeV2,
+  duration: TripDuration,
   tier: BudgetTier,
   partySize: number,
   totalDurationHours?: number,
-  nights?: number,
 ): TripCostComponent {
-  const ranges = mealNames(dest, tripMode, totalDurationHours, nights).map(
+  const ranges = mealNames(dest, duration, totalDurationHours).map(
     (meal) => MEAL_PRICE_RANGES[tier][meal],
   );
   const perPerson: PriceRange = [
@@ -752,39 +730,21 @@ function mealsComponent(
 }
 
 function accommodationComponent(
-  context: TripEstimateContext,
   nights: number,
   tier: BudgetTier,
 ): { component: TripCostComponent; allowance?: AccommodationAllowance } {
   if (nights === 0) {
     return {
       component: component(
-        { kind: "not_applicable" },
+        { kind: "bounded", min: 0, max: 0 },
         { scope: "accommodation", derivation: "computed" },
       ),
+      allowance: { perNight: 0, nights: 0 },
     };
   }
 
-  let range: PriceRange;
-  let derivation: "user_allowance" | "model_estimate" = "model_estimate";
-  const custom = context.accommodationAllowance;
-  if (typeof custom === "number" && finiteNonNegative(custom)) {
-    range = [custom, custom];
-    derivation = "user_allowance";
-  } else if (validRange(custom)) {
-    range = [custom[0], custom[1]];
-    derivation = "user_allowance";
-  } else if (custom !== undefined) {
-    return {
-      component: component(SOURCE_MISSING, {
-        scope: "accommodation",
-        derivation: "user_allowance",
-        reason: "source_missing",
-      }),
-    };
-  } else {
-    range = ACCOMMODATION_PROFILES[tier];
-  }
+  const range = ACCOMMODATION_PROFILES[tier];
+  const derivation = "model_estimate" as const;
 
   const total: PriceRange = [range[0] * nights, range[1] * nights];
   return {
@@ -793,13 +753,9 @@ function accommodationComponent(
       {
         scope: "accommodation",
         derivation,
-        ...(derivation === "model_estimate"
-          ? {
-              state: "documented_estimate" as const,
-              provenance: "model" as const,
-              reason: "insufficient_model_evidence" as const,
-            }
-          : {}),
+        state: "documented_estimate" as const,
+        provenance: "model" as const,
+        reason: "insufficient_model_evidence" as const,
       },
     ),
     // The allowance is retained as the per-night party total. Do not put the
@@ -877,7 +833,7 @@ function evidenceCompletenessFor(
 
 function calculate(context: TripEstimateContext): TripEstimateResult {
   const partySize = normalizePartySize(context.partySize);
-  const nights = nightsFor(context);
+  const nights = getTripNights(context.duration);
   if (
     !Number.isFinite(partySize) ||
     nights === undefined ||
@@ -915,14 +871,12 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
   const local = localTransportComponent(context.dest, partySize);
   const meals = mealsComponent(
     context.dest,
-    context.tripMode,
+    context.duration,
     context.budgetTier ?? "standard",
     partySize,
     mealDurationHours(context, origin),
-    nights,
   );
   const accommodation = accommodationComponent(
-    context,
     nights,
     context.budgetTier ?? "standard",
   );

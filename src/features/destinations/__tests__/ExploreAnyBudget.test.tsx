@@ -72,9 +72,9 @@ vi.mock("react-i18next", () => ({
       const value: Record<string, string> = {
         "destination.tripAreas.summary": "{{areas}} areas · {{places}} places",
         "destination.tripAreas.show": "Show {{count}}",
-        "destination.tripModes.any": "Any",
-        "destination.tripModes.day_trip": "Day trip",
-        "destination.tripModes.weekend_2d1n": "2D1N",
+        "destination.durationOptions.any": "Any",
+        "destination.durationOptions.fullDay": "Day trip",
+        "destination.durationOptions.2d1n": "2D1N",
         "home.transportModes.car": "Car",
         "search.label": "Search",
         "search.clear": "Clear search",

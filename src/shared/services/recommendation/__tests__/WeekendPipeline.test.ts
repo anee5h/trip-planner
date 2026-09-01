@@ -83,19 +83,19 @@ describe("runRecommendationPipeline — day-trip parity", () => {
     ratings: { overall: 4.0, food: 4.0, summer: 5, winter: 5 },
   });
 
-  it("tripMode undefined vs 'day_trip' → identical scores, order, reasons", () => {
-    const ctxDefault = ctx({ tripMode: undefined });
-    const ctxDayTrip = ctx({ tripMode: "day_trip" });
+  it("canonical duration defaults are equivalent to explicit any", () => {
+    const ctxDefault = ctx({ tripDuration: undefined });
+    const ctxAny = ctx({ tripDuration: "any" });
 
     const resDefault = runRecommendationPipeline([d1, d2], ctxDefault);
-    const resDayTrip = runRecommendationPipeline([d1, d2], ctxDayTrip);
+    const resAny = runRecommendationPipeline([d1, d2], ctxAny);
 
-    expect(resDefault.length).toBe(resDayTrip.length);
+    expect(resDefault.length).toBe(resAny.length);
     for (let i = 0; i < resDefault.length; i++) {
-      expect(resDefault[i].id).toBe(resDayTrip[i].id);
-      expect(resDefault[i].score).toBe(resDayTrip[i].score);
+      expect(resDefault[i].id).toBe(resAny[i].id);
+      expect(resDefault[i].score).toBe(resAny[i].score);
       expect(resDefault[i].match.reasons.length).toBe(
-        resDayTrip[i].match.reasons.length,
+        resAny[i].match.reasons.length,
       );
     }
     // KAI-63 D4: parity holds only because both candidates satisfy the
@@ -126,14 +126,6 @@ describe("runRecommendationPipeline — duration-gate contract", () => {
       ctx({ tripDuration: "any" }),
     );
     expect(res.some((r) => r.id === "unknown-duration")).toBe(true);
-  });
-
-  it("explicit tripMode day_trip + duration 'any' ⇒ day-trip envelope applies", () => {
-    const res = runRecommendationPipeline(
-      [unknownDuration],
-      ctx({ tripMode: "day_trip", tripDuration: "any" }),
-    );
-    expect(res.some((r) => r.id === "unknown-duration")).toBe(false);
   });
 
   it("explicit duration (halfDay) ⇒ that duration applies", () => {
@@ -168,7 +160,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline(
       [noCorridor, corridor],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("no-corridor");
@@ -185,7 +177,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline(
       [edge],
-      ctx({ tripMode: "weekend_2d1n", budget: 100000 }),
+      ctx({ tripDuration: "2d1n", budget: 100000 }),
     );
     expect(results.map((r) => r.id)).toContain("edge");
   });
@@ -207,14 +199,14 @@ describe("runRecommendationPipeline — weekend mode", () => {
     // hub + child in pool: childrenSum = 480 >= own 120 → minutes = 480, eligible
     const results = runRecommendationPipeline(
       [hub, child],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     expect(results.map((r) => r.id)).toContain("hub");
 
     // hub alone in pool: own 120 < 480 → ineligible
     const resultsAlone = runRecommendationPipeline(
       [hub],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     expect(resultsAlone.map((r) => r.id)).not.toContain("hub");
   });
@@ -229,7 +221,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline(
       [solo],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     expect(results.map((r) => r.id)).toContain("solo");
   });
@@ -244,9 +236,30 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline(
       [small],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     expect(results.map((r) => r.id)).not.toContain("small");
+  });
+
+  it("excludes destination capacity that only satisfies a 2D1N trip from 3D2N", () => {
+    const area = dest({
+      id: "two-day-capacity-only",
+      role: "hub",
+      recommendedVisitHours: { min: 1, max: 8 }, // 480 minutes
+      transportOptions: { train: 90 },
+    });
+
+    const twoDayResults = runRecommendationPipeline(
+      [area],
+      ctx({ tripDuration: "2d1n", budget: 1_000_000 }),
+    );
+    const threeDayResults = runRecommendationPipeline(
+      [area],
+      ctx({ tripDuration: "3d2n", budget: 1_000_000 }),
+    );
+
+    expect(twoDayResults.map((result) => result.id)).toContain(area.id);
+    expect(threeDayResults.map((result) => result.id)).not.toContain(area.id);
   });
 
   it("origin forecast conditions never change destination ranking (weekend)", () => {
@@ -259,7 +272,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     });
     const makeCtx = () =>
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         travelDates: { day1: "2026-08-05", day2: "2026-08-06" },
         // KAI-130: origin forecastMap removed from scoring — deterministic seasonal.
         ferryTemporal: { travelDate: new Date(2026, 7, 5, 12) },
@@ -277,7 +290,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     expect(rainy[0].pipeline.scoreContributions.weekendWeather).toBe(0);
     expect(clear[0].pipeline.scoreContributions.weekendWeather).toBe(0);
     // No destination weather days are stored from origin data.
-    expect(rainy[0].weekend!.weatherDays).toEqual([]);
+    expect(rainy[0].overnight!.weatherDays).toEqual([]);
     // No weekendWeather* destination reason is generated from origin weather.
     const codes = rainy[0].match.reasons.map((r) => r.code);
     expect(codes.some((c) => c.startsWith("weekendWeather"))).toBe(false);
@@ -346,8 +359,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     const results = runRecommendationPipeline(
       [d],
       ctx({
-        tripMode: "weekend_2d1n",
-        accommodationAllowance: 20000,
+        tripDuration: "2d1n",
         destinationWeather: {
           days: [
             { date: "2026-08-05", condition: "clear" },
@@ -358,12 +370,11 @@ describe("runRecommendationPipeline — weekend mode", () => {
     );
 
     expect(results).toHaveLength(1);
-    const weekend = results[0].weekend;
+    const weekend = results[0].overnight;
     expect(weekend).toBeDefined();
     expect(weekend!.travelFit.band).toBe("nearby");
     expect(weekend!.capacity.activityMinutes).toBe(600);
     expect(weekend!.weatherDays).toHaveLength(2);
-    expect(weekend!.accommodationAllowance).toBe(20000);
   });
 
   it("day-trip results have no weekend metadata", () => {
@@ -375,7 +386,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline([d], ctx());
     expect(results).toHaveLength(1);
-    expect(results[0].weekend).toBeUndefined();
+    expect(results[0].overnight).toBeUndefined();
   });
 
   it("day-trip unchanged with weekend-only context fields present", () => {
@@ -389,7 +400,6 @@ describe("runRecommendationPipeline — weekend mode", () => {
       [d],
       ctx({
         // weekend-specific fields
-        accommodationAllowance: 15000,
         destinationWeather: {
           days: [{ date: "2026-08-05", condition: "clear" }],
         },
@@ -397,7 +407,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     );
 
     expect(results).toHaveLength(1);
-    expect(results[0].weekend).toBeUndefined();
+    expect(results[0].overnight).toBeUndefined();
   });
 
   it("weekend result includes weekendTripReady reason", () => {
@@ -410,7 +420,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline(
       [d],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     expect(results).toHaveLength(1);
     const codes = results[0].match.reasons.map((r) => r.code);
@@ -427,7 +437,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
 
     const results = runRecommendationPipeline(
       [d],
-      ctx({ tripMode: "weekend_2d1n" }),
+      ctx({ tripDuration: "2d1n" }),
     );
     expect(results).toHaveLength(1);
     const contribs = results[0].pipeline.scoreContributions;
@@ -447,7 +457,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     });
 
     const clearCtx = ctx({
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
       destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "clear" },
@@ -456,7 +466,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
       },
     });
     const stormyCtx = ctx({
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
       destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "clear" },
@@ -493,7 +503,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     });
 
     const stormyCtx = ctx({
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
       destinationWeather: {
         days: [
           { date: "2026-08-05", condition: "stormy" },
@@ -544,13 +554,13 @@ describe("runRecommendationPipeline — weekend transport excluded reason", () =
       visitedIds: [],
       homeStationCoords: FUKUOKA,
       originZoneId: "mainland-kyushu",
-      tripMode: "weekend_2d1n",
+      tripDuration: "2d1n",
     });
 
     expect(results.map((r) => r.id)).toContain("ishigaki-city");
     const result = results[0];
     expect(result.estimatedCostTransportIncluded).toBe(true);
-    expect(result.weekend?.estimatedCostTransportIncluded).toBe(true);
+    expect(result.overnight?.estimatedCostTransportIncluded).toBe(true);
     const codes = result.match.reasons.map((r) => r.code);
     expect(codes).not.toContain("weekendTransportExcluded");
   });
@@ -661,7 +671,7 @@ describe("weekend weather 2-day enforcement", () => {
     const twoDayResult = runRecommendationPipeline(
       [d],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         destinationWeather: {
           days: [
@@ -674,7 +684,7 @@ describe("weekend weather 2-day enforcement", () => {
     const threeDayResult = runRecommendationPipeline(
       [d],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         destinationWeather: {
           days: [
@@ -707,7 +717,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const results = runRecommendationPipeline(
       [byId.get("osaka-city")!, byId.get("fukuoka-city")!],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
@@ -722,7 +732,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const results = runRecommendationPipeline(
       [byId.get("shinjuku-city")!, byId.get("nikko-city")!],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         publicModes: ["train", "shinkansen"],
         homeStationCoords: SHINJUKU,
@@ -737,7 +747,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const results = runRecommendationPipeline(
       [byId.get("shinjuku-city")!, byId.get("shibuya-city")!],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         homeStationCoords: SHINJUKU,
       }),
@@ -749,7 +759,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const results = runRecommendationPipeline(
       [byId.get("shinjuku-city")!, byId.get("taito-city")!],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         homeStationCoords: SHINJUKU,
       }),
@@ -761,7 +771,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const results = runRecommendationPipeline(
       [byId.get("osaka-city")!, byId.get("kyoto-city")!],
       ctx({
-        tripMode: "day_trip",
+        tripDuration: "fullDay",
         budget: 200000,
         homeStationCoords: OSAKA,
       }),
@@ -773,7 +783,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const results = runRecommendationPipeline(
       [byId.get("osaka-city")!, byId.get("kyoto-city")!],
       ctx({
-        tripMode: undefined,
+        tripDuration: undefined,
         budget: 200000,
         homeStationCoords: OSAKA,
       }),
@@ -792,8 +802,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
         partySize: 2,
         visitedIds: [],
         homeStationCoords: OSAKA,
-        tripMode: "weekend_2d1n",
-        accommodationAllowance: 20000,
+        tripDuration: "2d1n",
       },
     );
     expect(results.length).toBeGreaterThan(0);
@@ -817,8 +826,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
         partySize: 2,
         visitedIds: [],
         homeStationCoords: SHINJUKU,
-        tripMode: "weekend_2d1n",
-        accommodationAllowance: 20000,
+        tripDuration: "2d1n",
       },
     );
     expect(results.length).toBeGreaterThan(0);
@@ -844,8 +852,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
         partySize: 2,
         visitedIds: [],
         homeStationCoords: CHIBA,
-        tripMode: "weekend_2d1n",
-        accommodationAllowance: 15000,
+        tripDuration: "2d1n",
       },
     );
     const topThreeIds = results.slice(0, 3).map((r) => r.id);
@@ -854,7 +861,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     expect(topThreeIds).not.toContain("shibuya-city");
     expect(topThreeIds).not.toContain("adachi-city");
     expect(topThreeIds).not.toContain("tokyo-station-chiyoda");
-    expect(results[0].weekend?.travelFit.oneWayMinutes).toBeGreaterThan(90);
+    expect(results[0].overnight?.travelFit.oneWayMinutes).toBeGreaterThan(90);
     // Chiba is within the Tokyo-area Shinkansen origin catchment. The top
     // result may therefore be a verified Tokyo-endpoint corridor destination
     // rather than the former prefecture-only Hakodate result. KAI-87 PR4
@@ -879,7 +886,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const results = runRecommendationPipeline(
       [byId.get("osaka-city")!, byId.get("fukuoka-city")!],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
@@ -889,10 +896,10 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     expect(ids).not.toContain("osaka-city"); // origin-local
     expect(ids).toContain("fukuoka-city");
     const fukuoka = results.find((r) => r.id === "fukuoka-city")!;
-    expect(fukuoka.weekend?.areaKind).toBe("trip_area");
+    expect(fukuoka.overnight?.areaKind).toBe("trip_area");
     // Place counts come from the actual pool: no children in this two-record
     // pool, so the count is 0 (full-catalogue runs assert real counts).
-    expect(fukuoka.weekend?.placeCount).toBe(0);
+    expect(fukuoka.overnight?.placeCount).toBe(0);
   });
 
   it("eligible child POI is suppressed when its parent hub is eligible", () => {
@@ -908,14 +915,14 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const results = runRecommendationPipeline(
       [byId.get("fukuoka-city")!, child],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
       }),
     );
     expect(results.map((r) => r.id)).toEqual(["fukuoka-city"]);
-    expect(results[0].weekend?.placeCount).toBe(1);
+    expect(results[0].overnight?.placeCount).toBe(1);
   });
 
   it("standalone museum with enough own capacity is not a primary result", () => {
@@ -928,7 +935,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     });
     const results = runRecommendationPipeline(
       [museum],
-      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+      ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
     expect(results).toEqual([]);
   });
@@ -943,7 +950,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     });
     const results = runRecommendationPipeline(
       [orphanPoi],
-      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+      ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
     expect(results).toEqual([]);
   });
@@ -951,10 +958,10 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
   it("coherent non-city area (Kamikochi) qualifies as standalone_area", () => {
     const results = runRecommendationPipeline(
       [byId.get("nagano-kamikochi")!],
-      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+      ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
     expect(results.map((r) => r.id)).toContain("nagano-kamikochi");
-    expect(results[0].weekend?.areaKind).toBe("standalone_area");
+    expect(results[0].overnight?.areaKind).toBe("standalone_area");
   });
 
   it("full catalogue Tokyo/Osaka/Fukuoka return only trip-area results", () => {
@@ -974,13 +981,12 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
           partySize: 2,
           visitedIds: [],
           homeStationCoords: home,
-          tripMode: "weekend_2d1n",
-          accommodationAllowance: 20000,
+          tripDuration: "2d1n",
         },
       );
       expect(results.length).toBeGreaterThan(0);
       for (const r of results) {
-        expect(r.weekend?.areaKind).not.toBe("poi");
+        expect(r.overnight?.areaKind).not.toBe("poi");
         // The virtual Tokyo 23 Wards group is not a catalogue record.
         if (r.id === TOKYO_WARDS_GROUP_ID) continue;
         const dest = byId.get(r.id)!;
@@ -999,7 +1005,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const results = runRecommendationPipeline(
       [noRoute],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         homeStationCoords: tokyoHome,
       }),
@@ -1018,7 +1024,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const results = runRecommendationPipeline(
       [noRoute],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         homeStationCoords: shibuyaCurrentLocation,
       }),
@@ -1046,7 +1052,7 @@ describe("runRecommendationPipeline — positive area classification", () => {
   it("Ghibli Museum (standalone, no kind) is not a primary 2D1N trip area", () => {
     const results = runRecommendationPipeline(
       [byId.get("ghibli-museum")!],
-      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+      ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
     expect(results.map((r) => r.id)).not.toContain("ghibli-museum");
   });
@@ -1061,7 +1067,7 @@ describe("runRecommendationPipeline — positive area classification", () => {
     });
     const results = runRecommendationPipeline(
       [animeMuseum],
-      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+      ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
     expect(results).toEqual([]);
   });
@@ -1090,7 +1096,7 @@ describe("runRecommendationPipeline — positive area classification", () => {
     });
     const results = runRecommendationPipeline(
       [city, ward, town],
-      ctx({ tripMode: "weekend_2d1n", budget: 200000 }),
+      ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
     const ids = results.map((r) => r.id);
     expect(ids).toContain("city-hub");
@@ -1108,7 +1114,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     const results = runRecommendationPipeline(
       [fukuoka],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         publicModes: ["train", "shinkansen"],
         homeStationCoords: OSAKA,
@@ -1126,7 +1132,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
 
     // Ranking duration: midpoint of the same estimate.
     const mid = Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
-    expect(result.weekend?.travelFit.oneWayMinutes).toBe(mid);
+    expect(result.overnight?.travelFit.oneWayMinutes).toBe(mid);
 
     // Budget duration: same estimate via the origin-aware cost path. The
     // verified corridor fare (osaka→fukuoka reserved ¥15,520–16,020 —
@@ -1145,7 +1151,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
       const results = runRecommendationPipeline(
         [destination],
         ctx({
-          tripMode: "weekend_2d1n",
+          tripDuration: "2d1n",
           budget: 200000,
           publicModes: ["train", "shinkansen", "flight"],
         }),
@@ -1172,7 +1178,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
         mode: "flight",
         partySize: 2,
         homeCoords: tokyoHome,
-        tripMode: "weekend_2d1n",
+        duration: "2d1n",
       });
       if (engineResult.completeness === "complete" && engineResult.total) {
         expect(result.estimatedCostRange).toEqual([
@@ -1193,7 +1199,7 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     const results = runRecommendationPipeline(
       [destination],
       ctx({
-        tripMode: "weekend_2d1n",
+        tripDuration: "2d1n",
         budget: 200000,
         publicModes: ["flight"],
         homeStationCoords: { lat: 33.5902, lng: 130.4017 },

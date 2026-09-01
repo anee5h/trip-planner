@@ -19,8 +19,10 @@ vi.mock("react-i18next", () => ({
           "datePicker.today": "Today",
           "datePicker.tomorrow": "Tomorrow",
           "datePicker.anyDate": "Any date",
-          "home.tripModes.day_trip": "Day trip",
-          "home.tripModes.weekend_2d1n": "Weekend · 2 days / 1 night",
+          "datePicker.endDate": "End date",
+          "datePicker.derivedDateHint": "derived from trip duration",
+          "home.durations.fullDay": "Full day",
+          "home.durations.2d1n": "2 days / 1 night",
           "home.weekendDates": "{{day1}} – {{day2}}",
           "home.day1Label": "Day 1",
           "home.day2Label": "Day 2",
@@ -337,18 +339,22 @@ describe("Home arbitrary future dates", () => {
     expect(calendarCapsule(host)?.textContent).not.toContain("Jan 1");
   }, 30000);
 
-  it("shows the derived Day 2 for 2D1N in the picker", async () => {
+  it("shows the derived end date for 2D1N in the picker", async () => {
     const { host } = renderHome("/?date=2030-06-15");
     await waitForCondition(
       () => calendarCapsule(host)?.textContent?.includes("Jun 15") ?? false,
     );
 
-    const weekendToggle = Array.from(host.querySelectorAll("button")).find(
-      (btn) =>
-        btn.textContent?.includes("Weekend") &&
-        btn.getAttribute("role") === "radio",
-    ) as HTMLButtonElement;
-    act(() => weekendToggle.click());
+    const durationTrigger = host.querySelector(
+      'button[aria-label="home.duration"]',
+    ) as HTMLButtonElement | null;
+    expect(durationTrigger).not.toBeNull();
+    act(() => durationTrigger?.click());
+    const durationOption = Array.from(
+      document.querySelectorAll('[role="option"]'),
+    ).find((option) => option.textContent?.includes("2 days / 1 night"));
+    expect(durationOption).toBeDefined();
+    act(() => (durationOption as HTMLElement | undefined)?.click());
     const applyBtn = Array.from(host.querySelectorAll("button")).find((b) =>
       /home.find|home.view|home.update/.test(b.textContent ?? ""),
     ) as HTMLButtonElement;
@@ -357,7 +363,7 @@ describe("Home arbitrary future dates", () => {
     act(() => calendarCapsule(host)?.click());
     await waitForCondition(() =>
       Array.from(host.querySelectorAll("p")).some((p) =>
-        p.textContent?.includes("Day 2"),
+        p.textContent?.includes("End date"),
       ),
     );
     expect(

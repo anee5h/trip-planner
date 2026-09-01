@@ -16,10 +16,7 @@ import BucketListRail from "./components/BucketListRail";
 import CollectionsRail from "./components/CollectionsRail";
 import RecentlyViewedRail from "./components/RecentlyViewedRail";
 import DeferredDiscoveryRails from "./components/DeferredDiscoveryRails";
-import {
-  getHomepageRailConfig,
-  orderRecentlyViewedDestinations,
-} from "./services/HomeRailService";
+import { orderRecentlyViewedDestinations } from "./services/HomeRailService";
 import { useTranslation } from "react-i18next";
 import { getFixedSeason } from "@/shared/utils/season";
 import type { HomePendingAction } from "./state/HomeAction";
@@ -92,8 +89,8 @@ export default function HeavyHome({
     customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
   const travelDates = useMemo(() => {
     if (!selectedDate) return undefined;
-    return deriveTripDates(selectedDate, resolvedApplied.tripMode);
-  }, [selectedDate, resolvedApplied.tripMode]);
+    return deriveTripDates(selectedDate, resolvedApplied.tripDuration);
+  }, [selectedDate, resolvedApplied.tripDuration]);
 
   const [rouletteOpen, setRouletteOpen] = useState(false);
   const { recommendedDestinations, rouletteCandidates, rouletteExpansion } =
@@ -111,17 +108,10 @@ export default function HeavyHome({
       ferryTemporal,
       isVisited,
       rouletteConstraints: resolvedDraft,
-      tripMode: resolvedApplied.tripMode,
-      accommodationAllowance: resolvedApplied.accommodationAllowance,
       travelDates,
       rouletteEnabled: rouletteOpen,
     });
 
-  const railConfig = getHomepageRailConfig(
-    resolvedApplied.tripMode,
-    resolvedApplied.tripDuration,
-  );
-  const isWeekendMode = railConfig.includes("weekendGetaways");
   const seasonalReferenceDate = useMemo(() => new Date(), []);
   const currentSeason = useMemo(
     () => getFixedSeason(seasonalReferenceDate),
@@ -192,7 +182,6 @@ export default function HeavyHome({
         carMode={resolvedDraft.carMode}
         publicModes={resolvedDraft.publicModes}
         tripDuration={resolvedDraft.tripDuration}
-        tripMode={resolvedDraft.tripMode}
         expansion={rouletteExpansion}
       />
 
@@ -290,7 +279,6 @@ export default function HeavyHome({
 
       <DeferredSection order={2} when={liteReady}>
         <DeferredDiscoveryRails
-          isWeekendMode={isWeekendMode}
           recommendedDestinations={recommendedDestinations}
           allDestinations={allDestinations}
           topMatchIds={topMatchIds}
@@ -303,7 +291,7 @@ export default function HeavyHome({
           budgetTier={resolvedApplied.budgetTier}
           ferryTemporal={ferryTemporal}
           visitedIds={visitedIds}
-          tripMode={resolvedApplied.tripMode}
+          tripDuration={resolvedApplied.tripDuration}
           seasonalReferenceDate={seasonalReferenceDate}
           currentSeason={currentSeason}
           partySize={resolvedApplied.partySize}
