@@ -145,6 +145,22 @@ export function formatLocalizedJPYRange(
   return `¥${formatSingleJPYValue(min, locale)}${rangeSep}${formatSingleJPYValue(max, locale)}`;
 }
 
+/** Format estimated ranges with honest, outward-rounded presentation values. */
+export function formatLocalizedApproximateJPYRange(
+  range: PriceRange | null | undefined,
+  locale: "en" | "ja" = "en",
+): string {
+  if (!range || !isValidPriceRange(range)) {
+    return COST_UNAVAILABLE[locale];
+  }
+  const unit = range[1] >= 1000 ? 1000 : 100;
+  const rounded: PriceRange = [
+    Math.floor(range[0] / unit) * unit,
+    Math.ceil(range[1] / unit) * unit,
+  ];
+  return formatLocalizedJPYRange(rounded, locale);
+}
+
 export function formatJPYRange(range: PriceRange | null | undefined): string {
   if (!range || !isValidPriceRange(range)) {
     return COST_UNAVAILABLE.en;

@@ -13,6 +13,7 @@ import {
   getTransportCost,
   isFreeDestination,
   formatLocalizedJPYRange,
+  formatLocalizedApproximateJPYRange,
 } from "../BudgetService";
 import * as BudgetServiceModule from "../BudgetService";
 import type { Destination } from "@/shared/types/destination";
@@ -103,6 +104,15 @@ describe("BudgetService", () => {
   it("formats localized JPY range accurately", () => {
     expect(formatLocalizedJPYRange([7000, 26000], "en")).toBe("¥7k–26k");
     expect(formatLocalizedJPYRange([7000, 26000], "ja")).toBe("¥7千〜2.6万");
+  });
+
+  it("rounds approximate ranges outward for presentation", () => {
+    expect(formatLocalizedApproximateJPYRange([9500, 21300], "en")).toBe(
+      "¥9k–22k",
+    );
+    expect(formatLocalizedApproximateJPYRange([9400, 20200], "ja")).toBe(
+      "¥9千〜2.1万",
+    );
   });
 
   it("does not render malformed or unknown prices", () => {

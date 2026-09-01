@@ -34,7 +34,10 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedApproximateJPYRange,
+  formatLocalizedJPYRange,
+} from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -593,7 +596,7 @@ export default function DestinationCard({
                         // KAI-260: a bounded estimate is displayable even
                         // when its ingredients are model/profile derived.
                         return cardBudgetRange
-                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "~"}${formatLocalizedJPYRange(cardBudgetRange, locale)}`
+                          ? `${cardEstimate?.quality === "verified" ? "" : locale === "ja" ? "約 " : "~"}${cardEstimate?.quality === "verified" ? formatLocalizedJPYRange(cardBudgetRange, locale) : formatLocalizedApproximateJPYRange(cardBudgetRange, locale)}`
                           : formatLocalizedJPYRange(null, locale);
                       })()}
                       {partySize > 1
