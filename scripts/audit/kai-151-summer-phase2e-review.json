@@ -38,9 +38,7 @@
       "officialEvidence": [
         {
           "authority": "Onjuku Town Tourism Association official site",
-          "urls": [
-            "https://onjuku-kankou.com/event/kaisuiyoku/"
-          ],
+          "urls": ["https://onjuku-kankou.com/event/kaisuiyoku/"],
           "observations": [
             "The official page lists the 2026 beach opening period as July 18-August 23, 08:30-17:00, and describes the white sand, calm shallow Ajiro Bay shore, and three swimming beaches."
           ],
@@ -51,10 +49,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Summer",
-        "bestMonths": [
-          7,
-          8
-        ],
+        "bestMonths": [7, 8],
         "seasonVector": {
           "spring": 4,
           "summer": 10,
@@ -86,9 +81,7 @@
       "officialEvidence": [
         {
           "authority": "Shikisai-no-Oka official operator",
-          "urls": [
-            "https://www.shikisainooka.jp/"
-          ],
+          "urls": ["https://www.shikisainooka.jp/"],
           "observations": [
             "The official site publishes green-season information, seasonal flower calendar links, and June-September opening hours of 08:40-17:30; current notices document flowers in bloom during July and August."
           ],
@@ -99,12 +92,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Summer",
-        "bestMonths": [
-          6,
-          7,
-          8,
-          9
-        ],
+        "bestMonths": [6, 7, 8, 9],
         "seasonVector": {
           "spring": 5,
           "summer": 10,
@@ -136,9 +124,7 @@
       "officialEvidence": [
         {
           "authority": "Farm Tomita official site",
-          "urls": [
-            "https://www.farm-tomita.co.jp/en/"
-          ],
+          "urls": ["https://www.farm-tomita.co.jp/en/"],
           "observations": [
             "The official site provides current opening hours and flower-field/news information, but the checked page does not publish a recurring lavender peak window suitable for exact bestMonths."
           ],
@@ -163,15 +149,7 @@
       "role": "destination",
       "currentFields": {
         "bestSeason": null,
-        "bestMonths": [
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10
-        ],
+        "bestMonths": [4, 5, 6, 7, 8, 9, 10],
         "season": {
           "spring": 9,
           "summer": 10,
@@ -184,9 +162,7 @@
       "officialEvidence": [
         {
           "authority": "Ishigaki City / local tourism sources",
-          "urls": [
-            "https://www.env.go.jp/park/iriomote/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/iriomote/index.html"],
           "observations": [
             "The checked official national-park source establishes the broader coral-reef setting but does not provide a beach-specific seasonal operating or peak window for Yonehara."
           ],
@@ -224,9 +200,7 @@
       "officialEvidence": [
         {
           "authority": "Ministry of the Environment national park site",
-          "urls": [
-            "https://www.env.go.jp/park/kerama/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/kerama/index.html"],
           "observations": [
             "The official source establishes the park, islands, and marine environment, but no single summer peak window for the whole park record was verified."
           ],
@@ -264,9 +238,7 @@
       "officialEvidence": [
         {
           "authority": "Miyazaki official tourism sources",
-          "urls": [
-            "https://www.miyazaki-city.tourism.or.jp/"
-          ],
+          "urls": ["https://www.miyazaki-city.tourism.or.jp/"],
           "observations": [
             "The checked official tourism material establishes Aoshima as a coastal scenic island, but does not provide a recurring summer operating or peak window for this card."
           ],

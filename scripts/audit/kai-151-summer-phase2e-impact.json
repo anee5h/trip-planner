@@ -34,12 +34,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -96,10 +92,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -118,10 +111,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -139,14 +129,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -164,12 +148,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -226,10 +206,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -248,10 +225,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -269,14 +243,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -294,12 +262,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -356,10 +320,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -378,10 +339,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -399,14 +357,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -424,12 +376,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -486,10 +434,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -508,10 +453,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -529,14 +471,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -554,12 +490,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -616,10 +548,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -638,10 +567,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -659,14 +585,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -684,12 +604,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -746,10 +662,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -768,10 +681,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -789,14 +699,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -814,12 +718,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -876,10 +776,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -898,10 +795,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -919,14 +813,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -944,12 +832,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1006,10 +890,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1028,10 +909,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1049,14 +927,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1074,12 +946,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1136,10 +1004,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1158,10 +1023,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1179,14 +1041,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1204,12 +1060,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1266,10 +1118,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1288,10 +1137,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1309,14 +1155,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1334,12 +1174,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1396,10 +1232,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1418,10 +1251,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1439,14 +1269,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1464,12 +1288,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1526,10 +1346,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1548,10 +1365,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1569,14 +1383,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1594,12 +1402,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1656,10 +1460,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1678,10 +1479,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1699,14 +1497,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1724,12 +1516,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1786,10 +1574,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1808,10 +1593,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1829,14 +1611,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1854,12 +1630,8 @@
       "beforeSeasonalDelta": 0,
       "afterSeasonalDelta": 0,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
-      "afterSeasonalEvidence": [
-        "comfort.rainFriendly"
-      ],
+      "beforeSeasonalEvidence": ["comfort.rainFriendly"],
+      "afterSeasonalEvidence": ["comfort.rainFriendly"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1916,10 +1688,7 @@
       "afterSeasonalDelta": 18,
       "seasonalDelta": 18,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1938,10 +1707,7 @@
       "afterSeasonalDelta": 12,
       "seasonalDelta": 12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -1959,14 +1725,8 @@
       "beforeSeasonalDelta": 6,
       "afterSeasonalDelta": 6,
       "seasonalDelta": 0,
-      "beforeSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
-      "afterSeasonalEvidence": [
-        "bestMonths",
-        "season.summer"
-      ],
+      "beforeSeasonalEvidence": ["bestMonths", "season.summer"],
+      "afterSeasonalEvidence": ["bestMonths", "season.summer"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2042,9 +1802,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2063,9 +1821,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2160,9 +1916,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2181,9 +1935,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2278,9 +2030,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2299,9 +2049,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2396,9 +2144,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2417,9 +2163,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2514,9 +2258,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2535,9 +2277,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2632,9 +2372,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2653,9 +2391,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2750,9 +2486,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2771,9 +2505,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2868,9 +2600,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2889,9 +2619,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -2986,9 +2714,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3007,9 +2733,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3104,9 +2828,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3125,9 +2847,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3222,9 +2942,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3243,9 +2961,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3340,9 +3056,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3361,9 +3075,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3458,9 +3170,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3479,9 +3189,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3576,9 +3284,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3597,9 +3303,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3694,9 +3398,7 @@
       "afterSeasonalDelta": -9,
       "seasonalDelta": -9,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
@@ -3715,9 +3417,7 @@
       "afterSeasonalDelta": -12,
       "seasonalDelta": -12,
       "beforeSeasonalEvidence": [],
-      "afterSeasonalEvidence": [
-        "season.winter"
-      ],
+      "afterSeasonalEvidence": ["season.winter"],
       "classification": "insufficient_evidence"
     },
     {
