@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-151",
+  "phase": "2B",
+  "baseCommit": "44bddab3a77988dcb29dcc0cdad24699fb827e9d",
+  "checkedAt": "2026-09-02",
+  "candidateDefinition": "Recommendation-visible standalone or point-of-interest destination records surfaced by the frozen KAI-151 thematic candidate/exposure audit; hubs and already-sufficient records are retained for classification but are not mutated.",
+  "selectionMethod": "Frozen five-duration recommendation exposure (shortOuting, halfDay, fullDay, 2d1n, 3d2n) across Tokyo, Osaka, and Fukuoka origins, filtered to the thematic signal and reviewed against destination-specific official operator, municipal, prefectural, or official tourism evidence.",
+  "summary": {
+    "candidateCount": 7,
+    "researchedCount": 7,
+    "mutatedCount": 2,
+    "insufficientCount": 5,
+    "classificationCounts": {
+      "insufficient_evidence": 5,
+      "verified_seasonal_window": 2
+    }
+  },
+  "records": [
+    {
+      "id": "mitarai-valley-tenkawa",
+      "name": "Mitarai Valley",
+      "phase": "2B",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "cohortReason": "High-exposure standalone nature destination with a direct autumn-foliage signal.",
+      "officialEvidence": [
+        {
+          "authority": "Official Nara Travel Guide",
+          "urls": [
+            "https://www.visitnara.jp/venues/E02096/"
+          ],
+          "observations": [
+            "The venue page says the vivid leaves are spectacular against the emerald waters in autumn and that leaves peak around early to mid-November."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Autumn",
+        "bestMonths": [
+          11
+        ],
+        "seasonVector": {
+          "spring": 5,
+          "summer": 6,
+          "autumn": 10,
+          "winter": 3
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Exact official peak window is mapped conservatively to November; no narrower date is asserted."
+    },
+    {
+      "id": "wakayama-castle",
+      "name": "Wakayama Castle",
+      "phase": "2B",
+      "kind": "castle",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone castle with a named autumn garden signal.",
+      "officialEvidence": [
+        {
+          "authority": "Wakayama Castle official site",
+          "urls": [
+            "https://wakayamajo.jp/flower/"
+          ],
+          "observations": [
+            "The official seasonal-flower page lists the Momijidani Garden autumn scene and says its usual viewing period is late November to early December."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Autumn",
+        "bestMonths": [
+          11,
+          12
+        ],
+        "seasonVector": {
+          "spring": 6,
+          "summer": 5,
+          "autumn": 10,
+          "winter": 4
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "The official page supports the late-November/early-December window for the castle garden; vector remains nonzero outside the peak."
+    },
+    {
+      "id": "oirase-gorge-aomori",
+      "name": "Oirase Mountain Stream & Gorge",
+      "phase": "2B",
+      "kind": null,
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone gorge with a strong foliage description but no defensible month window in the checked first-party page.",
+      "officialEvidence": [
+        {
+          "authority": "Towada Oirase Tourism Organization / Towada Travel",
+          "urls": [
+            "https://www.towada.travel/en/season/autumn",
+            "https://www.towada.kanko.or.jp/"
+          ],
+          "observations": [
+            "The official destination guide describes Lake Towada and Oirase Gorge turning red in autumn and calls the scenery photogenic, but the checked page does not publish a recurring month window."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Leave unknown; autumn-only wording is insufficient for exact bestMonths."
+    },
+    {
+      "id": "meiji-no-mori-mino",
+      "name": "Meiji no Mori Mino Quasi-National Park",
+      "phase": "2B",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone park with autumn foliage association but no recurring peak window in the authoritative page checked.",
+      "officialEvidence": [
+        {
+          "authority": "Osaka Prefectural Government / Minoh City Tourism Association",
+          "urls": [
+            "https://www.pref.osaka.lg.jp/o120030/midori/midori/g07-meiji.html",
+            "https://minohkankou.net/"
+          ],
+          "observations": [
+            "The official material identifies Meiji no Mori Minoh as a natural park and says Minoh is especially visited during the autumn foliage season; individual 2026 walks are dated but do not establish a recurring park-wide peak window."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Do not convert a dated event into a general best-month vector."
+    },
+    {
+      "id": "kinrin-lake-yufuin",
+      "name": "Kinrin Lake",
+      "phase": "2B",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Standalone nature POI with an autumn/winter mist signal but no foliage peak window.",
+      "officialEvidence": [
+        {
+          "authority": "Oita Prefecture official tourism site",
+          "urls": [
+            "https://www.visit-oita.jp/spots/detail/4362"
+          ],
+          "observations": [
+            "The official page says Kinrin Lake can be seen enveloped in fantastical morning mist from autumn through winter; it does not establish a foliage-specific month window."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Seasonal mist is not enough to assert an autumn foliage vector."
+    },
+    {
+      "id": "makino-metasequoia-avenue",
+      "name": "Makino Metasequoia Avenue",
+      "phase": "2B",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+        }
+      },
+      "cohortReason": "Standalone linear scenic attraction with seasonal imagery but no defensible peak window.",
+      "officialEvidence": [
+        {
+          "authority": "Takashima City official tourism guide",
+          "urls": [
+            "https://takashima-kanko.jp/spot/2018/06/post_155.html"
+          ],
+          "observations": [
+            "The official guide identifies the 2.4 km metasequoia avenue and its seasonal scenery; the checked page does not provide a recurring foliage month window."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Roadside seasonal scenery remains unknown under the season-model policy."
+    },
+    {
+      "id": "bitchu-matsuyama-castle",
+      "name": "Bitchu Matsuyama Castle",
+      "phase": "2B",
+      "kind": "castle",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Standalone castle with cloud/foliage imagery but no verified recurring foliage month window in the checked official material.",
+      "officialEvidence": [
+        {
+          "authority": "Bitchu Matsuyama Castle official site",
+          "urls": [
+            "https://www.bitchumatsuyamacastle.jp/"
+          ],
+          "observations": [
+            "The official site documents the mountain castle and visitor information; the checked pages did not provide a defensible recurring foliage window."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Do not infer months from general autumn imagery."
+    }
+  ]
+}

@@ -115,10 +115,10 @@
     "confidence": "beta"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2B authoritative thematic evidence; Autumn; preferred months 11,12; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 70,
   "walkingIntensity": "medium",
@@ -157,5 +157,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Wakayama_Castle",
   "wikipediaPageId": 1671173,
-  "wikidataId": "Q1151269"
+  "wikidataId": "Q1151269",
+  "bestSeason": "Autumn",
+  "bestMonths": [11, 12],
+  "season": {
+    "spring": 6,
+    "summer": 5,
+    "autumn": 10,
+    "winter": 4
+  }
 }

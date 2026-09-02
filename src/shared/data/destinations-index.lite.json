@@ -51688,6 +51688,14 @@
     },
     "officialWebsite": "http://wakayamajo.jp/",
     "status": "published",
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 4
+    },
+    "bestMonths": [11, 12],
+    "bestSeason": "Autumn",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -86943,6 +86951,14 @@
     "officialWebsite": "https://www.visitnara.jp/destinations/destination/mitarai-valley/",
     "officialWebsiteRequirement": "recommended",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 6,
+      "autumn": 10,
+      "winter": 3
+    },
+    "bestMonths": [11],
+    "bestSeason": "Autumn",
     "walkingMin": 240,
     "recommendedVisitHours": {
       "min": 3,
