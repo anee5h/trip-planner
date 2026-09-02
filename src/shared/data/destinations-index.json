@@ -1942,7 +1942,7 @@
   },
   {
     "id": "amami-iriomote-natural-site",
-    "transportZoneId": "unknown",
+    "transportZoneId": "amami",
     "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
     "prefecture": "Kagoshima",
     "region": "Kyushu",
@@ -2055,6 +2055,12 @@
           "url": "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island",
           "title": "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
           "accessedAt": "2026-08-04"
+        },
+        {
+          "type": "official",
+          "url": "https://marixline.com/en/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "fieldSources": {
@@ -2065,8 +2071,32 @@
             "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://marixline.com/en/",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://marixline.com/en/",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "openingHours": "No fixed opening hours (natural site)",
     "openingHoursJa": "営業時間の設定なし（自然エリア）",
@@ -2124,6 +2154,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
     }
   },
   {
@@ -26712,6 +26747,12 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
         }
       ],
       "fieldSources": {
@@ -26729,6 +26770,14 @@
             "url": "catalogue-model://kai-89",
             "title": "walking-model-v1; template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.hirosakijo.jp/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
           }
         ]
       }
@@ -26791,7 +26840,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Hirosaki_Castle",
     "wikipediaPageId": 2071136,
-    "wikidataId": "Q328582"
+    "wikidataId": "Q328582",
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    }
   },
   {
     "id": "hirosaki-city",
@@ -50318,6 +50372,12 @@
           "url": "https://towadako.or.jp/",
           "title": "Towadako Tourism Association",
           "accessedAt": "2026-08-11"
+        },
+        {
+          "type": "official",
+          "url": "https://aomori-tourism.com/en/feature/detail_125.html",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-11",
@@ -50329,6 +50389,12 @@
           "changedBy": "Meguruto editorial",
           "summary": "KAI-57 existing-data audit correction",
           "method": "assisted"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
         }
       ],
       "fieldSources": {
@@ -50346,6 +50412,14 @@
             "url": "catalogue-model://kai-89",
             "title": "walking-model-v1; template metre value 4000 replaced by walk-share estimate (FIX_UNIT): 50% of 6h visit",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://aomori-tourism.com/en/feature/detail_125.html",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
           }
         ]
       }
@@ -50399,6 +50473,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     }
   },
   {
@@ -67401,6 +67480,76 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    },
+    "editorial": {
+      "reviewedAt": "2026-09-02",
+      "reviewedBy": "Meguruto editorial",
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.japan.travel/en/destinations/hokuriku-shinetsu/ishikawa/noto/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "checkedAt": "2026-09-02",
+      "freshness": "current",
+      "changeSummary": "KAI-87 P0 transport access repair",
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ],
+      "fieldSources": {
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.japan.travel/en/destinations/hokuriku-shinetsu/ishikawa/noto/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "season": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "season-model-v1; temperate latitude band; calibrated beach peaks",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "bestMonths": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "season-model-v1; temperate latitude band; calibrated beach peaks",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "recommendedVisitHours": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "duration-model-v1; kind band 'nature'",
+            "accessedAt": "2026-08-14"
+          }
+        ],
+        "comfort": [
+          {
+            "type": "calculated",
+            "url": "catalogue-model://kai-89",
+            "title": "comfort-model-v1; derived from indoorPercent=10, kind='nature', walkingMin=290",
+            "accessedAt": "2026-08-14"
+          }
+        ]
+      }
     }
   },
   {
@@ -127979,6 +128128,12 @@
           "url": "https://www.city.wakayama.wakayama.jp/kankou/tomogashima/",
           "title": "Tomogashima Islands (Laputa Island)",
           "accessedAt": "2026-08-13"
+        },
+        {
+          "type": "official",
+          "url": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "reviewedAt": "2026-08-03T00:00:00Z",
@@ -127992,8 +128147,32 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "relationships": {
       "parentDestinationId": "wakayama-city"
@@ -128092,6 +128271,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
     }
   },
   {
@@ -163491,6 +163675,12 @@
           "url": "https://visithachinohe.com/spot/kabushima-jinja/",
           "title": "Visit Hachinohe — Kabushima Shrine",
           "accessedAt": "2026-08-11"
+        },
+        {
+          "type": "official",
+          "url": "https://visithachinohe.com/spot/kabushima-jinja/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-11",
@@ -163502,6 +163692,12 @@
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-57 Tohoku POI",
           "method": "assisted"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
         }
       ],
       "fieldSources": {
@@ -163519,6 +163715,14 @@
             "url": "catalogue-model://kai-89",
             "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 60% of 2h visit",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://visithachinohe.com/spot/kabushima-jinja/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
           }
         ]
       }
@@ -163575,6 +163779,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     }
   },
   {
@@ -163962,6 +164171,12 @@
           "url": "https://towadaartcenter.com/",
           "title": "Towada Art Center official site",
           "accessedAt": "2026-08-11"
+        },
+        {
+          "type": "official",
+          "url": "https://towadaartcenter.com/en/access/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-11",
@@ -163973,6 +164188,12 @@
           "changedBy": "Meguruto editorial",
           "summary": "Added source-backed KAI-57 Tohoku POI",
           "method": "assisted"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
         }
       ],
       "fieldSources": {
@@ -164014,6 +164235,14 @@
             "url": "catalogue-model://kai-89",
             "title": "season-model-v1; indoorPercent/kind; year-round marker; calibration gap documented",
             "accessedAt": "2026-08-14"
+          }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://towadaartcenter.com/en/access/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
           }
         ]
       }
@@ -164084,6 +164313,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     }
   },
   {
@@ -170537,7 +170771,9 @@
       "Nemuro history museum context"
     ],
     "notes": "The chashi are open-air earthwork sites; visit the Nemuro City History and Folklore Museum for interpretation. Access is by car from Nemuro city center; the peninsula road is best in summer.",
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 600
+    },
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
@@ -170626,6 +170862,12 @@
           "url": "https://jokaku.jp/business/great-castles/",
           "title": "Japan Castle Foundation 日本100名城 official list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://nemuro-hokkaido.com/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -170639,8 +170881,24 @@
             "title": "walking-model-v1; walk-share estimate: 50% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://nemuro-hokkaido.com/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -170656,13 +170914,13 @@
     "walkingMin": 105,
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -170685,6 +170943,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     }
   },
   {
@@ -171100,7 +171363,9 @@
       "National historic site"
     ],
     "notes": "Free to walk the grounds; the adjacent Hachinohe City Museum interprets the site.",
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 185
+    },
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
@@ -171188,6 +171453,12 @@
           "url": "https://jokaku.jp/business/great-castles/",
           "title": "Japan Castle Foundation 日本100名城 official list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://visithachinohe.com/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -171201,8 +171472,24 @@
             "title": "walking-model-v1; walk-share estimate: 60% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://visithachinohe.com/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -171218,13 +171505,13 @@
     "walkingMin": 125,
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -171253,7 +171540,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ne_Castle",
     "wikipediaPageId": 50595410,
-    "wikidataId": "Q8140388"
+    "wikidataId": "Q8140388",
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    }
   },
   {
     "id": "taga-castle",
@@ -178100,7 +178392,9 @@
       "Cherry blossoms in Kakuzan Park"
     ],
     "notes": "Kakuzan Park is free; the turret is open seasonally (¥300).",
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 90
+    },
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
@@ -178190,6 +178484,12 @@
           "url": "https://jokaku.jp/business/great-castles/",
           "title": "Japan Castle Foundation 日本100名城 official list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.japan.travel/en/spot/899/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -178203,8 +178503,24 @@
             "title": "walking-model-v1; walk-share estimate: 60% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.japan.travel/en/spot/899/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -178220,13 +178536,13 @@
     "walkingMin": 125,
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -178255,7 +178571,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsuyama_Castle",
     "wikipediaPageId": 22486795,
-    "wikidataId": "Q767818"
+    "wikidataId": "Q767818",
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    }
   },
   {
     "id": "kinojo",
@@ -181801,6 +182122,12 @@
           "url": "https://www.env.go.jp/park/parks/index.html",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://heartlandferry.jp/english/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -181822,10 +182149,42 @@
             "title": "walking-model-v1; real-distance metres 385 -> minutes (pace 80 m/min, clamped to visit window)",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://heartlandferry.jp/english/",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://heartlandferry.jp/english/",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://heartlandferry.jp/english/",
+            "title": "official local-access mode evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "rishiri",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -181885,7 +182244,16 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Rishiri-Rebun-Sarobetsu_National_Park",
     "wikipediaPageId": 4614563,
-    "wikidataId": "Q1206791"
+    "wikidataId": "Q1206791",
+    "localAccessModes": [
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "akan-mashu",
@@ -182919,7 +183287,9 @@
       "Hachimantai highlands"
     ],
     "notes": "Designated 1936 (85,534 ha). The Oirase walking path and Towada cruise are classics; Hachimantai is a ski and onsen area.",
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 240
+    },
     "ratings": {
       "overall": 8.7,
       "couple": 8.5,
@@ -183002,6 +183372,12 @@
           "url": "https://www.env.go.jp/park/parks/index.html",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.env.go.jp/en/nature/nps/park/towada/index.html",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -183023,8 +183399,24 @@
             "title": "walking-model-v1; real-distance metres 385 -> minutes (pace 80 m/min, clamped to visit window)",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.env.go.jp/en/nature/nps/park/towada/index.html",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -183051,13 +183443,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -183085,7 +183477,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Towada-Hachimantai_National_Park",
     "wikipediaPageId": 4614355,
-    "wikidataId": "Q1155842"
+    "wikidataId": "Q1155842",
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    }
   },
   {
     "id": "sanriku-fukko",
@@ -187990,14 +188387,53 @@
           "url": "https://www.env.go.jp/park/parks/index.html",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.vill.zamami.okinawa.jp/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
       "freshness": "current",
       "changeSummary": "PR C parks audit: new national park record",
-      "fieldSources": {}
+      "fieldSources": {
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.vill.zamami.okinawa.jp/",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://www.vill.zamami.okinawa.jp/",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.vill.zamami.okinawa.jp/",
+            "title": "official local-access mode evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ]
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "kerama",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -188051,7 +188487,16 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Kerama_Shot%C5%8D_National_Park",
     "wikipediaPageId": 42977906,
-    "wikidataId": "Q15894675"
+    "wikidataId": "Q15894675",
+    "localAccessModes": [
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "iriomote-ishigaki",
@@ -189275,7 +189720,9 @@
       "Cape forests"
     ],
     "notes": "Managed by Aomori. Osorezan's memorial temple is the peninsula's famous pilgrimage.",
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 240
+    },
     "ratings": {
       "overall": 8.4,
       "couple": 8.2,
@@ -189358,6 +189805,12 @@
           "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.aomori-tourism.com/en/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -189379,8 +189832,24 @@
             "title": "duration-model-v1; kind band 'nature' + scale uplift",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.aomori-tourism.com/en/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -189407,13 +189876,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -189441,7 +189910,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Shimokita_Hant%C5%8D_Quasi-National_Park",
     "wikipediaPageId": 24812272,
-    "wikidataId": "Q1017113"
+    "wikidataId": "Q1017113",
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    }
   },
   {
     "id": "tsugaru",
@@ -189477,7 +189951,9 @@
       "Tsugaru coast"
     ],
     "notes": "Managed by Aomori. The Juniko lakes and the cape's strait views are the highlights.",
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 180
+    },
     "recommendedVisitHours": {
       "min": 2,
       "max": 5
@@ -189564,6 +190040,12 @@
           "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.trip-tsugaru.com/en/towns-villages/tsugaru/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -189577,8 +190059,24 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.trip-tsugaru.com/en/towns-villages/tsugaru/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -189595,13 +190093,13 @@
     "walkingIntensity": "high",
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -189629,7 +190127,13 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsugaru_Quasi-National_Park",
     "wikipediaPageId": 2423802,
-    "wikidataId": "Q1071023"
+    "wikidataId": "Q1071023",
+    "transportMetadata": {
+      "method": "legacy-fallback",
+      "modelVersion": "transport-access-v1",
+      "confidence": "low",
+      "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
+    }
   },
   {
     "id": "hayachine",
@@ -192123,6 +192627,12 @@
           "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.japan.travel/en/destinations/hokuriku-shinetsu/ishikawa/noto/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -192136,8 +192646,24 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.japan.travel/en/destinations/hokuriku-shinetsu/ishikawa/noto/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
     "ratingMetadata": {
       "rubricVersion": 2,
@@ -192188,7 +192714,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Noto_Hant%C5%8D_Quasi-National_Park",
     "wikipediaPageId": 35888511,
-    "wikidataId": "Q11612013"
+    "wikidataId": "Q11612013",
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    }
   },
   {
     "id": "echizen-kaga-kaigan",
@@ -198090,6 +198621,12 @@
           "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.kyu-you.co.jp/en/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -198103,10 +198640,42 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.kyu-you.co.jp/en/",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://www.kyu-you.co.jp/en/",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.kyu-you.co.jp/en/",
+            "title": "official local-access mode evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "iki",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -198156,7 +198725,16 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Iki-Tsushima_Quasi-National_Park",
     "wikipediaPageId": 31734420,
-    "wikidataId": "Q1072765"
+    "wikidataId": "Q1072765",
+    "localAccessModes": [
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "kyushu-chuo-sanchi",
@@ -199115,6 +199693,12 @@
           "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
           "title": "Ministry of the Environment park list",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.pref.kagoshima.jp/ad04/kurashi-kankyo/kankyo/sizenkouen/kennai/koshiki.html",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -199128,10 +199712,42 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.pref.kagoshima.jp/ad04/kurashi-kankyo/kankyo/sizenkouen/kennai/koshiki.html",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://www.pref.kagoshima.jp/ad04/kurashi-kankyo/kankyo/sizenkouen/kennai/koshiki.html",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.pref.kagoshima.jp/ad04/kurashi-kankyo/kankyo/sizenkouen/kennai/koshiki.html",
+            "title": "official local-access mode evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "koshiki",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -199181,7 +199797,16 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Koshikishima_Quasi-National_Park",
     "wikipediaPageId": 61499250,
-    "wikidataId": "Q85774920"
+    "wikidataId": "Q85774920",
+    "localAccessModes": [
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "okinawa-kaigan",
@@ -203664,7 +204289,9 @@
       "Setouchi art festival"
     ],
     "notes": "Ferries from Takamatsu (~60 min) and Himeji; buses loop the island from Tonosho port.",
-    "transportOptions": {},
+    "transportOptions": {
+      "ferry": 60
+    },
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
@@ -203750,6 +204377,12 @@
           "url": "https://www.shodoshima-kankou.jp/",
           "title": "Shodoshima Island official page",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.shodoshima-ferry.co.jp/lang/en.html",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -203763,10 +204396,42 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.shodoshima-ferry.co.jp/lang/en.html",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://www.shodoshima-ferry.co.jp/lang/en.html",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "localAccessModes": [
+          {
+            "type": "official",
+            "url": "https://www.shodoshima-ferry.co.jp/lang/en.html",
+            "title": "official local-access mode evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "shodoshima",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -203784,10 +204449,10 @@
       "value": 6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -203815,7 +204480,16 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B0%8F%E8%B1%86%E5%B3%B6",
     "wikipediaPageId": 6118,
-    "wikidataId": "Q2166413"
+    "wikidataId": "Q2166413",
+    "localAccessModes": [
+      "bus"
+    ],
+    "localAccessUnestimated": true,
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "inujima",
@@ -203850,7 +204524,9 @@
       "Benesse Art Site island"
     ],
     "notes": "Ferry from Okayama's Hoden port (~20 min) or Takamatsu; museum admission ¥2,100 (combined tickets available).",
-    "transportOptions": {},
+    "transportOptions": {
+      "ferry": 25
+    },
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
@@ -203932,6 +204608,12 @@
           "url": "https://benesse-artsite.jp/",
           "title": "Inujima Island official page",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://benesse-artsite.jp/en/access/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -203945,10 +204627,34 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://benesse-artsite.jp/en/access/",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://benesse-artsite.jp/en/access/",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "inujima",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -203967,10 +204673,10 @@
       "value": 6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -203998,7 +204704,12 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8A%AC%E5%B3%B6",
     "wikipediaPageId": 157590,
-    "wikidataId": "Q75322"
+    "wikidataId": "Q75322",
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "hakone-open-air-museum",
@@ -204648,7 +205359,9 @@
       "Steep island lanes"
     ],
     "notes": "Ferry from Takamatsu (~40 min); artworks change with the festival editions — check setouchi-artfest.jp.",
-    "transportOptions": {},
+    "transportOptions": {
+      "ferry": 40
+    },
     "recommendedVisitHours": {
       "min": 1.5,
       "max": 3.5
@@ -204730,6 +205443,12 @@
           "url": "https://setouchi-artfest.jp/",
           "title": "Ogijima Island official page",
           "accessedAt": "2026-08-12"
+        },
+        {
+          "type": "official",
+          "url": "https://www.my-kagawa.jp/files/user/site/fb65409f125c7ccf14e2e93df69bb859c0b53c3f.pdf",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "checkedAt": "2026-08-12",
@@ -204743,10 +205462,34 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 3.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "official",
+            "url": "https://www.my-kagawa.jp/files/user/site/fb65409f125c7ccf14e2e93df69bb859c0b53c3f.pdf",
+            "title": "official ferry route and crossing-duration evidence",
+            "accessedAt": "2026-09-02"
+          }
+        ],
+        "transportZoneId": [
+          {
+            "type": "official",
+            "url": "https://www.my-kagawa.jp/files/user/site/fb65409f125c7ccf14e2e93df69bb859c0b53c3f.pdf",
+            "title": "official geographic/access evidence for canonical transport zone",
+            "accessedAt": "2026-09-02"
+          }
         ]
-      }
+      },
+      "changes": [
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
+          "method": "manual"
+        }
+      ]
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "ogijima",
     "ratingMetadata": {
       "rubricVersion": 2,
       "method": "assisted",
@@ -204764,10 +205507,10 @@
       "value": 6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -204795,7 +205538,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ogijima",
     "wikipediaPageId": 32981519,
-    "wikidataId": "Q3349795"
+    "wikidataId": "Q3349795",
+    "transportMetadata": {
+      "method": "source-verified",
+      "confidence": "medium",
+      "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+    }
   },
   {
     "id": "shikoku-henro",
@@ -221000,16 +221748,18 @@
       "attribution": "ChiefHira; Wikimedia Commons File:Izanagi-jingu Haiden.JPG",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Izanagi-jingu_Haiden.JPG"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 45
+    },
     "localAccessModes": [
       "bus",
       "car"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "unestimated",
-      "confidence": "unknown",
-      "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -221085,6 +221835,12 @@
           "url": "https://www.awajishima-kanko.jp/en/access/",
           "title": "Official Awaji Island access guidance (bridge/highway bus and island buses)",
           "accessedAt": "2026-08-23"
+        },
+        {
+          "type": "official",
+          "url": "https://izanagi-jingu.jp/en/",
+          "title": "Official destination or transport access source",
+          "accessedAt": "2026-09-02"
         }
       ],
       "fieldSources": {
@@ -221159,6 +221915,14 @@
             "title": "walking-model-v1; walk-share estimate: 60% of 1.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://izanagi-jingu.jp/en/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
       },
       "changes": [
@@ -221166,6 +221930,12 @@
           "changedAt": "2026-08-23",
           "changedBy": "Meguruto editorial",
           "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+          "method": "manual"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
           "method": "manual"
         }
       ]
@@ -221182,13 +221952,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -221291,16 +222061,18 @@
       "attribution": "pelican from Tokyo, Japan; Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Awaji_England_Hill,_Hyogo,_Japan_(26554568782).jpg"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 90
+    },
     "localAccessModes": [
       "bus",
       "car"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "unestimated",
-      "confidence": "unknown",
-      "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "recommendedVisitHours": {
       "min": 3,
@@ -221450,6 +222222,14 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.england-hill.com/access/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
       },
       "changes": [
@@ -221457,6 +222237,12 @@
           "changedAt": "2026-08-23",
           "changedBy": "Meguruto editorial",
           "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+          "method": "manual"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
           "method": "manual"
         }
       ]
@@ -221473,13 +222259,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -221583,16 +222369,18 @@
       "attribution": "663highland; Wikimedia Commons",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumoto_Castle_Awaji_Island_Japan03n.jpg"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 45
+    },
     "localAccessModes": [
       "bus",
       "car"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "unestimated",
-      "confidence": "unknown",
-      "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "recommendedVisitHours": {
       "min": 1.5,
@@ -221742,6 +222530,14 @@
             "title": "walking-model-v1; walk-share estimate: 60% of 2.5h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://www.awajishima-kanko.jp/en/access/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
       },
       "changes": [
@@ -221749,6 +222545,12 @@
           "changedAt": "2026-08-23",
           "changedBy": "Meguruto editorial",
           "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+          "method": "manual"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
           "method": "manual"
         }
       ]
@@ -221765,13 +222567,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
@@ -222459,16 +223261,18 @@
       "attribution": "Mti",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Awaji_land_park_Hyogopref_forest_zone.JPG"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 35
+    },
     "localAccessModes": [
       "bus",
       "car"
     ],
     "localAccessUnestimated": true,
     "transportMetadata": {
-      "method": "unestimated",
-      "confidence": "unknown",
-      "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "recommendedVisitHours": {
       "min": 4,
@@ -222624,6 +223428,14 @@
             "title": "walking-model-v1; walk-share estimate: 80% of 8h visit",
             "accessedAt": "2026-08-14"
           }
+        ],
+        "transportOptions": [
+          {
+            "type": "calculated",
+            "url": "https://nijigennomori.com/en/access/",
+            "title": "KAI-87 P0 transport fallback derived from official access evidence",
+            "accessedAt": "2026-09-02"
+          }
         ]
       },
       "changes": [
@@ -222631,6 +223443,12 @@
           "changedAt": "2026-08-23",
           "changedBy": "Meguruto editorial",
           "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+          "method": "manual"
+        },
+        {
+          "changedAt": "2026-09-02",
+          "changedBy": "Meguruto editorial",
+          "summary": "KAI-87 P0 transport access repair",
           "method": "manual"
         }
       ]
@@ -222647,13 +223465,13 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },

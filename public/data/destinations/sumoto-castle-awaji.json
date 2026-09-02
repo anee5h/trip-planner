@@ -62,13 +62,15 @@
     "attribution": "663highland; Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sumoto_Castle_Awaji_Island_Japan03n.jpg"
   },
-  "transportOptions": {},
+  "transportOptions": {
+    "car": 45
+  },
   "localAccessModes": ["bus", "car"],
   "localAccessUnestimated": true,
   "transportMetadata": {
-    "method": "unestimated",
-    "confidence": "unknown",
-    "basis": "Official sources verify local access but not a complete origin-to-destination duration. Recommendation availability must come from canonical origin-aware routes, never from static transportOptions numbers."
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
   },
   "recommendedVisitHours": {
     "min": 1.5,
@@ -218,6 +220,14 @@
           "title": "walking-model-v1; walk-share estimate: 60% of 2.5h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "transportOptions": [
+        {
+          "type": "calculated",
+          "url": "https://www.awajishima-kanko.jp/en/access/",
+          "title": "KAI-87 P0 transport fallback derived from official access evidence",
+          "accessedAt": "2026-09-02"
+        }
       ]
     },
     "changes": [
@@ -225,6 +235,12 @@
         "changedAt": "2026-08-23",
         "changedBy": "Meguruto editorial",
         "summary": "Added one canonical destination after current operator, government, and official tourism verification.",
+        "method": "manual"
+      },
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
         "method": "manual"
       }
     ]
@@ -241,13 +257,13 @@
   },
   "scoreMetadata": {
     "state": "estimated",
-    "value": 6.7,
+    "value": 6.6,
     "rubricVersion": "kai-89-overall-v2",
     "confidence": "low",
-    "coverage": 0.9,
+    "coverage": 1,
     "provenance": {
       "sourceClass": "model",
-      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
   },

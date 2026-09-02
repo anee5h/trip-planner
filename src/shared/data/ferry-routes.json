@@ -141,6 +141,78 @@
       "passengerService": true,
       "sourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/",
       "checkedAt": "2026-08-23"
+    },
+    {
+      "from": "mainland-honshu",
+      "to": "inujima",
+      "operator": "Shikoku Kisen / Benesse Art Site",
+      "ports": ["Hoden", "Inujima"],
+      "passengerService": true,
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "mainland-shikoku",
+      "to": "ogijima",
+      "operator": "Shodoshima Ferry / Megijima-Ogijima Ferry",
+      "ports": ["Takamatsu", "Ogijima"],
+      "passengerService": true,
+      "sourceUrl": "https://www.my-kagawa.jp/files/user/site/fb65409f125c7ccf14e2e93df69bb859c0b53c3f.pdf",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "mainland-shikoku",
+      "to": "shodoshima",
+      "operator": "Shodoshima Ferry",
+      "ports": ["Takamatsu", "Tonosho"],
+      "passengerService": true,
+      "sourceUrl": "https://www.shodoshima-ferry.co.jp/lang/en.html",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "iki",
+      "operator": "Kyusyu Yusen",
+      "ports": ["Hakata", "Gonoura / Ashibe"],
+      "passengerService": true,
+      "sourceUrl": "https://www.kyu-you.co.jp/en/",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "okinawa-main",
+      "to": "kerama",
+      "operator": "Zamami Village Ferry / Tokashiki Ferry",
+      "ports": ["Tomari", "Zamami"],
+      "passengerService": true,
+      "sourceUrl": "https://www.vill.zamami.okinawa.jp/",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "koshiki",
+      "operator": "Koshikijima Shosen",
+      "ports": ["Kushikino", "Koshiki"],
+      "passengerService": true,
+      "sourceUrl": "https://www.pref.kagoshima.jp/ad04/kurashi-kankyo/kankyo/sizenkouen/kennai/koshiki.html",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "hokkaido",
+      "to": "rishiri",
+      "operator": "Heart Land Ferry",
+      "ports": ["Wakkanai", "Rishiri"],
+      "passengerService": true,
+      "sourceUrl": "https://heartlandferry.jp/english/",
+      "checkedAt": "2026-09-02"
+    },
+    {
+      "from": "mainland-kyushu",
+      "to": "amami",
+      "operator": "Marix Line / A-Line Ferry",
+      "ports": ["Kagoshima", "Naze"],
+      "passengerService": true,
+      "sourceUrl": "https://marixline.com/en/",
+      "checkedAt": "2026-09-02"
     }
   ]
 }

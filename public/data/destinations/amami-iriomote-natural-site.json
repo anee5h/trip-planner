@@ -1,6 +1,6 @@
 {
   "id": "amami-iriomote-natural-site",
-  "transportZoneId": "unknown",
+  "transportZoneId": "amami",
   "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
   "prefecture": "Kagoshima",
   "region": "Kyushu",
@@ -109,6 +109,12 @@
         "url": "https://en.wikipedia.org/wiki/Amami-%C5%8Cshima_Island,_Tokunoshima_Island,_Northern_Okinawa_Island,_and_Iriomote_Island",
         "title": "Amami-Ōshima Island, Tokunoshima Island, Northern Okinawa Island, and Iriomote Island",
         "accessedAt": "2026-08-04"
+      },
+      {
+        "type": "official",
+        "url": "https://marixline.com/en/",
+        "title": "Official destination or transport access source",
+        "accessedAt": "2026-09-02"
       }
     ],
     "fieldSources": {
@@ -119,8 +125,32 @@
           "title": "comfort-model-v1; derived from indoorPercent=35, kind='', walkingMin=120",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://marixline.com/en/",
+          "title": "official ferry route and crossing-duration evidence",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "transportZoneId": [
+        {
+          "type": "official",
+          "url": "https://marixline.com/en/",
+          "title": "official geographic/access evidence for canonical transport zone",
+          "accessedAt": "2026-09-02"
+        }
       ]
-    }
+    },
+    "changes": [
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
+        "method": "manual"
+      }
+    ]
   },
   "openingHours": "No fixed opening hours (natural site)",
   "openingHoursJa": "営業時間の設定なし（自然エリア）",
@@ -176,5 +206,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "transportMetadata": {
+    "method": "source-verified",
+    "confidence": "medium",
+    "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
   }
 }

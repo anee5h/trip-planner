@@ -1,4 +1,7 @@
 import { describe, expect, it } from "vitest";
+import destinationsData from "@/shared/data/destinations-index.json";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
+import { resolveOriginTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import type { Destination } from "@/shared/types/destination";
 import {
   buildPlanningAudit,
@@ -155,6 +158,107 @@ describe("KAI-87 planning-quality audit contract", () => {
     expect(normalized.score).toBe(100);
     expect(normalized.appliedWeight).toBe(75);
     expect(normalized.excludedDimensions).toEqual(["budget"]);
+  });
+
+  it("keeps the KAI-87 P0 cohort clear of normalized critical defects", () => {
+    const report = buildPlanningAudit(destinationsData as Destination[]);
+    const previousP0 = [
+      "inujima",
+      "ogijima",
+      "shodoshima",
+      "ne-castle-hachinohe",
+      "nemuro-peninsula-chashi-sites",
+      "shimokita-hanto",
+      "towada-hachimantai",
+      "tsugaru",
+      "tsuyama-castle",
+      "noto",
+      "awaji-farm-park-england-hill",
+      "iki-tsushima",
+      "izanagi-jingu-awaji",
+      "kerama-shoto",
+      "koshikijima",
+      "nijigen-no-mori-awaji",
+      "noto-hanto",
+      "rishiri-rebun-sarobetsu",
+      "sumoto-castle-awaji",
+      "towada-art-center",
+      "hirosaki-castle",
+      "kabushima-shrine",
+      "lake-towada-aomori",
+      "tomogashima-islands",
+      "amami-iriomote-natural-site",
+    ];
+
+    expect(report.priority.P0).toEqual([]);
+    expect(
+      previousP0.filter((id) => report.destinations[id].priority === "P0"),
+    ).toEqual([]);
+  });
+
+  it("keeps each repaired P0 destination recommendation-reachable", () => {
+    const previousP0 = [
+      "inujima",
+      "ogijima",
+      "shodoshima",
+      "ne-castle-hachinohe",
+      "nemuro-peninsula-chashi-sites",
+      "shimokita-hanto",
+      "towada-hachimantai",
+      "tsugaru",
+      "tsuyama-castle",
+      "noto",
+      "awaji-farm-park-england-hill",
+      "iki-tsushima",
+      "izanagi-jingu-awaji",
+      "kerama-shoto",
+      "koshikijima",
+      "nijigen-no-mori-awaji",
+      "noto-hanto",
+      "rishiri-rebun-sarobetsu",
+      "sumoto-castle-awaji",
+      "towada-art-center",
+      "hirosaki-castle",
+      "kabushima-shrine",
+      "lake-towada-aomori",
+      "tomogashima-islands",
+      "amami-iriomote-natural-site",
+    ];
+    const origins = [
+      { lat: 35.5147, lng: 139.5393 },
+      { lat: 35.6812, lng: 139.7671 },
+      { lat: 34.7025, lng: 135.4959 },
+      { lat: 33.5902, lng: 130.4017 },
+      { lat: 26.2124, lng: 127.6809 },
+      { lat: 34.35, lng: 134.046 },
+      { lat: 45.415, lng: 141.673 },
+    ];
+    const destinations = new Map(
+      (destinationsData as Destination[]).map((destination) => [
+        destination.id,
+        destination,
+      ]),
+    );
+    const travelDate = new Date("2026-08-15T12:00:00Z");
+    const missing = previousP0.filter((id) => {
+      const destination = destinations.get(id)!;
+      return !origins.some((coordinates) => {
+        const originZoneId = resolveOriginTransportZone({ coordinates });
+        return (
+          getValidModes(
+            destination,
+            "rental",
+            ["train", "shinkansen", "bus", "flight", "ferry"],
+            coordinates,
+            undefined,
+            originZoneId,
+            { travelDate },
+          ).length > 0
+        );
+      });
+    });
+
+    expect(missing).toEqual([]);
   });
 
   it("produces deterministic scores and reports", () => {

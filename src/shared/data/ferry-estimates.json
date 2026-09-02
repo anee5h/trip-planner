@@ -276,9 +276,289 @@
         "lat": 35.4228,
         "lng": 136.1378
       }
+    },
+    {
+      "id": "HODEN",
+      "name": "Hoden Port",
+      "nameJa": "宝伝港",
+      "city": "Okayama",
+      "prefecture": "Okayama",
+      "zoneId": "mainland-honshu",
+      "coordinates": {
+        "lat": 34.548,
+        "lng": 134.056
+      }
+    },
+    {
+      "id": "INUJIMA",
+      "name": "Inujima Port",
+      "nameJa": "犬島港",
+      "city": "Okayama",
+      "prefecture": "Okayama",
+      "zoneId": "inujima",
+      "coordinates": {
+        "lat": 34.5627,
+        "lng": 134.1018
+      }
+    },
+    {
+      "id": "OGIJIMA",
+      "name": "Ogijima Port",
+      "nameJa": "男木港",
+      "city": "Takamatsu",
+      "prefecture": "Kagawa",
+      "zoneId": "ogijima",
+      "coordinates": {
+        "lat": 34.4284,
+        "lng": 134.061
+      }
+    },
+    {
+      "id": "TONOSHO",
+      "name": "Tonosho Port",
+      "nameJa": "土庄港",
+      "city": "Tonosho",
+      "prefecture": "Kagawa",
+      "zoneId": "shodoshima",
+      "coordinates": {
+        "lat": 34.486,
+        "lng": 134.176
+      }
+    },
+    {
+      "id": "GONOURA-IKI",
+      "name": "Gonoura Port (Iki)",
+      "nameJa": "郷ノ浦港（壱岐）",
+      "city": "Iki",
+      "prefecture": "Nagasaki",
+      "zoneId": "iki",
+      "coordinates": {
+        "lat": 33.746,
+        "lng": 129.69
+      }
+    },
+    {
+      "id": "TOMARI-NAHA",
+      "name": "Tomari Port (Naha)",
+      "nameJa": "泊港（那覇）",
+      "city": "Naha",
+      "prefecture": "Okinawa",
+      "zoneId": "okinawa-main",
+      "coordinates": {
+        "lat": 26.217,
+        "lng": 127.674
+      }
+    },
+    {
+      "id": "ZAMAMI",
+      "name": "Zamami Port",
+      "nameJa": "座間味港",
+      "city": "Zamami",
+      "prefecture": "Okinawa",
+      "zoneId": "kerama",
+      "coordinates": {
+        "lat": 26.153,
+        "lng": 127.293
+      }
+    },
+    {
+      "id": "KUSHIKINO",
+      "name": "Kushikino New Port",
+      "nameJa": "串木野新港",
+      "city": "Ichikikushikino",
+      "prefecture": "Kagoshima",
+      "zoneId": "mainland-kyushu",
+      "coordinates": {
+        "lat": 31.706,
+        "lng": 130.268
+      }
+    },
+    {
+      "id": "KOSHIKI",
+      "name": "Koshiki Port",
+      "nameJa": "甑島港",
+      "city": "Satsumasendai",
+      "prefecture": "Kagoshima",
+      "zoneId": "koshiki",
+      "coordinates": {
+        "lat": 31.86,
+        "lng": 129.88
+      }
+    },
+    {
+      "id": "WAKKANAI",
+      "name": "Wakkanai Port",
+      "nameJa": "稚内港",
+      "city": "Wakkanai",
+      "prefecture": "Hokkaido",
+      "zoneId": "hokkaido",
+      "coordinates": {
+        "lat": 45.415,
+        "lng": 141.673
+      }
+    },
+    {
+      "id": "RISHIRI",
+      "name": "Rishiri Port",
+      "nameJa": "利尻港",
+      "city": "Rishiri",
+      "prefecture": "Hokkaido",
+      "zoneId": "rishiri",
+      "coordinates": {
+        "lat": 45.24,
+        "lng": 141.22
+      }
+    },
+    {
+      "id": "NAZE-AMAMI",
+      "name": "Naze Port (Amami Oshima)",
+      "nameJa": "名瀬港（奄美大島）",
+      "city": "Amami",
+      "prefecture": "Kagoshima",
+      "zoneId": "amami",
+      "coordinates": {
+        "lat": 28.38,
+        "lng": 129.5
+      }
     }
   ],
   "services": [
+    {
+      "id": "hoden-inujima",
+      "fromPort": "HODEN",
+      "toPort": "INUJIMA",
+      "operator": "Shikoku Kisen / Benesse Art Site",
+      "serviceName": "Hoden–Inujima passenger boat",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [25, 25],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://benesse-artsite.jp/en/access/",
+      "checkedAt": "2026-09-02",
+      "notes": "Official Benesse access guidance identifies Hoden as the direct passenger-boat access point for Inujima. Duration is route evidence; fare is intentionally unavailable."
+    },
+    {
+      "id": "takamatsu-ogijima",
+      "fromPort": "TAKAMATSU",
+      "toPort": "OGIJIMA",
+      "operator": "Megijima-Ogijima Ferry",
+      "serviceName": "Takamatsu–Ogijima ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [40, 40],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.my-kagawa.jp/files/user/site/fb65409f125c7ccf14e2e93df69bb859c0b53c3f.pdf",
+      "checkedAt": "2026-09-02",
+      "notes": "Kagawa official visitor guidance documents the year-round Takamatsu–Ogijima crossing at about 40 minutes. Fare is intentionally unavailable."
+    },
+    {
+      "id": "takamatsu-shodoshima",
+      "fromPort": "TAKAMATSU",
+      "toPort": "TONOSHO",
+      "operator": "Shodoshima Ferry",
+      "serviceName": "Takamatsu–Tonosho ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [60, 60],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.shodoshima-ferry.co.jp/lang/en.html",
+      "checkedAt": "2026-09-02",
+      "notes": "Official Shodoshima Teshima Ferry route page documents Takamatsu–Shodoshima/Tonosho service. Fare is intentionally unavailable."
+    },
+    {
+      "id": "hakata-iki",
+      "fromPort": "HAKATA",
+      "toPort": "GONOURA-IKI",
+      "operator": "Kyusyu Yusen",
+      "serviceName": "Hakata–Iki passenger service",
+      "vesselType": "jetfoil",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [70, 80],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.kyu-you.co.jp/en/",
+      "checkedAt": "2026-09-02",
+      "notes": "Official Kyusyu Yusen route evidence supports Hakata–Iki passenger service. Fare is intentionally unavailable."
+    },
+    {
+      "id": "naha-zamami",
+      "fromPort": "TOMARI-NAHA",
+      "toPort": "ZAMAMI",
+      "operator": "Zamami Village Ferry",
+      "serviceName": "Naha–Zamami high-speed boat",
+      "vesselType": "highspeed",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [60, 70],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.vill.zamami.okinawa.jp/",
+      "checkedAt": "2026-09-02",
+      "notes": "Zamami official access guidance supports passenger ferry/high-speed-boat access from Naha Tomari Port. Fare is intentionally unavailable."
+    },
+    {
+      "id": "kushikino-koshiki",
+      "fromPort": "KUSHIKINO",
+      "toPort": "KOSHIKI",
+      "operator": "Koshikijima Shosen",
+      "serviceName": "Kushikino–Koshiki ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [75, 75],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.pref.kagoshima.jp/ad04/kurashi-kankyo/kankyo/sizenkouen/kennai/koshiki.html",
+      "checkedAt": "2026-09-02",
+      "notes": "Satsumasendai official access guidance supports passenger ferry access from Kushikino New Port to Koshiki. Fare is intentionally unavailable."
+    },
+    {
+      "id": "wakkanai-rishiri",
+      "fromPort": "WAKKANAI",
+      "toPort": "RISHIRI",
+      "operator": "Heart Land Ferry",
+      "serviceName": "Wakkanai–Rishiri ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [100, 110],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://heartlandferry.jp/english/",
+      "checkedAt": "2026-09-02",
+      "notes": "Hokkaido/MOE park access guidance confirms ocean-liner access from Wakkanai to Rishiri. Fare is intentionally unavailable."
+    },
+    {
+      "id": "kagoshima-amami",
+      "fromPort": "KAGOSHIMA",
+      "toPort": "NAZE-AMAMI",
+      "operator": "Marix Line / A-Line Ferry",
+      "serviceName": "Kagoshima–Naze ferry",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [720, 780],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://marixline.com/en/",
+      "checkedAt": "2026-09-02",
+      "notes": "Marix Line official route information supports the Kagoshima–Amami Oshima/Naze passenger-ferry corridor. Fare is intentionally unavailable."
+    },
     {
       "id": "ogasawara-kaiun-ferry",
       "fromPort": "TYO-TAKESHIBA",
