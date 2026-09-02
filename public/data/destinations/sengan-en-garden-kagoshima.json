@@ -160,10 +160,10 @@
   },
   "notesJa": "庭園越しに桜島を望む借景が見どころです。",
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 2,3,4; spring peak with year-round nonzero vector"
   },
   "durationMetadata": {
     "method": "model",
@@ -213,5 +213,13 @@
     "detail": "Canonical arrival Kagoshima-Chuo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
+  },
+  "bestSeason": "Spring & Winter",
+  "bestMonths": [2, 3, 4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 8
   }
 }

@@ -82,6 +82,18 @@ export function seasonModel(
       },
     };
   }
+  if (dest.seasonMetadata?.method === "manual") {
+    return {
+      action: "keep",
+      reason: "manual season metadata is authoritative",
+      metadata: {
+        method: "manual",
+        modelVersion: "season-model-v1",
+        confidence: dest.seasonMetadata.confidence,
+        basis: dest.seasonMetadata.basis,
+      },
+    };
+  }
 
   const cats = (dest.categories ?? []).join(" ");
   const tags = (dest.tags ?? []).join(" ");

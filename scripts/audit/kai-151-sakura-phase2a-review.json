@@ -1,0 +1,1534 @@
+{
+  "ticket": "KAI-151",
+  "phase": "2A",
+  "title": "Thematic seasonality pilot — sakura cohort",
+  "baseCommit": "a56d7dd41b8773b4c8b59ac22b25e6f508809792",
+  "baselineCanonicalSha256": "3cbc29e93786bfdf3a1139016d1fdcfbd3b8579cae90c353e09946150cf35291",
+  "checkedAt": "2026-09-02",
+  "candidateDefinition": "341 cohort = state unknown + no season/bestMonths + at least one audit likelyProfile; sakura pilot = exact intersection whose likelyProfiles includes sakura. The signal is only a research lead.",
+  "summary": {
+    "candidateCount": 29,
+    "verifiedSeasonalWindow": 11,
+    "verifiedYearRoundWithSeasonalPeak": 6,
+    "insufficientEvidence": 11,
+    "conflictingAmbiguous": 1,
+    "proposedMutationCount": 14,
+    "canonicalSeasonalityMutationCount": 14
+  },
+  "scopeDecision": "Mutate only 14 non-hub records with authoritative month-level evidence; preserve hubs, broad/ambiguous evidence, lexical false positives, and all other cohorts.",
+  "records": [
+    {
+      "id": "arakurayama-sengen-park-yamanashi",
+      "name": "Arakurayama Sengen Park & Chureito Pagoda",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "tags": ["fuji", "pagoda", "cherry-blossoms", "yamanashi", "viewpoint"],
+        "description": "Japan's iconic postcard panorama featuring the five-story Chureito Pagoda framing Mount Fuji surrounded by cherry blossoms."
+      },
+      "signalFields": ["tags", "description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "alpine_mountain"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Fujiyoshida Tourism Promotion Service, official Fujiyoshida City tourism guide",
+          "urls": ["https://www.fujiyoshida.net/spot/index.php?p=12"],
+          "observations": [
+            "The page says the view is especially notable during the spring cherry-blossom season, while the landscape changes through spring, summer, autumn, and winter. Opening hours are listed as 24 hours."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "24-hour access and spring cherry scenery are official, but no month window; retain unknown numeric fields."
+    },
+    {
+      "id": "awa-shrine-tateyama",
+      "name": "Awa Shrine",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "tags": ["Shrine", "History", "Tateyama", "Cherry Blossoms"],
+        "highlights": [
+          "A large white torii and wooded approach to the main sanctuary",
+          "A distinct southern-Tateyama shrine experience",
+          "Cherry blossoms along the approach in early April"
+        ]
+      },
+      "signalFields": ["tags", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Tateyama City Tourist Information Office",
+          "urls": ["https://tateyamacity.com/en/shrines-temples/awa-shrine/"],
+          "observations": [
+            "“If you have a chance, come visit in early April, when cherry trees along the approach are in full bloom.” The same page lists regular shrine hours of 8:30am–5pm; it does not explicitly state year-round opening."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official page explicitly says approach trees are in full bloom in early April."
+    },
+    {
+      "id": "goryokaku",
+      "name": "Goryokaku (Star Fort)",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Japan's first star fort",
+          "Site of the 1869 Battle of Hakodate",
+          "Reconstructed magistrate's office",
+          "Spring cherry blossoms and night illumination"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Hakodate official tourism site, Hakobura",
+          "urls": [
+            "https://www.hakobura.jp/spots/355",
+            "https://www.hakobura.jp/features/188"
+          ],
+          "observations": [
+            "The official spot page lists park use times for both 4–10月 and 11–3月, supporting continuous year-round park access. It says the fort turns cherry-pink around the May Golden Week period. The official cherry feature states: “五稜郭公園のお花見は、例年4月下旬から5月中旬まで。”"
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [4, 5],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official Hakodate sources document year-round access and late-April-to-mid-May cherry viewing."
+    },
+    {
+      "id": "hirosaki-city",
+      "name": "Hirosaki City",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "tags": ["Castle", "Cherry Blossoms", "History"],
+        "description": "A former castle town best known for Hirosaki Castle and one of Japan's most celebrated cherry-blossom festivals."
+      },
+      "signalFields": ["tags", "description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Hirosaki Tourism and Convention Association, official tourism body",
+          "urls": [
+            "https://hirosaki-kanko.or.jp/edit.html?id=cat02_spring_sakura"
+          ],
+          "observations": [
+            "The official page states that Hirosaki Park has about 2,600 cherry trees and gives the 2026 Hirosaki Cherry Blossom Festival period as 2026-04-10 through 2026-05-05. The page identifies the venue as Hirosaki Park in Hirosaki City."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [4, 5],
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official tourism association gives April 10-May 5, but this is a city hub and remains vectorless."
+    },
+    {
+      "id": "hitachi-kamine-park",
+      "name": "Hitachi Kamine Park",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Ibaraki official tourism guide",
+          "urls": ["https://visit.ibarakiguide.jp/en/sightseeing/22371/"],
+          "observations": [
+            "Around 1000 cherry trees bloom in the park from early April onwards."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official Ibaraki tourism states about 1,000 trees bloom from early April onwards."
+    },
+    {
+      "id": "ichijodani-castle",
+      "name": "Ichijodani Castle (Asakura site)",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "name": "Ichijodani Castle (Asakura site)",
+        "description": "Ichijodani was the 15th-16th century castle town of the Asakura clan, Japan's most fully excavated Sengoku city, designated a special historic site. The castle ruins crown the valley, with the town's garden sites preserved below.",
+        "highlights": [
+          "Asakura clan capital",
+          "Best-preserved Sengoku city site",
+          "Special historic site",
+          "Reconstructed townscape"
+        ]
+      },
+      "signalFields": ["name", "description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Fukui City Cultural Heritage website",
+          "urls": ["http://fukuisan.jp/tw/asakura/scenery/index.html"],
+          "observations": [
+            "The official seasonal-scenery page has separate Spring, Summer, Autumn, and Winter sections; the spring image labels include Ichijodani scenery and cherry blossoms. No bloom month or peak window is stated."
+          ],
+          "evidenceDate": "2026-09-02"
+        },
+        {
+          "authority": "Fukui Prefectural Tourism Federation, official Fukui tourism site",
+          "urls": ["https://www.fuku-e.com/spot/detail_1002.html"],
+          "observations": [
+            "The official attraction page includes image labels for spring/cherry scenery and states that the archaeological site itself is open for free viewing. No concrete cherry-blossom period is given."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official pages show spring/cherry scenery but no defensible month window."
+    },
+    {
+      "id": "kagoshima-castle",
+      "name": "Kagoshima Castle",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Shimazu clan seat",
+          "Never-completed keep",
+          "Reimeikan museum at Honmaru",
+          "Sakurajima views"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Kagoshima City official tourism information site, Kagoshima Yokanavi",
+          "urls": [
+            "https://www.kagoshima-yokanavi.jp/article/harunohana2025",
+            "https://www.kagoshima-yokanavi.jp/spot/20047"
+          ],
+          "observations": [
+            "The official spring-flowers feature has a section titled “Pink cherry blossoms and Kagoshima Castle’s Goromon gate” and says visitors can encounter beautiful cherry blossoms at the gate. The castle spot page lists daily illumination from sunset to 22:00, but neither page gives a cherry-blossom month or bounded peak window."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official spring material confirms cherry blossoms but gives no month window."
+    },
+    {
+      "id": "kagoshima-city",
+      "name": "Kagoshima City",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "Southern coastal city known as 'Naples of Japan', facing active Sakurajima volcano across Kagoshima Bay."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Kagoshima City official tourism information site, Kagoshima Yokanavi",
+          "urls": ["https://www.kagoshima-yokanavi.jp/article/harunohana2025"],
+          "observations": [
+            "The city-wide spring feature says cherry blossoms can be enjoyed in Kagoshima City. Its component attractions have different windows: Sengan-en has successive cherry varieties from early February through early April; Yoshino Park has Kawazu cherry blossoms from mid- to late February and Somei Yoshino from mid-March through early April. The Kagoshima Castle section gives no month."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Component attractions have different windows; no single hub vector is justified."
+    },
+    {
+      "id": "kakunodate-samurai-district-akita",
+      "name": "Kakunodate Samurai District",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Semboku City official tourism information / municipal government",
+          "urls": [
+            "https://www.city.semboku.akita.jp/sightseeing/spot/season",
+            "https://www.city.semboku.akita.jp/sightseeing/spot/07_buke.html"
+          ],
+          "observations": [
+            "Semboku City's seasonal recommendations place Kakunodate weeping cherry blossoms from mid-April to early May. The district page separately documents seasonal opening periods for individual samurai residences; it does not establish year-round access for every facility.",
+            "角館のシダレザクラ（4月中旬～5月上旬）"
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [4, 5],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Semboku City states mid-April to early May for Kakunodate weeping cherry blossoms."
+    },
+    {
+      "id": "kimii-dera-temple",
+      "name": "Kimii-dera Temple",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Kimii-dera Temple official operator",
+          "urls": [
+            "https://www.kimiidera.com/tree/",
+            "https://www.kimiidera.com/sakura/?y=2026",
+            "https://www.kimiidera.com/worship/"
+          ],
+          "observations": [
+            "The temple states it has about 500 cherry trees and is famous for early-blooming cherry blossoms. Its 2026 official updates record mountain cherry blooming on March 15, the Somei-Yoshino sample tree opening on March 24, full bloom on April 2, and late double-cherry viewing on April 12. Regular worship/reception hours are documented as 08:00–17:00, but no explicit year-round opening claim was used.",
+            "早咲き桜の名所；3月も半ばとなると…"
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Temple pages document early blooming plus March-April observations."
+    },
+    {
+      "id": "kintai-bridge-yamaguchi",
+      "name": "Kintaikyo Wooden Arch Bridge",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "tags": ["bridge", "wooden", "historic", "yamaguchi", "cherry-blossoms"]
+      },
+      "signalFields": ["tags"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Iwakuni City official Kintaikyo website",
+          "urls": [
+            "https://kintaikyo.iwakuni-city.net/summary.html",
+            "https://kintaikyo.iwakuni-city.net/news/?p=1298",
+            "https://kintaikyo.iwakuni-city.net/news/?p=1887"
+          ],
+          "observations": [
+            "The official summary describes cherry blossoms in spring as the bridge's most beautiful season and states the bridge can be crossed 24 hours. Official bloom reports recorded full bloom on March 29, 2013, and April 3, 2014, establishing a March–April seasonal peak while distinguishing it from year-round bridge access.",
+            "春は桜…春は一年で最も美しい季節です；24時間入橋は可能"
+          ],
+          "evidenceDate": "2026-09-02 (source reports dated 2013-03-29 and 2014-04-03)"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official bridge material documents 24-hour crossing, spring scenery, and March/April full-bloom observations."
+    },
+    {
+      "id": "kirishima-kinkowan",
+      "name": "Kirishima-Kinkowan National Park",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "National park (1934) of the Kirishima volcano group with its crater lakes, and the Sakurajima peninsula and Kinko Bay coast of southern Kyushu.",
+        "highlights": [
+          "Kirishima crater lakes",
+          "Sakurajima volcano",
+          "Kagoshima Bay"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Japan Ministry of the Environment official national park site",
+          "urls": [
+            "https://www.env.go.jp/park/kirishima/index.html",
+            "https://www.env.go.jp/nature/nationalparks/list/kirishima-kinkowan/"
+          ],
+          "observations": [
+            "The official overview identifies the park's Kirishima volcanic massif, Kinko Bay, and Sakurajima and describes visitor areas and activities. The retrieved official pages do not provide a cherry-blossom bloom window, sakura-specific event period, or month-level seasonal peak. The park name/volcanic Sakurajima reference was not treated as sakura-season evidence."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Sakurajima place-name signal only; official park pages provide no sakura timing."
+    },
+    {
+      "id": "kita-city",
+      "name": "Kita City",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "A northern Tokyo ward known for Asukayama Park's cherry blossoms, historic paper museum, and Akabane's bar culture.",
+        "highlights": [
+          "Asukayama Cherry Blossom Park",
+          "Akabane Retro Izakaya Streets",
+          "Kyuo-Furukawa Gardens"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Kita City official tourism site / Kita City Regional Promotion Department",
+          "urls": [
+            "https://kanko.city.kita.lg.jp/spot/445-2/",
+            "https://kanko.city.kita.lg.jp/spot_purpose/sakura"
+          ],
+          "observations": [
+            "The official evidence establishes a spring cherry peak for Asukayama Park, a component attraction of the Kita City ward aggregate, including mid-April viewing of later-blooming double cherries. It does not establish a defensible single seasonal window or vector for the entire hub; the hub season-model guard therefore remains in force.",
+            "現在も桜の名所として、毎年春には多くの人が訪れます。…4月中旬には「御衣黄」「福禄寿」などの八重桜も楽しめます。"
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Evidence concerns component Asukayama Park, not a city-hub window."
+    },
+    {
+      "id": "matsumae-castle",
+      "name": "Matsumae Castle",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "Matsumae Castle, completed 1854, was the northernmost castle of the Edo-period Matsumae domain and the only castle in Hokkaido. The current keep is a 1961 concrete reconstruction (the original burned in 1949); it is famous for its early-spring cherry blossoms.",
+        "highlights": [
+          "Only castle in Hokkaido",
+          "Reconstructed 1854-style keep",
+          "Matsumae domain history",
+          "Early cherry blossom spot"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Matsumae Town official website",
+          "urls": [
+            "https://www.town.matsumae.hokkaido.jp/iju_teiju/detail/00000599.html"
+          ],
+          "observations": [
+            "Matsumae Town states that the cherry festival is held in Matsumae Park surrounding Matsumae Castle from late April to mid-May. The same page documents 250 varieties and more than 10,000 trees, with early-, mid-, and late-blooming varieties extending flowering for more than one month. No year-round castle-access claim was used.",
+            "4月下旬～5月中旬にかけ、松前城周辺に広がる松前公園で開催される「さくらまつり」"
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [4, 5],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Matsumae Town gives late-April-to-mid-May and staggered varieties."
+    },
+    {
+      "id": "meguro-city",
+      "name": "Meguro City",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "A trendy riverside ward famous for Meguro River cherry blossoms, stylish boutiques, cafes, and Tokyo Metropolitan Teien Art Museum.",
+        "highlights": [
+          "Meguro River Cherry Blossoms",
+          "Teien Art Museum & Gardens",
+          "Stylish Cafes & Shops"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Meguro City official ward website",
+          "urls": [
+            "https://www.city.meguro.tokyo.jp/kouhou/bunkasports/areanavi/kawa/index.html",
+            "https://www.city.meguro.tokyo.jp/kouhou/bunkasports/areanavi/touyoko-line/index.html"
+          ],
+          "observations": [
+            "Meguro City identifies cherry-tree-lined walks along the Meguro River and says many flower-viewing visitors arrive during cherry season. The official pages provide no concrete month-level window, and the evidence concerns component river walks rather than the entire Meguro ward hub; no hub vector is proposed.",
+            "桜の季節には、多くの花見客が訪れる；桜並木が続きます。"
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Municipal pages confirm cherry-lined walks but no month window for the ward hub."
+    },
+    {
+      "id": "nago-city",
+      "name": "Nago City",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "Northern main island city featuring Busena Marine Park, Orion Happy Park brewery, and cherry blossom festivals."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Nago City Government",
+          "urls": ["https://www.city.nago.okinawa.jp/about/2018072400152/"],
+          "observations": [
+            "The official annual calendar lists under 1月: 下旬 名護さくら祭り (Nago Cherry Blossom Festival)."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Winter",
+        "bestMonths": [1],
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official sources give a late-January festival and late-January-to-mid-February peak; city hub remains vectorless."
+    },
+    {
+      "id": "nokonoshima-island-park",
+      "name": "Nokonoshima Island Park",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "description": "A flower park on Nokonoshima Island, reached by a 10-minute ferry from Meinohama, with seasonal blooms (cosmos, narcissus, cherry blossom) and views across Hakata Bay.",
+        "highlights": [
+          "Seasonal flower fields (cosmos, narcissus, cherry blossom)",
+          "A 10-minute ferry ride from Meinohama to the island",
+          "Hakata Bay views from the island"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Nokonoshima Island Park official operator",
+          "urls": [
+            "https://nokonoshima.com/en/flowers/sakura",
+            "https://nokonoshima.com/flowers/sakura"
+          ],
+          "observations": [
+            "The official flower record identifies Somei Yoshino and Oshima cherry and states End of Mar - Early Apr / 3月末～4月初旬."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Operator record states end of March to early April for named cherry varieties."
+    },
+    {
+      "id": "odawara-castle",
+      "name": "Odawara Castle",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "Odawara Castle was the mighty stronghold of the Hojo clan that withstood sieges until Hideyoshi's 1590 campaign. The current keep (1960) houses a museum; the castle park is famous for plum and cherry blossoms."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Odawara Castle Park official site",
+          "urls": ["https://odawaracastle.com/castlepark/"],
+          "observations": [
+            "The official annual flower calendar lists 桜 as 2～4月, including 河津桜 2月上旬～3月上旬, ソメイヨシノ 3月下旬〜4月中旬, 大島桜 4月上旬, and 枝垂れ桜 3月下旬～4月上旬."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring & Winter",
+        "bestMonths": [2, 3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 8
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official flower calendar documents cherry varieties from February through April."
+    },
+    {
+      "id": "okazaki-castle",
+      "name": "Okazaki Castle",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "Okazaki Castle is the birthplace of Tokugawa Ieyasu (1542), built by his grandfather's generation of the Matsudaira clan. The 1959-reconstructed keep overlooks the Yahagi river; the grounds are a famous cherry-blossom park.",
+        "highlights": [
+          "Birthplace of Tokugawa Ieyasu",
+          "Keep reconstruction (1959)",
+          "Cherry blossom park"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Okazaki City Tourism Association, official Okazaki tourism site",
+          "urls": [
+            "https://okazaki-kanko.jp/okazaki-park/program/670",
+            "https://okazaki-kanko.jp/feature/sakuramaturi/top"
+          ],
+          "observations": [
+            "The official 2026 listing gives the 桜まつり period as 2026年3月25日（水）～4月5日（日） and describes approximately 800 Somei Yoshino cherry trees around Okazaki Castle Park."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official tourism authority gives March 25-April 5 and about 800 Somei Yoshino trees."
+    },
+    {
+      "id": "sakurai-futamigaura-itoshima",
+      "name": "Sakurai Futamigaura",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "name": "Sakurai Futamigaura",
+        "nameJa": "桜井二見ヶ浦"
+      },
+      "signalFields": ["name", "nameJa"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Fukuoka Prefecture Tourism Association, official Visit Fukuoka site",
+          "urls": ["https://www.crossroadfukuoka.jp/spot/12456"],
+          "observations": [
+            "The official destination page states that around the summer solstice the sunset falls between Couples Rock: 6月の夏至の頃に夫婦岩の間に沈む夕日は神秘的. It also specifies 夏至の夕陽：2026年6月21日（日）前後."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official page gives June-solstice sunset/beach evidence, not cherry timing; lexical Sakurai match rejected."
+    },
+    {
+      "id": "sakurajima-volcano-kagoshima",
+      "name": "Sakurajima Stratovolcano",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "name": "Sakurajima Stratovolcano",
+        "nameJa": "桜島",
+        "highlights": [
+          "Explore Sakurajima Stratovolcano",
+          "Local Culture & Scenery"
+        ]
+      },
+      "signalFields": ["name", "nameJa", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Kagoshima City official tourism site",
+          "urls": ["https://www.kagoshima-yokanavi.jp/spot/10092"],
+          "observations": [
+            "The official page reports that all tourism facilities are operating normally and describes the current volcanic alert/access restrictions; it provides no cherry-blossom or destination seasonal-peak window."
+          ],
+          "evidenceDate": "2026-09-02"
+        },
+        {
+          "authority": "Official Sakurajima tourism portal",
+          "urls": ["https://www.sakurajima.gr.jp/"],
+          "observations": [
+            "The official portal characterizes Sakurajima as an active volcano tourism destination and provides access/activity information, but no concrete seasonal attraction window for the volcano itself."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Sakurajima place-name signal; official volcano pages provide no cherry timing."
+    },
+    {
+      "id": "sengan-en-garden-kagoshima",
+      "name": "Sengan-en Garden",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Sakurajima volcano as borrowed scenery (shakkei)",
+          "Shimazu clan samurai villa & gardens",
+          "Adjacent Shoko Shuseikan industrial heritage museum"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Sengan-en official site, Shimadzu Limited",
+          "urls": ["https://www.senganen.jp/calendar/"],
+          "observations": [
+            "The official seasonal calendar states: 2月上旬～4月上旬にかけて、カンヒザクラ・ガンタンザクラなど、約150本の桜が次々と咲き誇り、仙巌園が春一色に染まります。"
+          ],
+          "evidenceDate": "2026-09-02"
+        },
+        {
+          "authority": "Sengan-en official site, Shimadzu Limited",
+          "urls": ["https://www.senganen.jp/"],
+          "observations": [
+            "The official site lists opening hours as 開園時間 9:00〜17:00 年中無休."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "bestSeason": "Spring & Winter",
+        "bestMonths": [2, 3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 8
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official calendar gives February-early-April sequence and operator states year-round opening."
+    },
+    {
+      "id": "serigaya-park",
+      "name": "Serigaya Park",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "A lush valley park in Machida featuring natural springs, woodland walking trails, and a unique kinetic sculpture fountain. It is a popular spot for family picnics, cherry blossom viewing, and outdoor play."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Machida City; Machida City Tourism Guide",
+          "urls": [
+            "https://www.city.machida.tokyo.jp/bunka/park/shisetu/serigaya/park02.html",
+            "https://machida-guide.or.jp/%E5%B8%82%E5%86%85%E3%81%AE%E3%81%95%E3%81%8F%E3%82%89%E9%96%8B%E8%8A%B1%E7%8A%B6%E6%B3%81%E3%80%80%E8%8A%B9%E3%83%B6%E8%B0%B7%E5%85%AC%E5%9C%92%EF%BC%882026-3-25%EF%BC%89/",
+            "https://machida-guide.or.jp/%E5%B8%82%E5%86%85%E3%81%AE%E3%81%95%E3%81%8F%E3%82%89%E9%96%8B%E8%8A%B1%E7%8A%B6%E6%B3%81%E3%80%80%E8%8A%B9%E3%83%B6%E8%B0%B7%E5%85%AC%E5%9C%92%EF%BC%882026-4-5%EF%BC%89/"
+          ],
+          "observations": [
+            "Machida City page updated 2026-09-01 states the park is open every day year-round (年中無休).",
+            "Machida Tourism Guide report dated 2026-03-25: Somei Yoshino at the south-gate cherry tunnel was three-to-five-tenths in bloom; other park areas ranged from three-tenths to nearly seven-tenths.",
+            "Machida Tourism Guide report dated 2026-04-06 for the 2026-04-05 observation: south-gate cherries were beginning to fall but were still beautifully in bloom."
+          ],
+          "evidenceDate": "2026-03-25 and 2026-04-06; checked 2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Machida City and tourism association document year-round opening and March-April observations."
+    },
+    {
+      "id": "shiroyama-park-tateyama",
+      "name": "Shiroyama Park (Tateyama)",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Tateyama Castle's Hakkenden Museum within Shiroyama Park",
+          "Seasonal flowers along the hill trails, including spring cherry blossom",
+          "Panoramic Tateyama Bay and occasional Mt. Fuji views"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Tateyama City Tourist Information Office; Tateyama City Tourism Association",
+          "urls": [
+            "https://tateyamacity.com/en/attractions/",
+            "https://tateyamacity.com/en/attractions/shiroyama-park/",
+            "https://tateyamacity.com/events-haru",
+            "https://tateyamacity.com/archives/33209"
+          ],
+          "observations": [
+            "Official Tateyama attractions page: 'In the early April, the park is bustled with locals and tourists for cherry blossom viewing.'",
+            "Official Shiroyama Park page states 'Hours 24 hours' and 'Closed open daily.'",
+            "Official spring-events page records '3月～4月 城山公園 桜見頃' (Shiroyama Park cherry blossoms at their best, March-April).",
+            "Official 2026 report dated 2026-03-20 states that the cherry-blossom opening declaration was made on March 19."
+          ],
+          "evidenceDate": "2026-03-20 report; evergreen pages checked 2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Tateyama sources document daily/24-hour access and March-April viewing."
+    },
+    {
+      "id": "tama-forest-science-garden",
+      "name": "Tama Forest Science Garden",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Forestry and Forest Products Research Institute, Tama Forest Science Garden",
+          "urls": [
+            "https://www.ffpri.go.jp/tmk/cherry/cherry.html",
+            "https://www.ffpri.go.jp/tmk/en/visit/pasport-ticket.html",
+            "https://www.ffpri.go.jp/tmk/visit/passport.html",
+            "https://www.ffpri.go.jp/tmk/cherry/bloom/bloom_main.html",
+            "https://www.ffpri.go.jp/tmk/en/visit/about-admissions.html"
+          ],
+          "observations": [
+            "Japanese official cherry page published 2026-04-01: varieties peak sequentially from late February through late April (2月下旬から4月下旬にかけて順次見頃).",
+            "English official passport page states cherry trees blossom successively from the second half of March through the end of April.",
+            "Japanese official passport page states successive blooming from the latter half of March through the end of April (3月後半から4月末).",
+            "Official admissions page states the garden is open every day in March and April but closes every Monday during much of the rest of the year and during December 26-January 6."
+          ],
+          "evidenceDate": "2026-04-01 page update and undated official pages; checked 2026-09-02"
+        }
+      ],
+      "classification": "conflicting_ambiguous",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official Japanese and English pages give different cherry start ranges; do not guess."
+    },
+    {
+      "id": "tokorozawa-city",
+      "name": "Tokorozawa City",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+        "highlights": [
+          "Kadokawa Musashino Museum",
+          "Tokorozawa Sakura Town",
+          "Sayama Tea Fields"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Tokorozawa City official site",
+          "urls": ["https://www.city.tokorozawa.saitama.jp/"],
+          "observations": [
+            "The official municipal landing page was checked for a city-wide cherry timing statement; none was admitted."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official municipal site gives no city-wide cherry window; hub remains unresolved."
+    },
+    {
+      "id": "tsuyama-castle",
+      "name": "Tsuyama Castle",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "60 m stone walls",
+          "Mori clan domain seat",
+          "Reconstructed turret",
+          "Cherry blossoms in Kakuzan Park"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Tsuyama Tourism Association official site",
+          "urls": ["https://www.tsuyamakan.jp/floweringinformation"],
+          "observations": [
+            "The official flowering page lists Tsuyama Castle/Kakuzan Park with the usual viewing period late March to early April (例年の見頃：3月下旬〜4月上旬)."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 4
+        },
+        "apply": true
+      },
+      "mutationAllowed": true,
+      "decision": "Official flowering page gives late March to early April for Tsuyama Castle."
+    },
+    {
+      "id": "yoshino-kumano",
+      "name": "Yoshino-Kumano National Park",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "alpine_mountain", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Japan Ministry of the Environment",
+          "urls": [
+            "https://www.env.go.jp/park/yoshino/index.html",
+            "https://www.env.go.jp/park/yoshino/point/index.html"
+          ],
+          "observations": [
+            "The official park profile describes a very broad national park spanning mountain, river, and coastal regions across Mie, Nara, and Wakayama.",
+            "The official page calls Yoshinoyama's cherry forest famous as '花の吉野' but provides no concrete cherry-blossom month window.",
+            "No unified year-round operating statement or destination-wide seasonal window was verified for the full national-park record."
+          ],
+          "evidenceDate": "2026-08-05 page update; checked 2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Broad national-park profile gives no unified month window."
+    },
+    {
+      "id": "yoyogi-park",
+      "name": "Yoyogi Park",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "A vast, lively urban park adjacent to Harajuku, popular for weekend picnicking, street performances, and seasonal cherry blossom viewing. It features expansive lawns, wooded walking trails, and peaceful fountains."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      },
+      "officialEvidence": [
+        {
+          "authority": "Tokyo Metropolitan Park Association",
+          "urls": [
+            "https://www.tokyo-park.or.jp/park/yoyogi/index.html",
+            "https://www.tokyo-park.or.jp/park/yoyogi/news/2026/park_info_67.html"
+          ],
+          "observations": [
+            "The official operator's 2026 notice is specifically addressed to hanami/cherry-blossom visitors, but no concrete blossom window was verified in the retrieved page content.",
+            "The official Yoyogi Park main page was located but returned an empty response during direct retrieval; no authoritative month-specific seasonal statement was admitted."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null,
+        "apply": false
+      },
+      "mutationAllowed": false,
+      "decision": "Official operator confirms cherry season but supplies no month window."
+    }
+  ]
+}

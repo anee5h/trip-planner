@@ -129,10 +129,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 2,3,4; spring peak with year-round nonzero vector"
   },
   "walkingMin": 125,
   "scoreMetadata": {
@@ -170,5 +170,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Odawara_Castle",
   "wikipediaPageId": 839646,
-  "wikidataId": "Q1013437"
+  "wikidataId": "Q1013437",
+  "bestSeason": "Spring & Winter",
+  "bestMonths": [2, 3, 4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 8
+  }
 }

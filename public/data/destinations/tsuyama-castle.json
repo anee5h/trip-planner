@@ -158,10 +158,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
   },
   "walkingMin": 125,
   "scoreMetadata": {
@@ -204,5 +204,13 @@
     "method": "calculated",
     "confidence": "medium",
     "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+  },
+  "bestSeason": "Spring",
+  "bestMonths": [3, 4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 4
   }
 }

@@ -111,10 +111,10 @@
     "confidence": "beta"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
   },
   "walkingMin": 65,
   "walkingIntensity": "medium",
@@ -152,5 +152,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Kimii-dera",
   "wikipediaPageId": 83249904,
-  "wikidataId": "Q11153117"
+  "wikidataId": "Q11153117",
+  "bestSeason": "Spring",
+  "bestMonths": [3, 4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 4
+  }
 }
