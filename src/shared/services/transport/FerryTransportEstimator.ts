@@ -425,6 +425,9 @@ function buildFerryEstimate(
         costUnavailable || service.fareStatus === "unverified"
           ? "unverified"
           : "verified",
+      sourceUrl: service.sourceUrl,
+      fareSourceUrl: service.fareSourceUrl,
+      checkedAt: service.checkedAt,
     },
   };
 }

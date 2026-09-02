@@ -1,12 +1,18 @@
 import type { Destination } from "@/shared/types/destination";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type { Journey } from "@/shared/types/journey";
+import {
+  buildJourneyFromEstimatedTransportEstimate,
+  buildJourneyFromOriginAwareEstimate,
+} from "@/shared/services/transport/JourneyBuilder";
+import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
 import {
   getSafeGroundEstimate,
   type SafeGroundEstimateContext,
 } from "@/shared/services/transport/SafeGroundEstimateService";
-import type {
-  TravelDurationEstimate,
-  TravelDurationEvidence,
+import {
+  getOriginAwareTransportEstimate,
+  type TravelDurationEstimate,
+  type TravelDurationEvidence,
 } from "@/shared/services/transport/OriginAwareTransportService";
 import type {
   RecommendationContext,
@@ -37,6 +43,8 @@ export interface TripDurationEstimate {
   travelEvidence?: TravelDurationEvidence;
   /** The one-way estimate shown by cards, when an origin is present. */
   travelEstimate?: TravelDurationEstimate;
+  /** Canonical single-mode Journey backing the compatibility estimate. */
+  journey?: Journey;
   /** Conservative one-way minutes used for a constrained day-trip gate. */
   feasibilityTravelMinutes?: number;
   isImpossible?: boolean;
@@ -120,6 +128,7 @@ export function hasPersonalizedOrigin(
 export interface DayTripTravelDurationEvidence {
   evidence: TravelDurationEvidence;
   estimate?: TravelDurationEstimate;
+  journey?: Journey;
 }
 
 /**
@@ -141,10 +150,9 @@ export function getTravelDurationEvidence(
   modes: readonly string[],
   estimatedGroundModes: readonly string[] = modes,
 ): DayTripTravelDurationEvidence {
-  // A persisted zone without station coordinates cannot identify a canonical
-  // airport/port or ground corridor. Do not let estimator defaults (such as
-  // Tokyo's default airport origin) turn that incomplete origin into evidence.
-  if (!context.homeStationCoords && hasPersonalizedOrigin(context)) {
+  // An absent origin is not a Tokyo-origin request. Every origin-aware
+  // estimator requires coordinates so its route evidence can be scoped.
+  if (!context.homeStationCoords) {
     return { evidence: "unknown" };
   }
 
@@ -162,6 +170,15 @@ export function getTravelDurationEvidence(
     return {
       evidence: originAware.evidence,
       estimate: originAware,
+      journey: buildJourneyFromOriginAwareEstimate(
+        originAware,
+        getJourneyEndpoints(destination, {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          originZoneId:
+            "originZoneId" in context ? context.originZoneId : undefined,
+          ferryTemporal: context.ferryTemporal,
+        }),
+      ),
     };
   }
 
@@ -174,7 +191,18 @@ export function getTravelDurationEvidence(
     authorizedModes: estimatedGroundModes,
   } satisfies SafeGroundEstimateContext);
   if (estimated) {
-    return { evidence: "estimated", estimate: estimated };
+    return {
+      evidence: "estimated",
+      estimate: estimated,
+      journey: buildJourneyFromEstimatedTransportEstimate(
+        estimated,
+        getJourneyEndpoints(destination, {
+          homeStationCoords: context.homeStationCoords,
+          originZoneId:
+            "originZoneId" in context ? context.originZoneId : undefined,
+        }),
+      ),
+    };
   }
 
   return { evidence: "unknown" };
@@ -395,6 +423,7 @@ export function estimateTripDuration(
   let bestMode: string | undefined;
   let bestTravelMinutes: number | undefined;
   let travelEstimate: TravelDurationEstimate | undefined;
+  let journey: Journey | undefined;
 
   if (!context.homeStationCoords) {
     totalRangeHours = visitRange;
@@ -407,6 +436,7 @@ export function estimateTripDuration(
       getExplicitCarModes(modes),
     );
     if (!travel.estimate) return null;
+    journey = travel.journey;
     travelEstimate = travel.estimate;
     bestMode = travel.estimate.mode;
     bestTravelMinutes = Math.round(
@@ -460,6 +490,7 @@ export function estimateTripDuration(
     bestTravelMinutes,
     travelEvidence: travelEstimate?.evidence,
     travelEstimate,
+    journey,
     isImpossible,
     isBorderline,
     warningMessage,
@@ -556,6 +587,7 @@ export function estimateDayTripDuration(
     bestTravelMinutes,
     travelEvidence: travel.evidence,
     travelEstimate: travel.estimate,
+    journey: travel.journey,
     feasibilityTravelMinutes,
     isImpossible,
     isBorderline,

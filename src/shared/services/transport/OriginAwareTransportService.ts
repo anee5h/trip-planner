@@ -63,6 +63,8 @@ export interface OriginAwareTransportEstimate {
   source: OriginAwareEstimateSource;
   /** Evidence for the complete origin-to-destination duration. */
   evidence: "verified" | "estimated";
+  /** Evidence for the fare itself, independent of door-to-door duration. */
+  fareEvidence?: TravelDurationEvidence;
   /** The intercity corridor remains verified when access is estimated. */
   corridorEvidence?: "verified";
   /** Straight-line access distances used only to derive bounded time overhead. */
@@ -88,13 +90,26 @@ export interface OriginAwareTransportEstimate {
   serviceName?: string;
   operator?: string;
   reservationRequired?: boolean;
+  departureAirportCode?: string;
+  departureAirportName?: string;
+  arrivalAirportCode?: string;
+  arrivalAirportName?: string;
+  departurePortName?: string;
+  arrivalPortName?: string;
+  notes?: string;
   /**
    * What the fare buys: seat product and fare basis (FARE_POLICY §0/§2).
    * Only present together with a fare — a basis without a price implies a
    * product that has no verified fare.
    */
   fareBasis?:
-    "base" | "base-plus-lex" | "integrated-total" | "non-reserved" | "reserved";
+    | "base"
+    | "base-plus-lex"
+    | "integrated-total"
+    | "non-reserved"
+    | "reserved"
+    | "one-way"
+    | "round-trip";
   /** Supports the fare range specifically, when distinct from route source. */
   fareSourceUrl?: string;
   /** Supports a bounded local fare envelope assembled from operator tables. */
@@ -357,6 +372,7 @@ function getLocalBoundedOriginAwareEstimate(
     timeRange: local.timeRange,
     source: "calculated_local_bounded_estimate",
     evidence: "estimated",
+    fareEvidence: local.fare ? "estimated" : "unknown",
     originZoneId: local.originZoneId ?? context.originZoneId,
     destinationZoneId: local.destinationZoneId ?? destinationZoneId,
     fare: local.fare,
@@ -456,6 +472,7 @@ function getGroundEstimate(
       timeRange: adjusted.timeRange,
       source: "verified_ground_route",
       evidence: adjusted.evidence,
+      fareEvidence: selected.route.fare ? "verified" : "unknown",
       corridorEvidence: "verified",
       accessDistanceKm: adjusted.accessDistanceKm,
       originZoneId: context.originZoneId,
@@ -467,6 +484,8 @@ function getGroundEstimate(
       // Dynamic fares stay ranges with variability — never fixed truth.
       fare: selected.route.fare,
       fareVariability: selected.route.fareVariability,
+      fareSourceUrl: selected.route.sourceUrl,
+      fareScope: selected.route.fare ? "corridor_only" : "unknown",
       servicePeriod: selected.route.servicePeriod,
       serviceName: selected.route.serviceName,
       operator: selected.route.operator,
@@ -531,6 +550,7 @@ function getGroundEstimate(
         timeRange: adjusted.timeRange,
         source: "verified_ground_route",
         evidence: adjusted.evidence,
+        fareEvidence: selected.route.fare ? "verified" : "unknown",
         corridorEvidence: "verified",
         accessDistanceKm: adjusted.accessDistanceKm,
         originZoneId: context.originZoneId,
@@ -612,6 +632,7 @@ function getGroundEstimate(
     timeRange: route.timeRange,
     source: "verified_ground_route",
     evidence: "verified",
+    fareEvidence: route.fare ? "verified" : "unknown",
     originZoneId: context.originZoneId,
     destinationZoneId,
     sourceUrl: route.sourceUrl,
@@ -723,10 +744,23 @@ export function getOriginAwareTransportEstimate(
           mode: "flight",
           timeRange: flight.timeRange,
           source: "verified_flight",
-          evidence: "verified",
+          // The selected flight fare is verified, but the total duration
+          // includes calculated airport-access overhead. Keep the Journey
+          // duration estimated until those access legs become explicit.
+          evidence: "estimated",
+          fareEvidence: flight.details?.verifiedFare ? "verified" : "unknown",
           originZoneId: context.originZoneId,
           destinationZoneId: resolveDestinationTransportZone(destination),
-          sourceUrl: undefined,
+          sourceUrl: flight.details?.sourceUrl,
+          checkedAt: flight.details?.checkedAt,
+          departureAirportCode: flight.details?.departureAirportCode,
+          departureAirportName: flight.details?.departureAirportName,
+          arrivalAirportCode: flight.details?.arrivalAirportCode,
+          arrivalAirportName: flight.details?.arrivalAirportName,
+          fare: flight.details?.verifiedFare,
+          fareVariability: flight.details?.verifiedFare ? "range" : null,
+          fareSourceUrl: flight.details?.fareSourceUrl,
+          fareScope: flight.details?.verifiedFare ? "corridor_only" : "unknown",
         };
       }
     } else if (mode === "ferry") {
@@ -740,9 +774,32 @@ export function getOriginAwareTransportEstimate(
           mode: "ferry",
           timeRange: ferry.timeRange,
           source: "verified_ferry",
-          evidence: "verified",
+          // Ferry duration includes calculated port access overhead; do not
+          // claim the combined door-to-door duration is fully verified.
+          evidence: "estimated",
+          fareEvidence: ferry.details?.verifiedFare ? "verified" : "unknown",
           originZoneId: context.originZoneId,
           destinationZoneId: resolveDestinationTransportZone(destination),
+          sourceUrl: ferry.details?.sourceUrl,
+          checkedAt: ferry.details?.checkedAt,
+          departurePortName: ferry.details?.departurePortName,
+          arrivalPortName: ferry.details?.arrivalPortName,
+          serviceName: ferry.details?.serviceName,
+          operator: ferry.details?.operator,
+          notes: ferry.details?.ferryNotes,
+          fare: ferry.details?.verifiedFare,
+          fareVariability: ferry.details?.verifiedFare
+            ? ferry.details?.verifiedFare[0] === ferry.details?.verifiedFare[1]
+              ? "fixed"
+              : "range"
+            : null,
+          fareBasis:
+            ferry.details?.ferryFareBasis === "one-way" ||
+            ferry.details?.ferryFareBasis === "round-trip"
+              ? ferry.details.ferryFareBasis
+              : undefined,
+          fareSourceUrl: ferry.details?.fareSourceUrl,
+          fareScope: ferry.details?.verifiedFare ? "corridor_only" : "unknown",
         };
       }
     } else if (mode === "train" || mode === "shinkansen" || mode === "bus") {
