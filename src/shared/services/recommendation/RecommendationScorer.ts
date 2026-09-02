@@ -19,6 +19,7 @@ import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { isCarModeEligible } from "@/shared/services/transport/CarAccessService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
 import {
@@ -211,8 +212,10 @@ function getValidModesUncached(
   const supported = (mode: string): boolean => {
     if (mode === "flight") return Boolean(flightEstimate);
     if (mode === "ferry") return Boolean(ferryEstimate);
-    // my_car uses the same road-support check as car
+    // Car authorization still comes from topology; destination support comes
+    // from canonical access metadata rather than the legacy option alone.
     const checkMode = mode === "my_car" ? "car" : mode;
+    if (checkMode === "car") return isCarModeEligible(dest);
     if (
       checkMode === "train" ||
       checkMode === "shinkansen" ||

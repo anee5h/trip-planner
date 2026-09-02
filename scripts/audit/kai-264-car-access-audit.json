@@ -1,0 +1,73 @@
+{
+  "ticket": "KAI-264",
+  "generatedAt": "2026-09-03",
+  "origins": [
+    {
+      "origin": "Nakayama/Yokohama",
+      "previousCarSupportedCount": 281,
+      "newCarSupportedCount": 283,
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
+      "carSupportLost": []
+    },
+    {
+      "origin": "Tokyo",
+      "previousCarSupportedCount": 281,
+      "newCarSupportedCount": 283,
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
+      "carSupportLost": []
+    },
+    {
+      "origin": "Osaka",
+      "previousCarSupportedCount": 281,
+      "newCarSupportedCount": 283,
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
+      "carSupportLost": []
+    },
+    {
+      "origin": "Rural Nagano/Gunma",
+      "previousCarSupportedCount": 281,
+      "newCarSupportedCount": 283,
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
+      "carSupportLost": []
+    }
+  ],
+  "aggregate": {
+    "previousCarSupportedCount": 281,
+    "newCarSupportedCount": 283,
+    "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
+    "carSupportLost": []
+  },
+  "accessSummary": {
+    "direct": 0,
+    "parking_walk": 2,
+    "trailhead": 0,
+    "seasonal": 0,
+    "restricted": 0,
+    "ferry_required": 0,
+    "unavailable": 0,
+    "unknown": 1105,
+    "unresolvedUnknown": 818
+  },
+  "changedReasons": [
+    {
+      "destinationId": "karuizawa-town",
+      "state": "parking_walk",
+      "eligibility": "eligible",
+      "evidence": "tourism_board",
+      "reason": "Official visitor information identifies parking serving the area; final access is parking plus an attraction walk.",
+      "sourceUrls": ["https://karuizawa-kankokyokai.jp/information/84692/"]
+    },
+    {
+      "destinationId": "kyu-karuizawa-ginza",
+      "state": "parking_walk",
+      "eligibility": "eligible",
+      "evidence": "tourism_board",
+      "reason": "Official destination and visitor information support car-to-parking access, followed by walking access to the street.",
+      "sourceUrls": [
+        "https://karuizawa-kankokyokai.jp/en/spot/30483/",
+        "https://karuizawa-kankokyokai.jp/information/84692/"
+      ]
+    }
+  ],
+  "note": "Previous support reproduces the pre-KAI-264 topology plus destination.transportOptions.car predicate. New support uses topology plus CarAccessService. Legacy compatibility remains explicitly unknown until an anchor is verified."
+}

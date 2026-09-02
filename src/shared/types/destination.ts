@@ -1,6 +1,7 @@
 import type { CollectionMembership } from "./collection";
 import type { TransportMode } from "../services/transport/types";
 import type { ScoreMetadata } from "../services/recommendation/scoreRubric";
+import type { CarAccess } from "./carAccess";
 
 export interface ItineraryStep {
   time: string;
@@ -574,6 +575,8 @@ export interface Destination {
    * unavailable".
    */
   localAccessUnestimated?: boolean;
+  /** KAI-264 canonical car-access geometry and eligibility. */
+  carAccess?: CarAccess;
   /**
    * Optional: Explicit route fares for exact budget overrides.
    * - train, bus, shinkansen: One-way ticket fare per person (JPY).
