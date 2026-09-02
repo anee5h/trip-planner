@@ -309,6 +309,7 @@ export default function Home() {
     (
       preferences: TransportSelection & {
         tripDuration: HomepageTripDuration;
+        partySize: number;
       },
     ) => {
       if (!user) return;
@@ -321,6 +322,7 @@ export default function Home() {
           carMode: preferences.carMode,
           publicModes: preferences.publicModes,
           tripDuration: preferences.tripDuration,
+          partySize: preferences.partySize,
           preferences_set: true,
         },
       });

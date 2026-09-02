@@ -150,6 +150,26 @@ describe("useTripPlannerState", () => {
     expect(getResult().partySize).toBe(8);
   });
 
+  it("uses applied party size for the downstream party-aware budget", () => {
+    const getResult = setupHook();
+    const twoPersonBudget = getResult().resolvedApplied.budget;
+
+    act(() => {
+      getResult().setPartySize(4);
+    });
+
+    expect(getResult().resolvedDraft.partySize).toBe(4);
+    expect(getResult().resolvedDraft.budget).toBe(twoPersonBudget * 2);
+    expect(getResult().resolvedApplied.partySize).toBe(2);
+
+    act(() => {
+      getResult().applyPlannerState();
+    });
+
+    expect(getResult().resolvedApplied.partySize).toBe(4);
+    expect(getResult().resolvedApplied.budget).toBe(twoPersonBudget * 2);
+  });
+
   describe("transport selection with mock user", () => {
     it("hydrates persisted split preferences and keeps public + personal car available", () => {
       const mockUser = {

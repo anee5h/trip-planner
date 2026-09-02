@@ -1,7 +1,7 @@
 /** @vitest-environment jsdom */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import type { User } from "@supabase/supabase-js";
 import {
   HomePlannerStateProvider,
@@ -32,19 +32,52 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderState(user: User | null = null) {
+function renderState(
+  user: User | null = null,
+  onPlannerPreferencesPersist?: (preferences: unknown) => void,
+) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
   let current!: ReturnType<typeof useHomePlannerState>;
   act(() => {
     root?.render(
-      <HomePlannerStateProvider user={user}>
+      <HomePlannerStateProvider
+        user={user}
+        onPlannerPreferencesPersist={onPlannerPreferencesPersist}
+      >
         <Harness onState={(value) => (current = value)} />
       </HomePlannerStateProvider>,
     );
   });
   return () => current;
+}
+
+function renderStateWithUser(initialUser: User) {
+  host = document.createElement("div");
+  document.body.appendChild(host);
+  root = createRoot(host);
+  let current!: ReturnType<typeof useHomePlannerState>;
+  let user = initialUser;
+
+  const render = () => {
+    root?.render(
+      <HomePlannerStateProvider user={user}>
+        <Harness onState={(value) => (current = value)} />
+      </HomePlannerStateProvider>,
+    );
+  };
+
+  act(render);
+  return {
+    getState: () => current,
+    setUser: (nextUser: User) => {
+      act(() => {
+        user = nextUser;
+        render();
+      });
+    },
+  };
 }
 
 describe("HomePlannerStateProvider", () => {
@@ -122,5 +155,133 @@ describe("HomePlannerStateProvider", () => {
     expect(getState().partySize).toBe(4);
     expect(getState().draftState.partySize).toBe(4);
     expect(getState().appliedState.partySize).toBe(4);
+  });
+
+  it.each([
+    [0, 1],
+    [9, 8],
+    ["6", 6],
+  ])(
+    "keeps persisted party size in the 1–8 range (%s → %s)",
+    (stored, expected) => {
+      const user = {
+        id: `party-range-${String(stored)}`,
+        user_metadata: { preferences: { partySize: stored } },
+      } as unknown as User;
+      const getState = renderState(user);
+
+      expect(getState().draftState.partySize).toBe(expected);
+      expect(getState().appliedState.partySize).toBe(expected);
+    },
+  );
+
+  it("persists the selected party size with the applied planner state", () => {
+    const persisted = vi.fn();
+    const getState = renderState(
+      {
+        id: "user-persist-party",
+        user_metadata: { preferences: { partySize: 2 } },
+      } as unknown as User,
+      persisted,
+    );
+
+    act(() => getState().setPartySize(4));
+    act(() => getState().applyPlannerState());
+
+    expect(persisted).toHaveBeenCalledWith(
+      expect.objectContaining({ partySize: 4 }),
+    );
+    expect(getState().draftState.partySize).toBe(4);
+    expect(getState().appliedState.partySize).toBe(4);
+  });
+
+  it("keeps current draft and applied state through a same-user metadata refresh", () => {
+    const user = {
+      id: "same-user",
+      user_metadata: { preferences: { partySize: 2, carMode: "none" } },
+    } as unknown as User;
+    const harness = renderStateWithUser(user);
+
+    act(() => {
+      harness.getState().setPartySize(4);
+      harness.getState().setVibe("nature");
+    });
+    act(() => harness.getState().applyPlannerState());
+    act(() => harness.getState().setBudgetTier("luxury"));
+
+    harness.setUser({
+      ...user,
+      user_metadata: {
+        preferences: { partySize: 2, carMode: "none" },
+      },
+    } as unknown as User);
+
+    expect(harness.getState().draftState).toMatchObject({
+      partySize: 4,
+      vibe: "nature",
+      budgetTier: "luxury",
+    });
+    expect(harness.getState().appliedState).toMatchObject({
+      partySize: 4,
+      vibe: "nature",
+      budgetTier: "standard",
+    });
+    expect(harness.getState().isDirty).toBe(true);
+  });
+
+  it("does not snap an applied edit back to the default when metadata omitted party size", () => {
+    const user = {
+      id: "missing-party-user",
+      user_metadata: { preferences: {} },
+    } as unknown as User;
+    const harness = renderStateWithUser(user);
+
+    expect(harness.getState().partySize).toBe(2);
+    act(() => harness.getState().setPartySize(3));
+    act(() => harness.getState().applyPlannerState());
+
+    harness.setUser({
+      ...user,
+      user_metadata: { preferences: {} },
+    } as unknown as User);
+
+    expect(harness.getState().draftState.partySize).toBe(3);
+    expect(harness.getState().appliedState.partySize).toBe(3);
+  });
+
+  it("protects an unapplied party edit from a same-user metadata refresh", () => {
+    const user = {
+      id: "dirty-party-user",
+      user_metadata: { preferences: { partySize: 2 } },
+    } as unknown as User;
+    const harness = renderStateWithUser(user);
+
+    act(() => harness.getState().setPartySize(3));
+    harness.setUser({
+      ...user,
+      user_metadata: { preferences: { partySize: 2 } },
+    } as unknown as User);
+
+    expect(harness.getState().draftState.partySize).toBe(3);
+    expect(harness.getState().appliedState.partySize).toBe(2);
+    expect(harness.getState().isDirty).toBe(true);
+  });
+
+  it("rehydrates both planner states when the authenticated account changes", () => {
+    const harness = renderStateWithUser({
+      id: "user-a",
+      user_metadata: { preferences: { partySize: 2 } },
+    } as unknown as User);
+
+    act(() => harness.getState().setPartySize(4));
+    act(() => harness.getState().applyPlannerState());
+
+    harness.setUser({
+      id: "user-b",
+      user_metadata: { preferences: { partySize: 6 } },
+    } as unknown as User);
+
+    expect(harness.getState().draftState.partySize).toBe(6);
+    expect(harness.getState().appliedState.partySize).toBe(6);
   });
 });

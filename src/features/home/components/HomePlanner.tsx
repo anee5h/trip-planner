@@ -628,7 +628,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             <div className="flex items-center justify-between gap-1 text-xs font-bold text-slate-900 dark:text-white">
               <div className="flex items-center gap-1.5 truncate">
                 <Users className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>{partySize}</span>
+                <span data-testid="home-party-size">{partySize}</span>
               </div>
               <div className="flex items-center gap-0.5 rounded-lg">
                 <button
@@ -826,7 +826,10 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 >
                   <Minus className="h-3.5 w-3.5" />
                 </button>
-                <span className="flex items-center justify-center border-x border-slate-200 text-sm font-extrabold text-slate-900 dark:border-slate-700 dark:text-white">
+                <span
+                  data-testid="home-party-size"
+                  className="flex items-center justify-center border-x border-slate-200 text-sm font-extrabold text-slate-900 dark:border-slate-700 dark:text-white"
+                >
                   {partySize}
                 </span>
                 <button

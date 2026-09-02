@@ -19,9 +19,9 @@
  *   Reflow:        narrow/zoom-equivalent layouts — no horizontal
  *                  overflow, no clipped primary controls
  *   Locale contract: html.lang en/ja, refresh retention, EN<->JA switch
- *   Auth:          deterministic guest/client-state surfaces (supabase is
- *                  null in E2E — no production mutation by construction).
- *                  Real-session flows are documented manual QA.
+ *   Auth:          deterministic guest and fake signed-in surfaces. All
+ *                  authenticated E2E requests target the fake test project;
+ *                  no production mutation occurs.
  *
  * No conditional no-op tests: required controls are ASSERTED visible.
  */
@@ -97,6 +97,100 @@ async function signInAsTestUser(page: import("@playwright/test").Page) {
         body: JSON.stringify({
           access_token: "a11y-fixture-access-token",
           refresh_token: "a11y-fixture-refresh-token",
+          expires_in: 3600,
+          token_type: "bearer",
+          user: fakeUser,
+        }),
+      });
+    }
+    return route.fulfill({
+      status: 404,
+      contentType: "application/json",
+      body: "{}",
+    });
+  });
+}
+
+/** KAI-262: signed-in fixture whose profile response reflects updateUser. */
+async function signInAsPlannerTestUser(page: import("@playwright/test").Page) {
+  let fakeUser = {
+    id: "00000000-0000-0000-0000-000000000001",
+    aud: "authenticated",
+    role: "authenticated",
+    email: "kai-262-fixture@example.com",
+    app_metadata: { provider: "email" },
+    user_metadata: {
+      full_name: "KAI-262 Fixture",
+      preferences: {
+        preferences_set: true,
+        partySize: 2,
+        tripDuration: "halfDay",
+        carMode: "none",
+        publicModes: ["train", "shinkansen", "bus", "flight", "ferry"],
+      },
+    },
+    created_at: "2026-01-01T00:00:00.000Z",
+    updated_at: "2026-01-01T00:00:00.000Z",
+  };
+  const fakeSession = {
+    access_token: "kai-262-fixture-access-token",
+    refresh_token: "kai-262-fixture-refresh-token",
+    expires_in: 3600,
+    expires_at: Math.floor(Date.now() / 1000) + 3600,
+    token_type: "bearer",
+    user: fakeUser,
+  };
+
+  await page.addInitScript(
+    ({ key, session }) => {
+      try {
+        localStorage.setItem(key, JSON.stringify(session));
+      } catch {}
+    },
+    {
+      key: "sb-a11y-test-auth-token",
+      session: fakeSession,
+    },
+  );
+
+  await page.route("https://a11y-test.supabase.co/**", async (route) => {
+    const request = route.request();
+    const url = request.url();
+    if (
+      url.includes("/auth/v1/user") &&
+      ["PATCH", "PUT"].includes(request.method())
+    ) {
+      const body = request.postDataJSON() as {
+        data?: { preferences?: Record<string, unknown> };
+      };
+      const nextPreferences = body.data?.preferences;
+      if (nextPreferences) {
+        fakeUser = {
+          ...fakeUser,
+          user_metadata: {
+            ...fakeUser.user_metadata,
+            preferences: {
+              ...fakeUser.user_metadata.preferences,
+              ...nextPreferences,
+            },
+          },
+        };
+      }
+    }
+    if (url.includes("/auth/v1/user")) {
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify(fakeUser),
+      });
+    }
+    if (url.includes("/auth/v1/token")) {
+      return route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          access_token: "kai-262-fixture-access-token",
+          refresh_token: "kai-262-fixture-refresh-token",
           expires_in: 3600,
           token_type: "bearer",
           user: fakeUser,
@@ -855,5 +949,64 @@ test.describe("KAI-80 authenticated state (fixture, no production mutation)", ()
       await expect(page.locator("main")).toBeVisible();
       await expectNoA11yViolations(page);
     }
+  });
+
+  test("KAI-262 mobile Apply and View matches retain party-aware state", async ({
+    page,
+  }, testInfo) => {
+    test.skip(
+      testInfo.project.name !== "chromium-mobile",
+      "KAI-262 regression coverage is authenticated mobile-only",
+    );
+    await signInAsPlannerTestUser(page);
+    await page.goto("/");
+
+    const planner = page.getByTestId("home-planner");
+    const partySize = planner.locator(
+      '[data-testid="home-party-size"]:visible',
+    );
+    const increaseParty = planner.locator(
+      'button[aria-label="Increase party size"]:visible',
+    );
+    const apply = page
+      .locator('[data-testid="home-planner-cta"]:visible')
+      .first();
+    await expect(partySize).toHaveText("2");
+    await expect(apply).toHaveText("Find matches");
+
+    // Establish the signed-in applied state, then change the party and apply
+    // again—the second update is the regression's metadata-refresh trigger.
+    await apply.click();
+    await expect(apply).toHaveText("View matches");
+    await increaseParty.click();
+    await increaseParty.click();
+    await expect(partySize).toHaveText("4");
+    await expect(apply).toHaveText("Update matches");
+    const updateRequestPromise = page.waitForRequest(
+      (request) =>
+        request.url().includes("/auth/v1/user") &&
+        ["PATCH", "PUT"].includes(request.method()),
+    );
+    await apply.click();
+    const updateRequest = await updateRequestPromise;
+    expect(updateRequest.postDataJSON()).toMatchObject({
+      data: { preferences: { partySize: 4 } },
+    });
+    await expect(apply).toHaveText("View matches");
+    await expect(partySize).toHaveText("4");
+
+    await apply.click();
+    await expect(page.locator("#recommendations")).toBeVisible();
+    const viewAll = page.getByRole("link", {
+      name: "View all top matches",
+    });
+    await expect(viewAll).toBeVisible();
+    const viewAllHref = await viewAll.getAttribute("href");
+    expect(viewAllHref).not.toBeNull();
+    const viewAllUrl = new URL(viewAllHref as string, page.url());
+    expect(viewAllUrl.searchParams.get("partySize")).toBe("4");
+    expect(viewAllUrl.searchParams.get("party")).toBe("group");
+    // halfDay standard budget is party-aware: 50,000 × 4 × 0.75.
+    expect(viewAllUrl.searchParams.get("budget")).toBe("150000");
   });
 });

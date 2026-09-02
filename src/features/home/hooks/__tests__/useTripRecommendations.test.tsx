@@ -141,6 +141,7 @@ describe("useTripRecommendations", () => {
     expect(mainContext).toMatchObject({
       vibe: "art",
       tripDuration: "fullDay",
+      partySize: 2,
     });
 
     const rouletteContext = getRecommendations.mock.calls[1]?.[1];
