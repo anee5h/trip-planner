@@ -50,11 +50,16 @@ function requireMonths(value: unknown, id: string): asserts value is number[] {
     ) ||
     value.some((month, index) => index > 0 && month <= value[index - 1])
   ) {
-    throw new Error(`${id} proposed.bestMonths must be sorted unique months 1-12`);
+    throw new Error(
+      `${id} proposed.bestMonths must be sorted unique months 1-12`,
+    );
   }
 }
 
-function requireVector(value: unknown, id: string): asserts value is JsonObject {
+function requireVector(
+  value: unknown,
+  id: string,
+): asserts value is JsonObject {
   const vector = object(value, `${id} proposed.seasonVector`);
   if (stable(Object.keys(vector).sort()) !== stable([...SEASON_KEYS].sort())) {
     throw new Error(`${id} proposed.seasonVector has invalid keys`);
@@ -124,14 +129,18 @@ function validateEvidence(row: JsonObject): void {
     if (
       !Array.isArray(entry.urls) ||
       entry.urls.length === 0 ||
-      entry.urls.some((url: unknown) => typeof url !== "string" || !/^https?:\/\//.test(url))
+      entry.urls.some(
+        (url: unknown) => typeof url !== "string" || !/^https?:\/\//.test(url),
+      )
     ) {
       throw new Error(`${id} evidence URLs are required`);
     }
     if (
       !Array.isArray(entry.observations) ||
       entry.observations.length === 0 ||
-      entry.observations.some((text: unknown) => typeof text !== "string" || !text.trim())
+      entry.observations.some(
+        (text: unknown) => typeof text !== "string" || !text.trim(),
+      )
     ) {
       throw new Error(`${id} evidence observations are required`);
     }
@@ -150,20 +159,33 @@ export function validateThematicReview(
   if (review.ticket !== "KAI-151" || review.phase !== expectedPhase) {
     throw new Error(`review must identify KAI-151 phase ${expectedPhase}`);
   }
-  if (typeof review.baseCommit !== "string" || !/^[0-9a-f]{40}$/.test(review.baseCommit)) {
+  if (
+    typeof review.baseCommit !== "string" ||
+    !/^[0-9a-f]{40}$/.test(review.baseCommit)
+  ) {
     throw new Error("review.baseCommit must be a full commit SHA");
   }
-  if (typeof review.candidateDefinition !== "string" || typeof review.selectionMethod !== "string") {
-    throw new Error("review must freeze candidateDefinition and selectionMethod");
+  if (
+    typeof review.candidateDefinition !== "string" ||
+    typeof review.selectionMethod !== "string"
+  ) {
+    throw new Error(
+      "review must freeze candidateDefinition and selectionMethod",
+    );
   }
   if (!Array.isArray(review.records) || review.records.length === 0) {
     throw new Error("review.records must be non-empty");
   }
 
-  const records = review.records.map((value: unknown) => object(value, "review record"));
+  const records = review.records.map((value: unknown) =>
+    object(value, "review record"),
+  );
   const ids = records.map((row) => String(row.id));
-  if (new Set(ids).size !== ids.length) throw new Error("review has duplicate IDs");
-  const byId = new Map(catalogue.map((value: any) => [String(value.id), value as JsonObject]));
+  if (new Set(ids).size !== ids.length)
+    throw new Error("review has duplicate IDs");
+  const byId = new Map(
+    catalogue.map((value: any) => [String(value.id), value as JsonObject]),
+  );
 
   const counts: Record<string, number> = {};
   let mutations = 0;
@@ -205,19 +227,32 @@ export function validateThematicReview(
       requireVector(proposed.seasonVector, id);
       mutations += 1;
     } else {
-      if (proposed.apply !== false) throw new Error(`${id} non-mutation apply must be false`);
-      if (proposed.bestSeason !== null || proposed.bestMonths !== null || proposed.seasonVector !== null) {
+      if (proposed.apply !== false)
+        throw new Error(`${id} non-mutation apply must be false`);
+      if (
+        proposed.bestSeason !== null ||
+        proposed.bestMonths !== null ||
+        proposed.seasonVector !== null
+      ) {
         throw new Error(`${id} non-mutation must have null proposal fields`);
       }
     }
   }
 
   const summary = object(review.summary, "review.summary");
-  if (summary.candidateCount !== records.length || summary.researchedCount !== records.length) {
+  if (
+    summary.candidateCount !== records.length ||
+    summary.researchedCount !== records.length
+  ) {
     throw new Error("review summary candidate/researched count is stale");
   }
-  if (summary.mutatedCount !== mutations) throw new Error("review summary mutatedCount is stale");
-  if (summary.insufficientCount !== records.filter((row) => row.classification === "insufficient_evidence").length) {
+  if (summary.mutatedCount !== mutations)
+    throw new Error("review summary mutatedCount is stale");
+  if (
+    summary.insufficientCount !==
+    records.filter((row) => row.classification === "insufficient_evidence")
+      .length
+  ) {
     throw new Error("review summary insufficientCount is stale");
   }
 
@@ -227,11 +262,20 @@ export function validateThematicReview(
     const id = String(row.id);
     const destination = byId.get(id)!;
     const actual = seasonFields(destination);
-    const expectedPost = row.mutationAllowed ? proposedFields(row) : object(row.currentFields, `${id} currentFields`);
+    const expectedPost = row.mutationAllowed
+      ? proposedFields(row)
+      : object(row.currentFields, `${id} currentFields`);
     pre = pre && stable(actual) === stable(row.currentFields);
     post = post && stable(actual) === stable(expectedPost);
-    if (!pre && !post && stable(actual) !== stable(row.currentFields) && stable(actual) !== stable(expectedPost)) {
-      throw new Error(`${id} is neither phase pre-state nor expected post-state`);
+    if (
+      !pre &&
+      !post &&
+      stable(actual) !== stable(row.currentFields) &&
+      stable(actual) !== stable(expectedPost)
+    ) {
+      throw new Error(
+        `${id} is neither phase pre-state nor expected post-state`,
+      );
     }
   }
   if (pre) return "pre";
@@ -251,7 +295,8 @@ export function validateCatalogueMutationScope(
   );
   const beforeById = new Map(before.map((row) => [row.id, row]));
   const afterById = new Map(after.map((row) => [row.id, row]));
-  if (before.length !== after.length) throw new Error("catalogue population changed");
+  if (before.length !== after.length)
+    throw new Error("catalogue population changed");
   for (const [id, oldValue] of beforeById) {
     const newValue = afterById.get(id);
     if (!newValue) throw new Error(`${id} disappeared from catalogue`);

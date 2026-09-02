@@ -38,9 +38,7 @@
       "officialEvidence": [
         {
           "authority": "Official Nara Travel Guide",
-          "urls": [
-            "https://www.visitnara.jp/venues/E02096/"
-          ],
+          "urls": ["https://www.visitnara.jp/venues/E02096/"],
           "observations": [
             "The venue page says the vivid leaves are spectacular against the emerald waters in autumn and that leaves peak around early to mid-November."
           ],
@@ -51,9 +49,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Autumn",
-        "bestMonths": [
-          11
-        ],
+        "bestMonths": [11],
         "seasonVector": {
           "spring": 5,
           "summer": 6,
@@ -85,9 +81,7 @@
       "officialEvidence": [
         {
           "authority": "Wakayama Castle official site",
-          "urls": [
-            "https://wakayamajo.jp/flower/"
-          ],
+          "urls": ["https://wakayamajo.jp/flower/"],
           "observations": [
             "The official seasonal-flower page lists the Momijidani Garden autumn scene and says its usual viewing period is late November to early December."
           ],
@@ -98,9 +92,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Autumn",
-        "bestMonths": [
-          11
-        ],
+        "bestMonths": [11],
         "seasonVector": {
           "spring": 6,
           "summer": 5,
@@ -214,9 +206,7 @@
       "officialEvidence": [
         {
           "authority": "Oita Prefecture official tourism site",
-          "urls": [
-            "https://www.visit-oita.jp/spots/detail/4362"
-          ],
+          "urls": ["https://www.visit-oita.jp/spots/detail/4362"],
           "observations": [
             "The official page says Kinrin Lake can be seen enveloped in fantastical morning mist from autumn through winter; it does not establish a foliage-specific month window."
           ],
@@ -254,9 +244,7 @@
       "officialEvidence": [
         {
           "authority": "Takashima City official tourism guide",
-          "urls": [
-            "https://takashima-kanko.jp/spot/2018/06/post_155.html"
-          ],
+          "urls": ["https://takashima-kanko.jp/spot/2018/06/post_155.html"],
           "observations": [
             "The official guide identifies the 2.4 km metasequoia avenue and its seasonal scenery; the checked page does not provide a recurring foliage month window."
           ],
@@ -294,9 +282,7 @@
       "officialEvidence": [
         {
           "authority": "Bitchu Matsuyama Castle official site",
-          "urls": [
-            "https://www.bitchumatsuyamacastle.jp/"
-          ],
+          "urls": ["https://www.bitchumatsuyamacastle.jp/"],
           "observations": [
             "The official site documents the mountain castle and visitor information; the checked pages did not provide a defensible recurring foliage window."
           ],

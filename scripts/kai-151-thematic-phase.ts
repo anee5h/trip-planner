@@ -18,10 +18,13 @@ const config: Record<string, { review: string }> = {
   "2E": { review: "scripts/audit/kai-151-summer-phase2e-review.json" },
 };
 if (!config[phase]) throw new Error(`unknown KAI-151 thematic phase: ${phase}`);
-const readJson = (path: string) => JSON.parse(readFileSync(resolve(root, path), "utf8"));
+const readJson = (path: string) =>
+  JSON.parse(readFileSync(resolve(root, path), "utf8"));
 const review = readJson(config[phase].review) as JsonObject;
 const cataloguePath = resolve(root, "src/shared/data/destinations-index.json");
-const catalogue = readJson("src/shared/data/destinations-index.json") as JsonObject[];
+const catalogue = readJson(
+  "src/shared/data/destinations-index.json",
+) as JsonObject[];
 const before = JSON.parse(JSON.stringify(catalogue)) as JsonObject[];
 const state = validateThematicReview(review, catalogue, phase);
 if (state === "post") {
@@ -47,8 +50,12 @@ for (const destination of catalogue) {
   mutations += 1;
 }
 if (mutations !== review.summary.mutatedCount) {
-  throw new Error(`Phase ${phase} mutated ${mutations}, expected ${review.summary.mutatedCount}`);
+  throw new Error(
+    `Phase ${phase} mutated ${mutations}, expected ${review.summary.mutatedCount}`,
+  );
 }
 validateCatalogueMutationScope(before as any, catalogue as any, review);
 writeFileSync(cataloguePath, `${JSON.stringify(catalogue, null, 2)}\n`, "utf8");
-console.log(`KAI-151 Phase ${phase} applied ${mutations} source-backed thematic mutations`);
+console.log(
+  `KAI-151 Phase ${phase} applied ${mutations} source-backed thematic mutations`,
+);

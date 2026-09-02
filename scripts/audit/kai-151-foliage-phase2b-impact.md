@@ -6,9 +6,9 @@
 
 ## Classification counts
 
-| Classification | Rows |
-| --- | ---: |
-| insufficient_evidence | 210 |
+| Classification        | Rows |
+| --------------------- | ---: |
+| insufficient_evidence |  210 |
 
 ## Method
 

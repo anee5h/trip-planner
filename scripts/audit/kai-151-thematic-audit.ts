@@ -15,8 +15,11 @@ const config: Record<string, string> = {
   "2E": "scripts/audit/kai-151-summer-phase2e-review.json",
 };
 if (!config[phase]) throw new Error(`unknown KAI-151 thematic phase: ${phase}`);
-const readJson = (path: string) => JSON.parse(readFileSync(resolve(root, path), "utf8"));
+const readJson = (path: string) =>
+  JSON.parse(readFileSync(resolve(root, path), "utf8"));
 const review = readJson(config[phase]) as JsonObject;
-const catalogue = readJson("src/shared/data/destinations-index.json") as unknown[];
+const catalogue = readJson(
+  "src/shared/data/destinations-index.json",
+) as unknown[];
 const state = validateThematicReview(review, catalogue, phase);
 console.log(`KAI-151 Phase ${phase} thematic review valid (${state} state)`);
