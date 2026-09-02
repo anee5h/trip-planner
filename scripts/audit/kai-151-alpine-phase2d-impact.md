@@ -6,10 +6,10 @@
 
 ## Classification counts
 
-| Classification | Rows |
-| --- | ---: |
-| insufficient_evidence | 170 |
-| proportionate_expected_change | 10 |
+| Classification                | Rows |
+| ----------------------------- | ---: |
+| insufficient_evidence         |  170 |
+| proportionate_expected_change |   10 |
 
 ## Method
 

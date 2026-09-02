@@ -52,10 +52,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Summer",
-        "bestMonths": [
-          7,
-          8
-        ],
+        "bestMonths": [7, 8],
         "seasonVector": {
           "spring": 7,
           "summer": 10,
@@ -102,11 +99,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Summer",
-        "bestMonths": [
-          6,
-          7,
-          8
-        ],
+        "bestMonths": [6, 7, 8],
         "seasonVector": {
           "spring": 8,
           "summer": 10,
@@ -138,9 +131,7 @@
       "officialEvidence": [
         {
           "authority": "Happo-one official operator / tourism association",
-          "urls": [
-            "https://www.happo-one.jp/en/trekking/"
-          ],
+          "urls": ["https://www.happo-one.jp/en/trekking/"],
           "observations": [
             "The official hiking guide calls Happo-one a summer resort, describes the Happo Pond lift approach and alpine plants, and directs visitors to current summer lift operation information."
           ],
@@ -151,10 +142,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Summer",
-        "bestMonths": [
-          7,
-          8
-        ],
+        "bestMonths": [7, 8],
         "seasonVector": {
           "spring": 7,
           "summer": 10,
@@ -186,9 +174,7 @@
       "officialEvidence": [
         {
           "authority": "Ministry of the Environment national park site",
-          "urls": [
-            "https://www.env.go.jp/park/daisetsu/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/daisetsu/index.html"],
           "observations": [
             "The official source establishes the park and alpine gateways, but the checked material does not supply a destination-wide month window for an exact structured peak."
           ],
@@ -226,9 +212,7 @@
       "officialEvidence": [
         {
           "authority": "Ministry of the Environment national park site",
-          "urls": [
-            "https://www.env.go.jp/park/myokotogakushi/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/myokotogakushi/index.html"],
           "observations": [
             "The official source documents the park and its mountains, but no single destination-wide peak window was verified."
           ],
@@ -266,9 +250,7 @@
       "officialEvidence": [
         {
           "authority": "Ministry of the Environment national park site",
-          "urls": [
-            "https://www.env.go.jp/park/chubu/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/chubu/index.html"],
           "observations": [
             "The official source establishes Chubusangaku National Park and its major areas, but the checked material does not define one month window for the full park record."
           ],
