@@ -10,6 +10,7 @@ import {
   HOME_RAIL_CARD_CLASS,
   HOME_RAIL_SECTION_SPACING,
 } from "./HomeRailLayout";
+import type { TripDuration } from "@/shared/types/tripDuration";
 
 interface RecentlyViewedRailProps {
   destinations: readonly Destination[];
@@ -17,6 +18,7 @@ interface RecentlyViewedRailProps {
   carMode: string;
   publicModes: string[];
   travelDate?: string;
+  duration?: TripDuration;
 }
 
 function translateRequired(
@@ -33,6 +35,7 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
   carMode,
   publicModes,
   travelDate,
+  duration,
 }) => {
   const { t } = useTranslation();
   const translate = t as (
@@ -89,6 +92,7 @@ export const RecentlyViewedRail: React.FC<RecentlyViewedRailProps> = ({
                 carMode={carMode}
                 publicModes={publicModes}
                 travelDate={travelDate}
+                duration={duration}
               />
             </div>
           ))}

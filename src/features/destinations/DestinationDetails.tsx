@@ -332,7 +332,7 @@ export default function DestinationDetails() {
   } | null;
   const { user } = useAuth();
   const partySize =
-    navState?.partySize || user?.user_metadata?.preferences?.partySize || 2;
+    navState?.partySize ?? user?.user_metadata?.preferences?.partySize ?? 2;
   // Relationship-backed detail sections use a compact generated graph of
   // relationship-relevant nodes, not the nationwide summary catalogue.
   const {
@@ -465,13 +465,13 @@ export default function DestinationDetails() {
 
   const matchDetails = useMemo(() => {
     if (!destination) return null;
-    const userPrefs = user?.user_metadata?.preferences || {};
-    const tripType = navState?.tripType || "any";
-    const budget = navState?.budget || userPrefs.budget || 50000;
-    const carMode = navState?.carMode || userPrefs.carMode || "none";
-    const publicModes = navState?.publicModes ||
-      userPrefs.publicModes || ["train", "shinkansen", "bus", "flight"];
-    const partySize = navState?.partySize || userPrefs.partySize || 2;
+    const userPrefs = user?.user_metadata?.preferences ?? {};
+    const tripType = navState?.tripType ?? userPrefs.tripType ?? "any";
+    const budget = navState?.budget ?? userPrefs.budget ?? 50000;
+    const carMode = navState?.carMode ?? userPrefs.carMode ?? "none";
+    const publicModes = navState?.publicModes ??
+      userPrefs.publicModes ?? ["train", "shinkansen", "bus", "flight"];
+    const partySize = navState?.partySize ?? userPrefs.partySize ?? 2;
 
     let currentWeatherCondition = "any";
     let currentWeather: { temp: number; desc: string } | null = null;
@@ -778,6 +778,16 @@ export default function DestinationDetails() {
     const estimate = groundEstimateFor(mode);
     if (estimate) {
       return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+    }
+    // The catalogue's existing car duration is the only road reference
+    // available here. Reuse it for both car UI modes without synthesizing a
+    // route or silently switching to a public mode.
+    if (
+      homeStationCoords &&
+      destination &&
+      (mode === "car" || mode === "my_car")
+    ) {
+      return destination.transportOptions?.car;
     }
     if (homeStationCoords && destination) return undefined;
     return destination?.transportOptions?.[mode];
@@ -1665,9 +1675,9 @@ export default function DestinationDetails() {
                   destinations={featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode || "none"}
+                  carMode={navState?.carMode ?? "none"}
                   publicModes={
-                    navState?.publicModes || [
+                    navState?.publicModes ?? [
                       "train",
                       "shinkansen",
                       "bus",
@@ -2562,9 +2572,9 @@ export default function DestinationDetails() {
                   destinations={nearbyHubs}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode || "none"}
+                  carMode={navState?.carMode ?? "none"}
                   publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                    navState?.publicModes ?? ["train", "shinkansen", "bus"]
                   }
                   compact
                   previousLabel={copy.scrollLeft}
@@ -2626,9 +2636,9 @@ export default function DestinationDetails() {
                   destinations={nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode || "none"}
+                  carMode={navState?.carMode ?? "none"}
                   publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                    navState?.publicModes ?? ["train", "shinkansen", "bus"]
                   }
                   compact
                   previousLabel={copy.scrollLeft}

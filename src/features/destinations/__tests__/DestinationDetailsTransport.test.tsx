@@ -48,8 +48,15 @@ vi.mock("react-leaflet", () => ({
   Popup: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }));
 
+const authState = vi.hoisted(() => ({
+  user: null as {
+    id: string;
+    user_metadata: { preferences?: Record<string, unknown> };
+  } | null,
+}));
+
 vi.mock("@/shared/hooks/useAuth", () => ({
-  useAuth: () => ({ user: null, loading: false }),
+  useAuth: () => ({ user: authState.user, loading: false }),
 }));
 
 vi.mock("@/shared/hooks/useWeather", () => ({
@@ -171,6 +178,7 @@ beforeAll(async () => {
 });
 
 beforeEach(() => {
+  authState.user = null;
   storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
   storeState.homeStationTransportZoneId = "mainland-honshu";
   localeState.locale = "en";
@@ -427,5 +435,75 @@ describe("DestinationDetails transport rows", () => {
     const text = host.textContent ?? "";
     expect(text).toContain("Train");
     expect(text).not.toContain("Shinkansen");
+  });
+
+  it("route-selected personal car is authoritative over saved public transport preferences", async () => {
+    authState.user = {
+      id: "saved-profile",
+      user_metadata: {
+        preferences: {
+          carMode: "none",
+          publicModes: ["train", "shinkansen", "bus"],
+          partySize: 4,
+        },
+      },
+    };
+    render("/destinations/national-museum-western-art-tokyo", {
+      carMode: "my_car",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Personal Car");
+    expect(text).not.toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+    expect(text).not.toContain("Bus");
+  });
+
+  it("does not substitute public transport when selected personal car is unsupported", async () => {
+    authState.user = {
+      id: "saved-profile",
+      user_metadata: {
+        preferences: {
+          carMode: "none",
+          publicModes: ["train", "shinkansen", "bus"],
+        },
+      },
+    };
+    render("/destinations/seiko-museum-ginza", {
+      carMode: "my_car",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Transport estimate unavailable");
+    expect(text).not.toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+    expect(text).not.toContain("Bus");
+  });
+
+  it("renders only valid members of a mixed personal-car and train selection", async () => {
+    render("/destinations/national-museum-western-art-tokyo", {
+      carMode: "my_car",
+      publicModes: ["train"],
+      partySize: 2,
+      duration: "fullDay",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+    const text = host.textContent ?? "";
+    expect(text).toContain("Personal Car");
+    expect(text).toContain("Train");
+    expect(text).not.toContain("Shinkansen");
+    expect(text).not.toContain("Bus");
   });
 });

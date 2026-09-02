@@ -15,6 +15,7 @@ import {
   HOME_RAIL_SECTION_SPACING,
 } from "./HomeRailLayout";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
+import type { TripDuration } from "@/shared/types/tripDuration";
 
 interface UnexploredNearbyRailProps {
   destinations: Destination[];
@@ -26,6 +27,7 @@ interface UnexploredNearbyRailProps {
   carMode: string;
   publicModes: string[];
   travelDate?: string;
+  duration?: TripDuration;
 }
 
 export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
@@ -38,6 +40,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
   carMode,
   publicModes,
   travelDate,
+  duration = "fullDay",
 }) => {
   const { t } = useTranslation();
 
@@ -54,7 +57,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
         homeStationTransportZoneId,
         carMode,
         publicModes,
-        tripDuration: "fullDay",
+        tripDuration: duration,
         visitedIds: destinations
           .filter((destination) => isVisited(destination.id))
           .map((destination) => destination.id),
@@ -69,6 +72,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
     isVisited,
     carMode,
     publicModes,
+    duration,
   ]);
 
   // Hide the rail when origin coordinates are unavailable or no eligible destinations remain
@@ -115,6 +119,7 @@ export const UnexploredNearbyRail: React.FC<UnexploredNearbyRailProps> = ({
                 carMode={carMode}
                 publicModes={publicModes}
                 travelDate={travelDate}
+                duration={duration}
               />
             </div>
           ))}

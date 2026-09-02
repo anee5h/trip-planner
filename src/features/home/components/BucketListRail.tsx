@@ -15,12 +15,14 @@ import {
   HOME_RAIL_CARD_CLASS,
   HOME_RAIL_SECTION_SPACING,
 } from "./HomeRailLayout";
+import type { TripDuration } from "@/shared/types/tripDuration";
 
 interface BucketListRailProps {
   partySize?: number;
   carMode?: string;
   publicModes?: string[];
   travelDate?: string;
+  duration?: TripDuration;
   isCompactPromptOnly?: boolean;
 }
 
@@ -29,6 +31,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
   carMode,
   publicModes,
   travelDate,
+  duration,
   isCompactPromptOnly = false,
 }) => {
   const { favorites } = useTripStore();
@@ -130,6 +133,7 @@ export const BucketListRail: React.FC<BucketListRailProps> = ({
                 carMode={carMode}
                 publicModes={publicModes}
                 travelDate={travelDate}
+                duration={duration}
               />
             </div>
           ))}

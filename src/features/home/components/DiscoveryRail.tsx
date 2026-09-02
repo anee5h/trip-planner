@@ -12,6 +12,7 @@ import {
   HOME_RAIL_CARD_CLASS,
   HOME_RAIL_SECTION_SPACING,
 } from "./HomeRailLayout";
+import type { TripDuration } from "@/shared/types/tripDuration";
 
 export type DiscoveryRailKind =
   "seasonal" | "under60" | "overnightGetaways" | "longerJourney";
@@ -23,6 +24,7 @@ interface DiscoveryRailProps {
   carMode: string;
   publicModes: string[];
   travelDate?: string;
+  duration?: TripDuration;
   season?: Season;
 }
 
@@ -88,6 +90,7 @@ export const DiscoveryRail: React.FC<DiscoveryRailProps> = ({
   carMode,
   publicModes,
   travelDate,
+  duration,
   season = getFixedSeason(),
 }) => {
   const { t } = useTranslation();
@@ -141,6 +144,7 @@ export const DiscoveryRail: React.FC<DiscoveryRailProps> = ({
                 carMode={carMode}
                 publicModes={publicModes}
                 travelDate={travelDate}
+                duration={duration}
               />
             </div>
           ))}

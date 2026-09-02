@@ -107,6 +107,8 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
                   publicModes={appliedState.publicModes}
                   travelDate={travelDate}
                   duration={appliedState.tripDuration}
+                  budget={appliedState.budget}
+                  tripType={appliedState.vibe}
                 />
               </div>
             ))}

@@ -323,6 +323,7 @@ export default function DeferredDiscoveryRails({
         carMode={carMode}
         publicModes={publicModes}
         travelDate={travelDate}
+        duration={tripDuration}
       />
       <DiscoveryRail
         kind="seasonal"
@@ -332,6 +333,7 @@ export default function DeferredDiscoveryRails({
         carMode={carMode}
         publicModes={publicModes}
         travelDate={travelDate}
+        duration={tripDuration}
       />
       <DiscoveryRail
         kind="longerJourney"
@@ -340,6 +342,7 @@ export default function DeferredDiscoveryRails({
         carMode={carMode}
         publicModes={publicModes}
         travelDate={travelDate}
+        duration={tripDuration}
       />
     </>
   ) : (
@@ -352,6 +355,7 @@ export default function DeferredDiscoveryRails({
         carMode={carMode}
         publicModes={publicModes}
         travelDate={travelDate}
+        duration={tripDuration}
       />
       <DiscoveryRail
         kind="under60"
@@ -360,6 +364,7 @@ export default function DeferredDiscoveryRails({
         carMode={carMode}
         publicModes={publicModes}
         travelDate={travelDate}
+        duration={tripDuration}
       />
       <UnexploredNearbyRail
         destinations={allDestinations}
@@ -371,6 +376,7 @@ export default function DeferredDiscoveryRails({
         carMode={carMode}
         publicModes={publicModes}
         travelDate={travelDate}
+        duration={tripDuration}
       />
     </>
   );

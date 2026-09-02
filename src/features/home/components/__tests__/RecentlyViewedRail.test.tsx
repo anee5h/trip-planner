@@ -6,6 +6,7 @@ import { createRoot, type Root } from "react-dom/client";
 import { MemoryRouter } from "react-router-dom";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { Destination } from "@/shared/types/destination";
+import type { TripDuration } from "@/shared/types/tripDuration";
 import { orderRecentlyViewedDestinations } from "../../services/HomeRailService";
 import RecentlyViewedRail from "../RecentlyViewedRail";
 
@@ -27,8 +28,19 @@ vi.mock("react-i18next", () => ({
 }));
 
 vi.mock("../HomeMatchCard", () => ({
-  default: ({ destination }: { destination: Destination }) => (
-    <a href={`/destinations/${destination.id}`}>{destination.name}</a>
+  default: ({
+    destination,
+    duration,
+  }: {
+    destination: Destination;
+    duration?: string;
+  }) => (
+    <a
+      href={`/destinations/${destination.id}`}
+      data-duration={duration ?? "fullDay"}
+    >
+      {destination.name}
+    </a>
   ),
 }));
 
@@ -46,7 +58,10 @@ afterEach(() => {
   host = undefined;
 });
 
-function renderRail(destinations: readonly Destination[]) {
+function renderRail(
+  destinations: readonly Destination[],
+  duration: TripDuration = "fullDay",
+) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -59,6 +74,7 @@ function renderRail(destinations: readonly Destination[]) {
           partySize={2}
           carMode="none"
           publicModes={["train"]}
+          duration={duration}
         />
       </MemoryRouter>,
     );
@@ -78,6 +94,17 @@ describe("RecentlyViewedRail", () => {
     expect(sections).toHaveLength(2);
     expect(sections[0].textContent).toContain("Top matches");
     expect(sections[1].textContent).toContain("Continue exploring");
+  });
+
+  it("forwards the applied overnight duration to recently viewed cards", () => {
+    const container = renderRail(recent, "2d1n");
+    expect(
+      container
+        .querySelector<HTMLAnchorElement>(
+          'a[href="/destinations/himeji-castle"]',
+        )
+        ?.getAttribute("data-duration"),
+    ).toBe("2d1n");
   });
 
   it("renders nothing when recent history is empty", () => {
