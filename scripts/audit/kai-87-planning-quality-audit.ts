@@ -175,6 +175,28 @@ interface DestinationProvenanceAudit {
   freshness: string | null;
 }
 
+interface FindingClassification {
+  destinationDataDefects: string[];
+  evidenceDebt: string[];
+  schemaCapabilityGaps: string[];
+  truthfulUnavailable: string[];
+  intentionalNotApplicable: string[];
+}
+
+interface NormalizedQualityScore {
+  score: number;
+  appliedWeight: number;
+  excludedDimensions: string[];
+  dimensions: Record<
+    keyof typeof QUALITY_WEIGHTS,
+    {
+      grade: QualityGrade;
+      applicable: boolean;
+      weight: number;
+    }
+  >;
+}
+
 interface DestinationAudit {
   id: string;
   name: string;
@@ -186,14 +208,18 @@ interface DestinationAudit {
   logistics: DestinationLogisticsAudit;
   contentIntegrity: DestinationContentAudit;
   provenance: DestinationProvenanceAudit;
+  classification: FindingClassification;
+  rawQualityScore: number;
+  rawPriority: Priority;
   qualityScore: number;
+  normalizedQuality: NormalizedQualityScore;
   priority: Priority;
   priorityReasons: string[];
   issues: string[];
 }
 
 export interface PlanningAuditReport {
-  schemaVersion: 1;
+  schemaVersion: 2;
   ticket: "KAI-87";
   scope: {
     canonicalSource: string;
@@ -243,6 +269,28 @@ export interface PlanningAuditReport {
     destinations: Record<string, DestinationLogisticsAudit>;
   };
   priority: Record<Priority, string[]>;
+  findingDimensions: {
+    destinationDataDefects: Record<string, Metric>;
+    evidenceDebt: Record<string, Metric>;
+    schemaCapabilityGaps: Record<string, Metric>;
+    truthfulUnavailable: Metric;
+    intentionalNotApplicable: Metric;
+  };
+  rawFindings: {
+    model: "pre-normalization-v1";
+    priority: Record<Priority, string[]>;
+    qualityScore: {
+      weights: typeof QUALITY_WEIGHTS;
+      scoresByDestination: Record<string, number>;
+      median: number;
+      p10: number;
+      p25: number;
+      below60: string[];
+      below70: string[];
+      below80: string[];
+      distributionBuckets: Record<string, Metric>;
+    };
+  };
   qualityScore: {
     weights: typeof QUALITY_WEIGHTS;
     scoresByDestination: Record<string, number>;
@@ -253,6 +301,7 @@ export interface PlanningAuditReport {
     below70: string[];
     below80: string[];
     distributionBuckets: Record<string, Metric>;
+    detailsByDestination: Record<string, NormalizedQualityScore>;
     lowestScoringRecommendationVisible: string[];
   };
   systemicRootCauses: Array<{
@@ -1062,14 +1111,23 @@ export function calculatePlanningQualityScore(parts: {
   );
 }
 
-function gradeForBudget(state: DestinationBudgetAudit["state"]): QualityGrade {
+function gradeForRawBudget(
+  state: DestinationBudgetAudit["state"],
+): QualityGrade {
   if (state === "complete") return "complete";
   if (state === "partial") return "partial";
   if (state === "suspicious") return "suspicious";
   return "unknown";
 }
 
-function gradeForLogistics(
+function gradeForBudget(state: DestinationBudgetAudit["state"]): QualityGrade {
+  if (state === "complete") return "complete";
+  if (state === "suspicious") return "suspicious";
+  if (state === "unknown-critical") return "not_applicable";
+  return "partial";
+}
+
+function gradeForRawLogistics(
   state: DestinationLogisticsAudit["state"],
 ): QualityGrade {
   return state === "complete"
@@ -1079,6 +1137,14 @@ function gradeForLogistics(
       : "unknown";
 }
 
+function gradeForLogistics(logistics: DestinationLogisticsAudit): QualityGrade {
+  return logistics.recommendedVisitDuration === "suspicious"
+    ? "partial"
+    : logistics.recommendedVisitDuration === "unknown"
+      ? "partial"
+      : "complete";
+}
+
 function gradeForTransport(transport: DestinationTransportAudit): QualityGrade {
   if (transport.contradictions.length > 0) return "suspicious";
   return strongestState([
@@ -1086,6 +1152,40 @@ function gradeForTransport(transport: DestinationTransportAudit): QualityGrade {
     transport.personalCar.state,
     transport.rentalCar.state,
   ]);
+}
+
+function gradeForNormalizedTransport(
+  transport: DestinationTransportAudit,
+): QualityGrade {
+  const grade = gradeForTransport(transport);
+  return grade === "unknown" || grade === "unavailable"
+    ? "not_applicable"
+    : grade;
+}
+
+function gradeForNormalizedSeasonality(
+  seasonality: DestinationSeasonalityAudit,
+): QualityGrade {
+  if (seasonality.issueCodes.includes("invalid_season_vector"))
+    return "suspicious";
+  return seasonality.state === "verified" || seasonality.state === "derived"
+    ? seasonality.state
+    : "not_applicable";
+}
+
+function gradeForNormalizedContent(
+  content: DestinationContentAudit,
+): QualityGrade {
+  if (content.enJaParity === "suspicious") return "suspicious";
+  return content.enJaParity === "verified" ? "complete" : "not_applicable";
+}
+
+function gradeForNormalizedProvenance(
+  provenance: DestinationProvenanceAudit,
+): QualityGrade {
+  return provenance.state === "verified" || provenance.state === "suspicious"
+    ? provenance.state
+    : "not_applicable";
 }
 
 export function classifyPriority(input: {
@@ -1098,6 +1198,198 @@ export function classifyPriority(input: {
   if (input.criticalTransportOrBudget) return "P0";
   if (input.importantPlanningGap) return "P1";
   if (input.lowerImpact) return "P2";
+  return "P2";
+}
+
+function classifyDestinationFindings(
+  transport: DestinationTransportAudit,
+  budget: DestinationBudgetAudit,
+  seasonality: DestinationSeasonalityAudit,
+  logistics: DestinationLogisticsAudit,
+  content: DestinationContentAudit,
+  provenance: DestinationProvenanceAudit,
+  generatedDivergence = false,
+): FindingClassification {
+  const destinationDataDefects: string[] = [];
+  const evidenceDebt: string[] = [];
+  const schemaCapabilityGaps: string[] = [];
+  const truthfulUnavailable: string[] = [];
+  const intentionalNotApplicable: string[] = [];
+  const add = (list: string[], value: string) => {
+    if (!list.includes(value)) list.push(value);
+  };
+
+  for (const code of transport.contradictions)
+    add(destinationDataDefects, `transport:${code}`);
+  if (transport.unreachableDueMissingData)
+    add(destinationDataDefects, "transport:unreachable_due_missing_data");
+  if (transport.parkingAvailability === "suspicious")
+    add(destinationDataDefects, "transport:parking_availability_malformed");
+  if (transport.localTransportCost === "unknown")
+    add(evidenceDebt, "transport:local_transport_evidence");
+  if (transport.localTransportCost === "unavailable") {
+    add(evidenceDebt, "transport:local_transport_evidence");
+    add(truthfulUnavailable, "transport:local_transport_unavailable");
+  }
+  if (transport.busLocalAvailability === "unknown")
+    add(evidenceDebt, "transport:bus_local_evidence");
+  if (transport.nearestUsefulStation === "unknown")
+    add(evidenceDebt, "transport:nearest_station_evidence");
+  if (transport.parkingAvailability === "unknown")
+    add(evidenceDebt, "transport:parking_availability_evidence");
+  if (transport.personalCar.state === "unknown")
+    add(evidenceDebt, "transport:personal_car_route_evidence");
+  if (transport.rentalCar.state === "unknown")
+    add(evidenceDebt, "transport:rental_car_route_evidence");
+  if (transport.parkingCost === "unavailable")
+    add(schemaCapabilityGaps, "parking_cost_unsupported_by_schema");
+  if (transport.tollFuelAssumptions === "unavailable") {
+    add(schemaCapabilityGaps, "toll_fuel_unsupported_by_schema");
+    add(schemaCapabilityGaps, "tolls_unsupported_by_schema");
+    add(schemaCapabilityGaps, "fuel_unsupported_by_schema");
+  }
+  if (transport.rentalCarFacts === "unavailable")
+    add(schemaCapabilityGaps, "rental_specific_costing_unsupported_by_schema");
+  if (transport.localTransportCost === "not_applicable")
+    add(intentionalNotApplicable, "transport:local_transport_not_applicable");
+
+  for (const code of budget.suspiciousCodes)
+    add(destinationDataDefects, `budget:${code}`);
+  if (budget.intercityTransport === "unknown") {
+    add(evidenceDebt, "budget:intercity_fare_provenance");
+    add(truthfulUnavailable, "budget:intercity_fare_unavailable");
+  }
+  if (budget.localTransport === "unknown")
+    add(evidenceDebt, "budget:local_transport_evidence");
+  if (budget.localTransport === "unavailable") {
+    add(evidenceDebt, "budget:local_transport_evidence");
+    add(truthfulUnavailable, "budget:local_transport_unavailable");
+  }
+  if (budget.localTransport === "not_applicable")
+    add(intentionalNotApplicable, "budget:local_transport_not_applicable");
+  if (budget.admissions === "unknown") {
+    add(evidenceDebt, "budget:admission_provenance");
+    add(truthfulUnavailable, "budget:admission_unavailable");
+  }
+  if (budget.admissions === "unavailable")
+    add(truthfulUnavailable, "budget:admission_unavailable");
+  if (budget.admissions === "not_applicable")
+    add(intentionalNotApplicable, "budget:admission_not_applicable");
+  if (budget.parking === "unavailable")
+    add(schemaCapabilityGaps, "parking_cost_unsupported_by_schema");
+  if (budget.tollsFuel === "unavailable") {
+    add(schemaCapabilityGaps, "toll_fuel_unsupported_by_schema");
+    add(schemaCapabilityGaps, "tolls_unsupported_by_schema");
+    add(schemaCapabilityGaps, "fuel_unsupported_by_schema");
+  }
+  if (budget.rentalCarInputs === "unavailable")
+    add(schemaCapabilityGaps, "rental_specific_costing_unsupported_by_schema");
+  if (!budget.estimateProbe.partyNightMultiplicationConsistent)
+    add(
+      destinationDataDefects,
+      "budget:accommodation_party_multiplication_drift",
+    );
+
+  if (seasonality.issueCodes.includes("invalid_season_vector"))
+    add(destinationDataDefects, "seasonality:invalid_season_vector");
+  if (
+    seasonality.state === "unknown" ||
+    seasonality.provenance === "unknown" ||
+    seasonality.issueCodes.includes("unverified_all_year_placeholder")
+  )
+    add(evidenceDebt, "seasonality:provenance");
+  if (seasonality.state === "suspicious")
+    add(evidenceDebt, "seasonality:provenance");
+
+  if (
+    logistics.recommendedVisitDuration === "unknown" ||
+    logistics.recommendedVisitDuration === "suspicious"
+  )
+    add(destinationDataDefects, "logistics:recommended_visit_duration");
+  for (const code of logistics.issueCodes) {
+    if (!code.startsWith("recommended_visit_duration"))
+      add(evidenceDebt, `logistics:${code}`);
+  }
+  for (const code of content.issueCodes) {
+    if (code === "en_ja_structure_drift")
+      add(destinationDataDefects, `content:${code}`);
+    else add(evidenceDebt, `content:${code}`);
+  }
+  if (provenance.state === "unknown")
+    add(evidenceDebt, "provenance:source_metadata");
+  if (provenance.state === "suspicious")
+    add(destinationDataDefects, "provenance:stale_or_conflicting");
+  if (generatedDivergence)
+    add(destinationDataDefects, "generated:canonical_divergence");
+
+  return {
+    destinationDataDefects: sorted(destinationDataDefects),
+    evidenceDebt: sorted(evidenceDebt),
+    schemaCapabilityGaps: sorted(schemaCapabilityGaps),
+    truthfulUnavailable: sorted(truthfulUnavailable),
+    intentionalNotApplicable: sorted(intentionalNotApplicable),
+  };
+}
+
+const QUALITY_DIMENSIONS = Object.keys(QUALITY_WEIGHTS) as Array<
+  keyof typeof QUALITY_WEIGHTS
+>;
+
+export function calculateNormalizedPlanningQualityScore(
+  parts: Record<keyof typeof QUALITY_WEIGHTS, QualityGrade>,
+  notApplicableDimensions: readonly (keyof typeof QUALITY_WEIGHTS)[] = [],
+): NormalizedQualityScore {
+  const excluded = new Set(notApplicableDimensions);
+  const dimensions = {} as NormalizedQualityScore["dimensions"];
+  let appliedWeight = 0;
+  let points = 0;
+  for (const dimension of QUALITY_DIMENSIONS) {
+    const applicable =
+      !excluded.has(dimension) && parts[dimension] !== "not_applicable";
+    const weight = QUALITY_WEIGHTS[dimension];
+    dimensions[dimension] = { grade: parts[dimension], applicable, weight };
+    if (applicable) {
+      appliedWeight += weight;
+      points += weight * GRADE_FRACTIONS[parts[dimension]];
+    }
+  }
+  return {
+    score:
+      appliedWeight === 0 ? 100 : Math.round((points / appliedWeight) * 100),
+    appliedWeight,
+    excludedDimensions: QUALITY_DIMENSIONS.filter(
+      (dimension) => !dimensions[dimension].applicable,
+    ),
+    dimensions,
+  };
+}
+
+function isCriticalCurrentSchemaDefect(
+  classification: FindingClassification,
+): boolean {
+  return classification.destinationDataDefects.some(
+    (code) =>
+      code.startsWith("transport:unreachable") ||
+      (code.startsWith("transport:") &&
+        code !== "transport:parking_availability_malformed") ||
+      code.startsWith("budget:") ||
+      code.startsWith("generated:"),
+  );
+}
+
+function isImportantCurrentSchemaDefect(
+  classification: FindingClassification,
+): boolean {
+  return classification.destinationDataDefects.length > 0;
+}
+
+export function classifyPlanningPriority(input: {
+  recommendationVisible: boolean;
+  classification: FindingClassification;
+}): Priority {
+  if (!input.recommendationVisible) return "P3";
+  if (isCriticalCurrentSchemaDefect(input.classification)) return "P0";
+  if (isImportantCurrentSchemaDefect(input.classification)) return "P1";
   return "P2";
 }
 
@@ -1221,6 +1513,77 @@ function percentile(values: number[], fraction: number): number {
   return sortedValues[index];
 }
 
+function summarizeScores(
+  records: readonly DestinationAudit[],
+  scoreFor: (record: DestinationAudit) => number,
+): {
+  scoresByDestination: Record<string, number>;
+  median: number;
+  p10: number;
+  p25: number;
+  below60: string[];
+  below70: string[];
+  below80: string[];
+  distributionBuckets: Record<string, Metric>;
+} {
+  const scoresByDestination = Object.fromEntries(
+    records.map((record) => [record.id, scoreFor(record)]),
+  );
+  const visible = records.filter((record) => record.recommendationVisible);
+  const scoreValues = visible.map(scoreFor);
+  const buckets: Record<string, Metric> = {};
+  for (const bucket of ["0-39", "40-59", "60-69", "70-79", "80-89", "90-100"]) {
+    const [min, max] = bucket.split("-").map(Number);
+    buckets[bucket] = metric(
+      records
+        .filter((record) => {
+          const score = scoreFor(record);
+          return score >= min && score <= max;
+        })
+        .map((record) => record.id),
+    );
+  }
+  return {
+    scoresByDestination,
+    median: percentile(scoreValues, 0.5),
+    p10: percentile(scoreValues, 0.1),
+    p25: percentile(scoreValues, 0.25),
+    below60: visible
+      .filter((record) => scoreFor(record) < 60)
+      .map((record) => record.id),
+    below70: visible
+      .filter((record) => scoreFor(record) < 70)
+      .map((record) => record.id),
+    below80: visible
+      .filter((record) => scoreFor(record) < 80)
+      .map((record) => record.id),
+    distributionBuckets: buckets,
+  };
+}
+
+function classificationMetrics(
+  records: readonly DestinationAudit[],
+  codesFor: (classification: FindingClassification) => readonly string[],
+): Record<string, Metric> {
+  const codeSet = new Set(
+    records.flatMap((record) => codesFor(record.classification)),
+  );
+  const summary: Record<string, Metric> = {
+    any: metric(
+      records
+        .filter((record) => codesFor(record.classification).length > 0)
+        .map((record) => record.id),
+    ),
+  };
+  for (const code of [...codeSet].sort())
+    summary[code] = metric(
+      records
+        .filter((record) => codesFor(record.classification).includes(code))
+        .map((record) => record.id),
+    );
+  return summary;
+}
+
 function buildSystemicCauses(
   records: ReadonlyMap<string, DestinationAudit>,
 ): PlanningAuditReport["systemicRootCauses"] {
@@ -1327,23 +1690,39 @@ export function buildPlanningAudit(
     const logistics = auditLogistics(raw);
     const contentIntegrity = auditContent(raw);
     const provenance = auditProvenance(raw);
-    const qualityScore = calculatePlanningQualityScore({
+    const generatedDivergence = Boolean(
+      options.generatedDetails?.has(id) &&
+      JSON.stringify(destination) !==
+        JSON.stringify(options.generatedDetails.get(id)),
+    );
+    const classification = classifyDestinationFindings(
+      transport,
+      budget,
+      seasonality,
+      logistics,
+      contentIntegrity,
+      provenance,
+      generatedDivergence,
+    );
+    const rawQualityScore = calculatePlanningQualityScore({
       transport: gradeForTransport(transport),
-      budget: gradeForBudget(budget.state),
+      budget: gradeForRawBudget(budget.state),
       seasonality: seasonality.state,
-      logistics: gradeForLogistics(logistics.state),
+      logistics: gradeForRawLogistics(logistics.state),
       contentIntegrity: contentIntegrity.state,
       provenance: provenance.state,
     });
-    const priorityReasons: string[] = [];
-    if (transport.criticalGap) priorityReasons.push(...transport.issueCodes);
-    if (budget.criticalGap)
-      priorityReasons.push(...budget.suspiciousCodes, budget.state);
-    if (seasonality.issueCodes.length > 0)
-      priorityReasons.push(...seasonality.issueCodes);
-    if (logistics.issueCodes.length > 0)
-      priorityReasons.push(...logistics.issueCodes);
-    const priority = classifyPriority({
+    const qualityParts = {
+      transport: gradeForNormalizedTransport(transport),
+      budget: gradeForBudget(budget.state),
+      seasonality: gradeForNormalizedSeasonality(seasonality),
+      logistics: gradeForLogistics(logistics),
+      contentIntegrity: gradeForNormalizedContent(contentIntegrity),
+      provenance: gradeForNormalizedProvenance(provenance),
+    } satisfies Record<keyof typeof QUALITY_WEIGHTS, QualityGrade>;
+    const normalizedQuality =
+      calculateNormalizedPlanningQualityScore(qualityParts);
+    const rawPriority = classifyPriority({
       recommendationVisible,
       criticalTransportOrBudget:
         recommendationVisible && (transport.criticalGap || budget.criticalGap),
@@ -1355,12 +1734,22 @@ export function buildPlanningAudit(
         contentIntegrity.issueCodes.length > 0 ||
         provenance.state === "unknown",
     });
+    const priority = classifyPlanningPriority({
+      recommendationVisible,
+      classification,
+    });
+    const priorityReasons = sorted([
+      ...classification.destinationDataDefects,
+      ...classification.evidenceDebt,
+      ...classification.schemaCapabilityGaps,
+    ]);
     const issues = sorted([
       ...transport.issueCodes,
       ...budget.suspiciousCodes,
       ...seasonality.issueCodes,
       ...logistics.issueCodes,
       ...contentIntegrity.issueCodes,
+      ...(generatedDivergence ? ["generated_canonical_divergence"] : []),
     ]);
     detailAudits.set(id, {
       id,
@@ -1373,9 +1762,13 @@ export function buildPlanningAudit(
       logistics,
       contentIntegrity,
       provenance,
-      qualityScore,
+      classification,
+      rawQualityScore,
+      rawPriority,
+      qualityScore: normalizedQuality.score,
+      normalizedQuality,
       priority,
-      priorityReasons: sorted(priorityReasons),
+      priorityReasons,
       issues,
     });
   }
@@ -1606,7 +1999,9 @@ export function buildPlanningAudit(
       (record) => record.logistics.relationships === "unknown",
     ),
   };
+  const visible = auditEntries.filter((record) => record.recommendationVisible);
   const priority = {} as Record<Priority, string[]>;
+  const rawPriority = {} as Record<Priority, string[]>;
   for (const level of ["P0", "P1", "P2", "P3"] as const) {
     priority[level] = auditEntries
       .filter((record) => record.priority === level)
@@ -1617,45 +2012,25 @@ export function buildPlanningAudit(
           (left.id < right.id ? -1 : 1),
       )
       .map((record) => record.id);
+    rawPriority[level] = auditEntries
+      .filter((record) => record.rawPriority === level)
+      .map((record) => record.id)
+      .sort();
   }
-  const visible = auditEntries.filter((record) => record.recommendationVisible);
-  const scoresByDestination = Object.fromEntries(
-    auditEntries.map((record) => [record.id, record.qualityScore]),
+  const normalizedSummary = summarizeScores(
+    auditEntries,
+    (record) => record.qualityScore,
   );
-  const buckets: Record<string, Metric> = {};
-  for (const bucket of ["0-39", "40-59", "60-69", "70-79", "80-89", "90-100"]) {
-    const [min, max] = bucket.split("-").map(Number);
-    buckets[bucket] = metric(
-      auditEntries
-        .filter(
-          (record) => record.qualityScore >= min && record.qualityScore <= max,
-        )
-        .map((record) => record.id),
-    );
-  }
-  const scoreValues = visible.map((record) => record.qualityScore);
+  const rawSummary = summarizeScores(
+    auditEntries,
+    (record) => record.rawQualityScore,
+  );
   const qualityScore = {
     weights: QUALITY_WEIGHTS,
-    scoresByDestination,
-    median: percentile(scoreValues, 0.5),
-    p10: percentile(scoreValues, 0.1),
-    p25: percentile(scoreValues, 0.25),
-    below60: metric(
-      visible
-        .filter((record) => record.qualityScore < 60)
-        .map((record) => record.id),
-    ).ids,
-    below70: metric(
-      visible
-        .filter((record) => record.qualityScore < 70)
-        .map((record) => record.id),
-    ).ids,
-    below80: metric(
-      visible
-        .filter((record) => record.qualityScore < 80)
-        .map((record) => record.id),
-    ).ids,
-    distributionBuckets: buckets,
+    ...normalizedSummary,
+    detailsByDestination: Object.fromEntries(
+      auditEntries.map((record) => [record.id, record.normalizedQuality]),
+    ),
     lowestScoringRecommendationVisible: visible
       .sort(
         (left, right) =>
@@ -1665,10 +2040,38 @@ export function buildPlanningAudit(
       .slice(0, 50)
       .map((record) => record.id),
   };
+  const findingDimensions = {
+    destinationDataDefects: classificationMetrics(
+      visible,
+      (classification) => classification.destinationDataDefects,
+    ),
+    evidenceDebt: classificationMetrics(
+      visible,
+      (classification) => classification.evidenceDebt,
+    ),
+    schemaCapabilityGaps: classificationMetrics(
+      visible,
+      (classification) => classification.schemaCapabilityGaps,
+    ),
+    truthfulUnavailable: metric(
+      visible
+        .filter(
+          (record) => record.classification.truthfulUnavailable.length > 0,
+        )
+        .map((record) => record.id),
+    ),
+    intentionalNotApplicable: metric(
+      visible
+        .filter(
+          (record) => record.classification.intentionalNotApplicable.length > 0,
+        )
+        .map((record) => record.id),
+    ),
+  };
   const routeRegistries = options.routeRegistries ?? {};
   const catalogueRecords = rawDestinations.filter((raw) => text(raw.id));
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     ticket: "KAI-87",
     scope: {
       canonicalSource: INDEX_PATH,
@@ -1735,6 +2138,15 @@ export function buildPlanningAudit(
       ),
     },
     priority,
+    findingDimensions,
+    rawFindings: {
+      model: "pre-normalization-v1",
+      priority: rawPriority,
+      qualityScore: {
+        weights: QUALITY_WEIGHTS,
+        ...rawSummary,
+      },
+    },
     qualityScore,
     systemicRootCauses: buildSystemicCauses(byId),
     residualLedger: Object.fromEntries(
@@ -1830,6 +2242,64 @@ export function renderPlanningAuditMarkdown(
   for (const [name, value] of Object.entries(report.logistics.summary))
     lines.push(markdownMetric(name, value));
   lines.push("");
+  lines.push("## FINDING DIMENSIONS");
+  lines.push(
+    "Headline priority uses destination defects only; evidence debt and unsupported schema capabilities are reported separately.",
+  );
+  lines.push("### Destination data defects");
+  lines.push(
+    markdownMetric(
+      "any current-schema defect",
+      report.findingDimensions.destinationDataDefects.any,
+    ),
+  );
+  lines.push("### Evidence debt");
+  lines.push(
+    markdownMetric(
+      "any evidence debt",
+      report.findingDimensions.evidenceDebt.any,
+    ),
+  );
+  for (const [label, key] of [
+    ["local transport", "transport:local_transport_evidence"],
+    ["seasonality provenance", "seasonality:provenance"],
+    ["intercity fare provenance", "budget:intercity_fare_provenance"],
+  ] as const)
+    lines.push(
+      markdownMetric(
+        label,
+        report.findingDimensions.evidenceDebt[key] ?? metric([]),
+      ),
+    );
+  lines.push("### Schema capability gaps (excluded from quality score)");
+  for (const [label, key] of [
+    ["parking", "parking_cost_unsupported_by_schema"],
+    ["tolls", "tolls_unsupported_by_schema"],
+    ["fuel", "fuel_unsupported_by_schema"],
+    [
+      "rental-specific costing",
+      "rental_specific_costing_unsupported_by_schema",
+    ],
+  ] as const)
+    lines.push(
+      markdownMetric(
+        label,
+        report.findingDimensions.schemaCapabilityGaps[key] ?? metric([]),
+      ),
+    );
+  lines.push(
+    markdownMetric(
+      "truthful unavailable",
+      report.findingDimensions.truthfulUnavailable,
+    ),
+  );
+  lines.push(
+    markdownMetric(
+      "intentional not-applicable",
+      report.findingDimensions.intentionalNotApplicable,
+    ),
+  );
+  lines.push("");
   lines.push("## PRIORITY QUEUE");
   for (const level of ["P0", "P1", "P2", "P3"] as const)
     lines.push(
@@ -1837,6 +2307,9 @@ export function renderPlanningAuditMarkdown(
     );
   lines.push("");
   lines.push("## QUALITY SCORE");
+  lines.push(
+    "- Model: normalized per destination; dimensions marked not-applicable are removed from the denominator, and schema capability gaps are excluded rather than scored as destination defects.",
+  );
   lines.push(
     `- Weights: transport ${report.qualityScore.weights.transport}, budget ${report.qualityScore.weights.budget}, seasonality ${report.qualityScore.weights.seasonality}, logistics ${report.qualityScore.weights.logistics}, content/relationships ${report.qualityScore.weights.contentIntegrity}, provenance ${report.qualityScore.weights.provenance}`,
   );
@@ -1852,6 +2325,17 @@ export function renderPlanningAuditMarkdown(
   lines.push(
     `- Below 80: **${report.qualityScore.below80.length}**${report.qualityScore.below80.length ? ` — ${report.qualityScore.below80.join(", ")}` : ""}`,
   );
+  lines.push("");
+  lines.push("## RAW FINDINGS RETAINED");
+  lines.push(
+    "The pre-normalization model is retained in JSON for comparison; it does not drive the amended priority queue or quality headline.",
+  );
+  lines.push(
+    `- Raw P0: **${report.rawFindings.priority.P0.length}**; raw P1: **${report.rawFindings.priority.P1.length}**; raw P2: **${report.rawFindings.priority.P2.length}**; raw P3: **${report.rawFindings.priority.P3.length}**`,
+  );
+  lines.push(`- Raw median: **${report.rawFindings.qualityScore.median}**`);
+  lines.push(`- Raw p10: **${report.rawFindings.qualityScore.p10}**`);
+  lines.push(`- Raw p25: **${report.rawFindings.qualityScore.p25}**`);
   lines.push("");
   lines.push("## SYSTEMIC ROOT-CAUSE SIGNALS");
   for (const cause of report.systemicRootCauses)

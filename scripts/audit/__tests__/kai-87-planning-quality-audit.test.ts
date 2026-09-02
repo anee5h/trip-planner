@@ -3,9 +3,11 @@ import type { Destination } from "@/shared/types/destination";
 import {
   buildPlanningAudit,
   calculatePlanningQualityScore,
+  calculateNormalizedPlanningQualityScore,
   classifyAdmission,
   classifySeasonality,
   classifyPriority,
+  classifyPlanningPriority,
 } from "../kai-87-planning-quality-audit";
 
 const base = {
@@ -101,6 +103,60 @@ describe("KAI-87 planning-quality audit contract", () => {
     ).toBe("P0");
   });
 
+  it("keeps truthful evidence debt and schema gaps out of P0", () => {
+    const emptyClassification = {
+      destinationDataDefects: [],
+      evidenceDebt: ["transport:local_transport_evidence"],
+      schemaCapabilityGaps: ["parking_cost_unsupported_by_schema"],
+      truthfulUnavailable: ["transport:local_transport_unavailable"],
+      intentionalNotApplicable: [],
+    };
+    expect(
+      classifyPlanningPriority({
+        recommendationVisible: true,
+        classification: emptyClassification,
+      }),
+    ).toBe("P2");
+    expect(
+      classifyPlanningPriority({
+        recommendationVisible: true,
+        classification: {
+          ...emptyClassification,
+          destinationDataDefects: ["budget:invalid_budget_range"],
+        },
+      }),
+    ).toBe("P0");
+    expect(
+      classifyPlanningPriority({
+        recommendationVisible: true,
+        classification: {
+          ...emptyClassification,
+          destinationDataDefects: ["logistics:recommended_visit_duration"],
+        },
+      }),
+    ).toBe("P1");
+    expect(
+      classifyPlanningPriority({
+        recommendationVisible: false,
+        classification: emptyClassification,
+      }),
+    ).toBe("P3");
+  });
+
+  it("normalizes weights when a quality dimension is not applicable", () => {
+    const normalized = calculateNormalizedPlanningQualityScore({
+      transport: "verified",
+      budget: "not_applicable",
+      seasonality: "verified",
+      logistics: "complete",
+      contentIntegrity: "complete",
+      provenance: "verified",
+    });
+    expect(normalized.score).toBe(100);
+    expect(normalized.appliedWeight).toBe(75);
+    expect(normalized.excludedDimensions).toEqual(["budget"]);
+  });
+
   it("produces deterministic scores and reports", () => {
     const score = calculatePlanningQualityScore({
       transport: "verified",
@@ -122,5 +178,20 @@ describe("KAI-87 planning-quality audit contract", () => {
     expect(
       first.qualityScore.scoresByDestination["fixture-place"],
     ).toBeLessThanOrEqual(100);
+    expect(first.schemaVersion).toBe(2);
+    expect(
+      first.findingDimensions.schemaCapabilityGaps.any.count,
+    ).toBeGreaterThan(0);
+    expect(
+      first.findingDimensions.intentionalNotApplicable.count,
+    ).toBeGreaterThan(0);
+    expect(first.rawFindings.model).toBe("pre-normalization-v1");
+    expect(Object.values(first.rawFindings.priority).flat()).toContain(
+      "fixture-place",
+    );
+    expect(first.destinations["fixture-place"].priority).toBe("P2");
+    expect(
+      first.destinations["fixture-place"].normalizedQuality.appliedWeight,
+    ).toBeGreaterThan(0);
   });
 });
