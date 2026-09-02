@@ -519,6 +519,11 @@
       "action": "model-estimate",
       "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
     },
+    "season:4b797ae33900": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Seven KAI-151 Phase 2A records share the documented spring-peak vector, but each season window was independently supported by an authoritative sakura source and the records carry manual high-confidence provenance. The repeated vector is a bounded model representation of source-backed preferred months, not evidence that the records were bulk-filled."
+    },
     "transport:ffd6f6849522": {
       "category": "B",
       "action": "manual-review",

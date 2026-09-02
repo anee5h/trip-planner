@@ -142,10 +142,10 @@
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
   },
   "comfortMetadata": {
     "method": "model",
@@ -193,5 +193,13 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E8%8A%B9%E3%83%B6%E8%B0%B7%E5%85%AC%E5%9C%92",
   "wikipediaPageId": 3314215,
-  "wikidataId": "Q21653359"
+  "wikidataId": "Q21653359",
+  "bestSeason": "Spring",
+  "bestMonths": [3, 4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 4
+  }
 }

@@ -117,4 +117,25 @@ describe("season-model-v1 rule order (spring/autumn)", () => {
     const out = seasonModel(d, eligible);
     expect(out.action).toBe("neutralize");
   });
+
+  it("manual season provenance is protected from model neutralization", () => {
+    const d = baseDest({
+      id: "manual-sakura",
+      kind: "castle",
+      role: "standalone",
+      categories: ["History"],
+      name: "Manual Sakura Castle",
+      bestSeason: "Spring",
+      bestMonths: [4, 5],
+      season: { spring: 10, summer: 6, autumn: 5, winter: 4 },
+      seasonMetadata: {
+        method: "manual",
+        modelVersion: "season-model-v1",
+        confidence: "high",
+        basis: "KAI-151 Phase 2A official sakura evidence",
+      },
+    });
+    const out = seasonModel(d, new Set(["manual-sakura"]));
+    expect(out.action).toBe("keep");
+  });
 });

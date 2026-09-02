@@ -100,10 +100,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4; spring peak with year-round nonzero vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -276,5 +276,13 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "bestSeason": "Spring",
+  "bestMonths": [4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 4
   }
 }

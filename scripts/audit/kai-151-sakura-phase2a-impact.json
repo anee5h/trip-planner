@@ -1,0 +1,328 @@
+{
+  "ticket": "KAI-151",
+  "phase": "Phase 2A thematic seasonality pilot — sakura impact check",
+  "baseCommit": "a56d7dd41b8773b4c8b59ac22b25e6f508809792",
+  "travelDate": "2026-04-05",
+  "context": "day_trip, vibe any, budget 100000, all public modes, fixed Tokyo/Osaka/Fukuoka origins",
+  "candidateMutationCount": 14,
+  "method": "Run the shared getRecommendations over the exact base-main catalogue and the post-mutation catalogue; compare result counts, top-10 membership, ranks, and scores. This is a directional pilot measurement, not a causal production experiment.",
+  "decision": "Seasonal scores materially changed for surfaced records and one fixed Fukuoka top-10 result changed, but Tokyo/Osaka top-10 membership did not. Proceed with review of user impact; do not automatically research all remaining 341 candidates.",
+  "results": [
+    {
+      "origin": "tokyo",
+      "beforeCount": 921,
+      "afterCount": 921,
+      "top10Overlap": 10,
+      "top10Entered": [],
+      "top10Exited": [],
+      "changed": [
+        {
+          "id": "goryokaku",
+          "before": {
+            "rank": 396,
+            "score": 52.64
+          },
+          "after": {
+            "rank": 57,
+            "score": 70.64
+          }
+        },
+        {
+          "id": "kakunodate-samurai-district-akita",
+          "before": {
+            "rank": 839,
+            "score": 32
+          },
+          "after": {
+            "rank": 456,
+            "score": 50
+          }
+        },
+        {
+          "id": "kimii-dera-temple",
+          "before": {
+            "rank": 809,
+            "score": 32.63333333333333
+          },
+          "after": {
+            "rank": 445,
+            "score": 50.63333333333333
+          }
+        },
+        {
+          "id": "kintai-bridge-yamaguchi",
+          "before": {
+            "rank": 811,
+            "score": 32.6
+          },
+          "after": {
+            "rank": 446,
+            "score": 50.6
+          }
+        },
+        {
+          "id": "matsumae-castle",
+          "before": {
+            "rank": 842,
+            "score": 32
+          },
+          "after": {
+            "rank": 457,
+            "score": 50
+          }
+        },
+        {
+          "id": "sengan-en-garden-kagoshima",
+          "before": {
+            "rank": 805,
+            "score": 32.900000000000006
+          },
+          "after": {
+            "rank": 441,
+            "score": 50.900000000000006
+          }
+        },
+        {
+          "id": "serigaya-park",
+          "before": {
+            "rank": 348,
+            "score": 54.89999999999999
+          },
+          "after": {
+            "rank": 46,
+            "score": 72.89999999999999
+          }
+        },
+        {
+          "id": "tsuyama-castle",
+          "before": {
+            "rank": 827,
+            "score": 32.333333333333336
+          },
+          "after": {
+            "rank": 453,
+            "score": 50.333333333333336
+          }
+        }
+      ]
+    },
+    {
+      "origin": "osaka",
+      "beforeCount": 783,
+      "afterCount": 783,
+      "top10Overlap": 10,
+      "top10Entered": [],
+      "top10Exited": [],
+      "changed": [
+        {
+          "id": "kakunodate-samurai-district-akita",
+          "before": {
+            "rank": 736,
+            "score": 32
+          },
+          "after": {
+            "rank": 406,
+            "score": 50
+          }
+        },
+        {
+          "id": "kimii-dera-temple",
+          "before": {
+            "rank": 581,
+            "score": 41.7
+          },
+          "after": {
+            "rank": 186,
+            "score": 59.7
+          }
+        },
+        {
+          "id": "kintai-bridge-yamaguchi",
+          "before": {
+            "rank": 571,
+            "score": 42
+          },
+          "after": {
+            "rank": 179,
+            "score": 60
+          }
+        },
+        {
+          "id": "sengan-en-garden-kagoshima",
+          "before": {
+            "rank": 720,
+            "score": 32.900000000000006
+          },
+          "after": {
+            "rank": 385,
+            "score": 50.900000000000006
+          }
+        },
+        {
+          "id": "serigaya-park",
+          "before": {
+            "rank": 395,
+            "score": 50.239999999999995
+          },
+          "after": {
+            "rank": 45,
+            "score": 68.24
+          }
+        },
+        {
+          "id": "tsuyama-castle",
+          "before": {
+            "rank": 593,
+            "score": 41.400000000000006
+          },
+          "after": {
+            "rank": 195,
+            "score": 59.400000000000006
+          }
+        }
+      ]
+    },
+    {
+      "origin": "fukuoka",
+      "beforeCount": 867,
+      "afterCount": 867,
+      "top10Overlap": 9,
+      "top10Entered": ["sengan-en-garden-kagoshima"],
+      "top10Exited": ["tokyo-skytree-sumida"],
+      "changed": [
+        {
+          "id": "awa-shrine-tateyama",
+          "before": {
+            "rank": 816,
+            "score": 20
+          },
+          "after": {
+            "rank": 562,
+            "score": 38
+          }
+        },
+        {
+          "id": "hitachi-kamine-park",
+          "before": {
+            "rank": 798,
+            "score": 21.933333333333334
+          },
+          "after": {
+            "rank": 534,
+            "score": 39.93333333333334
+          }
+        },
+        {
+          "id": "kakunodate-samurai-district-akita",
+          "before": {
+            "rank": 680,
+            "score": 32
+          },
+          "after": {
+            "rank": 301,
+            "score": 50
+          }
+        },
+        {
+          "id": "kimii-dera-temple",
+          "before": {
+            "rank": 648,
+            "score": 32.63333333333333
+          },
+          "after": {
+            "rank": 285,
+            "score": 50.63333333333333
+          }
+        },
+        {
+          "id": "kintai-bridge-yamaguchi",
+          "before": {
+            "rank": 473,
+            "score": 42
+          },
+          "after": {
+            "rank": 101,
+            "score": 60
+          }
+        },
+        {
+          "id": "nokonoshima-island-park",
+          "before": {
+            "rank": 557,
+            "score": 38
+          },
+          "after": {
+            "rank": 137,
+            "score": 56
+          }
+        },
+        {
+          "id": "odawara-castle",
+          "before": {
+            "rank": 656,
+            "score": 32.599999999999994
+          },
+          "after": {
+            "rank": 290,
+            "score": 50.599999999999994
+          }
+        },
+        {
+          "id": "okazaki-castle",
+          "before": {
+            "rank": 663,
+            "score": 32.36
+          },
+          "after": {
+            "rank": 296,
+            "score": 50.36
+          }
+        },
+        {
+          "id": "sengan-en-garden-kagoshima",
+          "before": {
+            "rank": 164,
+            "score": 54.900000000000006
+          },
+          "after": {
+            "rank": 4,
+            "score": 72.9
+          }
+        },
+        {
+          "id": "serigaya-park",
+          "before": {
+            "rank": 400,
+            "score": 44.599999999999994
+          },
+          "after": {
+            "rank": 74,
+            "score": 62.599999999999994
+          }
+        },
+        {
+          "id": "shiroyama-park-tateyama",
+          "before": {
+            "rank": 856,
+            "score": 20
+          },
+          "after": {
+            "rank": 564,
+            "score": 38
+          }
+        },
+        {
+          "id": "tsuyama-castle",
+          "before": {
+            "rank": 490,
+            "score": 41.400000000000006
+          },
+          "after": {
+            "rank": 105,
+            "score": 59.400000000000006
+          }
+        }
+      ]
+    }
+  ]
+}

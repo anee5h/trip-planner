@@ -1,0 +1,951 @@
+{
+  "ticket": "KAI-151",
+  "phase": "2A",
+  "cohort": "sakura",
+  "generatedFrom": "reports/kai-151-phase2a-pre/planning-quality-audit.json",
+  "baseCommit": "a56d7dd41b8773b4c8b59ac22b25e6f508809792",
+  "canonicalSha256": "3cbc29e93786bfdf3a1139016d1fdcfbd3b8579cae90c353e09946150cf35291",
+  "candidateDefinition": "state=unknown AND season/bestMonths absent AND likelyProfiles includes sakura",
+  "count": 29,
+  "records": [
+    {
+      "id": "arakurayama-sengen-park-yamanashi",
+      "name": "Arakurayama Sengen Park & Chureito Pagoda",
+      "nameJa": "新倉山浅間公園・忠霊塔",
+      "prefecture": "Yamanashi",
+      "kind": null,
+      "role": null,
+      "officialWebsite": "https://www.fujiyoshida.net/spot/11",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "tags": ["fuji", "pagoda", "cherry-blossoms", "yamanashi", "viewpoint"],
+        "description": "Japan's iconic postcard panorama featuring the five-story Chureito Pagoda framing Mount Fuji surrounded by cherry blossoms."
+      },
+      "signalFields": ["tags", "description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "alpine_mountain"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "awa-shrine-tateyama",
+      "name": "Awa Shrine",
+      "nameJa": "安房神社",
+      "prefecture": "Chiba",
+      "kind": "shrine",
+      "role": "standalone",
+      "officialWebsite": "http://www.awajinjya.org/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "tags": ["Shrine", "History", "Tateyama", "Cherry Blossoms"],
+        "highlights": [
+          "A large white torii and wooded approach to the main sanctuary",
+          "A distinct southern-Tateyama shrine experience",
+          "Cherry blossoms along the approach in early April"
+        ]
+      },
+      "signalFields": ["tags", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "goryokaku",
+      "name": "Goryokaku (Star Fort)",
+      "nameJa": "五稜郭",
+      "prefecture": "Hokkaido",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://www.city.hakodate.hokkaido.jp/docs/2014011601161/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Japan's first star fort",
+          "Site of the 1869 Battle of Hakodate",
+          "Reconstructed magistrate's office",
+          "Spring cherry blossoms and night illumination"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "hirosaki-city",
+      "name": "Hirosaki City",
+      "nameJa": "弘前市",
+      "prefecture": "Aomori",
+      "kind": "city",
+      "role": "hub",
+      "officialWebsite": null,
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "tags": ["Castle", "Cherry Blossoms", "History"],
+        "description": "A former castle town best known for Hirosaki Castle and one of Japan's most celebrated cherry-blossom festivals."
+      },
+      "signalFields": ["tags", "description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "hitachi-kamine-park",
+      "name": "Hitachi Kamine Park",
+      "nameJa": "かみね公園",
+      "prefecture": "Ibaraki",
+      "kind": "park",
+      "role": "standalone",
+      "officialWebsite": "https://kaminepark.or.jp/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "ichijodani-castle",
+      "name": "Ichijodani Castle (Asakura site)",
+      "nameJa": "一乗谷城",
+      "prefecture": "Fukui",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://www3.fctv.ne.jp/~asakura/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "name": "Ichijodani Castle (Asakura site)",
+        "description": "Ichijodani was the 15th-16th century castle town of the Asakura clan, Japan's most fully excavated Sengoku city, designated a special historic site. The castle ruins crown the valley, with the town's garden sites preserved below.",
+        "highlights": [
+          "Asakura clan capital",
+          "Best-preserved Sengoku city site",
+          "Special historic site",
+          "Reconstructed townscape"
+        ]
+      },
+      "signalFields": ["name", "description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kagoshima-castle",
+      "name": "Kagoshima Castle",
+      "nameJa": "鹿児島城",
+      "prefecture": "Kagoshima",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://www.pref.kagoshima.jp/reimeikan/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Shimazu clan seat",
+          "Never-completed keep",
+          "Reimeikan museum at Honmaru",
+          "Sakurajima views"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kagoshima-city",
+      "name": "Kagoshima City",
+      "nameJa": "鹿児島市",
+      "prefecture": "Kagoshima",
+      "kind": "city",
+      "role": "hub",
+      "officialWebsite": null,
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "Southern coastal city known as 'Naples of Japan', facing active Sakurajima volcano across Kagoshima Bay."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kakunodate-samurai-district-akita",
+      "name": "Kakunodate Samurai District",
+      "nameJa": "角館武家屋敷通り",
+      "prefecture": "Akita",
+      "kind": null,
+      "role": null,
+      "officialWebsite": "https://www.city.semboku.akita.jp/sightseeing/spot/07_buke.html",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kimii-dera-temple",
+      "name": "Kimii-dera Temple",
+      "nameJa": "紀三井寺",
+      "prefecture": "Wakayama",
+      "kind": "temple",
+      "role": "destination",
+      "officialWebsite": "https://www.kimiidera.com/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kintai-bridge-yamaguchi",
+      "name": "Kintaikyo Wooden Arch Bridge",
+      "nameJa": "錦帯橋",
+      "prefecture": "Yamaguchi",
+      "kind": null,
+      "role": null,
+      "officialWebsite": "https://kintaikyo.iwakuni-city.net/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "tags": ["bridge", "wooden", "historic", "yamaguchi", "cherry-blossoms"]
+      },
+      "signalFields": ["tags"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kirishima-kinkowan",
+      "name": "Kirishima-Kinkowan National Park",
+      "nameJa": "霧島錦江湾国立公園",
+      "prefecture": "Kagoshima",
+      "kind": "nature",
+      "role": "standalone",
+      "officialWebsite": "https://www.env.go.jp/park/kirishima/index.html",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "National park (1934) of the Kirishima volcano group with its crater lakes, and the Sakurajima peninsula and Kinko Bay coast of southern Kyushu.",
+        "highlights": [
+          "Kirishima crater lakes",
+          "Sakurajima volcano",
+          "Kagoshima Bay"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "kita-city",
+      "name": "Kita City",
+      "nameJa": "北区",
+      "prefecture": "Tokyo",
+      "kind": "ward",
+      "role": "hub",
+      "officialWebsite": null,
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "A northern Tokyo ward known for Asukayama Park's cherry blossoms, historic paper museum, and Akabane's bar culture.",
+        "highlights": [
+          "Asukayama Cherry Blossom Park",
+          "Akabane Retro Izakaya Streets",
+          "Kyuo-Furukawa Gardens"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "matsumae-castle",
+      "name": "Matsumae Castle",
+      "nameJa": "松前城",
+      "prefecture": "Hokkaido",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://www.town.matsumae.hokkaido.jp/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "Matsumae Castle, completed 1854, was the northernmost castle of the Edo-period Matsumae domain and the only castle in Hokkaido. The current keep is a 1961 concrete reconstruction (the original burned in 1949); it is famous for its early-spring cherry blossoms.",
+        "highlights": [
+          "Only castle in Hokkaido",
+          "Reconstructed 1854-style keep",
+          "Matsumae domain history",
+          "Early cherry blossom spot"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "meguro-city",
+      "name": "Meguro City",
+      "nameJa": "目黒区",
+      "prefecture": "Tokyo",
+      "kind": "ward",
+      "role": "hub",
+      "officialWebsite": null,
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "A trendy riverside ward famous for Meguro River cherry blossoms, stylish boutiques, cafes, and Tokyo Metropolitan Teien Art Museum.",
+        "highlights": [
+          "Meguro River Cherry Blossoms",
+          "Teien Art Museum & Gardens",
+          "Stylish Cafes & Shops"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "nago-city",
+      "name": "Nago City",
+      "nameJa": "名護市",
+      "prefecture": "Okinawa",
+      "kind": "city",
+      "role": "hub",
+      "officialWebsite": null,
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "Northern main island city featuring Busena Marine Park, Orion Happy Park brewery, and cherry blossom festivals."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "nokonoshima-island-park",
+      "name": "Nokonoshima Island Park",
+      "nameJa": "能古島アイランドパーク",
+      "prefecture": "Fukuoka",
+      "kind": "park",
+      "role": "standalone",
+      "officialWebsite": "https://nokonoshima.com/en",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "description": "A flower park on Nokonoshima Island, reached by a 10-minute ferry from Meinohama, with seasonal blooms (cosmos, narcissus, cherry blossom) and views across Hakata Bay.",
+        "highlights": [
+          "Seasonal flower fields (cosmos, narcissus, cherry blossom)",
+          "A 10-minute ferry ride from Meinohama to the island",
+          "Hakata Bay views from the island"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "odawara-castle",
+      "name": "Odawara Castle",
+      "nameJa": "小田原城",
+      "prefecture": "Kanagawa",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://odawaracastle.com/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "Odawara Castle was the mighty stronghold of the Hojo clan that withstood sieges until Hideyoshi's 1590 campaign. The current keep (1960) houses a museum; the castle park is famous for plum and cherry blossoms."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "okazaki-castle",
+      "name": "Okazaki Castle",
+      "nameJa": "岡崎城",
+      "prefecture": "Aichi",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://okazakipark.com/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "Okazaki Castle is the birthplace of Tokugawa Ieyasu (1542), built by his grandfather's generation of the Matsudaira clan. The 1959-reconstructed keep overlooks the Yahagi river; the grounds are a famous cherry-blossom park.",
+        "highlights": [
+          "Birthplace of Tokugawa Ieyasu",
+          "Keep reconstruction (1959)",
+          "Cherry blossom park"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "sakurai-futamigaura-itoshima",
+      "name": "Sakurai Futamigaura",
+      "nameJa": "桜井二見ヶ浦",
+      "prefecture": "Fukuoka",
+      "kind": "nature",
+      "role": "standalone",
+      "officialWebsite": "https://www.crossroadfukuoka.jp/en/spot/12456",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "name": "Sakurai Futamigaura",
+        "nameJa": "桜井二見ヶ浦"
+      },
+      "signalFields": ["name", "nameJa"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "sakurajima-volcano-kagoshima",
+      "name": "Sakurajima Stratovolcano",
+      "nameJa": "桜島",
+      "prefecture": "Kagoshima",
+      "kind": null,
+      "role": "poi",
+      "officialWebsite": "https://www.sakurajima.gr.jp/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "name": "Sakurajima Stratovolcano",
+        "nameJa": "桜島",
+        "highlights": [
+          "Explore Sakurajima Stratovolcano",
+          "Local Culture & Scenery"
+        ]
+      },
+      "signalFields": ["name", "nameJa", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "sengan-en-garden-kagoshima",
+      "name": "Sengan-en Garden",
+      "nameJa": "仙巌園",
+      "prefecture": "Kagoshima",
+      "kind": "garden",
+      "role": "poi",
+      "officialWebsite": "https://www.senganen.jp/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Sakurajima volcano as borrowed scenery (shakkei)",
+          "Shimazu clan samurai villa & gardens",
+          "Adjacent Shoko Shuseikan industrial heritage museum"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "serigaya-park",
+      "name": "Serigaya Park",
+      "nameJa": "芹ヶ谷公園",
+      "prefecture": "Tokyo",
+      "kind": "park",
+      "role": "poi",
+      "officialWebsite": "https://machida-guide.or.jp/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "A lush valley park in Machida featuring natural springs, woodland walking trails, and a unique kinetic sculpture fountain. It is a popular spot for family picnics, cherry blossom viewing, and outdoor play."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "shiroyama-park-tateyama",
+      "name": "Shiroyama Park (Tateyama)",
+      "nameJa": "城山公園（館山）",
+      "prefecture": "Chiba",
+      "kind": "park",
+      "role": "standalone",
+      "officialWebsite": "https://tateyamacity.com/en/attractions/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "Tateyama Castle's Hakkenden Museum within Shiroyama Park",
+          "Seasonal flowers along the hill trails, including spring cherry blossom",
+          "Panoramic Tateyama Bay and occasional Mt. Fuji views"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "tama-forest-science-garden",
+      "name": "Tama Forest Science Garden",
+      "nameJa": "多摩森林科学園",
+      "prefecture": "Tokyo",
+      "kind": "park",
+      "role": "poi",
+      "officialWebsite": "https://www.hkc.or.jp/eng/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "tokorozawa-city",
+      "name": "Tokorozawa City",
+      "nameJa": "所沢市",
+      "prefecture": "Saitama",
+      "kind": "city",
+      "role": "hub",
+      "officialWebsite": null,
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "hub records span multiple microclimates; single vector would be fabricated"
+        }
+      },
+      "thematicSignal": {
+        "description": "A popular Saitama culture city featuring Tokorozawa Sakura Town, Kadokawa Musashino Museum, and Sayama Tea fields.",
+        "highlights": [
+          "Kadokawa Musashino Museum",
+          "Tokorozawa Sakura Town",
+          "Sayama Tea Fields"
+        ]
+      },
+      "signalFields": ["description", "highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "tsuyama-castle",
+      "name": "Tsuyama Castle",
+      "nameJa": "津山城",
+      "prefecture": "Okayama",
+      "kind": "castle",
+      "role": "standalone",
+      "officialWebsite": "https://www.tsuyamakan.jp/",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "highlights": [
+          "60 m stone walls",
+          "Mori clan domain seat",
+          "Reconstructed turret",
+          "Cherry blossoms in Kakuzan Park"
+        ]
+      },
+      "signalFields": ["highlights"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "yoshino-kumano",
+      "name": "Yoshino-Kumano National Park",
+      "nameJa": "吉野熊野国立公園",
+      "prefecture": "Wakayama",
+      "kind": "nature",
+      "role": "standalone",
+      "officialWebsite": "https://www.env.go.jp/park/yoshino/index.html",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {},
+      "signalFields": [],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "alpine_mountain", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    },
+    {
+      "id": "yoyogi-park",
+      "name": "Yoyogi Park",
+      "nameJa": "代々木公園",
+      "prefecture": "Tokyo",
+      "kind": "park",
+      "role": "poi",
+      "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
+      "current": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "thematicSignal": {
+        "description": "A vast, lively urban park adjacent to Harajuku, popular for weekend picnicking, street performances, and seasonal cherry blossom viewing. It features expansive lawns, wooded walking trails, and peaceful fountains."
+      },
+      "signalFields": ["description"],
+      "audit": {
+        "state": "unknown",
+        "likelyProfiles": ["sakura", "beach_summer"],
+        "issueCodes": [],
+        "provenance": "unknown"
+      }
+    }
+  ]
+}

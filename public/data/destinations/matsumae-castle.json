@@ -129,10 +129,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4,5; spring peak with year-round nonzero vector"
   },
   "walkingMin": 125,
   "scoreMetadata": {
@@ -168,5 +168,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsumae_Castle",
   "wikipediaPageId": 805646,
-  "wikidataId": "Q1143974"
+  "wikidataId": "Q1143974",
+  "bestSeason": "Spring",
+  "bestMonths": [4, 5],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 5,
+    "winter": 4
+  }
 }

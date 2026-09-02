@@ -35364,10 +35364,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4,5; spring peak with year-round nonzero vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -35412,6 +35412,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
@@ -41044,10 +41055,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -41092,6 +41103,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
@@ -114005,10 +114027,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -114058,7 +114080,18 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E8%8A%B9%E3%83%B6%E8%B0%B7%E5%85%AC%E5%9C%92",
     "wikipediaPageId": 3314215,
-    "wikidataId": "Q21653359"
+    "wikidataId": "Q21653359",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "buaiso",
@@ -127843,10 +127876,10 @@
       "confidence": "beta"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "walkingMin": 65,
     "walkingIntensity": "medium",
@@ -127886,7 +127919,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Kimii-dera",
     "wikipediaPageId": 83249904,
-    "wikidataId": "Q11153117"
+    "wikidataId": "Q11153117",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "kuroshio-market-marina-city",
@@ -135314,10 +135358,10 @@
     },
     "notesJa": "庭園越しに桜島を望む借景が見どころです。",
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 2,3,4; spring peak with year-round nonzero vector"
     },
     "durationMetadata": {
       "method": "model",
@@ -135369,6 +135413,18 @@
       "detail": "Canonical arrival Kagoshima-Chuo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "bestSeason": "Spring & Winter",
+    "bestMonths": [
+      2,
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 8
     }
   },
   {
@@ -171097,10 +171153,10 @@
       "confidence": "medium"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4,5; spring peak with year-round nonzero vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -171138,7 +171194,18 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E4%BA%94%E7%A8%9C%E9%83%AD",
     "wikipediaPageId": 10577,
-    "wikidataId": "Q1196357"
+    "wikidataId": "Q1196357",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "matsumae-castle",
@@ -171286,10 +171353,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4,5; spring peak with year-round nonzero vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -171327,7 +171394,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsumae_Castle",
     "wikipediaPageId": 805646,
-    "wikidataId": "Q1143974"
+    "wikidataId": "Q1143974",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "ne-castle-hachinohe",
@@ -173399,10 +173477,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 2,3,4; spring peak with year-round nonzero vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -173442,7 +173520,19 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Odawara_Castle",
     "wikipediaPageId": 839646,
-    "wikidataId": "Q1013437"
+    "wikidataId": "Q1013437",
+    "bestSeason": "Spring & Winter",
+    "bestMonths": [
+      2,
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 8
+    }
   },
   {
     "id": "kofu-castle",
@@ -175669,10 +175759,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -175712,7 +175802,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Okazaki_Castle",
     "wikipediaPageId": 356199,
-    "wikidataId": "Q1013445"
+    "wikidataId": "Q1013445",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "nagashino-castle",
@@ -178528,10 +178629,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -178576,6 +178677,17 @@
       "method": "calculated",
       "confidence": "medium",
       "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
@@ -218323,10 +218435,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -218490,6 +218602,17 @@
       "detail": "Canonical arrival Hakata Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
@@ -226270,10 +226393,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 3,4; spring peak with year-round nonzero vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -226442,6 +226565,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
@@ -226563,10 +226697,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4; spring peak with year-round nonzero vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -226741,6 +226875,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
@@ -228056,10 +228200,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2A official sakura evidence; preferred months 4; spring peak with year-round nonzero vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -228234,6 +228378,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
     }
   },
   {
