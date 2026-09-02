@@ -123,14 +123,23 @@ export interface DayTripTravelDurationEvidence {
 }
 
 /**
- * Shared day-trip travel truth. Canonical route evidence always wins. The
- * estimated branch is deliberately narrower than the display-only legacy
- * helper and is never called by budget code.
+ * Safe coordinate fallback is intentionally limited to explicit road modes for
+ * overnight matching. Public transport keeps its verified route-only gate.
  */
-export function getDayTripTravelDurationEvidence(
+function getExplicitCarModes(modes: readonly string[]): string[] {
+  return modes.filter((mode) => mode === "car" || mode === "my_car");
+}
+
+/**
+ * Shared travel truth. Canonical route evidence always wins. The estimated
+ * branch is deliberately bounded by getSafeGroundEstimate and is never called
+ * by budget code.
+ */
+export function getTravelDurationEvidence(
   destination: Destination,
   context: TripDurationContext | RecommendationContext,
   modes: readonly string[],
+  estimatedGroundModes: readonly string[] = modes,
 ): DayTripTravelDurationEvidence {
   // A persisted zone without station coordinates cannot identify a canonical
   // airport/port or ground corridor. Do not let estimator defaults (such as
@@ -162,13 +171,22 @@ export function getDayTripTravelDurationEvidence(
     homeStationCoords: context.homeStationCoords,
     homeStationTransportZoneId:
       "originZoneId" in context ? context.originZoneId : undefined,
-    authorizedModes: modes,
+    authorizedModes: estimatedGroundModes,
   } satisfies SafeGroundEstimateContext);
   if (estimated) {
     return { evidence: "estimated", estimate: estimated };
   }
 
   return { evidence: "unknown" };
+}
+
+/** Day-trip alias retained for callers whose policy is day-trip-specific. */
+export function getDayTripTravelDurationEvidence(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  modes: readonly string[],
+): DayTripTravelDurationEvidence {
+  return getTravelDurationEvidence(destination, context, modes);
 }
 
 export interface DayTripTravelEfficiency {
@@ -336,26 +354,26 @@ export function formatTripDurationLabel(
 }
 
 /**
- * Returns the fastest canonical origin-aware one-way travel time (midpoint of
- * the estimate range) for a destination across all authorised transport
- * modes. Catchment access is already represented as bounded/estimated in the
- * canonical result. Returns `undefined` when no origin-aware duration exists.
+ * Returns the fastest canonical one-way travel time (midpoint of the estimate
+ * range) for a destination across all authorised modes. Verified origin-aware
+ * routes win; when they are absent, the shared bounded estimated-ground
+ * contract may provide evidence for an authorized nearby ground mode.
  */
 export function getBestOneWayTravelMinutes(
   destination: Destination,
   context: TripDurationContext | RecommendationContext,
   modes: string[],
 ): number | undefined {
-  const estimate = getOriginAwareTransportEstimate(
+  const travel = getTravelDurationEvidence(
     destination,
-    {
-      homeStationCoords: context.homeStationCoords ?? undefined,
-      ferryTemporal: context.ferryTemporal,
-    },
+    context,
     modes,
+    getExplicitCarModes(modes),
   );
-  if (!estimate) return undefined;
-  return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+  if (!travel.estimate) return undefined;
+  return Math.round(
+    (travel.estimate.timeRange[0] + travel.estimate.timeRange[1]) / 2,
+  );
 }
 
 export function estimateTripDuration(
@@ -376,29 +394,23 @@ export function estimateTripDuration(
   let representativeHours: number;
   let bestMode: string | undefined;
   let bestTravelMinutes: number | undefined;
-  let originAwareTravelEstimate:
-    NonNullable<ReturnType<typeof getOriginAwareTransportEstimate>> | undefined;
+  let travelEstimate: TravelDurationEstimate | undefined;
 
   if (!context.homeStationCoords) {
     totalRangeHours = visitRange;
     representativeHours = (visitRange[0] + visitRange[1]) / 2;
   } else {
-    const estimate = getOriginAwareTransportEstimate(
+    const travel = getTravelDurationEvidence(
       destination,
-      {
-        homeStationCoords: context.homeStationCoords ?? undefined,
-        originZoneId:
-          "originZoneId" in context ? context.originZoneId : undefined,
-        ferryTemporal: context.ferryTemporal,
-      },
+      context,
       modes,
+      getExplicitCarModes(modes),
     );
-
-    if (!estimate) return null;
-    originAwareTravelEstimate = estimate;
-    bestMode = estimate.mode;
+    if (!travel.estimate) return null;
+    travelEstimate = travel.estimate;
+    bestMode = travel.estimate.mode;
     bestTravelMinutes = Math.round(
-      (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
+      (travel.estimate.timeRange[0] + travel.estimate.timeRange[1]) / 2,
     );
     const bufferHours =
       ((destination.travelBuffers?.transferMinutes ?? 0) +
@@ -446,8 +458,8 @@ export function estimateTripDuration(
     band: getBand(representativeHours),
     mode: bestMode,
     bestTravelMinutes,
-    travelEvidence: originAwareTravelEstimate?.evidence,
-    travelEstimate: originAwareTravelEstimate,
+    travelEvidence: travelEstimate?.evidence,
+    travelEstimate,
     isImpossible,
     isBorderline,
     warningMessage,
