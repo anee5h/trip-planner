@@ -81706,6 +81706,14 @@
     },
     "officialWebsite": "https://www.shikisainooka.jp/",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 7,
+      "winter": 3
+    },
+    "bestMonths": [6, 7, 8, 9],
+    "bestSeason": "Summer",
     "walkingMin": 170,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -88045,6 +88053,14 @@
     "officialWebsite": "https://onjuku-kankou.com/event/kaisuiyoku/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 4,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 2
+    },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
