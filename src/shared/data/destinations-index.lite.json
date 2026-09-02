@@ -905,7 +905,7 @@
     "transportOptions": {
       "ferry": 780
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "amami",
     "walkingIntensity": "low",
     "comfort": {
       "heatTolerance": 6,
@@ -69054,20 +69054,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 600
+    },
     "walkingIntensity": "high",
     "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
     "relationships": {}
@@ -69281,20 +69283,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 185
+    },
     "walkingIntensity": "high",
     "businessHours": "Open access (castle ruins; see official site for seasonal hours)",
     "relationships": {}
@@ -72069,20 +72073,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 90
+    },
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
     "relationships": {}
@@ -73542,7 +73548,9 @@
     "transportOptions": {
       "ferry": 110
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "rishiri",
+    "localAccessModes": ["bus"],
+    "localAccessUnestimated": true,
     "walkingIntensity": "low",
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
@@ -73976,20 +73984,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 240
+    },
     "walkingIntensity": "low",
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
@@ -75901,7 +75911,9 @@
     "transportOptions": {
       "ferry": 70
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "kerama",
+    "localAccessModes": ["bus"],
+    "localAccessUnestimated": true,
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
   },
@@ -76401,20 +76413,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 240
+    },
     "walkingIntensity": "high",
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
@@ -76472,20 +76486,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.6,
+      "value": 6.5,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "train": 180
+    },
     "walkingIntensity": "high",
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
@@ -79725,7 +79741,9 @@
     "transportOptions": {
       "ferry": 150
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "iki",
+    "localAccessModes": ["bus"],
+    "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
@@ -80111,7 +80129,9 @@
     "transportOptions": {
       "ferry": 75
     },
-    "transportZoneId": "unknown",
+    "transportZoneId": "koshiki",
+    "localAccessModes": ["bus"],
+    "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "businessHours": "Open access (park; facility hours vary by season and area)",
     "relationships": {}
@@ -82022,18 +82042,22 @@
       "value": 6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 60
+    },
+    "transportZoneId": "shodoshima",
+    "localAccessModes": ["bus"],
+    "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
     "relationships": {}
@@ -82098,18 +82122,20 @@
       "value": 6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 25
+    },
+    "transportZoneId": "inujima",
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
     "relationships": {}
@@ -82419,18 +82445,20 @@
       "value": 6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.5,
+      "coverage": 0.6,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-6\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
-    "transportZoneId": "unknown",
+    "transportOptions": {
+      "ferry": 40
+    },
+    "transportZoneId": "ogijima",
     "walkingIntensity": "high",
     "businessHours": "Open daily; hours vary by season (see official site)",
     "relationships": {}
@@ -86554,20 +86582,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 45
+    },
     "transportZoneId": "awaji-island",
     "localAccessModes": ["bus", "car"],
     "localAccessUnestimated": true,
@@ -86627,20 +86657,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 90
+    },
     "transportZoneId": "awaji-island",
     "localAccessModes": ["bus", "car"],
     "localAccessUnestimated": true,
@@ -86700,20 +86732,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 45
+    },
     "transportZoneId": "awaji-island",
     "localAccessModes": ["bus", "car"],
     "localAccessUnestimated": true,
@@ -86919,20 +86953,22 @@
     },
     "scoreMetadata": {
       "state": "estimated",
-      "value": 6.7,
+      "value": 6.6,
       "rubricVersion": "kai-89-overall-v2",
       "confidence": "low",
-      "coverage": 0.9,
+      "coverage": 1,
       "provenance": {
         "sourceClass": "model",
-        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":1,\"significance\":\"major\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
     },
-    "transportOptions": {},
+    "transportOptions": {
+      "car": 35
+    },
     "transportZoneId": "awaji-island",
     "localAccessModes": ["bus", "car"],
     "localAccessUnestimated": true,

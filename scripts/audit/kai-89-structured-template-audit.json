@@ -6,7 +6,7 @@
   "totalRecords": 1107,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 186,
+    "clusterCount": 188,
     "affectedRecordCount": 1104,
     "affectedIds": [
       "abashiri",
@@ -1470,13 +1470,13 @@
       "unavailable": 27
     },
     "dispositionCounts": {
-      "confidence-gated": 31,
+      "confidence-gated": 33,
       "corrected": 9,
       "legitimate": 13,
       "manual-review": 92,
       "model-estimate": 41
     },
-    "categoryCounts": { "C": 79, "D": 6, "B": 57, "A": 13, "E": 31 }
+    "categoryCounts": { "C": 81, "D": 6, "B": 57, "A": 13, "E": 31 }
   },
   "categories": [
     {
@@ -8850,8 +8850,8 @@
     {
       "category": "transport",
       "severity": "review",
-      "clusterCount": 59,
-      "affectedRecordCount": 423,
+      "clusterCount": 61,
+      "affectedRecordCount": 430,
       "affectedIds": [
         "abukuma-cave-fukushima",
         "adachi-city",
@@ -8941,6 +8941,7 @@
         "golden-gai",
         "gotemba-city",
         "gotoku-ji",
+        "gunkanjima-hashima-nagasaki",
         "gyokudo-art-museum",
         "hachinohe-city",
         "hachioji-castle-tokyo",
@@ -8958,6 +8959,7 @@
         "hirome-market-kochi",
         "hirosaki-city",
         "hirosaki-neputa-mura",
+        "hita-city",
         "hokokuji",
         "horyuji-temple-nara",
         "ikaruga-town",
@@ -8967,6 +8969,7 @@
         "inamuragasaki",
         "inuyama-city",
         "irabu-bridge-irabujima-miyako",
+        "iriomote-ishigaki",
         "ise-city",
         "ishidake-observatory",
         "ishite-ji-ehime",
@@ -9118,6 +9121,7 @@
         "oboke-koboke-gorge",
         "ochiai-folk-village",
         "odaiba-minato",
+        "ogijima",
         "oirase-gorge-aomori",
         "okazaki-city",
         "ome-railway-park",
@@ -9169,6 +9173,7 @@
         "shibuya-city",
         "shibuya-crossing-hachiko",
         "shikoku-mura",
+        "shimokita-hanto",
         "shimonoseki-city",
         "shin-yokohama-ramen-museum",
         "shinagawa-city",
@@ -9229,9 +9234,11 @@
         "toto-museum-kitakyushu",
         "tottori-city",
         "tottori-sand-dunes",
+        "towada-hachimantai",
         "toyooka-city",
         "toyosu-market",
         "toyota-city",
+        "tsugaru",
         "tsujido-seaside-park",
         "tsukiji-outer-market",
         "tsukuba-city",
@@ -9350,6 +9357,38 @@
           }
         },
         {
+          "id": "bfbeeffa6890",
+          "severity": "review",
+          "count": 19,
+          "ids": [
+            "abukuma-cave-fukushima",
+            "akiyoshido-cave-yamaguchi",
+            "arakurayama-sengen-park-yamanashi",
+            "ashikaga-flower-park-tochigi",
+            "beppu-hells-oita",
+            "dewa-sanzan-yamagata",
+            "dogo-onsen-ehime",
+            "ginzan-onsen-yamagata",
+            "iya-valley-tokushima",
+            "kakunodate-samurai-district-akita",
+            "kintai-bridge-yamaguchi",
+            "kiyotsu-gorge-niigata",
+            "motonosumi-shrine-yamaguchi",
+            "mount-aso-kumamoto",
+            "oirase-gorge-aomori",
+            "ryugado-cave-kochi",
+            "takeda-castle-ruins-hyogo",
+            "tottori-sand-dunes",
+            "tsugaru"
+          ],
+          "value": { "train": 180 },
+          "disposition": {
+            "category": "B",
+            "action": "manual-review",
+            "reason": "template"
+          }
+        },
+        {
           "id": "7400a209eda9",
           "severity": "review",
           "count": 18,
@@ -9378,37 +9417,6 @@
             "category": "C",
             "action": "manual-review",
             "reason": "estimated"
-          }
-        },
-        {
-          "id": "bfbeeffa6890",
-          "severity": "review",
-          "count": 18,
-          "ids": [
-            "abukuma-cave-fukushima",
-            "akiyoshido-cave-yamaguchi",
-            "arakurayama-sengen-park-yamanashi",
-            "ashikaga-flower-park-tochigi",
-            "beppu-hells-oita",
-            "dewa-sanzan-yamagata",
-            "dogo-onsen-ehime",
-            "ginzan-onsen-yamagata",
-            "iya-valley-tokushima",
-            "kakunodate-samurai-district-akita",
-            "kintai-bridge-yamaguchi",
-            "kiyotsu-gorge-niigata",
-            "motonosumi-shrine-yamaguchi",
-            "mount-aso-kumamoto",
-            "oirase-gorge-aomori",
-            "ryugado-cave-kochi",
-            "takeda-castle-ruins-hyogo",
-            "tottori-sand-dunes"
-          ],
-          "value": { "train": 180 },
-          "disposition": {
-            "category": "B",
-            "action": "manual-review",
-            "reason": "template"
           }
         },
         {
@@ -10181,6 +10189,18 @@
           }
         },
         {
+          "id": "1d123dc103a3",
+          "severity": "review",
+          "count": 3,
+          "ids": ["hita-city", "shimokita-hanto", "towada-hachimantai"],
+          "value": { "train": 240 },
+          "disposition": {
+            "category": "C",
+            "action": "confidence-gated",
+            "reason": "Reviewed gateway-duration fallback {train:240} shared by hita-city, shimokita-hanto, and towada-hachimantai. The value is a deterministic access fallback, not a claim that the destinations share a route or travel time from every origin; origin-aware route data remains authoritative when available."
+          }
+        },
+        {
           "id": "36c25a6b9c22",
           "severity": "review",
           "count": 3,
@@ -10370,6 +10390,22 @@
             "category": "E",
             "action": "manual-review",
             "reason": "mixed"
+          }
+        },
+        {
+          "id": "d014f6d1e267",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "gunkanjima-hashima-nagasaki",
+            "iriomote-ishigaki",
+            "ogijima"
+          ],
+          "value": { "ferry": 40 },
+          "disposition": {
+            "category": "C",
+            "action": "confidence-gated",
+            "reason": "Reviewed ferry-duration fallback {ferry:40} shared by gunkanjima-hashima-nagasaki, iriomote-ishigaki, and ogijima. The value is a display fallback for route availability while fare and origin-specific itinerary evidence remain separate."
           }
         },
         {

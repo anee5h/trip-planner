@@ -159,6 +159,62 @@
       "isIsland": true,
       "isRemote": false,
       "localModes": []
+    },
+    {
+      "id": "inujima",
+      "name": "Inujima",
+      "nameJa": "犬島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": []
+    },
+    {
+      "id": "ogijima",
+      "name": "Ogijima",
+      "nameJa": "男木島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": []
+    },
+    {
+      "id": "shodoshima",
+      "name": "Shodoshima",
+      "nameJa": "小豆島",
+      "isIsland": true,
+      "isRemote": false,
+      "localModes": ["bus", "car"]
+    },
+    {
+      "id": "iki",
+      "name": "Iki",
+      "nameJa": "壱岐",
+      "isIsland": true,
+      "isRemote": true,
+      "localModes": ["bus", "car"]
+    },
+    {
+      "id": "kerama",
+      "name": "Kerama Islands",
+      "nameJa": "慶良間諸島",
+      "isIsland": true,
+      "isRemote": true,
+      "localModes": ["bus", "car"]
+    },
+    {
+      "id": "koshiki",
+      "name": "Koshiki Islands",
+      "nameJa": "甑島",
+      "isIsland": true,
+      "isRemote": true,
+      "localModes": ["bus", "car"]
+    },
+    {
+      "id": "rishiri",
+      "name": "Rishiri",
+      "nameJa": "利尻島",
+      "isIsland": true,
+      "isRemote": true,
+      "localModes": ["bus", "car"]
     }
   ],
   "edges": [

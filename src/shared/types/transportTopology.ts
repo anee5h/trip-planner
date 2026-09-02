@@ -28,6 +28,13 @@ export type TransportZoneId =
   | "nokonoshima"
   | "awaji-island"
   | "chikubushima"
+  | "inujima"
+  | "ogijima"
+  | "shodoshima"
+  | "iki"
+  | "kerama"
+  | "koshiki"
+  | "rishiri"
   | "unknown";
 
 export interface TransportZone {

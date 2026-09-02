@@ -4,7 +4,6 @@
   "pendingChanges": 0,
   "pendingByModel": [],
   "touchedRecords": {
-    "budget-model-v1": [],
     "season-model-v1": [
       "abashiri-city",
       "abeno-harukas-300-osaka",
@@ -1403,6 +1402,7 @@
       "akasaka-minato",
       "akita-city",
       "akiyoshido-cave-yamaguchi",
+      "amami-iriomote-natural-site",
       "ameya-yokocho",
       "aomori-city",
       "arakawa-city",
@@ -1463,6 +1463,7 @@
       "hikone-city",
       "himeji-city",
       "hiraizumi-chusonji-iwate",
+      "hirosaki-castle",
       "hirosaki-city",
       "hokokuji",
       "horyuji-temple-nara",
@@ -1524,6 +1525,7 @@
       "kyoto-international-manga-museum",
       "kyoto-national-museum",
       "kyoto-railway-museum",
+      "lake-towada-aomori",
       "lazona-kawasaki-plaza",
       "marugame-city",
       "maruyama-park",
@@ -1562,6 +1564,7 @@
       "nijo-market",
       "niseko-town",
       "nishiki-market",
+      "noto",
       "numazu-city",
       "nunobiki-falls",
       "nunobiki-herb-gardens",
@@ -1700,6 +1703,7 @@
       "shitennoji",
       "nakanoshima-museum-art-osaka",
       "osaka-central-public-hall",
+      "tomogashima-islands",
       "nago-pineapple-park",
       "busena-marine-park-nago",
       "bise-fukugi-tree-road-motobu",
@@ -1768,15 +1772,31 @@
       "tenshaen-garden-uwajima",
       "miyoshi-city",
       "uwajima-city",
+      "kabushima-shrine",
       "tatehana-wharf-morning-market",
+      "towada-art-center",
       "hirosaki-neputa-mura",
       "fujita-memorial-garden",
       "saisho-in",
       "fukushima-prefectural-museum-of-art",
       "kaminoyama-castle-town",
       "aizu-bukeyashiki",
+      "nemuro-peninsula-chashi-sites",
+      "ne-castle-hachinohe",
+      "tsuyama-castle",
+      "rishiri-rebun-sarobetsu",
+      "towada-hachimantai",
+      "kerama-shoto",
+      "shimokita-hanto",
+      "tsugaru",
       "meiji-no-mori-takao",
+      "noto-hanto",
       "kongo-ikoma-kisen",
+      "iki-tsushima",
+      "koshikijima",
+      "shodoshima",
+      "inujima",
+      "ogijima",
       "junglia-okinawa",
       "dmm-kariyushi-aquarium",
       "kiyomizu-dera",
@@ -1926,164 +1946,138 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-09-01T13:30",
-    "changeCount": 691,
+    "at": "2026-09-02T07:46",
+    "changeCount": 18,
     "byModel": [
       [
-        "budget-model-v1",
-        691
+        "score-rubric-v2",
+        13
+      ],
+      [
+        "season-model-v1",
+        2
+      ],
+      [
+        "duration-model-v1",
+        1
+      ],
+      [
+        "comfort-model-v1",
+        1
+      ],
+      [
+        "transport-access-v1",
+        1
       ]
     ],
     "sample": [
       {
-        "id": "abeno-harukas-300-osaka",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "noto",
+        "model": "season-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "akasaka-minato",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "noto",
+        "model": "season-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "akihabara-chiyoda",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "noto",
+        "model": "duration-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "amami-iriomote-natural-site",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "noto",
+        "model": "comfort-model-v1",
+        "action": "reconcile",
+        "reason": "calculated field source reconciled to canonical metadata basis"
       },
       {
-        "id": "amanohashidate-kyoto",
-        "model": "budget-model-v1",
-        "action": "keep",
-        "reason": "verified ticket ¥0 preserved; peer cell 'none|half|destination' has 0 samples (< 5); components left as accepted debt"
+        "id": "tsugaru",
+        "model": "transport-access-v1",
+        "action": "tag",
+        "reason": "legacy static minutes tagged as fallback; 0/1 declared modes supported by zone topology"
       },
       {
-        "id": "ameya-yokocho",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "nemuro-peninsula-chashi-sites",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
       },
       {
-        "id": "arima-onsen",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "ne-castle-hachinohe",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
       },
       {
-        "id": "art-tower-mito",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "tsuyama-castle",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
       },
       {
-        "id": "asakusa-taito",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "towada-hachimantai",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
       },
       {
-        "id": "ashigara",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "shimokita-hanto",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
       },
       {
-        "id": "ashikaga-flower-park-tochigi",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "tsugaru",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.5"
       },
       {
-        "id": "asuka-fujiwara-nara",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "shodoshima",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6"
       },
       {
-        "id": "beppu-hells-oita",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "inujima",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6"
       },
       {
-        "id": "boso-no-mura",
-        "model": "budget-model-v1",
-        "action": "keep",
-        "reason": "verified ticket ¥300 preserved; peer cell 'museum|half|standalone' has 0 samples (< 5); components left as accepted debt"
+        "id": "ogijima",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6"
       },
       {
-        "id": "boso-peninsula",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "izanagi-jingu-awaji",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.6"
       },
       {
-        "id": "canal-city-hakata",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "awaji-farm-park-england-hill",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.6"
       },
       {
-        "id": "chiba-city-folk-museum",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "sumoto-castle-awaji",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.6"
       },
       {
-        "id": "chiba-city-museum-of-art",
-        "model": "budget-model-v1",
-        "action": "keep",
-        "reason": "verified ticket ¥300 preserved; peer cell 'museum|half|poi' has 0 samples (< 5); components left as accepted debt"
-      },
-      {
-        "id": "chiba-nokogiriyama",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-      },
-      {
-        "id": "chiba-park",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-      },
-      {
-        "id": "chiba-port-park",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-      },
-      {
-        "id": "chiba-port-tower",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-      },
-      {
-        "id": "chiba-sawara",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-      },
-      {
-        "id": "chiba-shrine",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
-      },
-      {
-        "id": "chiba-yoro-valley",
-        "model": "budget-model-v1",
-        "action": "clear-to-unknown",
-        "reason": "no source-verified admission; budget returned to unknown (UNKNOWN_NOT_FREE)"
+        "id": "nijigen-no-mori-awaji",
+        "model": "score-rubric-v2",
+        "action": "set",
+        "reason": "estimated rubric score 6.6"
       }
     ]
   }

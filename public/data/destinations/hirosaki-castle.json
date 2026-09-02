@@ -107,6 +107,12 @@
         "changedBy": "Meguruto editorial",
         "summary": "KAI-57 existing-data audit correction",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
+        "method": "manual"
       }
     ],
     "fieldSources": {
@@ -124,6 +130,14 @@
           "url": "catalogue-model://kai-89",
           "title": "walking-model-v1; template metre value 8000 replaced by walk-share estimate (FIX_UNIT): 50% of 5h visit",
           "accessedAt": "2026-08-14"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "calculated",
+          "url": "https://www.hirosakijo.jp/",
+          "title": "KAI-87 P0 transport fallback derived from official access evidence",
+          "accessedAt": "2026-09-02"
         }
       ]
     }
@@ -186,5 +200,10 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Hirosaki_Castle",
   "wikipediaPageId": 2071136,
-  "wikidataId": "Q328582"
+  "wikidataId": "Q328582",
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+  }
 }

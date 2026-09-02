@@ -17,7 +17,9 @@
   "description": "Quasi-national park of the Shimokita Peninsula: the Osorezan holy caldera, the Hotokegaura sea cliffs and the cape forests of Japan's northern tip.",
   "highlights": ["Osorezan holy site", "Hotokegaura cliffs", "Cape forests"],
   "notes": "Managed by Aomori. Osorezan's memorial temple is the peninsula's famous pilgrimage.",
-  "transportOptions": {},
+  "transportOptions": {
+    "train": 240
+  },
   "ratings": {
     "overall": 8.4,
     "couple": 8.2,
@@ -96,6 +98,12 @@
         "url": "https://www.env.go.jp/nature/nationalparks/about/quasi-national-park/",
         "title": "Ministry of the Environment park list",
         "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.aomori-tourism.com/en/",
+        "title": "Official destination or transport access source",
+        "accessedAt": "2026-09-02"
       }
     ],
     "checkedAt": "2026-08-12",
@@ -117,8 +125,24 @@
           "title": "duration-model-v1; kind band 'nature' + scale uplift",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "transportOptions": [
+        {
+          "type": "calculated",
+          "url": "https://www.aomori-tourism.com/en/",
+          "title": "KAI-87 P0 transport fallback derived from official access evidence",
+          "accessedAt": "2026-09-02"
+        }
       ]
-    }
+    },
+    "changes": [
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
+        "method": "manual"
+      }
+    ]
   },
   "ratingMetadata": {
     "rubricVersion": 2,
@@ -145,13 +169,13 @@
   },
   "scoreMetadata": {
     "state": "estimated",
-    "value": 6.6,
+    "value": 6.5,
     "rubricVersion": "kai-89-overall-v2",
     "confidence": "low",
-    "coverage": 0.5,
+    "coverage": 0.6,
     "provenance": {
       "sourceClass": "model",
-      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.5,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"absent\"}"
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-1\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
@@ -179,5 +203,10 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Shimokita_Hant%C5%8D_Quasi-National_Park",
   "wikipediaPageId": 24812272,
-  "wikidataId": "Q1017113"
+  "wikidataId": "Q1017113",
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+  }
 }

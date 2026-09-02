@@ -113,14 +113,53 @@
         "url": "https://www.env.go.jp/park/parks/index.html",
         "title": "Ministry of the Environment park list",
         "accessedAt": "2026-08-12"
+      },
+      {
+        "type": "official",
+        "url": "https://www.vill.zamami.okinawa.jp/",
+        "title": "Official destination or transport access source",
+        "accessedAt": "2026-09-02"
       }
     ],
     "checkedAt": "2026-08-12",
     "freshness": "current",
     "changeSummary": "PR C parks audit: new national park record",
-    "fieldSources": {}
+    "fieldSources": {
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://www.vill.zamami.okinawa.jp/",
+          "title": "official ferry route and crossing-duration evidence",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "transportZoneId": [
+        {
+          "type": "official",
+          "url": "https://www.vill.zamami.okinawa.jp/",
+          "title": "official geographic/access evidence for canonical transport zone",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "localAccessModes": [
+        {
+          "type": "official",
+          "url": "https://www.vill.zamami.okinawa.jp/",
+          "title": "official local-access mode evidence",
+          "accessedAt": "2026-09-02"
+        }
+      ]
+    },
+    "changes": [
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
+        "method": "manual"
+      }
+    ]
   },
-  "transportZoneId": "unknown",
+  "transportZoneId": "kerama",
   "ratingMetadata": {
     "rubricVersion": 2,
     "method": "assisted",
@@ -172,5 +211,12 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Kerama_Shot%C5%8D_National_Park",
   "wikipediaPageId": 42977906,
-  "wikidataId": "Q15894675"
+  "wikidataId": "Q15894675",
+  "localAccessModes": ["bus"],
+  "localAccessUnestimated": true,
+  "transportMetadata": {
+    "method": "source-verified",
+    "confidence": "medium",
+    "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
+  }
 }

@@ -123,6 +123,12 @@
         "url": "https://visithachinohe.com/spot/kabushima-jinja/",
         "title": "Visit Hachinohe — Kabushima Shrine",
         "accessedAt": "2026-08-11"
+      },
+      {
+        "type": "official",
+        "url": "https://visithachinohe.com/spot/kabushima-jinja/",
+        "title": "Official destination or transport access source",
+        "accessedAt": "2026-09-02"
       }
     ],
     "checkedAt": "2026-08-11",
@@ -134,6 +140,12 @@
         "changedBy": "Meguruto editorial",
         "summary": "Added source-backed KAI-57 Tohoku POI",
         "method": "assisted"
+      },
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
+        "method": "manual"
       }
     ],
     "fieldSources": {
@@ -151,6 +163,14 @@
           "url": "catalogue-model://kai-89",
           "title": "walking-model-v1; template metre value 2000 replaced by walk-share estimate (FIX_UNIT): 60% of 2h visit",
           "accessedAt": "2026-08-14"
+        }
+      ],
+      "transportOptions": [
+        {
+          "type": "calculated",
+          "url": "https://visithachinohe.com/spot/kabushima-jinja/",
+          "title": "KAI-87 P0 transport fallback derived from official access evidence",
+          "accessedAt": "2026-09-02"
         }
       ]
     }
@@ -205,5 +225,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
   }
 }

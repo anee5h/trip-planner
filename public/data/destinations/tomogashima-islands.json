@@ -36,6 +36,12 @@
         "url": "https://www.city.wakayama.wakayama.jp/kankou/tomogashima/",
         "title": "Tomogashima Islands (Laputa Island)",
         "accessedAt": "2026-08-13"
+      },
+      {
+        "type": "official",
+        "url": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+        "title": "Official destination or transport access source",
+        "accessedAt": "2026-09-02"
       }
     ],
     "reviewedAt": "2026-08-03T00:00:00Z",
@@ -49,8 +55,32 @@
           "title": "walking-model-v1; walk-share estimate: 80% of 3.5h visit",
           "accessedAt": "2026-08-14"
         }
+      ],
+      "transportOptions": [
+        {
+          "type": "official",
+          "url": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+          "title": "official ferry route and crossing-duration evidence",
+          "accessedAt": "2026-09-02"
+        }
+      ],
+      "transportZoneId": [
+        {
+          "type": "official",
+          "url": "https://tomogashimakisen.com/main/%e6%97%85%e5%ae%a2%e9%81%8b%e8%b3%83",
+          "title": "official geographic/access evidence for canonical transport zone",
+          "accessedAt": "2026-09-02"
+        }
       ]
-    }
+    },
+    "changes": [
+      {
+        "changedAt": "2026-09-02",
+        "changedBy": "Meguruto editorial",
+        "summary": "KAI-87 P0 transport access repair",
+        "method": "manual"
+      }
+    ]
   },
   "relationships": {
     "parentDestinationId": "wakayama-city"
@@ -147,5 +177,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "transportMetadata": {
+    "method": "source-verified",
+    "confidence": "medium",
+    "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
   }
 }

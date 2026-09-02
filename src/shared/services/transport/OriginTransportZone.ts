@@ -34,6 +34,13 @@ const ISLAND_BOUNDS: Record<
   // (Nagahama ~35.387/136.268 and Imazu ~35.486/136.031) out of the island
   // zone. Ferry-only: no road or rail reaches the island.
   chikubushima: { latRange: [35.415, 35.43], lngRange: [136.13, 136.147] },
+  inujima: { latRange: [34.55, 34.575], lngRange: [134.08, 134.12] },
+  ogijima: { latRange: [34.4, 34.45], lngRange: [134.0, 134.09] },
+  shodoshima: { latRange: [34.42, 34.58], lngRange: [134.15, 134.4] },
+  iki: { latRange: [33.65, 33.85], lngRange: [129.55, 129.8] },
+  kerama: { latRange: [26.1, 26.3], lngRange: [127.15, 127.4] },
+  koshiki: { latRange: [31.75, 31.95], lngRange: [129.75, 130.0] },
+  rishiri: { latRange: [45.1, 45.3], lngRange: [141.1, 141.35] },
   gunkanjima: { latRange: [32.62, 32.64], lngRange: [129.73, 129.75] },
 };
 

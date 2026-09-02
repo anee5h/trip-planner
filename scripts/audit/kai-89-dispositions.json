@@ -998,6 +998,16 @@
       "category": "D",
       "action": "corrected",
       "reason": "KAI-219C2 legacy drift clear: cluster members' stale budgetBreakdown.tickets retired by authoritative admission facts (glover-garden ¥900, kagoshima-city-aquarium, sengan-en ¥1000 → ¥1600). Remaining {cafe,food,transport} + budget envelope retained unchanged; only the deprecated ticket value was removed per the KAI218_ADMISSION_LEGACY_DRIFT guard."
+    },
+    "transport:1d123dc103a3": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Reviewed gateway-duration fallback {train:240} shared by hita-city, shimokita-hanto, and towada-hachimantai. The value is a deterministic access fallback, not a claim that the destinations share a route or travel time from every origin; origin-aware route data remains authoritative when available."
+    },
+    "transport:d014f6d1e267": {
+      "category": "C",
+      "action": "confidence-gated",
+      "reason": "Reviewed ferry-duration fallback {ferry:40} shared by gunkanjima-hashima-nagasaki, iriomote-ishigaki, and ogijima. The value is a display fallback for route availability while fare and origin-specific itinerary evidence remain separate."
     }
   }
 }
