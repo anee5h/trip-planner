@@ -1,0 +1,1588 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-151",
+  "phase": "Phase 1 — 32-record seasonality correctness review",
+  "base": "origin/main after PR #313 merge",
+  "baseSha": "a182ce49dbc7a3c7d3e22aab2f5b239812fb540f",
+  "checkedAt": "2026-09-02",
+  "summary": {
+    "reviewed": 32,
+    "verified_correct": 17,
+    "incorrect_bestSeason": 0,
+    "incorrect_bestMonths": 0,
+    "incorrect_structured_season": 0,
+    "internally_inconsistent": 0,
+    "insufficient_evidence": 15,
+    "canonicalMutations": 0
+  },
+  "scopeDecision": {
+    "repairCohort": [],
+    "unchangedCohorts": {
+      "missingThematicSignal341": "not touched",
+      "missingNoReliableSignal268": "not touched",
+      "structuredButUnproven326": "not touched"
+    },
+    "localTransport": "not touched",
+    "budgetV2": "not touched"
+  },
+  "records": [
+    {
+      "id": "akita-museum-of-art",
+      "name": "Akita Museum of Art",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.4,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Akita City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.akita-museum-of-art.jp/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official page provides a dated opening/closure calendar and exhibitions, but the retrieved evidence does not establish destination-specific preferred months or season scores."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.4,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "asamushi-onsen",
+      "name": "Asamushi Onsen",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [4, 5, 6, 9, 10, 11],
+        "season": {
+          "spring": 8,
+          "summer": 8.4,
+          "autumn": 8.4,
+          "winter": 8.2
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "onsen",
+        "tags": ["Onsen", "Aomori City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.asamushi.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official tourism association describes enjoying the hot-spring town through all four seasons and says it holds events throughout the year; no source contradicts the broad All Year label."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [4, 5, 6, 9, 10, 11],
+        "season": {
+          "spring": 8,
+          "summer": 8.4,
+          "autumn": 8.4,
+          "winter": 8.2
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "bank-of-iwate-red-brick",
+      "name": "Bank of Iwate Red Brick Building",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.6,
+          "winter": 8.2
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["History", "Architecture", "Morioka City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.iwagin-akarengakan.jp/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official site identifies the facility and current event programming, but the retrieved material does not establish a destination-specific preferred-month set or season-score correction."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.6,
+          "winter": 8.2
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "bansuiso-matsuyama",
+      "name": "Bansuiso",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 7.8,
+          "autumn": 8.4,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "History", "Matsuyama City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.bansuisou.org/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official visitor information gives regular 09:00–18:00 hours and Monday closure (holiday exception), with no seasonal shutdown stated; the stored All Year label is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 7.8,
+          "autumn": 8.4,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "dogo-haikara-dori",
+      "name": "Dogo Haikara Dori",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "street",
+        "tags": ["Shopping", "Food", "Culture", "Matsuyama City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.dogo.or.jp/experience/dogo-haikara-dori/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official destination page was reachable but did not yield a unified operating/seasonal calendar for this shopping street; individual tenants and weather-sensitive activities prevent a safe whole-record conclusion."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "ehime-art-museum",
+      "name": "Ehime Prefectural Museum of Art",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.6,
+          "autumn": 8.4,
+          "winter": 7.8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Art", "Matsuyama City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.ehime-art.jp/en/guide",
+          "checkedAt": "2026-09-02",
+          "observation": "Official visitor information gives regular hours, Monday/public-holiday rules, and Dec 29–Jan 3 closure; it does not state a seasonal operating restriction, so All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.6,
+          "autumn": 8.4,
+          "winter": 7.8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "fukushima-prefectural-museum-of-art",
+      "name": "Fukushima Prefectural Museum of Art",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Fukushima City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://art-museum.fcs.ed.jp/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official museum site publishes an annual opening schedule and exhibition-change temporary closures; no seasonal-only operating period is stated, so All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "harimaya-bridge-kochi",
+      "name": "Harimaya Bridge",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 7.6
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": null,
+        "tags": ["History", "Culture", "Landmark", "Kochi City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.city.kochi.kochi.jp/site/kanko/harimayabashi.html",
+          "checkedAt": "2026-09-02",
+          "observation": "Official Kochi city page identifies the landmark, but provides no destination-specific preferred season/month evidence; outdoor accessibility alone is not proof of the stored scores."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 7.6
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "hirome-market-kochi",
+      "name": "Hirome Ichiba",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.6,
+          "autumn": 8.6,
+          "winter": 8.4
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "market",
+        "tags": ["Food", "Market", "Culture", "Kochi City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.hirome.co.jp/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official market page gives weekly hours (Mon–Sat 10:00–23:00; Sun 09:00–23:00), an annual closure calendar, and notes individual stores vary; the market itself has no stated seasonal shutdown."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.6,
+          "autumn": 8.6,
+          "winter": 8.4
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "hirosaki-neputa-mura",
+      "name": "Hirosaki Neputa Mura",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [2, 3, 4, 5, 7, 8, 9, 10, 11],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.8,
+          "autumn": 8.4,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Hirosaki City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "http://neputamura.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official operator explicitly labels the visitor area 年中無休 (open all year), with different Apr–Nov and Dec–Mar hours; this directly supports All Year while explaining seasonal preference uncertainty."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [2, 3, 4, 5, 7, 8, 9, 10, 11],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.8,
+          "autumn": 8.4,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "hiroshima-national-peace-memorial-hall",
+      "name": "Hiroshima National Peace Memorial Hall for the Atomic Bomb Victims",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 10, 11],
+        "season": {
+          "spring": 6,
+          "summer": 7,
+          "autumn": 6,
+          "winter": 6
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "memorial",
+        "tags": ["National Peace Memorial Hall", "Genbaku", "Free admission"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.hiro-tsuitokinenkan.go.jp/en/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official site exposes current opening hours and a yearly schedule, but the retrieved evidence does not establish whether the selective bestMonths or score vector is semantically correct."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 10, 11],
+        "season": {
+          "spring": 6,
+          "summer": 7,
+          "autumn": 6,
+          "winter": 6
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "iizaka-onsen",
+      "name": "Iizaka Onsen",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.4,
+          "autumn": 8.8,
+          "winter": 8.6
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "onsen",
+        "tags": ["Onsen", "Fukushima City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://iizaka.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official tourism site covers an area with multiple facilities and seasonal events; it also notes an individual historic facility’s winter closure. That aggregate evidence cannot validate one best-month set or vector."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.4,
+          "autumn": 8.8,
+          "winter": 8.6
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "kaminoyama-castle-town",
+      "name": "Kaminoyama Castle Town",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.6,
+          "summer": 8,
+          "autumn": 8.8,
+          "winter": 8.4
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "castle",
+        "tags": ["History", "Onsen", "Kaminoyama City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://kaminoyama-castle.info/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official site contains castle/event calendars and seasonal exhibition dates, but the catalogue record is an aggregate castle-town destination; no unified preferred-season evidence was established."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.6,
+          "summer": 8,
+          "autumn": 8.8,
+          "winter": 8.4
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "kanazawa-castle-ishikawa",
+      "name": "Kanazawa Castle Park",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 10,
+          "summer": 8,
+          "autumn": 9,
+          "winter": 9
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": null,
+        "tags": [
+          "Maeda Clan",
+          "Hishi Yagura",
+          "Kenrokuen Adjacent",
+          "Top 100 Castle"
+        ]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://visitkanazawa.jp/en/attractions/detail_10060.html",
+          "checkedAt": "2026-09-02",
+          "observation": "Official Kanazawa tourism guide states “Kanazawa Castle Park is open 365 days a year”; it also documents summer/winter hours, supporting All Year without proving a preferred month set."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 10,
+          "summer": 8,
+          "autumn": 9,
+          "winter": 9
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "kirin-beer-yokohama-factory",
+      "name": "Kirin Beer Yokohama Factory",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 9, 10, 11, 12],
+        "season": {
+          "spring": 8,
+          "summer": 9,
+          "autumn": 8,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": null,
+        "tags": ["Brewery", "Beer", "Factory Tour"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.kirin.co.jp/experience/factory/yokohama/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official operator gives regular reservation hours and Monday/year-end/temporary closures; no seasonal-only tour period is stated, so All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 9, 10, 11, 12],
+        "season": {
+          "spring": 8,
+          "summer": 9,
+          "autumn": 8,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "kitakata-kura-district",
+      "name": "Kitakata Kura District",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.2,
+          "autumn": 8.8,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "district",
+        "tags": ["Culture", "History", "Kitakata City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "http://www.furusatosinkou.co.jp/sato/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official facility page was reachable, but the retrieved material did not establish a destination-wide preferred month set or score vector for the broader kura district."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.6,
+          "summer": 8.2,
+          "autumn": 8.8,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "marugame-uchiwa-museum",
+      "name": "Marugame Uchiwa Museum",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 7.8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Shopping", "Marugame City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://marugameuchiwa.jp/museum",
+          "checkedAt": "2026-09-02",
+          "observation": "Official museum page gives 09:30–17:00 hours, weekly Wednesday and year-end closures, and no seasonal shutdown; All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 7.8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "morioka-handiworks-square",
+      "name": "Morioka Handi-Works Square",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 8,
+          "autumn": 8.4,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "shopping",
+        "tags": ["Culture", "Experience", "Morioka City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://tezukurimura.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official operator explicitly warns that individual workshops have different operating days, shortened hours, and temporary closures; this variable aggregate cannot validate the stored whole-record season signal."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 8,
+          "autumn": 8.4,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "nagoya-port-tower",
+      "name": "Nagoya Port Building (Maritime Tower)",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8,
+          "summer": 9,
+          "autumn": 8,
+          "winter": 7
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": null,
+        "tags": [
+          "Sailboat Shape",
+          "Nagoya Port",
+          "Maritime Museum",
+          "Fuji Icebreaker"
+        ]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://nagoya-port-building.jp/",
+          "checkedAt": "2026-09-02",
+          "observation": "The catalogue’s tower URL could not be resolved, and the municipal result found was for the separate Port Messe exhibition venue. No tower-specific authoritative seasonal evidence was admitted."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8,
+          "summer": 9,
+          "autumn": 8,
+          "winter": 7
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "naruto-german-house",
+      "name": "Naruto German House",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 7.8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "History", "Naruto City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://doitsukan.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official operator gives 09:30–17:00 hours, fourth-Monday/public-holiday rule, and Dec 28–31 closure; no seasonal-only period is stated, so All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.2,
+          "winter": 7.8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "nebuta-museum-wa-rasse-aomori",
+      "name": "Aomori Nebuta Museum WA RASSE",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 9,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 9
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["museum", "festival", "nebuta", "aomori", "culture", "tohoku"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.nebuta.jp/warasse/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official site documents a September–April winter-hours change and event calendar, but the retrieved material does not establish whether the stored preferred months or four-season scores are correct."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 9,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 9
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "ryusendo-cave-iwate",
+      "name": "Ryusendo Cave",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 9,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 9
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": null,
+        "tags": [
+          "cave",
+          "limestone",
+          "iwate",
+          "nature",
+          "underground",
+          "tohoku"
+        ]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.iwate-ryusendo.jp/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official operator explicitly states 年中無休, cave temperature around 10°C year-round, and only weather/flood-related exceptional closures; this directly supports All Year."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 9,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 9
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "sakamoto-ryoma-memorial-museum",
+      "name": "Sakamoto Ryoma Memorial Museum",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.4,
+          "winter": 7.8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["History", "Museum", "Culture", "Kochi City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://ryoma-kinenkan.jp/visit/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official visitor guide states 休館日 なし (no regular closed day) and gives year-round visitor hours; All Year is compatible, but the preferred months/scores remain unproven."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.4,
+          "winter": 7.8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "sazae-do",
+      "name": "Sazae-do",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.6,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "temple",
+        "tags": ["History", "Culture", "Aizuwakamatsu City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.aizukanko.com/spot/138",
+          "checkedAt": "2026-09-02",
+          "observation": "Official Aizuwakamatsu tourism listing states 定休日/休業日 無休 (no regular closure) and documents Apr–Nov versus Dec–Mar hours; this supports All Year without proving preferred months."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.6,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "sendai-castle-ruins-miyagi",
+      "name": "Sendai Castle Ruins",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 9,
+          "summer": 9,
+          "autumn": 9,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "castle",
+        "tags": ["castle", "ruins", "miyagi", "sendai", "history", "tohoku"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.sentabi.jp/spots/60",
+          "checkedAt": "2026-09-02",
+          "observation": "Official Sendai tourism listing states 入園自由 (grounds freely accessible) and 休業日 無 (no closure); the separate museum has seasonal hours, so All Year for the ruins remains compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 9,
+          "summer": 9,
+          "autumn": 9,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "sendai-daikannon",
+      "name": "Sendai Daikannon",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 8,
+          "autumn": 8.4,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "temple",
+        "tags": ["Culture", "Sightseeing", "Sendai City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.daikannon.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official domain was reachable but yielded no usable visitor-season statement in the retrieved page; no safe correction can be made."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 8,
+          "autumn": 8.4,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "sendai-ichibancho",
+      "name": "Sendai Ichibancho",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.4,
+          "summer": 8.8,
+          "autumn": 8.4,
+          "winter": 8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "shopping",
+        "tags": ["Shopping", "Food", "Sendai City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "http://sunmall-ichibancho.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official shopping-arcade page was reachable but did not provide a unified seasonal calendar; tenant-level variability leaves the stored preference signal unverified."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8.4,
+          "summer": 8.8,
+          "autumn": 8.4,
+          "winter": 8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "takamatsu-art-museum",
+      "name": "Takamatsu Art Museum",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 7.6,
+          "autumn": 8.6,
+          "winter": 7.8
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Art", "Takamatsu City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html",
+          "checkedAt": "2026-09-02",
+          "observation": "Official city museum page gives regular hours, Monday/public-holiday rules, and Dec 29–Jan 3 closure; no seasonal-only operating period is stated, so All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 7.6,
+          "autumn": 8.6,
+          "winter": 7.8
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "toki-messe-tower-niigata",
+      "name": "Befco Bakauke Observatory (Toki Messe)",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8,
+          "summer": 9,
+          "autumn": 8,
+          "winter": 7
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": null,
+        "tags": [
+          "Sea of Japan",
+          "Free Admission",
+          "360 Observatory",
+          "Shinano River"
+        ]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.tokimesse.com/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official venue page publishes event and annual closure information, but does not establish the observatory-specific preferred months or season vector for this catalogue record."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "season": {
+          "spring": 8,
+          "summer": 9,
+          "autumn": 8,
+          "winter": 7
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "tokushima-modern-art-museum",
+      "name": "Tokushima Modern Art Museum",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.6,
+          "autumn": 8.2,
+          "winter": 7.6
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["Culture", "Museum", "Art", "Tokushima City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://art.bunmori.tokushima.jp/info/index_en.html",
+          "checkedAt": "2026-09-02",
+          "observation": "Official museum visitor information gives regular 09:30–17:00 hours, Monday/public-holiday rules, year-end closure, and exhibition-change caveat; no seasonal-only period is stated."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.6,
+          "autumn": 8.2,
+          "winter": 7.6
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "uwajima-date-museum",
+      "name": "Uwajima City Date Museum",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.4,
+          "winter": 7.6
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["History", "Museum", "Culture", "Uwajima City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+          "checkedAt": "2026-09-02",
+          "observation": "Official city page gives regular 09:00–17:00 hours, Tuesday/year-end closures, and exhibition-change closures; no seasonal-only operating period is stated, so All Year is compatible."
+        }
+      ],
+      "classification": "verified_correct",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.2,
+          "summer": 7.8,
+          "autumn": 8.4,
+          "winter": 7.6
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    },
+    {
+      "id": "yamagata-bunshokan",
+      "name": "Yamagata Bunshokan",
+      "current": {
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.6,
+          "winter": 8.2
+        }
+      },
+      "auditReason": {
+        "state": "suspicious",
+        "issueCodes": [
+          "invalid_or_placeholder_seasonality",
+          "unverified_all_year_placeholder"
+        ],
+        "exactRule": "KAI-87 marks an unverified All Year bestSeason as suspicious when structured season/bestMonths data are present; this is a review flag, not proof that the values are wrong."
+      },
+      "destinationTypeTheme": {
+        "kind": "museum",
+        "tags": ["History", "Architecture", "Yamagata City"]
+      },
+      "authoritativeEvidence": [
+        {
+          "authority": "first-party operator, municipality, prefecture, or official tourism body",
+          "url": "https://www.gakushubunka.jp/bunsyokan/",
+          "checkedAt": "2026-09-02",
+          "observation": "Official site provides visitor-guide/calendar navigation and current facility notices, but the retrieved material does not establish the stored preferred months or score vector."
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposedSemanticState": {
+        "status": "unchanged",
+        "bestSeason": "All Year",
+        "bestMonths": [3, 4, 5, 9, 10, 11],
+        "season": {
+          "spring": 8.4,
+          "summer": 8,
+          "autumn": 8.6,
+          "winter": 8.2
+        },
+        "interpretation": "Year-round label is compatible with the evidence where classified verified_correct; preferred months and score vector remain unproven and are retained unchanged. No field is changed for insufficient_evidence."
+      },
+      "proposedChanges": []
+    }
+  ]
+}
