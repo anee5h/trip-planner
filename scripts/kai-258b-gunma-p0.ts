@@ -81,6 +81,15 @@ const unknownSeason = {
   basis: "No stable seasonality claim was promoted from the reviewed source.",
 };
 
+const unknownReservation =
+  "Reservation requirements are unverified; check the official source before visiting.";
+const unknownReservationJa =
+  "予約の要否は未確認のため、訪問前に公式情報をご確認ください。";
+const unknownParking =
+  "Parking availability is unverified; check the official source before visiting.";
+const unknownParkingJa =
+  "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。";
+
 const unknownCrowd = {
   method: "unknown" as const,
   modelVersion: "crowd-model-v1",
@@ -679,12 +688,20 @@ for (const candidate of candidates) {
       en: {
         ...(existing.content?.en ?? {}),
         name: candidate.name,
+        reservation: unknownReservation,
+        parking: unknownParking,
       },
       ja: {
         ...(existing.content?.ja ?? {}),
         name: candidate.nameJa,
+        reservation: unknownReservationJa,
+        parking: unknownParkingJa,
       },
     };
+    existing.reservation = unknownReservation;
+    existing.reservationJa = unknownReservationJa;
+    existing.parking = unknownParking;
+    existing.parkingJa = unknownParkingJa;
     if (existing.recommendedVisitHours === undefined) {
       existing.recommendedVisitHours = candidate.duration;
     }
@@ -757,6 +774,8 @@ for (const candidate of candidates) {
         highlights: candidate.highlights,
         notes:
           "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
+        reservation: unknownReservation,
+        parking: unknownParking,
       },
       ja: {
         name: candidate.nameJa,
@@ -764,6 +783,8 @@ for (const candidate of candidates) {
         highlights: candidate.highlightsJa,
         notes:
           "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
+        reservation: unknownReservationJa,
+        parking: unknownParkingJa,
       },
     },
     heroImage: candidate.image,
@@ -800,14 +821,10 @@ for (const candidate of candidates) {
     seasonMetadata: unknownSeason,
     budgetMetadata: unknownBudget,
     crowdMetadata: unknownCrowd,
-    reservation: {
-      required: "unknown",
-      notes: "Check the official source for current reservation requirements.",
-    },
-    parking: {
-      available: "unknown",
-      notes: "Check the official source for current parking arrangements.",
-    },
+    reservation: unknownReservation,
+    reservationJa: unknownReservationJa,
+    parking: unknownParking,
+    parkingJa: unknownParkingJa,
     notes:
       "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
     notesJa:

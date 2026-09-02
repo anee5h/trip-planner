@@ -33,7 +33,9 @@
         "Distinct from Kusatsu Town and Kusatsu Onsen records"
       ],
       "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
-      "name": "Onioshidashi Park"
+      "name": "Onioshidashi Park",
+      "reservation": "Reservation requirements are unverified; check the official source before visiting.",
+      "parking": "Parking availability is unverified; check the official source before visiting."
     },
     "ja": {
       "description": "鬼押出し園は嬬恋村にある火山岩の景観公園で、草津温泉街の広域レコードとは別に訪ねられる施設です。",
@@ -43,7 +45,9 @@
         "草津町や草津温泉のレコードとは別の目的地"
       ],
       "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
-      "name": "鬼押出し園"
+      "name": "鬼押出し園",
+      "reservation": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
+      "parking": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
     }
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/%E9%AC%BC%E6%8A%BC%E5%87%BA%E3%81%97%E5%9C%92_-_panoramio.jpg/1280px-%E9%AC%BC%E6%8A%BC%E5%87%BA%E3%81%97%E5%9C%92_-_panoramio.jpg",
@@ -123,14 +127,8 @@
     "confidence": "unknown",
     "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
   },
-  "reservation": {
-    "required": "unknown",
-    "notes": "Check the official source for current reservation requirements."
-  },
-  "parking": {
-    "available": "unknown",
-    "notes": "Check the official source for current parking arrangements."
-  },
+  "reservation": "Reservation requirements are unverified; check the official source before visiting.",
+  "parking": "Parking availability is unverified; check the official source before visiting.",
   "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
   "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
   "status": "verified",
@@ -259,5 +257,7 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  }
+  },
+  "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
+  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
 }

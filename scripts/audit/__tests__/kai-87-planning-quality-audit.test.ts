@@ -261,6 +261,54 @@ describe("KAI-87 planning-quality audit contract", () => {
     expect(missing).toEqual([]);
   });
 
+  it("classifies malformed reservation as a current-schema P1", () => {
+    const report = buildPlanningAudit([
+      {
+        ...base,
+        id: "malformed-reservation",
+        reservation: {
+          required: "unknown",
+          notes: "Check official guidance.",
+        },
+      } as unknown as Destination,
+    ]);
+
+    expect(
+      report.destinations["malformed-reservation"].classification
+        .destinationDataDefects,
+    ).toContain("logistics:reservation_malformed");
+    expect(report.destinations["malformed-reservation"].priority).toBe("P1");
+  });
+
+  it("keeps the KAI-87 P1 parking cohort schema-valid", () => {
+    const report = buildPlanningAudit(destinationsData as Destination[]);
+    const p1ParkingIds = [
+      "fukiware-falls",
+      "onioshidashi-park",
+      "shorinzan-darumaji",
+      "usui-third-bridge",
+      "haruna-shrine",
+      "kusatsu-yubatake",
+      "lake-haruna",
+      "lake-okushima",
+      "mt-tanigawa",
+      "sainokawara-park",
+      "takaragawa-onsen",
+    ];
+
+    for (const id of p1ParkingIds) {
+      const destination = destinationsData.find((item) => item.id === id);
+      expect(destination).toBeDefined();
+      expect(typeof destination?.parking).toBe("string");
+      expect(
+        report.destinations[id].classification.destinationDataDefects,
+      ).not.toContain("transport:parking_availability_malformed");
+    }
+    expect(report.priority.P1).not.toEqual(
+      expect.arrayContaining(p1ParkingIds),
+    );
+  });
+
   it("produces deterministic scores and reports", () => {
     const score = calculatePlanningQualityScore({
       transport: "verified",

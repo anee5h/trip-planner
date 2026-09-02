@@ -975,10 +975,14 @@ function visitDurationState(raw: JsonRecord): SemanticState {
 }
 
 function caveatState(raw: JsonRecord, field: string): SemanticState {
+  if (raw[field] !== undefined && typeof raw[field] !== "string")
+    return "suspicious";
   if (text(raw[field])) return sourceState(raw, field, "derived");
   const content = asRecord(raw.content);
-  if (text(asRecord(content.en)[field]))
-    return sourceState(raw, field, "derived");
+  const localizedValue = asRecord(content.en)[field];
+  if (localizedValue !== undefined && typeof localizedValue !== "string")
+    return "suspicious";
+  if (text(localizedValue)) return sourceState(raw, field, "derived");
   return "unknown";
 }
 
@@ -1020,6 +1024,7 @@ function auditLogistics(raw: JsonRecord): DestinationLogisticsAudit {
     Object.keys(asRecord(raw.relationships)).length > 0 ? "derived" : "unknown";
   if (reservation === "unknown")
     issueCodes.push("reservation_requirement_missing");
+  if (reservation === "suspicious") issueCodes.push("reservation_malformed");
   if (openingCaveat === "unknown") issueCodes.push("opening_caveat_missing");
   if (weatherSensitivity === "unknown")
     issueCodes.push("weather_sensitivity_missing");
@@ -1307,7 +1312,9 @@ function classifyDestinationFindings(
   )
     add(destinationDataDefects, "logistics:recommended_visit_duration");
   for (const code of logistics.issueCodes) {
-    if (!code.startsWith("recommended_visit_duration"))
+    if (code === "reservation_malformed")
+      add(destinationDataDefects, `logistics:${code}`);
+    else if (!code.startsWith("recommended_visit_duration"))
       add(evidenceDebt, `logistics:${code}`);
   }
   for (const code of content.issueCodes) {
