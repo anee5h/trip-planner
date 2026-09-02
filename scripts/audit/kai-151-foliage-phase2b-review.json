@@ -99,8 +99,7 @@
         "apply": true,
         "bestSeason": "Autumn",
         "bestMonths": [
-          11,
-          12
+          11
         ],
         "seasonVector": {
           "spring": 6,
@@ -110,7 +109,7 @@
         }
       },
       "mutationAllowed": true,
-      "decisionNote": "The official page supports the late-November/early-December window for the castle garden; vector remains nonzero outside the peak."
+      "decisionNote": "The official page supports late November to early December; only November is retained as the conservative structured peak because December is classified as winter by the season model."
     },
     {
       "id": "oirase-gorge-aomori",

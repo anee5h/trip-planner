@@ -51694,7 +51694,7 @@
       "autumn": 10,
       "winter": 4
     },
-    "bestMonths": [11, 12],
+    "bestMonths": [11],
     "bestSeason": "Autumn",
     "walkingMin": 70,
     "recommendedVisitHours": {
