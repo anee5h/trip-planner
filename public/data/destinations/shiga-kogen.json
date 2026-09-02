@@ -188,10 +188,10 @@
     "confidence": "beta"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2C authoritative thematic evidence; Winter; preferred months 1,2,3,4,5,11,12; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 385,
   "walkingIntensity": "high",
@@ -219,5 +219,13 @@
     "modelVersion": "duration-model-v1",
     "confidence": "medium",
     "basis": "kind band 'mountain'"
+  },
+  "bestSeason": "Winter",
+  "bestMonths": [1, 2, 3, 4, 5, 11, 12],
+  "season": {
+    "spring": 6,
+    "summer": 5,
+    "autumn": 7,
+    "winter": 10
   }
 }
