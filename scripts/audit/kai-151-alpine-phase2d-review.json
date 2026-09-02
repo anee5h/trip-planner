@@ -1,0 +1,289 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-151",
+  "phase": "2D",
+  "baseCommit": "2c68797b57a99da8f181c57ddef87a189d937c75",
+  "checkedAt": "2026-09-02",
+  "candidateDefinition": "Recommendation-visible standalone or point-of-interest destination records surfaced by the frozen KAI-151 thematic candidate/exposure audit; hubs and already-sufficient records are retained for classification but are not mutated.",
+  "selectionMethod": "Frozen five-duration recommendation exposure (shortOuting, halfDay, fullDay, 2d1n, 3d2n) across Tokyo, Osaka, and Fukuoka origins, filtered to the thematic signal and reviewed against destination-specific official operator, municipal, prefectural, or official tourism evidence.",
+  "summary": {
+    "candidateCount": 6,
+    "researchedCount": 6,
+    "mutatedCount": 3,
+    "insufficientCount": 3,
+    "classificationCounts": {
+      "insufficient_evidence": 3,
+      "verified_year_round_with_seasonal_peak": 3
+    }
+  },
+  "records": [
+    {
+      "id": "chuo-alps",
+      "name": "Chuo Alps Quasi-National Park",
+      "phase": "2D",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone alpine destination with a detailed official four-season guide and an explicit summer hiking/flower peak.",
+      "officialEvidence": [
+        {
+          "authority": "Central Alps Komagatake Ropeway official operator",
+          "urls": [
+            "https://www.chuo-alps.com/en/season/",
+            "https://www.chuo-alps.com/en/leaves/"
+          ],
+          "observations": [
+            "The operator says the Central Alps offer outdoor enjoyment all year, labels summer July-August as the short high-mountain season with alpine flowers and hiking, autumn September-October, and winter November-March."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [
+          7,
+          8
+        ],
+        "seasonVector": {
+          "spring": 7,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 7
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Use the explicit July-August alpine-flower/hiking peak while retaining meaningful all-season suitability."
+    },
+    {
+      "id": "hakuba-iwatake-mountain-resort",
+      "name": "Hakuba Iwatake Mountain Resort",
+      "phase": "2D",
+      "kind": "mountain",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "cohortReason": "High-exposure standalone mountain resort with official green and winter operations plus seasonal mountain scenery.",
+      "officialEvidence": [
+        {
+          "authority": "Hakuba Iwatake Mountain Resort official operator",
+          "urls": [
+            "https://iwatake-mountain-resort.com/green",
+            "https://iwatake-mountain-resort.com/winter",
+            "https://iwatake-mountain-resort.com/"
+          ],
+          "observations": [
+            "The operator publishes 2026 green-season operation from April 23 through November 15 and describes spring/summer, autumn three-tier foliage, and winter snow scenery; the winter page documents the snow field and winter season."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [
+          6,
+          7,
+          8
+        ],
+        "seasonVector": {
+          "spring": 8,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 7
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "The preferred months are the central summer portion of the published green season; year-round vector values reflect the operator’s four-season positioning."
+    },
+    {
+      "id": "happo-pond",
+      "name": "Happo Pond",
+      "phase": "2D",
+      "kind": "lake",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "cohortReason": "High-exposure alpine lake POI with official summer trekking and lift guidance.",
+      "officialEvidence": [
+        {
+          "authority": "Happo-one official operator / tourism association",
+          "urls": [
+            "https://www.happo-one.jp/en/trekking/"
+          ],
+          "observations": [
+            "The official hiking guide calls Happo-one a summer resort, describes the Happo Pond lift approach and alpine plants, and directs visitors to current summer lift operation information."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_year_round_with_seasonal_peak",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [
+          7,
+          8
+        ],
+        "seasonVector": {
+          "spring": 7,
+          "summer": 10,
+          "autumn": 8,
+          "winter": 4
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Summer is the explicit hiking/flower peak; winter suitability is kept low because the pond trail is not a winter default."
+    },
+    {
+      "id": "daisetsuzan",
+      "name": "Daisetsuzan National Park",
+      "phase": "2D",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Broad alpine national-park record with varied gateways and conditions; no single checked month window for the whole record.",
+      "officialEvidence": [
+        {
+          "authority": "Ministry of the Environment national park site",
+          "urls": [
+            "https://www.env.go.jp/park/daisetsu/index.html"
+          ],
+          "observations": [
+            "The official source establishes the park and alpine gateways, but the checked material does not supply a destination-wide month window for an exact structured peak."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Leave unknown at broad-park level."
+    },
+    {
+      "id": "myoko-togakushi",
+      "name": "Myoko-Togakushi renzan National Park",
+      "phase": "2D",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Broad alpine national-park record without a checked single month window for the whole area.",
+      "officialEvidence": [
+        {
+          "authority": "Ministry of the Environment national park site",
+          "urls": [
+            "https://www.env.go.jp/park/myokotogakushi/index.html"
+          ],
+          "observations": [
+            "The official source documents the park and its mountains, but no single destination-wide peak window was verified."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No inference from individual resorts."
+    },
+    {
+      "id": "chubu-sangaku",
+      "name": "Chubusangaku National Park",
+      "phase": "2D",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Broad national-park record spanning multiple alpine systems and access regimes.",
+      "officialEvidence": [
+        {
+          "authority": "Ministry of the Environment national park site",
+          "urls": [
+            "https://www.env.go.jp/park/chubu/index.html"
+          ],
+          "observations": [
+            "The official source establishes Chubusangaku National Park and its major areas, but the checked material does not define one month window for the full park record."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Park scope is too broad for exact bestMonths."
+    }
+  ]
+}

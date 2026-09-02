@@ -118,10 +118,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2D authoritative thematic evidence; Summer; preferred months 7,8; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 240,
   "walkingIntensity": "high",
@@ -161,5 +161,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Ch%C5%AB%C5%8D_Alps_Quasi-National_Park",
   "wikipediaPageId": 35617629,
-  "wikidataId": "Q5119038"
+  "wikidataId": "Q5119038",
+  "bestSeason": "Summer",
+  "bestMonths": [7, 8],
+  "season": {
+    "spring": 7,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 7
+  }
 }

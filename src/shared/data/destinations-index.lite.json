@@ -77805,6 +77805,14 @@
     },
     "officialWebsite": "https://www.pref.nagano.lg.jp/shizenhogo/kurashi/shizen/koen/syoukai.html",
     "status": "published",
+    "season": {
+      "spring": 7,
+      "summer": 10,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
     "walkingMin": 240,
     "recommendedVisitHours": {
       "min": 2,
@@ -89190,6 +89198,14 @@
     "officialWebsite": "https://www.happo-one.jp/en/trekking/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 10,
+      "autumn": 8,
+      "winter": 4
+    },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
     "walkingMin": 190,
     "recommendedVisitHours": {
       "min": 2,
@@ -89265,6 +89281,14 @@
     "officialWebsite": "https://iwatake-mountain-resort.com/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 8,
+      "summer": 10,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [6, 7, 8],
+    "bestSeason": "Summer",
     "walkingMin": 385,
     "recommendedVisitHours": {
       "min": 4,
