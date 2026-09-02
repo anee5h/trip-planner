@@ -47,6 +47,7 @@ const WEIGHTS = {
   "kai-165-transport-preferences": 20,
   "kai-166-itinerary-action-row": 20,
   "kai-212-hub-discovery": 20, // discovery-first hub hierarchy (mobile + desktop)
+  "kai-262-overnight-car": 20, // overnight car regression (3 scenarios)
   "kai-259-signup-header": 20, // guest header + deterministic auth header flow
   "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
@@ -60,6 +61,7 @@ const BINS = {
   3: [
     "kai-63-bus-eligibility",
     "kai-74-homepage-rails",
+    "kai-262-overnight-car",
     "kai-94-beta-version-email",
   ],
   4: [
