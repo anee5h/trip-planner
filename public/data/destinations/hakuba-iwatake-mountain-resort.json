@@ -86,10 +86,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2D authoritative thematic evidence; Summer; preferred months 6,7,8; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -267,5 +267,13 @@
     "kind": "unavailable",
     "reason": "fare_not_found",
     "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+  },
+  "bestSeason": "Summer",
+  "bestMonths": [6, 7, 8],
+  "season": {
+    "spring": 8,
+    "summer": 10,
+    "autumn": 9,
+    "winter": 7
   }
 }
