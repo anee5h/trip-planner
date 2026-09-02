@@ -57,7 +57,8 @@ globalThis.Date = FrozenDate as unknown as DateConstructor;
 
 type JsonRecord = Record<string, any>;
 type OriginName = "tokyo" | "osaka" | "fukuoka" | "kagoshima";
-type Position = "in_season" | "shoulder" | "off_season";
+type Position =
+  "in_season" | "pre_season_edge" | "post_season_edge" | "off_season";
 type CaseClassification =
   | "proportionate_expected_change"
   | "large_but_explainable_change"
@@ -100,13 +101,256 @@ const ORIGINS: OriginSpec[] = [
   },
 ];
 
-const POSITION_ORDER: Position[] = ["in_season", "shoulder", "off_season"];
+const POSITION_ORDER: Position[] = [
+  "in_season",
+  "pre_season_edge",
+  "post_season_edge",
+  "off_season",
+];
 const MUTATION_FIELD_NAMES = [
   "bestSeason",
   "bestMonths",
   "season",
   "seasonMetadata",
 ] as const;
+
+interface SourceWindowPlan {
+  verifiedWindow: string;
+  in_season: string;
+  pre_season_edge: string | null;
+  post_season_edge: string | null;
+  off_season: string | null;
+  boundaryNotes: Record<Position, string>;
+}
+
+// These plans are deliberately explicit. They are derived from the official
+// observations already captured in the Phase 2A review manifest, not from
+// prefecture-level stereotypes or the coarse bestMonths field.
+const SOURCE_WINDOW_PLANS: Record<string, SourceWindowPlan> = {
+  "awa-shrine-tateyama": {
+    verifiedWindow: "early April full bloom",
+    in_season: "2026-04-05",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "The official observation says early April and full bloom.",
+      pre_season_edge:
+        "Insufficient evidence: early April has no precise start boundary.",
+      post_season_edge:
+        "Insufficient evidence: the official observation gives no end boundary.",
+      off_season:
+        "August is materially outside the only documented early-April bloom month.",
+    },
+  },
+  goryokaku: {
+    verifiedWindow: "late April to mid-May",
+    in_season: "2026-05-05",
+    pre_season_edge: "2026-04-20",
+    post_season_edge: "2026-05-16",
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "Inside the official late-April-to-mid-May viewing window.",
+      pre_season_edge: "One day-level test immediately before late April.",
+      post_season_edge: "One day-level test immediately after mid-May.",
+      off_season:
+        "August is several months after the documented viewing window.",
+    },
+  },
+  "hitachi-kamine-park": {
+    verifiedWindow: "early April onwards",
+    in_season: "2026-04-05",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: null,
+    boundaryNotes: {
+      in_season:
+        "The official observation says about 1,000 trees bloom from early April onwards.",
+      pre_season_edge:
+        "Insufficient evidence: no precise start date is given beyond early April.",
+      post_season_edge:
+        "Insufficient evidence: 'onwards' supplies no supported end boundary.",
+      off_season:
+        "Insufficient evidence: the cited source does not establish when the bloom period ends.",
+    },
+  },
+  "kakunodate-samurai-district-akita": {
+    verifiedWindow: "mid-April to early May",
+    in_season: "2026-04-25",
+    pre_season_edge: "2026-04-10",
+    post_season_edge: "2026-05-10",
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "Inside Semboku City's mid-April-to-early-May window.",
+      pre_season_edge: "Shortly before the documented mid-April start.",
+      post_season_edge: "Shortly after the documented early-May end.",
+      off_season:
+        "August is materially outside the documented April–early-May window.",
+    },
+  },
+  "kimii-dera-temple": {
+    verifiedWindow: "2026-03-15 through 2026-04-12 observations",
+    in_season: "2026-04-02",
+    pre_season_edge: "2026-03-14",
+    post_season_edge: "2026-04-13",
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "The official 2026 update records full bloom on April 2.",
+      pre_season_edge:
+        "The day before the earliest dated March 15 bloom observation.",
+      post_season_edge:
+        "The day after the dated April 12 late-cherry observation.",
+      off_season:
+        "August is materially outside the dated March–April observations.",
+    },
+  },
+  "kintai-bridge-yamaguchi": {
+    verifiedWindow:
+      "March–April peak; full-bloom observations on March 29 and April 3",
+    in_season: "2026-04-01",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season:
+        "Between the official March 29 and April 3 full-bloom observations.",
+      pre_season_edge:
+        "Insufficient evidence: observations do not establish a precise start boundary.",
+      post_season_edge:
+        "Insufficient evidence: observations do not establish a precise end boundary.",
+      off_season:
+        "August is materially outside the documented March–April peak.",
+    },
+  },
+  "matsumae-castle": {
+    verifiedWindow: "late April to mid-May",
+    in_season: "2026-05-05",
+    pre_season_edge: "2026-04-20",
+    post_season_edge: "2026-05-16",
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season:
+        "Inside Matsumae Town's late-April-to-mid-May festival window.",
+      pre_season_edge: "One day-level test immediately before late April.",
+      post_season_edge: "One day-level test immediately after mid-May.",
+      off_season:
+        "August is materially outside the documented April–May window.",
+    },
+  },
+  "nokonoshima-island-park": {
+    verifiedWindow: "end of March to early April",
+    in_season: "2026-04-02",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "Inside the operator's End of Mar–Early Apr record.",
+      pre_season_edge:
+        "Insufficient evidence: the source gives end-of-March wording without a day boundary.",
+      post_season_edge:
+        "Insufficient evidence: the source gives early-April wording without a day boundary.",
+      off_season:
+        "August is materially outside the documented late-March–early-April period.",
+    },
+  },
+  "odawara-castle": {
+    verifiedWindow:
+      "February through April; varieties documented from early February to mid-April",
+    in_season: "2026-03-31",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season:
+        "Inside the official February–April flower calendar, at the documented late-March Somei-Yoshino period.",
+      pre_season_edge:
+        "Insufficient evidence: the earliest source wording is early February, not a precise day.",
+      post_season_edge:
+        "Insufficient evidence: the latest source wording is mid-April, not a precise day.",
+      off_season:
+        "August is materially outside the documented February–April calendar.",
+    },
+  },
+  "okazaki-castle": {
+    verifiedWindow: "2026-03-25 through 2026-04-05 festival window",
+    in_season: "2026-04-01",
+    pre_season_edge: "2026-03-24",
+    post_season_edge: "2026-04-06",
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "Inside the official 2026-03-25–2026-04-05 festival window.",
+      pre_season_edge: "The day before the official 2026 festival start.",
+      post_season_edge: "The day after the official 2026 festival end.",
+      off_season:
+        "August is materially outside the official March–April window.",
+    },
+  },
+  "sengan-en-garden-kagoshima": {
+    verifiedWindow: "early February to early April",
+    in_season: "2026-04-05",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season:
+        "Retains the original impact trigger at the end of the official early-February-to-early-April sequence.",
+      pre_season_edge:
+        "Insufficient evidence: early February has no precise start day in the official calendar.",
+      post_season_edge:
+        "Insufficient evidence: early April has no precise end day in the official calendar.",
+      off_season:
+        "August is materially outside the official February–early-April sequence.",
+    },
+  },
+  "serigaya-park": {
+    verifiedWindow: "2026-03-25 through 2026-04-05 observations",
+    in_season: "2026-04-01",
+    pre_season_edge: "2026-03-24",
+    post_season_edge: "2026-04-06",
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season: "Between the official March 25 and April 5 observations.",
+      pre_season_edge: "The day before the dated March 25 bloom observation.",
+      post_season_edge: "The day after the dated April 5 observation.",
+      off_season:
+        "August is materially outside the dated March–April observations.",
+    },
+  },
+  "shiroyama-park-tateyama": {
+    verifiedWindow: "March–April peak; 2026 opening declaration on March 19",
+    in_season: "2026-03-25",
+    pre_season_edge: "2026-03-18",
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season:
+        "Inside the official March–April peak after the March 19, 2026 opening declaration.",
+      pre_season_edge:
+        "The day before the dated March 19, 2026 opening declaration.",
+      post_season_edge:
+        "Insufficient evidence: the official sources do not establish a precise end day.",
+      off_season:
+        "August is materially outside the documented March–April peak.",
+    },
+  },
+  "tsuyama-castle": {
+    verifiedWindow: "late March to early April",
+    in_season: "2026-04-01",
+    pre_season_edge: null,
+    post_season_edge: null,
+    off_season: "2026-08-15",
+    boundaryNotes: {
+      in_season:
+        "Inside the official late-March-to-early-April viewing period.",
+      pre_season_edge:
+        "Insufficient evidence: late March has no precise start day in the official page.",
+      post_season_edge:
+        "Insufficient evidence: early April has no precise end day in the official page.",
+      off_season:
+        "August is materially outside the documented late-March–early-April period.",
+    },
+  },
+};
 
 function readGitText(commit: string, relativePath: string): string {
   return execFileSync("git", ["show", `${commit}:${relativePath}`], {
@@ -139,32 +383,12 @@ function jsonEqual(a: unknown, b: unknown): boolean {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
-function monthDate(month: number, day: number): string {
-  return `2026-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-}
-
-function previousMonth(month: number): number {
-  return month === 1 ? 12 : month - 1;
-}
-
-function offSeasonMonth(lastPeakMonth: number): number {
-  return ((lastPeakMonth + 4 - 1) % 12) + 1;
-}
-
-function scenarioDates(
-  id: string,
-  bestMonths: number[],
-): Record<Position, string> {
-  const first = Math.min(...bestMonths);
-  const last = Math.max(...bestMonths);
-  return {
-    // The exact date from the original impact observation is retained for
-    // Sengan-en so the sensitivity audit answers that trigger directly.
-    in_season:
-      id === "sengan-en-garden-kagoshima" ? "2026-04-05" : monthDate(first, 15),
-    shoulder: monthDate(previousMonth(first), 15),
-    off_season: monthDate(offSeasonMonth(last), 15),
-  };
+function sourceWindowPlan(id: string): SourceWindowPlan {
+  const plan = SOURCE_WINDOW_PLANS[id];
+  if (!plan) {
+    throw new Error(`Missing source-backed date plan for ${id}`);
+  }
+  return plan;
 }
 
 function buildContext(
@@ -510,6 +734,9 @@ function dominanceAnalysis(
 function classifyCase(caseRecord: JsonRecord): CaseClassification {
   const before = caseRecord.before;
   const after = caseRecord.after;
+  if (!before || !after) {
+    return "insufficient_evidence";
+  }
   if (before.ranking.rank === null && after.ranking.rank === null) {
     return "insufficient_evidence";
   }
@@ -555,12 +782,77 @@ function compareCase(
   name: string,
   origin: OriginSpec,
   position: Position,
-  date: string,
+  date: string | null,
+  windowPlan: SourceWindowPlan,
   beforeDestination: Destination,
   afterDestination: Destination,
   beforeCatalogue: Destination[],
   afterCatalogue: Destination[],
 ): JsonRecord {
+  const common = {
+    scenarioId: `${id}:${origin.name}:${position}`,
+    destinationId: id,
+    destinationName: name,
+    origin: {
+      id: origin.name,
+      label: origin.label,
+      role: origin.role,
+      coordinates: origin.coordinates,
+    },
+    testDate: date,
+    position,
+    sourceWindow: {
+      verifiedWindow: windowPlan.verifiedWindow,
+      boundaryNote: windowPlan.boundaryNotes[position],
+      dateStatus: date ? "testable" : "insufficient_evidence",
+    },
+    duration: "any",
+    transportContext: {
+      carMode: "none",
+      publicModes: [...PUBLIC_MODES],
+      originCoordinates: origin.coordinates,
+    },
+    budgetContext: {
+      budget: BUDGET,
+      budgetTier: "standard",
+      partySize: PARTY_SIZE,
+    },
+  };
+  if (!date) {
+    return {
+      ...common,
+      before: null,
+      after: null,
+      eligibilityState: {
+        before: "not_evaluated",
+        after: "not_evaluated",
+      },
+      rankBefore: null,
+      rankAfter: null,
+      rankDelta: null,
+      absoluteRankDelta: null,
+      scoreBefore: null,
+      scoreAfter: null,
+      scoreDelta: null,
+      seasonalityContributionBefore: null,
+      seasonalityContributionAfter: null,
+      travelTimeContributionBefore: null,
+      travelTimeContributionAfter: null,
+      budgetContributionBefore: null,
+      budgetContributionAfter: null,
+      transportAccessContributionBefore: null,
+      transportAccessContributionAfter: null,
+      otherMaterialComponentsBefore: null,
+      otherMaterialComponentsAfter: null,
+      scoreDeltaAttribution: null,
+      dominance: {
+        evaluated: false,
+        potentialSeasonalityOverweighting: false,
+        reason: windowPlan.boundaryNotes[position],
+      },
+      classification: "insufficient_evidence",
+    };
+  }
   const context = buildContext(origin, date);
   const beforeRows = getRecommendations(beforeCatalogue, context);
   const afterRows = getRecommendations(afterCatalogue, context);
@@ -584,30 +876,13 @@ function compareCase(
     scoreDelta - (seasonalityFieldDelta ?? 0) - (conditionOtherDelta ?? 0),
   );
   const record: JsonRecord = {
-    scenarioId: `${id}:${origin.name}:${position}`,
-    destinationId: id,
-    destinationName: name,
-    origin: {
-      id: origin.name,
-      label: origin.label,
-      role: origin.role,
-      coordinates: origin.coordinates,
-    },
-    testDate: date,
-    position,
-    duration: "any",
-    transportContext: {
-      carMode: "none",
-      publicModes: [...PUBLIC_MODES],
-      originCoordinates: origin.coordinates,
-    },
-    budgetContext: {
-      budget: BUDGET,
-      budgetTier: "standard",
-      partySize: PARTY_SIZE,
-    },
+    ...common,
     before,
     after,
+    eligibilityState: {
+      before: before.ranking.recommendationEligible ? "eligible" : "ineligible",
+      after: after.ranking.recommendationEligible ? "eligible" : "ineligible",
+    },
     rankBefore,
     rankAfter,
     rankDelta,
@@ -736,7 +1011,9 @@ function destinationConclusions(
 }
 
 function unknownBehavior(cases: JsonRecord[]): JsonRecord {
-  const before = cases.map((candidate) => candidate.before);
+  const before = cases
+    .map((candidate) => candidate.before)
+    .filter((state): state is JsonRecord => Boolean(state));
   const ambientRatings = [
     ...new Set(before.map((state) => state.seasonality.ambientRating)),
   ];
@@ -761,7 +1038,8 @@ function unknownBehavior(cases: JsonRecord[]): JsonRecord {
   ].sort((a, b) => a - b);
   return {
     classification: "unknown_seasonality_bias",
-    casesEvaluated: cases.length,
+    casesEvaluated: before.length,
+    boundaryCasesNotRun: cases.length - before.length,
     behavior: "neutral_fallback",
     exactSemantics: {
       missingSeasonRatingFallback: 5,
@@ -782,10 +1060,73 @@ function unknownBehavior(cases: JsonRecord[]): JsonRecord {
   };
 }
 
+function boundaryAssessment(
+  cases: JsonRecord[],
+  mutationRecords: JsonRecord[],
+): JsonRecord {
+  const unexplainedAnomalies: JsonRecord[] = [];
+  const monthGranularityEdgeExtensions: string[] = [];
+  const destinationChecks = mutationRecords.map((mutation) => {
+    const destinationCases = cases.filter(
+      (record) => record.destinationId === mutation.id,
+    );
+    const at = (position: Position) =>
+      destinationCases.find((record) => record.position === position);
+    const inSeason = at("in_season");
+    const offSeason = at("off_season");
+    for (const position of ["pre_season_edge", "post_season_edge"] as const) {
+      const edge = at(position);
+      if (
+        edge?.testDate &&
+        edge.after &&
+        inSeason?.after &&
+        edge.after.seasonality.seasonalityFieldContribution >=
+          inSeason.after.seasonality.seasonalityFieldContribution &&
+        edge.after.seasonality.bestMonthBonus > 0
+      ) {
+        monthGranularityEdgeExtensions.push(edge.scenarioId);
+      }
+    }
+    if (
+      offSeason?.testDate &&
+      offSeason.after &&
+      inSeason?.after &&
+      (offSeason.after.seasonality.bestMonthBonus > 0 ||
+        offSeason.after.seasonality.seasonalityFieldContribution >=
+          inSeason.after.seasonality.seasonalityFieldContribution)
+    ) {
+      unexplainedAnomalies.push({
+        kind: "unexplained_boundary_anomaly",
+        severity: "high",
+        scenarioId: offSeason.scenarioId,
+        detail:
+          "The clearly off-season test retained a best-month bonus or an in-season-level seasonality contribution.",
+      });
+    }
+    return {
+      id: mutation.id,
+      inSeasonScenarioId: inSeason?.scenarioId ?? null,
+      preSeasonEdgeScenarioId: at("pre_season_edge")?.scenarioId ?? null,
+      postSeasonEdgeScenarioId: at("post_season_edge")?.scenarioId ?? null,
+      offSeasonScenarioId: offSeason?.scenarioId ?? null,
+      offSeasonTested: Boolean(offSeason?.testDate),
+      offSeasonSeasonalityContribution:
+        offSeason?.after?.seasonality.seasonalityFieldContribution ?? null,
+      inSeasonSeasonalityContribution:
+        inSeason?.after?.seasonality.seasonalityFieldContribution ?? null,
+    };
+  });
+  return {
+    destinationChecks,
+    monthGranularityEdgeExtensions,
+    unexplainedAnomalies,
+  };
+}
+
 function scenarioTableRow(record: JsonRecord): string {
   const value = (x: unknown) =>
     x === null || x === undefined ? "—" : String(x);
-  return `| ${record.destinationId} | ${record.origin.id} | ${record.position} | ${record.testDate} | ${value(record.rankBefore)} → ${value(record.rankAfter)} | ${value(record.absoluteRankDelta)} | ${value(record.scoreBefore)} → ${value(record.scoreAfter)} | ${value(record.seasonalityContributionBefore)} → ${value(record.seasonalityContributionAfter)} | ${value(record.travelTimeContributionBefore)} → ${value(record.travelTimeContributionAfter)} | ${value(record.budgetContributionBefore)} → ${value(record.budgetContributionAfter)} | ${record.classification} |`;
+  return `| ${record.destinationId} | ${record.origin.id} | ${record.position} | ${record.testDate ?? "—"} | ${value(record.eligibilityState?.before)} → ${value(record.eligibilityState?.after)} | ${value(record.rankBefore)} → ${value(record.rankAfter)} | ${value(record.absoluteRankDelta)} | ${value(record.scoreBefore)} → ${value(record.scoreAfter)} | ${value(record.seasonalityContributionBefore)} → ${value(record.seasonalityContributionAfter)} | ${value(record.travelTimeContributionBefore)} → ${value(record.travelTimeContributionAfter)} | ${value(record.budgetContributionBefore)} → ${value(record.budgetContributionAfter)} | ${record.classification} |`;
 }
 
 function renderMarkdown(audit: JsonRecord): string {
@@ -799,6 +1140,13 @@ function renderMarkdown(audit: JsonRecord): string {
         `| ${record.id} | ${record.testedScenarioCount} | ${record.maxAbsoluteRankDelta ?? "—"} | ${record.topTenAfterScenarioCount} | ${record.classification} |`,
     )
     .join("\n");
+  const windowRows = (audit.seasonalTestPlans as JsonRecord[])
+    .map((record) => {
+      const dates = record.dates as JsonRecord;
+      const evidence = record.sourceEvidence as JsonRecord[];
+      return `| ${record.id} | ${record.verifiedWindow} | ${dates.in_season ?? "—"} | ${dates.pre_season_edge ?? "—"} | ${dates.post_season_edge ?? "—"} | ${dates.off_season ?? "—"} | ${evidence.length} |`;
+    })
+    .join("\n");
   const anomalyRows = (audit.anomalies as JsonRecord[]).length
     ? (audit.anomalies as JsonRecord[])
         .map((anomaly) => `- **${anomaly.kind}**: ${anomaly.detail}`)
@@ -809,6 +1157,25 @@ function renderMarkdown(audit: JsonRecord): string {
     .join("\n");
   const sengan = audit.senganInvestigation as JsonRecord;
   const trigger = sengan.triggerScenario as JsonRecord;
+  const senganEdgeRows = (audit.cases as JsonRecord[])
+    .filter(
+      (record) =>
+        record.destinationId === "sengan-en-garden-kagoshima" &&
+        record.origin.id === "fukuoka" &&
+        record.position !== "in_season",
+    )
+    .map(
+      (record) =>
+        `| ${record.position} | ${record.testDate ?? "—"} | ${record.eligibilityState.before} → ${record.eligibilityState.after} | ${record.rankBefore ?? "—"} → ${record.rankAfter ?? "—"} | ${record.scoreBefore ?? "—"} → ${record.scoreAfter ?? "—"} | ${record.seasonalityContributionBefore ?? "—"} → ${record.seasonalityContributionAfter ?? "—"} | ${record.classification} |`,
+    )
+    .join("\n");
+  const senganOffSeason = (audit.cases as JsonRecord[]).find(
+    (record) =>
+      record.destinationId === "sengan-en-garden-kagoshima" &&
+      record.origin.id === "fukuoka" &&
+      record.position === "off_season",
+  ) as JsonRecord;
+  const boundary = audit.boundaryAssessment as JsonRecord;
   const supplementalRows = (sengan.supplementalChecks as JsonRecord[])
     .map((check) => {
       const before = check.before as JsonRecord;
@@ -823,7 +1190,7 @@ function renderMarkdown(audit: JsonRecord): string {
 - Audit clock: \`${audit.auditClock}\` (frozen for deterministic existing-engine scoring)
 - Audit generated: \`${audit.auditDate}\`
 - Mutated destinations audited: **${audit.mutationCount}**
-- Primary scenarios: **${audit.cases.length}** (${audit.mutationCount} destinations × ${audit.origins.length} origins × ${POSITION_ORDER.length} date positions)
+- Primary scenarios: **${audit.cases.length}** (${audit.mutationCount} destinations × ${audit.origins.length} origins × ${POSITION_ORDER.length} destination-specific date positions)
 - Canonical seasonality data changed by this audit: **no**
 
 ## Decision gate
@@ -839,8 +1206,16 @@ This is a sensitivity audit only. It does not change canonical seasonality data,
 - The audit compares the exact base catalogue with the exact post-PR-315 catalogue using the existing \`getRecommendations\`, \`calculateScore\`, \`evaluateSeasonalSuitability\`, and canonical budget/transport services.
 - Context: \`vibe=any\`, \`tripDuration=any\` (the original day-trip trigger), party size ${PARTY_SIZE}, budget ¥${BUDGET.toLocaleString("en-US")}, standard budget tier, no car, and all public modes.
 - Origins: Tokyo, Osaka, Fukuoka, and Kagoshima-Chuo as a regional origin.
-- Every mutated destination is tested in a documented in-season date, the month immediately before the verified window, and a clearly off-season date.
+- Date positions are destination-specific: \`in_season\`, \`pre_season_edge\`, \`post_season_edge\`, and \`off_season\`. Dates come only from the verified Phase 2A evidence window; an imprecise boundary is represented as \`insufficient_evidence\` with no fabricated engine result.
 - Positive rank delta means promotion (\`rankBefore - rankAfter\`). Absolute rank delta is reported separately.
+
+## Destination-specific seasonal test plans
+
+Each plan below is tied to the official evidence already recorded in the Phase 2A review manifest. A dash means the source did not establish a precise boundary suitable for a date-sensitive engine test; those origin × position rows remain explicit \`insufficient_evidence\` cases in the scenario matrix.
+
+| Destination ID | Verified source-backed window | In season | Pre-season edge | Post-season edge | Off season | Evidence records |
+| --- | --- | --- | --- | --- | --- | ---: |
+${windowRows}
 
 ## Classification counts
 
@@ -859,6 +1234,7 @@ ${audit.unknownBehavior.conclusion}
 - Missing season penalty: **${audit.unknownBehavior.exactSemantics.missingSeasonPenalty}**
 - Non-seasonal comfort/ferry evidence can still contribute independently: **${audit.unknownBehavior.exactSemantics.nonSeasonalConditionEvidenceMayStillContribute}**
 - Unknown-bias cases found: **${summary.classificationCounts.unknown_seasonality_bias}**
+- Boundary-position cases not run because the Phase 2A evidence lacked a precise date boundary: **${audit.unknownBehavior.boundaryCasesNotRun}**
 
 ## Sengan-en investigation
 
@@ -884,16 +1260,21 @@ The existing Phase 2A impact artifact recorded Sengan-en in the Fukuoka spring s
 
 The movement is caused by the seasonal field only: the final score increases by 18 points, consisting of +15 for the selected Spring rating and +3 for the verified April month. Travel mode, travel estimate, cost range, budget contribution, and non-seasonal score components do not change.
 
-### Outside the verified period
+### Destination-specific edge tests
 
-The shoulder and off-season Sengan-en rows are included in the primary scenario table and JSON. They show the exact date-sensitive behavior rather than assuming that an April promotion persists unchanged:
+Sengan-en uses the source-backed \`early February to early April\` plan. April 5 remains the original trigger; no generic January date is used. Unsupported pre/post boundaries are explicitly marked \`insufficient_evidence\` rather than assigned fabricated dates.
 
-- Shoulder: selected month immediately before the verified \`[2,3,4]\` window.
-- Off-season: August, four months after the last verified month.
+| Position | Date | Eligibility before → after | Rank before → after | Score before → after | Seasonality before → after | Classification |
+| --- | --- | --- | --- | --- | --- | --- |
+${senganEdgeRows}
+
+The August off-season row is the material outside-window check. A smaller residual seasonal delta is acceptable only when it comes from the structured seasonal vector; the artifact exposes the selected-date correction, best-month bonus, condition evidence, and full attribution for every tested row.
+
+For Sengan-en specifically, the August **+${senganOffSeason.scoreDelta}** is exactly the structured seasonal-vector correction: selected-date ${senganOffSeason.after.seasonality.selectedDateSeason} rating ${senganOffSeason.after.seasonality.selectedDateRating} versus frozen ambient ${senganOffSeason.after.seasonality.ambientSeason} rating ${senganOffSeason.after.seasonality.ambientRating}, yielding **+${senganOffSeason.after.seasonality.selectedDateSeasonCorrection}**; the best-month bonus is **${senganOffSeason.after.seasonality.bestMonthBonus}**, condition-other delta is **${senganOffSeason.scoreDeltaAttribution.conditionOtherDelta}**, and attribution residual is **${senganOffSeason.scoreDeltaAttribution.residual}**.
 
 ### Duration and budget stress checks
 
-These supplemental checks are not included in the 168-case classification count:
+These supplemental checks are not included in the 224-case classification count:
 
 | Origin | Duration | Budget | Date | Rank before → after | Score before → after | Travel-time contribution before → after | Budget contribution before → after |
 | --- | --- | ---: | --- | --- | --- | --- | --- |
@@ -908,6 +1289,14 @@ The audit uses a conservative, documented heuristic: a post-change top-ten resul
 
 ${anomalyRows}
 
+## Seasonal boundary assessment
+
+- Unexplained off-season boundary anomalies: **${boundary.unexplainedAnomalies.length}**
+- Expected month-granularity edge extensions (an adjacent exact edge still carries the month-level best-month bonus): **${boundary.monthGranularityEdgeExtensions.length}**
+- Destination checks with an actually tested off-season date: **${(boundary.destinationChecks as JsonRecord[]).filter((record) => record.offSeasonTested).length} / ${audit.mutationCount}**
+
+The month-granularity list is a limitation of the existing canonical vector, not a new weighting rule: it is reported separately from unexplained anomalies. The clearly off-season checks are the guard against a peak-level bonus persisting materially outside the supported period.
+
 ## Per-destination conclusions
 
 | Destination | Scenarios | Max absolute rank delta | Top-ten appearances after | Conclusion |
@@ -916,8 +1305,8 @@ ${destinationRows}
 
 ## All primary scenarios
 
-| Destination | Origin | Position | Date | Rank before → after | Abs. delta | Score before → after | Seasonality before → after | Travel-time before → after | Budget before → after | Classification |
-| --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- |
+| Destination | Origin | Position | Date | Eligibility before → after | Rank before → after | Abs. delta | Score before → after | Seasonality before → after | Travel-time before → after | Budget before → after | Classification |
+| --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- |
 ${scenarioRows}
 
 ## Reproducibility
@@ -955,6 +1344,13 @@ function buildAudit(): JsonRecord {
     );
   }
   const mutationIds = mutationRecords.map((record) => String(record.id));
+  if (
+    !jsonEqual(Object.keys(SOURCE_WINDOW_PLANS).sort(), [...mutationIds].sort())
+  ) {
+    throw new Error(
+      `Source-window plan mismatch: plans=${JSON.stringify(Object.keys(SOURCE_WINDOW_PLANS).sort())} expected=${JSON.stringify([...mutationIds].sort())}`,
+    );
+  }
   const baseById = new Map(baseCatalogue.map((record) => [record.id, record]));
   const afterById = new Map(
     afterCatalogue.map((record) => [record.id, record]),
@@ -997,13 +1393,7 @@ function buildAudit(): JsonRecord {
     const afterDestination = afterById.get(id);
     if (!beforeDestination || !afterDestination)
       throw new Error(`Missing catalogue ID ${id}`);
-    const bestMonths = afterDestination.bestMonths;
-    if (!Array.isArray(bestMonths) || bestMonths.length === 0) {
-      throw new Error(
-        `Mutation ${id} lacks bestMonths for scenario generation`,
-      );
-    }
-    const dates = scenarioDates(id, bestMonths);
+    const plan = sourceWindowPlan(id);
     for (const origin of ORIGINS) {
       for (const position of POSITION_ORDER) {
         cases.push(
@@ -1012,7 +1402,8 @@ function buildAudit(): JsonRecord {
             String(mutation.name),
             origin,
             position,
-            dates[position],
+            plan[position],
+            plan,
             beforeDestination,
             afterDestination,
             baseCatalogue,
@@ -1023,12 +1414,15 @@ function buildAudit(): JsonRecord {
     }
   }
   if (cases.length !== 14 * ORIGINS.length * POSITION_ORDER.length) {
-    throw new Error(`Expected 168 primary cases, found ${cases.length}`);
+    throw new Error(
+      `Expected ${14 * ORIGINS.length * POSITION_ORDER.length} primary cases, found ${cases.length}`,
+    );
   }
 
   const summaryCounts = summarizeCounts(cases);
   const classificationCounts = summaryCounts.counts as JsonRecord;
   const destinationSummary = destinationConclusions(cases, mutationRecords);
+  const boundary = boundaryAssessment(cases, mutationRecords);
   const triggerScenario = cases.find(
     (record) =>
       record.destinationId === "sengan-en-garden-kagoshima" &&
@@ -1116,7 +1510,7 @@ function buildAudit(): JsonRecord {
     };
   });
 
-  const anomalies: JsonRecord[] = [];
+  const anomalies: JsonRecord[] = [...boundary.unexplainedAnomalies];
   if (priorTrigger && triggerScenario.rankBefore !== priorTrigger.before.rank) {
     anomalies.push({
       kind: "prior_rank_reproduction_note",
@@ -1125,7 +1519,10 @@ function buildAudit(): JsonRecord {
     });
   }
   for (const record of cases) {
-    if (!record.scoreDeltaAttribution.exactWithinTolerance) {
+    if (
+      record.scoreDeltaAttribution &&
+      !record.scoreDeltaAttribution.exactWithinTolerance
+    ) {
       anomalies.push({
         kind: "score_attribution_residual",
         severity: "high",
@@ -1140,8 +1537,10 @@ function buildAudit(): JsonRecord {
       });
     }
     if (
+      record.before &&
+      record.after &&
       record.before.ranking.recommendationCount !==
-      record.after.ranking.recommendationCount
+        record.after.ranking.recommendationCount
     ) {
       anomalies.push({
         kind: "recommendation_count_drift",
@@ -1153,16 +1552,17 @@ function buildAudit(): JsonRecord {
 
   const decisionGate =
     classificationCounts.possible_seasonality_overweighting > 0 ||
-    classificationCounts.unknown_seasonality_bias > 0
+    classificationCounts.unknown_seasonality_bias > 0 ||
+    boundary.unexplainedAnomalies.length > 0
       ? {
           recommendation: "B. MERGE DATA, OPEN SEPARATE RANKING TICKET",
           rationale:
-            "The canonical seasonality mutations remain source-backed, but the sensitivity audit found a recommendation-weighting or unknown-handling concern that should be tracked separately from data correctness.",
+            "The canonical seasonality mutations remain source-backed, but the sensitivity audit found a recommendation-weighting, unknown-handling, or unexplained seasonal-boundary concern that should be tracked separately from data correctness.",
         }
       : {
           recommendation: "A. MERGE PR #315 AS-IS",
           rationale:
-            "The seasonal score changes are fully attributable to the reviewed season fields and remain proportionate or large-but-explainable after travel, cost, transport, duration, and other ranking components are inspected. No unknown-seasonality bias or conservative dominance anomaly was found.",
+            "The seasonal score changes are fully attributable to the reviewed season fields and remain proportionate or large-but-explainable after travel, cost, transport, duration, and other ranking components are inspected. No possible seasonality overweighting, unknown-seasonality bias, or unexplained off-season boundary anomaly was found.",
         };
 
   return {
@@ -1175,6 +1575,19 @@ function buildAudit(): JsonRecord {
     mutationCount: mutationRecords.length,
     mutationIds,
     origins: ORIGINS,
+    seasonalTestPlans: mutationRecords.map((record) => {
+      const plan = sourceWindowPlan(String(record.id));
+      return {
+        id: record.id,
+        name: record.name,
+        verifiedWindow: plan.verifiedWindow,
+        dates: Object.fromEntries(
+          POSITION_ORDER.map((position) => [position, plan[position]]),
+        ),
+        boundaryNotes: plan.boundaryNotes,
+        sourceEvidence: record.officialEvidence ?? [],
+      };
+    }),
     context: {
       vibe: "any",
       duration: DURATION,
@@ -1222,6 +1635,7 @@ function buildAudit(): JsonRecord {
       ),
     },
     unknownBehavior: unknownBehavior(cases),
+    boundaryAssessment: boundary,
     dominanceHeuristic: {
       topTenRankAtMost: 10,
       seasonalFieldContributionAtLeast: 15,
