@@ -81773,6 +81773,14 @@
     },
     "officialWebsite": "https://www.nagashima-onsen.co.jp/nabana/",
     "status": "published",
+    "season": {
+      "spring": 7,
+      "summer": 5,
+      "autumn": 8,
+      "winter": 10
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 10, 11, 12],
+    "bestSeason": "Winter",
     "walkingMin": 170,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -88797,6 +88805,14 @@
     "officialWebsite": "https://en.jigokudani-yaenkoen.co.jp/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 6,
+      "summer": 3,
+      "autumn": 7,
+      "winter": 10
+    },
+    "bestMonths": [1, 2, 3, 11, 12],
+    "bestSeason": "Winter",
     "walkingMin": 90,
     "recommendedVisitHours": {
       "min": 2,
@@ -90724,6 +90740,14 @@
     "officialWebsite": "https://www.shigakogen.gr.jp/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 7,
+      "winter": 10
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 11, 12],
+    "bestSeason": "Winter",
     "walkingMin": 385,
     "recommendedVisitHours": {
       "min": 4,

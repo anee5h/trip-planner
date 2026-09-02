@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-151",
+  "phase": "2C",
+  "baseCommit": "366293948269a0f6004f1a9005fe8e78b9037f8e",
+  "checkedAt": "2026-09-02",
+  "candidateDefinition": "Recommendation-visible standalone or point-of-interest destination records surfaced by the frozen KAI-151 thematic candidate/exposure audit; hubs and already-sufficient records are retained for classification but are not mutated.",
+  "selectionMethod": "Frozen five-duration recommendation exposure (shortOuting, halfDay, fullDay, 2d1n, 3d2n) across Tokyo, Osaka, and Fukuoka origins, filtered to the thematic signal and reviewed against destination-specific official operator, municipal, prefectural, or official tourism evidence.",
+  "summary": {
+    "candidateCount": 8,
+    "researchedCount": 8,
+    "mutatedCount": 3,
+    "insufficientCount": 5,
+    "classificationCounts": {
+      "insufficient_evidence": 5,
+      "verified_seasonal_window": 3
+    }
+  },
+  "records": [
+    {
+      "id": "jigokudani-monkey-park",
+      "name": "Jigokudani Monkey Park",
+      "phase": "2C",
+      "kind": "zoo",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "cohortReason": "High-exposure standalone wildlife destination whose official operator publishes a winter operating period and snow context.",
+      "officialEvidence": [
+        {
+          "authority": "Jigokudani Yaen-Koen official operator",
+          "urls": [
+            "https://en.jigokudani-yaenkoen.co.jp/information/information-0-2/",
+            "https://en.jigokudani-yaenkoen.co.jp/"
+          ],
+          "observations": [
+            "The operator notice says the winter season starts November 1 and lists winter business hours November 1 through March 31. The official home page says the valley is buried in snow almost one third of the year and is known for wild Japanese macaques."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Winter",
+        "bestMonths": [1, 2, 3, 11, 12],
+        "seasonVector": {
+          "spring": 6,
+          "summer": 3,
+          "autumn": 7,
+          "winter": 10
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "The winter operating period is used as the preferred window; animal appearance remains condition-dependent."
+    },
+    {
+      "id": "shiga-kogen",
+      "name": "Shiga Kogen",
+      "phase": "2C",
+      "kind": "mountain",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone mountain destination with official ski-season dates.",
+      "officialEvidence": [
+        {
+          "authority": "Shiga Kogen Tourism Association official site",
+          "urls": ["https://www.shigakogen.gr.jp/english/winter/index.html"],
+          "observations": [
+            "The official site labels the seasons Green May-August, Autumn September-October, and Winter November-May; its winter page says skiing and snowboarding run from mid-November to May each year."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Winter",
+        "bestMonths": [1, 2, 3, 4, 5, 11, 12],
+        "seasonVector": {
+          "spring": 6,
+          "summer": 5,
+          "autumn": 7,
+          "winter": 10
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Month mapping follows the published November-May winter season; broader area coverage keeps non-winter values nonzero."
+    },
+    {
+      "id": "nabana-no-sato",
+      "name": "Nabana no Sato",
+      "phase": "2C",
+      "kind": "park",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone park with an official winter illumination season.",
+      "officialEvidence": [
+        {
+          "authority": "Nabana no Sato / Nagashima Resort official operator",
+          "urls": [
+            "https://www.nagashima-onsen.co.jp/nabana/illumination/index.html",
+            "https://www.nagashima-onsen.co.jp/nabana/"
+          ],
+          "observations": [
+            "The official operator presents the Nabana no Sato illumination as a seasonal attraction and the destination record documents the illumination season as October through May."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Winter",
+        "bestMonths": [1, 2, 3, 4, 5, 10, 11, 12],
+        "seasonVector": {
+          "spring": 7,
+          "summer": 5,
+          "autumn": 8,
+          "winter": 10
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "The long published illumination season is represented as a winter peak without claiming that other flower seasons disappear."
+    },
+    {
+      "id": "kenroku-en",
+      "name": "Kenrokuen Garden",
+      "phase": "2C",
+      "kind": "garden",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Standalone garden with winter yukitsuri imagery but no checked official recurring peak window for the full destination.",
+      "officialEvidence": [
+        {
+          "authority": "Ishikawa Prefecture official Kenrokuen site",
+          "urls": [
+            "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
+            "https://kenrokuen.or.jp/information/"
+          ],
+          "observations": [
+            "The official sources establish Kenrokuen identity, admission, and winter yukitsuri as a seasonal feature, but the checked material does not provide a recurring month window that justifies a full winter vector."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Retain unknown rather than turning an iconic feature into exact months."
+    },
+    {
+      "id": "abashiri",
+      "name": "Abashiri Quasi-National Park",
+      "phase": "2C",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Standalone national-park record with winter drift-ice association but no verified month window in the checked first-party source.",
+      "officialEvidence": [
+        {
+          "authority": "Hokkaido Prefecture official park information",
+          "urls": [
+            "https://www.pref.hokkaido.lg.jp/ks/skn/environ/parks/abashiri-quasi-nationalpark.html"
+          ],
+          "observations": [
+            "The official description identifies the Okhotsk coast and winter drift ice, but the checked page does not provide a defensible recurring month window for the whole park."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Drift-ice timing is location- and year-dependent; no exact vector asserted."
+    },
+    {
+      "id": "kinrin-lake-yufuin",
+      "name": "Kinrin Lake",
+      "phase": "2C",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Standalone lake with official autumn-to-winter mist wording, but not enough for a winter peak vector.",
+      "officialEvidence": [
+        {
+          "authority": "Oita Prefecture official tourism site",
+          "urls": ["https://www.visit-oita.jp/spots/detail/4362"],
+          "observations": [
+            "The official page says early mornings from autumn through winter can be misty; it does not establish a winter-specific operating or peak period."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Leave unknown."
+    },
+    {
+      "id": "daisetsuzan",
+      "name": "Daisetsuzan National Park",
+      "phase": "2C",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Broad national-park record where winter access and suitability vary across a large massif.",
+      "officialEvidence": [
+        {
+          "authority": "Ministry of the Environment national park site",
+          "urls": ["https://www.env.go.jp/park/daisetsu/index.html"],
+          "observations": [
+            "The official source establishes the national park and its gateways, but the checked material does not provide a single winter window suitable for the whole park record."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Broad park scope makes a single exact vector too coarse."
+    },
+    {
+      "id": "myoko-togakushi",
+      "name": "Myoko-Togakushi renzan National Park",
+      "phase": "2C",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Broad national-park record with ski and snow signals but no checked destination-wide month window.",
+      "officialEvidence": [
+        {
+          "authority": "Ministry of the Environment national park site",
+          "urls": ["https://www.env.go.jp/park/myokotogakushi/index.html"],
+          "observations": [
+            "The official source establishes the park boundary and gateways; it does not publish a single recurring winter period for the full park record."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No inference from climate or individual resorts."
+    }
+  ]
+}
