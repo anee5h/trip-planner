@@ -52,13 +52,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Winter",
-        "bestMonths": [
-          1,
-          2,
-          3,
-          11,
-          12
-        ],
+        "bestMonths": [1, 2, 3, 11, 12],
         "seasonVector": {
           "spring": 6,
           "summer": 3,
@@ -90,9 +84,7 @@
       "officialEvidence": [
         {
           "authority": "Shiga Kogen Tourism Association official site",
-          "urls": [
-            "https://www.shigakogen.gr.jp/english/winter/index.html"
-          ],
+          "urls": ["https://www.shigakogen.gr.jp/english/winter/index.html"],
           "observations": [
             "The official site labels the seasons Green May-August, Autumn September-October, and Winter November-May; its winter page says skiing and snowboarding run from mid-November to May each year."
           ],
@@ -103,15 +95,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Winter",
-        "bestMonths": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          11,
-          12
-        ],
+        "bestMonths": [1, 2, 3, 4, 5, 11, 12],
         "seasonVector": {
           "spring": 6,
           "summer": 5,
@@ -157,16 +141,7 @@
       "proposed": {
         "apply": true,
         "bestSeason": "Winter",
-        "bestMonths": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          10,
-          11,
-          12
-        ],
+        "bestMonths": [1, 2, 3, 4, 5, 10, 11, 12],
         "seasonVector": {
           "spring": 7,
           "summer": 5,
@@ -279,9 +254,7 @@
       "officialEvidence": [
         {
           "authority": "Oita Prefecture official tourism site",
-          "urls": [
-            "https://www.visit-oita.jp/spots/detail/4362"
-          ],
+          "urls": ["https://www.visit-oita.jp/spots/detail/4362"],
           "observations": [
             "The official page says early mornings from autumn through winter can be misty; it does not establish a winter-specific operating or peak period."
           ],
@@ -319,9 +292,7 @@
       "officialEvidence": [
         {
           "authority": "Ministry of the Environment national park site",
-          "urls": [
-            "https://www.env.go.jp/park/daisetsu/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/daisetsu/index.html"],
           "observations": [
             "The official source establishes the national park and its gateways, but the checked material does not provide a single winter window suitable for the whole park record."
           ],
@@ -359,9 +330,7 @@
       "officialEvidence": [
         {
           "authority": "Ministry of the Environment national park site",
-          "urls": [
-            "https://www.env.go.jp/park/myokotogakushi/index.html"
-          ],
+          "urls": ["https://www.env.go.jp/park/myokotogakushi/index.html"],
           "observations": [
             "The official source establishes the park boundary and gateways; it does not publish a single recurring winter period for the full park record."
           ],

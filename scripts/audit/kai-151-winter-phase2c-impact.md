@@ -6,12 +6,12 @@
 
 ## Classification counts
 
-| Classification | Rows |
-| --- | ---: |
-| insufficient_evidence | 226 |
-| large_but_explainable_change | 3 |
-| proportionate_expected_change | 10 |
-| unrelated_ranking_effect | 1 |
+| Classification                | Rows |
+| ----------------------------- | ---: |
+| insufficient_evidence         |  226 |
+| large_but_explainable_change  |    3 |
+| proportionate_expected_change |   10 |
+| unrelated_ranking_effect      |    1 |
 
 ## Method
 
