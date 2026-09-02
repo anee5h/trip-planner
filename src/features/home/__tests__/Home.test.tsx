@@ -11,6 +11,14 @@ import { loadLiteIndex } from "@/shared/services/place/PlaceCatalog";
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
 const weatherMockState = vi.hoisted(() => ({ ready: true }));
+const authMockState = vi.hoisted(() => ({
+  user: null as {
+    id: string;
+    email: string;
+    user_metadata: { preferences: Record<string, unknown> };
+  } | null,
+  updateUserProfile: vi.fn(),
+}));
 
 beforeAll(async () => {
   await loadLiteIndex();
@@ -99,7 +107,8 @@ vi.mock("@/shared/hooks/useTripStore", () => ({
 
 vi.mock("@/shared/hooks/useAuth", () => ({
   useAuth: () => ({
-    user: null,
+    user: authMockState.user,
+    updateUserProfile: authMockState.updateUserProfile,
   }),
 }));
 
@@ -161,6 +170,8 @@ let host: HTMLDivElement | undefined;
 
 afterEach(() => {
   weatherMockState.ready = true;
+  authMockState.user = null;
+  authMockState.updateUserProfile.mockReset();
   localeState.value = "en";
   if (root) {
     act(() => root!.unmount());
@@ -339,6 +350,39 @@ describe("Home Integration Tests", () => {
         b.textContent?.includes("home.update"),
     );
     expect(primaryBtn?.textContent).toContain("home.update");
+  });
+
+  it("persists party size as part of the authenticated planner state", async () => {
+    authMockState.user = {
+      id: "home-persist-user",
+      email: "home-persist@example.com",
+      user_metadata: { preferences: { partySize: 2 } },
+    };
+    authMockState.updateUserProfile.mockResolvedValue({
+      data: { user: authMockState.user },
+      error: null,
+    });
+    const container = await renderHome();
+    const plusButtons = container.querySelectorAll(
+      'button[aria-label="home.increaseParty"]',
+    );
+    expect(plusButtons.length).toBeGreaterThan(0);
+
+    act(() => {
+      (plusButtons[0] as HTMLButtonElement).click();
+    });
+    act(() => {
+      (plusButtons[0] as HTMLButtonElement).click();
+    });
+    const applyButton = Array.from(container.querySelectorAll("button")).find(
+      (button) => button.textContent?.includes("home.find"),
+    );
+    expect(applyButton).toBeDefined();
+    act(() => applyButton?.click());
+
+    expect(authMockState.updateUserProfile).toHaveBeenCalledWith({
+      preferences: expect.objectContaining({ partySize: 4 }),
+    });
   });
 
   it("edits the origin in a modal", async () => {

@@ -4,6 +4,7 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import type { User } from "@supabase/supabase-js";
@@ -65,6 +66,12 @@ function migrateHomepageDurationUrl() {
   replaceHomepageUrl(params);
 }
 
+function normalizePartySize(value: unknown): number {
+  const parsed = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(parsed)) return 2;
+  return Math.max(1, Math.min(8, Math.floor(parsed)));
+}
+
 export interface HomePlannerStateValue {
   draftState: PlannerControlsState;
   appliedState: PlannerControlsState;
@@ -101,7 +108,10 @@ export function HomePlannerStateProvider({
   children: React.ReactNode;
   onTransportPreferencesPersist?: (selection: TransportSelection) => void;
   onPlannerPreferencesPersist?: (
-    preferences: TransportSelection & { tripDuration: HomepageTripDuration },
+    preferences: TransportSelection & {
+      tripDuration: HomepageTripDuration;
+      partySize: number;
+    },
   ) => void;
 }) {
   const urlDuration = homepageDurationFromUrl();
@@ -112,12 +122,24 @@ export function HomePlannerStateProvider({
   const [draftState, setDraftState] = useState(createInitialPlannerState);
   const [appliedState, setAppliedState] = useState(createInitialPlannerState);
   const [hasUserApplied, setHasUserApplied] = useState(false);
+  const hydratedUserIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     migrateHomepageDurationUrl();
   }, []);
 
   useEffect(() => {
+    const userId = user?.id ?? null;
+    if (!userId) {
+      hydratedUserIdRef.current = null;
+      return;
+    }
+    // Auth profile updates return a fresh User object for the same account.
+    // The planner owns its current draft/applied state after mount; only the
+    // initial account load and a real account switch may rehydrate it.
+    if (hydratedUserIdRef.current === userId) return;
+    hydratedUserIdRef.current = userId;
+
     const preferences = user?.user_metadata?.preferences;
     if (!preferences) return;
     const userCarMode = normalizeCarMode(preferences.carMode);
@@ -125,7 +147,7 @@ export function HomePlannerStateProvider({
     const userPublicTransport = Array.isArray(persistedPublicModes)
       ? persistedPublicModes.length > 0
       : true;
-    const userPartySize = preferences.partySize || 2;
+    const userPartySize = normalizePartySize(preferences.partySize);
     const persistedDuration = normalizeHomepageTripDuration(
       preferences.tripDuration ?? preferences.duration,
     );
@@ -185,6 +207,7 @@ export function HomePlannerStateProvider({
     onPlannerPreferencesPersist?.({
       ...transportSelection,
       tripDuration: draftState.tripDuration,
+      partySize: draftState.partySize,
     });
   }, [draftState, onTransportPreferencesPersist, onPlannerPreferencesPersist]);
 
