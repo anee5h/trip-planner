@@ -37,6 +37,7 @@
     "audit:kai-203": "tsx scripts/audit-kai-203-destination-completeness.ts",
     "audit:kai-257": "tsx --tsconfig tsconfig.app.json scripts/audit-kai-257-top-sights-integrity.ts",
     "audit:kai-219": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-219-migration-audit.ts",
+    "audit:kai-87": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-87-planning-quality-audit.ts",
     "check:kai-219e2": "vitest run scripts/audit/__tests__/kai-219e2-tooling.test.ts",
     "migrate:kai-219e2": "tsx --tsconfig tsconfig.app.json scripts/kai-219e2-admission-cohort.ts --write",
     "check:kai-250": "vitest run scripts/audit/__tests__/kai-250-tooling.test.ts",
