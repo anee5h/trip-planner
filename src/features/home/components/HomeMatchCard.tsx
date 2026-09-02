@@ -63,6 +63,9 @@ interface HomeMatchCardProps {
   /** Planned travel date (ISO) forwarded to the destination details page. */
   travelDate?: string;
   duration?: TripDuration;
+  /** Planned trip budget and vibe forwarded to destination details. */
+  budget?: number;
+  tripType?: string;
   /**
    * @deprecated Kept for call-site compatibility. Day-trip cards now use the
    * shared evidence-aware resolver whenever a configured origin is present.
@@ -94,6 +97,8 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   publicModes = ALL_PUBLIC_MODES,
   travelDate,
   duration = "fullDay",
+  budget,
+  tripType,
 }) => {
   const { locale } = useLocale();
   const { t } = useTranslation();
@@ -298,8 +303,13 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     <Link
       to={cardHref}
       state={{
+        carMode,
+        publicModes,
+        partySize,
         ...(travelDate ? { travelDate } : {}),
         duration,
+        ...(tripType !== undefined ? { tripType } : {}),
+        ...(budget !== undefined ? { budget } : {}),
       }}
       className="group relative flex h-full flex-1 cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-md transition-all duration-300 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
     >

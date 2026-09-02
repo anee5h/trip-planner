@@ -262,6 +262,7 @@ export default function HeavyHome({
           carMode={resolvedApplied.carMode}
           publicModes={resolvedApplied.publicModes}
           travelDate={travelDateIso}
+          duration={resolvedApplied.tripDuration}
         />
       </DeferredSection>
 
@@ -273,6 +274,7 @@ export default function HeavyHome({
             carMode={resolvedApplied.carMode}
             publicModes={resolvedApplied.publicModes}
             travelDate={travelDateIso}
+            duration={resolvedApplied.tripDuration}
           />
         </DeferredSection>
       )}
@@ -313,6 +315,7 @@ export default function HeavyHome({
             carMode={resolvedApplied.carMode}
             publicModes={resolvedApplied.publicModes}
             travelDate={travelDateIso}
+            duration={resolvedApplied.tripDuration}
             isCompactPromptOnly
           />
         </DeferredSection>

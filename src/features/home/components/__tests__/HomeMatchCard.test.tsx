@@ -3,6 +3,7 @@
  */
 import { act } from "react";
 import { createRoot, type Root } from "react-dom/client";
+import { MemoryRouter, Route, Routes, useLocation } from "react-router-dom";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import type { Destination } from "@/shared/types/destination";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
@@ -16,6 +17,10 @@ import { HomeMatchCard } from "../HomeMatchCard";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
 
+afterEach(() => {
+  (globalThis as any).__useRealRouterLink = false;
+});
+
 // ── Mock heavy deps the component imports ─────────────────────────────────────
 const YOKOHAMA = { lat: 35.4437, lng: 139.638 };
 const TOKYO = { lat: 35.6812, lng: 139.7671 };
@@ -23,11 +28,40 @@ const NAKAYAMA = { lat: 35.514745, lng: 139.539692 };
 const SHIN_YOKOHAMA = { lat: 35.5073, lng: 139.6172 };
 const CHIBA = { lat: 35.6131, lng: 140.1133 };
 
-vi.mock("react-router-dom", () => ({
-  Link: ({ children, to }: { children: React.ReactNode; to: string }) => (
-    <a href={to}>{children}</a>
-  ),
-}));
+vi.mock("react-router-dom", async () => {
+  const actual =
+    await vi.importActual<typeof import("react-router-dom")>(
+      "react-router-dom",
+    );
+  return {
+    ...actual,
+    Link: ({
+      children,
+      to,
+      state,
+    }: {
+      children: React.ReactNode;
+      to: string;
+      state?: Record<string, unknown>;
+    }) => {
+      if ((globalThis as any).__useRealRouterLink) {
+        return (
+          <actual.Link to={to} state={state}>
+            {children}
+          </actual.Link>
+        );
+      }
+      return (
+        <a
+          href={to}
+          data-router-state={state ? JSON.stringify(state) : undefined}
+        >
+          {children}
+        </a>
+      );
+    },
+  };
+});
 
 let mockHomeStationCoords: { lat: number; lng: number } | null = YOKOHAMA;
 
@@ -96,6 +130,16 @@ const seikoMuseum: Destination = {
   coordinates: { lat: 35.6712, lng: 139.7645 },
   role: "standalone",
 } as unknown as Destination;
+
+function LocationStateProbe({
+  onState,
+}: {
+  onState: (state: unknown) => void;
+}) {
+  const location = useLocation();
+  onState(location.state);
+  return <div data-testid="destination-route" />;
+}
 
 // ── Service-level tests (fast, no DOM) ────────────────────────────────────────
 function bestTime(
@@ -177,6 +221,64 @@ describe("HomeMatchCard — Tokyo 23 Wards group card", () => {
     expect(link?.getAttribute("href")).toBe(
       "/destinations?city=shinjuku-city&city=shibuya-city&duration=2d1n",
     );
+    act(() => root.unmount());
+    host.remove();
+  });
+
+  it("preserves exact planner transport and trip context in route state", async () => {
+    (globalThis as any).__useRealRouterLink = true;
+    let navigatedState: unknown;
+    const host = document.createElement("div");
+    document.body.appendChild(host);
+    const root = createRoot(host);
+
+    await act(async () => {
+      root.render(
+        <MemoryRouter initialEntries={["/home"]}>
+          <Routes>
+            <Route
+              path="/home"
+              element={
+                <HomeMatchCard
+                  destination={seikoMuseum}
+                  rank={1}
+                  carMode="my_car"
+                  publicModes={[]}
+                  partySize={2}
+                  duration="fullDay"
+                  budget={42000}
+                  tripType="nature"
+                />
+              }
+            />
+            <Route
+              path="/destinations/:id"
+              element={
+                <LocationStateProbe
+                  onState={(state) => (navigatedState = state)}
+                />
+              }
+            />
+          </Routes>
+        </MemoryRouter>,
+      );
+    });
+
+    const link = host.querySelector<HTMLAnchorElement>("a");
+    expect(link).not.toBeNull();
+    await act(async () => {
+      link!.click();
+    });
+
+    expect(navigatedState).toEqual({
+      carMode: "my_car",
+      publicModes: [],
+      partySize: 2,
+      duration: "fullDay",
+      tripType: "nature",
+      budget: 42000,
+    });
+
     act(() => root.unmount());
     host.remove();
   });

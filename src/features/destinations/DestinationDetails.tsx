@@ -10,7 +10,10 @@ import { DestinationRelationshipService } from "@/shared/services/destination/De
 import DestinationMap from "./components/DestinationMap";
 import { getCityArea } from "@/shared/data/cityAreas";
 import type { Destination } from "@/shared/types/destination";
-import type { TripDuration } from "@/shared/types/tripDuration";
+import {
+  normalizeTripDuration,
+  type TripDuration,
+} from "@/shared/types/tripDuration";
 import type { Collection } from "@/shared/types/collection";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
@@ -332,7 +335,7 @@ export default function DestinationDetails() {
   } | null;
   const { user } = useAuth();
   const partySize =
-    navState?.partySize || user?.user_metadata?.preferences?.partySize || 2;
+    navState?.partySize ?? user?.user_metadata?.preferences?.partySize ?? 2;
   // Relationship-backed detail sections use a compact generated graph of
   // relationship-relevant nodes, not the nationwide summary catalogue.
   const {
@@ -340,7 +343,12 @@ export default function DestinationDetails() {
     retry: retryRelationshipCatalogue,
   } = useDestinationRelationships();
   const relationshipCatalogueReady = relationshipCatalogueStatus === "ready";
-  const duration = navState?.duration ?? "fullDay";
+  const savedDuration = normalizeTripDuration(
+    user?.user_metadata?.preferences?.tripDuration ??
+      user?.user_metadata?.preferences?.duration ??
+      user?.user_metadata?.preferences?.tripMode,
+  );
+  const duration = navState?.duration ?? savedDuration ?? "fullDay";
 
   const {
     isVisited,
@@ -465,13 +473,13 @@ export default function DestinationDetails() {
 
   const matchDetails = useMemo(() => {
     if (!destination) return null;
-    const userPrefs = user?.user_metadata?.preferences || {};
-    const tripType = navState?.tripType || "any";
-    const budget = navState?.budget || userPrefs.budget || 50000;
-    const carMode = navState?.carMode || userPrefs.carMode || "none";
-    const publicModes = navState?.publicModes ||
-      userPrefs.publicModes || ["train", "shinkansen", "bus", "flight"];
-    const partySize = navState?.partySize || userPrefs.partySize || 2;
+    const userPrefs = user?.user_metadata?.preferences ?? {};
+    const tripType = navState?.tripType ?? userPrefs.tripType ?? "any";
+    const budget = navState?.budget ?? userPrefs.budget ?? 50000;
+    const carMode = navState?.carMode ?? userPrefs.carMode ?? "none";
+    const publicModes = navState?.publicModes ??
+      userPrefs.publicModes ?? ["train", "shinkansen", "bus", "flight"];
+    const partySize = navState?.partySize ?? userPrefs.partySize ?? 2;
 
     let currentWeatherCondition = "any";
     let currentWeather: { temp: number; desc: string } | null = null;
@@ -779,6 +787,9 @@ export default function DestinationDetails() {
     if (estimate) {
       return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
     }
+    // OriginAwareTransportService intentionally has no synthesized car route.
+    // Keep valid road selections visible, but do not borrow a stale catalogue
+    // duration or replace them with a public-transport estimate.
     if (homeStationCoords && destination) return undefined;
     return destination?.transportOptions?.[mode];
   };
@@ -841,11 +852,13 @@ export default function DestinationDetails() {
     if (mode === "ferry") {
       return Boolean(ferryEstimate);
     }
-    if (
+    const hasGroundEstimate =
       groundMinutesFor(
         mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
-      ) === undefined
-    ) {
+      ) !== undefined;
+    const isExplicitRoadSelection =
+      (mode === "car" || mode === "my_car") && activeModes?.includes(mode);
+    if (!hasGroundEstimate && !isExplicitRoadSelection) {
       return false;
     }
     if (!activeModes) {
@@ -863,10 +876,14 @@ export default function DestinationDetails() {
         }
         continue;
       }
-      if (
+      const hasGroundEstimate =
         groundMinutesFor(
           mode as "train" | "shinkansen" | "bus" | "car" | "my_car",
-        ) !== undefined &&
+        ) !== undefined;
+      const isExplicitRoadSelection =
+        (mode === "car" || mode === "my_car") && activeModes?.includes(mode);
+      if (
+        (hasGroundEstimate || isExplicitRoadSelection) &&
         (!activeModes || activeModes.includes(mode))
       ) {
         modes.push(mode);
@@ -1665,9 +1682,9 @@ export default function DestinationDetails() {
                   destinations={featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode || "none"}
+                  carMode={navState?.carMode ?? "none"}
                   publicModes={
-                    navState?.publicModes || [
+                    navState?.publicModes ?? [
                       "train",
                       "shinkansen",
                       "bus",
@@ -1894,44 +1911,38 @@ export default function DestinationDetails() {
                                 </div>
                               </div>
                             )}
-                          {isModeVisible("car") &&
-                            groundMinutesFor("car") !== undefined && (
-                              <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                                <span className="text-slate-500 flex items-center">
-                                  <Car className="w-4 h-4 mr-1.5" />{" "}
-                                  {locale === "ja"
-                                    ? "レンタカー"
-                                    : "Rental Car"}
-                                </span>
-                                <div className="text-right">
-                                  <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                    {formatGroundTime("car")}
-                                  </div>
-                                  <div className="text-xs text-slate-500">
-                                    {formatGroundCost("car")}
-                                  </div>
+                          {isModeVisible("car") && (
+                            <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                              <span className="text-slate-500 flex items-center">
+                                <Car className="w-4 h-4 mr-1.5" />{" "}
+                                {locale === "ja" ? "レンタカー" : "Rental Car"}
+                              </span>
+                              <div className="text-right">
+                                <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                  {formatGroundTime("car")}
+                                </div>
+                                <div className="text-xs text-slate-500">
+                                  {formatGroundCost("car")}
                                 </div>
                               </div>
-                            )}
-                          {isModeVisible("my_car") &&
-                            groundMinutesFor("my_car") !== undefined && (
-                              <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                                <span className="text-slate-500 flex items-center">
-                                  <Car className="w-4 h-4 mr-1.5" />{" "}
-                                  {locale === "ja"
-                                    ? "マイカー"
-                                    : "Personal Car"}
-                                </span>
-                                <div className="text-right">
-                                  <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                    {formatGroundTime("my_car")}
-                                  </div>
-                                  <div className="text-xs text-slate-500">
-                                    {formatGroundCost("my_car")}
-                                  </div>
+                            </div>
+                          )}
+                          {isModeVisible("my_car") && (
+                            <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                              <span className="text-slate-500 flex items-center">
+                                <Car className="w-4 h-4 mr-1.5" />{" "}
+                                {locale === "ja" ? "マイカー" : "Personal Car"}
+                              </span>
+                              <div className="text-right">
+                                <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                  {formatGroundTime("my_car")}
+                                </div>
+                                <div className="text-xs text-slate-500">
+                                  {formatGroundCost("my_car")}
                                 </div>
                               </div>
-                            )}
+                            </div>
+                          )}
                           {ferryEstimate && isModeVisible("ferry") && (
                             <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
                               <span className="text-slate-500 flex items-center">
@@ -2562,9 +2573,9 @@ export default function DestinationDetails() {
                   destinations={nearbyHubs}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode || "none"}
+                  carMode={navState?.carMode ?? "none"}
                   publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                    navState?.publicModes ?? ["train", "shinkansen", "bus"]
                   }
                   compact
                   previousLabel={copy.scrollLeft}
@@ -2626,9 +2637,9 @@ export default function DestinationDetails() {
                   destinations={nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode || "none"}
+                  carMode={navState?.carMode ?? "none"}
                   publicModes={
-                    navState?.publicModes || ["train", "shinkansen", "bus"]
+                    navState?.publicModes ?? ["train", "shinkansen", "bus"]
                   }
                   compact
                   previousLabel={copy.scrollLeft}
