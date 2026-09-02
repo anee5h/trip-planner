@@ -33,7 +33,9 @@
         "Separate cultural depth from the broader Gunma landscape records"
       ],
       "notes": "Confirm current access, facility rules, and any seasonal restrictions on the official source before travel.",
-      "name": "Shorinzan Darumaji Temple"
+      "name": "Shorinzan Darumaji Temple",
+      "reservation": "Reservation requirements are unverified; check the official source before visiting.",
+      "parking": "Parking availability is unverified; check the official source before visiting."
     },
     "ja": {
       "description": "少林山達磨寺は、高崎のだるま文化と結び付く寺院で、独立した文化観光の目的地です。",
@@ -43,7 +45,9 @@
         "群馬の広域自然レコードとは別の文化の深度"
       ],
       "notes": "訪問前に公式情報で最新のアクセス、施設案内、季節による制限を確認してください。",
-      "name": "少林山達磨寺"
+      "name": "少林山達磨寺",
+      "reservation": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
+      "parking": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
     }
   },
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/%E5%B0%91%E6%9E%97%E5%B1%B1%E9%81%94%E7%A3%A8%E5%AF%BA%E9%9C%8A%E7%AC%A6%E5%A0%82.JPG/1280px-%E5%B0%91%E6%9E%97%E5%B1%B1%E9%81%94%E7%A3%A8%E5%AF%BA%E9%9C%8A%E7%AC%A6%E5%A0%82.JPG",
@@ -121,14 +125,8 @@
     "confidence": "unknown",
     "basis": "No stable crowd vector was verified; the value is neutralized rather than inferred."
   },
-  "reservation": {
-    "required": "unknown",
-    "notes": "Check the official source for current reservation requirements."
-  },
-  "parking": {
-    "available": "unknown",
-    "notes": "Check the official source for current parking arrangements."
-  },
+  "reservation": "Reservation requirements are unverified; check the official source before visiting.",
+  "parking": "Parking availability is unverified; check the official source before visiting.",
   "notes": "The destination record is evidence-backed; current prices, opening hours, seasonality, and route times are intentionally not inferred.",
   "notesJa": "公式情報で確認できる範囲を記録しています。料金、営業時間、季節性、所要時間は推測していません。",
   "status": "verified",
@@ -257,5 +255,7 @@
       "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.9,\"significance\":\"notable\",\"recognition\":\"no-designation\",\"richness\":\"categories-2\",\"accessibility\":\"absent\"}"
     },
     "noteKey": "destination.scoreEstimatedNote"
-  }
+  },
+  "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
+  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
 }
