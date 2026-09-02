@@ -100,10 +100,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+    "confidence": "high",
+    "basis": "KAI-151 Phase 2E authoritative thematic evidence; Summer; preferred months 7,8; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -276,5 +276,13 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "bestSeason": "Summer",
+  "bestMonths": [7, 8],
+  "season": {
+    "spring": 4,
+    "summer": 10,
+    "autumn": 5,
+    "winter": 2
   }
 }

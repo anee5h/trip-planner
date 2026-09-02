@@ -203580,10 +203580,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2E authoritative thematic evidence; Summer; preferred months 6,7,8,9; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 170,
     "scoreMetadata": {
@@ -203622,7 +203622,20 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%9B%9B%E5%AD%A3%E5%BD%A9%E3%81%AE%E4%B8%98",
     "wikipediaPageId": 1603201,
-    "wikidataId": "Q11419849"
+    "wikidataId": "Q11419849",
+    "bestSeason": "Summer",
+    "bestMonths": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 7,
+      "winter": 3
+    }
   },
   {
     "id": "nabana-no-sato",
@@ -227355,10 +227368,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase 2E authoritative thematic evidence; Summer; preferred months 7,8; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -227533,6 +227546,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Summer",
+    "bestMonths": [
+      7,
+      8
+    ],
+    "season": {
+      "spring": 4,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 2
     }
   },
   {

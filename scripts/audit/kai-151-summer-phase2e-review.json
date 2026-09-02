@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-151",
+  "phase": "2E",
+  "baseCommit": "4ed1bdff625037396810ca779b823a6a115b3d89",
+  "checkedAt": "2026-09-02",
+  "candidateDefinition": "Recommendation-visible standalone or point-of-interest destination records surfaced by the frozen KAI-151 thematic candidate/exposure audit; hubs and already-sufficient records are retained for classification but are not mutated.",
+  "selectionMethod": "Frozen five-duration recommendation exposure (shortOuting, halfDay, fullDay, 2d1n, 3d2n) across Tokyo, Osaka, and Fukuoka origins, filtered to the thematic signal and reviewed against destination-specific official operator, municipal, prefectural, or official tourism evidence.",
+  "summary": {
+    "candidateCount": 6,
+    "researchedCount": 6,
+    "mutatedCount": 2,
+    "insufficientCount": 4,
+    "classificationCounts": {
+      "insufficient_evidence": 4,
+      "verified_seasonal_window": 2
+    }
+  },
+  "records": [
+    {
+      "id": "onjuku-beach",
+      "name": "Onjuku Beach",
+      "phase": "2E",
+      "kind": "beach",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "High-exposure standalone beach with an official municipal tourism association swimming period.",
+      "officialEvidence": [
+        {
+          "authority": "Onjuku Town Tourism Association official site",
+          "urls": [
+            "https://onjuku-kankou.com/event/kaisuiyoku/"
+          ],
+          "observations": [
+            "The official page lists the 2026 beach opening period as July 18-August 23, 08:30-17:00, and describes the white sand, calm shallow Ajiro Bay shore, and three swimming beaches."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [
+          7,
+          8
+        ],
+        "seasonVector": {
+          "spring": 4,
+          "summer": 10,
+          "autumn": 5,
+          "winter": 2
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "The published lifeguarded/swimming period maps to July-August; beach access outside that period is not claimed unavailable."
+    },
+    {
+      "id": "shikisai-no-oka",
+      "name": "Shikisai-no-Oka",
+      "phase": "2E",
+      "kind": "park",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone flower park with official green-season and flower-calendar evidence.",
+      "officialEvidence": [
+        {
+          "authority": "Shikisai-no-Oka official operator",
+          "urls": [
+            "https://www.shikisainooka.jp/"
+          ],
+          "observations": [
+            "The official site publishes green-season information, seasonal flower calendar links, and June-September opening hours of 08:40-17:30; current notices document flowers in bloom during July and August."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "seasonVector": {
+          "spring": 5,
+          "summer": 10,
+          "autumn": 7,
+          "winter": 3
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "The explicit June-September green-season window is used conservatively; winter snow activities are not treated as the summer peak."
+    },
+    {
+      "id": "farm-tomita",
+      "name": "Farm Tomita",
+      "phase": "2E",
+      "kind": "park",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "High-exposure standalone flower farm with a strong lavender signal, but the checked current official page does not state a recurring lavender month window.",
+      "officialEvidence": [
+        {
+          "authority": "Farm Tomita official site",
+          "urls": [
+            "https://www.farm-tomita.co.jp/en/"
+          ],
+          "observations": [
+            "The official site provides current opening hours and flower-field/news information, but the checked page does not publish a recurring lavender peak window suitable for exact bestMonths."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Leave unknown rather than reuse an uncited lavender peak."
+    },
+    {
+      "id": "yonehara-beach-coral-ishigaki",
+      "name": "Yonehara Beach & Coral Reef",
+      "phase": "2E",
+      "kind": "beach",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "season": {
+          "spring": 9,
+          "summer": 10,
+          "autumn": 9,
+          "winter": 6
+        },
+        "seasonMetadata": null
+      },
+      "cohortReason": "Standalone beach/coral POI with marine activity association but no verified official operating window in the checked evidence.",
+      "officialEvidence": [
+        {
+          "authority": "Ishigaki City / local tourism sources",
+          "urls": [
+            "https://www.env.go.jp/park/iriomote/index.html"
+          ],
+          "observations": [
+            "The checked official national-park source establishes the broader coral-reef setting but does not provide a beach-specific seasonal operating or peak window for Yonehara."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No generic tropical-climate inference."
+    },
+    {
+      "id": "kerama-shoto",
+      "name": "Keramashoto National Park",
+      "phase": "2E",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Broad island national-park record with beaches and marine activities but no destination-wide summer month window in the checked official source.",
+      "officialEvidence": [
+        {
+          "authority": "Ministry of the Environment national park site",
+          "urls": [
+            "https://www.env.go.jp/park/kerama/index.html"
+          ],
+          "observations": [
+            "The official source establishes the park, islands, and marine environment, but no single summer peak window for the whole park record was verified."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Broad park scope and variable marine conditions keep it unknown."
+    },
+    {
+      "id": "aoshima-island-miyazaki",
+      "name": "Aoshima Island & Devil's Washboard",
+      "phase": "2E",
+      "kind": "nature",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Standalone coastal island with strong summer/beach association but no verified official month window in the checked evidence.",
+      "officialEvidence": [
+        {
+          "authority": "Miyazaki official tourism sources",
+          "urls": [
+            "https://www.miyazaki-city.tourism.or.jp/"
+          ],
+          "observations": [
+            "The checked official tourism material establishes Aoshima as a coastal scenic island, but does not provide a recurring summer operating or peak window for this card."
+          ],
+          "evidenceDate": "2026-09-02"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Do not infer months from subtropical identity alone."
+    }
+  ]
+}
