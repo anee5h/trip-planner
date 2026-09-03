@@ -104,17 +104,21 @@ function isUnroutable(body: unknown): boolean {
   );
 }
 
-function routeSummary(body: unknown): Record<string, unknown> | undefined {
-  if (
-    !isRecord(body) ||
-    !Array.isArray(body.routes) ||
-    body.routes.length === 0
-  ) {
-    return undefined;
+type RouteSummaryResult =
+  | { readonly kind: "no_route" }
+  | { readonly kind: "invalid" }
+  | { readonly kind: "available"; readonly summary: Record<string, unknown> };
+
+function routeSummary(body: unknown): RouteSummaryResult {
+  if (!isRecord(body) || !Array.isArray(body.routes)) {
+    return { kind: "invalid" };
   }
+  if (body.routes.length === 0) return { kind: "no_route" };
   const firstRoute = body.routes[0];
-  if (!isRecord(firstRoute) || !isRecord(firstRoute.summary)) return undefined;
-  return firstRoute.summary;
+  if (!isRecord(firstRoute) || !isRecord(firstRoute.summary)) {
+    return { kind: "invalid" };
+  }
+  return { kind: "available", summary: firstRoute.summary };
 }
 
 /**
@@ -205,6 +209,25 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
       );
     }
 
+    if (response.status === 429) {
+      return failure(
+        request,
+        this.endpoint,
+        this.now,
+        "error",
+        "quota_exceeded",
+      );
+    }
+    if (response.status === 401 || response.status === 403) {
+      return failure(
+        request,
+        this.endpoint,
+        this.now,
+        "error",
+        "provider_authorization_error",
+      );
+    }
+
     let payload: unknown;
     try {
       payload = await response.json();
@@ -214,29 +237,13 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
         this.endpoint,
         this.now,
         "error",
-        "invalid_provider_response",
+        response.ok
+          ? "invalid_provider_response"
+          : `provider_http_${response.status}`,
       );
     }
 
     if (!response.ok) {
-      if (response.status === 429) {
-        return failure(
-          request,
-          this.endpoint,
-          this.now,
-          "error",
-          "quota_exceeded",
-        );
-      }
-      if (response.status === 401 || response.status === 403) {
-        return failure(
-          request,
-          this.endpoint,
-          this.now,
-          "error",
-          "provider_authorization_error",
-        );
-      }
       if (response.status === 404 || isUnroutable(payload)) {
         return failure(
           request,
@@ -255,8 +262,8 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
       );
     }
 
-    const summary = routeSummary(payload);
-    if (!summary) {
+    const summaryResult = routeSummary(payload);
+    if (summaryResult.kind === "no_route") {
       return failure(
         request,
         this.endpoint,
@@ -265,6 +272,16 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
         "unroutable",
       );
     }
+    if (summaryResult.kind === "invalid") {
+      return failure(
+        request,
+        this.endpoint,
+        this.now,
+        "error",
+        "invalid_provider_response",
+      );
+    }
+    const summary = summaryResult.summary;
     if (
       typeof summary.distance !== "number" ||
       !Number.isFinite(summary.distance) ||

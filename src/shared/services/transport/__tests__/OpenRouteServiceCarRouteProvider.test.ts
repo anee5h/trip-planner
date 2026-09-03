@@ -166,6 +166,30 @@ describe("OpenRouteServiceCarRouteProvider", () => {
     });
   });
 
+  it("classifies quota even when the provider body is not JSON", async () => {
+    const fetchMock = vi.fn(
+      async () => new Response("rate limit", { status: 429 }),
+    );
+    const provider = new OpenRouteServiceCarRouteProvider({
+      apiKey: "fixture-key",
+      fetchImpl: fetchMock,
+    });
+    const result = await provider.route(request());
+    expect(result).toMatchObject({
+      availability: "error",
+      errorCode: "quota_exceeded",
+    });
+  });
+
+  it("classifies a malformed route envelope as invalid provider data", async () => {
+    const { provider } = providerFor({ routes: [{}] });
+    const result = await provider.route(request());
+    expect(result).toMatchObject({
+      availability: "error",
+      errorCode: "invalid_provider_response",
+    });
+  });
+
   it("distinguishes network failures", async () => {
     const fetchMock = vi.fn(async () => {
       throw new Error("network down");
