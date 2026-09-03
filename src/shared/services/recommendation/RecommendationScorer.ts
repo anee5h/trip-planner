@@ -228,7 +228,17 @@ function getValidModesUncached(
       ) {
         return false;
       }
-      if (checkMode === "train") return true;
+      if (checkMode === "train") {
+        if (effectiveOriginZoneId !== destinationZoneId) return true;
+        return Boolean(
+          homeCoords &&
+          getOriginAwareTransportEstimate(
+            dest,
+            { homeStationCoords: homeCoords, ferryTemporal },
+            [checkMode],
+          ),
+        );
+      }
       return Boolean(
         homeCoords &&
         getOriginAwareTransportEstimate(
