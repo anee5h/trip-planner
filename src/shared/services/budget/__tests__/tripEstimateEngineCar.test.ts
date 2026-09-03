@@ -12,6 +12,9 @@ import type { CarRoundTripRoute } from "../../transport/CarRouteProvider";
 const destination = (destinations as Destination[]).find(
   (item) => item.id === "karuizawa-town",
 )!;
+const otherDestination = (destinations as Destination[]).find(
+  (item) => item.id === "kyu-karuizawa-ginza",
+)!;
 const route: CarRoundTripRoute = {
   outbound: {
     availability: "available",
@@ -20,7 +23,7 @@ const route: CarRoundTripRoute = {
       id: "karuizawa-old-new-area-parking",
       label: "Old/New Karuizawa parking",
       kind: "official_parking",
-      coordinates: { lat: 36.35, lng: 138.59 },
+      coordinates: { lat: 36.357333, lng: 138.633287 },
       sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
     },
     provider: "fixture-route-provider",
@@ -38,7 +41,7 @@ const route: CarRoundTripRoute = {
       id: "karuizawa-old-new-area-parking",
       label: "Old/New Karuizawa parking",
       kind: "official_parking",
-      coordinates: { lat: 36.35, lng: 138.59 },
+      coordinates: { lat: 36.357333, lng: 138.633287 },
       sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
     },
     provider: "fixture-route-provider",
@@ -59,7 +62,35 @@ const costOptions = {
   parkingCostJPY: [500, 1000] as [number, number],
 };
 
+const rentalOptions = {
+  ...costOptions,
+  duration: "fullDay" as const,
+  vehicleClass: "compact" as const,
+  dailyRentalChargeJPY: {
+    compact: [6000, 10000] as [number, number],
+    standard: [8000, 14000] as [number, number],
+    suv: [11000, 18000] as [number, number],
+  },
+};
 describe("TripEstimateEngine canonical car integration", () => {
+  it("does not reuse a route for a different destination anchor", () => {
+    const result = calculateTripEstimate({
+      dest: otherDestination,
+      mode: "my_car",
+      partySize: 2,
+      homeCoords: { lat: 35.44, lng: 139.64 },
+      duration: "fullDay",
+      carRoute: route,
+      carCostOptions: costOptions,
+    });
+
+    expect(result.components[0].cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
+    expect(result.journey).toBeUndefined();
+  });
+
   it("uses the same vehicle-scoped route cost in the engine and transport service", () => {
     const canonical = getCanonicalTransportCost(
       destination,
@@ -90,6 +121,11 @@ describe("TripEstimateEngine canonical car integration", () => {
       completeness: "complete",
       basis: "round_trip",
       variability: "range",
+      assumptionProvenance: {
+        source: "Meguruto planning defaults",
+        basis: "fuel economy, fuel price, parking, and rental-rate profiles",
+        revision: "car-cost-v2-defaults-1",
+      },
       sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
     });
     expect(result.journey?.legs).toHaveLength(2);
@@ -100,6 +136,39 @@ describe("TripEstimateEngine canonical car integration", () => {
     );
   });
 
+  it("keeps a partial car subtotal when toll evidence is unknown", () => {
+    const partialRoute = {
+      ...route,
+      returnRoute: {
+        ...route.returnRoute,
+        toll: { state: "unknown" as const, basis: "unspecified" as const },
+      },
+    };
+    const result = calculateTripEstimate({
+      dest: destination,
+      mode: "my_car",
+      partySize: 2,
+      homeCoords: { lat: 35.44, lng: 139.64 },
+      duration: "fullDay",
+      carRoute: partialRoute,
+      carCostOptions: costOptions,
+    });
+    const origin = result.components[0];
+
+    expect(result.completeness).toBe("partial");
+    expect(result.total).toBeUndefined();
+    expect(origin.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
+    expect(origin.knownCost?.kind).toBe("bounded");
+    expect(origin.knownCost?.min).toBeGreaterThan(0);
+    expect(origin.knownCost?.max).toBeGreaterThan(origin.knownCost?.min ?? 0);
+    expect(result.knownSubtotal[0]).toBeGreaterThanOrEqual(1550);
+    expect(
+      result.missingComponents.some((item) => item.scope === "origin_travel"),
+    ).toBe(true);
+  });
   it("uses canonical party size and rejects rental/personal option mismatches", () => {
     const canonical = getCanonicalTransportCost(
       destination,
@@ -134,6 +203,37 @@ describe("TripEstimateEngine canonical car integration", () => {
       kind: "unavailable",
       reason: "source_missing",
     });
+  });
+
+  it("uses canonical trip duration for rental possession days", () => {
+    const oneDay = calculateTripEstimate({
+      dest: destination,
+      mode: "car",
+      partySize: 2,
+      homeCoords: { lat: 35.44, lng: 139.64 },
+      duration: "fullDay",
+      carRoute: route,
+      carCostOptions: rentalOptions,
+    });
+    const twoDays = calculateTripEstimate({
+      dest: destination,
+      mode: "car",
+      partySize: 2,
+      homeCoords: { lat: 35.44, lng: 139.64 },
+      duration: "2d1n",
+      carRoute: route,
+      carCostOptions: rentalOptions,
+    });
+    const oneDayOrigin = oneDay.components[0].cost;
+    const twoDayOrigin = twoDays.components[0].cost;
+
+    expect(oneDayOrigin.kind).toBe("bounded");
+    expect(twoDayOrigin.kind).toBe("bounded");
+    if (oneDayOrigin.kind !== "bounded" || twoDayOrigin.kind !== "bounded") {
+      return;
+    }
+    expect(twoDayOrigin.min - oneDayOrigin.min).toBe(6000);
+    expect(twoDayOrigin.max - oneDayOrigin.max).toBe(10000);
   });
 
   it("does not build a Journey when origin travel is explicitly excluded", () => {

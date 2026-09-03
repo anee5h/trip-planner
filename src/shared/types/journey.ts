@@ -1,4 +1,7 @@
-import type { CostRepresentation } from "@/shared/services/budget/budgetV2";
+import type {
+  CostRepresentation,
+  CostAssumptionProvenance,
+} from "@/shared/services/budget/budgetV2";
 import type {
   TransportFareScope,
   TransportMode,
@@ -59,6 +62,7 @@ export interface JourneyCost {
     | "round_trip"
     | "unknown";
   readonly variability?: "fixed" | "range" | "variable" | "dynamic";
+  readonly assumptionProvenance?: CostAssumptionProvenance;
   readonly sourceUrls?: readonly string[];
 }
 

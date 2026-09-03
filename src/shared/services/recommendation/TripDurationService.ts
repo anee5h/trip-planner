@@ -5,6 +5,7 @@ import {
   buildJourneyFromOriginAwareEstimate,
 } from "@/shared/services/transport/JourneyBuilder";
 import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
+import { isCarRoundTripRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
 import {
   getSafeGroundEstimate,
@@ -133,7 +134,7 @@ export interface DayTripTravelDurationEvidence {
 }
 
 function getEstimatedFallbackModes(modes: readonly string[]): string[] {
-  return [...modes];
+  return modes.filter((mode) => mode === "car" || mode === "my_car");
 }
 
 /**
@@ -154,6 +155,15 @@ export function getTravelDurationEvidence(
     return { evidence: "unknown" };
   }
 
+  const scopedCarRoute =
+    context.carRoute &&
+    isCarRoundTripRouteForDestination(
+      destination,
+      context.carRoute,
+      context.homeStationCoords,
+    )
+      ? context.carRoute
+      : undefined;
   const originAware = getOriginAwareTransportEstimate(
     destination,
     {
@@ -161,7 +171,7 @@ export function getTravelDurationEvidence(
       originZoneId:
         "originZoneId" in context ? context.originZoneId : undefined,
       ferryTemporal: context.ferryTemporal,
-      carRoute: context.carRoute,
+      carRoute: scopedCarRoute,
     },
     modes,
   );
@@ -171,11 +181,11 @@ export function getTravelDurationEvidence(
       estimate: originAware,
       journey:
         (originAware.mode === "car" || originAware.mode === "my_car") &&
-        context.carRoute
+        scopedCarRoute
           ? buildCarJourney(
               destination,
               context.homeStationCoords,
-              context.carRoute,
+              scopedCarRoute,
               undefined,
               originAware.mode === "my_car" ? "my_car" : "car",
             )

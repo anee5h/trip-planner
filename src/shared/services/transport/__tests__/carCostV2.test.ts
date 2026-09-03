@@ -130,6 +130,32 @@ describe("carCostV2", () => {
     expect(day.vehiclesNeeded).toBe(1);
   });
 
+  it("retains partial fuel and parking when one toll is unknown", () => {
+    const partialRoute = {
+      ...route,
+      returnRoute: {
+        ...route.returnRoute,
+        toll: { state: "unknown" as const, basis: "unspecified" as const },
+      },
+    };
+    const result = calculatePersonalCarCost(partialRoute, personalAssumptions);
+
+    expect(result.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
+    expect(result.reason).toBe("toll_unknown");
+    expect(result.breakdown?.fuel).toEqual([1050, 4200]);
+    expect(result.breakdown?.parking).toEqual([500, 1000]);
+    expect(result.breakdown?.toll).toBeUndefined();
+    expect(result.knownCost).toEqual([1550, 5200]);
+    expect(result.assumptionProvenance).toEqual({
+      source: "Meguruto planning defaults",
+      basis: "fuel economy, fuel price, parking, and rental-rate profiles",
+      revision: "car-cost-v2-defaults-1",
+    });
+  });
+
   it("does not invent rental pricing when duration is any", () => {
     const result = calculateRentalCarCost(route, {
       ...personalAssumptions,

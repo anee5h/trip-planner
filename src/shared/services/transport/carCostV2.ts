@@ -1,4 +1,7 @@
-import type { CostRepresentation } from "@/shared/services/budget/budgetV2";
+import type {
+  CostRepresentation,
+  CostAssumptionProvenance,
+} from "@/shared/services/budget/budgetV2";
 import { getTripDays, type TripDuration } from "@/shared/types/tripDuration";
 import type { PriceRange } from "@/shared/types/planner";
 import type { CarRoundTripRoute, CarRouteResult } from "./CarRouteProvider";
@@ -7,7 +10,7 @@ export type CarVehicleClass = "compact" | "standard" | "suv";
 
 export interface CarCostBreakdown {
   readonly fuel: PriceRange;
-  readonly toll: PriceRange;
+  readonly toll?: PriceRange;
   readonly parking: PriceRange;
   readonly rental?: PriceRange;
   readonly applicableFees?: PriceRange;
@@ -19,6 +22,7 @@ export interface PersonalCarCostOptions {
   readonly fuelEconomyKmPerL: PriceRange;
   readonly fuelPriceJPYPerL: PriceRange;
   readonly parkingCostJPY: PriceRange;
+  readonly assumptionProvenance?: CostAssumptionProvenance;
 }
 
 export interface RentalCarCostOptions extends PersonalCarCostOptions {
@@ -31,11 +35,20 @@ export interface RentalCarCostOptions extends PersonalCarCostOptions {
 export interface CarCostResult {
   readonly cost: CostRepresentation;
   readonly breakdown?: CarCostBreakdown;
+  /** Bounded inputs known even when the full total is unavailable. */
+  readonly knownCost?: PriceRange;
   readonly vehiclesNeeded: number;
   readonly routedDistanceKm?: number;
   readonly rentalDays?: number;
+  readonly assumptionProvenance?: CostAssumptionProvenance;
   readonly reason?: string;
 }
+
+export const DEFAULT_CAR_ASSUMPTION_PROVENANCE: CostAssumptionProvenance = {
+  source: "Meguruto planning defaults",
+  basis: "fuel economy, fuel price, parking, and rental-rate profiles",
+  revision: "car-cost-v2-defaults-1",
+};
 
 export const DEFAULT_FUEL_ECONOMY_KM_PER_L: PriceRange = [12, 18];
 export const DEFAULT_FUEL_PRICE_JPY_PER_L: PriceRange = [165, 190];
@@ -52,6 +65,9 @@ function unavailable(
   reason: string,
   distanceKm?: number,
   rentalDays?: number,
+  details: Partial<
+    Pick<CarCostResult, "breakdown" | "knownCost" | "assumptionProvenance">
+  > = {},
 ): CarCostResult {
   return {
     cost: { kind: "unavailable", reason: "source_missing" },
@@ -59,6 +75,7 @@ function unavailable(
     routedDistanceKm: distanceKm,
     rentalDays,
     reason,
+    ...details,
   };
 }
 
@@ -159,7 +176,7 @@ function routeInputs(
       distanceKm: number;
       vehicles: number;
       fuel: PriceRange;
-      toll: PriceRange;
+      toll?: PriceRange;
       parking: PriceRange;
     }
   | CarCostResult {
@@ -181,7 +198,6 @@ function routeInputs(
   if (!fuel)
     return unavailable(vehicles, "fuel_assumption_invalid", distanceKm);
   const toll = tollRange(route, vehicles);
-  if (!toll) return unavailable(vehicles, "toll_unknown", distanceKm);
   if (!validRange(options.parkingCostJPY)) {
     return unavailable(vehicles, "parking_unknown", distanceKm);
   }
@@ -204,15 +220,29 @@ export function calculatePersonalCarCost(
   if ("cost" in inputs) return inputs;
   const breakdown = {
     fuel: inputs.fuel,
-    toll: inputs.toll,
+    ...(inputs.toll ? { toll: inputs.toll } : {}),
     parking: inputs.parking,
   };
+  const knownCost = sumRanges(inputs.fuel, inputs.parking);
+  const assumptionProvenance =
+    options.assumptionProvenance ?? DEFAULT_CAR_ASSUMPTION_PROVENANCE;
+  if (!inputs.toll) {
+    return unavailable(
+      inputs.vehicles,
+      "toll_unknown",
+      inputs.distanceKm,
+      undefined,
+      { breakdown, knownCost, assumptionProvenance },
+    );
+  }
   const total = sumRanges(inputs.fuel, inputs.toll, inputs.parking);
   return {
     cost: { kind: "bounded", min: total[0], max: total[1] },
     breakdown,
+    knownCost: total,
     vehiclesNeeded: inputs.vehicles,
     routedDistanceKm: inputs.distanceKm,
+    assumptionProvenance,
   };
 }
 
@@ -265,10 +295,27 @@ export function calculateRentalCarCost(
   const breakdown = {
     rental,
     fuel: inputs.fuel,
-    toll: inputs.toll,
+    ...(inputs.toll ? { toll: inputs.toll } : {}),
     parking: inputs.parking,
     applicableFees,
   };
+  const knownCost = sumRanges(
+    rental,
+    inputs.fuel,
+    inputs.parking,
+    applicableFees,
+  );
+  const assumptionProvenance =
+    options.assumptionProvenance ?? DEFAULT_CAR_ASSUMPTION_PROVENANCE;
+  if (!inputs.toll) {
+    return unavailable(
+      inputs.vehicles,
+      "toll_unknown",
+      inputs.distanceKm,
+      days,
+      { breakdown, knownCost, assumptionProvenance },
+    );
+  }
   const total = sumRanges(
     rental,
     inputs.fuel,
@@ -279,8 +326,10 @@ export function calculateRentalCarCost(
   return {
     cost: { kind: "bounded", min: total[0], max: total[1] },
     breakdown,
+    knownCost: total,
     vehiclesNeeded: inputs.vehicles,
     routedDistanceKm: inputs.distanceKm,
     rentalDays: days,
+    assumptionProvenance,
   };
 }

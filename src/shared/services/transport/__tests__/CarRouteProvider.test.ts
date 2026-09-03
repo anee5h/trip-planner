@@ -7,6 +7,7 @@ import type { CarAccessAnchor } from "@/shared/types/carAccess";
 import {
   createFixtureCarRouteProvider,
   getCarRoundTripRoute,
+  getCarRoundTripRouteAsync,
   type CarRouteEndpoint,
   type CarRouteRequest,
   type CarRouteResult,
@@ -79,6 +80,27 @@ function route(
 }
 
 describe("CarRouteProvider", () => {
+  it("normalizes promise-based providers across both directions", async () => {
+    const syncProvider = createFixtureCarRouteProvider([
+      route(firstAnchor, "outbound"),
+      route(firstAnchor, "return"),
+    ]);
+    const provider = {
+      route: async (request: CarRouteRequest) => syncProvider.route(request),
+    };
+
+    const result = await getCarRoundTripRouteAsync(
+      provider,
+      destination,
+      origin,
+    );
+
+    expect(result.outbound.direction).toBe("outbound");
+    expect(result.returnRoute.direction).toBe("return");
+    expect(result.outbound.accessAnchor?.id).toBe(firstAnchor.id);
+    expect(result.returnRoute.accessAnchor?.id).toBe(firstAnchor.id);
+  });
+
   it("keeps outbound and return route facts independent", () => {
     const provider = createFixtureCarRouteProvider([
       route(firstAnchor, "outbound"),

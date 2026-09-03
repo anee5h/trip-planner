@@ -38,6 +38,7 @@ import {
 } from "@/shared/services/transport/transportCostV2";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import { isCarRoundTripRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import type {
   PersonalCarCostOptions,
   RentalCarCostOptions,
@@ -138,6 +139,7 @@ function journeyCostFromTransport(result: TransportCostResult): JourneyCost {
       : "unknown",
     basis: "round_trip",
     ...(variability ? { variability } : {}),
+    assumptionProvenance: result.evidence.assumptionProvenance,
     sourceUrls: result.evidence.sourceUrls,
   };
 }
@@ -197,6 +199,9 @@ function sumBounded(components: readonly TripCostComponent[]): BoundedCost {
     if (component.cost.kind === "bounded") {
       min += component.cost.min;
       max += component.cost.max;
+    } else if (component.knownCost) {
+      min += component.knownCost.min;
+      max += component.knownCost.max;
     }
   }
   return { kind: "bounded", min, max };
@@ -597,11 +602,19 @@ function modelOriginRange(
   return scalePerPerson(perPerson, partySize);
 }
 
+function normalizeCarCostOptionsForTrip(
+  options: PersonalCarCostOptions | RentalCarCostOptions | undefined,
+  duration: TripDuration,
+): PersonalCarCostOptions | RentalCarCostOptions | undefined {
+  return options && "duration" in options ? { ...options, duration } : options;
+}
+
 function originComponent(
   dest: Destination,
   mode: string | undefined,
   partySize: number,
   homeCoords: { lat: number; lng: number } | undefined,
+  duration: TripDuration,
   ferryTemporal: FerryTemporalContext | undefined,
   carRoute: CarRoundTripRoute | undefined,
   carCostOptions: PersonalCarCostOptions | RentalCarCostOptions | undefined,
@@ -614,6 +627,10 @@ function originComponent(
     });
   }
 
+  const effectiveCarCostOptions = normalizeCarCostOptionsForTrip(
+    carCostOptions,
+    duration,
+  );
   const transport = getCanonicalTransportCost(
     dest,
     mode,
@@ -621,13 +638,14 @@ function originComponent(
     homeCoords,
     ferryTemporal,
     carRoute,
-    carCostOptions,
+    effectiveCarCostOptions,
   );
   const urls = sourceUrlsForTransport(transport);
   const baseEvidence = {
     scope: "origin_travel" as const,
     fareScope: transport.evidence.fareScope,
     sourceUrls: urls,
+    assumptionProvenance: transport.evidence.assumptionProvenance,
   };
 
   if (transport.cost.kind === "bounded") {
@@ -665,11 +683,14 @@ function originComponent(
   }
 
   if (mode === "car" || mode === "my_car") {
-    return component(transport.cost, {
-      ...baseEvidence,
-      derivation: transport.evidence.derivation,
-      reason: "source_missing",
-    });
+    return {
+      ...component(transport.cost, {
+        ...baseEvidence,
+        derivation: transport.evidence.derivation,
+        reason: "source_missing",
+      }),
+      ...(transport.knownCost ? { knownCost: transport.knownCost } : {}),
+    };
   }
 
   const model = modelOriginRange(dest, mode, partySize, homeCoords);
@@ -913,6 +934,16 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
   const includeOrigin =
     context.includeOriginTravel === true ||
     (context.includeOriginTravel === undefined && Boolean(context.homeCoords));
+  const scopedCarRoute =
+    context.carRoute &&
+    context.homeCoords &&
+    isCarRoundTripRouteForDestination(
+      context.dest,
+      context.carRoute,
+      context.homeCoords,
+    )
+      ? context.carRoute
+      : undefined;
   const origin = !includeOrigin
     ? component(
         { kind: "not_applicable" },
@@ -923,8 +954,9 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
         context.mode,
         partySize,
         context.homeCoords,
+        context.duration,
         context.ferryTemporal,
-        context.carRoute,
+        scopedCarRoute,
         context.carCostOptions,
       );
   const admission = admissionComponent(context.dest, partySize);
@@ -958,11 +990,11 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
     (context.mode === "car" || context.mode === "my_car") &&
     context.includeOriginTravel !== false &&
     context.homeCoords &&
-    context.carRoute
+    scopedCarRoute
       ? buildCarJourney(
           context.dest,
           context.homeCoords,
-          context.carRoute,
+          scopedCarRoute,
           journeyCostFromTransport(
             getCanonicalTransportCost(
               context.dest,
@@ -970,8 +1002,11 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
               partySize,
               context.homeCoords,
               context.ferryTemporal,
-              context.carRoute,
-              context.carCostOptions,
+              scopedCarRoute,
+              normalizeCarCostOptionsForTrip(
+                context.carCostOptions,
+                context.duration,
+              ),
             ),
           ),
           context.mode === "my_car" ? "my_car" : "car",

@@ -40,8 +40,14 @@ import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import { getLocalBoundedRailFareEstimate } from "./LocalBoundedFareEstimator";
-import type { CostRepresentation, CostDerivation } from "../budget/budgetV2";
+import type {
+  BoundedCost,
+  CostAssumptionProvenance,
+  CostDerivation,
+  CostRepresentation,
+} from "../budget/budgetV2";
 import type { CarRoundTripRoute } from "./CarRouteProvider";
+import { isCarRoundTripRouteForDestination } from "./CarRouteProvider";
 import {
   calculatePersonalCarCost,
   calculateRentalCarCost,
@@ -65,11 +71,15 @@ export interface TransportCostEvidence {
   readonly sourceUrls?: readonly string[];
   /** How the number came to be (Budget v2 derivation axis). */
   readonly derivation: CostDerivation;
+  /** Runtime assumptions used for modelled car inputs. */
+  readonly assumptionProvenance?: CostAssumptionProvenance;
 }
 
 /** The canonical structured transport cost result. */
 export interface TransportCostResult {
   readonly cost: CostRepresentation;
+  /** Known bounded inputs retained when the full cost is unavailable. */
+  readonly knownCost?: BoundedCost;
   readonly evidence: TransportCostEvidence;
   /** The source estimator that produced this, for diagnostics. */
   readonly source:
@@ -186,6 +196,15 @@ function toCarTransportCost(
   const rental = Boolean(result.breakdown?.rental);
   return {
     cost: result.cost,
+    ...(result.knownCost
+      ? {
+          knownCost: {
+            kind: "bounded" as const,
+            min: result.knownCost[0],
+            max: result.knownCost[1],
+          },
+        }
+      : {}),
     evidence: {
       fareScope: known ? "complete" : "unknown",
       isRoundTripPartyTotal: true,
@@ -194,8 +213,9 @@ function toCarTransportCost(
         : "personal_vehicle_cash_cost",
       sourceUrls: carRouteSourceUrls(route),
       derivation: known ? "model_estimate" : "computed",
+      assumptionProvenance: result.assumptionProvenance,
     },
-    source: known ? "car_route_cost" : "unavailable",
+    source: result.breakdown ? "car_route_cost" : "unavailable",
   };
 }
 
@@ -243,6 +263,9 @@ export function getCanonicalTransportCost(
   }
 
   if ((mode === "car" || mode === "my_car") && carRoute) {
+    if (!isCarRoundTripRouteForDestination(dest, carRoute, homeCoords)) {
+      return carUnavailable(carRoute);
+    }
     return carRouteCost(carRoute, mode, carCostOptions, partySize);
   }
 

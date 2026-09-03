@@ -59,6 +59,11 @@ export interface CarRouteProvider {
   route(request: CarRouteRequest): CarRouteResult;
 }
 
+/** Network providers such as ORS must cross an explicit async boundary. */
+export interface AsyncCarRouteProvider {
+  route(request: CarRouteRequest): Promise<CarRouteResult>;
+}
+
 export interface CarRoundTripRoute {
   readonly outbound: CarRouteResult;
   readonly returnRoute: CarRouteResult;
@@ -165,6 +170,55 @@ function normalizeProviderResult(
   };
 }
 
+function routeAnchorEndpoint(
+  result: CarRouteResult,
+  direction: CarRouteDirection,
+): CarRouteEndpoint | undefined {
+  if (result.accessAnchor) return result.accessAnchor;
+  if (direction === "return" && result.destination?.id === "origin") {
+    return undefined;
+  }
+  return result.destination;
+}
+
+function matchesAccessAnchor(
+  endpoint: CarRouteEndpoint | undefined,
+  anchors: readonly CarAccessAnchor[],
+): boolean {
+  if (!endpoint) return false;
+  return anchors.some(
+    (anchor) =>
+      (anchor.id === endpoint.id || anchor.id === endpoint.accessAnchorId) &&
+      sameCoordinates(anchor.coordinates, endpoint.coordinates),
+  );
+}
+
+/**
+ * Guard direct route consumers against applying one destination route to
+ * another candidate. Normalized provider results carry accessAnchor on both
+ * legs; direct test/runtime inputs may carry the anchor as the endpoint.
+ */
+export function isCarRoundTripRouteForDestination(
+  destination: Destination,
+  route: CarRoundTripRoute,
+  origin?: CarAccessCoordinates,
+): boolean {
+  const anchors = getRoutableCarAccessAnchors(destination);
+  if (anchors.length === 0) return false;
+  if (origin && !sameCoordinates(route.outbound.origin, origin)) return false;
+
+  const outboundAnchor = routeAnchorEndpoint(route.outbound, "outbound");
+  const returnAnchor = routeAnchorEndpoint(route.returnRoute, "return");
+  const outboundDestinationMatches =
+    !route.outbound.accessAnchor ||
+    matchesAccessAnchor(route.outbound.destination, anchors);
+  return (
+    outboundDestinationMatches &&
+    matchesAccessAnchor(outboundAnchor, anchors) &&
+    matchesAccessAnchor(returnAnchor, anchors)
+  );
+}
+
 function routeForDirection(
   provider: CarRouteProvider,
   home: CarAccessCoordinates,
@@ -199,6 +253,75 @@ function routeForDirection(
     if (isAvailable(normalized)) return normalized;
   }
   return last;
+}
+
+async function routeForDirectionAsync(
+  provider: AsyncCarRouteProvider,
+  home: CarAccessCoordinates,
+  anchors: readonly CarAccessAnchor[],
+  direction: CarRouteDirection,
+  departureAt?: string,
+): Promise<CarRouteResult> {
+  let last = unavailableRoute(home, "no_routable_access_anchor");
+  for (const anchor of anchors) {
+    const accessEndpoint = endpointFromAnchor(anchor);
+    const requestOrigin =
+      direction === "outbound" ? endpointFromOrigin(home) : accessEndpoint;
+    const requestDestination =
+      direction === "outbound" ? accessEndpoint : endpointFromOrigin(home);
+    const request = {
+      origin: requestOrigin,
+      destination: requestDestination,
+      direction,
+      departureAt,
+    } satisfies CarRouteRequest;
+    const normalized = normalizeProviderResult(
+      await provider.route(request),
+      request,
+      accessEndpoint,
+    );
+    last = normalized;
+    if (isAvailable(normalized)) return normalized;
+  }
+  return last;
+}
+
+/**
+ * Async counterpart for network route providers. It shares the same
+ * directional and provider-output validation as the synchronous fixture path.
+ */
+export async function getCarRoundTripRouteAsync(
+  provider: AsyncCarRouteProvider,
+  destination: Destination,
+  origin: CarAccessCoordinates,
+  options: {
+    readonly departureAt?: string;
+    readonly returnDepartureAt?: string;
+  } = {},
+): Promise<CarRoundTripRoute> {
+  const access = getCarAccess(destination);
+  if (access.eligibility !== "eligible") {
+    const unavailable = unavailableRoute(origin, `access_${access.state}`);
+    return { outbound: unavailable, returnRoute: unavailable };
+  }
+  const anchors = getRoutableCarAccessAnchors(destination);
+  const [outbound, returnRoute] = await Promise.all([
+    routeForDirectionAsync(
+      provider,
+      origin,
+      anchors,
+      "outbound",
+      options.departureAt,
+    ),
+    routeForDirectionAsync(
+      provider,
+      origin,
+      anchors,
+      "return",
+      options.returnDepartureAt,
+    ),
+  ]);
+  return { outbound, returnRoute };
 }
 
 /**

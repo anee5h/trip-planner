@@ -1,6 +1,9 @@
 import type { Destination } from "@/shared/types/destination";
 import type { CarRoundTripRoute } from "./CarRouteProvider";
-import { hasUsableCarRoute } from "./CarRouteProvider";
+import {
+  hasUsableCarRoute,
+  isCarRoundTripRouteForDestination,
+} from "./CarRouteProvider";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type {
   FerryTemporalContext,
@@ -729,7 +732,21 @@ export function getOriginAwareTransportEstimate(
   context: OriginAwareEstimateContext,
   modes: readonly string[],
 ): OriginAwareTransportEstimate | null {
-  const cacheKey = buildEstimateCacheKey(destination, context, modes);
+  const scopedCarRoute =
+    context.homeStationCoords &&
+    context.carRoute &&
+    isCarRoundTripRouteForDestination(
+      destination,
+      context.carRoute,
+      context.homeStationCoords,
+    )
+      ? context.carRoute
+      : undefined;
+  const cacheContext =
+    context.carRoute === scopedCarRoute
+      ? context
+      : { ...context, carRoute: undefined };
+  const cacheKey = buildEstimateCacheKey(destination, cacheContext, modes);
   const cached = originAwareEstimateCache.get(cacheKey);
   if (cached !== undefined) {
     originAwareCacheHits += 1;
@@ -741,7 +758,7 @@ export function getOriginAwareTransportEstimate(
   for (const mode of modes) {
     let estimate: OriginAwareTransportEstimate | null = null;
     if (mode === "car" || mode === "my_car") {
-      const route = context.carRoute?.outbound;
+      const route = scopedCarRoute?.outbound;
       if (route && hasUsableCarRoute(route)) {
         estimate = {
           mode: mode as TransportMode,
