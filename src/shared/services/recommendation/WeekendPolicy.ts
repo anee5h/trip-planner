@@ -75,7 +75,9 @@ export function evaluateWeekendTravelFit(
   options: { overnightWorthy?: boolean } = {},
 ): WeekendTravelFit {
   if (oneWayMinutes === undefined) {
-    return { eligible: false, band: "unknown" };
+    // Unknown route evidence is neutral for recommendation eligibility. It
+    // must not manufacture a duration or pretend to fit a travel band.
+    return { eligible: true, band: "unknown" };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES) {
     return {
