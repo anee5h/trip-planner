@@ -108,11 +108,9 @@ describe("runRecommendationPipeline — day-trip parity", () => {
 // ── Duration-gate contract (KAI-63 D4) ───────────────────────────────────────
 
 describe("runRecommendationPipeline — duration-gate contract", () => {
-  // Wakayama has train authorization from the tokyoHome origin (same-zone
-  // topology + transportOptions key) but no corridor row and no ≤120 km
-  // safe-ground estimate: travel-duration evidence is unknown and no visit
-  // band is published, so the day-trip envelope's "any" branch must reject
-  // it while pure reachability keeps it.
+  // Wakayama has no canonical origin-aware corridor and no ≤120 km
+  // safe-ground estimate. Its legacy transportOptions number must not make
+  // this personalized candidate reachable.
   const unknownDuration = dest({
     id: "unknown-duration",
     prefecture: "Wakayama",
@@ -120,12 +118,12 @@ describe("runRecommendationPipeline — duration-gate contract", () => {
     coordinates: { lat: 34.2, lng: 135.2 },
   });
 
-  it("no explicit trip mode + duration 'any' ⇒ reachability only (unknown duration stays eligible)", () => {
+  it("does not authorize metadata-only travel when duration is any", () => {
     const res = runRecommendationPipeline(
       [unknownDuration],
       ctx({ tripDuration: "any" }),
     );
-    expect(res.some((r) => r.id === "unknown-duration")).toBe(true);
+    expect(res.some((r) => r.id === "unknown-duration")).toBe(false);
   });
 
   it("explicit duration (halfDay) ⇒ that duration applies", () => {
@@ -999,6 +997,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const noRoute = dest({
       id: "no-route",
       role: "hub",
+      localAccessUnestimated: true,
       transportOptions: {},
       recommendedVisitHours: { min: 1, max: 10 },
     });

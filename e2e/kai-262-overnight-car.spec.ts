@@ -83,6 +83,17 @@ async function assertRecommendations(page: Page) {
 }
 
 test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem(
+      "meguruto-guest-origin",
+      JSON.stringify({
+        label: "Tokyo Station",
+        coordinates: { lat: 35.6812, lng: 139.7671 },
+        source: "station",
+        transportZoneId: "mainland-honshu",
+      }),
+    );
+  });
   await mockWeather(page);
 });
 

@@ -604,16 +604,11 @@ function getGroundEstimate(
           mode,
         )
       : null;
-  // A newly verified record with route-known-but-unestimated local access
-  // must not inherit a broad prefecture corridor and present a station-to-
-  // attraction claim. Require an exact municipality corridor until the
-  // final local leg has its own evidence; legacy records with a static mode
-  // value retain the old fallback while they are migrated.
-  if (
-    !municipalityRoute &&
-    destination.localAccessUnestimated === true &&
-    destination.transportOptions?.[mode] === undefined
-  ) {
+  // A record with route-known-but-unestimated local access must not inherit a
+  // broad prefecture corridor and present a station-to-attraction claim.
+  // Require an exact municipality corridor until the final local leg has its
+  // own evidence. Legacy transportOptions never bypass this guard.
+  if (!municipalityRoute && destination.localAccessUnestimated === true) {
     return null;
   }
   const route =

@@ -19,6 +19,7 @@ import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { isCarModeEligible } from "@/shared/services/transport/CarAccessService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
 import {
@@ -211,76 +212,44 @@ function getValidModesUncached(
   const supported = (mode: string): boolean => {
     if (mode === "flight") return Boolean(flightEstimate);
     if (mode === "ferry") return Boolean(ferryEstimate);
-    // my_car uses the same road-support check as car
+
     const checkMode = mode === "my_car" ? "car" : mode;
+    if (checkMode === "car") return isCarModeEligible(dest);
+
     if (
       checkMode === "train" ||
       checkMode === "shinkansen" ||
       checkMode === "bus"
     ) {
-      if (homeCoords) {
-        // Personalized origin with coordinates: the canonical origin-aware
-        // system is authoritative for records whose static mode is unknown.
-        // A null canonical result means unsupported — stale transportOptions
-        // must not resurrect a missing personalized corridor (KAI-12).
-        // Existing records with a legacy static value retain that value as an
-        // availability fallback until their corridor is migrated; newly
-        // verified expansion records deliberately leave the value absent.
-        if (
-          dest.transportOptions?.[
-            checkMode as keyof typeof dest.transportOptions
-          ] === undefined
-        ) {
-          // Origin-aware fallback is opt-in for records that explicitly
-          // declare local access modes. Legacy fixtures and records without
-          // that declaration must not gain a synthetic corridor merely
-          // because a broad prefecture route exists.
-          if (
-            checkMode === "train" &&
-            !dest.localAccessModes?.includes(checkMode)
-          ) {
-            return false;
-          }
-          return Boolean(
-            getOriginAwareTransportEstimate(
-              dest,
-              {
-                homeStationCoords: homeCoords,
-                originZoneId: effectiveOriginZoneId,
-                ferryTemporal,
-              },
-              [checkMode],
-            ),
-          );
-        }
+      if (
+        checkMode === "train" &&
+        dest.localAccessModes !== undefined &&
+        !dest.localAccessModes.includes(checkMode)
+      ) {
+        return false;
       }
-      if (checkMode === "shinkansen" || checkMode === "bus") {
-        if (homeCoords) {
-          return Boolean(
-            getOriginAwareTransportEstimate(
-              dest,
-              {
-                homeStationCoords: homeCoords,
-                originZoneId: effectiveOriginZoneId,
-                ferryTemporal,
-              },
-              [checkMode],
-            ),
-          );
-        }
-        // Zone-only / neutral browsing keeps the legacy metadata display gate.
+      if (checkMode === "train") {
+        if (effectiveOriginZoneId !== destinationZoneId) return true;
         return Boolean(
-          dest.transportOptions?.[
-            checkMode as keyof typeof dest.transportOptions
-          ] !== undefined,
+          homeCoords &&
+          getOriginAwareTransportEstimate(
+            dest,
+            { homeStationCoords: homeCoords, ferryTemporal },
+            [checkMode],
+          ),
         );
       }
+      return Boolean(
+        homeCoords &&
+        getOriginAwareTransportEstimate(
+          dest,
+          { homeStationCoords: homeCoords, ferryTemporal },
+          [checkMode],
+        ),
+      );
     }
-    return (
-      dest.transportOptions?.[
-        checkMode as keyof typeof dest.transportOptions
-      ] !== undefined
-    );
+
+    return false;
   };
   const selected = new Set<string>(publicModes);
   if (carMode === "rental") selected.add("car");

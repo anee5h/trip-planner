@@ -60,6 +60,7 @@ const mockDest = {
   bestSeason: "Spring",
   coordinates: { lat: 35.6812, lng: 139.7671 },
   transportOptions: { train: 60 },
+  localAccessModes: ["train"],
   recommendedVisitHours: { min: 3, max: 5 },
   totalTripHours: 4,
   walkingMin: 30,
@@ -243,7 +244,7 @@ describe("RecommendationScorer Unit Tests", () => {
     expect(incomplete.score).toBeLessThanOrEqual(complete.score);
   });
 
-  it("retains every authorized user-allowed mode regardless of budget tier", () => {
+  it("does not let legacy transport options authorize personalized modes", () => {
     const carDestination = {
       ...mockDest,
       transportOptions: { train: 60, car: 70, my_car: 65 },
@@ -258,7 +259,7 @@ describe("RecommendationScorer Unit Tests", () => {
         "standard",
         "mainland-honshu",
       ),
-    ).toEqual(["car"]);
+    ).toEqual([]);
     expect(
       getValidModes(
         carDestination,
@@ -268,9 +269,9 @@ describe("RecommendationScorer Unit Tests", () => {
         "economy",
         "mainland-honshu",
       ),
-    ).toEqual(["my_car"]);
-    // Budget tiers must not delete faster authorized modes (e.g. shinkansen
-    // for a standard user): travel evaluation sees every valid mode.
+    ).toEqual([]);
+    // The legacy train number is ignored; the topology and explicit local
+    // access declaration establish this train mode instead.
     expect(
       getValidModes(
         carDestination,
@@ -280,7 +281,72 @@ describe("RecommendationScorer Unit Tests", () => {
         "standard",
         "mainland-honshu",
       ),
-    ).toEqual(["train", "car"]);
+    ).toEqual(["train"]);
+  });
+
+  it("requires an origin road connection in addition to a car access anchor", () => {
+    const carDestination = {
+      ...mockDest,
+      id: "car-anchor-destination",
+      carAccess: {
+        state: "direct",
+        eligibility: "eligible",
+        anchors: [
+          {
+            id: "destination-parking",
+            label: "Destination parking",
+            kind: "official_parking",
+            coordinates: { lat: 36.36, lng: 138.61 },
+            sourceUrls: ["https://example.test/parking"],
+          },
+        ],
+        evidence: "fixture",
+        sourceUrls: ["https://example.test/access"],
+      },
+      localAccessModes: ["car"],
+      transportOptions: { car: 90, my_car: 90 },
+    } as unknown as Destination;
+
+    expect(
+      getValidModes(
+        carDestination,
+        "rental",
+        [],
+        { lat: 26.217, lng: 127.719 },
+        "standard",
+        "okinawa-main",
+      ),
+    ).toEqual([]);
+    expect(
+      getValidModes(
+        carDestination,
+        "rental",
+        [],
+        { lat: 35.514745, lng: 139.539692 },
+        "standard",
+        "mainland-honshu",
+      ),
+    ).toEqual(["car"]);
+    expect(
+      getValidModes(
+        carDestination,
+        "my_car",
+        [],
+        { lat: 26.217, lng: 127.719 },
+        "standard",
+        "okinawa-main",
+      ),
+    ).toEqual([]);
+    expect(
+      getValidModes(
+        carDestination,
+        "my_car",
+        [],
+        { lat: 35.514745, lng: 139.539692 },
+        "standard",
+        "mainland-honshu",
+      ),
+    ).toEqual(["my_car"]);
   });
 
   it("keeps day-trip efficiency on the selected usable transport mode", async () => {
@@ -869,6 +935,7 @@ describe("getValidModes topology authorization", () => {
     prefecture: "Okinawa",
     municipalityId: "naha-city",
     coordinates: { lat: 26.2124, lng: 127.6809 },
+    localAccessModes: ["bus"],
     transportOptions: { train: 30, bus: 45, flight: 150 },
     tags: ["island", "remote"],
   } as unknown as Destination;
@@ -897,7 +964,7 @@ describe("getValidModes topology authorization", () => {
     expect(modes).toContain("flight");
   });
 
-  it("allows train for Naha → Naha (same-zone, local modes)", () => {
+  it("does not infer Naha rail from legacy transport metadata", () => {
     const modes = getValidModes(
       nahaDest,
       "none",
@@ -906,7 +973,7 @@ describe("getValidModes topology authorization", () => {
       undefined,
       "okinawa-main",
     );
-    expect(modes).toContain("train");
+    expect(modes).not.toContain("train");
   });
 
   it("returns ferry from Tokyo → Ogasawara (ferry now estimable)", () => {
@@ -954,6 +1021,7 @@ describe("getValidModes topology authorization", () => {
       prefecture: "Osaka",
       municipalityId: "Osaka:osaka",
       coordinates: { lat: 34.6937, lng: 135.5023 },
+      localAccessModes: ["train", "shinkansen", "bus"],
       transportOptions: {},
     } as unknown as Destination;
 
@@ -1004,6 +1072,29 @@ describe("getValidModes topology authorization", () => {
         "none",
         ["bus"],
         { lat: 35.9063, lng: 139.6239 },
+        undefined,
+        "mainland-honshu",
+      ),
+    ).toEqual([]);
+  });
+
+  it("stale transportOptions.train cannot authorize a missing personalized train corridor", () => {
+    const staleTrain = {
+      ...mockDest,
+      id: "stale-train-dest",
+      prefecture: "Kagawa",
+      coordinates: { lat: 34.34, lng: 134.05 },
+      transportZoneId: "mainland-honshu",
+      transportOptions: { train: 240 },
+      localAccessModes: [],
+    } as unknown as Destination;
+
+    expect(
+      getValidModes(
+        staleTrain,
+        "none",
+        ["train"],
+        { lat: 35.6812, lng: 139.7671 },
         undefined,
         "mainland-honshu",
       ),

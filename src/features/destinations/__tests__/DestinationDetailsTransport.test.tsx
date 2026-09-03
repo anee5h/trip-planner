@@ -102,9 +102,30 @@ vi.mock("@/shared/components/ui/LazyImage", () => ({
 }));
 
 import destinationIndex from "@/shared/data/destinations-index.json";
-const records = new Map(
-  (destinationIndex as { id: string }[]).map((d) => [d.id, d]),
+const records = new Map<string, Record<string, unknown>>(
+  (destinationIndex as Record<string, unknown>[]).map((d) => [String(d.id), d]),
 );
+const nmwaRecord = records.get("national-museum-western-art-tokyo");
+if (nmwaRecord) {
+  records.set("national-museum-western-art-tokyo", {
+    ...nmwaRecord,
+    carAccess: {
+      state: "direct",
+      eligibility: "eligible",
+      anchors: [
+        {
+          id: "nmwa-road-entrance",
+          label: "NMWA road entrance",
+          kind: "road_access_entrance",
+          coordinates: { lat: 35.7202, lng: 139.7767 },
+          sourceUrls: ["https://example.com/nmwa-road"],
+        },
+      ],
+      evidence: "catalogue_metadata",
+      sourceUrls: ["https://example.com/nmwa-road"],
+    },
+  });
+}
 
 vi.stubGlobal(
   "fetch",

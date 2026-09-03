@@ -20,6 +20,7 @@ import {
 } from "@/shared/services/budget/BudgetService";
 import { calculateGeneratedPlanCost } from "@/shared/services/budget/GeneratedPlanCostService";
 import { resolveTransportSelection } from "@/features/home/services/TransportResolver";
+import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import destinationsIndex from "@/shared/data/destinations-index.json";
 import type { Destination } from "@/shared/types/destination";
 
@@ -782,12 +783,9 @@ describe("destination-level local access", () => {
     expect(modes).not.toContain("shinkansen");
   });
 
-  it("Sakurajima production record returns no estimable modes, never Train", () => {
-    // The catalogue record backs train:180 only, but localAccessModes
-    // [car, my_car, bus] authorizes only non-rail access — which has no
-    // estimator or static option. The connection is route-known but
-    // unestimated (localAccessUnestimated), so nothing is selectable and
-    // Train is never authorized.
+  it("Sakurajima production record returns only the car candidate, never Train", () => {
+    // Sakurajima carries car as a local access mode, so it is a car
+    // resolution candidate; Train is not supported by the record.
     const dest = byId.get("sakurajima-volcano-kagoshima")!;
     const modes = getValidModes(
       dest,
@@ -797,7 +795,7 @@ describe("destination-level local access", () => {
       undefined,
       "mainland-kyushu",
     );
-    expect(modes).toEqual([]);
+    expect(modes).toEqual(["car"]);
   });
 
   it("Kouri production record is Bus-only, never Train", () => {
@@ -867,7 +865,7 @@ describe("car/my_car cross-zone authorization", () => {
   const FUKUOKA_COORDS = { lat: 33.5902, lng: 130.4017 };
   const SAPPORO_COORDS = { lat: 43.0618, lng: 141.3545 };
 
-  it("Honshu → Kyushu with my_car authorizes road mode", () => {
+  it("Honshu → Kyushu authorizes my_car only as a resolution candidate", () => {
     const dest = byId.get("kumamoto-castle")!;
     const modes = getValidModes(
       dest,
@@ -877,10 +875,13 @@ describe("car/my_car cross-zone authorization", () => {
       undefined,
       "mainland-honshu",
     );
+    // Legacy car metadata + topology make this a candidate for road routing
+    // consideration. Candidate status authorizes an ATTEMPT — canonical
+    // duration/cost still require KAI-226 route evidence.
     expect(modes).toContain("my_car");
   });
 
-  it("Honshu → Shikoku with my_car authorizes road mode", () => {
+  it("Honshu → Shikoku authorizes my_car only as a resolution candidate", () => {
     const dest = byId.get("kochi-castle")!;
     const modes = getValidModes(
       dest,
@@ -908,7 +909,7 @@ describe("car/my_car cross-zone authorization", () => {
     expect(modes).not.toContain("car");
   });
 
-  it("Honshu → Kyushu with rental car authorizes car", () => {
+  it("Honshu → Kyushu authorizes rental car as a resolution candidate", () => {
     const dest = byId.get("kumamoto-castle")!;
     const modes = getValidModes(
       dest,
@@ -921,7 +922,7 @@ describe("car/my_car cross-zone authorization", () => {
     expect(modes).toContain("car");
   });
 
-  it("public + rental selection preserves both downstream capabilities", () => {
+  it("public + rental selection preserves public capabilities alongside the car candidate", () => {
     const dest = byId.get("kumamoto-castle")!;
     const selection = resolveTransportSelection(true, "rental", [
       "train",
@@ -938,9 +939,8 @@ describe("car/my_car cross-zone authorization", () => {
       "mainland-honshu",
     );
     expect(modes).toContain("car");
-    expect(
-      modes.some((mode) => ["train", "shinkansen", "bus"].includes(mode)),
-    ).toBe(true);
+    expect(modes).toContain("train");
+    expect(modes).toContain("flight");
     expect(new Set(modes).size).toBe(modes.length);
   });
 
@@ -973,7 +973,7 @@ describe("car/my_car cross-zone authorization", () => {
     expect(modes).not.toContain("train");
   });
 
-  it("Hokkaido → Honshu with authorized train may estimate train when canonical absent", () => {
+  it("Hokkaido → Honshu without canonical train evidence remains unknown", () => {
     // Train is in the Honshu↔Hokkaido edge (via Shinkansen tunnel);
     // my_car is not, but train should be authorized.
     const dest = byId.get("tokyo-station-chiyoda")!;
@@ -1027,22 +1027,20 @@ describe("KAI-63 corridor coverage from Kanagawa (PR #172)", () => {
     }
   });
 
-  it("Nikko and Ashikaga stay outside the 30 km Shinkansen access catchment", () => {
-    // Nikko (≈34 km) and Ashikaga (≈40 km) from their respective hubs are
-    // beyond the 30 km arrival radius: no fabricated gateway access is
-    // claimed. They remain train-eligible via local rail, never Shinkansen.
+  it("Nikko and Ashikaga have no Shinkansen estimate outside the 30 km catchment", () => {
+    // Eligibility is topology-backed; the physical hub catchment is asserted
+    // on the origin-aware estimate, where no fabricated gateway access may be
+    // claimed.
     for (const id of ["nikko-city", "ashikaga-city"]) {
-      const modes = getValidModes(
+      const estimate = getOriginAwareTransportEstimate(
         byId.get(id)!,
-        "none",
-        ["train", "shinkansen"],
-        YOKOHAMA,
-        undefined,
-        undefined,
-        undefined,
+        {
+          homeStationCoords: YOKOHAMA,
+          originZoneId: "mainland-honshu",
+        },
+        ["shinkansen"],
       );
-      expect(modes).toContain("train");
-      expect(modes).not.toContain("shinkansen");
+      expect(estimate).toBeNull();
     }
   });
 });
@@ -1083,16 +1081,15 @@ describe("KAI-63 Shinkansen hub coverage from Kyushu (PR #172)", () => {
     }
   });
 
-  it("Hagi (36 km from Shin-Yamaguchi) stays outside the 30 km catchment", () => {
-    const modes = getValidModes(
+  it("Hagi (36 km from Shin-Yamaguchi) has no Shinkansen route estimate outside the catchment", () => {
+    const estimate = getOriginAwareTransportEstimate(
       byId.get("hagi-castle")!,
-      "none",
+      {
+        homeStationCoords: FUKUOKA,
+        originZoneId: "mainland-kyushu",
+      },
       ["shinkansen"],
-      FUKUOKA,
-      undefined,
-      undefined,
-      undefined,
     );
-    expect(modes).not.toContain("shinkansen");
+    expect(estimate).toBeNull();
   });
 });

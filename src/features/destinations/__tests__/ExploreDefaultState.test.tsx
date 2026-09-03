@@ -606,13 +606,12 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
   }
 
-  it("mode=train with Any duration keeps a reachable destination whose duration is unknown", async () => {
+  it("does not recommend Kyoto from metadata-only train evidence", async () => {
     setYokohamaOrigin();
 
-    // Kyoto is reachable by conventional rail (topology + transportOptions)
-    // but has no verified origin-aware duration from a Kanagawa origin — it
-    // was previously dropped by the hidden 14 h/evidence gate. The search
-    // query keeps the assertion independent of pagination.
+    // Kyoto's legacy number is not an authorization source. Without a
+    // canonical origin-aware corridor, it remains unavailable for this
+    // personalized query.
     const container = await renderDestinations(
       "/destinations?mode=train&q=kyoto",
     );
@@ -620,7 +619,7 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
       (heading) => heading.textContent ?? "",
     );
 
-    expect(headings.some((text) => text.includes("Kyoto City"))).toBe(true);
+    expect(headings.some((text) => text.includes("Kyoto City"))).toBe(false);
   }, 15000);
 
   it("explicit Full-day duration still applies the duration gate", async () => {

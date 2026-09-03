@@ -1,0 +1,48 @@
+{
+  "karuizawa-town": {
+    "state": "parking_walk",
+    "eligibility": "eligible",
+    "anchors": [
+      {
+        "id": "karuizawa-old-new-area-parking",
+        "label": "Parking serving the Old and New Karuizawa areas",
+        "kind": "official_parking",
+        "coordinates": { "lat": 36.357333, "lng": 138.633287 },
+        "sourceUrls": [
+          "https://karuizawa-kankokyokai.jp/information/84692/",
+          "https://www.openstreetmap.org/way/364599513"
+        ],
+        "notes": "町営旧軽井沢駐車場 is the named mapped parking feature. The tourism association publishes municipal parking information; OSM supplies the mapped lot geometry. Route to this anchor, then walk to the attraction."
+      }
+    ],
+    "evidence": "tourism_board",
+    "sourceUrls": ["https://karuizawa-kankokyokai.jp/information/84692/"],
+    "checkedAt": "2026-09-03",
+    "reason": "Official visitor information identifies parking serving the area; final access is parking plus an attraction walk."
+  },
+  "kyu-karuizawa-ginza": {
+    "state": "parking_walk",
+    "eligibility": "eligible",
+    "anchors": [
+      {
+        "id": "kyu-karuizawa-area-parking",
+        "label": "Parking serving Kyu-Karuizawa Ginza Street",
+        "kind": "official_parking",
+        "coordinates": { "lat": 36.357333, "lng": 138.633287 },
+        "sourceUrls": [
+          "https://karuizawa-kankokyokai.jp/en/spot/30483/",
+          "https://karuizawa-kankokyokai.jp/information/84692/",
+          "https://www.openstreetmap.org/way/364599513"
+        ],
+        "notes": "町営旧軽井沢駐車場 is the named mapped parking feature serving the pedestrian shopping street. The tourism association identifies the street and publishes parking information; OSM supplies the mapped lot geometry. Route to the anchor, then walk to the attraction."
+      }
+    ],
+    "evidence": "tourism_board",
+    "sourceUrls": [
+      "https://karuizawa-kankokyokai.jp/en/spot/30483/",
+      "https://karuizawa-kankokyokai.jp/information/84692/"
+    ],
+    "checkedAt": "2026-09-03",
+    "reason": "Official destination and visitor information support car-to-parking access, followed by walking access to the street."
+  }
+}

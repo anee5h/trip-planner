@@ -102,7 +102,7 @@ describe("day-trip travel evidence", () => {
     expect(corridorEvidence).toBe("verified");
   });
 
-  it("keeps a reachable destination with unknown travel under Any duration and no explicit trip mode (KAI-63 D4)", () => {
+  it("does not recommend metadata-only travel with an unresolved route (KAI-264)", () => {
     const source = catalog.find(
       (destination) => destination.id === "yokohama-city",
     )!;
@@ -114,15 +114,13 @@ describe("day-trip travel evidence", () => {
       transportOptions: { train: 30 },
     } as Destination;
 
-    // Duration evidence is independent of mode eligibility: "Any" imposes no
-    // hidden cap and must not exclude a reachable destination whose duration
-    // is unknown. An explicit day duration does apply the envelope below.
+    // Without a canonical route or destination coordinates, the legacy
+    // transportOptions number cannot make this personalized candidate valid.
     const results = getRecommendations([unknownTravelCandidate], {
       ...contextFor(NAKAYAMA, "halfDay"),
       tripDuration: "any",
     });
-
-    expect(results).toHaveLength(1);
+    expect(results).toHaveLength(0);
   });
 
   it("excludes unknown travel under an explicit duration (KAI-63 D4)", () => {
@@ -213,7 +211,7 @@ describe("day-trip travel evidence", () => {
         "standard",
         allPublic.originZoneId,
       ),
-    ).toContain("car");
+    ).toEqual(["car"]);
 
     // Odawara is ~54 km from the origin and has no canonical Shinkansen
     // arrival (no hub within the 30 km arrival catchment), so enabling more
@@ -375,19 +373,18 @@ describe("day-trip travel evidence", () => {
       );
     });
 
-    // Miyoshi/Oboke and other current Shikoku records keep the bounded set at
-    // 39. The point of this test is the evidence state, not the exact inventory;
-    // keep it deterministic.
-    // Entries without a public ground mode (e.g. omishima-bridge, reached
-    // only by car/ferry from Takamatsu) legitimately stay "unknown" — the
-    // invariant applies to the estimable subset with rail/bus options.
-    expect(nearbySameZone).toHaveLength(39);
-    const publicGroundEntries = nearbySameZone.filter(
-      (result) =>
-        result.transportOptions?.train !== undefined ||
-        result.transportOptions?.bus !== undefined,
+    const publicGroundEntries = nearbySameZone.filter((result) =>
+      getValidModes(
+        result,
+        "none",
+        ["train", "bus"],
+        TAKAMATSU,
+        "standard",
+        context.originZoneId,
+      ).some((mode) => mode === "train" || mode === "bus"),
     );
-    expect(publicGroundEntries).toHaveLength(36);
+    expect(publicGroundEntries.length).toBeGreaterThan(0);
+    expect(publicGroundEntries.length).toBeLessThan(36);
     expect(
       publicGroundEntries.every(
         (result) =>

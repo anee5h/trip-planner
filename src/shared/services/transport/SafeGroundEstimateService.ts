@@ -12,6 +12,7 @@ import type { EstimatedTransportEstimate } from "./OriginAwareTransportService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import { resolveOriginMunicipalityId } from "../recommendation/OriginAreaService";
 import { getDestinationList } from "../destination/DestinationService";
+import { getRoutableCarAccessAnchors } from "./CarAccessService";
 
 /**
  * Coordinate estimates are useful for nearby discovery, not for silently
@@ -58,10 +59,18 @@ function isSupportedDestinationMode(
   mode: TransportMode,
 ): boolean {
   const optionMode = mode === "my_car" ? "car" : mode;
+  if (optionMode === "car") {
+    return getRoutableCarAccessAnchors(destination).length > 0;
+  }
+  // A bounded local estimate is safe for rail only. Bus duration needs a
+  // canonical corridor; never substitute a generic bus-shaped duration for a
+  // personalized origin. An omitted localAccessModes field means the zone
+  // topology is the destination-level evidence. An explicit [] remains a
+  // hard no-access declaration. transportOptions is never authorization.
+  if (optionMode !== "train") return false;
   return (
-    destination.transportOptions?.[
-      optionMode as keyof typeof destination.transportOptions
-    ] !== undefined
+    destination.localAccessModes === undefined ||
+    destination.localAccessModes.includes(optionMode)
   );
 }
 
@@ -122,6 +131,7 @@ function pickFastestEstimate(
  * following are true:
  * - both endpoints resolve to the same major land-transport zone;
  * - the caller has already authorized a ground mode for the destination;
+ * - canonical destination access evidence supports the selected mode;
  * - both endpoints have finite coordinates within the locality radius;
  * - destination-level access restrictions allow the selected mode.
  *
