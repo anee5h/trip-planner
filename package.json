@@ -38,6 +38,7 @@
     "audit:kai-257": "tsx --tsconfig tsconfig.app.json scripts/audit-kai-257-top-sights-integrity.ts",
     "audit:kai-219": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-219-migration-audit.ts",
     "audit:kai-264-car-access": "tsx --tsconfig tsconfig.app.json scripts/audit-kai-264-car-access.ts",
+    "audit:kai-226-golden-routes": "tsx --tsconfig tsconfig.app.json scripts/audit-kai-226-golden-routes.ts",
     "audit:kai-87": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-87-planning-quality-audit.ts",
     "audit:kai-151": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-151-seasonality-review.ts",
     "audit:kai-151-sakura": "tsx --tsconfig tsconfig.app.json scripts/audit/kai-151-sakura-phase2a-audit.ts",

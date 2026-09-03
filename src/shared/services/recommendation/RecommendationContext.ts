@@ -4,6 +4,11 @@ import type {
 } from "./PersonalizationService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
+import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import type {
+  PersonalCarCostOptions,
+  RentalCarCostOptions,
+} from "@/shared/services/transport/carCostV2";
 import type { TravelDateSelection } from "./TravelConditions";
 import type { TripDuration } from "@/shared/types/tripDuration";
 
@@ -90,6 +95,16 @@ export interface RecommendationContext {
   originZoneId?: TransportZoneId;
   /** Planned trip date/season for ferry availability; never the clock. */
   ferryTemporal?: FerryTemporalContext;
+  /** Optional provider-normalized car route facts for duration/budget consistency. */
+  carRoute?: CarRoundTripRoute;
+  /**
+   * Per-destination carrier routes for multi-destination flows (KAI-226
+   * production acquisition). Each entry is guarded by the destination's own
+   * anchor scope before consumption.
+   */
+  carRoutes?: Readonly<Record<string, CarRoundTripRoute>>;
+  /** Cost assumptions matching carMode; vehicle scoped, not passenger scoped. */
+  carCostOptions?: PersonalCarCostOptions | RentalCarCostOptions;
   /**
    * Explicit trip dates (Day 1, plus derived Day 2 for 2D1N). When set, the
    * pipeline evaluates forecast/seasonal travel conditions per destination.
@@ -108,6 +123,8 @@ export interface TripDurationContext {
   originZoneId?: TransportZoneId;
   availableTimeHours?: number;
   ferryTemporal?: FerryTemporalContext;
+  carRoute?: CarRoundTripRoute;
+  carRoutes?: Readonly<Record<string, CarRoundTripRoute>>;
 }
 
 export function resolveRecommendationWeather(context: RecommendationContext) {

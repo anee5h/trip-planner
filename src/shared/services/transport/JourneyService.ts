@@ -4,6 +4,8 @@ import {
   buildJourneyFromOriginAwareEstimate,
   type JourneyEndpoints,
 } from "./JourneyBuilder";
+import { buildCarJourney } from "./CarJourneyBuilder";
+import { isCarRoundTripRouteForDestination } from "./CarRouteProvider";
 import {
   getOriginAwareTransportEstimate,
   type OriginAwareEstimateContext,
@@ -37,6 +39,27 @@ export function buildOriginAwareTransportJourney(
   estimate: OriginAwareTransportEstimate,
 ): Journey | null {
   if (!context.homeStationCoords) return null;
+  const scopedCarRoute =
+    context.carRoute &&
+    isCarRoundTripRouteForDestination(
+      destination,
+      context.carRoute,
+      context.homeStationCoords,
+    )
+      ? context.carRoute
+      : undefined;
+  if (
+    (estimate.mode === "car" || estimate.mode === "my_car") &&
+    scopedCarRoute
+  ) {
+    return buildCarJourney(
+      destination,
+      context.homeStationCoords,
+      scopedCarRoute,
+      undefined,
+      estimate.mode === "my_car" ? "my_car" : "car",
+    );
+  }
   return buildJourneyFromOriginAwareEstimate(
     estimate,
     getJourneyEndpoints(destination, context),

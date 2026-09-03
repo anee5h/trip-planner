@@ -1,4 +1,7 @@
-import type { CostRepresentation } from "@/shared/services/budget/budgetV2";
+import type {
+  CostRepresentation,
+  CostAssumptionProvenance,
+} from "@/shared/services/budget/budgetV2";
 import type {
   TransportFareScope,
   TransportMode,
@@ -59,6 +62,7 @@ export interface JourneyCost {
     | "round_trip"
     | "unknown";
   readonly variability?: "fixed" | "range" | "variable" | "dynamic";
+  readonly assumptionProvenance?: CostAssumptionProvenance;
   readonly sourceUrls?: readonly string[];
 }
 
@@ -87,6 +91,11 @@ export interface JourneyRouteMetadata {
   readonly arrivalAirportName?: string;
   readonly departurePortName?: string;
   readonly arrivalPortName?: string;
+  readonly accessAnchorId?: string;
+  readonly routeDistanceKm?: number;
+  readonly tollState?: "priced" | "free" | "unknown";
+  readonly tollBasis?: "ETC" | "ETC2" | "general" | "cash" | "unspecified";
+  readonly retrievedAt?: string;
   readonly notes?: string;
 }
 
@@ -101,6 +110,8 @@ export interface JourneyProvenance {
 
 export interface JourneyLeg {
   readonly mode: TransportMode;
+  /** Outbound and return routes are independently sourced when present. */
+  readonly direction?: "outbound" | "return" | "one_way";
   readonly origin: JourneyEndpoint;
   readonly destination: JourneyEndpoint;
   readonly duration: JourneyDuration;
@@ -121,6 +132,8 @@ export interface Journey {
   readonly origin: JourneyEndpoint;
   readonly destination: JourneyEndpoint;
   readonly legs: readonly JourneyLeg[];
+  /** Optional aggregate cost for the complete journey (e.g. vehicle fuel/toll/parking). */
+  readonly cost?: JourneyCost;
   readonly availability: JourneyAvailability;
   readonly confidence: JourneyConfidence;
   readonly provenance: JourneyProvenance;

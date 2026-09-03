@@ -1,0 +1,47 @@
+{
+  "version": "car-planning-assumptions-2026-09-03-v1",
+  "checkedAt": "2026-09-03",
+  "notes": "Planning envelopes only. These values are not live supplier quotes and are not vehicle-specific facts.",
+  "fuelEconomyKmPerL": {
+    "value": [12, 18],
+    "unit": "km/L",
+    "category": "vehicle_fuel_economy",
+    "rationale": "Bounded compact-to-SUV planning envelope informed by published Japanese vehicle fuel-economy tables; replace with a vehicle-specific value when known.",
+    "source": "MLIT published vehicle fuel-economy tables",
+    "reference": "https://www.mlit.go.jp/jidosha/jidosha_mn10_000002.html"
+  },
+  "fuelPriceJPYPerL": {
+    "value": [165, 190],
+    "unit": "JPY/L",
+    "category": "regular_gasoline_price",
+    "rationale": "Bounded planning envelope for regular gasoline; refresh against the official weekly retail-price series when a dated quote is required.",
+    "source": "Agency for Natural Resources and Energy petroleum price statistics",
+    "reference": "https://www.enecho.meti.go.jp/statistics/petroleum_and_lpgas/pl007/"
+  },
+  "rentalDailyChargeJPY": {
+    "compact": {
+      "value": [6000, 10000],
+      "unit": "JPY/day",
+      "category": "rental_vehicle_base_rate",
+      "rationale": "Bounded compact-class planning estimate; location, season, tax, and supplier availability can change the quote.",
+      "source": "Toyota Rent a Car published price-list reference",
+      "reference": "https://rent.toyota.co.jp/eng/pricelist.aspx"
+    },
+    "standard": {
+      "value": [8000, 14000],
+      "unit": "JPY/day",
+      "category": "rental_vehicle_base_rate",
+      "rationale": "Bounded standard-class planning estimate; not a live reservation quote.",
+      "source": "Toyota Rent a Car published price-list reference",
+      "reference": "https://rent.toyota.co.jp/eng/pricelist.aspx"
+    },
+    "suv": {
+      "value": [11000, 18000],
+      "unit": "JPY/day",
+      "category": "rental_vehicle_base_rate",
+      "rationale": "Bounded SUV-class planning estimate; not a live reservation quote.",
+      "source": "Toyota Rent a Car published price-list reference",
+      "reference": "https://rent.toyota.co.jp/eng/pricelist.aspx"
+    }
+  }
+}

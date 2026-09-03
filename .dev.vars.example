@@ -12,3 +12,6 @@ RESEND_API_KEY=<resend-api-key>
 # password grant in the account-deletion function). Never the service key.
 SUPABASE_PUBLISHABLE_KEY=<anon-key>
 # RESEND_FROM=Meguruto <feedback@meguruto.app>
+# KAI-226: server-side OpenRouteService key for /api/car-route. Held ONLY in
+# the Pages Function environment — never a VITE_* browser variable.
+OPENROUTESERVICE_API_KEY=<openrouteservice-api-key>

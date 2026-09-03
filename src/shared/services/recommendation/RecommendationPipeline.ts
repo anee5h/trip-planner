@@ -17,6 +17,7 @@ import {
   calculateScore,
   getValidModes,
 } from "./RecommendationScorer";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
@@ -249,6 +250,8 @@ export function runRecommendationPipeline(
         duration: tripDuration,
         includeOriginTravel: Boolean(context.homeStationCoords),
         ferryTemporal: context.ferryTemporal,
+        carRoute: resolveCarRouteForDestination(destination, context),
+        carCostOptions: context.carCostOptions,
       }),
     );
     const affordances = modeResults.map((r) =>
@@ -355,6 +358,7 @@ export function runRecommendationPipeline(
               homeStationCoords: context.homeStationCoords ?? undefined,
               originZoneId: context.originZoneId,
               ferryTemporal: context.ferryTemporal,
+              carRoute: resolveCarRouteForDestination(candidate, context),
             },
             validModes,
           )
@@ -378,6 +382,8 @@ export function runRecommendationPipeline(
             duration: tripDuration,
             budgetTier: context.budgetTier,
             ferryTemporal: context.ferryTemporal,
+            carRoute: resolveCarRouteForDestination(candidate, context),
+            carCostOptions: context.carCostOptions,
           })
         : null;
       const originComponent = cardEngineResult?.components.find(
@@ -391,7 +397,9 @@ export function runRecommendationPipeline(
             transportIncluded: originComponent?.cost.kind === "bounded",
             transportFareScope:
               originComponent?.evidence.fareScope ?? ("unknown" as const),
-            durationIncluded: Boolean(transportEstimate),
+            durationIncluded:
+              transportEstimate?.evidence !== "unknown" &&
+              Boolean(transportEstimate),
             food: null,
           }
         : {

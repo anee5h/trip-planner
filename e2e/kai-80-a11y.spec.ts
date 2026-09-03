@@ -117,7 +117,7 @@ async function signInAsPlannerTestUser(page: import("@playwright/test").Page) {
     id: "00000000-0000-0000-0000-000000000001",
     aud: "authenticated",
     role: "authenticated",
-    email: "kai-262-fixture@example.com",
+    email: "a11y-fixture@example.com",
     app_metadata: { provider: "email" },
     user_metadata: {
       full_name: "KAI-262 Fixture",

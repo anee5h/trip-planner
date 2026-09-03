@@ -17,6 +17,7 @@ import { formatJPYRange } from "@/shared/services/budget/BudgetService";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import type { PriceRange } from "@/shared/types/planner";
 
 const DAY_TRIP_DISPLAY_PRIORITY: readonly (readonly RecommendationReasonCode[])[] =
@@ -147,6 +148,10 @@ export function createRecommendationMatch(
   let bestMode = validModesForDest[0];
   let bestModeBudget: PriceRange | undefined;
   let hasFastTrain = false;
+  const modeEstimates = new Map<
+    string,
+    ReturnType<typeof getOriginAwareTransportEstimate>
+  >();
 
   for (const mode of validModesForDest) {
     let estimatedBudget: PriceRange | undefined;
@@ -162,6 +167,8 @@ export function createRecommendationMatch(
       // KAI-260: use the same canonical duration as the scorer.
       duration: context.tripDuration ?? "fullDay",
       ferryTemporal: context.ferryTemporal,
+      carRoute: resolveCarRouteForDestination(dest, context),
+      carCostOptions: context.carCostOptions,
     });
     if (engineResult.total && engineResult.total.max <= budget) {
       estimatedBudget = [engineResult.total.min, engineResult.total.max];
@@ -181,13 +188,34 @@ export function createRecommendationMatch(
         dest,
         {
           homeStationCoords: context.homeStationCoords ?? undefined,
+          originZoneId: context.originZoneId,
           ferryTemporal: context.ferryTemporal,
+          carRoute: resolveCarRouteForDestination(dest, context),
         },
-        ["train"],
+        [mode],
       );
-      if (estimate && estimate.timeRange[0] <= 60) {
+      modeEstimates.set(mode, estimate);
+      if (
+        estimate &&
+        estimate.evidence !== "unknown" &&
+        estimate.timeRange[0] <= 60
+      ) {
         hasFastTrain = true;
       }
+    } else {
+      modeEstimates.set(
+        mode,
+        getOriginAwareTransportEstimate(
+          dest,
+          {
+            homeStationCoords: context.homeStationCoords ?? undefined,
+            originZoneId: context.originZoneId,
+            ferryTemporal: context.ferryTemporal,
+            carRoute: resolveCarRouteForDestination(dest, context),
+          },
+          [mode],
+        ),
+      );
     }
   }
 
@@ -221,16 +249,22 @@ export function createRecommendationMatch(
 
   // Transport Reasons — minutes come from the same origin-aware estimate
   // used for ranking, never from unprovenanced catalogue values.
-  const transportEstimate = getOriginAwareTransportEstimate(
-    dest,
-    {
-      homeStationCoords: context.homeStationCoords ?? undefined,
-      ferryTemporal: context.ferryTemporal,
-    },
-    validModesForDest,
-  );
-  if (hasFastTrain) {
-    const minutes = transportEstimate?.timeRange[0] ?? 0;
+  const transportEstimate = bestMode
+    ? (modeEstimates.get(bestMode) ??
+      getOriginAwareTransportEstimate(
+        dest,
+        {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          originZoneId: context.originZoneId,
+          ferryTemporal: context.ferryTemporal,
+          carRoute: resolveCarRouteForDestination(dest, context),
+        },
+        [bestMode],
+      ))
+    : undefined;
+  const trainEstimate = modeEstimates.get("train");
+  if (hasFastTrain && trainEstimate) {
+    const minutes = trainEstimate.timeRange[0];
     reasons.push({
       type: "Transport",
       code: "transportFastTrain",

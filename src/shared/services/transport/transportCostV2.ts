@@ -16,9 +16,10 @@
  *     time ranges, and TRANSPORT_PRICING_CONFIG heuristics are NOT fares.
  *     A corridor without a verified fare is `unavailable`, never a
  *     base+perMinute guess.
- *   - NO drive-time→distance→toll fabrication: car/my_car costs exist ONLY
- *     when the catalogue carries an explicit verified `transportFares`
- *     vehicle total. Minutes×1.1→km×18¥/km tolls are never canonical.
+ *   - Car/my_car costs exist ONLY when KAI-226 receives a normalized road route
+ *     plus explicit, testable vehicle assumptions. Without that evidence the
+ *     result is unavailable. No minutes→km or distance×¥18/km toll formula is
+ *     canonical.
  *   - NO open-ended→fixed collapse: a dynamic "from ¥X" bus fare maps to
  *     `open_ended{from}`, never to `bounded[min=x,max=x]`.
  *   - NO unknown→0: missing/unverified/expired fares are `unavailable`
@@ -39,7 +40,20 @@ import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
 import { getFlightTransportEstimate } from "./FlightTransportEstimator";
 import { getFerryTransportEstimate } from "./FerryTransportEstimator";
 import { getLocalBoundedRailFareEstimate } from "./LocalBoundedFareEstimator";
-import type { CostRepresentation, CostDerivation } from "../budget/budgetV2";
+import type {
+  BoundedCost,
+  CostAssumptionProvenance,
+  CostDerivation,
+  CostRepresentation,
+} from "../budget/budgetV2";
+import type { CarRoundTripRoute } from "./CarRouteProvider";
+import { isCarRoundTripRouteForDestination } from "./CarRouteProvider";
+import {
+  calculatePersonalCarCost,
+  calculateRentalCarCost,
+  type PersonalCarCostOptions,
+  type RentalCarCostOptions,
+} from "./carCostV2";
 import type { TransportFareScope } from "./types";
 
 /** How the canonical transport cost was produced. */
@@ -57,11 +71,15 @@ export interface TransportCostEvidence {
   readonly sourceUrls?: readonly string[];
   /** How the number came to be (Budget v2 derivation axis). */
   readonly derivation: CostDerivation;
+  /** Runtime assumptions used for modelled car inputs. */
+  readonly assumptionProvenance?: CostAssumptionProvenance;
 }
 
 /** The canonical structured transport cost result. */
 export interface TransportCostResult {
   readonly cost: CostRepresentation;
+  /** Known bounded inputs retained when the full cost is unavailable. */
+  readonly knownCost?: BoundedCost;
   readonly evidence: TransportCostEvidence;
   /** The source estimator that produced this, for diagnostics. */
   readonly source:
@@ -70,6 +88,7 @@ export interface TransportCostResult {
     | "local_bounded_rail"
     | "verified_flight_fare"
     | "verified_ferry_fare"
+    | "car_route_cost"
     | "unavailable";
 }
 
@@ -110,9 +129,97 @@ const UNAVAILABLE_SOURCE_MISSING: CostRepresentation = {
   reason: "source_missing",
 };
 
+function carRouteSourceUrls(route: CarRoundTripRoute): readonly string[] {
+  return [
+    route.outbound.sourceUrl,
+    route.outbound.toll.sourceUrl,
+    ...(route.outbound.destination?.sourceUrls ?? []),
+    route.returnRoute.sourceUrl,
+    route.returnRoute.toll.sourceUrl,
+    ...(route.returnRoute.destination?.sourceUrls ?? []),
+  ].filter(
+    (url, index, urls): url is string =>
+      Boolean(url) && urls.indexOf(url) === index,
+  );
+}
+
+function carUnavailable(route: CarRoundTripRoute): TransportCostResult {
+  return {
+    cost: UNAVAILABLE_SOURCE_MISSING,
+    evidence: {
+      fareScope: "unknown",
+      isRoundTripPartyTotal: true,
+      derivation: "computed",
+      sourceUrls: carRouteSourceUrls(route),
+    },
+    source: "unavailable",
+  };
+}
+
+function carRouteCost(
+  route: CarRoundTripRoute,
+  mode: string,
+  options: PersonalCarCostOptions | RentalCarCostOptions | undefined,
+  partySize: number,
+): TransportCostResult {
+  if (!options) {
+    return carUnavailable(route);
+  }
+  const effectiveOptions = { ...options, partySize };
+  if (mode === "car") {
+    if (
+      !("duration" in effectiveOptions) ||
+      !("vehicleClass" in effectiveOptions) ||
+      !("dailyRentalChargeJPY" in effectiveOptions)
+    ) {
+      return carUnavailable(route);
+    }
+    return toCarTransportCost(
+      route,
+      calculateRentalCarCost(route, effectiveOptions),
+    );
+  }
+  if ("duration" in effectiveOptions) {
+    return carUnavailable(route);
+  }
+  return toCarTransportCost(
+    route,
+    calculatePersonalCarCost(route, effectiveOptions),
+  );
+}
+
+function toCarTransportCost(
+  route: CarRoundTripRoute,
+  result: ReturnType<typeof calculatePersonalCarCost>,
+): TransportCostResult {
+  const known = result.cost.kind === "bounded";
+  const rental = Boolean(result.breakdown?.rental);
+  return {
+    cost: result.cost,
+    ...(result.knownCost
+      ? {
+          knownCost: {
+            kind: "bounded" as const,
+            min: result.knownCost[0],
+            max: result.knownCost[1],
+          },
+        }
+      : {}),
+    evidence: {
+      fareScope: known ? "complete" : "unknown",
+      isRoundTripPartyTotal: true,
+      fareBasis: rental
+        ? "rental_vehicle_cash_cost"
+        : "personal_vehicle_cash_cost",
+      sourceUrls: carRouteSourceUrls(route),
+      derivation: known ? "model_estimate" : "computed",
+      assumptionProvenance: result.assumptionProvenance,
+    },
+    source: result.breakdown ? "car_route_cost" : "unavailable",
+  };
+}
+
 /**
- * Canonical structured transport cost (KAI-216).
- *
  * Priority ladder (fail-closed — the first matching verified source wins):
  *
  *   1. explicit `dest.transportFares[mode]` — verified route fare.
@@ -140,6 +247,8 @@ export function getCanonicalTransportCost(
   partySize: number = 2,
   homeCoords?: { lat: number; lng: number },
   ferryTemporal?: FerryTemporalContext,
+  carRoute?: CarRoundTripRoute,
+  carCostOptions?: PersonalCarCostOptions | RentalCarCostOptions,
 ): TransportCostResult {
   if (!isFinitePartySize(partySize)) {
     return {
@@ -151,6 +260,13 @@ export function getCanonicalTransportCost(
       },
       source: "unavailable",
     };
+  }
+
+  if ((mode === "car" || mode === "my_car") && carRoute) {
+    if (!isCarRoundTripRouteForDestination(dest, carRoute, homeCoords)) {
+      return carUnavailable(carRoute);
+    }
+    return carRouteCost(carRoute, mode, carCostOptions, partySize);
   }
 
   // ---- 1. Explicit transportFares (curated route fare, NO origin identity) ----

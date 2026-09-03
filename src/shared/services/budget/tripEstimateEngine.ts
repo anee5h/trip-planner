@@ -25,6 +25,7 @@ import type {
   LocalTransportAccess,
 } from "@/shared/types/destination";
 import type { BudgetTier, PriceRange } from "@/shared/types/planner";
+import type { Journey, JourneyCost } from "@/shared/types/journey";
 import { MEAL_PRICE_RANGES } from "@/shared/types/planner";
 import type {
   FerryTemporalContext,
@@ -36,6 +37,16 @@ import {
   type TransportCostResult,
 } from "@/shared/services/transport/transportCostV2";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import {
+  isCarRoundTripRouteForDestination,
+  resolveCarRouteForDestination,
+} from "@/shared/services/transport/CarRouteProvider";
+import type {
+  PersonalCarCostOptions,
+  RentalCarCostOptions,
+} from "@/shared/services/transport/carCostV2";
+import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
 import { getDistanceKm } from "@/shared/services/transport/TransportEstimator";
 import {
   isVerifiedFree,
@@ -65,6 +76,9 @@ export interface TripEstimateContext {
   readonly duration: TripDuration;
   readonly budgetTier?: BudgetTier;
   readonly ferryTemporal?: FerryTemporalContext;
+  /** Normalized provider output; absent means car cost stays unavailable. */
+  readonly carRoute?: CarRoundTripRoute;
+  readonly carCostOptions?: PersonalCarCostOptions | RentalCarCostOptions;
   /** false means this is an on-site-only estimate (Compare/detail widgets). */
   readonly includeOriginTravel?: boolean;
 }
@@ -89,6 +103,7 @@ export interface TripEstimateResult {
   }[];
   readonly estimateQuality: EstimateQuality;
   readonly accommodation?: AccommodationAllowance;
+  readonly journey?: Journey;
   readonly bounded: boolean;
 }
 
@@ -96,6 +111,42 @@ const SOURCE_MISSING: CostRepresentation = {
   kind: "unavailable",
   reason: "source_missing",
 };
+
+function journeyCostFromTransport(result: TransportCostResult): JourneyCost {
+  const known = result.cost.kind !== "unavailable";
+  const partiallyKnown = Boolean(result.knownCost);
+  const evidence = known
+    ? result.evidence.derivation === "model_estimate"
+      ? "estimated"
+      : "verified"
+    : "unknown";
+  const variability =
+    result.cost.kind === "bounded"
+      ? result.cost.min === result.cost.max
+        ? "fixed"
+        : "range"
+      : result.cost.kind === "open_ended"
+        ? "dynamic"
+        : result.cost.kind === "variable"
+          ? "variable"
+          : undefined;
+  return {
+    currency: "JPY",
+    representation: known ? result.cost : null,
+    state: known ? "known" : partiallyKnown ? "unknown" : "unavailable",
+    evidence,
+    scope: result.evidence.fareScope,
+    completeness: known
+      ? result.evidence.fareScope === "complete"
+        ? "complete"
+        : "partial"
+      : "unknown",
+    basis: "round_trip",
+    ...(variability ? { variability } : {}),
+    assumptionProvenance: result.evidence.assumptionProvenance,
+    sourceUrls: result.evidence.sourceUrls,
+  };
+}
 
 export const LOCAL_TRANSPORT_PROFILES = {
   // Per person, round trip. These are planning bands, not fares.
@@ -152,6 +203,9 @@ function sumBounded(components: readonly TripCostComponent[]): BoundedCost {
     if (component.cost.kind === "bounded") {
       min += component.cost.min;
       max += component.cost.max;
+    } else if (component.knownCost) {
+      min += component.knownCost.min;
+      max += component.knownCost.max;
     }
   }
   return { kind: "bounded", min, max };
@@ -537,21 +591,6 @@ function modelOriginRange(
   );
   if (!finiteNonNegative(distanceKm)) return undefined;
 
-  if (mode === "car" || mode === "my_car") {
-    const explicit = dest.transportFares?.[mode];
-    if (finiteNonNegative(explicit)) {
-      // The catalogue value has no origin identity. Use it only as a broad
-      // vehicle envelope, never as an exact toll or door-to-door fare.
-      return [Math.max(1000, explicit * 0.7), Math.max(1500, explicit * 1.5)];
-    }
-    // Broad vehicle envelope (fuel/toll/rental uncertainty). This is a
-    // modelled range, not a toll calculation and is not party-scaled.
-    return [
-      Math.round(Math.max(1500, distanceKm * 15)),
-      Math.round(Math.max(5000, distanceKm * 45 + 5000)),
-    ];
-  }
-
   const perPerson: PriceRange =
     mode === "flight"
       ? [10000, 50000]
@@ -567,12 +606,22 @@ function modelOriginRange(
   return scalePerPerson(perPerson, partySize);
 }
 
+function normalizeCarCostOptionsForTrip(
+  options: PersonalCarCostOptions | RentalCarCostOptions | undefined,
+  duration: TripDuration,
+): PersonalCarCostOptions | RentalCarCostOptions | undefined {
+  return options && "duration" in options ? { ...options, duration } : options;
+}
+
 function originComponent(
   dest: Destination,
   mode: string | undefined,
   partySize: number,
   homeCoords: { lat: number; lng: number } | undefined,
+  duration: TripDuration,
   ferryTemporal: FerryTemporalContext | undefined,
+  carRoute: CarRoundTripRoute | undefined,
+  carCostOptions: PersonalCarCostOptions | RentalCarCostOptions | undefined,
 ): TripCostComponent {
   if (!mode || mode === "all" || mode === "any" || !homeCoords) {
     return component(SOURCE_MISSING, {
@@ -582,18 +631,31 @@ function originComponent(
     });
   }
 
+  const effectiveCarCostOptions = normalizeCarCostOptionsForTrip(
+    carCostOptions,
+    duration,
+  );
+  const scopedCarRoute =
+    (mode === "car" || mode === "my_car") &&
+    carRoute &&
+    isCarRoundTripRouteForDestination(dest, carRoute, homeCoords)
+      ? carRoute
+      : undefined;
   const transport = getCanonicalTransportCost(
     dest,
     mode,
     partySize,
     homeCoords,
     ferryTemporal,
+    scopedCarRoute,
+    effectiveCarCostOptions,
   );
   const urls = sourceUrlsForTransport(transport);
   const baseEvidence = {
     scope: "origin_travel" as const,
     fareScope: transport.evidence.fareScope,
     sourceUrls: urls,
+    assumptionProvenance: transport.evidence.assumptionProvenance,
   };
 
   if (transport.cost.kind === "bounded") {
@@ -628,6 +690,17 @@ function originComponent(
         reason: "price_variable_by_product",
       },
     );
+  }
+
+  if (mode === "car" || mode === "my_car") {
+    return {
+      ...component(transport.cost, {
+        ...baseEvidence,
+        derivation: transport.evidence.derivation,
+        reason: "source_missing",
+      }),
+      ...(transport.knownCost ? { knownCost: transport.knownCost } : {}),
+    };
   }
 
   const model = modelOriginRange(dest, mode, partySize, homeCoords);
@@ -679,10 +752,7 @@ function mealNames(
   return ["lunch", "dinner"];
 }
 
-function mealDurationHours(
-  context: TripEstimateContext,
-  origin: TripCostComponent,
-): number | undefined {
+function mealDurationHours(context: TripEstimateContext): number | undefined {
   const visitMax = context.dest.recommendedVisitHours?.max;
   if (visitMax === undefined || !Number.isFinite(visitMax)) return undefined;
   if (
@@ -693,22 +763,30 @@ function mealDurationHours(
   ) {
     return visitMax;
   }
+  const scopedCarRoute =
+    context.mode === "car" || context.mode === "my_car"
+      ? resolveCarRouteForDestination(context.dest, context)
+      : undefined;
   const travel = getOriginAwareTransportEstimate(
     context.dest,
     {
       homeStationCoords: context.homeCoords,
       ferryTemporal: context.ferryTemporal,
+      carRoute: scopedCarRoute,
     },
     [context.mode as TransportMode],
   );
-  if (!travel || origin.cost.kind === "unavailable") return visitMax;
-  const representativeOneWayMinutes =
-    (travel.timeRange[0] + travel.timeRange[1]) / 2;
+  if (!travel || travel.evidence === "unknown") {
+    return visitMax;
+  }
+  const roundTripMinutes = travel.roundTripTimeRange
+    ? (travel.roundTripTimeRange[0] + travel.roundTripTimeRange[1]) / 2
+    : travel.timeRange[0] + travel.timeRange[1];
   const bufferHours =
     ((context.dest.travelBuffers?.transferMinutes ?? 0) +
       (context.dest.travelBuffers?.ferryMinutes ?? 0)) /
     60;
-  return visitMax + (representativeOneWayMinutes * 2) / 60 + bufferHours;
+  return visitMax + roundTripMinutes / 60 + bufferHours;
 }
 
 function mealsComponent(
@@ -864,6 +942,7 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
   const includeOrigin =
     context.includeOriginTravel === true ||
     (context.includeOriginTravel === undefined && Boolean(context.homeCoords));
+  const scopedCarRoute = resolveCarRouteForDestination(context.dest, context);
   const origin = !includeOrigin
     ? component(
         { kind: "not_applicable" },
@@ -874,7 +953,10 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
         context.mode,
         partySize,
         context.homeCoords,
+        context.duration,
         context.ferryTemporal,
+        scopedCarRoute,
+        context.carCostOptions,
       );
   const admission = admissionComponent(context.dest, partySize);
   const local = localTransportComponent(context.dest, partySize);
@@ -884,7 +966,7 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
     context.duration,
     estimateTier,
     partySize,
-    mealDurationHours(context, origin),
+    mealDurationHours(context),
   );
   const accommodation = accommodationComponent(nights, estimateTier);
   const components = [
@@ -903,6 +985,32 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
   const total = allBounded ? sumBounded(components) : undefined;
   const knownSubtotal = sumBounded(components);
   const missingComponents = buildMissingComponents(components);
+  const journey =
+    (context.mode === "car" || context.mode === "my_car") &&
+    context.includeOriginTravel !== false &&
+    context.homeCoords &&
+    scopedCarRoute
+      ? buildCarJourney(
+          context.dest,
+          context.homeCoords,
+          scopedCarRoute,
+          journeyCostFromTransport(
+            getCanonicalTransportCost(
+              context.dest,
+              context.mode,
+              partySize,
+              context.homeCoords,
+              context.ferryTemporal,
+              scopedCarRoute,
+              normalizeCarCostOptionsForTrip(
+                context.carCostOptions,
+                context.duration,
+              ),
+            ),
+          ),
+          context.mode === "my_car" ? "my_car" : "car",
+        )
+      : undefined;
 
   return {
     kind: "trip_estimate",
@@ -920,6 +1028,7 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
     ...(accommodation.allowance
       ? { accommodation: accommodation.allowance }
       : {}),
+    ...(journey ? { journey } : {}),
     bounded: Boolean(total),
   };
 }

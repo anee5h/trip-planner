@@ -19,6 +19,7 @@ import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import { isCarModeEligible } from "@/shared/services/transport/CarAccessService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import { personalizationService } from "./PersonalizationService";
@@ -400,6 +401,8 @@ export function calculateScore(
       duration: context.tripDuration ?? "any",
       budgetTier: context.budgetTier,
       ferryTemporal: context.ferryTemporal,
+      carRoute: resolveCarRouteForDestination(dest, context),
+      carCostOptions: context.carCostOptions,
     });
     const affordability = evaluateAffordability(engineResult, budget);
     if (engineResult.total) {

@@ -4,6 +4,8 @@ import {
   buildJourneyFromEstimatedTransportEstimate,
   buildJourneyFromOriginAwareEstimate,
 } from "@/shared/services/transport/JourneyBuilder";
+import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
 import {
   getSafeGroundEstimate,
@@ -47,12 +49,22 @@ export interface TripDurationEstimate {
   journey?: Journey;
   /** Conservative one-way minutes used for a constrained day-trip gate. */
   feasibilityTravelMinutes?: number;
+  /** Conservative round-trip minutes when both car legs are evidenced. */
+  feasibilityRoundTripMinutes?: number;
   isImpossible?: boolean;
   isBorderline?: boolean;
   warningMessage?: {
     en: string;
     ja: string;
   };
+}
+
+function getRoundTripTimeRange(
+  estimate: TravelDurationEstimate,
+): [number, number] | undefined {
+  return "roundTripTimeRange" in estimate
+    ? estimate.roundTripTimeRange
+    : undefined;
 }
 
 export function getBand(hours: number): CanonicalTripDuration {
@@ -131,18 +143,15 @@ export interface DayTripTravelDurationEvidence {
   journey?: Journey;
 }
 
-/**
- * Safe coordinate fallback is intentionally limited to explicit road modes for
- * overnight matching. Public transport keeps its verified route-only gate.
- */
-function getExplicitCarModes(modes: readonly string[]): string[] {
+function getEstimatedFallbackModes(modes: readonly string[]): string[] {
   return modes.filter((mode) => mode === "car" || mode === "my_car");
 }
 
 /**
  * Shared travel truth. Canonical route evidence always wins. The estimated
- * branch is deliberately bounded by getSafeGroundEstimate and is never called
- * by budget code.
+ * branch is limited to bounded display estimates, including legacy car
+ * duration evidence. Car budget and canonical route distance/toll require a
+ * provider-normalized route.
  */
 export function getTravelDurationEvidence(
   destination: Destination,
@@ -156,6 +165,7 @@ export function getTravelDurationEvidence(
     return { evidence: "unknown" };
   }
 
+  const scopedCarRoute = resolveCarRouteForDestination(destination, context);
   const originAware = getOriginAwareTransportEstimate(
     destination,
     {
@@ -163,6 +173,7 @@ export function getTravelDurationEvidence(
       originZoneId:
         "originZoneId" in context ? context.originZoneId : undefined,
       ferryTemporal: context.ferryTemporal,
+      carRoute: scopedCarRoute,
     },
     modes,
   );
@@ -170,15 +181,25 @@ export function getTravelDurationEvidence(
     return {
       evidence: originAware.evidence,
       estimate: originAware,
-      journey: buildJourneyFromOriginAwareEstimate(
-        originAware,
-        getJourneyEndpoints(destination, {
-          homeStationCoords: context.homeStationCoords ?? undefined,
-          originZoneId:
-            "originZoneId" in context ? context.originZoneId : undefined,
-          ferryTemporal: context.ferryTemporal,
-        }),
-      ),
+      journey:
+        ((originAware.mode === "car" || originAware.mode === "my_car") &&
+        scopedCarRoute
+          ? buildCarJourney(
+              destination,
+              context.homeStationCoords,
+              scopedCarRoute,
+              undefined,
+              originAware.mode === "my_car" ? "my_car" : "car",
+            )
+          : buildJourneyFromOriginAwareEstimate(
+              originAware,
+              getJourneyEndpoints(destination, {
+                homeStationCoords: context.homeStationCoords ?? undefined,
+                originZoneId:
+                  "originZoneId" in context ? context.originZoneId : undefined,
+                ferryTemporal: context.ferryTemporal,
+              }),
+            )) ?? undefined,
     };
   }
 
@@ -264,7 +285,8 @@ export function getDayTripTravelEfficiency(
   const visitHours =
     (estimate.visitRangeHours[0] + estimate.visitRangeHours[1]) / 2;
   const travelHours =
-    (estimate.feasibilityTravelMinutes * 2 +
+    ((estimate.feasibilityRoundTripMinutes ??
+      estimate.feasibilityTravelMinutes * 2) +
       (destination.travelBuffers?.transferMinutes ?? 0) +
       (destination.travelBuffers?.ferryMinutes ?? 0)) /
     60;
@@ -396,7 +418,7 @@ export function getBestOneWayTravelMinutes(
     destination,
     context,
     modes,
-    getExplicitCarModes(modes),
+    getEstimatedFallbackModes(modes),
   );
   if (!travel.estimate) return undefined;
   return Math.round(
@@ -433,7 +455,7 @@ export function estimateTripDuration(
       destination,
       context,
       modes,
-      getExplicitCarModes(modes),
+      getEstimatedFallbackModes(modes),
     );
     if (!travel.estimate) return null;
     journey = travel.journey;
@@ -446,10 +468,13 @@ export function estimateTripDuration(
       ((destination.travelBuffers?.transferMinutes ?? 0) +
         (destination.travelBuffers?.ferryMinutes ?? 0)) /
       60;
-    const travelHours = (bestTravelMinutes * 2) / 60 + bufferHours;
+    const roundTripTimeRange = getRoundTripTimeRange(travel.estimate) ?? [
+      bestTravelMinutes * 2,
+      bestTravelMinutes * 2,
+    ];
     totalRangeHours = [
-      visitRange[0] + travelHours,
-      visitRange[1] + travelHours,
+      visitRange[0] + roundTripTimeRange[0] / 60 + bufferHours,
+      visitRange[1] + roundTripTimeRange[1] / 60 + bufferHours,
     ];
     representativeHours = (totalRangeHours[0] + totalRangeHours[1]) / 2;
   }
@@ -550,10 +575,18 @@ export function estimateDayTripDuration(
     ((destination.travelBuffers?.transferMinutes ?? 0) +
       (destination.travelBuffers?.ferryMinutes ?? 0)) /
     60;
-  const travelHours = (feasibilityTravelMinutes * 2) / 60 + bufferHours;
+  const roundTripTimeRange = getRoundTripTimeRange(travel.estimate) ?? [
+    feasibilityTravelMinutes * 2,
+    feasibilityTravelMinutes * 2,
+  ];
+  const feasibilityRoundTripMinutes = roundTripTimeRange[1];
+  const travelHoursRange: [number, number] = [
+    roundTripTimeRange[0] / 60 + bufferHours,
+    roundTripTimeRange[1] / 60 + bufferHours,
+  ];
   const totalRangeHours: [number, number] = [
-    visitRange[0] + travelHours,
-    visitRange[1] + travelHours,
+    visitRange[0] + travelHoursRange[0],
+    visitRange[1] + travelHoursRange[1],
   ];
   const representativeHours = (totalRangeHours[0] + totalRangeHours[1]) / 2;
   const available = context.availableTimeHours;
@@ -589,6 +622,7 @@ export function estimateDayTripDuration(
     travelEstimate: travel.estimate,
     journey: travel.journey,
     feasibilityTravelMinutes,
+    feasibilityRoundTripMinutes,
     isImpossible,
     isBorderline,
     warningMessage,

@@ -98,6 +98,17 @@ export type CostScope =
 export type CostDerivation =
   "source_fact" | "model_estimate" | "user_allowance" | "computed";
 
+/** Provenance for runtime assumptions used by a modelled cost component. */
+export interface CostAssumptionProvenance {
+  readonly source: string;
+  readonly basis: string;
+  readonly revision: string;
+  readonly sourceUrls?: readonly string[];
+  readonly checkedAt?: string;
+  readonly category?: string;
+  readonly unit?: string;
+}
+
 /**
  * Evidence attached to a component. Reuses the KAI-214 provenance/reason
  * taxonomy verbatim — no second trust system. `state` is the normalized
@@ -117,6 +128,7 @@ export interface ComponentEvidence {
   readonly provenance?: BudgetProvenance;
   readonly reason?: BudgetReasonCode;
   readonly sourceUrls?: readonly string[];
+  readonly assumptionProvenance?: CostAssumptionProvenance;
   /**
    * KAI-216 / KAI-217B: the transport fare scope carried by the canonical
    * ladder (complete / corridor_only / local_bounded_estimate / unknown),
@@ -142,6 +154,8 @@ export interface ComponentEvidence {
 /** A single trip-cost component: value + epistemic state. */
 export interface TripCostComponent {
   readonly cost: CostRepresentation;
+  /** Known bounded inputs retained when the primary cost is incomplete. */
+  readonly knownCost?: BoundedCost;
   readonly evidence: ComponentEvidence;
 }
 
