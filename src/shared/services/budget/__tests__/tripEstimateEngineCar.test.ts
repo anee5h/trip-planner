@@ -7,6 +7,7 @@ import { getTravelDurationEvidence } from "@/shared/services/recommendation/Trip
 import { runRecommendationPipeline } from "@/shared/services/recommendation/RecommendationPipeline";
 import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
 import { getSafeGroundEstimate } from "../../transport/SafeGroundEstimateService";
+import { DEFAULT_CAR_ASSUMPTION_PROVENANCE } from "../../transport/carCostV2";
 import type { CarRoundTripRoute } from "../../transport/CarRouteProvider";
 
 const destination = (destinations as Destination[]).find(
@@ -123,11 +124,7 @@ describe("TripEstimateEngine canonical car integration", () => {
       completeness: "complete",
       basis: "round_trip",
       variability: "range",
-      assumptionProvenance: {
-        source: "Meguruto planning defaults",
-        basis: "fuel economy, fuel price, parking, and rental-rate profiles",
-        revision: "car-cost-v2-defaults-1",
-      },
+      assumptionProvenance: DEFAULT_CAR_ASSUMPTION_PROVENANCE,
       sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
     });
     expect(result.journey?.legs).toHaveLength(2);

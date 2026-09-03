@@ -41,6 +41,8 @@ export interface CarRouteRequest {
 export interface CarRouteResult {
   readonly availability: CarRouteAvailability;
   readonly origin: CarAccessCoordinates;
+  /** Identity of the requested origin, retained separately from its coordinates. */
+  readonly originEndpoint?: CarRouteEndpoint;
   readonly destination?: CarRouteEndpoint;
   readonly accessAnchor?: CarRouteEndpoint;
   readonly provider: string;
@@ -102,10 +104,12 @@ function unavailableRoute(
   destination?: CarRouteEndpoint,
   direction?: CarRouteDirection,
   accessAnchor?: CarRouteEndpoint,
+  originEndpoint?: CarRouteEndpoint,
 ): CarRouteResult {
   return {
     availability: "unknown",
     origin,
+    originEndpoint,
     destination,
     provider: "car-route-provider",
     direction,
@@ -154,23 +158,24 @@ function normalizeProviderResult(
   request: CarRouteRequest,
   expectedAccessAnchor: CarRouteEndpoint,
 ): CarRouteResult {
-  const withAnchor = {
+  const withIdentity = {
     ...result,
+    originEndpoint: result.originEndpoint ?? request.origin,
     accessAnchor: result.accessAnchor ?? expectedAccessAnchor,
   };
-  if (result.availability !== "available") return withAnchor;
+  if (result.availability !== "available") return withIdentity;
 
   const valid =
     result.direction === request.direction &&
-    sameCoordinates(result.origin, request.origin.coordinates) &&
-    sameEndpoint(result.destination, request.destination) &&
-    sameEndpoint(withAnchor.accessAnchor, expectedAccessAnchor) &&
+    sameEndpoint(withIdentity.originEndpoint, request.origin) &&
+    sameEndpoint(withIdentity.destination, request.destination) &&
+    sameEndpoint(withIdentity.accessAnchor, expectedAccessAnchor) &&
     result.completeness !== "unknown" &&
-    isAvailable(withAnchor);
-  if (valid) return withAnchor;
+    isAvailable(withIdentity);
+  if (valid) return withIdentity;
 
   return {
-    ...withAnchor,
+    ...withIdentity,
     availability: "unknown",
     confidence: "unknown",
     completeness: "unknown",
@@ -267,6 +272,7 @@ function routeForAnchor(
       request.destination,
       direction,
       accessEndpoint,
+      request.origin,
     );
   }
 }
@@ -302,6 +308,7 @@ async function routeForAnchorAsync(
       request.destination,
       direction,
       accessEndpoint,
+      request.origin,
     );
   }
 }

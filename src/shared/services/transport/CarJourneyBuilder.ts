@@ -134,7 +134,9 @@ export function buildCarJourney(
   if (!isCarRoundTripRouteForDestination(destination, route, origin)) {
     return null;
   }
-  const originEndpoint = endpointFromOrigin(origin);
+  const originEndpoint = route.outbound.originEndpoint
+    ? endpointFromRouteEndpoint(route.outbound.originEndpoint, "origin")
+    : endpointFromOrigin(origin);
   const outbound = legFromRoute(
     route.outbound,
     originEndpoint,

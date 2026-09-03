@@ -103,6 +103,10 @@ export interface CostAssumptionProvenance {
   readonly source: string;
   readonly basis: string;
   readonly revision: string;
+  readonly sourceUrls?: readonly string[];
+  readonly checkedAt?: string;
+  readonly category?: string;
+  readonly unit?: string;
 }
 
 /**

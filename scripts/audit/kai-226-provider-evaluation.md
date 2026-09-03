@@ -4,27 +4,29 @@ Date: 2026-09-03
 
 ## Scope and evidence boundary
 
-This is a provider-selection record, not a claim that live routes were observed. The
-repository has no configured NAVITIME or Google Routes API client/credential, so no
-production route values, tolls, traffic timings, quotas, or latency were fabricated.
-The KAI-226 domain boundary is provider-neutral and the tests use deterministic
-fixtures only.
+This is a provider-selection and validation record. The repository has no configured
+OpenRouteService credential, so no production route values, tolls, traffic timings,
+quotas, or latency are fabricated. KAI-226 now includes a replaceable hosted ORS
+adapter; deterministic tests and the golden harness exercise its contract without
+network access.
 
 ## Documentation comparison
 
-| Capability              | NAVITIME car route                                                                                                                    | Google Routes API Compute Routes                                                                                                          |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| Japan road routing      | `route_car` accepts coordinates, node IDs, and ICs; Japan-specific road and vehicle options are documented                            | `DRIVE` routes use global Google road data; coordinates/addresses/places are supported                                                    |
-| Duration/distance       | Route summary exposes movement information; `start_time`/`goal_time` and optional probe traffic are documented                        | `duration` and `distanceMeters`; `TRAFFIC_AWARE` and departure-time options are documented                                                |
-| Toll detail             | `fares`; `condition` supports toll/free preferences; `etc` supports time-aware ETC pricing; Smart IC is an explicit option            | `tollInfo.estimatedPrice` and toll passes are supported; toll calculation has billing implications and prices are estimates               |
-| Japan-specific controls | Smart IC, ETC-only tollgate avoidance, IC waypoints, road restrictions, ferry, vehicle regulation, and free-road modes are documented | Toll passes and route modifiers are documented; Japan-specific IC/ETC behavior requires live validation                                   |
-| Failure behavior        | Failed routes are omitted from multi-route responses; API/contract limits and long-route errors are documented                        | HTTP/API errors and no-route responses must be normalized; provider response must never be exposed directly                               |
-| Traffic/departure       | `start_time` plus optional `use_traffic=probe`; probe traffic is an optional contracted feature                                       | Traffic-aware routing and departure-time inputs are documented; live precision must be conditional on the request and response            |
-| Pricing/quota           | Corporate/API-market service; price and request limits are contract-dependent and must be obtained from NAVITIME                      | Google Cloud billing applies; field masks are required; toll computation is a higher-billed capability according to the API documentation |
-| Caching/licensing       | Contract/API-market terms must be reviewed before caching or persisting routes                                                        | Google Maps Platform terms and caching/attribution restrictions require legal/product review; no route payload is persisted by KAI-226    |
+| Capability              | OpenRouteService hosted directions                                                                                                  | NAVITIME car route                                                                                                                    | Google Routes API Compute Routes                                                                                                          |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Japan road routing      | `driving-car` returns routed road distance/duration for coordinate pairs; KAI-226 supplies the verified access anchor                | `route_car` accepts coordinates, node IDs, and ICs; Japan-specific road data is documented                                           | `DRIVE` routes use global Google road data; coordinates/addresses/places are supported                                               |
+| Duration/distance       | `routes[0].summary.distance` and `.duration`; normalized independently and labeled provider-backed                                | Route summary exposes movement information; `start_time`/`goal_time` and optional probe traffic are documented                      | `duration` and `distanceMeters`; `TRAFFIC_AWARE` and departure-time options are documented                                          |
+| Toll detail             | Not consumed by this adapter; KAI-226 keeps toll unknown unless separately evidenced                                                | `fares`; `condition` supports toll/free preferences; `etc` supports time-aware ETC pricing; Smart IC is an explicit option           | `tollInfo.estimatedPrice` and toll passes are supported; toll calculation has billing implications and prices are estimates            |
+| Japan-specific controls | Road snapping is provider-owned; ferry/restriction handling remains fail-closed at the KAI-264 access layer                         | Smart IC, ETC-only tollgate avoidance, IC waypoints, ferry, vehicle regulation, and free-road modes are documented                  | Toll passes and route modifiers are documented; Japan-specific IC/ETC behavior requires live validation                              |
+| Failure behavior        | HTTP, quota, network, malformed, and unroutable responses normalize to explicit fail-closed states                                | Failed routes are omitted from multi-route responses; API/contract limits and long-route errors are documented                       | HTTP/API errors and no-route responses must be normalized; provider response must never be exposed directly                          |
+| Traffic/departure       | Departure is accepted as boundary metadata; this initial adapter makes no live-traffic precision claim                              | `start_time` plus optional `use_traffic=probe`; probe traffic is an optional contracted feature                                    | Traffic-aware routing and departure-time inputs are documented; live precision must be conditional on request and response           |
+| Pricing/quota            | Public hosted service; runtime key is injected by deployment and never committed                                                    | Corporate/API-market service; price and request limits are contract-dependent and must be obtained from NAVITIME                    | Google Cloud billing applies; field masks are required; toll computation is a higher-billed capability                              |
+| Caching/licensing        | No route payload is persisted by KAI-226; review ORS terms before adding cache                                                     | Contract/API-market terms must be reviewed before caching or persisting routes                                                      | Google Maps Platform terms and attribution restrictions require legal/product review; no route payload is persisted by KAI-226     |
 
 Primary sources:
 
+- OpenRouteService directions API: <https://openrouteservice.org/dev/#/api-docs/v2/directions/{profile}/json/post>
+- OpenRouteService API usage/limits: <https://openrouteservice.org/plans/>
 - NAVITIME route-car specification: <https://api-sdk.navitime.co.jp/api/specs/api_guide/route_car.html>
 - NAVITIME API/SDK service overview: <https://api-sdk.navitime.co.jp/api/>
 - Google Compute Routes: <https://developers.google.com/maps/documentation/routes/compute_route_directions>
@@ -40,18 +42,18 @@ Status for every row: **not run — credentials/client unavailable**. These rout
 are the required follow-up matrix, not fixture output and not asserted production
 truth.
 
-- Yokohama/Tokyo → Karuizawa
-- Yokohama → Hakone
+- Nakayama/Yokohama → Hakone
+- Nakayama/Yokohama → Karuizawa
+- Tokyo → Karuizawa
 - Tokyo → Kawaguchiko
 - Tokyo → Nikko
-- Rural Nagano/Gunma
-- Metropolitan expressway routing
+- Rural Nagano → Karuizawa
+- Rural Gunma → Karuizawa
 - Toll-free route
 - Expensive expressway route
-- Smart IC/ETC-sensitive route
 - Parking + walk destination (route must terminate at the access anchor)
 - Seasonal/restricted road case
-- Long-distance case
+- Island/ferry-required case
 
 For each live run, record provider, request options, departure instant/timezone,
 origin/access-anchor IDs, road distance, duration, toll amount and basis, route
@@ -60,16 +62,16 @@ oracle result where applicable. Run outbound and return independently.
 
 ## Decision
 
-KAI-226 intentionally does **not** commit the production app to either provider.
-`CarRouteProvider` is the replaceable boundary, and provider-specific JSON cannot
-cross it. NAVITIME is the leading Japan-specific integration candidate because its
-documented contract exposes IC/Smart IC, ETC, free/toll route preferences, vehicle
-regulation, and Japan road controls. Google remains a viable traffic-aware fallback
-candidate because it exposes route duration/distance and toll-pass handling. Neither
-candidate is selected on documentation alone: the live matrix above must be run and
-pricing, quota, caching, attribution, and contract terms must be approved first.
+OpenRouteService is the first hosted adapter for KAI-226. The application remains
+provider-neutral: callers inject `OpenRouteServiceCarRouteProvider` with a runtime
+key (for example `VITE_OPENROUTESERVICE_API_KEY` supplied by deployment), and no
+key or provider JSON is committed. The adapter requests only `driving-car` route
+facts, targets the KAI-264 access anchor, and leaves tolls unknown. Google and
+NAVITIME remain future replaceable candidates after product, quota, legal, and
+Japan-specific toll validation.
 
-Until then, the fixture provider is test-only. Missing provider output, missing
-return output, unknown tolls, and provider errors remain explicit unavailable or
-unknown states; they never become a straight-line distance, average-speed duration,
-`distance × ¥18/km`, or zero toll.
+The live representative matrix remains **not run — credentials/client unavailable**.
+Until a deployment runs it, fixture output is not production route truth. Missing
+provider output, missing return output, unknown tolls, and provider errors remain
+explicit unavailable or unknown states; they never become a straight-line distance,
+average-speed duration, `distance × ¥18/km`, or zero toll.

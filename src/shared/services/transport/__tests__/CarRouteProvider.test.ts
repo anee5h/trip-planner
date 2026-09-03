@@ -247,6 +247,40 @@ describe("CarRouteProvider", () => {
     expect(result.returnRoute.availability).toBe("unknown");
   });
 
+  it("rejects available provider results with mismatched origin scope", () => {
+    const provider = {
+      route(request: CarRouteRequest): CarRouteResult {
+        return route(firstAnchor, request.direction, {
+          originEndpoint: {
+            id: "wrong-origin",
+            label: "Wrong origin",
+            coordinates: request.origin.coordinates,
+          },
+        });
+      },
+    };
+    const result = getCarRoundTripRoute(provider, destination, origin);
+    expect(result.outbound.availability).toBe("unknown");
+    expect(result.outbound.errorCode).toBe("invalid_provider_route");
+  });
+
+  it("rejects an access-anchor identity that does not match the requested anchor", () => {
+    const provider = {
+      route(request: CarRouteRequest): CarRouteResult {
+        return route(firstAnchor, request.direction, {
+          accessAnchor: {
+            id: "wrong-anchor",
+            label: "Wrong anchor",
+            coordinates: firstAnchor.coordinates!,
+          },
+        });
+      },
+    };
+    const result = getCarRoundTripRoute(provider, destination, origin);
+    expect(result.outbound.availability).toBe("unknown");
+    expect(result.outbound.errorCode).toBe("invalid_provider_route");
+  });
+
   it("preserves unknown route confidence and the selected personal-car mode", () => {
     const journey = buildCarJourney(
       destination,

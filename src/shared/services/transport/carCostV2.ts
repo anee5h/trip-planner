@@ -4,6 +4,7 @@ import type {
 } from "@/shared/services/budget/budgetV2";
 import { getTripDays, type TripDuration } from "@/shared/types/tripDuration";
 import type { PriceRange } from "@/shared/types/planner";
+import planningAssumptions from "@/shared/data/car-planning-assumptions.json";
 import type { CarRoundTripRoute, CarRouteResult } from "./CarRouteProvider";
 
 export type CarVehicleClass = "compact" | "standard" | "suv";
@@ -45,19 +46,44 @@ export interface CarCostResult {
 }
 
 export const DEFAULT_CAR_ASSUMPTION_PROVENANCE: CostAssumptionProvenance = {
-  source: "Meguruto planning defaults",
-  basis: "fuel economy, fuel price, parking, and rental-rate profiles",
-  revision: "car-cost-v2-defaults-1",
+  source: "car-planning-assumptions.json",
+  basis: planningAssumptions.notes,
+  revision: planningAssumptions.version,
+  checkedAt: planningAssumptions.checkedAt,
+  sourceUrls: [
+    planningAssumptions.fuelEconomyKmPerL.reference,
+    planningAssumptions.fuelPriceJPYPerL.reference,
+    planningAssumptions.rentalDailyChargeJPY.compact.reference,
+  ],
 };
 
-export const DEFAULT_FUEL_ECONOMY_KM_PER_L: PriceRange = [12, 18];
-export const DEFAULT_FUEL_PRICE_JPY_PER_L: PriceRange = [165, 190];
+function planningRange(value: readonly number[]): PriceRange {
+  if (
+    value.length !== 2 ||
+    !Number.isFinite(value[0]) ||
+    !Number.isFinite(value[1])
+  ) {
+    throw new Error("Invalid car planning assumption range");
+  }
+  return [value[0], value[1]];
+}
+
+export const DEFAULT_FUEL_ECONOMY_KM_PER_L: PriceRange = planningRange(
+  planningAssumptions.fuelEconomyKmPerL.value,
+);
+export const DEFAULT_FUEL_PRICE_JPY_PER_L: PriceRange = planningRange(
+  planningAssumptions.fuelPriceJPYPerL.value,
+);
 export const DEFAULT_RENTAL_DAILY_CHARGES: Readonly<
   Record<CarVehicleClass, PriceRange>
 > = {
-  compact: [6000, 10000],
-  standard: [8000, 14000],
-  suv: [11000, 18000],
+  compact: planningRange(
+    planningAssumptions.rentalDailyChargeJPY.compact.value,
+  ),
+  standard: planningRange(
+    planningAssumptions.rentalDailyChargeJPY.standard.value,
+  ),
+  suv: planningRange(planningAssumptions.rentalDailyChargeJPY.suv.value),
 };
 
 function unavailable(
