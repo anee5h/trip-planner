@@ -5,10 +5,31 @@ import {
   resolveDestinationTransportZone,
   resolveOriginTransportZone,
 } from "@/shared/services/transport/TransportTopologyService";
-import { getCarAccess } from "@/shared/services/transport/CarAccessService";
+import {
+  getCarAccess,
+  getRoutableCarAccessAnchors,
+} from "@/shared/services/transport/CarAccessService";
 import type { Destination } from "@/shared/types/destination";
 
 const destinations = data as Destination[];
+
+function hasLegacyCarDisplaySupport(destination: Destination): boolean {
+  return [
+    destination.transportOptions?.car,
+    destination.transportOptions?.my_car,
+  ].some((value) => typeof value === "number" && Number.isFinite(value));
+}
+
+function hasCanonicalCarAccessRecord(destination: Destination): boolean {
+  const access = getCarAccess(destination);
+  return (
+    destination.carAccess !== undefined ||
+    !["legacy_compatibility", "catalogue_metadata", "none"].includes(
+      access.evidence,
+    )
+  );
+}
+
 const origins = [
   {
     id: "nakayama-yokohama",
@@ -133,6 +154,24 @@ const changedReasons = [...new Set([...newlyGained, ...lost])]
   })
   .sort((a, b) => a.destinationId.localeCompare(b.destinationId));
 
+const legacyDisplaySupport = destinations.filter(hasLegacyCarDisplaySupport);
+const canonicalAccessRecords = destinations.filter(hasCanonicalCarAccessRecord);
+const canonicalEligibleAccess = destinations.filter((destination) => {
+  const access = getCarAccess(destination);
+  return (
+    access.eligibility === "eligible" &&
+    getRoutableCarAccessAnchors(destination).length > 0
+  );
+});
+const accessEvidenceSummary = destinations.reduce<Record<string, number>>(
+  (summary, destination) => {
+    const evidence = getCarAccess(destination).evidence;
+    summary[evidence] = (summary[evidence] ?? 0) + 1;
+    return summary;
+  },
+  {},
+);
+
 console.log(
   JSON.stringify(
     {
@@ -152,6 +191,19 @@ console.log(
         carSupportLost: lost,
       },
       accessSummary,
+      classification: {
+        catalogueRecordCount: destinations.length,
+        legacyDisplaySupportCount: legacyDisplaySupport.length,
+        canonicalCarAccessRecordCount: canonicalAccessRecords.length,
+        canonicalPersonalizedEligibleCount: canonicalEligibleAccess.length,
+        unresolvedUnknownCount: accessSummary.unresolvedUnknown,
+        restrictedUnavailableFerryRequiredCount: [
+          "restricted",
+          "unavailable",
+          "ferry_required",
+        ].reduce((count, state) => count + (accessSummary[state] ?? 0), 0),
+        accessEvidenceSummary,
+      },
       changedReasons,
       note: "Previous support reproduces the pre-KAI-264 topology plus destination.transportOptions.car predicate. New personalized support requires topology plus coordinate-bearing CarAccessService evidence. Legacy-only destinations are reported separately and remain display-compatible but unknown for personalized routing.",
     },

@@ -270,8 +270,8 @@ describe("RecommendationScorer Unit Tests", () => {
         "mainland-honshu",
       ),
     ).toEqual([]);
-    // A legacy train number is also not authorization without a canonical
-    // origin-aware result.
+    // The legacy train number is ignored; the topology and explicit local
+    // access declaration establish this train mode instead.
     expect(
       getValidModes(
         carDestination,
@@ -282,6 +282,71 @@ describe("RecommendationScorer Unit Tests", () => {
         "mainland-honshu",
       ),
     ).toEqual(["train"]);
+  });
+
+  it("requires an origin road connection in addition to a car access anchor", () => {
+    const carDestination = {
+      ...mockDest,
+      id: "car-anchor-destination",
+      carAccess: {
+        state: "direct",
+        eligibility: "eligible",
+        anchors: [
+          {
+            id: "destination-parking",
+            label: "Destination parking",
+            kind: "official_parking",
+            coordinates: { lat: 36.36, lng: 138.61 },
+            sourceUrls: ["https://example.test/parking"],
+          },
+        ],
+        evidence: "fixture",
+        sourceUrls: ["https://example.test/access"],
+      },
+      localAccessModes: ["car"],
+      transportOptions: { car: 90, my_car: 90 },
+    } as unknown as Destination;
+
+    expect(
+      getValidModes(
+        carDestination,
+        "rental",
+        [],
+        { lat: 26.217, lng: 127.719 },
+        "standard",
+        "okinawa-main",
+      ),
+    ).toEqual([]);
+    expect(
+      getValidModes(
+        carDestination,
+        "rental",
+        [],
+        { lat: 35.514745, lng: 139.539692 },
+        "standard",
+        "mainland-honshu",
+      ),
+    ).toEqual(["car"]);
+    expect(
+      getValidModes(
+        carDestination,
+        "my_car",
+        [],
+        { lat: 26.217, lng: 127.719 },
+        "standard",
+        "okinawa-main",
+      ),
+    ).toEqual([]);
+    expect(
+      getValidModes(
+        carDestination,
+        "my_car",
+        [],
+        { lat: 35.514745, lng: 139.539692 },
+        "standard",
+        "mainland-honshu",
+      ),
+    ).toEqual(["my_car"]);
   });
 
   it("keeps day-trip efficiency on the selected usable transport mode", async () => {

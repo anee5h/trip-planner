@@ -192,7 +192,6 @@ function getValidModesUncached(
       ? topologyModes.localModes
       : topologyModes.crossZoneModes,
   );
-  if (isCarModeEligible(dest)) authorized.add("car");
   const flightEstimate = getFlightTransportEstimate(
     dest,
     homeCoords,
@@ -222,64 +221,20 @@ function getValidModesUncached(
       checkMode === "shinkansen" ||
       checkMode === "bus"
     ) {
-      if (homeCoords) {
-        // Bus and Shinkansen are always personalized route-backed modes. Train
-        // retains the existing compatibility eligibility for legacy records
-        // that have no local-access declaration; an explicit declaration is
-        // authoritative, and an explicit [] cannot be resurrected by a stale
-        // transportOptions number.
-        if (
-          checkMode === "train" &&
-          dest.localAccessModes !== undefined &&
-          !dest.localAccessModes.includes(checkMode)
-        ) {
-          return false;
-        }
-        if (
-          dest.transportOptions?.[
-            checkMode as keyof typeof dest.transportOptions
-          ] === undefined
-        ) {
-          return Boolean(
-            getOriginAwareTransportEstimate(
-              dest,
-              {
-                homeStationCoords: homeCoords,
-                originZoneId: effectiveOriginZoneId,
-                ferryTemporal,
-              },
-              [checkMode],
-            ),
-          );
-        }
+      // Topology is the authorization source. An origin-aware estimate may
+      // enrich duration evidence, but its absence must not resurrect a stale
+      // catalogue value or make a topology-authorized route disappear.
+      if (
+        checkMode === "train" &&
+        dest.localAccessModes !== undefined &&
+        !dest.localAccessModes.includes(checkMode)
+      ) {
+        return false;
       }
-      if (checkMode === "shinkansen" || checkMode === "bus") {
-        if (homeCoords) {
-          return Boolean(
-            getOriginAwareTransportEstimate(
-              dest,
-              {
-                homeStationCoords: homeCoords,
-                originZoneId: effectiveOriginZoneId,
-                ferryTemporal,
-              },
-              [checkMode],
-            ),
-          );
-        }
-        return Boolean(
-          dest.transportOptions?.[
-            checkMode as keyof typeof dest.transportOptions
-          ] !== undefined,
-        );
-      }
+      return true;
     }
 
-    return Boolean(
-      dest.transportOptions?.[
-        checkMode as keyof typeof dest.transportOptions
-      ] !== undefined,
-    );
+    return false;
   };
   const selected = new Set<string>(publicModes);
   if (carMode === "rental") selected.add("car");
