@@ -228,7 +228,7 @@ function getValidModesUncached(
       ) {
         return false;
       }
-      if (checkMode === "train" && !homeCoords) return true;
+      if (checkMode === "train") return true;
       return Boolean(
         homeCoords &&
         getOriginAwareTransportEstimate(
