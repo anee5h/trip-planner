@@ -21,8 +21,9 @@ import {
  *
  * Bounding: routes are acquired only when a request is car-relevant, only
  * for destinations whose mode set includes car/my_car, and only for the
- * first CAR_ROUTE_ENRICHMENT_LIMIT candidates in the (already narrowed)
- * input order. A request therefore issues at most
+ * first CAR_ROUTE_ENRICHMENT_LIMIT candidates in the provided (already
+ * narrowed) shortlist — the surfaced recommendation set when called from
+ * the hook. A request therefore issues at most
  * CAR_ROUTE_ENRICHMENT_LIMIT × 2 ORS calls; the client-side bounded cache
  * absorbs repeats across renders.
  */

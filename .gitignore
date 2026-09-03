@@ -55,3 +55,6 @@ __pycache__/
 *.pyc
 scripts/.pr*.py
 allure-results/
+
+# Local-only Pages Function secrets (never committed; key values live here)
+.dev.vars

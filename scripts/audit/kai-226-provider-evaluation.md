@@ -4,11 +4,12 @@ Date: 2026-09-03
 
 ## Scope and evidence boundary
 
-This is a provider-selection and validation record. The repository has no configured
-OpenRouteService credential, so no production route values, tolls, traffic timings,
-quotas, or latency are fabricated. KAI-226 now includes a replaceable hosted ORS
-adapter; deterministic tests and the golden harness exercise its contract without
-network access.
+Deterministic tests and the golden harness exercise the provider contract
+without network access. On 2026-09-03 a **live validation run** was performed
+through Meguruto's own endpoint against the ORS production API (local Pages
+Function boundary, key from the gitignored local `.dev.vars`; see the live
+record below). No production route values, tolls, traffic timings, quotas, or
+latency are fabricated anywhere in this repository.
 
 ## Documentation comparison
 
@@ -85,9 +86,66 @@ anchor (explicit anchor or derived candidate), and leaves tolls unknown. Google
 and NAVITIME remain future replaceable candidates after product, quota, legal,
 and Japan-specific toll validation.
 
-The live representative matrix remains **not run — no credential configured in
-this environment**. Until a deployment runs it, fixture output is not production
-route truth. Missing provider output, missing return output, unknown tolls, and
-provider errors remain explicit unavailable or unknown states; they never become
-a straight-line distance, average-speed duration, `distance × ¥18/km`, or zero
-toll. No Haversine value is ever promoted to canonical distance/duration/cost.
+The live representative matrix was run once through Meguruto's own endpoint
+against the ORS production API on **2026-09-03** using the local Pages
+Function boundary (wrangler pages dev, `functions/api/car-route.js` →
+OpenRouteService, key from gitignored local `.dev.vars`) — the full
+browser→endpoint→provider→canonical path, not a direct ORS call.
+
+## Live validation record (2026-09-03, local Pages Function boundary, ORS production)
+
+**liveOrsValidated: true** — scope: Meguruto's own `/api/car-route` boundary
+against the ORS production API with a real key (local Pages Function
+deployment). The Cloudflare-hosted preview still awaits the correctly named
+`OPENROUTESERVICE_API_KEY` secret (see below) before the same record can be
+reproduced on the remote deployment.
+
+Routes (outbound + return independently; normalized canonical results):
+
+| Route | Outbound distance | Outbound minutes | Return distance | Return minutes | Result |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Tokyo Station → Karuizawa official parking anchor | 163.98 km | 136.5 | 163.13 km | 138.0 | available |
+| Nakayama/Yokohama → Kamakura (Kanto, candidate coords) | 31.68 km | 43.9 | 33.35 km | 38.7 | available |
+| Nakayama → Chiba Shrine (legacy-car candidate endpoint) | 71.91 km | 69.4 | 70.88 km | 71.5 | available |
+
+All responses: HTTP 200, canonical `CarRouteResult` body only (no raw ORS
+`routes/summary/geometry` leak), `toll: unknown`, `confidence: verified`,
+`completeness: complete`; per-request direction correct; outbound/return
+independently scoped. No key or authorization header appears in responses,
+server logs (binding shown as `(hidden)`), or the built client bundle
+(bundle-secret scan clean post-run).
+
+Engine consumption (live routes through `TripEstimateEngine`/Journey):
+personal car Tokyo→Karuizawa journey legs **136.5 / 138.0 min** with
+163.98/163.13 km from the route (no Haversine); fuel+parking known subtotal
+survives with toll unknown; party 2 = 1 vehicle, party 11 = 3 vehicles
+(×3 known subtotal, both modes). Rental (production `car` mode) uses the same
+routed basis with distinct daily-rate costing and the same vehicle scaling.
+
+UI flows (production build served through the same boundary): Personal car
+2D1N + Full day and Rental 2D1N + Full day — surfaced top matches are the
+acquisition shortlist; 8/10 requests available (+1 honest `no_route` pair for
+Mount Tsukuba); displayed travel time provider-backed (Hitachi Seaside Park
+"~2 hr" from a 101.8-min leg, Nokogiriyama "~1 hr" from 68.5, Yomiuriland
+"~29–37 min" around a 33.7-min leg); station-area POI chips fall back to the
+local-access floor (display-only, never canonical cost).
+
+Failure-mode smoke (key removed from the same boundary, no production config
+touched): every acquisition returned the canonical `provider_not_configured`
+error, the UI fails closed for the car route (no fabricated route, no fake
+canonical time/cost), the rail still renders, and the public-train flow is
+unaffected. The per-IP rate limiter was also observed returning canonical
+429→`quota_exceeded` mid-smoke (12 calls × 4 flows + curls exceeded the
+120/10 min local isolate bucket), confirming the bounded-quota path
+end-to-end.
+
+The live representative matrix remains **not run** against the **Cloudflare
+deployed preview**: the correctly named `OPENROUTESERVICE_API_KEY` secret has
+not yet been created in Cloudflare (the secret currently present there is
+named `OPENROUTER_API_KEY`, which the Function does not read). Until a
+deployment carries the correctly named variable, fixture output is not
+production route truth. Missing provider output, missing return output,
+unknown tolls, and provider errors remain explicit unavailable or unknown
+states; they never become a straight-line distance, average-speed duration,
+`distance × ¥18/km`, or zero toll. No Haversine value is ever promoted to
+canonical distance/duration/cost.

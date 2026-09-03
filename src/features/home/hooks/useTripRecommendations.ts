@@ -1,7 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
-import { acquireCarRoutes } from "@/shared/services/recommendation/carRouteAcquisition";
+import {
+  acquireCarRoutes,
+  CAR_ROUTE_ENRICHMENT_LIMIT,
+} from "@/shared/services/recommendation/carRouteAcquisition";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
@@ -106,51 +109,16 @@ export function useTripRecommendations({
   );
 
   // KAI-226: server-side car-route acquisition for car-relevant requests.
-  // Fetched asynchronously BEFORE final scoring; the synchronous first pass
-  // (no routes) renders immediately and is upgraded in place when routes
-  // arrive. Fail closed: acquisition errors degrade to the plain
-  // no-route behaviour (canonical car facts stay unknown).
+  // The shortlist is the SURFACED recommendation set (cheap static scoring
+  // first, no routes), so route enrichment aligns with what the UI actually
+  // shows; the synchronous first pass renders immediately and is upgraded in
+  // place when routes arrive. Fail closed: acquisition errors degrade to the
+  // plain no-route behaviour (canonical car facts stay unknown).
   const [carRoutes, setCarRoutes] = useState<
     Readonly<Record<string, CarRoundTripRoute>> | undefined
   >(undefined);
-  useEffect(() => {
-    const carRelevant =
-      carMode !== undefined && carMode !== "none" && Boolean(homeStationCoords);
-    if (!carRelevant) {
-      setCarRoutes(undefined);
-      return;
-    }
-    let cancelled = false;
-    acquireCarRoutes(allDestinations, {
-      carMode,
-      publicModes,
-      budgetTier,
-      homeStationCoords,
-      originZoneId: homeStationTransportZoneId,
-      ferryTemporal,
-    })
-      .then((routes) => {
-        if (!cancelled) setCarRoutes(routes);
-      })
-      .catch(() => {
-        if (!cancelled) setCarRoutes(undefined);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [
-    allDestinations,
-    carMode,
-    publicModes,
-    partySize,
-    budgetTier,
-    homeStationCoords,
-    homeStationTransportZoneId,
-    ferryTemporal,
-    tripDuration,
-  ]);
 
-  const recommendationContext = useMemo(
+  const recommendationContextBase = useMemo(
     () => ({
       vibe,
       budget,
@@ -168,8 +136,6 @@ export function useTripRecommendations({
       tripDuration,
       ferryTemporal,
       travelDates,
-      // KAI-226: per-destination canonical car routes (server-acquired).
-      carRoutes,
       // KAI-130: forecastMap deliberately NOT passed — the origin forecast
       // is display-only. TravelConditions evaluates explicit dates
       // deterministically via catalogue seasonal evidence, so weather
@@ -191,15 +157,80 @@ export function useTripRecommendations({
       destinationRatings,
       visitedIds,
       travelDates,
-      carRoutes,
       // KAI-130: forecastMap deliberately excluded — origin weather is
       // display-only and never contributes a destination score delta.
     ],
   );
 
+  const recommendationContext = useMemo(
+    () =>
+      carRoutes
+        ? { ...recommendationContextBase, carRoutes }
+        : recommendationContextBase,
+    [recommendationContextBase, carRoutes],
+  );
+
+  // Static (route-free) scoring of the same context: the surfaced shortlist
+  // for KAI-226 server-side acquisition.
+  const baseRecommendations = useMemo(
+    () => getRecommendations(allDestinations, recommendationContextBase),
+    [allDestinations, recommendationContextBase],
+  );
+
+  useEffect(() => {
+    const carRelevant =
+      carMode !== undefined && carMode !== "none" && Boolean(homeStationCoords);
+    if (!carRelevant) {
+      setCarRoutes(undefined);
+      return;
+    }
+    const shortlist = baseRecommendations
+      .slice(0, CAR_ROUTE_ENRICHMENT_LIMIT)
+      .map((recommendation) => recommendation.id)
+      .map((id) => allDestinations.find((destination) => destination.id === id))
+      .filter(
+        (destination): destination is Destination => destination !== undefined,
+      );
+    if (shortlist.length === 0) {
+      setCarRoutes({});
+      return;
+    }
+    let cancelled = false;
+    acquireCarRoutes(shortlist, {
+      carMode,
+      publicModes,
+      budgetTier,
+      homeStationCoords,
+      originZoneId: homeStationTransportZoneId,
+      ferryTemporal,
+    })
+      .then((routes) => {
+        if (!cancelled) setCarRoutes(routes);
+      })
+      .catch(() => {
+        if (!cancelled) setCarRoutes(undefined);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    baseRecommendations,
+    allDestinations,
+    carMode,
+    publicModes,
+    budgetTier,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    ferryTemporal,
+  ]);
+
   const recommendedDestinations = useMemo(() => {
-    return getRecommendations(allDestinations, recommendationContext);
-  }, [allDestinations, recommendationContext]);
+    // Route-free and initial state share the same static result; the second
+    // pass (with carRoutes) is only computed after server acquisition lands.
+    return carRoutes
+      ? getRecommendations(allDestinations, recommendationContext)
+      : baseRecommendations;
+  }, [allDestinations, recommendationContext, carRoutes, baseRecommendations]);
 
   const roulette = useMemo(() => {
     if (!rouletteEnabled) {
