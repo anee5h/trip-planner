@@ -135,7 +135,11 @@ describe("KAI-262 recommendation transport matrix", () => {
       );
 
       if (carMode !== "none") {
-        expect(results).toEqual([]);
+        if (duration === "2d1n" || duration === "3d2n") {
+          expect(results.length).toBeGreaterThan(0);
+        } else {
+          expect(results).toEqual([]);
+        }
         return;
       }
       expect(results.length).toBeGreaterThan(0);

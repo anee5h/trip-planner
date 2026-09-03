@@ -123,8 +123,17 @@ describe("evaluateWeekendTravelFit", () => {
     });
   });
 
-  it("undefined → unknown, neutral eligibility (no route)", () => {
+  it("undefined → unknown, ineligible without neutral opt-in", () => {
     expect(evaluateWeekendTravelFit(undefined)).toEqual({
+      eligible: false,
+      band: "unknown",
+    });
+  });
+
+  it("undefined → unknown, neutral when explicitly enabled", () => {
+    expect(
+      evaluateWeekendTravelFit(undefined, { unknownNeutral: true }),
+    ).toEqual({
       eligible: true,
       band: "unknown",
     });

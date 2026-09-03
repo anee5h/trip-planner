@@ -72,12 +72,15 @@ export function hasOvernightWorthyWeekendSemantics(
 
 export function evaluateWeekendTravelFit(
   oneWayMinutes: number | undefined,
-  options: { overnightWorthy?: boolean } = {},
+  options: { overnightWorthy?: boolean; unknownNeutral?: boolean } = {},
 ): WeekendTravelFit {
   if (oneWayMinutes === undefined) {
-    // Unknown route evidence is neutral for recommendation eligibility. It
-    // must not manufacture a duration or pretend to fit a travel band.
-    return { eligible: true, band: "unknown" };
+    // Unknown public-route evidence is not enough for an overnight fit. Car
+    // only callers may opt into neutral retention without manufacturing time.
+    return {
+      eligible: options.unknownNeutral === true,
+      band: "unknown",
+    };
   }
   if (oneWayMinutes <= WEEKEND_TRAVEL_POLICY.LOCAL_MAX_MINUTES) {
     return {
@@ -292,6 +295,10 @@ export function evaluateWeekendCandidate(
   const oneWayMinutes = getBestOneWayTravelMinutes(destination, context, modes);
   const travelFit = evaluateWeekendTravelFit(oneWayMinutes, {
     overnightWorthy: hasOvernightWorthyWeekendSemantics(destination, pool),
+    unknownNeutral:
+      oneWayMinutes === undefined &&
+      modes.length > 0 &&
+      modes.every((mode) => mode === "car" || mode === "my_car"),
   });
   const capacity = evaluateWeekendCapacity(
     destination,
