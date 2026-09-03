@@ -306,6 +306,9 @@ export function getFlightTransportEstimate(
         bestOption.route.fareStatus === "unverified"
           ? "unverified"
           : "verified",
+      sourceUrl: bestOption.route.sourceUrl,
+      fareSourceUrl: bestOption.route.fareSourceUrl,
+      checkedAt: bestOption.route.checkedAt,
     },
   };
 }

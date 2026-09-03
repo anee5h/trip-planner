@@ -164,5 +164,9 @@ export interface TransportEstimate {
     verifiedFare?: [number, number] | null;
     /** Whether verifiedFare is backed by a verified fare status. */
     verifiedFareStatus?: "verified" | "unverified";
+    /** Provenance for the dataset route and fare facts. */
+    sourceUrl?: string;
+    fareSourceUrl?: string;
+    checkedAt?: string;
   };
 }
