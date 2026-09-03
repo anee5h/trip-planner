@@ -38,7 +38,10 @@ import {
 } from "@/shared/services/transport/transportCostV2";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
-import { isCarRoundTripRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
+import {
+  isCarRoundTripRouteForDestination,
+  resolveCarRouteForDestination,
+} from "@/shared/services/transport/CarRouteProvider";
 import type {
   PersonalCarCostOptions,
   RentalCarCostOptions,
@@ -761,14 +764,8 @@ function mealDurationHours(context: TripEstimateContext): number | undefined {
     return visitMax;
   }
   const scopedCarRoute =
-    (context.mode === "car" || context.mode === "my_car") &&
-    context.carRoute &&
-    isCarRoundTripRouteForDestination(
-      context.dest,
-      context.carRoute,
-      context.homeCoords,
-    )
-      ? context.carRoute
+    context.mode === "car" || context.mode === "my_car"
+      ? resolveCarRouteForDestination(context.dest, context)
       : undefined;
   const travel = getOriginAwareTransportEstimate(
     context.dest,
@@ -945,16 +942,7 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
   const includeOrigin =
     context.includeOriginTravel === true ||
     (context.includeOriginTravel === undefined && Boolean(context.homeCoords));
-  const scopedCarRoute =
-    context.carRoute &&
-    context.homeCoords &&
-    isCarRoundTripRouteForDestination(
-      context.dest,
-      context.carRoute,
-      context.homeCoords,
-    )
-      ? context.carRoute
-      : undefined;
+  const scopedCarRoute = resolveCarRouteForDestination(context.dest, context);
   const origin = !includeOrigin
     ? component(
         { kind: "not_applicable" },

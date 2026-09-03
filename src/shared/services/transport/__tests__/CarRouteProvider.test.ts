@@ -182,13 +182,18 @@ describe("CarRouteProvider", () => {
   });
 
   it("does not route restricted or seasonal access", () => {
+    const refusalByState: Record<string, "restricted" | "unavailable"> = {
+      restricted: "restricted",
+      seasonal: "restricted",
+      unavailable: "unavailable",
+    };
     for (const state of ["restricted", "seasonal", "unavailable"] as const) {
       const restrictedDestination = {
         ...destination,
         carAccess: {
           ...destination.carAccess,
           state,
-          eligibility: "ineligible",
+          eligibility: refusalByState[state],
         },
       } as unknown as Destination;
       const calls: CarRouteRequest[] = [];

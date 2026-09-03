@@ -2,7 +2,11 @@ import type {
   CarAccessAnchor,
   CarAccessCoordinates,
 } from "@/shared/types/carAccess";
-import { getCarAccess, getRoutableCarAccessAnchors } from "./CarAccessService";
+import {
+  getCarAccess,
+  getRoutableCarAccessAnchors,
+  resolveCarAccess,
+} from "./CarAccessService";
 import type { Destination } from "@/shared/types/destination";
 
 export type CarRouteDirection = "outbound" | "return";
@@ -327,8 +331,17 @@ export async function getCarRoundTripRouteAsync(
   } = {},
 ): Promise<CarRoundTripRoute> {
   const access = getCarAccess(destination);
-  if (access.eligibility !== "eligible") {
-    const unavailable = unavailableRoute(origin, `access_${access.state}`);
+  const resolution = resolveCarAccess(destination);
+  // Explicit refusal (restricted/unavailable) or no resolvable anchors can
+  // never be routed, even when a provider could geometrically reach the
+  // destination coordinates.
+  if (resolution.anchors.length === 0) {
+    const unavailable = unavailableRoute(
+      origin,
+      resolution.kind === "unknown"
+        ? "access_unknown"
+        : `access_${access.state}`,
+    );
     return { outbound: unavailable, returnRoute: unavailable };
   }
   const anchors = getRoutableCarAccessAnchors(destination);
@@ -376,8 +389,14 @@ export function getCarRoundTripRoute(
   } = {},
 ): CarRoundTripRoute {
   const access = getCarAccess(destination);
-  if (access.eligibility !== "eligible") {
-    const unavailable = unavailableRoute(origin, `access_${access.state}`);
+  const resolution = resolveCarAccess(destination);
+  if (resolution.anchors.length === 0) {
+    const unavailable = unavailableRoute(
+      origin,
+      resolution.kind === "unknown"
+        ? "access_unknown"
+        : `access_${access.state}`,
+    );
     return { outbound: unavailable, returnRoute: unavailable };
   }
   const anchors = getRoutableCarAccessAnchors(destination);
@@ -438,4 +457,28 @@ export function hasUsableCarRoute(route: CarRouteResult): boolean {
     route.confidence !== "unknown" &&
     route.completeness !== "unknown"
   );
+}
+
+/**
+ * Shared per-destination route lookup for the recommendation surface.
+ *
+ * `carRoutes` carries one canonical route per destination id; `carRoute` is
+ * the single-destination form. The result is always guarded by
+ * isCarRoundTripRouteForDestination so a route can never leak across
+ * destinations or anchors.
+ */
+export function resolveCarRouteForDestination(
+  destination: Destination,
+  context: {
+    readonly carRoute?: CarRoundTripRoute;
+    readonly carRoutes?: Readonly<Record<string, CarRoundTripRoute>>;
+    readonly homeStationCoords?: { lat: number; lng: number } | null;
+  },
+): CarRoundTripRoute | undefined {
+  const route = context.carRoutes?.[destination.id] ?? context.carRoute;
+  if (!route) return undefined;
+  const home = context.homeStationCoords ?? undefined;
+  return isCarRoundTripRouteForDestination(destination, route, home)
+    ? route
+    : undefined;
 }

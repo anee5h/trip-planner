@@ -17,6 +17,7 @@ import { formatJPYRange } from "@/shared/services/budget/BudgetService";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import type { PriceRange } from "@/shared/types/planner";
 
 const DAY_TRIP_DISPLAY_PRIORITY: readonly (readonly RecommendationReasonCode[])[] =
@@ -166,7 +167,7 @@ export function createRecommendationMatch(
       // KAI-260: use the same canonical duration as the scorer.
       duration: context.tripDuration ?? "fullDay",
       ferryTemporal: context.ferryTemporal,
-      carRoute: context.carRoute,
+      carRoute: resolveCarRouteForDestination(dest, context),
       carCostOptions: context.carCostOptions,
     });
     if (engineResult.total && engineResult.total.max <= budget) {
@@ -189,7 +190,7 @@ export function createRecommendationMatch(
           homeStationCoords: context.homeStationCoords ?? undefined,
           originZoneId: context.originZoneId,
           ferryTemporal: context.ferryTemporal,
-          carRoute: context.carRoute,
+          carRoute: resolveCarRouteForDestination(dest, context),
         },
         [mode],
       );
@@ -210,7 +211,7 @@ export function createRecommendationMatch(
             homeStationCoords: context.homeStationCoords ?? undefined,
             originZoneId: context.originZoneId,
             ferryTemporal: context.ferryTemporal,
-            carRoute: context.carRoute,
+            carRoute: resolveCarRouteForDestination(dest, context),
           },
           [mode],
         ),
@@ -256,7 +257,7 @@ export function createRecommendationMatch(
           homeStationCoords: context.homeStationCoords ?? undefined,
           originZoneId: context.originZoneId,
           ferryTemporal: context.ferryTemporal,
-          carRoute: context.carRoute,
+          carRoute: resolveCarRouteForDestination(dest, context),
         },
         [bestMode],
       ))

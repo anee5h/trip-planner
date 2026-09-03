@@ -1,5 +1,7 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
+import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import { acquireCarRoutes } from "@/shared/services/recommendation/carRouteAcquisition";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import type { TripDuration } from "@/shared/services/recommendation/RecommendationContext";
@@ -103,8 +105,53 @@ export function useTripRecommendations({
     [allDestinations, isVisited],
   );
 
-  const recommendedDestinations = useMemo(() => {
-    return getRecommendations(allDestinations, {
+  // KAI-226: server-side car-route acquisition for car-relevant requests.
+  // Fetched asynchronously BEFORE final scoring; the synchronous first pass
+  // (no routes) renders immediately and is upgraded in place when routes
+  // arrive. Fail closed: acquisition errors degrade to the plain
+  // no-route behaviour (canonical car facts stay unknown).
+  const [carRoutes, setCarRoutes] = useState<
+    Readonly<Record<string, CarRoundTripRoute>> | undefined
+  >(undefined);
+  useEffect(() => {
+    const carRelevant =
+      carMode !== undefined && carMode !== "none" && Boolean(homeStationCoords);
+    if (!carRelevant) {
+      setCarRoutes(undefined);
+      return;
+    }
+    let cancelled = false;
+    acquireCarRoutes(allDestinations, {
+      carMode,
+      publicModes,
+      budgetTier,
+      homeStationCoords,
+      originZoneId: homeStationTransportZoneId,
+      ferryTemporal,
+    })
+      .then((routes) => {
+        if (!cancelled) setCarRoutes(routes);
+      })
+      .catch(() => {
+        if (!cancelled) setCarRoutes(undefined);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [
+    allDestinations,
+    carMode,
+    publicModes,
+    partySize,
+    budgetTier,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    ferryTemporal,
+    tripDuration,
+  ]);
+
+  const recommendationContext = useMemo(
+    () => ({
       vibe,
       budget,
       carMode,
@@ -121,31 +168,38 @@ export function useTripRecommendations({
       tripDuration,
       ferryTemporal,
       travelDates,
+      // KAI-226: per-destination canonical car routes (server-acquired).
+      carRoutes,
       // KAI-130: forecastMap deliberately NOT passed — the origin forecast
       // is display-only. TravelConditions evaluates explicit dates
       // deterministically via catalogue seasonal evidence, so weather
       // arrival cannot change ranking and ranking is stable across
       // renders (no ref-smuggled timing dependence).
-    });
-  }, [
-    allDestinations,
-    preferredWeather,
-    vibe,
-    budget,
-    carMode,
-    publicModes,
-    partySize,
-    budgetTier,
-    tripDuration,
-    homeStationCoords,
-    homeStationTransportZoneId,
-    ferryTemporal,
-    destinationRatings,
-    visitedIds,
-    travelDates,
-    // KAI-130: forecastMap deliberately excluded — origin weather is
-    // display-only and never contributes a destination score delta.
-  ]);
+    }),
+    [
+      preferredWeather,
+      vibe,
+      budget,
+      carMode,
+      publicModes,
+      partySize,
+      budgetTier,
+      tripDuration,
+      homeStationCoords,
+      homeStationTransportZoneId,
+      ferryTemporal,
+      destinationRatings,
+      visitedIds,
+      travelDates,
+      carRoutes,
+      // KAI-130: forecastMap deliberately excluded — origin weather is
+      // display-only and never contributes a destination score delta.
+    ],
+  );
+
+  const recommendedDestinations = useMemo(() => {
+    return getRecommendations(allDestinations, recommendationContext);
+  }, [allDestinations, recommendationContext]);
 
   const roulette = useMemo(() => {
     if (!rouletteEnabled) {
@@ -183,6 +237,8 @@ export function useTripRecommendations({
             tripDuration: duration,
             ferryTemporal,
             travelDates,
+            // KAI-226: share the same server-acquired canonical routes.
+            carRoutes,
           }),
         ),
       );

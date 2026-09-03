@@ -5,7 +5,7 @@ import {
   buildJourneyFromOriginAwareEstimate,
 } from "@/shared/services/transport/JourneyBuilder";
 import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
-import { isCarRoundTripRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
 import {
   getSafeGroundEstimate,
@@ -165,15 +165,7 @@ export function getTravelDurationEvidence(
     return { evidence: "unknown" };
   }
 
-  const scopedCarRoute =
-    context.carRoute &&
-    isCarRoundTripRouteForDestination(
-      destination,
-      context.carRoute,
-      context.homeStationCoords,
-    )
-      ? context.carRoute
-      : undefined;
+  const scopedCarRoute = resolveCarRouteForDestination(destination, context);
   const originAware = getOriginAwareTransportEstimate(
     destination,
     {

@@ -97,6 +97,12 @@ export interface RecommendationContext {
   ferryTemporal?: FerryTemporalContext;
   /** Optional provider-normalized car route facts for duration/budget consistency. */
   carRoute?: CarRoundTripRoute;
+  /**
+   * Per-destination carrier routes for multi-destination flows (KAI-226
+   * production acquisition). Each entry is guarded by the destination's own
+   * anchor scope before consumption.
+   */
+  carRoutes?: Readonly<Record<string, CarRoundTripRoute>>;
   /** Cost assumptions matching carMode; vehicle scoped, not passenger scoped. */
   carCostOptions?: PersonalCarCostOptions | RentalCarCostOptions;
   /**
@@ -118,6 +124,7 @@ export interface TripDurationContext {
   availableTimeHours?: number;
   ferryTemporal?: FerryTemporalContext;
   carRoute?: CarRoundTripRoute;
+  carRoutes?: Readonly<Record<string, CarRoundTripRoute>>;
 }
 
 export function resolveRecommendationWeather(context: RecommendationContext) {

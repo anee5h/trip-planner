@@ -63,15 +63,31 @@ oracle result where applicable. Run outbound and return independently.
 ## Decision
 
 OpenRouteService is the first hosted adapter for KAI-226. The application remains
-provider-neutral: callers inject `OpenRouteServiceCarRouteProvider` with a runtime
-key (for example `VITE_OPENROUTESERVICE_API_KEY` supplied by deployment), and no
-key or provider JSON is committed. The adapter requests only `driving-car` route
-facts, targets the KAI-264 access anchor, and leaves tolls unknown. Google and
-NAVITIME remain future replaceable candidates after product, quota, legal, and
-Japan-specific toll validation.
+provider-neutral. Production acquisition flows through the server-side Pages
+Function `/api/car-route` (`functions/api/car-route.js`), which holds the ORS
+credential ONLY in `OPENROUTESERVICE_API_KEY` (Pages Function env / `.dev.vars`);
+the browser never receives the key and no `VITE_*` ORS variable exists. The
+endpoint accepts only origin/target coordinates + direction, never provider
+URLs, and returns Meguruto's canonical normalized `CarRouteResult`.
 
-The live representative matrix remains **not run — credentials/client unavailable**.
-Until a deployment runs it, fixture output is not production route truth. Missing
-provider output, missing return output, unknown tolls, and provider errors remain
-explicit unavailable or unknown states; they never become a straight-line distance,
-average-speed duration, `distance × ¥18/km`, or zero toll.
+Flow:
+
+    browser view model
+        → carRouteAcquisition.acquireCarRoutes (client, bounded shortlist)
+        → POST /api/car-route (Pages Function)
+        → ORS driving-car (server-side key)
+        → canonical CarRouteResult × outbound + return
+        → RecommendationContext.carRoutes
+        → TripDurationService / TripEstimateEngine / Journey (canonical)
+
+The adapter requests only `driving-car` route facts, targets the KAI-264 access
+anchor (explicit anchor or derived candidate), and leaves tolls unknown. Google
+and NAVITIME remain future replaceable candidates after product, quota, legal,
+and Japan-specific toll validation.
+
+The live representative matrix remains **not run — no credential configured in
+this environment**. Until a deployment runs it, fixture output is not production
+route truth. Missing provider output, missing return output, unknown tolls, and
+provider errors remain explicit unavailable or unknown states; they never become
+a straight-line distance, average-speed duration, `distance × ¥18/km`, or zero
+toll. No Haversine value is ever promoted to canonical distance/duration/cost.

@@ -17,6 +17,7 @@ import {
   calculateScore,
   getValidModes,
 } from "./RecommendationScorer";
+import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
@@ -249,7 +250,7 @@ export function runRecommendationPipeline(
         duration: tripDuration,
         includeOriginTravel: Boolean(context.homeStationCoords),
         ferryTemporal: context.ferryTemporal,
-        carRoute: context.carRoute,
+        carRoute: resolveCarRouteForDestination(destination, context),
         carCostOptions: context.carCostOptions,
       }),
     );
@@ -357,7 +358,7 @@ export function runRecommendationPipeline(
               homeStationCoords: context.homeStationCoords ?? undefined,
               originZoneId: context.originZoneId,
               ferryTemporal: context.ferryTemporal,
-              carRoute: context.carRoute,
+              carRoute: resolveCarRouteForDestination(candidate, context),
             },
             validModes,
           )
@@ -381,7 +382,7 @@ export function runRecommendationPipeline(
             duration: tripDuration,
             budgetTier: context.budgetTier,
             ferryTemporal: context.ferryTemporal,
-            carRoute: context.carRoute,
+            carRoute: resolveCarRouteForDestination(candidate, context),
             carCostOptions: context.carCostOptions,
           })
         : null;

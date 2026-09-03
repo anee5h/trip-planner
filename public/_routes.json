@@ -46,7 +46,8 @@
     "/ja/cookies",
     "/api/feedback",
     "/api/errors",
-    "/api/account/delete"
+    "/api/account/delete",
+    "/api/car-route"
   ],
   "exclude": [
     "/assets/*",
