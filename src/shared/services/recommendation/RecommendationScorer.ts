@@ -221,9 +221,6 @@ function getValidModesUncached(
       checkMode === "shinkansen" ||
       checkMode === "bus"
     ) {
-      // Topology is the authorization source. An origin-aware estimate may
-      // enrich duration evidence, but its absence must not resurrect a stale
-      // catalogue value or make a topology-authorized route disappear.
       if (
         checkMode === "train" &&
         dest.localAccessModes !== undefined &&
@@ -231,7 +228,15 @@ function getValidModesUncached(
       ) {
         return false;
       }
-      return true;
+      if (checkMode === "train" && !homeCoords) return true;
+      return Boolean(
+        homeCoords &&
+        getOriginAwareTransportEstimate(
+          dest,
+          { homeStationCoords: homeCoords, ferryTemporal },
+          [checkMode],
+        ),
+      );
     }
 
     return false;
