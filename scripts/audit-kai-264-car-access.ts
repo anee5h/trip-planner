@@ -30,10 +30,19 @@ function previousCarSupport(
 ): boolean {
   const originZoneId = resolveOriginTransportZone({ coordinates });
   const destinationZoneId = resolveDestinationTransportZone(destination);
+  // Reproduce the pre-KAI-264 baseline exactly: before destination-level
+  // access became authoritative, an empty localAccessModes list fell back to
+  // the zone local modes just like an omitted field. The current topology
+  // helper intentionally treats [] as a hard no-access declaration, so pass a
+  // normalized legacy view only for this historical comparison.
+  const legacyDestination =
+    destination.localAccessModes?.length === 0
+      ? { ...destination, localAccessModes: undefined }
+      : destination;
   const topology = getEligibleOriginModes({
     originZoneId,
     destinationZoneId,
-    destination,
+    destination: legacyDestination,
   });
   const authorized =
     originZoneId === destinationZoneId
