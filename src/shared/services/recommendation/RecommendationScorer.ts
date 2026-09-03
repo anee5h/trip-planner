@@ -400,6 +400,8 @@ export function calculateScore(
       duration: context.tripDuration ?? "any",
       budgetTier: context.budgetTier,
       ferryTemporal: context.ferryTemporal,
+      carRoute: context.carRoute,
+      carCostOptions: context.carCostOptions,
     });
     const affordability = evaluateAffordability(engineResult, budget);
     if (engineResult.total) {

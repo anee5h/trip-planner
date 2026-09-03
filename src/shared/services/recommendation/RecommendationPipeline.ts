@@ -249,6 +249,8 @@ export function runRecommendationPipeline(
         duration: tripDuration,
         includeOriginTravel: Boolean(context.homeStationCoords),
         ferryTemporal: context.ferryTemporal,
+        carRoute: context.carRoute,
+        carCostOptions: context.carCostOptions,
       }),
     );
     const affordances = modeResults.map((r) =>
@@ -355,6 +357,7 @@ export function runRecommendationPipeline(
               homeStationCoords: context.homeStationCoords ?? undefined,
               originZoneId: context.originZoneId,
               ferryTemporal: context.ferryTemporal,
+              carRoute: context.carRoute,
             },
             validModes,
           )
@@ -378,6 +381,8 @@ export function runRecommendationPipeline(
             duration: tripDuration,
             budgetTier: context.budgetTier,
             ferryTemporal: context.ferryTemporal,
+            carRoute: context.carRoute,
+            carCostOptions: context.carCostOptions,
           })
         : null;
       const originComponent = cardEngineResult?.components.find(
@@ -391,7 +396,9 @@ export function runRecommendationPipeline(
             transportIncluded: originComponent?.cost.kind === "bounded",
             transportFareScope:
               originComponent?.evidence.fareScope ?? ("unknown" as const),
-            durationIncluded: Boolean(transportEstimate),
+            durationIncluded:
+              transportEstimate?.evidence !== "unknown" &&
+              Boolean(transportEstimate),
             food: null,
           }
         : {

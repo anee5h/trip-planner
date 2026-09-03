@@ -38,6 +38,8 @@ const ESTIMATABLE_GROUND_MODES = new Set<TransportMode>([
   "train",
   "shinkansen",
   "bus",
+  // Legacy/degraded car display evidence remains allowed for eligibility and
+  // duration matching, but never supplies canonical route distance/toll/cost.
   "car",
   "my_car",
 ]);

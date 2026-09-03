@@ -162,6 +162,8 @@ export function createRecommendationMatch(
       // KAI-260: use the same canonical duration as the scorer.
       duration: context.tripDuration ?? "fullDay",
       ferryTemporal: context.ferryTemporal,
+      carRoute: context.carRoute,
+      carCostOptions: context.carCostOptions,
     });
     if (engineResult.total && engineResult.total.max <= budget) {
       estimatedBudget = [engineResult.total.min, engineResult.total.max];

@@ -1,4 +1,6 @@
 import type { Destination } from "@/shared/types/destination";
+import type { CarRoundTripRoute } from "./CarRouteProvider";
+import { hasUsableCarRoute } from "./CarRouteProvider";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type {
   FerryTemporalContext,
@@ -43,6 +45,7 @@ import { getDestinationList } from "../destination/DestinationService";
 
 export type OriginAwareEstimateSource =
   | "verified_ground_route"
+  | "verified_car_route"
   | "verified_flight"
   | "verified_ferry"
   | "calculated_local_bounded_estimate";
@@ -61,6 +64,7 @@ export interface OriginAwareTransportEstimate {
   mode: TransportMode;
   timeRange: [number, number];
   source: OriginAwareEstimateSource;
+  /** Evidence for the complete origin-to-destination duration. */
   /** Evidence for the complete origin-to-destination duration. */
   evidence: "verified" | "estimated";
   /** Evidence for the fare itself, independent of door-to-door duration. */
@@ -145,6 +149,8 @@ export interface OriginAwareEstimateContext {
    *  metro corridors. */
   originMunicipalityId?: string;
   ferryTemporal?: FerryTemporalContext;
+  /** Optional provider-normalized route facts for car/my_car. */
+  carRoute?: CarRoundTripRoute;
 }
 
 let originAreaCache:
@@ -692,6 +698,12 @@ function buildEstimateCacheKey(
     context.originMunicipalityId ?? "",
     travelDate,
     context.ferryTemporal?.season ?? "",
+    context.carRoute?.outbound.provider ?? "",
+    context.carRoute?.outbound.retrievedAt ?? "",
+    context.carRoute?.outbound.destination?.id ?? "",
+    context.carRoute?.outbound.durationMinutes ?? "",
+    context.carRoute?.returnRoute.provider ?? "",
+    context.carRoute?.returnRoute.retrievedAt ?? "",
     [...modes].sort().join(","),
   ].join("|");
 }
@@ -728,7 +740,28 @@ export function getOriginAwareTransportEstimate(
   let best: OriginAwareTransportEstimate | null = null;
   for (const mode of modes) {
     let estimate: OriginAwareTransportEstimate | null = null;
-    if (mode === "flight") {
+    if (mode === "car" || mode === "my_car") {
+      const route = context.carRoute?.outbound;
+      if (route && hasUsableCarRoute(route)) {
+        estimate = {
+          mode: mode as TransportMode,
+          timeRange: [route.durationMinutes!, route.durationMinutes!],
+          source: "verified_car_route",
+          evidence:
+            route.confidence === "verified"
+              ? "verified"
+              : route.confidence === "estimated"
+                ? "estimated"
+                : "unknown",
+          sourceUrl: route.sourceUrl,
+          checkedAt: route.retrievedAt,
+          notes:
+            route.toll.state === "unknown"
+              ? "Route duration is available; toll remains unknown."
+              : undefined,
+        };
+      }
+    } else if (mode === "flight") {
       const flight = getFlightTransportEstimate(
         destination,
         context.homeStationCoords ?? undefined,

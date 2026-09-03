@@ -3,7 +3,10 @@ import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { FerryTemporalContext } from "./types";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
-import { getOriginAwareTransportEstimate } from "./OriginAwareTransportService";
+import {
+  getOriginAwareTransportEstimate,
+  type TravelDurationEvidence,
+} from "./OriginAwareTransportService";
 
 export interface PreferredTransport {
   mode: string;
@@ -11,7 +14,7 @@ export interface PreferredTransport {
   estimatedBudget: number | null;
   /** Canonical traveller-facing range for this selected mode. */
   estimatedBudgetRange: [number, number] | null;
-  evidence: "verified" | "estimated";
+  evidence: TravelDurationEvidence;
   corridorEvidence?: "verified";
 }
 

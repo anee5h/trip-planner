@@ -4,6 +4,7 @@ import {
   buildJourneyFromEstimatedTransportEstimate,
   buildJourneyFromOriginAwareEstimate,
 } from "@/shared/services/transport/JourneyBuilder";
+import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
 import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
 import {
   getSafeGroundEstimate,
@@ -131,18 +132,15 @@ export interface DayTripTravelDurationEvidence {
   journey?: Journey;
 }
 
-/**
- * Safe coordinate fallback is intentionally limited to explicit road modes for
- * overnight matching. Public transport keeps its verified route-only gate.
- */
-function getExplicitCarModes(modes: readonly string[]): string[] {
-  return modes.filter((mode) => mode === "car" || mode === "my_car");
+function getEstimatedFallbackModes(modes: readonly string[]): string[] {
+  return [...modes];
 }
 
 /**
  * Shared travel truth. Canonical route evidence always wins. The estimated
- * branch is deliberately bounded by getSafeGroundEstimate and is never called
- * by budget code.
+ * branch is limited to bounded display estimates, including legacy car
+ * duration evidence. Car budget and canonical route distance/toll require a
+ * provider-normalized route.
  */
 export function getTravelDurationEvidence(
   destination: Destination,
@@ -163,6 +161,7 @@ export function getTravelDurationEvidence(
       originZoneId:
         "originZoneId" in context ? context.originZoneId : undefined,
       ferryTemporal: context.ferryTemporal,
+      carRoute: context.carRoute,
     },
     modes,
   );
@@ -170,15 +169,25 @@ export function getTravelDurationEvidence(
     return {
       evidence: originAware.evidence,
       estimate: originAware,
-      journey: buildJourneyFromOriginAwareEstimate(
-        originAware,
-        getJourneyEndpoints(destination, {
-          homeStationCoords: context.homeStationCoords ?? undefined,
-          originZoneId:
-            "originZoneId" in context ? context.originZoneId : undefined,
-          ferryTemporal: context.ferryTemporal,
-        }),
-      ),
+      journey:
+        (originAware.mode === "car" || originAware.mode === "my_car") &&
+        context.carRoute
+          ? buildCarJourney(
+              destination,
+              context.homeStationCoords,
+              context.carRoute,
+              undefined,
+              originAware.mode === "my_car" ? "my_car" : "car",
+            )
+          : buildJourneyFromOriginAwareEstimate(
+              originAware,
+              getJourneyEndpoints(destination, {
+                homeStationCoords: context.homeStationCoords ?? undefined,
+                originZoneId:
+                  "originZoneId" in context ? context.originZoneId : undefined,
+                ferryTemporal: context.ferryTemporal,
+              }),
+            ),
     };
   }
 
@@ -396,7 +405,7 @@ export function getBestOneWayTravelMinutes(
     destination,
     context,
     modes,
-    getExplicitCarModes(modes),
+    getEstimatedFallbackModes(modes),
   );
   if (!travel.estimate) return undefined;
   return Math.round(
@@ -433,7 +442,7 @@ export function estimateTripDuration(
       destination,
       context,
       modes,
-      getExplicitCarModes(modes),
+      getEstimatedFallbackModes(modes),
     );
     if (!travel.estimate) return null;
     journey = travel.journey;

@@ -4,6 +4,7 @@ import {
   buildJourneyFromOriginAwareEstimate,
   type JourneyEndpoints,
 } from "./JourneyBuilder";
+import { buildCarJourney } from "./CarJourneyBuilder";
 import {
   getOriginAwareTransportEstimate,
   type OriginAwareEstimateContext,
@@ -37,6 +38,18 @@ export function buildOriginAwareTransportJourney(
   estimate: OriginAwareTransportEstimate,
 ): Journey | null {
   if (!context.homeStationCoords) return null;
+  if (
+    (estimate.mode === "car" || estimate.mode === "my_car") &&
+    context.carRoute
+  ) {
+    return buildCarJourney(
+      destination,
+      context.homeStationCoords,
+      context.carRoute,
+      undefined,
+      estimate.mode === "my_car" ? "my_car" : "car",
+    );
+  }
   return buildJourneyFromOriginAwareEstimate(
     estimate,
     getJourneyEndpoints(destination, context),

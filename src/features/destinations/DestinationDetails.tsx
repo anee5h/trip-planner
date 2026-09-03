@@ -22,6 +22,7 @@ import { getValidModes } from "@/shared/services/recommendation/RecommendationSe
 import {
   getOriginAwareTransportEstimate,
   type OriginAwareTransportEstimate,
+  type TravelDurationEvidence,
 } from "@/shared/services/transport/OriginAwareTransportService";
 import {
   getEligibleOriginModes,
@@ -796,7 +797,7 @@ export default function DestinationDetails() {
 
   const formatTravelTimeMinutes = (
     minutes: number | undefined,
-    evidence?: "verified" | "estimated",
+    evidence?: TravelDurationEvidence,
   ): string => {
     if (minutes === undefined || minutes <= 0) return "N/A";
     const prefix =
