@@ -23,6 +23,10 @@ type GoldenCase = {
   readonly state?: CarAccessState;
   readonly eligibility?: "eligible" | "restricted" | "unavailable" | "unknown";
   readonly tollExpectation: "separate_evidence_required";
+  readonly outboundDistanceKm?: number;
+  readonly returnDistanceKm?: number;
+  readonly outboundDurationMinutes?: number;
+  readonly returnDurationMinutes?: number;
 };
 
 const cases: readonly GoldenCase[] = [
@@ -30,6 +34,10 @@ const cases: readonly GoldenCase[] = [
     id: "nakayama-hakone",
     label: "Nakayama/Yokohama → Hakone",
     origin: origins.nakayama,
+    outboundDistanceKm: 88,
+    returnDistanceKm: 91,
+    outboundDurationMinutes: 115,
+    returnDurationMinutes: 118,
     destination: { lat: 35.232, lng: 139.106 },
     anchor: {
       id: "hakone-official-parking",
@@ -44,6 +52,10 @@ const cases: readonly GoldenCase[] = [
     id: "nakayama-karuizawa",
     label: "Nakayama/Yokohama → Karuizawa",
     origin: origins.nakayama,
+    outboundDistanceKm: 174,
+    returnDistanceKm: 177,
+    outboundDurationMinutes: 155,
+    returnDurationMinutes: 158,
     destination: { lat: 36.3566, lng: 138.635 },
     anchor: {
       id: "karuizawa-old-new-area-parking",
@@ -58,6 +70,10 @@ const cases: readonly GoldenCase[] = [
     id: "tokyo-karuizawa",
     label: "Tokyo → Karuizawa",
     origin: origins.tokyo,
+    outboundDistanceKm: 166,
+    returnDistanceKm: 169,
+    outboundDurationMinutes: 150,
+    returnDurationMinutes: 154,
     destination: { lat: 36.3566, lng: 138.635 },
     anchor: {
       id: "karuizawa-old-new-area-parking-tokyo-case",
@@ -72,6 +88,10 @@ const cases: readonly GoldenCase[] = [
     id: "tokyo-kawaguchiko",
     label: "Tokyo → Kawaguchiko",
     origin: origins.tokyo,
+    outboundDistanceKm: 104,
+    returnDistanceKm: 107,
+    outboundDurationMinutes: 128,
+    returnDurationMinutes: 130,
     destination: { lat: 35.499, lng: 138.754 },
     anchor: {
       id: "kawaguchiko-station-parking",
@@ -86,6 +106,10 @@ const cases: readonly GoldenCase[] = [
     id: "tokyo-nikko",
     label: "Tokyo → Nikko",
     origin: origins.tokyo,
+    outboundDistanceKm: 145,
+    returnDistanceKm: 149,
+    outboundDurationMinutes: 140,
+    returnDurationMinutes: 144,
     destination: { lat: 36.758, lng: 139.598 },
     anchor: {
       id: "nikko-shrine-parking",
@@ -100,6 +124,10 @@ const cases: readonly GoldenCase[] = [
     id: "rural-nagano-karuizawa",
     label: "Rural Nagano → Karuizawa",
     origin: origins.ruralNagano,
+    outboundDistanceKm: 72,
+    returnDistanceKm: 75,
+    outboundDurationMinutes: 68,
+    returnDurationMinutes: 70,
     destination: { lat: 36.3566, lng: 138.635 },
     anchor: {
       id: "karuizawa-old-new-area-parking-nagano-case",
@@ -114,6 +142,10 @@ const cases: readonly GoldenCase[] = [
     id: "rural-gunma-karuizawa",
     label: "Rural Gunma → Karuizawa",
     origin: origins.ruralGunma,
+    outboundDistanceKm: 88,
+    returnDistanceKm: 90,
+    outboundDurationMinutes: 95,
+    returnDurationMinutes: 98,
     destination: { lat: 36.3566, lng: 138.635 },
     anchor: {
       id: "karuizawa-old-new-area-parking-gunma-case",
@@ -128,6 +160,10 @@ const cases: readonly GoldenCase[] = [
     id: "toll-free-route-example",
     label: "Toll-free route example",
     origin: origins.nakayama,
+    outboundDistanceKm: 12,
+    returnDistanceKm: 13,
+    outboundDurationMinutes: 28,
+    returnDurationMinutes: 30,
     destination: { lat: 35.54, lng: 139.49 },
     anchor: {
       id: "toll-free-local-parking",
@@ -142,6 +178,10 @@ const cases: readonly GoldenCase[] = [
     id: "expensive-expressway-route-example",
     label: "Expensive expressway route example",
     origin: origins.tokyo,
+    outboundDistanceKm: 166,
+    returnDistanceKm: 170,
+    outboundDurationMinutes: 150,
+    returnDurationMinutes: 155,
     destination: { lat: 36.3566, lng: 138.635 },
     anchor: {
       id: "expressway-parking",
@@ -156,6 +196,10 @@ const cases: readonly GoldenCase[] = [
     id: "parking-walk-destination",
     label: "Parking + walk destination",
     origin: origins.nakayama,
+    outboundDistanceKm: 174,
+    returnDistanceKm: 178,
+    outboundDurationMinutes: 155,
+    returnDurationMinutes: 160,
     destination: { lat: 36.3566, lng: 138.635 },
     anchor: {
       id: "parking-walk-anchor",
@@ -233,8 +277,14 @@ function fixtureRoute(
     provider: "golden-fixture",
     direction,
     retrievedAt: "2026-09-03T00:00:00.000Z",
-    distanceKm: direction === "outbound" ? 100 : 103,
-    durationMinutes: direction === "outbound" ? 120 : 124,
+    distanceKm:
+      direction === "outbound"
+        ? (item.outboundDistanceKm ?? 1)
+        : (item.returnDistanceKm ?? 1),
+    durationMinutes:
+      direction === "outbound"
+        ? (item.outboundDurationMinutes ?? 1)
+        : (item.returnDurationMinutes ?? 1),
     toll: { state: "unknown", basis: "unspecified" },
     confidence: "verified",
     completeness: "complete",
