@@ -67,9 +67,7 @@ export interface OriginAwareTransportEstimate {
   mode: TransportMode;
   timeRange: [number, number];
   source: OriginAwareEstimateSource;
-  /** Evidence for the complete origin-to-destination duration. */
-  /** Evidence for the complete origin-to-destination duration. */
-  evidence: "verified" | "estimated";
+  evidence: TravelDurationEvidence;
   /** Evidence for the fare itself, independent of door-to-door duration. */
   fareEvidence?: TravelDurationEvidence;
   /** The intercity corridor remains verified when access is estimated. */
