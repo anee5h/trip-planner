@@ -290,10 +290,7 @@
         "zuihoden",
         "zushi"
       ],
-      "newlyGainedCarDestinations": [
-        "karuizawa-town",
-        "kyu-karuizawa-ginza"
-      ],
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
       "carSupportLost": [
         "aizu-bukeyashiki",
         "aizuwakamatsu-city",
@@ -866,10 +863,7 @@
         "zuihoden",
         "zushi"
       ],
-      "newlyGainedCarDestinations": [
-        "karuizawa-town",
-        "kyu-karuizawa-ginza"
-      ],
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
       "carSupportLost": [
         "aizu-bukeyashiki",
         "aizuwakamatsu-city",
@@ -1442,10 +1436,7 @@
         "zuihoden",
         "zushi"
       ],
-      "newlyGainedCarDestinations": [
-        "karuizawa-town",
-        "kyu-karuizawa-ginza"
-      ],
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
       "carSupportLost": [
         "aizu-bukeyashiki",
         "aizuwakamatsu-city",
@@ -2018,10 +2009,7 @@
         "zuihoden",
         "zushi"
       ],
-      "newlyGainedCarDestinations": [
-        "karuizawa-town",
-        "kyu-karuizawa-ginza"
-      ],
+      "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
       "carSupportLost": [
         "aizu-bukeyashiki",
         "aizuwakamatsu-city",
@@ -2594,10 +2582,7 @@
       "zuihoden",
       "zushi"
     ],
-    "newlyGainedCarDestinations": [
-      "karuizawa-town",
-      "kyu-karuizawa-ginza"
-    ],
+    "newlyGainedCarDestinations": ["karuizawa-town", "kyu-karuizawa-ginza"],
     "carSupportLost": [
       "aizu-bukeyashiki",
       "aizuwakamatsu-city",
@@ -3779,9 +3764,7 @@
       "eligibility": "eligible",
       "evidence": "tourism_board",
       "reason": "Official visitor information identifies parking serving the area; final access is parking plus an attraction walk.",
-      "sourceUrls": [
-        "https://karuizawa-kankokyokai.jp/information/84692/"
-      ]
+      "sourceUrls": ["https://karuizawa-kankokyokai.jp/information/84692/"]
     },
     {
       "destinationId": "kasamatsu-park-view",
