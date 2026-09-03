@@ -3,6 +3,7 @@ import {
   calculatePersonalCarCost,
   calculateRentalCarCost,
   DEFAULT_RENTAL_DAILY_CHARGES,
+  DEFAULT_CAR_ASSUMPTION_PROVENANCE,
 } from "../carCostV2";
 import type { CarRoundTripRoute } from "../CarRouteProvider";
 
@@ -167,11 +168,9 @@ describe("carCostV2", () => {
     expect(result.breakdown?.parking).toEqual([500, 1000]);
     expect(result.breakdown?.toll).toBeUndefined();
     expect(result.knownCost).toEqual([1550, 5200]);
-    expect(result.assumptionProvenance).toEqual({
-      source: "Meguruto planning defaults",
-      basis: "fuel economy, fuel price, parking, and rental-rate profiles",
-      revision: "car-cost-v2-defaults-1",
-    });
+    expect(result.assumptionProvenance).toEqual(
+      DEFAULT_CAR_ASSUMPTION_PROVENANCE,
+    );
   });
 
   it("does not invent rental pricing when duration is any", () => {
