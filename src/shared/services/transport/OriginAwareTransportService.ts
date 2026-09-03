@@ -65,7 +65,10 @@ export type EstimatedTransportEstimateSource =
  */
 export interface OriginAwareTransportEstimate {
   mode: TransportMode;
+  /** One-way range used by one-way cards and mode comparisons. */
   timeRange: [number, number];
+  /** Round-trip range when both car directions are independently evidenced. */
+  roundTripTimeRange?: [number, number];
   source: OriginAwareEstimateSource;
   evidence: TravelDurationEvidence;
   /** Evidence for the fare itself, independent of door-to-door duration. */
@@ -757,21 +760,30 @@ export function getOriginAwareTransportEstimate(
     let estimate: OriginAwareTransportEstimate | null = null;
     if (mode === "car" || mode === "my_car") {
       const route = scopedCarRoute?.outbound;
-      if (route && hasUsableCarRoute(route)) {
+      const returnRoute = scopedCarRoute?.returnRoute;
+      if (
+        route &&
+        returnRoute &&
+        hasUsableCarRoute(route) &&
+        hasUsableCarRoute(returnRoute)
+      ) {
+        const roundTripMinutes =
+          route.durationMinutes! + returnRoute.durationMinutes!;
         estimate = {
           mode: mode as TransportMode,
           timeRange: [route.durationMinutes!, route.durationMinutes!],
+          roundTripTimeRange: [roundTripMinutes, roundTripMinutes],
           source: "verified_car_route",
           evidence:
-            route.confidence === "verified"
+            route.confidence === "verified" &&
+            returnRoute.confidence === "verified"
               ? "verified"
-              : route.confidence === "estimated"
-                ? "estimated"
-                : "unknown",
+              : "estimated",
           sourceUrl: route.sourceUrl,
           checkedAt: route.retrievedAt,
           notes:
-            route.toll.state === "unknown"
+            route.toll.state === "unknown" ||
+            returnRoute.toll.state === "unknown"
               ? "Route duration is available; toll remains unknown."
               : undefined,
         };

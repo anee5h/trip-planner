@@ -6,17 +6,21 @@ import {
 } from "../carCostV2";
 import type { CarRoundTripRoute } from "../CarRouteProvider";
 
+const accessAnchor = {
+  id: "parking",
+  label: "Parking",
+  kind: "official_parking" as const,
+  coordinates: { lat: 36, lng: 138 },
+  accessAnchorId: "parking",
+  sourceUrls: ["https://example.test/parking"],
+};
+
 const route: CarRoundTripRoute = {
   outbound: {
     availability: "available",
     origin: { lat: 35, lng: 139 },
-    destination: {
-      id: "parking",
-      label: "Parking",
-      kind: "official_parking",
-      coordinates: { lat: 36, lng: 138 },
-      sourceUrls: ["https://example.test/parking"],
-    },
+    destination: accessAnchor,
+    accessAnchor,
     provider: "fixture",
     direction: "outbound",
     distanceKm: 100,
@@ -27,14 +31,13 @@ const route: CarRoundTripRoute = {
   },
   returnRoute: {
     availability: "available",
-    origin: { lat: 35, lng: 139 },
+    origin: accessAnchor.coordinates,
     destination: {
-      id: "parking",
-      label: "Parking",
-      kind: "official_parking",
-      coordinates: { lat: 36, lng: 138 },
-      sourceUrls: ["https://example.test/parking"],
+      id: "origin",
+      label: "Trip origin",
+      coordinates: { lat: 35, lng: 139 },
     },
+    accessAnchor,
     provider: "fixture",
     direction: "return",
     distanceKm: 110,
@@ -99,6 +102,21 @@ describe("carCostV2", () => {
       reason: "source_missing",
     });
     expect(result.reason).toBe("toll_unknown");
+  });
+
+  it("does not price a route whose facts are explicitly partial", () => {
+    const partialRoute = {
+      ...route,
+      outbound: { ...route.outbound, completeness: "partial" as const },
+    };
+    const result = calculatePersonalCarCost(partialRoute, personalAssumptions);
+
+    expect(result.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
+    expect(result.reason).toBe("route_unavailable");
+    expect(result.knownCost).toBeUndefined();
   });
 
   it("prices rental possession by duration and class, not drive minutes", () => {

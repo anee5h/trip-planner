@@ -55,9 +55,13 @@ export interface CarRouteResult {
   readonly sourceUrl?: string;
 }
 
-export interface CarRouteProvider {
+/** A preloaded synchronous snapshot adapter; network providers must be async. */
+export interface CarRouteSnapshotProvider {
   route(request: CarRouteRequest): CarRouteResult;
 }
+
+/** @deprecated Use CarRouteSnapshotProvider for synchronous fixtures/snapshots. */
+export type CarRouteProvider = CarRouteSnapshotProvider;
 
 /** Network providers such as ORS must cross an explicit async boundary. */
 export interface AsyncCarRouteProvider {
@@ -96,12 +100,16 @@ function unavailableRoute(
   origin: CarAccessCoordinates,
   reason: string,
   destination?: CarRouteEndpoint,
+  direction?: CarRouteDirection,
+  accessAnchor?: CarRouteEndpoint,
 ): CarRouteResult {
   return {
     availability: "unknown",
     origin,
     destination,
     provider: "car-route-provider",
+    direction,
+    accessAnchor,
     toll: { state: "unknown", basis: "unspecified" },
     confidence: "unknown",
     completeness: "unknown",
@@ -170,33 +178,48 @@ function normalizeProviderResult(
   };
 }
 
-function routeAnchorEndpoint(
-  result: CarRouteResult,
-  direction: CarRouteDirection,
-): CarRouteEndpoint | undefined {
-  if (result.accessAnchor) return result.accessAnchor;
-  if (direction === "return" && result.destination?.id === "origin") {
-    return undefined;
-  }
-  return result.destination;
+function endpointMatchesAnchor(
+  endpoint: CarRouteEndpoint | undefined,
+  anchor: CarAccessAnchor,
+): boolean {
+  return Boolean(
+    endpoint &&
+    (endpoint.id === anchor.id || endpoint.accessAnchorId === anchor.id) &&
+    sameCoordinates(endpoint.coordinates, anchor.coordinates!),
+  );
 }
 
-function matchesAccessAnchor(
-  endpoint: CarRouteEndpoint | undefined,
-  anchors: readonly CarAccessAnchor[],
+function routeMatchesAnchor(
+  route: CarRouteResult,
+  direction: CarRouteDirection,
+  home: CarAccessCoordinates,
+  anchor: CarAccessAnchor,
 ): boolean {
-  if (!endpoint) return false;
-  return anchors.some(
-    (anchor) =>
-      (anchor.id === endpoint.id || anchor.id === endpoint.accessAnchorId) &&
-      sameCoordinates(anchor.coordinates, endpoint.coordinates),
+  if (route.direction !== direction) return false;
+  if (
+    route.accessAnchor &&
+    !endpointMatchesAnchor(route.accessAnchor, anchor)
+  ) {
+    return false;
+  }
+  if (direction === "outbound") {
+    return (
+      sameCoordinates(route.origin, home) &&
+      endpointMatchesAnchor(route.destination, anchor)
+    );
+  }
+  return (
+    sameCoordinates(route.origin, anchor.coordinates!) &&
+    route.destination?.id === "origin" &&
+    sameCoordinates(route.destination.coordinates, home)
   );
 }
 
 /**
  * Guard direct route consumers against applying one destination route to
- * another candidate. Normalized provider results carry accessAnchor on both
- * legs; direct test/runtime inputs may carry the anchor as the endpoint.
+ * another candidate or combining different parking anchors into one trip.
+ * Normalized provider results carry accessAnchor on both legs; direct inputs
+ * are checked from their directional endpoints.
  */
 export function isCarRoundTripRouteForDestination(
   destination: Destination,
@@ -205,85 +228,82 @@ export function isCarRoundTripRouteForDestination(
 ): boolean {
   const anchors = getRoutableCarAccessAnchors(destination);
   if (anchors.length === 0) return false;
-  if (origin && !sameCoordinates(route.outbound.origin, origin)) return false;
-
-  const outboundAnchor = routeAnchorEndpoint(route.outbound, "outbound");
-  const returnAnchor = routeAnchorEndpoint(route.returnRoute, "return");
-  const outboundDestinationMatches =
-    !route.outbound.accessAnchor ||
-    matchesAccessAnchor(route.outbound.destination, anchors);
-  return (
-    outboundDestinationMatches &&
-    matchesAccessAnchor(outboundAnchor, anchors) &&
-    matchesAccessAnchor(returnAnchor, anchors)
+  const home = origin ?? route.outbound.origin;
+  return anchors.some(
+    (anchor) =>
+      routeMatchesAnchor(route.outbound, "outbound", home, anchor) &&
+      routeMatchesAnchor(route.returnRoute, "return", home, anchor),
   );
 }
 
-function routeForDirection(
+function routeForAnchor(
   provider: CarRouteProvider,
   home: CarAccessCoordinates,
-  anchors: readonly CarAccessAnchor[],
+  anchor: CarAccessAnchor,
   direction: CarRouteDirection,
   departureAt?: string,
 ): CarRouteResult {
-  let last = unavailableRoute(home, "no_routable_access_anchor");
-  for (const anchor of anchors) {
-    const accessEndpoint = endpointFromAnchor(anchor);
-    const requestOrigin =
-      direction === "outbound" ? endpointFromOrigin(home) : accessEndpoint;
-    const requestDestination =
-      direction === "outbound" ? accessEndpoint : endpointFromOrigin(home);
-    const result = provider.route({
-      origin: requestOrigin,
-      destination: requestDestination,
-      direction,
-      departureAt,
-    });
-    const normalized = normalizeProviderResult(
-      result,
-      {
-        origin: requestOrigin,
-        destination: requestDestination,
-        direction,
-        departureAt,
-      },
+  const accessEndpoint = endpointFromAnchor(anchor);
+  const requestOrigin =
+    direction === "outbound" ? endpointFromOrigin(home) : accessEndpoint;
+  const requestDestination =
+    direction === "outbound" ? accessEndpoint : endpointFromOrigin(home);
+  const request = {
+    origin: requestOrigin,
+    destination: requestDestination,
+    direction,
+    departureAt,
+  } satisfies CarRouteRequest;
+  try {
+    return normalizeProviderResult(
+      provider.route(request),
+      request,
       accessEndpoint,
     );
-    last = normalized;
-    if (isAvailable(normalized)) return normalized;
+  } catch {
+    return unavailableRoute(
+      request.origin.coordinates,
+      "provider_error",
+      request.destination,
+      direction,
+      accessEndpoint,
+    );
   }
-  return last;
 }
 
-async function routeForDirectionAsync(
+async function routeForAnchorAsync(
   provider: AsyncCarRouteProvider,
   home: CarAccessCoordinates,
-  anchors: readonly CarAccessAnchor[],
+  anchor: CarAccessAnchor,
   direction: CarRouteDirection,
   departureAt?: string,
 ): Promise<CarRouteResult> {
-  let last = unavailableRoute(home, "no_routable_access_anchor");
-  for (const anchor of anchors) {
-    const accessEndpoint = endpointFromAnchor(anchor);
-    const requestOrigin =
-      direction === "outbound" ? endpointFromOrigin(home) : accessEndpoint;
-    const requestDestination =
-      direction === "outbound" ? accessEndpoint : endpointFromOrigin(home);
-    const request = {
-      origin: requestOrigin,
-      destination: requestDestination,
-      direction,
-      departureAt,
-    } satisfies CarRouteRequest;
-    const normalized = normalizeProviderResult(
+  const accessEndpoint = endpointFromAnchor(anchor);
+  const requestOrigin =
+    direction === "outbound" ? endpointFromOrigin(home) : accessEndpoint;
+  const requestDestination =
+    direction === "outbound" ? accessEndpoint : endpointFromOrigin(home);
+  const request = {
+    origin: requestOrigin,
+    destination: requestDestination,
+    direction,
+    departureAt,
+  } satisfies CarRouteRequest;
+  try {
+    return normalizeProviderResult(
       await provider.route(request),
       request,
       accessEndpoint,
     );
-    last = normalized;
-    if (isAvailable(normalized)) return normalized;
+  } catch {
+    return unavailableRoute(
+      request.origin.coordinates,
+      "provider_error",
+      request.destination,
+      direction,
+      accessEndpoint,
+    );
   }
-  return last;
 }
 
 /**
@@ -305,28 +325,39 @@ export async function getCarRoundTripRouteAsync(
     return { outbound: unavailable, returnRoute: unavailable };
   }
   const anchors = getRoutableCarAccessAnchors(destination);
-  const [outbound, returnRoute] = await Promise.all([
-    routeForDirectionAsync(
-      provider,
-      origin,
-      anchors,
-      "outbound",
-      options.departureAt,
-    ),
-    routeForDirectionAsync(
-      provider,
-      origin,
-      anchors,
-      "return",
-      options.returnDepartureAt,
-    ),
-  ]);
-  return { outbound, returnRoute };
+  let lastPair: CarRoundTripRoute = {
+    outbound: unavailableRoute(origin, "no_route"),
+    returnRoute: unavailableRoute(origin, "no_route"),
+  };
+  for (const anchor of anchors) {
+    const [outbound, returnRoute] = await Promise.all([
+      routeForAnchorAsync(
+        provider,
+        origin,
+        anchor,
+        "outbound",
+        options.departureAt,
+      ),
+      routeForAnchorAsync(
+        provider,
+        origin,
+        anchor,
+        "return",
+        options.returnDepartureAt,
+      ),
+    ]);
+    lastPair = { outbound, returnRoute };
+    if (hasUsableCarRoute(outbound) && hasUsableCarRoute(returnRoute)) {
+      return lastPair;
+    }
+  }
+  return lastPair;
 }
 
 /**
- * Resolve ordered/fallback anchors independently for outbound and return. No
- * route is synthesized when KAI-264 has only a named, non-coordinate anchor.
+ * Resolve ordered anchors one at a time and require both directional routes
+ * from the same anchor. No route is synthesized when KAI-264 has only a named,
+ * non-coordinate anchor.
  */
 export function getCarRoundTripRoute(
   provider: CarRouteProvider,
@@ -343,22 +374,31 @@ export function getCarRoundTripRoute(
     return { outbound: unavailable, returnRoute: unavailable };
   }
   const anchors = getRoutableCarAccessAnchors(destination);
-  const outbound = routeForDirection(
-    provider,
-    origin,
-    anchors,
-    "outbound",
-    options.departureAt,
-  );
-  const returnRoute = routeForDirection(
-    provider,
-    origin,
-    anchors,
-    "return",
-    options.returnDepartureAt,
-  );
-
-  return { outbound, returnRoute };
+  let lastPair: CarRoundTripRoute = {
+    outbound: unavailableRoute(origin, "no_route"),
+    returnRoute: unavailableRoute(origin, "no_route"),
+  };
+  for (const anchor of anchors) {
+    const outbound = routeForAnchor(
+      provider,
+      origin,
+      anchor,
+      "outbound",
+      options.departureAt,
+    );
+    const returnRoute = routeForAnchor(
+      provider,
+      origin,
+      anchor,
+      "return",
+      options.returnDepartureAt,
+    );
+    lastPair = { outbound, returnRoute };
+    if (hasUsableCarRoute(outbound) && hasUsableCarRoute(returnRoute)) {
+      return lastPair;
+    }
+  }
+  return lastPair;
 }
 
 export function createFixtureCarRouteProvider(
@@ -386,5 +426,9 @@ export function createFixtureCarRouteProvider(
 }
 
 export function hasUsableCarRoute(route: CarRouteResult): boolean {
-  return isAvailable(route);
+  return (
+    isAvailable(route) &&
+    route.confidence !== "unknown" &&
+    route.completeness !== "unknown"
+  );
 }

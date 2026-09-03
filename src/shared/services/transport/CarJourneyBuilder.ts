@@ -14,6 +14,7 @@ import type {
   CarRoundTripRoute,
   CarRouteResult,
 } from "./CarRouteProvider";
+import { isCarRoundTripRouteForDestination } from "./CarRouteProvider";
 
 const unknownCost: JourneyCost = {
   currency: "JPY",
@@ -129,7 +130,10 @@ export function buildCarJourney(
   route: CarRoundTripRoute,
   cost?: JourneyCost,
   mode: "car" | "my_car" = "car",
-): Journey {
+): Journey | null {
+  if (!isCarRoundTripRouteForDestination(destination, route, origin)) {
+    return null;
+  }
   const originEndpoint = endpointFromOrigin(origin);
   const outbound = legFromRoute(
     route.outbound,
@@ -138,7 +142,7 @@ export function buildCarJourney(
     mode,
   );
   const returnOrigin = endpointFromRouteEndpoint(
-    route.returnRoute.accessAnchor ?? route.outbound.destination,
+    route.outbound.destination,
     "access_anchor",
   );
   const inbound = legFromRoute(route.returnRoute, returnOrigin, "return", mode);

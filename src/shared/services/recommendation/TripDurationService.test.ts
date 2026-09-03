@@ -26,6 +26,25 @@ const destination = {
   travelBuffers: { ferryMinutes: 20 },
 } as unknown as Destination;
 
+const carAccessAnchor = {
+  id: "fixture-parking",
+  label: "Fixture parking",
+  kind: "official_parking" as const,
+  coordinates: { lat: 34.5, lng: 132.6 },
+  accessAnchorId: "fixture-parking",
+};
+const carDestination = {
+  ...destination,
+  id: "car-destination",
+  coordinates: { lat: 34.51, lng: 132.61 },
+  carAccess: {
+    state: "parking_walk",
+    eligibility: "eligible",
+    anchors: [carAccessAnchor],
+    evidence: "fixture",
+  },
+} as unknown as Destination;
+
 describe("TripDurationService", () => {
   it("classifies duration bands correctly", () => {
     expect(getBand(2.5)).toBe("shortOuting");
@@ -81,6 +100,63 @@ describe("TripDurationService", () => {
     expect(estimate?.totalRangeHours[0]).toBeCloseTo(4.6, 2);
     expect(estimate?.mode).toBe("train");
     expect(estimate?.band).toBe("halfDay");
+  });
+
+  it("uses both directional car durations for round-trip feasibility", () => {
+    const home = { lat: 35, lng: 139 };
+    const access = {
+      id: carAccessAnchor.id,
+      label: carAccessAnchor.label,
+      coordinates: carAccessAnchor.coordinates,
+      accessAnchorId: carAccessAnchor.id,
+    };
+    const carRoute = {
+      outbound: {
+        availability: "available" as const,
+        origin: home,
+        destination: access,
+        accessAnchor: access,
+        provider: "fixture",
+        direction: "outbound" as const,
+        distanceKm: 100,
+        durationMinutes: 120,
+        toll: { state: "free" as const, basis: "fixture" as const },
+        confidence: "verified" as const,
+        completeness: "complete" as const,
+      },
+      returnRoute: {
+        availability: "available" as const,
+        origin: access.coordinates,
+        destination: {
+          id: "origin",
+          label: "Trip origin",
+          coordinates: home,
+        },
+        accessAnchor: access,
+        provider: "fixture",
+        direction: "return" as const,
+        distanceKm: 110,
+        durationMinutes: 180,
+        toll: { state: "free" as const, basis: "fixture" as const },
+        confidence: "verified" as const,
+        completeness: "complete" as const,
+      },
+    };
+
+    const estimate = estimateTripDuration(
+      carDestination,
+      { homeStationCoords: home, carRoute } as never,
+      ["car"],
+    );
+
+    expect(
+      estimate?.travelEstimate &&
+        "roundTripTimeRange" in estimate.travelEstimate
+        ? estimate.travelEstimate.roundTripTimeRange
+        : undefined,
+    ).toEqual([300, 300]);
+    expect(estimate?.totalRangeHours[0]).toBeCloseTo(8.3333, 3);
+    expect(estimate?.totalRangeHours[1]).toBeCloseTo(9.3333, 3);
   });
 
   it("flags impossible destinations when min required time exceeds available time limit", () => {

@@ -15,17 +15,20 @@ const destination = (destinations as Destination[]).find(
 const otherDestination = (destinations as Destination[]).find(
   (item) => item.id === "kyu-karuizawa-ginza",
 )!;
+const accessAnchor = {
+  id: "karuizawa-old-new-area-parking",
+  label: "Old/New Karuizawa parking",
+  kind: "official_parking" as const,
+  coordinates: { lat: 36.357333, lng: 138.633287 },
+  accessAnchorId: "karuizawa-old-new-area-parking",
+  sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
+};
 const route: CarRoundTripRoute = {
   outbound: {
     availability: "available",
     origin: { lat: 35.44, lng: 139.64 },
-    destination: {
-      id: "karuizawa-old-new-area-parking",
-      label: "Old/New Karuizawa parking",
-      kind: "official_parking",
-      coordinates: { lat: 36.357333, lng: 138.633287 },
-      sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
-    },
+    destination: accessAnchor,
+    accessAnchor,
     provider: "fixture-route-provider",
     direction: "outbound",
     distanceKm: 170,
@@ -36,14 +39,13 @@ const route: CarRoundTripRoute = {
   },
   returnRoute: {
     availability: "available",
-    origin: { lat: 35.44, lng: 139.64 },
+    origin: accessAnchor.coordinates,
     destination: {
-      id: "karuizawa-old-new-area-parking",
-      label: "Old/New Karuizawa parking",
-      kind: "official_parking",
-      coordinates: { lat: 36.357333, lng: 138.633287 },
-      sourceUrls: ["https://www.openstreetmap.org/way/364599513"],
+      id: "origin",
+      label: "Trip origin",
+      coordinates: { lat: 35.44, lng: 139.64 },
     },
+    accessAnchor,
     provider: "fixture-route-provider",
     direction: "return",
     distanceKm: 178,
@@ -165,6 +167,9 @@ describe("TripEstimateEngine canonical car integration", () => {
     expect(origin.knownCost?.min).toBeGreaterThan(0);
     expect(origin.knownCost?.max).toBeGreaterThan(origin.knownCost?.min ?? 0);
     expect(result.knownSubtotal[0]).toBeGreaterThanOrEqual(1550);
+    expect(result.journey).toBeDefined();
+    expect(result.journey!.cost!.state).toBe("unknown");
+    expect(result.journey!.cost!.representation).toBeNull();
     expect(
       result.missingComponents.some((item) => item.scope === "origin_travel"),
     ).toBe(true);

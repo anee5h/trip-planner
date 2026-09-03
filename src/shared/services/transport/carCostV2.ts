@@ -105,7 +105,9 @@ function availableRoute(route: CarRouteResult): boolean {
     Number.isFinite(route.distanceKm) &&
     (route.distanceKm ?? -1) >= 0 &&
     Number.isFinite(route.durationMinutes) &&
-    (route.durationMinutes ?? -1) >= 0
+    (route.durationMinutes ?? -1) >= 0 &&
+    route.confidence !== "unknown" &&
+    route.completeness === "complete"
   );
 }
 

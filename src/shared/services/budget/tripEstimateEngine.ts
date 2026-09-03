@@ -111,11 +111,12 @@ const SOURCE_MISSING: CostRepresentation = {
 
 function journeyCostFromTransport(result: TransportCostResult): JourneyCost {
   const known = result.cost.kind !== "unavailable";
-  const evidence = !known
-    ? "unknown"
-    : result.evidence.derivation === "model_estimate"
+  const partiallyKnown = Boolean(result.knownCost);
+  const evidence = known
+    ? result.evidence.derivation === "model_estimate"
       ? "estimated"
-      : "verified";
+      : "verified"
+    : "unknown";
   const variability =
     result.cost.kind === "bounded"
       ? result.cost.min === result.cost.max
@@ -129,7 +130,7 @@ function journeyCostFromTransport(result: TransportCostResult): JourneyCost {
   return {
     currency: "JPY",
     representation: known ? result.cost : null,
-    state: known ? "known" : "unavailable",
+    state: known ? "known" : partiallyKnown ? "unknown" : "unavailable",
     evidence,
     scope: result.evidence.fareScope,
     completeness: known
@@ -631,13 +632,19 @@ function originComponent(
     carCostOptions,
     duration,
   );
+  const scopedCarRoute =
+    (mode === "car" || mode === "my_car") &&
+    carRoute &&
+    isCarRoundTripRouteForDestination(dest, carRoute, homeCoords)
+      ? carRoute
+      : undefined;
   const transport = getCanonicalTransportCost(
     dest,
     mode,
     partySize,
     homeCoords,
     ferryTemporal,
-    carRoute,
+    scopedCarRoute,
     effectiveCarCostOptions,
   );
   const urls = sourceUrlsForTransport(transport);
@@ -742,10 +749,7 @@ function mealNames(
   return ["lunch", "dinner"];
 }
 
-function mealDurationHours(
-  context: TripEstimateContext,
-  origin: TripCostComponent,
-): number | undefined {
+function mealDurationHours(context: TripEstimateContext): number | undefined {
   const visitMax = context.dest.recommendedVisitHours?.max;
   if (visitMax === undefined || !Number.isFinite(visitMax)) return undefined;
   if (
@@ -756,29 +760,36 @@ function mealDurationHours(
   ) {
     return visitMax;
   }
+  const scopedCarRoute =
+    (context.mode === "car" || context.mode === "my_car") &&
+    context.carRoute &&
+    isCarRoundTripRouteForDestination(
+      context.dest,
+      context.carRoute,
+      context.homeCoords,
+    )
+      ? context.carRoute
+      : undefined;
   const travel = getOriginAwareTransportEstimate(
     context.dest,
     {
       homeStationCoords: context.homeCoords,
       ferryTemporal: context.ferryTemporal,
-      carRoute: context.carRoute,
+      carRoute: scopedCarRoute,
     },
     [context.mode as TransportMode],
   );
-  if (
-    !travel ||
-    travel.evidence === "unknown" ||
-    origin.cost.kind === "unavailable"
-  ) {
+  if (!travel || travel.evidence === "unknown") {
     return visitMax;
   }
-  const representativeOneWayMinutes =
-    (travel.timeRange[0] + travel.timeRange[1]) / 2;
+  const roundTripMinutes = travel.roundTripTimeRange
+    ? (travel.roundTripTimeRange[0] + travel.roundTripTimeRange[1]) / 2
+    : travel.timeRange[0] + travel.timeRange[1];
   const bufferHours =
     ((context.dest.travelBuffers?.transferMinutes ?? 0) +
       (context.dest.travelBuffers?.ferryMinutes ?? 0)) /
     60;
-  return visitMax + (representativeOneWayMinutes * 2) / 60 + bufferHours;
+  return visitMax + roundTripMinutes / 60 + bufferHours;
 }
 
 function mealsComponent(
@@ -967,7 +978,7 @@ function calculate(context: TripEstimateContext): TripEstimateResult {
     context.duration,
     estimateTier,
     partySize,
-    mealDurationHours(context, origin),
+    mealDurationHours(context),
   );
   const accommodation = accommodationComponent(nights, estimateTier);
   const components = [

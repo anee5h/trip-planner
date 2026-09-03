@@ -114,6 +114,54 @@ describe("CarRouteProvider", () => {
     );
   });
 
+  it("does not combine outbound and return routes from different anchors", () => {
+    const provider = {
+      route(request: CarRouteRequest): CarRouteResult {
+        return route(
+          request.direction === "outbound" ? firstAnchor : fallbackAnchor,
+          request.direction,
+        );
+      },
+    };
+    const result = getCarRoundTripRoute(provider, destination, origin);
+
+    expect(result.outbound.availability).toBe("unknown");
+    expect(result.returnRoute.availability).toBe("available");
+    expect(result.outbound.accessAnchor?.id).not.toBe(
+      result.returnRoute.accessAnchor?.id,
+    );
+  });
+
+  it("catches synchronous provider failures and preserves unknown evidence", () => {
+    const result = getCarRoundTripRoute(
+      {
+        route() {
+          throw new Error("network unavailable");
+        },
+      },
+      destination,
+      origin,
+    );
+
+    expect(result.outbound.availability).toBe("unknown");
+    expect(result.outbound.errorCode).toBe("provider_error");
+    expect(result.returnRoute.errorCode).toBe("provider_error");
+  });
+
+  it("uses verified fallback routes instead of unknown-confidence routes", () => {
+    const provider = createFixtureCarRouteProvider([
+      route(firstAnchor, "outbound", { confidence: "unknown" }),
+      route(firstAnchor, "return", { confidence: "unknown" }),
+      route(fallbackAnchor, "outbound"),
+      route(fallbackAnchor, "return"),
+    ]);
+    const result = getCarRoundTripRoute(provider, destination, origin);
+
+    expect(result.outbound.accessAnchor?.id).toBe(fallbackAnchor.id);
+    expect(result.returnRoute.accessAnchor?.id).toBe(fallbackAnchor.id);
+    expect(result.outbound.confidence).toBe("verified");
+  });
+
   it("uses an alternate ordered access anchor when the first has no route", () => {
     const provider = createFixtureCarRouteProvider([
       route(fallbackAnchor, "outbound"),
@@ -210,10 +258,26 @@ describe("CarRouteProvider", () => {
       undefined,
       "my_car",
     );
-    expect(journey.legs.every((leg) => leg.mode === "my_car")).toBe(true);
-    expect(journey.legs[0].duration.evidence).toBe("unknown");
-    expect(journey.confidence).toBe("unknown");
-    expect(journey.provenance.duration).toBe("unknown");
+    expect(journey).not.toBeNull();
+    expect(journey!.legs.every((leg) => leg.mode === "my_car")).toBe(true);
+    expect(journey!.legs[0].duration.evidence).toBe("unknown");
+    expect(journey!.confidence).toBe("unknown");
+    expect(journey!.provenance.duration).toBe("unknown");
+  });
+
+  it("rejects a round trip whose legs use different anchors", () => {
+    const journey = buildCarJourney(
+      destination,
+      origin,
+      {
+        outbound: route(firstAnchor, "outbound"),
+        returnRoute: route(fallbackAnchor, "return"),
+      },
+      undefined,
+      "my_car",
+    );
+
+    expect(journey).toBeNull();
   });
 
   it("keeps unknown toll state separate from a free road", () => {

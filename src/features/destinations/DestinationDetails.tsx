@@ -502,7 +502,7 @@ export default function DestinationDetails() {
       currentWeatherCondition,
       visitedIds: [],
       currentWeather,
-      homeStationCoords: homeStationCoords || { lat: 35.6812, lng: 139.7671 },
+      homeStationCoords: homeStationCoords || undefined,
       originZoneId: homeStationTransportZoneId,
     };
 
