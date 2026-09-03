@@ -32,10 +32,15 @@ export function getSafeDisplayEstimate(
   const { homeStationCoords, homeStationTransportZoneId } = context;
   if (!homeStationCoords) return null;
 
+  const selectedCarMode = context.carMode ?? "none";
+  const defaultPublicModes =
+    selectedCarMode !== "none"
+      ? []
+      : ["train", "shinkansen", "bus", "flight", "ferry"];
   const authorizedModes = getValidModes(
     destination,
-    context.carMode ?? "none",
-    context.publicModes ?? ["train", "shinkansen", "bus", "flight", "ferry"],
+    selectedCarMode,
+    context.publicModes ?? defaultPublicModes,
     homeStationCoords,
     undefined,
     homeStationTransportZoneId,

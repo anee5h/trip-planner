@@ -48,6 +48,21 @@ const mockDestinations = [
       car: 90,
       my_car: 90,
     },
+    carAccess: {
+      state: "direct",
+      eligibility: "eligible",
+      anchors: [
+        {
+          id: "hakone-road-entrance",
+          label: "Hakone road entrance",
+          kind: "road_access_entrance",
+          coordinates: { lat: 35.2323, lng: 139.1069 },
+          sourceUrls: ["https://example.com/hakone-road"],
+        },
+      ],
+      evidence: "catalogue_metadata",
+      sourceUrls: ["https://example.com/hakone-road"],
+    },
     // KAI-216: explicit verified one-way fares (the duration heuristic was
     // removed). Hakone's corridor is farther than Kamakura's.
     transportFares: { train: 1800 },
@@ -174,7 +189,7 @@ describe("RecommendationService Unit Tests", () => {
     const ids = results.map((r) => r.id);
     expect(ids).toContain("hakone-onsen");
     expect(ids).toContain("kamakura-history");
-    expect(ids).not.toContain("fuji-climbing");
+    expect(ids).toContain("fuji-climbing");
   });
 
   it("returns recommendations for car-only searches with a budget tier", () => {
@@ -223,6 +238,15 @@ describe("RecommendationService Unit Tests", () => {
       // KAI-216: explicit verified one-way shinkansen fare — a Hokkaido
       // corridor is far, so round-trip × party far exceeds the budget.
       transportFares: { shinkansen: 24000 },
+      budgetMin: 50000,
+      budgetRecommended: 60000,
+      budgetMax: 70000,
+      budgetBreakdown: {
+        transport: 48000,
+        tickets: 0,
+        food: 0,
+        cafe: 0,
+      },
     };
     const results = getRecommendations(
       [farDest, mockDestinations[0], mockDestinations[1]],
@@ -243,10 +267,7 @@ describe("RecommendationService Unit Tests", () => {
     expect(ids).not.toContain("hokkaido-far");
     expect(ids).toContain("kamakura-history");
     // KAI-217A repair: retained results are within budget (their claimed
-    // ranges are at or below the ceiling). hokkaido-far (corridor-only
-    // shinkansen fare, far over budget) is excluded by the transport-scope
-    // gate. (The scope-gated range writer that hides corridor-only ranges
-    // lands with KAI-217B.)
+    // ranges are at or below the ceiling).
     expect(
       results.every(
         (result) =>
@@ -321,6 +342,7 @@ describe("RecommendationService Unit Tests", () => {
       ...mockDestinations[1],
       id: "unknown-half-day",
       coordinates: undefined,
+      localAccessUnestimated: true,
       transportOptions: { bus: 60 },
       recommendedVisitHours: { min: 3, max: 4 },
     };
@@ -387,7 +409,7 @@ describe("RecommendationService Unit Tests", () => {
     const invalidModes = getValidModes(
       dest,
       "none",
-      ["train"],
+      ["ferry"],
       homeCoords,
       undefined,
       "mainland-honshu",
@@ -423,7 +445,13 @@ describe("RecommendationService Unit Tests", () => {
   });
 
   it("does not invent unavailable origin-aware transport modes", () => {
-    const results = getRecommendations([mockDestinations[2]], {
+    const unavailable = {
+      ...mockDestinations[2],
+      id: "unavailable-origin-aware",
+      localAccessUnestimated: true,
+      localAccessModes: [],
+    } as unknown as Destination;
+    const results = getRecommendations([unavailable], {
       tripType: "any",
       budget: 100000,
       carMode: "none",

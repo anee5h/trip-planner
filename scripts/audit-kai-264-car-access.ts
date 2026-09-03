@@ -56,10 +56,18 @@ const perOrigin = origins.map((origin) => {
   );
   const previousIds = new Set(previous.map((destination) => destination.id));
   const currentIds = new Set(current.map((destination) => destination.id));
+  const legacyOnly = previous.filter(
+    (destination) =>
+      getCarAccess(destination).evidence === "legacy_compatibility",
+  );
   return {
     origin: origin.label,
     previousCarSupportedCount: previous.length,
     newCarSupportedCount: current.length,
+    legacyOnlyCarSupportedCount: legacyOnly.length,
+    legacyOnlyCarDestinations: legacyOnly
+      .map((destination) => destination.id)
+      .sort(),
     newlyGainedCarDestinations: current
       .filter((destination) => !previousIds.has(destination.id))
       .map((destination) => destination.id)
@@ -82,6 +90,9 @@ const accessSummary = destinations.reduce(
     const access = getCarAccess(destination);
     summary[access.state] = (summary[access.state] ?? 0) + 1;
     if (access.eligibility === "unknown") summary.unresolvedUnknown += 1;
+    if (access.evidence === "legacy_compatibility") {
+      summary.legacyCompatibilityCount += 1;
+    }
     return summary;
   },
   {
@@ -94,6 +105,7 @@ const accessSummary = destinations.reduce(
     unavailable: 0,
     unknown: 0,
     unresolvedUnknown: 0,
+    legacyCompatibilityCount: 0,
   } as Record<string, number>,
 );
 
@@ -121,12 +133,18 @@ console.log(
       aggregate: {
         previousCarSupportedCount: perOrigin[0].previousCarSupportedCount,
         newCarSupportedCount: perOrigin[0].newCarSupportedCount,
+        legacyOnlyCarSupportedCount: perOrigin[0].legacyOnlyCarSupportedCount,
+        legacyOnlyCarDestinations: [
+          ...new Set(
+            perOrigin.flatMap((result) => result.legacyOnlyCarDestinations),
+          ),
+        ].sort(),
         newlyGainedCarDestinations: newlyGained,
         carSupportLost: lost,
       },
       accessSummary,
       changedReasons,
-      note: "Previous support reproduces the pre-KAI-264 topology plus destination.transportOptions.car predicate. New support uses topology plus CarAccessService. Legacy compatibility remains explicitly unknown until an anchor is verified.",
+      note: "Previous support reproduces the pre-KAI-264 topology plus destination.transportOptions.car predicate. New personalized support requires topology plus coordinate-bearing CarAccessService evidence. Legacy-only destinations are reported separately and remain display-compatible but unknown for personalized routing.",
     },
     null,
     2,

@@ -16,12 +16,12 @@ function legacyCompatibleAccess(destination: Destination): CarAccess {
   if (hasLegacyCarOption) {
     return {
       state: "unknown",
-      eligibility: "eligible",
+      eligibility: "unknown",
       anchors: [],
       evidence: "legacy_compatibility",
       sourceUrls: [],
       reason:
-        "Existing catalogue car support is retained for compatibility, but no canonical access anchor has been verified yet.",
+        "Existing catalogue car support is retained for display compatibility, but no canonical access anchor has been verified for personalized routing.",
     };
   }
 
@@ -67,10 +67,17 @@ export function getCarAccessEligibility(
   return getCarAccess(destination).eligibility;
 }
 
-/** Eligibility is not route availability: a legacy-compatible record may be
- * selectable while its route duration remains unknown until KAI-226. */
+/**
+ * Personalized car eligibility requires canonical, coordinate-bearing access
+ * evidence. Legacy transportOptions support remains display-compatible but
+ * never authorizes a personalized car route.
+ */
 export function isCarModeEligible(destination: Destination): boolean {
-  return getCarAccessEligibility(destination) === "eligible";
+  const access = getCarAccess(destination);
+  return (
+    access.eligibility === "eligible" &&
+    access.anchors.some((anchor) => anchor.coordinates !== undefined)
+  );
 }
 
 export function getCarAccessAnchors(

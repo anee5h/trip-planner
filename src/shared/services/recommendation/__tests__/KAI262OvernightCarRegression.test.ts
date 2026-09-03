@@ -56,17 +56,19 @@ function context(
 }
 
 describe("KAI-262 recommendation transport matrix", () => {
-  it("uses bounded car travel evidence for overnight duration matching", () => {
+  it("does not manufacture car travel evidence from legacy transport options", () => {
     const ashikaga = catalogue.find(
       (destination) => destination.id === "ashikaga-city",
     );
     expect(ashikaga).toBeDefined();
     const selected = context("2d1n", "my_car", false);
 
-    expect(getBestOneWayTravelMinutes(ashikaga!, selected, ["my_car"])).toBe(
-      85,
-    );
-    expect(getBestOneWayTravelMinutes(ashikaga!, selected, ["car"])).toBe(85);
+    expect(
+      getBestOneWayTravelMinutes(ashikaga!, selected, ["my_car"]),
+    ).toBeUndefined();
+    expect(
+      getBestOneWayTravelMinutes(ashikaga!, selected, ["car"]),
+    ).toBeUndefined();
   });
 
   it.each([
@@ -132,17 +134,11 @@ describe("KAI-262 recommendation transport matrix", () => {
         context(duration, carMode, publicTransport),
       );
 
+      if (carMode !== "none") {
+        expect(results).toEqual([]);
+        return;
+      }
       expect(results.length).toBeGreaterThan(0);
-      if (carMode === "my_car") {
-        expect(
-          results.every((result) => result.bestTransportMode === "my_car"),
-        ).toBe(true);
-      }
-      if (carMode === "rental") {
-        expect(
-          results.every((result) => result.bestTransportMode === "car"),
-        ).toBe(true);
-      }
     },
   );
 });

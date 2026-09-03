@@ -50,7 +50,23 @@ const YOKOHAMA_POI: Destination = {
   prefecture: "Kanagawa",
   municipalityId: "Kanagawa:yokohama",
   coordinates: { lat: 35.4578, lng: 139.6322 },
+  localAccessModes: ["train", "car"],
   transportOptions: { train: 0, bus: 0, car: 0 },
+  carAccess: {
+    state: "direct",
+    eligibility: "eligible",
+    anchors: [
+      {
+        id: "minato-mirai-road-entrance",
+        label: "Minato Mirai road entrance",
+        kind: "road_access_entrance",
+        coordinates: { lat: 35.4578, lng: 139.6322 },
+        sourceUrls: ["https://example.com/minato-mirai-road"],
+      },
+    ],
+    evidence: "catalogue_metadata",
+    sourceUrls: ["https://example.com/minato-mirai-road"],
+  },
   role: "poi",
 } as unknown as Destination;
 
@@ -94,6 +110,21 @@ const BUS_ONLY_YOKOHAMA_POI: Destination = {
   coordinates: { lat: 35.4167, lng: 139.6639 },
   localAccessModes: ["bus", "car"],
   transportOptions: { bus: 0, car: 0 },
+  carAccess: {
+    state: "direct",
+    eligibility: "eligible",
+    anchors: [
+      {
+        id: "sankei-en-road-entrance",
+        label: "Sankei-en road entrance",
+        kind: "road_access_entrance",
+        coordinates: { lat: 35.4167, lng: 139.6639 },
+        sourceUrls: ["https://example.com/sankei-en-road"],
+      },
+    ],
+    evidence: "catalogue_metadata",
+    sourceUrls: ["https://example.com/sankei-en-road"],
+  },
   role: "poi",
 } as unknown as Destination;
 

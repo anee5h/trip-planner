@@ -212,38 +212,33 @@ function getValidModesUncached(
   const supported = (mode: string): boolean => {
     if (mode === "flight") return Boolean(flightEstimate);
     if (mode === "ferry") return Boolean(ferryEstimate);
-    // Car authorization still comes from topology; destination support comes
-    // from canonical access metadata rather than the legacy option alone.
+
     const checkMode = mode === "my_car" ? "car" : mode;
     if (checkMode === "car") return isCarModeEligible(dest);
+
     if (
       checkMode === "train" ||
       checkMode === "shinkansen" ||
       checkMode === "bus"
     ) {
       if (homeCoords) {
-        // Personalized origin with coordinates: the canonical origin-aware
-        // system is authoritative for records whose static mode is unknown.
-        // A null canonical result means unsupported — stale transportOptions
-        // must not resurrect a missing personalized corridor (KAI-12).
-        // Existing records with a legacy static value retain that value as an
-        // availability fallback until their corridor is migrated; newly
-        // verified expansion records deliberately leave the value absent.
+        // Bus and Shinkansen are always personalized route-backed modes. Train
+        // retains the existing compatibility eligibility for legacy records
+        // that have no local-access declaration; an explicit declaration is
+        // authoritative, and an explicit [] cannot be resurrected by a stale
+        // transportOptions number.
+        if (
+          checkMode === "train" &&
+          dest.localAccessModes !== undefined &&
+          !dest.localAccessModes.includes(checkMode)
+        ) {
+          return false;
+        }
         if (
           dest.transportOptions?.[
             checkMode as keyof typeof dest.transportOptions
           ] === undefined
         ) {
-          // Origin-aware fallback is opt-in for records that explicitly
-          // declare local access modes. Legacy fixtures and records without
-          // that declaration must not gain a synthetic corridor merely
-          // because a broad prefecture route exists.
-          if (
-            checkMode === "train" &&
-            !dest.localAccessModes?.includes(checkMode)
-          ) {
-            return false;
-          }
           return Boolean(
             getOriginAwareTransportEstimate(
               dest,
@@ -271,7 +266,6 @@ function getValidModesUncached(
             ),
           );
         }
-        // Zone-only / neutral browsing keeps the legacy metadata display gate.
         return Boolean(
           dest.transportOptions?.[
             checkMode as keyof typeof dest.transportOptions
@@ -279,10 +273,11 @@ function getValidModesUncached(
         );
       }
     }
-    return (
+
+    return Boolean(
       dest.transportOptions?.[
         checkMode as keyof typeof dest.transportOptions
-      ] !== undefined
+      ] !== undefined,
     );
   };
   const selected = new Set<string>(publicModes);

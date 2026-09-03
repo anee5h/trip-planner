@@ -999,6 +999,7 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const noRoute = dest({
       id: "no-route",
       role: "hub",
+      localAccessUnestimated: true,
       transportOptions: {},
       recommendedVisitHours: { min: 1, max: 10 },
     });

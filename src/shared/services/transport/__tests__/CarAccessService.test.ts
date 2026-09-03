@@ -71,9 +71,10 @@ describe("KAI-264 canonical car access", () => {
     expect(legacy).toBeDefined();
     const access = getCarAccess(legacy!);
     expect(access.state).toBe("unknown");
-    expect(access.eligibility).toBe("eligible");
+    expect(access.eligibility).toBe("unknown");
     expect(access.evidence).toBe("legacy_compatibility");
     expect(access.anchors).toEqual([]);
+    expect(isCarModeEligible(legacy!)).toBe(false);
   });
 
   it("makes scorer car and my_car agree with canonical eligibility", () => {

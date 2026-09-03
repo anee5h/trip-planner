@@ -30,7 +30,7 @@ describe("normalizeCarMode", () => {
 });
 
 describe('saved "own" carMode reaches getValidModes as my_car', () => {
-  it("normalized my_car from legacy own is authorized for same-zone mainland destination", () => {
+  it("normalized my_car still requires canonical car access evidence", () => {
     const dest = {
       id: "test-dest",
       name: "Test",
@@ -52,6 +52,6 @@ describe('saved "own" carMode reaches getValidModes as my_car', () => {
       "mainland-honshu",
     );
 
-    expect(modes).toContain("my_car");
+    expect(modes).not.toContain("my_car");
   });
 });
