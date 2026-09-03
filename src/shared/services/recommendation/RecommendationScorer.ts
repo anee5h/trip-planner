@@ -192,6 +192,7 @@ function getValidModesUncached(
       ? topologyModes.localModes
       : topologyModes.crossZoneModes,
   );
+  if (isCarModeEligible(dest)) authorized.add("car");
   const flightEstimate = getFlightTransportEstimate(
     dest,
     homeCoords,
