@@ -7,8 +7,12 @@
         "id": "karuizawa-old-new-area-parking",
         "label": "Parking serving the Old and New Karuizawa areas",
         "kind": "official_parking",
-        "sourceUrls": ["https://karuizawa-kankokyokai.jp/information/84692/"],
-        "notes": "The Karuizawa Tourism Association publishes area parking information. A specific lot and road endpoint must be selected at route time; this record intentionally asserts no coordinates or walking minutes."
+        "coordinates": { "lat": 36.357333, "lng": 138.633287 },
+        "sourceUrls": [
+          "https://karuizawa-kankokyokai.jp/information/84692/",
+          "https://www.openstreetmap.org/way/364599513"
+        ],
+        "notes": "町営旧軽井沢駐車場 is the named mapped parking feature. The tourism association publishes municipal parking information; OSM supplies the mapped lot geometry. Route to this anchor, then walk to the attraction."
       }
     ],
     "evidence": "tourism_board",
@@ -24,11 +28,13 @@
         "id": "kyu-karuizawa-area-parking",
         "label": "Parking serving Kyu-Karuizawa Ginza Street",
         "kind": "official_parking",
+        "coordinates": { "lat": 36.357333, "lng": 138.633287 },
         "sourceUrls": [
           "https://karuizawa-kankokyokai.jp/en/spot/30483/",
-          "https://karuizawa-kankokyokai.jp/information/84692/"
+          "https://karuizawa-kankokyokai.jp/information/84692/",
+          "https://www.openstreetmap.org/way/364599513"
         ],
-        "notes": "The official destination page identifies the pedestrian shopping street and the tourism association publishes parking information for the area. No parking-lot coordinates or walking duration are asserted until an individual lot is verified."
+        "notes": "町営旧軽井沢駐車場 is the named mapped parking feature serving the pedestrian shopping street. The tourism association identifies the street and publishes parking information; OSM supplies the mapped lot geometry. Route to the anchor, then walk to the attraction."
       }
     ],
     "evidence": "tourism_board",
