@@ -7,27 +7,20 @@ import {
 } from "@/shared/services/transport/TransportTopologyService";
 import {
   getCarAccess,
-  getRoutableCarAccessAnchors,
+  getCarAccessAnchors,
+  resolveCarAccess,
 } from "@/shared/services/transport/CarAccessService";
+import carAccessRecords from "@/shared/data/car-access.json";
 import type { Destination } from "@/shared/types/destination";
 
 const destinations = data as Destination[];
+const canonicalAccessRecords = carAccessRecords as Record<string, unknown>;
 
 function hasLegacyCarDisplaySupport(destination: Destination): boolean {
   return [
     destination.transportOptions?.car,
     destination.transportOptions?.my_car,
   ].some((value) => typeof value === "number" && Number.isFinite(value));
-}
-
-function hasCanonicalCarAccessRecord(destination: Destination): boolean {
-  const access = getCarAccess(destination);
-  return (
-    destination.carAccess !== undefined ||
-    !["legacy_compatibility", "catalogue_metadata", "none"].includes(
-      access.evidence,
-    )
-  );
 }
 
 const origins = [
@@ -53,9 +46,7 @@ function previousCarSupport(
   const destinationZoneId = resolveDestinationTransportZone(destination);
   // Reproduce the pre-KAI-264 baseline exactly: before destination-level
   // access became authoritative, an empty localAccessModes list fell back to
-  // the zone local modes just like an omitted field. The current topology
-  // helper intentionally treats [] as a hard no-access declaration, so pass a
-  // normalized legacy view only for this historical comparison.
+  // the zone local modes just like an omitted field.
   const legacyDestination =
     destination.localAccessModes?.length === 0
       ? { ...destination, localAccessModes: undefined }
@@ -75,10 +66,50 @@ function previousCarSupport(
   );
 }
 
+// ── Classification buckets (resolution model) ────────────────────────────────
+
+const resolutionBuckets = destinations.reduce(
+  (summary, destination) => {
+    const resolution = resolveCarAccess(destination);
+    summary.classification[resolution.kind] =
+      (summary.classification[resolution.kind] ?? 0) + 1;
+    if (hasLegacyCarDisplaySupport(destination)) {
+      summary.legacyCarOptionCount += 1;
+    }
+    return summary;
+  },
+  {
+    classification: {} as Record<string, number>,
+    legacyCarOptionCount: 0,
+  },
+);
+
+const explicitAnchorRecords = destinations.filter(
+  (destination) => getCarAccessAnchors(destination).length > 0,
+);
+const explicitEligibleAnchored = destinations.filter(
+  (destination) => resolveCarAccess(destination).kind === "explicit",
+);
+const candidateDerived = destinations.filter(
+  (destination) => resolveCarAccess(destination).kind === "candidate",
+);
+const restrictedOrUnavailable = destinations.filter((destination) => {
+  const kind = resolveCarAccess(destination).kind;
+  return kind === "restricted" || kind === "unavailable";
+});
+const unavailableResolution = destinations.filter(
+  (destination) => resolveCarAccess(destination).kind === "unavailable",
+);
+const restrictedResolution = destinations.filter(
+  (destination) => resolveCarAccess(destination).kind === "restricted",
+);
+
 const perOrigin = origins.map((origin) => {
   const previous = destinations.filter((destination) =>
     previousCarSupport(destination, origin.coordinates),
   );
+  // New personalized support = topology car connection AND resolvable access
+  // (explicit anchor or derived candidate). Same predicate the scorer uses.
   const current = destinations.filter((destination) =>
     getValidModes(destination, "rental", [], origin.coordinates).includes(
       "car",
@@ -86,18 +117,16 @@ const perOrigin = origins.map((origin) => {
   );
   const previousIds = new Set(previous.map((destination) => destination.id));
   const currentIds = new Set(current.map((destination) => destination.id));
-  const legacyOnly = previous.filter(
-    (destination) =>
-      getCarAccess(destination).evidence === "legacy_compatibility",
-  );
   return {
     origin: origin.label,
     previousCarSupportedCount: previous.length,
     newCarSupportedCount: current.length,
-    legacyOnlyCarSupportedCount: legacyOnly.length,
-    legacyOnlyCarDestinations: legacyOnly
-      .map((destination) => destination.id)
-      .sort(),
+    explicitlyAnchoredCount: current.filter(
+      (destination) => resolveCarAccess(destination).kind === "explicit",
+    ).length,
+    candidateCount: current.filter(
+      (destination) => resolveCarAccess(destination).kind === "candidate",
+    ).length,
     newlyGainedCarDestinations: current
       .filter((destination) => !previousIds.has(destination.id))
       .map((destination) => destination.id)
@@ -115,14 +144,27 @@ const newlyGained = [
 const lost = [
   ...new Set(perOrigin.flatMap((result) => result.carSupportLost)),
 ].sort();
+
+const changedReasons = [...new Set([...newlyGained, ...lost])]
+  .map((id) => {
+    const destination = destinations.find((candidate) => candidate.id === id)!;
+    const resolution = resolveCarAccess(destination);
+    return {
+      destinationId: id,
+      kind: resolution.kind,
+      state: resolution.access.state,
+      eligibility: resolution.access.eligibility,
+      evidence: resolution.access.evidence,
+      reason: resolution.reason,
+      sourceUrls: [...resolution.access.sourceUrls],
+    };
+  })
+  .sort((a, b) => a.destinationId.localeCompare(b.destinationId));
+
 const accessSummary = destinations.reduce(
   (summary, destination) => {
     const access = getCarAccess(destination);
     summary[access.state] = (summary[access.state] ?? 0) + 1;
-    if (access.eligibility === "unknown") summary.unresolvedUnknown += 1;
-    if (access.evidence === "legacy_compatibility") {
-      summary.legacyCompatibilityCount += 1;
-    }
     return summary;
   },
   {
@@ -134,39 +176,19 @@ const accessSummary = destinations.reduce(
     ferry_required: 0,
     unavailable: 0,
     unknown: 0,
-    unresolvedUnknown: 0,
-    legacyCompatibilityCount: 0,
   } as Record<string, number>,
 );
 
-const changedReasons = [...new Set([...newlyGained, ...lost])]
-  .map((id) => {
-    const destination = destinations.find((candidate) => candidate.id === id)!;
-    const access = getCarAccess(destination);
-    return {
-      destinationId: id,
-      state: access.state,
-      eligibility: access.eligibility,
-      evidence: access.evidence,
-      reason: access.reason,
-      sourceUrls: [...access.sourceUrls],
-    };
-  })
-  .sort((a, b) => a.destinationId.localeCompare(b.destinationId));
+const explicitFailureStates = destinations.filter(
+  (destination) =>
+    destination.carAccess !== undefined ||
+    canonicalAccessRecords[destination.id] !== undefined,
+);
 
-const legacyDisplaySupport = destinations.filter(hasLegacyCarDisplaySupport);
-const canonicalAccessRecords = destinations.filter(hasCanonicalCarAccessRecord);
-const canonicalEligibleAccess = destinations.filter((destination) => {
-  const access = getCarAccess(destination);
-  return (
-    access.eligibility === "eligible" &&
-    getRoutableCarAccessAnchors(destination).length > 0
-  );
-});
-const accessEvidenceSummary = destinations.reduce<Record<string, number>>(
+const accessStateSummary = destinations.reduce<Record<string, number>>(
   (summary, destination) => {
-    const evidence = getCarAccess(destination).evidence;
-    summary[evidence] = (summary[evidence] ?? 0) + 1;
+    const access = getCarAccess(destination);
+    summary[access.state] = (summary[access.state] ?? 0) + 1;
     return summary;
   },
   {},
@@ -181,31 +203,42 @@ console.log(
       aggregate: {
         previousCarSupportedCount: perOrigin[0].previousCarSupportedCount,
         newCarSupportedCount: perOrigin[0].newCarSupportedCount,
-        legacyOnlyCarSupportedCount: perOrigin[0].legacyOnlyCarSupportedCount,
-        legacyOnlyCarDestinations: [
-          ...new Set(
-            perOrigin.flatMap((result) => result.legacyOnlyCarDestinations),
-          ),
-        ].sort(),
         newlyGainedCarDestinations: newlyGained,
         carSupportLost: lost,
       },
-      accessSummary,
-      classification: {
+      resolutionClassification: {
         catalogueRecordCount: destinations.length,
-        legacyDisplaySupportCount: legacyDisplaySupport.length,
-        canonicalCarAccessRecordCount: canonicalAccessRecords.length,
-        canonicalPersonalizedEligibleCount: canonicalEligibleAccess.length,
-        unresolvedUnknownCount: accessSummary.unresolvedUnknown,
-        restrictedUnavailableFerryRequiredCount: [
-          "restricted",
-          "unavailable",
-          "ferry_required",
-        ].reduce((count, state) => count + (accessSummary[state] ?? 0), 0),
-        accessEvidenceSummary,
+        legacyCarOptionCount: resolutionBuckets.legacyCarOptionCount,
+        explicit: resolutionBuckets.classification.explicit ?? 0,
+        candidate: resolutionBuckets.classification.candidate ?? 0,
+        restricted: resolutionBuckets.classification.restricted ?? 0,
+        unavailable: resolutionBuckets.classification.unavailable ?? 0,
+        unknown: resolutionBuckets.classification.unknown ?? 0,
+        explicitAnchorRecordCount: explicitAnchorRecords.length,
+        explicitEligibleAnchoredCount: explicitEligibleAnchored.length,
+        candidateDerivedCount: candidateDerived.length,
+        explicitFailureStateCount: explicitFailureStates.length,
+        restrictedCount: restrictedResolution.length,
+        unavailableCount: unavailableResolution.length,
+        // No live ORS credential is configured in this repository: candidates
+        // are RESOLVABLE, not yet proven routable. Runtime acquisition via the
+        // KAI-226 server endpoint upgrades candidate → routable.
+        routableProvenCount: explicitEligibleAnchored.length,
+        routableNote:
+          "Only explicitly anchored records are proven routable endpoints today. Candidates become routable when the KAI-226 runtime acquisition successfully routes them (no live ORS call in this audit).",
       },
+      accessSummary,
+      accessStateSummary,
+      allRestrictedOrUnavailable: restrictedOrUnavailable
+        .map((destination) => ({
+          id: destination.id,
+          kind: resolveCarAccess(destination).kind,
+          state: getCarAccess(destination).state,
+          reason: getCarAccess(destination).reason,
+        }))
+        .sort((a, b) => a.id.localeCompare(b.id)),
       changedReasons,
-      note: "Previous support reproduces the pre-KAI-264 topology plus destination.transportOptions.car predicate. New personalized support requires topology plus coordinate-bearing CarAccessService evidence. Legacy-only destinations are reported separately and remain display-compatible but unknown for personalized routing.",
+      note: "Legacy transportOptions/localAccessModes car metadata now marks a destination as a RESOLUTION CANDIDATE (worth attempting road routing) rather than proof of availability. Personalized car eligibility in the scorer additionally requires the origin's topology car connection; explicit restricted/unavailable records can never be overridden by candidate derivation. Per-origin newCarSupportedCount therefore equals the previous count (281) plus any gains, because every legacy-supported destination with coordinates is resolvable — but canonical duration/cost for candidates remains unknown until runtime route acquisition succeeds.",
     },
     null,
     2,

@@ -783,10 +783,9 @@ describe("destination-level local access", () => {
     expect(modes).not.toContain("shinkansen");
   });
 
-  it("Sakurajima production record returns no estimable modes, never Train", () => {
-    // The canonical localAccessModes declaration includes bus, but the
-    // route-known/unestimated local access remains unknown until a precise
-    // corridor is verified. transportOptions cannot add Train back.
+  it("Sakurajima production record returns only the car candidate, never Train", () => {
+    // Sakurajima carries car as a local access mode, so it is a car
+    // resolution candidate; Train is not supported by the record.
     const dest = byId.get("sakurajima-volcano-kagoshima")!;
     const modes = getValidModes(
       dest,
@@ -796,7 +795,7 @@ describe("destination-level local access", () => {
       undefined,
       "mainland-kyushu",
     );
-    expect(modes).toEqual([]);
+    expect(modes).toEqual(["car"]);
   });
 
   it("Kouri production record is Bus-only, never Train", () => {
@@ -866,7 +865,7 @@ describe("car/my_car cross-zone authorization", () => {
   const FUKUOKA_COORDS = { lat: 33.5902, lng: 130.4017 };
   const SAPPORO_COORDS = { lat: 43.0618, lng: 141.3545 };
 
-  it("Honshu → Kyushu without canonical car access does not authorize road mode", () => {
+  it("Honshu → Kyushu authorizes my_car only as a resolution candidate", () => {
     const dest = byId.get("kumamoto-castle")!;
     const modes = getValidModes(
       dest,
@@ -876,10 +875,13 @@ describe("car/my_car cross-zone authorization", () => {
       undefined,
       "mainland-honshu",
     );
-    expect(modes).not.toContain("my_car");
+    // Legacy car metadata + topology make this a candidate for road routing
+    // consideration. Candidate status authorizes an ATTEMPT — canonical
+    // duration/cost still require KAI-226 route evidence.
+    expect(modes).toContain("my_car");
   });
 
-  it("Honshu → Shikoku without canonical car access does not authorize road mode", () => {
+  it("Honshu → Shikoku authorizes my_car only as a resolution candidate", () => {
     const dest = byId.get("kochi-castle")!;
     const modes = getValidModes(
       dest,
@@ -889,7 +891,7 @@ describe("car/my_car cross-zone authorization", () => {
       undefined,
       "mainland-honshu",
     );
-    expect(modes).not.toContain("my_car");
+    expect(modes).toContain("my_car");
   });
 
   it("Honshu → Hokkaido with my_car does NOT authorize car", () => {
@@ -907,7 +909,7 @@ describe("car/my_car cross-zone authorization", () => {
     expect(modes).not.toContain("car");
   });
 
-  it("Honshu → Kyushu without canonical car access does not authorize rental car", () => {
+  it("Honshu → Kyushu authorizes rental car as a resolution candidate", () => {
     const dest = byId.get("kumamoto-castle")!;
     const modes = getValidModes(
       dest,
@@ -917,10 +919,10 @@ describe("car/my_car cross-zone authorization", () => {
       undefined,
       "mainland-honshu",
     );
-    expect(modes).not.toContain("car");
+    expect(modes).toContain("car");
   });
 
-  it("public + rental selection preserves public capabilities without legacy car", () => {
+  it("public + rental selection preserves public capabilities alongside the car candidate", () => {
     const dest = byId.get("kumamoto-castle")!;
     const selection = resolveTransportSelection(true, "rental", [
       "train",
@@ -936,7 +938,7 @@ describe("car/my_car cross-zone authorization", () => {
       undefined,
       "mainland-honshu",
     );
-    expect(modes).not.toContain("car");
+    expect(modes).toContain("car");
     expect(modes).toContain("train");
     expect(modes).toContain("flight");
     expect(new Set(modes).size).toBe(modes.length);

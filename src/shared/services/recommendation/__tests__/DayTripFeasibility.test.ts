@@ -211,7 +211,7 @@ describe("day-trip travel evidence", () => {
         "standard",
         allPublic.originZoneId,
       ),
-    ).not.toContain("car");
+    ).toEqual(["car"]);
 
     // Odawara is ~54 km from the origin and has no canonical Shinkansen
     // arrival (no hub within the 30 km arrival catchment), so enabling more

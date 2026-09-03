@@ -30,7 +30,7 @@ describe("normalizeCarMode", () => {
 });
 
 describe('saved "own" carMode reaches getValidModes as my_car', () => {
-  it("normalized my_car still requires canonical car access evidence", () => {
+  it("normalized my_car reaches getValidModes as a resolution candidate", () => {
     const dest = {
       id: "test-dest",
       name: "Test",
@@ -52,6 +52,8 @@ describe('saved "own" carMode reaches getValidModes as my_car', () => {
       "mainland-honshu",
     );
 
-    expect(modes).not.toContain("my_car");
+    // Legacy car metadata + topology make this a resolution candidate:
+    // my_car is authorized for CONSIDERATION, not as proof of any route.
+    expect(modes).toContain("my_car");
   });
 });

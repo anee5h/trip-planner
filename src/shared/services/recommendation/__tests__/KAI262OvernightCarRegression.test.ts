@@ -13,7 +13,10 @@ import {
   resolveTransportSelection,
 } from "@/features/home/services/TransportResolver";
 import { runRecommendationPipeline } from "../RecommendationPipeline";
-import { getBestOneWayTravelMinutes } from "../TripDurationService";
+import {
+  getBestOneWayTravelMinutes,
+  getDayTripTravelDurationEvidence,
+} from "../TripDurationService";
 import type { RecommendationContext } from "../RecommendationContext";
 
 const catalogue = destinationsIndex as unknown as Destination[];
@@ -56,19 +59,25 @@ function context(
 }
 
 describe("KAI-262 recommendation transport matrix", () => {
-  it("does not manufacture car travel evidence from legacy transport options", () => {
+  it("legacy car candidates receive estimated display duration, never canonical route facts", () => {
     const ashikaga = catalogue.find(
       (destination) => destination.id === "ashikaga-city",
     );
     expect(ashikaga).toBeDefined();
     const selected = context("2d1n", "my_car", false);
 
-    expect(
-      getBestOneWayTravelMinutes(ashikaga!, selected, ["my_car"]),
-    ).toBeUndefined();
-    expect(
-      getBestOneWayTravelMinutes(ashikaga!, selected, ["car"]),
-    ).toBeUndefined();
+    // Car candidates are back for CONSIDERATION (KAI-264 resolution model):
+    // the bounded display estimate restores day-trip car planning, but it is
+    // explicitly estimated and is never canonical road-route evidence.
+    const minutes = getBestOneWayTravelMinutes(ashikaga!, selected, ["my_car"]);
+    expect(minutes).toBeTypeOf("number");
+    const evidence = getDayTripTravelDurationEvidence(ashikaga!, selected, [
+      "my_car",
+    ]);
+    expect(evidence.evidence).toBe("estimated");
+    expect(getBestOneWayTravelMinutes(ashikaga!, selected, ["car"])).toBeTypeOf(
+      "number",
+    );
   });
 
   it.each([
@@ -135,11 +144,11 @@ describe("KAI-262 recommendation transport matrix", () => {
       );
 
       if (carMode !== "none") {
-        if (duration === "2d1n" || duration === "3d2n") {
-          expect(results.length).toBeGreaterThan(0);
-        } else {
-          expect(results).toEqual([]);
-        }
+        // KAI-264 resolution model: car candidates are eligible for
+        // CONSIDERATION across every duration (bounded display estimates
+        // restore day-trip planning). Canonical route facts remain absent
+        // until KAI-226 runtime acquisition supplies them.
+        expect(results.length).toBeGreaterThan(0);
         return;
       }
       expect(results.length).toBeGreaterThan(0);
