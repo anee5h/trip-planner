@@ -102,11 +102,11 @@ reproduced on the remote deployment.
 
 Routes (outbound + return independently; normalized canonical results):
 
-| Route | Outbound distance | Outbound minutes | Return distance | Return minutes | Result |
-| --- | ---: | ---: | ---: | ---: | --- |
-| Tokyo Station → Karuizawa official parking anchor | 163.98 km | 136.5 | 163.13 km | 138.0 | available |
-| Nakayama/Yokohama → Kamakura (Kanto, candidate coords) | 31.68 km | 43.9 | 33.35 km | 38.7 | available |
-| Nakayama → Chiba Shrine (legacy-car candidate endpoint) | 71.91 km | 69.4 | 70.88 km | 71.5 | available |
+| Route                                                   | Outbound distance | Outbound minutes | Return distance | Return minutes | Result    |
+| ------------------------------------------------------- | ----------------: | ---------------: | --------------: | -------------: | --------- |
+| Tokyo Station → Karuizawa official parking anchor       |         163.98 km |            136.5 |       163.13 km |          138.0 | available |
+| Nakayama/Yokohama → Kamakura (Kanto, candidate coords)  |          31.68 km |             43.9 |        33.35 km |           38.7 | available |
+| Nakayama → Chiba Shrine (legacy-car candidate endpoint) |          71.91 km |             69.4 |        70.88 km |           71.5 | available |
 
 All responses: HTTP 200, canonical `CarRouteResult` body only (no raw ORS
 `routes/summary/geometry` leak), `toll: unknown`, `confidence: verified`,
