@@ -31,16 +31,22 @@ describe("KAI-264 canonical car access", () => {
     expect(access.evidence).toBe("tourism_board");
     expect(access.anchors).toHaveLength(1);
     expect(access.anchors[0].kind).toBe("official_parking");
-    expect(access.anchors[0].coordinates).toBeUndefined();
-    expect(getRoutableCarAccessAnchors(kyuKaruizawa)).toEqual([]);
+    expect(access.anchors[0].coordinates).toEqual({
+      lat: 36.357333,
+      lng: 138.633287,
+    });
+    expect(getRoutableCarAccessAnchors(kyuKaruizawa)).toHaveLength(1);
     expect(isCarModeEligible(kyuKaruizawa)).toBe(true);
   });
 
   it("does not use the catalogue centroid as a fabricated access anchor", () => {
     const access = getCarAccess(explicitKaruizawa);
     expect(access.state).toBe("parking_walk");
-    expect(access.anchors[0].coordinates).toBeUndefined();
-    expect(getRoutableCarAccessAnchors(explicitKaruizawa)).toHaveLength(0);
+    expect(access.anchors[0].coordinates).toEqual({
+      lat: 36.357333,
+      lng: 138.633287,
+    });
+    expect(getRoutableCarAccessAnchors(explicitKaruizawa)).toHaveLength(1);
   });
 
   it("keeps local car metadata unresolved when no access anchor is documented", () => {
