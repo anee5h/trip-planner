@@ -739,14 +739,14 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
 
         {/* Row 2: Action Buttons Row (Centered directly beneath filter bar) */}
         <div className="mt-4 flex items-center justify-center gap-3 w-full">
-          <Button
-            size="lg"
-            className="h-11 px-8 text-sm font-extrabold rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white shadow-md transition-all flex items-center gap-2"
+          <button
+            type="button"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-8 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:bg-emerald-600 dark:text-white dark:hover:bg-emerald-700"
             onClick={onApplyMatches}
           >
             <Search className="w-4 h-4" />
             <span>{primaryButtonLabel}</span>
-          </Button>
+          </button>
 
           <Button
             type="button"
@@ -762,7 +762,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       </div>
 
       <div className="space-y-2 lg:hidden">
-        <div className="home-planner-card rounded-2xl border border-slate-200 bg-white p-2.5 shadow-md dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))]">
+        <div className="home-planner-card rounded-2xl border border-slate-200 bg-white p-3 shadow-md dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))]">
           <div className="home-planner-rows divide-y divide-slate-100 dark:divide-slate-800">
             {/* Vibe row — always clickable */}
             <button
@@ -867,16 +867,16 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               </button>
             ))}
           </div>
-          <div className="home-planner-actions mt-2 flex flex-col gap-1.5">
-            <Button
-              size="lg"
+          <div className="home-planner-actions mt-3 flex flex-col gap-2">
+            <button
+              type="button"
               data-testid="home-planner-cta"
-              className="home-planner-cta h-12 w-full rounded-xl bg-emerald-700 text-sm font-extrabold text-white shadow-md transition-colors hover:bg-emerald-800 dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800"
+              className="home-planner-cta flex h-12 w-full items-center justify-center rounded-xl bg-emerald-600 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:bg-emerald-600 dark:text-white dark:hover:bg-emerald-700"
               onClick={onApplyMatches}
             >
               <Search className="mr-2 h-4 w-4" />
               {primaryButtonLabel}
-            </Button>
+            </button>
             <Button
               type="button"
               variant="outline"
