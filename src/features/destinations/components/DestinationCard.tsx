@@ -37,7 +37,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedJPYRange,
+  formatTravellerEstimateRange,
+} from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -301,17 +304,38 @@ export default function DestinationCard({
   // KAI-260: cards render the bounded traveller range even when the engine
   // used an explicit model/profile fallback. Evidence quality is disclosed
   // compactly, not used as a visibility gate.
+  // KAI-275 follow-up: a PARTIAL car estimate (no complete total during
+  // discovery — origin-car transport cost is intentionally unmeasured, #326)
+  // still has a bounded on-site knownSubtotal. The card surfaces that KNOWN
+  // part truthfully ("Known ¥X–Y · on-site only") instead of a bare
+  // "Cost unavailable" — never fabricating the missing origin transport.
   const cardEstimate = useMemo<{
     range: [number, number];
     quality: "verified" | "estimated" | "rough";
+    partial?: boolean;
   } | null>(() => {
-    if (resolvedBudgetEstimate?.estimate.total) {
+    const resolved = resolvedBudgetEstimate?.estimate;
+    if (resolved?.total) {
       return {
-        range: [
-          resolvedBudgetEstimate.estimate.total.min,
-          resolvedBudgetEstimate.estimate.total.max,
-        ],
-        quality: resolvedBudgetEstimate.estimate.estimateQuality,
+        range: [resolved.total.min, resolved.total.max],
+        quality: resolved.estimateQuality,
+      };
+    }
+    const hasKnownSubtotal = (known: readonly [number, number] | undefined) =>
+      Boolean(
+        known &&
+        Number.isFinite(known[1]) &&
+        known[1] > 0 &&
+        Number.isFinite(known[0]),
+      );
+    if (
+      resolved?.completeness === "partial" &&
+      hasKnownSubtotal(resolved.knownSubtotal)
+    ) {
+      return {
+        range: [resolved.knownSubtotal[0], resolved.knownSubtotal[1]],
+        quality: resolved.estimateQuality,
+        partial: true,
       };
     }
     const mode =
@@ -327,12 +351,20 @@ export default function DestinationCard({
       duration,
       ferryTemporal,
     });
-    return r.total
-      ? {
-          range: [r.total.min, r.total.max],
-          quality: r.estimateQuality,
-        }
-      : null;
+    if (r.total) {
+      return {
+        range: [r.total.min, r.total.max],
+        quality: r.estimateQuality,
+      };
+    }
+    if (r.completeness === "partial" && hasKnownSubtotal(r.knownSubtotal)) {
+      return {
+        range: [r.knownSubtotal[0], r.knownSubtotal[1]],
+        quality: r.estimateQuality,
+        partial: true,
+      };
+    }
+    return null;
   }, [
     destination,
     validModes,
@@ -625,10 +657,34 @@ export default function DestinationCard({
                   </div>
                   <div className="flex min-w-0 items-center whitespace-nowrap md:col-span-2">
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
-                    <span className="truncate">
+                    <span
+                      className="truncate"
+                      title={
+                        cardEstimate?.partial
+                          ? locale === "ja"
+                            ? "現地費用のみです。交通費は含まれません。"
+                            : "On-site cost only; origin transport excluded"
+                          : undefined
+                      }
+                    >
                       {(() => {
                         // KAI-260: a bounded estimate is displayable even
                         // when its ingredients are model/profile derived.
+                        // KAI-275 follow-up: a PARTIAL car estimate shows the
+                        // KNOWN on-site subtotal with an explicit qualifier
+                        // instead of a bare "Cost unavailable" — origin-car
+                        // transport is never fabricated (0 ORS discovery).
+                        if (cardEstimate?.partial) {
+                          const known = formatLocalizedJPYRange(
+                            cardBudgetRange,
+                            locale,
+                          );
+                          const prefix = locale === "ja" ? "既知" : "Known";
+                          const qualifier =
+                            locale === "ja" ? "現地のみ" : "on-site only";
+                          const sep = locale === "ja" ? "・" : " · ";
+                          return `${prefix} ${known}${sep}${qualifier}`;
+                        }
                         return formatTravellerEstimateRange(
                           cardBudgetRange,
                           cardEstimate?.quality,

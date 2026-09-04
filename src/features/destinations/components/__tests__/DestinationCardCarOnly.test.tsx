@@ -245,3 +245,75 @@ describe("KAI-275 DestinationCard transport selection", () => {
     expect(icons.length).toBeGreaterThan(0);
   });
 });
+
+describe("KAI-275 DestinationCard partial-cost disclosure", () => {
+  it("partial car estimate (no total, bounded on-site knownSubtotal) shows 'Known ¥.. · on-site only' with the disclosure title", async () => {
+    const partialEstimate = calculateTripEstimate({
+      dest: destination,
+      mode: "my_car",
+      partySize: 2,
+      homeCoords: state.homeStationCoords,
+      includeOriginTravel: true,
+      duration: "fullDay" as TripDuration,
+    });
+    // Discovery car estimates are partial by design (#326): no ORS call →
+    // origin-car transport unmeasured → no complete total, bounded subtotal.
+    expect(partialEstimate.total).toBeUndefined();
+    expect(partialEstimate.completeness).toBe("partial");
+    expect(partialEstimate.knownSubtotal[1]).toBeGreaterThan(0);
+
+    const budgetEstimate: ExploreBudgetEstimate = {
+      mode: "my_car",
+      validModes: ["my_car"],
+      estimate: partialEstimate,
+    };
+    const container = await renderAt("/destinations?car=my_car&mode=none", {
+      carMode: "my_car",
+      publicModes: [],
+      resolvedBudgetEstimate: budgetEstimate,
+    });
+    const text = container.textContent ?? "";
+    expect(text).toContain("Known");
+    expect(text).toContain("¥");
+    expect(text).toContain("on-site only");
+    expect(text).not.toContain("Cost unavailable");
+    // The span title discloses the full meaning.
+    const titled = container.querySelector('[title*="origin transport"]');
+    expect(titled).not.toBeNull();
+  });
+
+  it("complete estimate keeps the plain full range (no Known/on-site qualifier)", async () => {
+    const completeEstimate = calculateTripEstimate({
+      dest: destination,
+      mode: "train",
+      partySize: 2,
+      homeCoords: state.homeStationCoords,
+      includeOriginTravel: true,
+      duration: "fullDay" as TripDuration,
+    });
+    expect(completeEstimate.total).toBeDefined();
+    const budgetEstimate: ExploreBudgetEstimate = {
+      mode: "train",
+      validModes: ["train"],
+      estimate: completeEstimate,
+    };
+    const container = await renderAt("/destinations?mode=train", {
+      carMode: "none",
+      publicModes: ["train"],
+      resolvedBudgetEstimate: budgetEstimate,
+    });
+    const text = container.textContent ?? "";
+    expect(text).not.toContain("on-site only");
+    expect(text).not.toContain("Cost unavailable");
+  });
+
+  it("no meaningful bounded cost keeps 'Cost unavailable' (nothing fabricated)", async () => {
+    const container = await renderAt("/destinations", {
+      carMode: "none",
+      publicModes: [],
+    });
+    const text = container.textContent ?? "";
+    expect(text).toContain("Cost unavailable");
+    expect(text).not.toContain("Known");
+  });
+});
