@@ -4,6 +4,7 @@ import type { TransportZoneId } from "@/shared/types/transportTopology";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
 import { peekCachedCarRoundTrip } from "@/shared/services/transport/CarRouteApiProvider";
 import { getRoutableCarAccessAnchors } from "@/shared/services/transport/CarAccessService";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import {
   acquireCarRoutes,
   carRouteIntentCounters,
@@ -55,6 +56,28 @@ export function useDestinationCarRouteRefinement(
   useEffect(() => {
     if (!carSelected || !destination || !homeStationCoords) {
       // Nothing to refine: stay on the deterministic estimate.
+      setRoutes(undefined);
+      if (status !== "idle") setStatus("idle");
+      setFailureCode(undefined);
+      return;
+    }
+
+    // Topology guard: never attempt a provider route the origin cannot
+    // reach by continuous road (e.g. Honshu origin → Hokkaido destination).
+    // Destination-side car accessibility must not fabricate a water
+    // crossing; the origin-aware mode set is authoritative here.
+    const validModes = getValidModes(
+      destination,
+      carMode,
+      [],
+      homeStationCoords,
+      undefined,
+      homeStationTransportZoneId,
+      undefined,
+    );
+    const carModeValid =
+      validModes.includes("car") || validModes.includes("my_car");
+    if (!carModeValid) {
       setRoutes(undefined);
       if (status !== "idle") setStatus("idle");
       setFailureCode(undefined);

@@ -5,6 +5,7 @@ import type {
   CarAccessEligibility,
 } from "@/shared/types/carAccess";
 import carAccessRecords from "@/shared/data/car-access.json";
+import { isEligibleForDefaultCandidate } from "./carAccessCandidatePolicy";
 
 const canonicalRecords = carAccessRecords as Record<string, CarAccess>;
 
@@ -172,11 +173,27 @@ export function resolveCarAccess(
   }
 
   if (!hasCarResolutionEvidence(destination)) {
+    // KAI-264 safe first wave: ordinary main-land destinations with valid
+    // coordinates and no explicit negative evidence become resolution
+    // candidates (authorizes an attempt/estimate; never proof).
+    const decision = isEligibleForDefaultCandidate(destination, access);
+    if (decision.eligible) {
+      const candidate = derivedCandidateAnchor(destination);
+      if (candidate) {
+        return {
+          kind: "candidate",
+          access,
+          anchors: [candidate],
+          candidateAnchor: candidate,
+          reason: decision.reason,
+        };
+      }
+    }
     return {
       kind: "unknown",
       access,
       anchors: [],
-      reason: "No car metadata or local access mode; nothing worth attempting.",
+      reason: decision.reason,
     };
   }
 

@@ -28,7 +28,9 @@ const byId = new Map(all.map((d) => [d.id, d]));
 const yomiuriland = byId.get("yomiuriland")!;
 const karuizawa = byId.get("karuizawa-town")!;
 const tokyoStation = byId.get("tokyo-station-chiyoda")!;
-const kamakura = byId.get("kamakura-city")!;
+const kamakura = byId.get("kamakura-city")!; // promoted by the safe first wave; used by earlier fixtures
+void kamakura;
+const ginzanOnsen = byId.get("ginzan-onsen-yamagata")!;
 
 const HOME = { lat: 35.6812, lng: 139.7671 }; // Tokyo Station
 const HOME_ZONE = "mainland-honshu" as const;
@@ -231,8 +233,10 @@ describe("car outage fallback policy", () => {
 
   it("unknown car access never estimates (no resolvable anchors)", () => {
     resetCarRouteFallbackCounters();
+    // Endpoint-sensitive POI stays unknown (never promoted): no anchors,
+    // no fallback estimate.
     const fallback = getCarOutageFallbackEstimate(
-      kamakura,
+      ginzanOnsen,
       fallbackContext,
       bareErrorRoute("quota_exceeded"),
     );
