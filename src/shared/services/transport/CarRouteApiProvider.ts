@@ -45,6 +45,34 @@ function evictExpired() {
   }
 }
 
+export function peekCachedCarRoundTrip(
+  destination: { readonly id: string },
+  origin: { lat: number; lng: number },
+  anchorIds: readonly string[],
+): { outbound: CarRouteResult; returnRoute: CarRouteResult } | undefined {
+  const ids = new Set([destination.id, ...anchorIds]);
+  const now = Date.now();
+  let outbound: CarRouteResult | undefined;
+  let returnRoute: CarRouteResult | undefined;
+  for (const [key, entry] of routeCache) {
+    if (now - entry.cachedAt > CAR_ROUTE_CACHE_TTL_MS) continue;
+    const parts = key.split("|");
+    if (parts.length !== 4) continue;
+    const [lat, lng, id, direction] = parts;
+    if (Number(lat) !== origin.lat || Number(lng) !== origin.lng) continue;
+    if (!ids.has(id)) continue;
+    if (entry.result.availability !== "available") continue;
+    if (direction === "outbound") outbound = entry.result;
+    if (direction === "return") returnRoute = entry.result;
+  }
+  return outbound && returnRoute ? { outbound, returnRoute } : undefined;
+}
+
+/** Test-only: clear the shared provider cache. */
+export function clearCarRouteCacheForTest(): void {
+  routeCache.clear();
+}
+
 function errorResult(
   request: CarRouteRequest,
   availability: CarRouteResult["availability"],
@@ -155,6 +183,12 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
 
     evictExpired();
     const result = await this.fetchRoute(request);
+
+    // Only provider-backed success is cached. Error results (quota,
+    // network, timeout, 5xx) are never cached so an ORS outage recovers
+    // automatically on the next request instead of pinning a stale
+    // failure for the TTL.
+    if (result.availability !== "available") return result;
 
     if (routeCache.size >= CAR_ROUTE_CACHE_MAX_ENTRIES) {
       // Bounded: drop the oldest entry (Map preserves insertion order).

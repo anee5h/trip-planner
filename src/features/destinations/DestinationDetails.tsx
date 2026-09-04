@@ -21,7 +21,7 @@ import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
 import {
   getOriginAwareTransportEstimate,
-  type OriginAwareTransportEstimate,
+  type TravelDurationEstimate,
   type TravelDurationEvidence,
 } from "@/shared/services/transport/OriginAwareTransportService";
 import {
@@ -107,6 +107,8 @@ import {
 } from "lucide-react";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
+import { useDestinationCarRouteRefinement } from "@/features/destinations/hooks/useDestinationCarRouteRefinement";
+import { getSafeGroundEstimate } from "@/shared/services/transport/SafeGroundEstimateService";
 import {
   formatApproximateTransportTime,
   formatTransportTime,
@@ -528,6 +530,20 @@ export default function DestinationDetails() {
     return { travelDate: new Date(`${travelDate}T12:00:00`) };
   }, [navState]);
 
+  // KAI-226 intent-triggered ORS: the deterministic estimate renders
+  // immediately; this refinement requests the provider only because the
+  // destination was opened (max one round-trip pair; cache-first).
+  const detailCarMode =
+    navState?.carMode ?? user?.user_metadata?.preferences?.carMode ?? "none";
+  const carRefinement = useDestinationCarRouteRefinement(
+    destination ?? undefined,
+    {
+      carMode: detailCarMode,
+      homeStationCoords: homeStationCoords ?? null,
+      homeStationTransportZoneId: homeStationTransportZoneId ?? undefined,
+    },
+  );
+
   const flightEstimate = useMemo(() => {
     if (!destination) return null;
     return getFlightTransportEstimate(
@@ -772,15 +788,50 @@ export default function DestinationDetails() {
   type GroundMode = "train" | "shinkansen" | "bus" | "car" | "my_car";
   const groundEstimateFor = (
     mode: GroundMode,
-  ): OriginAwareTransportEstimate | undefined => {
+  ): TravelDurationEstimate | undefined => {
     if (homeStationCoords && destination) {
-      return (
-        getOriginAwareTransportEstimate(destination, { homeStationCoords }, [
-          mode,
-        ]) ?? undefined
+      const estimate = getOriginAwareTransportEstimate(
+        destination,
+        {
+          homeStationCoords,
+          carRoute:
+            mode === "car" || mode === "my_car"
+              ? carRefinement.routes
+              : undefined,
+        },
+        [mode],
       );
+      if (estimate) return estimate;
+      // KAI-226: without a provider route (still loading, outage or no
+      // acquisition yet), car rows fall back to the bounded deterministic
+      // estimate — except an authoritative no_route, which stays
+      // unavailable.
+      if (mode === "car" || mode === "my_car") {
+        if (carRefinement.status === "no_route") return undefined;
+        const rough = getSafeGroundEstimate(destination, {
+          homeStationCoords,
+          homeStationTransportZoneId: homeStationTransportZoneId ?? undefined,
+          authorizedModes: [mode],
+        });
+        if (rough) {
+          return { ...rough, mode };
+        }
+      }
     }
     return undefined;
+  };
+
+  const formatTravelTimeRange = (range: [number, number]): string => {
+    const formatMinutes = (value: number): string => {
+      const minutes = Math.round(value);
+      if (minutes <= 0) return "N/A";
+      if (minutes < 60) return `${minutes}m`;
+      const hours = Math.floor(minutes / 60);
+      const mins = minutes % 60;
+      return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
+    };
+    const prefix = locale === "ja" ? "約" : "~";
+    return `${prefix}${formatMinutes(range[0])}–${formatMinutes(range[1])}`;
   };
 
   const groundMinutesFor = (mode: GroundMode): number | undefined => {
@@ -808,11 +859,18 @@ export default function DestinationDetails() {
     return mins > 0 ? `${prefix}${hours}h ${mins}m` : `${prefix}${hours}h`;
   };
 
-  const formatGroundTime = (mode: GroundMode): string =>
-    formatTravelTimeMinutes(
-      groundMinutesFor(mode),
-      groundEstimateFor(mode)?.evidence,
+  const formatGroundTime = (mode: GroundMode): string => {
+    const estimate = groundEstimateFor(mode);
+    if (!estimate) return "N/A";
+    if (estimate.evidence === "estimated") {
+      // KAI-226: discovery/outage estimates stay clearly approximate ranges.
+      return formatTravelTimeRange(estimate.timeRange);
+    }
+    return formatTravelTimeMinutes(
+      Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2),
+      "verified",
     );
+  };
 
   // KAI-260: a bounded canonical range remains displayable when its
   // ingredients are model/profile derived. The range itself is never collapsed.
@@ -821,6 +879,7 @@ export default function DestinationDetails() {
     opts?: { includeOriginTravel?: boolean },
   ) => {
     if (!destination) return undefined;
+    const isCarMode = mode === "car" || mode === "my_car";
     return calculateTripEstimate({
       dest: destination,
       mode,
@@ -828,6 +887,16 @@ export default function DestinationDetails() {
       homeCoords: homeStationCoords ?? undefined,
       duration,
       ferryTemporal,
+      // Provider facts refine the canonical budget ONLY when intent
+      // acquisition succeeded; otherwise the budget stays partial.
+      ...(isCarMode
+        ? {
+            carRoute:
+              carRefinement.status === "provider-backed"
+                ? carRefinement.routes
+                : undefined,
+          }
+        : {}),
       ...(opts ?? {}),
     });
   };
@@ -1921,6 +1990,14 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("car")}
+                                  {groundEstimateFor("car")?.evidence ===
+                                    "estimated" && (
+                                    <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
+                                      {locale === "ja"
+                                        ? "概算目安"
+                                        : "Rough estimate"}
+                                    </span>
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-500">
                                   {formatGroundCost("car")}
@@ -1937,6 +2014,14 @@ export default function DestinationDetails() {
                               <div className="text-right">
                                 <div className="font-semibold text-slate-700 dark:text-slate-300">
                                   {formatGroundTime("my_car")}
+                                  {groundEstimateFor("my_car")?.evidence ===
+                                    "estimated" && (
+                                    <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
+                                      {locale === "ja"
+                                        ? "概算目安"
+                                        : "Rough estimate"}
+                                    </span>
+                                  )}
                                 </div>
                                 <div className="text-xs text-slate-500">
                                   {formatGroundCost("my_car")}

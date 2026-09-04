@@ -69,13 +69,28 @@ export function resolveExploreBudgetEstimate(
     context.originZoneId,
     context.ferryTemporal,
   );
+  // KAI-275 follow-up: prefer a COMPLETE estimate (any complete total beats
+  // a partial), but retain the cheapest PARTIAL estimate as a fallback so
+  // restricted-tier filtering and card display can evaluate the KNOWN
+  // bounded subtotal truthfully. Discovery estimates are partial by design
+  // (#326: no ORS during discovery → origin-car transport unknown).
   let best: ExploreBudgetEstimate | null = null;
+  let bestPartial: ExploreBudgetEstimate | null = null;
   for (const mode of validModes) {
     const estimate = calculateForMode(destination, context, mode);
-    if (!estimate.total) continue;
+    if (estimate.completeness === "unavailable") continue;
+    if (!estimate.total) {
+      if (
+        !bestPartial ||
+        estimate.knownSubtotal[1] < bestPartial.estimate.knownSubtotal[1]
+      ) {
+        bestPartial = { mode, estimate, validModes };
+      }
+      continue;
+    }
     if (!best || estimate.total.max < best.estimate.total!.max) {
       best = { mode, estimate, validModes };
     }
   }
-  return best;
+  return best ?? bestPartial;
 }
