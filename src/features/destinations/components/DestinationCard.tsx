@@ -26,12 +26,15 @@ import {
   Bus,
   Car,
   Plane,
+  Ship,
+  Route,
   JapaneseYen,
   CheckCircle2,
   Scale,
   Plus,
   Timer,
   AlertTriangle,
+  type LucideIcon,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
@@ -238,10 +241,26 @@ export default function DestinationCard({
     }
   };
 
-  const linkState =
-    carMode !== undefined || publicModes !== undefined
-      ? { carMode, publicModes }
+  const linkState = useMemo(() => {
+    const hasTransport = carMode !== undefined || publicModes !== undefined;
+    const travelDate = ferryTemporal?.travelDate
+      ? ferryTemporal.travelDate.toISOString().slice(0, 10)
       : undefined;
+    if (
+      !hasTransport &&
+      partySize === undefined &&
+      duration === undefined &&
+      travelDate === undefined
+    ) {
+      return undefined;
+    }
+    return {
+      ...(hasTransport ? { carMode, publicModes } : {}),
+      ...(partySize !== undefined ? { partySize } : {}),
+      ...(duration !== undefined ? { duration } : {}),
+      ...(travelDate ? { travelDate } : {}),
+    };
+  }, [carMode, publicModes, partySize, duration, ferryTemporal]);
 
   const activeCollections = (destination.collections || [])
     .map((m) => getCollectionById(m.collectionId))
@@ -266,9 +285,7 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     ferryTemporal,
   );
-  const displayModes = resolvedBudgetEstimate?.mode
-    ? [resolvedBudgetEstimate.mode]
-    : validModes;
+  const displayModes = validModes;
   const dayTravelEstimate = isOvernight
     ? undefined
     : getDayTripTravelDurationEvidence(
@@ -540,11 +557,22 @@ export default function DestinationCard({
                     const gateway = wardGroup?.gatewayEstimate;
                     const mode = gateway?.mode ?? preferredTransport?.mode;
 
-                    let Icon = MapPin;
-                    if (mode === "car" || mode === "my_car") Icon = Car;
-                    if (mode === "bus") Icon = Bus;
-                    if (mode === "shinkansen") Icon = TrainFront;
-                    if (mode === "flight") Icon = Plane;
+                    // KAI-275: an explicit transport icon per mode. MapPin is a
+                    // LOCATION icon (used only on the location row above) and
+                    // must never stand in for a transport mode; unknown modes
+                    // fall back to a neutral route icon instead.
+                    const TRANSPORT_ICONS: Record<string, LucideIcon> = {
+                      train: TrainFront,
+                      shinkansen: TrainFront,
+                      bus: Bus,
+                      car: Car,
+                      my_car: Car,
+                      flight: Plane,
+                      ferry: Ship,
+                    };
+                    const Icon = mode
+                      ? (TRANSPORT_ICONS[mode] ?? Route)
+                      : Route;
 
                     const transport = gateway ?? preferredTransport;
                     const isApproximate = Boolean(
