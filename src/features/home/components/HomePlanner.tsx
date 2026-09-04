@@ -741,7 +741,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
         <div className="mt-4 flex items-center justify-center gap-3 w-full">
           <button
             type="button"
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-600 px-8 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:bg-emerald-600 dark:text-white dark:hover:bg-emerald-700"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-700 px-8 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800"
             onClick={onApplyMatches}
           >
             <Search className="w-4 h-4" />
@@ -871,7 +871,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             <button
               type="button"
               data-testid="home-planner-cta"
-              className="home-planner-cta flex h-12 w-full items-center justify-center rounded-xl bg-emerald-600 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:bg-emerald-600 dark:text-white dark:hover:bg-emerald-700"
+              className="home-planner-cta flex h-12 w-full items-center justify-center rounded-xl bg-emerald-700 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800"
               onClick={onApplyMatches}
             >
               <Search className="mr-2 h-4 w-4" />
