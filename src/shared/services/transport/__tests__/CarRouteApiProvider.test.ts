@@ -157,6 +157,26 @@ describe("CarRouteApiProvider", () => {
     });
   });
 
+  it("never caches error results so an outage recovers immediately", async () => {
+    const fetchMock = fetchMockFor(
+      async () =>
+        new Response(
+          JSON.stringify({
+            availability: "error",
+            errorCode: "quota_exceeded",
+          }),
+          { status: 200 },
+        ),
+    );
+    const provider = new CarRouteApiProvider({ fetchImpl: fetchMock });
+    const a = await provider.route(request());
+    expect(a.availability).toBe("error");
+    const b = await provider.route(request());
+    expect(b.availability).toBe("error");
+    // No cache hit: the outage is re-probed on every request.
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it("maps HTTP 429 to quota_exceeded", async () => {
     const fetchMock = fetchMockFor(
       async () =>
