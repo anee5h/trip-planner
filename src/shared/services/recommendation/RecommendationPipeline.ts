@@ -441,8 +441,17 @@ export function runRecommendationPipeline(
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
       const estimatedCostTransportScope = budgetResult.transportFareScope;
 
-      // Append weekendTransportExcluded reason if applicable
-      if (weekend && !budgetResult.transportIncluded) {
+      // Append weekendTransportExcluded reason if applicable. KAI-275
+      // follow-up: for a Personal-Car-only selection this warning is
+      // semantically wrong — the user DID choose transport (driving); the
+      // origin-drive COST is simply unmeasured during zero-ORS discovery
+      // (#326) and refines on the detail page. Saying "Transport Excluded"
+      // reads as if the mode was dropped. Skip it for car-only matches; it
+      // stays informative when a public-transport fare is genuinely absent.
+      const carOnlySelection =
+        validModes.length > 0 &&
+        validModes.every((mode) => mode === "car" || mode === "my_car");
+      if (weekend && !budgetResult.transportIncluded && !carOnlySelection) {
         match.reasons.push({
           type: "Transport",
           code: "weekendTransportExcluded",
