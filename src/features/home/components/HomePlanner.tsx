@@ -808,13 +808,13 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.party")}
               </span>
-              <div className="grid h-11 w-[150px] grid-cols-[44px_1fr_44px] overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700">
+              <div className="grid h-11 w-[150px] grid-cols-[44px_1fr_44px]">
                 <button
                   type="button"
                   aria-label={t("home.decreaseParty")}
                   disabled={partySize <= 1}
                   onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
-                  className="flex items-center justify-center text-slate-700 disabled:opacity-40 dark:text-slate-100"
+                  className="flex items-center justify-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 disabled:opacity-40 dark:text-slate-100 dark:hover:bg-slate-800"
                 >
                   <Minus className="h-3.5 w-3.5" />
                 </button>
@@ -829,7 +829,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   aria-label={t("home.increaseParty")}
                   disabled={partySize >= 8}
                   onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
-                  className="flex items-center justify-center text-slate-700 disabled:opacity-40 dark:text-slate-100"
+                  className="flex items-center justify-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 disabled:opacity-40 dark:text-slate-100 dark:hover:bg-slate-800"
                 >
                   <Plus className="h-3.5 w-3.5" />
                 </button>

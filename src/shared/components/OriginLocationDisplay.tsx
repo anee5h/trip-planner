@@ -28,7 +28,7 @@ export function OriginLocationDisplay({
       : `${stationName}${prefectureName ? `, ${prefectureName}` : ""}`;
 
   return (
-    <div className="grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-3 rounded-xl border border-slate-200 bg-white/70 px-4 py-1 shadow-sm backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/70 sm:w-fit sm:max-w-full">
+    <div className="grid w-full min-w-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-1.5 rounded-xl border border-slate-200 bg-white/70 px-2.5 py-0.5 shadow-sm backdrop-blur-md dark:border-slate-700 dark:bg-slate-900/70 sm:w-fit sm:max-w-full">
       <div className="flex min-w-0 items-center gap-2">
         <MapPin className="size-4 shrink-0 text-emerald-500" />
         <div className="min-w-0">
