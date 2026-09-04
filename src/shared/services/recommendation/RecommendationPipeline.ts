@@ -17,7 +17,11 @@ import {
   calculateScore,
   getValidModes,
 } from "./RecommendationScorer";
-import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
+import {
+  hasUsableCarRoute,
+  resolveCarRouteForDestination,
+} from "@/shared/services/transport/CarRouteProvider";
+import { getCarOutageFallbackEstimate } from "@/shared/services/transport/carRouteOutageFallback";
 import type { PipelineRecommendation } from "./RecommendationTypes";
 import { evaluateWeekendCandidate } from "./WeekendPolicy";
 import type { WeekendCandidateEvaluation } from "./WeekendPolicy";
@@ -350,18 +354,39 @@ export function runRecommendationPipeline(
         context.ferryTemporal,
       );
       // Day-trip cards may use the same bounded estimated evidence as the
-      // feasibility gate. Weekend keeps its separate canonical-only policy.
+      // feasibility gate. Overnight normally keeps its canonical-only
+      // policy, except a temporary ORS outage may degrade to the same
+      // bounded rough estimate (clearly labeled car_outage_rough).
+      const scopedCarRoute = resolveCarRouteForDestination(candidate, context);
+      // The canonical overnight estimator consumes ONLY usable provider
+      // routes; error/no_route pairs are classified for the rough fallback.
+      const usableCarRoute =
+        scopedCarRoute &&
+        hasUsableCarRoute(scopedCarRoute.outbound) &&
+        hasUsableCarRoute(scopedCarRoute.returnRoute)
+          ? scopedCarRoute
+          : undefined;
       const transportEstimate = isOvernight
-        ? getOriginAwareTransportEstimate(
+        ? (getOriginAwareTransportEstimate(
             candidate,
             {
               homeStationCoords: context.homeStationCoords ?? undefined,
               originZoneId: context.originZoneId,
               ferryTemporal: context.ferryTemporal,
-              carRoute: resolveCarRouteForDestination(candidate, context),
+              carRoute: usableCarRoute,
             },
             validModes,
-          )
+          ) ??
+          (context.homeStationCoords
+            ? getCarOutageFallbackEstimate(
+                candidate,
+                {
+                  homeStationCoords: context.homeStationCoords,
+                  homeStationTransportZoneId: context.originZoneId,
+                },
+                usableCarRoute ? undefined : scopedCarRoute?.outbound,
+              )
+            : undefined))
         : getDayTripTravelDurationEvidence(candidate, context, validModes)
             .estimate;
       // Card travel and cost must describe one transport choice. The scored
@@ -382,7 +407,7 @@ export function runRecommendationPipeline(
             duration: tripDuration,
             budgetTier: context.budgetTier,
             ferryTemporal: context.ferryTemporal,
-            carRoute: resolveCarRouteForDestination(candidate, context),
+            carRoute: usableCarRoute,
             carCostOptions: context.carCostOptions,
           })
         : null;
@@ -416,8 +441,17 @@ export function runRecommendationPipeline(
       const estimatedCostTransportIncluded = budgetResult.transportIncluded;
       const estimatedCostTransportScope = budgetResult.transportFareScope;
 
-      // Append weekendTransportExcluded reason if applicable
-      if (weekend && !budgetResult.transportIncluded) {
+      // Append weekendTransportExcluded reason if applicable. KAI-275
+      // follow-up: for a Personal-Car-only selection this warning is
+      // semantically wrong — the user DID choose transport (driving); the
+      // origin-drive COST is simply unmeasured during zero-ORS discovery
+      // (#326) and refines on the detail page. Saying "Transport Excluded"
+      // reads as if the mode was dropped. Skip it for car-only matches; it
+      // stays informative when a public-transport fare is genuinely absent.
+      const carOnlySelection =
+        validModes.length > 0 &&
+        validModes.every((mode) => mode === "car" || mode === "my_car");
+      if (weekend && !budgetResult.transportIncluded && !carOnlySelection) {
         match.reasons.push({
           type: "Transport",
           code: "weekendTransportExcluded",

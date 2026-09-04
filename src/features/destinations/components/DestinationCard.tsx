@@ -26,15 +26,21 @@ import {
   Bus,
   Car,
   Plane,
+  Ship,
+  Route,
   JapaneseYen,
   CheckCircle2,
   Scale,
   Plus,
   Timer,
   AlertTriangle,
+  type LucideIcon,
 } from "lucide-react";
 import { useTripStore } from "@/shared/hooks/useTripStore";
-import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedJPYRange,
+  formatTravellerEstimateRange,
+} from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import {
   formatApproximateTransportTime,
@@ -238,10 +244,26 @@ export default function DestinationCard({
     }
   };
 
-  const linkState =
-    carMode !== undefined || publicModes !== undefined
-      ? { carMode, publicModes }
+  const linkState = useMemo(() => {
+    const hasTransport = carMode !== undefined || publicModes !== undefined;
+    const travelDate = ferryTemporal?.travelDate
+      ? ferryTemporal.travelDate.toISOString().slice(0, 10)
       : undefined;
+    if (
+      !hasTransport &&
+      partySize === undefined &&
+      duration === undefined &&
+      travelDate === undefined
+    ) {
+      return undefined;
+    }
+    return {
+      ...(hasTransport ? { carMode, publicModes } : {}),
+      ...(partySize !== undefined ? { partySize } : {}),
+      ...(duration !== undefined ? { duration } : {}),
+      ...(travelDate ? { travelDate } : {}),
+    };
+  }, [carMode, publicModes, partySize, duration, ferryTemporal]);
 
   const activeCollections = (destination.collections || [])
     .map((m) => getCollectionById(m.collectionId))
@@ -266,9 +288,7 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     ferryTemporal,
   );
-  const displayModes = resolvedBudgetEstimate?.mode
-    ? [resolvedBudgetEstimate.mode]
-    : validModes;
+  const displayModes = validModes;
   const dayTravelEstimate = isOvernight
     ? undefined
     : getDayTripTravelDurationEvidence(
@@ -284,17 +304,38 @@ export default function DestinationCard({
   // KAI-260: cards render the bounded traveller range even when the engine
   // used an explicit model/profile fallback. Evidence quality is disclosed
   // compactly, not used as a visibility gate.
+  // KAI-275 follow-up: a PARTIAL car estimate (no complete total during
+  // discovery — origin-car transport cost is intentionally unmeasured, #326)
+  // still has a bounded on-site knownSubtotal. The card surfaces that KNOWN
+  // part truthfully ("Known ¥X–Y · on-site only") instead of a bare
+  // "Cost unavailable" — never fabricating the missing origin transport.
   const cardEstimate = useMemo<{
     range: [number, number];
     quality: "verified" | "estimated" | "rough";
+    partial?: boolean;
   } | null>(() => {
-    if (resolvedBudgetEstimate?.estimate.total) {
+    const resolved = resolvedBudgetEstimate?.estimate;
+    if (resolved?.total) {
       return {
-        range: [
-          resolvedBudgetEstimate.estimate.total.min,
-          resolvedBudgetEstimate.estimate.total.max,
-        ],
-        quality: resolvedBudgetEstimate.estimate.estimateQuality,
+        range: [resolved.total.min, resolved.total.max],
+        quality: resolved.estimateQuality,
+      };
+    }
+    const hasKnownSubtotal = (known: readonly [number, number] | undefined) =>
+      Boolean(
+        known &&
+        Number.isFinite(known[1]) &&
+        known[1] > 0 &&
+        Number.isFinite(known[0]),
+      );
+    if (
+      resolved?.completeness === "partial" &&
+      hasKnownSubtotal(resolved.knownSubtotal)
+    ) {
+      return {
+        range: [resolved.knownSubtotal[0], resolved.knownSubtotal[1]],
+        quality: resolved.estimateQuality,
+        partial: true,
       };
     }
     const mode =
@@ -310,12 +351,20 @@ export default function DestinationCard({
       duration,
       ferryTemporal,
     });
-    return r.total
-      ? {
-          range: [r.total.min, r.total.max],
-          quality: r.estimateQuality,
-        }
-      : null;
+    if (r.total) {
+      return {
+        range: [r.total.min, r.total.max],
+        quality: r.estimateQuality,
+      };
+    }
+    if (r.completeness === "partial" && hasKnownSubtotal(r.knownSubtotal)) {
+      return {
+        range: [r.knownSubtotal[0], r.knownSubtotal[1]],
+        quality: r.estimateQuality,
+        partial: true,
+      };
+    }
+    return null;
   }, [
     destination,
     validModes,
@@ -540,11 +589,22 @@ export default function DestinationCard({
                     const gateway = wardGroup?.gatewayEstimate;
                     const mode = gateway?.mode ?? preferredTransport?.mode;
 
-                    let Icon = MapPin;
-                    if (mode === "car" || mode === "my_car") Icon = Car;
-                    if (mode === "bus") Icon = Bus;
-                    if (mode === "shinkansen") Icon = TrainFront;
-                    if (mode === "flight") Icon = Plane;
+                    // KAI-275: an explicit transport icon per mode. MapPin is a
+                    // LOCATION icon (used only on the location row above) and
+                    // must never stand in for a transport mode; unknown modes
+                    // fall back to a neutral route icon instead.
+                    const TRANSPORT_ICONS: Record<string, LucideIcon> = {
+                      train: TrainFront,
+                      shinkansen: TrainFront,
+                      bus: Bus,
+                      car: Car,
+                      my_car: Car,
+                      flight: Plane,
+                      ferry: Ship,
+                    };
+                    const Icon = mode
+                      ? (TRANSPORT_ICONS[mode] ?? Route)
+                      : Route;
 
                     const transport = gateway ?? preferredTransport;
                     const isApproximate = Boolean(
@@ -597,10 +657,34 @@ export default function DestinationCard({
                   </div>
                   <div className="flex min-w-0 items-center whitespace-nowrap md:col-span-2">
                     <JapaneseYen className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
-                    <span className="truncate">
+                    <span
+                      className="truncate"
+                      title={
+                        cardEstimate?.partial
+                          ? locale === "ja"
+                            ? "現地費用のみです。交通費は含まれません。"
+                            : "On-site cost only; origin transport excluded"
+                          : undefined
+                      }
+                    >
                       {(() => {
                         // KAI-260: a bounded estimate is displayable even
                         // when its ingredients are model/profile derived.
+                        // KAI-275 follow-up: a PARTIAL car estimate shows the
+                        // KNOWN on-site subtotal with an explicit qualifier
+                        // instead of a bare "Cost unavailable" — origin-car
+                        // transport is never fabricated (0 ORS discovery).
+                        if (cardEstimate?.partial) {
+                          const known = formatLocalizedJPYRange(
+                            cardBudgetRange,
+                            locale,
+                          );
+                          const prefix = locale === "ja" ? "既知" : "Known";
+                          const qualifier =
+                            locale === "ja" ? "現地のみ" : "on-site only";
+                          const sep = locale === "ja" ? "・" : " · ";
+                          return `${prefix} ${known}${sep}${qualifier}`;
+                        }
                         return formatTravellerEstimateRange(
                           cardBudgetRange,
                           cardEstimate?.quality,
@@ -659,16 +743,18 @@ export default function DestinationCard({
                       </span>
                     )}
                     {overnightSummary.placeCount > 0 && <span>·</span>}
-                    <span>
-                      {overnightSummary.capacityMinutes >=
-                      overnightCapacity.strongMinutes
-                        ? t("destination.tripAreas.plentyForDays", {
-                            days: overnightCapacity.days,
-                          })
-                        : t("destination.tripAreas.readyForDays", {
-                            days: overnightCapacity.days,
-                          })}
-                    </span>
+                    {overnightSummary.capacityMinutes > 0 && (
+                      <span>
+                        {overnightSummary.capacityMinutes >=
+                        overnightCapacity.strongMinutes
+                          ? t("destination.tripAreas.plentyForDays", {
+                              days: overnightCapacity.days,
+                            })
+                          : t("destination.tripAreas.readyForDays", {
+                              days: overnightCapacity.days,
+                            })}
+                      </span>
+                    )}
                     {overnightSummary.oneWayMinutes !== undefined &&
                       overnightSummary.bestMode && (
                         <span className="text-slate-500">

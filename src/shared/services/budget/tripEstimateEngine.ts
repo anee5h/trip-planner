@@ -1059,6 +1059,42 @@ export function evaluateAffordability(
   return "over";
 }
 
+/**
+ * KAI-275 follow-up: truthful restricted-tier affordability for EXPLORE.
+ *
+ * Explore filters on a finite party-total ceiling. Discovery estimates are
+ * frequently PARTIAL by design (#326: ORS is not called, so origin-car
+ * transport cost is unknown and `total` is absent) — a partial estimate must
+ * not be treated as definitively unaffordable. Three-state + unknown:
+ *
+ *   fits     complete total bounded AND max <= ceiling
+ *   exceeds  complete total bounded AND max > ceiling, OR the known subtotal
+ *            minimum already proves the trip cannot fit the ceiling
+ *   partial  no complete total, but the bounded known subtotal does NOT prove
+ *            over-budget (retain; never claim it fits)
+ *   unknown  completeness unavailable (no meaningful bounded cost) — callers
+ *            keep their restricted-tier unknown policy
+ *
+ * Unknown is never zero and partial is never complete.
+ */
+export type ExploreAffordabilityState =
+  "fits" | "partial" | "exceeds" | "unknown";
+
+export function evaluateBudgetAffordability(
+  result: Pick<TripEstimateResult, "total" | "knownSubtotal" | "completeness">,
+  budget: number | undefined,
+): ExploreAffordabilityState {
+  if (!finiteNonNegative(budget)) return "unknown";
+  if (result.completeness === "unavailable") return "unknown";
+  if (result.total) {
+    return budget >= result.total.max ? "fits" : "exceeds";
+  }
+  // Partial estimate: keep only what the KNOWN bounded subtotal can prove.
+  const [subtotalMin] = result.knownSubtotal;
+  if (Number.isFinite(subtotalMin) && subtotalMin > budget) return "exceeds";
+  return "partial";
+}
+
 export function getEstimateRange(
   result: TripEstimateResult,
 ): PriceRange | null {

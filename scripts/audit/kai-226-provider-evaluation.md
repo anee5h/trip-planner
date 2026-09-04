@@ -11,6 +11,17 @@ Function boundary, key from the gitignored local `.dev.vars`; see the live
 record below). No production route values, tolls, traffic timings, quotas, or
 latency are fabricated anywhere in this repository.
 
+## Provider endpoint migration (2026-09-04)
+
+HeiGIT deprecated `api.openrouteservice.org` on 2026-04-28 in favour of
+`api.heigit.org` (`/openrouteservice/` prefix). The KAI-226 production smoke
+hit the deprecation live: the old host stopped serving requests
+(HTTP 403 `{"error":"Quota exceeded"}` while the quota itself was fine), and
+the same key returned 200 on the new host. The adapter and Pages Function now
+target `https://api.heigit.org/openrouteservice/v2/directions/driving-car/json`.
+ORS 403 bodies carrying a quota marker are classified `quota_exceeded`
+(not `provider_authorization_error`).
+
 ## Documentation comparison
 
 | Capability              | OpenRouteService hosted directions                                                                                    | NAVITIME car route                                                                                                         | Google Routes API Compute Routes                                                                                               |

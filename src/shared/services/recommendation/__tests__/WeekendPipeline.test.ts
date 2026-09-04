@@ -1215,3 +1215,27 @@ describe("runRecommendationPipeline — estimate consistency", () => {
     );
   });
 });
+
+// ── KAI-275: weekendTransportExcluded reason is car-only aware ──────────────
+
+describe("runRecommendationPipeline — weekendTransportExcluded reason", () => {
+  it("does NOT attach 'Transport Excluded' to a Personal-Car-only weekend match", () => {
+    const destination = byId.get("hakone-town")!;
+    const results = runRecommendationPipeline(
+      [destination],
+      ctx({
+        tripDuration: "2d1n",
+        budget: 1e9,
+        carMode: "my_car",
+        publicModes: [],
+      }),
+    );
+    expect(results.length).toBeGreaterThan(0);
+    for (const result of results) {
+      const codes = result.match.reasons.map((reason) => reason.code);
+      // The user chose driving; the drive COST is simply unmeasured during
+      // zero-ORS discovery — not a mode that was excluded.
+      expect(codes).not.toContain("weekendTransportExcluded");
+    }
+  });
+});
