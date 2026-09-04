@@ -186,4 +186,107 @@ describe("DestinationAtAGlance", () => {
     expect(text).not.toContain("現地費用");
     expect(text).not.toContain("¥0");
   });
+
+  it("spans long opening-hours prose across the full fact row instead of a half-column box", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          travelTime="45m"
+          visitDuration="1–2 hours"
+          openingHours="Open access; individual facilities may have separate hours"
+          labels={labels}
+        />,
+      );
+    });
+
+    const wide = host.querySelector('[data-at-a-glance-fact="wide"]');
+    const compact = host.querySelectorAll('[data-at-a-glance-fact="compact"]');
+    expect(wide).not.toBeNull();
+    expect(wide?.textContent).toContain("Open access");
+    expect(wide?.className).toContain("col-span-2");
+    expect(compact.length).toBeGreaterThanOrEqual(2);
+  });
+
+  it("treats verbose Japanese values as wide without breaking short Japanese values", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="ja"
+          openingHours="散策自由（個別施設により営業時間が異なります）"
+          seasonLabel="秋と冬"
+          labels={{
+            ...labels,
+            openingHours: "営業時間",
+            bestSeason: "ベストシーズン",
+          }}
+        />,
+      );
+    });
+
+    expect(
+      host.querySelector('[data-at-a-glance-fact="wide"]')?.textContent,
+    ).toContain("散策自由");
+    expect(
+      host.querySelector('[data-at-a-glance-fact="compact"]')?.textContent,
+    ).toContain("秋と冬");
+  });
+
+  it("handles missing travel time and website gracefully without N/A markers", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          visitDuration="2 hours"
+          seasonLabel="Summer"
+          labels={labels}
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).not.toContain("N/A");
+    expect(text).not.toContain("unavailable");
+    expect(text).toContain("2 hours");
+    expect(
+      host.querySelector('[data-at-a-glance-fact="compact"]'),
+    ).not.toBeNull();
+  });
+
+  it("keeps the official website as a single compact link fact", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          openingHours="09:00–17:00"
+          officialWebsite="https://www.example.com/visit"
+          labels={labels}
+        />,
+      );
+    });
+
+    const facts = [...host.querySelectorAll("[data-at-a-glance-fact]")];
+    expect(facts.length).toBe(2);
+    const link = host.querySelector('a[href="https://www.example.com/visit"]');
+    expect(link).not.toBeNull();
+    expect(facts[1]?.getAttribute("data-at-a-glance-fact")).toBe("compact");
+  });
+
+  it("spans long website hostnames across the full row so the link stays readable", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          officialWebsite="https://www.kanko.city.izu.shizuoka.jp/"
+          labels={labels}
+        />,
+      );
+    });
+
+    const wide = host.querySelector('[data-at-a-glance-fact="wide"]');
+    expect(wide?.textContent).toContain("kanko.city.izu.shizuoka.jp");
+    expect(
+      host.querySelector('a[href="https://www.kanko.city.izu.shizuoka.jp/"]'),
+    ).not.toBeNull();
+  });
 });

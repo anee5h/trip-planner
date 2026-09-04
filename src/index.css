@@ -328,10 +328,6 @@
     padding: 0.5rem;
   }
 
-  .home-planner-header {
-    margin-bottom: 0;
-  }
-
   .home-planner-rows > :not([hidden]) ~ :not([hidden]) {
     margin-top: 0.125rem;
   }

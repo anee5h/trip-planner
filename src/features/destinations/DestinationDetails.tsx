@@ -1115,7 +1115,7 @@ export default function DestinationDetails() {
       nearbyPlaces.length > 0 ||
       halfDaySiblings.length > 0);
   return (
-    <div className="bg-slate-50 dark:bg-background min-h-screen pb-20">
+    <div className="bg-slate-50 dark:bg-background min-h-screen">
       {relationshipCatalogueStatus === "error" && (
         <div
           role="alert"
@@ -1136,7 +1136,7 @@ export default function DestinationDetails() {
         </div>
       )}
       {/* Hero Image Header */}
-      <div className="relative min-h-[380px] sm:min-h-[400px] md:min-h-[440px] w-full overflow-hidden flex flex-col justify-between">
+      <div className="relative min-h-[300px] sm:min-h-[330px] md:min-h-[400px] w-full overflow-hidden flex flex-col justify-between">
         {/* Top Header Bar for Back & Action Buttons */}
         <div className="absolute top-0 left-0 right-0 p-4 z-20 flex items-center justify-between pointer-events-none bg-gradient-to-b from-slate-950/80 via-slate-950/40 to-transparent">
           <Link
@@ -1179,7 +1179,7 @@ export default function DestinationDetails() {
         </picture>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-transparent/20" />
 
-        <div className="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-6 md:pb-8 text-white z-10 mt-auto">
+        <div className="relative w-full container mx-auto px-4 pt-16 sm:pt-20 pb-5 md:pb-6 text-white z-10 mt-auto">
           {/* 1. Destination Title & Japanese Kanji */}
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-extrabold tracking-tight mb-2 flex flex-wrap items-baseline gap-2.5 [text-shadow:_0_2px_8px_rgba(0,0,0,0.85)] drop-shadow-md">
             <span>
@@ -1444,15 +1444,15 @@ export default function DestinationDetails() {
         </div>
       </div>
 
-      <div className="container mx-auto max-w-6xl px-4 py-6 sm:py-8">
+      <div className="container mx-auto max-w-6xl px-4 py-5 sm:py-8">
         <div className="space-y-6 sm:space-y-8">
           <section
             data-section="overview"
             data-testid="destination-at-a-glance-section"
-            className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6"
+            className="py-1 sm:py-2"
           >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold tracking-tight">
+            <div className="flex items-center justify-between gap-3">
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
                 {copy.atAGlance}
               </h2>
               {wikiSummary && !localizedDestination?.description && (
@@ -1474,7 +1474,7 @@ export default function DestinationDetails() {
             {/* Primary Description */}
             {(localizedDestination?.description ||
               (locale === "en" ? destination.notes : destination.notesJa)) && (
-              <p className="text-base text-slate-600 dark:text-slate-300 leading-7 mb-4">
+              <p className="mb-4 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
                 {localizedDestination?.description ||
                   (locale === "en" ? destination.notes : destination.notesJa)}
               </p>
@@ -1514,13 +1514,13 @@ export default function DestinationDetails() {
               wikiSummary ||
               wikiPanelState === "error" ||
               wikiPanelState === "unavailable") && (
-              <div className="mt-5 mb-5">
+              <div className="mt-5">
                 <button
                   type="button"
                   onClick={handleToggleWikipedia}
                   aria-expanded={isWikiExpanded}
                   data-testid="wikipedia-toggle"
-                  className="inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-100 px-3.5 py-1.5 text-xs font-bold text-emerald-700 transition-colors hover:bg-emerald-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:border-slate-700 dark:bg-slate-800 dark:text-emerald-300 dark:hover:bg-emerald-950/50"
+                  className="inline-flex min-h-9 items-center gap-1.5 rounded-lg px-1.5 py-1 text-xs font-bold text-emerald-700 transition-colors hover:bg-emerald-50/70 hover:text-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 dark:text-emerald-300 dark:hover:bg-emerald-950/40 dark:hover:text-emerald-200"
                 >
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>
@@ -1624,20 +1624,6 @@ export default function DestinationDetails() {
                 </div>
               </div>
             )}
-
-            <div className="flex flex-wrap gap-2">
-              {destination.tags
-                ?.filter((tag) => tag !== "v1.9.2" && !tag.startsWith("v1."))
-                .map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
-                  >
-                    #{localizePlaceLabel(tag, locale)}
-                  </Badge>
-                ))}
-            </div>
           </section>
           <div data-section={isHub ? "plan-your-visit" : "plan-this-trip"}>
             {/* Unified "Plan your visit" progressive section */}
@@ -2750,6 +2736,25 @@ export default function DestinationDetails() {
               )}
             </section>
           )}
+        </div>
+
+        {/* Quiet topic chips — de-emphasised, moved below the planning
+            content so they never compete with trip-planning actions. */}
+        <div
+          data-testid="destination-topic-tags"
+          aria-label={locale === "ja" ? "タグ" : "Tags"}
+          className="flex flex-wrap gap-1.5 pt-1"
+        >
+          {destination.tags
+            ?.filter((tag) => tag !== "v1.9.2" && !tag.startsWith("v1."))
+            .map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-500 dark:border-slate-700 dark:text-slate-300"
+              >
+                {localizePlaceLabel(tag, locale)}
+              </span>
+            ))}
         </div>
       </div>
       {destination && (
