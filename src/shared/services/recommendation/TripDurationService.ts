@@ -5,7 +5,11 @@ import {
   buildJourneyFromOriginAwareEstimate,
 } from "@/shared/services/transport/JourneyBuilder";
 import { buildCarJourney } from "@/shared/services/transport/CarJourneyBuilder";
-import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
+import {
+  hasUsableCarRoute,
+  resolveCarRouteForDestination,
+} from "@/shared/services/transport/CarRouteProvider";
+import { getCarOutageFallbackEstimate } from "@/shared/services/transport/carRouteOutageFallback";
 import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
 import {
   getSafeGroundEstimate,
@@ -166,6 +170,28 @@ export function getTravelDurationEvidence(
   }
 
   const scopedCarRoute = resolveCarRouteForDestination(destination, context);
+  // KAI-226 resilience classification: temporary provider failures are
+  // observed here so the bounded (labeled) fallback can run below. This
+  // also records provider_success/blocked_* counters for observability.
+  const carOutage = scopedCarRoute
+    ? getCarOutageFallbackEstimate(
+        destination,
+        {
+          homeStationCoords: context.homeStationCoords ?? undefined,
+          homeStationTransportZoneId:
+            "originZoneId" in context ? context.originZoneId : undefined,
+        },
+        scopedCarRoute.outbound,
+      )
+    : null;
+  // The origin-aware estimator consumes ONLY usable provider routes. Error
+  // and no_route pairs must not masquerade as ground estimates there.
+  const usableCarRoute =
+    scopedCarRoute &&
+    hasUsableCarRoute(scopedCarRoute.outbound) &&
+    hasUsableCarRoute(scopedCarRoute.returnRoute)
+      ? scopedCarRoute
+      : undefined;
   const originAware = getOriginAwareTransportEstimate(
     destination,
     {
@@ -173,7 +199,7 @@ export function getTravelDurationEvidence(
       originZoneId:
         "originZoneId" in context ? context.originZoneId : undefined,
       ferryTemporal: context.ferryTemporal,
-      carRoute: scopedCarRoute,
+      carRoute: usableCarRoute,
     },
     modes,
   );
@@ -205,12 +231,23 @@ export function getTravelDurationEvidence(
 
   if (!context.homeStationCoords) return { evidence: "unknown" };
 
-  const estimated = getSafeGroundEstimate(destination, {
-    homeStationCoords: context.homeStationCoords,
-    homeStationTransportZoneId:
-      "originZoneId" in context ? context.originZoneId : undefined,
-    authorizedModes: estimatedGroundModes,
-  } satisfies SafeGroundEstimateContext);
+  // KAI-226 resilience: a temporary provider failure may degrade to the
+  // existing bounded SafeGroundEstimate, explicitly labeled rough. An
+  // authoritative no_route blocks the fallback entirely and also removes
+  // car modes from the generic estimated branch (non-car modes, e.g.
+  // train corridors, may still be estimated independently).
+  const noRouteCar = scopedCarRoute?.outbound.availability === "no_route";
+  const estimatedGroundModesForOutage = noRouteCar
+    ? estimatedGroundModes.filter((mode) => mode !== "car" && mode !== "my_car")
+    : estimatedGroundModes;
+  const estimated =
+    carOutage ??
+    getSafeGroundEstimate(destination, {
+      homeStationCoords: context.homeStationCoords,
+      homeStationTransportZoneId:
+        "originZoneId" in context ? context.originZoneId : undefined,
+      authorizedModes: estimatedGroundModesForOutage,
+    } satisfies SafeGroundEstimateContext);
   if (estimated) {
     return {
       evidence: "estimated",

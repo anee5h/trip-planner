@@ -56,7 +56,9 @@ export type OriginAwareEstimateSource =
 export type TravelDurationEvidence = "verified" | "estimated" | "unknown";
 
 export type EstimatedTransportEstimateSource =
-  "calculated_local_display" | "calculated_ground_display";
+  | "calculated_local_display"
+  | "calculated_ground_display"
+  | "car_outage_rough";
 
 /**
  * Canonical origin-aware transport estimate. Every consumer (travel fit,

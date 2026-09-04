@@ -16,6 +16,7 @@ import type { Destination } from "@/shared/types/destination";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
+import { isCarOutageRoughEstimate } from "@/shared/services/transport/carRouteOutageFallback";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
 import {
   formatApproximateTransportTime,
@@ -164,6 +165,9 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     "evidence" in displayTransport &&
     displayTransport.evidence === "estimated",
   );
+  // KAI-226 resilience: rough outage estimates are additionally labeled so
+  // the user can tell a temporary provider outage from a normal estimate.
+  const isRoughOutageDisplay = isCarOutageRoughEstimate(displayTransport);
   const travelTimeText = displayTransport
     ? isApproximateDisplay
       ? formatApproximateTransportTime(displayTransport.timeRange, locale)
@@ -510,6 +514,14 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
                   </span>
                 </span>
               </>
+            )}
+            {isRoughOutageDisplay && (
+              <span
+                title={t("home.transportModes.roughEstimate")}
+                className="shrink-0 rounded bg-amber-100 px-1 py-0.5 text-[10px] font-semibold text-amber-700 dark:bg-amber-900/50 dark:text-amber-300"
+              >
+                {t("home.transportModes.roughEstimate")}
+              </span>
             )}
             {scoredDestination.estimatedCostRange && (
               <>

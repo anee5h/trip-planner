@@ -156,6 +156,12 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
     evictExpired();
     const result = await this.fetchRoute(request);
 
+    // Only provider-backed success is cached. Error results (quota,
+    // network, timeout, 5xx) are never cached so an ORS outage recovers
+    // automatically on the next request instead of pinning a stale
+    // failure for the TTL.
+    if (result.availability !== "available") return result;
+
     if (routeCache.size >= CAR_ROUTE_CACHE_MAX_ENTRIES) {
       // Bounded: drop the oldest entry (Map preserves insertion order).
       const oldest = routeCache.keys().next().value;
