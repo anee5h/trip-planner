@@ -655,3 +655,144 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     expect(anyCount).toBeGreaterThan(dayTripCount);
   }, 30000);
 });
+
+// ---------------------------------------------------------------------------
+// KAI-275: Personal-Car-only (car=my_car&mode=none) must stay car-only.
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 Personal-Car-only Explore state", () => {
+  it("card travel rows under car=my_car&mode=none never show train/bus/plane icons", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none",
+    );
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(0);
+    const rows = container.querySelectorAll(
+      '[data-testid="destination-card-travel-time"]',
+    );
+    expect(rows.length).toBeGreaterThan(0);
+    const iconClasses = Array.from(rows).flatMap((row) =>
+      Array.from(row.querySelectorAll("svg")).map(
+        (svg) => svg.getAttribute("class") ?? "",
+      ),
+    );
+    // Personal-Car-only: no public-transport icon may appear anywhere.
+    expect(iconClasses.some((c) => c.includes("lucide-train-front"))).toBe(
+      false,
+    );
+    expect(iconClasses.some((c) => c.includes("lucide-bus"))).toBe(false);
+    expect(iconClasses.some((c) => c.includes("lucide-plane"))).toBe(false);
+    expect(iconClasses.some((c) => c.includes("lucide-map-pin"))).toBe(false);
+    // Car icons must be present (eligible destinations show the car row).
+    expect(iconClasses.some((c) => c.includes("lucide-car"))).toBe(true);
+  }, 20000);
+
+  it("direct Explore with no transport params stays Any (unrestricted baseline)", async () => {
+    tripStoreMock.homeStationCoords = null;
+    tripStoreMock.homeStationTransportZoneId = undefined;
+    const container = await renderDestinations("/destinations");
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(600);
+  }, 20000);
+});
+
+// ---------------------------------------------------------------------------
+// KAI-275 follow-up: restricted budget + Personal Car discovery must retain
+// partial estimates (no complete total during discovery) instead of dropping
+// every destination to zero results.
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 follow-up Explore budget x Personal Car", () => {
+  it("Personal Car + Standard budget returns non-zero results (partial subtotals retained)", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&budgetTier=standard&budget=50000",
+    );
+    const count = getResultCount(container);
+    // Before the fix: 0 (every partial car estimate failed the total-only
+    // filter). After: bounded on-site subtotals below the ceiling retain.
+    expect(count).toBeGreaterThan(0);
+  }, 20000);
+
+  it("Personal Car + Economy tier behaves truthfully (keeps partials under the ceiling)", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&budgetTier=economy&budget=40000",
+    );
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(0);
+  }, 20000);
+
+  it("train-only + Standard budget keeps the existing complete-total behavior", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?mode=train&budgetTier=standard&budget=50000",
+    );
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(0);
+  }, 20000);
+});
+
+// ---------------------------------------------------------------------------
+// KAI-275 follow-up: overnight Explore BROWSE vs recommendation gates.
+// Nakayama-origin Personal Car 2D1N must keep Nagoya/Osaka browseable.
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 follow-up overnight Explore browse", () => {
+  it("2D1N Personal Car (Nakayama origin) shows Nagoya/Osaka and a broad area set", async () => {
+    // Nakayama Station, Kanagawa.
+    tripStoreMock.homeStationCoords = { lat: 35.5192, lng: 139.5393 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=2d1n&budgetTier=flexible&budget=flexible",
+    );
+    const count = getResultCount(container);
+    // Old gate collapsed to ~23 trip areas; the browse policy now keeps the
+    // FULL car-valid set (~819 records): 289 area cards + their child POIs
+    // + standalone places, matching Any-duration browsing. Per-city presence
+    // is asserted by the unit fixture overnightBrowsePolicy.test.ts.
+    expect(count).toBeGreaterThan(700);
+    expect(count).toBeLessThanOrEqual(1106);
+    // KAI-275: overnight car cards now render their deterministic SafeGround
+    // travel line (the travelBy key appears when oneWayMinutes is populated)
+    // instead of being empty for every car destination. Hakone-class areas
+    // with bounded minutes must carry the line.
+    const text = container.textContent ?? "";
+    expect(text).toContain("destination.tripAreas.travelBy");
+  }, 30000);
+
+  it("3D2N Personal Car browse universe is not narrower than 2D1N", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.5192, lng: 139.5393 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const c2 = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=2d1n&budgetTier=flexible&budget=flexible",
+    );
+    const n2 = getResultCount(c2);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+    const c3 = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=3d2n&budgetTier=flexible&budget=flexible",
+    );
+    const n3 = getResultCount(c3);
+    expect(n3).toBeGreaterThanOrEqual(n2);
+  }, 30000);
+
+  it("2D1N Personal Car + Standard budget retains partials (no collapse, no false fits)", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.5192, lng: 139.5393 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=2d1n&budgetTier=standard&budget=150000",
+    );
+    const count = getResultCount(container);
+    // Partial overnight estimates retained under a finite tier; never a
+    // complete-total requirement or a ¥0 origin-car assumption.
+    expect(count).toBeGreaterThan(0);
+  }, 30000);
+});

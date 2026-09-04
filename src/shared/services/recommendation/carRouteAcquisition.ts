@@ -30,6 +30,35 @@ import {
 
 export const CAR_ROUTE_ENRICHMENT_LIMIT = 5;
 
+/**
+ * Lightweight intent/discovery observability (no telemetry infra).
+ * `discovery_estimate` counts discovery surfaces rendered with a
+ * deterministic estimate; `cache_hit` counts verified cached routes
+ * reused without a network request; `detail_provider_*` records the
+ * outcome of destination/hub intent refinements.
+ */
+export const carRouteIntentCounters = {
+  discovery_estimate: 0,
+  detail_provider_success: 0,
+  detail_provider_fallback: 0,
+  detail_provider_no_route: 0,
+  cache_hit: 0,
+};
+
+export function resetCarRouteIntentCounters(): void {
+  carRouteIntentCounters.discovery_estimate = 0;
+  carRouteIntentCounters.detail_provider_success = 0;
+  carRouteIntentCounters.detail_provider_fallback = 0;
+  carRouteIntentCounters.detail_provider_no_route = 0;
+  carRouteIntentCounters.cache_hit = 0;
+}
+
+export function snapshotCarRouteIntentCounters(): Readonly<
+  typeof carRouteIntentCounters
+> {
+  return { ...carRouteIntentCounters };
+}
+
 export interface CarRouteAcquisitionContext {
   readonly carMode: string;
   readonly publicModes: string[];

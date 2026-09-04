@@ -73,7 +73,7 @@ describe("OpenRouteServiceCarRouteProvider", () => {
       toll: { state: "unknown", basis: "unspecified" },
     });
     expect(fetchMock).toHaveBeenCalledWith(
-      "https://api.openrouteservice.org/v2/directions/driving-car/json",
+      "https://api.heigit.org/openrouteservice/v2/directions/driving-car/json",
       expect.objectContaining({
         method: "POST",
         body: JSON.stringify({

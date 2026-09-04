@@ -164,13 +164,18 @@ export function evaluateWeekendCapacity(
 // ── Scoring ──────────────────────────────────────────────────────────────────
 
 export const WEEKEND_SCORING = {
-  /** Ordinary local destinations are hard-excluded; semantic exceptions keep this penalty. */
-  TRAVEL_LOCAL_PENALTY: -20,
-  /** Borderline-near score at 61 minutes; remains strongly negative at 90. */
-  TRAVEL_NEARBY_PENALTY: -18,
-  TRAVEL_NEARBY_EDGE_PENALTY: -16,
-  /** Transition score at 91 minutes; reaches a small positive by 120 minutes. */
-  TRAVEL_NORMAL_BASE: -14,
+  /** Local (<=60 min) overnight-worthy destinations are NOT penalized as
+   * staycations: a 59-minute Hakone is an excellent 2D1N for Kanagawa users.
+   * Ordinary (non-overnight-worthy) local records remain hard-excluded by
+   * the eligibility gate; this is a mild ranking touch, not a gate. */
+  TRAVEL_LOCAL_PENALTY: -2,
+  /** Borderline-near (61 min) starts at a tiny penalty and reaches exactly
+   * neutral at 90 minutes — "near" is not a defect for an overnight trip. */
+  TRAVEL_NEARBY_PENALTY: -2,
+  TRAVEL_NEARBY_EDGE_PENALTY: 0,
+  /** Normal (91–120 min) ramps from neutral to a small positive, continuous
+   * with the strong band at 121 minutes. */
+  TRAVEL_NORMAL_BASE: 0,
   TRAVEL_NORMAL_MAX: 2,
   /** Strong overnight score at the start of the 121–240 minute band. */
   TRAVEL_STRONG_EDGE_BONUS: 2,
@@ -188,6 +193,26 @@ export const WEEKEND_SCORING = {
   TRAVEL_WEAK_DENOM: 119,
   TRAVEL_WEAK_STEEPNESS: 15,
   CAPACITY_STRONG_BONUS: 3,
+  /**
+   * Unknown-travel ranking proxy (KAI-275 follow-up). When deterministic
+   * one-way minutes are undefined (Personal Car discovery: destination is
+   * beyond the bounded ~120 km envelope, no ORS call by design), unknown is
+   * NOT treated as neutral: undefined usually means "far", but never with
+   * certainty (Karuizawa is also unmeasured yet only ~2 h). A coarse
+   * straight-line distance bucket provides a safe, ranking-only negative:
+   * likely near-ish gets a mild touch, clearly far gets a stronger one.
+   * Straight-line km is a RANKING PROXY ONLY — never routed truth, never
+   * canonical travel time, never used for budget or eligibility.
+   */
+  UNKNOWN_PROXY_NEAR_MAX_KM: 130,
+  UNKNOWN_PROXY_NEAR_DELTA: -2,
+  UNKNOWN_PROXY_MEDIUM_MAX_KM: 280,
+  UNKNOWN_PROXY_MEDIUM_DELTA: -4,
+  UNKNOWN_PROXY_FAR_DELTA: -6,
+  /** 3D2N+ long-journey softening: negative travel deltas are scaled by this
+   * factor for trips of three or more days (a longer trip tolerates more
+   * one-way travel than 2D1N). */
+  TRAVEL_3D2N_NEGATIVE_SOFTEN: 0.55,
 } as const;
 
 export function weekendTravelScoreDelta(fit: WeekendTravelFit): number {
@@ -252,7 +277,45 @@ export function weekendTravelScoreDelta(fit: WeekendTravelFit): number {
         WEEKEND_SCORING.TRAVEL_WEAK_STEEPNESS
     );
   }
+  // Unknown minutes → 0 by default. Callers that can distinguish likely-near
+  // from likely-far (Home overnight evaluation) pass a ranking-only proxy.
   return 0;
+}
+
+/**
+ * Ranking-only coarse geographic proxy for destinations whose deterministic
+ * one-way minutes are undefined during discovery (Personal Car beyond the
+ * bounded envelope — no ORS call by #326 design). Haversine straight-line
+ * km is bucketed coarsely:
+ *   <=130 km (likely near-ish — e.g. Karuizawa ~2 h) → mild touch (-2)
+ *   <=280 km (medium — e.g. Nagoya/Niigata)             → -4
+ *   >280 km  (clearly far — e.g. Kyoto/Osaka/Sendai)    → -6
+ * RANKING ONLY: never routed truth, never canonical travel time, never used
+ * for budget, eligibility, or Explore presence. Returns 0 when no origin or
+ * coordinates are available (no claim either way).
+ */
+export function unknownTravelProxyDelta(
+  destination: Pick<Destination, "coordinates">,
+  originCoords: { lat: number; lng: number } | null | undefined,
+): number {
+  if (!originCoords || !destination.coordinates) return 0;
+  const R = 6371;
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const dLat = toRad(destination.coordinates.lat - originCoords.lat);
+  const dLng = toRad(destination.coordinates.lng - originCoords.lng);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(originCoords.lat)) *
+      Math.cos(toRad(destination.coordinates.lat)) *
+      Math.sin(dLng / 2) ** 2;
+  const km = 2 * R * Math.asin(Math.sqrt(a));
+  if (km <= WEEKEND_SCORING.UNKNOWN_PROXY_NEAR_MAX_KM) {
+    return WEEKEND_SCORING.UNKNOWN_PROXY_NEAR_DELTA;
+  }
+  if (km <= WEEKEND_SCORING.UNKNOWN_PROXY_MEDIUM_MAX_KM) {
+    return WEEKEND_SCORING.UNKNOWN_PROXY_MEDIUM_DELTA;
+  }
+  return WEEKEND_SCORING.UNKNOWN_PROXY_FAR_DELTA;
 }
 
 // ── Candidate Evaluation ─────────────────────────────────────────────────────
@@ -306,7 +369,27 @@ export function evaluateWeekendCandidate(
     canonicalDuration,
   );
 
-  const travelScore = weekendTravelScoreDelta(travelFit);
+  // Unknown one-way minutes are NOT neutral by default: for Personal Car
+  // discovery, undefined usually means the destination is beyond the bounded
+  // deterministic envelope (far), but never with certainty — a coarse
+  // straight-line proxy (ranking-only) applies a mild negative that grows
+  // with distance. 3D2N+ trips soften all negative travel deltas (a longer
+  // trip tolerates more travel).
+  let travelScore = weekendTravelScoreDelta(travelFit);
+  if (
+    travelFit.band === "unknown" &&
+    travelFit.oneWayMinutes === undefined &&
+    modes.length > 0 &&
+    modes.every((mode) => mode === "car" || mode === "my_car")
+  ) {
+    travelScore = unknownTravelProxyDelta(
+      destination,
+      context.homeStationCoords ?? undefined,
+    );
+  }
+  if (durationDays >= 3 && travelScore < 0) {
+    travelScore *= WEEKEND_SCORING.TRAVEL_3D2N_NEGATIVE_SOFTEN;
+  }
   const capacityScore =
     capacity.activityMinutes >= capacityThresholds.strongMinutes
       ? WEEKEND_SCORING.CAPACITY_STRONG_BONUS

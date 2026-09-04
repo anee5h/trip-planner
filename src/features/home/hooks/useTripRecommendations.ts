@@ -1,8 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { Destination } from "@/shared/types/destination";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
+import { peekCachedCarRoundTrip } from "@/shared/services/transport/CarRouteApiProvider";
+import { getRoutableCarAccessAnchors } from "@/shared/services/transport/CarAccessService";
 import {
-  acquireCarRoutes,
+  carRouteIntentCounters,
   CAR_ROUTE_ENRICHMENT_LIMIT,
 } from "@/shared/services/recommendation/carRouteAcquisition";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
@@ -114,10 +116,6 @@ export function useTripRecommendations({
   // shows; the synchronous first pass renders immediately and is upgraded in
   // place when routes arrive. Fail closed: acquisition errors degrade to the
   // plain no-route behaviour (canonical car facts stay unknown).
-  const [carRoutes, setCarRoutes] = useState<
-    Readonly<Record<string, CarRoundTripRoute>> | undefined
-  >(undefined);
-
   const recommendationContextBase = useMemo(
     () => ({
       vibe,
@@ -162,28 +160,22 @@ export function useTripRecommendations({
     ],
   );
 
-  const recommendationContext = useMemo(
-    () =>
-      carRoutes
-        ? { ...recommendationContextBase, carRoutes }
-        : recommendationContextBase,
-    [recommendationContextBase, carRoutes],
-  );
-
   // Static (route-free) scoring of the same context: the surfaced shortlist
-  // for KAI-226 server-side acquisition.
+  // for cached-route reuse on discovery (KAI-226 intent-triggered ORS).
   const baseRecommendations = useMemo(
     () => getRecommendations(allDestinations, recommendationContextBase),
     [allDestinations, recommendationContextBase],
   );
 
-  useEffect(() => {
-    const carRelevant =
-      carMode !== undefined && carMode !== "none" && Boolean(homeStationCoords);
-    if (!carRelevant) {
-      setCarRoutes(undefined);
-      return;
-    }
+  // KAI-226 intent-triggered ORS: discovery never calls the provider. The
+  // hook only PEEKS the shared provider cache (populated by detail/hub
+  // intent refinements) so already-verified routes may upgrade display
+  // without any network request. Deterministic bounded estimates cover
+  // everything else.
+  const carRelevant =
+    carMode !== undefined && carMode !== "none" && Boolean(homeStationCoords);
+  const cachedCarRoutes = useMemo(() => {
+    if (!carRelevant || !homeStationCoords) return undefined;
     const shortlist = baseRecommendations
       .slice(0, CAR_ROUTE_ENRICHMENT_LIMIT)
       .map((recommendation) => recommendation.id)
@@ -191,38 +183,33 @@ export function useTripRecommendations({
       .filter(
         (destination): destination is Destination => destination !== undefined,
       );
-    if (shortlist.length === 0) {
-      setCarRoutes({});
-      return;
+    if (shortlist.length === 0) return undefined;
+    const found: Record<string, CarRoundTripRoute> = {};
+    for (const destination of shortlist) {
+      const pair = peekCachedCarRoundTrip(
+        destination,
+        homeStationCoords,
+        getRoutableCarAccessAnchors(destination).map((anchor) => anchor.id),
+      );
+      if (pair) {
+        found[destination.id] = pair as CarRoundTripRoute;
+        carRouteIntentCounters.cache_hit += 1;
+      }
     }
-    let cancelled = false;
-    acquireCarRoutes(shortlist, {
-      carMode,
-      publicModes,
-      budgetTier,
-      homeStationCoords,
-      originZoneId: homeStationTransportZoneId,
-      ferryTemporal,
-    })
-      .then((routes) => {
-        if (!cancelled) setCarRoutes(routes);
-      })
-      .catch(() => {
-        if (!cancelled) setCarRoutes(undefined);
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, [
-    baseRecommendations,
-    allDestinations,
-    carMode,
-    publicModes,
-    budgetTier,
-    homeStationCoords,
-    homeStationTransportZoneId,
-    ferryTemporal,
-  ]);
+    carRouteIntentCounters.discovery_estimate +=
+      shortlist.length - Object.keys(found).length;
+    return Object.keys(found).length > 0 ? found : undefined;
+  }, [baseRecommendations, allDestinations, carRelevant, homeStationCoords]);
+
+  const carRoutes = cachedCarRoutes;
+
+  const recommendationContext = useMemo(
+    () =>
+      carRoutes
+        ? { ...recommendationContextBase, carRoutes }
+        : recommendationContextBase,
+    [recommendationContextBase, carRoutes],
+  );
 
   const recommendedDestinations = useMemo(() => {
     // Route-free and initial state share the same static result; the second
