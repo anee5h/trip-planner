@@ -132,7 +132,7 @@
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@react-map/japan": "^1.0.10",
-    "@supabase/supabase-js": "^2.112.3",
+    "@supabase/supabase-js": "^2.112.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",
