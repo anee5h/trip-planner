@@ -6,7 +6,7 @@ import type {
 } from "./CarRouteProvider";
 
 export const OPENROUTESERVICE_DRIVING_CAR_URL =
-  "https://api.openrouteservice.org/v2/directions/driving-car/json";
+  "https://api.heigit.org/openrouteservice/v2/directions/driving-car/json";
 
 type FetchImplementation = (
   input: string,
