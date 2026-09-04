@@ -9,7 +9,7 @@
  */
 
 export const ORS_DRIVING_CAR_URL =
-  "https://api.openrouteservice.org/v2/directions/driving-car/json";
+  "https://api.heigit.org/openrouteservice/v2/directions/driving-car/json";
 
 export const CAR_ROUTE_FETCH_TIMEOUT_MS = 10_000;
 
@@ -201,11 +201,28 @@ export async function routeCar(
   }
 
   // Status-class failures are classified BEFORE attempting to parse the body,
-  // mirroring the client adapter's semantics.
+  // mirroring the client adapter's semantics. ORS reports quota exhaustion as
+  // HTTP 403 with `{"error":"Quota exceeded"}` on the current HeiGIT gateway,
+  // so a 403 body is inspected for the quota marker before the generic
+  // authorization fallback (KAI-226 production smoke, 2026-09-04).
   if (response.status === 429) {
     return canonicalFailure(body, "quota_exceeded", "error", now);
   }
   if (response.status === 401 || response.status === 403) {
+    let quotaBody = null;
+    try {
+      quotaBody = await response.clone().json();
+    } catch {
+      quotaBody = null;
+    }
+    if (
+      response.status === 403 &&
+      quotaBody &&
+      typeof quotaBody.error === "string" &&
+      /quota/i.test(quotaBody.error)
+    ) {
+      return canonicalFailure(body, "quota_exceeded", "error", now);
+    }
     return canonicalFailure(body, "provider_authorization_error", "error", now);
   }
 

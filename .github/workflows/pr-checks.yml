@@ -42,7 +42,10 @@ jobs:
 
   tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # KAI-226 transport stack grew the unit suite (~3.4k tests, ~8 min on a
+    # fast runner); 10 min was tipping into runner-load cancellations
+    # (observed 2026-09-04: jobs killed at ~10m10s across three runs).
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
