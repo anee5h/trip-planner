@@ -722,3 +722,82 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     expect(host.textContent).not.toContain("1 places");
   });
 });
+
+describe("KAI-275 overnight Personal-Car travel display", () => {
+  let host: HTMLDivElement;
+  let root: Root;
+
+  beforeEach(() => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+  });
+
+  afterEach(() => {
+    act(() => root.unmount());
+    host.remove();
+    mockHomeStationCoords = YOKOHAMA;
+  });
+
+  const hakoneFX = {
+    id: "hmc-hakone-fx",
+    name: "Hakone FX",
+    prefecture: "Kanagawa",
+    region: "Kanto",
+    kind: "onsen",
+    categories: ["onsen"],
+    coordinates: { lat: 35.2325, lng: 139.1067 },
+    recommendedVisitHours: { min: 4, max: 8 },
+    role: "hub",
+  } as unknown as Destination;
+
+  it("shows the deterministic car time instead of 'Travel time unavailable'", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    mockHomeStationCoords = YOKOHAMA;
+
+    await act(async () => {
+      root.render(
+        <HomeMatchCard
+          destination={hakoneFX}
+          rank={1}
+          carMode="my_car"
+          publicModes={[]}
+          duration="2d1n"
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    // Zero-ORS discovery must NOT dead-end the card: the bounded SafeGround
+    // estimate (same authority as the day path/ranking) provides the time.
+    expect(text).not.toContain("home.transportModes.travelUnavailable");
+    expect(text).toContain("~");
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+  });
+
+  it("keeps 'Travel time unavailable' when no deterministic car evidence exists (cross-water)", async () => {
+    const { HomeMatchCard } = await import("../HomeMatchCard");
+    mockHomeStationCoords = YOKOHAMA;
+    const ogasawara = {
+      ...hakoneFX,
+      id: "hmc-ogasawara-fx",
+      coordinates: { lat: 27.0964, lng: 142.2099 }, // Ogasawara (no road)
+    };
+
+    await act(async () => {
+      root.render(
+        <HomeMatchCard
+          destination={ogasawara}
+          rank={1}
+          carMode="my_car"
+          publicModes={[]}
+          duration="2d1n"
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("home.transportModes.travelUnavailable");
+    expect(text).not.toMatch(/Est\.\s*\d+/);
+  });
+});

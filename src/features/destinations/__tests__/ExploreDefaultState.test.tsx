@@ -758,6 +758,12 @@ describe("KAI-275 follow-up overnight Explore browse", () => {
     // is asserted by the unit fixture overnightBrowsePolicy.test.ts.
     expect(count).toBeGreaterThan(700);
     expect(count).toBeLessThanOrEqual(1106);
+    // KAI-275: overnight car cards now render their deterministic SafeGround
+    // travel line (the travelBy key appears when oneWayMinutes is populated)
+    // instead of being empty for every car destination. Hakone-class areas
+    // with bounded minutes must carry the line.
+    const text = container.textContent ?? "";
+    expect(text).toContain("destination.tripAreas.travelBy");
   }, 30000);
 
   it("3D2N Personal Car browse universe is not narrower than 2D1N", async () => {

@@ -158,8 +158,29 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
         ferryTemporal,
       )
     : undefined;
+  // KAI-275 follow-up: overnight Personal-Car cards were stuck on "Travel
+  // time unavailable" even when deterministic evidence existed. Discovery is
+  // zero-ORS (#326), so the provider-route source above is null for car; the
+  // bounded SafeGround estimate (the same authority the day path, ranking,
+  // and detail page use) is the sanctioned deterministic fallback. Evidence
+  // stays "estimated" so the card labels it approximate — never a fabricated
+  // personalized claim (cross-water / unestimated-local records stay silent).
+  const deterministicOvernightEstimate = isOvernight
+    ? getDayTripTravelDurationEvidence(
+        destination,
+        {
+          homeStationCoords,
+          originZoneId: homeStationTransportZoneId,
+          ferryTemporal,
+        },
+        validModes,
+      ).estimate
+    : undefined;
   const displayTransport =
-    recommendationEstimate ?? sharedDayEstimate ?? fallbackOvernightTransport;
+    recommendationEstimate ??
+    sharedDayEstimate ??
+    fallbackOvernightTransport ??
+    deterministicOvernightEstimate;
   const isApproximateDisplay = Boolean(
     displayTransport &&
     "evidence" in displayTransport &&

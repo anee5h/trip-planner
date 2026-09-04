@@ -99,6 +99,7 @@ import {
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -795,19 +796,39 @@ export default function Destinations() {
               homeStationTransportZoneId,
               ferryTemporal,
             );
-            const estimate = getOriginAwareTransportEstimate(
+            // KAI-275 follow-up: zero-ORS discovery means provider-route car
+            // estimates are absent; fall back to the bounded SafeGround
+            // estimate (same authority as day cards / Home match cards /
+            // ranking / detail) for the card's one-way minutes + mode.
+            // Boso-class long-haul stays undefined and the card honestly
+            // shows no time; Hakone-class shows its ~ time. The canonical
+            // estimate (.estimate) remains the gateway/wards source.
+            const canonicalEstimate = getOriginAwareTransportEstimate(
               dest,
               { homeStationCoords, ferryTemporal },
               modes,
             );
+            const fallbackEstimate = getDayTripTravelDurationEvidence(
+              dest,
+              {
+                homeStationCoords,
+                originZoneId: homeStationTransportZoneId,
+                ferryTemporal,
+              },
+              modes,
+            ).estimate;
+            const travelEstimate =
+              canonicalEstimate ?? fallbackEstimate ?? null;
             weekendTravelById.set(dest.id, {
-              oneWayMinutes: estimate
+              oneWayMinutes: travelEstimate
                 ? Math.round(
-                    (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
+                    (travelEstimate.timeRange[0] +
+                      travelEstimate.timeRange[1]) /
+                      2,
                   )
                 : undefined,
-              bestMode: estimate?.mode,
-              estimate: estimate ?? undefined,
+              bestMode: travelEstimate?.mode,
+              estimate: canonicalEstimate ?? undefined,
             });
           }
         }
