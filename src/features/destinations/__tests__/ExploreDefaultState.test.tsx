@@ -655,3 +655,45 @@ describe("D4: reachability and duration are independent (mode eligibility)", () 
     expect(anyCount).toBeGreaterThan(dayTripCount);
   }, 30000);
 });
+
+// ---------------------------------------------------------------------------
+// KAI-275: Personal-Car-only (car=my_car&mode=none) must stay car-only.
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 Personal-Car-only Explore state", () => {
+  it("card travel rows under car=my_car&mode=none never show train/bus/plane icons", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none",
+    );
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(0);
+    const rows = container.querySelectorAll(
+      '[data-testid="destination-card-travel-time"]',
+    );
+    expect(rows.length).toBeGreaterThan(0);
+    const iconClasses = Array.from(rows).flatMap((row) =>
+      Array.from(row.querySelectorAll("svg")).map(
+        (svg) => svg.getAttribute("class") ?? "",
+      ),
+    );
+    // Personal-Car-only: no public-transport icon may appear anywhere.
+    expect(iconClasses.some((c) => c.includes("lucide-train-front"))).toBe(
+      false,
+    );
+    expect(iconClasses.some((c) => c.includes("lucide-bus"))).toBe(false);
+    expect(iconClasses.some((c) => c.includes("lucide-plane"))).toBe(false);
+    expect(iconClasses.some((c) => c.includes("lucide-map-pin"))).toBe(false);
+    // Car icons must be present (eligible destinations show the car row).
+    expect(iconClasses.some((c) => c.includes("lucide-car"))).toBe(true);
+  }, 20000);
+
+  it("direct Explore with no transport params stays Any (unrestricted baseline)", async () => {
+    tripStoreMock.homeStationCoords = null;
+    tripStoreMock.homeStationTransportZoneId = undefined;
+    const container = await renderDestinations("/destinations");
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(600);
+  }, 20000);
+});

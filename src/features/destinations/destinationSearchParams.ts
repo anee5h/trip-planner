@@ -8,6 +8,32 @@ import {
 import type { TripDuration } from "@/shared/types/tripDuration";
 import { normalizeExplorerTripDuration } from "@/shared/types/tripDuration";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
+import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
+
+/**
+ * KAI-275: resolve the EXPLICIT transport universe from the split-domain
+ * planner state. The empty `publicModes` collection is ambiguous — it means
+ * BOTH the Explore "Any transport" default and an explicit "no public
+ * transport" (Personal-Car-only) selection — so the active car mode is the
+ * disambiguator:
+ *
+ *   non-empty publicModes        → exactly those public modes (selected)
+ *   empty publicModes + carMode  → EXPLICIT no public transport (car-only)
+ *   empty publicModes + no car   → Explore default: ANY public transport
+ *
+ * Consumers (recommendation context, budget resolution, card display, map)
+ * must feed this RESOLVED list — never widen `[]` blindly back to
+ * ALL_PUBLIC_MODES, which converts an explicit Personal-Car-only selection
+ * into "all public transport".
+ */
+export function resolvePublicTransportModes(
+  carMode: string,
+  publicModes: readonly string[],
+): string[] {
+  if (publicModes.length > 0) return [...publicModes];
+  if (carMode === "my_car" || carMode === "rental") return [];
+  return [...ALL_PUBLIC_MODES];
+}
 
 /** "any" | BudgetTier, expressed via the canonical planner BudgetFilter. */
 

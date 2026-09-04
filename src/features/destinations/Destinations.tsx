@@ -109,7 +109,7 @@ import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
-import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
+import { resolvePublicTransportModes } from "@/features/destinations/destinationSearchParams";
 
 export default function Destinations() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -201,6 +201,15 @@ export default function Destinations() {
     initialExplorerState.currentPage,
   );
   const ITEMS_PER_PAGE = 20;
+
+  // KAI-275: the EXPLICIT transport universe. `[]` + an active car mode is a
+  // Personal-Car-only selection (never widened back to "any"); `[]` + no car
+  // is the Explore "Any transport" default. All eligibility/budget/card/map
+  // consumers read this resolved list.
+  const resolvedPublicModes = useMemo(
+    () => resolvePublicTransportModes(carMode, publicModes),
+    [carMode, publicModes],
+  );
 
   const [selectedRegions, setSelectedRegions] = useState<string[]>(
     initialExplorerState.selectedRegions,
@@ -378,7 +387,7 @@ export default function Destinations() {
       budget: maxBudget,
       partySize,
       carMode,
-      publicModes: publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES,
+      publicModes: resolvedPublicModes,
       currentWeatherCondition: "",
       currentWeather: null,
       visitedIds: [],
@@ -402,6 +411,7 @@ export default function Destinations() {
     partySize,
     carMode,
     publicModes,
+    resolvedPublicModes,
     ferryTemporal,
   ]);
 
@@ -462,8 +472,7 @@ export default function Destinations() {
       .map((destination) =>
         buildRecommendationCandidate(destination, catalogContext),
       );
-    const effectivePublicModes =
-      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
+    const effectivePublicModes = resolvedPublicModes;
     const budgetEstimatesById = new Map<string, ExploreBudgetEstimate>();
     const budgetEstimateFor = (destination: Destination) => {
       const cached = budgetEstimatesById.get(destination.id);
@@ -1064,6 +1073,7 @@ export default function Destinations() {
     sortPreparationPending,
     carMode,
     publicModes,
+    resolvedPublicModes,
     partySize,
     budgetTier,
     tripDuration,
@@ -1314,7 +1324,7 @@ export default function Destinations() {
         <DestinationMap
           destinations={filteredAndSortedDestinations}
           carMode={carMode}
-          publicModes={publicModes}
+          publicModes={resolvedPublicModes}
         />
       ) : (
         <>
@@ -1341,12 +1351,10 @@ export default function Destinations() {
                         : undefined
                     }
                     ferryTemporal={ferryTemporal}
-                    // Empty transport preference means "any public
-                    // transport" — cards resolve the fastest verified mode
-                    // instead of showing N/A.
-                    publicModes={
-                      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES
-                    }
+                    // KAI-275: the RESOLVED transport universe. Personal-Car-only
+                    // (`[]` + carMode) arrives as [] so cards render car-only;
+                    // the default Any transport arrives as the full mode list.
+                    publicModes={resolvedPublicModes}
                     overnightSummary={
                       overnightResult
                         ? {
