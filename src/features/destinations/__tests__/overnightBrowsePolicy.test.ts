@@ -150,16 +150,20 @@ describe("overnight Explore browse policy (Nakayama, Personal Car)", () => {
     }
   });
 
-  it("Home Top Matches under the same context is unchanged and selective (Hakone above Osaka)", () => {
+  it("Home Top Matches under the same context is unchanged in spirit and selective (Hakone above Osaka AND above Kyoto)", () => {
     const results = getRecommendations(all, homeContext());
     const rank = (id: string) => results.findIndex((r) => r.id === id);
     const hakone = rank("hakone-town");
     const osaka = rank("osaka-city");
+    const kyoto = rank("kyoto-city");
     expect(hakone).toBeGreaterThanOrEqual(0);
     expect(osaka).toBeGreaterThanOrEqual(0);
+    expect(kyoto).toBeGreaterThanOrEqual(0);
     expect(hakone).toBeLessThan(osaka);
-    // Explore broadening must not turn Osaka into a top Home recommendation:
-    // Home's own weekend ranking (unchanged by this PR) keeps Hakone ahead.
+    // KAI-275 follow-up: Kyoto must not outrank Hakone merely because its
+    // deterministic travel minutes are undefined (far-proxy now applies).
+    expect(hakone).toBeLessThan(kyoto);
+    // Explore broadening must not turn Osaka into a top Home recommendation.
     expect(hakone).toBeLessThan(10);
   });
 });
