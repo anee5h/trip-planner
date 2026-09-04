@@ -4,6 +4,7 @@ import {
   ACCOMMODATION_PROFILES,
   calculateTripEstimate,
   evaluateAffordability,
+  evaluateBudgetAffordability,
   estimateQualityLabel,
 } from "../tripEstimateEngine";
 import { formatLocalizedJPYRange } from "../BudgetService";
@@ -297,5 +298,81 @@ describe("KAI-260 TripEstimateEngine", () => {
 
     expect(flexible.total).toEqual(standard.total);
     expect(evaluateAffordability(flexible, Infinity)).toBe("unknown");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// KAI-275 follow-up: truthful restricted-tier affordability (fits/partial/
+// exceeds/unknown) for Explore filtering of PARTIAL discovery estimates.
+// ---------------------------------------------------------------------------
+
+describe("evaluateBudgetAffordability (Explore restricted-tier filter)", () => {
+  const partialResult = (knownSubtotal: [number, number]) =>
+    ({
+      completeness: "partial",
+      total: undefined,
+      knownSubtotal,
+    }) as const;
+
+  const completeResult = (min: number, max: number) =>
+    ({
+      completeness: "complete",
+      total: { kind: "bounded", min, max },
+      knownSubtotal: [min, max],
+    }) as const;
+
+  it("complete total below the ceiling fits", () => {
+    expect(evaluateBudgetAffordability(completeResult(3000, 8000), 10000)).toBe(
+      "fits",
+    );
+  });
+
+  it("complete total above the ceiling exceeds (public-transport behavior unchanged)", () => {
+    expect(
+      evaluateBudgetAffordability(completeResult(3000, 12000), 10000),
+    ).toBe("exceeds");
+  });
+
+  it("partial estimate with knownSubtotal below the ceiling is partial (retained)", () => {
+    expect(
+      evaluateBudgetAffordability(partialResult([2100, 6600]), 50000),
+    ).toBe("partial");
+  });
+
+  it("partial estimate whose knownSubtotal minimum already exceeds the ceiling is exceeds", () => {
+    expect(
+      evaluateBudgetAffordability(partialResult([120000, 150000]), 100000),
+    ).toBe("exceeds");
+  });
+
+  it("completeness unavailable is unknown (no meaningful bounded cost)", () => {
+    expect(
+      evaluateBudgetAffordability(
+        {
+          completeness: "unavailable",
+          total: undefined,
+          knownSubtotal: [0, 0],
+        },
+        10000,
+      ),
+    ).toBe("unknown");
+  });
+
+  it("a non-finite budget (any/flexible) is unknown — the caller skips the filter", () => {
+    expect(
+      evaluateBudgetAffordability(partialResult([1000, 2000]), undefined),
+    ).toBe("unknown");
+    expect(
+      evaluateBudgetAffordability(partialResult([1000, 2000]), Infinity),
+    ).toBe("unknown");
+  });
+
+  it("never claims a partial trip fits and never treats unknown as zero", () => {
+    expect(
+      evaluateBudgetAffordability(partialResult([2100, 6600]), 50000),
+    ).not.toBe("fits");
+    expect(evaluateBudgetAffordability(partialResult([0, 0]), 50000)).not.toBe(
+      "unknown",
+    );
   });
 });

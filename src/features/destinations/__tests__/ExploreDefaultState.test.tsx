@@ -697,3 +697,43 @@ describe("KAI-275 Personal-Car-only Explore state", () => {
     expect(count).toBeGreaterThan(600);
   }, 20000);
 });
+
+// ---------------------------------------------------------------------------
+// KAI-275 follow-up: restricted budget + Personal Car discovery must retain
+// partial estimates (no complete total during discovery) instead of dropping
+// every destination to zero results.
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 follow-up Explore budget x Personal Car", () => {
+  it("Personal Car + Standard budget returns non-zero results (partial subtotals retained)", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&budgetTier=standard&budget=50000",
+    );
+    const count = getResultCount(container);
+    // Before the fix: 0 (every partial car estimate failed the total-only
+    // filter). After: bounded on-site subtotals below the ceiling retain.
+    expect(count).toBeGreaterThan(0);
+  }, 20000);
+
+  it("Personal Car + Economy tier behaves truthfully (keeps partials under the ceiling)", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&budgetTier=economy&budget=40000",
+    );
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(0);
+  }, 20000);
+
+  it("train-only + Standard budget keeps the existing complete-total behavior", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.514745, lng: 139.539692 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?mode=train&budgetTier=standard&budget=50000",
+    );
+    const count = getResultCount(container);
+    expect(count).toBeGreaterThan(0);
+  }, 20000);
+});
