@@ -49,6 +49,7 @@ import {
   type BudgetFilter,
 } from "@/shared/types/planner";
 import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
+import { evaluateBudgetAffordability } from "@/shared/services/budget/tripEstimateEngine";
 import {
   getBestOneWayTravelMinutes,
   hasPersonalizedOrigin,
@@ -564,6 +565,14 @@ export default function Destinations() {
     // back to the on-site party cost — the UI label says transport is
     // included only when known, so no false claim is made. Unknown
     // budgets never pass a restricted tier.
+    // KAI-275 follow-up: a PARTIAL estimate (no complete total — e.g.
+    // Personal Car discovery, where ORS is intentionally not called and
+    // origin-car transport cost is unknown) is retained when its KNOWN
+    // bounded subtotal does not already prove over-budget; only
+    // definitively-over destinations (complete total above the ceiling,
+    // or a known-subtotal minimum above the ceiling) are excluded. This
+    // keeps Explore consistent with Home (which retains partials) — it
+    // never claims a partial trip "fits".
     if (budgetTier !== "any" && budgetTier !== "luxury") {
       const tierLimit = getPlannerBudgetLimit(
         budgetTier as BudgetTier,
@@ -571,8 +580,10 @@ export default function Destinations() {
         tripDuration,
       );
       result = result.filter((dest) => {
-        const costMax = budgetEstimateFor(dest)?.estimate.total?.max;
-        return costMax !== undefined && costMax <= tierLimit;
+        const estimate = budgetEstimateFor(dest)?.estimate;
+        if (!estimate) return false;
+        const state = evaluateBudgetAffordability(estimate, tierLimit);
+        return state === "fits" || state === "partial";
       });
     }
 

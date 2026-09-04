@@ -75,10 +75,11 @@ async function selectPersonalCarOnly(page: Page) {
   }
 }
 
-async function selectFlexibleBudget(page: Page) {
-  // A strict budget tier legitimately empties car-only Explore (partial car
-  // budgets cannot satisfy a tier cap). Flexible removes the cap so the
-  // regression exercises the car-only transport state with cards present.
+async function selectStandardBudget(page: Page) {
+  // KAI-275 follow-up: the reported regression used a FINITE tier (Standard).
+  // Before the fix, partial car discovery estimates (no complete total) were
+  // dropped by the Explore budget filter → 0 destinations. Standard (not
+  // Flexible) locks that regression: car-only Explore must stay non-empty.
   const mobile = (page.viewportSize()?.width ?? 1024) < 768;
   if (mobile) {
     await page
@@ -87,11 +88,11 @@ async function selectFlexibleBudget(page: Page) {
       .click();
     await page
       .getByRole("dialog")
-      .getByRole("button", { name: /Flexible/ })
+      .getByRole("button", { name: /Standard/ })
       .click();
   } else {
     await page.getByRole("combobox", { name: /Budget/i }).click();
-    await page.getByRole("option", { name: /Flexible/ }).click();
+    await page.getByRole("option", { name: /Standard/ }).click();
   }
 }
 
@@ -144,7 +145,7 @@ test("KAI-275 Personal-Car-only survives Home → View more → Explore → Dest
   await page.goto("/");
   await expect(page.locator("[data-home-planner-ready]")).toBeVisible();
   await selectPersonalCarOnly(page);
-  await selectFlexibleBudget(page);
+  await selectStandardBudget(page);
   await applyPlanner(page);
   await expect(
     page
