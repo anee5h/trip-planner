@@ -112,7 +112,7 @@ function AppInner() {
         <AuthModalProvider>
           <div className="flex flex-col min-h-screen bg-background text-foreground">
             <Navbar />
-            <main className="flex-grow pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0">
+            <main className="flex-grow pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
               <ErrorBoundary>
                 <Suspense fallback={<RouteLoader />}>
                   <Routes>
