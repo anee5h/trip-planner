@@ -25,14 +25,11 @@ export const MAX_ESTIMATED_GROUND_DISTANCE_KM = 120;
 /**
  * Geographic islands can still be ordinary large land-transport regions.
  * Keep this policy separate from TransportZone.isIsland, whose geographic
- * meaning is used by topology and route safety checks elsewhere.
+ * meaning is used by topology and route safety checks elsewhere. The zone
+ * set is owned by the shared candidate policy module.
  */
-export const MAJOR_LAND_TRANSPORT_ZONE_IDS = new Set<TransportZoneId>([
-  "mainland-honshu",
-  "hokkaido",
-  "mainland-kyushu",
-  "mainland-shikoku",
-]);
+import { MAJOR_LAND_TRANSPORT_ZONE_IDS } from "./carAccessCandidatePolicy";
+export { MAJOR_LAND_TRANSPORT_ZONE_IDS };
 
 const ESTIMATABLE_GROUND_MODES = new Set<TransportMode>([
   "train",

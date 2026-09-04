@@ -132,6 +132,13 @@ describe("routeCar canonical mapping", () => {
       "error",
     ],
     [
+      "quota 403 body",
+      403,
+      { error: "Quota exceeded" },
+      "quota_exceeded",
+      "error",
+    ],
+    [
       "unroutable 400",
       400,
       { error: { code: 2010, message: "Could not find a routable point" } },

@@ -3,6 +3,7 @@ import {
   DEFAULT_DESTINATION_EXPLORER_STATE,
   hasRestrictedTransportSelection,
   parseDestinationSearchParams,
+  resolvePublicTransportModes,
   serializeDestinationSearchParams,
   serializePlannerSearchParams,
 } from "../destinationSearchParams";
@@ -11,6 +12,9 @@ import type { TripDuration } from "@/shared/types/tripDuration";
 import { DEFAULT_PLANNER_BUDGET_TIER } from "@/features/home/hooks/useTripPlannerState";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import destinations from "@/shared/data/destinations-index.json";
+import type { Destination } from "@/shared/types/destination";
+import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
+import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
 
 describe("destinationSearchParams", () => {
   it("round-trips Explorer filters, search, view, and page", () => {
@@ -481,5 +485,91 @@ describe("destination date parameter", () => {
     expect(serialized).toContain("duration=2d1n");
     // Day 2 is derived, never serialized.
     expect(serialized).not.toContain("06-16");
+  });
+});
+
+// ---------------------------------------------------------------------------
+// KAI-275: Personal-Car-only selection must survive parse → resolve → score
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 preserve car-only selection", () => {
+  it("resolves [] + carMode to EXPLICIT no-public (car-only)", () => {
+    expect(resolvePublicTransportModes("my_car", [])).toEqual([]);
+    expect(resolvePublicTransportModes("rental", [])).toEqual([]);
+  });
+
+  it("resolves [] + no car to the Explore Any-transport default", () => {
+    const resolved = resolvePublicTransportModes("none", []);
+    expect(resolved).toEqual(ALL_PUBLIC_MODES);
+  });
+
+  it("resolves a non-empty selection to exactly those modes (car never injected)", () => {
+    expect(resolvePublicTransportModes("none", ["train"])).toEqual(["train"]);
+    expect(resolvePublicTransportModes("my_car", ["train", "bus"])).toEqual([
+      "train",
+      "bus",
+    ]);
+  });
+
+  it("parse keeps car=my_car&mode=none distinct from the Any default and round-trips", () => {
+    const url = "car=my_car&mode=none";
+    const parsed = parseDestinationSearchParams(new URLSearchParams(url));
+    expect(parsed.carMode).toBe("my_car");
+    expect(parsed.publicModes).toEqual([]);
+    // mode=none must never be silently replaced by a missing mode (any).
+    const serialized = serializeDestinationSearchParams(parsed).toString();
+    expect(serialized).toContain("car=my_car");
+    expect(serialized).toContain("mode=none");
+    const reparsed = parseDestinationSearchParams(
+      new URLSearchParams(serialized),
+    );
+    expect(reparsed.carMode).toBe("my_car");
+    expect(reparsed.publicModes).toEqual([]);
+  });
+
+  it("Home planner serialization: Personal-Car-only → car=my_car&mode=none (unchanged)", () => {
+    const qs = serializePlannerSearchParams({
+      vibe: "any",
+      partySize: 2,
+      budgetTier: DEFAULT_PLANNER_BUDGET_TIER,
+      tripDuration: "fullDay",
+      budget: 50000,
+      carMode: "my_car",
+      publicModes: [],
+    });
+    expect(qs).toContain("car=my_car");
+    expect(qs).toContain("mode=none");
+  });
+
+  it("scorer: car-only resolved universe excludes train/shinkansen/bus; Any includes them", () => {
+    const kamakura = (destinations as unknown as { id: string }[]).find(
+      (d) => d.id === "kamakura-city",
+    ) as unknown as Destination;
+    const ORIGIN = { lat: 35.6812, lng: 139.7671 };
+    const carOnly = resolvePublicTransportModes("my_car", []);
+    const any = resolvePublicTransportModes("none", []);
+
+    const modesCarOnly = getValidModes(
+      kamakura,
+      "my_car",
+      carOnly,
+      ORIGIN,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modesCarOnly).toContain("my_car");
+    expect(modesCarOnly).not.toContain("train");
+    expect(modesCarOnly).not.toContain("shinkansen");
+    expect(modesCarOnly).not.toContain("bus");
+
+    const modesAny = getValidModes(
+      kamakura,
+      "none",
+      any,
+      ORIGIN,
+      undefined,
+      "mainland-honshu",
+    );
+    expect(modesAny).toContain("train");
   });
 });

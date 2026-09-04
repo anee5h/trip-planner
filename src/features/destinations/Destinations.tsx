@@ -42,15 +42,32 @@ import {
 
 import type { RecommendationContext } from "@/shared/services/recommendation/RecommendationContext";
 import type { TripDuration } from "@/shared/types/tripDuration";
-import { isOvernightDuration } from "@/shared/types/tripDuration";
+import { getTripDays, isOvernightDuration } from "@/shared/types/tripDuration";
+
+/**
+ * Explore overnight browse policy (KAI-275 follow-up):
+ * travel time and catalogue capacity are RANKING signals, never hard browse
+ * exclusions. This constant softens the long-journey penalty for 3D2N+ trips
+ * (a longer trip tolerates more one-way travel than 2D1N).
+ */
+const EXPLORE_OVERNIGHT_3D2N_TRAVEL_SOFTEN = 0.55;
+
+/**
+ * 2D1N-only penalty for destinations beyond the bounded deterministic
+ * envelope (undefined one-way minutes during discovery — e.g. Nagoya/Osaka
+ * from Kanto by car). Such a long drive is a poor fit for a single night,
+ * so it ranks lower for 2D1N; for 3D2N+ the same destination carries no
+ * penalty (a longer trip tolerates the journey). Browseable either way.
+ */
+const EXPLORE_OVERNIGHT_UNMEASURED_2D1N_PENALTY = -4;
 import {
   partyProfileForSize,
   type BudgetTier,
   type BudgetFilter,
 } from "@/shared/types/planner";
 import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
+import { evaluateBudgetAffordability } from "@/shared/services/budget/tripEstimateEngine";
 import {
-  getBestOneWayTravelMinutes,
   hasPersonalizedOrigin,
   matchesPersonalizedDayTripDuration,
 } from "@/shared/services/recommendation/TripDurationService";
@@ -60,6 +77,7 @@ import {
   evaluateWeekendCapacity,
   hasOvernightWorthyWeekendSemantics,
   weekendTravelScoreDelta,
+  WEEKEND_TRAVEL_POLICY,
 } from "@/shared/services/recommendation/WeekendPolicy";
 import {
   resolveOriginMunicipalityId,
@@ -67,8 +85,8 @@ import {
 } from "@/shared/services/recommendation/OriginAreaService";
 import {
   consolidateWeekendAreas,
-  passesNoOriginWeekendGate,
   getContainedPlaces,
+  classifyWeekendResultCandidate,
   type WeekendAreaConsolidation,
 } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
@@ -81,6 +99,7 @@ import {
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
 import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import {
   tokenizeQuery,
   matchesDestination,
@@ -109,7 +128,7 @@ import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
-import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
+import { resolvePublicTransportModes } from "@/features/destinations/destinationSearchParams";
 
 export default function Destinations() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -201,6 +220,15 @@ export default function Destinations() {
     initialExplorerState.currentPage,
   );
   const ITEMS_PER_PAGE = 20;
+
+  // KAI-275: the EXPLICIT transport universe. `[]` + an active car mode is a
+  // Personal-Car-only selection (never widened back to "any"); `[]` + no car
+  // is the Explore "Any transport" default. All eligibility/budget/card/map
+  // consumers read this resolved list.
+  const resolvedPublicModes = useMemo(
+    () => resolvePublicTransportModes(carMode, publicModes),
+    [carMode, publicModes],
+  );
 
   const [selectedRegions, setSelectedRegions] = useState<string[]>(
     initialExplorerState.selectedRegions,
@@ -378,7 +406,7 @@ export default function Destinations() {
       budget: maxBudget,
       partySize,
       carMode,
-      publicModes: publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES,
+      publicModes: resolvedPublicModes,
       currentWeatherCondition: "",
       currentWeather: null,
       visitedIds: [],
@@ -402,6 +430,7 @@ export default function Destinations() {
     partySize,
     carMode,
     publicModes,
+    resolvedPublicModes,
     ferryTemporal,
   ]);
 
@@ -462,8 +491,7 @@ export default function Destinations() {
       .map((destination) =>
         buildRecommendationCandidate(destination, catalogContext),
       );
-    const effectivePublicModes =
-      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES;
+    const effectivePublicModes = resolvedPublicModes;
     const budgetEstimatesById = new Map<string, ExploreBudgetEstimate>();
     const budgetEstimateFor = (destination: Destination) => {
       const cached = budgetEstimatesById.get(destination.id);
@@ -555,6 +583,14 @@ export default function Destinations() {
     // back to the on-site party cost — the UI label says transport is
     // included only when known, so no false claim is made. Unknown
     // budgets never pass a restricted tier.
+    // KAI-275 follow-up: a PARTIAL estimate (no complete total — e.g.
+    // Personal Car discovery, where ORS is intentionally not called and
+    // origin-car transport cost is unknown) is retained when its KNOWN
+    // bounded subtotal does not already prove over-budget; only
+    // definitively-over destinations (complete total above the ceiling,
+    // or a known-subtotal minimum above the ceiling) are excluded. This
+    // keeps Explore consistent with Home (which retains partials) — it
+    // never claims a partial trip "fits".
     if (budgetTier !== "any" && budgetTier !== "luxury") {
       const tierLimit = getPlannerBudgetLimit(
         budgetTier as BudgetTier,
@@ -562,8 +598,10 @@ export default function Destinations() {
         tripDuration,
       );
       result = result.filter((dest) => {
-        const costMax = budgetEstimateFor(dest)?.estimate.total?.max;
-        return costMax !== undefined && costMax <= tierLimit;
+        const estimate = budgetEstimateFor(dest)?.estimate;
+        if (!estimate) return false;
+        const state = evaluateBudgetAffordability(estimate, tierLimit);
+        return state === "fits" || state === "partial";
       });
     }
 
@@ -684,16 +722,31 @@ export default function Destinations() {
       return evaluation;
     };
 
-    // Overnight durations use their dedicated eligibility gate.
+    // Overnight durations use a dedicated BROWSE gate, separated from the
+    // weekend RECOMMENDATION heuristics (which Home Top Matches retains via
+    // evaluateWeekendCandidate). Explore answers "what can I browse for this
+    // trip setup?", not "what are the best overnight recommendations?".
+    //
+    // Browse keeps only genuine hard gates: origin-local staycations (not
+    // getaways), no valid selected transport mode, trip-date ferry coverage.
+    // Travel time and catalogue capacity are RANKING signals here, never
+    // hard exclusions — a valid long car trip (Nagoya/Osaka/Kyoto from
+    // Kanto, beyond the bounded 120 km deterministic estimate so minutes are
+    // unknown during discovery) must stay browseable and simply rank lower.
     if (isOvernightDuration(tripDuration)) {
       const hasOrigin = homeStationCoords || homeStationTransportZoneId;
       result = result.filter((dest) => {
-        // Origin-local destinations are never getaways (same municipality as base).
+        // Origin-local destinations are never getaways (same municipality
+        // as base). Retained as a browse exclusion: Explore does not show
+        // same-municipality staycations as overnight trips.
         if (isOriginLocalDestination(dest, originMunicipalityId)) return false;
         if (!hasOrigin) {
-          // No-origin: no travel claims, but coherent area classification
-          // and duration-aware published activity capacity are still required.
-          return passesNoOriginWeekendGate(dest, allDestinations, tripDuration);
+          // No-origin browse: coherent trip-area classification only. The
+          // capacity-minute requirement is a recommendation signal; dropping
+          // it here keeps valid hubs browseable when catalogue depth is thin.
+          return (
+            classifyWeekendResultCandidate(dest, allDestinations).kind !== "poi"
+          );
         }
         const modes = getValidModes(
           dest,
@@ -718,33 +771,24 @@ export default function Destinations() {
         ) {
           return false;
         }
-        // No origin-aware duration → excluded from personalized matching.
-        const minutes = getBestOneWayTravelMinutes(dest, catalogContext, modes);
-        if (minutes === undefined) return false;
-        if (
-          !evaluateWeekendTravelFit(minutes, {
-            overnightWorthy: hasOvernightWorthyWeekendSemantics(
-              dest,
-              allDestinations,
-            ),
-          }).eligible
-        )
-          return false;
-        // Capacity is required with or without an origin.
-        return evaluateWeekendCapacity(dest, allDestinations, tripDuration)
-          .eligible;
+        // Browse eligibility: a valid selected mode + topology is enough.
+        // Travel time and capacity are applied below as ranking, not gates.
+        return true;
       });
 
-      // Hub-first: primary overnight results are trip areas, never isolated POIs.
+      // Hub-first BROAD browse: the grid keeps EVERY car-valid destination
+      // (area cards, their child POIs, and standalone places) so children are
+      // directly accessible — matching Any-duration browsing. Consolidation
+      // still builds the area model (place counts / capacity / kind) used for
+      // area-card summaries, and the recommended sort ranks areas first.
       if (result.length > 0) {
         const consolidated = consolidateWeekendAreas(result, allDestinations);
         overnightConsolidation = consolidated;
-        result = consolidated.areas;
 
         if (homeStationCoords) {
-          for (const area of result) {
+          for (const dest of result) {
             const modes = getValidModes(
-              area,
+              dest,
               carMode,
               effectivePublicModes,
               homeStationCoords ?? undefined,
@@ -752,41 +796,76 @@ export default function Destinations() {
               homeStationTransportZoneId,
               ferryTemporal,
             );
-            const estimate = getOriginAwareTransportEstimate(
-              area,
+            // KAI-275 follow-up: zero-ORS discovery means provider-route car
+            // estimates are absent; fall back to the bounded SafeGround
+            // estimate (same authority as day cards / Home match cards /
+            // ranking / detail) for the card's one-way minutes + mode.
+            // Boso-class long-haul stays undefined and the card honestly
+            // shows no time; Hakone-class shows its ~ time. The canonical
+            // estimate (.estimate) remains the gateway/wards source.
+            const canonicalEstimate = getOriginAwareTransportEstimate(
+              dest,
               { homeStationCoords, ferryTemporal },
               modes,
             );
-            weekendTravelById.set(area.id, {
-              oneWayMinutes: estimate
+            const fallbackEstimate = getDayTripTravelDurationEvidence(
+              dest,
+              {
+                homeStationCoords,
+                originZoneId: homeStationTransportZoneId,
+                ferryTemporal,
+              },
+              modes,
+            ).estimate;
+            const travelEstimate =
+              canonicalEstimate ?? fallbackEstimate ?? null;
+            weekendTravelById.set(dest.id, {
+              oneWayMinutes: travelEstimate
                 ? Math.round(
-                    (estimate.timeRange[0] + estimate.timeRange[1]) / 2,
+                    (travelEstimate.timeRange[0] +
+                      travelEstimate.timeRange[1]) /
+                      2,
                   )
                 : undefined,
-              bestMode: estimate?.mode,
-              estimate: estimate ?? undefined,
+              bestMode: travelEstimate?.mode,
+              estimate: canonicalEstimate ?? undefined,
             });
           }
         }
 
-        // Weekend-aware "recommended" ranking (matches the Home pipeline):
-        // catalog score + weekend travel/capacity deltas. The ward group
-        // then ranks as its best member plus the bounded diversity bonus
-        // instead of being buried at a plain catalog-score position.
+        // Weekend-aware "recommended" ranking for AREAS (catalog score +
+        // weekend travel/capacity deltas). Explore-specific duration
+        // awareness: a long journey is penalized fully for 2D1N but softened
+        // for 3D2N (a longer trip tolerates more travel). Destinations
+        // beyond the bounded deterministic estimate have no minutes and
+        // rank on catalog score — browseable, never top-boosted, never
+        // hidden. Child POIs and standalone places sort on catalog score
+        // (below the ranked areas via the areas-first partition).
         if (sortBy === "recommended") {
-          for (const area of result) {
+          for (const area of consolidated.areas) {
             const base = scoreForCatalog(area, catalogContext);
             let delta = 0;
             const minutes = weekendTravelById.get(area.id)?.oneWayMinutes;
             if (minutes !== undefined) {
-              delta += weekendTravelScoreDelta(
-                evaluateWeekendTravelFit(minutes, {
-                  overnightWorthy: hasOvernightWorthyWeekendSemantics(
-                    area,
-                    allDestinations,
-                  ),
-                }),
-              );
+              const fit = evaluateWeekendTravelFit(minutes, {
+                overnightWorthy: hasOvernightWorthyWeekendSemantics(
+                  area,
+                  allDestinations,
+                ),
+              });
+              let travelDelta = weekendTravelScoreDelta(fit);
+              const isLongJourney =
+                minutes > WEEKEND_TRAVEL_POLICY.STRONG_MAX_MINUTES;
+              if (isLongJourney && getTripDays(tripDuration) >= 3) {
+                travelDelta *= EXPLORE_OVERNIGHT_3D2N_TRAVEL_SOFTEN;
+              }
+              delta += travelDelta;
+            } else if (getTripDays(tripDuration) < 3) {
+              // No deterministic minutes during discovery: this is a long-haul
+              // destination beyond the bounded envelope. For a 2D1N weekend it
+              // is a poor fit — small penalty, still browseable. For 3D2N+ the
+              // same journey is acceptable and carries no penalty.
+              delta += EXPLORE_OVERNIGHT_UNMEASURED_2D1N_PENALTY;
             }
             if (
               evaluateWeekendCapacity(area, allDestinations, tripDuration)
@@ -848,6 +927,12 @@ export default function Destinations() {
             const memberIdSet = new Set(memberIds);
             const remaining = result.filter((d) => !memberIdSet.has(d.id));
             result = [group, ...remaining];
+            // The consolidation model stays AREAS-only (the grid keeps the
+            // full browse set; the area list drives summaries + ranking).
+            const wardGroupedAreas = [
+              group,
+              ...consolidated.areas.filter((d) => !memberIdSet.has(d.id)),
+            ];
 
             // The group ranks as its best member plus the bounded bonus,
             // sized by the unique ward count, never the raw hub count.
@@ -869,9 +954,9 @@ export default function Destinations() {
             }
 
             overnightConsolidation = {
-              areas: result,
+              areas: wardGroupedAreas,
               placeCountById: new Map(
-                result.map((area) => [
+                wardGroupedAreas.map((area) => [
                   area.id,
                   area.id === TOKYO_WARDS_GROUP_ID
                     ? seenPlaces.size
@@ -880,7 +965,7 @@ export default function Destinations() {
               ),
               capacityMinutesById: consolidated.capacityMinutesById,
               kindById: new Map(
-                result.map((area) => [
+                wardGroupedAreas.map((area) => [
                   area.id,
                   area.id === TOKYO_WARDS_GROUP_ID
                     ? "trip_area"
@@ -1048,6 +1133,21 @@ export default function Destinations() {
       exploreSortMetrics,
       recommendedSortScoreById,
     );
+    // Areas-first partition under the overnight recommended sort: hub/area
+    // cards lead the grid (each with its weekend-aware score), followed by
+    // their child POIs and standalone places (catalog-scored). Both tiers
+    // are browseable; the partition only controls ordering, never presence.
+    if (
+      sortBy === "recommended" &&
+      overnightConsolidation &&
+      overnightConsolidation.areas.length > 0
+    ) {
+      const areaIdSet = new Set(overnightConsolidation.areas.map((a) => a.id));
+      result = [
+        ...result.filter((d) => areaIdSet.has(d.id)),
+        ...result.filter((d) => !areaIdSet.has(d.id)),
+      ];
+    }
 
     return {
       destinations: result,
@@ -1064,6 +1164,7 @@ export default function Destinations() {
     sortPreparationPending,
     carMode,
     publicModes,
+    resolvedPublicModes,
     partySize,
     budgetTier,
     tripDuration,
@@ -1314,7 +1415,7 @@ export default function Destinations() {
         <DestinationMap
           destinations={filteredAndSortedDestinations}
           carMode={carMode}
-          publicModes={publicModes}
+          publicModes={resolvedPublicModes}
         />
       ) : (
         <>
@@ -1341,12 +1442,10 @@ export default function Destinations() {
                         : undefined
                     }
                     ferryTemporal={ferryTemporal}
-                    // Empty transport preference means "any public
-                    // transport" — cards resolve the fastest verified mode
-                    // instead of showing N/A.
-                    publicModes={
-                      publicModes.length > 0 ? publicModes : ALL_PUBLIC_MODES
-                    }
+                    // KAI-275: the RESOLVED transport universe. Personal-Car-only
+                    // (`[]` + carMode) arrives as [] so cards render car-only;
+                    // the default Any transport arrives as the full mode list.
+                    publicModes={resolvedPublicModes}
                     overnightSummary={
                       overnightResult
                         ? {
