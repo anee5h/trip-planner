@@ -820,7 +820,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 </button>
                 <span
                   data-testid="home-party-size"
-                  className="flex items-center justify-center border-x border-slate-200 text-sm font-extrabold text-slate-900 dark:border-slate-700 dark:text-white"
+                  className="flex items-center justify-center text-sm font-extrabold text-slate-900 dark:text-white"
                 >
                   {partySize}
                 </span>
