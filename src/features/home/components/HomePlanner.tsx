@@ -769,7 +769,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               type="button"
               onClick={() => openMobileField("vibe")}
               data-testid="home-planner-row"
-              className="home-planner-row flex h-11 w-full items-center justify-between px-2 text-left"
+              className="home-planner-row flex h-11 w-full items-center justify-between px-3 text-left"
             >
               <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.vibe")}
@@ -788,7 +788,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               type="button"
               onClick={() => openMobileField("duration")}
               data-testid="home-planner-row"
-              className="home-planner-row flex h-11 w-full items-center justify-between px-2 text-left"
+              className="home-planner-row flex h-11 w-full items-center justify-between px-3 text-left"
             >
               <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.duration")}
@@ -803,7 +803,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </button>
             <div
               data-testid="home-planner-row"
-              className="home-planner-row flex h-11 items-center justify-between px-2"
+              className="home-planner-row flex h-11 items-center justify-between px-3"
             >
               <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.party")}
@@ -854,7 +854,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 type="button"
                 onClick={() => openMobileField(field)}
                 data-testid="home-planner-row"
-                className="home-planner-row flex h-11 w-full items-center justify-between px-2 text-left"
+                className="home-planner-row flex h-11 w-full items-center justify-between px-3 text-left"
               >
                 <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                   {label}
