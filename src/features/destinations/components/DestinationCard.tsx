@@ -687,16 +687,18 @@ export default function DestinationCard({
                       </span>
                     )}
                     {overnightSummary.placeCount > 0 && <span>·</span>}
-                    <span>
-                      {overnightSummary.capacityMinutes >=
-                      overnightCapacity.strongMinutes
-                        ? t("destination.tripAreas.plentyForDays", {
-                            days: overnightCapacity.days,
-                          })
-                        : t("destination.tripAreas.readyForDays", {
-                            days: overnightCapacity.days,
-                          })}
-                    </span>
+                    {overnightSummary.capacityMinutes > 0 && (
+                      <span>
+                        {overnightSummary.capacityMinutes >=
+                        overnightCapacity.strongMinutes
+                          ? t("destination.tripAreas.plentyForDays", {
+                              days: overnightCapacity.days,
+                            })
+                          : t("destination.tripAreas.readyForDays", {
+                              days: overnightCapacity.days,
+                            })}
+                      </span>
+                    )}
                     {overnightSummary.oneWayMinutes !== undefined &&
                       overnightSummary.bestMode && (
                         <span className="text-slate-500">

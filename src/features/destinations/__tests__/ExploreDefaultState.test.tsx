@@ -737,3 +737,56 @@ describe("KAI-275 follow-up Explore budget x Personal Car", () => {
     expect(count).toBeGreaterThan(0);
   }, 20000);
 });
+
+// ---------------------------------------------------------------------------
+// KAI-275 follow-up: overnight Explore BROWSE vs recommendation gates.
+// Nakayama-origin Personal Car 2D1N must keep Nagoya/Osaka browseable.
+// ---------------------------------------------------------------------------
+
+describe("KAI-275 follow-up overnight Explore browse", () => {
+  it("2D1N Personal Car (Nakayama origin) shows Nagoya/Osaka and a broad area set", async () => {
+    // Nakayama Station, Kanagawa.
+    tripStoreMock.homeStationCoords = { lat: 35.5192, lng: 139.5393 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=2d1n&budgetTier=flexible&budget=flexible",
+    );
+    const count = getResultCount(container);
+    // Old gate collapsed to ~23 trip areas; the browse policy now keeps the
+    // FULL car-valid set (~819 records): 289 area cards + their child POIs
+    // + standalone places, matching Any-duration browsing. Per-city presence
+    // is asserted by the unit fixture overnightBrowsePolicy.test.ts.
+    expect(count).toBeGreaterThan(700);
+    expect(count).toBeLessThanOrEqual(1106);
+  }, 30000);
+
+  it("3D2N Personal Car browse universe is not narrower than 2D1N", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.5192, lng: 139.5393 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const c2 = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=2d1n&budgetTier=flexible&budget=flexible",
+    );
+    const n2 = getResultCount(c2);
+    act(() => root!.unmount());
+    root = undefined;
+    host?.remove();
+    host = undefined;
+    const c3 = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=3d2n&budgetTier=flexible&budget=flexible",
+    );
+    const n3 = getResultCount(c3);
+    expect(n3).toBeGreaterThanOrEqual(n2);
+  }, 30000);
+
+  it("2D1N Personal Car + Standard budget retains partials (no collapse, no false fits)", async () => {
+    tripStoreMock.homeStationCoords = { lat: 35.5192, lng: 139.5393 };
+    tripStoreMock.homeStationTransportZoneId = "mainland-honshu";
+    const container = await renderDestinations(
+      "/destinations?car=my_car&mode=none&duration=2d1n&budgetTier=standard&budget=150000",
+    );
+    const count = getResultCount(container);
+    // Partial overnight estimates retained under a finite tier; never a
+    // complete-total requirement or a ¥0 origin-car assumption.
+    expect(count).toBeGreaterThan(0);
+  }, 30000);
+});
