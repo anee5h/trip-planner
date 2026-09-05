@@ -1107,10 +1107,17 @@ export default function DestinationDetails() {
       : "Open access; individual facilities may have separate hours";
   // KAI-335: surface unverified/stale hours honestly on the detail page —
   // the value may be legacy catalogue text without fresh verification.
+  // Only when actual hours data exists: destinations with no hours at all
+  // already show the fallback "Not yet verified — check official
+  // website before visiting" text, so no extra caption is needed.
   const hoursAssessment = getOpeningHoursAssessment(destination);
+  const hasHoursData = Boolean(
+    destination.businessHours || destination.openingHours,
+  );
   const openingHoursUnverified =
-    hoursAssessment.status === "unverified" ||
-    hoursAssessment.status === "stale";
+    hasHoursData &&
+    (hoursAssessment.status === "unverified" ||
+      hoursAssessment.status === "stale");
   const glanceOfficialWebsite =
     destination.placeType === "destination"
       ? destination.officialWebsite
