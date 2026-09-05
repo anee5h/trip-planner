@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-09-05",
+  "verifiedAt": "2026-09-05",
+  "note": "Round 3: official pages + Google Maps corroboration provided by the user on 2026-09-05.",
+  "entries": [
+    {
+      "id": "wakayama-castle",
+      "businessHours": "09:00 - 17:30 (Last entry 17:00; closed Dec 29 - 31)",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "http://wakayamajo.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "hirome-market-kochi",
+      "meta": {
+        "sourceUrl": "https://www.hirome.co.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "nakijin-castle-ruins-motobu",
+      "businessHours": "08:30 - 17:30 (Apr-Sep to 18:30; entry until 30 min before close); open year-round",
+      "officialWebsite": "https://www.nakijin.jp/pagtop/kakuka/somuka/3/3/5/560.html",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "https://www.nakijin.jp/pagtop/kakuka/somuka/3/3/5/560.html",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "enoshima-sea-candle",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "https://enoshima-seacandle.com/opening-hours/",
+        "verifiedAt": "2026-09-05"
+      }
+    }
+  ]
+}

@@ -16,7 +16,6 @@
   "reservationJa": "【予約】事前予約不要です。",
   "parking": "Paid parking on castle grounds",
   "parkingJa": "【駐車場】城内有料駐車場あり。",
-  "openingHours": "09:00 - 17:30 (Last entry 17:00)",
   "openingHoursJa": "09:00 - 17:30 (最終入城 17:00)",
   "coordinates": {
     "lat": 34.2275,
@@ -165,5 +164,10 @@
     "summer": 5,
     "autumn": 10,
     "winter": 4
+  },
+  "businessHours": "09:00 - 17:30 (Last entry 17:00; closed Dec 29 - 31)",
+  "openingHoursMetadata": {
+    "sourceUrl": "http://wakayamajo.jp/",
+    "verifiedAt": "2026-09-05"
   }
 }

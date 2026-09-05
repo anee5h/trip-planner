@@ -14788,7 +14788,6 @@
     "businessHours": "09:00-20:00 (last entry 19:30), seasonal extensions",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
     "municipalityId": "Kanagawa:fujisawa",
     "transportZoneId": "mainland-honshu",
@@ -14847,7 +14846,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
     "wikipediaPageId": 57344375,
-    "wikidataId": "Q11550565"
+    "wikidataId": "Q11550565",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://enoshima-seacandle.com/opening-hours/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "enoshima-shrine",
@@ -126189,7 +126192,6 @@
     "reservationJa": "【予約】事前予約不要です。",
     "parking": "Paid parking on castle grounds",
     "parkingJa": "【駐車場】城内有料駐車場あり。",
-    "openingHours": "09:00 - 17:30 (Last entry 17:00)",
     "openingHoursJa": "09:00 - 17:30 (最終入城 17:00)",
     "coordinates": {
       "lat": 34.2275,
@@ -126342,6 +126344,11 @@
       "summer": 5,
       "autumn": 10,
       "winter": 4
+    },
+    "businessHours": "09:00 - 17:30 (Last entry 17:00; closed Dec 29 - 31)",
+    "openingHoursMetadata": {
+      "sourceUrl": "http://wakayamajo.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -129984,7 +129991,6 @@
     "notesJa": "世界遺産の城跡。1月下旬には沖縄で最も早い桜が見られます。",
     "transportZoneId": "okinawa-main",
     "description": "A 14th-century World Heritage fortress of the Hokuzan Kingdom featuring undulating Ryukyu limestone walls snake-like along mountain ridges with sweeping East China Sea ocean views.",
-    "openingHours": "08:30-17:30 (summer to 18:30, entry 30 min before close)",
     "openingHoursJa": "08:30〜17:30（夏季 18:30まで、最終入場は閉園30分前）",
     "durationMetadata": {
       "method": "model",
@@ -130024,6 +130030,12 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "businessHours": "08:30 - 17:30 (Apr-Sep to 18:30; entry until 30 min before close); open year-round",
+    "officialWebsite": "https://www.nakijin.jp/pagtop/kakuka/somuka/3/3/5/560.html",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.nakijin.jp/pagtop/kakuka/somuka/3/3/5/560.html",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -151276,6 +151288,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.hirome.co.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
