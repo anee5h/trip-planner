@@ -199,5 +199,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Tama_Zoological_Park",
   "wikipediaPageId": 14742969,
-  "wikidataId": "Q1413736"
+  "wikidataId": "Q1413736",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tokyo-zoo.net/zoo/tama/",
+    "verifiedAt": "2026-09-05"
+  }
 }

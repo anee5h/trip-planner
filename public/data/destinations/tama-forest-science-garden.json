@@ -133,7 +133,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.hkc.or.jp/eng/",
-  "businessHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+  "businessHours": "09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/TAMA_FOREST_SCIENCE_GARDEN.JPG/1920px-TAMA_FOREST_SCIENCE_GARDEN.JPG",
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -199,5 +199,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Tama_Forest_Science_Garden",
   "wikipediaPageId": 13488787,
-  "wikidataId": "Q5788556"
+  "wikidataId": "Q5788556",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.ffpri.go.jp/tmk/visit/index.html",
+    "verifiedAt": "2026-09-05"
+  }
 }

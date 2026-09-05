@@ -201,5 +201,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Ueno_Zoo",
   "wikipediaPageId": 1015733,
-  "wikidataId": "Q162722"
+  "wikidataId": "Q162722",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tokyo-zoo.net/zoo/ueno/",
+    "verifiedAt": "2026-09-05"
+  }
 }

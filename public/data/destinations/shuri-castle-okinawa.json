@@ -81,7 +81,7 @@
     "max": 5
   },
   "officialWebsite": "https://oki-park.jp/shurijo/",
-  "businessHours": "09:00 - 17:00 (Daily)",
+  "businessHours": "08:30 - 18:30 (seasonal; entry until 30 min before close; see official calendar)",
   "kind": "castle",
   "role": "destination",
   "rating": 4.7,
@@ -209,5 +209,9 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "openingHoursMetadata": {
+    "sourceUrl": "https://oki-park.jp/shurijo/info/15",
+    "verifiedAt": "2026-09-05"
   }
 }

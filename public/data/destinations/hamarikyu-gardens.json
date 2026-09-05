@@ -217,5 +217,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Hama-riky%C5%AB_Gardens",
   "wikipediaPageId": 2774164,
-  "wikidataId": "Q1033333"
+  "wikidataId": "Q1033333",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+    "verifiedAt": "2026-09-05"
+  }
 }

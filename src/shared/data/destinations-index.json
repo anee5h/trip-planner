@@ -413,6 +413,10 @@
       "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.abenoharukas-300.jp/observatory/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -10170,7 +10174,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
     "wikipediaPageId": 49773939,
-    "wikidataId": "Q11405998"
+    "wikidataId": "Q11405998",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.city.chiba.jp/zoo/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "chichibu-city",
@@ -14059,6 +14067,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.enosui.com/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -19916,7 +19928,7 @@
       "max": 11
     },
     "officialWebsite": "https://www.gujokankou.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (historic town); individual facilities have their own hours",
     "municipalityId": "Gifu:gujo",
     "transportMetadata": {
       "method": "legacy-fallback",
@@ -21902,7 +21914,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.ikaho-kankou.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -30822,6 +30834,10 @@
       "basis": "Meitetsu Nagoya → Inuyama is ¥630 ordinary adult one-way; Inuyama Castle's official access page identifies Inuyama Station as the access point followed by the walk to the castle.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://inuyama-castle.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -32714,7 +32730,7 @@
       "max": 6
     },
     "officialWebsite": "https://kanko.city.izu.shizuoka.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (peninsula); individual attractions and facilities have their own hours",
     "municipalityId": "Shizuoka:ito",
     "seasonMetadata": {
       "method": "model",
@@ -34121,7 +34137,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "businessHours": "Open access (street); individual facilities have their own hours",
     "municipalityId": "Miyagi:sendai",
     "crowdMetadata": {
       "method": "unknown",
@@ -41200,7 +41216,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.nikko-kankou.org/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -41819,7 +41835,7 @@
       "max": 6
     },
     "officialWebsite": "https://kiso-magome.com/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (valley); individual attractions have their own hours",
     "municipalityId": "Nagano:kiso",
     "seasonMetadata": {
       "method": "unknown",
@@ -46053,7 +46069,7 @@
       "max": 10
     },
     "officialWebsite": "https://www.nakijin-kankou.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (island); ferry and facility schedules vary",
     "ratingsSchemaVersion": 2,
     "kind": "island",
     "ratingCount": 1780,
@@ -49813,7 +49829,7 @@
       "max": 4
     },
     "officialWebsite": "https://www.hamanakako.or.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (lake); cruise and facility schedules vary",
     "municipalityId": "Shizuoka:hamamatsu",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -52809,7 +52825,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsumoto-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "businessHours": "08:30 - 17:00 (Last admission 16:30; seasonal extensions e.g. GW 08:00-18:00)",
     "municipalityId": "Nagano:matsumoto",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -52873,6 +52889,10 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.matsumoto-castle.jp/info",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -59553,7 +59573,7 @@
       "max": 7
     },
     "officialWebsite": "https://www.bessho-spa.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
     "municipalityId": "Nagano:ueda",
     "imageMetadata": {
       "source": "Unsplash",
@@ -59991,7 +60011,7 @@
       "max": 10
     },
     "officialWebsite": "https://www.naraijuku.org/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (historic town); individual facilities have their own hours",
     "seasonMetadata": {
       "method": "unknown",
       "modelVersion": "season-model-v1",
@@ -60830,7 +60850,7 @@
     "placeType": "destination",
     "areaId": "central-nagoya",
     "officialWebsite": "https://www.nagoyacastle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "businessHours": "09:00 - 16:30 (Last admission 16:00 for Hommaru Palace and Chowokan)",
     "municipalityId": "Aichi:nagoya",
     "durationMetadata": {
       "method": "model",
@@ -60883,6 +60903,10 @@
       "detail": "Canonical arrival Nagoya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.nagoyajo.city.nagoya.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -62554,7 +62578,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "Open access (street); individual shops have their own hours",
     "nearHubs": [
       "kobe-city"
     ],
@@ -72840,7 +72864,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
     "wikipediaPageId": 466728,
-    "wikidataId": "Q1191885"
+    "wikidataId": "Q1191885",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.kaiyukan.com/info/hours/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "osaka-castle",
@@ -81235,6 +81263,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tv-tower.co.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -84714,7 +84746,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://koedo.or.jp/",
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "Open access (riverbank); boat cruise schedule varies",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
@@ -85249,6 +85281,10 @@
       "detail": "Canonical arrival Tokyo Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.env.go.jp/garden/shinjukugyoen/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -87194,7 +87230,7 @@
       "max": 5
     },
     "officialWebsite": "https://oki-park.jp/shurijo/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "08:30 - 18:30 (seasonal; entry until 30 min before close; see official calendar)",
     "kind": "castle",
     "role": "destination",
     "rating": 4.7,
@@ -87324,6 +87360,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://oki-park.jp/shurijo/info/15",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -88427,7 +88467,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 21:00 (Last admission 20:00)",
+    "businessHours": "09:00 - 20:00 (Last admission 19:30)",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
@@ -88489,7 +88529,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
     "wikipediaPageId": 76034188,
-    "wikidataId": "Q11250698"
+    "wikidataId": "Q11250698",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://sunshinecity.jp/aquarium/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "sunshine-city",
@@ -91407,7 +91451,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tama_Zoological_Park",
     "wikipediaPageId": 14742969,
-    "wikidataId": "Q1413736"
+    "wikidataId": "Q1413736",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-zoo.net/zoo/tama/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "tanukikoji-shopping-street",
@@ -91596,7 +91644,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "businessHours": "Open access (arcade); individual shops have their own hours",
     "municipalityId": "Hokkaido:sapporo",
     "comfortMetadata": {
       "method": "model",
@@ -100652,7 +100700,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "10:00 - 20:00 (Last admission 19:30)",
+    "businessHours": "09:00 - 21:45 (General deck last entry 21:15; outdoor deck last entry 21:35; shops B1F/2F until 21:30)",
     "nearHubs": [
       "osaka-city"
     ],
@@ -100716,7 +100764,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
     "wikipediaPageId": 455161,
-    "wikidataId": "Q1148463"
+    "wikidataId": "Q1148463",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tsutenkaku.co.jp/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "ueda-castle-nagano",
@@ -101574,7 +101626,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ueno_Zoo",
     "wikipediaPageId": 1015733,
-    "wikidataId": "Q162722"
+    "wikidataId": "Q162722",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-zoo.net/zoo/ueno/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "uji-city",
@@ -106761,7 +106817,11 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%82%88%E3%81%93%E3%81%AF%E3%81%BE%E5%8B%95%E7%89%A9%E5%9C%92%E3%82%BA%E3%83%BC%E3%83%A9%E3%82%B7%E3%82%A2",
     "wikipediaPageId": 182987,
-    "wikidataId": "Q3576063"
+    "wikidataId": "Q3576063",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/fee.php",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "yokosuka-city",
@@ -108592,7 +108652,7 @@
       "max": 6
     },
     "officialWebsite": "https://www.zushi-kanko.jp/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (coastal town); individual facilities have their own hours",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -110090,7 +110150,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Hama-riky%C5%AB_Gardens",
     "wikipediaPageId": 2774164,
-    "wikidataId": "Q1033333"
+    "wikidataId": "Q1033333",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "nihonbashi",
@@ -111213,7 +111277,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-    "businessHours": "09:00-17:00",
+    "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - Jan 1)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -111281,7 +111345,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Kiyosumi_Garden",
     "wikipediaPageId": 31094915,
-    "wikidataId": "Q4388146"
+    "wikidataId": "Q4388146",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-park.or.jp/park/kiyosumi/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "museum-contemporary-art-tokyo",
@@ -112428,7 +112496,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://visit-sumida.jp/en/",
-    "businessHours": "09:00-17:00, closed Mon",
+    "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Mon)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/In_Mukojima-Hyakkaen_Garden.jpg/1920px-In_Mukojima-Hyakkaen_Garden.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -112502,7 +112570,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Muk%C5%8Djima-Hyakkaen_Garden",
     "wikipediaPageId": 32352328,
-    "wikidataId": "Q7076776"
+    "wikidataId": "Q7076776",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "sumida-river-walk",
@@ -115404,7 +115476,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.hkc.or.jp/eng/",
-    "businessHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+    "businessHours": "09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/TAMA_FOREST_SCIENCE_GARDEN.JPG/1920px-TAMA_FOREST_SCIENCE_GARDEN.JPG",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -115472,7 +115544,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tama_Forest_Science_Garden",
     "wikipediaPageId": 13488787,
-    "wikidataId": "Q5788556"
+    "wikidataId": "Q5788556",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.ffpri.go.jp/tmk/visit/index.html",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "takahata-fudoson",
@@ -116336,8 +116412,8 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "officialWebsite": "https://www.city.hino.lg.jp/",
-    "businessHours": "09:30-17:00 (seasonal)",
+    "officialWebsite": "https://keio-mogusaen.jp/",
+    "businessHours": "09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Mogusaen_st.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -116348,7 +116424,6 @@
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:30-17:00 (seasonal)",
     "openingHoursJa": "09:30-17:00 (seasonal)",
     "municipalityId": "Tokyo:hino",
     "transportMetadata": {
@@ -116411,7 +116486,11 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%99%BE%E8%8D%89%E5%9C%92",
     "wikipediaPageId": 448181,
-    "wikidataId": "Q6631424"
+    "wikidataId": "Q6631424",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://keio-mogusaen.jp/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "jindaiji",
@@ -116855,7 +116934,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
     "wikipediaPageId": 2323853,
-    "wikidataId": "Q606827"
+    "wikidataId": "Q606827",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-park.or.jp/park/jindai/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "kitaro-chaya",
@@ -118621,7 +118704,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://www.showakinen-koen.jp/",
-    "businessHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+    "businessHours": "09:30 - 17:00 (Mar–Oct), 09:30 - 16:30 (Nov–Feb), closed Dec 31 - Jan 1 + February maintenance period; extended hours during festivals (see official calendar)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
     "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -118683,7 +118766,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Showa_Memorial_Park",
     "wikipediaPageId": 5799953,
-    "wikidataId": "Q3915473"
+    "wikidataId": "Q3915473",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.showakinen-koen.jp/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "polar-science-museum",
@@ -120713,7 +120800,7 @@
       "confidence": "low"
     },
     "officialWebsite": "https://shukkeien.jp/en/",
-    "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); closed Dec 29–31.",
+    "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); entry until 30 min before close; closed Dec 29–31",
     "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -120773,6 +120860,10 @@
       "detail": "Canonical arrival Hiroshima Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://shukkeien.jp/en/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -121410,6 +121501,10 @@
       "detail": "Canonical arrival Hiroshima Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.orizurutower.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -122568,7 +122663,6 @@
     "reservationJa": "【予約】事前予約不要です。",
     "parking": "Paid parking at cable car station",
     "parkingJa": "【駐車場】ケーブルカー乗り場近くに有料駐車場あり。",
-    "openingHours": "08:00 - 17:30",
     "openingHoursJa": "08:00 - 17:30",
     "coordinates": {
       "lat": 35.5802,
@@ -122705,7 +122799,12 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%82%98%E6%9D%BE%E5%85%AC%E5%9C%92",
     "wikipediaPageId": 959604,
-    "wikidataId": "Q11387301"
+    "wikidataId": "Q11387301",
+    "businessHours": "09:00 – 18:00 (Mar–Nov); 09:00 – 17:30 (Feb); 09:00 – 17:00 (Dec–Jan); no closed days",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.amanohashidate.jp/spot/kasamatsu/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "koko-en-garden",
@@ -122868,7 +122967,12 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/K%C5%8Dko-en",
     "wikipediaPageId": 18667725,
-    "wikidataId": "Q6426700"
+    "wikidataId": "Q6426700",
+    "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - 30)",
+    "openingHoursMetadata": {
+      "sourceUrl": "http://himeji-machishin.jp/ryokka/kokoen/guidance/index.html",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "engyo-ji-mount-shosha",
@@ -123209,7 +123313,8 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "businessHours": "Open access (castle town); individual facilities have their own hours"
   },
   {
     "id": "genbudo-cave-park",
@@ -123367,6 +123472,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://genbudo-park.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -124621,7 +124730,11 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8E%84%E5%AE%AE%E5%9C%92",
     "wikipediaPageId": 678638,
-    "wikidataId": "Q11572274"
+    "wikidataId": "Q11572274",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.hikoneshi.com/ee5/index.php/sightseeing/articles/genkyuen",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "miho-museum-koka",
@@ -124993,7 +125106,8 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "businessHours": "Open access (street); individual shops have their own hours"
   },
   {
     "id": "kishi-station-tama-cat",
@@ -125474,7 +125588,8 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "businessHours": "Open access (cliffs); observation deck 08:00 - 17:00"
   },
   {
     "id": "sakai-city-museum",
@@ -125871,7 +125986,8 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "businessHours": "Open access (lake); cruise and facility schedules vary"
   },
   {
     "id": "meoto-iwa-wedded-rocks",
@@ -127607,7 +127723,8 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
-    }
+    },
+    "businessHours": "Open access (canal district); boat ride schedules vary"
   },
   {
     "id": "hiei-zan-driveway-observatory",
@@ -127765,6 +127882,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "businessHours": "07:00 – 23:00 (varies by season; see official site)",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.hieizan-way.com/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -128136,6 +128258,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.kuroshioichiba.co.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -128330,7 +128456,8 @@
       "method": "source-verified",
       "confidence": "medium",
       "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
-    }
+    },
+    "businessHours": "Open access (islands); ferry schedule varies by season"
   },
   {
     "id": "kokusai-dori-naha",
@@ -129497,7 +129624,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Okinawa_Churaumi_Aquarium",
     "wikipediaPageId": 1441193,
-    "wikidataId": "Q1445750"
+    "wikidataId": "Q1445750",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://churaumi.okinawa/guide/hour/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -149334,6 +149465,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.city.tokushima.tokushima.jp/multilingual/english_portal/tourism_culture/mt_bizan/ropeway.html",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -149776,6 +149911,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.uzunomichi.jp/usage-guide-uzu-no-michi/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -151786,6 +151925,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.makino.or.jp/multilingual/?lang=en",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -152219,6 +152362,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.city.marugame.lg.jp/page/3065.html",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -153766,6 +153913,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -154370,7 +154521,11 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
     "wikipediaPageId": 87872,
-    "wikidataId": "Q1013448"
+    "wikidataId": "Q1013448",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://okayama-castle.jp/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "kibitsu-shrine",
@@ -158585,7 +158740,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsue_Vogel_Park",
     "wikipediaPageId": 2564482,
-    "wikidataId": "Q6788091"
+    "wikidataId": "Q6788091",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.ichibata.co.jp/vogelpark/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "lafcadio-hearn-memorial-museum",
@@ -161812,7 +161971,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuura_Bridge_With_Fukuura_Island.JPG"
     },
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-11"
+      "sourceUrl": "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
+      "verifiedAt": "2026-09-05"
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -164671,7 +164831,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fujita_Memorial_Garden_in_June_2022_(2).jpg"
     },
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-11"
+      "sourceUrl": "http://www.hirosakipark.or.jp/hujita/",
+      "verifiedAt": "2026-09-05"
     },
     "recommendedVisitHours": {
       "min": 1,
@@ -165817,7 +165978,8 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_tree_and_Mount_Iwate.jpg"
     },
     "openingHoursMetadata": {
-      "verifiedAt": "2026-08-11"
+      "sourceUrl": "https://www.koiwaifarm.com/",
+      "verifiedAt": "2026-09-05"
     },
     "recommendedVisitHours": {
       "min": 3,
@@ -165875,7 +166037,7 @@
     "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
     "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
     "openingHoursJa": "9:00～17:00（時期により変動）。12月～2月は土日祝のみ営業。",
-    "businessHours": "09:00 - 17:00 (varies by season); winter (Dec–Feb) weekends and holidays only",
+    "businessHours": "09:00 - 17:00 (Last entry 16:00; winter Dec–Feb weekends/holidays only per official calendar)",
     "officialWebsite": "https://www.koiwaifarm.com/",
     "content": {
       "en": {
@@ -169747,7 +169909,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Kenroku-en",
     "wikipediaPageId": 522712,
-    "wikidataId": "Q998239"
+    "wikidataId": "Q998239",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/info.html",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "status": "published",

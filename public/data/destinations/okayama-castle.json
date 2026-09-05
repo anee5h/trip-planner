@@ -232,5 +232,9 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
   "wikipediaPageId": 87872,
-  "wikidataId": "Q1013448"
+  "wikidataId": "Q1013448",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://okayama-castle.jp/",
+    "verifiedAt": "2026-09-05"
+  }
 }

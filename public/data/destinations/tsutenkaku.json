@@ -175,7 +175,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "10:00 - 20:00 (Last admission 19:30)",
+  "businessHours": "09:00 - 21:45 (General deck last entry 21:15; outdoor deck last entry 21:35; shops B1F/2F until 21:30)",
   "nearHubs": ["osaka-city"],
   "notesJa": "【見どころ】通天閣は近畿エリアの代表的な観光スポットで、四季折々の歴史と文化を体感できます。",
   "reservationJa": "【予約】一般参拝・見学は事前予約不要です。",
@@ -235,5 +235,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
   "wikipediaPageId": 455161,
-  "wikidataId": "Q1148463"
+  "wikidataId": "Q1148463",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tsutenkaku.co.jp/",
+    "verifiedAt": "2026-09-05"
+  }
 }

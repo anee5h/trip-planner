@@ -170,7 +170,7 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "09:30 - 21:00 (Last admission 20:00)",
+  "businessHours": "09:00 - 20:00 (Last admission 19:30)",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
   "openingHours": "09:00 - 17:00",
@@ -230,5 +230,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
   "wikipediaPageId": 76034188,
-  "wikidataId": "Q11250698"
+  "wikidataId": "Q11250698",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://sunshinecity.jp/aquarium/",
+    "verifiedAt": "2026-09-05"
+  }
 }

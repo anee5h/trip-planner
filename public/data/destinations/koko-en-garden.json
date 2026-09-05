@@ -149,5 +149,10 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/K%C5%8Dko-en",
   "wikipediaPageId": 18667725,
-  "wikidataId": "Q6426700"
+  "wikidataId": "Q6426700",
+  "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - 30)",
+  "openingHoursMetadata": {
+    "sourceUrl": "http://himeji-machishin.jp/ryokka/kokoen/guidance/index.html",
+    "verifiedAt": "2026-09-05"
+  }
 }

@@ -126,8 +126,8 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "officialWebsite": "https://www.city.hino.lg.jp/",
-  "businessHours": "09:30-17:00 (seasonal)",
+  "officialWebsite": "https://keio-mogusaen.jp/",
+  "businessHours": "09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar)",
   "image": "https://upload.wikimedia.org/wikipedia/commons/7/77/Mogusaen_st.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -138,7 +138,6 @@
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "09:30-17:00 (seasonal)",
   "openingHoursJa": "09:30-17:00 (seasonal)",
   "municipalityId": "Tokyo:hino",
   "transportMetadata": {
@@ -199,5 +198,9 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%99%BE%E8%8D%89%E5%9C%92",
   "wikipediaPageId": 448181,
-  "wikidataId": "Q6631424"
+  "wikidataId": "Q6631424",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://keio-mogusaen.jp/",
+    "verifiedAt": "2026-09-05"
+  }
 }
