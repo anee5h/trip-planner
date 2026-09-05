@@ -1,0 +1,1734 @@
+{
+  "generatedFrom": "src/shared/data/destinations-index.json",
+  "count": 216,
+  "records": [
+    {
+      "id": "akasaka-minato",
+      "name": "Akasaka (Minato)",
+      "nameJa": "赤坂",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://visit-minato-city.tokyo.jp/"
+    },
+    {
+      "id": "akihabara-chiyoda",
+      "name": "Akihabara (Chiyoda)",
+      "nameJa": "秋葉原",
+      "kind": "(none)",
+      "hours": "10:00-20:00 (varies by shop)",
+      "website": "https://visit-chiyoda.tokyo.jp/"
+    },
+    {
+      "id": "ameya-yokocho",
+      "name": "Ameya-Yokocho",
+      "nameJa": "アメ横",
+      "kind": "shopping",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.ameyoko.net/"
+    },
+    {
+      "id": "arakurayama-sengen-park-yamanashi",
+      "name": "Arakurayama Sengen Park & Chureito Pagoda",
+      "nameJa": "新倉山浅間公園・忠霊塔",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.fujiyoshida.net/spot/11"
+    },
+    {
+      "id": "art-tower-mito",
+      "name": "Art Tower Mito",
+      "nameJa": "水戸芸術館",
+      "kind": "(none)",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.arttowermito.or.jp/"
+    },
+    {
+      "id": "asakusa-taito",
+      "name": "Asakusa (Taito)",
+      "nameJa": "浅草",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.taito-city.tokyo.jp/"
+    },
+    {
+      "id": "ashikaga-flower-park-tochigi",
+      "name": "Ashikaga Flower Park Wisteria",
+      "nameJa": "足利フラワーパーク",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.ashikaga.co.jp/"
+    },
+    {
+      "id": "asuka-fujiwara-nara",
+      "name": "Ancient Capitals of Asuka and Fujiwara",
+      "nameJa": "飛鳥・藤原の宮都",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://asukamura.jp/"
+    },
+    {
+      "id": "awa-odori-kaikan",
+      "name": "Awa Odori Kaikan",
+      "nameJa": "阿波おどり会館",
+      "kind": "museum",
+      "hours": "09:00–20:00; closed Dec 28–Jan 1 and on the 2nd Wednesday of Feb, Jun, Sep, and Dec (next ",
+      "website": "https://www.awaodori-kaikan.jp/"
+    },
+    {
+      "id": "bansuiso-matsuyama",
+      "name": "Bansuiso",
+      "nameJa": "萬翠荘",
+      "kind": "museum",
+      "hours": "09:00–18:00; closed Mondays (open on public holidays; exhibition schedules may change)",
+      "website": "https://www.bansuisou.org/"
+    },
+    {
+      "id": "boso-no-mura",
+      "name": "Boso-no-Mura",
+      "nameJa": "千葉県立房総のむら",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.chiba-muse.or.jp/MURA/"
+    },
+    {
+      "id": "byodoin-temple",
+      "name": "Byodoin Temple",
+      "nameJa": "平等院",
+      "kind": "temple",
+      "hours": "08:30 - 17:30 (Last entry 17:15)",
+      "website": "https://www.byodoin.or.jp/en/"
+    },
+    {
+      "id": "chiba-city-folk-museum",
+      "name": "Chiba City Folk Museum",
+      "nameJa": "千葉市立郷土博物館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.city.chiba.jp/kyoiku/shogaigakushu/bunkazai/kyodo/kyodo_top.html"
+    },
+    {
+      "id": "chiba-city-museum-of-art",
+      "name": "Chiba City Museum of Art",
+      "nameJa": "千葉市美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.ccma-net.jp/"
+    },
+    {
+      "id": "chiba-port-tower",
+      "name": "Chiba Port Tower",
+      "nameJa": "千葉ポートタワー",
+      "kind": "(none)",
+      "hours": "09:00-21:00 (Jun-Sep), 09:00-19:00/20:00 (Oct-May); last entry 30 min before close",
+      "website": "https://chiba-porttower.com/"
+    },
+    {
+      "id": "chiba-sawara",
+      "name": "Sawara",
+      "nameJa": "佐原（小江戸）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.city.katori.lg.jp/"
+    },
+    {
+      "id": "chiba-shrine",
+      "name": "Chiba Shrine",
+      "nameJa": "千葉神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://www.chibajinja.com/"
+    },
+    {
+      "id": "chogosonshi-ji-temple",
+      "name": "Chogosonshi-ji Tiger Temple",
+      "nameJa": "朝護孫子寺",
+      "kind": "temple",
+      "hours": "09:00 - 17:00",
+      "website": "https://www.sigisan.or.jp/"
+    },
+    {
+      "id": "cup-noodles-museum-yokohama",
+      "name": "Cup Noodles Museum Yokohama",
+      "nameJa": "カップヌードルミュージアム 横浜",
+      "kind": "(none)",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.cupnoodles-museum.jp/ja/yokohama/"
+    },
+    {
+      "id": "cupnoodles-museum-osaka-ikeda",
+      "name": "CupNoodles Museum Osaka Ikeda",
+      "nameJa": "カップヌードルミュージアム 大阪池田",
+      "kind": "museum",
+      "hours": "09:30 - 16:30 (Last entry 15:30)",
+      "website": "https://www.cupnoodles-museum.jp/en/osaka_ikeda/"
+    },
+    {
+      "id": "danjo-garan-koyasan",
+      "name": "Danjo Garan Sacred Temple Complex",
+      "nameJa": "高野山 壇上伽藍",
+      "kind": "temple",
+      "hours": "08:30 - 17:00",
+      "website": "https://www.koyasan.or.jp/en/"
+    },
+    {
+      "id": "dotonbori",
+      "name": "Dotonbori",
+      "nameJa": "道頓堀",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.dotonbori.or.jp/en/"
+    },
+    {
+      "id": "edo-castle-tokyo",
+      "name": "Edo Castle Ruins (Imperial Palace)",
+      "nameJa": "江戸城跡（皇居東御苑）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://sento.kunaicho.go.jp/Edo/"
+    },
+    {
+      "id": "ehime-art-museum",
+      "name": "Ehime Prefectural Museum of Art",
+      "nameJa": "愛媛県美術館",
+      "kind": "museum",
+      "hours": "09:40–18:00 (last admission 17:30); closed Mondays, except the first Monday of each month ",
+      "website": "https://www.ehime-art.jp/en/guide"
+    },
+    {
+      "id": "engakuji",
+      "name": "Engakuji",
+      "nameJa": "円覚寺",
+      "kind": "temple",
+      "hours": "08:30 - 16:30 (Last admission 16:00), Dec-Feb 08:30 - 16:00",
+      "website": "http://www.engakuji.or.jp"
+    },
+    {
+      "id": "engyo-ji-mount-shosha",
+      "name": "Engyo-ji Temple Mount Shosha",
+      "nameJa": "書寫山圓教寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00",
+      "website": "http://www.shosha.or.jp/"
+    },
+    {
+      "id": "enoshima-sea-candle",
+      "name": "Enoshima Sea Candle",
+      "nameJa": "江の島シーキャンドル",
+      "kind": "tower",
+      "hours": "09:00-20:00 (last entry 19:30), seasonal extensions",
+      "website": "https://enoshima-seacandle.com"
+    },
+    {
+      "id": "enoshima-shrine",
+      "name": "Enoshima Shrine",
+      "nameJa": "江島神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "http://enoshimajinja.or.jp/"
+    },
+    {
+      "id": "enryaku-ji-mount-hiei",
+      "name": "Enryaku-ji Mount Hiei Monastery",
+      "nameJa": "比叡山延暦寺",
+      "kind": "temple",
+      "hours": "08:30 - 16:30",
+      "website": "https://www.hieizan.or.jp/en/"
+    },
+    {
+      "id": "former-hokkaido-government-office",
+      "name": "Former Hokkaido Government Office",
+      "nameJa": "北海道庁旧本庁舎",
+      "kind": "museum",
+      "hours": "08:45-21:00 (reopened 2025-07-25; entry fee 300 JPY)",
+      "website": "http://www.pref.hokkaido.lg.jp/sm/sum/sk/akarenga.htm"
+    },
+    {
+      "id": "fujiko-f-fujio-museum",
+      "name": "Fujiko F. Fujio Museum",
+      "nameJa": "藤子・F・不二雄ミュージアム",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://fujiko-museum.com"
+    },
+    {
+      "id": "fukui",
+      "name": "Fukui City",
+      "nameJa": "福井市",
+      "kind": "city",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.fukuikankou.jp/"
+    },
+    {
+      "id": "geibikei-gorge-iwate",
+      "name": "Geibikei Gorge",
+      "nameJa": "猊鼻渓",
+      "kind": "(none)",
+      "hours": "08:30 - 16:00 (Apr 1–Nov 5) / 09:30 - 15:00 (Nov 21–Mar 31); open year-round",
+      "website": "https://www.geibikei.co.jp/"
+    },
+    {
+      "id": "gessho-ji-temple-matsue",
+      "name": "Gessho-ji Temple",
+      "nameJa": "月照寺",
+      "kind": "temple",
+      "hours": "10:00–16:00 (last entry 15:30) Jan–May & Jul–Dec; June 8:30–17:30 (last entry 17:00); open",
+      "website": "https://gesshoji-matsue.com/"
+    },
+    {
+      "id": "ghibli-museum",
+      "name": "Ghibli Museum",
+      "nameJa": "三鷹の森ジブリ美術館",
+      "kind": "(none)",
+      "hours": "10:00-18:00, closed Tuesdays (reservation-only)",
+      "website": "https://www.ghibli-museum.jp/"
+    },
+    {
+      "id": "gifu-castle-gifu",
+      "name": "Gifu Castle (Mt. Kinka)",
+      "nameJa": "岐阜城（金華山）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://www.city.gifu.lg.jp/kanko/gifucastle/"
+    },
+    {
+      "id": "ginkaku-ji",
+      "name": "Ginkaku-ji",
+      "nameJa": "慈照寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Dec-Feb: 09:00 - 16:30)",
+      "website": "https://www.shokoku-ji.jp/ginkakuji/"
+    },
+    {
+      "id": "ginza-urban",
+      "name": "Ginza",
+      "nameJa": "銀座",
+      "kind": "(none)",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.ginza.jp/"
+    },
+    {
+      "id": "gotoku-ji",
+      "name": "Gotoku-ji",
+      "nameJa": "豪徳寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.city.setagaya.lg.jp/"
+    },
+    {
+      "id": "gyokudo-art-museum",
+      "name": "Gyokudo Art Museum",
+      "nameJa": "玉堂美術館",
+      "kind": "museum",
+      "hours": "09:30-17:00, closed Mon",
+      "website": "https://www.omekanko.gr.jp/"
+    },
+    {
+      "id": "hachioji-castle-tokyo",
+      "name": "Hachioji Castle Ruins (Mount Castle)",
+      "nameJa": "八王子城跡",
+      "kind": "castle",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html"
+    },
+    {
+      "id": "hakkeijima",
+      "name": "Hakkeijima Sea Paradise",
+      "nameJa": "横浜・八景島シーパラダイス",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.seaparadise.co.jp/"
+    },
+    {
+      "id": "harry-potter-studio",
+      "name": "Harry Potter Studio",
+      "nameJa": "ワーナー ブラザース スタジオツアー東京 - ハリー・ポッター",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.wbstudiotour.jp/"
+    },
+    {
+      "id": "hasedera",
+      "name": "Hasedera",
+      "nameJa": "長谷寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.hasedera.jp/"
+    },
+    {
+      "id": "hayashibara-museum-of-art",
+      "name": "Hayashibara Museum of Art",
+      "nameJa": "林原美術館",
+      "kind": "museum",
+      "hours": "10:00–17:00 (last entry 16:30); closed Mondays (or following day if Monday is a holiday), ",
+      "website": "https://www.hayashibara-museumofart.jp/"
+    },
+    {
+      "id": "heian-jingu",
+      "name": "Heian Jingu",
+      "nameJa": "平安神宮",
+      "kind": "shrine",
+      "hours": "06:00 - 17:30 (Garden 08:30 - 17:00)",
+      "website": "http://www.heianjingu.or.jp/"
+    },
+    {
+      "id": "hijikata-toshizo-museum",
+      "name": "Hijikata Toshizo Museum",
+      "nameJa": "土方歳三資料館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.city.hino.lg.jp/"
+    },
+    {
+      "id": "hikone-castle-shiga",
+      "name": "Hikone Castle (National Treasure)",
+      "nameJa": "彦根城（国宝）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://hikonecastle.com/"
+    },
+    {
+      "id": "himeji-castle",
+      "name": "Himeji Castle (White Heron Castle)",
+      "nameJa": "姫路城（白鷺城）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:00)",
+      "website": "https://www.himejicastle.jp/en/"
+    },
+    {
+      "id": "hiraizumi-chusonji-iwate",
+      "name": "Hiraizumi – Temples, Gardens and Archaeological Sites Representing the Buddhist Pure Land",
+      "nameJa": "平泉―仏国土（浄土）を表す建築・庭園及び考古学的遺跡群―",
+      "kind": "(none)",
+      "hours": "08:30 - 17:00 (Mar 1–Nov 3) / 08:30 - 16:30 (winter); open year-round",
+      "website": "https://www.chusonji.or.jp/"
+    },
+    {
+      "id": "hirome-market-kochi",
+      "name": "Hirome Ichiba",
+      "nameJa": "ひろめ市場",
+      "kind": "market",
+      "hours": "10:00–23:00 Monday–Saturday; 09:00–23:00 Sunday (individual vendors vary)",
+      "website": "https://www.hirome.co.jp/"
+    },
+    {
+      "id": "hiroshima-museum-art",
+      "name": "Hiroshima Museum of Art",
+      "nameJa": "ひろしま美術館",
+      "kind": "museum",
+      "hours": "09:00–17:00, last entry 16:30; closed Mondays (open on holiday Mondays, closed following w",
+      "website": "https://www.hiroshima-museum.jp/en/"
+    },
+    {
+      "id": "hokkaido-jingu",
+      "name": "Hokkaido Jingu",
+      "nameJa": "北海道神宮",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "http://www.hokkaidojingu.or.jp/"
+    },
+    {
+      "id": "hokkaido-museum-of-modern-art",
+      "name": "Hokkaido Museum of Modern Art",
+      "nameJa": "北海道立近代美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.dokyoi.pref.hokkaido.lg.jp/hk/knb/"
+    },
+    {
+      "id": "hokki-ji-pagoda",
+      "name": "Hokki-ji Three-Story Pagoda",
+      "nameJa": "法起寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last entry 16:30)",
+      "website": "https://www.horyuji.or.jp/hokkiji/"
+    },
+    {
+      "id": "hokokuji",
+      "name": "Hokokuji",
+      "nameJa": "報国寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://houkokuji.or.jp/"
+    },
+    {
+      "id": "honmaru-palace",
+      "name": "Honmaru Palace",
+      "nameJa": "本丸御殿",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.nagoyajo.city.nagoya.jp/"
+    },
+    {
+      "id": "horyuji-temple-nara",
+      "name": "Buddhist Monuments in the Horyu-ji Area",
+      "nameJa": "法隆寺地域の仏教建造物",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "http://www.horyuji.or.jp/"
+    },
+    {
+      "id": "ibaraki-hitachi-seaside-park",
+      "name": "Hitachi Seaside Park",
+      "nameJa": "国営ひたち海浜公園",
+      "kind": "(none)",
+      "hours": "09:30-17:00 (Jul 21-Aug 31 to 18:00; Nov-Feb 16:30), closed Tue",
+      "website": "https://hitachikaihin.jp/"
+    },
+    {
+      "id": "ikebukuro-toshima",
+      "name": "Ikebukuro (Toshima)",
+      "nameJa": "池袋",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.toshima-kanko.jp/"
+    },
+    {
+      "id": "ikuno-silver-mine",
+      "name": "Ikuno Historic Silver Mine",
+      "nameJa": "生野銀山",
+      "kind": "museum",
+      "hours": "09:10 - 16:50 (Last entry 16:10)",
+      "website": "https://www.ikuno-ginzan.co.jp/"
+    },
+    {
+      "id": "ikuta-ryokuchi",
+      "name": "Ikuta Ryokuchi",
+      "nameJa": "生田緑地",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.ikutaryokuti.jp/"
+    },
+    {
+      "id": "inamuragasaki",
+      "name": "Inamuragasaki",
+      "nameJa": "稲村ヶ崎",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.trip-kamakura.com/"
+    },
+    {
+      "id": "ise-grand-shrine",
+      "name": "Ise Grand Shrine (Ise Jingu)",
+      "nameJa": "伊勢神宮（内宮・外宮）",
+      "kind": "(none)",
+      "hours": "05:00 - 18:00 (Varies seasonally)",
+      "website": "https://www.isejingu.or.jp/"
+    },
+    {
+      "id": "iwatsuki-ningyo-museum",
+      "name": "Iwatsuki Ningyo Museum",
+      "nameJa": "岩槻人形博物館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://ningyo-muse.jp/"
+    },
+    {
+      "id": "jochi-ji",
+      "name": "Jochi-ji",
+      "nameJa": "浄智寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.city.kamakura.kanagawa.jp/"
+    },
+    {
+      "id": "joypolis",
+      "name": "Joypolis Odaiba",
+      "nameJa": "東京ジョイポリス（お台場）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://tokyo-joypolis.com/"
+    },
+    {
+      "id": "kairakuen-mito",
+      "name": "Kairakuen Garden",
+      "nameJa": "偕楽園",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://ibaraki-kairakuen.jp/"
+    },
+    {
+      "id": "kakegawa-castle-shizuoka",
+      "name": "Kakegawa Castle & Ninomaru Goten",
+      "nameJa": "掛川城・二の丸御殿",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://kakegawajo.com/"
+    },
+    {
+      "id": "kamakurakokomae-station",
+      "name": "Kamakurakokomae Station",
+      "nameJa": "鎌倉高校前駅",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.enoden.co.jp/train/station/kamakurakokomae/"
+    },
+    {
+      "id": "kanayama-shrine",
+      "name": "Kanayama Shrine",
+      "nameJa": "金山神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://www.kanayama-jinja.or.jp/"
+    },
+    {
+      "id": "kanazawa",
+      "name": "Kanazawa City",
+      "nameJa": "金沢市",
+      "kind": "city",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.kanazawa-kankoukyoukai.or.jp/"
+    },
+    {
+      "id": "kanazawa-castle-ishikawa",
+      "name": "Kanazawa Castle Park",
+      "nameJa": "金沢城公園",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://www.pref.ishikawa.jp/kanko/castle/"
+    },
+    {
+      "id": "kannai-yokohama",
+      "name": "Kannai",
+      "nameJa": "関内",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.welcome.city.yokohama.jp/"
+    },
+    {
+      "id": "kashiya-yokocho",
+      "name": "Kashiya Yokocho",
+      "nameJa": "菓子屋横丁",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://koedo.or.jp/"
+    },
+    {
+      "id": "kasori-shell-mounds",
+      "name": "Kasori Shell Mounds",
+      "nameJa": "加曽利貝塚",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.city.chiba.jp/kasori/infomation/overview/kasori_index.html"
+    },
+    {
+      "id": "katori-jingu",
+      "name": "Katori Jingu",
+      "nameJa": "香取神宮",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "http://www.katori-jingu.or.jp/"
+    },
+    {
+      "id": "kawagoe-castle-saitama",
+      "name": "Kawagoe Castle Honmaru Goten",
+      "nameJa": "川越城本丸御殿",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://koedo.or.jp/"
+    },
+    {
+      "id": "kawagoe-festival-museum",
+      "name": "Kawagoe Festival Museum",
+      "nameJa": "川越まつり会館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://kawagoematsuri.jp/matsurimuseum/"
+    },
+    {
+      "id": "kawagoe-hikawa-shrine",
+      "name": "Kawagoe Hikawa Shrine",
+      "nameJa": "氷川神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://www.kawagoehikawa.jp/"
+    },
+    {
+      "id": "kawasaki-daishi",
+      "name": "Kawasaki Daishi",
+      "nameJa": "平間寺",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://kawasakidaishi.com/"
+    },
+    {
+      "id": "keio-rail-land",
+      "name": "Keio Rail-Land",
+      "nameJa": "京王れーるランド",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.city.hino.lg.jp/"
+    },
+    {
+      "id": "kennin-ji",
+      "name": "Kennin-ji",
+      "nameJa": "建仁寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.kenninji.jp/"
+    },
+    {
+      "id": "kimii-dera-temple",
+      "name": "Kimii-dera Temple",
+      "nameJa": "紀三井寺",
+      "kind": "temple",
+      "hours": "08:00 - 17:00",
+      "website": "https://www.kimiidera.com/"
+    },
+    {
+      "id": "kinkaku-ji",
+      "name": "Kinkaku-ji",
+      "nameJa": "鹿苑寺",
+      "kind": "temple",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.shokoku-ji.jp/en/kinkakuji/"
+    },
+    {
+      "id": "kirin-beer-yokohama-factory",
+      "name": "Kirin Beer Yokohama Factory",
+      "nameJa": "キリンビール横浜工場",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.kirin.co.jp/experience/factory/yokohama/"
+    },
+    {
+      "id": "kishi-station-tama-cat",
+      "name": "Kishi Station Tama Cat Conductor",
+      "nameJa": "貴志駅・たま駅長",
+      "kind": "station",
+      "hours": "10:00-16:00 (duty hours; closed Wed/Thu)",
+      "website": "https://www.wakayama-dentetsu.co.jp/"
+    },
+    {
+      "id": "kita-in",
+      "name": "Kita-in",
+      "nameJa": "喜多院",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.kawagoe.com/kitain/"
+    },
+    {
+      "id": "kitano-ijinkan",
+      "name": "Kitano Ijinkan",
+      "nameJa": "北野異人館（北野異人館街）",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.city.kobe.lg.jp/"
+    },
+    {
+      "id": "kiyotsu-gorge-niigata",
+      "name": "Kiyotsu Gorge Tunnel of Light",
+      "nameJa": "清津峡・光のトンネル",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://nakasato-kiyotsu.com/"
+    },
+    {
+      "id": "kobe-animal-kingdom",
+      "name": "Kobe Animal Kingdom",
+      "nameJa": "神戸どうぶつ王国",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.kobe-oukoku.com/"
+    },
+    {
+      "id": "kobe-harborland",
+      "name": "Kobe Harborland",
+      "nameJa": "神戸ハーバーランド",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.harborland.co.jp/en/"
+    },
+    {
+      "id": "kobe-maritime-museum",
+      "name": "Kobe Maritime Museum",
+      "nameJa": "神戸海洋博物館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.kobe-maritime-museum.com/"
+    },
+    {
+      "id": "kochi-castle",
+      "name": "Kochi Castle",
+      "nameJa": "高知城",
+      "kind": "(none)",
+      "hours": "09:00–17:00 (last admission 16:30); closed Dec 26–Jan 1",
+      "website": "https://kochipark.jp/kochijyo/"
+    },
+    {
+      "id": "kotoku-in-great-buddha",
+      "name": "Kotoku-in Great Buddha",
+      "nameJa": "高徳院",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.kotoku-in.jp/en/"
+    },
+    {
+      "id": "kumano-kodo-koya-wakayama",
+      "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+      "nameJa": "紀伊山地の霊場と参詣道",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.tb-kumano.jp/"
+    },
+    {
+      "id": "kurashiki-museum-of-folkcraft",
+      "name": "Kurashiki Museum of Folkcraft",
+      "nameJa": "倉敷民藝館",
+      "kind": "museum",
+      "hours": "10:00–17:00 (last entry 16:30); closed Mondays (open on holidays; open during GW and Obon)",
+      "website": "https://kurashiki-mingeikan.com/"
+    },
+    {
+      "id": "kyoto-imperial-palace",
+      "name": "Kyoto Imperial Palace",
+      "nameJa": "京都御所",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://sankan.kunaicho.go.jp/guide/kyoto.html"
+    },
+    {
+      "id": "kyoto-international-manga-museum",
+      "name": "Kyoto International Manga Museum",
+      "nameJa": "京都国際マンガミュージアム",
+      "kind": "museum",
+      "hours": "10:00-17:00 (last entry 16:30), closed Wednesdays",
+      "website": "http://www.kyotomm.com/"
+    },
+    {
+      "id": "kyoto-national-museum",
+      "name": "Kyoto National Museum",
+      "nameJa": "京都国立博物館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.kyohaku.go.jp/"
+    },
+    {
+      "id": "kyoto-railway-museum",
+      "name": "Kyoto Railway Museum",
+      "nameJa": "京都鉄道博物館",
+      "kind": "museum",
+      "hours": "10:00-17:00 (last entry 16:30), closed Wednesdays",
+      "website": "https://www.kyotorailwaymuseum.jp/en/"
+    },
+    {
+      "id": "lazona-kawasaki-plaza",
+      "name": "Lazona Kawasaki Plaza",
+      "nameJa": "ラゾーナ川崎プラザ",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.lazona-kawasaki.com"
+    },
+    {
+      "id": "machida-tokyo",
+      "name": "Machida City",
+      "nameJa": "町田市",
+      "kind": "city",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": ""
+    },
+    {
+      "id": "marugame-castle",
+      "name": "Marugame Castle",
+      "nameJa": "丸亀城",
+      "kind": "(none)",
+      "hours": "09:00–16:30 (last entry 16:00); no regular closure, but temporary closures may occur for a",
+      "website": "https://www.city.marugame.lg.jp/site/castle/"
+    },
+    {
+      "id": "marugame-uchiwa-museum",
+      "name": "Marugame Uchiwa Museum",
+      "nameJa": "丸亀うちわミュージアム",
+      "kind": "museum",
+      "hours": "09:30–17:00 (last entry 16:30); closed Wednesdays (open on public holidays, closed the fol",
+      "website": "https://marugameuchiwa.jp/museum"
+    },
+    {
+      "id": "maruoka-castle-fukui",
+      "name": "Maruoka Castle (Original Keep 1576)",
+      "nameJa": "丸岡城（現存天守1576）",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://maruoka-castle.jp/"
+    },
+    {
+      "id": "miho-museum-koka",
+      "name": "Miho Museum Koka",
+      "nameJa": "MIHO MUSEUM",
+      "kind": "museum",
+      "hours": "10:00 - 17:00 (Last entry 16:00)",
+      "website": "https://www.miho.web.id/en/"
+    },
+    {
+      "id": "mimuroto-ji-temple",
+      "name": "Mimuroto-ji Hydrangea Temple",
+      "nameJa": "三室戸寺",
+      "kind": "temple",
+      "hours": "08:30 - 16:30 (Last entry 16:00)",
+      "website": "https://www.mimurotoji.com/"
+    },
+    {
+      "id": "minato-mirai-yokohama",
+      "name": "Minato Mirai",
+      "nameJa": "みなとみらい",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://minatomirai21.com/"
+    },
+    {
+      "id": "mirai-tower-nagoya",
+      "name": "Chubu Electric Power MIRAI TOWER",
+      "nameJa": "中部電力 MIRAI TOWER",
+      "kind": "(none)",
+      "hours": "10:00 - 21:00 (Last admission 20:30)",
+      "website": "https://www.nagoya-tv-tower.co.jp/"
+    },
+    {
+      "id": "miraikan",
+      "name": "Miraikan",
+      "nameJa": "日本科学未来館",
+      "kind": "museum",
+      "hours": "10:00 - 17:00 (Closed Tuesdays)",
+      "website": "http://www.miraikan.jst.go.jp/index.html"
+    },
+    {
+      "id": "mito-castle-ibaraki",
+      "name": "Mito Castle Ruins & Kodokan",
+      "nameJa": "水戸城跡と弘道館",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://www.mitokoumon.com/"
+    },
+    {
+      "id": "mozufuruichi-kofun-osaka",
+      "name": "Mozu-Furuichi Kofun Group: Mounded Tombs of Ancient Japan",
+      "nameJa": "百舌鳥・古市古墳群-古代日本の墳墓群-",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.mozufuruichi-kofun.jp/"
+    },
+    {
+      "id": "musashi-ichinomiya-hikawa-shrine",
+      "name": "Musashi Ichinomiya Hikawa Shrine",
+      "nameJa": "武蔵一宮氷川神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://musashiichinomiya-hikawa.or.jp/"
+    },
+    {
+      "id": "museum-of-aeronautical-sciences",
+      "name": "Museum of Aeronautical Sciences",
+      "nameJa": "航空科学博物館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.aeromuseum.or.jp/"
+    },
+    {
+      "id": "nago-pineapple-park",
+      "name": "Nago Pineapple Park",
+      "nameJa": "名護パイナップルパーク",
+      "kind": "amusement_park",
+      "hours": "10:00-18:00 (last admission 17:30)",
+      "website": ""
+    },
+    {
+      "id": "nagoya-city-art-museum",
+      "name": "Nagoya City Art Museum",
+      "nameJa": "名古屋市美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.art-museum.city.nagoya.jp/"
+    },
+    {
+      "id": "nagoya-city-science-museum",
+      "name": "Nagoya City Science Museum",
+      "nameJa": "名古屋市科学館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.ncsm.city.nagoya.jp/"
+    },
+    {
+      "id": "nakijin-castle-ruins-motobu",
+      "name": "Nakijin Castle Ruins",
+      "nameJa": "今帰仁城跡",
+      "kind": "castle",
+      "hours": "08:30-17:30 (summer to 18:30, entry 30 min before close)",
+      "website": ""
+    },
+    {
+      "id": "nanzen-ji",
+      "name": "Nanzen-ji",
+      "nameJa": "南禅寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "http://www.nanzen.net/keidai_nanzenin.html"
+    },
+    {
+      "id": "naoshima-art-island-kagawa",
+      "name": "Naoshima Contemporary Art Island",
+      "nameJa": "直島",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://naoshima.net/"
+    },
+    {
+      "id": "nara-historic",
+      "name": "Historic Monuments of Ancient Nara",
+      "nameJa": "古都奈良の文化財",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://nara-park.com/"
+    },
+    {
+      "id": "nara-park-todaiji",
+      "name": "Historic Nara (Todai-ji Great Buddha)",
+      "nameJa": "奈良公園・東大寺",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "http://www.todaiji.or.jp/"
+    },
+    {
+      "id": "naruto-german-house",
+      "name": "Naruto German House",
+      "nameJa": "鳴門市ドイツ館",
+      "kind": "museum",
+      "hours": "09:30–17:00 (last admission 16:30); closed the 4th Monday (next day if a holiday) and Dec ",
+      "website": "https://doitsukan.com/"
+    },
+    {
+      "id": "national-museum-of-nature-and-science",
+      "name": "National Museum of Nature and Science",
+      "nameJa": "国立科学博物館",
+      "kind": "museum",
+      "hours": "09:00 - 17:00 (Closed Mondays)",
+      "website": "http://www.kahaku.go.jp/"
+    },
+    {
+      "id": "national-museum-western-art-tokyo",
+      "name": "The Architectural Work of Le Corbusier (NMWA Tokyo)",
+      "nameJa": "ル・コルビュジエの建築作品-近代建築運動への顕著な貢献-",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.nmwa.go.jp/"
+    },
+    {
+      "id": "nihon-minka-en",
+      "name": "Nihon Minka-en",
+      "nameJa": "日本民家園",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.nihonminkaen.jp/"
+    },
+    {
+      "id": "nijo-castle-kyoto",
+      "name": "Nijo Castle (Kyoto)",
+      "nameJa": "二条城",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://nijo-jocastle.city.kyoto.lg.jp/"
+    },
+    {
+      "id": "nikko-toshogu-shrine-tochigi",
+      "name": "Shrines and Temples of Nikko (Toshogu & UNESCO Heritage)",
+      "nameJa": "日光の社寺",
+      "kind": "shrine",
+      "hours": "09:00-17:00 (Apr-Oct), 09:00-16:00 (Nov-Mar), last entry 30 min before close",
+      "website": "https://www.toshogu.jp/"
+    },
+    {
+      "id": "ninna-ji",
+      "name": "Ninna-ji",
+      "nameJa": "仁和寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "http://www.ninnaji.or.jp"
+    },
+    {
+      "id": "oarai-marine-tower",
+      "name": "Oarai Marine Tower",
+      "nameJa": "大洗マリンタワー",
+      "kind": "(none)",
+      "hours": "09:00-18:00",
+      "website": "https://oarai-mt.jp/"
+    },
+    {
+      "id": "odaiba-minato",
+      "name": "Odaiba (Minato)",
+      "nameJa": "お台場",
+      "kind": "district",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://tokyo-odaiba.net/"
+    },
+    {
+      "id": "ogasawara-islands-tokyo",
+      "name": "Ogasawara Islands",
+      "nameJa": "小笠原諸島",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.ogasawaramura.tokyo.jp/"
+    },
+    {
+      "id": "ome-railway-park",
+      "name": "Ome Railway Park",
+      "nameJa": "青梅鉄道公園",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.omekanko.gr.jp/"
+    },
+    {
+      "id": "omiya-bonsai-art-museum",
+      "name": "Omiya Bonsai Art Museum",
+      "nameJa": "さいたま市大宮盆栽美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.bonsai-art-museum.jp/"
+    },
+    {
+      "id": "omiya-bonsai-village",
+      "name": "Omiya Bonsai Village",
+      "nameJa": "大宮盆栽村",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://omiyabonsaimura.com/"
+    },
+    {
+      "id": "omiya-railway",
+      "name": "Omiya Railway Museum",
+      "nameJa": "鉄道博物館（大宮）",
+      "kind": "(none)",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.railway-museum.jp/"
+    },
+    {
+      "id": "omoide-yokocho",
+      "name": "Omoide Yokocho",
+      "nameJa": "思い出横丁",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://shinjuku-omoide.com/"
+    },
+    {
+      "id": "orient-museum",
+      "name": "Okayama Orient Museum",
+      "nameJa": "岡山市立オリエント美術館",
+      "kind": "museum",
+      "hours": "09:00–17:00 (last entry 16:30); closed Mondays (or next weekday if Monday is a holiday), D",
+      "website": "https://www.city.okayama.jp/orientmuseum/"
+    },
+    {
+      "id": "osaka-castle",
+      "name": "Osaka Castle (Osaka-jo)",
+      "nameJa": "大阪城",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://www.osakacastle.net/"
+    },
+    {
+      "id": "osaka-museum-of-housing-and-living",
+      "name": "Osaka Museum of Housing and Living",
+      "nameJa": "大阪くらしの今昔館",
+      "kind": "museum",
+      "hours": "10:00-17:00 (last entry 16:30), closed Tuesdays",
+      "website": "https://www.osaka-angenet.jp/konjyakukan/"
+    },
+    {
+      "id": "osaka-station-city",
+      "name": "Osaka Station City",
+      "nameJa": "大阪ステーションシティ",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://osakastationcity.com/"
+    },
+    {
+      "id": "osaki-hachimangu",
+      "name": "Osaki Hachimangu",
+      "nameJa": "大崎八幡宮",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://www.oosaki-hachiman.or.jp/"
+    },
+    {
+      "id": "osu-kannon",
+      "name": "Osu Kannon",
+      "nameJa": "大須観音",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://osu-kannon.jp/"
+    },
+    {
+      "id": "otsuka-museum-of-art-naruto",
+      "name": "Otsuka Museum of Art",
+      "nameJa": "大塚国際美術館",
+      "kind": "museum",
+      "hours": "09:30–17:00 (ticket sales until 16:00); closed Mondays (next day if a holiday)",
+      "website": "https://o-museum.or.jp/"
+    },
+    {
+      "id": "philosopher-s-walk",
+      "name": "Philosopher's Walk",
+      "nameJa": "哲学の道",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://tetsugakunomichi.jp/"
+    },
+    {
+      "id": "play-museum-tachikawa",
+      "name": "PLAY! Museum",
+      "nameJa": "PLAY! MUSEUM（立川）",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.tbt.gr.jp/"
+    },
+    {
+      "id": "renkeiji",
+      "name": "Renkeiji",
+      "nameJa": "蓮馨寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://renkeiji.jp/"
+    },
+    {
+      "id": "roppongi-hills-tokyo-city-view",
+      "name": "Roppongi Hills Observation Deck (Tokyo City View)",
+      "nameJa": "六本木ヒルズ展望台（東京シティビュー）",
+      "kind": "(none)",
+      "hours": "10:00 - 22:00 (Last admission 21:30)",
+      "website": "https://tcv.roppongihills.com/"
+    },
+    {
+      "id": "ryoan-ji",
+      "name": "Ryoan-ji",
+      "nameJa": "龍安寺",
+      "kind": "temple",
+      "hours": "08:00 - 17:00 (Dec-Feb: 08:30 - 16:30)",
+      "website": "https://www.city.kyoto.lg.jp/"
+    },
+    {
+      "id": "ryozen-ji-naruto",
+      "name": "Ryozen-ji",
+      "nameJa": "霊山寺",
+      "kind": "temple",
+      "hours": "07:00–17:00 daily",
+      "website": "https://naruto-tourism.jp/en/spot/15466"
+    },
+    {
+      "id": "ryugado-cave-kochi",
+      "name": "Ryugado Cave",
+      "nameJa": "龍河洞",
+      "kind": "(none)",
+      "hours": "08:30–17:00 final entry (Feb 1–Oct 31); 08:30–16:30 final entry (Nov 1–Jan 31)",
+      "website": "https://ryugadou.or.jp/attraction/sightseeing-course/"
+    },
+    {
+      "id": "ryusendo-cave-iwate",
+      "name": "Ryusendo Cave",
+      "nameJa": "龍泉洞",
+      "kind": "(none)",
+      "hours": "08:30 - 17:00 (May–Sep to 18:00)",
+      "website": "https://www.iwate-ryusendo.jp/"
+    },
+    {
+      "id": "saitama-stadium-2002",
+      "name": "Saitama Stadium 2002",
+      "nameJa": "埼玉スタジアム2002",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.stadium2002.com/"
+    },
+    {
+      "id": "saitama-super-arena",
+      "name": "Saitama Super Arena",
+      "nameJa": "さいたまスーパーアリーナ",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.saitama-arena.co.jp/arena/"
+    },
+    {
+      "id": "sakai-city-museum",
+      "name": "Sakai City Museum & Daisen Kofun View",
+      "nameJa": "堺市博物館・大仙陵古墳",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Last entry 16:30)",
+      "website": "https://www.city.sakai.lg.jp/kanko/hakubutsukan/"
+    },
+    {
+      "id": "sakamoto-ryoma-memorial-museum",
+      "name": "Sakamoto Ryoma Memorial Museum",
+      "nameJa": "高知県立坂本龍馬記念館",
+      "kind": "museum",
+      "hours": "09:00–17:00 (enter by about 16:30); no regular closing days",
+      "website": "https://ryoma-kinenkan.jp/visit/"
+    },
+    {
+      "id": "sanjusangen-do",
+      "name": "Sanjusangen-do",
+      "nameJa": "蓮華王院三十三間堂",
+      "kind": "museum",
+      "hours": "08:30 - 17:00 (Nov-Mar: 09:00 - 16:00)",
+      "website": "https://www.sanjusangendo.jp/"
+    },
+    {
+      "id": "sannai-maruyama-jomon-aomori",
+      "name": "Sannai-Maruyama Site",
+      "nameJa": "三内丸山遺跡",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Jun–Sep to 18:00)",
+      "website": "https://sannaimaruyama.pref.aomori.jp/"
+    },
+    {
+      "id": "sapporo-beer-museum",
+      "name": "Sapporo Beer Museum",
+      "nameJa": "サッポロビール博物館",
+      "kind": "museum",
+      "hours": "11:00 - 18:00 (Closed Mondays)",
+      "website": "https://www.sapporobeer.jp/brewery/s_museum/"
+    },
+    {
+      "id": "sasuke-inari-shrine",
+      "name": "Sasuke Inari Shrine",
+      "nameJa": "佐助稲荷神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://sasukeinari.jp/"
+    },
+    {
+      "id": "sendai-mediatheque",
+      "name": "Sendai Mediatheque",
+      "nameJa": "せんだいメディアテーク",
+      "kind": "museum",
+      "hours": "09:00 - 22:00 (closed 4th Tuesday of the month)",
+      "website": "https://www.smt.jp/"
+    },
+    {
+      "id": "sendai-umino-mori-aquarium",
+      "name": "Sendai Umino-Mori Aquarium",
+      "nameJa": "仙台うみの杜水族館",
+      "kind": "aquarium",
+      "hours": "09:00 - 17:30 (Last admission 17:00)",
+      "website": "https://www.uminomori.jp/umino/"
+    },
+    {
+      "id": "shibuya-sky-shibuya",
+      "name": "Shibuya Sky (Rooftop Observatory)",
+      "nameJa": "渋谷スカイ",
+      "kind": "(none)",
+      "hours": "10:00 - 22:30 (Last admission 21:20)",
+      "website": "https://www.shibuya-scramble-square.com/sky/"
+    },
+    {
+      "id": "shikoku-mura",
+      "name": "Shikoku Mura",
+      "nameJa": "四国村",
+      "kind": "museum",
+      "hours": "09:30–17:00 (last admission 16:30); closed Tuesdays (next day if Tuesday is a national hol",
+      "website": "https://www.shikokumura.or.jp/en/"
+    },
+    {
+      "id": "shin-yokohama-ramen-museum",
+      "name": "Shin-Yokohama Ramen Museum",
+      "nameJa": "新横浜ラーメン博物館",
+      "kind": "(none)",
+      "hours": "11:00 - 21:00 (Weekends from 10:30)",
+      "website": "https://www.raumen.co.jp/"
+    },
+    {
+      "id": "shinsaibashi",
+      "name": "Shinsaibashi",
+      "nameJa": "心斎橋",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.shinsaibashi.or.jp/"
+    },
+    {
+      "id": "shinsekai",
+      "name": "Shinsekai",
+      "nameJa": "新世界 (大阪)",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://shinsekai.osaka/"
+    },
+    {
+      "id": "shinsho-ji",
+      "name": "Shinsho-ji",
+      "nameJa": "成田山新勝寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://www.naritasan.or.jp/"
+    },
+    {
+      "id": "soji-ji-yokohama",
+      "name": "Soji-ji Temple",
+      "nameJa": "總持寺",
+      "kind": "(none)",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "https://sojiji.jp/"
+    },
+    {
+      "id": "sunshine-60-observatory-ikebukuro",
+      "name": "Sunshine 60 Observatory (Tenbou Park)",
+      "nameJa": "サンシャイン60展望台 てんぼうパーク",
+      "kind": "(none)",
+      "hours": "11:00 - 21:00 (Last admission 20:00)",
+      "website": "https://sunshinecity.jp/observatory/"
+    },
+    {
+      "id": "sunshine-city",
+      "name": "Sunshine City",
+      "nameJa": "サンシャインシティ",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://sunshinecity.jp/"
+    },
+    {
+      "id": "takamatsu-art-museum",
+      "name": "Takamatsu Art Museum",
+      "nameJa": "高松市美術館",
+      "kind": "museum",
+      "hours": "09:30–17:00 (last admission 16:30); special exhibitions may run to 19:00 Tue–Sat and holid",
+      "website": "https://www.city.takamatsu.kagawa.jp/museum/takamatsu/english/general_info/info.html"
+    },
+    {
+      "id": "takanawa-gateway-minato",
+      "name": "Takanawa Gateway",
+      "nameJa": "高輪ゲートウェイ",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.takanawagateway-city.com/"
+    },
+    {
+      "id": "takao-599-museum",
+      "name": "Takao 599 Museum",
+      "nameJa": "高尾599ミュージアム",
+      "kind": "museum",
+      "hours": "10:00-16:00, closed Tue",
+      "website": "https://www.hkc.or.jp/eng/"
+    },
+    {
+      "id": "takeda-castle-ruins-hyogo",
+      "name": "Takeda Castle Ruins",
+      "nameJa": "竹田城跡",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.city.asago.hyogo.jp/site/takeda-castle/"
+    },
+    {
+      "id": "takeda-castle-yamanashi",
+      "name": "Tsutsujigasaki Castle (Takeda Shrine)",
+      "nameJa": "武田氏館跡（武田神社）",
+      "kind": "(none)",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://kofu-kanko.jp/"
+    },
+    {
+      "id": "tanabe-museum-matsue",
+      "name": "Tanabe Museum of Art",
+      "nameJa": "田部美術館",
+      "kind": "museum",
+      "hours": "9:00–17:00 (last entry 16:30); closed Mondays (open if Monday is a public holiday); year-e",
+      "website": "https://www.tanabe-museum.or.jp/"
+    },
+    {
+      "id": "taro-okamoto-museum-of-art",
+      "name": "Taro Okamoto Museum of Art",
+      "nameJa": "川崎市岡本太郎美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.taromuseum.jp/"
+    },
+    {
+      "id": "teamlab-borderless-azabudai",
+      "name": "teamLab Borderless",
+      "nameJa": "チームラボボーダレス（麻布台ヒルズ）",
+      "kind": "museum",
+      "hours": "10:00 - 21:00 (Last admission 20:00)",
+      "website": "https://borderless.teamlab.art/jp/"
+    },
+    {
+      "id": "teamlab-planets",
+      "name": "teamLab Planets",
+      "nameJa": "チームラボプラネッツ（豊洲）",
+      "kind": "(none)",
+      "hours": "09:00 - 22:00 (Last admission 21:00)",
+      "website": "https://planets.teamlab.art/tokyo/en/"
+    },
+    {
+      "id": "the-museum-of-modern-art-saitama",
+      "name": "The Museum of Modern Art, Saitama",
+      "nameJa": "埼玉県立近代美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://pref.spec.ed.jp/momas/"
+    },
+    {
+      "id": "the-national-museum-of-art-osaka",
+      "name": "The National Museum of Art, Osaka",
+      "nameJa": "国立国際美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "http://www.nmao.go.jp"
+    },
+    {
+      "id": "todoroki-ryokuchi",
+      "name": "Todoroki Ryokuchi",
+      "nameJa": "等々力緑地",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.city.kawasaki.jp/shisetsu/category/30-11-0-0-0-0-0-0-0-0.html"
+    },
+    {
+      "id": "toki-messe-tower-niigata",
+      "name": "Befco Bakauke Observatory (Toki Messe)",
+      "nameJa": "Befcoばかうけ展望室（朱鷺メッセ）",
+      "kind": "(none)",
+      "hours": "08:00 - 22:00 (Fridays until 17:00)",
+      "website": "https://www.tokimesse.com/"
+    },
+    {
+      "id": "toki-no-kane",
+      "name": "Toki no Kane",
+      "nameJa": "時の鐘",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://koedo.or.jp/"
+    },
+    {
+      "id": "tokugawa-art-museum",
+      "name": "Tokugawa Art Museum",
+      "nameJa": "徳川美術館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.tokugawa-art-museum.jp/"
+    },
+    {
+      "id": "tokushima-modern-art-museum",
+      "name": "Tokushima Modern Art Museum",
+      "nameJa": "徳島県立近代美術館",
+      "kind": "museum",
+      "hours": "09:30–17:00 (last admission 16:30); closed Mondays (next day if a holiday), Dec 29–Jan 4, ",
+      "website": "https://art.bunmori.tokushima.jp/info/index_en.html"
+    },
+    {
+      "id": "tokyo-metropolitan-government-building-shinjuku",
+      "name": "Tokyo Metropolitan Government Building Observatories",
+      "nameJa": "東京都庁展望室",
+      "kind": "(none)",
+      "hours": "09:30 - 22:00",
+      "website": "https://www.yokoso.metro.tokyo.lg.jp/"
+    },
+    {
+      "id": "tokyo-national-museum",
+      "name": "Tokyo National Museum",
+      "nameJa": "東京国立博物館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.tnm.jp/"
+    },
+    {
+      "id": "tokyo-skytree-sumida",
+      "name": "Tokyo Skytree",
+      "nameJa": "東京スカイツリー",
+      "kind": "(none)",
+      "hours": "08:00 - 22:00 (Last admission 21:00)",
+      "website": "https://www.tokyo-skytree.jp/"
+    },
+    {
+      "id": "tokyo-tower-minato",
+      "name": "Tokyo Tower",
+      "nameJa": "東京タワー",
+      "kind": "(none)",
+      "hours": "09:00 - 22:30 (Last admission 22:00)",
+      "website": "https://www.tokyotower.co.jp/"
+    },
+    {
+      "id": "tomioka-silk-mill-gunma",
+      "name": "Tomioka Silk Mill and Related Sites",
+      "nameJa": "富岡製糸場と絹産業遺産群",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.tomioka-silk.jp/"
+    },
+    {
+      "id": "toshodai-ji-temple",
+      "name": "Toshodai-ji Temple",
+      "nameJa": "唐招提寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last entry 16:30)",
+      "website": "https://www.toshodaiji.jp/"
+    },
+    {
+      "id": "toyota-commemorative-museum-of-industry-and-technology",
+      "name": "Toyota Commemorative Museum of Industry and Technology",
+      "nameJa": "トヨタ産業技術記念館",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.tcmit.org/"
+    },
+    {
+      "id": "tsurugaoka-hachimangu",
+      "name": "Tsurugaoka Hachimangu",
+      "nameJa": "鶴岡八幡宮",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "http://www.hachimangu.or.jp"
+    },
+    {
+      "id": "ueda-castle-nagano",
+      "name": "Ueda Castle Park",
+      "nameJa": "上田城跡公園",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Last admission 16:30)",
+      "website": "https://www.uedajo.myu-shop.jp/"
+    },
+    {
+      "id": "uji-tea-culture-center",
+      "name": "Uji Tea Culture Center & Ujigami Shrine",
+      "nameJa": "宇治茶文化館・宇治上神社",
+      "kind": "shrine",
+      "hours": "09:00 - 16:30",
+      "website": "https://www.ujietor.jp/"
+    },
+    {
+      "id": "ukimido-mangetsu-ji",
+      "name": "Ukimido Mangetsu-ji Floating Temple",
+      "nameJa": "浮御堂（満月寺）",
+      "kind": "temple",
+      "hours": "08:00 - 17:00",
+      "website": "https://www.biwako-visitors.jp/spot/detail/109/"
+    },
+    {
+      "id": "umeda-sky-building",
+      "name": "Umeda Sky Building",
+      "nameJa": "梅田スカイビル",
+      "kind": "museum",
+      "hours": "09:30 - 22:30 (Last admission 22:00)",
+      "website": "https://www.skybldg.co.jp/en/"
+    },
+    {
+      "id": "universal-studios-japan",
+      "name": "Universal Studios Japan",
+      "nameJa": "ユニバーサル・スタジオ・ジャパン",
+      "kind": "theme_park",
+      "hours": "08:30 - 21:30 (Varies seasonally)",
+      "website": "https://www.usj.co.jp/web/en/us"
+    },
+    {
+      "id": "ushiku-daibutsu",
+      "name": "Ushiku Daibutsu",
+      "nameJa": "牛久大仏",
+      "kind": "(none)",
+      "hours": "09:30-17:00 weekdays / 17:30 weekends (Mar-Sep), 09:30-16:30 (Oct-Feb); last entry 30 min ",
+      "website": "https://daibutu.net/"
+    },
+    {
+      "id": "utsunomiya-oya",
+      "name": "Utsunomiya & Oya",
+      "nameJa": "宇都宮・大谷エリア",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.oya-official.jp/"
+    },
+    {
+      "id": "uwajima-date-museum",
+      "name": "Uwajima City Date Museum",
+      "nameJa": "宇和島市立伊達博物館",
+      "kind": "museum",
+      "hours": "09:00–17:00 (last admission 16:30); closed Tuesdays and Dec 29–Jan 3; exhibition-change cl",
+      "website": "https://www.city.uwajima.ehime.jp/site/datehaku-top/datehaku-riyou.html"
+    },
+    {
+      "id": "wakayama-castle",
+      "name": "Wakayama Castle",
+      "nameJa": "和歌山城",
+      "kind": "castle",
+      "hours": "09:00 - 17:30 (Last entry 17:00)",
+      "website": "http://wakayamajo.jp/"
+    },
+    {
+      "id": "yakushi-ji-temple",
+      "name": "Yakushi-ji Temple",
+      "nameJa": "薬師寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last entry 16:30)",
+      "website": "https://www.yakushiji.or.jp/"
+    },
+    {
+      "id": "yanaka",
+      "name": "Yanaka",
+      "nameJa": "谷中",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.yanakaginza.com/"
+    },
+    {
+      "id": "yasaka-shrine",
+      "name": "Yasaka Shrine",
+      "nameJa": "八坂神社",
+      "kind": "shrine",
+      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
+      "website": "https://www.yasaka-jinja.or.jp/"
+    },
+    {
+      "id": "yokohama-chinatown",
+      "name": "Yokohama Chinatown",
+      "nameJa": "横浜中華街",
+      "kind": "(none)",
+      "hours": "10:00-22:00 (varies by shop)",
+      "website": "https://www.chinatown.or.jp/"
+    },
+    {
+      "id": "yokohama-cosmo-world",
+      "name": "Yokohama Cosmo World",
+      "nameJa": "よこはまコスモワールド",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://cosmoworld.jp/"
+    },
+    {
+      "id": "yokohama-marine-tower",
+      "name": "Yokohama Marine Tower",
+      "nameJa": "横浜マリンタワー",
+      "kind": "(none)",
+      "hours": "10:00 - 21:00 (Last admission 20:30)",
+      "website": "https://marinetower.yokohama/"
+    },
+    {
+      "id": "yokohama-red-brick-warehouse",
+      "name": "Yokohama Red Brick Warehouse",
+      "nameJa": "横浜赤レンガ倉庫",
+      "kind": "(none)",
+      "hours": "11:00-20:00 (restaurants until 22:00)",
+      "website": "https://www.yokohama-akarenga.jp/"
+    },
+    {
+      "id": "yomiuriland",
+      "name": "Yomiuriland",
+      "nameJa": "よみうりランド",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00 (Daily)",
+      "website": "https://www.yomiuriland.com/"
+    },
+    {
+      "id": "yugyo-ji",
+      "name": "Yugyo-ji",
+      "nameJa": "清浄光寺",
+      "kind": "temple",
+      "hours": "08:30 - 17:00 (Last admission 16:30)",
+      "website": "http://www.jishu.or.jp/"
+    },
+    {
+      "id": "zao-fox-village-miyagi",
+      "name": "Zao Fox Village",
+      "nameJa": "蔵王キツネ村",
+      "kind": "(none)",
+      "hours": "09:00 - 17:00",
+      "website": "http://zao-fox-village.com/"
+    },
+    {
+      "id": "zeniarai-benten",
+      "name": "Zeniarai Benten",
+      "nameJa": "銭洗弁財天宇賀福神社",
+      "kind": "museum",
+      "hours": "09:30 - 17:00 (Closed Mondays)",
+      "website": "https://www.trip-kamakura.com/"
+    }
+  ]
+}
