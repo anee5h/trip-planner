@@ -67,7 +67,7 @@ function LightDateTrigger({
         aria-haspopup="dialog"
         aria-expanded={false}
         className={cn(
-          "inline-flex h-9 w-full min-w-0 items-center justify-between gap-1.5 rounded-xl border px-3 text-xs font-bold shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50 sm:w-auto",
+          "inline-flex h-9 w-full min-w-0 items-center justify-between gap-1.5 rounded-xl border px-2.5 text-[11px] font-bold shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-emerald-500/50 sm:w-auto sm:px-3 sm:text-xs",
           isSelectedStyle
             ? "border-emerald-700 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-200"
             : "border-slate-200 bg-slate-50 text-slate-700 hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300",

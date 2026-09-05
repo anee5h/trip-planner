@@ -530,7 +530,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       {/* DESKTOP VIEW: Skyscanner-Style Full-Width Horizontal Bar (lg:flex) */}
       <div className="hidden lg:flex flex-col items-center w-full max-w-6xl mx-auto">
         {/* Row 1: Filter Bar (5 Equal Segments) */}
-        <div className="w-full bg-white dark:bg-[hsl(var(--surface-card))] border border-slate-200 dark:border-[hsl(var(--border-subtle))] rounded-2xl shadow-xl p-2 flex items-center gap-1 h-20">
+        <div className="w-full bg-white dark:bg-[hsl(var(--surface-card))] border border-slate-200 dark:border-[hsl(var(--border-subtle))] rounded-2xl shadow-md p-2 flex items-center gap-1 h-20">
           {/* Segment 1: Vibe (20%) */}
           <div className="w-1/5 min-w-0 h-full px-3 py-1.5 rounded-xl hover:bg-slate-50 dark:hover:bg-[hsl(var(--surface-raised))] transition-colors flex flex-col justify-center relative cursor-pointer">
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-0.5">
@@ -739,14 +739,14 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
 
         {/* Row 2: Action Buttons Row (Centered directly beneath filter bar) */}
         <div className="mt-4 flex items-center justify-center gap-3 w-full">
-          <Button
-            size="lg"
-            className="h-11 px-8 text-sm font-extrabold rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-md transition-all flex items-center gap-2"
+          <button
+            type="button"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-700 px-8 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800"
             onClick={onApplyMatches}
           >
             <Search className="w-4 h-4" />
             <span>{primaryButtonLabel}</span>
-          </Button>
+          </button>
 
           <Button
             type="button"
@@ -762,24 +762,16 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       </div>
 
       <div className="space-y-2 lg:hidden">
-        <div className="home-planner-card rounded-[20px] border border-slate-200 bg-white p-3 shadow-xl dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))]">
-          <div className="home-planner-header mb-2 flex items-center justify-between gap-2">
-            <span className="text-base font-extrabold text-slate-900 dark:text-[hsl(var(--text-primary))]">
-              {t("home.planner")}
-            </span>
-            <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300">
-              {t("home.plannerHint")}
-            </span>
-          </div>
-          <div className="home-planner-rows space-y-1">
+        <div className="home-planner-card rounded-2xl border border-slate-200 bg-white p-3 shadow-md dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-card))]">
+          <div className="home-planner-rows divide-y divide-slate-100 dark:divide-slate-800">
             {/* Vibe row — always clickable */}
             <button
               type="button"
               onClick={() => openMobileField("vibe")}
               data-testid="home-planner-row"
-              className="home-planner-row flex h-12 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+              className="home-planner-row flex h-11 w-full items-center justify-between px-3 text-left"
             >
-              <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+              <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.vibe")}
               </span>
               <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
@@ -796,9 +788,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               type="button"
               onClick={() => openMobileField("duration")}
               data-testid="home-planner-row"
-              className="home-planner-row flex h-12 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+              className="home-planner-row flex h-11 w-full items-center justify-between px-3 text-left"
             >
-              <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+              <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.duration")}
               </span>
               <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
@@ -811,24 +803,24 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             </button>
             <div
               data-testid="home-planner-row"
-              className="home-planner-row flex h-12 items-center justify-between rounded-[14px] border border-slate-200 px-3 dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+              className="home-planner-row flex h-11 items-center justify-between px-3"
             >
-              <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+              <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                 {t("home.party")}
               </span>
-              <div className="grid h-11 w-[150px] grid-cols-[44px_1fr_44px] overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700">
+              <div className="grid h-11 w-[150px] grid-cols-[44px_1fr_44px]">
                 <button
                   type="button"
                   aria-label={t("home.decreaseParty")}
                   disabled={partySize <= 1}
                   onClick={() => onPartySizeChange(Math.max(1, partySize - 1))}
-                  className="flex items-center justify-center text-slate-700 disabled:opacity-40 dark:text-slate-100"
+                  className="flex items-center justify-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 disabled:opacity-40 dark:text-slate-100 dark:hover:bg-slate-800"
                 >
                   <Minus className="h-3.5 w-3.5" />
                 </button>
                 <span
                   data-testid="home-party-size"
-                  className="flex items-center justify-center border-x border-slate-200 text-sm font-extrabold text-slate-900 dark:border-slate-700 dark:text-white"
+                  className="flex items-center justify-center text-sm font-extrabold text-slate-900 dark:text-white"
                 >
                   {partySize}
                 </span>
@@ -837,7 +829,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                   aria-label={t("home.increaseParty")}
                   disabled={partySize >= 8}
                   onClick={() => onPartySizeChange(Math.min(8, partySize + 1))}
-                  className="flex items-center justify-center text-slate-700 disabled:opacity-40 dark:text-slate-100"
+                  className="flex items-center justify-center rounded-lg text-slate-700 transition-colors hover:bg-slate-100 disabled:opacity-40 dark:text-slate-100 dark:hover:bg-slate-800"
                 >
                   <Plus className="h-3.5 w-3.5" />
                 </button>
@@ -862,9 +854,9 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                 type="button"
                 onClick={() => openMobileField(field)}
                 data-testid="home-planner-row"
-                className="home-planner-row flex h-12 w-full items-center justify-between rounded-[14px] border border-slate-200 px-3 text-left dark:border-[hsl(var(--border-subtle))] dark:bg-[hsl(var(--surface-raised))]"
+                className="home-planner-row flex h-11 w-full items-center justify-between px-3 text-left"
               >
-                <span className="text-xs font-bold text-slate-600 dark:text-[hsl(var(--text-secondary))]">
+                <span className="text-xs font-bold text-slate-500 dark:text-[hsl(var(--text-secondary))]">
                   {label}
                 </span>
                 <span className="flex min-w-0 items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-[hsl(var(--text-primary))]">
@@ -875,22 +867,22 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               </button>
             ))}
           </div>
-          <div className="home-planner-actions mt-2 flex flex-col gap-1">
-            <Button
-              size="lg"
+          <div className="home-planner-actions mt-3 flex flex-col gap-2">
+            <button
+              type="button"
               data-testid="home-planner-cta"
-              className="home-planner-cta h-12 w-full rounded-xl bg-slate-900 text-sm font-extrabold text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900"
+              className="home-planner-cta flex h-12 w-full items-center justify-center rounded-xl bg-emerald-700 text-sm font-extrabold text-white shadow-sm transition-colors hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 dark:bg-emerald-700 dark:text-white dark:hover:bg-emerald-800"
               onClick={onApplyMatches}
             >
               <Search className="mr-2 h-4 w-4" />
               {primaryButtonLabel}
-            </Button>
+            </button>
             <Button
               type="button"
               variant="outline"
               size="lg"
               data-testid="home-planner-cta"
-              className="home-planner-cta h-12 w-full rounded-xl border-slate-300 bg-white text-xs font-bold text-slate-700 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
+              className="home-planner-cta h-11 w-full rounded-xl border-slate-300 bg-white text-xs font-bold text-slate-700 hover:border-slate-400 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               onClick={onSurpriseMe}
             >
               <Shuffle className="mr-1.5 h-3.5 w-3.5" />

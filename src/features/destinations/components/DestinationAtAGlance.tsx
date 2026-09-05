@@ -81,6 +81,22 @@ function getOnSiteCostLabel(
   return formatTravellerEstimateRange([total.min, total.max], quality, locale);
 }
 
+/**
+ * Wide-value heuristic: values that render wider than a compact grid cell
+ * (long opening-hours prose, verbose JA explanations, long website
+ * hostnames) span the full fact row instead of squeezing into a half-column
+ * box. CJK glyphs render roughly double the width of ASCII, so they are
+ * weighted accordingly. This is a presentation rule only — no source data
+ * changes.
+ */
+function isWideFact(value: string, href?: string): boolean {
+  const asciiWidth = value.replace(/[^\x00-\x7F]/g, "xx").length;
+  // Long hostnames wrap badly inside a half-column cell — give them the
+  // full row so the link stays on one line.
+  if (href && asciiWidth >= 26) return true;
+  return asciiWidth >= 40;
+}
+
 export function DestinationAtAGlance({
   locale,
   travelTime,
@@ -160,47 +176,53 @@ export function DestinationAtAGlance({
       data-testid="destination-at-a-glance"
       className="border-t border-slate-100 pt-4 dark:border-slate-800"
     >
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-        {facts.map(({ label, value, Icon, tone = "default", detail, href }) => (
-          <div
-            key={label}
-            className="flex min-w-0 items-start gap-2.5 rounded-lg border border-slate-200/70 bg-slate-50/80 px-3 py-2.5 dark:border-slate-800 dark:bg-slate-950/50 lg:rounded-none lg:border-0 lg:bg-transparent lg:px-0 lg:py-0"
-          >
-            <Icon
-              aria-hidden="true"
-              className={`mt-0.5 size-4 shrink-0 ${tone === "positive" ? "text-emerald-600 dark:text-emerald-300" : "text-slate-500 dark:text-slate-300"}`}
-            />
-            <div className="min-w-0">
-              <div className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                {label}
-              </div>
-              <div className="break-words text-sm font-bold leading-snug text-slate-900 dark:text-white">
-                {href ? (
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex max-w-full items-center gap-1 text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
-                  >
-                    <span className="break-all">{value}</span>
-                    <ExternalLink
-                      aria-hidden="true"
-                      className="size-3 shrink-0"
-                    />
-                  </a>
-                ) : (
-                  value
-                )}
-              </div>
-              {detail && (
-                <div className="mt-0.5 break-words text-[10px] leading-snug text-slate-500 dark:text-slate-400">
-                  {detail}
+      <dl className="grid grid-cols-2 gap-x-4 gap-y-4 lg:grid-cols-4 lg:gap-x-5">
+        {facts.map(({ label, value, Icon, tone = "default", detail, href }) => {
+          const wide = isWideFact(value, href);
+          return (
+            <div
+              key={label}
+              data-at-a-glance-fact={wide ? "wide" : "compact"}
+              className={`min-w-0 ${wide ? "col-span-2 lg:col-span-4" : ""}`}
+            >
+              <div className="flex min-w-0 items-start gap-2.5">
+                <Icon
+                  aria-hidden="true"
+                  className={`mt-0.5 size-4 shrink-0 ${tone === "positive" ? "text-emerald-600 dark:text-emerald-300" : "text-slate-500 dark:text-slate-300"}`}
+                />
+                <div className="min-w-0">
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    {label}
+                  </dt>
+                  <dd className="break-words text-sm font-bold leading-snug text-slate-900 dark:text-white">
+                    {href ? (
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex max-w-full items-center gap-1 text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
+                      >
+                        <span className="break-all">{value}</span>
+                        <ExternalLink
+                          aria-hidden="true"
+                          className="size-3 shrink-0"
+                        />
+                      </a>
+                    ) : (
+                      value
+                    )}
+                  </dd>
+                  {detail && (
+                    <dd className="mt-0.5 break-words text-[10px] leading-snug text-slate-500 dark:text-slate-400">
+                      {detail}
+                    </dd>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          );
+        })}
+      </dl>
     </div>
   );
 }

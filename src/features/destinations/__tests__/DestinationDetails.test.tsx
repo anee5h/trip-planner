@@ -444,3 +444,72 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
     expect(text).toContain("Back to Destinations");
   });
 });
+
+describe("DestinationDetails UI polish (home/destination polish)", () => {
+  beforeEach(() => {
+    storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
+    storeState.homeStationTransportZoneId = "mainland-honshu";
+    localeState.locale = "en";
+    relationshipLoadState.shouldFail = false;
+    resetRelationshipIndexForTests();
+    wikipediaMock.fetchSummary.mockReset();
+    wikipediaMock.fetchSummary.mockResolvedValue(null);
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+  });
+
+  afterEach(() => {
+    act(() => {
+      root.unmount();
+    });
+    host.remove();
+  });
+
+  it("renders topic tags after the planning section as clean chips without a # prefix", async () => {
+    render("/destinations/yokohama-landmark-tower-sky-garden");
+    await act(async () => {
+      await flush(220);
+    });
+
+    const tags = host.querySelector("[data-testid=destination-topic-tags]");
+    expect(tags).not.toBeNull();
+    const tagText = tags?.textContent ?? "";
+    expect(tagText).toContain("273m Height");
+    expect(tagText).not.toMatch(/#\S/);
+
+    const planSection = host.querySelector('[data-section="plan-this-trip"]');
+    expect(planSection).not.toBeNull();
+    expect(
+      Boolean(
+        planSection!.compareDocumentPosition(tags!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+      ),
+    ).toBe(true);
+  });
+
+  it("keeps Read more an accessible inline expansion control that still toggles", async () => {
+    localeState.locale = "en";
+    wikipediaMock.fetchSummary.mockResolvedValue(validWikipediaSummary);
+    render("/destinations/yokohama-landmark-tower-sky-garden");
+    await act(async () => {
+      await flush(200);
+    });
+
+    const toggle = host.querySelector<HTMLButtonElement>(
+      'button[data-testid="wikipedia-toggle"]',
+    );
+    expect(toggle?.textContent).toContain("Read more");
+    expect(toggle?.getAttribute("aria-expanded")).toBe("false");
+
+    await act(async () => {
+      toggle?.click();
+      await flush(40);
+    });
+    const expanded = host.querySelector<HTMLButtonElement>(
+      'button[data-testid="wikipedia-toggle"]',
+    );
+    expect(expanded?.getAttribute("aria-expanded")).toBe("true");
+    expect(expanded?.textContent).toContain("Show less");
+  });
+});

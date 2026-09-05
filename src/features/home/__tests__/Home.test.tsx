@@ -203,7 +203,12 @@ describe("Home Integration Tests", () => {
     const container = await await renderHome();
 
     expect(container.textContent).toContain("home.headline");
-    expect(container.textContent).toContain("home.planner");
+    expect(
+      container.querySelector('[data-testid="home-planner"]'),
+    ).not.toBeNull();
+    // The compact planner no longer carries a competing card header —
+    // the primary CTA carries the hierarchy.
+    expect(container.textContent).not.toContain("home.plannerHint");
     expect(container.textContent).toContain("home.find");
     expect(container.textContent).toContain("origin.from");
     const today = Array.from(container.querySelectorAll("button")).find(
@@ -270,7 +275,7 @@ describe("Home Integration Tests", () => {
     expect(headline!.nextElementSibling).toBe(valueProposition);
   });
 
-  it("preserves the origin/date → H1 → planner DOM order with one real H1", async () => {
+  it("preserves the H1 → origin/date → planner DOM order with one real H1", async () => {
     const container = await renderHome();
     const originDate = container.querySelector("[data-home-origin-date-ready]");
     const headline = container.querySelector("h1");
@@ -282,16 +287,33 @@ describe("Home Integration Tests", () => {
     expect(container.querySelectorAll("h1")).toHaveLength(1);
     expect(
       Boolean(
-        originDate!.compareDocumentPosition(headline!) &
+        headline!.compareDocumentPosition(originDate!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
       ),
     ).toBe(true);
     expect(
       Boolean(
-        headline!.compareDocumentPosition(planner!) &
+        originDate!.compareDocumentPosition(planner!) &
         Node.DOCUMENT_POSITION_FOLLOWING,
       ),
     ).toBe(true);
+  });
+
+  it("renders the date system as one segmented row (today, tomorrow, select date)", async () => {
+    const container = await renderHome();
+    const shell = container.querySelector("[data-home-weather-shell]");
+    expect(shell).not.toBeNull();
+    const shellButtons = [...(shell?.querySelectorAll("button") ?? [])];
+    expect(
+      shellButtons.some((button) => button.textContent?.includes("Today")),
+    ).toBe(true);
+    expect(
+      shellButtons.some((button) => button.textContent?.includes("Tomorrow")),
+    ).toBe(true);
+    // The date picker shares the same single-row control group.
+    expect(
+      shell?.querySelector('button[aria-haspopup="dialog"]'),
+    ).not.toBeNull();
   });
 
   it("renders real date controls while weather is pending", async () => {

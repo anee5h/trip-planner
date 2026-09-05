@@ -12,11 +12,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 142.1 76.2% 36.3%; /* Emerald 600 (brand) */
-    /* KAI-80: emerald-500/white text fails contrast (2.9:1). Dark-green
-     * foreground on the emerald fill passes (~6:1) and matches the dark
-     * theme's existing primary treatment. */
-    --primary-foreground: 144.9 80.4% 10%;
+    --primary: 152.4 71.4% 29.2%; /* Emerald 700 (brand) */
+    /* White on emerald-700 passes WCAG AA (~5:1). Supersedes the KAI-80
+     * dark-foreground compromise (dark text on emerald-500/600 looked
+     * like black-on-green on every primary button). */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -64,8 +64,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 142.1 70.6% 45.3%; /* Emerald 500 */
-    --primary-foreground: 144.9 80.4% 10%;
+    --primary: 152.4 71.4% 29.2%; /* Emerald 700 (brand, matches light) */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -326,10 +326,6 @@
 
   .home-planner-card {
     padding: 0.5rem;
-  }
-
-  .home-planner-header {
-    margin-bottom: 0;
   }
 
   .home-planner-rows > :not([hidden]) ~ :not([hidden]) {
