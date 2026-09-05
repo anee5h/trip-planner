@@ -253,7 +253,7 @@ describe("DestinationAtAGlance", () => {
     ).not.toBeNull();
   });
 
-  it("keeps the official website as a single compact link fact", () => {
+  it("gives the official website a full-width row so URLs never wrap mid-domain", () => {
     act(() => {
       root.render(
         <DestinationAtAGlance
@@ -269,7 +269,8 @@ describe("DestinationAtAGlance", () => {
     expect(facts.length).toBe(2);
     const link = host.querySelector('a[href="https://www.example.com/visit"]');
     expect(link).not.toBeNull();
-    expect(facts[1]?.getAttribute("data-at-a-glance-fact")).toBe("compact");
+    expect(facts[1]?.getAttribute("data-at-a-glance-fact")).toBe("wide");
+    expect(facts[1]?.className).toContain("col-span-2");
   });
 
   it("spans long website hostnames across the full row so the link stays readable", () => {

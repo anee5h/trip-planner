@@ -210,7 +210,7 @@ export function DestinationAtAGlance({
             href,
             directions,
           }) => {
-            const wide = isWideFact(value, href);
+            const wide = isWideFact(value, href) || Boolean(href);
             return (
               <div
                 key={label}
@@ -250,12 +250,12 @@ export function DestinationAtAGlance({
                       </dd>
                     )}
                     {directions && (
-                      <dd className="mt-1">
+                      <dd className="mt-1.5">
                         <a
                           href={directions.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
+                          className="inline-flex items-center gap-1.5 rounded-full border border-emerald-700/30 bg-emerald-700/10 px-2.5 py-1 text-xs font-semibold text-emerald-700 transition-colors hover:bg-emerald-700/20 dark:border-emerald-300/20 dark:bg-emerald-300/10 dark:text-emerald-300 dark:hover:bg-emerald-300/20"
                         >
                           <Navigation className="size-3 shrink-0" />
                           <span>{directions.label}</span>
