@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-09-05",
+  "verifiedAt": "2026-09-05",
+  "note": "Round 2: temples/shrines/castles cohort. All hours verified against official pages on 2026-09-05. Corrections marked in entries.",
+  "entries": [
+    {
+      "id": "sendai-umino-mori-aquarium",
+      "meta": {
+        "sourceUrl": "https://www.uminomori.jp/umino/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "engakuji",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "http://www.engakuji.or.jp",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "byodoin-temple",
+      "businessHours": "08:45 - 17:30 (Last entry 17:15)",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "https://www.byodoin.or.jp/en/guide/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "tsurugaoka-hachimangu",
+      "businessHours": "06:00 - 20:00 (Grounds; indoor facilities close earlier; see official site)",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "https://www.hachimangu.or.jp/sightseeing/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "danjo-garan-koyasan",
+      "businessHours": "08:30 - 17:00",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "http://xn--54qu5ydv0bd1gtwl.com/danjyougaran/%E9%AB%98%E9%87%8E%E5%B1%B1-%E5%A3%87%E4%B8%8A%E4%BC%BD%E8%97%8D.html",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "hachioji-castle-tokyo",
+      "businessHours": "09:00 - 17:00 (Guidance facility; castle ruins trails accessible year-round)",
+      "officialWebsite": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
+      "dropOpeningHours": true,
+      "meta": {
+        "sourceUrl": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
+        "verifiedAt": "2026-09-05"
+      }
+    }
+  ]
+}

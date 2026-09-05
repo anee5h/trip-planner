@@ -5585,7 +5585,6 @@
       "walkingIntensity": 5
     },
     "businessHours": "08:30 - 16:30 (Last admission 16:00), Dec-Feb 08:30 - 16:00",
-    "openingHours": "08:30 - 16:30",
     "relationships": {
       "parentDestinationId": "kamakura-city"
     }
@@ -9319,7 +9318,7 @@
       "lat": 35.6564,
       "lng": 139.2553
     },
-    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
+    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
     "status": "published",
     "season": {
       "spring": 9.5,
@@ -9384,8 +9383,7 @@
       "rainFriendly": 7,
       "walkingIntensity": 3
     },
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
-    "openingHours": "09:00 - 17:00",
+    "businessHours": "09:00 - 17:00 (Guidance facility; castle ruins trails accessible year-round)",
     "relationships": {
       "parentDestinationId": "hachioji-tokyo"
     }
@@ -41659,8 +41657,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
-    "openingHours": "08:30 - 16:30",
+    "businessHours": "06:00 - 20:00 (Grounds; indoor facilities close earlier; see official site)",
     "relationships": {
       "parentDestinationId": "kamakura-city"
     }
@@ -50131,7 +50128,7 @@
       "bus": 247
     },
     "walkingIntensity": "medium",
-    "openingHours": "08:30 - 17:30 (Last entry 17:15)",
+    "businessHours": "08:45 - 17:30 (Last entry 17:15)",
     "relationships": {
       "parentDestinationId": "uji-city"
     }
@@ -51884,7 +51881,7 @@
       "bus": 270
     },
     "walkingIntensity": "high",
-    "openingHours": "08:30 - 17:00",
+    "businessHours": "08:30 - 17:00",
     "relationships": {
       "parentDestinationId": "koya-town"
     }

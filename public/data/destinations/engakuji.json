@@ -207,7 +207,6 @@
   "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
   "municipalityId": "Kanagawa:kamakura",
   "comfortMetadata": {
@@ -256,5 +255,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Engaku-ji",
   "wikipediaPageId": 2660256,
-  "wikidataId": "Q954860"
+  "wikidataId": "Q954860",
+  "openingHoursMetadata": {
+    "sourceUrl": "http://www.engakuji.or.jp",
+    "verifiedAt": "2026-09-05"
+  }
 }
