@@ -1,0 +1,108 @@
+{
+  "id": "kurayoshi",
+  "name": "Kurayoshi",
+  "nameJa": "倉吉",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Tottori",
+  "region": "Chugoku",
+  "categories": ["History", "Town", "Culture"],
+  "tags": ["White-walled Town", "Akagawara"],
+  "coordinates": {
+    "lat": 35.4315,
+    "lng": 133.8266
+  },
+  "municipalityId": "Tottori:kurayoshi",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.2,
+    "photography": 9,
+    "food": 8,
+    "summer": 7,
+    "couple": 8,
+    "winter": 7,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 150,
+    "train": 210,
+    "bus": 210
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Public lots near the storehouse district",
+  "description": "The 'little Kyoto of San'in' — a canal-side merchant quarter of white-plaster walls, red roofs, sake houses and modern-art spaces.",
+  "notes": "Kurayoshi's smart streets pair preserved Edo-era storehouses with contemporary remakes; the Kaho/観光 galleries and Yonago-bound scenic trains make it an easy day from Tottori city.",
+  "highlights": [
+    "Walk the white-walled Akagawara storehouse district",
+    "Visit the remodeled Taisho-era galleries",
+    "Follow the Tamae river canal with its carp"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Kurayoshi via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kurayoshi,_Tottori",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Kurayoshi storehouse district free; individual museums and galleries paid.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

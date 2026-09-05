@@ -46,7 +46,7 @@ function authoringInput(): Destination[] {
 
 describe("KAI-252 final local-transport migration contract", () => {
   it("covers every absent record with a validated research-result ledger entry", () => {
-    expect(manifest).toHaveLength(1029);
+    expect(manifest).toHaveLength(1052);
     expect(manifest.map((entry) => entry.id).sort()).toEqual(
       predecessorResidual.unresolvedIds,
     );
@@ -56,7 +56,7 @@ describe("KAI-252 final local-transport migration contract", () => {
       ),
     ).toHaveLength(0);
     const facts = validateManifest(manifest, destinations);
-    expect(facts.size).toBe(1029);
+    expect(facts.size).toBe(1052);
     for (const entry of manifest) {
       expect(entry.decision).toBe("author");
       expect([
@@ -87,7 +87,7 @@ describe("KAI-252 final local-transport migration contract", () => {
     const temporary = authoringInput();
     expect(applyManifest(temporary, manifest)).toEqual({
       state: "STATE A",
-      changed: 1029,
+      changed: 1052,
     });
     expect(
       temporary.every(

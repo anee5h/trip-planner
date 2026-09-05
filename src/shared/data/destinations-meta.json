@@ -65,6 +65,16 @@
     }
   },
   {
+    "id": "adachi-museum-of-art",
+    "name": "Adachi Museum of Art",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "museum",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "aichi-kogen",
     "name": "Aichi Kogen Quasi-National Park",
     "prefecture": "Aichi",
@@ -454,6 +464,16 @@
     "relationships": {
       "parentDestinationId": "kobe-city"
     }
+  },
+  {
+    "id": "arita-porcelain-town",
+    "name": "Arita Porcelain Town",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "art-tower-mito",
@@ -1272,6 +1292,16 @@
     "relationships": {}
   },
   {
+    "id": "chokai-san",
+    "name": "Mount Chokai",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "mountain",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "choshi-city",
     "name": "Choshi City",
     "prefecture": "Chiba",
@@ -1670,6 +1700,16 @@
     "name": "Eigen-ji",
     "prefecture": "Shiga",
     "region": "Kansai",
+    "role": "standalone",
+    "kind": "temple",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "eiheiji-temple",
+    "name": "Eiheiji Temple",
+    "prefecture": "Fukui",
+    "region": "Chubu",
     "role": "standalone",
     "kind": "temple",
     "status": "verified",
@@ -3192,6 +3232,16 @@
       "featuredDestinationIds": ["himeji-castle"],
       "nearbyDestinationIds": ["kyoto-city", "osaka-city", "uji-city"]
     }
+  },
+  {
+    "id": "himi",
+    "name": "Himi",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "town",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "hino-city",
@@ -4862,6 +4912,16 @@
     }
   },
   {
+    "id": "katayamazu-onsen",
+    "name": "Katayamazu Onsen",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "katori-city",
     "name": "Katori City",
     "prefecture": "Chiba",
@@ -5941,6 +6001,16 @@
     }
   },
   {
+    "id": "kumano-city",
+    "name": "Kumano City",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "town",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "kumano-hayatama-taisha-shingu",
     "name": "Kumano Hayatama Taisha",
     "prefecture": "Wakayama",
@@ -5957,6 +6027,16 @@
     "region": "Kansai",
     "role": "standalone",
     "kind": "shrine",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "kumano-kodo",
+    "name": "Kumano Kodo",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "nature",
     "status": "verified",
     "relationships": {}
   },
@@ -6039,6 +6119,16 @@
     "relationships": {
       "parentDestinationId": "kurashiki-city"
     }
+  },
+  {
+    "id": "kurayoshi",
+    "name": "Kurayoshi",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "kurikoma",
@@ -6991,6 +7081,16 @@
     "relationships": {}
   },
   {
+    "id": "mikuni-port-fukui",
+    "name": "Mikuni Port & Tojinbo Coast",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "historic",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "mimuroto-ji-temple",
     "name": "Mimuroto-ji Hydrangea Temple",
     "prefecture": "Kyoto",
@@ -7111,6 +7211,16 @@
     "relationships": {
       "parentDestinationId": "koto-city"
     }
+  },
+  {
+    "id": "misasa-onsen",
+    "name": "Misasa Onsen",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "mitaki-dera",
@@ -8271,6 +8381,36 @@
     }
   },
   {
+    "id": "nasu",
+    "name": "Nasu",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "town",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "nasu-kogen-highlands",
+    "name": "Nasu Highlands",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
+    "id": "nasu-steam-onsen",
+    "name": "Nasu Steampowered Onsen",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "national-museum-japanese-history-sakura",
     "name": "National Museum of Japanese History",
     "prefecture": "Chiba",
@@ -9064,6 +9204,16 @@
     }
   },
   {
+    "id": "oki-islands",
+    "name": "Oki Islands",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "island",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "okinawa-kaigan",
     "name": "Okinawa Kaigan Quasi-National Park",
     "prefecture": "Okinawa",
@@ -9592,6 +9742,16 @@
     "relationships": {
       "parentDestinationId": "nagasaki-city"
     }
+  },
+  {
+    "id": "owase",
+    "name": "Owase",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "role": "standalone",
+    "kind": "town",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "oze-national-park",
@@ -10869,6 +11029,16 @@
     "relationships": {}
   },
   {
+    "id": "shirakami-sanchi",
+    "name": "Shirakami-Sanchi",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "role": "standalone",
+    "kind": "nature",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "shirakami-sanchi-aomori",
     "name": "Shirakami-Sanchi",
     "prefecture": "Aomori",
@@ -11732,6 +11902,16 @@
     }
   },
   {
+    "id": "takeo-onsen",
+    "name": "Takeo Onsen",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "taketomi-island",
     "name": "Taketomi Island",
     "prefecture": "Okinawa",
@@ -12425,6 +12605,16 @@
     "relationships": {}
   },
   {
+    "id": "toyama-city",
+    "name": "Toyama City",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "city",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "toyama-glass-art-museum",
     "name": "Toyama Glass Art Museum",
     "prefecture": "Toyama",
@@ -12792,6 +12982,16 @@
     }
   },
   {
+    "id": "ureshino-onsen",
+    "name": "Ureshino Onsen",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
+    "relationships": {}
+  },
+  {
     "id": "ushiku-daibutsu",
     "name": "Ushiku Daibutsu",
     "prefecture": "Ibaraki",
@@ -12950,6 +13150,16 @@
     "relationships": {
       "parentDestinationId": "naruto-city"
     }
+  },
+  {
+    "id": "wajima-morning-market",
+    "name": "Wajima Morning Market",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "market",
+    "status": "verified",
+    "relationships": {}
   },
   {
     "id": "wakakusayama",
@@ -13160,6 +13370,16 @@
     "role": "standalone",
     "kind": "castle",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "yamanaka-onsen",
+    "name": "Yamanaka Onsen",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "role": "standalone",
+    "kind": "onsen",
+    "status": "verified",
     "relationships": {}
   },
   {
@@ -13438,6 +13658,16 @@
     "role": "standalone",
     "kind": "attraction",
     "status": "published",
+    "relationships": {}
+  },
+  {
+    "id": "yonago",
+    "name": "Yonago",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "role": "standalone",
+    "kind": "town",
+    "status": "verified",
     "relationships": {}
   },
   {

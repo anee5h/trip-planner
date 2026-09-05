@@ -36951,5 +36951,833 @@
     "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
     "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
     "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "eiheiji-temple": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Fukui:eiheiji.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Fukui:eiheiji; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Fukui:eiheiji; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Fukui:eiheiji; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "mikuni-port-fukui": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Fukui:sakai.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Fukui:sakai; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Fukui:sakai; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Fukui:sakai; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "arita-porcelain-town": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Saga:arita.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Saga:arita; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Saga:arita; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Saga:arita; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "takeo-onsen": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Saga:takeo.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Saga:takeo; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Saga:takeo; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Saga:takeo; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "ureshino-onsen": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Saga:ureshino.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Saga:ureshino; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Saga:ureshino; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Saga:ureshino; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "misasa-onsen": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Tottori:misasa.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Tottori:misasa; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Tottori:misasa; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Tottori:misasa; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "kurayoshi": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Tottori:kurayoshi.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Tottori:kurayoshi; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Tottori:kurayoshi; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Tottori:kurayoshi; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "yonago": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Tottori:yonago.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Tottori:yonago; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Tottori:yonago; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Tottori:yonago; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "yamanaka-onsen": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Ishikawa:kaga.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Ishikawa:kaga; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Ishikawa:kaga; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Ishikawa:kaga; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "katayamazu-onsen": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Ishikawa:kaga.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Ishikawa:kaga; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Ishikawa:kaga; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Ishikawa:kaga; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "wajima-morning-market": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Ishikawa:wajima.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Ishikawa:wajima; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Ishikawa:wajima; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Ishikawa:wajima; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "toyama-city": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Toyama:toyama.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Toyama:toyama; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Toyama:toyama; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Toyama:toyama; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "himi": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Toyama:himi.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Toyama:himi; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Toyama:himi; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Toyama:himi; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "nasu": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Tochigi:nasu.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "nasu-kogen-highlands": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Tochigi:nasu.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "nasu-steam-onsen": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Tochigi:nasu.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Tochigi:nasu; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "kumano-kodo": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Mie:kihoku.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Mie:kihoku; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Mie:kihoku; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Mie:kihoku; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "owase": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Mie:owase.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Mie:owase; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Mie:owase; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Mie:owase; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "kumano-city": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Mie:kumano.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Mie:kumano; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Mie:kumano; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Mie:kumano; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "chokai-san": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Akita:nikaho.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Akita:nikaho; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Akita:nikaho; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Akita:nikaho; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "shirakami-sanchi": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Akita:fujisato.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Akita:fujisato; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Akita:fujisato; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Akita:fujisato; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "adachi-museum-of-art": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Shimane:yasugi.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Shimane:yasugi; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Shimane:yasugi; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Shimane:yasugi; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
+  },
+  "oki-islands": {
+    "accessPatternResearched": "Parent/municipality metadata was not treated as a physical hub. Repository topology was checked; exact destination access remains blocked by the missing canonical arrival for Shimane:oki.",
+    "additionalSourceUrls": [],
+    "blocker": "origin_topology",
+    "canonicalArrivalAccessPoint": "No exact physical canonical arrival point is established in repository topology for Shimane:oki; parent/municipality IDs are not substituted.",
+    "canonicalArrivalResolved": false,
+    "closureOrSuspension": {
+      "applies": false,
+      "detail": "No closure or suspension was used as a basis for this residual decision in the retained checks."
+    },
+    "fact": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "reason": "Repository topology does not establish a physical canonical arrival hub for this record. This is an origin-topology blocker, not an inference from failed HTTP retrieval.",
+    "researchDisposition": "topology_blocked",
+    "residualReason": "origin_topology_gap",
+    "retrievalFailureCount": 0,
+    "semanticReview": {
+      "canonicalArrival": "No exact physical canonical arrival point is established in repository topology for Shimane:oki; parent/municipality IDs are not substituted.",
+      "coverageDecision": "No numeric coverage is asserted for an unresolved fact; topology-blocked cases remain unavailable only because the physical origin context is absent.",
+      "fareProduct": "No fare/product is fabricated; any fare gap is explicitly separated from retrieval failures.",
+      "multipleRequiredSegments": "Multiple required segments were considered; no through-fare or segment coverage is assumed without source evidence.",
+      "noDoubleCounting": "Origin-travel legs, destination-local legs, optional admission, and alternative routes remain separate; no parent ID is used as an arrival point.",
+      "originTravelCoverage": "Origin-travel coverage was evaluated against No exact physical canonical arrival point is established in repository topology for Shimane:oki; parent/municipality IDs are not substituted.; no unrecorded hub or destination parent was substituted.",
+      "paidAccessAssessment": "Paid access was retained only when a current saleable route/product and exact coverage were established; otherwise it remains unresolved.",
+      "requiredLocalLegs": "The official access topology and any required final segments were reviewed; unresolved segments are not silently omitted.",
+      "walkingAssessment": "A verified walking fact was not selected unless an authoritative source tied the exact physical arrival to a practical walk."
+    },
+    "whyBoundedDefensibleAccessIsInappropriate": "Not selected without a source-backed defensible distance/fare band and explicit coverage; no estimate is inferred from coordinates.",
+    "whyNotApplicableIsInappropriate": "Not selected unless the destination record itself is an explicit hub with no child-specific local leg; city-hub N/A is limited to city-hubs.json.",
+    "whySegmentOnlyIsInsufficient": "A segment-only fare cannot complete the local-transport component; it is not used unless the remaining required segments are explicitly represented elsewhere.",
+    "whyVerifiedRequiredAccessIsInappropriate": "Not selected unless required local segments, ordinary-adult product/fare, and destination endpoint are all source-backed; the current decision is unavailable.",
+    "whyVerifiedWalkingIsInappropriate": "Not selected unless the exact canonical arrival-to-destination walking relationship is authoritative; the current decision is unavailable."
   }
 }

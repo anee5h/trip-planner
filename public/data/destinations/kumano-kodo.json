@@ -1,0 +1,109 @@
+{
+  "id": "kumano-kodo",
+  "name": "Kumano Kodo",
+  "nameJa": "熊野古道",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "categories": ["Nature", "History", "Culture"],
+  "tags": ["UNESCO", "Pilgrimage", "Iseji"],
+  "coordinates": {
+    "lat": 33.8388,
+    "lng": 136.1059
+  },
+  "municipalityId": "Mie:kihoku",
+  "status": "verified",
+  "ratings": {
+    "overall": 9,
+    "photography": 9,
+    "food": 7,
+    "summer": 7,
+    "couple": 8,
+    "winter": 7,
+    "rain": 5,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 6
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  },
+  "walkingMin": 300,
+  "walkingIntensity": "high",
+  "indoorPercent": 5,
+  "weatherDependence": "high",
+  "transportOptions": {
+    "car": 150,
+    "train": 240,
+    "bus": 240
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required (guided options available)",
+  "parking": "Small free lots at main trailheads",
+  "officialWebsite": "https://www.tb-kumano.jp/",
+  "description": "The legendary pilgrimage trail network of the Kii Peninsula, its Iseji route climbing from the Ise shrines over the passes into Kumano (UNESCO World Heritage).",
+  "notes": "The Mie section of the Kumano Kodo — the Magose-toge and Mikoshi-toge passes and the stone-paved Tsukidate-to trails — connects Ise to the Kumano shrines; walk a pass in a couple of hours or join the full day.",
+  "highlights": [
+    "Walk the stone-laid Magose-toge pass",
+    "Follow the Iseji route toward Kumano",
+    "See the 800-year-old Tsukidate pines"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Kumano Kodo via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kumano_Kodō",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Trail access free; optional guide fees and transport paid.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

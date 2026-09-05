@@ -113,7 +113,7 @@ describe("empty search state — locale behavior (KAI-83)", () => {
 });
 
 describe("search index destination availability parity (KAI-93)", () => {
-  it("indexes all 1106 recommendation-eligible canonical destination IDs identically across English and Japanese", async () => {
+  it("indexes all 1129 recommendation-eligible canonical destination IDs identically across English and Japanese", async () => {
     const enDocs = (await buildSearchIndex("en")).filter(
       (d) => d.type === "destination",
     );
@@ -121,13 +121,13 @@ describe("search index destination availability parity (KAI-93)", () => {
       (d) => d.type === "destination",
     );
 
-    expect(enDocs).toHaveLength(1106);
-    expect(jaDocs).toHaveLength(1106);
+    expect(enDocs).toHaveLength(1129);
+    expect(jaDocs).toHaveLength(1129);
 
     const enIds = enDocs.map((d) => d.metadata?.dest?.id as string).sort();
     const jaIds = jaDocs.map((d) => d.metadata?.dest?.id as string).sort();
 
-    expect(enIds).toHaveLength(1106);
+    expect(enIds).toHaveLength(1129);
     expect(jaIds).toEqual(enIds);
   });
 

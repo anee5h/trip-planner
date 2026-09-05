@@ -83,10 +83,10 @@ function expectedFact(
 }
 
 describe("KAI-219E2 residual admission manifest", () => {
-  it("covers the complete frozen 728-entry residual set with valid evidence metadata", () => {
+  it("covers the complete frozen 751-entry residual set with valid evidence metadata", () => {
     const index = loadIndex();
     const manifest = loadManifest();
-    expect(manifest).toHaveLength(728);
+    expect(manifest).toHaveLength(751);
     expect(new Set(manifest.map((entry) => entry.id)).size).toBe(
       manifest.length,
     );
@@ -153,7 +153,7 @@ describe("KAI-219E2 residual admission manifest", () => {
     const after = fs.readFileSync(indexPath, "utf8");
     expect(after).not.toBe(before);
     const authored = JSON.parse(after) as Destination[];
-    expect(authored).toHaveLength(1107);
+    expect(authored).toHaveLength(1130);
     expect(
       authored.every((destination) => destination.admission !== undefined),
     ).toBe(true);

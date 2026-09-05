@@ -92468,5 +92468,1619 @@
     "localAccessUnestimated": true,
     "walkingIntensity": "high",
     "relationships": {}
+  },
+  {
+    "id": "eiheiji-temple",
+    "name": "Eiheiji Temple",
+    "nameJa": "永平寺",
+    "kind": "temple",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Fukui:eiheiji",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "categories": ["Temple", "History", "Culture"],
+    "tags": ["Zen", "Soto Zen", "Japan Heritage"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
+    "description": "Head temple of Soto Zen Buddhism, set in a cypress grove on the Eiheiji mountainside with 70+ halls connected by covered walkways.",
+    "highlights": [
+      "Walk the covered corridor connecting 70+ temple halls",
+      "Join the guided prayer-hall tour",
+      "See the seven centuries of Zen architecture"
+    ],
+    "coordinates": {
+      "lat": 36.0558,
+      "lng": 136.3552
+    },
+    "officialWebsite": "https://daihonzan-eiheiji.com/",
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 120,
+    "indoorPercent": 60,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 9.1,
+      "photography": 9,
+      "food": 7,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 120,
+      "train": 150,
+      "bus": 150
+    },
+    "walkingIntensity": "high",
+    "businessHours": "Open daily (temple grounds); hall tours 08:00 - 16:30 (varies by season)",
+    "relationships": {}
+  },
+  {
+    "id": "mikuni-port-fukui",
+    "name": "Mikuni Port & Tojinbo Coast",
+    "nameJa": "三国湊",
+    "kind": "historic",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Fukui:sakai",
+    "prefecture": "Fukui",
+    "region": "Chubu",
+    "categories": ["History", "Coast", "Town"],
+    "tags": ["Port Town", "Echizen"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
+    "description": "Historic Kitamaebune sailing port with preserved merchant streets and sake breweries, minutes from the Tojinbo basalt cliffs.",
+    "highlights": [
+      "Wander the Oku-no-Sō preserved merchant street",
+      "Sample local sake at the port breweries",
+      "Pair with the Tojinbo cliffs & boat cruise"
+    ],
+    "coordinates": {
+      "lat": 36.2275,
+      "lng": 136.1452
+    },
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 90,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 7.9,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 7,
+      "winter": 6,
+      "rain": 6,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 90,
+      "train": 150,
+      "bus": 180
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "arita-porcelain-town",
+    "name": "Arita Porcelain Town",
+    "nameJa": "有田",
+    "kind": "historic",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Saga:arita",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "categories": ["Culture", "Shopping", "History"],
+    "tags": ["Arita-yaki", "Porcelain", "Imari"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG",
+    "description": "Birthplace of Japanese porcelain — 400 years of kilns, gallery streets and the spring Arita Ceramic Fair.",
+    "highlights": [
+      "Browse the kiln galleries of the Toshima-Kyu district",
+      "Visit the Kyushu Ceramic Museum",
+      "Time it with the Golden Week Arita Ceramic Fair"
+    ],
+    "coordinates": {
+      "lat": 33.1886,
+      "lng": 129.8991
+    },
+    "officialWebsite": "https://www.arita.jp/",
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 150,
+    "indoorPercent": 50,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.6,
+      "photography": 8,
+      "food": 8,
+      "summer": 7,
+      "couple": 8,
+      "winter": 7,
+      "rain": 7,
+      "relaxation": 8,
+      "value": 9,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 120,
+      "train": 150,
+      "bus": 150
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "takeo-onsen",
+    "name": "Takeo Onsen",
+    "nameJa": "武雄温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Saga:takeo",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "categories": ["Onsen", "Relaxation", "History"],
+    "tags": ["Takeo Onsen", "Lattice Bathhouse"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg",
+    "description": "1,300-year-old hot spring town dominated by the vermilion-lattice bathhouse designed by Tokyo Tower architect Tachū Naitō.",
+    "highlights": [
+      "Soak in the Naitō-designed lattice bathhouse",
+      "Stroll the Takeo riverbank promenade",
+      "Pair with the 500-year-old Takeo Shrine ginkgo"
+    ],
+    "coordinates": {
+      "lat": 33.1964,
+      "lng": 130.0182
+    },
+    "officialWebsite": "https://www.takeo-kankou.jp/",
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 90,
+    "indoorPercent": 30,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.2,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 120,
+      "train": 150,
+      "bus": 180
+    },
+    "walkingIntensity": "low",
+    "businessHours": "Public bathhouse open daily (hours vary by bath); see official site",
+    "relationships": {}
+  },
+  {
+    "id": "ureshino-onsen",
+    "name": "Ureshino Onsen",
+    "nameJa": "嬉野温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Saga:ureshino",
+    "prefecture": "Saga",
+    "region": "Kyushu",
+    "categories": ["Onsen", "Relaxation", "Food"],
+    "tags": ["Ureshino", "Tea"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
+    "description": "Smooth 'beauty bath' town famous for its silky sodium water and the hand-finished Ureshino tea noodles.",
+    "highlights": [
+      "Bathe in the silky sodium spring",
+      "Try Ureshino tea soba and onsen tofu",
+      "Explore the chagokoro tea culture street"
+    ],
+    "coordinates": {
+      "lat": 33.1208,
+      "lng": 129.995
+    },
+    "officialWebsite": "https://www.ureshino-spa.jp/",
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 75,
+    "indoorPercent": 30,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 5
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.1,
+      "photography": 7,
+      "food": 9,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 120,
+      "train": 180,
+      "bus": 180
+    },
+    "walkingIntensity": "low",
+    "businessHours": "Public bathhouse open daily; hours vary by facility",
+    "relationships": {}
+  },
+  {
+    "id": "misasa-onsen",
+    "name": "Misasa Onsen",
+    "nameJa": "三朝温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Tottori:misasa",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "categories": ["Onsen", "Relaxation", "Nature"],
+    "tags": ["Radium Onsen", "Tottori"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG",
+    "description": "One of Japan's three oldest radium hot springs, tucked into the Misasa river valley beneath the granite walls of Mitoku-san.",
+    "highlights": [
+      "Soak in the radioactive-hot spring bathhouses",
+      "Climb to the cliff-hung Nageiredo of Sanbutsu-ji",
+      "Stroll the riverside onsen street"
+    ],
+    "coordinates": {
+      "lat": 35.3932,
+      "lng": 133.8839
+    },
+    "officialWebsite": "https://www.misasakankou.jp/",
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 75,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.3,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 210,
+      "bus": 210
+    },
+    "walkingIntensity": "medium",
+    "businessHours": "Public bathhouse open daily; hours vary by facility",
+    "relationships": {}
+  },
+  {
+    "id": "kurayoshi",
+    "name": "Kurayoshi",
+    "nameJa": "倉吉",
+    "kind": "historic",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Tottori:kurayoshi",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "categories": ["History", "Town", "Culture"],
+    "tags": ["White-walled Town", "Akagawara"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
+    "description": "The 'little Kyoto of San'in' — a canal-side merchant quarter of white-plaster walls, red roofs, sake houses and modern-art spaces.",
+    "highlights": [
+      "Walk the white-walled Akagawara storehouse district",
+      "Visit the remodeled Taisho-era galleries",
+      "Follow the Tamae river canal with its carp"
+    ],
+    "coordinates": {
+      "lat": 35.4315,
+      "lng": 133.8266
+    },
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 120,
+    "indoorPercent": 30,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 4
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.2,
+      "photography": 9,
+      "food": 8,
+      "summer": 7,
+      "couple": 8,
+      "winter": 7,
+      "rain": 6,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 210,
+      "bus": 210
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "yonago",
+    "name": "Yonago",
+    "nameJa": "米子",
+    "kind": "town",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Tottori:yonago",
+    "prefecture": "Tottori",
+    "region": "Chugoku",
+    "categories": ["Town", "Food", "Transit Hub"],
+    "tags": ["Yonago Castle", "Gate of San'in"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg",
+    "description": "San'in's lively gateway — castle-crowned hills, Shotengai food streets and the water gates of the Sakaiminato coast nearby.",
+    "highlights": [
+      "Climb Yonago Castle ruins for the coast panorama",
+      "Eat through the Gaina Shotengai arcade",
+      "Hop to the Sakaiminato manga-bronze streets"
+    ],
+    "coordinates": {
+      "lat": 35.4283,
+      "lng": 133.3312
+    },
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 90,
+    "indoorPercent": 35,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 7.7,
+      "photography": 7,
+      "food": 8,
+      "summer": 8,
+      "couple": 7,
+      "winter": 7,
+      "rain": 7,
+      "relaxation": 7,
+      "value": 8,
+      "uniqueness": 7
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 135,
+      "train": 180,
+      "bus": 195
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "yamanaka-onsen",
+    "name": "Yamanaka Onsen",
+    "nameJa": "山中温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Ishikawa:kaga",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "categories": ["Onsen", "Relaxation", "Nature"],
+    "tags": ["Kaga Onsen", "Korogi Bridge"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+    "description": "The poet Bashō's favourite hot spring — a riverside bath town under the arching Korogi Bridge, oldest of the Kaga trio.",
+    "highlights": [
+      "Bathe in the riverside open-air onsen",
+      "Cross the arched Korogi Bridge",
+      "Stroll the yū-machi teahouse street"
+    ],
+    "coordinates": {
+      "lat": 36.2467,
+      "lng": 136.3694
+    },
+    "officialWebsite": "https://www.kagahakusan.jp/",
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 75,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.3,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 120,
+      "train": 150,
+      "bus": 180
+    },
+    "walkingIntensity": "medium",
+    "businessHours": "Public bathhouse open daily; hours vary by facility",
+    "relationships": {}
+  },
+  {
+    "id": "katayamazu-onsen",
+    "name": "Katayamazu Onsen",
+    "nameJa": "片山津温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Ishikawa:kaga",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "categories": ["Onsen", "Relaxation", "Lake"],
+    "tags": ["Kaga Onsen", "Lake View"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+    "description": "The newest and most dramatic of the Kaga springs — a lakeside bath town across Laguna-side wetlands from Shirayama-mirai observatory.",
+    "highlights": [
+      "Bathe with the Lake Shibayama view",
+      "Ride the Kanazawa-bound resort train",
+      "See the sunset from Shirayama-mirai"
+    ],
+    "coordinates": {
+      "lat": 36.3439,
+      "lng": 136.3694
+    },
+    "officialWebsite": "https://www.kagahakusan.jp/",
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 60,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.1,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 105,
+      "train": 135,
+      "bus": 165
+    },
+    "walkingIntensity": "medium",
+    "businessHours": "Public bathhouse open daily; hours vary by facility",
+    "relationships": {}
+  },
+  {
+    "id": "wajima-morning-market",
+    "name": "Wajima Morning Market",
+    "nameJa": "輪島朝市",
+    "kind": "market",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Ishikawa:wajima",
+    "prefecture": "Ishikawa",
+    "region": "Chubu",
+    "categories": ["Market", "Food", "Culture"],
+    "tags": ["Noto", "Morning Market"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
+    "description": "One of Japan's three great morning markets — a centuries-old Noto street of stalls selling craft, seafood and the region's famous lacquerware.",
+    "highlights": [
+      "Haggle for morning-fresh Noto seafood",
+      "Buy Wajima-nuri lacquerware from the makers",
+      "Eat the seasonal 'amime' fish-sandwich snack"
+    ],
+    "coordinates": {
+      "lat": 37.3945,
+      "lng": 136.9007
+    },
+    "officialWebsite": "https://www.noto-wajima.jp/",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "weatherDependence": "moderate",
+    "walkingMin": 60,
+    "indoorPercent": 20,
+    "recommendedVisitHours": {
+      "min": 1,
+      "max": 2
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.4,
+      "photography": 8,
+      "food": 9,
+      "summer": 8,
+      "couple": 7,
+      "winter": 6,
+      "rain": 6,
+      "relaxation": 7,
+      "value": 9,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 240,
+      "bus": 240
+    },
+    "walkingIntensity": "medium",
+    "businessHours": "Open daily 08:00 - 12:00 (variable in winter; check official notice)",
+    "relationships": {}
+  },
+  {
+    "id": "toyama-city",
+    "name": "Toyama City",
+    "nameJa": "富山市",
+    "kind": "city",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Toyama:toyama",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "categories": ["City", "Food", "Culture"],
+    "tags": ["Kansui Park", "Toyama Bay"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png",
+    "description": "Toyama prefecture's capital — a bay-side city of ringed canals, the glass-art museum at its centre and the snow-alps terminal at its edge.",
+    "highlights": [
+      "See the Kengo Kuma glass museum at Kansui Park",
+      "Ride the restored Portram streetcar",
+      "Watch the sunset over Toyama Bay"
+    ],
+    "coordinates": {
+      "lat": 36.6954,
+      "lng": 137.2116
+    },
+    "officialWebsite": "https://www.info-toyama.com/",
+    "status": "verified",
+    "weatherDependence": "low",
+    "walkingMin": 240,
+    "indoorPercent": 45,
+    "recommendedVisitHours": {
+      "min": 5,
+      "max": 12
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8,
+      "photography": 8,
+      "food": 9,
+      "summer": 8,
+      "couple": 7,
+      "winter": 6,
+      "rain": 7,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 165,
+      "train": 150,
+      "bus": 150
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "himi",
+    "name": "Himi",
+    "nameJa": "氷見",
+    "kind": "town",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Toyama:himi",
+    "prefecture": "Toyama",
+    "region": "Chubu",
+    "categories": ["Town", "Coast", "Food"],
+    "tags": ["Himi Sunset", "Fish Market"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
+    "description": "Legendary sunset town on Toyama Bay — the world-famous 'Himi Sunset Line' over Mount Tateyama and a port of hyper-fresh fish.",
+    "highlights": [
+      "Watch the sunset over Tateyama from Souraiyama cape",
+      "Eat ultra-fresh fish at the Himi market",
+      "Walk the Uozu coastal trail"
+    ],
+    "coordinates": {
+      "lat": 36.8554,
+      "lng": 136.975
+    },
+    "officialWebsite": "https://www.himikankou.jp/",
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 120,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 5,
+      "max": 12
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.1,
+      "photography": 9,
+      "food": 9,
+      "summer": 9,
+      "couple": 8,
+      "winter": 7,
+      "rain": 6,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 165,
+      "bus": 180
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "nasu",
+    "name": "Nasu",
+    "nameJa": "那須",
+    "kind": "town",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Tochigi:nasu",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "categories": ["Town", "Nature", "Resort"],
+    "tags": ["Nasu Highlands", "Tochigi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+    "description": "The imperial family's highland retreat since 1926 — a walking town of larch woods, farm gates, cheese and the Nasu flower kingdom.",
+    "highlights": [
+      "Visit the imperial Nasu Villa garden",
+      "Taste Nasu cheese and farm gelato",
+      "Ride the Nasu ropeway toward the crater"
+    ],
+    "coordinates": {
+      "lat": 37.0222,
+      "lng": 139.9912
+    },
+    "officialWebsite": "https://www.nasushiobara.info/",
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 150,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 5,
+      "max": 12
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.4,
+      "photography": 8,
+      "food": 8,
+      "summer": 9,
+      "couple": 8,
+      "winter": 7,
+      "rain": 7,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 135,
+      "train": 210,
+      "bus": 150
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "nasu-kogen-highlands",
+    "name": "Nasu Highlands",
+    "nameJa": "那須高原",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Tochigi:nasu",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "categories": ["Nature", "Viewpoint", "Hiking"],
+    "tags": ["Chausu", "Nasu Ropeway"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg",
+    "description": "The volcanic plateau crowned by Mount Chausu-dake — fields of wild azaleas, crater views and the 'Sanso' walking trails.",
+    "highlights": [
+      "Hike the ropeway-to-crater trail",
+      "See the Nasu azalea fields in June",
+      "Stand at the Chausu-dake smoking crater"
+    ],
+    "coordinates": {
+      "lat": 37.1255,
+      "lng": 139.961
+    },
+    "status": "verified",
+    "weatherDependence": "high",
+    "walkingMin": 210,
+    "indoorPercent": 5,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.6,
+      "photography": 9,
+      "food": 7,
+      "summer": 9,
+      "couple": 8,
+      "winter": 6,
+      "rain": 5,
+      "relaxation": 7,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 135,
+      "train": 210,
+      "bus": 150
+    },
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "nasu-steam-onsen",
+    "name": "Nasu Steampowered Onsen",
+    "nameJa": "那須湯本温泉",
+    "kind": "onsen",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Tochigi:nasu",
+    "prefecture": "Tochigi",
+    "region": "Kanto",
+    "categories": ["Onsen", "Relaxation", "Nature"],
+    "tags": ["Nasu Onsen", "Kitanohara"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+    "description": "Tochigi's highland hot spring — a steaming river gorge beneath the volcano with a prized sodium-chloride spring.",
+    "highlights": [
+      "Soak in the Kitanohara open-air baths",
+      "Walk the steaming Yu-gawa gorge",
+      "Pair with the nearby Nasu ropeway"
+    ],
+    "coordinates": {
+      "lat": 37.0761,
+      "lng": 139.9825
+    },
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 60,
+    "indoorPercent": 30,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.2,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 8,
+      "winter": 8,
+      "rain": 7,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 135,
+      "train": 240,
+      "bus": 180
+    },
+    "walkingIntensity": "medium",
+    "businessHours": "Public bathhouse open daily; hours vary by facility",
+    "relationships": {}
+  },
+  {
+    "id": "kumano-kodo",
+    "name": "Kumano Kodo",
+    "nameJa": "熊野古道",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Mie:kihoku",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "categories": ["Nature", "History", "Culture"],
+    "tags": ["UNESCO", "Pilgrimage", "Iseji"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
+    "description": "The legendary pilgrimage trail network of the Kii Peninsula, its Iseji route climbing from the Ise shrines over the passes into Kumano (UNESCO World Heritage).",
+    "highlights": [
+      "Walk the stone-laid Magose-toge pass",
+      "Follow the Iseji route toward Kumano",
+      "See the 800-year-old Tsukidate pines"
+    ],
+    "coordinates": {
+      "lat": 33.8388,
+      "lng": 136.1059
+    },
+    "officialWebsite": "https://www.tb-kumano.jp/",
+    "status": "verified",
+    "weatherDependence": "high",
+    "walkingMin": 300,
+    "indoorPercent": 5,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 9,
+      "photography": 9,
+      "food": 7,
+      "summer": 7,
+      "couple": 8,
+      "winter": 7,
+      "rain": 5,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 240,
+      "bus": 240
+    },
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "owase",
+    "name": "Owase",
+    "nameJa": "尾鷲",
+    "kind": "town",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Mie:owase",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "categories": ["Town", "Coast", "Food"],
+    "tags": ["Owase Breeze", "Kumano Coast"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG",
+    "description": "A rainswept, green-coast town of the Higashi-Kishū region — famous for its 'Owase breeze' cedar-flavoured fish skillets.",
+    "highlights": [
+      "Eat the cedar-grilled 'meitu' fish",
+      "Walk the stepped streets above the inlet",
+      "Explo-the sea-washed cliffs of O-numa"
+    ],
+    "coordinates": {
+      "lat": 34.0641,
+      "lng": 136.19
+    },
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 90,
+    "indoorPercent": 25,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 7.8,
+      "photography": 8,
+      "food": 8,
+      "summer": 8,
+      "couple": 7,
+      "winter": 7,
+      "rain": 7,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 180,
+      "train": 300,
+      "bus": 270
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "kumano-city",
+    "name": "Kumano City",
+    "nameJa": "熊野市",
+    "kind": "town",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Mie:kumano",
+    "prefecture": "Mie",
+    "region": "Kansai",
+    "categories": ["Town", "History", "Coast"],
+    "tags": ["Kumano", "Onigajo"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg",
+    "description": "Gate city of the Higashi-Kishū pilgrimage route — seam-carved Onigajo cliffs, Hamaya-machi shrine lanes and offshore island views.",
+    "highlights": [
+      "Walk the Onigajo carved-sea-cliff path",
+      "Visit the Hamaya-machi pilgrimage lanes",
+      "See the Shichiri-mihama sand strip"
+    ],
+    "coordinates": {
+      "lat": 33.8962,
+      "lng": 136.1117
+    },
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 150,
+    "indoorPercent": 20,
+    "recommendedVisitHours": {
+      "min": 5,
+      "max": 12
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8,
+      "photography": 9,
+      "food": 8,
+      "summer": 8,
+      "couple": 8,
+      "winter": 7,
+      "rain": 6,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 8
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 195,
+      "train": 285,
+      "bus": 285
+    },
+    "walkingIntensity": "medium",
+    "relationships": {}
+  },
+  {
+    "id": "chokai-san",
+    "name": "Mount Chokai",
+    "nameJa": "鳥海山",
+    "kind": "mountain",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Akita:nikaho",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "categories": ["Mountain", "Hiking", "Nature"],
+    "tags": ["Deva Sanzan", "Sea of Japan"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg",
+    "description": "The 2,236 m 'Chokai of Dewa' — a perfect volcanic cone rising straight from the Japan Sea, sacred to the mountain-faith tradition.",
+    "highlights": [
+      "Summit the sacred 2,236 m cone",
+      "See the turquoise crater ponds below the peak",
+      "Leg-stretch on the alpine flower meadows"
+    ],
+    "coordinates": {
+      "lat": 39.099,
+      "lng": 140.048
+    },
+    "officialWebsite": "https://www.chokai-san.jp/",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
+    },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
+    "weatherDependence": "high",
+    "walkingMin": 420,
+    "indoorPercent": 0,
+    "recommendedVisitHours": {
+      "min": 5,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.8,
+      "photography": 9,
+      "food": 6,
+      "summer": 9,
+      "couple": 8,
+      "winter": 4,
+      "rain": 4,
+      "relaxation": 7,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 240,
+      "bus": 240
+    },
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "shirakami-sanchi",
+    "name": "Shirakami-Sanchi",
+    "nameJa": "白神山地",
+    "kind": "nature",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Akita:fujisato",
+    "prefecture": "Akita",
+    "region": "Tohoku",
+    "categories": ["Nature", "Hiking", "World Heritage"],
+    "tags": ["UNESCO", "Beech Forest"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG",
+    "description": "The last pristine Siebold's beech forest of Japan (UNESCO) — primeval green over misty ridges shared by Akita and Aomori.",
+    "highlights": [
+      "Walk the Anmon Falls beech-forest trail",
+      "See the electric-blue Juniko 'Aoi-ike' pond",
+      "Absorb the World Heritage silence"
+    ],
+    "coordinates": {
+      "lat": 40.446,
+      "lng": 140.1426
+    },
+    "officialWebsite": "https://shirakami-sanchi.jp/",
+    "status": "verified",
+    "weatherDependence": "high",
+    "walkingMin": 300,
+    "indoorPercent": 5,
+    "recommendedVisitHours": {
+      "min": 3,
+      "max": 6
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.9,
+      "photography": 9,
+      "food": 6,
+      "summer": 9,
+      "couple": 8,
+      "winter": 5,
+      "rain": 5,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 240,
+      "bus": 240
+    },
+    "walkingIntensity": "high",
+    "relationships": {}
+  },
+  {
+    "id": "adachi-museum-of-art",
+    "name": "Adachi Museum of Art",
+    "nameJa": "足立美術館",
+    "kind": "museum",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Shimane:yasugi",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "categories": ["Museum", "Garden", "Art"],
+    "tags": ["Top Garden", "Yasugi"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
+    "description": "The art museum whose 'borrowed-scenery' garden is continuously ranked Japan's best — scrolling mountain views framed by clipped azaleas.",
+    "highlights": [
+      "Contemplate the repeatedly #1-ranked garden",
+      "See Yokoyama Taikan's masterwork gallery",
+      "Watch the seasons paint the borrowed scenery"
+    ],
+    "coordinates": {
+      "lat": 35.4297,
+      "lng": 133.1052
+    },
+    "officialWebsite": "https://www.adachi-museum.or.jp/",
+    "status": "verified",
+    "season": {
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
+    },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
+    "weatherDependence": "moderate",
+    "walkingMin": 120,
+    "indoorPercent": 70,
+    "recommendedVisitHours": {
+      "min": 2,
+      "max": 3
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 9.2,
+      "photography": 9,
+      "food": 7,
+      "summer": 8,
+      "couple": 8,
+      "winter": 9,
+      "rain": 8,
+      "relaxation": 9,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 150,
+      "train": 210,
+      "bus": 210
+    },
+    "walkingIntensity": "low",
+    "businessHours": "Open daily 09:00 - 17:30 (entry until 17:00)",
+    "relationships": {}
+  },
+  {
+    "id": "oki-islands",
+    "name": "Oki Islands",
+    "nameJa": "隠岐諸島",
+    "kind": "island",
+    "role": "standalone",
+    "placeType": "destination",
+    "municipalityId": "Shimane:oki",
+    "prefecture": "Shimane",
+    "region": "Chugoku",
+    "categories": ["Island", "Nature", "History"],
+    "tags": ["UNESCO", "Daisen-Oki"],
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg",
+    "description": "A UNESCO Global Geopark archipelago in the Japan Sea — sea-cliff pillars, a sacred 'flying' shrine island and slow island cycles.",
+    "highlights": [
+      "See the Kuniga coast sea-stack pillars",
+      "Cycling the Dōzen island roads",
+      "Visit the sacred Chichibugahama shrine cliffs"
+    ],
+    "coordinates": {
+      "lat": 36.2202,
+      "lng": 133.3118
+    },
+    "officialWebsite": "https://www.oki-geo.com/",
+    "status": "verified",
+    "weatherDependence": "moderate",
+    "walkingMin": 385,
+    "indoorPercent": 15,
+    "recommendedVisitHours": {
+      "min": 6,
+      "max": 8
+    },
+    "collections": [],
+    "ratings": {
+      "overall": 8.6,
+      "photography": 9,
+      "food": 8,
+      "summer": 9,
+      "couple": 8,
+      "winter": 6,
+      "rain": 6,
+      "relaxation": 8,
+      "value": 8,
+      "uniqueness": 9
+    },
+    "scoreMetadata": {
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
+    },
+    "travelEstimate": {
+      "confidence": "beta"
+    },
+    "transportOptions": {
+      "car": 120,
+      "bus": 240,
+      "ferry": 150
+    },
+    "transportZoneId": "oki",
+    "walkingIntensity": "high",
+    "relationships": {}
   }
 ]

@@ -1,0 +1,125 @@
+{
+  "id": "adachi-museum-of-art",
+  "name": "Adachi Museum of Art",
+  "nameJa": "足立美術館",
+  "kind": "museum",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "categories": ["Museum", "Garden", "Art"],
+  "tags": ["Top Garden", "Yasugi"],
+  "coordinates": {
+    "lat": 35.4297,
+    "lng": 133.1052
+  },
+  "municipalityId": "Shimane:yasugi",
+  "status": "verified",
+  "ratings": {
+    "overall": 9.2,
+    "photography": 9,
+    "food": 7,
+    "summer": 8,
+    "couple": 8,
+    "winter": 9,
+    "rain": 8,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "low",
+  "indoorPercent": 70,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 150,
+    "train": 210,
+    "bus": 210
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Free on-site parking",
+  "officialWebsite": "https://www.adachi-museum.or.jp/",
+  "businessHours": "Open daily 09:00 - 17:30 (entry until 17:00)",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.adachi-museum.or.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "The art museum whose 'borrowed-scenery' garden is continuously ranked Japan's best — scrolling mountain views framed by clipped azaleas.",
+  "notes": "Adachi's 16-tea-retreat garden stretches toward the Sanyo Mountains and has been rated the top Japanese garden for over two decades; the 19th-century Nihonga collection matches it.",
+  "highlights": [
+    "Contemplate the repeatedly #1-ranked garden",
+    "See Yokoyama Taikan's masterwork gallery",
+    "Watch the seasons paint the borrowed scenery"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Adachi Museum of Art via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "reasonCode": "single_required_admission",
+    "cost": {
+      "kind": "bounded",
+      "min": 2500,
+      "max": 2500
+    },
+    "scope": "general_entry",
+    "basis": "Adachi Museum of Art general admission for adults (official hours & admission page, Apr 2025 fee schedule).",
+    "sourceUrls": ["https://www.adachi-museum.or.jp/en/hours-admission"],
+    "checkedAt": "2026-09-05",
+    "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)"
+}

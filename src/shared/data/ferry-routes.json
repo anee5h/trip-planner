@@ -20,6 +20,15 @@
     },
     {
       "from": "mainland-honshu",
+      "to": "oki",
+      "operator": "Oki Kisen",
+      "ports": ["Shichirui (Izumo)", "Saigo / Beppu"],
+      "passengerService": true,
+      "sourceUrl": "https://www.oki-kisen.co.jp/",
+      "checkedAt": "2026-09-05"
+    },
+    {
+      "from": "mainland-honshu",
       "to": "hokkaido",
       "operator": "Tsugaru Kaikyo Ferry",
       "ports": ["Aomori", "Hakodate"],

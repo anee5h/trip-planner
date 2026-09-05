@@ -1013,6 +1013,16 @@
       "category": "C",
       "action": "confidence-gated",
       "reason": "Reviewed ferry-duration fallback {ferry:40} shared by gunkanjima-hashima-nagasaki, iriomote-ishigaki, and ogijima. The value is a display fallback for route availability while fare and origin-specific itinerary evidence remain separate."
+    },
+    "transport:fe0710c1f104": {
+      "category": "B",
+      "action": "legitimate",
+      "reason": "Deliberate P0-cohort per-kind transport baseline authored as a shared template ({bus:240,car:150,train:240}: 4 records across the 2026-09 P0 expansion); regional rounded values, not individually researched; accepted as inventory-aid template."
+    },
+    "transport:22bcbbbe1ad6": {
+      "category": "B",
+      "action": "legitimate",
+      "reason": "Deliberate P0-cohort per-kind transport baseline authored as a shared template ({bus:210,car:150,train:210}: 3 records across the 2026-09 P0 expansion); regional rounded values, not individually researched; accepted as inventory-aid template."
     }
   }
 }

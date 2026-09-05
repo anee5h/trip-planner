@@ -1,0 +1,127 @@
+{
+  "id": "wajima-morning-market",
+  "name": "Wajima Morning Market",
+  "nameJa": "輪島朝市",
+  "kind": "market",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "categories": ["Market", "Food", "Culture"],
+  "tags": ["Noto", "Morning Market"],
+  "coordinates": {
+    "lat": 37.3945,
+    "lng": 136.9007
+  },
+  "municipalityId": "Ishikawa:wajima",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.4,
+    "photography": 8,
+    "food": 9,
+    "summer": 8,
+    "couple": 7,
+    "winter": 6,
+    "rain": 6,
+    "relaxation": 7,
+    "value": 9,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "season": {
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
+  },
+  "seasonMetadata": {
+    "method": "model",
+    "modelVersion": "season-model-v1",
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 150,
+    "train": 240,
+    "bus": 240
+  },
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Public lots near the market",
+  "officialWebsite": "https://www.noto-wajima.jp/",
+  "businessHours": "Open daily 08:00 - 12:00 (variable in winter; check official notice)",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.noto-wajima.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "One of Japan's three great morning markets — a centuries-old Noto street of stalls selling craft, seafood and the region's famous lacquerware.",
+  "notes": "The Wajima asaichi runs every day regardless of weather; pair it with the Wajima-nuri lacquer studios and the morning catch direct from the port.",
+  "highlights": [
+    "Haggle for morning-fresh Noto seafood",
+    "Buy Wajima-nuri lacquerware from the makers",
+    "Eat the seasonal 'amime' fish-sandwich snack"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Wajima Morning Market via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Market streets free to walk; purchases and food optional.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)"
+}

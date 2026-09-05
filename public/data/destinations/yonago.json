@@ -1,0 +1,108 @@
+{
+  "id": "yonago",
+  "name": "Yonago",
+  "nameJa": "米子",
+  "kind": "town",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Tottori",
+  "region": "Chugoku",
+  "categories": ["Town", "Food", "Transit Hub"],
+  "tags": ["Yonago Castle", "Gate of San'in"],
+  "coordinates": {
+    "lat": 35.4283,
+    "lng": 133.3312
+  },
+  "municipalityId": "Tottori:yonago",
+  "status": "verified",
+  "ratings": {
+    "overall": 7.7,
+    "photography": 7,
+    "food": 8,
+    "summer": 8,
+    "couple": 7,
+    "winter": 7,
+    "rain": 7,
+    "relaxation": 7,
+    "value": 8,
+    "uniqueness": 7
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "indoorPercent": 35,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 135,
+    "train": 180,
+    "bus": 195
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Public lots near the station",
+  "description": "San'in's lively gateway — castle-crowned hills, Shotengai food streets and the water gates of the Sakaiminato coast nearby.",
+  "notes": "Yonago anchors the western Tottori day-trip circuit: castle ruins above the city, the Yumigahama sandbar, and Sakaiminato's manga street within a short bus hop.",
+  "highlights": [
+    "Climb Yonago Castle ruins for the coast panorama",
+    "Eat through the Gaina Shotengai arcade",
+    "Hop to the Sakaiminato manga-bronze streets"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Yonago via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Yonago,_Tottori",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "City streets and castle ruins free; site museums paid where entrance applies.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

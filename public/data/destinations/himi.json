@@ -1,0 +1,109 @@
+{
+  "id": "himi",
+  "name": "Himi",
+  "nameJa": "氷見",
+  "kind": "town",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "categories": ["Town", "Coast", "Food"],
+  "tags": ["Himi Sunset", "Fish Market"],
+  "coordinates": {
+    "lat": 36.8554,
+    "lng": 136.975
+  },
+  "municipalityId": "Toyama:himi",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.1,
+    "photography": 9,
+    "food": 9,
+    "summer": 9,
+    "couple": 8,
+    "winter": 7,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 5,
+    "max": 12
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 0 children, metro=false"
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 150,
+    "train": 165,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Free lots near the fish market",
+  "officialWebsite": "https://www.himikankou.jp/",
+  "description": "Legendary sunset town on Toyama Bay — the world-famous 'Himi Sunset Line' over Mount Tateyama and a port of hyper-fresh fish.",
+  "notes": "Himi was a favourite of film-maker Otarō Tōnō; the Himi Fish Market at dawn, the sunset point at Cape Souraiyama, and the 'jukusei' salted yellowtail are the trio of delights.",
+  "highlights": [
+    "Watch the sunset over Tateyama from Souraiyama cape",
+    "Eat ultra-fresh fish at the Himi market",
+    "Walk the Uozu coastal trail"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Himi via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Town, sunset points and fish market free to visit; food and souvenirs optional.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

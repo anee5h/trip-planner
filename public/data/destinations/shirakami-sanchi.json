@@ -1,0 +1,114 @@
+{
+  "id": "shirakami-sanchi",
+  "name": "Shirakami-Sanchi",
+  "nameJa": "白神山地",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Akita",
+  "region": "Tohoku",
+  "categories": ["Nature", "Hiking", "World Heritage"],
+  "tags": ["UNESCO", "Beech Forest"],
+  "coordinates": {
+    "lat": 40.446,
+    "lng": 140.1426
+  },
+  "municipalityId": "Akita:fujisato",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.9,
+    "photography": 9,
+    "food": 6,
+    "summer": 9,
+    "couple": 8,
+    "winter": 5,
+    "rain": 5,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 6
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
+  },
+  "walkingMin": 300,
+  "walkingIntensity": "high",
+  "indoorPercent": 5,
+  "weatherDependence": "high",
+  "transportOptions": {
+    "car": 150,
+    "train": 240,
+    "bus": 240
+  },
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Paid lot at Anmon trailhead",
+  "officialWebsite": "https://shirakami-sanchi.jp/",
+  "description": "The last pristine Siebold's beech forest of Japan (UNESCO) — primeval green over misty ridges shared by Akita and Aomori.",
+  "notes": "Shirakami's accessible trails (Anmon Falls, Juniko lakes) hug the Akita edge of the reserve; the 'blue pond' of Juniko is the icon, reachable by car or bus from the JR line.",
+  "highlights": [
+    "Walk the Anmon Falls beech-forest trail",
+    "See the electric-blue Juniko 'Aoi-ike' pond",
+    "Absorb the World Heritage silence"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Shirakami-Sanchi",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Reserve trails free; parking and bus fees paid per facility.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

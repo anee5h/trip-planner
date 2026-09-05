@@ -1,0 +1,114 @@
+{
+  "id": "ureshino-onsen",
+  "name": "Ureshino Onsen",
+  "nameJa": "嬉野温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "categories": ["Onsen", "Relaxation", "Food"],
+  "tags": ["Ureshino", "Tea"],
+  "coordinates": {
+    "lat": 33.1208,
+    "lng": 129.995
+  },
+  "municipalityId": "Saga:ureshino",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.1,
+    "photography": 7,
+    "food": 9,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'onsen'"
+  },
+  "walkingMin": 75,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 120,
+    "train": 180,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near public bathhouses",
+  "officialWebsite": "https://www.ureshino-spa.jp/",
+  "businessHours": "Public bathhouse open daily; hours vary by facility",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.ureshino-spa.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "Smooth 'beauty bath' town famous for its silky sodium water and the hand-finished Ureshino tea noodles.",
+  "notes": "Ureshino is a designated national health resort; try the hot-spring tofu-noodle 'hiyamugi' and the local green tea while the water works its magic.",
+  "highlights": [
+    "Bathe in the silky sodium spring",
+    "Try Ureshino tea soba and onsen tofu",
+    "Explore the chagokoro tea culture street"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Ureshino Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Ureshino town streets free; public bathhouses paid per entry.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

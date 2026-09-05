@@ -1,0 +1,117 @@
+{
+  "id": "eiheiji-temple",
+  "name": "Eiheiji Temple",
+  "nameJa": "永平寺",
+  "kind": "temple",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Fukui",
+  "region": "Chubu",
+  "categories": ["Temple", "History", "Culture"],
+  "tags": ["Zen", "Soto Zen", "Japan Heritage"],
+  "coordinates": {
+    "lat": 36.0558,
+    "lng": 136.3552
+  },
+  "municipalityId": "Fukui:eiheiji",
+  "status": "verified",
+  "ratings": {
+    "overall": 9.1,
+    "photography": 9,
+    "food": 7,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "high",
+  "indoorPercent": 60,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 120,
+    "train": 150,
+    "bus": 150
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Temple tours available without reservation",
+  "parking": "Free on-site parking",
+  "officialWebsite": "https://daihonzan-eiheiji.com/",
+  "businessHours": "Open daily (temple grounds); hall tours 08:00 - 16:30 (varies by season)",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://daihonzan-eiheiji.com/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "Head temple of Soto Zen Buddhism, set in a cypress grove on the Eiheiji mountainside with 70+ halls connected by covered walkways.",
+  "notes": "Eiheiji is Fukui's most visited attraction — a functioning monastery where the resident monks' training rhythm is part of the experience.",
+  "highlights": [
+    "Walk the covered corridor connecting 70+ temple halls",
+    "Join the guided prayer-hall tour",
+    "See the seven centuries of Zen architecture"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Eiheiji Temple via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "reasonCode": "single_required_admission",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Eiheiji temple general admission for adults (official site fee schedule, ordinary individual entry).",
+    "sourceUrls": ["https://daihonzan-eiheiji.com/"],
+    "checkedAt": "2026-09-05",
+    "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

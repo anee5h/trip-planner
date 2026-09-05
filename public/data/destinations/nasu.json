@@ -1,0 +1,109 @@
+{
+  "id": "nasu",
+  "name": "Nasu",
+  "nameJa": "那須",
+  "kind": "town",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "categories": ["Town", "Nature", "Resort"],
+  "tags": ["Nasu Highlands", "Tochigi"],
+  "coordinates": {
+    "lat": 37.0222,
+    "lng": 139.9912
+  },
+  "municipalityId": "Tochigi:nasu",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.4,
+    "photography": 8,
+    "food": 8,
+    "summer": 9,
+    "couple": 8,
+    "winter": 7,
+    "rain": 7,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 5,
+    "max": 12
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "hub records span multiple microclimates; single vector would be fabricated"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "hub-window-model-v1",
+    "confidence": "low",
+    "basis": "hub exploration window: importance standard, 0 children, metro=false"
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 135,
+    "train": 210,
+    "bus": 150
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Free lots across the highlands",
+  "officialWebsite": "https://www.nasushiobara.info/",
+  "description": "The imperial family's highland retreat since 1926 — a walking town of larch woods, farm gates, cheese and the Nasu flower kingdom.",
+  "notes": "Nasu weaves together the villa gardens, the ropeway to Chausu-dake crater, dairy farms, and the illuminated Steamboat Onsen; the highland air makes it a true summer escape from Tokyo.",
+  "highlights": [
+    "Visit the imperial Nasu Villa garden",
+    "Taste Nasu cheese and farm gelato",
+    "Ride the Nasu ropeway toward the crater"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Nasu via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Town and highland roads free; gardens, ropeway and museums paid.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

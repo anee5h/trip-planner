@@ -1,0 +1,122 @@
+{
+  "id": "oki-islands",
+  "name": "Oki Islands",
+  "nameJa": "隠岐諸島",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "categories": ["Island", "Nature", "History"],
+  "tags": ["UNESCO", "Daisen-Oki"],
+  "coordinates": {
+    "lat": 36.2202,
+    "lng": 133.3118
+  },
+  "municipalityId": "Shimane:oki",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.6,
+    "photography": 9,
+    "food": 8,
+    "summer": 9,
+    "couple": 8,
+    "winter": 6,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 8
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 385,
+  "walkingIntensity": "high",
+  "indoorPercent": 15,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 120,
+    "bus": 240,
+    "ferry": 150
+  },
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Ferries require no reservation",
+  "parking": "Car rental available at Oki ports",
+  "officialWebsite": "https://www.oki-geo.com/",
+  "description": "A UNESCO Global Geopark archipelago in the Japan Sea — sea-cliff pillars, a sacred 'flying' shrine island and slow island cycles.",
+  "notes": "Dogo and Dōzen islands form the Oki chain: the charmed Kuniga coast on Dogo, the black-cliff shrine of Chichibugahama and cycle roads make it a two-day island escape from Matsue.",
+  "highlights": [
+    "See the Kuniga coast sea-stack pillars",
+    "Cycling the Dōzen island roads",
+    "Visit the sacred Chichibugahama shrine cliffs"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Oki Islands via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Oki_Islands",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 7.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg",
+  "transportZoneId": "oki",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Island access and coast sights free; ferries and optional tours paid.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  },
+  "walkingMetadata": {
+    "method": "model",
+    "unit": "minutes",
+    "modelVersion": "walking-model-v1",
+    "confidence": "low",
+    "basis": "template metre value 360 replaced by walk-share estimate (FIX_UNIT): 80% of 8h visit"
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "id": "takeo-onsen",
+  "name": "Takeo Onsen",
+  "nameJa": "武雄温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "categories": ["Onsen", "Relaxation", "History"],
+  "tags": ["Takeo Onsen", "Lattice Bathhouse"],
+  "coordinates": {
+    "lat": 33.1964,
+    "lng": 130.0182
+  },
+  "municipalityId": "Saga:takeo",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.2,
+    "photography": 8,
+    "food": 8,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "model",
+    "modelVersion": "duration-model-v1",
+    "confidence": "medium",
+    "basis": "kind band 'onsen'"
+  },
+  "walkingMin": 90,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 120,
+    "train": 150,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near the bathhouse",
+  "officialWebsite": "https://www.takeo-kankou.jp/",
+  "businessHours": "Public bathhouse open daily (hours vary by bath); see official site",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.takeo-kankou.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "1,300-year-old hot spring town dominated by the vermilion-lattice bathhouse designed by Tokyo Tower architect Tachū Naitō.",
+  "notes": "Takeo's spring is rated one of Japan's three celebrated bathhouses; the riverbank footpath and nearby Takeo Shrine complete a relaxed day.",
+  "highlights": [
+    "Soak in the Naitō-designed lattice bathhouse",
+    "Stroll the Takeo riverbank promenade",
+    "Pair with the 500-year-old Takeo Shrine ginkgo"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Takeo Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Takeo_Onsen",
+    "url": null
+  },
+  "scoreMetadata": {
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Takeo town and shrine free; public bathhouses paid per entry.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
+}

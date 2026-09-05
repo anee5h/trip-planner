@@ -143,7 +143,10 @@
       "inubosaki-lighthouse-choshi",
       "byobugaura-choshi",
       "hokusai-museum-obuse",
-      "usui-pass-railway-heritage-park"
+      "usui-pass-railway-heritage-park",
+      "wajima-morning-market",
+      "chokai-san",
+      "adachi-museum-of-art"
     ],
     "duration-model-v1": [
       "abeno-harukas-300-osaka",
@@ -400,7 +403,12 @@
       "oigami-onsen",
       "manza-onsen",
       "mt-akagi",
-      "lake-onuma-akagi"
+      "lake-onuma-akagi",
+      "takeo-onsen",
+      "ureshino-onsen",
+      "nasu-kogen-highlands",
+      "kumano-kodo",
+      "shirakami-sanchi"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -563,7 +571,11 @@
       "miyoshi-city",
       "uwajima-city",
       "matsushima-town",
-      "obuse-town"
+      "obuse-town",
+      "toyama-city",
+      "himi",
+      "nasu",
+      "kumano-city"
     ],
     "walking-model-v1": [
       "abashiri-city",
@@ -805,7 +817,8 @@
       "mt-akagi",
       "lake-onuma-akagi",
       "akagi-shrine",
-      "watarase-keikoku-railway"
+      "watarase-keikoku-railway",
+      "oki-islands"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1899,7 +1912,10 @@
       "fukiware-falls",
       "usui-third-bridge",
       "shorinzan-darumaji",
-      "onioshidashi-park"
+      "onioshidashi-park",
+      "wajima-morning-market",
+      "shirakami-sanchi",
+      "oki-islands"
     ]
   },
   "modelClusterIds": [
@@ -1945,138 +1961,82 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-09-02T07:46",
-    "changeCount": 18,
+    "at": "2026-09-05T11:04",
+    "changeCount": 10,
     "byModel": [
       [
-        "score-rubric-v2",
-        13
-      ],
-      [
-        "season-model-v1",
-        2
-      ],
-      [
         "duration-model-v1",
-        1
+        5
       ],
       [
-        "comfort-model-v1",
-        1
+        "hub-window-model-v1",
+        4
       ],
       [
-        "transport-access-v1",
+        "walking-model-v1",
         1
       ]
     ],
     "sample": [
       {
-        "id": "noto",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "noto",
-        "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "noto",
+        "id": "takeo-onsen",
         "model": "duration-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "noto",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
-      },
-      {
-        "id": "tsugaru",
-        "model": "transport-access-v1",
-        "action": "tag",
-        "reason": "legacy static minutes tagged as fallback; 0/1 declared modes supported by zone topology"
-      },
-      {
-        "id": "nemuro-peninsula-chashi-sites",
-        "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "kind band 'onsen'"
       },
       {
-        "id": "ne-castle-hachinohe",
-        "model": "score-rubric-v2",
+        "id": "ureshino-onsen",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "kind band 'onsen'"
       },
       {
-        "id": "tsuyama-castle",
-        "model": "score-rubric-v2",
+        "id": "toyama-city",
+        "model": "hub-window-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
-        "id": "towada-hachimantai",
-        "model": "score-rubric-v2",
+        "id": "himi",
+        "model": "hub-window-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
-        "id": "shimokita-hanto",
-        "model": "score-rubric-v2",
+        "id": "nasu",
+        "model": "hub-window-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
-        "id": "tsugaru",
-        "model": "score-rubric-v2",
+        "id": "nasu-kogen-highlands",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "kind band 'nature'"
       },
       {
-        "id": "shodoshima",
-        "model": "score-rubric-v2",
+        "id": "kumano-kodo",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6"
+        "reason": "kind band 'nature'"
       },
       {
-        "id": "inujima",
-        "model": "score-rubric-v2",
+        "id": "kumano-city",
+        "model": "hub-window-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6"
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
-        "id": "ogijima",
-        "model": "score-rubric-v2",
+        "id": "shirakami-sanchi",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "estimated rubric score 6"
+        "reason": "kind band 'nature'"
       },
       {
-        "id": "izanagi-jingu-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
-      },
-      {
-        "id": "awaji-farm-park-england-hill",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
-      },
-      {
-        "id": "sumoto-castle-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
-      },
-      {
-        "id": "nijigen-no-mori-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
+        "id": "oki-islands",
+        "model": "walking-model-v1",
+        "action": "fill",
+        "reason": "template metre value 360 replaced by walk-share estimate (FIX_UNIT): 80% of 8h visit"
       }
     ]
   }
