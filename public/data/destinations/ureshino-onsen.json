@@ -1,0 +1,94 @@
+{
+  "id": "ureshino-onsen",
+  "name": "Ureshino Onsen",
+  "nameJa": "嬉野温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "categories": ["Onsen", "Relaxation", "Food"],
+  "tags": ["Ureshino-cha", "Silky Water"],
+  "coordinates": {
+    "lat": 33.1208,
+    "lng": 129.995
+  },
+  "municipalityId": "Saga:ureshino",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.1,
+    "photography": 7,
+    "food": 9,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 8
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 75,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 120,
+    "train": 180,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near public bathhouses",
+  "officialWebsite": "https://www.ureshino-spa.jp/",
+  "businessHours": "Public bathhouse open daily; hours vary by facility",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.ureshino-spa.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "Smooth 'beauty bath' town famous for its silky sodium water and the hand-finished Ureshino tea noodles.",
+  "notes": "Ureshino is a designated national health resort; try the hot-spring tofu-noodle 'hiyamugi' and the local green tea while the water works its magic.",
+  "highlights": [
+    "Bathe in the silky sodium spring",
+    "Try Ureshino tea soba and onsen tofu",
+    "Explore the chagokoro tea culture street"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Ureshino Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

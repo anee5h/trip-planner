@@ -1,0 +1,88 @@
+{
+  "id": "nasu-kogen-highlands",
+  "name": "Nasu Highlands",
+  "nameJa": "那須高原",
+  "kind": "nature",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "categories": ["Nature", "Viewpoint", "Hiking"],
+  "tags": ["Chausu", "Nasu Ropeway"],
+  "coordinates": {
+    "lat": 37.1255,
+    "lng": 139.961
+  },
+  "municipalityId": "Tochigi:nasu",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.6,
+    "photography": 9,
+    "food": 7,
+    "summer": 9,
+    "couple": 8,
+    "winter": 6,
+    "rain": 5,
+    "relaxation": 7,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 6
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 210,
+  "walkingIntensity": "high",
+  "indoorPercent": 5,
+  "weatherDependence": "high",
+  "transportOptions": {
+    "car": 135,
+    "train": 210,
+    "bus": 150
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Paid lot at the ropeway base",
+  "description": "The volcanic plateau crowned by Mount Chausu-dake — fields of wild azaleas, crater views and the 'Sanso' walking trails.",
+  "notes": "The Nasu highland trail from the ropeway top to Chausu-dake passes steaming fumaroles and a red-crater viewpoint; autumn paints the plateau fire-orange.",
+  "highlights": [
+    "Hike the ropeway-to-crater trail",
+    "See the Nasu azalea fields in June",
+    "Stand at the Chausu-dake smoking crater"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Nasu Highlands via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Nasu"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+}

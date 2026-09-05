@@ -49,6 +49,14 @@
       "localModes": ["bus"]
     },
     {
+      "id": "oki",
+      "name": "Oki Islands",
+      "nameJa": "隠岐諸島",
+      "isIsland": true,
+      "isRemote": true,
+      "localModes": ["bus", "car"]
+    },
+    {
       "id": "sado",
       "name": "Sado Island",
       "nameJa": "佐渡島",

@@ -1,0 +1,89 @@
+{
+  "id": "nasu",
+  "name": "Nasu",
+  "nameJa": "那須",
+  "kind": "town",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "categories": ["Town", "Nature", "Resort"],
+  "tags": ["Nasu Highlands", "Tochigi"],
+  "coordinates": {
+    "lat": 37.0222,
+    "lng": 139.9912
+  },
+  "municipalityId": "Tochigi:nasu",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.4,
+    "photography": 8,
+    "food": 8,
+    "summer": 9,
+    "couple": 8,
+    "winter": 7,
+    "rain": 7,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "season": {
+    "spring": 7,
+    "summer": 9,
+    "autumn": 9,
+    "winter": 7
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 135,
+    "train": 210,
+    "bus": 150
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Free lots across the highlands",
+  "officialWebsite": "https://www.nasushiobara.info/",
+  "description": "The imperial family's highland retreat since 1926 — a walking town of larch woods, farm gates, cheese and the Nasu flower kingdom.",
+  "notes": "Nasu weaves together the villa gardens, the ropeway to Chausu-dake crater, dairy farms, and the illuminated Steamboat Onsen; the highland air makes it a true summer escape from Tokyo.",
+  "highlights": [
+    "Visit the imperial Nasu Villa garden",
+    "Taste Nasu cheese and farm gelato",
+    "Ride the Nasu ropeway toward the crater"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Nasu via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

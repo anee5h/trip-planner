@@ -1,0 +1,88 @@
+{
+  "id": "kumano-city",
+  "name": "Kumano City",
+  "nameJa": "熊野市",
+  "kind": "town",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Mie",
+  "region": "Kansai",
+  "categories": ["Town", "History", "Coast"],
+  "tags": ["Kumano", "Onigajo"],
+  "coordinates": {
+    "lat": 33.8962,
+    "lng": 136.1117
+  },
+  "municipalityId": "Mie:kumano",
+  "status": "verified",
+  "ratings": {
+    "overall": 8,
+    "photography": 9,
+    "food": 8,
+    "summer": 8,
+    "couple": 8,
+    "winter": 7,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 3,
+    "max": 5
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 7
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 150,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 195,
+    "train": 285,
+    "bus": 285
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Public lots near the station",
+  "description": "Gate city of the Higashi-Kishū pilgrimage route — seam-carved Onigajo cliffs, Hamaya-machi shrine lanes and offshore island views.",
+  "notes": "Kumano City fronts the Kumano Sea with the lava-sculpted Onigajo sea walls, the Maruyama lighthouse and the 1950s teahouse district, all along the Iseji pilgrimage approach.",
+  "highlights": [
+    "Walk the Onigajo carved-sea-cliff path",
+    "Visit the Hamaya-machi pilgrimage lanes",
+    "See the Shichiri-mihama sand strip"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Kumano City via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kumano,_Mie"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+}

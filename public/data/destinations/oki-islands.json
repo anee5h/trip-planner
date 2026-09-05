@@ -1,0 +1,90 @@
+{
+  "id": "oki-islands",
+  "name": "Oki Islands",
+  "nameJa": "隠岐諸島",
+  "kind": "island",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Shimane",
+  "region": "Chugoku",
+  "categories": ["Island", "Nature", "History"],
+  "tags": ["UNESCO", "Daisen-Oki"],
+  "coordinates": {
+    "lat": 36.2202,
+    "lng": 133.3118
+  },
+  "municipalityId": "Shimane:oki",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.6,
+    "photography": 9,
+    "food": 8,
+    "summer": 9,
+    "couple": 8,
+    "winter": 6,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 6,
+    "max": 8
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 6
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 360,
+  "walkingIntensity": "medium",
+  "indoorPercent": 15,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 120,
+    "bus": 240,
+    "ferry": 150
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Ferries require no reservation",
+  "parking": "Car rental available at Oki ports",
+  "officialWebsite": "https://www.oki-geo.com/",
+  "description": "A UNESCO Global Geopark archipelago in the Japan Sea — sea-cliff pillars, a sacred 'flying' shrine island and slow island cycles.",
+  "notes": "Dogo and Dōzen islands form the Oki chain: the charmed Kuniga coast on Dogo, the black-cliff shrine of Chichibugahama and cycle roads make it a two-day island escape from Matsue.",
+  "highlights": [
+    "See the Kuniga coast sea-stack pillars",
+    "Cycling the Dōzen island roads",
+    "Visit the sacred Chichibugahama shrine cliffs"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Oki Islands via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Oki_Islands"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "transportZoneId": "oki"
+}

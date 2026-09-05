@@ -1,0 +1,89 @@
+{
+  "id": "toyama-city",
+  "name": "Toyama City",
+  "nameJa": "富山市",
+  "kind": "city",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "categories": ["City", "Food", "Culture"],
+  "tags": ["Kansui Park", "Toyama Bay"],
+  "coordinates": {
+    "lat": 36.6954,
+    "lng": 137.2116
+  },
+  "municipalityId": "Toyama:toyama",
+  "status": "verified",
+  "ratings": {
+    "overall": 8,
+    "photography": 8,
+    "food": 9,
+    "summer": 8,
+    "couple": 7,
+    "winter": 6,
+    "rain": 7,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 4,
+    "max": 6
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 6
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 240,
+  "walkingIntensity": "medium",
+  "indoorPercent": 45,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 165,
+    "train": 150,
+    "bus": 150
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Park-and-ride lots at the station",
+  "officialWebsite": "https://www.info-toyama.com/",
+  "description": "Toyama prefecture's capital — a bay-side city of ringed canals, the glass-art museum at its centre and the snow-alps terminal at its edge.",
+  "notes": "Toyama City pairs the Kansui Park glass museum by Kengo Kuma, a working sake district, and impossible views of the Hida Alps across the bay — plus streetcar trams to the whole waterfront.",
+  "highlights": [
+    "See the Kengo Kuma glass museum at Kansui Park",
+    "Ride the restored Portram streetcar",
+    "Watch the sunset over Toyama Bay"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Toyama City via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Toyama_(city)"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+}

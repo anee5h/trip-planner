@@ -1,0 +1,94 @@
+{
+  "id": "yamanaka-onsen",
+  "name": "Yamanaka Onsen",
+  "nameJa": "山中温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "categories": ["Onsen", "Relaxation", "Nature"],
+  "tags": ["Kaga Onsen", "Korogi Bridge"],
+  "coordinates": {
+    "lat": 36.2467,
+    "lng": 136.3694
+  },
+  "municipalityId": "Ishikawa:kaga",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.3,
+    "photography": 8,
+    "food": 8,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 9,
+    "winter": 8
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 75,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 120,
+    "train": 150,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near the river baths",
+  "officialWebsite": "https://www.kagahakusan.jp/",
+  "businessHours": "Public bathhouse open daily; hours vary by facility",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.kagahakusan.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "The poet Bashō's favourite hot spring — a riverside bath town under the arching Korogi Bridge, oldest of the Kaga trio.",
+  "notes": "Yamanaka's open-air baths sit directly on the rushing Daishoji river; the bamboo-stalk wooden bridge and the 400-year-old Kikunoyu lend it the most literary mood of the three Kaga springs.",
+  "highlights": [
+    "Bathe in the riverside open-air onsen",
+    "Cross the arched Korogi Bridge",
+    "Stroll the yū-machi teahouse street"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Yamanaka Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Yamanaka_Onsen"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

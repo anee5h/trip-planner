@@ -1,0 +1,93 @@
+{
+  "id": "nasu-steam-onsen",
+  "name": "Nasu Steampowered Onsen",
+  "nameJa": "那須湯本温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Tochigi",
+  "region": "Kanto",
+  "categories": ["Onsen", "Relaxation", "Nature"],
+  "tags": ["Nasu Onsen", "Kitanohara"],
+  "coordinates": {
+    "lat": 37.0761,
+    "lng": 139.9825
+  },
+  "municipalityId": "Tochigi:nasu",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.2,
+    "photography": 8,
+    "food": 8,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "season": {
+    "spring": 7,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "indoorPercent": 30,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 135,
+    "train": 240,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near the gorge baths",
+  "businessHours": "Public bathhouse open daily; hours vary by facility",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nasu_Onsen",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "Tochigi's highland hot spring — a steaming river gorge beneath the volcano with a prized sodium-chloride spring.",
+  "notes": "The oldest of the Nasu springs; the footpath along the Yu-gawa gorge and the Kitanohara open-air baths make it the natural base for the highlands.",
+  "highlights": [
+    "Soak in the Kitanohara open-air baths",
+    "Walk the steaming Yu-gawa gorge",
+    "Pair with the nearby Nasu ropeway"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Nasu Steampowered Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nasu_Onsen"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

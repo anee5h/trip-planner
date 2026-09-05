@@ -1,0 +1,94 @@
+{
+  "id": "katayamazu-onsen",
+  "name": "Katayamazu Onsen",
+  "nameJa": "片山津温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "categories": ["Onsen", "Relaxation", "Lake"],
+  "tags": ["Kaga Onsen", "Shirayama-mirai"],
+  "coordinates": {
+    "lat": 36.3439,
+    "lng": 136.3694
+  },
+  "municipalityId": "Ishikawa:kaga",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.1,
+    "photography": 8,
+    "food": 8,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 8
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 105,
+    "train": 135,
+    "bus": 165
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near the lakefront baths",
+  "officialWebsite": "https://www.kagahakusan.jp/",
+  "businessHours": "Public bathhouse open daily; hours vary by facility",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.kagahakusan.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "The newest and most dramatic of the Kaga springs — a lakeside bath town across Laguna-side wetlands from Shirayama-mirai observatory.",
+  "notes": "Katayamazu's hot spring looks out over Lake Shibayama where the 'one-thousand swimming birds' pattern (chirihama) gave the town its name; the water is salt-rich and prized.",
+  "highlights": [
+    "Bathe with the Lake Shibayama view",
+    "Ride the Kanazawa-bound resort train",
+    "See the sunset from Shirayama-mirai"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Katayamazu Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Katayamazu_Onsen"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

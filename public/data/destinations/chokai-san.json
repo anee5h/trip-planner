@@ -1,0 +1,89 @@
+{
+  "id": "chokai-san",
+  "name": "Mount Chokai",
+  "nameJa": "鳥海山",
+  "kind": "mountain",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Akita",
+  "region": "Tohoku",
+  "categories": ["Mountain", "Hiking", "Nature"],
+  "tags": ["Deva Sanzan", "Sea of Japan"],
+  "coordinates": {
+    "lat": 39.099,
+    "lng": 140.048
+  },
+  "municipalityId": "Akita:nikaho",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.8,
+    "photography": 9,
+    "food": 6,
+    "summer": 9,
+    "couple": 8,
+    "winter": 4,
+    "rain": 4,
+    "relaxation": 7,
+    "value": 8,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 5,
+    "max": 8
+  },
+  "season": {
+    "spring": 6,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 4
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 420,
+  "walkingIntensity": "high",
+  "indoorPercent": 0,
+  "weatherDependence": "high",
+  "transportOptions": {
+    "car": 150,
+    "train": 240,
+    "bus": 240
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Free lot at the Ni-no-sawa trailhead",
+  "officialWebsite": "https://www.chokai-san.jp/",
+  "description": "The 2,236 m 'Chokai of Dewa' — a perfect volcanic cone rising straight from the Japan Sea, sacred to the mountain-faith tradition.",
+  "notes": "Chokai's alpine meadows and crater ponds make it one of Tohoku's great summit days; the trail from the Ni-no-sawa car park is the standard route, with views over Akita and Yamagata both.",
+  "highlights": [
+    "Summit the sacred 2,236 m cone",
+    "See the turquoise crater ponds below the peak",
+    "Leg-stretch on the alpine flower meadows"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Mount Chokai via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Chokai"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

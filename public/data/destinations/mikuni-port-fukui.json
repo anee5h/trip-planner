@@ -1,0 +1,82 @@
+{
+  "id": "mikuni-port-fukui",
+  "name": "Mikuni Port & Tojinbo Coast",
+  "nameJa": "三国湊",
+  "kind": "historic",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Fukui",
+  "region": "Chubu",
+  "categories": ["History", "Coast", "Town"],
+  "tags": ["Port Town", "Echizen"],
+  "coordinates": {
+    "lat": 36.2275,
+    "lng": 136.1452
+  },
+  "municipalityId": "Fukui:sakai",
+  "status": "verified",
+  "ratings": {
+    "overall": 7.9,
+    "photography": 8,
+    "food": 8,
+    "summer": 8,
+    "couple": 7,
+    "winter": 6,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 3
+  },
+  "seasonMetadata": {
+    "method": "unknown",
+    "modelVersion": "season-model-v1",
+    "confidence": "unknown",
+    "basis": "no evidence; owner policy: unknown stays unknown"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 90,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 90,
+    "train": 150,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Public lots near the port",
+  "description": "Historic Kitamaebune sailing port with preserved merchant streets and sake breweries, minutes from the Tojinbo basalt cliffs.",
+  "notes": "Mikuni was the busiest trading port on the Japan Sea until the railway era; its Oku-no-Sō street is a designated preservation district.",
+  "highlights": [
+    "Wander the Oku-no-Sō preserved merchant street",
+    "Sample local sake at the port breweries",
+    "Pair with the Tojinbo cliffs & boat cruise"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Mikuni Port & Tojinbo Coast via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mikuni,_Fukui"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg"
+}

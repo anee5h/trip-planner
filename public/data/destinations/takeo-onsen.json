@@ -1,0 +1,94 @@
+{
+  "id": "takeo-onsen",
+  "name": "Takeo Onsen",
+  "nameJa": "武雄温泉",
+  "kind": "onsen",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Saga",
+  "region": "Kyushu",
+  "categories": ["Onsen", "Relaxation", "History"],
+  "tags": ["Tosu", "Lattice Bathhouse"],
+  "coordinates": {
+    "lat": 33.1964,
+    "lng": 130.0182
+  },
+  "municipalityId": "Saga:takeo",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.2,
+    "photography": 8,
+    "food": 8,
+    "summer": 8,
+    "couple": 8,
+    "winter": 8,
+    "rain": 7,
+    "relaxation": 9,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "season": {
+    "spring": 8,
+    "summer": 8,
+    "autumn": 9,
+    "winter": 8
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 90,
+  "walkingIntensity": "low",
+  "indoorPercent": 30,
+  "weatherDependence": "low",
+  "transportOptions": {
+    "car": 120,
+    "train": 150,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "Baths are walk-in",
+  "parking": "Free lots near the bathhouse",
+  "officialWebsite": "https://www.takeo-kankou.jp/",
+  "businessHours": "Public bathhouse open daily (hours vary by bath); see official site",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.takeo-kankou.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "1,300-year-old hot spring town dominated by the vermilion-lattice bathhouse designed by Tokyo Tower architect Tachū Naitō.",
+  "notes": "Takeo's spring is rated one of Japan's three celebrated bathhouses; the riverbank footpath and nearby Takeo Shrine complete a relaxed day.",
+  "highlights": [
+    "Soak in the Naitō-designed lattice bathhouse",
+    "Stroll the Takeo riverbank promenade",
+    "Pair with the 500-year-old Takeo Shrine ginkgo"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Takeo Onsen via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Takeo_Onsen"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+}

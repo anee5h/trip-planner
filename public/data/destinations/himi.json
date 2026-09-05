@@ -1,0 +1,89 @@
+{
+  "id": "himi",
+  "name": "Himi",
+  "nameJa": "氷見",
+  "kind": "town",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Toyama",
+  "region": "Chubu",
+  "categories": ["Town", "Coast", "Food"],
+  "tags": ["Himi Sunset", "Fish Market"],
+  "coordinates": {
+    "lat": 36.8554,
+    "lng": 136.975
+  },
+  "municipalityId": "Toyama:himi",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.1,
+    "photography": 9,
+    "food": 9,
+    "summer": 9,
+    "couple": 8,
+    "winter": 7,
+    "rain": 6,
+    "relaxation": 8,
+    "value": 8,
+    "uniqueness": 8
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 2,
+    "max": 4
+  },
+  "season": {
+    "spring": 8,
+    "summer": 9,
+    "autumn": 8,
+    "winter": 7
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 120,
+  "walkingIntensity": "medium",
+  "indoorPercent": 25,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 150,
+    "train": 165,
+    "bus": 180
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Free lots near the fish market",
+  "officialWebsite": "https://www.himikankou.jp/",
+  "description": "Legendary sunset town on Toyama Bay — the world-famous 'Himi Sunset Line' over Mount Tateyama and a port of hyper-fresh fish.",
+  "notes": "Himi was a favourite of film-maker Otarō Tōnō; the Himi Fish Market at dawn, the sunset point at Cape Souraiyama, and the 'jukusei' salted yellowtail are the trio of delights.",
+  "highlights": [
+    "Watch the sunset over Tateyama from Souraiyama cape",
+    "Eat ultra-fresh fish at the Himi market",
+    "Walk the Uozu coastal trail"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Himi via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

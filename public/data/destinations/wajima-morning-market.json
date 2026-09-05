@@ -1,0 +1,94 @@
+{
+  "id": "wajima-morning-market",
+  "name": "Wajima Morning Market",
+  "nameJa": "輪島朝市",
+  "kind": "market",
+  "role": "standalone",
+  "placeType": "destination",
+  "prefecture": "Ishikawa",
+  "region": "Chubu",
+  "categories": ["Market", "Food", "Culture"],
+  "tags": ["Noto", "Morning Market"],
+  "coordinates": {
+    "lat": 37.3945,
+    "lng": 136.9007
+  },
+  "municipalityId": "Ishikawa:wajima",
+  "status": "verified",
+  "ratings": {
+    "overall": 8.4,
+    "photography": 8,
+    "food": 9,
+    "summer": 8,
+    "couple": 7,
+    "winter": 6,
+    "rain": 6,
+    "relaxation": 7,
+    "value": 9,
+    "uniqueness": 9
+  },
+  "ratingsSchemaVersion": 2,
+  "recommendedVisitHours": {
+    "min": 1,
+    "max": 2
+  },
+  "season": {
+    "spring": 8,
+    "summer": 7,
+    "autumn": 8,
+    "winter": 6
+  },
+  "seasonMetadata": {
+    "method": "editorial",
+    "modelVersion": "season-model-v1",
+    "confidence": "high",
+    "basis": "editorial source-backed"
+  },
+  "durationMetadata": {
+    "method": "editorial",
+    "modelVersion": "duration-model-v1",
+    "confidence": "high",
+    "basis": "editorial assessment"
+  },
+  "walkingMin": 60,
+  "walkingIntensity": "medium",
+  "indoorPercent": 20,
+  "weatherDependence": "moderate",
+  "transportOptions": {
+    "car": 150,
+    "train": 240,
+    "bus": 240
+  },
+  "travelEstimate": {
+    "confidence": "beta"
+  },
+  "reservation": "None required",
+  "parking": "Public lots near the market",
+  "officialWebsite": "https://www.noto-wajima.jp/",
+  "businessHours": "Open daily 08:00 - 12:00 (variable in winter; check official notice)",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.noto-wajima.jp/",
+    "verifiedAt": "2026-09-05"
+  },
+  "description": "One of Japan's three great morning markets — a centuries-old Noto street of stalls selling craft, seafood and the region's famous lacquerware.",
+  "notes": "The Wajima asaichi runs every day regardless of weather; pair it with the Wajima-nuri lacquer studios and the morning catch direct from the port.",
+  "highlights": [
+    "Haggle for morning-fresh Noto seafood",
+    "Buy Wajima-nuri lacquerware from the makers",
+    "Eat the seasonal 'amime' fish-sandwich snack"
+  ],
+  "collections": [],
+  "relationships": {},
+  "imageMetadata": {
+    "source": "Wikimedia Commons / Wikipedia",
+    "license": "CC-BY-SA / Public Domain",
+    "attribution": "Lead photograph of Wajima Morning Market via Wikipedia/Wikimedia Commons",
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa"
+  },
+  "scoreMetadata": {
+    "modelVersion": "depth-v121-audit",
+    "basis": "P0 expansion (audit v4)"
+  },
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+}

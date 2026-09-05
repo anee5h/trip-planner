@@ -40,6 +40,7 @@ const ISLAND_BOUNDS: Record<
   iki: { latRange: [33.65, 33.85], lngRange: [129.55, 129.8] },
   kerama: { latRange: [26.1, 26.3], lngRange: [127.15, 127.4] },
   koshiki: { latRange: [31.75, 31.95], lngRange: [129.75, 130.0] },
+  oki: { latRange: [36.0, 36.45], lngRange: [132.7, 133.7] },
   rishiri: { latRange: [45.1, 45.3], lngRange: [141.1, 141.35] },
   gunkanjima: { latRange: [32.62, 32.64], lngRange: [129.73, 129.75] },
 };
