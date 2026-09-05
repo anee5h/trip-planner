@@ -47637,6 +47637,14 @@
     "officialWebsite": "https://www.city.hino.lg.jp/",
     "officialWebsiteRequirement": "recommended",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 3
+    },
+    "bestMonths": [6],
+    "bestSeason": "Summer",
     "weatherDependence": "moderate",
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -50081,6 +50089,14 @@
     },
     "officialWebsite": "https://www.byodoin.or.jp/en/",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
+    },
+    "bestMonths": [6, 7, 8],
+    "bestSeason": "Summer",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -50221,6 +50237,14 @@
     },
     "officialWebsite": "https://www.mimurotoji.com/",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 3
+    },
+    "bestMonths": [6, 7],
+    "bestSeason": "Summer",
     "walkingMin": 65,
     "recommendedVisitHours": {
       "min": 0.8,
@@ -54870,6 +54894,14 @@
     "officialWebsite": "https://www.dazaifutenmangu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "status": "published",
+    "season": {
+      "spring": 7,
+      "summer": 4,
+      "autumn": 5,
+      "winter": 10
+    },
+    "bestMonths": [1, 2, 3],
+    "bestSeason": "Winter",
     "weatherDependence": "moderate",
     "totalTripHours": 4,
     "walkingMin": 110,
@@ -82951,6 +82983,14 @@
     "officialWebsite": "https://www.kiyomizudera.or.jp/en/location/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 6,
+      "summer": 4,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [11, 12],
+    "bestSeason": "Autumn",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -83102,6 +83142,14 @@
     "officialWebsite": "https://www.tenryuji.com/en/visit/index.html",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [11],
+    "bestSeason": "Autumn",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
