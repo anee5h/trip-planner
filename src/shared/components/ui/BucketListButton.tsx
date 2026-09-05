@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 interface BucketListButtonProps {
   destinationId: string;
   destinationName?: string;
-  variant?: "circle" | "button" | "hero";
+  variant?: "circle" | "button" | "chip" | "hero";
   className?: string;
   addLabel?: string;
   removeLabel?: string;
@@ -67,6 +67,28 @@ export function BucketListButton({
         } ${className}`}
       >
         <Bookmark className={`w-4 h-4 ${active ? "fill-current" : ""}`} />
+        <span>{currentTitle}</span>
+      </button>
+    );
+  }
+
+  if (variant === "chip") {
+    return (
+      <button
+        onClick={handleClick}
+        disabled={!canMutateProfile}
+        aria-pressed={active}
+        aria-label={currentAriaLabel}
+        title={currentTitle}
+        className={`inline-flex items-center justify-center gap-1.5 rounded-lg px-3 py-2 text-xs font-semibold transition-all active:scale-95 border backdrop-blur-md ${
+          active
+            ? "bg-emerald-700 text-white border-emerald-400 shadow-md"
+            : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
+        } ${className}`}
+      >
+        <Bookmark
+          className={`size-4 shrink-0 ${active ? "fill-current" : ""}`}
+        />
         <span>{currentTitle}</span>
       </button>
     );

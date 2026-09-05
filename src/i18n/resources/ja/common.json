@@ -751,7 +751,8 @@
     "defaultLanguage": "既定の言語",
     "baseLocation": "出発地",
     "failedSave": "設定の保存に失敗しました",
-    "settingsSaved": "設定を保存しました"
+    "settingsSaved": "設定を保存しました",
+    "saved": "保存済み"
   },
   "trips": {
     "exportCalendar": "カレンダーに出力",

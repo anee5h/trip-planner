@@ -337,4 +337,40 @@ describe("DestinationAtAGlance", () => {
 
     expect(host.textContent).toContain("未確認");
   });
+
+  it("renders the Get directions link under travel time (KAI hero rework)", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          travelTime="38–48 min"
+          directionsHref="https://www.google.com/maps/dir/?api=1&origin=Tokyo%20Station&destination=Hakone%20Town,%20Kanagawa,%20Japan&travelmode=transit"
+          directionsLabel="Get directions"
+          labels={labels}
+        />,
+      );
+    });
+
+    const link = host.querySelector(
+      'a[href*="google.com/maps/dir"]',
+    ) as HTMLAnchorElement | null;
+    expect(link).not.toBeNull();
+    expect(link?.textContent).toContain("Get directions");
+    expect(link?.target).toBe("_blank");
+    expect(link?.rel).toContain("noopener");
+  });
+
+  it("omits the directions link when no directions props are provided", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          travelTime="38–48 min"
+          labels={labels}
+        />,
+      );
+    });
+
+    expect(host.querySelector('a[href*="google.com/maps/dir"]')).toBeNull();
+  });
 });

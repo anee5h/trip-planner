@@ -1,10 +1,12 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  ArrowRight,
   CheckCircle2,
   Clock3,
   ExternalLink,
   JapaneseYen,
   MapPin,
+  Navigation,
 } from "lucide-react";
 import type { TripCostResult } from "@/shared/services/budget/budgetV2";
 import type { TripEstimateResult } from "@/shared/services/budget/tripEstimateEngine";
@@ -30,6 +32,7 @@ export interface DestinationAtAGlanceFact {
   tone?: "default" | "positive";
   detail?: string;
   href?: string;
+  directions?: { href: string; label: string };
 }
 
 interface DestinationAtAGlanceProps {
@@ -44,6 +47,8 @@ interface DestinationAtAGlanceProps {
   openingHours?: string;
   openingHoursUnverified?: boolean;
   officialWebsite?: string;
+  directionsHref?: string;
+  directionsLabel?: string;
 }
 
 function getOfficialWebsiteLabel(website: string): string {
@@ -111,11 +116,23 @@ export function DestinationAtAGlance({
   openingHours,
   openingHoursUnverified = false,
   officialWebsite,
+  directionsHref,
+  directionsLabel,
 }: DestinationAtAGlanceProps) {
   const onSiteCostLabel = getOnSiteCostLabel(onSiteCost, locale, labels);
   const facts: DestinationAtAGlanceFact[] = [
     ...(travelTime
-      ? [{ label: labels.travelTime, value: travelTime, Icon: Clock3 }]
+      ? [
+          {
+            label: labels.travelTime,
+            value: travelTime,
+            Icon: Clock3,
+            directions:
+              directionsHref && directionsLabel
+                ? { href: directionsHref, label: directionsLabel }
+                : undefined,
+          },
+        ]
       : []),
     ...(visitDuration
       ? [{ label: labels.visitDuration, value: visitDuration, Icon: MapPin }]
@@ -183,51 +200,75 @@ export function DestinationAtAGlance({
       className="border-t border-slate-100 pt-4 dark:border-slate-800"
     >
       <dl className="grid grid-cols-2 gap-x-4 gap-y-4 lg:grid-cols-4 lg:gap-x-5">
-        {facts.map(({ label, value, Icon, tone = "default", detail, href }) => {
-          const wide = isWideFact(value, href);
-          return (
-            <div
-              key={label}
-              data-at-a-glance-fact={wide ? "wide" : "compact"}
-              className={`min-w-0 ${wide ? "col-span-2 lg:col-span-4" : ""}`}
-            >
-              <div className="flex min-w-0 items-start gap-2.5">
-                <Icon
-                  aria-hidden="true"
-                  className={`mt-0.5 size-4 shrink-0 ${tone === "positive" ? "text-emerald-600 dark:text-emerald-300" : "text-slate-500 dark:text-slate-300"}`}
-                />
-                <div className="min-w-0">
-                  <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                    {label}
-                  </dt>
-                  <dd className="break-words text-sm font-bold leading-snug text-slate-900 dark:text-white">
-                    {href ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex max-w-full items-center gap-1 text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
-                      >
-                        <span className="break-all">{value}</span>
-                        <ExternalLink
-                          aria-hidden="true"
-                          className="size-3 shrink-0"
-                        />
-                      </a>
-                    ) : (
-                      value
-                    )}
-                  </dd>
-                  {detail && (
-                    <dd className="mt-0.5 break-words text-[10px] leading-snug text-slate-500 dark:text-slate-400">
-                      {detail}
+        {facts.map(
+          ({
+            label,
+            value,
+            Icon,
+            tone = "default",
+            detail,
+            href,
+            directions,
+          }) => {
+            const wide = isWideFact(value, href);
+            return (
+              <div
+                key={label}
+                data-at-a-glance-fact={wide ? "wide" : "compact"}
+                className={`min-w-0 ${wide ? "col-span-2 lg:col-span-4" : ""}`}
+              >
+                <div className="flex min-w-0 items-start gap-2.5">
+                  <Icon
+                    aria-hidden="true"
+                    className={`mt-0.5 size-4 shrink-0 ${tone === "positive" ? "text-emerald-600 dark:text-emerald-300" : "text-slate-500 dark:text-slate-300"}`}
+                  />
+                  <div className="min-w-0">
+                    <dt className="text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                      {label}
+                    </dt>
+                    <dd className="break-words text-sm font-bold leading-snug text-slate-900 dark:text-white">
+                      {href ? (
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex max-w-full items-center gap-1 text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
+                        >
+                          <span className="break-all">{value}</span>
+                          <ExternalLink
+                            aria-hidden="true"
+                            className="size-3 shrink-0"
+                          />
+                        </a>
+                      ) : (
+                        value
+                      )}
                     </dd>
-                  )}
+                    {detail && (
+                      <dd className="mt-0.5 break-words text-[10px] leading-snug text-slate-500 dark:text-slate-400">
+                        {detail}
+                      </dd>
+                    )}
+                    {directions && (
+                      <dd className="mt-1">
+                        <a
+                          href={directions.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200"
+                        >
+                          <Navigation className="size-3 shrink-0" />
+                          <span>{directions.label}</span>
+                          <ArrowRight className="size-3 shrink-0" />
+                        </a>
+                      </dd>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          },
+        )}
       </dl>
     </div>
   );
