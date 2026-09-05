@@ -11,13 +11,12 @@
  *      sourceUrl + verifiedAt). Two records (kasamatsu-park-view,
  *      showa-kinen-park) also get corrected hours matching the source.
  *
- * 2 records stay allowlisted as residuals (chiba-zoological-park,
- * keio-mogusaen): official pages were not reachable/verifiable today —
- * they keep their current hours text and the validator treats them as
- * documented debt. tama-forest-science-garden was verified via the
- * official FFPRI visit page on 2026-09-05.
+ * All 47 records are handled in this PR — the allowlist (47 → 0) is
+ * emptied. tama-forest-science-garden, keio-mogusaen and
+ * chiba-zoological-park were verified via their official pages on
+ * 2026-09-05 (FFPRI, keio-mogusaen.jp, city.chiba.jp).
  *
- * Also rewrites opening-hours-allowlist.json (47 → 2).
+ * Also rewrites opening-hours-allowlist.json (47 → 0).
  *
  * Usage: npx tsx scripts/repair-opening-hours-335.ts
  * Deterministic: stable key order, fixed verifiedAt, idempotent (records
@@ -31,6 +30,7 @@ const VERIFIED_AT = "2026-09-05";
 
 interface Repair {
   businessHours?: string;
+  officialWebsite?: string;
   meta?: { sourceUrl: string; verifiedAt: string };
 }
 
@@ -269,6 +269,21 @@ const repairs: Record<string, Repair> = {
       verifiedAt: VERIFIED_AT,
     },
   },
+  "keio-mogusaen": {
+    businessHours:
+      "09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar)",
+    officialWebsite: "https://keio-mogusaen.jp/",
+    meta: {
+      sourceUrl: "https://keio-mogusaen.jp/",
+      verifiedAt: VERIFIED_AT,
+    },
+  },
+  "chiba-zoological-park": {
+    meta: {
+      sourceUrl: "https://www.city.chiba.jp/zoo/",
+      verifiedAt: VERIFIED_AT,
+    },
+  },
 };
 
 const index = JSON.parse(readFileSync(INDEX, "utf8"));
@@ -287,17 +302,22 @@ for (const [id, repair] of Object.entries(repairs)) {
   }
   const hoursSame =
     !repair.businessHours || d.businessHours === repair.businessHours;
+  const websiteSame =
+    !repair.officialWebsite || d.officialWebsite === repair.officialWebsite;
   const metaSame =
     !repair.meta ||
     (d.openingHoursMetadata?.sourceUrl === repair.meta.sourceUrl &&
       d.openingHoursMetadata?.verifiedAt === repair.meta.verifiedAt);
-  if (hoursSame && metaSame) {
+  if (hoursSame && websiteSame && metaSame) {
     skipped += 1;
     continue;
   }
   if (repair.businessHours) {
     d.businessHours = repair.businessHours;
     groupA += 1;
+  }
+  if (repair.officialWebsite) {
+    d.officialWebsite = repair.officialWebsite;
   }
   if (repair.meta) {
     d.openingHoursMetadata = { ...repair.meta };
@@ -307,7 +327,7 @@ for (const [id, repair] of Object.entries(repairs)) {
 
 writeFileSync(INDEX, JSON.stringify(index, null, 2) + "\n");
 
-const residuals = ["chiba-zoological-park", "keio-mogusaen"];
+const residuals: string[] = [];
 writeFileSync(ALLOWLIST, JSON.stringify(residuals, null, 2) + "\n");
 
 console.log(

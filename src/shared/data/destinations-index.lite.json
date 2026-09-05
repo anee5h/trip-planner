@@ -47910,7 +47910,7 @@
       "lat": 35.6572,
       "lng": 139.4311
     },
-    "officialWebsite": "https://www.city.hino.lg.jp/",
+    "officialWebsite": "https://keio-mogusaen.jp/",
     "officialWebsiteRequirement": "recommended",
     "status": "published",
     "weatherDependence": "moderate",
@@ -47963,7 +47963,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "09:30-17:00 (seasonal)",
+    "businessHours": "09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar)",
     "openingHours": "09:30-17:00 (seasonal)",
     "relationships": {
       "parentDestinationId": "hino-city"

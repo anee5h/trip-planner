@@ -270,5 +270,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Chiba_Zoological_Park",
   "wikipediaPageId": 49773939,
-  "wikidataId": "Q11405998"
+  "wikidataId": "Q11405998",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.city.chiba.jp/zoo/",
+    "verifiedAt": "2026-09-05"
+  }
 }
