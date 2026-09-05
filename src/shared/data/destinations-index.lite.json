@@ -47605,7 +47605,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+    "businessHours": "09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6",
     "openingHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
     "relationships": {
       "parentDestinationId": "hachioji-tokyo"

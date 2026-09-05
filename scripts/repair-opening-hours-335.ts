@@ -11,12 +11,13 @@
  *      sourceUrl + verifiedAt). Two records (kasamatsu-park-view,
  *      showa-kinen-park) also get corrected hours matching the source.
  *
- * 3 records stay allowlisted as residuals (chiba-zoological-park,
- * keio-mogusaen, tama-forest-science-garden): official pages were not
- * reachable/verifiable today — they keep their current hours text and the
- * validator treats them as documented debt.
+ * 2 records stay allowlisted as residuals (chiba-zoological-park,
+ * keio-mogusaen): official pages were not reachable/verifiable today —
+ * they keep their current hours text and the validator treats them as
+ * documented debt. tama-forest-science-garden was verified via the
+ * official FFPRI visit page on 2026-09-05.
  *
- * Also rewrites opening-hours-allowlist.json (47 → 3).
+ * Also rewrites opening-hours-allowlist.json (47 → 2).
  *
  * Usage: npx tsx scripts/repair-opening-hours-335.ts
  * Deterministic: stable key order, fixed verifiedAt, idempotent (records
@@ -260,6 +261,14 @@ const repairs: Record<string, Repair> = {
       verifiedAt: VERIFIED_AT,
     },
   },
+  "tama-forest-science-garden": {
+    businessHours:
+      "09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6",
+    meta: {
+      sourceUrl: "https://www.ffpri.go.jp/tmk/visit/index.html",
+      verifiedAt: VERIFIED_AT,
+    },
+  },
 };
 
 const index = JSON.parse(readFileSync(INDEX, "utf8"));
@@ -298,11 +307,7 @@ for (const [id, repair] of Object.entries(repairs)) {
 
 writeFileSync(INDEX, JSON.stringify(index, null, 2) + "\n");
 
-const residuals = [
-  "chiba-zoological-park",
-  "keio-mogusaen",
-  "tama-forest-science-garden",
-];
+const residuals = ["chiba-zoological-park", "keio-mogusaen"];
 writeFileSync(ALLOWLIST, JSON.stringify(residuals, null, 2) + "\n");
 
 console.log(
