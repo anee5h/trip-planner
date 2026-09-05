@@ -403,7 +403,12 @@
       "oigami-onsen",
       "manza-onsen",
       "mt-akagi",
-      "lake-onuma-akagi"
+      "lake-onuma-akagi",
+      "takeo-onsen",
+      "ureshino-onsen",
+      "nasu-kogen-highlands",
+      "kumano-kodo",
+      "shirakami-sanchi"
     ],
     "hub-window-model-v1": [
       "abashiri-city",
@@ -566,7 +571,11 @@
       "miyoshi-city",
       "uwajima-city",
       "matsushima-town",
-      "obuse-town"
+      "obuse-town",
+      "toyama-city",
+      "himi",
+      "nasu",
+      "kumano-city"
     ],
     "walking-model-v1": [
       "abashiri-city",
@@ -808,7 +817,8 @@
       "mt-akagi",
       "lake-onuma-akagi",
       "akagi-shrine",
-      "watarase-keikoku-railway"
+      "watarase-keikoku-railway",
+      "oki-islands"
     ],
     "comfort-model-v1": [
       "abashiri-city",
@@ -1951,168 +1961,82 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-09-05T10:03",
-    "changeCount": 45,
+    "at": "2026-09-05T11:04",
+    "changeCount": 10,
     "byModel": [
       [
-        "score-rubric-v2",
-        23
+        "duration-model-v1",
+        5
       ],
       [
-        "season-model-v1",
-        22
+        "hub-window-model-v1",
+        4
+      ],
+      [
+        "walking-model-v1",
+        1
       ]
     ],
     "sample": [
       {
-        "id": "eiheiji-temple",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "arita-porcelain-town",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
         "id": "takeo-onsen",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'onsen'"
       },
       {
         "id": "ureshino-onsen",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "misasa-onsen",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "kurayoshi",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "yonago",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "hub record: no experience-season vector (R0 contract)"
-      },
-      {
-        "id": "yamanaka-onsen",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "katayamazu-onsen",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "wajima-morning-market",
-        "model": "season-model-v1",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "indoor destination (R3): year-round marker"
+        "reason": "kind band 'onsen'"
       },
       {
         "id": "toyama-city",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "hub record: no experience-season vector (R0 contract)"
+        "model": "hub-window-model-v1",
+        "action": "set",
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
         "id": "himi",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "hub record: no experience-season vector (R0 contract)"
+        "model": "hub-window-model-v1",
+        "action": "set",
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
         "id": "nasu",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "hub record: no experience-season vector (R0 contract)"
+        "model": "hub-window-model-v1",
+        "action": "set",
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
         "id": "nasu-kogen-highlands",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "nasu-steam-onsen",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'nature'"
       },
       {
         "id": "kumano-kodo",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "owase",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "hub record: no experience-season vector (R0 contract)"
+        "model": "duration-model-v1",
+        "action": "set",
+        "reason": "kind band 'nature'"
       },
       {
         "id": "kumano-city",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "hub record: no experience-season vector (R0 contract)"
-      },
-      {
-        "id": "chokai-san",
-        "model": "season-model-v1",
+        "model": "hub-window-model-v1",
         "action": "set",
-        "reason": "temperate beach (R2)"
+        "reason": "hub exploration window: importance standard, 0 children, metro=false"
       },
       {
         "id": "shirakami-sanchi",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "adachi-museum-of-art",
-        "model": "season-model-v1",
+        "model": "duration-model-v1",
         "action": "set",
-        "reason": "indoor destination (R3): year-round marker"
+        "reason": "kind band 'nature'"
       },
       {
         "id": "oki-islands",
-        "model": "season-model-v1",
-        "action": "neutralize",
-        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
-      },
-      {
-        "id": "eiheiji-temple",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 7"
-      },
-      {
-        "id": "mikuni-port-fukui",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.5"
-      },
-      {
-        "id": "arita-porcelain-town",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 5.5"
+        "model": "walking-model-v1",
+        "action": "fill",
+        "reason": "template metre value 360 replaced by walk-share estimate (FIX_UNIT): 80% of 8h visit"
       }
     ]
   }

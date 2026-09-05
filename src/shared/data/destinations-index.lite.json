@@ -92706,8 +92706,8 @@
     "walkingMin": 90,
     "indoorPercent": 30,
     "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
+      "min": 3,
+      "max": 5
     },
     "collections": [],
     "ratings": {
@@ -92776,8 +92776,8 @@
     "walkingMin": 75,
     "indoorPercent": 30,
     "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
+      "min": 3,
+      "max": 5
     },
     "collections": [],
     "ratings": {
@@ -93270,8 +93270,8 @@
     "walkingMin": 240,
     "indoorPercent": 45,
     "recommendedVisitHours": {
-      "min": 4,
-      "max": 6
+      "min": 5,
+      "max": 12
     },
     "collections": [],
     "ratings": {
@@ -93339,8 +93339,8 @@
     "walkingMin": 120,
     "indoorPercent": 25,
     "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
+      "min": 5,
+      "max": 12
     },
     "collections": [],
     "ratings": {
@@ -93408,8 +93408,8 @@
     "walkingMin": 150,
     "indoorPercent": 25,
     "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+      "min": 5,
+      "max": 12
     },
     "collections": [],
     "ratings": {
@@ -93614,8 +93614,8 @@
     "walkingMin": 300,
     "indoorPercent": 5,
     "recommendedVisitHours": {
-      "min": 4,
-      "max": 8
+      "min": 3,
+      "max": 6
     },
     "collections": [],
     "ratings": {
@@ -93750,8 +93750,8 @@
     "walkingMin": 150,
     "indoorPercent": 20,
     "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+      "min": 5,
+      "max": 12
     },
     "collections": [],
     "ratings": {
@@ -93896,8 +93896,8 @@
     "walkingMin": 300,
     "indoorPercent": 5,
     "recommendedVisitHours": {
-      "min": 4,
-      "max": 8
+      "min": 3,
+      "max": 6
     },
     "collections": [],
     "ratings": {
@@ -94040,7 +94040,7 @@
     "officialWebsite": "https://www.oki-geo.com/",
     "status": "verified",
     "weatherDependence": "moderate",
-    "walkingMin": 360,
+    "walkingMin": 385,
     "indoorPercent": 15,
     "recommendedVisitHours": {
       "min": 6,
@@ -94080,7 +94080,7 @@
       "ferry": 150
     },
     "transportZoneId": "oki",
-    "walkingIntensity": "medium",
+    "walkingIntensity": "high",
     "relationships": {}
   }
 ]

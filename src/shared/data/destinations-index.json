@@ -243618,8 +243618,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
+      "min": 3,
+      "max": 5
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -243628,10 +243628,10 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "confidence": "medium",
+      "basis": "kind band 'onsen'"
     },
     "walkingMin": 90,
     "walkingIntensity": "low",
@@ -243739,8 +243739,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
+      "min": 3,
+      "max": 5
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -243749,10 +243749,10 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "confidence": "medium",
+      "basis": "kind band 'onsen'"
     },
     "walkingMin": 75,
     "walkingIntensity": "low",
@@ -244600,8 +244600,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 4,
-      "max": 6
+      "min": 5,
+      "max": 12
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -244610,10 +244610,10 @@
       "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
-      "method": "editorial",
-      "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "method": "model",
+      "modelVersion": "hub-window-model-v1",
+      "confidence": "low",
+      "basis": "hub exploration window: importance standard, 0 children, metro=false"
     },
     "walkingMin": 240,
     "walkingIntensity": "medium",
@@ -244716,8 +244716,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 2,
-      "max": 4
+      "min": 5,
+      "max": 12
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -244726,10 +244726,10 @@
       "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
-      "method": "editorial",
-      "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "method": "model",
+      "modelVersion": "hub-window-model-v1",
+      "confidence": "low",
+      "basis": "hub exploration window: importance standard, 0 children, metro=false"
     },
     "walkingMin": 120,
     "walkingIntensity": "medium",
@@ -244832,8 +244832,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+      "min": 5,
+      "max": 12
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -244842,10 +244842,10 @@
       "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
-      "method": "editorial",
-      "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "method": "model",
+      "modelVersion": "hub-window-model-v1",
+      "confidence": "low",
+      "basis": "hub exploration window: importance standard, 0 children, metro=false"
     },
     "walkingMin": 150,
     "walkingIntensity": "medium",
@@ -244958,10 +244958,10 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "confidence": "medium",
+      "basis": "kind band 'nature'"
     },
     "walkingMin": 210,
     "walkingIntensity": "high",
@@ -245184,8 +245184,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 4,
-      "max": 8
+      "min": 3,
+      "max": 6
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -245194,10 +245194,10 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "confidence": "medium",
+      "basis": "kind band 'nature'"
     },
     "walkingMin": 300,
     "walkingIntensity": "high",
@@ -245415,8 +245415,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 3,
-      "max": 5
+      "min": 5,
+      "max": 12
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -245425,10 +245425,10 @@
       "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
-      "method": "editorial",
-      "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "method": "model",
+      "modelVersion": "hub-window-model-v1",
+      "confidence": "low",
+      "basis": "hub exploration window: importance standard, 0 children, metro=false"
     },
     "walkingMin": 150,
     "walkingIntensity": "medium",
@@ -245657,8 +245657,8 @@
     },
     "ratingsSchemaVersion": 2,
     "recommendedVisitHours": {
-      "min": 4,
-      "max": 8
+      "min": 3,
+      "max": 6
     },
     "seasonMetadata": {
       "method": "unknown",
@@ -245667,10 +245667,10 @@
       "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "duration-model-v1",
-      "confidence": "high",
-      "basis": "editorial assessment"
+      "confidence": "medium",
+      "basis": "kind band 'nature'"
     },
     "walkingMin": 300,
     "walkingIntensity": "high",
@@ -245940,8 +245940,8 @@
       "confidence": "high",
       "basis": "editorial assessment"
     },
-    "walkingMin": 360,
-    "walkingIntensity": "medium",
+    "walkingMin": 385,
+    "walkingIntensity": "high",
     "indoorPercent": 15,
     "weatherDependence": "moderate",
     "transportOptions": {
@@ -246007,6 +246007,13 @@
       "kind": "unavailable",
       "reason": "other",
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "walkingMetadata": {
+      "method": "model",
+      "unit": "minutes",
+      "modelVersion": "walking-model-v1",
+      "confidence": "low",
+      "basis": "template metre value 360 replaced by walk-share estimate (FIX_UNIT): 80% of 8h visit"
     }
   }
 ]

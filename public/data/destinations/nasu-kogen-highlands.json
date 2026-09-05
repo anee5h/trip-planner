@@ -39,10 +39,10 @@
     "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "durationMetadata": {
-    "method": "editorial",
+    "method": "model",
     "modelVersion": "duration-model-v1",
-    "confidence": "high",
-    "basis": "editorial assessment"
+    "confidence": "medium",
+    "basis": "kind band 'nature'"
   },
   "walkingMin": 210,
   "walkingIntensity": "high",
