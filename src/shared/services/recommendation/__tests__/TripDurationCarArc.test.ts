@@ -195,25 +195,27 @@ describe("rental-car SafeGround fallback (discovery)", () => {
   });
 
   it("never uses a train arc for a car request", () => {
-    const gifu = carDestination({
-      id: "gifu-shirakawa",
-      name: "Shirakawa",
-      prefecture: "Gifu",
-      municipalityId: "Gifu:shirakawa",
-      coordinates: { lat: 36.257, lng: 136.906 },
+    // Kyoto: the train corridor exists but no Kyoto car arc is registered
+    // (out of the Tokyo discovery envelope), so a car request must stay
+    // unknown — a train arc must not masquerade as car duration.
+    const kyoto = carDestination({
+      id: "kyoto-city-kiyomizu",
+      name: "Kiyomizu-dera",
+      prefecture: "Kyoto",
+      municipalityId: "Kyoto:kyoto",
+      coordinates: { lat: 34.9949, lng: 135.7849 },
     });
     const trainArc: GroundRouteEstimate | null = getGroundRoute(
       "tokyo",
-      "gifu",
+      "kyoto",
       "train",
     );
     expect(trainArc).not.toBeNull();
     const result = getTravelDurationEvidence(
-      gifu,
+      kyoto,
       { homeStationCoords: TOKYO },
       ["car"],
     );
-    // A train arc must not masquerade as car duration.
     expect(result.evidence).toBe("unknown");
   });
 

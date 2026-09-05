@@ -600,9 +600,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [50, 80],
-      "sourceUrl": "https://www.shutoko.jp/",
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "METEX Wangan/Keiyo standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Wangan/Keiyo standard times + Tokyo-metro surface allowance (peak/off-peak range)."
     },
     {
       "from": "tokyo",
@@ -612,7 +613,8 @@
       "timeRange": [45, 75],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kita-Kanto standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Kita-Kanto/Shuto corridor standard times + surface allowance."
     },
     {
       "from": "tokyo",
@@ -620,9 +622,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [40, 75],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Tomei standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Tomei/Wangan corridor standard times (Tokyo→Yokohama axis)."
     },
     {
       "from": "tokyo",
@@ -632,7 +635,8 @@
       "timeRange": [70, 110],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Joban standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Joban expressway standard times (Mito axis)."
     },
     {
       "from": "tokyo",
@@ -642,7 +646,8 @@
       "timeRange": [75, 115],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Tohoku standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Tohoku expressway standard times (Utsunomiya axis)."
     },
     {
       "from": "tokyo",
@@ -652,7 +657,8 @@
       "timeRange": [85, 125],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kan-etsu (Takasaki) standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Kan-etsu expressway standard times (Takasaki/Ota axis)."
     },
     {
       "from": "tokyo",
@@ -662,7 +668,8 @@
       "timeRange": [115, 160],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kan-etsu (Shibukawa/Minakami) standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Kan-etsu expressway standard times (Shibukawa/Minakami/Nakanojo axis)."
     },
     {
       "from": "tokyo",
@@ -672,7 +679,8 @@
       "timeRange": [110, 150],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kita-Kanto to Kiryu/Ota corridor"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Kita-Kanto corridor to Kiryu/Ota northeast axis."
     },
     {
       "from": "tokyo",
@@ -680,9 +688,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [80, 125],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chuo standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Tokyo origin: Chuo expressway standard times (Otsuki/Kofu axis)."
     },
     {
       "from": "tokyo",
@@ -690,9 +699,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [150, 200],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Nagano/Matsumoto corridor standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Tokyo origin: Chuo→Nagano corridor standard times (Matsumoto/Nagano axis)."
     },
     {
       "from": "tokyo",
@@ -700,9 +710,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [120, 175],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Tomei standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Tokyo origin: Tomei expressway standard times (Numazu/Shizuoka axis)."
     },
     {
       "from": "tokyo",
@@ -712,7 +723,8 @@
       "timeRange": [165, 215],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Tohoku standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Tohoku expressway standard times (Koriyama/Fukushima axis)."
     },
     {
       "from": "tokyo",
@@ -722,17 +734,41 @@
       "timeRange": [220, 270],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kan-etsu standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Kan-etsu expressway long-haul standard times (Nagaoka/Niigata axis)."
     },
     {
-      "from": "kanagawa",
-      "to": "tokyo",
+      "from": "tokyo",
+      "to": "aichi",
       "bidirectional": true,
       "mode": "car",
-      "timeRange": [40, 70],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "timeRange": [220, 270],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Tomei standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Tokyo origin: Tomei expressway standard times (Nagoya axis)."
+    },
+    {
+      "from": "tokyo",
+      "to": "gifu",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [240, 290],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Tokyo origin: Tomei/Meishin corridor standard times (Gifu axis)."
+    },
+    {
+      "from": "tokyo",
+      "to": "toyama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [250, 300],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Tokyo origin: Kan-etsu→Hokuriku corridor standard times (Toyama axis)."
     },
     {
       "from": "kanagawa",
@@ -740,9 +776,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [55, 90],
-      "sourceUrl": "https://www.shutoko.jp/",
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "METEX Wangan standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Wangan expressway standard times (Yokohama→Chiba)."
     },
     {
       "from": "kanagawa",
@@ -752,7 +789,8 @@
       "timeRange": [60, 95],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Tohoku standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Tohoku/Shuto corridor standard times."
     },
     {
       "from": "kanagawa",
@@ -760,9 +798,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [80, 120],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chuo standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Chuo expressway standard times (Yokohama→Otsuki/Kofu)."
     },
     {
       "from": "kanagawa",
@@ -770,9 +809,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [110, 165],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Tomei standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Tomei expressway standard times (Yokohama→Numazu/Shizuoka)."
     },
     {
       "from": "kanagawa",
@@ -782,7 +822,8 @@
       "timeRange": [95, 140],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Tohoku standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Tohoku expressway standard times (Yokohama→Utsunomiya)."
     },
     {
       "from": "kanagawa",
@@ -792,7 +833,85 @@
       "timeRange": [90, 135],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Joban standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Joban expressway standard times (Yokohama→Mito)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "nagano",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [150, 205],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Chuo/Nagano corridor standard times (Yokohama→Matsumoto/Nagano)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "fukushima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [170, 220],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Tohoku expressway standard times (Yokohama→Koriyama/Fukushima)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "niigata",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [230, 280],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Kan-etsu expressway long-haul standard times (Yokohama→Niigata)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "aichi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [200, 260],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Tomei expressway standard times (Yokohama→Nagoya)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "gifu",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [230, 280],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Tomei/Meishin corridor standard times (Yokohama→Gifu)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "toyama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [240, 290],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Chuo→Hokuriku corridor standard times (Yokohama→Toyama)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "mie",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [240, 290],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Kanagawa origin: Nishi/Higashi-Meihan corridor standard times (Yokohama→Yokkaichi/Tsu)."
     },
     {
       "from": "osaka",
@@ -800,9 +919,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [45, 80],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chugoku/Meishin standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chugoku/Meishin standard times (Osaka→Kobe/Himeji)."
     },
     {
       "from": "osaka",
@@ -810,9 +930,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [35, 70],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Meishin standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Meishin expressway standard times (Osaka→Kyoto)."
     },
     {
       "from": "osaka",
@@ -820,9 +941,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [45, 80],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Nishi-Meihan standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Nishi-Meihan standard times (Osaka→Nara)."
     },
     {
       "from": "osaka",
@@ -830,9 +952,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [55, 95],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Meishin standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Meishin expressway standard times (Osaka→Otsu)."
     },
     {
       "from": "osaka",
@@ -840,9 +963,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [100, 145],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Higashi-Meihan standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Higashi-Meihan standard times (Osaka→Yokkaichi/Tsu)."
     },
     {
       "from": "osaka",
@@ -850,9 +974,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [75, 120],
-      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Hanna Expressway standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Hanna/Tanabe route standard times (Osaka→Wakayama)."
     },
     {
       "from": "osaka",
@@ -860,9 +985,142 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [170, 220],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Hokuriku standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Hokuriku expressway standard times (Osaka→Tsuruga/Fukui)."
+    },
+    {
+      "from": "osaka",
+      "to": "aichi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [150, 200],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Meishin/Tomei standard times (Osaka→Nagoya)."
+    },
+    {
+      "from": "osaka",
+      "to": "gifu",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [170, 220],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Meishin/Tokaido corridor standard times (Osaka→Gifu)."
+    },
+    {
+      "from": "osaka",
+      "to": "toyama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [210, 260],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Hokuriku expressway long-haul standard times (Osaka→Toyama)."
+    },
+    {
+      "from": "osaka",
+      "to": "ishikawa",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [230, 280],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Hokuriku expressway standard times (Osaka→Kanazawa)."
+    },
+    {
+      "from": "osaka",
+      "to": "tottori",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [150, 200],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chugoku→Yonago corridor standard times (Osaka→Tottori)."
+    },
+    {
+      "from": "osaka",
+      "to": "shimane",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [220, 270],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chugoku expressway to Matsue standard times."
+    },
+    {
+      "from": "osaka",
+      "to": "okayama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [140, 190],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chugoku expressway standard times (Osaka→Okayama)."
+    },
+    {
+      "from": "osaka",
+      "to": "hiroshima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [220, 270],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chugoku expressway standard times (Osaka→Hiroshima)."
+    },
+    {
+      "from": "osaka",
+      "to": "tokushima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [110, 160],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "Honshi (Seto-Chuo) Expressway official travel-time pages",
+      "basis": "Osaka origin: Seto-Chuo (Akashi Kaikyo) standard times (Osaka→Tokushima)."
+    },
+    {
+      "from": "osaka",
+      "to": "kagawa",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [130, 180],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "Honshi (Seto-Chuo) Expressway official travel-time pages",
+      "basis": "Osaka origin: Seto-Chuo corridor standard times (Osaka→Takamatsu)."
+    },
+    {
+      "from": "osaka",
+      "to": "ehime",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [200, 260],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "Honshi (Seto-Chuo) Expressway official travel-time pages",
+      "basis": "Osaka origin: Seto-Chuo→Matsuyama corridor standard times."
+    },
+    {
+      "from": "osaka",
+      "to": "kochi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [200, 260],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "Honshi (Seto-Chuo) Expressway official travel-time pages",
+      "basis": "Osaka origin: Seto-Chuo→Kochi corridor standard times."
     },
     {
       "from": "hiroshima",
@@ -870,9 +1128,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [60, 100],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chugoku standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Chugoku expressway standard times (Hiroshima→Iwakuni/Shimonoseki)."
     },
     {
       "from": "hiroshima",
@@ -880,9 +1139,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [60, 100],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chugoku standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Chugoku expressway standard times (Hiroshima→Okayama)."
     },
     {
       "from": "hiroshima",
@@ -890,9 +1150,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [115, 165],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chugoku to Matsue standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Chugoku expressway to Matsue standard times."
     },
     {
       "from": "hiroshima",
@@ -900,9 +1161,10 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [115, 165],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chugoku to Yonago/Tottori standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Chugoku expressway to Yonago/Tottori standard times."
     },
     {
       "from": "hiroshima",
@@ -910,9 +1172,54 @@
       "bidirectional": true,
       "mode": "car",
       "timeRange": [130, 180],
-      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO Central Chugoku standard times"
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Chugoku expressway standard times (Hiroshima→Himeji/Kobe)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "ehime",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [60, 110],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "JB Honshi (Shimanami Kaido) official travel-time pages",
+      "basis": "Hiroshima origin: Nishiseto (Shimanami Kaido) standard times (Onomichi→Imabari/Matsuyama)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "kagawa",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [115, 165],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "JB Honshi (Shimanami Kaido) official travel-time pages",
+      "basis": "Hiroshima origin: Nishiseto→Seto-Chuo corridor standard times (Hiroshima→Takamatsu)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "kochi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [160, 210],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "JB Honshi (Shimanami Kaido) official travel-time pages",
+      "basis": "Hiroshima origin: Nishiseto/San-in corridor standard times (Hiroshima→Kochi)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "tokushima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [140, 190],
+      "sourceUrl": "https://www.jb-honshi.co.jp/corporate/organization/osaka/traffic.html",
+      "checkedAt": "2026-09-05",
+      "authority": "JB Honshi (Shimanami Kaido) official travel-time pages",
+      "basis": "Hiroshima origin: Nishiseto→Seto-Chuo corridor standard times (Hiroshima→Tokushima)."
     },
     {
       "from": "fukuoka",
@@ -922,7 +1229,8 @@
       "timeRange": [40, 75],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kyushu standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Kyushu expressway standard times (Fukuoka→Saga)."
     },
     {
       "from": "fukuoka",
@@ -932,7 +1240,8 @@
       "timeRange": [90, 140],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Nagasaki Expressway standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Nagasaki expressway standard times (Fukuoka→Nagasaki)."
     },
     {
       "from": "fukuoka",
@@ -942,7 +1251,8 @@
       "timeRange": [140, 190],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kyushu/Tsuruga standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Kyushu/Oita expressway standard times (Fukuoka→Oita)."
     },
     {
       "from": "fukuoka",
@@ -952,7 +1262,8 @@
       "timeRange": [90, 135],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kyushu standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Kyushu expressway standard times (Fukuoka→Kumamoto)."
     },
     {
       "from": "fukuoka",
@@ -962,7 +1273,8 @@
       "timeRange": [170, 225],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kyushu/Miyazaki Expressway standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Kyushu→Miyazaki expressway standard times."
     },
     {
       "from": "fukuoka",
@@ -972,7 +1284,151 @@
       "timeRange": [75, 120],
       "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
       "checkedAt": "2026-09-05",
-      "authority": "NEXCO East Kyushu/Chugoku connect standard times"
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Chugoku expressway standard times (Fukuoka→Shimonoseki/Yamaguchi)."
+    },
+    {
+      "from": "fukuoka",
+      "to": "kagoshima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [180, 230],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Kyushu expressway long-haul standard times (Fukuoka→Kagoshima)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "gunma_south",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [95, 140],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Kan-etsu expressway standard times (Yokohama→Takasaki axis)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "gunma_northwest",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [120, 165],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Kan-etsu expressway standard times (Yokohama→Shibukawa/Minakami axis)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "gunma_northeast",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [115, 160],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Kita-Kanto corridor standard times (Yokohama→Kiryu/Ota axis)."
+    },
+    {
+      "from": "tokyo",
+      "to": "ishikawa",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [270, 320],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Tokyo origin: Hokuriku expressway standard times (Kanazawa axis)."
+    },
+    {
+      "from": "kanagawa",
+      "to": "ishikawa",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [260, 310],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Kanagawa origin: Chuo→Hokuriku corridor standard times (Kanazawa axis)."
+    },
+    {
+      "from": "osaka",
+      "to": "shizuoka",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [150, 200],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Meishin→Tomei standard times (Hamamatsu/Shizuoka axis)."
+    },
+    {
+      "from": "osaka",
+      "to": "yamanashi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [250, 300],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chuo expressway standard times (Kofu axis)."
+    },
+    {
+      "from": "osaka",
+      "to": "nagano",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [250, 300],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Osaka origin: Chuo→Nagano corridor standard times (Matsumoto/Nagano axis)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "wakayama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [220, 270],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Sanyo→Hanna corridor standard times (Wakayama axis)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "nara",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [230, 280],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Sanyo→Meihan corridor standard times (Nara axis)."
+    },
+    {
+      "from": "hiroshima",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [240, 290],
+      "sourceUrl": "https://www.c-nexco.co.jp/drive/info/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central drive-info travel-time pages",
+      "basis": "Hiroshima origin: Chugoku/Meishin corridor standard times (Kyoto axis)."
+    },
+    {
+      "from": "fukuoka",
+      "to": "hiroshima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [220, 270],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East driveplaza toll-road travel-time library",
+      "basis": "Fukuoka origin: Chugoku expressway standard times (Hiroshima axis)."
     }
   ],
   "municipalityRoutes": [

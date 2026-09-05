@@ -305,6 +305,7 @@ export function getCarZoneArcEstimate(
   authorizedModes: readonly string[],
 ): EstimatedTransportEstimate | null {
   if (!authorizedModes.some((m) => m === "car" || m === "my_car")) return null;
+  if (destination.localAccessUnestimated === true) return null;
   if (getRoutableCarAccessAnchors(destination).length === 0) return null;
   if (!destination.coordinates || !destination.prefecture) return null;
 
@@ -402,11 +403,16 @@ export const FIXED_LINK_ISLAND_ZONE_IDS = new Set<string>(["awaji"]);
 
 function carArcKeyForDestination(destination: Destination): string {
   const prefectureKey = destination.prefecture.toLowerCase();
-  if (prefectureKey !== "gunma" || !destination.municipalityId) {
+  if (prefectureKey !== "gunma") {
     return prefectureKey;
   }
+  // Records without a municipality still default to the south subzone
+  // (the registry has no plain "gunma" key; muni-less records like
+  // Oze National Park fall on the Takasaki-area axis).
   return (
-    CAR_SUBZONE_BY_MUNICIPALITY[destination.municipalityId] ?? "gunma_south"
+    (destination.municipalityId &&
+      CAR_SUBZONE_BY_MUNICIPALITY[destination.municipalityId]) ||
+    "gunma_south"
   );
 }
 
