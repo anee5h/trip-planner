@@ -18,7 +18,7 @@ interface DestinationDetailRailProps {
 }
 
 const RAIL_CARD_CLASS =
-  "flex h-full w-[78vw] min-w-[260px] max-w-[300px] shrink-0 snap-start flex-col sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px] lg:w-[300px] lg:min-w-[300px] lg:max-w-[300px]";
+  "flex w-[78vw] min-w-[260px] max-w-[300px] shrink-0 snap-start flex-col sm:w-[280px] sm:min-w-[280px] sm:max-w-[280px] lg:w-[300px] lg:min-w-[300px] lg:max-w-[300px]";
 
 export function DestinationDetailRail({
   title,

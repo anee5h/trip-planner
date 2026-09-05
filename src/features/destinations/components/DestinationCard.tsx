@@ -497,7 +497,7 @@ export default function DestinationCard({
                 ? t("destination.tokyoWardsGroup")
                 : formatPlaceName(localizedDestination, locale)
           }
-          className={`${compact ? "text-base sm:text-lg" : "text-lg sm:text-xl"} line-clamp-2 min-h-10 min-w-0 font-extrabold leading-[1.15] tracking-tight`}
+          className={`${compact ? "text-base sm:text-lg" : "text-lg sm:text-xl"} line-clamp-2 ${compact ? "min-h-11" : "min-h-12"} min-w-0 font-extrabold leading-[1.15] tracking-tight`}
         >
           {virtualGroup
             ? virtualGroup.name

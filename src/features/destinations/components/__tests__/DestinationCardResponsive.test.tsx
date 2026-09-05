@@ -274,7 +274,11 @@ describe("DestinationCard responsive content", () => {
       node.textContent?.includes(destination.name),
     );
     expect(title?.className).toContain("line-clamp-2");
-    expect(title?.className).toContain("min-h-10");
+    // KAI-335 rail geometry: the title slot is tiered so two-line titles
+    // (text-lg/xl leading-[1.15]) are fully reserved without runaway gaps.
+    expect(title?.className).toContain(
+      title?.className?.includes("text-base") ? "min-h-11" : "min-h-12",
+    );
     expect(title?.getAttribute("title")).toBe(destination.name);
 
     const explore = Array.from(host.querySelectorAll("button")).find(

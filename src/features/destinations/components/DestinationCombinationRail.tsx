@@ -28,7 +28,7 @@ interface DestinationCombinationRailProps {
 }
 
 const CARD_CLASS =
-  "flex h-full w-[84vw] min-w-[280px] max-w-[320px] shrink-0 snap-start flex-col sm:w-[320px] sm:min-w-[320px] sm:max-w-[320px]";
+  "flex w-[84vw] min-w-[280px] max-w-[320px] shrink-0 snap-start flex-col sm:w-[320px] sm:min-w-[320px] sm:max-w-[320px]";
 
 export function DestinationCombinationRail({
   combinations,
@@ -113,7 +113,7 @@ export function DestinationCombinationRail({
                 className={`flex flex-1 flex-col ${compact ? "gap-2 p-3" : "gap-3 p-4"}`}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <h4 className="min-w-0 text-base font-bold leading-snug text-slate-900 dark:text-white">
+                  <h4 className="line-clamp-2 min-h-[2.75rem] min-w-0 text-base font-bold leading-snug text-slate-900 dark:text-white">
                     {formatPlaceName(localized, locale)}
                   </h4>
                   {savedTrips > 0 && (
