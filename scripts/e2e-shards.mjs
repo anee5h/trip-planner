@@ -51,6 +51,7 @@ const WEIGHTS = {
   "kai-275-car-only-context": 25, // Personal-Car-only Home→Explore→detail flow
   "kai-259-signup-header": 20, // guest header + deterministic auth header flow
   "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
+  "card-rail-alignment": 4, // equal-height rail contract (Home top matches + hubs)
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
   "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
@@ -83,6 +84,7 @@ const BINS = {
     "kai-212-hub-discovery",
     "kai-259-signup-header",
     "kai-138-compact-mobile-homepage",
+    "card-rail-alignment",
     "kai-64-pwa",
     "kai-64-upgrade",
     "kai-80-a11y",

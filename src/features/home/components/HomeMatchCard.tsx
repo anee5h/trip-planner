@@ -391,9 +391,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
       </div>
 
       <div className="flex flex-1 flex-col p-3">
-        <div
-          className={`flex flex-col ${isOvernight ? "min-h-0" : "min-h-[2.5rem] sm:min-h-[3.25rem]"}`}
-        >
+        <div className="flex flex-col min-h-[2.5rem] sm:min-h-[3.25rem]">
           <h3 className="text-xs sm:text-base font-extrabold text-slate-900 dark:text-white line-clamp-2 leading-tight group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
             {title}
           </h3>
@@ -404,7 +402,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
           )}
         </div>
 
-        <div className="pt-2">
+        <div className="flex flex-1 flex-col pt-2">
           {/* Trip-area line: wards · places · capacity */}
           {(isOvernight || wardGroup) && (
             <p className="mt-1 line-clamp-1 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 sm:text-xs">
@@ -515,7 +513,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
             </p>
           )}
 
-          <div className="mt-1.5 flex flex-wrap items-center gap-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:gap-1.5 sm:text-xs">
+          <div className="mt-auto flex min-h-[2.375rem] flex-wrap items-center gap-1 pt-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-300 sm:min-h-[2.625rem] sm:gap-1.5 sm:text-xs">
             <span className="flex items-center gap-1 truncate">
               <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-500 shrink-0" />
               <span className="truncate">{travelTimeText}</span>
