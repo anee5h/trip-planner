@@ -8,7 +8,7 @@
   "prefecture": "Shimane",
   "region": "Chugoku",
   "categories": ["Museum", "Garden", "Art"],
-  "tags": ["Ichijoji", "Top three gardens"],
+  "tags": ["Top Garden", "Yasugi"],
   "coordinates": {
     "lat": 35.4297,
     "lng": 133.1052
@@ -33,16 +33,16 @@
     "max": 3
   },
   "season": {
-    "spring": 9,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 9
+    "spring": 7,
+    "summer": 6,
+    "autumn": 7,
+    "winter": 7
   },
   "seasonMetadata": {
-    "method": "editorial",
+    "method": "model",
     "modelVersion": "season-model-v1",
-    "confidence": "high",
-    "basis": "editorial source-backed"
+    "confidence": "low",
+    "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
   },
   "durationMetadata": {
     "method": "editorial",
@@ -86,9 +86,39 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art"
   },
   "scoreMetadata": {
-    "modelVersion": "depth-v121-audit",
-    "basis": "P0 expansion (audit v4)"
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "reasonCode": "single_required_admission",
+    "cost": {
+      "kind": "bounded",
+      "min": 2500,
+      "max": 2500
+    },
+    "scope": "general_entry",
+    "basis": "Adachi Museum of Art general admission for adults (official hours & admission page, Apr 2025 fee schedule).",
+    "sourceUrls": ["https://www.adachi-museum.or.jp/en/hours-admission"],
+    "checkedAt": "2026-09-05",
+    "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  },
+  "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "bestSeason": "All Year (indoor)"
 }

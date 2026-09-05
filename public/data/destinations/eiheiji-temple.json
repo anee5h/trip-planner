@@ -32,17 +32,11 @@
     "min": 2,
     "max": 3
   },
-  "season": {
-    "spring": 8,
-    "summer": 8,
-    "autumn": 9,
-    "winter": 8
-  },
   "seasonMetadata": {
-    "method": "editorial",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
-    "confidence": "high",
-    "basis": "editorial source-backed"
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "durationMetadata": {
     "method": "editorial",
@@ -86,9 +80,37 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji"
   },
   "scoreMetadata": {
-    "modelVersion": "depth-v121-audit",
-    "basis": "P0 expansion (audit v4)"
+    "state": "estimated",
+    "value": 7,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "admission": {
+    "state": "verified_paid",
+    "provenance": "verified_source",
+    "reasonCode": "single_required_admission",
+    "cost": {
+      "kind": "bounded",
+      "min": 500,
+      "max": 500
+    },
+    "scope": "general_entry",
+    "basis": "Eiheiji temple general admission for adults (official site fee schedule, ordinary individual entry).",
+    "sourceUrls": ["https://daihonzan-eiheiji.com/"],
+    "checkedAt": "2026-09-05",
+    "reviewIntervalMonths": 12
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
 }

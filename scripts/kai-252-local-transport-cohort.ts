@@ -97,8 +97,8 @@ const MANIFEST_PATH =
   process.env.KAI252_MANIFEST_PATH ??
   path.join(REPO_ROOT, "scripts/audit/kai-252-local-transport-manifest.json");
 // KAI-258D adds 11 records to the predecessor's fully authored catalogue.
-const EXPECTED_TOTAL = 1107;
-const EXPECTED_RESIDUAL = 1029;
+const EXPECTED_TOTAL = 1130;
+const EXPECTED_RESIDUAL = 1052;
 const RESIDUAL_REASONS = new Set<ResidualReason>([
   "resolved",
   "fare_unavailable",

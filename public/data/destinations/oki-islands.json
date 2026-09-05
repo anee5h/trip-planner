@@ -32,17 +32,11 @@
     "min": 6,
     "max": 8
   },
-  "season": {
-    "spring": 8,
-    "summer": 9,
-    "autumn": 8,
-    "winter": 6
-  },
   "seasonMetadata": {
-    "method": "editorial",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
-    "confidence": "high",
-    "basis": "editorial source-backed"
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "durationMetadata": {
     "method": "editorial",
@@ -58,6 +52,11 @@
     "car": 120,
     "bus": 240,
     "ferry": 150
+  },
+  "transportMetadata": {
+    "method": "calculated",
+    "confidence": "medium",
+    "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
   },
   "travelEstimate": {
     "confidence": "beta"
@@ -81,10 +80,35 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Oki_Islands"
   },
   "scoreMetadata": {
-    "modelVersion": "depth-v121-audit",
-    "basis": "P0 expansion (audit v4)"
+    "state": "estimated",
+    "value": 7.8,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
   "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "transportZoneId": "oki"
+  "transportZoneId": "oki",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "no_single_admission_product",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Island access and coast sights free; ferries and optional tours paid.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
 }

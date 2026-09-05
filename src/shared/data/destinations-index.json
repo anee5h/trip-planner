@@ -243263,17 +243263,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243317,11 +243311,41 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "reasonCode": "single_required_admission",
+      "cost": {
+        "kind": "bounded",
+        "min": 500,
+        "max": 500
+      },
+      "scope": "general_entry",
+      "basis": "Eiheiji temple general admission for adults (official site fee schedule, ordinary individual entry).",
+      "sourceUrls": [
+        "https://daihonzan-eiheiji.com/"
+      ],
+      "checkedAt": "2026-09-05",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "mikuni-port-fukui",
@@ -243406,11 +243430,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Mikuni,_Fukui"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Port town streets and coast free to walk; optional paid museums and boat rides.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "arita-porcelain-town",
@@ -243454,17 +243503,11 @@
       "min": 3,
       "max": 5
     },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243503,11 +243546,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Arita,_Saga"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Arita town streets and kiln districts free; museums and optional workshops paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "takeo-onsen",
@@ -243524,7 +243592,7 @@
       "History"
     ],
     "tags": [
-      "Tosu",
+      "Takeo Onsen",
       "Lattice Bathhouse"
     ],
     "coordinates": {
@@ -243550,17 +243618,11 @@
       "min": 2,
       "max": 4
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243604,11 +243666,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Takeo_Onsen"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Takeo town and shrine free; public bathhouses paid per entry.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "ureshino-onsen",
@@ -243625,8 +243712,8 @@
       "Food"
     ],
     "tags": [
-      "Ureshino-cha",
-      "Silky Water"
+      "Ureshino",
+      "Tea"
     ],
     "coordinates": {
       "lat": 33.1208,
@@ -243651,17 +243738,11 @@
       "min": 2,
       "max": 4
     },
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243705,11 +243786,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Ureshino town streets free; public bathhouses paid per entry.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "misasa-onsen",
@@ -243752,17 +243858,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243806,11 +243906,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Misasa,_Tottori"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Misasa town free to stroll; public baths and Sanbutsu-ji paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "kurayoshi",
@@ -243853,17 +243978,11 @@
       "min": 2,
       "max": 4
     },
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243901,11 +244020,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Kurayoshi,_Tottori"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Kurayoshi storehouse district free; individual museums and galleries paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "yonago",
@@ -243948,17 +244092,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -243996,11 +244134,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Yonago,_Tottori"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "City streets and castle ruins free; site museums paid where entrance applies.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "yamanaka-onsen",
@@ -244043,17 +244206,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244097,11 +244254,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Yamanaka_Onsen"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Yamanaka town free; public bathhouses paid per entry.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "katayamazu-onsen",
@@ -244119,7 +244301,7 @@
     ],
     "tags": [
       "Kaga Onsen",
-      "Shirayama-mirai"
+      "Lake View"
     ],
     "coordinates": {
       "lat": 36.3439,
@@ -244144,17 +244326,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244198,11 +244374,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Katayamazu_Onsen"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Katayamazu town and lakeside free; public bathhouses paid per entry.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "wajima-morning-market",
@@ -244246,16 +244447,16 @@
       "max": 2
     },
     "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
     },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "low",
+      "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244271,6 +244472,11 @@
       "car": 150,
       "train": 240,
       "bus": 240
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -244299,11 +244505,51 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Market streets free to walk; purchases and food optional.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "bestSeason": "All Year (indoor)"
   },
   {
     "id": "toyama-city",
@@ -244346,17 +244592,11 @@
       "min": 4,
       "max": 6
     },
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 6
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244395,11 +244635,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Toyama_(city)"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "City streets, parks and most museums free; special exhibits paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "himi",
@@ -244442,17 +244707,11 @@
       "min": 2,
       "max": 4
     },
-    "season": {
-      "spring": 8,
-      "summer": 9,
-      "autumn": 8,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244491,11 +244750,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Town, sunset points and fish market free to visit; food and souvenirs optional.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "nasu",
@@ -244538,17 +244822,11 @@
       "min": 3,
       "max": 5
     },
-    "season": {
-      "spring": 7,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244587,11 +244865,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Town and highland roads free; gardens, ropeway and museums paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "nasu-kogen-highlands",
@@ -244634,17 +244937,11 @@
       "min": 3,
       "max": 6
     },
-    "season": {
-      "spring": 8,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 6
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244682,11 +244979,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Nasu"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Plateau trails free; ropeway ride paid per the operator.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "nasu-steam-onsen",
@@ -244729,17 +245051,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 7,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 8
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244782,11 +245098,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Nasu_Onsen"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Gorge footpath free; public bathhouses paid per entry.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "kumano-kodo",
@@ -244830,17 +245171,11 @@
       "min": 4,
       "max": 8
     },
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244879,11 +245214,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Kumano_Kodō"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Trail access free; optional guide fees and transport paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "owase",
@@ -244926,17 +245286,11 @@
       "min": 2,
       "max": 3
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -244974,11 +245328,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Owase,_Mie"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Town and coast free; food and optional attractions paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "kumano-city",
@@ -245021,17 +245400,11 @@
       "min": 3,
       "max": 5
     },
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 7
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "hub records span multiple microclimates; single vector would be fabricated"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -245069,11 +245442,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Kumano,_Mie"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "free_area_with_optional_paid_components",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "City streets and Onigajo cliffs free to walk; cave boats paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "chokai-san",
@@ -245117,16 +245515,16 @@
       "max": 8
     },
     "season": {
-      "spring": 6,
-      "summer": 9,
-      "autumn": 8,
-      "winter": 4
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
     },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "medium",
+      "basis": "temperate latitude band; calibrated beach peaks"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -245165,11 +245563,41 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Chokai"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "no_single_admission_product",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Mountaineering access free; no single required admission product.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "bestMonths": [
+      7,
+      8
+    ],
+    "bestSeason": "Summer"
   },
   {
     "id": "shirakami-sanchi",
@@ -245212,17 +245640,11 @@
       "min": 4,
       "max": 8
     },
-    "season": {
-      "spring": 7,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 5
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -245238,6 +245660,11 @@
       "car": 150,
       "train": 240,
       "bus": 240
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -245261,11 +245688,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Shirakami-Sanchi"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "no_single_admission_product",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Reserve trails free; parking and bus fees paid per facility.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   },
   {
     "id": "adachi-museum-of-art",
@@ -245282,8 +245734,8 @@
       "Art"
     ],
     "tags": [
-      "Ichijoji",
-      "Top three gardens"
+      "Top Garden",
+      "Yasugi"
     ],
     "coordinates": {
       "lat": 35.4297,
@@ -245309,16 +245761,16 @@
       "max": 3
     },
     "season": {
-      "spring": 9,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 9
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
     },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "model",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "low",
+      "basis": "indoorPercent/kind; year-round marker; calibration gap documented"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -245362,11 +245814,56 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "admission": {
+      "state": "verified_paid",
+      "provenance": "verified_source",
+      "reasonCode": "single_required_admission",
+      "cost": {
+        "kind": "bounded",
+        "min": 2500,
+        "max": 2500
+      },
+      "scope": "general_entry",
+      "basis": "Adachi Museum of Art general admission for adults (official hours & admission page, Apr 2025 fee schedule).",
+      "sourceUrls": [
+        "https://www.adachi-museum.or.jp/en/hours-admission"
+      ],
+      "checkedAt": "2026-09-05",
+      "reviewIntervalMonths": 12
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    },
+    "bestMonths": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "bestSeason": "All Year (indoor)"
   },
   {
     "id": "oki-islands",
@@ -245409,17 +245906,11 @@
       "min": 6,
       "max": 8
     },
-    "season": {
-      "spring": 8,
-      "summer": 9,
-      "autumn": 8,
-      "winter": 6
-    },
     "seasonMetadata": {
-      "method": "editorial",
+      "method": "unknown",
       "modelVersion": "season-model-v1",
-      "confidence": "high",
-      "basis": "editorial source-backed"
+      "confidence": "unknown",
+      "basis": "no rule matched; owner policy: unknown stays unknown"
     },
     "durationMetadata": {
       "method": "editorial",
@@ -245435,6 +245926,11 @@
       "car": 120,
       "bus": 240,
       "ferry": 150
+    },
+    "transportMetadata": {
+      "method": "calculated",
+      "confidence": "medium",
+      "basis": "Official access evidence verifies the destination gateway/mode; the listed value is a deterministic regional fallback duration, not a personalized origin estimate or fare."
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -245458,11 +245954,36 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Oki_Islands"
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "transportZoneId": "oki"
+    "transportZoneId": "oki",
+    "admission": {
+      "state": "not_applicable",
+      "provenance": "verified_source",
+      "reasonCode": "no_single_admission_product",
+      "cost": {
+        "kind": "not_applicable"
+      },
+      "scope": "open_area",
+      "basis": "Island access and coast sights free; ferries and optional tours paid.",
+      "sourceUrls": [],
+      "checkedAt": "2026-09-05"
+    },
+    "localTransport": {
+      "kind": "unavailable",
+      "reason": "other",
+      "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+    }
   }
 ]

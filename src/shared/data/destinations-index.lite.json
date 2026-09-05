@@ -92495,12 +92495,6 @@
     },
     "officialWebsite": "https://daihonzan-eiheiji.com/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 8
-    },
     "weatherDependence": "moderate",
     "walkingMin": 120,
     "indoorPercent": 60,
@@ -92522,8 +92516,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-7\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92583,8 +92585,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92623,12 +92633,6 @@
     },
     "officialWebsite": "https://www.arita.jp/",
     "status": "verified",
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 7
-    },
     "weatherDependence": "moderate",
     "walkingMin": 150,
     "indoorPercent": 50,
@@ -92650,8 +92654,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92675,7 +92687,7 @@
     "prefecture": "Saga",
     "region": "Kyushu",
     "categories": ["Onsen", "Relaxation", "History"],
-    "tags": ["Tosu", "Lattice Bathhouse"],
+    "tags": ["Takeo Onsen", "Lattice Bathhouse"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
     "description": "1,300-year-old hot spring town dominated by the vermilion-lattice bathhouse designed by Tokyo Tower architect Tachū Naitō.",
@@ -92690,12 +92702,6 @@
     },
     "officialWebsite": "https://www.takeo-kankou.jp/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 8
-    },
     "weatherDependence": "low",
     "walkingMin": 90,
     "indoorPercent": 30,
@@ -92717,8 +92723,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92743,7 +92757,7 @@
     "prefecture": "Saga",
     "region": "Kyushu",
     "categories": ["Onsen", "Relaxation", "Food"],
-    "tags": ["Ureshino-cha", "Silky Water"],
+    "tags": ["Ureshino", "Tea"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "description": "Smooth 'beauty bath' town famous for its silky sodium water and the hand-finished Ureshino tea noodles.",
@@ -92758,12 +92772,6 @@
     },
     "officialWebsite": "https://www.ureshino-spa.jp/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 8
-    },
     "weatherDependence": "low",
     "walkingMin": 75,
     "indoorPercent": 30,
@@ -92785,8 +92793,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92826,12 +92842,6 @@
     },
     "officialWebsite": "https://www.misasakankou.jp/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 8
-    },
     "weatherDependence": "moderate",
     "walkingMin": 75,
     "indoorPercent": 25,
@@ -92853,8 +92863,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92893,12 +92911,6 @@
       "lng": 133.8266
     },
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 7
-    },
     "weatherDependence": "low",
     "walkingMin": 120,
     "indoorPercent": 30,
@@ -92920,8 +92932,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -92959,12 +92979,6 @@
       "lng": 133.3312
     },
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 7
-    },
     "weatherDependence": "low",
     "walkingMin": 90,
     "indoorPercent": 35,
@@ -92986,8 +93000,16 @@
       "uniqueness": 7
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93026,12 +93048,6 @@
     },
     "officialWebsite": "https://www.kagahakusan.jp/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 8
-    },
     "weatherDependence": "low",
     "walkingMin": 75,
     "indoorPercent": 25,
@@ -93053,8 +93069,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93079,7 +93103,7 @@
     "prefecture": "Ishikawa",
     "region": "Chubu",
     "categories": ["Onsen", "Relaxation", "Lake"],
-    "tags": ["Kaga Onsen", "Shirayama-mirai"],
+    "tags": ["Kaga Onsen", "Lake View"],
     "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "description": "The newest and most dramatic of the Kaga springs — a lakeside bath town across Laguna-side wetlands from Shirayama-mirai observatory.",
@@ -93094,12 +93118,6 @@
     },
     "officialWebsite": "https://www.kagahakusan.jp/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 8
-    },
     "weatherDependence": "low",
     "walkingMin": 60,
     "indoorPercent": 25,
@@ -93121,8 +93139,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93163,11 +93189,13 @@
     "officialWebsite": "https://www.noto-wajima.jp/",
     "status": "verified",
     "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 8,
-      "winter": 6
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
     },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
     "weatherDependence": "moderate",
     "walkingMin": 60,
     "indoorPercent": 20,
@@ -93189,8 +93217,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93230,12 +93266,6 @@
     },
     "officialWebsite": "https://www.info-toyama.com/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 6
-    },
     "weatherDependence": "low",
     "walkingMin": 240,
     "indoorPercent": 45,
@@ -93257,8 +93287,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93297,12 +93335,6 @@
     },
     "officialWebsite": "https://www.himikankou.jp/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 9,
-      "autumn": 8,
-      "winter": 7
-    },
     "weatherDependence": "moderate",
     "walkingMin": 120,
     "indoorPercent": 25,
@@ -93324,8 +93356,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93364,12 +93404,6 @@
     },
     "officialWebsite": "https://www.nasushiobara.info/",
     "status": "verified",
-    "season": {
-      "spring": 7,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 7
-    },
     "weatherDependence": "moderate",
     "walkingMin": 150,
     "indoorPercent": 25,
@@ -93391,8 +93425,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93430,12 +93472,6 @@
       "lng": 139.961
     },
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 6
-    },
     "weatherDependence": "high",
     "walkingMin": 210,
     "indoorPercent": 5,
@@ -93457,8 +93493,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93496,12 +93540,6 @@
       "lng": 139.9825
     },
     "status": "verified",
-    "season": {
-      "spring": 7,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 8
-    },
     "weatherDependence": "moderate",
     "walkingMin": 60,
     "indoorPercent": 30,
@@ -93523,8 +93561,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93564,12 +93610,6 @@
     },
     "officialWebsite": "https://www.tb-kumano.jp/",
     "status": "verified",
-    "season": {
-      "spring": 9,
-      "summer": 7,
-      "autumn": 9,
-      "winter": 7
-    },
     "weatherDependence": "high",
     "walkingMin": 300,
     "indoorPercent": 5,
@@ -93591,8 +93631,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93630,12 +93678,6 @@
       "lng": 136.19
     },
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 7
-    },
     "weatherDependence": "moderate",
     "walkingMin": 90,
     "indoorPercent": 25,
@@ -93657,8 +93699,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93696,12 +93746,6 @@
       "lng": 136.1117
     },
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 8,
-      "autumn": 8,
-      "winter": 7
-    },
     "weatherDependence": "moderate",
     "walkingMin": 150,
     "indoorPercent": 20,
@@ -93723,8 +93767,16 @@
       "uniqueness": 8
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93764,11 +93816,13 @@
     "officialWebsite": "https://www.chokai-san.jp/",
     "status": "verified",
     "season": {
-      "spring": 6,
-      "summer": 9,
-      "autumn": 8,
-      "winter": 4
+      "spring": 7,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
     },
+    "bestMonths": [7, 8],
+    "bestSeason": "Summer",
     "weatherDependence": "high",
     "walkingMin": 420,
     "indoorPercent": 0,
@@ -93790,8 +93844,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.3,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93830,12 +93892,6 @@
     },
     "officialWebsite": "https://shirakami-sanchi.jp/",
     "status": "verified",
-    "season": {
-      "spring": 7,
-      "summer": 9,
-      "autumn": 9,
-      "winter": 5
-    },
     "weatherDependence": "high",
     "walkingMin": 300,
     "indoorPercent": 5,
@@ -93857,8 +93913,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93882,7 +93946,7 @@
     "prefecture": "Shimane",
     "region": "Chugoku",
     "categories": ["Museum", "Garden", "Art"],
-    "tags": ["Ichijoji", "Top three gardens"],
+    "tags": ["Top Garden", "Yasugi"],
     "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
     "description": "The art museum whose 'borrowed-scenery' garden is continuously ranked Japan's best — scrolling mountain views framed by clipped azaleas.",
@@ -93898,11 +93962,13 @@
     "officialWebsite": "https://www.adachi-museum.or.jp/",
     "status": "verified",
     "season": {
-      "spring": 9,
-      "summer": 8,
-      "autumn": 9,
-      "winter": 9
+      "spring": 7,
+      "summer": 6,
+      "autumn": 7,
+      "winter": 7
     },
+    "bestMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "bestSeason": "All Year (indoor)",
     "weatherDependence": "moderate",
     "walkingMin": 120,
     "indoorPercent": 70,
@@ -93924,8 +93990,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 5.5,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"
@@ -93965,12 +94039,6 @@
     },
     "officialWebsite": "https://www.oki-geo.com/",
     "status": "verified",
-    "season": {
-      "spring": 8,
-      "summer": 9,
-      "autumn": 8,
-      "winter": 6
-    },
     "weatherDependence": "moderate",
     "walkingMin": 360,
     "indoorPercent": 15,
@@ -93992,8 +94060,16 @@
       "uniqueness": 9
     },
     "scoreMetadata": {
-      "modelVersion": "depth-v121-audit",
-      "basis": "P0 expansion (audit v4)"
+      "state": "estimated",
+      "value": 7.8,
+      "rubricVersion": "kai-89-overall-v2",
+      "confidence": "low",
+      "coverage": 0.6,
+      "provenance": {
+        "sourceClass": "model",
+        "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"designation-tier-9\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+      },
+      "noteKey": "destination.scoreEstimatedNote"
     },
     "travelEstimate": {
       "confidence": "beta"

@@ -143,7 +143,10 @@
       "inubosaki-lighthouse-choshi",
       "byobugaura-choshi",
       "hokusai-museum-obuse",
-      "usui-pass-railway-heritage-park"
+      "usui-pass-railway-heritage-park",
+      "wajima-morning-market",
+      "chokai-san",
+      "adachi-museum-of-art"
     ],
     "duration-model-v1": [
       "abeno-harukas-300-osaka",
@@ -1899,7 +1902,10 @@
       "fukiware-falls",
       "usui-third-bridge",
       "shorinzan-darumaji",
-      "onioshidashi-park"
+      "onioshidashi-park",
+      "wajima-morning-market",
+      "shirakami-sanchi",
+      "oki-islands"
     ]
   },
   "modelClusterIds": [
@@ -1945,138 +1951,168 @@
   ],
   "historyNote": "Migration evidence from applies before the KAI-89 final correction pass was overwritten by a zero-change apply; preserved evidence starts at the first non-zero apply after this fix.",
   "lastApplied": {
-    "at": "2026-09-02T07:46",
-    "changeCount": 18,
+    "at": "2026-09-05T10:03",
+    "changeCount": 45,
     "byModel": [
       [
         "score-rubric-v2",
-        13
+        23
       ],
       [
         "season-model-v1",
-        2
-      ],
-      [
-        "duration-model-v1",
-        1
-      ],
-      [
-        "comfort-model-v1",
-        1
-      ],
-      [
-        "transport-access-v1",
-        1
+        22
       ]
     ],
     "sample": [
       {
-        "id": "noto",
+        "id": "eiheiji-temple",
         "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
       },
       {
-        "id": "noto",
+        "id": "arita-porcelain-town",
         "model": "season-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
       },
       {
-        "id": "noto",
-        "model": "duration-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "takeo-onsen",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
       },
       {
-        "id": "noto",
-        "model": "comfort-model-v1",
-        "action": "reconcile",
-        "reason": "calculated field source reconciled to canonical metadata basis"
+        "id": "ureshino-onsen",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
       },
       {
-        "id": "tsugaru",
-        "model": "transport-access-v1",
-        "action": "tag",
-        "reason": "legacy static minutes tagged as fallback; 0/1 declared modes supported by zone topology"
+        "id": "misasa-onsen",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
       },
       {
-        "id": "nemuro-peninsula-chashi-sites",
+        "id": "kurayoshi",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "yonago",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "hub record: no experience-season vector (R0 contract)"
+      },
+      {
+        "id": "yamanaka-onsen",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "katayamazu-onsen",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "wajima-morning-market",
+        "model": "season-model-v1",
+        "action": "set",
+        "reason": "indoor destination (R3): year-round marker"
+      },
+      {
+        "id": "toyama-city",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "hub record: no experience-season vector (R0 contract)"
+      },
+      {
+        "id": "himi",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "hub record: no experience-season vector (R0 contract)"
+      },
+      {
+        "id": "nasu",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "hub record: no experience-season vector (R0 contract)"
+      },
+      {
+        "id": "nasu-kogen-highlands",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "nasu-steam-onsen",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "kumano-kodo",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "owase",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "hub record: no experience-season vector (R0 contract)"
+      },
+      {
+        "id": "kumano-city",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "hub record: no experience-season vector (R0 contract)"
+      },
+      {
+        "id": "chokai-san",
+        "model": "season-model-v1",
+        "action": "set",
+        "reason": "temperate beach (R2)"
+      },
+      {
+        "id": "shirakami-sanchi",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "adachi-museum-of-art",
+        "model": "season-model-v1",
+        "action": "set",
+        "reason": "indoor destination (R3): year-round marker"
+      },
+      {
+        "id": "oki-islands",
+        "model": "season-model-v1",
+        "action": "neutralize",
+        "reason": "no defensible seasonal model signal; template vector neutralized to unknown (R8)"
+      },
+      {
+        "id": "eiheiji-temple",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "estimated rubric score 7"
       },
       {
-        "id": "ne-castle-hachinohe",
+        "id": "mikuni-port-fukui",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
+        "reason": "estimated rubric score 5.5"
       },
       {
-        "id": "tsuyama-castle",
+        "id": "arita-porcelain-town",
         "model": "score-rubric-v2",
         "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "towada-hachimantai",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "shimokita-hanto",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "tsugaru",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.5"
-      },
-      {
-        "id": "shodoshima",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6"
-      },
-      {
-        "id": "inujima",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6"
-      },
-      {
-        "id": "ogijima",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6"
-      },
-      {
-        "id": "izanagi-jingu-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
-      },
-      {
-        "id": "awaji-farm-park-england-hill",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
-      },
-      {
-        "id": "sumoto-castle-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
-      },
-      {
-        "id": "nijigen-no-mori-awaji",
-        "model": "score-rubric-v2",
-        "action": "set",
-        "reason": "estimated rubric score 6.6"
+        "reason": "estimated rubric score 5.5"
       }
     ]
   }

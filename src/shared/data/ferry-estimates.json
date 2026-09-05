@@ -420,6 +420,30 @@
         "lat": 28.38,
         "lng": 129.5
       }
+    },
+    {
+      "id": "SHICHIRUI",
+      "name": "Shichirui Port",
+      "nameJa": "七類港",
+      "city": "Matsue",
+      "prefecture": "Shimane",
+      "zoneId": "mainland-honshu",
+      "coordinates": {
+        "lat": 35.4861,
+        "lng": 132.9234
+      }
+    },
+    {
+      "id": "SAIGO-OKI",
+      "name": "Saigo Port (Oki)",
+      "nameJa": "西郷港",
+      "city": "Okinoshima",
+      "prefecture": "Shimane",
+      "zoneId": "oki",
+      "coordinates": {
+        "lat": 36.2057,
+        "lng": 133.3164
+      }
     }
   ],
   "services": [
@@ -875,6 +899,23 @@
       "fareSourceUrl": "https://www.biwakokisen.co.jp/cruise/chikubu/price_time/",
       "checkedAt": "2026-08-23",
       "notes": "Biwako Kisen sightseeing ferry; ~25 min out / ~30 min return Imazu–Chikubushima with ~50–100-minute island landings depending on sailing. Adult round trip ¥3,600 (child ¥1,800); separate ¥600 island admission on landing. A cross-lake one-way (Imazu→Chikubushima→Nagahama) also exists. Schedule varies by season and weather."
+    },
+    {
+      "id": "shichirui-saigo-oki",
+      "fromPort": "SHICHIRUI",
+      "toPort": "SAIGO-OKI",
+      "operator": "Oki Kisen",
+      "serviceName": "Shichirui–Saigo passenger ferry (Oki Kisen)",
+      "vesselType": "ferry",
+      "passengerService": true,
+      "bidirectional": true,
+      "durationMinutes": [150, 180],
+      "fare": null,
+      "fareBasis": "one-way",
+      "fareStatus": "unverified",
+      "sourceUrl": "https://www.oki-kisen.co.jp/",
+      "checkedAt": "2026-09-05",
+      "notes": "Oki Kisen links Shichirui (Matsue side) with Saigo on Dogo island; crossing duration is route evidence, fare is retained as unknown pending a current ordinary-adult schedule."
     }
   ]
 }

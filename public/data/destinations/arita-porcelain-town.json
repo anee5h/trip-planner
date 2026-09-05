@@ -32,17 +32,11 @@
     "min": 3,
     "max": 5
   },
-  "season": {
-    "spring": 9,
-    "summer": 7,
-    "autumn": 8,
-    "winter": 7
-  },
   "seasonMetadata": {
-    "method": "editorial",
+    "method": "unknown",
     "modelVersion": "season-model-v1",
-    "confidence": "high",
-    "basis": "editorial source-backed"
+    "confidence": "unknown",
+    "basis": "no rule matched; owner policy: unknown stays unknown"
   },
   "durationMetadata": {
     "method": "editorial",
@@ -81,9 +75,34 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Arita,_Saga"
   },
   "scoreMetadata": {
-    "modelVersion": "depth-v121-audit",
-    "basis": "P0 expansion (audit v4)"
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Arita town streets and kiln districts free; museums and optional workshops paid.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
 }

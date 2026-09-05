@@ -12,8 +12,8 @@ const OUTPUT_PATH =
   process.env.KAI252_OUTPUT ??
   path.join(ROOT, "scripts/audit/kai-252-local-transport-manifest.json");
 const CHECKED_AT = "2026-08-29";
-const EXPECTED_TOTAL = 1057;
-const EXPECTED_RESIDUAL = 1029;
+const EXPECTED_TOTAL = 1130;
+const EXPECTED_RESIDUAL = 1052;
 const PREDECESSOR_RESIDUAL_PATH = path.join(
   ROOT,
   "scripts/audit/kai-251-residual-local-transport.json",

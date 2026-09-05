@@ -61,6 +61,26 @@ const municipalSuffixes: Partial<Record<MunicipalityKind, string>> = {
 };
 
 const japaneseLabels: Record<string, string> = {
+  Zen: "禅",
+  "Soto Zen": "曹洞宗",
+  "Japan Heritage": "日本遺産",
+  Echizen: "越前",
+  Porcelain: "磁器",
+  Imari: "伊万里",
+  Tea: "お茶",
+  "Radium Onsen": "ラジウム温泉",
+  Pilgrimage: "巡礼",
+  "Beech Forest": "ブナ林",
+  "Morning Market": "朝市",
+  "Fish Market": "魚市場",
+  "Sea of Japan": "日本海",
+  "White-walled Town": "白壁の町",
+  "Lake View": "湖景",
+  "Top Garden": "庭園",
+  UNESCO: "世界遺産",
+  "Port Town": "港町",
+  "Lattice Bathhouse": "格子湯殿",
+  "Transit Hub": "交通拠点",
   // Canonical taxonomy ids are display labels too; keep lowercase values
   // explicit so a new id cannot silently fall back to English.
   aizu: "会津",

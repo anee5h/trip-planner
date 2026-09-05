@@ -74,9 +74,34 @@
     "sourceUrl": "https://en.wikipedia.org/wiki/Mikuni,_Fukui"
   },
   "scoreMetadata": {
-    "modelVersion": "depth-v121-audit",
-    "basis": "P0 expansion (audit v4)"
+    "state": "estimated",
+    "value": 5.5,
+    "rubricVersion": "kai-89-overall-v2",
+    "confidence": "low",
+    "coverage": 0.6,
+    "provenance": {
+      "sourceClass": "model",
+      "basis": "{\"rubric\":\"kai-89-overall-v2\",\"coverage\":0.6,\"significance\":\"absent\",\"recognition\":\"no-designation\",\"richness\":\"categories-3\",\"accessibility\":\"transport-3\"}"
+    },
+    "noteKey": "destination.scoreEstimatedNote"
   },
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg"
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mikuni_Port_260124_02.jpg/1280px-Mikuni_Port_260124_02.jpg",
+  "admission": {
+    "state": "not_applicable",
+    "provenance": "verified_source",
+    "reasonCode": "free_area_with_optional_paid_components",
+    "cost": {
+      "kind": "not_applicable"
+    },
+    "scope": "open_area",
+    "basis": "Port town streets and coast free to walk; optional paid museums and boat rides.",
+    "sourceUrls": [],
+    "checkedAt": "2026-09-05"
+  },
+  "localTransport": {
+    "kind": "unavailable",
+    "reason": "other",
+    "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately."
+  }
 }

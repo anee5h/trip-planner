@@ -42,7 +42,7 @@ const INDEX_PATH =
 const MANIFEST_PATH =
   process.env.KAI219E2_MANIFEST_PATH ??
   path.join(REPO_ROOT, "scripts/audit/kai-219e2-candidates.json");
-const EXPECTED_MANIFEST_ENTRIES = 728;
+const EXPECTED_MANIFEST_ENTRIES = 751;
 
 function readJson<T>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
