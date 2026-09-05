@@ -14,6 +14,7 @@ import { join, resolve } from "node:path";
 import destinations from "../../src/shared/data/destinations-index.json";
 import {
   getOpeningHoursAssessment,
+  isValidIsoDate,
   type OpeningHoursStatus,
 } from "../../src/shared/services/recommendation/OpeningHoursPolicy";
 
@@ -123,10 +124,11 @@ function hasFreshMetadata(
 ): boolean {
   const meta = d.openingHoursMetadata;
   if (!meta?.sourceUrl || !meta.verifiedAt) return false;
-  const date = new Date(meta.verifiedAt);
-  if (Number.isNaN(date.getTime()) || date.getTime() > now.getTime())
-    return false;
-  return (now.getTime() - date.getTime()) / (1000 * 60 * 60 * 24) <= 180;
+  if (!isValidIsoDate(meta.verifiedAt)) return false;
+  const ageDays =
+    (now.getTime() - new Date(`${meta.verifiedAt}T00:00:00Z`).getTime()) /
+    (1000 * 60 * 60 * 24);
+  return ageDays >= 0 && ageDays <= 180;
 }
 
 for (const r of rows) {
@@ -215,14 +217,18 @@ const report = {
 
 // All report numbers below are computed from the audit rows — no
 // hard-coded counts that can drift from the actual ledger.
+// “Without fresh evidence” is scoped to the hours-bearing population —
+// records with no hours at all, hubs/cities (not_required) and open-access
+// records that need no verification must not dilute the metric.
+const hoursBearing = rows.filter((r) => r.hasHours).length;
+const hoursWithoutFreshEvidence = rows.filter(
+  (r) => r.hasHours && r.status !== "verified",
+).length;
+const hoursFreshShare =
+  hoursBearing === 0 ? 0 : (hoursWithoutFreshEvidence / hoursBearing) * 100;
 const unverifiedWithHoursCount = rows.filter(
   (r) => r.status === "unverified" && r.hasHours,
 ).length;
-const notFreshPercentage =
-  report.input.records === 0
-    ? 0
-    : ((report.input.records - statusCounts.verified) / report.input.records) *
-      100;
 
 const md = [
   "# Opening-hours data audit (canonical catalogue)",
@@ -236,7 +242,7 @@ const md = [
   "",
   `1. **Suspicious cohort (${suspiciousCohort.length})** — specific-window hours on open-area kinds with no fresh metadata: ${report.cohorts.suspicious.join(", ")}`,
   `2. **Semantic nonsense subset (${nonsenseCohort.length})** — blanket windows invalid for kind (streets, districts, towns, nature, onsen, beaches…): ${report.cohorts.nonsense.join(", ")}`,
-  `3. **Verified only ${statusCounts.verified}** of ${report.input.records} records → ${notFreshPercentage.toFixed(1)}% of records show hours without fresh evidence.`,
+  `3. **Verified only ${statusCounts.verified}** of ${report.input.records} records; **${hoursWithoutFreshEvidence} of ${hoursBearing} hours-bearing records (${hoursFreshShare.toFixed(1)}%) lack fresh verification.**`,
   `4. **Sourced grants** ${statusCounts.sourced} records — policy treats an hours-specific metadata source URL as evidence (general website links no longer certify hours).`,
   `5. **Detail page truthfulness gate**: unverified/stale hours now carry a 'Not yet verified' caveat (mirrors DayPlanWidget disclosures).`,
   "",
@@ -245,7 +251,7 @@ const md = [
   "1. CI validator gate: specific-window hours on open-area kinds must carry fresh metadata (sourceUrl + verifiedAt); allowlisted debt is enforced (stale entries fail).",
   "2. Tighten `sourced`: only `openingHoursMetadata.sourceUrl` certifies hours (DONE in #336).",
   "3. Detail page: 'Not yet verified' caveat when assessment is stale/unverified (DONE in #336).",
-  `4. Repair cohort source-backed: nonsense IDs → kind-appropriate 'Open access (…)' text or verified metadata (27→47 with the en-dash format gate).`,
+  `4. Repair cohort source-backed: nonsense IDs → kind-appropriate 'Open access (…)' text or verified metadata (${suspiciousCohort.length} allowlisted debt entries — every one must be removed from the allowlist as it is repaired).`,
   `5. Reuse the 2026-08 batch verification process on the ${unverifiedWithHoursCount}-record unverified remainder (long tail).`,
   "",
 ].join("\n");

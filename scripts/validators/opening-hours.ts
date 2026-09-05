@@ -1,5 +1,8 @@
 import type { ValidatorModule } from "./types";
-import { getOpeningHoursAssessment } from "../../src/shared/services/recommendation/OpeningHoursPolicy";
+import {
+  getOpeningHoursAssessment,
+  isValidIsoDate,
+} from "../../src/shared/services/recommendation/OpeningHoursPolicy";
 import type { Destination } from "../../src/shared/types/destination";
 import openingHoursAllowlistJson from "./opening-hours-allowlist.json";
 
@@ -50,10 +53,10 @@ function hasFreshMetadata(
 ): boolean {
   const meta = destination.openingHoursMetadata;
   if (!meta?.sourceUrl || !meta.verifiedAt) return false;
-  const verifiedDate = new Date(meta.verifiedAt);
-  if (Number.isNaN(verifiedDate.getTime())) return false;
+  if (!isValidIsoDate(meta.verifiedAt)) return false;
   const ageDays =
-    (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
+    (now.getTime() - new Date(`${meta.verifiedAt}T00:00:00Z`).getTime()) /
+    (1000 * 60 * 60 * 24);
   return ageDays >= 0 && ageDays <= 180;
 }
 
@@ -82,16 +85,19 @@ export function validateOpeningHours(
     const assessment = getOpeningHoursAssessment(destination);
 
     // Malformed verification metadata is always an error (new defect).
+    // Strict ISO YYYY-MM-DD with real-calendar round-trip: JS Date
+    // silently normalizes "2026-02-30" → Mar 2 and accepts locale formats.
     if (meta?.verifiedAt) {
-      const verifiedDate = new Date(meta.verifiedAt);
-      if (
-        Number.isNaN(verifiedDate.getTime()) ||
-        verifiedDate.getTime() > new Date().getTime()
-      ) {
+      const verifiedDateIso = isValidIsoDate(meta.verifiedAt);
+      const isFuture =
+        verifiedDateIso &&
+        new Date(`${meta.verifiedAt}T00:00:00Z`).getTime() >
+          new Date().getTime();
+      if (!verifiedDateIso || isFuture) {
         issues.push({
           severity: "error",
           code: "MALFORMED_HOURS_METADATA",
-          message: `Destination '${id}' has an invalid or future openingHoursMetadata.verifiedAt (${meta.verifiedAt}).`,
+          message: `Destination '${id}' has an invalid or future openingHoursMetadata.verifiedAt (${meta.verifiedAt}); expected strict YYYY-MM-DD in the past.`,
           targetId: id,
         });
       }

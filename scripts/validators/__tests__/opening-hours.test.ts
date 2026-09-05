@@ -85,6 +85,67 @@ describe("Opening Hours Integrity validator", () => {
     expect(result.issues[0]?.code).toBe("MALFORMED_HOURS_METADATA");
   });
 
+  it("rejects impossible calendar dates (2026-02-30) as MALFORMED_HOURS_METADATA", async () => {
+    const result = await validateOpeningHours(
+      context([
+        dest({
+          id: "feb-30",
+          businessHours: "09:00 - 17:00",
+          openingHoursMetadata: {
+            verifiedAt: "2026-02-30",
+            sourceUrl: "https://x.example",
+          },
+        }),
+      ]),
+      emptyAllowlist,
+    );
+    expect(result.passed).toBe(false);
+    expect(
+      result.issues.some((i) => i.code === "MALFORMED_HOURS_METADATA"),
+    ).toBe(true);
+  });
+
+  it("rejects non-ISO verifiedAt formats as MALFORMED_HOURS_METADATA", async () => {
+    for (const bad of ["09/05/2026", "Sep 5 2026", "2026-09-05T10:00:00Z"]) {
+      const result = await validateOpeningHours(
+        context([
+          dest({
+            id: `bad-format-${Date.now()}-${bad}`,
+            businessHours: "09:00 - 17:00",
+            openingHoursMetadata: {
+              verifiedAt: bad,
+              sourceUrl: "https://x.example",
+            },
+          }),
+        ]),
+        emptyAllowlist,
+      );
+      expect(result.passed).toBe(false);
+      expect(
+        result.issues.some((i) => i.code === "MALFORMED_HOURS_METADATA"),
+      ).toBe(true);
+    }
+  });
+
+  it("accepts strict ISO verifiedAt as valid", async () => {
+    const result = await validateOpeningHours(
+      context([
+        dest({
+          id: "iso-ok",
+          businessHours: "09:00 - 17:00",
+          openingHoursMetadata: {
+            verifiedAt: "2026-09-01",
+            sourceUrl: "https://x.example",
+          },
+        }),
+      ]),
+      emptyAllowlist,
+    );
+    expect(
+      result.issues.some((i) => i.code === "MALFORMED_HOURS_METADATA"),
+    ).toBe(false);
+  });
+
   it("does not flag ordinary gated destinations with hours and no metadata as errors", async () => {
     const result = await validateOpeningHours(
       context([
