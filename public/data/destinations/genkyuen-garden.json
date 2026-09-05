@@ -152,5 +152,9 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%8E%84%E5%AE%AE%E5%9C%92",
   "wikipediaPageId": 678638,
-  "wikidataId": "Q11572274"
+  "wikidataId": "Q11572274",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.hikoneshi.com/ee5/index.php/sightseeing/articles/genkyuen",
+    "verifiedAt": "2026-09-05"
+  }
 }

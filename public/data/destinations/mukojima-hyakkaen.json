@@ -127,7 +127,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://visit-sumida.jp/en/",
-  "businessHours": "09:00-17:00, closed Mon",
+  "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Mon)",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/In_Mukojima-Hyakkaen_Garden.jpg/1920px-In_Mukojima-Hyakkaen_Garden.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -201,5 +201,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Muk%C5%8Djima-Hyakkaen_Garden",
   "wikipediaPageId": 32352328,
-  "wikidataId": "Q7076776"
+  "wikidataId": "Q7076776",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/",
+    "verifiedAt": "2026-09-05"
+  }
 }

@@ -202,5 +202,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Kenroku-en",
   "wikipediaPageId": 522712,
-  "wikidataId": "Q998239"
+  "wikidataId": "Q998239",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/info.html",
+    "verifiedAt": "2026-09-05"
+  }
 }

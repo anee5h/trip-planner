@@ -182,5 +182,6 @@
     "method": "source-verified",
     "confidence": "medium",
     "basis": "Official operator/access evidence verifies the ferry corridor and the listed crossing duration; fare remains unavailable by design."
-  }
+  },
+  "businessHours": "Open access (islands); ferry schedule varies by season"
 }

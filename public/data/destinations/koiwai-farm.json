@@ -41,7 +41,8 @@
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cherry_tree_and_Mount_Iwate.jpg"
   },
   "openingHoursMetadata": {
-    "verifiedAt": "2026-08-11"
+    "sourceUrl": "https://www.koiwaifarm.com/",
+    "verifiedAt": "2026-09-05"
   },
   "recommendedVisitHours": {
     "min": 3,
@@ -91,7 +92,7 @@
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
   "openingHoursJa": "9:00～17:00（時期により変動）。12月～2月は土日祝のみ営業。",
-  "businessHours": "09:00 - 17:00 (varies by season); winter (Dec–Feb) weekends and holidays only",
+  "businessHours": "09:00 - 17:00 (Last entry 16:00; winter Dec–Feb weekends/holidays only per official calendar)",
   "officialWebsite": "https://www.koiwaifarm.com/",
   "content": {
     "en": {

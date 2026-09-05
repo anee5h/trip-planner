@@ -138,7 +138,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.showakinen-koen.jp/",
-  "businessHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+  "businessHours": "09:30 - 17:00 (Mar–Oct), 09:30 - 16:30 (Nov–Feb), closed Dec 31 - Jan 1 + February maintenance period; extended hours during festivals (see official calendar)",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg/1920px-Japanese_Garden_%40_Showa_Kinen_Park_%40_Tachikawa_%2810605877954%29.jpg",
   "notesJa": "天気の良い日に訪問し、四季折々の自然景観と散策を楽しむのがおすすめです。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
@@ -198,5 +198,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Showa_Memorial_Park",
   "wikipediaPageId": 5799953,
-  "wikidataId": "Q3915473"
+  "wikidataId": "Q3915473",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.showakinen-koen.jp/",
+    "verifiedAt": "2026-09-05"
+  }
 }

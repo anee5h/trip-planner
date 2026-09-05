@@ -147,5 +147,10 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%82%98%E6%9D%BE%E5%85%AC%E5%9C%92",
   "wikipediaPageId": 959604,
-  "wikidataId": "Q11387301"
+  "wikidataId": "Q11387301",
+  "businessHours": "09:00 – 18:00 (Mar–Nov); 09:00 – 17:30 (Feb); 09:00 – 17:00 (Dec–Jan); no closed days",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.amanohashidate.jp/spot/kasamatsu/",
+    "verifiedAt": "2026-09-05"
+  }
 }

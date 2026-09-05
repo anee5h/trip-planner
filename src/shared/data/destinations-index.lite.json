@@ -8132,7 +8132,7 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (historic town); individual facilities have their own hours",
     "relationships": {
       "gatewayHubId": "gifu-city"
     }
@@ -9028,7 +9028,7 @@
       "heatTolerance": 8,
       "rainFriendly": 6
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (onsen district); ryokan and public bath hours vary",
     "openingHours": "09:00 - 17:00",
     "relationships": {}
   },
@@ -13628,7 +13628,7 @@
       "rainFriendly": 3,
       "walkingIntensity": 8
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (peninsula); individual attractions and facilities have their own hours",
     "relationships": {
       "parentDestinationId": "ito-city"
     }
@@ -14241,7 +14241,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 6
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "businessHours": "Open access (street); individual facilities have their own hours",
     "relationships": {
       "parentDestinationId": "sendai-city"
     }
@@ -17094,7 +17094,7 @@
       "rainFriendly": 6,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (onsen district); ryokan and facility hours vary",
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "parentDestinationId": "nikko-city"
@@ -17340,7 +17340,7 @@
       "rainFriendly": 3,
       "walkingIntensity": 8
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (valley); individual attractions have their own hours",
     "relationships": {}
   },
   {
@@ -19103,7 +19103,7 @@
       "rainFriendly": 5,
       "walkingIntensity": 3
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (island); ferry and facility schedules vary",
     "relationships": {
       "parentDestinationId": "nago-city"
     }
@@ -20568,7 +20568,7 @@
       "rainFriendly": 5,
       "walkingIntensity": 8
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (lake); cruise and facility schedules vary",
     "relationships": {
       "parentDestinationId": "hamamatsu-city"
     }
@@ -24837,7 +24837,7 @@
       "rainFriendly": 6,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (onsen district); ryokan and facility hours vary",
     "relationships": {
       "gatewayHubId": "nagano-city"
     }
@@ -25088,7 +25088,7 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (historic town); individual facilities have their own hours",
     "relationships": {
       "gatewayHubId": "matsumoto-city"
     }
@@ -26204,7 +26204,7 @@
       "rainFriendly": 6,
       "walkingIntensity": 5
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "Open access (street); individual shops have their own hours",
     "relationships": {
       "parentDestinationId": "kobe-city"
     }
@@ -35234,7 +35234,7 @@
       "rainFriendly": 3,
       "walkingIntensity": 5
     },
-    "businessHours": "09:30 - 17:00 (Closed Mondays)",
+    "businessHours": "Open access (riverbank); boat cruise schedule varies",
     "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "kawagoe-city"
@@ -38132,7 +38132,7 @@
       "rainFriendly": 6,
       "walkingIntensity": 5
     },
-    "businessHours": "08:30 - 17:00 (Last admission 16:30)",
+    "businessHours": "Open access (arcade); individual shops have their own hours",
     "relationships": {
       "parentDestinationId": "sapporo-city"
     }
@@ -44998,7 +44998,7 @@
       "rainFriendly": 3,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "Open access (coastal town); individual facilities have their own hours",
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "gatewayHubId": "yokosuka-city"
@@ -45987,7 +45987,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00-17:00",
+    "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - Jan 1)",
     "openingHours": "09:00-17:00",
     "relationships": {
       "parentDestinationId": "koto-city"
@@ -46449,7 +46449,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "09:00-17:00, closed Mon",
+    "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Mon)",
     "openingHours": "09:00-17:00, closed Mon",
     "relationships": {
       "parentDestinationId": "sumida-city"
@@ -48839,7 +48839,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+    "businessHours": "09:30 - 17:00 (Mar–Oct), 09:30 - 16:30 (Nov–Feb), closed Dec 31 - Jan 1 + February maintenance period; extended hours during festivals (see official calendar)",
     "openingHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
     "relationships": {
       "parentDestinationId": "tachikawa-tokyo"
@@ -49653,7 +49653,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 8
     },
-    "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); closed Dec 29–31.",
+    "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); entry until 30 min before close; closed Dec 29–31",
     "relationships": {
       "parentDestinationId": "hiroshima-city"
     }
@@ -50396,6 +50396,7 @@
       "car": 212
     },
     "walkingIntensity": "medium",
+    "businessHours": "09:00 – 18:00 (Mar–Nov); 09:00 – 17:30 (Feb); 09:00 – 17:00 (Dec–Jan); no closed days",
     "openingHours": "08:00 - 17:30",
     "relationships": {
       "parentDestinationId": "miyazu-city"
@@ -50459,6 +50460,7 @@
       "car": 270
     },
     "walkingIntensity": "medium",
+    "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - 30)",
     "openingHours": "09:00 - 17:00 (Last entry 16:30)",
     "relationships": {
       "parentDestinationId": "himeji-city"
@@ -50590,6 +50592,7 @@
       "car": 325
     },
     "walkingIntensity": "medium",
+    "businessHours": "Open access (castle town); individual facilities have their own hours",
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "parentDestinationId": "toyooka-city"
@@ -51259,6 +51262,7 @@
       "car": 240
     },
     "walkingIntensity": "medium",
+    "businessHours": "Open access (street); individual shops have their own hours",
     "openingHours": "09:30 - 17:00",
     "relationships": {
       "parentDestinationId": "ise-city"
@@ -51456,6 +51460,7 @@
       "car": 342
     },
     "walkingIntensity": "medium",
+    "businessHours": "Open access (cliffs); observation deck 08:00 - 17:00",
     "openingHours": "08:00 - 17:00 (Cave 08:00 - 17:00)",
     "relationships": {
       "parentDestinationId": "shirahama-town"
@@ -51600,6 +51605,7 @@
       "car": 175
     },
     "walkingIntensity": "medium",
+    "businessHours": "Open access (lake); cruise and facility schedules vary",
     "openingHours": "09:00 - 17:00 (Cruise times vary)",
     "relationships": {
       "parentDestinationId": "otsu-city"
@@ -52284,6 +52290,7 @@
       "car": 205
     },
     "walkingIntensity": "medium",
+    "businessHours": "Open access (canal district); boat ride schedules vary",
     "openingHours": "09:00 - 17:00",
     "relationships": {
       "gatewayHubId": "otsu-city"
@@ -52347,6 +52354,7 @@
       "car": 165
     },
     "walkingIntensity": "medium",
+    "businessHours": "07:00 – 23:00 (varies by season; see official site)",
     "openingHours": "07:00 - 23:00",
     "relationships": {
       "parentDestinationId": "otsu-city"
@@ -52555,6 +52563,7 @@
     },
     "transportZoneId": "tomogashima",
     "walkingIntensity": "high",
+    "businessHours": "Open access (islands); ferry schedule varies by season",
     "openingHours": "09:00 - 16:30 (Ferry season)",
     "relationships": {
       "parentDestinationId": "wakayama-city"
@@ -67011,7 +67020,7 @@
       "rainFriendly": 4,
       "walkingIntensity": 8
     },
-    "businessHours": "09:00 - 17:00 (varies by season); winter (Dec–Feb) weekends and holidays only",
+    "businessHours": "09:00 - 17:00 (Last entry 16:00; winter Dec–Feb weekends/holidays only per official calendar)",
     "relationships": {
       "gatewayHubId": "morioka-city"
     }

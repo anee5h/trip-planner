@@ -242,5 +242,9 @@
     "detail": "Canonical arrival Shin-Osaka Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
+  },
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.abenoharukas-300.jp/observatory/",
+    "verifiedAt": "2026-09-05"
   }
 }
