@@ -71,7 +71,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Kurayoshi via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Kurayoshi,_Tottori"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kurayoshi,_Tottori",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -85,8 +86,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

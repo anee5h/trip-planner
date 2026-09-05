@@ -77,7 +77,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Katayamazu Onsen via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Katayamazu_Onsen"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Katayamazu_Onsen",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -91,8 +92,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

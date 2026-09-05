@@ -77,7 +77,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Eiheiji Temple via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -91,8 +92,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
   "admission": {
     "state": "verified_paid",
     "provenance": "verified_source",

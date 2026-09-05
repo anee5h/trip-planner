@@ -88,7 +88,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Wajima Morning Market via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -102,8 +103,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

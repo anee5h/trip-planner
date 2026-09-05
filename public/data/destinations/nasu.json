@@ -72,7 +72,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Nasu via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -86,8 +87,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

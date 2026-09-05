@@ -83,7 +83,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Adachi Museum of Art via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -97,8 +98,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
   "admission": {
     "state": "verified_paid",
     "provenance": "verified_source",

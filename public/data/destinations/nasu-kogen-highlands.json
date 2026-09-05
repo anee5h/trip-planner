@@ -71,7 +71,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Nasu Highlands via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Nasu"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Nasu",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -85,8 +86,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

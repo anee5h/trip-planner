@@ -77,7 +77,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Misasa Onsen via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Misasa,_Tottori"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Misasa,_Tottori",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -91,8 +92,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

@@ -72,7 +72,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Kumano Kodo via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Kumano_Kodō"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kumano_Kodō",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -86,8 +87,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

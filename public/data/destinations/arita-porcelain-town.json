@@ -72,7 +72,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Arita Porcelain Town via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Arita,_Saga"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Arita,_Saga",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -86,8 +87,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

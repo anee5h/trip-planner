@@ -71,7 +71,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Kumano City via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Kumano,_Mie"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Kumano,_Mie",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -85,8 +86,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

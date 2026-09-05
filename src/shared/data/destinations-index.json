@@ -243308,7 +243308,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Eiheiji Temple via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Eihei-ji",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -243322,8 +243323,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Eiheiji08bs3200.jpg/1280px-Eiheiji08bs3200.jpg",
     "admission": {
       "state": "verified_paid",
       "provenance": "verified_source",
@@ -243427,7 +243428,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Mikuni Port & Tojinbo Coast via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Mikuni,_Fukui"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mikuni,_Fukui",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -243543,7 +243545,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Arita Porcelain Town via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Arita,_Saga"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Arita,_Saga",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -243557,8 +243560,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Arita_Town_Hall.JPG/1280px-Arita_Town_Hall.JPG",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -243663,7 +243666,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Takeo Onsen via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Takeo_Onsen"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Takeo_Onsen",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -243677,8 +243681,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/de/Takeoonsen_rohmon.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -243783,7 +243787,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Ureshino Onsen via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -243797,8 +243802,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -243903,7 +243908,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Misasa Onsen via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Misasa,_Tottori"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Misasa,_Tottori",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -243917,8 +243923,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Misasa_montage.JPG",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244017,7 +244023,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Kurayoshi via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Kurayoshi,_Tottori"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kurayoshi,_Tottori",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244031,8 +244038,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG/1280px-Nakanomachi_Kurayoshicity_Tottoripref_Tottoriprefectutal_road_38_Kurayoshi_Fukumoto_line.JPG",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244131,7 +244138,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Yonago via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Yonago,_Tottori"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yonago,_Tottori",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244145,8 +244153,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/80/Yonago_montage_2017.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244251,7 +244259,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Yamanaka Onsen via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Yamanaka_Onsen"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Yamanaka_Onsen",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244265,8 +244274,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260606_Kikuno-yu_Yamanaka_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244371,7 +244380,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Katayamazu Onsen via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Katayamazu_Onsen"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Katayamazu_Onsen",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244385,8 +244395,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg/1280px-260718_Katayamazu_Onsen_Kaga_Ishikawa_pref_Japan01s3.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244502,7 +244512,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Wajima Morning Market via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Wajima,_Ishikawa",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244516,8 +244527,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Wajima_City_Hall.jpg/1280px-Wajima_City_Hall.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244632,7 +244643,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Toyama City via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Toyama_(city)"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Toyama_(city)",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244646,8 +244658,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Toyama_montage_0.png",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244747,7 +244759,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Himi via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244761,8 +244774,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244862,7 +244875,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Nasu via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nasu,_Tochigi",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244876,8 +244890,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -244976,7 +244990,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Nasu Highlands via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Nasu"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Nasu",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -244990,8 +245005,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/7/72/20090321MtNasuTagged.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245095,7 +245110,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Nasu Steampowered Onsen via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Nasu_Onsen"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nasu_Onsen",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245109,8 +245125,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Nasu_chausudake.jpg/1280px-Nasu_chausudake.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245211,7 +245227,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Kumano Kodo via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Kumano_Kodō"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kumano_Kodō",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245225,8 +245242,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/da/Map_Kumano_Kodo.png",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245325,7 +245342,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Owase via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Owase,_Mie"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Owase,_Mie",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245339,8 +245357,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Owase%2C_Mie.JPG/1280px-Owase%2C_Mie.JPG",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245439,7 +245457,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Kumano City via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Kumano,_Mie"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Kumano,_Mie",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245453,8 +245472,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Shichirimihama-2.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245560,7 +245579,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Mount Chokai via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Chokai"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Mount_Chokai",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245574,8 +245594,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg?utm_source=ja.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg/1280px-Mount_Ch%C5%8Dkai_%282017-05-19%29_-_Flickr.jpg",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245685,7 +245705,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Shirakami-Sanchi via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Shirakami-Sanchi"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Shirakami-Sanchi",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245699,8 +245720,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Sirakami_santi.JPG/1280px-Sirakami_santi.JPG",
     "admission": {
       "state": "not_applicable",
       "provenance": "verified_source",
@@ -245811,7 +245832,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Adachi Museum of Art via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Adachi_Museum_of_Art",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245825,8 +245847,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Adachi_Museum_of_Art_01.jpg/1280px-Adachi_Museum_of_Art_01.jpg",
     "admission": {
       "state": "verified_paid",
       "provenance": "verified_source",
@@ -245951,7 +245973,8 @@
       "source": "Wikimedia Commons / Wikipedia",
       "license": "CC-BY-SA / Public Domain",
       "attribution": "Lead photograph of Oki Islands via Wikipedia/Wikimedia Commons",
-      "sourceUrl": "https://en.wikipedia.org/wiki/Oki_Islands"
+      "sourceUrl": "https://en.wikipedia.org/wiki/Oki_Islands",
+      "url": null
     },
     "scoreMetadata": {
       "state": "estimated",
@@ -245965,8 +245988,8 @@
       },
       "noteKey": "destination.scoreEstimatedNote"
     },
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Oki_Islands_Relief_Map%2C_SRTM.jpg/1280px-Oki_Islands_Relief_Map%2C_SRTM.jpg",
     "transportZoneId": "oki",
     "admission": {
       "state": "not_applicable",

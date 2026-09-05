@@ -72,7 +72,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Himi via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Himi,_Toyama",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -86,8 +87,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Himi_city_hall.jpg/1280px-Himi_city_hall.jpg",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",

@@ -77,7 +77,8 @@
     "source": "Wikimedia Commons / Wikipedia",
     "license": "CC-BY-SA / Public Domain",
     "attribution": "Lead photograph of Ureshino Onsen via Wikipedia/Wikimedia Commons",
-    "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga"
+    "sourceUrl": "https://en.wikipedia.org/wiki/Ureshino,_Saga",
+    "url": null
   },
   "scoreMetadata": {
     "state": "estimated",
@@ -91,8 +92,8 @@
     },
     "noteKey": "destination.scoreEstimatedNote"
   },
-  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
-  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
+  "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Ureshino_city_office.JPG/1280px-Ureshino_city_office.JPG",
   "admission": {
     "state": "not_applicable",
     "provenance": "verified_source",
