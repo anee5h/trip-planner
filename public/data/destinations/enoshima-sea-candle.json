@@ -195,7 +195,6 @@
   "businessHours": "09:00-20:00 (last entry 19:30), seasonal extensions",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
   "municipalityId": "Kanagawa:fujisawa",
   "transportZoneId": "mainland-honshu",
@@ -252,5 +251,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Enoshima_Sea_Candle",
   "wikipediaPageId": 57344375,
-  "wikidataId": "Q11550565"
+  "wikidataId": "Q11550565",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://enoshima-seacandle.com/opening-hours/",
+    "verifiedAt": "2026-09-05"
+  }
 }

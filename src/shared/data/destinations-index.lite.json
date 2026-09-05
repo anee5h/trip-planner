@@ -5941,7 +5941,6 @@
       "walkingIntensity": 5
     },
     "businessHours": "09:00-20:00 (last entry 19:30), seasonal extensions",
-    "openingHours": "09:00 - 17:00",
     "relationships": {
       "parentDestinationId": "fujisawa-city"
     }
@@ -51741,7 +51740,7 @@
       "car": 280
     },
     "walkingIntensity": "medium",
-    "openingHours": "09:00 - 17:30 (Last entry 17:00)",
+    "businessHours": "09:00 - 17:30 (Last entry 17:00; closed Dec 29 - 31)",
     "relationships": {
       "parentDestinationId": "wakayama-city"
     }
@@ -53110,6 +53109,7 @@
       "lat": 26.6914,
       "lng": 127.9287
     },
+    "officialWebsite": "https://www.nakijin.jp/pagtop/kakuka/somuka/3/3/5/560.html",
     "status": "published",
     "season": {
       "spring": 9,
@@ -53169,7 +53169,7 @@
       "bus": 130
     },
     "transportZoneId": "okinawa-main",
-    "openingHours": "08:30-17:30 (summer to 18:30, entry 30 min before close)",
+    "businessHours": "08:30 - 17:30 (Apr-Sep to 18:30; entry until 30 min before close); open year-round",
     "relationships": {}
   },
   {
