@@ -199,13 +199,14 @@ Strong-depth-with-weak-evidence prefectures: **Gunma (91.2 / 85.4 ev)**, **Nagan
 | Toyama | **Toyama City** hub record (only Takaoka present), Himi coast | prefectural capital missing entirely |
 | Tochigi | **Nasu / Nasushiobara** highlands (flower park, resort, Chausu-dake) | second major Tochigi pole after Nikko |
 | Akita | **Mt. Chokai + Juni-ko lakes**, Shirakami-sanchi (Aomori/Akita) | major mountain/nature axis absent |
+| Yamagata | (none added by this audit — `yamadera-yamagata` (Risshakuji) already present) | — |
 | Okinawa | (none material) | P2 |
 
 All checks used Japanese names/aliases: e.g. Eiheiji absent under eiheiji/eihiji/fukui prefecture; Kumano absent under kumano/kumano kodo/mie; no parent/child workaround exists for these.
 
 ## 13. P0 / P1 / P2 priorities
 
-**P0 — genuine catalogue gaps (targeted wave ~35–45 additions):** Mie (Kumano Kodo + Owase; +2–4), Fukui (Eiheiji + 2), Saga (Arita + Takeo; +2–3), Tottori (Misasa, Kurayoshi, Yonago; +3), Ishikawa (Kaga trio; +3–4), Toyama (Toyama City, Himi; +2), Tochigi (Nasu axis; +3–4), Akita (Chokai/Sanchi; +2–3), plus 8–12 spread-fillers across Chugoku/Tohoku/Kyushu/Shikoku to lift the 70–78 band. Expected: every P0 prefecture +4–12 depth; Chugoku → ~75, Hokuriku → ~70.
+**P0 — genuine catalogue gaps (targeted wave ~35–45 additions; 23 shipped in the first wave):** Mie (Kumano Kodo + Owase; +2–4), Fukui (Eiheiji + 2), Saga (Arita + Takeo; +2–3), Tottori (Misasa, Kurayoshi, Yonago; +3), Ishikawa (Kaga trio; +3–4), Toyama (Toyama City, Himi; +2), Tochigi (Nasu axis; +3–4), Akita (Chokai/Sanchi; +2–3), plus select spread-fillers (Shimane, Akita, Tohoku) to lift the 70–78 band. Expected: every P0 prefecture +4–12 depth; Chugoku → ~75, Hokuriku → ~70.
 
 **P1 — metadata/evidence (no new destinations):** structured season for the 586 records missing it (Esp. Gunma/Nagano new entries); localTransport kind coverage (955 unavailable) so the access-diversity axis becomes real; beta→published status closure. Fixes evidence %, and in Hokkaido's case closes the last 1 point.
 
