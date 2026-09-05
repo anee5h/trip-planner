@@ -207,5 +207,9 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%82%88%E3%81%93%E3%81%AF%E3%81%BE%E5%8B%95%E7%89%A9%E5%9C%92%E3%82%BA%E3%83%BC%E3%83%A9%E3%82%B7%E3%82%A2",
   "wikipediaPageId": 182987,
-  "wikidataId": "Q3576063"
+  "wikidataId": "Q3576063",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/fee.php",
+    "verifiedAt": "2026-09-05"
+  }
 }

@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-09-05",
+  "verifiedAt": "2026-09-05",
+  "note": "Round 1: castles/aquariums/towers/zoos/markets cohort. All hours verified against official pages on 2026-09-05. Corrections marked in entries.",
+  "entries": [
+    {
+      "id": "churaumi-aquarium-motobu",
+      "meta": {
+        "sourceUrl": "https://churaumi.okinawa/guide/hour/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "enoshima-aquarium",
+      "meta": {
+        "sourceUrl": "https://www.enosui.com/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "inuyama-castle-aichi",
+      "meta": {
+        "sourceUrl": "https://inuyama-castle.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "osaka-aquarium-kaiyukan",
+      "meta": {
+        "sourceUrl": "https://www.kaiyukan.com/info/hours/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "kuroshio-market-marina-city",
+      "meta": {
+        "sourceUrl": "https://www.kuroshioichiba.co.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "matsumoto-castle-nagano",
+      "businessHours": "08:30 - 17:00 (Last admission 16:30; seasonal extensions e.g. GW 08:00-18:00)",
+      "meta": {
+        "sourceUrl": "https://www.matsumoto-castle.jp/info",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "nagoya-castle-aichi",
+      "businessHours": "09:00 - 16:30 (Last admission 16:00 for Hommaru Palace and Chowokan)",
+      "meta": {
+        "sourceUrl": "https://www.nagoyajo.city.nagoya.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "okayama-castle",
+      "meta": {
+        "sourceUrl": "https://okayama-castle.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "sapporo-tv-tower",
+      "meta": {
+        "sourceUrl": "https://www.tv-tower.co.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "shuri-castle-okinawa",
+      "businessHours": "08:30 - 18:30 (seasonal; entry until 30 min before close; see official calendar)",
+      "meta": {
+        "sourceUrl": "https://oki-park.jp/shurijo/info/15",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "sunshine-aquarium",
+      "businessHours": "09:00 - 20:00 (Last admission 19:30)",
+      "meta": {
+        "sourceUrl": "https://sunshinecity.jp/aquarium/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "tama-zoological-park",
+      "meta": {
+        "sourceUrl": "https://www.tokyo-zoo.net/zoo/tama/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "tsutenkaku",
+      "businessHours": "09:00 - 21:45 (General deck last entry 21:15; outdoor deck last entry 21:35; shops B1F/2F until 21:30)",
+      "meta": {
+        "sourceUrl": "https://www.tsutenkaku.co.jp/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "ueno-zoo",
+      "meta": {
+        "sourceUrl": "https://www.tokyo-zoo.net/zoo/ueno/",
+        "verifiedAt": "2026-09-05"
+      }
+    },
+    {
+      "id": "yokohama-zoorasia",
+      "meta": {
+        "sourceUrl": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/fee.php",
+        "verifiedAt": "2026-09-05"
+      }
+    }
+  ]
+}

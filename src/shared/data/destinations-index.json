@@ -14059,6 +14059,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.enosui.com/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -30822,6 +30826,10 @@
       "basis": "Meitetsu Nagoya → Inuyama is ¥630 ordinary adult one-way; Inuyama Castle's official access page identifies Inuyama Station as the access point followed by the walk to the castle.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://inuyama-castle.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -52809,7 +52817,7 @@
       "max": 5
     },
     "officialWebsite": "https://www.matsumoto-castle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "businessHours": "08:30 - 17:00 (Last admission 16:30; seasonal extensions e.g. GW 08:00-18:00)",
     "municipalityId": "Nagano:matsumoto",
     "imageMetadata": {
       "source": "Wikimedia Commons",
@@ -52873,6 +52881,10 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.matsumoto-castle.jp/info",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -60830,7 +60842,7 @@
     "placeType": "destination",
     "areaId": "central-nagoya",
     "officialWebsite": "https://www.nagoyacastle.jp/",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "businessHours": "09:00 - 16:30 (Last admission 16:00 for Hommaru Palace and Chowokan)",
     "municipalityId": "Aichi:nagoya",
     "durationMetadata": {
       "method": "model",
@@ -60883,6 +60895,10 @@
       "detail": "Canonical arrival Nagoya Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.nagoyajo.city.nagoya.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -72840,7 +72856,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
     "wikipediaPageId": 466728,
-    "wikidataId": "Q1191885"
+    "wikidataId": "Q1191885",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.kaiyukan.com/info/hours/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "osaka-castle",
@@ -81235,6 +81255,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tv-tower.co.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -87194,7 +87218,7 @@
       "max": 5
     },
     "officialWebsite": "https://oki-park.jp/shurijo/",
-    "businessHours": "09:00 - 17:00 (Daily)",
+    "businessHours": "08:30 - 18:30 (seasonal; entry until 30 min before close; see official calendar)",
     "kind": "castle",
     "role": "destination",
     "rating": 4.7,
@@ -87324,6 +87348,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://oki-park.jp/shurijo/info/15",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -88427,7 +88455,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "09:30 - 21:00 (Last admission 20:00)",
+    "businessHours": "09:00 - 20:00 (Last admission 19:30)",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
     "openingHours": "09:00 - 17:00",
@@ -88489,7 +88517,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Sunshine_Aquarium",
     "wikipediaPageId": 76034188,
-    "wikidataId": "Q11250698"
+    "wikidataId": "Q11250698",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://sunshinecity.jp/aquarium/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "sunshine-city",
@@ -91407,7 +91439,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tama_Zoological_Park",
     "wikipediaPageId": 14742969,
-    "wikidataId": "Q1413736"
+    "wikidataId": "Q1413736",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-zoo.net/zoo/tama/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "tanukikoji-shopping-street",
@@ -100652,7 +100688,7 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "10:00 - 20:00 (Last admission 19:30)",
+    "businessHours": "09:00 - 21:45 (General deck last entry 21:15; outdoor deck last entry 21:35; shops B1F/2F until 21:30)",
     "nearHubs": [
       "osaka-city"
     ],
@@ -100716,7 +100752,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ts%C5%ABtenkaku",
     "wikipediaPageId": 455161,
-    "wikidataId": "Q1148463"
+    "wikidataId": "Q1148463",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tsutenkaku.co.jp/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "ueda-castle-nagano",
@@ -101574,7 +101614,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Ueno_Zoo",
     "wikipediaPageId": 1015733,
-    "wikidataId": "Q162722"
+    "wikidataId": "Q162722",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.tokyo-zoo.net/zoo/ueno/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "uji-city",
@@ -106761,7 +106805,11 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E3%82%88%E3%81%93%E3%81%AF%E3%81%BE%E5%8B%95%E7%89%A9%E5%9C%92%E3%82%BA%E3%83%BC%E3%83%A9%E3%82%B7%E3%82%A2",
     "wikipediaPageId": 182987,
-    "wikidataId": "Q3576063"
+    "wikidataId": "Q3576063",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.hama-midorinokyokai.or.jp/zoo/zoorasia/fee.php",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "yokosuka-city",
@@ -128136,6 +128184,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.kuroshioichiba.co.jp/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -129497,7 +129549,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Okinawa_Churaumi_Aquarium",
     "wikipediaPageId": 1441193,
-    "wikidataId": "Q1445750"
+    "wikidataId": "Q1445750",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://churaumi.okinawa/guide/hour/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "bise-fukugi-tree-road-motobu",
@@ -154370,7 +154426,11 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B2%A1%E5%B1%B1%E5%9F%8E",
     "wikipediaPageId": 87872,
-    "wikidataId": "Q1013448"
+    "wikidataId": "Q1013448",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://okayama-castle.jp/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "kibitsu-shrine",
