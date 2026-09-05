@@ -1,0 +1,4426 @@
+{
+  "schemaVersion": 1,
+  "ticket": "KAI-151",
+  "phase": "P1-A",
+  "baseCommit": "07ea8de3bbbbca3a53962c4211703acb27432346",
+  "checkedAt": "2026-09-05",
+  "candidateDefinition": "Post-#346 recommendation-visible castle, temple, and shrine records with both season and bestMonths absent; exact cohort recalculated from canonical catalogue.",
+  "selectionMethod": "Deterministic kind predicate and null-field check on the 1,130-record post-#346 catalogue; source-backed review uses committed first-party source-of-record URLs and bounded exact-window searches.",
+  "summary": {
+    "candidateCount": 112,
+    "researchedCount": 112,
+    "mutatedCount": 6,
+    "insufficientCount": 106,
+    "classificationCounts": {
+      "insufficient_evidence": 106,
+      "verified_seasonal_window": 6
+    }
+  },
+  "residualPolicy": "Seasonal signals without a defensible month window remain insufficient for structured mutation; no bestSeason, bestMonths, or season vector is invented.",
+  "records": [
+    {
+      "id": "akagi-shrine",
+      "name": "Akagi Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.akagijinja.jp/",
+            "https://www.openstreetmap.org/search?query=赤城神社%20大沼"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "akashi-castle",
+      "name": "Akashi Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Akashi Castle",
+          "urls": ["https://akashijo.jp/"],
+          "observations": [
+            "The committed record says the turrets are open seasonally, but that component access statement does not establish a preferred seasonal window or year-round-with-seasonal-peak for the castle park."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ako-castle",
+      "name": "Ako Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Ako City / Ako Castle official source",
+          "urls": ["https://www.ako-hyg.ed.jp/bunkazai/akojo/"],
+          "observations": [
+            "The official Ako Castle page was checked, but the reviewed material did not establish a destination-specific preferred seasonal window or a year-round seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "amanoiwato-shrine",
+      "name": "Amanoiwato Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://en.wikipedia.org/wiki/Amanoiwato-jinja"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "anrakuji-temple-ueda",
+      "name": "Anrakuji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.bessho-spa.jp/",
+            "https://www.openstreetmap.org/node/5210313925"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "azuchi-castle",
+      "name": "Azuchi Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Azuchi Castle",
+          "urls": ["https://www.azuchi-shiga.com/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "bitchu-matsuyama-castle",
+      "name": "Bitchu Matsuyama Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Bitchu Matsuyama Castle",
+          "urls": ["https://www.bitchumatsuyamacastle.jp/"],
+          "observations": [
+            "The committed description mentions cloud scenery on autumn mornings, but no committed official-source excerpt supplies a recurring month window; no season is inferred from imagery or generic autumn knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "byodoin-temple",
+      "name": "Byodoin Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Byodoin Temple official site",
+          "urls": ["https://www.byodoin.or.jp/en/saijiki/"],
+          "observations": [
+            "The official Seasonal Events page states that Byodoin lotus is at its best from late June to early August; this supports a conservative June-August window."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [6, 7, 8],
+        "seasonVector": {
+          "spring": 5,
+          "summer": 10,
+          "autumn": 6,
+          "winter": 3
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Official destination-specific month window is sufficient for a conservative structured season mutation."
+    },
+    {
+      "id": "chihaya-castle",
+      "name": "Chihaya Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Chihaya Castle",
+          "urls": ["https://www.chihayaakasaka.org/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "chogosonshi-ji-temple",
+      "name": "Chogosonshi-ji Tiger Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.sigisan.or.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "danjo-garan-koyasan",
+      "name": "Danjo Garan Sacred Temple Complex",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.koyasan.or.jp/en/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "dazaifu-tenmangu",
+      "name": "Dazaifu Tenmangu Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Dazaifu Tenmangu official site",
+          "urls": [
+            "https://www.dazaifutenmangu.or.jp/en/plan/faq/",
+            "https://www.dazaifutenmangu.or.jp/en/discover-dazaifu-tenmangu/nature-and-seasons/"
+          ],
+          "observations": [
+            "The official FAQ says the plum trees usually begin blooming in late January and continue into early March; the official Nature and Seasons page identifies the end-of-winter 6,000-plum display as a defining seasonal experience."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Winter",
+        "bestMonths": [1, 2, 3],
+        "seasonVector": {
+          "spring": 7,
+          "summer": 4,
+          "autumn": 5,
+          "winter": 10
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Official destination-specific month window is sufficient for a conservative structured season mutation."
+    },
+    {
+      "id": "eigenji-higashiomi",
+      "name": "Eigen-ji",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://eigenji-t.jp/contact/",
+            "https://global.biwako-visitors.jp/things-to-do/22360/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "eiheiji-temple",
+      "name": "Eiheiji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://daihonzan-eiheiji.com/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "engyo-ji-mount-shosha",
+      "name": "Engyo-ji Temple Mount Shosha",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["http://www.shosha.or.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "enryaku-ji-mount-hiei",
+      "name": "Enryaku-ji Mount Hiei Monastery",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.hieizan.or.jp/en/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "fudaten-shrine",
+      "name": "Fudaten Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://csa.gr.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "fukuyama-castle",
+      "name": "Fukuyama Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Fukuyama Castle Museum",
+          "urls": [
+            "https://fukuyamajo.jp/",
+            "https://fukuyamajo.jp/information/2787/"
+          ],
+          "observations": [
+            "The official museum site establishes the castle museum and an autumn special-exhibition change/temporary-closure notice, but that event schedule is not a preferred viewing season and no year-round seasonal-peak claim was established."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "funai-castle",
+      "name": "Funai Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Oita City Government",
+          "urls": [
+            "https://www.city.oita.oita.jp/",
+            "https://www.city.oita.oita.jp/o204/bunkasports/rekishi/juniorguide/zyuniagaidoooooooo.html"
+          ],
+          "observations": [
+            "The reviewed official city pages describe FUNAI Junior Guide activities and a May 3 historic-site event, but do not make a destination-specific seasonal claim for Funai Castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "gansho-in-temple",
+      "name": "Gansho-in Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.gansho-in.or.jp/",
+            "https://www.openstreetmap.org/node/916914777"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "gassantoda-castle",
+      "name": "Gassantoda Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Gassantoda Castle",
+          "urls": ["https://www.yasugi-kankou.com/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "gessho-ji-temple-matsue",
+      "name": "Gessho-ji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://gesshoji-matsue.com/",
+            "https://gesshoji-matsue.com/en/prices/",
+            "https://gesshoji-matsue.com/introduction/history/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hachigata-castle",
+      "name": "Hachigata Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Hachigata Castle",
+          "urls": ["https://www.town.yorii.saitama.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hagi-castle",
+      "name": "Hagi Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Hagi official tourism guide",
+          "urls": [
+            "https://hagishi.com/",
+            "https://www.hagishi.com/en/search/detail.php?d=900027",
+            "https://www.hagishi.com/en/search/detail.php?d=100049"
+          ],
+          "observations": [
+            "The official Hagi pages identify Hagi Castle Ruins and provide a page titled Seasonal Features, but the reviewed descriptions contain no castle-specific preferred season, month window, or year-round seasonal-peak statement."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "haruna-shrine",
+      "name": "Haruna Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "http://www.haruna.or.jp/",
+            "https://www.openstreetmap.org/way/631522240"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hirado-castle",
+      "name": "Hirado Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Hirado Castle",
+          "urls": ["https://hirado-castle.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hiroshima-castle",
+      "name": "Hiroshima Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Hiroshima Castle",
+          "urls": ["https://hiroshimacastle.jp/"],
+          "observations": [
+            "The committed record gives Apr-Sep versus Oct-Mar grounds hours and temporary closures, but operating-hour bands do not establish a preferred seasonal window or seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hitachinokuni-soshagu-shrine",
+      "name": "Hitachinokuni Soshagu Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://sosyagu.jp/en/",
+            "https://sosyagu.jp/en/access/",
+            "https://sosyagu.jp/access/",
+            "https://www.wikidata.org/wiki/Q11481689"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hitoyoshi-castle",
+      "name": "Hitoyoshi Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Hitoyoshi Castle",
+          "urls": ["https://www.city.hitoyoshi.lg.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hizen-nagoya-castle",
+      "name": "Nagoya Castle (Hizen)",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Nagoya Castle (Hizen)",
+          "urls": ["https://saga-museum.jp/nagoya/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "hokki-ji-pagoda",
+      "name": "Hokki-ji Three-Story Pagoda",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.horyuji.or.jp/hokkiji/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ichijodani-castle",
+      "name": "Ichijodani Castle (Asakura site)",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Ichijodani Castle (Asakura site)",
+          "urls": ["https://www3.fctv.ne.jp/~asakura/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "iga-ueno-castle",
+      "name": "Iga Ueno Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Iga Ueno Castle official operator",
+          "urls": [
+            "https://www.igaueno-castle.jp/",
+            "http://igaueno-castle.jp/?page_id=204"
+          ],
+          "observations": [
+            "The official page is titled “Four Seasons of Iga Ueno Castle” and explicitly references the keep with sakura in full bloom. This establishes destination-specific spring seasonal emphasis, but the reviewed source gives no defensible month window and no explicit operating-hours proof for year-round access."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ikuta-shrine-kobe",
+      "name": "Ikuta Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://ikutajinja.or.jp/access",
+            "https://www.feel-kobe.jp/facilities/0000000035/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "imabari-castle",
+      "name": "Imabari Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Imabari City Museum official site",
+          "urls": ["https://museum.city.imabari.ehime.jp/"],
+          "observations": [
+            "The official Imabari museum URL was checked; the reviewed page description establishes the museum site but no destination-specific seasonal window or year-round seasonal peak for Imabari Castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "iwakuni-castle",
+      "name": "Iwakuni Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Iwakuni Castle",
+          "urls": ["https://kankou.iwakuni-city.net/iwakunijyo.html"],
+          "observations": [
+            "The committed record notes a Jan-Feb ropeway inspection/closure period, but a component closure period does not establish a preferred seasonal window or seasonal peak for the castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "iwamura-castle",
+      "name": "Iwamura Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Hot Iwamura official castle-town tourism site",
+          "urls": [
+            "https://hot-iwamura.com/",
+            "https://hot-iwamura.com/tourism/seasons"
+          ],
+          "observations": [
+            "The official “Iwamura Four Seasons” page invites visitors to enjoy Iwamura’s beautiful four seasons and identifies early-opening Daimyo cherry blossoms at the foot of Iwamura Castle in spring. This supports a four-season experience with a spring peak, but no month-level window was established."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "izanagi-jingu-awaji",
+      "name": "Izanagi Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://izanagi-jingu.jp/",
+            "https://www.awajishima-kanko.jp/en/spot/",
+            "https://www.awajishima-kanko.jp/en/access/",
+            "https://izanagi-jingu.jp/en/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "jakko-in-ohara",
+      "name": "Jakko-in Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.jakkoin.jp/haikan/",
+            "https://kyoto.travel/en/destinations/jakkoin-temple/",
+            "https://www.japan.travel/en/spot/1119/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "jindaiji",
+      "name": "Jindaiji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://csa.gr.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kagoshima-castle",
+      "name": "Kagoshima Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Kagoshima Prefecture",
+          "urls": [
+            "https://www.pref.kagoshima.jp/reimeikan/",
+            "https://www.pref.kagoshima.jp/ab10/kagoshima-castle-vr.html"
+          ],
+          "observations": [
+            "The official prefectural sources provide the Reimeikan site and a Kagoshima Castle VR-app notice, but the reviewed descriptions contain no destination-specific preferred season, month window, or year-round seasonal-peak claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kanayama-castle",
+      "name": "Kanayama Castle (Nitta Kanayama)",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Ota City Government",
+          "urls": [
+            "https://www.city.ota.gunma.jp/",
+            "https://www.city.ota.gunma.jp/page/2421.html"
+          ],
+          "observations": [
+            "The official Ota page describes Kanayama Castle ruins, paths, and a centuries-old zelkova tree; it does not establish a preferred seasonal window or year-round seasonal peak for the castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kannonji-castle",
+      "name": "Kannonji Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Omihachiman City Government",
+          "urls": ["https://www.city.omihachiman.lg.jp/"],
+          "observations": [
+            "The official municipal source was checked; the reviewed city-guide description only mentions Kannonji in historical context and establishes no destination-specific seasonal window or year-round seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kasama-inari-shrine",
+      "name": "Kasama Inari Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
+            "http://www.kasama.or.jp/access/index.html",
+            "https://www.openstreetmap.org/node/745550349"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kashima-jingu",
+      "name": "Kashima Jingu",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://kashimajingu.jp/", "https://www.ibaraki-kanko.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kasugayama-castle",
+      "name": "Kasugayama Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Joetsu City Government",
+          "urls": [
+            "https://www.city.joetsu.niigata.jp/",
+            "https://www.city.joetsu.niigata.jp/site/cultural-property/cultural-property-jpn002.html"
+          ],
+          "observations": [
+            "The official Joetsu source identifies Kasugayama Castle ruins, while the other reviewed seasonal search hits concern general city cherry or snow information; no castle-specific preferred season or month window was established."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kifune-jinja-kyoto",
+      "name": "Kifune-jinja Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://kifunejinja.jp/en/contact/",
+            "https://kyoto.travel/en/destinations/kifunejinja-shrine/",
+            "https://kyoto.travel/en/areas/kurama-kibune/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kinojo",
+      "name": "Ki-no-jo (Kinojo)",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Ki-no-jo (Kinojo)",
+          "urls": ["https://www.city.soja.okayama.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kishiwada-castle",
+      "name": "Kishiwada Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Kishiwada Castle",
+          "urls": [
+            "https://www.city.kishiwada.lg.jp/page/36-kishiwadajyo.html"
+          ],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kitamuki-kannon",
+      "name": "Kitamuki Kannon",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.bessho-spa.jp/",
+            "https://www.openstreetmap.org/node/3393797481"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kiyomizu-dera",
+      "name": "Kiyomizu-dera Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Kiyomizu-dera Temple official site",
+          "urls": ["https://www.kiyomizudera.or.jp/en/visit/"],
+          "observations": [
+            "The official Visit page specifies autumn leaves from mid-November to early December and notes that the exact viewing time varies by year."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Autumn",
+        "bestMonths": [11, 12],
+        "seasonVector": {
+          "spring": 6,
+          "summer": 4,
+          "autumn": 10,
+          "winter": 5
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Official destination-specific month window is sufficient for a conservative structured season mutation."
+    },
+    {
+      "id": "kofu-castle",
+      "name": "Kofu Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Kofu City official tourism site",
+          "urls": [
+            "https://www.city.kofu.yamanashi.jp/",
+            "https://www.city.kofu.yamanashi.jp/welcome/rekishi/kofujyou.html"
+          ],
+          "observations": [
+            "The official Kofu tourism landing page exposes a generic seasonal-highlights navigation, but the official Kofu Castle page only describes gates, turrets, and stone walls; no castle-specific preferred seasonal window or year-round seasonal peak was established."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "komoro-castle",
+      "name": "Komoro Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Komoro City Government",
+          "urls": [
+            "https://www.city.komoro.lg.jp/",
+            "https://www.city.komoro.lg.jp/kaikoen/index.html"
+          ],
+          "observations": [
+            "The official Komoro/Kaikoen pages were checked; the reviewed descriptions establish the park and municipal tourism site but no destination-specific preferred season, month window, or year-round seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "komyozenji-temple-dazaifu",
+      "name": "Komyozenji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://en.wikipedia.org/wiki/Dazaifu,_Fukuoka"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kubota-castle",
+      "name": "Kubota Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Kubota Castle",
+          "urls": ["https://www.city.akita.lg.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kumano-hayatama-taisha-shingu",
+      "name": "Kumano Hayatama Taisha",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.shinguu.jp/en/spots/detail/A0001",
+            "http://kumanohayatama.jp/",
+            "https://www.shinguu.jp/spots/detail/A0001",
+            "https://www.openstreetmap.org/way/211578006"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kumano-hongu-taisha-oyunohara",
+      "name": "Kumano Hongu Taisha & Oyunohara",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
+            "https://www.tb-kumano.jp/en/",
+            "https://www.openstreetmap.org/way/797748245"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "kurama-dera-kyoto",
+      "name": "Kurama-dera Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.kuramadera.or.jp/access.html",
+            "https://www.kuramadera.or.jp/",
+            "https://kyoto.travel/en/destinations/kuramadera-temple/",
+            "https://kyoto.travel/en/areas/kurama-kibune/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "matsusaka-castle",
+      "name": "Matsusaka Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Matsusaka Castle",
+          "urls": ["https://www.city.matsusaka.mie.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "matsushiro-castle",
+      "name": "Matsushiro Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Matsushiro Castle",
+          "urls": ["https://www.sanadahoumotsukan.com/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "meiji-jingu",
+      "name": "Meiji Jingu",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "mimuroto-ji-temple",
+      "name": "Mimuroto-ji Hydrangea Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Mimuroto-ji official site",
+          "urls": [
+            "https://www.mimurotoji.com/event/hydrangea.html",
+            "https://www.mimurotoji.com/news/2026.html"
+          ],
+          "observations": [
+            "The official garden notice gives the hydrangea garden opening period as May 31-July 5, 2026; the conservative month window is June-July."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [6, 7],
+        "seasonVector": {
+          "spring": 5,
+          "summer": 10,
+          "autumn": 5,
+          "winter": 3
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Official destination-specific month window is sufficient for a conservative structured season mutation."
+    },
+    {
+      "id": "minowa-castle",
+      "name": "Minowa Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Minowa Castle",
+          "urls": ["https://www.city.takasaki.gunma.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "mitaki-dera",
+      "name": "Mitaki-dera",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://dive-hiroshima.com/en/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "miyazaki-jingu-shrine",
+      "name": "Miyazaki Jingu Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://miyazakijingu.or.jp/",
+            "https://en.wikipedia.org/wiki/Miyazaki-jing%C5%AB"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "musashi-mitake-shrine",
+      "name": "Musashi Mitake Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.omekanko.gr.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "myogi-shrine",
+      "name": "Myogi Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.tomioka-silk.jp/",
+            "https://www.openstreetmap.org/search?query=妙義神社%20群馬"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "nagashino-castle",
+      "name": "Nagashino Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Nagashino Castle",
+          "urls": ["https://www.city.shinshiro.lg.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "nakayama-hokekyoji-ichikawa",
+      "name": "Nakayama Hokekyo-ji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://hokekyoji2101.wixsite.com/nakayama",
+            "https://www.city.ichikawa.lg.jp/culture/24238.html",
+            "https://www.ichikawa-kankou.jp/type-a/%E6%97%A5%E8%93%AE%E5%AE%97-%E5%A4%A7%E6%9C%AC%E5%B1%B1-%E4%B8%AD%E5%B1%B1-%E6%B3%95%E8%8F%AF%E7%B5%8C%E5%AF%BA/",
+            "https://temple.nichiren.or.jp/1041026-hokekyoji/",
+            "https://msearch.gsi.go.jp/address-search/AddressSearch?q=%E5%8D%83%E8%91%89%E7%9C%8C%E5%B8%82%E5%B7%9D%E5%B8%82%E4%B8%AD%E5%B1%B12-10-1"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "nanao-castle",
+      "name": "Nanao Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Nanao City Government",
+          "urls": [
+            "https://www.city.nanao.lg.jp/",
+            "https://www.city.nanao.lg.jp/syougai/nanaojoushi.html"
+          ],
+          "observations": [
+            "The official Nanao Castle page establishes the historic site and visitor information, but the reviewed description contains no preferred seasonal window or year-round seasonal-peak claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ne-castle-hachinohe",
+      "name": "Ne Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Hachinohe City Museum / Ne Castle Square",
+          "urls": [
+            "https://hachinohe-city-museum.jp/",
+            "https://hachinohe-city-museum.jp/event/史跡根城・さくらweek！/"
+          ],
+          "observations": [
+            "The official event page identifies Ne Castle’s 155 weeping cherry trees and says the main enclosure is opened during Sakura Week to make spring at Ne Castle more enjoyable. This establishes a spring seasonal peak, but the reviewed description gives no month-level window or year-round access claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "nihonmatsu-castle",
+      "name": "Nihonmatsu Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Nihonmatsu Castle",
+          "urls": ["https://www.nihonmatsu-kanko.jp/"],
+          "observations": [
+            "The committed record says the reconstructed turret is open seasonally, but it gives no preferred window or seasonal peak for the castle grounds."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "obi-castle",
+      "name": "Obi Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Nichinan City Tourism Association",
+          "urls": ["https://www.kankou-nichinan.jp/en/spot/obi/"],
+          "observations": [
+            "The official Nichinan/Obi tourism source was checked; the reviewed result descriptions did not establish a destination-specific preferred seasonal window or year-round seasonal peak for Obi Castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "odani-castle",
+      "name": "Odani Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Odani Castle Sengoku Historical Museum",
+          "urls": ["https://www.eonet.ne.jp/~odanijou-s/"],
+          "observations": [
+            "The official Odani Castle museum page establishes the site, but the reviewed material contains no destination-specific preferred season, month window, or year-round seasonal-peak claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "oka-castle-oita",
+      "name": "Oka Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Oka Castle",
+          "urls": ["https://okajou.jp/"],
+          "observations": [
+            "The committed description/highlights mention autumn views/foliage. No committed official-source excerpt supplies a bounded recurring month window or year-round-with-seasonal-peak statement, so no months or scores are invented."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ono-castle-dazaifu",
+      "name": "Ono Castle (Onojo)",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Umi Town Government",
+          "urls": ["https://www.town.umi.lg.jp/"],
+          "observations": [
+            "The official Umi Town source was checked; the reviewed descriptions did not establish a destination-specific preferred seasonal window or year-round seasonal peak for Ono Castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ozu-castle",
+      "name": "Ozu Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Ozu Castle",
+          "urls": ["https://www.ozucastle.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "saga-castle",
+      "name": "Saga Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Saga Prefecture / Saga Castle History Museum",
+          "urls": [
+            "https://saga-museum.jp/sagajou/",
+            "https://saga-museum.jp/sagajou/docs/sagacastlehistory_schedule2026.pdf"
+          ],
+          "observations": [
+            "The official annual schedule documents recurring seminars and events throughout the year, but it does not identify a preferred seasonal viewing window or a seasonal peak for Saga Castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "sanzen-in-ohara",
+      "name": "Sanzen-in Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.sanzenin.or.jp/en/",
+            "https://kyoto.travel/en/areas/ohara/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "sasayama-castle",
+      "name": "Sasayama Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Tambasasayama official tourism site",
+          "urls": [
+            "https://tourism.sasayama.jp/",
+            "https://tourism.sasayama.jp/visit/foreigner_post/sakura-matsuri-tambasasayama-cherry-blossom-festival-spring-taste-festival/",
+            "https://tourism.sasayama.jp/visit/foreigner_post/recommended-spots-for-autumn-leaves-in-tambasasayama/",
+            "https://tourism.sasayama.jp/visit/foreigner_post/sakura-matsuri-tambasasayama-cherry-blossom-festival-spring-taste-festival-2025/"
+          ],
+          "observations": [
+            "Official tourism pages tie the castle-ruins entrance to spring cherry monitoring (March 22 and April 7 observations) and separately describe the eastern hill by Sasayama Castle as a famous spot for both cherry blossoms and autumn leaves. The evidence supports multiple seasonal peaks without a single defensible preferred window/month set, so no mutation is allowed."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "senjokaku",
+      "name": "Senjokaku (Toyokuni Shrine)",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://itsukushimajinja.jp/en/admission.html",
+            "https://www.pref.hiroshima.lg.jp/uploaded/attachment/655530.pdf"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shibata-castle",
+      "name": "Shibata Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Shibata Castle",
+          "urls": ["https://shibata-info.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shimabara-castle",
+      "name": "Shimabara Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Shimabara Castle official operator",
+          "urls": ["https://www.shimabarajou.com/"],
+          "observations": [
+            "The official Shimabara Castle homepage establishes the castle and its historical architecture, but the reviewed descriptions contain no destination-specific preferred season, month window, or year-round seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shirahige-shrine-lake-biwa",
+      "name": "Shirahige Shrine Floating Torii",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["http://shirahigejinja.com/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shirakawa-komine-castle",
+      "name": "Shirakawa Komine Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Shirakawa official tourism guide",
+          "urls": [
+            "https://shirakawa315.com/",
+            "https://shirakawa315.com/kominejyo/"
+          ],
+          "observations": [
+            "The official Shirakawa tourism page establishes Komine Castle and visitor contact information, but the reviewed material contains no preferred seasonal window or year-round seasonal-peak claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shitennoji",
+      "name": "Shitennoji",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://osaka-info.jp/en/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shorinzan-darumaji",
+      "name": "Shorinzan Darumaji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.daruma.or.jp/",
+            "https://www.openstreetmap.org/way/256525207"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "shuri-castle-okinawa",
+      "name": "Shuri Castle & Ryukyu Gusuku Sites",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Okinawa Commemorative National Government Park / Shurijo Castle Park",
+          "urls": [
+            "https://oki-park.jp/shurijo/",
+            "https://oki-park.jp/shurijo/en/about/"
+          ],
+          "observations": [
+            "The official Shurijo Castle Park source describes the World Heritage site and Ryukyu history, but the reviewed descriptions establish no destination-specific preferred season, month window, or year-round seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "sumiyoshi-taisha",
+      "name": "Sumiyoshi Taisha Grand Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.sumiyoshitaisha.net/en/",
+            "https://www.sumiyoshitaisha.net/access/"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "sumoto-castle-awaji",
+      "name": "Sumoto Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Awaji Island official tourism guide",
+          "urls": [
+            "https://www.awajishima-kanko.jp/en/spot/",
+            "https://www.awajishima-kanko.jp/manual/detail.html?bid=242"
+          ],
+          "observations": [
+            "The official Awaji pages identify Sumoto Castle and Mt. Mikumayama. A reviewed result also mentions seasonal daffodil operation at a different Awaji attraction, but no destination-specific seasonal claim for Sumoto Castle was established."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "sunpu-castle",
+      "name": "Sunpu Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Shizuoka City official Sunpu source",
+          "urls": [
+            "https://www.city.shizuoka.jp/",
+            "https://sunpu-app.bosai.city.shizuoka.jp/"
+          ],
+          "observations": [
+            "The official Shizuoka/Sunpu sources were checked; the reviewed descriptions did not establish a destination-specific preferred seasonal window or year-round seasonal peak for Sunpu Castle."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "suwa-shrine-tachikawa",
+      "name": "Suwa Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.tbt.gr.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "suwa-taisha",
+      "name": "Suwa Taisha",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://suwataisha.or.jp/",
+            "https://www.openstreetmap.org/way/182516539"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "taga-taisha",
+      "name": "Taga Taisha",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://global.biwako-visitors.jp/things-to-do/22084/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "takahata-fudoson",
+      "name": "Takahata Fudoson",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Takahata-Fudoson Kongoji official site",
+          "urls": ["https://www.takahatafudoson.or.jp/en/?page_id=13"],
+          "observations": [
+            "The official Grounds page identifies a June Hydrangea Festival at Takahata-Fudoson; June is used as the conservative preferred month."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [6],
+        "seasonVector": {
+          "spring": 5,
+          "summer": 10,
+          "autumn": 5,
+          "winter": 3
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Official destination-specific month window is sufficient for a conservative structured season mutation."
+    },
+    {
+      "id": "takaoka-castle",
+      "name": "Takaoka Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Takaoka Castle",
+          "urls": ["https://www.e-tmm.info/"],
+          "observations": [
+            "The committed notes mention seasonal autumn illumination, but no bounded recurring window or year-round-with-seasonal-peak claim is established for the destination."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "takaosan-yakuoin",
+      "name": "Takaosan Yakuoin",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.hkc.or.jp/eng/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "takatori-castle",
+      "name": "Takatori Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Takatori Castle",
+          "urls": ["https://sightseeing.takatori.info/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "tenryu-ji-kyoto",
+      "name": "Tenryu-ji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Tenryu-ji official site",
+          "urls": ["https://www.tenryuji.com/en/info/"],
+          "observations": [
+            "The official announcements page says the Sogen Pond Garden opens early from November 14-30, 2026 so visitors can enjoy the garden autumn colors; this supports November."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Autumn",
+        "bestMonths": [11],
+        "seasonVector": {
+          "spring": 6,
+          "summer": 5,
+          "autumn": 10,
+          "winter": 5
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Official destination-specific month window is sufficient for a conservative structured season mutation."
+    },
+    {
+      "id": "togakushi-shrine",
+      "name": "Togakushi Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.togakushi-jinja.jp/",
+            "https://www.openstreetmap.org/way/1226364518"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "tokushima-castle",
+      "name": "Tokushima Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Tokushima Castle",
+          "urls": ["https://www.city.tokushima.tokushima.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "toshodai-ji-temple",
+      "name": "Toshodai-ji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.toshodaiji.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "tottori-castle",
+      "name": "Tottori Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Tottori City official tourism site",
+          "urls": [
+            "https://www.torican.jp/",
+            "https://www.torican.jp/en/festival/index.html",
+            "https://www.torican.jp/en/itineraries/detail_179.html"
+          ],
+          "observations": [
+            "Official Tottori tourism material describes Tottori Castle Ruins/Kyusho Park as famous for cherry blossoms and lists a castle-ruins cherry-blossom illumination. This establishes a spring seasonal emphasis, but the reviewed descriptions give no month-level window or year-round access claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "tsuwano-castle",
+      "name": "Tsuwano Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Shimane Prefecture official tourism guide",
+          "urls": [
+            "https://www.kankou-shimane.com/",
+            "https://www.kankou-shimane.com/en/destinations/9284",
+            "https://www.kankou-shimane.com/en/activities/12223"
+          ],
+          "observations": [
+            "The official Shimane source describes Tsuwano Castle Ruins as a 362-metre mountain castle and offers an early-morning trekking activity, but the reviewed descriptions contain no preferred seasonal window or year-round seasonal peak."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "uji-tea-culture-center",
+      "name": "Uji Tea Culture Center & Ujigami Shrine",
+      "phase": "P1-A",
+      "kind": "shrine",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.ujietor.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "ukimido-mangetsu-ji",
+      "name": "Ukimido Mangetsu-ji Floating Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.biwako-visitors.jp/spot/detail/109/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "yakushi-ji-temple",
+      "name": "Yakushi-ji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": ["https://www.yakushiji.or.jp/"],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "yamagata-castle",
+      "name": "Yamagata Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Yamagata City Government",
+          "urls": [
+            "https://www.city.yamagata-yamagata.lg.jp/",
+            "https://www.city.yamagata-yamagata.lg.jp/kakuka/machizukuri/koen/sogo/yamagatajo/en/guide/landmark/"
+          ],
+          "observations": [
+            "The official Yamagata Castle landmark page states that Yamagata Castle is in full bloom in spring with cherry blossoms. This establishes a spring seasonal emphasis, but the reviewed description gives no month-level window or explicit year-round access claim."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "yamanaka-castle",
+      "name": "Yamanaka Castle",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Yamanaka Castle",
+          "urls": ["https://www.city.mishima.shizuoka.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "yoshida-koriyama-castle",
+      "name": "Koriyama Castle (Yoshida-Koriyama)",
+      "phase": "P1-A",
+      "kind": "castle",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Official operator/municipality source for Koriyama Castle (Yoshida-Koriyama)",
+          "urls": ["https://www.akitakata.jp/"],
+          "observations": [
+            "The recorded officialWebsite was checked against the committed catalogue context; no destination-specific preferred seasonal window or year-round-with-seasonal-peak claim is established. No season is inferred from climate, flowers, imagery, operating-hour wording, or generic travel knowledge."
+          ]
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "zenkoji-temple",
+      "name": "Zenko-ji Temple",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.zenkoji.jp/",
+            "https://www.openstreetmap.org/way/220401982"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    },
+    {
+      "id": "zoshigaya-kishimojindo",
+      "name": "Zoshigaya Kishimojindo",
+      "phase": "P1-A",
+      "kind": "temple",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "cohortReason": "Recommendation-visible castle, temple, or shrine record with both structured season and best-month fields absent in the post-#346 catalogue.",
+      "officialEvidence": [
+        {
+          "authority": "Meguruto catalogue source-of-record",
+          "urls": [
+            "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html"
+          ],
+          "observations": [
+            "The existing source-of-record URL is retained, but the canonical catalogue contains no verified destination-specific month-level season claim for this row."
+          ],
+          "evidenceDate": "2026-09-05"
+        }
+      ],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "No committed destination-specific month window was established; seasonal signals without a defensible structured window remain unknown."
+    }
+  ]
+}

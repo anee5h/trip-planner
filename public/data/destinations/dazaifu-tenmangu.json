@@ -158,10 +158,10 @@
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Winter; preferred months 1,2,3; structured experience seasonality with nonzero year-round vector"
   },
   "comfortMetadata": {
     "method": "model",
@@ -214,5 +214,13 @@
     "basis": "Hakata Bus Terminal → Dazaifu by the official Dazaifu Liner Bus Tabito is ¥800 cash or ¥780 by transport IC/credit card; Dazaifu Station is the official shrine access endpoint followed by a free walk.",
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
+  },
+  "bestSeason": "Winter",
+  "bestMonths": [1, 2, 3],
+  "season": {
+    "spring": 7,
+    "summer": 4,
+    "autumn": 5,
+    "winter": 10
   }
 }
