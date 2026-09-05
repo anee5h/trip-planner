@@ -29,6 +29,26 @@ function isExplicitlyOpenAccess(dest: Destination): boolean {
   return lower.includes("24 hours") || lower.includes("open access");
 }
 
+/**
+ * Strict ISO YYYY-MM-DD with a real-calendar round-trip. JS `new Date()`
+ * silently normalizes impossible dates ("2026-02-30" → Mar 2) and accepts
+ * locale formats ("09/05/2026", "Sep 5 2026"); those must NOT count as a
+ * valid verification date. Shared by the policy, the Opening Hours
+ * Integrity validator and the audit so they cannot disagree.
+ */
+export function isValidIsoDate(value: string | undefined): boolean {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return false;
+  }
+  const [year, month, day] = value.split("-").map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  return (
+    parsed.getUTCFullYear() === year &&
+    parsed.getUTCMonth() === month - 1 &&
+    parsed.getUTCDate() === day
+  );
+}
+
 const FRESHNESS_WINDOW_DAYS = 180;
 
 export function getOpeningHoursAssessment(
@@ -69,10 +89,9 @@ export function getOpeningHoursAssessment(
     typeof dest.businessHours === "string" ? dest.businessHours : undefined;
 
   if (fieldVerifiedAt) {
-    const verifiedDate = new Date(fieldVerifiedAt);
     const isValidPastDate =
-      !Number.isNaN(verifiedDate.getTime()) &&
-      verifiedDate.getTime() <= now.getTime();
+      isValidIsoDate(fieldVerifiedAt) &&
+      new Date(`${fieldVerifiedAt}T00:00:00Z`).getTime() <= now.getTime();
 
     if (!isValidPastDate) {
       return {
@@ -85,7 +104,8 @@ export function getOpeningHoursAssessment(
     }
 
     const ageInDays =
-      (now.getTime() - verifiedDate.getTime()) / (1000 * 60 * 60 * 24);
+      (now.getTime() - new Date(`${fieldVerifiedAt}T00:00:00Z`).getTime()) /
+      (1000 * 60 * 60 * 24);
 
     if (hasHours && metadataSourceUrl && ageInDays <= FRESHNESS_WINDOW_DAYS) {
       return {

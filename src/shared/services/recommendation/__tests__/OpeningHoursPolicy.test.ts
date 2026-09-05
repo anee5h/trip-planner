@@ -81,6 +81,44 @@ describe("OpeningHoursPolicy", () => {
     expect(assessment.requiresWarning).toBe(true);
   });
 
+  it("rejects impossible calendar dates as verified (2026-02-30 rolls over otherwise)", () => {
+    const assessment = getOpeningHoursAssessment({
+      id: "leap-rollover",
+      businessHours: "09:00 - 17:00",
+      openingHoursMetadata: {
+        verifiedAt: "2026-02-30",
+        sourceUrl: "https://example.com/hours",
+      },
+    } as Destination);
+    expect(assessment.status).toBe("unverified");
+  });
+
+  it("rejects non-ISO verifiedAt formats (09/05/2026, Sep 5 2026)", () => {
+    for (const bad of ["09/05/2026", "Sep 5 2026"]) {
+      const assessment = getOpeningHoursAssessment({
+        id: `bad-format-${bad}`,
+        businessHours: "09:00 - 17:00",
+        openingHoursMetadata: {
+          verifiedAt: bad,
+          sourceUrl: "https://example.com/hours",
+        },
+      } as Destination);
+      expect(assessment.status).toBe("unverified");
+    }
+  });
+
+  it("accepts strict ISO dates as verified when fresh", () => {
+    const assessment = getOpeningHoursAssessment({
+      id: "strict-iso",
+      businessHours: "09:00 - 17:00",
+      openingHoursMetadata: {
+        verifiedAt: new Date().toISOString().split("T")[0],
+        sourceUrl: "https://example.com/hours",
+      },
+    } as Destination);
+    expect(assessment.status).toBe("verified");
+  });
+
   it("treats hours with field-specific sourceUrl but no verification date as sourced", () => {
     const assessment = getOpeningHoursAssessment({
       id: "meta-sourced",
