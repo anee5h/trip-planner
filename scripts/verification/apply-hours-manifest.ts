@@ -23,6 +23,8 @@ interface ManifestEntry {
   id: string;
   businessHours?: string;
   officialWebsite?: string;
+  /** Drop the legacy openingHours field (stale duplicate/conflict). */
+  dropOpeningHours?: boolean;
   meta?: { sourceUrl: string; verifiedAt: string };
 }
 
@@ -47,16 +49,18 @@ for (const entry of manifest.entries) {
     !entry.businessHours || d.businessHours === entry.businessHours;
   const websiteSame =
     !entry.officialWebsite || d.officialWebsite === entry.officialWebsite;
+  const dropSame = !entry.dropOpeningHours || !d.openingHours;
   const metaSame =
     !entry.meta ||
     (d.openingHoursMetadata?.sourceUrl === entry.meta.sourceUrl &&
       d.openingHoursMetadata?.verifiedAt === entry.meta.verifiedAt);
-  if (hoursSame && websiteSame && metaSame) {
+  if (hoursSame && websiteSame && dropSame && metaSame) {
     skipped += 1;
     continue;
   }
   if (entry.businessHours) d.businessHours = entry.businessHours;
   if (entry.officialWebsite) d.officialWebsite = entry.officialWebsite;
+  if (entry.dropOpeningHours) delete d.openingHours;
   if (entry.meta) d.openingHoursMetadata = { ...entry.meta };
   applied += 1;
 }

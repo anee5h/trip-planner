@@ -16,7 +16,6 @@
   "reservationJa": "【予約】事前予約不要です。",
   "parking": "Paid public parking in Koyasan",
   "parkingJa": "【駐車場】高野山内無料・有料駐車場あり。",
-  "openingHours": "08:30 - 17:00",
   "openingHoursJa": "08:30 - 17:00",
   "coordinates": {
     "lat": 34.2136,
@@ -162,5 +161,10 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "businessHours": "08:30 - 17:00",
+  "openingHoursMetadata": {
+    "sourceUrl": "http://xn--54qu5ydv0bd1gtwl.com/danjyougaran/%E9%AB%98%E9%87%8E%E5%B1%B1-%E5%A3%87%E4%B8%8A%E4%BC%BD%E8%97%8D.html",
+    "verifiedAt": "2026-09-05"
   }
 }

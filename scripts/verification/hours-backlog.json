@@ -1,6 +1,6 @@
 {
   "generatedFrom": "src/shared/data/destinations-index.json",
-  "count": 216,
+  "count": 210,
   "records": [
     {
       "id": "akasaka-minato",
@@ -91,14 +91,6 @@
       "website": "http://www.chiba-muse.or.jp/MURA/"
     },
     {
-      "id": "byodoin-temple",
-      "name": "Byodoin Temple",
-      "nameJa": "平等院",
-      "kind": "temple",
-      "hours": "08:30 - 17:30 (Last entry 17:15)",
-      "website": "https://www.byodoin.or.jp/en/"
-    },
-    {
       "id": "chiba-city-folk-museum",
       "name": "Chiba City Folk Museum",
       "nameJa": "千葉市立郷土博物館",
@@ -163,14 +155,6 @@
       "website": "https://www.cupnoodles-museum.jp/en/osaka_ikeda/"
     },
     {
-      "id": "danjo-garan-koyasan",
-      "name": "Danjo Garan Sacred Temple Complex",
-      "nameJa": "高野山 壇上伽藍",
-      "kind": "temple",
-      "hours": "08:30 - 17:00",
-      "website": "https://www.koyasan.or.jp/en/"
-    },
-    {
       "id": "dotonbori",
       "name": "Dotonbori",
       "nameJa": "道頓堀",
@@ -193,14 +177,6 @@
       "kind": "museum",
       "hours": "09:40–18:00 (last admission 17:30); closed Mondays, except the first Monday of each month ",
       "website": "https://www.ehime-art.jp/en/guide"
-    },
-    {
-      "id": "engakuji",
-      "name": "Engakuji",
-      "nameJa": "円覚寺",
-      "kind": "temple",
-      "hours": "08:30 - 16:30 (Last admission 16:00), Dec-Feb 08:30 - 16:00",
-      "website": "http://www.engakuji.or.jp"
     },
     {
       "id": "engyo-ji-mount-shosha",
@@ -321,14 +297,6 @@
       "kind": "museum",
       "hours": "09:30-17:00, closed Mon",
       "website": "https://www.omekanko.gr.jp/"
-    },
-    {
-      "id": "hachioji-castle-tokyo",
-      "name": "Hachioji Castle Ruins (Mount Castle)",
-      "nameJa": "八王子城跡",
-      "kind": "castle",
-      "hours": "09:00 - 17:00 (Last admission 16:30)",
-      "website": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html"
     },
     {
       "id": "hakkeijima",
@@ -1299,14 +1267,6 @@
       "website": "https://www.smt.jp/"
     },
     {
-      "id": "sendai-umino-mori-aquarium",
-      "name": "Sendai Umino-Mori Aquarium",
-      "nameJa": "仙台うみの杜水族館",
-      "kind": "aquarium",
-      "hours": "09:00 - 17:30 (Last admission 17:00)",
-      "website": "https://www.uminomori.jp/umino/"
-    },
-    {
       "id": "shibuya-sky-shibuya",
       "name": "Shibuya Sky (Rooftop Observatory)",
       "nameJa": "渋谷スカイ",
@@ -1561,14 +1521,6 @@
       "kind": "museum",
       "hours": "09:30 - 17:00 (Closed Mondays)",
       "website": "https://www.tcmit.org/"
-    },
-    {
-      "id": "tsurugaoka-hachimangu",
-      "name": "Tsurugaoka Hachimangu",
-      "nameJa": "鶴岡八幡宮",
-      "kind": "shrine",
-      "hours": "06:00 - 17:00 (Grounds open 24 hours)",
-      "website": "http://www.hachimangu.or.jp"
     },
     {
       "id": "ueda-castle-nagano",

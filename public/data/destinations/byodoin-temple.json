@@ -16,7 +16,6 @@
   "reservationJa": "【予約】鳳凰堂内部拝観は当日先着順の定員制となります。",
   "parking": "Paid public parking nearby",
   "parkingJa": "【駐車場】近隣にコインパーキングあり。",
-  "openingHours": "08:30 - 17:30 (Last entry 17:15)",
   "openingHoursJa": "08:30 - 17:30 (最終受付 17:15)",
   "coordinates": {
     "lat": 34.8893,
@@ -151,5 +150,10 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E7%AD%89%E9%99%A2",
   "wikipediaPageId": 83541,
-  "wikidataId": "Q61094"
+  "wikidataId": "Q61094",
+  "businessHours": "08:45 - 17:30 (Last entry 17:15)",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.byodoin.or.jp/en/guide/",
+    "verifiedAt": "2026-09-05"
+  }
 }

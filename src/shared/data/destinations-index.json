@@ -13742,7 +13742,6 @@
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "08:30 - 16:30",
     "openingHoursJa": "08:30 - 16:30（境内自由）",
     "municipalityId": "Kanagawa:kamakura",
     "comfortMetadata": {
@@ -13793,7 +13792,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Engaku-ji",
     "wikipediaPageId": 2660256,
-    "wikidataId": "Q954860"
+    "wikidataId": "Q954860",
+    "openingHoursMetadata": {
+      "sourceUrl": "http://www.engakuji.or.jp",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "enoshima-aquarium",
@@ -22736,8 +22739,8 @@
       "min": 2.5,
       "max": 5
     },
-    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
-    "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+    "officialWebsite": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
+    "businessHours": "09:00 - 17:00 (Guidance facility; castle ruins trails accessible year-round)",
     "editorial": {
       "lifecycle": "published",
       "sources": [
@@ -22798,7 +22801,6 @@
     },
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "09:00 - 17:00",
     "openingHoursJa": "09:00 - 17:00",
     "municipalityId": "Tokyo:hachioji",
     "imageMetadata": {
@@ -22856,6 +22858,10 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -83283,6 +83289,10 @@
       "detail": "Canonical arrival Sendai Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.uminomori.jp/umino/",
+      "verifiedAt": "2026-09-05"
     }
   },
   {
@@ -100434,11 +100444,10 @@
       "method": "assisted",
       "confidence": "low"
     },
-    "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+    "businessHours": "06:00 - 20:00 (Grounds; indoor facilities close earlier; see official site)",
     "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
     "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
     "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-    "openingHours": "08:30 - 16:30",
     "openingHoursJa": "08:30 - 16:30（境内自由）",
     "municipalityId": "Kanagawa:kamakura",
     "transportMetadata": {
@@ -100500,7 +100509,11 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
     "wikipediaPageId": 1674335,
-    "wikidataId": "Q701403"
+    "wikidataId": "Q701403",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.hachimangu.or.jp/sightseeing/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "tsutenkaku",
@@ -121934,7 +121947,6 @@
     "reservationJa": "【予約】鳳凰堂内部拝観は当日先着順の定員制となります。",
     "parking": "Paid public parking nearby",
     "parkingJa": "【駐車場】近隣にコインパーキングあり。",
-    "openingHours": "08:30 - 17:30 (Last entry 17:15)",
     "openingHoursJa": "08:30 - 17:30 (最終受付 17:15)",
     "coordinates": {
       "lat": 34.8893,
@@ -122079,7 +122091,12 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B9%B3%E7%AD%89%E9%99%A2",
     "wikipediaPageId": 83541,
-    "wikidataId": "Q61094"
+    "wikidataId": "Q61094",
+    "businessHours": "08:45 - 17:30 (Last entry 17:15)",
+    "openingHoursMetadata": {
+      "sourceUrl": "https://www.byodoin.or.jp/en/guide/",
+      "verifiedAt": "2026-09-05"
+    }
   },
   {
     "id": "uji-tea-culture-center",
@@ -126550,7 +126567,6 @@
     "reservationJa": "【予約】事前予約不要です。",
     "parking": "Paid public parking in Koyasan",
     "parkingJa": "【駐車場】高野山内無料・有料駐車場あり。",
-    "openingHours": "08:30 - 17:00",
     "openingHoursJa": "08:30 - 17:00",
     "coordinates": {
       "lat": 34.2136,
@@ -126702,6 +126718,11 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "businessHours": "08:30 - 17:00",
+    "openingHoursMetadata": {
+      "sourceUrl": "http://xn--54qu5ydv0bd1gtwl.com/danjyougaran/%E9%AB%98%E9%87%8E%E5%B1%B1-%E5%A3%87%E4%B8%8A%E4%BC%BD%E8%97%8D.html",
+      "verifiedAt": "2026-09-05"
     }
   },
   {

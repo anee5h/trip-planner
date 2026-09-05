@@ -165,11 +165,10 @@
     "method": "assisted",
     "confidence": "low"
   },
-  "businessHours": "06:00 - 17:00 (Grounds open 24 hours)",
+  "businessHours": "06:00 - 20:00 (Grounds; indoor facilities close earlier; see official site)",
   "notesJa": "観光客で混雑する前の早朝の参拝が、最も静寂で洗練された雰囲気を体験できます。",
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "08:30 - 16:30",
   "openingHoursJa": "08:30 - 16:30（境内自由）",
   "municipalityId": "Kanagawa:kamakura",
   "transportMetadata": {
@@ -227,5 +226,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Tsurugaoka_Hachimang%C5%AB",
   "wikipediaPageId": 1674335,
-  "wikidataId": "Q701403"
+  "wikidataId": "Q701403",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.hachimangu.or.jp/sightseeing/",
+    "verifiedAt": "2026-09-05"
+  }
 }

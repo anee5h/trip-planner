@@ -73,8 +73,8 @@
     "min": 2.5,
     "max": 5
   },
-  "officialWebsite": "https://www.city.hachioji.tokyo.jp/kankobunka/001/003/p005221.html",
-  "businessHours": "09:00 - 17:00 (Last admission 16:30)",
+  "officialWebsite": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
+  "businessHours": "09:00 - 17:00 (Guidance facility; castle ruins trails accessible year-round)",
   "editorial": {
     "lifecycle": "published",
     "sources": [
@@ -135,7 +135,6 @@
   },
   "reservationJa": "事前予約不要。現地にてチケットをご購入いただくか、自由にご見学いただけます。",
   "parkingJa": "周辺の有料駐車場または公共駐車場をご利用いただけます。",
-  "openingHours": "09:00 - 17:00",
   "openingHoursJa": "09:00 - 17:00",
   "municipalityId": "Tokyo:hachioji",
   "imageMetadata": {
@@ -193,5 +192,9 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.city.hachioji.tokyo.jp/kurashi/kyoiku/005/bunkazaikanrenshisetsu/p005201.html",
+    "verifiedAt": "2026-09-05"
   }
 }
