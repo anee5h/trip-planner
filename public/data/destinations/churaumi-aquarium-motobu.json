@@ -185,5 +185,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Okinawa_Churaumi_Aquarium",
   "wikipediaPageId": 1441193,
-  "wikidataId": "Q1445750"
+  "wikidataId": "Q1445750",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://churaumi.okinawa/guide/hour/",
+    "verifiedAt": "2026-09-05"
+  }
 }

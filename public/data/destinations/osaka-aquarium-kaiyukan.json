@@ -231,5 +231,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Osaka_Aquarium_Kaiyukan",
   "wikipediaPageId": 466728,
-  "wikidataId": "Q1191885"
+  "wikidataId": "Q1191885",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.kaiyukan.com/info/hours/",
+    "verifiedAt": "2026-09-05"
+  }
 }
