@@ -61,7 +61,6 @@ const municipalSuffixes: Partial<Record<MunicipalityKind, string>> = {
 };
 
 const japaneseLabels: Record<string, string> = {
-  Zen: "禅",
   "Soto Zen": "曹洞宗",
   "Japan Heritage": "日本遺産",
   Echizen: "越前",
@@ -69,7 +68,6 @@ const japaneseLabels: Record<string, string> = {
   Imari: "伊万里",
   Tea: "お茶",
   "Radium Onsen": "ラジウム温泉",
-  Pilgrimage: "巡礼",
   "Beech Forest": "ブナ林",
   "Morning Market": "朝市",
   "Fish Market": "魚市場",
@@ -77,7 +75,6 @@ const japaneseLabels: Record<string, string> = {
   "White-walled Town": "白壁の町",
   "Lake View": "湖景",
   "Top Garden": "庭園",
-  UNESCO: "世界遺産",
   "Port Town": "港町",
   "Lattice Bathhouse": "格子湯殿",
   "Transit Hub": "交通拠点",
@@ -403,7 +400,6 @@ const japaneseLabels: Record<string, string> = {
   "Historic 1954": "1954年創業の歴史",
   "Historic Monuments of Ancient Kyoto": "古都京都の文化財",
   "Historic Ryokan": "歴史ある旅館",
-  "Japan Heritage": "日本遺産",
   Karst: "カルスト",
   "Kenrokuen Adjacent": "兼六園隣接",
   "Kobe Skyline": "神戸のスカイライン",
