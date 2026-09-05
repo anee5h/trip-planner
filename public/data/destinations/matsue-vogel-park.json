@@ -208,5 +208,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsue_Vogel_Park",
   "wikipediaPageId": 2564482,
-  "wikidataId": "Q6788091"
+  "wikidataId": "Q6788091",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.ichibata.co.jp/vogelpark/",
+    "verifiedAt": "2026-09-05"
+  }
 }

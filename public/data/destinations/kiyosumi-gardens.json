@@ -127,7 +127,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://www.gotokyo.org/en/destinations/eastern-tokyo/kiyosumi-shirakawa/index.html",
-  "businessHours": "09:00-17:00",
+  "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - Jan 1)",
   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Kiyosumi-4.JPG/1920px-Kiyosumi-4.JPG",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -195,5 +195,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Kiyosumi_Garden",
   "wikipediaPageId": 31094915,
-  "wikidataId": "Q4388146"
+  "wikidataId": "Q4388146",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tokyo-park.or.jp/park/kiyosumi/",
+    "verifiedAt": "2026-09-05"
+  }
 }

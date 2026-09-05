@@ -205,5 +205,9 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Jindai_Botanical_Garden",
   "wikipediaPageId": 2323853,
-  "wikidataId": "Q606827"
+  "wikidataId": "Q606827",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.tokyo-park.or.jp/park/jindai/",
+    "verifiedAt": "2026-09-05"
+  }
 }

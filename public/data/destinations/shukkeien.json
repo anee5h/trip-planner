@@ -123,7 +123,7 @@
     "confidence": "low"
   },
   "officialWebsite": "https://shukkeien.jp/en/",
-  "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); closed Dec 29–31.",
+  "businessHours": "09:00–18:00 (Mar 16–Sep 15); 09:00–17:00 (Sep 16–Mar 15); entry until 30 min before close; closed Dec 29–31",
   "image": "https://upload.wikimedia.org/wikipedia/commons/1/14/Hiroshima_Shukkei-en_Pond.jpg",
   "imageMetadata": {
     "source": "Wikimedia Commons",
@@ -181,5 +181,9 @@
     "detail": "Canonical arrival Hiroshima Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
     "kind": "unavailable",
     "reason": "fare_not_found"
+  },
+  "openingHoursMetadata": {
+    "sourceUrl": "https://shukkeien.jp/en/",
+    "verifiedAt": "2026-09-05"
   }
 }

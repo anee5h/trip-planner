@@ -16,7 +16,6 @@
   "reservationJa": "【予約】事前予約不要です。",
   "parking": "Paid parking at cable car station",
   "parkingJa": "【駐車場】ケーブルカー乗り場近くに有料駐車場あり。",
-  "openingHours": "08:00 - 17:30",
   "openingHoursJa": "08:00 - 17:30",
   "coordinates": {
     "lat": 35.5802,
@@ -147,5 +146,10 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%82%98%E6%9D%BE%E5%85%AC%E5%9C%92",
   "wikipediaPageId": 959604,
-  "wikidataId": "Q11387301"
+  "wikidataId": "Q11387301",
+  "businessHours": "09:00 – 18:00 (Mar–Nov); 09:00 – 17:30 (Feb); 09:00 – 17:00 (Dec–Jan); no closed days",
+  "openingHoursMetadata": {
+    "sourceUrl": "https://www.amanohashidate.jp/spot/kasamatsu/",
+    "verifiedAt": "2026-09-05"
+  }
 }
