@@ -593,6 +593,386 @@
       "timeRange": [35, 41],
       "sourceUrl": "https://railway.jr-central.co.jp/jikoku/",
       "checkedAt": "2026-08-12"
+    },
+    {
+      "from": "tokyo",
+      "to": "chiba",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [50, 80],
+      "sourceUrl": "https://www.shutoko.jp/",
+      "checkedAt": "2026-09-05",
+      "authority": "METEX Wangan/Keiyo standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "saitama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [45, 75],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kita-Kanto standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "kanagawa",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [40, 75],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Tomei standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "ibaraki",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [70, 110],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Joban standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "tochigi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [75, 115],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Tohoku standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "gunma_south",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [85, 125],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kan-etsu (Takasaki) standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "gunma_northwest",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [115, 160],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kan-etsu (Shibukawa/Minakami) standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "gunma_northeast",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [110, 150],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kita-Kanto to Kiryu/Ota corridor"
+    },
+    {
+      "from": "tokyo",
+      "to": "yamanashi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [80, 125],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chuo standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "nagano",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [150, 200],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Nagano/Matsumoto corridor standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "shizuoka",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [120, 175],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Tomei standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "fukushima",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [165, 215],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Tohoku standard times"
+    },
+    {
+      "from": "tokyo",
+      "to": "niigata",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [220, 270],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kan-etsu standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "tokyo",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [40, 70],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Tomei standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "chiba",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [55, 90],
+      "sourceUrl": "https://www.shutoko.jp/",
+      "checkedAt": "2026-09-05",
+      "authority": "METEX Wangan standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "saitama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [60, 95],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Tohoku standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "yamanashi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [80, 120],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chuo standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "shizuoka",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [110, 165],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Tomei standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "tochigi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [95, 140],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Tohoku standard times"
+    },
+    {
+      "from": "kanagawa",
+      "to": "ibaraki",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [90, 135],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Joban standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "hyogo",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [45, 80],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chugoku/Meishin standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "kyoto",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [35, 70],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Meishin standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "nara",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [45, 80],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Nishi-Meihan standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "shiga",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [55, 95],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Meishin standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "mie",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [100, 145],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Higashi-Meihan standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "wakayama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [75, 120],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Hanna Expressway standard times"
+    },
+    {
+      "from": "osaka",
+      "to": "fukui",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [170, 220],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Hokuriku standard times"
+    },
+    {
+      "from": "hiroshima",
+      "to": "yamaguchi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [60, 100],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chugoku standard times"
+    },
+    {
+      "from": "hiroshima",
+      "to": "okayama",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [60, 100],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chugoku standard times"
+    },
+    {
+      "from": "hiroshima",
+      "to": "shimane",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [115, 165],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chugoku to Matsue standard times"
+    },
+    {
+      "from": "hiroshima",
+      "to": "tottori",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [115, 165],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chugoku to Yonago/Tottori standard times"
+    },
+    {
+      "from": "hiroshima",
+      "to": "hyogo",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [130, 180],
+      "sourceUrl": "https://www.c-nexco.co.jp/corporate/road/service/annai/travel.html",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO Central Chugoku standard times"
+    },
+    {
+      "from": "fukuoka",
+      "to": "saga",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [40, 75],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kyushu standard times"
+    },
+    {
+      "from": "fukuoka",
+      "to": "nagasaki",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [90, 140],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Nagasaki Expressway standard times"
+    },
+    {
+      "from": "fukuoka",
+      "to": "oita",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [140, 190],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kyushu/Tsuruga standard times"
+    },
+    {
+      "from": "fukuoka",
+      "to": "kumamoto",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [90, 135],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kyushu standard times"
+    },
+    {
+      "from": "fukuoka",
+      "to": "miyazaki",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [170, 225],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kyushu/Miyazaki Expressway standard times"
+    },
+    {
+      "from": "fukuoka",
+      "to": "yamaguchi",
+      "bidirectional": true,
+      "mode": "car",
+      "timeRange": [75, 120],
+      "sourceUrl": "https://www.driveplaza.com/traffic/tollroad/",
+      "checkedAt": "2026-09-05",
+      "authority": "NEXCO East Kyushu/Chugoku connect standard times"
     }
   ],
   "municipalityRoutes": [
