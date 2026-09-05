@@ -71,12 +71,23 @@ describe("OpeningHoursPolicy", () => {
     expect(assessment.status).toBe("unverified");
   });
 
-  it("treats official sourced hours without a verification date as sourced", () => {
+  it("does not certify hours from a general website link alone (KAI-335)", () => {
     const assessment = getOpeningHoursAssessment({
       id: "official-hours",
       businessHours: "09:00 - 17:00",
       officialWebsite: "https://example.com",
     } as Destination);
+    expect(assessment.status).toBe("unverified");
+    expect(assessment.requiresWarning).toBe(true);
+  });
+
+  it("treats hours with field-specific sourceUrl but no verification date as sourced", () => {
+    const assessment = getOpeningHoursAssessment({
+      id: "meta-sourced",
+      businessHours: "09:00 - 17:00",
+      openingHoursMetadata: { sourceUrl: "https://example.com/hours" },
+    } as Destination);
     expect(assessment.status).toBe("sourced");
+    expect(assessment.requiresWarning).toBe(false);
   });
 });

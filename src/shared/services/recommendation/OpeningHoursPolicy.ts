@@ -125,13 +125,13 @@ export function getOpeningHoursAssessment(
     };
   }
 
-  if (hasHours && sourceUrl) {
+  if (hasHours && metadataSourceUrl) {
     return {
       accessType: "scheduled",
       status: "sourced",
       requiresWarning: false,
       displayText,
-      sourceUrl,
+      sourceUrl: metadataSourceUrl,
       lastAdmission: meta?.lastAdmission,
       closedDays: meta?.closedDays,
     };

@@ -19,6 +19,7 @@ export interface DestinationAtAGlanceLabels {
   locatedIn: string;
   bestSeason: string;
   openingHours?: string;
+  hoursNotVerified?: string;
   officialWebsite?: string;
 }
 
@@ -41,6 +42,7 @@ interface DestinationAtAGlanceProps {
   headerExposesLocation?: boolean;
   seasonLabel?: string;
   openingHours?: string;
+  openingHoursUnverified?: boolean;
   officialWebsite?: string;
 }
 
@@ -107,6 +109,7 @@ export function DestinationAtAGlance({
   headerExposesLocation = false,
   seasonLabel,
   openingHours,
+  openingHoursUnverified = false,
   officialWebsite,
 }: DestinationAtAGlanceProps) {
   const onSiteCostLabel = getOnSiteCostLabel(onSiteCost, locale, labels);
@@ -124,6 +127,9 @@ export function DestinationAtAGlance({
               labels.openingHours ||
               (locale === "ja" ? "営業時間" : "Opening hours"),
             value: openingHours,
+            detail: openingHoursUnverified
+              ? labels.hoursNotVerified
+              : undefined,
             Icon: Clock3,
           },
         ]

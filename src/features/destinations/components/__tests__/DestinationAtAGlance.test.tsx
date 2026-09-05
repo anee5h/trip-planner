@@ -289,4 +289,52 @@ describe("DestinationAtAGlance", () => {
       host.querySelector('a[href="https://www.kanko.city.izu.shizuoka.jp/"]'),
     ).not.toBeNull();
   });
+
+  it("flags unverified opening hours with a caveat (KAI-335)", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          openingHours="09:00 - 17:00 (Daily)"
+          openingHoursUnverified
+          labels={{ ...labels, hoursNotVerified: "Not yet verified" }}
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("09:00 - 17:00 (Daily)");
+    expect(text).toContain("Not yet verified");
+  });
+
+  it("hides the caveat when opening hours are verified (KAI-335)", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="en"
+          openingHours="09:00 - 17:00 (Daily)"
+          labels={{ ...labels, hoursNotVerified: "Not yet verified" }}
+        />,
+      );
+    });
+
+    const text = host.textContent ?? "";
+    expect(text).toContain("09:00 - 17:00 (Daily)");
+    expect(text).not.toContain("Not yet verified");
+  });
+
+  it("renders the caveat in Japanese when unverified (KAI-335)", () => {
+    act(() => {
+      root.render(
+        <DestinationAtAGlance
+          locale="ja"
+          openingHours="09:00 - 17:00 (Daily)"
+          openingHoursUnverified
+          labels={{ ...labels, hoursNotVerified: "未確認" }}
+        />,
+      );
+    });
+
+    expect(host.textContent).toContain("未確認");
+  });
 });
