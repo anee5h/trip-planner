@@ -751,7 +751,8 @@
     "defaultLanguage": "Default language",
     "baseLocation": "Base location",
     "failedSave": "Failed to save settings",
-    "settingsSaved": "Settings saved successfully!"
+    "settingsSaved": "Settings saved successfully!",
+    "saved": "Saved"
   },
   "trips": {
     "exportCalendar": "Export to calendar",

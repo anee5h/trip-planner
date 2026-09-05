@@ -94,7 +94,6 @@ import {
   Share2,
   ExternalLink,
   Plus,
-  Navigation,
   Scale,
   BookOpen,
   ChevronDown,
@@ -402,6 +401,49 @@ export default function DestinationDetails() {
     if (!destination) return;
     setPendingSave({ type: "destination", destination });
   };
+
+  // Hero header Share: the /ja variant shares the prerendered /ja URL so
+  // crawlers see the Japanese OG/Twitter metadata. Falls back to clipboard.
+  const handleShareDestination = async () => {
+    if (!destination) return;
+    const cleanUrl = `${window.location.origin}${window.location.pathname}`;
+    const shareName = localizedDestination?.name ?? destination.name;
+    const shareData = {
+      title: shareName,
+      text:
+        locale === "ja"
+          ? `${shareName}をMegurutoで見つけよう！`
+          : `Check out ${shareName} in ${destination.prefecture}, Japan on Meguruto!`,
+      url: cleanUrl,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err: unknown) {
+        const error = err as { name?: string };
+        if (error.name !== "AbortError") {
+          await navigator.clipboard?.writeText(cleanUrl);
+          toast.success(t("ui.linkCopied"));
+        }
+      }
+    } else {
+      await navigator.clipboard?.writeText(cleanUrl);
+      toast.success(t("ui.linkCopied"));
+    }
+  };
+
+  // Google Maps transit directions from the stored home station. Reused by
+  // the At-a-glance "Get directions" link (single implementation).
+  const directionsHref =
+    homeStation && destination
+      ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
+          homeStation,
+        )}&destination=${encodeURIComponent(
+          `${destination.name}, ${destination.prefecture}, Japan`,
+        )}&travelmode=transit`
+      : undefined;
+
+  const directionsLabel = locale === "ja" ? "ルート案内" : "Get directions";
 
   useEffect(() => {
     if (!id) return;
@@ -1164,6 +1206,15 @@ export default function DestinationDetails() {
             <ArrowLeft className="w-3.5 h-3.5 mr-1" />
             {locale === "ja" ? "戻る" : "Back"}
           </Link>
+          <button
+            type="button"
+            onClick={handleShareDestination}
+            aria-label={locale === "ja" ? "目的地を共有" : "Share destination"}
+            title={locale === "ja" ? "目的地を共有" : t("ui.shareDestination")}
+            className="pointer-events-auto ml-auto inline-flex size-10 items-center justify-center rounded-full bg-black/50 text-slate-100 backdrop-blur-md border border-white/20 transition-all shadow-md hover:bg-black/70 active:scale-95"
+          >
+            <Share2 className="size-4" />
+          </button>
         </div>
 
         <picture className="absolute inset-0 block">
@@ -1221,21 +1272,13 @@ export default function DestinationDetails() {
             <div className="flex items-center font-medium">
               <MapPin className="w-4 h-4 mr-1 text-emerald-400" />{" "}
               {locale === "ja"
-                ? formatPrefecture(destination.prefecture, locale)
-                : `${destination.prefecture}, Japan`}
+                ? parentDestination
+                  ? `${getLocalizedPlace(parentDestination, locale).name}・${formatPrefecture(destination.prefecture, locale)}`
+                  : formatPrefecture(destination.prefecture, locale)
+                : parentDestination
+                  ? `${getLocalizedPlace(parentDestination, locale).name}, ${destination.prefecture}, Japan`
+                  : `${destination.prefecture}, Japan`}
             </div>
-
-            {/* "Located In" Parent Container Badge */}
-            {parentDestination && (
-              <Link
-                to={`/destinations/${parentDestination.id}`}
-                className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-white/15 hover:bg-white/25 text-white font-extrabold text-xs backdrop-blur-md transition-all border border-white/20"
-              >
-                <MapPin className="w-3 h-3 text-emerald-400" />
-                {locale === "ja" ? "所在地：" : "Located In: "}
-                {getLocalizedPlace(parentDestination, locale).name}
-              </Link>
-            )}
           </div>
 
           {/* 3. Badges & Category Tags Row */}
@@ -1307,26 +1350,30 @@ export default function DestinationDetails() {
               ))}
           </div>
 
-          <div className="flex flex-wrap items-center gap-2.5">
-            {/* Primary CTA: Add to Itinerary */}
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
+            {/* Primary CTA: Add to Itinerary (single dominant action) */}
             <button
               onClick={handleAddToItinerary}
-              className="inline-flex w-full sm:w-auto justify-center items-center text-sm font-semibold bg-emerald-700 hover:bg-emerald-700 text-white h-10 px-4 rounded-xl transition-all active:scale-95 shadow-md"
+              className="inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-xl bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-emerald-600 active:scale-95 sm:w-auto"
             >
-              <Plus className="w-4 h-4 mr-1.5" />
+              <Plus className="h-4 w-4" />
               {copy.addToItinerary}
             </button>
 
-            <div className="flex w-full sm:w-auto items-center gap-2">
-              {/* Want to Visit / Bucket List Toggle */}
+            {/* Secondary labelled actions: Save / Visited / Compare (equal weight) */}
+            <div className="grid w-full grid-cols-3 gap-2 sm:flex sm:w-auto sm:items-center sm:gap-2">
               <BucketListButton
                 destinationId={destination.id}
                 destinationName={localizedDestination?.name || destination.name}
-                variant="hero"
+                variant="chip"
+                addLabel={t("ui.save")}
+                removeLabel={t("ui.saved")}
+                className="w-full sm:w-auto"
               />
 
               {/* Visited Toggle */}
               <button
+                type="button"
                 onClick={() => {
                   if (isVisited(destination.id)) {
                     setVisitedHistoryOpen(true);
@@ -1344,119 +1391,65 @@ export default function DestinationDetails() {
                     ? `${t("ui.visited")} ${getVisitCount(destination.id)}`
                     : t("ui.markVisited")
                 }
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
+                className={`inline-flex items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold backdrop-blur-md transition-all active:scale-95 ${
                   isVisited(destination.id)
                     ? "bg-emerald-700 text-white border-emerald-400 shadow-md"
                     : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
                 }`}
               >
-                <CheckCircle2 className="w-4 h-4" />
+                <CheckCircle2
+                  className={`size-4 shrink-0 ${
+                    isVisited(destination.id) ? "fill-current" : ""
+                  }`}
+                />
+                <span>{t("ui.visited")}</span>
               </button>
 
-              <span className="hidden sm:block h-6 border-l border-white/20 mx-1" />
-
-              <div className="flex items-center gap-2 basis-full sm:basis-auto">
-                {/* Symbol-Only Get Directions Button */}
-                <a
-                  href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(homeStation)}&destination=${encodeURIComponent(destination.name + ", " + destination.prefecture + ", Japan")}&travelmode=transit`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={locale === "ja" ? "ルート検索" : "Get Directions"}
-                  title={locale === "ja" ? "ルート検索" : "Get Directions"}
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
-                >
-                  <Navigation className="w-4 h-4 text-emerald-400" />
-                </a>
-
-                {/* Symbol-Only Compare Button */}
-                <button
-                  onClick={() => {
-                    if (
-                      !isComparing(destination.id) &&
-                      compareList.length >= 4
-                    ) {
-                      alert(
-                        locale === "ja"
-                          ? "一度に比較できるのは最大4件までです。"
-                          : "You can only compare up to 4 destinations at a time.",
-                      );
-                      return;
-                    }
-                    toggleCompare(destination.id);
-                  }}
-                  aria-label={
-                    isComparing(destination.id)
-                      ? locale === "ja"
-                        ? "比較から削除"
-                        : "Remove from Compare"
-                      : locale === "ja"
-                        ? "比較に追加"
-                        : "Add to Compare"
+              {/* Compare Toggle */}
+              <button
+                type="button"
+                onClick={() => {
+                  if (!isComparing(destination.id) && compareList.length >= 4) {
+                    alert(
+                      locale === "ja"
+                        ? "一度に比較できるのは最大4件までです。"
+                        : "You can only compare up to 4 destinations at a time.",
+                    );
+                    return;
                   }
-                  title={
-                    isComparing(destination.id)
-                      ? locale === "ja"
-                        ? "比較から削除"
-                        : "Remove from Compare"
-                      : locale === "ja"
-                        ? "比較に追加"
-                        : "Add to Compare"
-                  }
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 backdrop-blur-md border ${
-                    isComparing(destination.id)
-                      ? "bg-indigo-600 text-white border-indigo-400 shadow-md"
-                      : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
+                  toggleCompare(destination.id);
+                }}
+                aria-label={
+                  isComparing(destination.id)
+                    ? locale === "ja"
+                      ? "比較から削除"
+                      : "Remove from Compare"
+                    : locale === "ja"
+                      ? "比較に追加"
+                      : "Add to Compare"
+                }
+                title={
+                  isComparing(destination.id)
+                    ? locale === "ja"
+                      ? "比較から削除"
+                      : "Remove from Compare"
+                    : locale === "ja"
+                      ? "比較に追加"
+                      : "Add to Compare"
+                }
+                className={`inline-flex items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold backdrop-blur-md transition-all active:scale-95 ${
+                  isComparing(destination.id)
+                    ? "bg-indigo-600 text-white border-indigo-400 shadow-md"
+                    : "bg-white/15 hover:bg-white/25 text-slate-100 border-white/20"
+                }`}
+              >
+                <Scale
+                  className={`size-4 shrink-0 ${
+                    isComparing(destination.id) ? "fill-current" : ""
                   }`}
-                >
-                  {isComparing(destination.id) ? (
-                    <Scale className="w-4 h-4 text-white" />
-                  ) : (
-                    <Scale className="w-4 h-4 text-slate-100" />
-                  )}
-                </button>
-
-                {/* Symbol-Only Share Button */}
-                <button
-                  onClick={async () => {
-                    // Share the current URL — on the /ja version this is
-                    // /ja/destinations/<id>, whose prerendered page carries
-                    // Japanese OG/Twitter metadata for crawlers.
-                    const cleanUrl = `${window.location.origin}${window.location.pathname}`;
-                    const shareName =
-                      localizedDestination?.name ?? destination.name;
-                    const shareData = {
-                      title: shareName,
-                      text:
-                        locale === "ja"
-                          ? `${shareName}をMegurutoで見つけよう！`
-                          : `Check out ${shareName} in ${destination.prefecture}, Japan on Meguruto!`,
-                      url: cleanUrl,
-                    };
-                    if (navigator.share) {
-                      try {
-                        await navigator.share(shareData);
-                      } catch (err: any) {
-                        if (err.name !== "AbortError") {
-                          await navigator.clipboard?.writeText(cleanUrl);
-                          toast.success(t("ui.linkCopied"));
-                        }
-                      }
-                    } else {
-                      await navigator.clipboard?.writeText(cleanUrl);
-                      toast.success(t("ui.linkCopied"));
-                    }
-                  }}
-                  aria-label={
-                    locale === "ja" ? "目的地を共有" : "Share destination"
-                  }
-                  title={
-                    locale === "ja" ? "目的地を共有" : t("ui.shareDestination")
-                  }
-                  className="w-10 h-10 rounded-full flex items-center justify-center transition-all active:scale-95 bg-white/15 hover:bg-white/25 text-slate-100 backdrop-blur-md border border-white/20"
-                >
-                  <Share2 className="w-4 h-4" />
-                </button>
-              </div>
+                />
+                <span>{locale === "ja" ? "比較" : "Compare"}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -1503,6 +1496,8 @@ export default function DestinationDetails() {
               visitDuration={glanceVisitDuration}
               openingHours={glanceOpeningHours}
               openingHoursUnverified={openingHoursUnverified}
+              directionsHref={directionsHref}
+              directionsLabel={directionsLabel}
               officialWebsite={glanceOfficialWebsite}
               parentLabel={
                 parentDestination

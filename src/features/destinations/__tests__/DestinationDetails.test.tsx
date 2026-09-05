@@ -315,7 +315,10 @@ describe("DestinationDetails Japanese availability parity (KAI-93)", () => {
       await flush(120);
     });
 
-    expect(host.textContent).toContain("Located In:");
+    // KAI hero rework: the header now exposes one merged location line
+    // (parent, prefecture, Japan) instead of a separate "Located In" badge,
+    // and the at-a-glance facts stay free of the header's location values.
+    expect(host.textContent).toContain("Yokohama City, Kanagawa, Japan");
     const atAGlance = host.querySelector(
       '[data-testid="destination-at-a-glance"]',
     );
