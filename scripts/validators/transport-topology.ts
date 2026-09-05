@@ -29,7 +29,7 @@ const VALID_RAIL_ROAD_BUS = new Set([
   "bus",
 ]);
 
-const VALID_GROUND_MODES = new Set(["train", "shinkansen"]);
+const VALID_GROUND_MODES = new Set(["train", "shinkansen", "car"]);
 
 const VALID_FARE_VARIABILITY = new Set([
   "fixed",

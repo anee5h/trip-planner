@@ -304,14 +304,19 @@ describe("TripEstimateEngine canonical car integration", () => {
   });
 
   it("does not fall back to centroid or average-speed car time", () => {
+    // Kyoto from Yokohama: no car arc (outside the envelope) and no provider
+    // route — the engine must NOT invent a centroid/average-speed number.
+    const kyoto = (destinations as Destination[]).find(
+      (item) => item.id === "kyoto-city",
+    )!;
     const travel = getTravelDurationEvidence(
-      destination,
+      kyoto,
       { homeStationCoords: { lat: 35.44, lng: 139.64 } },
       ["car"],
     );
     expect(travel).toEqual({ evidence: "unknown" });
     expect(
-      getSafeGroundEstimate(destination, {
+      getSafeGroundEstimate(kyoto, {
         homeStationCoords: { lat: 35.44, lng: 139.64 },
         authorizedModes: ["car"],
       }),

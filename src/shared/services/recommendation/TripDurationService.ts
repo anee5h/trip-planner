@@ -15,6 +15,14 @@ import {
   getSafeGroundEstimate,
   type SafeGroundEstimateContext,
 } from "@/shared/services/transport/SafeGroundEstimateService";
+import type { EstimatedTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getGroundRoute } from "@/shared/services/transport/GroundRouteEstimator";
+import { getRoutableCarAccessAnchors } from "@/shared/services/transport/CarAccessService";
+import {
+  resolveDestinationTransportZone,
+  zoneById,
+} from "@/shared/services/transport/TransportTopologyService";
+import { getDistance } from "@/shared/utils/distance";
 import {
   getOriginAwareTransportEstimate,
   type TravelDurationEstimate,
@@ -247,7 +255,8 @@ export function getTravelDurationEvidence(
       homeStationTransportZoneId:
         "originZoneId" in context ? context.originZoneId : undefined,
       authorizedModes: estimatedGroundModesForOutage,
-    } satisfies SafeGroundEstimateContext);
+    } satisfies SafeGroundEstimateContext) ??
+    getCarZoneArcEstimate(destination, context, estimatedGroundModesForOutage);
   if (estimated) {
     return {
       evidence: "estimated",
@@ -273,6 +282,138 @@ export function getDayTripTravelDurationEvidence(
   modes: readonly string[],
 ): DayTripTravelDurationEvidence {
   return getTravelDurationEvidence(destination, context, modes);
+}
+
+/**
+ * Deterministic rental-car zone-arc fallback (SafeGround car arcs).
+ *
+ * Discovery performs zero provider calls (#326), so car-capable destinations
+ * must still resolve a bounded road-time range from the ground-route
+ * registry. Precedence inside the estimated branch:
+ *   provider-outage mapped estimate → same-zone km estimator → car zone arc.
+ *
+ * Safety contracts:
+ * - car mode only: a train/shinkansen arc is never returned for a car request;
+ * - ferry-only islands (no fixed link) stay unavailable even when the
+ *   prefectural arc exists (e.g. sado under Niigata);
+ * - destinations without routable car access anchors are not estimated;
+ * - pairs without an arc remain unknown (no manufactured numbers).
+ */
+export function getCarZoneArcEstimate(
+  destination: Destination,
+  context: TripDurationContext | RecommendationContext,
+  authorizedModes: readonly string[],
+): EstimatedTransportEstimate | null {
+  if (!authorizedModes.some((m) => m === "car" || m === "my_car")) return null;
+  if (destination.localAccessUnestimated === true) return null;
+  if (getRoutableCarAccessAnchors(destination).length === 0) return null;
+  if (!destination.coordinates || !destination.prefecture) return null;
+
+  const destinationZoneId = resolveDestinationTransportZone(destination);
+  const destinationZone = zoneById.get(destinationZoneId);
+  // Ferry-only islands have no fixed road link; the prefecture-level arc
+  // would otherwise mis-estimate them (e.g. Sado under Niigata).
+  if (
+    destinationZone?.isIsland &&
+    !FIXED_LINK_ISLAND_ZONE_IDS.has(destinationZoneId)
+  ) {
+    return null;
+  }
+
+  const homeCoords = context.homeStationCoords;
+  if (!homeCoords) return null;
+  const originPrefectureKey = carArcOriginKeyFor(homeCoords);
+  if (!originPrefectureKey) return null;
+
+  const arc = getGroundRoute(
+    originPrefectureKey,
+    carArcKeyForDestination(destination),
+    "car",
+  );
+  if (!arc) return null;
+  return {
+    mode: "car",
+    timeRange: arc.timeRange,
+    source: "calculated_ground_display",
+    evidence: "estimated",
+    originZoneId: "originZoneId" in context ? context.originZoneId : undefined,
+    destinationZoneId,
+  };
+}
+
+/**
+ * Deterministic origin → arc-key resolution. The arc registry only covers
+ * the five supported origin zones; a nearest-centroid match (≤ 40 km)
+ * keeps the fallback identical under every runtime (browser, tsx, CI)
+ * without depending on the async/vite-backed catalogue loader.
+ */
+const SUPPORTED_CAR_ARC_ORIGINS: ReadonlyArray<{
+  key: string;
+  lat: number;
+  lng: number;
+}> = [
+  { key: "tokyo", lat: 35.6812, lng: 139.7671 },
+  { key: "kanagawa", lat: 35.4664, lng: 139.6223 },
+  { key: "osaka", lat: 34.6937, lng: 135.5023 },
+  { key: "hiroshima", lat: 34.3975, lng: 132.4756 },
+  { key: "fukuoka", lat: 33.5897, lng: 130.4208 },
+];
+const CAR_ARC_ORIGIN_RADIUS_KM = 40;
+
+function carArcOriginKeyFor(homeStationCoords: {
+  lat: number;
+  lng: number;
+}): string | null {
+  let best: { key: string; distanceKm: number } | undefined;
+  for (const origin of SUPPORTED_CAR_ARC_ORIGINS) {
+    const distanceKm = getDistance(
+      homeStationCoords.lat,
+      homeStationCoords.lng,
+      origin.lat,
+      origin.lng,
+    );
+    if (!best || distanceKm < best.distanceKm) {
+      best = { key: origin.key, distanceKm };
+    }
+  }
+  if (!best || best.distanceKm > CAR_ARC_ORIGIN_RADIUS_KM) return null;
+  return best.key;
+}
+
+/**
+ * Gunma is split into road-time subzones because Takasaki (south) and
+ * Shima-Onsen/Minakami (northwest) cannot share one Tokyo driving range.
+ * Everything else keys on the prefecture slug.
+ */
+const CAR_SUBZONE_BY_MUNICIPALITY: Record<string, string> = {
+  "Gunma:minakami": "gunma_northwest",
+  "Gunma:nakanojo": "gunma_northwest",
+  "Gunma:shibukawa": "gunma_northwest",
+  "Gunma:numata": "gunma_northwest",
+  "Gunma:katashina": "gunma_northwest",
+  "Gunma:kusatsu": "gunma_northwest",
+  "Gunma:naganohara": "gunma_northwest",
+  "Gunma:tsumagoi": "gunma_northwest",
+  "Gunma:tone": "gunma_northeast",
+  "Gunma:kawaba": "gunma_northeast",
+};
+
+/** Islands connected by a fixed road link are road-estimable (Akashi Kaikyo). */
+export const FIXED_LINK_ISLAND_ZONE_IDS = new Set<string>(["awaji"]);
+
+function carArcKeyForDestination(destination: Destination): string {
+  const prefectureKey = destination.prefecture.toLowerCase();
+  if (prefectureKey !== "gunma") {
+    return prefectureKey;
+  }
+  // Records without a municipality still default to the south subzone
+  // (the registry has no plain "gunma" key; muni-less records like
+  // Oze National Park fall on the Takasaki-area axis).
+  return (
+    (destination.municipalityId &&
+      CAR_SUBZONE_BY_MUNICIPALITY[destination.municipalityId]) ||
+    "gunma_south"
+  );
 }
 
 export interface DayTripTravelEfficiency {

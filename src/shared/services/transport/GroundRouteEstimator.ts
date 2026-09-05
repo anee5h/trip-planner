@@ -5,10 +5,12 @@ export interface GroundRoute {
   from: string;
   to: string;
   bidirectional: boolean;
-  mode: "train" | "shinkansen";
+  mode: "train" | "shinkansen" | "car";
   timeRange: [number, number];
   sourceUrl?: string;
   checkedAt?: string;
+  /** Authority behind the timeRange (e.g. an expressway operator). */
+  authority?: string;
   /**
    * Verified one-way adult fare (JPY) for the ordinary seat product the
    * timeRange describes (FARE_POLICY §1/§2). Range spans the service
@@ -23,10 +25,11 @@ export interface GroundRoute {
 }
 
 export interface GroundRouteEstimate {
-  mode: "train" | "shinkansen";
+  mode: "train" | "shinkansen" | "car";
   timeRange: [number, number];
   sourceUrl?: string;
   checkedAt?: string;
+  authority?: string;
   fare?: [number, number] | null;
   fareBasis?: GroundRoute["fareBasis"];
   fareSourceUrl?: string;
@@ -344,7 +347,7 @@ export const MUNICIPALITY_SHINKANSEN_HUB_IDS: Record<string, string[]> = {
 export function getGroundRoute(
   fromPrefecture: string,
   toPrefecture: string,
-  mode: "train" | "shinkansen",
+  mode: "train" | "shinkansen" | "car",
 ): GroundRouteEstimate | null {
   const match = routes.find(
     (r) =>
@@ -360,6 +363,7 @@ export function getGroundRoute(
     timeRange: match.timeRange,
     sourceUrl: match.sourceUrl,
     checkedAt: match.checkedAt,
+    authority: match.authority,
     fare: match.fare,
     fareBasis: match.fareBasis,
     fareSourceUrl: match.fareSourceUrl,
