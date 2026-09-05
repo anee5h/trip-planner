@@ -176,7 +176,7 @@ function HomeSurface() {
       <section className="home-compact-surface relative overflow-x-clip bg-slate-50 pb-5 pt-5 sm:pb-8 sm:pt-8 lg:pb-8 lg:pt-10 dark:bg-slate-950">
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/50 [mask-image:linear-gradient(0deg,transparent,black)] -z-10" />
         <div className="container mx-auto max-w-6xl px-4">
-          <div className="home-compact-heading mx-auto mb-5 max-w-3xl text-center sm:mb-6">
+          <div className="home-compact-heading mx-auto mb-2.5 max-w-3xl text-center sm:mb-3">
             <h1
               data-testid="home-headline"
               className="text-[27px] font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-4xl sm:leading-[1.08] lg:text-5xl"
