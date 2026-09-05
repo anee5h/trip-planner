@@ -12,10 +12,7 @@ import type { Destination } from "@/shared/types/destination";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationScorer";
 import { getRecommendations } from "@/shared/services/recommendation/RecommendationService";
 import { consolidateWeekendAreas } from "@/shared/services/recommendation/WeekendAreaPolicy";
-import {
-  evaluateWeekendTravelFit,
-  evaluateWeekendCapacity,
-} from "@/shared/services/recommendation/WeekendPolicy";
+import { evaluateWeekendCapacity } from "@/shared/services/recommendation/WeekendPolicy";
 import { getBestOneWayTravelMinutes } from "@/shared/services/recommendation/TripDurationService";
 
 const all = destinationsIndex as unknown as Destination[];
@@ -85,35 +82,50 @@ describe("overnight Explore browse policy (Nakayama, Personal Car)", () => {
     }
   });
 
-  it("the old recommender gate removed these cities (minutes undefined beyond 120 km)", () => {
-    for (const id of ["nagoya-city", "osaka-city", "kyoto-city"]) {
+  it("car arcs close the >120 km gap for in-envelope cities; undefined stays for out-of-envelope", () => {
+    // Nagoya is inside the Kanagawa discovery envelope → the SafeGround car
+    // arc now estimates it (the old recommender gate removed it via
+    // minutes_undefined). Osaka/Kyoto sit beyond the arc envelope → minutes
+    // stay undefined, and the browse policy does NOT gate on that.
+    const expectations: Array<[string, boolean]> = [
+      ["nagoya-city", true],
+      ["osaka-city", false],
+      ["kyoto-city", false],
+    ];
+    for (const [id, estimated] of expectations) {
       const dest = all.find((d) => d.id === id)!;
       const minutes = getBestOneWayTravelMinutes(
         dest,
         { homeStationCoords: ORIGIN, originZoneId: ZONE },
         ["my_car"],
       );
-      // No deterministic estimate beyond the bounded 120 km envelope and no
-      // provider route during discovery → minutes undefined → the OLD Explore
-      // gate hard-excluded these cities.
-      expect(minutes).toBeUndefined();
+      expect(minutes, id).toEqual(estimated ? 230 : undefined);
     }
   });
 
-  it("a known >420-minute car journey is retained (travel time is ranking, not a browse gate)", () => {
-    // Sanriku/coastal destinations near the deterministic envelope edge stay
-    // browseable whenever a valid car mode exists; the audit shows the new
-    // browse universe is far larger than the old 420-minute recommender set.
-    const oldFitCount = carBrowseEligible().filter((d) => {
-      const minutes = getBestOneWayTravelMinutes(
+  it("undefined travel time is ranking-neutral, not a browse gate", () => {
+    // A destination with no car estimate (e.g. Kyoto from Nakayama) is NOT
+    // browse-excluded: browse is area-based; travel time only ranks.
+    const kyoto = all.find((d) => d.id === "kyoto-city")!;
+    const minutes = getBestOneWayTravelMinutes(
+      kyoto,
+      { homeStationCoords: ORIGIN, originZoneId: ZONE },
+      ["my_car"],
+    );
+    expect(minutes).toBeUndefined();
+    // Kyoto still survives area consolidation and stays browseable.
+    expect(browseAreaIds().has("kyoto-city")).toBe(true);
+    // And the browse universe remains far larger than the destinations with
+    // any car time at all (estimates are ranking signals, not gates).
+    const withMinutes = carBrowseEligible().filter((d) => {
+      const m = getBestOneWayTravelMinutes(
         d,
         { homeStationCoords: ORIGIN, originZoneId: ZONE },
         ["my_car"],
       );
-      if (minutes === undefined) return false;
-      return evaluateWeekendTravelFit(minutes, {}).eligible;
+      return m !== undefined;
     }).length;
-    expect(browseAreaIds().size).toBeGreaterThan(oldFitCount * 3);
+    expect(withMinutes).toBeLessThan(browseAreaIds().size * 3);
   });
 
   it("capacity is a ranking signal, not a browse exclusion (thin hubs stay visible)", () => {
