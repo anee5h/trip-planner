@@ -9,6 +9,7 @@ import { searchValidator } from "./search";
 import { linksValidator } from "./links";
 import { ratingsValidator } from "./ratings";
 import { visitHoursValidator } from "./visit-hours";
+import { openingHoursValidator } from "./opening-hours";
 import { majorCityExpansionValidator } from "./major-city-expansion";
 import { transportTopologyValidator } from "./transport-topology";
 import { duplicateKeysValidator } from "./duplicate-keys";
@@ -26,6 +27,7 @@ export const validators: ValidatorModule[] = [
   linksValidator,
   ratingsValidator,
   visitHoursValidator,
+  openingHoursValidator,
   majorCityExpansionValidator,
   transportTopologyValidator,
   duplicateKeysValidator,

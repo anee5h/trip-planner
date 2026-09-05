@@ -56,7 +56,10 @@ import { DestinationPlanningSection } from "./components/DestinationPlanningSect
 import { DestinationAtAGlance } from "./components/DestinationAtAGlance";
 import { DestinationCombinationRail } from "./components/DestinationCombinationRail";
 import { DestinationDetailRail } from "./components/DestinationDetailRail";
-import { requiresOpeningHours } from "@/shared/services/recommendation/OpeningHoursPolicy";
+import {
+  getOpeningHoursAssessment,
+  requiresOpeningHours,
+} from "@/shared/services/recommendation/OpeningHoursPolicy";
 import { DestinationDetailsSkeleton } from "@/shared/components/ui/Skeleton";
 import { BucketListButton } from "@/shared/components/ui/BucketListButton";
 import { useDelayedSkeleton } from "@/shared/hooks/useDelayedSkeleton";
@@ -241,6 +244,7 @@ const DETAIL_COPY = {
     atAGlance: "At a glance",
     visitDuration: "Visit duration",
     openingHours: "Opening hours",
+    hoursNotVerified: "Not yet verified",
     onSiteCost: "On-site cost",
     transportExcludedShort: "Origin transport excluded",
     free: "Free",
@@ -289,6 +293,7 @@ const DETAIL_COPY = {
     atAGlance: "概要",
     visitDuration: "滞在時間",
     openingHours: "営業時間",
+    hoursNotVerified: "未確認",
     onSiteCost: "現地費用",
     transportExcludedShort: "出発地からの交通費を除く",
     free: "無料",
@@ -1100,6 +1105,12 @@ export default function DestinationDetails() {
     : locale === "ja"
       ? "散策自由（個別施設により営業時間が異なります）"
       : "Open access; individual facilities may have separate hours";
+  // KAI-335: surface unverified/stale hours honestly on the detail page —
+  // the value may be legacy catalogue text without fresh verification.
+  const hoursAssessment = getOpeningHoursAssessment(destination);
+  const openingHoursUnverified =
+    hoursAssessment.status === "unverified" ||
+    hoursAssessment.status === "stale";
   const glanceOfficialWebsite =
     destination.placeType === "destination"
       ? destination.officialWebsite
@@ -1484,6 +1495,7 @@ export default function DestinationDetails() {
               travelTime={glanceTravelTime}
               visitDuration={glanceVisitDuration}
               openingHours={glanceOpeningHours}
+              openingHoursUnverified={openingHoursUnverified}
               officialWebsite={glanceOfficialWebsite}
               parentLabel={
                 parentDestination
@@ -1500,6 +1512,7 @@ export default function DestinationDetails() {
                 travelTime: copy.travelTime,
                 visitDuration: copy.visitDuration,
                 openingHours: copy.openingHours,
+                hoursNotVerified: copy.hoursNotVerified,
                 officialWebsite: copy.officialWebsite,
                 onSiteCost: copy.onSiteCost,
                 transportExcluded: copy.transportExcludedShort,
