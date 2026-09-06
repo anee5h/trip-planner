@@ -120,7 +120,7 @@
     "classify-standalone-destinations": "tsx scripts/classify-standalone-destinations.ts",
     "normalize-municipality-names": "tsx scripts/normalize-municipality-names.ts",
     "add-yokohama-places": "tsx scripts/add-yokohama-places.ts",
-    "validate:catalog-fast": "tsx scripts/validate-all.ts --profile fast --no-report",
+    "validate:catalog-fast": "tsx --tsconfig=tsconfig.app.json scripts/validate-all.ts --profile fast --no-report",
     "verify:pr": "npm run test:run && npx tsc -b --noEmit && npm run typecheck:kai256 && npm run lint && npm run format:check && npm run validate:i18n && npm run validate:localization && npm run check:branding && npm run validate:catalog-fast && npm run check:catalog-ci && npm run build && npm run seo:check && npm run verify:pages-functions",
     "release:verify": "npm run test:run && npm run pipeline -- --dry-run && npm run validate-all && npm run validate:i18n && npm run check:branding && npx tsc -b --noEmit && npm run lint && npm run build && npm run format:check",
     "derive:destination-models": "tsx scripts/derive-destination-models.ts",
