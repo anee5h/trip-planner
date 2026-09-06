@@ -54,6 +54,7 @@ import { MarkVisitedModal } from "./components/MarkVisitedModal";
 import { VisitedDateModal } from "./components/VisitedDateModal";
 import { DestinationPlanningSection } from "./components/DestinationPlanningSection";
 import { DestinationAtAGlance } from "./components/DestinationAtAGlance";
+import { DecisionCriticalRestrictionNotice } from "./DecisionCriticalRestrictions";
 import { DestinationCombinationRail } from "./components/DestinationCombinationRail";
 import { DestinationDetailRail } from "./components/DestinationDetailRail";
 import {
@@ -1351,6 +1352,10 @@ export default function DestinationDetails() {
           </div>
 
           <div className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap sm:items-center">
+            <DecisionCriticalRestrictionNotice
+              destination={destination}
+              locale={locale}
+            />
             {/* Primary CTA: Add to Itinerary (single dominant action) */}
             <button
               onClick={handleAddToItinerary}
@@ -1676,6 +1681,7 @@ export default function DestinationDetails() {
                 selectedTransport={selectedTransport}
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
+                travelDate={navState?.travelDate}
                 duration={duration}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {

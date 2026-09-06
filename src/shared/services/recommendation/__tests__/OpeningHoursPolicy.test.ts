@@ -3,6 +3,8 @@ import {
   getOpeningHoursAssessment,
   requiresOpeningHours,
   hasVerifiedOpeningHours,
+  getOpeningHoursWindow,
+  isOpeningHoursClosedOnDate,
 } from "../OpeningHoursPolicy";
 import type { Destination } from "@/shared/types/destination";
 
@@ -127,5 +129,40 @@ describe("OpeningHoursPolicy", () => {
     } as Destination);
     expect(assessment.status).toBe("sourced");
     expect(assessment.requiresWarning).toBe(false);
+  });
+
+  it("parses a verified interval for planner constraints instead of treating it as all-day", () => {
+    const window = getOpeningHoursWindow({
+      id: "ueno-zoo-fixture",
+      kind: "zoo",
+      businessHours: "09:30 - 17:00 (Closed Mondays)",
+      openingHoursMetadata: {
+        verifiedAt: new Date().toISOString().split("T")[0],
+        sourceUrl:
+          "https://www.tokyo-zoo.net/en/ueno/visitor-info/tickets/index.html",
+      },
+    } as unknown as Destination);
+
+    expect(window).toEqual({
+      opensAtMinutes: 9 * 60 + 30,
+      closesAtMinutes: 17 * 60,
+      closedWeekdays: [1],
+    });
+  });
+
+  it("respects a represented closed weekday when a planning date is supplied", () => {
+    const destination = {
+      id: "ueno-zoo-fixture",
+      kind: "zoo",
+      businessHours: "09:30 - 17:00 (Closed Mondays)",
+      openingHoursMetadata: {
+        verifiedAt: new Date().toISOString().split("T")[0],
+        sourceUrl:
+          "https://www.tokyo-zoo.net/en/ueno/visitor-info/tickets/index.html",
+      },
+    } as unknown as Destination;
+
+    expect(isOpeningHoursClosedOnDate(destination, "2026-09-07")).toBe(true);
+    expect(isOpeningHoursClosedOnDate(destination, "2026-09-08")).toBe(false);
   });
 });

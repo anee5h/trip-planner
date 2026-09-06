@@ -21,7 +21,11 @@ import {
   hasCoordinates,
   type TransitEstimateResult,
 } from "./LocalTransitEstimator";
-import { getOpeningHoursAssessment } from "./OpeningHoursPolicy";
+import {
+  getOpeningHoursAssessment,
+  getOpeningHoursWindow,
+  isOpeningHoursClosedOnDate,
+} from "./OpeningHoursPolicy";
 import { getDistance } from "@/shared/utils/distance";
 import { calculateGeneratedPlanCost } from "../budget/GeneratedPlanCostService";
 
@@ -224,7 +228,8 @@ export type PlanFailureReason =
   | "insufficient_real_pois"
   | "no_feasible_candidate_pair"
   | "unusable_transit_leg"
-  | "unusable_return_leg";
+  | "unusable_return_leg"
+  | "destination_closed";
 
 export interface DayPlan {
   id: string;
@@ -267,6 +272,8 @@ export interface DayPlanOptions {
   duration?: TripDuration;
   planType?: DayPlanType;
   startTime?: string;
+  /** Optional ISO date used to enforce represented closed weekdays. */
+  travelDate?: string;
   availableMinutes?: number;
   pace?: DayPlanPace;
   partySize?: number;
@@ -494,9 +501,11 @@ export function generateDayPlan(
           ? "This place needs more time than the selected window."
           : failureReason === "unusable_return_leg"
             ? "We couldn’t reach a nearby station from the final stop."
-            : failureReason === "insufficient_real_pois"
-              ? "We couldn’t find enough suitable nearby stops for this schedule."
-              : "We couldn’t create a realistic plan within this time window.",
+            : failureReason === "destination_closed"
+              ? "A destination is closed on the selected travel date."
+              : failureReason === "insufficient_real_pois"
+                ? "We couldn’t find enough suitable nearby stops for this schedule."
+                : "We couldn’t create a realistic plan within this time window.",
       ja: "この時間枠内に現実的なプランを作成できませんでした。",
     },
     uncertainHoursDisclosures: [],
@@ -530,7 +539,7 @@ export function generateDayPlan(
 
   const validSimulations: SubsetSimulation[] = [];
   const simulationFailures: Array<
-    "unusable_transit_leg" | "unusable_return_leg"
+    "unusable_transit_leg" | "unusable_return_leg" | "destination_closed"
   > = [];
 
   function evaluateSubset(subset: PlannedCandidate[]) {
@@ -543,6 +552,9 @@ export function generateDayPlan(
       catchmentScope,
       returnMode,
       catalogue,
+      false,
+      true,
+      options?.travelDate,
     );
     let usedMin = false;
     let actual = route.totalMins;
@@ -559,6 +571,7 @@ export function generateDayPlan(
         catalogue,
         false,
         false,
+        options?.travelDate,
       );
       actual = route.totalMins;
     }
@@ -573,6 +586,9 @@ export function generateDayPlan(
         catchmentScope,
         returnMode,
         catalogue,
+        false,
+        true,
+        options?.travelDate,
       );
       usedMin = true;
       actual = route.totalMins;
@@ -589,6 +605,7 @@ export function generateDayPlan(
           catalogue,
           false,
           false,
+          options?.travelDate,
         );
         actual = route.totalMins;
       }
@@ -723,6 +740,9 @@ export function generateDayPlan(
         catchmentScope,
         index === dayGroups.length - 1 ? returnMode : "none",
         catalogue,
+        false,
+        true,
+        options?.travelDate,
       );
       if (!dayRoute.feasible) return builtRoute;
 
@@ -823,6 +843,7 @@ function simulateRouteIncremental(
   catalogue: Destination[],
   preserveOrder: boolean = false,
   includeLunch: boolean = true,
+  travelDate?: string,
 ) {
   const steps: DayPlanStep[] = [];
   const routeLegs: RouteLeg[] = [];
@@ -968,13 +989,59 @@ function simulateRouteIncremental(
     currentLocation = dest;
     visitedPoiCount += 1;
 
-    const visitMins = useMinVisits
-      ? nextCand.minVisitMins
-      : nextCand.preferredVisitMins;
+    if (travelDate && isOpeningHoursClosedOnDate(dest, travelDate)) {
+      return {
+        steps: [],
+        routeLegs: [],
+        assumptions: [],
+        totalMins: 0,
+        returnEndpoint: null,
+        feasible: false,
+        failureReason: "destination_closed" as const,
+      };
+    }
+
+    const openingWindow = getOpeningHoursWindow(dest);
     const locEn = getLocalizedPlace(dest, "en");
     const locJa = getLocalizedPlace(dest, "ja");
-    const assessment = getOpeningHoursAssessment(dest);
+    if (openingWindow && currentMins < openingWindow.opensAtMinutes) {
+      const waitMinutes = openingWindow.opensAtMinutes - currentMins;
+      steps.push({
+        id: `buffer-opening-${dest.id}`,
+        type: "buffer",
+        timeBlock: getTimeBlock(currentMins),
+        startTime: formatTimeFromMidnight(currentMins),
+        endTime: formatTimeFromMidnight(openingWindow.opensAtMinutes),
+        durationMinutes: waitMinutes,
+        title: {
+          en: `Wait until ${locEn.name} opens`,
+          ja: `${locJa.name}の開場まで待機`,
+        },
+      });
+      currentMins = openingWindow.opensAtMinutes;
+    }
 
+    const requestedVisitMins = useMinVisits
+      ? nextCand.minVisitMins
+      : nextCand.preferredVisitMins;
+    let visitMins = requestedVisitMins;
+    if (openingWindow) {
+      const remainingOpenMinutes = openingWindow.closesAtMinutes - currentMins;
+      if (remainingOpenMinutes < nextCand.minVisitMins) {
+        return {
+          steps: [],
+          routeLegs: [],
+          assumptions: [],
+          totalMins: 0,
+          returnEndpoint: null,
+          feasible: false,
+          failureReason: "destination_closed" as const,
+        };
+      }
+      visitMins = Math.min(visitMins, remainingOpenMinutes);
+    }
+
+    const assessment = getOpeningHoursAssessment(dest);
     steps.push({
       id: `step-${dest.id}`,
       type: "destination",

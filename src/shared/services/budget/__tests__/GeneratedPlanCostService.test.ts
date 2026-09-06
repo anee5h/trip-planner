@@ -260,7 +260,7 @@ describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
     );
   });
 
-  it("D) explicit unavailable + legacy ticket → bounded estimate, legacy never resurrects", () => {
+  it("D) explicit unavailable remains unknown and legacy is never resurrected", () => {
     // The record HAS a legacy numeric ticket (1500) AND an explicit
     // unavailable admission fact. The fact's truth wins — the legacy
     // value must NOT be consumed.
@@ -276,13 +276,16 @@ describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
       },
     } as unknown as Destination;
     const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
-    expect(cost.admission.min).toBeGreaterThan(0);
-    expect(cost.admission.max).toBeGreaterThan(cost.admission.min);
-    expect(cost.admission.source).toBe("estimated");
-    expect(cost.admission.applicable).toBe(true);
+    expect(cost.admission).toMatchObject({
+      min: 0,
+      max: 0,
+      source: "unknown",
+      semanticState: "unknown",
+      applicable: true,
+    });
   });
 
-  it("malformed verified_paid fact gets a positive modeled fallback", () => {
+  it("malformed verified_paid fact remains unavailable", () => {
     const dest = {
       ...BASE_DEST,
       admission: {
@@ -295,9 +298,13 @@ describe("KAI-219A — GeneratedPlan explicit v2 admission authority", () => {
       },
     } as unknown as Destination;
     const cost = calculateGeneratedPlanCost(makePlan(dest), 1, "train", false);
-    expect(cost.admission.min).toBeGreaterThan(0);
-    expect(cost.admission.max).toBeGreaterThan(cost.admission.min);
-    expect(cost.admission.source).toBe("estimated");
+    expect(cost.admission).toMatchObject({
+      min: 0,
+      max: 0,
+      source: "unknown",
+      semanticState: "unknown",
+      applicable: true,
+    });
   });
 
   it("not_applicable admission is excluded while other estimated costs remain disclosed", () => {
@@ -456,7 +463,7 @@ describe("KAI-219A final — GeneratedPlan known-numeric vs satisfied + aggregat
     expect(cost.admission.satisfied).toBe(true);
   });
 
-  it("D) verified + unavailable admissions → complete modeled aggregate", () => {
+  it("D) verified + unavailable admissions → partial aggregate with an explicit unknown", () => {
     const paidDest2 = paidDest({
       id: "paid-1",
       admission: verifiedPaidFact(1500),
@@ -471,9 +478,9 @@ describe("KAI-219A final — GeneratedPlan known-numeric vs satisfied + aggregat
       "train",
       false,
     );
-    expect(cost.completeness).toBe("complete");
-    expect(cost.admission.satisfied).toBe(true);
-    expect(cost.admission.knownNumeric).toBe(true);
+    expect(cost.completeness).toBe("partial");
+    expect(cost.admission.satisfied).toBe(false);
+    expect(cost.admission.knownNumeric).toBe(false);
     expect(cost.knownSubtotal[0]).toBeGreaterThan(1500);
     expect(cost.knownSubtotal[1]).toBeGreaterThan(cost.knownSubtotal[0]);
     expect(cost.assumptions.some((a) => a.destinationId === "unavail-1")).toBe(
@@ -631,7 +638,7 @@ describe("KAI-219A final — hasNumericTotal guard", () => {
     expect(cost.knownSubtotal[1]).toBeGreaterThan(cost.knownSubtotal[0]);
   });
 
-  it("D) verified + unavailable → complete modeled total", () => {
+  it("D) verified + unavailable → partial without a numeric total", () => {
     const paidDest2 = paidDest({
       id: "paid-1",
       admission: verifiedPaidFact(1500),
@@ -650,10 +657,10 @@ describe("KAI-219A final — hasNumericTotal guard", () => {
       "train",
       false,
     );
-    expect(cost.completeness).toBe("complete");
-    expect(cost.hasNumericTotal).toBe(true);
+    expect(cost.completeness).toBe("partial");
+    expect(cost.hasNumericTotal).toBe(false);
     expect(cost.knownSubtotal[0]).toBeGreaterThan(1500);
     expect(cost.knownSubtotal[1]).toBeGreaterThan(cost.knownSubtotal[0]);
-    expect(cost.totalRange).toBeDefined();
+    expect(cost.totalRange).toBeUndefined();
   });
 });

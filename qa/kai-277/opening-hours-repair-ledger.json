@@ -1,0 +1,697 @@
+{
+  "schemaVersion": 1,
+  "task": "KAI-277",
+  "checkedDate": "2026-09-06",
+  "scope": {
+    "historicalCohortCount": 27,
+    "cohortSource": "qa/kai-277/historical-opening-hours-audit.json",
+    "canonicalRecordCount": 1130,
+    "canonicalUniqueIdCount": 1130
+  },
+  "inputs": {
+    "historicalCatalogueSha256": "f98ab0334c34aec4caf36d964710fc8c93adae6dcd219d1f71231ad509cb5b95",
+    "currentCatalogueSha256": "02b34c2b7f04a091e24a29f7ff1ab637b470f06d8354cdd29bf805494508ac78",
+    "allowlistPath": "scripts/validators/opening-hours-allowlist.json",
+    "allowlistSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+  },
+  "dispositionCounts": {
+    "invalid_specific_window": 15,
+    "verified_specific_window": 12,
+    "unknown_unverified": 0,
+    "conflicting_or_ambiguous": 0
+  },
+  "allowlist": {
+    "remainingCohortOffenders": 0,
+    "repairedRecordsRemoved": 27,
+    "entries": []
+  },
+  "additionalCurrentSemanticRepairs": 19,
+  "records": [
+    {
+      "destinationId": "abeno-harukas-300-osaka",
+      "name": "Abeno Harukas 300 (Osaka Skyline)",
+      "kind": "viewpoint",
+      "historicalBusinessHours": "09:00 - 22:00 (Last admission 21:30)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "09:00 - 22:00 (Last admission 21:30)",
+      "currentOpeningHours": null,
+      "currentProvenance": {
+        "sourceUrl": "https://www.abenoharukas-300.jp/observatory/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.abenoharukas-300.jp/observatory/",
+      "evidenceObservation": "Current canonical interval is 09:00 - 22:00 (Last admission 21:30) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00 - 22:00 (Last admission 21:30)",
+        "openingHours": null,
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.abenoharukas-300.jp/observatory/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "chiba-zoological-park",
+      "name": "Chiba Zoological Park",
+      "kind": "park",
+      "historicalBusinessHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+      "historicalOpeningHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+      "currentBusinessHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+      "currentOpeningHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+      "currentProvenance": {
+        "sourceUrl": "https://www.city.chiba.jp/zoo/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.city.chiba.jp/zoo/",
+      "evidenceObservation": "Current canonical interval is 09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+        "openingHours": "09:30-16:30, last entry 16:00, closed Wednesdays (Dec 29-Jan 1)",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.city.chiba.jp/zoo/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "fujita-memorial-garden",
+      "name": "Fujita Memorial Garden",
+      "kind": "garden",
+      "historicalBusinessHours": "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
+      "currentOpeningHours": null,
+      "currentProvenance": {
+        "sourceUrl": "http://www.hirosakipark.or.jp/hujita/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "http://www.hirosakipark.or.jp/hujita/",
+      "evidenceObservation": "Current canonical interval is 09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00 - 17:00 (last entry 16:30); western house closed Nov 24 – mid-Apr (free in winter)",
+        "openingHours": null,
+        "openingHoursMetadata": {
+          "sourceUrl": "http://www.hirosakipark.or.jp/hujita/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "fukuurajima",
+      "name": "Fukuura Island",
+      "kind": "island",
+      "historicalBusinessHours": "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (island); bridge and facility schedules vary",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (island); bridge and facility schedules vary",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "gifu-gujo-hachiman",
+      "name": "Gujo Hachiman",
+      "kind": "historic_town",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (historic town); individual facilities have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.gujokankou.com/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (historic town); individual facilities have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "gunma-ikaho-onsen",
+      "name": "Ikaho Onsen",
+      "kind": "onsen",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": "09:00 - 17:00",
+      "currentBusinessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
+      "currentOpeningHours": "09:00 - 17:00",
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.ikaho-kankou.com/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
+        "openingHours": "09:00 - 17:00",
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "hamarikyu-gardens",
+      "name": "Hamarikyu Gardens",
+      "kind": "garden",
+      "historicalBusinessHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+      "historicalOpeningHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+      "currentBusinessHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+      "currentOpeningHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+      "currentProvenance": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+      "evidenceObservation": "Current canonical interval is 09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1 with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+        "openingHours": "09:00-17:00 (last entry 16:30), closed Dec 29-Jan 1",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.tokyo-park.or.jp/park/hama-rikyu/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "izu",
+      "name": "Izu Peninsula",
+      "kind": "nature",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (peninsula); individual attractions and facilities have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://kanko.city.izu.shizuoka.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (peninsula); individual attractions and facilities have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "jindai-botanical-gardens",
+      "name": "Jindai Botanical Gardens",
+      "kind": "garden",
+      "historicalBusinessHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+      "historicalOpeningHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+      "currentBusinessHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+      "currentOpeningHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+      "currentProvenance": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/park/jindai/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.tokyo-park.or.jp/park/jindai/",
+      "evidenceObservation": "Current canonical interval is 09:30-17:00, closed Mon (Dec 29-Jan 1) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+        "openingHours": "09:30-17:00, closed Mon (Dec 29-Jan 1)",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.tokyo-park.or.jp/park/jindai/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "jozenji-dori",
+      "name": "Jozenji-dori",
+      "kind": "street",
+      "historicalBusinessHours": "08:30 - 17:00 (Last admission 16:30)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (street); individual facilities have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.city.sendai.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (street); individual facilities have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "keio-mogusaen",
+      "name": "Keio Mogusaen",
+      "kind": "garden",
+      "historicalBusinessHours": "09:30-17:00 (seasonal)",
+      "historicalOpeningHours": "09:30-17:00 (seasonal)",
+      "currentBusinessHours": "09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar)",
+      "currentOpeningHours": null,
+      "currentProvenance": {
+        "sourceUrl": "https://keio-mogusaen.jp/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://keio-mogusaen.jp/",
+      "evidenceObservation": "Current canonical interval is 09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00 - 17:00 (closed Wednesdays and year-end/New Year holidays; see official calendar)",
+        "openingHours": null,
+        "openingHoursMetadata": {
+          "sourceUrl": "https://keio-mogusaen.jp/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "kinugawa-onsen",
+      "name": "Kinugawa Onsen",
+      "kind": "onsen",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": "09:00 - 17:00",
+      "currentBusinessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
+      "currentOpeningHours": "09:00 - 17:00",
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.nikko-kankou.org/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
+        "openingHours": "09:00 - 17:00",
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "kiso",
+      "name": "Kiso Valley",
+      "kind": "nature",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (valley); individual attractions have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://kiso-magome.com/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (valley); individual attractions have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "kiyosumi-gardens",
+      "name": "Kiyosumi Gardens",
+      "kind": "garden",
+      "historicalBusinessHours": "09:00-17:00",
+      "historicalOpeningHours": "09:00-17:00",
+      "currentBusinessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - Jan 1)",
+      "currentOpeningHours": "09:00-17:00",
+      "currentProvenance": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/park/kiyosumi/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.tokyo-park.or.jp/park/kiyosumi/",
+      "evidenceObservation": "Current canonical interval is 09:00 - 17:00 (Last entry 16:30; closed Dec 29 - Jan 1) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Dec 29 - Jan 1)",
+        "openingHours": "09:00-17:00",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.tokyo-park.or.jp/park/kiyosumi/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "koiwai-farm",
+      "name": "Koiwai Farm",
+      "kind": "park",
+      "historicalBusinessHours": "09:00 - 17:00 (varies by season); winter (Dec–Feb) weekends and holidays only",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "09:00 - 17:00 (Last entry 16:00; winter Dec–Feb weekends/holidays only per official calendar)",
+      "currentOpeningHours": null,
+      "currentProvenance": {
+        "sourceUrl": "https://www.koiwaifarm.com/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.koiwaifarm.com/",
+      "evidenceObservation": "Current canonical interval is 09:00 - 17:00 (Last entry 16:00; winter Dec–Feb weekends/holidays only per official calendar) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00 - 17:00 (Last entry 16:00; winter Dec–Feb weekends/holidays only per official calendar)",
+        "openingHours": null,
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.koiwaifarm.com/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "kouri-island-okinawa",
+      "name": "Kouri Island & Heart Rock",
+      "kind": "island",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (island); ferry and facility schedules vary",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.nakijin-kankou.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (island); ferry and facility schedules vary",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "lake-hamanako",
+      "name": "Lake Hamanako",
+      "kind": "lake",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (lake); cruise and facility schedules vary",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.hamanakako.or.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (lake); cruise and facility schedules vary",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "mukojima-hyakkaen",
+      "name": "Mukojima Hyakkaen",
+      "kind": "garden",
+      "historicalBusinessHours": "09:00-17:00, closed Mon",
+      "historicalOpeningHours": "09:00-17:00, closed Mon",
+      "currentBusinessHours": "09:00 - 17:00 (Last entry 16:30; closed Mon)",
+      "currentOpeningHours": "09:00-17:00, closed Mon",
+      "currentProvenance": {
+        "sourceUrl": "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/",
+      "evidenceObservation": "Current canonical interval is 09:00 - 17:00 (Last entry 16:30; closed Mon) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00 - 17:00 (Last entry 16:30; closed Mon)",
+        "openingHours": "09:00-17:00, closed Mon",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.tokyo-park.or.jp/park/mukojima-hyakkaen/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "nagano-bessho-onsen",
+      "name": "Bessho Onsen",
+      "kind": "onsen",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.bessho-spa.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Walk-in onsen district; ryokan and public bath facilities set their own hours and fees",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "nagano-narai-juku",
+      "name": "Narai-juku",
+      "kind": "historic_town",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (historic town); individual facilities have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.naraijuku.org/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (historic town); individual facilities have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "nankinmachi-chinatown",
+      "name": "Nankinmachi Chinatown",
+      "kind": "street",
+      "historicalBusinessHours": "09:30 - 17:00 (Closed Mondays)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (street); individual shops have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.nankinmachi.or.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (street); individual shops have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "shingashi-river",
+      "name": "Shingashi River",
+      "kind": "nature",
+      "historicalBusinessHours": "09:30 - 17:00 (Closed Mondays)",
+      "historicalOpeningHours": "09:30 - 17:00 (Last admission 16:30)",
+      "currentBusinessHours": "Open access (riverbank); boat cruise schedule varies",
+      "currentOpeningHours": "09:30 - 17:00 (Last admission 16:30)",
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://koedo.or.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (riverbank); boat cruise schedule varies",
+        "openingHours": "09:30 - 17:00 (Last admission 16:30)",
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "shinjuku-gyo-en",
+      "name": "Shinjuku Gyo-en",
+      "kind": "park",
+      "historicalBusinessHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
+      "historicalOpeningHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
+      "currentBusinessHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
+      "currentOpeningHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
+      "currentProvenance": {
+        "sourceUrl": "https://www.env.go.jp/garden/shinjukugyoen/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.env.go.jp/garden/shinjukugyoen/",
+      "evidenceObservation": "Current canonical interval is 09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
+        "openingHours": "09:00-17:30 (Mar-Oct), 09:00-16:30 (Nov-Feb); closed Mon",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.env.go.jp/garden/shinjukugyoen/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "showa-kinen-park",
+      "name": "Showa Kinen Park",
+      "kind": "park",
+      "historicalBusinessHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+      "historicalOpeningHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+      "currentBusinessHours": "09:30 - 17:00 (Mar–Oct), 09:30 - 16:30 (Nov–Feb), closed Dec 31 - Jan 1 + February maintenance period; extended hours during festivals (see official calendar)",
+      "currentOpeningHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+      "currentProvenance": {
+        "sourceUrl": "https://www.showakinen-koen.jp/",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.showakinen-koen.jp/",
+      "evidenceObservation": "Current canonical interval is 09:30 - 17:00 (Mar–Oct), 09:30 - 16:30 (Nov–Feb), closed Dec 31 - Jan 1 + February maintenance period; extended hours during festivals (see official calendar) with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:30 - 17:00 (Mar–Oct), 09:30 - 16:30 (Nov–Feb), closed Dec 31 - Jan 1 + February maintenance period; extended hours during festivals (see official calendar)",
+        "openingHours": "09:30-17:00 (Mar-Oct), 09:30-16:30 (Nov-Feb), closed Dec 31-Jan 1 + Feb maintenance",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.showakinen-koen.jp/",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "tama-forest-science-garden",
+      "name": "Tama Forest Science Garden",
+      "kind": "park",
+      "historicalBusinessHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+      "historicalOpeningHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+      "currentBusinessHours": "09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6",
+      "currentOpeningHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+      "currentProvenance": {
+        "sourceUrl": "https://www.ffpri.go.jp/tmk/visit/index.html",
+        "verifiedAt": "2026-09-05"
+      },
+      "classification": "verified_specific_window",
+      "authoritativeSource": "https://www.ffpri.go.jp/tmk/visit/index.html",
+      "evidenceObservation": "Current canonical interval is 09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6 with fresh destination-specific provenance.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "09:30 - 16:00 (Last entry 15:30; opens 09:00 in April); closed Mondays (unless public holiday) and Dec 26 - Jan 6",
+        "openingHours": "09:30-16:00, closed Mon (Dec 29-Jan 4)",
+        "openingHoursMetadata": {
+          "sourceUrl": "https://www.ffpri.go.jp/tmk/visit/index.html",
+          "verifiedAt": "2026-09-05"
+        }
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "tanukikoji-shopping-street",
+      "name": "Tanukikoji Shopping Street",
+      "kind": "street",
+      "historicalBusinessHours": "08:30 - 17:00 (Last admission 16:30)",
+      "historicalOpeningHours": null,
+      "currentBusinessHours": "Open access (arcade); individual shops have their own hours",
+      "currentOpeningHours": null,
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://tanukikoji.or.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (arcade); individual shops have their own hours",
+        "openingHours": null,
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    },
+    {
+      "destinationId": "zushi",
+      "name": "Zushi & Yokosuka",
+      "kind": "nature",
+      "historicalBusinessHours": "09:00 - 17:00 (Daily)",
+      "historicalOpeningHours": "09:00 - 17:00",
+      "currentBusinessHours": "Open access (coastal town); individual facilities have their own hours",
+      "currentOpeningHours": "09:00 - 17:00",
+      "currentProvenance": null,
+      "classification": "invalid_specific_window",
+      "authoritativeSource": "https://www.zushi-kanko.jp/",
+      "evidenceObservation": "Destination-wide opening interval removed; canonical state is open-area/access prose and facility schedules are not asserted.",
+      "checkedDate": "2026-09-06",
+      "proposedCanonicalState": {
+        "businessHours": "Open access (coastal town); individual facilities have their own hours",
+        "openingHours": "09:00 - 17:00",
+        "openingHoursMetadata": null
+      },
+      "allowlistRemovalPossible": true,
+      "allowlistStatus": "not_allowlisted",
+      "changedFromHistorical": true
+    }
+  ]
+}

@@ -8,6 +8,7 @@ import {
   rebuildPlanFromEditedStops,
 } from "../DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
+import destinationIndex from "@/shared/data/destinations-index.json";
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 
 // KAI-121: the full catalogue is runtime-lazy; tests that need full
@@ -15,6 +16,8 @@ import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
 beforeAll(async () => {
   await loadDestinationsIndex();
 });
+
+import { getEffectiveVisitDuration } from "../VisitDurationPolicy";
 
 const mockDestPrimary = {
   id: "roppongi-hills",
@@ -59,6 +62,57 @@ describe("DayPlanGeneratorService", () => {
     }
   });
 
+  it("uses the canonical Ueno Zoo recommendation window for allocation", () => {
+    const ueno = (destinationIndex as unknown as Destination[]).find(
+      (destination) => destination.id === "ueno-zoo",
+    )!;
+
+    expect(getEffectiveVisitDuration(ueno)).toEqual({
+      minMins: 120,
+      prefMins: 180,
+      maxMins: 240,
+      source: "curated",
+    });
+  });
+
+  it("does not schedule Ueno Zoo before its verified opening or after closing", () => {
+    const catalogue = destinationIndex as unknown as Destination[];
+    const ueno = catalogue.find(
+      (destination) => destination.id === "ueno-zoo",
+    )!;
+    const plan = generateDayPlan(ueno, {
+      planType: "full_day",
+      startTime: "09:00",
+      availableMinutes: 9 * 60,
+      catalogue,
+    });
+    const uenoStep = plan.steps.find(
+      (step) => step.destination?.id === "ueno-zoo",
+    );
+
+    expect(uenoStep).toBeDefined();
+    expect(uenoStep!.startTime).toBe("09:30");
+    expect(uenoStep!.endTime).toBe("12:30");
+  });
+
+  it("marks an unknown-hours destination as unverified rather than all-day", () => {
+    const unknown = {
+      ...mockDestPrimary,
+      id: "unknown-hours-poi",
+      businessHours: undefined,
+      openingHoursMetadata: undefined,
+    } as Destination;
+    const plan = generateDayPlan(unknown, {
+      planType: "half_day",
+      availableMinutes: 300,
+    });
+
+    expect(plan.uncertainHoursDisclosures).toEqual(
+      expect.arrayContaining([
+        { destinationId: "unknown-hours-poi", name: "Roppongi Hills" },
+      ]),
+    );
+  });
   it("generates an explicit three-day itinerary for 3D2N", () => {
     const plan = generateDayPlan(mockDestPrimary, { duration: "3d2n" });
     expect(plan.duration).toBe("3d2n");
@@ -319,18 +373,13 @@ describe("getPlanEligibility", () => {
     }
   });
 
-  it("partial generated plan keeps its bounded estimated total range", () => {
+  it("omits a generated total when a mandatory stop admission is unresolved", () => {
     const plan = generateDayPlan(mockDestPrimary, {
       planType: "full_day",
       startTime: "09:00",
     });
-    // Fixture stops lack trusted fare provenance, but the range-first engine
-    // still returns an explicit estimated envelope.
     if (!plan.isUnfeasible) {
-      expect(plan.totalBudgetRange).not.toBeNull();
-      expect(plan.totalBudgetRange![1]).toBeGreaterThan(
-        plan.totalBudgetRange![0],
-      );
+      expect(plan.totalBudgetRange).toBeUndefined();
     }
   });
 
@@ -351,11 +400,7 @@ describe("getPlanEligibility", () => {
     // Rebuilding recalculates the range-first estimate and must not retain the
     // stale [3000,3000] value.
     if (rebuilt) {
-      expect(rebuilt.totalBudgetRange).toBeDefined();
-      expect(rebuilt.totalBudgetRange).not.toEqual([3000, 3000]);
-      expect(rebuilt.totalBudgetRange![1]).toBeGreaterThan(
-        rebuilt.totalBudgetRange![0],
-      );
+      expect(rebuilt.totalBudgetRange).toBeUndefined();
     }
   });
 });

@@ -22,6 +22,7 @@ function destination(overrides: Partial<Destination> = {}): Destination {
     coordinates: { lat: 35.45, lng: 139.63 },
     transportOptions: { train: 60 },
     recommendedVisitHours: { min: 2, max: 6 },
+    admission: verifiedAdmission,
     ...overrides,
   } as Destination;
 }
@@ -116,7 +117,7 @@ describe("KAI-260 TripEstimateEngine", () => {
     });
   });
 
-  it("keeps verified-free admission explicit and resolves missing admission via a model band", () => {
+  it("keeps verified-free admission explicit and leaves missing mandatory admission unresolved", () => {
     const free = calculateTripEstimate({
       dest: destination({
         admission: {
@@ -142,15 +143,42 @@ describe("KAI-260 TripEstimateEngine", () => {
       includeOriginTravel: false,
     });
     expect(component(missing, "admission").cost).toEqual({
-      kind: "bounded",
-      min: 1000,
-      max: 6000,
+      kind: "unavailable",
+      reason: "source_missing",
     });
-    expect(component(missing, "admission").evidence.derivation).toBe(
-      "model_estimate",
+    expect(missing.completeness).toBe("partial");
+    expect(missing.missingComponents).toEqual(
+      expect.arrayContaining([expect.objectContaining({ scope: "admission" })]),
     );
-    expect(missing.estimateQuality).toBe("rough");
-    expect(missing.total).toBeDefined();
+    expect(missing.total).toBeUndefined();
+  });
+
+  it("does not turn variable mandatory admission into a cheap bounded fallback", () => {
+    const disneySea = calculateTripEstimate({
+      dest: destination({
+        id: "disneysea",
+        name: "Tokyo DisneySea",
+        categories: ["Theme Park"],
+        admission: {
+          state: "variable_price",
+          provenance: "verified_source",
+          reasonCode: "price_variable_by_date",
+          cost: { kind: "variable" },
+          scope: "general_entry",
+          sourceUrls: ["https://www.tokyodisneyresort.jp/en/ticket/index.html"],
+          checkedAt: "2026-08-28",
+          basis: "Official operator uses date-specific park ticket products.",
+        },
+      }),
+      duration: "fullDay",
+      partySize: 2,
+      includeOriginTravel: false,
+    });
+    const admission = component(disneySea, "admission");
+
+    expect(admission.cost).toEqual({ kind: "variable" });
+    expect(disneySea.total).toBeUndefined();
+    expect(evaluateBudgetAffordability(disneySea, 20000)).toBe("partial");
   });
 
   it("widens missing origin fare instead of turning a routable route unavailable", () => {
@@ -259,10 +287,12 @@ describe("KAI-260 TripEstimateEngine", () => {
       duration: "fullDay",
       includeOriginTravel: false,
     });
-    const local = component(result, "local_transport");
-    expect(local.cost).not.toEqual({ kind: "bounded", min: 0, max: 0 });
-    expect(local.evidence.derivation).toBe("model_estimate");
-    expect(result.total).toBeDefined();
+    const admission = component(result, "admission");
+    expect(admission.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
+    expect(result.total).toBeUndefined();
   });
 
   it("formats estimated EN and JA ranges without midpoint collapse", () => {

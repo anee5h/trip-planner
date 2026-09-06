@@ -157,12 +157,7 @@
   },
   "officialWebsite": "https://takachiho-kanko.info/",
   "municipalityId": "Miyazaki:takachiho",
-  "openingHours": "08:30–17:00 (Boat rentals)",
   "openingHoursJa": "08:30～17:00（貸しボート）",
-  "openingHoursMetadata": {
-    "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://takachiho-kanko.info/en/"
-  },
   "notesJa": "ボートは予約不可のため週末は早朝の到着がおすすめです。",
   "seasonMetadata": {
     "method": "unknown",

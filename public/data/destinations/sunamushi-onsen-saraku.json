@@ -53,13 +53,7 @@
     "Yukata provided — bury yourself in healing warm sand",
     "Rinse off in the adjacent hot-spring bath"
   ],
-  "openingHours": "06:00–21:00 (last admission 20:30)",
   "openingHoursJa": "06:00～21:00（最終受付20:30）",
-  "openingHoursMetadata": {
-    "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.ibusuki.or.jp/en/spot/saraku/",
-    "closedDays": "Open daily (occasional maintenance closures — check official site)"
-  },
   "transportOptions": {
     "train": 310,
     "bus": 200

@@ -10537,7 +10537,6 @@
       "rainFriendly": 8,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
     "relationships": {
       "parentDestinationId": "nagoya-city"
     }
@@ -20655,8 +20654,6 @@
       "rainFriendly": 4,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "24 Hours (Open access)",
     "relationships": {
       "parentDestinationId": "sagamihara-city"
     }
@@ -45815,8 +45812,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "chuo-city"
     }
@@ -46093,8 +46088,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "koto-city"
     }
@@ -46187,8 +46180,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "koto-city"
     }
@@ -46281,8 +46272,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "sumida-city"
     }
@@ -46375,8 +46364,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "sumida-city"
     }
@@ -46641,8 +46628,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "toshima-city"
     }
@@ -46995,8 +46980,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "machida-tokyo"
     }
@@ -47183,8 +47166,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "machida-tokyo"
     }
@@ -48976,8 +48957,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "tachikawa-tokyo"
     }
@@ -49167,8 +49146,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
-    "openingHours": "09:30 - 17:00 (Last admission 16:30)",
     "relationships": {
       "parentDestinationId": "tachikawa-tokyo"
     }
@@ -49432,7 +49409,6 @@
       "rainFriendly": 5,
       "walkingIntensity": 5
     },
-    "businessHours": "Open access",
     "relationships": {
       "parentDestinationId": "osaka-city"
     }
@@ -54521,7 +54497,6 @@
       "rainFriendly": 9,
       "walkingIntensity": 2
     },
-    "openingHours": "06:30–22:30",
     "relationships": {
       "parentDestinationId": "beppu-city"
     }
@@ -55426,7 +55401,6 @@
       "rainFriendly": 1,
       "walkingIntensity": 8
     },
-    "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)",
     "relationships": {
       "parentDestinationId": "aso-city"
     }
@@ -56002,7 +55976,6 @@
       "rainFriendly": 1,
       "walkingIntensity": 8
     },
-    "openingHours": "08:30–17:00 (Boat rentals)",
     "relationships": {
       "parentDestinationId": "takachiho-town"
     }
@@ -56335,7 +56308,6 @@
       "heatTolerance": 7,
       "rainFriendly": 1
     },
-    "openingHours": "08:30–16:30 (Administration building)",
     "relationships": {
       "parentDestinationId": "yakushima-town"
     }
@@ -57890,7 +57862,6 @@
       "rainFriendly": 9,
       "walkingIntensity": 2
     },
-    "openingHours": "06:00–21:00 (last admission 20:30)",
     "relationships": {
       "parentDestinationId": "ibusuki-city"
     }
@@ -65444,7 +65415,7 @@
       "rainFriendly": 2,
       "walkingIntensity": 5
     },
-    "businessHours": "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+    "businessHours": "Open access (island); bridge and facility schedules vary",
     "relationships": {
       "parentDestinationId": "matsushima-town"
     }

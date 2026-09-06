@@ -25,15 +25,16 @@ const destination = {
 } as unknown as Destination;
 
 describe("KAI-260 generated-plan canonical adapter", () => {
-  it("includes a bounded canonical range and meals without an origin fare", () => {
+  it("keeps the generated total partial when mandatory admission is unresolved", () => {
     const result = calculateGeneratedPlanCost(
       planFor(destination),
       2,
       null,
       false,
     );
-    expect(result.totalRange).toBeDefined();
-    expect(result.totalRange![0]).toBeLessThan(result.totalRange![1]);
+    expect(result.totalRange).toBeUndefined();
+    expect(result.completeness).toBe("partial");
+    expect(result.admission.semanticState).toBe("unknown");
     expect(result.meals.applicable).toBe(true);
     expect(result.meals.source).toBe("estimated");
     expect(result.originTransport.applicable).toBe(false);
