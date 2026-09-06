@@ -1,0 +1,474 @@
+{
+  "schemaVersion": 1,
+  "baseline": "ff0eeed0c765a973537ed7c99c6ff0c902cdbd17",
+  "origin": {
+    "label": "Tokyo Station",
+    "coordinates": {
+      "lat": 35.6812,
+      "lng": 139.7671
+    },
+    "zoneId": "mainland-honshu"
+  },
+  "methodology": "Bounded runtime semantic audit; no catalogue-wide transport research.",
+  "counts": {
+    "cases": 8,
+    "carTransitMismatches": 0,
+    "endpointMismatches": 0,
+    "localCardOriginScopeLeaks": 0,
+    "sameOriginMisleadingJourneys": 0,
+    "partialAsCompleteDefects": 0,
+    "unsupportedCarTransitFallbacks": 0,
+    "directionsBuildersBefore": 1,
+    "directionsBuildersAfter": 1,
+    "journeyResultOwnersBefore": 5,
+    "journeyResultOwnersAfter": 1
+  },
+  "findings": [
+    {
+      "id": "hakone-my-car",
+      "fixture": "A",
+      "result": {
+        "origin": {
+          "kind": "origin",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "hakone-town",
+          "anchorKey": "coordinates:35.2324:139.1069",
+          "name": "Hakone Town",
+          "coordinates": {
+            "lat": 35.2324,
+            "lng": 139.1069
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "mode": "my_car",
+        "duration": [74, 94],
+        "availability": "available",
+        "scope": "origin_journey",
+        "directionality": "one_way",
+        "completeness": "complete",
+        "provenance": {
+          "source": "calculated_ground_display",
+          "confidence": "low",
+          "duration": "estimated",
+          "cost": "unknown"
+        },
+        "externalHandoff": {
+          "supported": true,
+          "mode": "driving"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.6812%2C139.7671&destination=35.2324%2C139.1069&travelmode=driving",
+          "externalMode": "driving",
+          "internalMode": "my_car",
+          "origin": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "destination": {
+            "lat": 35.2324,
+            "lng": 139.1069
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "hakone-rental-car",
+      "fixture": "E",
+      "result": {
+        "origin": {
+          "kind": "origin",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "hakone-town",
+          "anchorKey": "coordinates:35.2324:139.1069",
+          "name": "Hakone Town",
+          "coordinates": {
+            "lat": 35.2324,
+            "lng": 139.1069
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "mode": "car",
+        "duration": [74, 94],
+        "availability": "available",
+        "scope": "origin_journey",
+        "directionality": "one_way",
+        "completeness": "complete",
+        "provenance": {
+          "source": "calculated_ground_display",
+          "confidence": "low",
+          "duration": "estimated",
+          "cost": "unknown"
+        },
+        "externalHandoff": {
+          "supported": true,
+          "mode": "driving"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.6812%2C139.7671&destination=35.2324%2C139.1069&travelmode=driving",
+          "externalMode": "driving",
+          "internalMode": "car",
+          "origin": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "destination": {
+            "lat": 35.2324,
+            "lng": 139.1069
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "hakone-public-transit",
+      "fixture": "E",
+      "result": {
+        "origin": {
+          "kind": "origin",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "hakone-town",
+          "anchorKey": "coordinates:35.2324:139.1069",
+          "name": "Hakone Town",
+          "coordinates": {
+            "lat": 35.2324,
+            "lng": 139.1069
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "mode": "train",
+        "duration": [69, 89],
+        "availability": "available",
+        "scope": "origin_journey",
+        "directionality": "one_way",
+        "completeness": "complete",
+        "provenance": {
+          "source": "calculated_ground_display",
+          "confidence": "low",
+          "duration": "estimated",
+          "cost": "unknown"
+        },
+        "externalHandoff": {
+          "supported": true,
+          "mode": "transit"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.6812%2C139.7671&destination=35.2324%2C139.1069&travelmode=transit",
+          "externalMode": "transit",
+          "internalMode": "train",
+          "origin": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "destination": {
+            "lat": 35.2324,
+            "lng": 139.1069
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "kyoto-local-fushimi",
+      "fixture": "B",
+      "result": {
+        "origin": {
+          "id": "kyoto-city",
+          "anchorKey": "coordinates:35.0116:135.7681",
+          "name": "Kyoto City",
+          "coordinates": {
+            "lat": 35.0116,
+            "lng": 135.7681
+          },
+          "zoneId": "mainland-honshu",
+          "kind": "access_anchor"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "fushimi-inari-taisha",
+          "anchorKey": "coordinates:34.9672:135.7734",
+          "name": "Fushimi Inari Taisha",
+          "coordinates": {
+            "lat": 34.967202,
+            "lng": 135.773386
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "mode": "train",
+        "duration": [17, 22],
+        "availability": "available",
+        "scope": "local_access",
+        "directionality": "one_way",
+        "completeness": "complete",
+        "provenance": {
+          "source": "calculated_local_bounded_estimate",
+          "confidence": "low",
+          "duration": "estimated",
+          "cost": "estimated"
+        },
+        "externalHandoff": {
+          "supported": true,
+          "mode": "transit"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.0116%2C135.7681&destination=34.967202%2C135.773386&travelmode=transit",
+          "externalMode": "transit",
+          "internalMode": "train",
+          "origin": {
+            "lat": 35.0116,
+            "lng": 135.7681
+          },
+          "destination": {
+            "lat": 34.967202,
+            "lng": 135.773386
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "tokyo-station-same-anchor",
+      "fixture": "C",
+      "result": {
+        "origin": {
+          "kind": "origin",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "tokyo-station-chiyoda",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.681236,
+            "lng": 139.767125
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "mode": "train",
+        "duration": [0, 0],
+        "availability": "available",
+        "scope": "local_access",
+        "directionality": "one_way",
+        "completeness": "complete",
+        "provenance": {
+          "source": "same_canonical_anchor",
+          "confidence": "high",
+          "duration": "verified",
+          "cost": "unknown"
+        },
+        "externalHandoff": {
+          "supported": false,
+          "reason": "same_anchor"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.6812%2C139.7671&destination=35.681236%2C139.767125&travelmode=transit",
+          "externalMode": "transit",
+          "internalMode": "train",
+          "origin": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "destination": {
+            "lat": 35.681236,
+            "lng": 139.767125
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "tokyo-station-distinct-anchor",
+      "fixture": "C",
+      "result": {
+        "origin": {
+          "kind": "origin",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "tokyo-station-chiyoda",
+          "anchorKey": "coordinates:35.6822:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.682235999999996,
+            "lng": 139.767125
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "mode": "train",
+        "duration": [14, 19],
+        "availability": "available",
+        "scope": "origin_journey",
+        "directionality": "one_way",
+        "completeness": "complete",
+        "provenance": {
+          "source": "calculated_local_bounded_estimate",
+          "confidence": "low",
+          "duration": "estimated",
+          "cost": "estimated"
+        },
+        "externalHandoff": {
+          "supported": true,
+          "mode": "transit"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.6812%2C139.7671&destination=35.682235999999996%2C139.767125&travelmode=transit",
+          "externalMode": "transit",
+          "internalMode": "train",
+          "origin": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "destination": {
+            "lat": 35.682235999999996,
+            "lng": 139.767125
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "shodoshima-partial-local-access",
+      "fixture": "D",
+      "result": {
+        "origin": {
+          "id": "shodoshima:arrival",
+          "anchorKey": "arrival:shodoshima",
+          "name": "Ferry arrival / local access anchor",
+          "kind": "access_anchor"
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "shodoshima",
+          "anchorKey": "coordinates:34.5100:134.2900",
+          "name": "Shodoshima Island",
+          "coordinates": {
+            "lat": 34.51,
+            "lng": 134.29
+          },
+          "zoneId": "shodoshima"
+        },
+        "mode": "bus",
+        "duration": null,
+        "availability": "unknown",
+        "scope": "final_segment",
+        "directionality": "one_way",
+        "completeness": "partial",
+        "provenance": {
+          "source": "known_local_access_guidance",
+          "confidence": "low",
+          "duration": "unknown",
+          "cost": "unknown"
+        },
+        "externalHandoff": {
+          "supported": false,
+          "reason": "partial_journey"
+        },
+        "handoff": null
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "shodoshima-unsupported-car",
+      "fixture": "F",
+      "result": null,
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "unsupportedCarFallback": false
+      }
+    }
+  ]
+}

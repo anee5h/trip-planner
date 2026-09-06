@@ -109,7 +109,11 @@ function LocationProbe() {
   );
 }
 
-async function renderAt(entry: string, cardProps: Record<string, unknown>) {
+async function renderAt(
+  entry: string,
+  cardProps: Record<string, unknown>,
+  destinationOverride: Destination = destination,
+) {
   host = document.createElement("div");
   document.body.appendChild(host);
   root = createRoot(host);
@@ -122,7 +126,7 @@ async function renderAt(entry: string, cardProps: Record<string, unknown>) {
             element={
               <div>
                 <DestinationCard
-                  destination={destination}
+                  destination={destinationOverride}
                   {...(cardProps as object)}
                 />
               </div>
@@ -315,5 +319,27 @@ describe("KAI-275 DestinationCard partial-cost disclosure", () => {
     const text = container.textContent ?? "";
     expect(text).toContain("Cost unavailable");
     expect(text).not.toContain("Known");
+  });
+});
+
+describe("KAI-278 local-access journey scope", () => {
+  it("labels a Kyoto child card as local access instead of home-origin travel", async () => {
+    const kyotoChild = destinations.find(
+      (candidate) => candidate.id === "fushimi-inari-taisha",
+    ) as Destination;
+    const container = await renderAt(
+      "/destinations?city=kyoto-city",
+      {
+        carMode: "none",
+        publicModes: ["train", "bus"],
+        journeyScope: "local_access",
+      },
+      kyotoChild,
+    );
+
+    const scope = container.querySelector('[data-testid="journey-scope"]');
+    expect(scope).not.toBeNull();
+    expect(scope?.textContent).toMatch(/Local access/);
+    expect(scope?.textContent).not.toMatch(/Tokyo/);
   });
 });

@@ -50,6 +50,7 @@ const WEIGHTS = {
   "kai-262-overnight-car": 20, // overnight car regression (3 scenarios)
   "kai-275-car-only-context": 25, // Personal-Car-only Home→Explore→detail flow
   "kai-276-trip-context": 30, // cross-surface canonical context journeys
+  "kai-278-journey-handoff": 20, // canonical handoff/scope boundary
   "kai-259-signup-header": 20, // guest header + deterministic auth header flow
   "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
   "card-rail-alignment": 4, // equal-height rail contract (Home top matches + hubs)
@@ -67,6 +68,7 @@ const BINS = {
     "kai-262-overnight-car",
     "kai-275-car-only-context",
     "kai-276-trip-context",
+    "kai-278-journey-handoff",
     "kai-94-beta-version-email",
   ],
   4: [

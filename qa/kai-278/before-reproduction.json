@@ -1,0 +1,1577 @@
+{
+  "baseline": "ff0eeed0c765a973537ed7c99c6ff0c902cdbd17",
+  "fixtures": {
+    "A_hakone_personal_car": {
+      "destination": {
+        "id": "hakone-town",
+        "name": "Hakone Town",
+        "coordinates": {
+          "lat": 35.2324,
+          "lng": 139.1069
+        }
+      },
+      "origins": [
+        {
+          "label": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zone": "mainland-honshu",
+          "selection": {
+            "homeStationCoords": {
+              "lat": 35.6812,
+              "lng": 139.7671
+            },
+            "originZoneId": "mainland-honshu",
+            "carMode": "my_car",
+            "publicModes": []
+          },
+          "displayedModeCandidates": ["my_car"],
+          "displayedJourney": {
+            "estimate": {
+              "mode": "my_car",
+              "timeRange": [74, 94],
+              "source": "calculated_ground_display",
+              "evidence": "estimated",
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.6812,
+                  "lng": 139.7671
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "hakone-town",
+                "name": "Hakone Town",
+                "coordinates": {
+                  "lat": 35.2324,
+                  "lng": 139.1069
+                }
+              },
+              "availability": "available",
+              "confidence": "low",
+              "provenance": {
+                "source": "calculated_ground_display",
+                "confidence": "low",
+                "duration": "estimated",
+                "cost": "unknown"
+              },
+              "legs": [
+                {
+                  "mode": "my_car",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.6812,
+                      "lng": 139.7671
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "hakone-town",
+                    "name": "Hakone Town",
+                    "coordinates": {
+                      "lat": 35.2324,
+                      "lng": 139.1069
+                    }
+                  },
+                  "duration": {
+                    "minutes": [74, 94],
+                    "evidence": "estimated",
+                    "source": "calculated_ground_display"
+                  },
+                  "availability": "available",
+                  "confidence": "low",
+                  "provenance": {
+                    "source": "calculated_ground_display",
+                    "confidence": "low",
+                    "duration": "estimated",
+                    "cost": "unknown"
+                  },
+                  "routeMetadata": {
+                    "source": "calculated_ground_display",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu"
+                  }
+                }
+              ]
+            }
+          },
+          "rawOriginAwareEstimate": null,
+          "directionsHref": "https://www.google.com/maps/dir/?api=1&origin=Tokyo%20Station&destination=Hakone%20Town%2C%20Kanagawa%2C%20Japan&travelmode=transit",
+          "externalTravelMode": "transit",
+          "mismatch": true
+        },
+        {
+          "label": "Yokohama Station",
+          "coordinates": {
+            "lat": 35.4657,
+            "lng": 139.6222
+          },
+          "zone": "mainland-honshu",
+          "selection": {
+            "homeStationCoords": {
+              "lat": 35.4657,
+              "lng": 139.6222
+            },
+            "originZoneId": "mainland-honshu",
+            "carMode": "my_car",
+            "publicModes": []
+          },
+          "displayedModeCandidates": ["my_car"],
+          "displayedJourney": {
+            "estimate": {
+              "mode": "my_car",
+              "timeRange": [53, 68],
+              "source": "calculated_ground_display",
+              "evidence": "estimated",
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.4657,
+                  "lng": 139.6222
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "hakone-town",
+                "name": "Hakone Town",
+                "coordinates": {
+                  "lat": 35.2324,
+                  "lng": 139.1069
+                }
+              },
+              "availability": "available",
+              "confidence": "low",
+              "provenance": {
+                "source": "calculated_ground_display",
+                "confidence": "low",
+                "duration": "estimated",
+                "cost": "unknown"
+              },
+              "legs": [
+                {
+                  "mode": "my_car",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.4657,
+                      "lng": 139.6222
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "hakone-town",
+                    "name": "Hakone Town",
+                    "coordinates": {
+                      "lat": 35.2324,
+                      "lng": 139.1069
+                    }
+                  },
+                  "duration": {
+                    "minutes": [53, 68],
+                    "evidence": "estimated",
+                    "source": "calculated_ground_display"
+                  },
+                  "availability": "available",
+                  "confidence": "low",
+                  "provenance": {
+                    "source": "calculated_ground_display",
+                    "confidence": "low",
+                    "duration": "estimated",
+                    "cost": "unknown"
+                  },
+                  "routeMetadata": {
+                    "source": "calculated_ground_display",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu"
+                  }
+                }
+              ]
+            }
+          },
+          "rawOriginAwareEstimate": null,
+          "directionsHref": "https://www.google.com/maps/dir/?api=1&origin=Yokohama%20Station&destination=Hakone%20Town%2C%20Kanagawa%2C%20Japan&travelmode=transit",
+          "externalTravelMode": "transit",
+          "mismatch": true
+        }
+      ]
+    },
+    "B_kyoto_hub_local_sights": {
+      "hub": {
+        "id": "kyoto-city",
+        "name": "Kyoto City",
+        "coordinates": {
+          "lat": 35.0116,
+          "lng": 135.7681
+        },
+        "zone": "mainland-honshu"
+      },
+      "userOrigin": {
+        "label": "Tokyo Station",
+        "coordinates": {
+          "lat": 35.6812,
+          "lng": 139.7671
+        },
+        "zone": "mainland-honshu"
+      },
+      "cards": [
+        {
+          "id": "kiyomizu-dera",
+          "name": "Kiyomizu-dera Temple",
+          "parentDestinationId": "kyoto-city",
+          "coordinates": {
+            "lat": 34.994856,
+            "lng": 135.78505
+          },
+          "displayedJourney": {
+            "estimate": {
+              "mode": "shinkansen",
+              "timeRange": [148, 241],
+              "source": "verified_ground_route",
+              "evidence": "estimated",
+              "fareEvidence": "unknown",
+              "corridorEvidence": "verified",
+              "accessDistanceKm": {
+                "destination": 2.594652797942357
+              },
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu",
+              "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+              "checkedAt": "2026-08-06"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.6812,
+                  "lng": 139.7671
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "kiyomizu-dera",
+                "name": "Kiyomizu-dera Temple",
+                "coordinates": {
+                  "lat": 34.994856,
+                  "lng": 135.78505
+                }
+              },
+              "availability": "available",
+              "confidence": "medium",
+              "provenance": {
+                "source": "verified_ground_route",
+                "confidence": "medium",
+                "duration": "estimated",
+                "cost": "unknown",
+                "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                "checkedAt": "2026-08-06"
+              },
+              "legs": [
+                {
+                  "mode": "shinkansen",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.6812,
+                      "lng": 139.7671
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "kiyomizu-dera",
+                    "name": "Kiyomizu-dera Temple",
+                    "coordinates": {
+                      "lat": 34.994856,
+                      "lng": 135.78505
+                    }
+                  },
+                  "duration": {
+                    "minutes": [148, 241],
+                    "evidence": "estimated",
+                    "source": "verified_ground_route",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "availability": "available",
+                  "confidence": "medium",
+                  "provenance": {
+                    "source": "verified_ground_route",
+                    "confidence": "medium",
+                    "duration": "estimated",
+                    "cost": "unknown",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "routeMetadata": {
+                    "source": "verified_ground_route",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu",
+                    "corridorEvidence": "verified",
+                    "accessDistanceKm": {
+                      "destination": 2.594652797942357
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "displayedScope": "origin-level (inferred from journey origin endpoint)",
+          "localAnchorJourney": {
+            "evidence": "unknown",
+            "journey": null
+          },
+          "visuallyCommunicatedScope": false
+        },
+        {
+          "id": "arashiyama-bamboo-togetsukyo",
+          "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+          "parentDestinationId": "kyoto-city",
+          "coordinates": {
+            "lat": 35.0128769,
+            "lng": 135.6777748
+          },
+          "displayedJourney": {
+            "estimate": {
+              "mode": "shinkansen",
+              "timeRange": [156, 251],
+              "source": "verified_ground_route",
+              "evidence": "estimated",
+              "fareEvidence": "unknown",
+              "corridorEvidence": "verified",
+              "accessDistanceKm": {
+                "destination": 7.970796512488783
+              },
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu",
+              "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+              "checkedAt": "2026-08-06"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.6812,
+                  "lng": 139.7671
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "arashiyama-bamboo-togetsukyo",
+                "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+                "coordinates": {
+                  "lat": 35.0128769,
+                  "lng": 135.6777748
+                }
+              },
+              "availability": "available",
+              "confidence": "medium",
+              "provenance": {
+                "source": "verified_ground_route",
+                "confidence": "medium",
+                "duration": "estimated",
+                "cost": "unknown",
+                "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                "checkedAt": "2026-08-06"
+              },
+              "legs": [
+                {
+                  "mode": "shinkansen",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.6812,
+                      "lng": 139.7671
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "arashiyama-bamboo-togetsukyo",
+                    "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+                    "coordinates": {
+                      "lat": 35.0128769,
+                      "lng": 135.6777748
+                    }
+                  },
+                  "duration": {
+                    "minutes": [156, 251],
+                    "evidence": "estimated",
+                    "source": "verified_ground_route",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "availability": "available",
+                  "confidence": "medium",
+                  "provenance": {
+                    "source": "verified_ground_route",
+                    "confidence": "medium",
+                    "duration": "estimated",
+                    "cost": "unknown",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "routeMetadata": {
+                    "source": "verified_ground_route",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu",
+                    "corridorEvidence": "verified",
+                    "accessDistanceKm": {
+                      "destination": 7.970796512488783
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "displayedScope": "origin-level (inferred from journey origin endpoint)",
+          "localAnchorJourney": {
+            "evidence": "unknown",
+            "journey": null
+          },
+          "visuallyCommunicatedScope": false
+        },
+        {
+          "id": "tenryu-ji-kyoto",
+          "name": "Tenryu-ji Temple",
+          "parentDestinationId": "kyoto-city",
+          "coordinates": {
+            "lat": 35.015859,
+            "lng": 135.673685
+          },
+          "displayedJourney": {
+            "estimate": {
+              "mode": "shinkansen",
+              "timeRange": [156, 251],
+              "source": "verified_ground_route",
+              "evidence": "estimated",
+              "fareEvidence": "unknown",
+              "corridorEvidence": "verified",
+              "accessDistanceKm": {
+                "destination": 8.442484776530263
+              },
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu",
+              "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+              "checkedAt": "2026-08-06"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.6812,
+                  "lng": 139.7671
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "tenryu-ji-kyoto",
+                "name": "Tenryu-ji Temple",
+                "coordinates": {
+                  "lat": 35.015859,
+                  "lng": 135.673685
+                }
+              },
+              "availability": "available",
+              "confidence": "medium",
+              "provenance": {
+                "source": "verified_ground_route",
+                "confidence": "medium",
+                "duration": "estimated",
+                "cost": "unknown",
+                "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                "checkedAt": "2026-08-06"
+              },
+              "legs": [
+                {
+                  "mode": "shinkansen",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.6812,
+                      "lng": 139.7671
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "tenryu-ji-kyoto",
+                    "name": "Tenryu-ji Temple",
+                    "coordinates": {
+                      "lat": 35.015859,
+                      "lng": 135.673685
+                    }
+                  },
+                  "duration": {
+                    "minutes": [156, 251],
+                    "evidence": "estimated",
+                    "source": "verified_ground_route",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "availability": "available",
+                  "confidence": "medium",
+                  "provenance": {
+                    "source": "verified_ground_route",
+                    "confidence": "medium",
+                    "duration": "estimated",
+                    "cost": "unknown",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "routeMetadata": {
+                    "source": "verified_ground_route",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu",
+                    "corridorEvidence": "verified",
+                    "accessDistanceKm": {
+                      "destination": 8.442484776530263
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "displayedScope": "origin-level (inferred from journey origin endpoint)",
+          "localAnchorJourney": {
+            "evidence": "unknown",
+            "journey": null
+          },
+          "visuallyCommunicatedScope": false
+        },
+        {
+          "id": "kinkaku-ji",
+          "name": "Kinkaku-ji",
+          "parentDestinationId": "kyoto-city",
+          "coordinates": {
+            "lat": 35.0395,
+            "lng": 135.7285
+          },
+          "displayedJourney": {
+            "estimate": {
+              "mode": "shinkansen",
+              "timeRange": [154, 249],
+              "source": "verified_ground_route",
+              "evidence": "estimated",
+              "fareEvidence": "unknown",
+              "corridorEvidence": "verified",
+              "accessDistanceKm": {
+                "destination": 6.57795487406583
+              },
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu",
+              "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+              "checkedAt": "2026-08-06"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.6812,
+                  "lng": 139.7671
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "kinkaku-ji",
+                "name": "Kinkaku-ji",
+                "coordinates": {
+                  "lat": 35.0395,
+                  "lng": 135.7285
+                }
+              },
+              "availability": "available",
+              "confidence": "medium",
+              "provenance": {
+                "source": "verified_ground_route",
+                "confidence": "medium",
+                "duration": "estimated",
+                "cost": "unknown",
+                "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                "checkedAt": "2026-08-06"
+              },
+              "legs": [
+                {
+                  "mode": "shinkansen",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.6812,
+                      "lng": 139.7671
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "kinkaku-ji",
+                    "name": "Kinkaku-ji",
+                    "coordinates": {
+                      "lat": 35.0395,
+                      "lng": 135.7285
+                    }
+                  },
+                  "duration": {
+                    "minutes": [154, 249],
+                    "evidence": "estimated",
+                    "source": "verified_ground_route",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "availability": "available",
+                  "confidence": "medium",
+                  "provenance": {
+                    "source": "verified_ground_route",
+                    "confidence": "medium",
+                    "duration": "estimated",
+                    "cost": "unknown",
+                    "sourceUrl": "https://global.kyoto.travel/en/faq/detail.php?faq_id=80",
+                    "checkedAt": "2026-08-06"
+                  },
+                  "routeMetadata": {
+                    "source": "verified_ground_route",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu",
+                    "corridorEvidence": "verified",
+                    "accessDistanceKm": {
+                      "destination": 6.57795487406583
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "displayedScope": "origin-level (inferred from journey origin endpoint)",
+          "localAnchorJourney": {
+            "estimate": {
+              "mode": "train",
+              "timeRange": [17, 22],
+              "source": "calculated_local_bounded_estimate",
+              "evidence": "estimated",
+              "fareEvidence": "estimated",
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu",
+              "fare": [150, 500],
+              "fareVariability": "range",
+              "fareSourceUrl": "https://www.jreast.co.jp/2026unchin-kaitei/assets/pdf/dentoku_yamate.pdf",
+              "fareSourceUrls": [
+                "https://www.jreast.co.jp/2026unchin-kaitei/assets/pdf/dentoku_yamate.pdf",
+                "https://subway.osakametro.co.jp/en/guide/fare/fare/price.php",
+                "https://www.tokyometro.jp/en/ticket/regular/index.html"
+              ],
+              "fareScope": "local_bounded_estimate"
+            },
+            "evidence": "estimated",
+            "journey": {
+              "origin": {
+                "kind": "origin",
+                "coordinates": {
+                  "lat": 35.0116,
+                  "lng": 135.7681
+                },
+                "zoneId": "mainland-honshu"
+              },
+              "destination": {
+                "kind": "destination",
+                "id": "kinkaku-ji",
+                "name": "Kinkaku-ji",
+                "coordinates": {
+                  "lat": 35.0395,
+                  "lng": 135.7285
+                }
+              },
+              "availability": "available",
+              "confidence": "low",
+              "provenance": {
+                "source": "calculated_local_bounded_estimate",
+                "confidence": "low",
+                "duration": "estimated",
+                "cost": "estimated"
+              },
+              "legs": [
+                {
+                  "mode": "train",
+                  "origin": {
+                    "kind": "origin",
+                    "coordinates": {
+                      "lat": 35.0116,
+                      "lng": 135.7681
+                    },
+                    "zoneId": "mainland-honshu"
+                  },
+                  "destination": {
+                    "kind": "destination",
+                    "id": "kinkaku-ji",
+                    "name": "Kinkaku-ji",
+                    "coordinates": {
+                      "lat": 35.0395,
+                      "lng": 135.7285
+                    }
+                  },
+                  "duration": {
+                    "minutes": [17, 22],
+                    "evidence": "estimated",
+                    "source": "calculated_local_bounded_estimate"
+                  },
+                  "availability": "available",
+                  "confidence": "low",
+                  "provenance": {
+                    "source": "calculated_local_bounded_estimate",
+                    "confidence": "low",
+                    "duration": "estimated",
+                    "cost": "estimated"
+                  },
+                  "routeMetadata": {
+                    "source": "calculated_local_bounded_estimate",
+                    "originZoneId": "mainland-honshu",
+                    "destinationZoneId": "mainland-honshu",
+                    "fareVariability": "range"
+                  }
+                }
+              ]
+            }
+          },
+          "visuallyCommunicatedScope": false
+        }
+      ]
+    },
+    "C_tokyo_station_same_origin": {
+      "origin": {
+        "id": "Tokyo:chiyoda",
+        "label": "Tokyo Station",
+        "coordinates": {
+          "lat": 35.6812,
+          "lng": 139.7671
+        },
+        "zone": "mainland-honshu"
+      },
+      "destination": {
+        "id": "tokyo-station-chiyoda",
+        "name": "Tokyo Station",
+        "coordinates": {
+          "lat": 35.681236,
+          "lng": 139.767125
+        },
+        "zone": "mainland-honshu"
+      },
+      "rawOriginAwareTrainEstimate": {
+        "mode": "train",
+        "timeRange": [14, 19],
+        "source": "calculated_local_bounded_estimate",
+        "evidence": "estimated",
+        "fareEvidence": "estimated",
+        "originZoneId": "mainland-honshu",
+        "destinationZoneId": "mainland-honshu",
+        "fare": [150, 500],
+        "fareVariability": "range",
+        "fareSourceUrl": "https://www.jreast.co.jp/2026unchin-kaitei/assets/pdf/dentoku_yamate.pdf",
+        "fareSourceUrls": [
+          "https://www.jreast.co.jp/2026unchin-kaitei/assets/pdf/dentoku_yamate.pdf",
+          "https://subway.osakametro.co.jp/en/guide/fare/fare/price.php",
+          "https://www.tokyometro.jp/en/ticket/regular/index.html"
+        ],
+        "fareScope": "local_bounded_estimate"
+      },
+      "canonicalJourney": {
+        "origin": {
+          "kind": "origin",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          }
+        },
+        "destination": {
+          "kind": "destination",
+          "id": "tokyo-station-chiyoda",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.681236,
+            "lng": 139.767125
+          }
+        },
+        "availability": "available",
+        "confidence": "low",
+        "provenance": {
+          "source": "calculated_local_bounded_estimate",
+          "confidence": "low",
+          "duration": "estimated",
+          "cost": "estimated"
+        },
+        "legs": [
+          {
+            "mode": "train",
+            "origin": {
+              "kind": "origin",
+              "coordinates": {
+                "lat": 35.6812,
+                "lng": 139.7671
+              }
+            },
+            "destination": {
+              "kind": "destination",
+              "id": "tokyo-station-chiyoda",
+              "name": "Tokyo Station",
+              "coordinates": {
+                "lat": 35.681236,
+                "lng": 139.767125
+              }
+            },
+            "duration": {
+              "minutes": [14, 19],
+              "evidence": "estimated",
+              "source": "calculated_local_bounded_estimate"
+            },
+            "availability": "available",
+            "confidence": "low",
+            "provenance": {
+              "source": "calculated_local_bounded_estimate",
+              "confidence": "low",
+              "duration": "estimated",
+              "cost": "estimated"
+            },
+            "routeMetadata": {
+              "source": "calculated_local_bounded_estimate",
+              "originZoneId": "mainland-honshu",
+              "destinationZoneId": "mainland-honshu",
+              "fareVariability": "range"
+            }
+          }
+        ]
+      },
+      "safeGroundTrainEstimate": {
+        "mode": "train",
+        "timeRange": [14, 19],
+        "source": "calculated_ground_display",
+        "evidence": "estimated",
+        "originZoneId": "mainland-honshu",
+        "destinationZoneId": "mainland-honshu"
+      },
+      "coordinateDelta": {
+        "lat": 0.00003600000000147929,
+        "lng": 0.000024999999993724487
+      },
+      "note": "Baseline exposes the actual endpoint/coordinate delta for systemic handling; no display-string special case applied."
+    },
+    "D_shodoshima": {
+      "destination": {
+        "id": "shodoshima",
+        "name": "Shodoshima Island",
+        "coordinates": {
+          "lat": 34.51,
+          "lng": 134.29
+        },
+        "zone": "shodoshima"
+      },
+      "origin": {
+        "label": "Tokyo Station",
+        "coordinates": {
+          "lat": 35.6812,
+          "lng": 139.7671
+        },
+        "zone": "mainland-honshu"
+      },
+      "ferryRouteEvidence": {
+        "evidence": "unknown",
+        "journey": null
+      },
+      "groundEvidence": {
+        "evidence": "unknown",
+        "journey": null
+      },
+      "validModes": [],
+      "localAccessModes": ["bus"],
+      "localAccessUnestimated": true,
+      "ferryEstimateNote": "Inspect whether ferry route/access is represented as complete origin journey or only corridor/access evidence."
+    },
+    "E_mixed_selected_transport": [
+      {
+        "label": "train + my_car",
+        "carMode": "my_car",
+        "publicModes": ["train"],
+        "validModesHakoneTokyo": ["my_car"],
+        "travelEvidenceHakone": {
+          "estimate": {
+            "mode": "train",
+            "timeRange": [69, 89],
+            "source": "calculated_ground_display",
+            "evidence": "estimated",
+            "originZoneId": "mainland-honshu",
+            "destinationZoneId": "mainland-honshu"
+          },
+          "evidence": "estimated",
+          "journey": {
+            "origin": {
+              "kind": "origin",
+              "coordinates": {
+                "lat": 35.6812,
+                "lng": 139.7671
+              },
+              "zoneId": "mainland-honshu"
+            },
+            "destination": {
+              "kind": "destination",
+              "id": "hakone-town",
+              "name": "Hakone Town",
+              "coordinates": {
+                "lat": 35.2324,
+                "lng": 139.1069
+              }
+            },
+            "availability": "available",
+            "confidence": "low",
+            "provenance": {
+              "source": "calculated_ground_display",
+              "confidence": "low",
+              "duration": "estimated",
+              "cost": "unknown"
+            },
+            "legs": [
+              {
+                "mode": "train",
+                "origin": {
+                  "kind": "origin",
+                  "coordinates": {
+                    "lat": 35.6812,
+                    "lng": 139.7671
+                  },
+                  "zoneId": "mainland-honshu"
+                },
+                "destination": {
+                  "kind": "destination",
+                  "id": "hakone-town",
+                  "name": "Hakone Town",
+                  "coordinates": {
+                    "lat": 35.2324,
+                    "lng": 139.1069
+                  }
+                },
+                "duration": {
+                  "minutes": [69, 89],
+                  "evidence": "estimated",
+                  "source": "calculated_ground_display"
+                },
+                "availability": "available",
+                "confidence": "low",
+                "provenance": {
+                  "source": "calculated_ground_display",
+                  "confidence": "low",
+                  "duration": "estimated",
+                  "cost": "unknown"
+                },
+                "routeMetadata": {
+                  "source": "calculated_ground_display",
+                  "originZoneId": "mainland-honshu",
+                  "destinationZoneId": "mainland-honshu"
+                }
+              }
+            ]
+          }
+        },
+        "serializedContext": {
+          "label": "train + my_car",
+          "carMode": "my_car",
+          "publicModes": ["train"]
+        }
+      },
+      {
+        "label": "train + rental",
+        "carMode": "rental",
+        "publicModes": ["train"],
+        "validModesHakoneTokyo": ["car"],
+        "travelEvidenceHakone": {
+          "estimate": {
+            "mode": "train",
+            "timeRange": [69, 89],
+            "source": "calculated_ground_display",
+            "evidence": "estimated",
+            "originZoneId": "mainland-honshu",
+            "destinationZoneId": "mainland-honshu"
+          },
+          "evidence": "estimated",
+          "journey": {
+            "origin": {
+              "kind": "origin",
+              "coordinates": {
+                "lat": 35.6812,
+                "lng": 139.7671
+              },
+              "zoneId": "mainland-honshu"
+            },
+            "destination": {
+              "kind": "destination",
+              "id": "hakone-town",
+              "name": "Hakone Town",
+              "coordinates": {
+                "lat": 35.2324,
+                "lng": 139.1069
+              }
+            },
+            "availability": "available",
+            "confidence": "low",
+            "provenance": {
+              "source": "calculated_ground_display",
+              "confidence": "low",
+              "duration": "estimated",
+              "cost": "unknown"
+            },
+            "legs": [
+              {
+                "mode": "train",
+                "origin": {
+                  "kind": "origin",
+                  "coordinates": {
+                    "lat": 35.6812,
+                    "lng": 139.7671
+                  },
+                  "zoneId": "mainland-honshu"
+                },
+                "destination": {
+                  "kind": "destination",
+                  "id": "hakone-town",
+                  "name": "Hakone Town",
+                  "coordinates": {
+                    "lat": 35.2324,
+                    "lng": 139.1069
+                  }
+                },
+                "duration": {
+                  "minutes": [69, 89],
+                  "evidence": "estimated",
+                  "source": "calculated_ground_display"
+                },
+                "availability": "available",
+                "confidence": "low",
+                "provenance": {
+                  "source": "calculated_ground_display",
+                  "confidence": "low",
+                  "duration": "estimated",
+                  "cost": "unknown"
+                },
+                "routeMetadata": {
+                  "source": "calculated_ground_display",
+                  "originZoneId": "mainland-honshu",
+                  "destinationZoneId": "mainland-honshu"
+                }
+              }
+            ]
+          }
+        },
+        "serializedContext": {
+          "label": "train + rental",
+          "carMode": "rental",
+          "publicModes": ["train"]
+        }
+      },
+      {
+        "label": "public-only",
+        "carMode": "none",
+        "publicModes": ["train"],
+        "validModesHakoneTokyo": [],
+        "travelEvidenceHakone": {
+          "estimate": {
+            "mode": "train",
+            "timeRange": [69, 89],
+            "source": "calculated_ground_display",
+            "evidence": "estimated",
+            "originZoneId": "mainland-honshu",
+            "destinationZoneId": "mainland-honshu"
+          },
+          "evidence": "estimated",
+          "journey": {
+            "origin": {
+              "kind": "origin",
+              "coordinates": {
+                "lat": 35.6812,
+                "lng": 139.7671
+              },
+              "zoneId": "mainland-honshu"
+            },
+            "destination": {
+              "kind": "destination",
+              "id": "hakone-town",
+              "name": "Hakone Town",
+              "coordinates": {
+                "lat": 35.2324,
+                "lng": 139.1069
+              }
+            },
+            "availability": "available",
+            "confidence": "low",
+            "provenance": {
+              "source": "calculated_ground_display",
+              "confidence": "low",
+              "duration": "estimated",
+              "cost": "unknown"
+            },
+            "legs": [
+              {
+                "mode": "train",
+                "origin": {
+                  "kind": "origin",
+                  "coordinates": {
+                    "lat": 35.6812,
+                    "lng": 139.7671
+                  },
+                  "zoneId": "mainland-honshu"
+                },
+                "destination": {
+                  "kind": "destination",
+                  "id": "hakone-town",
+                  "name": "Hakone Town",
+                  "coordinates": {
+                    "lat": 35.2324,
+                    "lng": 139.1069
+                  }
+                },
+                "duration": {
+                  "minutes": [69, 89],
+                  "evidence": "estimated",
+                  "source": "calculated_ground_display"
+                },
+                "availability": "available",
+                "confidence": "low",
+                "provenance": {
+                  "source": "calculated_ground_display",
+                  "confidence": "low",
+                  "duration": "estimated",
+                  "cost": "unknown"
+                },
+                "routeMetadata": {
+                  "source": "calculated_ground_display",
+                  "originZoneId": "mainland-honshu",
+                  "destinationZoneId": "mainland-honshu"
+                }
+              }
+            ]
+          }
+        },
+        "serializedContext": {
+          "label": "public-only",
+          "carMode": "none",
+          "publicModes": ["train"]
+        }
+      },
+      {
+        "label": "explicit empty public + my_car",
+        "carMode": "my_car",
+        "publicModes": [],
+        "validModesHakoneTokyo": ["my_car"],
+        "travelEvidenceHakone": {
+          "estimate": {
+            "mode": "my_car",
+            "timeRange": [74, 94],
+            "source": "calculated_ground_display",
+            "evidence": "estimated",
+            "originZoneId": "mainland-honshu",
+            "destinationZoneId": "mainland-honshu"
+          },
+          "evidence": "estimated",
+          "journey": {
+            "origin": {
+              "kind": "origin",
+              "coordinates": {
+                "lat": 35.6812,
+                "lng": 139.7671
+              },
+              "zoneId": "mainland-honshu"
+            },
+            "destination": {
+              "kind": "destination",
+              "id": "hakone-town",
+              "name": "Hakone Town",
+              "coordinates": {
+                "lat": 35.2324,
+                "lng": 139.1069
+              }
+            },
+            "availability": "available",
+            "confidence": "low",
+            "provenance": {
+              "source": "calculated_ground_display",
+              "confidence": "low",
+              "duration": "estimated",
+              "cost": "unknown"
+            },
+            "legs": [
+              {
+                "mode": "my_car",
+                "origin": {
+                  "kind": "origin",
+                  "coordinates": {
+                    "lat": 35.6812,
+                    "lng": 139.7671
+                  },
+                  "zoneId": "mainland-honshu"
+                },
+                "destination": {
+                  "kind": "destination",
+                  "id": "hakone-town",
+                  "name": "Hakone Town",
+                  "coordinates": {
+                    "lat": 35.2324,
+                    "lng": 139.1069
+                  }
+                },
+                "duration": {
+                  "minutes": [74, 94],
+                  "evidence": "estimated",
+                  "source": "calculated_ground_display"
+                },
+                "availability": "available",
+                "confidence": "low",
+                "provenance": {
+                  "source": "calculated_ground_display",
+                  "confidence": "low",
+                  "duration": "estimated",
+                  "cost": "unknown"
+                },
+                "routeMetadata": {
+                  "source": "calculated_ground_display",
+                  "originZoneId": "mainland-honshu",
+                  "destinationZoneId": "mainland-honshu"
+                }
+              }
+            ]
+          }
+        },
+        "serializedContext": {
+          "label": "explicit empty public + my_car",
+          "carMode": "my_car",
+          "publicModes": []
+        }
+      },
+      {
+        "label": "explicit empty public + rental",
+        "carMode": "rental",
+        "publicModes": [],
+        "validModesHakoneTokyo": ["car"],
+        "travelEvidenceHakone": {
+          "estimate": {
+            "mode": "car",
+            "timeRange": [74, 94],
+            "source": "calculated_ground_display",
+            "evidence": "estimated",
+            "originZoneId": "mainland-honshu",
+            "destinationZoneId": "mainland-honshu"
+          },
+          "evidence": "estimated",
+          "journey": {
+            "origin": {
+              "kind": "origin",
+              "coordinates": {
+                "lat": 35.6812,
+                "lng": 139.7671
+              },
+              "zoneId": "mainland-honshu"
+            },
+            "destination": {
+              "kind": "destination",
+              "id": "hakone-town",
+              "name": "Hakone Town",
+              "coordinates": {
+                "lat": 35.2324,
+                "lng": 139.1069
+              }
+            },
+            "availability": "available",
+            "confidence": "low",
+            "provenance": {
+              "source": "calculated_ground_display",
+              "confidence": "low",
+              "duration": "estimated",
+              "cost": "unknown"
+            },
+            "legs": [
+              {
+                "mode": "car",
+                "origin": {
+                  "kind": "origin",
+                  "coordinates": {
+                    "lat": 35.6812,
+                    "lng": 139.7671
+                  },
+                  "zoneId": "mainland-honshu"
+                },
+                "destination": {
+                  "kind": "destination",
+                  "id": "hakone-town",
+                  "name": "Hakone Town",
+                  "coordinates": {
+                    "lat": 35.2324,
+                    "lng": 139.1069
+                  }
+                },
+                "duration": {
+                  "minutes": [74, 94],
+                  "evidence": "estimated",
+                  "source": "calculated_ground_display"
+                },
+                "availability": "available",
+                "confidence": "low",
+                "provenance": {
+                  "source": "calculated_ground_display",
+                  "confidence": "low",
+                  "duration": "estimated",
+                  "cost": "unknown"
+                },
+                "routeMetadata": {
+                  "source": "calculated_ground_display",
+                  "originZoneId": "mainland-honshu",
+                  "destinationZoneId": "mainland-honshu"
+                }
+              }
+            ]
+          }
+        },
+        "serializedContext": {
+          "label": "explicit empty public + rental",
+          "carMode": "rental",
+          "publicModes": []
+        }
+      }
+    ],
+    "F_car_only_unsupported": [
+      {
+        "id": "abukuma-cave-fukushima",
+        "name": "Abukuma Cave",
+        "role": "standalone",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "akiu-onsen-miyagi",
+        "name": "Akiu Onsen",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "akiyoshido-cave-yamaguchi",
+        "name": "Akiyoshido Cave",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "amami-iriomote-natural-site",
+        "name": "Amami-Oshima, Tokunoshima, Northern Okinawa & Iriomote",
+        "role": "standalone",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "cup-noodles-museum-yokohama",
+        "name": "Cup Noodles Museum Yokohama",
+        "role": "poi",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "dewa-sanzan-yamagata",
+        "name": "Dewa Sanzan Three Sacred Mountains",
+        "role": "standalone",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "dogo-onsen-ehime",
+        "name": "Dogo Onsen Honkan",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "edo-castle-tokyo",
+        "name": "Edo Castle Ruins (Imperial Palace)",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "enoshima-aquarium",
+        "name": "Enoshima Aquarium",
+        "role": "poi",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "enoshima-iwaya-caves",
+        "name": "Enoshima Iwaya Caves",
+        "role": "poi",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "enoshima-shrine",
+        "name": "Enoshima Shrine",
+        "role": "poi",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      },
+      {
+        "id": "fujiko-f-fujio-museum",
+        "name": "Fujiko F. Fujio Museum",
+        "role": "poi",
+        "carAccess": {
+          "state": "unknown",
+          "eligibility": "unknown",
+          "anchors": [],
+          "evidence": "none",
+          "sourceUrls": [],
+          "reason": "No car-access fact or legacy car option is present."
+        },
+        "anchors": [],
+        "validModesTokyoCarOnly": []
+      }
+    ]
+  },
+  "candidateLookup": {
+    "hakone": [
+      {
+        "id": "hakone-town",
+        "name": "Hakone Town",
+        "role": "hub"
+      },
+      {
+        "id": "fuji-hakone-izu",
+        "name": "Fuji-Hakone-Izu National Park",
+        "role": "standalone"
+      },
+      {
+        "id": "hakone-open-air-museum",
+        "name": "Hakone Open-Air Museum",
+        "role": "standalone"
+      }
+    ],
+    "tokyoStation": [
+      {
+        "id": "tokyo-station-chiyoda",
+        "name": "Tokyo Station",
+        "role": "hub",
+        "coordinates": {
+          "lat": 35.681236,
+          "lng": 139.767125
+        }
+      }
+    ],
+    "shodoshima": [
+      {
+        "id": "shodoshima",
+        "name": "Shodoshima Island",
+        "role": "standalone",
+        "coordinates": {
+          "lat": 34.51,
+          "lng": 134.29
+        }
+      }
+    ]
+  }
+}

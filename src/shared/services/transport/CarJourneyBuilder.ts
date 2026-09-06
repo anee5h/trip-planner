@@ -6,6 +6,7 @@ import type {
   JourneyProvenance,
   JourneyConfidence,
   JourneyEvidence,
+  JourneyCompleteness,
 } from "@/shared/types/journey";
 import type { CarAccessCoordinates } from "@/shared/types/carAccess";
 import type { Destination } from "@/shared/types/destination";
@@ -15,6 +16,7 @@ import type {
   CarRouteResult,
 } from "./CarRouteProvider";
 import { isCarRoundTripRouteForDestination } from "./CarRouteProvider";
+import { journeyHandoffCapabilityForMode } from "./JourneyHandoff";
 
 const unknownCost: JourneyCost = {
   currency: "JPY",
@@ -173,17 +175,33 @@ export function buildCarJourney(
     cost: costEvidence,
     checkedAt: route.returnRoute.retrievedAt ?? route.outbound.retrievedAt,
   };
+  const completeness: JourneyCompleteness = allAvailable
+    ? "complete"
+    : anyUnavailable
+      ? "unavailable"
+      : "partial";
   return {
     kind: "journey",
     origin: originEndpoint,
     destination: {
       id: destination.id,
+      anchorKey: destination.coordinates
+        ? `coordinates:${destination.coordinates.lat.toFixed(4)}:${destination.coordinates.lng.toFixed(4)}`
+        : destination.id,
       name: destination.name,
       coordinates: destination.coordinates
         ? { lat: destination.coordinates.lat, lng: destination.coordinates.lng }
         : undefined,
       kind: "destination",
     },
+    scope: "origin_journey",
+    directionality: "round_trip",
+    completeness,
+    externalHandoff: journeyHandoffCapabilityForMode(
+      mode,
+      completeness,
+      allAvailable ? "available" : anyUnavailable ? "unavailable" : "unknown",
+    ),
     legs,
     ...(cost ? { cost } : {}),
     availability: allAvailable

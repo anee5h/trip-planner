@@ -13,6 +13,21 @@ export type JourneyAvailability = "available" | "unavailable" | "unknown";
 export type JourneyConfidence = "high" | "medium" | "low" | "unknown";
 export type JourneyCostState = "known" | "unknown" | "unavailable";
 export type JourneyCostCompleteness = "complete" | "partial" | "unknown";
+export type JourneyScope =
+  "origin_journey" | "local_access" | "final_segment" | "complete_journey";
+export type JourneyDirectionality = "one_way" | "round_trip" | "multi_leg";
+export type JourneyCompleteness = "complete" | "partial" | "unavailable";
+export type JourneyExternalMode = "driving" | "transit";
+
+export interface JourneyHandoffCapability {
+  readonly supported: boolean;
+  readonly mode?: JourneyExternalMode;
+  readonly reason?:
+    | "unsupported_mode"
+    | "partial_journey"
+    | "unavailable_journey"
+    | "same_anchor";
+}
 
 export interface JourneyCoordinates {
   readonly lat: number;
@@ -20,7 +35,10 @@ export interface JourneyCoordinates {
 }
 
 export interface JourneyEndpoint {
+  /** Stable record identity where one exists. */
   readonly id?: string;
+  /** Canonical identity used to compare equivalent arrival/origin anchors. */
+  readonly anchorKey?: string;
   readonly name?: string;
   readonly coordinates?: JourneyCoordinates;
   readonly zoneId?: TransportZoneId;
@@ -131,6 +149,10 @@ export interface Journey {
   readonly kind: "journey";
   readonly origin: JourneyEndpoint;
   readonly destination: JourneyEndpoint;
+  readonly scope: JourneyScope;
+  readonly directionality: JourneyDirectionality;
+  readonly completeness: JourneyCompleteness;
+  readonly externalHandoff: JourneyHandoffCapability;
   readonly legs: readonly JourneyLeg[];
   /** Optional aggregate cost for the complete journey (e.g. vehicle fuel/toll/parking). */
   readonly cost?: JourneyCost;

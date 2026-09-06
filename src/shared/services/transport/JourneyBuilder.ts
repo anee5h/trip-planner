@@ -6,9 +6,12 @@ import type {
   JourneyEvidence,
   JourneyLeg,
   JourneyProvenance,
+  JourneyScope,
+  JourneyDirectionality,
   JourneyRouteMetadata,
 } from "@/shared/types/journey";
 import { journeyCostCompleteness } from "@/shared/types/journey";
+import { journeyHandoffCapabilityForMode } from "./JourneyHandoff";
 import type {
   EstimatedTransportEstimate,
   OriginAwareTransportEstimate,
@@ -190,11 +193,34 @@ function provenanceFor(
   };
 }
 
-function journeyForLeg(endpoints: JourneyEndpoints, leg: JourneyLeg): Journey {
+function journeyForLeg(
+  endpoints: JourneyEndpoints,
+  leg: JourneyLeg,
+  semantics?: {
+    scope?: JourneyScope;
+    directionality?: JourneyDirectionality;
+  },
+): Journey {
+  const completeness =
+    leg.availability === "available"
+      ? "complete"
+      : leg.availability === "unavailable"
+        ? "unavailable"
+        : "partial";
   return {
     kind: "journey",
     origin: endpoints.origin,
     destination: endpoints.destination,
+    scope: semantics?.scope ?? "origin_journey",
+    directionality:
+      semantics?.directionality ??
+      (leg.direction === "return" ? "round_trip" : "one_way"),
+    completeness,
+    externalHandoff: journeyHandoffCapabilityForMode(
+      leg.mode,
+      completeness,
+      leg.availability,
+    ),
     legs: [leg],
     availability: leg.availability,
     confidence: leg.confidence,

@@ -7,6 +7,7 @@ import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPicke
 import { MarkVisitedModal } from "./MarkVisitedModal";
 import { VisitedDateModal } from "./VisitedDateModal";
 import type { Destination } from "@/shared/types/destination";
+import type { JourneyScope } from "@/shared/types/journey";
 import type { Collection } from "@/shared/types/collection";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
@@ -65,6 +66,7 @@ import { localizeRecommendationReason } from "@/shared/utils/recommendationLabel
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
+import { resolveDestinationTransportZone } from "@/shared/services/transport/TransportTopologyService";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
   buildTokyoWardsLink,
@@ -105,6 +107,8 @@ interface DestinationCardProps {
   ferryTemporal?: FerryTemporalContext;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
+  /** Scope of the displayed journey; local rails must not fall back to home. */
+  journeyScope?: JourneyScope;
   duration?: TripDuration;
 }
 
@@ -120,6 +124,7 @@ export default function DestinationCard({
   conditionLabel,
   ferryTemporal,
   compact = false,
+  journeyScope,
   duration = "fullDay",
 }: DestinationCardProps) {
   const { locale } = useLocale();
@@ -159,6 +164,21 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     canMutateProfile,
   } = useTripStore();
+  const isLocalAccessJourney = journeyScope === "local_access";
+  const journeyOriginCoords = isLocalAccessJourney
+    ? (parent?.coordinates ?? null)
+    : homeStationCoords;
+  const journeyOriginZoneId = isLocalAccessJourney
+    ? parent
+      ? resolveDestinationTransportZone(parent)
+      : undefined
+    : homeStationTransportZoneId;
+  const localAccessOriginAvailable =
+    !isLocalAccessJourney || Boolean(journeyOriginCoords);
+  const localAccessUnavailable =
+    isLocalAccessJourney &&
+    (!localAccessOriginAvailable ||
+      destination.localAccessUnestimated === true);
   // A virtual group (e.g. a UNESCO property) is visited when at least one of
   // its curated members is visited. Visit tracking stays on real destination
   // ids — group ids are never persisted as visits.
@@ -279,23 +299,25 @@ export default function DestinationCard({
     "flight",
     "ferry",
   ];
-  const validModes = getValidModes(
-    destination,
-    carMode,
-    selectedPublicModes,
-    homeStationCoords ?? undefined,
-    undefined,
-    homeStationTransportZoneId,
-    ferryTemporal,
-  );
+  const validModes = !localAccessUnavailable
+    ? getValidModes(
+        destination,
+        carMode,
+        selectedPublicModes,
+        journeyOriginCoords ?? undefined,
+        undefined,
+        journeyOriginZoneId,
+        ferryTemporal,
+      )
+    : [];
   const displayModes = validModes;
   const dayTravelEstimate = isOvernight
     ? undefined
     : getDayTripTravelDurationEvidence(
         destination,
         {
-          homeStationCoords: homeStationCoords ?? undefined,
-          originZoneId: homeStationTransportZoneId,
+          homeStationCoords: journeyOriginCoords ?? undefined,
+          originZoneId: journeyOriginZoneId,
           ferryTemporal,
         },
         displayModes,
@@ -346,8 +368,8 @@ export default function DestinationCard({
       dest: destination,
       mode,
       partySize,
-      homeCoords: homeStationCoords ?? undefined,
-      includeOriginTravel: Boolean(homeStationCoords),
+      homeCoords: journeyOriginCoords ?? undefined,
+      includeOriginTravel: Boolean(journeyOriginCoords),
       duration,
       ferryTemporal,
     });
@@ -371,7 +393,7 @@ export default function DestinationCard({
     resolvedBudgetEstimate,
     preferredTransport,
     partySize,
-    homeStationCoords,
+    journeyOriginCoords,
     isOvernight,
     duration,
     ferryTemporal,
@@ -382,8 +404,8 @@ export default function DestinationCard({
     ? estimateTripDuration(
         destination,
         {
-          homeStationCoords: homeStationCoords ?? undefined,
-          originZoneId: homeStationTransportZoneId,
+          homeStationCoords: journeyOriginCoords ?? undefined,
+          originZoneId: journeyOriginZoneId,
           availableTimeHours,
           ferryTemporal,
         },
@@ -392,8 +414,8 @@ export default function DestinationCard({
     : estimateDayTripDuration(
         destination,
         {
-          homeStationCoords: homeStationCoords ?? undefined,
-          originZoneId: homeStationTransportZoneId,
+          homeStationCoords: journeyOriginCoords ?? undefined,
+          originZoneId: journeyOriginZoneId,
           availableTimeHours,
           ferryTemporal,
         },
@@ -582,6 +604,20 @@ export default function DestinationCard({
                     {conditionLabel}
                   </p>
                 )}
+                {journeyScope === "local_access" && (
+                  <p
+                    data-testid="journey-scope"
+                    className="mb-1 line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400"
+                  >
+                    {localAccessUnavailable
+                      ? locale === "ja"
+                        ? "現地アクセスは利用できません"
+                        : "Local access unavailable"
+                      : locale === "ja"
+                        ? `現地アクセス · ${localizedParent?.name ?? "ハブ"}から`
+                        : `Local access · from ${localizedParent?.name ?? "hub"}`}
+                  </p>
+                )}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
                   {(() => {
                     // The Tokyo wards group shows the fastest shared gateway
@@ -606,7 +642,9 @@ export default function DestinationCard({
                       ? (TRANSPORT_ICONS[mode] ?? Route)
                       : Route;
 
-                    const transport = gateway ?? preferredTransport;
+                    const transport = localAccessUnavailable
+                      ? null
+                      : (gateway ?? preferredTransport);
                     const isApproximate = Boolean(
                       transport &&
                       "evidence" in transport &&

@@ -26,6 +26,10 @@ import {
   type TravelDurationEstimate,
   type TravelDurationEvidence,
 } from "@/shared/services/transport/OriginAwareTransportService";
+import { getOriginAwareTransportJourney } from "@/shared/services/transport/JourneyService";
+import { buildJourneyHandoff } from "@/shared/services/transport/JourneyHandoff";
+import { buildPartialLocalAccessJourney } from "@/shared/services/transport/JourneyService";
+import type { TransportMode } from "@/shared/services/transport/types";
 import {
   getEligibleOriginModes,
   hasFerryRoute,
@@ -463,17 +467,6 @@ export default function DestinationDetails() {
     }
   };
 
-  // Google Maps transit directions from the stored home station. Reused by
-  // the At-a-glance "Get directions" link (single implementation).
-  const directionsHref =
-    homeStation && destination
-      ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
-          homeStation,
-        )}&destination=${encodeURIComponent(
-          `${destination.name}, ${destination.prefecture}, Japan`,
-        )}&travelmode=transit`
-      : undefined;
-
   const directionsLabel = locale === "ja" ? "ルート案内" : "Get directions";
 
   useEffect(() => {
@@ -775,6 +768,25 @@ export default function DestinationDetails() {
     () => Boolean(destination?.localAccessModes?.length),
     [destination],
   );
+
+  const partialLocalJourney = useMemo(() => {
+    if (
+      !destination?.localAccessUnestimated ||
+      !destination.localAccessModes?.length
+    ) {
+      return null;
+    }
+    return buildPartialLocalAccessJourney(
+      destination,
+      destination.localAccessModes as readonly TransportMode[],
+      {
+        id: `${destination.id}:arrival-anchor`,
+        anchorKey: `arrival:${destination.id}`,
+        name: locale === "ja" ? "到着地点" : "Arrival / local access anchor",
+        kind: "access_anchor",
+      },
+    );
+  }, [destination, locale]);
 
   /** Ferry connectivity is route-known but not estimable. */
   const ferryRouteKnown = useMemo(() => {
@@ -1090,6 +1102,32 @@ export default function DestinationDetails() {
     selectedTransportState && availableModes.includes(selectedTransportState)
       ? selectedTransportState
       : defaultMode;
+
+  const displayedJourney = useMemo(() => {
+    if (!destination || !selectedTransport || !homeStationCoords) return null;
+    return getOriginAwareTransportJourney(
+      destination,
+      {
+        homeStationCoords,
+        originZoneId: homeStationTransportZoneId ?? undefined,
+        originLabel: homeStation ?? undefined,
+        carRoute: carRefinement.routes,
+        ferryTemporal,
+      },
+      [selectedTransport],
+    );
+  }, [
+    destination,
+    selectedTransport,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    homeStation,
+    carRefinement.routes,
+    ferryTemporal,
+  ]);
+  const directionsHref = displayedJourney
+    ? buildJourneyHandoff(displayedJourney)?.href
+    : undefined;
 
   const nearbyCombinations = useMemo(() => {
     if (!destination) return [];
@@ -1796,6 +1834,7 @@ export default function DestinationDetails() {
                   partySize={partySize}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
+                  journeyScope="local_access"
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
@@ -1834,6 +1873,9 @@ export default function DestinationDetails() {
                       destinations={hubMoreDestinations}
                       currentDestinationId={destination.id}
                       partySize={partySize}
+                      carMode={activeCarMode}
+                      publicModes={activePublicModes}
+                      journeyScope="local_access"
                       compact
                       previousLabel={copy.scrollLeft}
                       nextLabel={copy.scrollRight}
@@ -1958,11 +2000,26 @@ export default function DestinationDetails() {
                               </div>
                             ) : (
                               <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
-                                {ferryRouteKnown
-                                  ? copy.ferryRouteUnestimated
-                                  : localAccessKnown
-                                    ? copy.localAccessUnestimated
-                                    : copy.transportUnavailable}
+                                {partialLocalJourney ? (
+                                  <>
+                                    <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                      {locale === "ja"
+                                        ? "出発地からの旅程は利用できません"
+                                        : "Origin journey unavailable"}
+                                    </div>
+                                    <div className="text-xs text-slate-500 dark:text-slate-300">
+                                      {locale === "ja"
+                                        ? `既知の現地アクセス: ${partialLocalJourney.legs.map((leg) => leg.mode).join("・")}`
+                                        : `Known local access: ${partialLocalJourney.legs.map((leg) => leg.mode).join(" / ")}`}
+                                    </div>
+                                  </>
+                                ) : ferryRouteKnown ? (
+                                  copy.ferryRouteUnestimated
+                                ) : localAccessKnown ? (
+                                  copy.localAccessUnestimated
+                                ) : (
+                                  copy.transportUnavailable
+                                )}
                               </div>
                             ))}
                           {isModeVisible("train") &&
