@@ -127,10 +127,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 11; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 180,
   "scoreMetadata": {
@@ -167,5 +167,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Takatori_Castle",
   "wikipediaPageId": 50596342,
-  "wikidataId": "Q5369622"
+  "wikidataId": "Q5369622",
+  "bestSeason": "Autumn",
+  "bestMonths": [11],
+  "season": {
+    "spring": 6,
+    "summer": 5,
+    "autumn": 10,
+    "winter": 5
+  }
 }

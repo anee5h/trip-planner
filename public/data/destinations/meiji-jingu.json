@@ -148,10 +148,10 @@
     "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4,5; structured experience seasonality with nonzero year-round vector"
   },
   "comfortMetadata": {
     "method": "model",
@@ -203,5 +203,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Meiji_Shrine",
   "wikipediaPageId": 294236,
-  "wikidataId": "Q287165"
+  "wikidataId": "Q287165",
+  "bestSeason": "Spring",
+  "bestMonths": [4, 5],
+  "season": {
+    "spring": 10,
+    "summer": 5,
+    "autumn": 5,
+    "winter": 5
+  }
 }

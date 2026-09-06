@@ -152,10 +152,10 @@
   },
   "notesJa": "長い玉砂利の参道は古木に覆われ夏でも涼しく歩けます。",
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10; structured experience seasonality with nonzero year-round vector"
   },
   "comfortMetadata": {
     "method": "model",
@@ -198,5 +198,13 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "bestSeason": "Autumn",
+  "bestMonths": [10],
+  "season": {
+    "spring": 5,
+    "summer": 5,
+    "autumn": 10,
+    "winter": 5
   }
 }

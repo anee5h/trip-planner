@@ -121,10 +121,10 @@
     "confidence": "beta"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 6,8; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 145,
   "walkingIntensity": "high",
@@ -169,5 +169,13 @@
   "wikipediaLanguage": "ja",
   "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%8B%9B%E6%8F%90%E5%AF%BA",
   "wikipediaPageId": 83924,
-  "wikidataId": "Q973175"
+  "wikidataId": "Q973175",
+  "bestSeason": "Summer",
+  "bestMonths": [6, 8],
+  "season": {
+    "spring": 5,
+    "summer": 10,
+    "autumn": 5,
+    "winter": 3
+  }
 }

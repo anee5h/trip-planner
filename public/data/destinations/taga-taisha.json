@@ -100,10 +100,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 8; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -264,5 +264,13 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "bestSeason": "Summer",
+  "bestMonths": [8],
+  "season": {
+    "spring": 5,
+    "summer": 10,
+    "autumn": 5,
+    "winter": 5
   }
 }

@@ -108,10 +108,10 @@
     "confidence": "beta"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 6,7,8; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 70,
   "walkingIntensity": "medium",
@@ -155,5 +155,13 @@
   "openingHoursMetadata": {
     "sourceUrl": "https://www.byodoin.or.jp/en/guide/",
     "verifiedAt": "2026-09-05"
+  },
+  "bestSeason": "Summer",
+  "bestMonths": [6, 7, 8],
+  "season": {
+    "spring": 5,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   }
 }

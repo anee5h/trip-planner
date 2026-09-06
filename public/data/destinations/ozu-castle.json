@@ -134,10 +134,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 125,
   "scoreMetadata": {
@@ -175,5 +175,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Czu_Castle",
   "wikipediaPageId": 16464504,
-  "wikidataId": "Q1036874"
+  "wikidataId": "Q1036874",
+  "bestSeason": "Spring",
+  "bestMonths": [3, 4],
+  "season": {
+    "spring": 10,
+    "summer": 6,
+    "autumn": 6,
+    "winter": 5
+  }
 }

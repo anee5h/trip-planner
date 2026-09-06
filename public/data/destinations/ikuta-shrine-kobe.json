@@ -100,10 +100,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring & Autumn; preferred months 4,9; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -269,5 +269,13 @@
     "sourceUrls": ["https://ikutajinja.or.jp/access"],
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
+  },
+  "bestSeason": "Spring & Autumn",
+  "bestMonths": [4, 9],
+  "season": {
+    "spring": 10,
+    "summer": 5,
+    "autumn": 10,
+    "winter": 5
   }
 }
