@@ -23,6 +23,111 @@ export interface OpeningHoursAssessment {
   closedDays?: string;
 }
 
+export interface OpeningHoursWindow {
+  opensAtMinutes: number;
+  closesAtMinutes: number;
+  closedWeekdays: number[];
+}
+
+const TIME_RANGE_PATTERN =
+  /(\d{1,2})(?::(\d{2}))?\s*[-–—]\s*(\d{1,2})(?::(\d{2}))?/;
+const WEEKDAY_NUMBERS: Record<string, number> = {
+  sunday: 0,
+  sun: 0,
+  monday: 1,
+  mon: 1,
+  tuesday: 2,
+  tue: 2,
+  tues: 2,
+  wednesday: 3,
+  wed: 3,
+  thursday: 4,
+  thu: 4,
+  thurs: 4,
+  friday: 5,
+  fri: 5,
+  saturday: 6,
+  sat: 6,
+};
+
+function parseClock(hours: string, minutes?: string): number | null {
+  const hour = Number(hours);
+  const minute = Number(minutes ?? "0");
+  if (
+    !Number.isInteger(hour) ||
+    !Number.isInteger(minute) ||
+    hour < 0 ||
+    hour > 23 ||
+    minute < 0 ||
+    minute > 59
+  ) {
+    return null;
+  }
+  return hour * 60 + minute;
+}
+
+function parseClosedWeekdays(text: string): number[] {
+  const lower = text.toLowerCase();
+  const closedPart = lower.match(/closed\s+([^;.)]+)/)?.[1] ?? "";
+  const days = Object.entries(WEEKDAY_NUMBERS)
+    .filter(([name]) => new RegExp(`\\b${name}s?\\b`).test(closedPart))
+    .map(([, day]) => day);
+  return [...new Set(days)].sort((a, b) => a - b);
+}
+
+/** Only verified destination-specific hours may constrain a generated plan. */
+export function getOpeningHoursWindow(
+  destination: Destination,
+): OpeningHoursWindow | null {
+  if (getOpeningHoursAssessment(destination).status !== "verified") return null;
+
+  const text = destination.businessHours || destination.openingHours;
+  if (!text) return null;
+  const match = text.match(TIME_RANGE_PATTERN);
+  if (!match) return null;
+
+  const opensAtMinutes = parseClock(match[1], match[2]);
+  const closesAtMinutes = parseClock(match[3], match[4]);
+  if (
+    opensAtMinutes === null ||
+    closesAtMinutes === null ||
+    closesAtMinutes <= opensAtMinutes
+  ) {
+    return null;
+  }
+
+  const metadata = destination.openingHoursMetadata as
+    (Record<string, unknown> & { closedDays?: unknown }) | undefined;
+  const metadataClosedDays =
+    typeof metadata?.closedDays === "string"
+      ? metadata.closedDays
+      : Array.isArray(metadata?.closedDays)
+        ? metadata.closedDays.join(", ")
+        : "";
+
+  return {
+    opensAtMinutes,
+    closesAtMinutes,
+    closedWeekdays: [
+      ...new Set([
+        ...parseClosedWeekdays(text),
+        ...parseClosedWeekdays(metadataClosedDays),
+      ]),
+    ].sort((a, b) => a - b),
+  };
+}
+
+export function isOpeningHoursClosedOnDate(
+  destination: Destination,
+  isoDate: string,
+): boolean {
+  const window = getOpeningHoursWindow(destination);
+  if (!window || !/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return false;
+  const date = new Date(`${isoDate}T12:00:00Z`);
+  if (Number.isNaN(date.getTime())) return false;
+  return window.closedWeekdays.includes(date.getUTCDay());
+}
+
 function isExplicitlyOpenAccess(dest: Destination): boolean {
   if (!dest.businessHours) return false;
   const lower = dest.businessHours.toLowerCase();

@@ -21,6 +21,8 @@ interface DestinationPlanningSectionProps {
   compactUnavailableCost?: boolean;
   /** Planned travel date for ferry availability. */
   ferryTemporal?: FerryTemporalContext;
+  /** Optional selected travel date for represented closed weekdays. */
+  travelDate?: string;
   duration?: TripDuration;
   onSaveToItinerary: (plan?: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
@@ -34,6 +36,7 @@ export function DestinationPlanningSection({
   selectedTransport,
   compactUnavailableCost,
   ferryTemporal,
+  travelDate,
   duration = "fullDay",
   onSaveToItinerary,
   onPlanGenerated,
@@ -118,6 +121,7 @@ export function DestinationPlanningSection({
         destination={destination}
         locale={locale}
         duration={duration}
+        travelDate={travelDate}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
         generatedCostRange={completePlanCostRange}

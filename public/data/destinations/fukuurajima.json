@@ -40,10 +40,6 @@
     "attribution": "Wikimedia Commons",
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Fukuura_Bridge_With_Fukuura_Island.JPG"
   },
-  "openingHoursMetadata": {
-    "sourceUrl": "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
-    "verifiedAt": "2026-09-05"
-  },
   "recommendedVisitHours": {
     "min": 1,
     "max": 2
@@ -92,7 +88,7 @@
   "reservationJa": "【予約】最新の予約・受付情報は公式サイトをご確認ください。",
   "parkingJa": "【駐車場】公式サイトで最新の駐車場情報をご確認ください。",
   "openingHoursJa": "8:30～17:00（4～10月）、8:30～16:30（11～3月）。",
-  "businessHours": "08:30 - 17:00 (Apr–Oct) / 08:30 - 16:30 (Nov–Mar)",
+  "businessHours": "Open access (island); bridge and facility schedules vary",
   "officialWebsite": "https://www.town.miyagi-matsushima.lg.jp/page/1578.html",
   "content": {
     "en": {

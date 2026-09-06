@@ -455,7 +455,7 @@ describe("KAI-219A engine — explicit admission fact is authoritative", () => {
     expect(c.evidence.derivation).toBe("source_fact");
   });
 
-  it("explicit unavailable admission falls back to a bounded estimate without resurrecting legacy tickets", () => {
+  it("explicit unavailable admission remains unavailable without resurrecting legacy tickets", () => {
     const dest = paidDest({
       // Legacy tickets=1300 numeric exists, but the explicit fact says
       // unavailable — the legacy value must NEVER come back.
@@ -468,11 +468,10 @@ describe("KAI-219A engine — explicit admission fact is authoritative", () => {
     });
     const r = calculateTripCost(ctx({ dest, partySize: 2 }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
-    expect(c.cost.min).toBeGreaterThan(0);
-    expect(c.cost.max).toBeGreaterThan(c.cost.min);
-    expect(c.evidence.derivation).toBe("model_estimate");
-    expect(c.evidence.state).toBe("documented_estimate");
+    expect(c.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
   });
 
   it("explicit bounded variable_price → range preserved end-to-end (never midpoint-collapsed)", () => {
@@ -765,9 +764,10 @@ describe("KAI-219A — shared verified-free evidence rule (hasVerifiedFreeEviden
       ctx({ dest: freeDest("This is a not free area; admission applies") }),
     );
     const admission = byScope(r, "admission")!;
-    expect(admission.cost.kind).toBe("bounded");
-    expect(admission.cost.min).toBeGreaterThan(0);
-    expect(admission.evidence.state).toBe("documented_estimate");
+    expect(admission.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
   });
 
   it("'free, but tickets required' → INVALID (negative evidence rejects)", () => {
@@ -777,9 +777,10 @@ describe("KAI-219A — shared verified-free evidence rule (hasVerifiedFreeEviden
       }),
     );
     const admission = byScope(r, "admission")!;
-    expect(admission.cost.kind).toBe("bounded");
-    expect(admission.cost.min).toBeGreaterThan(0);
-    expect(admission.evidence.state).toBe("documented_estimate");
+    expect(admission.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
   });
 
   it("'free' → valid when other requirements are satisfied", () => {
@@ -827,9 +828,10 @@ describe("KAI-219A — strict checkedAt date validation", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const admission = byScope(r, "admission")!;
-    expect(admission.cost.kind).toBe("bounded");
-    expect(admission.cost.min).toBeGreaterThan(0);
-    expect(admission.evidence.state).toBe("documented_estimate");
+    expect(admission.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
   });
 
   it("01/02/2026 → invalid (ambiguous format)", () => {
@@ -845,9 +847,10 @@ describe("KAI-219A — strict checkedAt date validation", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const admission = byScope(r, "admission")!;
-    expect(admission.cost.kind).toBe("bounded");
-    expect(admission.cost.min).toBeGreaterThan(0);
-    expect(admission.evidence.state).toBe("documented_estimate");
+    expect(admission.cost).toEqual({
+      kind: "unavailable",
+      reason: "source_missing",
+    });
   });
 });
 
@@ -931,8 +934,6 @@ describe("KAI-219A — one-way compatibility projection", () => {
 // ── KAI-219A: Luna blocker regressions ──────────────────────────────────────
 describe("KAI-219A — Luna blocker fixes", () => {
   it("runtime fail-closed: verified_free fact WITHOUT evidence → unavailable, never [0,0]", () => {
-    // A malformed persisted fact (verified_free state but no free basis /
-    // no verified provenance) must NOT create an unverified canonical zero.
     const dest = paidDest({
       admission: {
         state: "verified_free",
@@ -943,8 +944,7 @@ describe("KAI-219A — Luna blocker fixes", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
-    expect(c.cost).not.toEqual({ kind: "bounded", min: 0, max: 0 });
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("runtime fail-closed: verified_paid with legacy provenance → unavailable, not promoted", () => {
@@ -958,7 +958,7 @@ describe("KAI-219A — Luna blocker fixes", () => {
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("runtime fail-closed: verified_walking WITHOUT walkingEvidence → unavailable, never ¥0", () => {
@@ -1007,7 +1007,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("verified_paid with min > max → unavailable, never numeric", () => {
@@ -1023,7 +1023,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("verified_paid with NaN-like range (non-finite) → unavailable", () => {
@@ -1039,7 +1039,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("verified_paid with zero range → unavailable (zero range rejected as paid)", () => {
@@ -1055,7 +1055,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("verified_paid wrong cost kind (open_ended) → unavailable", () => {
@@ -1071,7 +1071,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("verified_free missing sourceUrls / checkedAt → unavailable, never [0,0]", () => {
@@ -1087,7 +1087,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("variable_price bounded missing checkedAt → unavailable", () => {
@@ -1104,7 +1104,7 @@ describe("KAI-219A — malformed persisted facts fail closed (shared validator)"
     });
     const r = calculateTripCost(ctx({ dest }));
     const c = byScope(r, "admission")!;
-    expect(c.cost.kind).toBe("bounded");
+    expect(c.cost).toEqual({ kind: "unavailable", reason: "source_missing" });
   });
 
   it("malformed local fare range (min > max) → unavailable", () => {

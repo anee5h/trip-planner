@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import destinationIndex from "@/shared/data/destinations-index.json";
 import {
   createRecommendationMatch,
   getPrimaryDisplayReason,
@@ -250,5 +251,31 @@ describe("RecommendationExplainability Unit Tests", () => {
     expect(
       verified.reasons.some((reason) => reason.code === "generalHighlyRated"),
     ).toBe(true);
+  });
+
+  it("does not emit strong budget claims when DisneySea admission is variable", () => {
+    const disneySea = (destinationIndex as unknown as Destination[]).find(
+      (destination) => destination.id === "disneysea",
+    );
+    expect(disneySea).toBeDefined();
+
+    const match = createRecommendationMatch(
+      disneySea!,
+      {
+        tripType: "any",
+        budget: 50000,
+        carMode: "none",
+        publicModes: ["train"],
+        partySize: 2,
+        visitedIds: [],
+      },
+      85,
+    );
+
+    expect(
+      match.reasons.some((reason) =>
+        ["budgetGreatValue", "budgetWithin"].includes(reason.code),
+      ),
+    ).toBe(false);
   });
 });

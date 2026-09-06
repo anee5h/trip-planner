@@ -144,12 +144,7 @@
   },
   "officialWebsite": "https://www.aso.ne.jp/",
   "municipalityId": "Kumamoto:aso",
-  "openingHours": "09:00–17:00 (Crater access varies by volcanic activity)",
   "openingHoursJa": "09:00～17:00（火口見学は火山活動により変動あり）",
-  "openingHoursMetadata": {
-    "verifiedAt": "2026-08-05",
-    "sourceUrl": "https://www.aso-volcano.jp/eng/"
-  },
   "notesJa": "火山ガス濃度により火口見学が突然中止になることがあります。",
   "transportMetadata": {
     "method": "legacy-fallback",

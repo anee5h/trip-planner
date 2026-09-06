@@ -225,6 +225,52 @@ function component(
   return { cost, evidence };
 }
 
+function isMandatoryAdmissionDestination(dest: Destination): boolean {
+  const kind = (dest.kind ?? "").toLowerCase();
+  const categories = (dest.categories ?? []).map((category) =>
+    category.toLowerCase(),
+  );
+  return (
+    [
+      "aquarium",
+      "castle",
+      "entertainment_complex",
+      "indoor_attraction",
+      "museum",
+      "theme_park",
+      "zoo",
+    ].includes(kind) ||
+    categories.some((category) =>
+      [
+        "aquarium",
+        "castle",
+        "indoor attraction",
+        "museum",
+        "theme park",
+        "zoo",
+      ].includes(category),
+    )
+  );
+}
+
+function admissionUnavailable(
+  reason:
+    | "source_missing"
+    | "price_variable_by_date"
+    | "price_variable_by_product" = "source_missing",
+): TripCostComponent {
+  return component(
+    { kind: "unavailable", reason },
+    {
+      scope: "admission",
+      derivation: "computed",
+      state: "unavailable",
+      provenance: "none",
+      reason,
+    },
+  );
+}
+
 function defaultAdmissionProfile(dest: Destination): PriceRange {
   if (
     dest.role === "hub" ||
@@ -332,14 +378,15 @@ function admissionComponent(
 ): TripCostComponent {
   const fact = dest.admission;
   if (!fact) {
-    return (
-      admissionFromLegacy(dest, partySize) ?? admissionFallback(dest, partySize)
-    );
+    const legacy = admissionFromLegacy(dest, partySize);
+    if (legacy) return legacy;
+    return isMandatoryAdmissionDestination(dest)
+      ? admissionUnavailable()
+      : admissionFallback(dest, partySize);
   }
 
   const validation = validateAdmissionFact(fact);
-  if (!validation.valid)
-    return admissionFallback(dest, partySize, "source_missing");
+  if (!validation.valid) return admissionUnavailable();
 
   const evidence = {
     scope: "admission" as const,
@@ -383,8 +430,23 @@ function admissionComponent(
       );
     }
     case "variable":
+      return component(
+        { kind: "variable" },
+        {
+          ...evidence,
+          derivation: "source_fact",
+          reason: fact.reasonCode ?? "price_variable_by_product",
+        },
+      );
     case "unavailable":
-      return admissionFallback(dest, partySize, "source_missing");
+      return component(
+        { kind: "unavailable", reason: fact.reasonCode ?? "source_missing" },
+        {
+          ...evidence,
+          derivation: "source_fact",
+          reason: fact.reasonCode ?? "source_missing",
+        },
+      );
   }
 }
 

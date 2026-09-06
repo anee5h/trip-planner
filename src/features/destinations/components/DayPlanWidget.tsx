@@ -55,6 +55,8 @@ interface DayPlanWidgetProps {
   eligible?: boolean;
   /** Canonical duration selected for this destination plan. */
   duration?: TripDuration;
+  /** Optional selected travel date for represented closed weekdays. */
+  travelDate?: string;
   /** Plan type selected when the planner first opens. */
   defaultPlanType?: DayPlanType;
   /** When true, full-day plans are hidden because there are not enough stops. */
@@ -76,6 +78,7 @@ export function DayPlanWidget({
   onPlanGenerated,
   eligible = true,
   duration = "fullDay",
+  travelDate,
   defaultPlanType,
   fullDayDisabled = false,
   catalogueLoading = false,
@@ -182,6 +185,7 @@ export function DayPlanWidget({
       partySize,
       catchmentScope,
       returnMode,
+      travelDate,
     });
 
     setGeneratedPlan(newPlan);

@@ -6,6 +6,7 @@ export type PlanningCategory =
   | "indoor_attraction"
   | "observation_deck"
   | "museum"
+  | "zoo"
   | "shrine_temple"
   | "district_park"
   | "generic";
@@ -46,6 +47,7 @@ export function resolvePlanningCategory(dest: Destination): PlanningCategory {
     return "observation_deck";
   }
   if (k === "museum" || cats.includes("museum")) return "museum";
+  if (k === "zoo" || cats.includes("zoo")) return "zoo";
   if (cats.includes("shrine") || cats.includes("temple") || k === "shrine") {
     return "shrine_temple";
   }
@@ -102,6 +104,14 @@ export function getTypeFallback(dest: Destination): TypeDurationFallback {
         maxMins: 240,
         hardMinMins: 45,
         hardMaxMins: 300,
+      };
+    case "zoo":
+      return {
+        minMins: 120,
+        prefMins: 180,
+        maxMins: 240,
+        hardMinMins: 60,
+        hardMaxMins: 360,
       };
     case "shrine_temple":
       return {
