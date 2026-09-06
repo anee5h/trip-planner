@@ -10,6 +10,7 @@ import { DestinationRelationshipService } from "@/shared/services/destination/De
 import DestinationMap from "./components/DestinationMap";
 import { getCityArea } from "@/shared/data/cityAreas";
 import type { Destination } from "@/shared/types/destination";
+import { getLocalizedOpeningHours } from "./destinationOpeningHours";
 import {
   normalizeTripDuration,
   type TripDuration,
@@ -185,21 +186,6 @@ function localizeEditorialValue(value: string, locale: "en" | "ja") {
       "No advance reservation required.": "事前予約は不要です。",
     }[value] || "情報未登録"
   );
-}
-
-function getLocalizedOpeningHours(
-  destination: Destination,
-  locale: "en" | "ja",
-): string | undefined {
-  const rawHours = destination.businessHours || destination.openingHours;
-  if (locale === "ja") {
-    return (
-      destination.content?.ja?.openingHours ||
-      destination.openingHoursJa ||
-      rawHours?.replace(/\(Last admission ([^)]+)\)/i, "（最終入場 $1）")
-    );
-  }
-  return destination.content?.en?.openingHours || rawHours;
 }
 
 const DETAIL_COPY = {

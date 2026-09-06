@@ -24,6 +24,20 @@ function combinedOperationalText(destination: Destination): string {
     .join(" ");
 }
 
+function reservationIsExplicitlyNotRequired(value: string): boolean {
+  const reservationClauses = value
+    .split(/[.!?;]/)
+    .map((clause) => clause.trim())
+    .filter((clause) => /(reservation|reserve|book|permit)/i.test(clause));
+  if (reservationClauses.length === 0) return false;
+
+  return reservationClauses.every((clause) =>
+    /(?:\b(?:no|without)\b.*(?:reservation|reserve|book|permit).*\b(?:required|needed|necessary)\b|\b(?:reservation|reserve|book|permit).*\b(?:not required|not needed|not necessary)\b)/i.test(
+      clause,
+    ),
+  );
+}
+
 export function getDecisionCriticalRestrictions(
   destination: Destination,
 ): DecisionCriticalRestriction[] {
@@ -68,7 +82,7 @@ export function getDecisionCriticalRestrictions(
   if (
     destination.reservation &&
     /(reservation|reserve|book|permit)/i.test(destination.reservation) &&
-    !/(not required|no reservation)/i.test(destination.reservation)
+    !reservationIsExplicitlyNotRequired(destination.reservation)
   ) {
     restrictions.push({
       kind: "reservation_required",
