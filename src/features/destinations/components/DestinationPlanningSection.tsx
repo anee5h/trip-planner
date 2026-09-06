@@ -129,7 +129,7 @@ export function DestinationPlanningSection({
         catalogueLoading={catalogueLoading}
         catalogueError={catalogueError}
         onRetryCatalogue={retryCatalogue}
-        defaultPlanType={fullDayDisabled ? "half_day" : "full_day"}
+        defaultPlanType={fullDayDisabled ? "half_day" : undefined}
         fullDayDisabled={fullDayDisabled}
         onSaveToItinerary={() =>
           onSaveToItinerary(

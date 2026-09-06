@@ -3,7 +3,8 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { resolveCompareEstimate } from "../compareEstimate";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import {
@@ -26,10 +27,11 @@ interface CompareModalProps {
 
 export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   const { compareList, toggleCompare, clearCompare } = useTripStore();
+  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   const { t } = useTranslation();
   const { locale } = useLocale();
   const { places: cataloguePlaces } = useCatalogue({
-    need: "summary",
+    need: "full",
     enabled: isOpen,
   });
   const allDestinations = cataloguePlaces;
@@ -45,16 +47,13 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
   // Best value helpers
   const getMin = (arr: number[]) => (arr.length > 0 ? Math.min(...arr) : 0);
 
-  // KAI-217B round-2: display RANGE + internal midpoint ranking.
-  const engineBudgetEstimates = compareDestinations.map((d) => {
-    // KAI-217B: Compare has no origin context — compare the canonical
-    // ON-SITE total (admission + local transport).
-    return calculateTripEstimate({
-      dest: d,
-      duration: "fullDay",
-      includeOriginTravel: false,
-    });
-  });
+  // KAI-217B round-2: display RANGE + internal midpoint ranking. When an
+  // explicit trip exists, Compare must use the same context-aware resolver as
+  // Explore/Detail; the legacy on-site comparison remains only for a direct
+  // Compare visit with no active trip.
+  const engineBudgetEstimates = compareDestinations.map((d) =>
+    resolveCompareEstimate(d, tripContext, hasExplicitTripContext),
+  );
   const engineBudgetRanges = engineBudgetEstimates.map((r) =>
     r.total ? ([r.total.min, r.total.max] as [number, number]) : null,
   );

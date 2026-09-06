@@ -68,6 +68,21 @@ interface DayPlanWidgetProps {
   onRetryCatalogue?: () => void;
 }
 
+export function getInitialDayPlanType(
+  duration: TripDuration | undefined,
+  defaultPlanType: DayPlanType | undefined,
+  fullDayDisabled: boolean,
+): DayPlanType {
+  return (
+    defaultPlanType ??
+    (duration === "halfDay" || fullDayDisabled ? "half_day" : "full_day")
+  );
+}
+
+export function getInitialAvailableMinutes(planType: DayPlanType): number {
+  return planType === "half_day" ? 300 : 540;
+}
+
 export function DayPlanWidget({
   destination,
   locale = "en",
@@ -92,12 +107,19 @@ export function DayPlanWidget({
   const [hasGenerated, setHasGenerated] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
 
-  const [planType, setPlanType] = useState<DayPlanType>(
-    defaultPlanType || "full_day",
+  const initialPlanType = getInitialDayPlanType(
+    duration,
+    defaultPlanType,
+    fullDayDisabled,
   );
+  const [planType, setPlanType] = useState<DayPlanType>(initialPlanType);
   const [startTime, setStartTime] = useState("09:00");
-  const [availableMinutes, setAvailableMinutes] = useState<number>(540);
-  const [durationPreset, setDurationPreset] = useState("540");
+  const [availableMinutes, setAvailableMinutes] = useState<number>(
+    getInitialAvailableMinutes(initialPlanType),
+  );
+  const [durationPreset, setDurationPreset] = useState(
+    String(getInitialAvailableMinutes(initialPlanType)),
+  );
   const [pace, setPace] = useState<DayPlanPace>("balanced");
   const partySize = externalPartySize;
   const [catchmentScope, setCatchmentScope] =
@@ -120,9 +142,12 @@ export function DayPlanWidget({
   // full-day-capable destination and a half-day-only one would otherwise keep
   // stale planType / duration state.
   useEffect(() => {
-    const nextPlanType =
-      defaultPlanType ?? (fullDayDisabled ? "half_day" : "full_day");
-    const nextMinutes = nextPlanType === "half_day" ? 300 : 540;
+    const nextPlanType = getInitialDayPlanType(
+      duration,
+      defaultPlanType,
+      fullDayDisabled,
+    );
+    const nextMinutes = getInitialAvailableMinutes(nextPlanType);
 
     setPlanType(nextPlanType);
     setAvailableMinutes(nextMinutes);

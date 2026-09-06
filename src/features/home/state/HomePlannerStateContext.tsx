@@ -20,6 +20,7 @@ import {
   type BudgetTier,
 } from "@/shared/types/homePlannerState";
 import { normalizeHomepageTripDuration } from "@/shared/types/tripDuration";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 
 function homepageDurationFromUrl(): HomepageTripDuration | undefined {
   if (typeof window === "undefined") return undefined;
@@ -114,6 +115,7 @@ export function HomePlannerStateProvider({
     },
   ) => void;
 }) {
+  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   const urlDuration = homepageDurationFromUrl();
   const createInitialPlannerState = () => {
     const defaults = createDefaultPlannerControls();
@@ -176,6 +178,35 @@ export function HomePlannerStateProvider({
       ...(migratedDuration ? { tripDuration: migratedDuration } : {}),
     }));
   }, [user, urlDuration]);
+
+  const hydratedTripContextRef = useRef(false);
+  useEffect(() => {
+    if (!hasExplicitTripContext || hydratedTripContextRef.current) return;
+    const normalizedDuration = normalizeHomepageTripDuration(
+      tripContext.duration,
+    );
+    const contextTier = tripContext.budget.tier;
+    const budgetTier: BudgetTier =
+      contextTier === "economy" ||
+      contextTier === "standard" ||
+      contextTier === "comfortable" ||
+      contextTier === "luxury"
+        ? contextTier
+        : "standard";
+    const controls = {
+      tripDuration: normalizedDuration ?? "halfDay",
+      partySize: tripContext.partySize,
+      publicModes: [...tripContext.publicModes],
+      publicTransport:
+        tripContext.carMode === "none" || tripContext.publicModes.length > 0,
+      carMode: tripContext.carMode,
+      budgetTier,
+    } satisfies Partial<PlannerControlsState>;
+    setDraftState((previous) => ({ ...previous, ...controls }));
+    setAppliedState((previous) => ({ ...previous, ...controls }));
+    setHasUserApplied(true);
+    hydratedTripContextRef.current = true;
+  }, [hasExplicitTripContext, tripContext]);
 
   const isDirty = useMemo(
     () =>

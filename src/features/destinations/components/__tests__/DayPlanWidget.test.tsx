@@ -5,7 +5,11 @@ import { afterEach, beforeAll, describe, it, expect } from "vitest";
 import { generateDayPlan } from "@/shared/services/recommendation/DayPlanGeneratorService";
 import type { Destination } from "@/shared/types/destination";
 import { loadDestinationsIndex } from "@/shared/services/place/PlaceCatalog";
-import { DayPlanWidget } from "../DayPlanWidget";
+import {
+  DayPlanWidget,
+  getInitialAvailableMinutes,
+  getInitialDayPlanType,
+} from "../DayPlanWidget";
 
 // KAI-121: generateDayPlan needs the FULL catalogue (nearby candidates).
 beforeAll(async () => {
@@ -62,6 +66,28 @@ const mockHub = {
     featuredDestinationIds: ["poi-1"],
   },
 } as unknown as Destination;
+
+describe("canonical duration planner defaults", () => {
+  it.each([
+    ["halfDay", "half_day", 300],
+    ["fullDay", "full_day", 540],
+    ["2d1n", "full_day", 540],
+    ["3d2n", "full_day", 540],
+  ] as const)(
+    "maps %s to %s and %s available minutes",
+    (duration, expectedPlanType, expectedMinutes) => {
+      const planType = getInitialDayPlanType(duration, undefined, false);
+      expect(planType).toBe(expectedPlanType);
+      expect(getInitialAvailableMinutes(planType)).toBe(expectedMinutes);
+    },
+  );
+
+  it("keeps an explicit plan type over the duration-derived default", () => {
+    expect(getInitialDayPlanType("halfDay", "full_day", false)).toBe(
+      "full_day",
+    );
+  });
+});
 
 describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
   it("reorders destination cards despite intervening travel steps", () => {
