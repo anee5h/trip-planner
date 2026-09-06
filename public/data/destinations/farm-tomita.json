@@ -125,10 +125,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-B authoritative thematic evidence; Summer; preferred months 6,7,8; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 170,
   "scoreMetadata": {
@@ -160,5 +160,13 @@
     "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
     "kind": "unavailable",
     "reason": "other"
+  },
+  "bestSeason": "Summer",
+  "bestMonths": [6, 7, 8],
+  "season": {
+    "spring": 6,
+    "summer": 10,
+    "autumn": 6,
+    "winter": 3
   }
 }
