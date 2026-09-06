@@ -13,7 +13,8 @@ import {
 } from "@/shared/components/ui/table";
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { resolveCompareEstimate } from "./compareEstimate";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
 import { useTranslation } from "react-i18next";
@@ -33,8 +34,9 @@ export default function Compare() {
   const { t } = useTranslation();
   const { locale } = useLocale();
   const { compareList, toggleCompare, clearCompare } = useTripStore();
-  // KAI-132: Compare reads ratings/walking/budget/transport — all lite
-  // fields. The lite catalogue is runtime-loaded; loading is
+  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
+  // Compare reads ratings/walking/budget/transport plus canonical cost facts.
+  // The full catalogue is runtime-loaded; loading is
   // distinguished from empty so the empty state is not flashed while
   // the loader resolves.
   const {
@@ -42,7 +44,7 @@ export default function Compare() {
     places: cataloguePlaces,
     error: liteError,
     retry: retryLite,
-  } = useCatalogue({ need: "summary" });
+  } = useCatalogue({ need: "full" });
   const liteReady = catalogueStatus === "ready";
   const allDestinations = cataloguePlaces as Destination[];
 
@@ -136,11 +138,7 @@ export default function Compare() {
   //   - ranking value  = midpoint (INTERNAL ranking only, never displayed)
   // Only COMPLETE results qualify; partial/unavailable show unavailable.
   const engineBudgetEstimates = compareDestinations.map((d) =>
-    calculateTripEstimate({
-      dest: d,
-      duration: "fullDay",
-      includeOriginTravel: false,
-    }),
+    resolveCompareEstimate(d, tripContext, hasExplicitTripContext),
   );
   const engineBudgetRanges = engineBudgetEstimates.map((r) =>
     r.total ? ([r.total.min, r.total.max] as [number, number]) : null,

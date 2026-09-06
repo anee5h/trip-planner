@@ -20,7 +20,7 @@ interface TopMatchesSectionProps {
   appliedState: ResolvedPlannerState;
   /** Planned travel date (ISO) passed through to destination links. */
   travelDate?: string;
-  /** Date to serialize into the View-all link (omitted for today). */
+  /** Date to serialize into the View-all link. */
   viewAllDate?: string;
 }
 

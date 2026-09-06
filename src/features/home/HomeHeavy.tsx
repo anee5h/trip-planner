@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { useAuth } from "@/shared/hooks/useAuth";
 import { useRecentlyViewedDestinations } from "@/shared/hooks/useRecentlyViewedDestinations";
@@ -45,11 +46,13 @@ export default function HeavyHome({
 
   const { user } = useAuth();
   const {
+    homeStation,
     homeStationCoords,
     homeStationTransportZoneId,
     isVisited,
     favorites,
   } = useTripStore();
+  const { updateTripContext } = useOptionalTripContext();
 
   const { weatherContext, currentTab, customDate, forecastSelection } =
     useHomeDateState();
@@ -86,7 +89,45 @@ export default function HeavyHome({
     useTripPlannerState(user, forecastSelection);
 
   const selectedDate =
-    customDate || currentTab?.dates?.[0] || weatherContext?.minDate;
+    customDate ||
+    currentTab?.dates?.[0] ||
+    weatherContext?.minDate ||
+    travelDateIso;
+
+  useEffect(() => {
+    if (!hasUserApplied) return;
+    updateTripContext({
+      origin: homeStationCoords
+        ? {
+            label: homeStation,
+            coordinates: homeStationCoords,
+            source: "default",
+            transportZoneId: homeStationTransportZoneId,
+          }
+        : null,
+      travelDate: selectedDate ?? null,
+      dateSemantics: forecastSelection.type,
+      duration: resolvedApplied.tripDuration,
+      partySize: resolvedApplied.partySize,
+      publicModes: resolvedApplied.publicModes,
+      carMode: resolvedApplied.carMode,
+      budget: {
+        kind: "cap",
+        cap: resolvedApplied.budget,
+        tier: resolvedApplied.budgetTier,
+      },
+    });
+  }, [
+    forecastSelection.type,
+    hasUserApplied,
+    homeStation,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    resolvedApplied,
+    selectedDate,
+    updateTripContext,
+  ]);
+
   const travelDates = useMemo(() => {
     if (!selectedDate) return undefined;
     return deriveTripDates(selectedDate, resolvedApplied.tripDuration);
@@ -191,10 +232,8 @@ export default function HeavyHome({
           recommendations={recommendedDestinations}
           hasUserApplied={hasUserApplied}
           appliedState={resolvedApplied}
-          travelDate={travelDateIso}
-          viewAllDate={
-            forecastSelection.type === "today" ? undefined : travelDateIso
-          }
+          travelDate={selectedDate}
+          viewAllDate={selectedDate}
         />
       ) : liteError ? (
         // KAI-132: the lite catalogue failed to load — this is NOT

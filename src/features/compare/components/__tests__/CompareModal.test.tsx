@@ -25,6 +25,23 @@ vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: "en", setLocale: vi.fn() }),
 }));
 
+vi.mock("@/shared/context/TripContext", () => ({
+  useOptionalTripContext: () => ({
+    tripContext: {
+      origin: null,
+      travelDate: null,
+      dateSemantics: "any",
+      duration: "fullDay",
+      partySize: 2,
+      publicModes: [],
+      carMode: "none",
+      budget: { kind: "cap", cap: 75000, tier: "standard" },
+    },
+    hasExplicitTripContext: false,
+    updateTripContext: vi.fn(),
+  }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string) => key,
@@ -68,7 +85,7 @@ describe("CompareModal Component", () => {
     expect(node.children.length).toBe(0);
   });
 
-  it("does not load the summary catalogue while mounted closed", async () => {
+  it("does not load the full catalogue while mounted closed", async () => {
     const loadSpy = vi.spyOn(PlaceCatalog, "loadCatalogue");
     loadSpy.mockClear();
     const node = renderCompareModal(false);
@@ -90,7 +107,7 @@ describe("CompareModal Component", () => {
       await Promise.resolve();
     });
 
-    expect(loadSpy).toHaveBeenCalledWith("summary");
+    expect(loadSpy).toHaveBeenCalledWith("full");
     expect(node.textContent).toContain("Kyoto");
 
     act(() => {

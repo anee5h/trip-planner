@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useAuth } from "@/shared/hooks/useAuth";
@@ -317,6 +318,7 @@ export default function DestinationDetails() {
   const copy = DETAIL_COPY[locale];
   const { id } = useParams();
   const location = useLocation();
+  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   const navState = location.state as {
     carMode?: string;
     publicModes?: string[];
@@ -329,7 +331,10 @@ export default function DestinationDetails() {
   } | null;
   const { user } = useAuth();
   const partySize =
-    navState?.partySize ?? user?.user_metadata?.preferences?.partySize ?? 2;
+    navState?.partySize ??
+    (hasExplicitTripContext ? tripContext.partySize : undefined) ??
+    user?.user_metadata?.preferences?.partySize ??
+    2;
   // Relationship-backed detail sections use a compact generated graph of
   // relationship-relevant nodes, not the nationwide summary catalogue.
   const {
@@ -342,7 +347,46 @@ export default function DestinationDetails() {
       user?.user_metadata?.preferences?.duration ??
       user?.user_metadata?.preferences?.tripMode,
   );
-  const duration = navState?.duration ?? savedDuration ?? "fullDay";
+  const duration =
+    navState?.duration ??
+    (hasExplicitTripContext ? tripContext.duration : undefined) ??
+    savedDuration ??
+    "fullDay";
+
+  const activeCarMode =
+    navState?.carMode ??
+    (hasExplicitTripContext ? tripContext.carMode : undefined) ??
+    user?.user_metadata?.preferences?.carMode ??
+    "none";
+  const activePublicModes = useMemo(
+    () =>
+      navState?.publicModes ??
+      (hasExplicitTripContext ? tripContext.publicModes : undefined) ??
+      user?.user_metadata?.preferences?.publicModes ?? [
+        "train",
+        "shinkansen",
+        "bus",
+        "flight",
+      ],
+    [
+      hasExplicitTripContext,
+      navState,
+      tripContext.publicModes,
+      user?.user_metadata?.preferences?.publicModes,
+    ],
+  );
+  const activeBudget =
+    navState?.budget ??
+    (hasExplicitTripContext && tripContext.budget.kind === "cap"
+      ? tripContext.budget.cap
+      : undefined) ??
+    user?.user_metadata?.preferences?.budget ??
+    50000;
+  const activeTravelDate =
+    navState?.travelDate ??
+    (hasExplicitTripContext
+      ? (tripContext.travelDate ?? undefined)
+      : undefined);
 
   const {
     isVisited,
@@ -512,11 +556,10 @@ export default function DestinationDetails() {
     if (!destination) return null;
     const userPrefs = user?.user_metadata?.preferences ?? {};
     const tripType = navState?.tripType ?? userPrefs.tripType ?? "any";
-    const budget = navState?.budget ?? userPrefs.budget ?? 50000;
-    const carMode = navState?.carMode ?? userPrefs.carMode ?? "none";
-    const publicModes = navState?.publicModes ??
-      userPrefs.publicModes ?? ["train", "shinkansen", "bus", "flight"];
-    const partySize = navState?.partySize ?? userPrefs.partySize ?? 2;
+    const budget = activeBudget;
+    const carMode = activeCarMode;
+    const publicModes = activePublicModes;
+    const activePartySize = partySize;
 
     let currentWeatherCondition = "any";
     let currentWeather: { temp: number; desc: string } | null = null;
@@ -534,7 +577,7 @@ export default function DestinationDetails() {
       budget,
       carMode,
       publicModes,
-      partySize,
+      partySize: activePartySize,
       currentWeatherCondition,
       visitedIds: [],
       currentWeather,
@@ -552,6 +595,10 @@ export default function DestinationDetails() {
     forecast,
     homeStationCoords,
     homeStationTransportZoneId,
+    activeBudget,
+    activeCarMode,
+    activePublicModes,
+    partySize,
   ]);
 
   /**
@@ -559,16 +606,15 @@ export default function DestinationDetails() {
    * is evaluated against this — never the system clock.
    */
   const ferryTemporal = useMemo(() => {
-    const travelDate = navState?.travelDate;
+    const travelDate = activeTravelDate;
     if (!travelDate) return undefined;
     return { travelDate: new Date(`${travelDate}T12:00:00`) };
-  }, [navState]);
+  }, [activeTravelDate]);
 
   // KAI-226 intent-triggered ORS: the deterministic estimate renders
   // immediately; this refinement requests the provider only because the
   // destination was opened (max one round-trip pair; cache-first).
-  const detailCarMode =
-    navState?.carMode ?? user?.user_metadata?.preferences?.carMode ?? "none";
+  const detailCarMode = activeCarMode;
   const carRefinement = useDestinationCarRouteRefinement(
     destination ?? undefined,
     {
@@ -777,13 +823,15 @@ export default function DestinationDetails() {
   const activeModes = useMemo(() => {
     if (!destination) return null;
     if (
-      navState &&
-      (navState.carMode !== undefined || navState.publicModes !== undefined)
+      (navState &&
+        (navState.carMode !== undefined ||
+          navState.publicModes !== undefined)) ||
+      hasExplicitTripContext
     ) {
       return getValidModes(
         destination,
-        navState.carMode,
-        navState.publicModes,
+        activeCarMode,
+        activePublicModes,
         homeStationCoords || undefined,
         undefined,
         homeStationTransportZoneId,
@@ -809,10 +857,13 @@ export default function DestinationDetails() {
   }, [
     destination,
     navState,
-    user,
+    hasExplicitTripContext,
+    activeCarMode,
+    activePublicModes,
     homeStationCoords,
     homeStationTransportZoneId,
     ferryTemporal,
+    user,
   ]);
 
   // Origin-aware ground durations: with an explicit origin, rows show the
@@ -1003,21 +1054,19 @@ export default function DestinationDetails() {
     if (!destination || !homeStationCoords || availableModes.length > 0) {
       return null;
     }
-    const userPrefs = user?.user_metadata?.preferences;
     return getSafeDisplayEstimate(destination, {
       homeStationCoords,
       homeStationTransportZoneId,
-      carMode: navState?.carMode ?? userPrefs?.carMode ?? "none",
-      publicModes: navState?.publicModes ??
-        userPrefs?.publicModes ?? ["train", "shinkansen", "bus", "flight"],
+      carMode: activeCarMode,
+      publicModes: activePublicModes,
     });
   }, [
     destination,
     homeStationCoords,
     homeStationTransportZoneId,
     availableModes.length,
-    navState,
-    user,
+    activeCarMode,
+    activePublicModes,
   ]);
 
   const defaultMode = useMemo(() => {
@@ -1667,7 +1716,7 @@ export default function DestinationDetails() {
                 selectedTransport={selectedTransport}
                 compactUnavailableCost={isHub}
                 ferryTemporal={ferryTemporal}
-                travelDate={navState?.travelDate}
+                travelDate={activeTravelDate}
                 duration={duration}
                 onPlanGenerated={setGeneratedPlan}
                 onSaveToItinerary={(plan) => {
@@ -1745,15 +1794,8 @@ export default function DestinationDetails() {
                   destinations={featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode ?? "none"}
-                  publicModes={
-                    navState?.publicModes ?? [
-                      "train",
-                      "shinkansen",
-                      "bus",
-                      "flight",
-                    ]
-                  }
+                  carMode={activeCarMode}
+                  publicModes={activePublicModes}
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
@@ -1801,8 +1843,8 @@ export default function DestinationDetails() {
                   <DestinationMap
                     destinations={childDestinations}
                     locale={locale}
-                    carMode={navState?.carMode}
-                    publicModes={navState?.publicModes}
+                    carMode={activeCarMode}
+                    publicModes={activePublicModes}
                     className="h-[280px] w-full overflow-hidden rounded-xl shadow-inner sm:h-[320px]"
                   />
                 </div>
@@ -2652,10 +2694,8 @@ export default function DestinationDetails() {
                   destinations={nearbyHubs}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode ?? "none"}
-                  publicModes={
-                    navState?.publicModes ?? ["train", "shinkansen", "bus"]
-                  }
+                  carMode={activeCarMode}
+                  publicModes={activePublicModes}
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
@@ -2716,10 +2756,8 @@ export default function DestinationDetails() {
                   destinations={nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
-                  carMode={navState?.carMode ?? "none"}
-                  publicModes={
-                    navState?.publicModes ?? ["train", "shinkansen", "bus"]
-                  }
+                  carMode={activeCarMode}
+                  publicModes={activePublicModes}
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}

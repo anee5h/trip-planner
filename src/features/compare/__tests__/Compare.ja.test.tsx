@@ -40,6 +40,22 @@ vi.mock("@/shared/context/LocaleContext", () => ({
   useLocale: () => ({ locale: "ja", setLocale: vi.fn() }),
 }));
 
+vi.mock("@/shared/context/TripContext", () => ({
+  useOptionalTripContext: () => ({
+    hasExplicitTripContext: false,
+    tripContext: {
+      origin: null,
+      travelDate: null,
+      dateSemantics: "any",
+      duration: "fullDay",
+      partySize: 2,
+      publicModes: [],
+      carMode: "none",
+      budget: { kind: "any", tier: "any" },
+    },
+  }),
+}));
+
 vi.mock("react-i18next", () => ({
   useTranslation: () => ({
     t: (key: string, opts?: Record<string, any>) => {
