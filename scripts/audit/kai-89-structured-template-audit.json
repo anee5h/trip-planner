@@ -6,7 +6,7 @@
   "totalRecords": 1130,
   "summary": {
     "categoryCount": 8,
-    "clusterCount": 191,
+    "clusterCount": 193,
     "affectedRecordCount": 1127,
     "affectedIds": [
       "abashiri",
@@ -1508,7 +1508,7 @@
       "missingBudgetRecords": 620,
       "missingSeasonRecords": 0,
       "explicitlyUnknownBudget": 0,
-      "explicitlyUnknownSeason": 375
+      "explicitlyUnknownSeason": 348
     },
     "publishedScoreStates": {
       "verified": 17,
@@ -1516,13 +1516,13 @@
       "unavailable": 27
     },
     "dispositionCounts": {
-      "confidence-gated": 34,
+      "confidence-gated": 36,
       "corrected": 9,
       "legitimate": 15,
       "manual-review": 92,
       "model-estimate": 41
     },
-    "categoryCounts": { "C": 82, "D": 6, "B": 59, "A": 13, "E": 31 }
+    "categoryCounts": { "C": 84, "D": 6, "B": 59, "A": 13, "E": 31 }
   },
   "categories": [
     {
@@ -8634,18 +8634,20 @@
     {
       "category": "season",
       "severity": "review",
-      "clusterCount": 5,
-      "affectedRecordCount": 148,
+      "clusterCount": 7,
+      "affectedRecordCount": 160,
       "affectedIds": [
         "abeno-harukas-300-osaka",
         "adachi-museum-of-art",
         "aizu-bukeyashiki",
         "akasaka-minato",
         "akashi-kaikyo-bridge",
+        "amanoiwato-shrine",
         "aomori-museum-of-art",
         "art-tower-mito",
         "ashizuri-uwakai",
         "aso-volcanic-museum",
+        "awa-shrine-tateyama",
         "beppu-tower",
         "boso-no-mura",
         "buaiso",
@@ -8660,28 +8662,35 @@
         "dejima-nagasaki",
         "dmm-kariyushi-aquarium",
         "echizen-kaga-kaigan",
+        "fudaten-shrine",
         "fukagawa-edo-museum",
         "fukuoka-city-museum",
         "fukuoka-paypay-dome",
+        "funai-castle",
         "genkai",
         "ghibli-museum",
         "gifu-castle-gifu",
         "ginza-itoya",
         "goryokaku",
         "gyokudo-art-museum",
+        "hagi-castle",
         "hakata-station-area",
         "hakkeijima",
         "hakone-open-air-museum",
         "harry-potter-studio",
         "higashiyama-sky-tower-nagoya",
         "hijikata-toshizo-museum",
+        "hirado-castle",
         "hiroshima-museum-art",
         "hiroshima-peace-memorial",
+        "hitachi-kamine-park",
+        "hitachinokuni-soshagu-shrine",
         "hokusai-museum-obuse",
         "hondori",
         "ikuno-silver-mine",
         "inubosaki-lighthouse-choshi",
         "irabu-bridge-irabujima-miyako",
+        "iwamura-castle",
         "izu",
         "jindai-zakura",
         "jogashima",
@@ -8702,6 +8711,7 @@
         "kita-nagato-kaigan",
         "kitakyushu-manga-museum",
         "kitaro-chaya",
+        "kofu-castle",
         "kujukushima-pearl-sea-resort",
         "kumamoto-prefectural-art-museum",
         "kurashiki-museum-of-folkcraft",
@@ -8712,6 +8722,7 @@
         "machida-graphic-arts-museum",
         "maruoka-castle-fukui",
         "matsumae-castle",
+        "matsusaka-castle",
         "miharu-takizakura",
         "miho-museum-koka",
         "minato-mirai-yokohama",
@@ -8752,6 +8763,7 @@
         "shibuya-sky-shibuya",
         "shin-yokohama-ramen-museum",
         "shirahama-beach-adventure-world",
+        "shirahige-shrine-lake-biwa",
         "shiroyama-park-tateyama",
         "soji-ji-yokohama",
         "sumida-hokusai-museum",
@@ -8953,10 +8965,15 @@
         {
           "id": "4b797ae33900",
           "severity": "review",
-          "count": 7,
+          "count": 12,
           "ids": [
+            "funai-castle",
+            "hagi-castle",
+            "hirado-castle",
             "kimii-dera-temple",
             "kintai-bridge-yamaguchi",
+            "kofu-castle",
+            "matsusaka-castle",
             "nokonoshima-island-park",
             "okazaki-castle",
             "serigaya-park",
@@ -8994,6 +9011,45 @@
             "category": "C",
             "action": "model-estimate",
             "reason": "KAI-89 model estimate: all members derived by the documented model (scripts/models/DESIGN.md); low-confidence provenance in editorial.fieldSources"
+          }
+        },
+        {
+          "id": "1cc7150f740b",
+          "severity": "review",
+          "count": 4,
+          "ids": [
+            "amanoiwato-shrine",
+            "fudaten-shrine",
+            "hitachinokuni-soshagu-shrine",
+            "shirahige-shrine-lake-biwa"
+          ],
+          "value": {
+            "bestMonths": [9],
+            "season": { "autumn": 10, "spring": 5, "summer": 5, "winter": 5 }
+          },
+          "disposition": {
+            "category": "C",
+            "action": "confidence-gated",
+            "reason": "Four KAI-151 P1-A shrine records share the September/Autumn vector, but each window is independently supported by a destination-specific official festival source. The repeated vector is a bounded representation of source-backed preferred months, not evidence of bulk filling."
+          }
+        },
+        {
+          "id": "04d999ca5dea",
+          "severity": "review",
+          "count": 3,
+          "ids": [
+            "awa-shrine-tateyama",
+            "hitachi-kamine-park",
+            "iwamura-castle"
+          ],
+          "value": {
+            "bestMonths": [4],
+            "season": { "autumn": 5, "spring": 10, "summer": 6, "winter": 4 }
+          },
+          "disposition": {
+            "category": "C",
+            "action": "confidence-gated",
+            "reason": "Three records share the April/Spring vector, with destination-specific seasonal windows independently supported by authoritative sources. The repeated vector is a bounded representation of source-backed preferred months, not evidence of bulk filling."
           }
         },
         {

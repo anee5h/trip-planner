@@ -37,8 +37,8 @@ describe("KAI-151 P1-A season cohort", () => {
   it("keeps the exact cohort partition and mutation set", () => {
     expect(review.summary).toMatchObject({
       candidateCount: 112,
-      mutatedCount: 6,
-      insufficientCount: 106,
+      mutatedCount: 46,
+      insufficientCount: 66,
     });
     expect(review.records).toHaveLength(112);
     expect(new Set(review.records.map((row) => row.id)).size).toBe(112);
@@ -48,12 +48,52 @@ describe("KAI-151 P1-A season cohort", () => {
         .map((row) => row.id)
         .sort(),
     ).toEqual([
+      "amanoiwato-shrine",
+      "bitchu-matsuyama-castle",
       "byodoin-temple",
       "dazaifu-tenmangu",
+      "fudaten-shrine",
+      "funai-castle",
+      "gessho-ji-temple-matsue",
+      "hagi-castle",
+      "haruna-shrine",
+      "hirado-castle",
+      "hitachinokuni-soshagu-shrine",
+      "iga-ueno-castle",
+      "ikuta-shrine-kobe",
+      "iwamura-castle",
+      "kasama-inari-shrine",
+      "kifune-jinja-kyoto",
       "kiyomizu-dera",
+      "kofu-castle",
+      "kubota-castle",
+      "kumano-hayatama-taisha-shingu",
+      "kumano-hongu-taisha-oyunohara",
+      "matsusaka-castle",
+      "matsushiro-castle",
+      "meiji-jingu",
       "mimuroto-ji-temple",
+      "miyazaki-jingu-shrine",
+      "nagashino-castle",
+      "nakayama-hokekyoji-ichikawa",
+      "nihonmatsu-castle",
+      "oka-castle-oita",
+      "ozu-castle",
+      "shibata-castle",
+      "shirahige-shrine-lake-biwa",
+      "shorinzan-darumaji",
+      "sumiyoshi-taisha",
+      "taga-taisha",
       "takahata-fudoson",
+      "takaoka-castle",
+      "takaosan-yakuoin",
+      "takatori-castle",
       "tenryu-ji-kyoto",
+      "tokushima-castle",
+      "toshodai-ji-temple",
+      "yakushi-ji-temple",
+      "zenkoji-temple",
+      "zoshigaya-kishimojindo",
     ]);
   });
 
@@ -61,7 +101,9 @@ describe("KAI-151 P1-A season cohort", () => {
     for (const row of review.records.filter(
       (candidate) => !candidate.mutationAllowed,
     )) {
-      expect(row.classification).toBe("insufficient_evidence");
+      expect(["insufficient_evidence", "conflicting_or_ambiguous"]).toContain(
+        row.classification,
+      );
       expect(row.proposed).toEqual({
         apply: false,
         bestSeason: null,

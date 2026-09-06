@@ -121,8 +121,8 @@ function build(): { json: string; markdown: string } {
     `## Mutated records\n\n` +
     changedIds.map((id) => `- \`${id}\``).join("\n") +
     `\n\n` +
-    `These six rows received only \`bestSeason\`, \`bestMonths\`, \`season\`, and ` +
-    `KAI-151 manual provenance metadata. The remaining cohort rows remain unknown; ` +
+    `Each of the ${changedIds.length} accepted rows received only \`bestSeason\`, \`bestMonths\`, \`season\`, and ` +
+    `KAI-151 manual provenance metadata. The remaining ${afterMissing.length} cohort rows remain unknown or conflicting; ` +
     `generic seasonal language was not promoted to structured fields.\n\n` +
     `## Invariants\n\n` +
     `- Unique IDs: **${report.invariants.uniqueIds ? "pass" : "fail"}**\n` +

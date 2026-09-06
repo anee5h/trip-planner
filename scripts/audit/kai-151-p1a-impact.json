@@ -6,18 +6,70 @@
     "predicate": "kind in [\"castle\", \"temple\", \"shrine\"] and season == null and bestMonths == null",
     "candidateCount": 112,
     "beforeMissingStructuredSeasonCount": 112,
-    "afterMissingStructuredSeasonCount": 106,
-    "residualCount": 106,
-    "mutatedCount": 6,
+    "afterMissingStructuredSeasonCount": 66,
+    "residualCount": 66,
+    "mutatedCount": 46,
     "changedIds": [
+      "amanoiwato-shrine",
+      "bitchu-matsuyama-castle",
       "byodoin-temple",
       "dazaifu-tenmangu",
+      "fudaten-shrine",
+      "funai-castle",
+      "gessho-ji-temple-matsue",
+      "hagi-castle",
+      "haruna-shrine",
+      "hirado-castle",
+      "hitachinokuni-soshagu-shrine",
+      "iga-ueno-castle",
+      "ikuta-shrine-kobe",
+      "iwamura-castle",
+      "kasama-inari-shrine",
+      "kifune-jinja-kyoto",
       "kiyomizu-dera",
+      "kofu-castle",
+      "kubota-castle",
+      "kumano-hayatama-taisha-shingu",
+      "kumano-hongu-taisha-oyunohara",
+      "matsusaka-castle",
+      "matsushiro-castle",
+      "meiji-jingu",
       "mimuroto-ji-temple",
+      "miyazaki-jingu-shrine",
+      "nagashino-castle",
+      "nakayama-hokekyoji-ichikawa",
+      "nihonmatsu-castle",
+      "oka-castle-oita",
+      "ozu-castle",
+      "shibata-castle",
+      "shirahige-shrine-lake-biwa",
+      "shorinzan-darumaji",
+      "sumiyoshi-taisha",
+      "taga-taisha",
       "takahata-fudoson",
-      "tenryu-ji-kyoto"
+      "takaoka-castle",
+      "takaosan-yakuoin",
+      "takatori-castle",
+      "tenryu-ji-kyoto",
+      "tokushima-castle",
+      "toshodai-ji-temple",
+      "yakushi-ji-temple",
+      "zenkoji-temple",
+      "zoshigaya-kishimojindo"
     ],
     "changedKeys": {
+      "amanoiwato-shrine": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "bitchu-matsuyama-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
       "byodoin-temple": [
         "bestSeason",
         "bestMonths",
@@ -30,20 +82,203 @@
         "season",
         "seasonMetadata"
       ],
+      "fudaten-shrine": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "funai-castle": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "gessho-ji-temple-matsue": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "hagi-castle": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "haruna-shrine": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "hirado-castle": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "hitachinokuni-soshagu-shrine": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "iga-ueno-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "ikuta-shrine-kobe": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "iwamura-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "kasama-inari-shrine": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "kifune-jinja-kyoto": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
       "kiyomizu-dera": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "kofu-castle": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "kubota-castle": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "kumano-hayatama-taisha-shingu": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "kumano-hongu-taisha-oyunohara": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "matsusaka-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "matsushiro-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "meiji-jingu": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
       "mimuroto-ji-temple": [
         "bestSeason",
         "bestMonths",
         "season",
         "seasonMetadata"
       ],
+      "miyazaki-jingu-shrine": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "nagashino-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "nakayama-hokekyoji-ichikawa": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "nihonmatsu-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "oka-castle-oita": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "ozu-castle": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
+      "shibata-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "shirahige-shrine-lake-biwa": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "shorinzan-darumaji": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "sumiyoshi-taisha": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "taga-taisha": ["bestSeason", "bestMonths", "season", "seasonMetadata"],
       "takahata-fudoson": [
         "bestSeason",
         "bestMonths",
         "season",
         "seasonMetadata"
       ],
+      "takaoka-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "takaosan-yakuoin": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "takatori-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
       "tenryu-ji-kyoto": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "tokushima-castle": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "toshodai-ji-temple": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "yakushi-ji-temple": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "zenkoji-temple": [
+        "bestSeason",
+        "bestMonths",
+        "season",
+        "seasonMetadata"
+      ],
+      "zoshigaya-kishimojindo": [
         "bestSeason",
         "bestMonths",
         "season",
@@ -59,10 +294,8 @@
       "akagi-shrine",
       "akashi-castle",
       "ako-castle",
-      "amanoiwato-shrine",
       "anrakuji-temple-ueda",
       "azuchi-castle",
-      "bitchu-matsuyama-castle",
       "chihaya-castle",
       "chogosonshi-ji-temple",
       "danjo-garan-koyasan",
@@ -70,98 +303,60 @@
       "eiheiji-temple",
       "engyo-ji-mount-shosha",
       "enryaku-ji-mount-hiei",
-      "fudaten-shrine",
       "fukuyama-castle",
-      "funai-castle",
       "gansho-in-temple",
       "gassantoda-castle",
-      "gessho-ji-temple-matsue",
       "hachigata-castle",
-      "hagi-castle",
-      "haruna-shrine",
-      "hirado-castle",
       "hiroshima-castle",
-      "hitachinokuni-soshagu-shrine",
       "hitoyoshi-castle",
       "hizen-nagoya-castle",
       "hokki-ji-pagoda",
       "ichijodani-castle",
-      "iga-ueno-castle",
-      "ikuta-shrine-kobe",
       "imabari-castle",
       "iwakuni-castle",
-      "iwamura-castle",
       "izanagi-jingu-awaji",
       "jakko-in-ohara",
       "jindaiji",
       "kagoshima-castle",
       "kanayama-castle",
       "kannonji-castle",
-      "kasama-inari-shrine",
       "kashima-jingu",
       "kasugayama-castle",
-      "kifune-jinja-kyoto",
       "kinojo",
       "kishiwada-castle",
       "kitamuki-kannon",
-      "kofu-castle",
       "komoro-castle",
       "komyozenji-temple-dazaifu",
-      "kubota-castle",
-      "kumano-hayatama-taisha-shingu",
-      "kumano-hongu-taisha-oyunohara",
       "kurama-dera-kyoto",
-      "matsusaka-castle",
-      "matsushiro-castle",
-      "meiji-jingu",
       "minowa-castle",
       "mitaki-dera",
-      "miyazaki-jingu-shrine",
       "musashi-mitake-shrine",
       "myogi-shrine",
-      "nagashino-castle",
-      "nakayama-hokekyoji-ichikawa",
       "nanao-castle",
       "ne-castle-hachinohe",
-      "nihonmatsu-castle",
       "obi-castle",
       "odani-castle",
-      "oka-castle-oita",
       "ono-castle-dazaifu",
-      "ozu-castle",
       "saga-castle",
       "sanzen-in-ohara",
       "sasayama-castle",
       "senjokaku",
-      "shibata-castle",
       "shimabara-castle",
-      "shirahige-shrine-lake-biwa",
       "shirakawa-komine-castle",
       "shitennoji",
-      "shorinzan-darumaji",
       "shuri-castle-okinawa",
-      "sumiyoshi-taisha",
       "sumoto-castle-awaji",
       "sunpu-castle",
       "suwa-shrine-tachikawa",
       "suwa-taisha",
-      "taga-taisha",
-      "takaoka-castle",
-      "takaosan-yakuoin",
-      "takatori-castle",
       "togakushi-shrine",
-      "tokushima-castle",
-      "toshodai-ji-temple",
       "tottori-castle",
       "tsuwano-castle",
       "uji-tea-culture-center",
       "ukimido-mangetsu-ji",
-      "yakushi-ji-temple",
       "yamagata-castle",
       "yamanaka-castle",
-      "yoshida-koriyama-castle",
-      "zenkoji-temple",
-      "zoshigaya-kishimojindo"
+      "yoshida-koriyama-castle"
     ]
   }
 }

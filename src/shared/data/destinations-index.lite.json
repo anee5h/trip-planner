@@ -2698,6 +2698,14 @@
     },
     "officialWebsite": "https://www.bitchumatsuyamacastle.jp/",
     "status": "verified",
+    "season": {
+      "spring": 6,
+      "summer": 4,
+      "autumn": 10,
+      "winter": 7
+    },
+    "bestMonths": [10, 11],
+    "bestSeason": "Autumn",
     "weatherDependence": "moderate",
     "totalTripHours": 4,
     "walkingMin": 180,
@@ -45116,6 +45124,14 @@
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
     "officialWebsiteRequirement": "recommended",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 5
+    },
+    "bestMonths": [4, 5],
+    "bestSeason": "Spring",
     "weatherDependence": "moderate",
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -46661,6 +46677,14 @@
     "officialWebsite": "https://www.gotokyo.org/en/destinations/western-tokyo/ikebukuro/index.html",
     "officialWebsiteRequirement": "recommended",
     "status": "published",
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [10],
+    "bestSeason": "Autumn",
     "weatherDependence": "moderate",
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -47367,6 +47391,14 @@
     "officialWebsite": "https://www.hkc.or.jp/eng/",
     "officialWebsiteRequirement": "recommended",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 10
+    },
+    "bestMonths": [1, 12],
+    "bestSeason": "Winter",
     "weatherDependence": "moderate",
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -48268,6 +48300,14 @@
     "officialWebsite": "https://csa.gr.jp/",
     "officialWebsiteRequirement": "recommended",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [9],
+    "bestSeason": "Autumn",
     "weatherDependence": "moderate",
     "totalTripHours": 5,
     "walkingMin": 60,
@@ -52000,6 +52040,14 @@
     },
     "officialWebsite": "https://www.toshodaiji.jp/",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 3
+    },
+    "bestMonths": [6, 8],
+    "bestSeason": "Summer",
     "walkingMin": 145,
     "recommendedVisitHours": {
       "min": 2,
@@ -52070,6 +52118,14 @@
     },
     "officialWebsite": "https://www.yakushiji.or.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 5
+    },
+    "bestMonths": [3],
+    "bestSeason": "Spring",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -52205,6 +52261,14 @@
     },
     "officialWebsite": "http://shirahigejinja.com/",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [9],
+    "bestSeason": "Autumn",
     "walkingMin": 55,
     "recommendedVisitHours": {
       "min": 0.5,
@@ -55801,6 +55865,14 @@
     "officialWebsite": "https://miyazakijingu.or.jp/",
     "officialWebsiteRequirement": "optional",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [10],
+    "bestSeason": "Autumn",
     "weatherDependence": "moderate",
     "totalTripHours": 2,
     "walkingMin": 55,
@@ -55962,6 +56034,14 @@
     "officialWebsite": null,
     "officialWebsiteRequirement": "optional",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [9],
+    "bestSeason": "Autumn",
     "weatherDependence": "moderate",
     "totalTripHours": 2,
     "walkingMin": 55,
@@ -64274,6 +64354,14 @@
     },
     "officialWebsite": "https://gesshoji-matsue.com/",
     "status": "published",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 3
+    },
+    "bestMonths": [6, 7],
+    "bestSeason": "Summer",
     "weatherDependence": "moderate",
     "walkingMin": 70,
     "indoorPercent": 25,
@@ -69507,6 +69595,14 @@
     },
     "officialWebsite": "https://www.city.akita.lg.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 7,
+      "autumn": 6,
+      "winter": 5
+    },
+    "bestMonths": [4, 5],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -69657,6 +69753,14 @@
     },
     "officialWebsite": "https://www.nihonmatsu-kanko.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 8,
+      "winter": 5
+    },
+    "bestMonths": [4, 5],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -70193,6 +70297,14 @@
     },
     "officialWebsite": "https://www.city.kofu.yamanashi.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -70268,6 +70380,14 @@
     },
     "officialWebsite": "https://www.sanadahoumotsukan.com/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -70418,6 +70538,14 @@
     },
     "officialWebsite": "https://shibata-info.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 4
+    },
+    "bestMonths": [4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -70568,6 +70696,14 @@
     },
     "officialWebsite": "https://www.e-tmm.info/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 5
+    },
+    "bestMonths": [4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -70794,6 +70930,14 @@
     },
     "officialWebsite": "https://hot-iwamura.com/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    },
+    "bestMonths": [4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -71104,6 +71248,14 @@
     },
     "officialWebsite": "https://www.city.shinshiro.lg.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    },
+    "bestMonths": [5],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -71179,6 +71331,14 @@
     },
     "officialWebsite": "https://www.igaueno-castle.jp/",
     "status": "published",
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [10, 11],
+    "bestSeason": "Autumn",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -71254,6 +71414,14 @@
     },
     "officialWebsite": "https://www.city.matsusaka.mie.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -71857,6 +72025,14 @@
     },
     "officialWebsite": "https://sightseeing.takatori.info/",
     "status": "published",
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [11],
+    "bestSeason": "Autumn",
     "walkingMin": 180,
     "recommendedVisitHours": {
       "min": 4,
@@ -72470,6 +72646,14 @@
     },
     "officialWebsite": "https://hagishi.com/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -72545,6 +72729,14 @@
     },
     "officialWebsite": "https://www.city.tokushima.tokushima.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 5
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -72705,6 +72897,14 @@
     },
     "officialWebsite": "https://www.ozucastle.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 5
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -73085,6 +73285,14 @@
     },
     "officialWebsite": "https://hirado-castle.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -73311,6 +73519,14 @@
     },
     "officialWebsite": "https://www.city.oita.oita.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    },
+    "bestMonths": [3, 4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -73387,6 +73603,14 @@
     },
     "officialWebsite": "https://okajou.jp/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    },
+    "bestMonths": [4],
+    "bestSeason": "Spring",
     "walkingMin": 125,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -83379,6 +83603,14 @@
     "officialWebsite": "https://kifunejinja.jp/en/contact/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 5
+    },
+    "bestMonths": [6],
+    "bestSeason": "Summer",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -83752,6 +83984,14 @@
     "officialWebsite": "https://hokekyoji2101.wixsite.com/nakayama",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 10
+    },
+    "bestMonths": [1, 2, 11, 12],
+    "bestSeason": "Winter",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -84514,6 +84754,14 @@
     "officialWebsite": "https://www.sumiyoshitaisha.net/en/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 10
+    },
+    "bestMonths": [1],
+    "bestSeason": "Winter",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -85543,6 +85791,14 @@
     "officialWebsite": "https://ikutajinja.or.jp/access",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [4, 9],
+    "bestSeason": "Spring & Autumn",
     "walkingMin": 35,
     "recommendedVisitHours": {
       "min": 1,
@@ -86432,6 +86688,14 @@
     "officialWebsite": "https://global.biwako-visitors.jp/things-to-do/22084/",
     "officialWebsiteRequirement": "recommended",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 5
+    },
+    "bestMonths": [8],
+    "bestSeason": "Summer",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -88185,6 +88449,14 @@
     "officialWebsite": "https://visit.ibarakiguide.jp/en/sightseeing/22308/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [10, 11],
+    "bestSeason": "Autumn",
     "walkingMin": 35,
     "recommendedVisitHours": {
       "min": 0.5,
@@ -88412,6 +88684,14 @@
     "officialWebsite": "https://sosyagu.jp/en/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [9],
+    "bestSeason": "Autumn",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -88490,6 +88770,14 @@
     "officialWebsite": "https://www.tb-kumano.jp/en/kumano-kodo/world-heritage/kumano-hongu-taisha/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 10,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 5
+    },
+    "bestMonths": [4, 8],
+    "bestSeason": "Spring & Summer",
     "walkingMin": 55,
     "recommendedVisitHours": {
       "min": 1,
@@ -88568,6 +88856,14 @@
     "officialWebsite": "https://www.shinguu.jp/en/spots/detail/A0001",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [10],
+    "bestSeason": "Autumn",
     "walkingMin": 35,
     "recommendedVisitHours": {
       "min": 0.7,
@@ -88802,6 +89098,14 @@
     "officialWebsite": "https://www.zenkoji.jp/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [10, 11],
+    "bestSeason": "Autumn",
     "walkingMin": 70,
     "recommendedVisitHours": {
       "min": 1,
@@ -90176,6 +90480,14 @@
     "officialWebsite": "http://www.haruna.or.jp/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    },
+    "bestMonths": [5, 10],
+    "bestSeason": "Spring & Autumn",
     "walkingMin": 110,
     "recommendedVisitHours": {
       "min": 1,
@@ -90468,6 +90780,14 @@
     "officialWebsite": "https://www.daruma.or.jp/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 4,
+      "autumn": 6,
+      "winter": 10
+    },
+    "bestMonths": [1],
+    "bestSeason": "Winter",
     "walkingMin": 110,
     "recommendedVisitHours": {
       "min": 1,

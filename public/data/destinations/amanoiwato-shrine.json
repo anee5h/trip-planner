@@ -146,10 +146,10 @@
   },
   "notesJa": "天岩戸は神職の案内で川の対岸から拝観します。",
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 9; structured experience seasonality with nonzero year-round vector"
   },
   "comfortMetadata": {
     "method": "model",
@@ -194,5 +194,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Amanoiwato_Shrine",
   "wikipediaPageId": 29524214,
-  "wikidataId": "Q2841102"
+  "wikidataId": "Q2841102",
+  "bestSeason": "Autumn",
+  "bestMonths": [9],
+  "season": {
+    "spring": 5,
+    "summer": 5,
+    "autumn": 10,
+    "winter": 5
+  }
 }

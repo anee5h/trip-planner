@@ -127,10 +127,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4; structured experience seasonality with nonzero year-round vector"
   },
   "walkingMin": 125,
   "scoreMetadata": {
@@ -167,5 +167,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsushiro_Castle",
   "wikipediaPageId": 50595254,
-  "wikidataId": "Q11104236"
+  "wikidataId": "Q11104236",
+  "bestSeason": "Spring",
+  "bestMonths": [4],
+  "season": {
+    "spring": 10,
+    "summer": 8,
+    "autumn": 8,
+    "winter": 6
+  }
 }

@@ -101,10 +101,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Winter; preferred months 1; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -289,5 +289,13 @@
     "basis": "The two required ordinary adult one-way fares are Shin-Osaka → Namba ¥290 and Namba → Sumiyoshitaisha ¥240, totaling ¥530 to the station named by the shrine's official access page.",
     "checkedAt": "2026-08-29",
     "reviewIntervalMonths": 12
+  },
+  "bestSeason": "Winter",
+  "bestMonths": [1],
+  "season": {
+    "spring": 5,
+    "summer": 5,
+    "autumn": 5,
+    "winter": 10
   }
 }

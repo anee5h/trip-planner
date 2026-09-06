@@ -6361,10 +6361,10 @@
     },
     "kind": "castle",
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10,11; structured experience seasonality with nonzero year-round vector"
     },
     "durationMetadata": {
       "method": "model",
@@ -6423,6 +6423,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10,
+      11
+    ],
+    "season": {
+      "spring": 6,
+      "summer": 4,
+      "autumn": 10,
+      "winter": 7
     }
   },
   {
@@ -109193,10 +109204,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4,5; structured experience seasonality with nonzero year-round vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -109250,7 +109261,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Meiji_Shrine",
     "wikipediaPageId": 294236,
-    "wikidataId": "Q287165"
+    "wikidataId": "Q287165",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 5
+    }
   },
   {
     "id": "yoyogi-park",
@@ -113216,10 +113238,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10; structured experience seasonality with nonzero year-round vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -113264,6 +113286,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10
+    ],
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -115033,10 +115065,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Winter; preferred months 1,12; structured experience seasonality with nonzero year-round vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -115086,7 +115118,18 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E9%AB%98%E5%B0%BE%E5%B1%B1%E8%96%AC%E7%8E%8B%E9%99%A2",
     "wikipediaPageId": 66883,
-    "wikidataId": "Q8194732"
+    "wikidataId": "Q8194732",
+    "bestSeason": "Winter",
+    "bestMonths": [
+      1,
+      12
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 10
+    }
   },
   {
     "id": "takao-599-museum",
@@ -117379,10 +117422,10 @@
       "basis": "restored batch times (v1.6.0 default) — not verified journey facts; origin-aware estimator is authoritative"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 9; structured experience seasonality with nonzero year-round vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -117432,7 +117475,17 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%B8%83%E5%A4%9A%E5%A4%A9%E7%A5%9E%E7%A4%BE",
     "wikipediaPageId": 1275756,
-    "wikidataId": "Q11480773"
+    "wikidataId": "Q11480773",
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      9
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    }
   },
   {
     "id": "chofu-historic-jindaiji-district",
@@ -127085,10 +127138,10 @@
       "confidence": "beta"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 6,8; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 145,
     "walkingIntensity": "high",
@@ -127135,7 +127188,18 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E5%94%90%E6%8B%9B%E6%8F%90%E5%AF%BA",
     "wikipediaPageId": 83924,
-    "wikidataId": "Q973175"
+    "wikidataId": "Q973175",
+    "bestSeason": "Summer",
+    "bestMonths": [
+      6,
+      8
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 3
+    }
   },
   {
     "id": "yakushi-ji-temple",
@@ -127262,10 +127326,10 @@
       "confidence": "beta"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 70,
     "walkingIntensity": "medium",
@@ -127306,7 +127370,17 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E8%96%AC%E5%B8%AB%E5%AF%BA",
     "wikipediaPageId": 66330,
-    "wikidataId": "Q945913"
+    "wikidataId": "Q945913",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 5
+    }
   },
   {
     "id": "naramachi-historic-district",
@@ -127585,10 +127659,10 @@
       "confidence": "beta"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 9; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 55,
     "walkingIntensity": "medium",
@@ -127625,6 +127699,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      9
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -137423,10 +137507,10 @@
     },
     "notesJa": "長い玉砂利の参道は古木に覆われ夏でも涼しく歩けます。",
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10; structured experience seasonality with nonzero year-round vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -137471,6 +137555,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -137866,10 +137960,10 @@
     },
     "notesJa": "天岩戸は神職の案内で川の対岸から拝観します。",
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 9; structured experience seasonality with nonzero year-round vector"
     },
     "comfortMetadata": {
       "method": "model",
@@ -137914,7 +138008,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Amanoiwato_Shrine",
     "wikipediaPageId": 29524214,
-    "wikidataId": "Q2841102"
+    "wikidataId": "Q2841102",
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      9
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    }
   },
   {
     "id": "takachiho-kagura-dance",
@@ -159682,10 +159786,10 @@
     },
     "schemaVersion": 2,
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 6,7; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -159730,7 +159834,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Gessh%C5%8D-ji",
     "wikipediaPageId": 77096792,
-    "wikidataId": "Q3517478"
+    "wikidataId": "Q3517478",
+    "bestSeason": "Summer",
+    "bestMonths": [
+      6,
+      7
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 3
+    }
   },
   {
     "id": "inasa-beach-izumo",
@@ -172219,10 +172334,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4,5; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -172262,7 +172377,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Kubota_Castle",
     "wikipediaPageId": 40842285,
-    "wikidataId": "Q6133648"
+    "wikidataId": "Q6133648",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 7,
+      "autumn": 6,
+      "winter": 5
+    }
   },
   {
     "id": "yamagata-castle",
@@ -172597,10 +172723,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4,5; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -172640,7 +172766,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Nihonmatsu_Castle",
     "wikipediaPageId": 13025602,
-    "wikidataId": "Q593054"
+    "wikidataId": "Q593054",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 8,
+      "winter": 5
+    }
   },
   {
     "id": "shirakawa-komine-castle",
@@ -173936,10 +174073,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -173978,7 +174115,18 @@
     "wikipediaLanguage": "ja",
     "wikipediaUrl": "https://ja.wikipedia.org/wiki/%E7%94%B2%E5%BA%9C%E5%9F%8E",
     "wikipediaPageId": 150044,
-    "wikidataId": "Q969909"
+    "wikidataId": "Q969909",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "matsushiro-castle",
@@ -174124,10 +174272,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -174166,7 +174314,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsushiro_Castle",
     "wikipediaPageId": 50595254,
-    "wikidataId": "Q11104236"
+    "wikidataId": "Q11104236",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 8,
+      "autumn": 8,
+      "winter": 6
+    }
   },
   {
     "id": "komoro-castle",
@@ -174500,10 +174658,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -174543,7 +174701,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Shibata_Castle",
     "wikipediaPageId": 23415907,
-    "wikidataId": "Q1039103"
+    "wikidataId": "Q1039103",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 4
+    }
   },
   {
     "id": "kasugayama-castle",
@@ -174877,10 +175045,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -174919,7 +175087,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Takaoka_Castle",
     "wikipediaPageId": 50621550,
-    "wikidataId": "Q8011764"
+    "wikidataId": "Q8011764",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 5
+    }
   },
   {
     "id": "nanao-castle",
@@ -175446,10 +175624,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -175488,7 +175666,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Iwamura_Castle",
     "wikipediaPageId": 2400573,
-    "wikidataId": "Q1196356"
+    "wikidataId": "Q1196356",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "yamanaka-castle",
@@ -176217,10 +176405,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 5; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -176259,7 +176447,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Nagashino_Castle",
     "wikipediaPageId": 355647,
-    "wikidataId": "Q961882"
+    "wikidataId": "Q961882",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 7,
+      "autumn": 8,
+      "winter": 6
+    }
   },
   {
     "id": "iga-ueno-castle",
@@ -176405,10 +176603,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10,11; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -176448,7 +176646,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Iga_Ueno_Castle",
     "wikipediaPageId": 17132887,
-    "wikidataId": "Q1333693"
+    "wikidataId": "Q1333693",
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10,
+      11
+    ],
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    }
   },
   {
     "id": "matsusaka-castle",
@@ -176595,10 +176804,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -176637,7 +176846,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Matsusaka_Castle",
     "wikipediaPageId": 17579022,
-    "wikidataId": "Q1010226"
+    "wikidataId": "Q1010226",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "odani-castle",
@@ -178105,10 +178325,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 11; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 180,
     "scoreMetadata": {
@@ -178147,7 +178367,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Takatori_Castle",
     "wikipediaPageId": 50596342,
-    "wikidataId": "Q5369622"
+    "wikidataId": "Q5369622",
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      11
+    ],
+    "season": {
+      "spring": 6,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    }
   },
   {
     "id": "tottori-castle",
@@ -179655,10 +179885,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -179697,7 +179927,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Hagi_Castle",
     "wikipediaPageId": 16970079,
-    "wikidataId": "Q1064830"
+    "wikidataId": "Q1064830",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "tokushima-castle",
@@ -179849,10 +180090,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -179891,7 +180132,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Tokushima_Castle",
     "wikipediaPageId": 50598347,
-    "wikidataId": "Q8011246"
+    "wikidataId": "Q8011246",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 5
+    }
   },
   {
     "id": "imabari-castle",
@@ -180235,10 +180487,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -180278,7 +180530,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/%C5%8Czu_Castle",
     "wikipediaPageId": 16464504,
-    "wikidataId": "Q1036874"
+    "wikidataId": "Q1036874",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 6,
+      "winter": 5
+    }
   },
   {
     "id": "ono-castle-dazaifu",
@@ -181173,10 +181436,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -181216,7 +181479,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Hirado_Castle",
     "wikipediaPageId": 773612,
-    "wikidataId": "Q1191029"
+    "wikidataId": "Q1191029",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "shimabara-castle",
@@ -181742,10 +182016,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 3,4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -181784,7 +182058,18 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Funai_Castle",
     "wikipediaPageId": 12256669,
-    "wikidataId": "Q1142070"
+    "wikidataId": "Q1142070",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 4
+    }
   },
   {
     "id": "oka-castle-oita",
@@ -181933,10 +182218,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring; preferred months 4; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 125,
     "scoreMetadata": {
@@ -181976,7 +182261,17 @@
     "wikipediaLanguage": "en",
     "wikipediaUrl": "https://en.wikipedia.org/wiki/Oka_Castle",
     "wikipediaPageId": 50595811,
-    "wikidataId": "Q8010033"
+    "wikidataId": "Q8010033",
+    "bestSeason": "Spring",
+    "bestMonths": [
+      4
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 8,
+      "autumn": 9,
+      "winter": 7
+    }
   },
   {
     "id": "kagoshima-castle",
@@ -208716,10 +209011,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 6; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -208898,6 +209193,16 @@
       "detail": "Canonical arrival Kyoto Station is established, but destination-specific required local access and current ordinary-adult fare could not be represented from the reviewed source set. Retrieval failures are listed separately and are not treated as evidence.",
       "kind": "unavailable",
       "reason": "fare_not_found"
+    },
+    "bestSeason": "Summer",
+    "bestMonths": [
+      6
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 5
     }
   },
   {
@@ -210230,10 +210535,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Winter; preferred months 1,2,11,12; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -210422,6 +210727,19 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Winter",
+    "bestMonths": [
+      1,
+      2,
+      11,
+      12
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 10
     }
   },
   {
@@ -213414,10 +213732,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Winter; preferred months 1; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -213605,6 +213923,16 @@
       "basis": "The two required ordinary adult one-way fares are Shin-Osaka → Namba ¥290 and Namba → Sumiyoshitaisha ¥240, totaling ¥530 to the station named by the shrine's official access page.",
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "bestSeason": "Winter",
+    "bestMonths": [
+      1
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 5,
+      "winter": 10
     }
   },
   {
@@ -217572,10 +217900,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring & Autumn; preferred months 4,9; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -217745,6 +218073,17 @@
       ],
       "checkedAt": "2026-08-29",
       "reviewIntervalMonths": 12
+    },
+    "bestSeason": "Spring & Autumn",
+    "bestMonths": [
+      4,
+      9
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -221069,10 +221408,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 8; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -221235,6 +221574,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Summer",
+    "bestMonths": [
+      8
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 5
     }
   },
   {
@@ -227948,10 +228297,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10,11; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -228120,6 +228469,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10,
+      11
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -228851,10 +229211,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 9; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -229029,6 +229389,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      9
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -229152,10 +229522,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring & Summer; preferred months 4,8; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -229329,6 +229699,17 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Spring & Summer",
+    "bestMonths": [
+      4,
+      8
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 10,
+      "autumn": 5,
+      "winter": 5
     }
   },
   {
@@ -229452,10 +229833,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -229630,6 +230011,16 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -230340,10 +230731,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Autumn; preferred months 10,11; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -230523,6 +230914,17 @@
       "kind": "unavailable",
       "reason": "fare_not_found",
       "detail": "No destination-specific local-transport fare was promoted; route modes remain separately marked as unestimated."
+    },
+    "bestSeason": "Autumn",
+    "bestMonths": [
+      10,
+      11
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
     }
   },
   {
@@ -235512,10 +235914,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "No stable seasonality claim was promoted from the reviewed source."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring & Autumn; preferred months 5,10; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -235659,7 +236061,18 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
-    "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
+    "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。",
+    "bestSeason": "Spring & Autumn",
+    "bestMonths": [
+      5,
+      10
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 10,
+      "winter": 5
+    }
   },
   {
     "id": "lake-okushima",
@@ -236633,10 +237046,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "No stable seasonality claim was promoted from the reviewed source."
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Winter; preferred months 1; structured experience seasonality with nonzero year-round vector"
     },
     "crowdMetadata": {
       "method": "unknown",
@@ -236776,7 +237189,17 @@
       "noteKey": "destination.scoreEstimatedNote"
     },
     "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
-    "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
+    "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。",
+    "bestSeason": "Winter",
+    "bestMonths": [
+      1
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 4,
+      "autumn": 6,
+      "winter": 10
+    }
   },
   {
     "id": "onioshidashi-park",

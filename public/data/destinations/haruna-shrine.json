@@ -114,10 +114,10 @@
     "confidence": "low"
   },
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "No stable seasonality claim was promoted from the reviewed source."
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Spring & Autumn; preferred months 5,10; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -259,5 +259,13 @@
     "noteKey": "destination.scoreEstimatedNote"
   },
   "reservationJa": "予約の要否は未確認のため、訪問前に公式情報をご確認ください。",
-  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。"
+  "parkingJa": "駐車場の有無は未確認のため、訪問前に公式情報をご確認ください。",
+  "bestSeason": "Spring & Autumn",
+  "bestMonths": [5, 10],
+  "season": {
+    "spring": 10,
+    "summer": 5,
+    "autumn": 10,
+    "winter": 5
+  }
 }

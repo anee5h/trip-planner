@@ -140,10 +140,10 @@
   },
   "schemaVersion": 2,
   "seasonMetadata": {
-    "method": "unknown",
+    "method": "manual",
     "modelVersion": "season-model-v1",
-    "confidence": "unknown",
-    "basis": "no rule matched; owner policy: unknown stays unknown"
+    "confidence": "high",
+    "basis": "KAI-151 Phase P1-A authoritative thematic evidence; Summer; preferred months 6,7; structured experience seasonality with nonzero year-round vector"
   },
   "crowdMetadata": {
     "method": "unknown",
@@ -186,5 +186,13 @@
   "wikipediaLanguage": "en",
   "wikipediaUrl": "https://en.wikipedia.org/wiki/Gessh%C5%8D-ji",
   "wikipediaPageId": 77096792,
-  "wikidataId": "Q3517478"
+  "wikidataId": "Q3517478",
+  "bestSeason": "Summer",
+  "bestMonths": [6, 7],
+  "season": {
+    "spring": 5,
+    "summer": 10,
+    "autumn": 5,
+    "winter": 3
+  }
 }
