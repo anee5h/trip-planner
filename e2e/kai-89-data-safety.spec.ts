@@ -296,6 +296,27 @@ test.describe("KAI-89 rendered data safety", () => {
     await assertVisibleDataIsSafe(page);
   });
 
+  test("Ueno Zoo EN Detail renders canonical hours and no false reservation warning", async ({
+    page,
+  }) => {
+    await page.goto("/destinations/ueno-zoo");
+    await expect(page.getByTestId("destination-at-a-glance")).toBeVisible();
+    await expect(page.locator("h1").first()).toBeVisible();
+
+    const hoursFact = page
+      .getByTestId("destination-at-a-glance")
+      .locator("[data-at-a-glance-fact]")
+      .filter({ hasText: "Opening hours" })
+      .first();
+    await expect(hoursFact).toContainText(/09:30[\s\-〜–—]+17:00/);
+    await expect(hoursFact).not.toContainText(
+      /24 Hours|Open access|24時間開放|散策自由/i,
+    );
+    await expect(
+      page.locator('aside[aria-label="Important access information"]'),
+    ).toHaveCount(0);
+  });
+
   test("model outputs render as estimates, never as verified facts", async ({
     page,
   }) => {
