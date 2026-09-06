@@ -68665,6 +68665,14 @@
     },
     "officialWebsite": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/",
     "status": "published",
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 6,
+      "winter": 4
+    },
+    "bestMonths": [3, 4, 5],
+    "bestSeason": "Spring",
     "walkingMin": 240,
     "recommendedVisitHours": {
       "min": 2.5,
@@ -81891,6 +81899,14 @@
     },
     "officialWebsite": "https://www.farm-tomita.co.jp/",
     "status": "published",
+    "season": {
+      "spring": 6,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
+    },
+    "bestMonths": [6, 7, 8],
+    "bestSeason": "Summer",
     "walkingMin": 170,
     "recommendedVisitHours": {
       "min": 1.5,
@@ -91606,6 +91622,14 @@
     "officialWebsite": "https://www.suwakanko.jp/",
     "officialWebsiteRequirement": "required",
     "status": "verified",
+    "season": {
+      "spring": 5,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 10
+    },
+    "bestMonths": [1, 2, 3, 12],
+    "bestSeason": "Winter",
     "walkingMin": 190,
     "recommendedVisitHours": {
       "min": 4,

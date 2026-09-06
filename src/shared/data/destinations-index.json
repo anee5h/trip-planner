@@ -170058,10 +170058,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-B authoritative thematic evidence; Spring; preferred months 3,4,5; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 240,
     "durationMetadata": {
@@ -170110,6 +170110,18 @@
     "openingHoursMetadata": {
       "sourceUrl": "https://www.pref.ishikawa.jp/siro-niwa/kenrokuen/info.html",
       "verifiedAt": "2026-09-05"
+    },
+    "bestSeason": "Spring",
+    "bestMonths": [
+      3,
+      4,
+      5
+    ],
+    "season": {
+      "spring": 10,
+      "summer": 5,
+      "autumn": 6,
+      "winter": 4
     }
   },
   {
@@ -203947,10 +203959,10 @@
       "confidence": "low"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-B authoritative thematic evidence; Summer; preferred months 6,7,8; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 170,
     "scoreMetadata": {
@@ -203984,6 +203996,18 @@
       "detail": "The physical canonical arrival remains unresolved in repository topology, so walking, N/A, required-access numeric, bounded, and segment-only facts cannot be truthfully selected. Source retrieval outcomes are retained separately.",
       "kind": "unavailable",
       "reason": "other"
+    },
+    "bestSeason": "Summer",
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "season": {
+      "spring": 6,
+      "summer": 10,
+      "autumn": 6,
+      "winter": 3
     }
   },
   {
@@ -239814,10 +239838,10 @@
       "confidence": "beta"
     },
     "seasonMetadata": {
-      "method": "unknown",
+      "method": "manual",
       "modelVersion": "season-model-v1",
-      "confidence": "unknown",
-      "basis": "no rule matched; owner policy: unknown stays unknown"
+      "confidence": "high",
+      "basis": "KAI-151 Phase P1-B authoritative thematic evidence; Winter; preferred months 1,2,3,12; structured experience seasonality with nonzero year-round vector"
     },
     "walkingMin": 190,
     "walkingIntensity": "high",
@@ -239845,6 +239869,19 @@
       "modelVersion": "duration-model-v1",
       "confidence": "medium",
       "basis": "kind band 'mountain'"
+    },
+    "bestSeason": "Winter",
+    "bestMonths": [
+      1,
+      2,
+      3,
+      12
+    ],
+    "season": {
+      "spring": 5,
+      "summer": 6,
+      "autumn": 5,
+      "winter": 10
     }
   },
   {

@@ -1,0 +1,3256 @@
+{
+  "schemaVersion": 1,
+  "checkedDate": "2026-09-06",
+  "cohortPredicate": "the 79 frozen P1-B seed records from /tmp/p1b-baseline.json",
+  "summary": {
+    "candidateCount": 79,
+    "researchedCount": 79,
+    "insufficientCount": 70,
+    "conflictingCount": 6,
+    "yearRoundWithPeakCount": 0,
+    "classificationCounts": {
+      "insufficient_evidence": 70,
+      "verified_seasonal_window": 3,
+      "verified_year_round_with_seasonal_peak": 0,
+      "conflicting_or_ambiguous": 6
+    },
+    "mutatedCount": 3
+  },
+  "records": [
+    {
+      "id": "lake-haruna",
+      "name": "Lake Haruna",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "lake",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Lake Haruna\" official site Japan season month best time",
+        "\"Lake Haruna\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Japan National Tourism Organization (Official Site)",
+          "url": "https://www.japan.travel/en/spot/1509/",
+          "observation": "A caldera lake for all seasons. Lake Haruna sits at 1,100 meters above sea level in the caldera of a long-dormant volcano. The lake is gorgeous year-round, and you can enjoy a number of different seasonal activities. Quick Facts. Mt."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "conflicting_or_ambiguous",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Official JNTO describes the lake as suitable for all seasons, while the Gunma guide highlights autumn pond-smelt fishing; the evidence does not establish a single destination-wide best window.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "oboke-koboke-gorges-tokushima",
+      "name": "Oboke–Koboke Gorges",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Oboke–Koboke Gorges\" official site Japan season month best time",
+        "\"Oboke–Koboke Gorges\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "senjojiki-cirque",
+      "name": "Senjojiki Cirque",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "rock_formation",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "researchQueries": [
+        "\"Senjojiki Cirque\" official site Japan season month best time",
+        "\"Senjojiki Cirque\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Senjojiki Cirque | Travel Japan - Japan National Tourism...",
+          "url": "https://www.japan.travel/en/spot/1374/",
+          "observation": "The Senjojiki Cirque boasts one of Nagano’s most iconic alpine views. Accessible year-round via the Komagatake Ropeway, it’s a stunning and convenient starting point for an adventure in the Central Alps."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "conflicting_or_ambiguous",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Official sources describe year-round ropeway access and several seasonal activities, but the reviewed evidence does not establish one defensible structured window.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "shikoku-karst-kochi",
+      "name": "Shikoku Karst",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Shikoku Karst\" official site Japan season month best time",
+        "\"Shikoku Karst\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Japan National Tourism Organization (Official Site)",
+          "url": "https://www.japan.travel/en/spot/816/",
+          "observation": "A place for all seasons. The Shikoku Karst transitions seamlessly with the seasons. Spring sees the grasses turn a vibrant hue of green. On hikes through the area in summer, you can see lilies all around."
+        },
+        {
+          "title": "Shikoku Karst｜What to See & Do｜Tourism SHIKOKU",
+          "url": "https://shikoku-tourism.com/en/see-and-do/10025",
+          "observation": "Features Shikoku Pilgrimage What to See & Do Sample Itineraries Tastes of Shikoku Reservation Transport.While the roads are closed during the snowy winter period, they are the perfect place to enjoy driving, cycling and camping through spring, summer and autumn."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "conflicting_or_ambiguous",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Official sources describe all-season scenery and spring/summer/autumn activities while also noting winter road closure; the resulting access and season interpretation is unresolved.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "arashiyama-bamboo-togetsukyo",
+      "name": "Arashiyama Bamboo Grove and Togetsukyo Bridge",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Arashiyama Bamboo Grove and Togetsukyo Bridge\" official site Japan season month best time",
+        "\"Arashiyama Bamboo Grove and Togetsukyo Bridge\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "chikubushima-island",
+      "name": "Chikubu Island (Chikubushima)",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "island",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+        }
+      },
+      "researchQueries": [
+        "\"Chikubu Island (Chikubushima)\" official site Japan season month best time",
+        "\"Chikubu Island (Chikubushima)\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "nakatsu-gorge-kochi",
+      "name": "Nakatsu Gorge",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Nakatsu Gorge\" official site Japan season month best time",
+        "\"Nakatsu Gorge\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "tojinbo-cliffs-fukui",
+      "name": "Tojinbo Cliffs",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational hours and seasonal openings do not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Tojinbo Cliffs\" official site Japan season month best time",
+        "\"Tojinbo Cliffs\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Tojinbo - Travel Japan - Japan National Tourism OrganizationTojinbo Cliffs｜Attractions｜Discover Fukui Official Travel ...Fares&Operation shedule｜Official website of Tojinbo Cliffs ...Tojinbo Cliffs | Japan Voyage TravelTojinbo - Fukui Travel - japan-guide.comTojinbo Cliffs: Complete 2025 Guide (Hours, Access & Tips ...Tojinbo Cliffs - Must-See, Access, Hours & Price | GOOD LUCK TRIP",
+          "url": "https://www.japan.travel/en/spot/1380/",
+          "observation": "Tojinbo overlooks the Sea of Japan, and offers spectacular views of the sunset below the horizon. There is a unique phenomenon called the “green flash,” in which the setting sun appears to glow green, caused by certain weather conditions just before sunset. In the climax of a suspense drama, a criminal cornered by a detective on a cliff-top coastline confesses to the crime...I’m sure many of you are familiar with that kind of scene!\"Tojinbo\" in Sakai City is a loca… Total cruising time is about 30 minutes Operation hours Waiting time is from 15 to 20 minutes and ships sail regardless of the number of the passengers. Business hours Regular period （Apr. - Oct.） 9:00-16:00 Winter season （Nov. - Mar.） 9:00-15:30 Holidays Dec.29-Jan.31（No operation） Seating capacity 80 passengers ×2 boats 69 ... Aug 5, 2026 · When is the best time to visit Tojinbo? Tojinbo is worth visiting year-round, but sunset over the Sea of Japan is the highlight. Winter brings dramatic waves, though boat cruises may be cancelled in rough weather. Tojinbo (譚ｱ蟆句搖, Tōjinbō) is a one kilometer long stretch of rugged basalt cliffs along the Sea of Japan coast north of Fukui City. The rocky coastline has been carved out by the waves, leaving deep chasms and precipitous bluffs that tower up to 30 meters above the water below. The cliffs' name derives from a dark legend about a Buddhist monk named Tojinbo who lived during the Heian period. According to folklore, Tojinbo was murdered by rival monks who threw him from these cliffs into the sea. His vengeful spirit supposedly caused violent storms each year on the anniversary of his death until memorial services appeased his ghost. This tragic tale, while historically ... Mar 13, 2026 · Tojinbo is a cliff formed by wave erosion. Since long ago, it has been recognized and honored as a scenic spot. These towering cliffs extend for about 1 kilometer along the coast, showcasing a dramatic display of columnar jointing-a geological feature so rare that only three such places are known in the world, including Tojinbo. It has been designated as a national Place of Scenic Beauty and ..."
+        },
+        {
+          "title": "Fares&Operation shedule｜Official website of Tojinbo Cliffs ...",
+          "url": "https://www.toujinbou-yuransen.jp/en/about/",
+          "observation": "Total cruising time is about 30 minutes Operation hours Waiting time is from 15 to 20 minutes and ships sail regardless of the number of the passengers. Business hours Regular period （Apr. - Oct.） 9:00-16:00 Winter season （Nov. - Mar.） 9:00-15:30 Holidays Dec.29-Jan.31（No operation） Seating capacity 80 passengers ×2 boats 69 ..."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kumoba-pond",
+      "name": "Kumoba Pond",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "lake",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "researchQueries": [
+        "\"Kumoba Pond\" official site Japan season month best time",
+        "\"Kumoba Pond\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "9 places for autumn leaves viewing in Nagano that you don’t want to...",
+          "url": "https://visit-nagano.alpico.co.jp/travelog/post/breathtaking-autumn-leaves-spots-in-nagano",
+          "observation": "Kumoba Pond is probably one of the most visited places in Karuizawa town during the leaves changing season.Autumn leaves: Mid-October – Early-November How to get there: Kumoba pond is about 20 minutes walk from JR Karuizawa station."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "lake-okushima",
+      "name": "Lake Okushima",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "lake",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Lake Okushima\" official site Japan season month best time",
+        "\"Lake Okushima\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Lake Okushima | Gunma Official Tourist Guide",
+          "url": "https://www.visit-gunma.jp/en/spots/lake-okushima/",
+          "observation": "The blue is most intense during spring (through May) when the mountains' snowmelt flows into the river. The fresh green of the spring foliage makes the blue seem more intense. It is also a popular place to see autumn foliage in mid- to late October and snowy scenes in winter."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "conflicting_or_ambiguous",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Official evidence gives an explicit late-October to early-November autumn window, but only says spring through May without an explicit start month; multiple peaks remain and March would be an inference, so no structured mutation is allowed.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "lake-onuma-akagi",
+      "name": "Lake Onuma",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "lake",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Lake Onuma\" official site Japan season month best time",
+        "\"Lake Onuma\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Japan National Tourism Organization (Official Site)",
+          "url": "https://www.japan.travel/en/spot/1899/",
+          "observation": "Seasonal Flowers in Japan. Sustainable Outdoors. Adventure.Lake Onuma 大沼."
+        },
+        {
+          "title": "Onuma Quasi National Park | Hokkaido Attractions",
+          "url": "https://www.japan.travel/en/spot/1893/",
+          "observation": "Joining the festivities for summer's Onuma Lake Water Festival or winter's Ice and Snow Fair. How to Get There. Onuma Park is most easily accessed by train or bus from Hakodate ."
+        },
+        {
+          "title": "[Onuma-Koen Station IN & OUT / Day Trip] Cycling Around the...",
+          "url": "https://www.visit-hokkaido.jp/en/plan/detail_31.html",
+          "observation": "Spring. Summer. Autumn. Winter. Days required.Many bicycle paths are maintained along the shores of Lake Onuma. This makes cycling a safe and enjoyable experience. You can enjoy taking pictures at the view spots while admiring the lake and trees."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "lake-shirakaba",
+      "name": "Lake Shirakaba",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "lake",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Lake Shirakaba\" official site Japan season month best time",
+        "\"Lake Shirakaba\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Lake Shirakaba | Travel Japan - Japan National Tourism Organization...",
+          "url": "https://www.japan.travel/en/spot/207/",
+          "observation": "Seasonal Flowers in Japan. Sustainable Outdoors.Lake Shirakaba. Tobetsu Trappist Monastery."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "yashimagahara-wetland",
+      "name": "Yashimagahara Wetland",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Yashimagahara Wetland\" official site Japan season month best time",
+        "\"Yashimagahara Wetland\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "fukiware-falls",
+      "name": "Fukiware Falls",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "waterfall",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Fukiware Falls\" official site Japan season month best time",
+        "\"Fukiware Falls\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [
+        {
+          "title": "Fukiware Falls | Nature | Numata Tourism Association",
+          "url": "https://www.numata-kankou.jp/en/nature/fukiwarefalls/index.html",
+          "observation": "About Fukiware Falls Fukiware Falls are known as the oriental Niagara Falls. Experience this dynamic waterfall surrounded by beautiful scenery. On a hot summer day, the fine mist from the waterfall cools you down. This famous waterfall changes its appearance every seasons; spring and autumn colors attracts many visitors. Explore the majestic nature in Tone area by walking around the trail ..."
+        },
+        {
+          "title": "Fukiware no Taki Falls | Gunma Official Tourist Guide",
+          "url": "https://www.visit-gunma.jp/en/spots/fukiware-no-taki-falls/",
+          "observation": "Dec 21, 2020 · Walk along the suspension bridge to see the falls from above. For the best views, stand right next to the falls to see the water flowing into the basin. Fukiware no Taki Falls are at their most powerful in spring as the snowmelt makes the stream swell. Autumn is another popular time to visit, when the surrounding trees turn a spectrum of fiery ..."
+        },
+        {
+          "title": "Fukiware Falls | Travel Japan - Japan National Tourism Organization...",
+          "url": "https://www.japan.travel/en/spot/1499/",
+          "observation": "Autumn is the peak season for fall colors in the valley. Closed in winter (mid-December to the end of March). How to Get There. Access is by rail and bus. From Tokyo, take the JR Joetsu Shinkansen to Jomo Kogen Station (around 75 minutes)."
+        },
+        {
+          "title": "Attractions in Numata City | Numata Tourism Association",
+          "url": "https://numata-kankou.jp/en/about/index.html",
+          "observation": "Fukiware Falls（spring） Surrounded by spring greens. The waterfall in spring is dynamic swallowing snow melted water. Fukiware Falls（fall） Backed by vivid autumn leaves in the fall, the waterfall powerfully splashes with a roaring sound."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "conflicting_or_ambiguous",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Official sources describe spring snowmelt, autumn foliage, and winter closure; multiple attraction peaks remain rather than one unambiguous best window.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kagami-pond",
+      "name": "Kagami Pond",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "lake",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Kagami Pond\" official site Japan season month best time",
+        "\"Kagami Pond\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kumano-kodo-takijiri-takahara",
+      "name": "Kumano Kodo: Takijiri-oji to Takahara",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Kumano Kodo: Takijiri-oji to Takahara\" official site Japan season month best time",
+        "\"Kumano Kodo: Takijiri-oji to Takahara\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "makino-metasequoia-avenue",
+      "name": "Makino Metasequoia Avenue",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved. Famous seasonal scenery (e.g. autumn foliage) is not by itself a defensible monthly vector."
+        }
+      },
+      "researchQueries": [
+        "\"Makino Metasequoia Avenue\" official site Japan season month best time",
+        "\"Makino Metasequoia Avenue\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "sakurai-futamigaura-itoshima",
+      "name": "Sakurai Futamigaura",
+      "phase": "P1-B",
+      "group": "nature-scenic-high-value",
+      "kind": "nature",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Sakurai Futamigaura\" official site Japan season month best time",
+        "\"Sakurai Futamigaura\" official tourism spring summer autumn winter"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in nature-scenic-high-value with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "awaji-farm-park-england-hill",
+      "name": "Awaji Farm Park England Hill",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Awaji Farm Park England Hill\" official garden park seasonal calendar month",
+        "\"Awaji Farm Park England Hill\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "expo-70-commemorative-park",
+      "name": "Expo '70 Commemorative Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Expo '70 Commemorative Park\" official garden park seasonal calendar month",
+        "\"Expo '70 Commemorative Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "nijigen-no-mori-awaji",
+      "name": "Nijigen no Mori",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Nijigen no Mori\" official garden park seasonal calendar month",
+        "\"Nijigen no Mori\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "shimizu-park-noda",
+      "name": "Shimizu Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Shimizu Park\" official garden park seasonal calendar month",
+        "\"Shimizu Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Shimizu Park | Travel Japan - Japan National Tourism ...Shimizu Park (Chiba Prefecture) – Japan Autumn Foliage MapShimizu Park Travel Guides (Chiba Noda-shi Shimizu 906 ...Shimizu Park Details / Explore| Japan Travel by NAVITIME ...Shimizu Park Japan (2026) – Best of TikTok, Instagram ...Shimizu Park Flower Fantasia: A Floral Haven That Brings a ...Shimizu Park Travel Guide | Sparkle",
+          "url": "https://www.japan.travel/en/spot/2233/",
+          "observation": "The park has spectacular natural displays in all seasons, from cherry blossoms in spring to hydrangeas, and roses in summer and of course, red and gold leaves in autumn. Four Seasons of Flowers at Flower Fantasy Flower Fantasy is a garden area spanning approximately 20,000 square meters where seasonal flowers bloom throughout the year. Various flowers can be enjoyed year-round, with spring tulips, early summer roses, and autumn cosmos being particularly spectacular. Enjoy seasonal plants and flowers Shimizu Park is known not only for its cherry blossoms, but also as a famous spot for azaleas and autumn leaves. The park has been renovated and expanded several times. Currently, visitors can see about 500 species of flowers. Hana Fantasia is open from mid-February to mid-June and from mid-September to mid ... A nature park established in 1894 known as one of the best places for enjoying flowers in the Kanto region. Each year from November to December, the park's ginkgo and Japanese maple trees turn red and yellow; particularly recommended is a fall foliage stroll through an area called Maple Valley. Shimizu Park is renowned for its beautiful flower gardens, featuring seasonal blooms like plum blossoms, spring flowers, and autumn foliage. Adjacent is the Noda City Sports Park with challenging aquatic and adventure obstacle courses, plus a camping area. Jun 3, 2026 · In autumn, visitors can enjoy autumn roses, golden lace flowers, thoroughwort, pampas grass, and vibrant maple foliage. Open during two seasons — spring and autumn — the garden offers plantings that beautifully reflect the changing seasons. The \"Water Course,\" set above the ponds, is particularly popular among thrill-seekers looking for a high-intensity challenge. Beyond the excitement of the obstacle courses, the park offers serene beauty through the seasons, including cherry blossoms in spring, azaleas in early summer, and vibrant autumn foliage."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "conflicting_or_ambiguous",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "The official destination page exposes several recurring flower and foliage windows across the year; without a single dominant window, this is retained as ambiguous for one best-season field.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "tsugaike-nature-park",
+      "name": "Tsugaike Nature Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "researchQueries": [
+        "\"Tsugaike Nature Park\" official garden park seasonal calendar month",
+        "\"Tsugaike Nature Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "A Day Filled with Ropeway Rides and Stunning Autumn Foliage in the...",
+          "url": "https://visit-nagano.alpico.co.jp/travelog/post/a-day-filled-with-ropeway-rides-and-stunning-autumn-foliage-in-the-tsugaike-nature-park/",
+          "observation": "hakuba-tsugaike-autumn (2) hakuba-tsugaike-autumn (4). Tsugaike Hutte (left) is one of the lodging facilities in Tsugaike and has a restaurant and shop as well. The Tsugaike Visitor Center (right) has all the tourism information about Tsugaike Nature Park."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "daio-wasabi-farm",
+      "name": "Daio Wasabi Farm",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No defensible four-season suitability vector was verified for this destination; unknown is preserved rather than inferred from scenery or climate."
+        }
+      },
+      "researchQueries": [
+        "\"Daio Wasabi Farm\" official garden park seasonal calendar month",
+        "\"Daio Wasabi Farm\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Daio Wasabi Farm - Travel Japan - Japan National Tourism ...Daio Wasabi Farm Guide: Highlights, Access, and Visit DurationDaio Wasabi Farm Travel Guide, Nagano - holidaylandmark.com",
+          "url": "https://www.japan.travel/en/spot/1348/",
+          "observation": "Whatever your feelings about wasabi, the 15-hectare Daio Wasabi Farm in Azumino makes a great excursion from Matsumoto. Explore the beautiful grounds and become an expert on Japan's popular condiment. Nov 23, 2025 · Overview (history, characteristics, attractions) Daio Wasabi Farm, located in Hotaka, Azumino City, Nagano Prefecture, is one of Japan's leading wasabi cultivation areas. It is a tourist farm with a rural landscape of pure spring water and vast wasabi fields. The scenery of wasabi grown in a clear stream that uses spring water evokes the original Japanese landscape, and the scenery of the ... Plan a visit to Daio Wasabi Farm in Nagano, Japan with travel information, highlights, visitor tips, nearby places, and practical guidance."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "funabashi-andersen-park",
+      "name": "H.C. Andersen Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"H.C. Andersen Park\" official garden park seasonal calendar month",
+        "\"H.C. Andersen Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Funabashi H.C.Andersen Park - park-funabashi.or.jp",
+          "url": "https://www.park-funabashi.or.jp/and//document/EnglishGuide.pdf",
+          "observation": "Closed Monday (Open on National holidays, Spring & Summer & Winter vacation) ※Please note that H.C. Andersen Park may be closed temporary due to the maintenance of the park and facilities etc."
+        },
+        {
+          "title": "Funabashi Andersen Park - All You SHOULD Know Before Going...",
+          "url": "https://www.tripadvisor.com/Attraction_Review-g1021147-d1423677-Reviews-Funabashi_Andersen_Park-Funabashi_Chiba_Prefecture_Kanto.html",
+          "observation": "H.C.Andersen Park is the comprehensive park composed of 5 zones,including Kids Kingdom,Fairy Tale Hill,Children's Museum,Nature Experience and Castle of Flowers.The park that incorporates the natural features of the land and thicket is variegated with all kinds of seasonal flowers."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "teamlab-botanical-garden-osaka",
+      "name": "teamLab Botanical Garden Osaka",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"teamLab Botanical Garden Osaka\" official garden park seasonal calendar month",
+        "\"teamLab Botanical Garden Osaka\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "onioshidashi-park",
+      "name": "Onioshidashi Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Onioshidashi Park\" official garden park seasonal calendar month",
+        "\"Onioshidashi Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "akebonoyama-agricultural-park-kashiwa",
+      "name": "Akebonoyama Agricultural Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Akebonoyama Agricultural Park\" official garden park seasonal calendar month",
+        "\"Akebonoyama Agricultural Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "noritake-garden",
+      "name": "Noritake Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Noritake Garden\" official garden park seasonal calendar month",
+        "\"Noritake Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "sainokawara-park",
+      "name": "Sainokawara Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Sainokawara Park\" official garden park seasonal calendar month",
+        "\"Sainokawara Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Sainokawara Park | Travel Japan - Japan National Tourism...",
+          "url": "https://www.japan.travel/en/spot/2211/",
+          "observation": "Sainokawara Park lies in a valley not far from Kusatsu. Free of charge, this park offers a relaxing hike around an area rich with hot spring water. You can hear the sounds of the water trickling around you and even see it collecting in little pools of hot water."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "shirotori-garden",
+      "name": "Shirotori Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Shirotori Garden\" official garden park seasonal calendar month",
+        "\"Shirotori Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Shirotori Garden | Nagoya City | Aichi Prefecture | Official Site",
+          "url": "https://aichinow.pref.aichi.jp/en/spots/detail/7/",
+          "observation": "Shirotori Garden is one of the largest Japanese gardens in the Tokai region of Japan, where its home in Nagoya lies. The sights reminiscent of one you may find deep in the mountains are beautiful any time of the year with flowers, fall colors, and more."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "sorakuen-garden",
+      "name": "Sorakuen Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Sorakuen Garden\" official garden park seasonal calendar month",
+        "\"Sorakuen Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Sorakuen Garden｜Attractions｜VISIT KOBE - Official Travel ...",
+          "url": "https://www.feel-kobe.jp/en/attractions/detail_1038.html",
+          "observation": "The Japanese garden features a path around a pond of stepping stones and stone bridges, the scenery reminiscent of the deep mountains. Sorakuen shows off the colors of every season with a sago palm garden, a 500-year-old camphor tree, azaleas that bloom in spring and spectacular autumn leaves. In addition to the stately main gate and the impressive European-style architecture of the Kodera ..."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kenroku-en",
+      "name": "Kenrokuen Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Kenrokuen Garden\" official garden park seasonal calendar month",
+        "\"Kenrokuen Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Light up Kenrokuen Garden in every season and you will want to go...",
+          "url": "https://visitkanazawa.jp/en/trip-ideas/detail_158.html",
+          "observation": "Spring Light-up. The following two light-up events will be held at Kenrokuen between March and May. Kanazawa Castle and Kenrokuen Garden Four Seasons (cherry blossom viewing season): End of March - beginning of April (according to the blooming of che..."
+        }
+      ],
+      "officialEvidence": [
+        {
+          "authority": "Official Kanazawa tourism guide",
+          "urls": ["https://visitkanazawa.jp/en/trip-ideas/detail_158.html"],
+          "observations": [
+            "The official page states Kenrokuen light-up events run between March and May and identifies the cherry-blossom viewing period as end of March to beginning of April."
+          ],
+          "evidenceDate": "2026-09-06"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Spring",
+        "bestMonths": [3, 4, 5],
+        "seasonVector": {
+          "spring": 10,
+          "summer": 5,
+          "autumn": 6,
+          "winter": 4
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Destination-specific official evidence supports the proposed recurring month window; year-round-with-peak was not used.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "farm-tomita",
+      "name": "Farm Tomita",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Farm Tomita\" official garden park seasonal calendar month",
+        "\"Farm Tomita\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Hanabito Field | Introduction to the flower fields | FARM TOMITA...",
+          "url": "https://www.farm-tomita.co.jp/en/farm/flower_guide.asp?id=1",
+          "observation": "From spring, when ornamental bulbs and violas are in bloom, to autumn, when marigolds and other perpetual flowers are in bloom, flowers of various colors welcome visitors, or hanabito, who come to enjoy their beauty. Beyond the gently rolling field are lavender fields."
+        },
+        {
+          "title": "Farm Tomita | Travel Japan - Japan National Tourism Organization...",
+          "url": "https://faq.japan-travel.jnto.go.jp/en/spot/546/",
+          "observation": "Driving is the most direct way to get to Farm Tomita. From June to August, the special Norokko-go train makes a stop at the seasonal Lavender Farm Station for an easy seven-minute walk to the fields. The limited run and retro design make it a favorite among train enthusiasts."
+        }
+      ],
+      "officialEvidence": [
+        {
+          "authority": "Farm Tomita official site",
+          "urls": [
+            "https://www.farm-tomita.co.jp/en/farm/flower_guide.asp?id=11",
+            "https://www.farm-tomita.co.jp/en/farm/flower_guide.asp?id=15"
+          ],
+          "observations": [
+            "The official Lavender Forest Field page states blooming season late June–early August and best viewing early–mid-July.",
+            "The official Lavandin Field page states best viewing late July–early August."
+          ],
+          "evidenceDate": "2026-09-06"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Summer",
+        "bestMonths": [6, 7, 8],
+        "seasonVector": {
+          "spring": 6,
+          "summer": 10,
+          "autumn": 6,
+          "winter": 3
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Destination-specific official evidence supports the proposed recurring month window; year-round-with-peak was not used.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "fuefukigawa-fruit-park",
+      "name": "Fuefukigawa Fruit Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Fuefukigawa Fruit Park\" official garden park seasonal calendar month",
+        "\"Fuefukigawa Fruit Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "genbudo-cave-park",
+      "name": "Genbudo Basalt Cave Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Genbudo Basalt Cave Park\" official garden park seasonal calendar month",
+        "\"Genbudo Basalt Cave Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "genkyuen-garden",
+      "name": "Genkyuen Feudal Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Genkyuen Feudal Garden\" official garden park seasonal calendar month",
+        "\"Genkyuen Feudal Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Calendar｜Events｜Shinjuku Gyoen",
+          "url": "https://policies.env.go.jp/national-garden/shinjukugyoen/english/event/calendar/",
+          "observation": "From Imperial Garden to National Garden. Enjoy the seasonal atmosphere and nature."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "koko-en-garden",
+      "name": "Koko-en Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "destination",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Koko-en Garden\" official garden park seasonal calendar month",
+        "\"Koko-en Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "sapporo-art-park",
+      "name": "Sapporo Art Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Sapporo Art Park\" official garden park seasonal calendar month",
+        "\"Sapporo Art Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "glover-garden-nagasaki",
+      "name": "Glover Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Glover Garden\" official garden park seasonal calendar month",
+        "\"Glover Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "hamarikyu-gardens",
+      "name": "Hamarikyu Gardens",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Hamarikyu Gardens\" official garden park seasonal calendar month",
+        "\"Hamarikyu Gardens\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "3 of Tokyo’s Best Autumn Flower Viewing Spots in... - HYPER JAPAN",
+          "url": "https://hyperjapan.co.uk/tourism/3-of-tokyos-best-autumn-flower-viewing-spots-in-2025/",
+          "observation": "Tourism.Tokyo Flower Viewing in the Fall!? Cosmos Flowers at Hamarikyu Gardens in Tokyo. Autumn in Japan brings a breath of fresh air, sweet treats packed with chestnuts and sweet potato, and the changing of the leaves called “koyo“… but also fresh new flowers!"
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "jindai-botanical-gardens",
+      "name": "Jindai Botanical Gardens",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Jindai Botanical Gardens\" official garden park seasonal calendar month",
+        "\"Jindai Botanical Gardens\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "keio-mogusaen",
+      "name": "Keio Mogusaen",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Keio Mogusaen\" official garden park seasonal calendar month",
+        "\"Keio Mogusaen\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [
+        {
+          "title": "Keiō Mogusaen | 京王百草園｜京王グループ",
+          "url": "https://www.keio-mogusaen.jp/en/",
+          "observation": "The official website of Keiō Mogusaen Garden. Located 10 minutes on foot from Mogusaen Station on the Keiō Line, it is a tasteful Japanese garden where you can enjoy seasonal flowers and plants."
+        },
+        {
+          "title": "Keio Mogusaen 京王百草園 Japanese Gardens in... - Exoteric Japan",
+          "url": "https://exotericjapan.com/keio-mogusaen/",
+          "observation": "Flower Calendar for Keio Mogusaen. Jan. : Winter sweet, Japanese narcissus.Many tourists and guests enjoy the annual festivals: the Plum festival in early February and mid-March, the Mogusaenring Spring festival from late April to early May, and the Fall Foliage festival in November."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kiyosumi-gardens",
+      "name": "Kiyosumi Gardens",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Kiyosumi Gardens\" official garden park seasonal calendar month",
+        "\"Kiyosumi Gardens\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "mukojima-hyakkaen",
+      "name": "Mukojima Hyakkaen",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Mukojima Hyakkaen\" official garden park seasonal calendar month",
+        "\"Mukojima Hyakkaen\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "nozuta-park",
+      "name": "Nozuta Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Nozuta Park\" official garden park seasonal calendar month",
+        "\"Nozuta Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "showa-kinen-park",
+      "name": "Showa Kinen Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Showa Kinen Park\" official garden park seasonal calendar month",
+        "\"Showa Kinen Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "suizenji-garden-kumamoto",
+      "name": "Suizenji Jojuen Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "garden",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Suizenji Jojuen Garden\" official garden park seasonal calendar month",
+        "\"Suizenji Jojuen Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "tama-forest-science-garden",
+      "name": "Tama Forest Science Garden",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Tama Forest Science Garden\" official garden park seasonal calendar month",
+        "\"Tama Forest Science Garden\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "yakushi-ike-park",
+      "name": "Yakushi-Ike Park Shikisai no Mori",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Yakushi-Ike Park Shikisai no Mori\" official garden park seasonal calendar month",
+        "\"Yakushi-Ike Park Shikisai no Mori\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "yoyogi-park",
+      "name": "Yoyogi Park",
+      "phase": "P1-B",
+      "group": "gardens-flower-parks",
+      "kind": "park",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Yoyogi Park\" official garden park seasonal calendar month",
+        "\"Yoyogi Park\" official tourism flower foliage spring autumn"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in gardens-flower-parks with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kusatsu-yubatake",
+      "name": "Yubatake",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Yubatake\" official onsen seasonal best time month",
+        "\"Yubatake\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "dorogawa-onsen-tenkawa",
+      "name": "Dorogawa Onsen Town",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide identity, hours, reservation, or route context but not a defensible four-season suitability vector; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Dorogawa Onsen Town\" official onsen seasonal best time month",
+        "\"Dorogawa Onsen Town\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "manza-onsen",
+      "name": "Manza Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Manza Onsen\" official onsen seasonal best time month",
+        "\"Manza Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Manza Onsen | Gunma Official Tourist Guide",
+          "url": "https://www.visit-gunma.jp/en/spots/manza-onsen/",
+          "observation": "Manza Onsen is a popular getaway in all seasons with a beloved ski area in winter. It is one of the highest-altitude hot spring resorts in Japan, located on the slopes of Mt. Kusatsu-Shirane, an active volcano. Many of the onsen hotels have open-air baths with sweeping views."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "shibu-onsen",
+      "name": "Shibu Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Shibu Onsen\" official onsen seasonal best time month",
+        "\"Shibu Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Shibu Onsen | Travel Japan - Japan National Tourism Organization...",
+          "url": "https://www.japan.travel/en/spot/1339/",
+          "observation": "Shibu Onsen is a trip back in time. Filled with historic buildings and a traditional atmosphere, this old hot spring town is just a quick hop from Yudanaka Onsen.A traditional onsen town nestled in the mountains of Nagano. Shibu Onsen is a trip back in time."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "yunomine-onsen",
+      "name": "Yunomine Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Operational guidance does not establish a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Yunomine Onsen\" official onsen seasonal best time month",
+        "\"Yunomine Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Yunomine Onsen | Travel Japan - Japan National Tourism...",
+          "url": "https://faq.japan-travel.jnto.go.jp/en/spot/977/",
+          "observation": "Yunomine Onsen is located along the same bus route that brings you to Hongu Taisha, as well as several other hot spring sites. From JR Kii-Tanabe Station, the journey takes about 2 hours. Quick Facts. Thought to be the oldest onsen in Japan, its history dates back over 1,800 years."
+        },
+        {
+          "title": "Yunomine Onsen | Travel Japan - Japan National Tourism...",
+          "url": "https://www.japan.travel/en/spot/977/",
+          "observation": "Yunomine Onsen, a remote mountain village brimming with mineral-rich, piping hot spring water, is regarded as one of Japan’s oldest onsen towns.Shopping. Anime Tourism. Temple Stays."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "hirugami-onsen",
+      "name": "Hirugami Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Hirugami Onsen\" official onsen seasonal best time month",
+        "\"Hirugami Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Guide to Hirugami Onsen – Southern Nagano’s Largest Hot Spring | Go!",
+          "url": "https://www.go-nagano.net/en/trip-idea/hirugamionsen",
+          "observation": "Hirugami Onsen is located between Nagoya and Matsumoto (both approximately 90 minutes by car) and about 3 – 4 hours by car from both Tokyo and Osaka. For public transportation, there are direct buses from Nagoya and Matsumoto."
+        },
+        {
+          "title": "ACTIVITIES – Hirugami Hot Springs (in Nagano, Central Japan)...",
+          "url": "https://hirugamionsen.jp/en/activities",
+          "observation": "1Half day bus tours from Hirugami Hot Springs. Southern Nagano Excursion bus tour. With courses that change monthly, you can enjoy the fun of each season with cherry blossom, temples, and fall foliage.Season. Spring thru Fall. Contact. Hirugami Onsen Tourism Bureau."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "oigami-onsen",
+      "name": "Oigami Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Oigami Onsen\" official onsen seasonal best time month",
+        "\"Oigami Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Oigami Onsen | Gunma Official Tourist Guide",
+          "url": "https://www.visit-gunma.jp/en/spots/oigami-onsen/",
+          "observation": "Oigami Onsen. 老神温泉. Build a custom itinerary using our Trip Planner. How to use. Last updated: December 21, 2020. A quiet onsen town surrounded by nature. Oigami Onsen is a small hot spring town alongside Katashina Gorge. This charming area is surrounded by natural scenery."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "spa-metsa-ootaka-nagareyama",
+      "name": "Spa Metsa Ootaka, Ryusenji-no-Yu",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Spa Metsa Ootaka, Ryusenji-no-Yu\" official onsen seasonal best time month",
+        "\"Spa Metsa Ootaka, Ryusenji-no-Yu\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "takaragawa-onsen",
+      "name": "Takaragawa Onsen Osenkaku",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Takaragawa Onsen Osenkaku\" official onsen seasonal best time month",
+        "\"Takaragawa Onsen Osenkaku\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Takaragawa Onsen Osenkaku | Gunma Official Tourist Guide",
+          "url": "https://www.visit-gunma.jp/en/spots/takaragawa-onsen-osenkaku/",
+          "observation": "Takaragawa Onsen Osenkaku is a true escape from daily life, surrounded by sounds of the forest and the burbling river.Some English-speaking staff. Onsen. Natural hot spring baths. Daytrip bathing."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "okuhida",
+      "name": "Okuhida",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Okuhida\" official onsen seasonal best time month",
+        "\"Okuhida\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "takeo-onsen",
+      "name": "Takeo Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Takeo Onsen\" official onsen seasonal best time month",
+        "\"Takeo Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Best Time to Visit Saga: 2026 Season Guide | Japan Activity",
+          "url": "https://japanactivity.com/best-time-to-visit-saga",
+          "observation": "Wondering about the best time to visit Saga? Compare seasons, the Balloon Fiesta, Karatsu Kunchi, and packing tips to plan your Kyushu trip.Winter Onsen Season and Avoiding Saga's Rainy Season. Frequently Asked Questions. When Is the Best Time to Visit Saga, Japan?"
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "ureshino-onsen",
+      "name": "Ureshino Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Ureshino Onsen\" official onsen seasonal best time month",
+        "\"Ureshino Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "katayamazu-onsen",
+      "name": "Katayamazu Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Katayamazu Onsen\" official onsen seasonal best time month",
+        "\"Katayamazu Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "misasa-onsen",
+      "name": "Misasa Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Misasa Onsen\" official onsen seasonal best time month",
+        "\"Misasa Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [
+        {
+          "title": "Misasa Onsen | Travel Japan - Japan National Tourism Organization...",
+          "url": "https://www.japan.travel/en/spot/947/",
+          "observation": "Misasa Onsen in Tottori has been famous for its curative powers for over 800 years.The hot spring's origins can be traced to the 12th century. You can cleanse your six senses with a three-night stay. Misasa Onsen received Japan Heritage status in 2015. How to Get There."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "nasu-steam-onsen",
+      "name": "Nasu Steampowered Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Nasu Steampowered Onsen\" official onsen seasonal best time month",
+        "\"Nasu Steampowered Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "yamanaka-onsen",
+      "name": "Yamanaka Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Yamanaka Onsen\" official onsen seasonal best time month",
+        "\"Yamanaka Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kinugawa-onsen",
+      "name": "Kinugawa Onsen",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Kinugawa Onsen\" official onsen seasonal best time month",
+        "\"Kinugawa Onsen\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "yufuin-onsen-ryokan-district",
+      "name": "Yufuin Onsen District",
+      "phase": "P1-B",
+      "group": "onsen",
+      "kind": "onsen",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Yufuin Onsen District\" official onsen seasonal best time month",
+        "\"Yufuin Onsen District\" official tourism snow autumn foliage spring summer"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in onsen with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "mt-tanigawa",
+      "name": "Mount Tanigawa",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "No stable seasonality claim was promoted from the reviewed source."
+        }
+      },
+      "researchQueries": [
+        "\"Mount Tanigawa\" official mountain seasonal opening month",
+        "\"Mount Tanigawa\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "mt-akagi",
+      "name": "Mount Akagi",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Mount Akagi\" official mountain seasonal opening month",
+        "\"Mount Akagi\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "mt-myogi",
+      "name": "Mount Myogi",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Mount Myogi\" official mountain seasonal opening month",
+        "\"Mount Myogi\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "mt-rokko-kobe",
+      "name": "Mt. Rokko",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "Official sources provide local hours, route, or event context but not a defensible four-season suitability score; unknown is preserved."
+        }
+      },
+      "researchQueries": [
+        "\"Mt. Rokko\" official mountain seasonal opening month",
+        "\"Mt. Rokko\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [
+        {
+          "title": "Arima Onsen & Mt. Rokko | Hyogo | Kansai | Destinations",
+          "url": "https://faq.japan-travel.jnto.go.jp/en/destinations/kansai/hyogo/arima-onsen-and-mount-rokko-area/",
+          "observation": "The Mt. Rokko and Arima Onsen areas are accessible via a combination of public transport options.Originally a place where expatriates built summer cottages, the area expanded to include a number of extra sights and tourist hotspots. Tour Mt."
+        }
+      ],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "utsukushigahara-highlands",
+      "name": "Utsukushigahara Highlands",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Utsukushigahara Highlands\" official mountain seasonal opening month",
+        "\"Utsukushigahara Highlands\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "kirigamine-highlands",
+      "name": "Kirigamine Highlands",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Kirigamine Highlands\" official mountain seasonal opening month",
+        "\"Kirigamine Highlands\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [
+        {
+          "title": "Seasonal Activitiesand Events – Visit Suwa",
+          "url": "https://visit-suwa.com/?page_id=48680",
+          "observation": "Winter is mostly a time for skiing and winter sports in the Kirigamine highlands. The slopes are typically open from late December until late March, depending on weather conditions."
+        },
+        {
+          "title": "Kirigamine Highlands | Nagano | Japan Snow | Japan Travel",
+          "url": "https://www.japan.travel/en/sports/snow/snow-travel/kirigamine-highlands/",
+          "observation": "Explore the Kirigamine Highlands where ice coats the forests, creating an ethereal white landscape that’s perfect for hiking and cross-country skiing."
+        }
+      ],
+      "officialEvidence": [
+        {
+          "authority": "Visit Suwa official tourism site",
+          "urls": [
+            "https://visit-suwa.com/?page_id=48680",
+            "https://visit-suwa.com/?p=48721"
+          ],
+          "observations": [
+            "The official seasonal-activities page states the Kirigamine slopes are typically open from late December until late March, weather permitting.",
+            "The official bicycle-rental page describes winter months as the period for skiing and winter sports in the highlands."
+          ],
+          "evidenceDate": "2026-09-06"
+        }
+      ],
+      "classification": "verified_seasonal_window",
+      "proposed": {
+        "apply": true,
+        "bestSeason": "Winter",
+        "bestMonths": [1, 2, 3, 12],
+        "seasonVector": {
+          "spring": 5,
+          "summer": 6,
+          "autumn": 5,
+          "winter": 10
+        }
+      },
+      "mutationAllowed": true,
+      "decisionNote": "Destination-specific official evidence supports the proposed recurring month window; year-round-with-peak was not used.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "ashigara",
+      "name": "Ashigara",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Ashigara\" official mountain seasonal opening month",
+        "\"Ashigara\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "sarakurayama",
+      "name": "Mount Sarakura",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Mount Sarakura\" official mountain seasonal opening month",
+        "\"Mount Sarakura\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "wakakusayama",
+      "name": "Mount Wakakusa",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "standalone",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Mount Wakakusa\" official mountain seasonal opening month",
+        "\"Mount Wakakusa\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    },
+    {
+      "id": "mount-takao",
+      "name": "Mount Takao",
+      "phase": "P1-B",
+      "group": "mountains-highlands",
+      "kind": "mountain",
+      "role": "poi",
+      "currentFields": {
+        "bestSeason": null,
+        "bestMonths": null,
+        "season": null,
+        "seasonMetadata": {
+          "method": "unknown",
+          "modelVersion": "season-model-v1",
+          "confidence": "unknown",
+          "basis": "no rule matched; owner policy: unknown stays unknown"
+        }
+      },
+      "researchQueries": [
+        "\"Mount Takao\" official mountain seasonal opening month",
+        "\"Mount Takao\" official tourism snow foliage summer hiking"
+      ],
+      "researchLeads": [],
+      "officialEvidence": [],
+      "classification": "insufficient_evidence",
+      "proposed": {
+        "apply": false,
+        "bestSeason": null,
+        "bestMonths": null,
+        "seasonVector": null
+      },
+      "mutationAllowed": false,
+      "decisionNote": "Bounded research found no destination-specific authoritative month window sufficient for structured season mutation; leave fields unchanged.",
+      "cohortReason": "P1-B seed queue candidate in mountains-highlands with structured season fields absent on the frozen base.",
+      "yearRoundEvidence": [],
+      "peakEvidence": []
+    }
+  ],
+  "invariants": {
+    "uniqueIds": true,
+    "allFrozenIdsCovered": true,
+    "noCatalogueMutation": true,
+    "yearRoundAndPeakRequireIndependentEvidence": true
+  },
+  "ticket": "KAI-151",
+  "phase": "P1-B",
+  "baseCommit": "609219e8dc69d56a3d11405840b3c06f6daa3b71",
+  "candidateDefinition": "Frozen 79-record P1-B seed queue: missing season and bestMonths, non-beta exact nature/scenic high-value, garden/park, onsen, and mountain groups from merged main.",
+  "selectionMethod": "Deterministic ranking and group membership from /tmp/p1b-baseline.json; no candidate membership implies mutation."
+}
