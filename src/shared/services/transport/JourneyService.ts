@@ -60,10 +60,20 @@ function rebindCanonicalEndpoints(
   journey: Journey,
   endpoints: JourneyEndpoints,
 ): Journey {
+  // Provider-backed car journeys legitimately arrive at a route/access
+  // anchor (e.g. a parking lot) that differs from the catalogue centroid.
+  // Never clobber that canonical arrival back to the centroid: the origin is
+  // rebound to the resolved context, the destination only when the journey
+  // does not already carry a coordinate-bearing access anchor (KAI-278).
+  const destination =
+    journey.destination.kind === "access_anchor" &&
+    journey.destination.coordinates
+      ? journey.destination
+      : endpoints.destination;
   return {
     ...journey,
     origin: endpoints.origin,
-    destination: endpoints.destination,
+    destination,
   };
 }
 

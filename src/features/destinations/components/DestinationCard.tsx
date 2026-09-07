@@ -67,6 +67,7 @@ import type { ScoredDestination } from "@/shared/services/recommendation/Recomme
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
 import { resolveDestinationTransportZone } from "@/shared/services/transport/TransportTopologyService";
+import { destinationSharesOriginAnchor } from "@/shared/services/transport/JourneyEndpoints";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
   buildTokyoWardsLink,
@@ -202,6 +203,7 @@ export default function DestinationCard({
           alreadyVisited: "訪問済み",
           markVisited: "訪問済みにする",
           markUnvisited: "未訪問に戻す",
+          alreadyThere: "既に到着",
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         }
       : {
@@ -213,6 +215,7 @@ export default function DestinationCard({
           alreadyVisited: "Already Visited",
           markVisited: "Mark destination as visited",
           markUnvisited: "Mark destination as unvisited",
+          alreadyThere: "Already there",
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         };
   // Beta product decision (KAI-89): the overall destination score is hidden
@@ -311,17 +314,30 @@ export default function DestinationCard({
       )
     : [];
   const displayModes = validModes;
-  const dayTravelEstimate = isOvernight
-    ? undefined
-    : getDayTripTravelDurationEvidence(
-        destination,
-        {
-          homeStationCoords: journeyOriginCoords ?? undefined,
-          originZoneId: journeyOriginZoneId,
-          ferryTemporal,
-        },
-        displayModes,
-      ).estimate;
+  // KAI-278 same-origin semantics: when the destination shares the canonical
+  // origin anchor (Tokyo Station -> Tokyo Station), there is no journey to
+  // estimate. Skip the origin-aware engine call entirely so a raw 14-19 min
+  // local estimate can never be produced or displayed for one anchor; the
+  // travel-time cell renders the same-origin state instead.
+  const sameOriginAnchor =
+    !isLocalAccessJourney &&
+    destinationSharesOriginAnchor(
+      destination,
+      journeyOriginCoords ?? undefined,
+      undefined,
+    );
+  const dayTravelEstimate =
+    isOvernight || sameOriginAnchor
+      ? undefined
+      : getDayTripTravelDurationEvidence(
+          destination,
+          {
+            homeStationCoords: journeyOriginCoords ?? undefined,
+            originZoneId: journeyOriginZoneId,
+            ferryTemporal,
+          },
+          displayModes,
+        ).estimate;
   const preferredTransport = isOvernight ? undefined : dayTravelEstimate;
   // KAI-260: cards render the bounded traveller range even when the engine
   // used an explicit model/profile fallback. Evidence quality is disclosed
@@ -628,7 +644,10 @@ export default function DestinationCard({
                     // KAI-275: an explicit transport icon per mode. MapPin is a
                     // LOCATION icon (used only on the location row above) and
                     // must never stand in for a transport mode; unknown modes
-                    // fall back to a neutral route icon instead.
+                    // fall back to a neutral route icon instead. The one
+                    // exception below is the same-anchor "Already there" state
+                    // (KAI-278), which represents no journey at all — a
+                    // location pin, not a mode claim.
                     const TRANSPORT_ICONS: Record<string, LucideIcon> = {
                       train: TrainFront,
                       shinkansen: TrainFront,
@@ -638,28 +657,36 @@ export default function DestinationCard({
                       flight: Plane,
                       ferry: Ship,
                     };
-                    const Icon = mode
-                      ? (TRANSPORT_ICONS[mode] ?? Route)
-                      : Route;
-
                     const transport = localAccessUnavailable
                       ? null
                       : (gateway ?? preferredTransport);
+                    // KAI-278: same-origin destinations render an explicit
+                    // state rather than a journey estimate (no mode claim).
+                    const isSameAnchor = sameOriginAnchor && !gateway;
                     const isApproximate = Boolean(
                       transport &&
+                      !isSameAnchor &&
                       "evidence" in transport &&
                       transport.evidence === "estimated",
                     );
-                    const formattedTime = transport
-                      ? isApproximate
-                        ? formatApproximateTransportTime(
-                            transport.timeRange,
-                            locale,
-                          )
-                        : formatTransportTime(transport.timeRange, locale)
-                      : "";
+                    const formattedTime = isSameAnchor
+                      ? cardCopy.alreadyThere
+                      : transport
+                        ? isApproximate
+                          ? formatApproximateTransportTime(
+                              transport.timeRange,
+                              locale,
+                            )
+                          : formatTransportTime(transport.timeRange, locale)
+                        : "";
 
                     const isDriving = mode === "car" || mode === "my_car";
+
+                    const Icon = isSameAnchor
+                      ? MapPin
+                      : mode
+                        ? (TRANSPORT_ICONS[mode] ?? Route)
+                        : Route;
 
                     return (
                       <div
@@ -669,7 +696,7 @@ export default function DestinationCard({
                         <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                         <span className="truncate">
                           {formattedTime || cardCopy.travelUnavailable}
-                          {formattedTime && isDriving
+                          {formattedTime && !isSameAnchor && isDriving
                             ? t("compare.driving")
                             : ""}
                         </span>

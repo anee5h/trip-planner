@@ -151,6 +151,20 @@ export function buildCarJourney(
   );
   const inbound = legFromRoute(route.returnRoute, returnOrigin, "return", mode);
   const legs = [outbound, inbound] as const;
+  // KAI-278 endpoint truthfulness: provider-backed car journeys route to a
+  // verified route/access anchor (e.g. Karuizawa's parking anchor, ~1 km from
+  // the town centroid). The Journey's top-level destination must be that
+  // canonical arrival anchor so external directions hand off to the same
+  // place the route actually ends. Catalogue identity is preserved (id/name).
+  const arrival = outbound.destination;
+  const arrivalCoordinates =
+    arrival.coordinates ??
+    (destination.coordinates
+      ? {
+          lat: destination.coordinates.lat,
+          lng: destination.coordinates.lng,
+        }
+      : undefined);
   const allAvailable = legs.every((leg) => leg.availability === "available");
   const anyUnavailable = legs.some((leg) => leg.availability === "unavailable");
   const anyUnknown = legs.some((leg) => leg.confidence === "unknown");
@@ -185,14 +199,12 @@ export function buildCarJourney(
     origin: originEndpoint,
     destination: {
       id: destination.id,
-      anchorKey: destination.coordinates
-        ? `coordinates:${destination.coordinates.lat.toFixed(4)}:${destination.coordinates.lng.toFixed(4)}`
+      anchorKey: arrivalCoordinates
+        ? `coordinates:${arrivalCoordinates.lat.toFixed(4)}:${arrivalCoordinates.lng.toFixed(4)}`
         : destination.id,
       name: destination.name,
-      coordinates: destination.coordinates
-        ? { lat: destination.coordinates.lat, lng: destination.coordinates.lng }
-        : undefined,
-      kind: "destination",
+      coordinates: arrivalCoordinates,
+      kind: arrival.kind === "access_anchor" ? "access_anchor" : "destination",
     },
     scope: "origin_journey",
     directionality: "round_trip",

@@ -51,6 +51,47 @@ export function areCanonicalAnchorsIdentical(
   return Boolean(origin.id && destination.id && origin.id === destination.id);
 }
 
+/**
+ * KAI-278 display-boundary predicate: a POINT destination that shares the
+ * canonical origin anchor (e.g. the Tokyo Station destination record ~4 m
+ * from the Tokyo Station home origin) is not a journey at all. Cards, Detail
+ * glance and ground rows must render the same-origin semantic ("Already
+ * there") instead of a normal-looking local estimate such as 14-19 min.
+ *
+ * Area/municipality records (kind city/town/village/ward) are deliberately
+ * excluded: a whole city has no single arrival point, so an origin whose
+ * coordinates coincide with its centroid is still a local-access journey
+ * (e.g. Naha City from a Naha-centre origin keeps its local rail row).
+ * Engine estimators are intentionally untouched so corridor/outage/island
+ * contracts keep their own semantics.
+ */
+const AREA_DESTINATION_KINDS = new Set([
+  "city",
+  "town",
+  "village",
+  "ward",
+  "area",
+  "region",
+]);
+
+export function destinationSharesOriginAnchor(
+  destination: Pick<Destination, "id" | "coordinates" | "kind"> | undefined,
+  originCoordinates: { lat: number; lng: number } | undefined | null,
+  originAnchorKey?: string,
+): boolean {
+  if (!destination?.coordinates || !originCoordinates) return false;
+  if (destination.kind && AREA_DESTINATION_KINDS.has(destination.kind)) {
+    return false;
+  }
+  return areCanonicalAnchorsIdentical(
+    { anchorKey: originAnchorKey, coordinates: originCoordinates },
+    {
+      id: destination.id,
+      coordinates: destination.coordinates,
+    },
+  );
+}
+
 export function getJourneyEndpoints(
   destination: Destination,
   context: OriginAwareEstimateContext,

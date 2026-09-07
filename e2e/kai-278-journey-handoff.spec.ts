@@ -79,3 +79,17 @@ test("KAI-278 Shodoshima keeps known local access partial", async ({
     0,
   );
 });
+
+test("KAI-278 Tokyo Station same-origin shows already-there, never a normal 14-19 min journey", async ({
+  page,
+}) => {
+  await page.goto("/destinations/tokyo-station-chiyoda?car=none&mode=train");
+  await expect(
+    page.getByRole("heading", { name: /Tokyo Station/i }).first(),
+  ).toBeVisible();
+
+  await expect(
+    page.getByText("Already there", { exact: true }).first(),
+  ).toBeVisible();
+  await expect(page.getByText(/14\s*[–—-]\s*19\s*min/)).toHaveCount(0);
+});

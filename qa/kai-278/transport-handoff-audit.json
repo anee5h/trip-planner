@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "baseline": "ff0eeed0c765a973537ed7c99c6ff0c902cdbd17",
   "origin": {
     "label": "Tokyo Station",
@@ -9,19 +9,70 @@
     },
     "zoneId": "mainland-honshu"
   },
-  "methodology": "Bounded runtime semantic audit; no catalogue-wide transport research.",
+  "methodology": "Bounded runtime semantic audit over representative surfaces; measured static scans of directions-URL builders and canonical-seam callers across the base ref (origin/main) and the audited working tree. Same-origin is audited through the traveller-facing display-boundary predicate that cards and Detail rows consume, in addition to the canonical Journey seam.",
   "counts": {
-    "cases": 8,
+    "cases": 9,
     "carTransitMismatches": 0,
     "endpointMismatches": 0,
     "localCardOriginScopeLeaks": 0,
     "sameOriginMisleadingJourneys": 0,
+    "sameOriginDisplayBoundaryNotApplied": 0,
+    "karuizawaAccessAnchorHandoffFailures": 0,
     "partialAsCompleteDefects": 0,
     "unsupportedCarTransitFallbacks": 0,
-    "directionsBuildersBefore": 1,
-    "directionsBuildersAfter": 1,
-    "journeyResultOwnersBefore": 5,
-    "journeyResultOwnersAfter": 1
+    "directionsUrlBuilderFilesBefore": 1,
+    "directionsUrlBuilderFilesAfter": 1,
+    "canonicalSeamCallerFilesBefore": 16,
+    "canonicalSeamCallerFilesAfter": 17
+  },
+  "measured": {
+    "beforeTree": {
+      "directionsUrlBuilderFiles": [
+        "src/features/destinations/DestinationDetails.tsx"
+      ],
+      "canonicalSeamCallerFiles": [
+        "src/features/destinations/DestinationDetails.tsx",
+        "src/features/destinations/Destinations.tsx",
+        "src/features/destinations/components/DestinationCard.tsx",
+        "src/features/home/components/HomeMatchCard.tsx",
+        "src/features/home/components/RouletteModal.tsx",
+        "src/features/home/services/HomeRailService.ts",
+        "src/shared/services/budget/tripEstimateEngine.ts",
+        "src/shared/services/recommendation/RecommendationExplainability.ts",
+        "src/shared/services/recommendation/RecommendationPipeline.ts",
+        "src/shared/services/recommendation/RecommendationScorer.ts",
+        "src/shared/services/recommendation/TravelConditions.ts",
+        "src/shared/services/recommendation/TripDurationService.ts",
+        "src/shared/services/transport/JourneyService.ts",
+        "src/shared/services/transport/OriginAwareTransportService.ts",
+        "src/shared/services/transport/PreferredTransport.ts",
+        "src/shared/services/transport/transportCostV2.ts"
+      ]
+    },
+    "afterTree": {
+      "directionsUrlBuilderFiles": [
+        "src/shared/services/transport/JourneyHandoff.ts"
+      ],
+      "canonicalSeamCallerFiles": [
+        "src/features/destinations/DestinationDetails.tsx",
+        "src/features/destinations/Destinations.tsx",
+        "src/features/destinations/components/DestinationCard.tsx",
+        "src/features/home/components/HomeMatchCard.tsx",
+        "src/features/home/components/RouletteModal.tsx",
+        "src/features/home/services/HomeRailService.ts",
+        "src/shared/services/budget/tripEstimateEngine.ts",
+        "src/shared/services/recommendation/RecommendationExplainability.ts",
+        "src/shared/services/recommendation/RecommendationPipeline.ts",
+        "src/shared/services/recommendation/RecommendationScorer.ts",
+        "src/shared/services/recommendation/TravelConditions.ts",
+        "src/shared/services/recommendation/TripDurationService.ts",
+        "src/shared/services/transport/JourneyHandoff.ts",
+        "src/shared/services/transport/JourneyService.ts",
+        "src/shared/services/transport/OriginAwareTransportService.ts",
+        "src/shared/services/transport/PreferredTransport.ts",
+        "src/shared/services/transport/transportCostV2.ts"
+      ]
+    }
   },
   "findings": [
     {
@@ -85,6 +136,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -149,6 +202,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -213,6 +268,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -278,6 +335,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -342,6 +401,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -406,6 +467,74 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
+        "unsupportedCarFallback": false
+      }
+    },
+    {
+      "id": "karuizawa-car-access-anchor",
+      "fixture": "access-anchor",
+      "result": {
+        "origin": {
+          "kind": "origin",
+          "anchorKey": "coordinates:35.6812:139.7671",
+          "name": "Tokyo Station",
+          "coordinates": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "zoneId": "mainland-honshu"
+        },
+        "destination": {
+          "id": "karuizawa-town",
+          "anchorKey": "coordinates:36.3573:138.6333",
+          "name": "Karuizawa Town",
+          "coordinates": {
+            "lat": 36.357333,
+            "lng": 138.633287
+          },
+          "kind": "access_anchor"
+        },
+        "mode": "my_car",
+        "duration": [148, 148],
+        "availability": "available",
+        "scope": "origin_journey",
+        "directionality": "round_trip",
+        "completeness": "complete",
+        "provenance": {
+          "source": "kai-278-audit-fixture",
+          "confidence": "high",
+          "duration": "verified",
+          "cost": "unknown",
+          "checkedAt": "2026-09-07T00:00:00.000Z"
+        },
+        "externalHandoff": {
+          "supported": true,
+          "mode": "driving"
+        },
+        "handoff": {
+          "href": "https://www.google.com/maps/dir/?api=1&origin=35.6812%2C139.7671&destination=36.357333%2C138.633287&travelmode=driving",
+          "externalMode": "driving",
+          "internalMode": "my_car",
+          "origin": {
+            "lat": 35.6812,
+            "lng": 139.7671
+          },
+          "destination": {
+            "lat": 36.357333,
+            "lng": 138.633287
+          }
+        }
+      },
+      "checks": {
+        "carTransitMismatch": false,
+        "endpointMismatch": false,
+        "partialAsComplete": false,
+        "localScopeLeak": false,
+        "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -454,6 +583,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     },
@@ -467,6 +598,8 @@
         "partialAsComplete": false,
         "localScopeLeak": false,
         "sameOriginMisleading": false,
+        "sameOriginDisplayBoundaryNotApplied": false,
+        "karuizawaHandoffNotAccessAnchor": false,
         "unsupportedCarFallback": false
       }
     }

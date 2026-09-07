@@ -343,3 +343,25 @@ describe("KAI-278 local-access journey scope", () => {
     expect(scope?.textContent).not.toMatch(/Tokyo/);
   });
 });
+
+describe("KAI-278 same-origin card regression (Tokyo Station)", () => {
+  it("never shows the raw 14-19 min local estimate when origin and destination share one anchor", async () => {
+    const tokyoStation = destinations.find(
+      (candidate) => candidate.id === "tokyo-station-chiyoda",
+    ) as Destination;
+    const container = await renderAt(
+      "/destinations?car=none&mode=train",
+      { carMode: "none", publicModes: ["train"] },
+      tokyoStation,
+    );
+
+    const row = container.querySelector(
+      '[data-testid="destination-card-travel-time"]',
+    );
+    expect(row).not.toBeNull();
+    const text = row?.textContent ?? "";
+    expect(text).toContain("Already there");
+    expect(text).not.toMatch(/14\s*[–—-]\s*19/);
+    expect(text).not.toContain("min");
+  });
+});
