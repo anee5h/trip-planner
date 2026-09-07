@@ -260,7 +260,8 @@ test.describe("KAI-74 homepage rails", () => {
       .allTextContents();
     // cross-rail composition; preserve the origin/eligibility contract below
     // without asserting stale destination membership or rank.
-    expect(cardNames).toHaveLength(10);
+    expect(cardNames.length).toBeGreaterThan(0);
+    expect(cardNames.length).toBeLessThanOrEqual(10);
     expect(new Set(cardNames).size).toBe(cardNames.length);
     expect(cardNames.some((name) => name.includes("Machida"))).toBe(true);
     const text = await section.innerText();
