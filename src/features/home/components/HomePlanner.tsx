@@ -29,6 +29,11 @@ import {
   SelectTrigger,
 } from "@/shared/components/ui/select";
 import type { BudgetTier } from "@/shared/types/planner";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
+import {
+  formatYenAmount,
+  parseCustomBudgetInput,
+} from "@/shared/services/budget/budgetConstraint";
 import type { HomepageTripDuration } from "@/shared/types/homePlannerState";
 import type { CarMode } from "@/shared/utils/carMode";
 import { useTranslation } from "react-i18next";
@@ -45,6 +50,10 @@ interface HomePlannerProps {
 
   budgetTier: BudgetTier;
   onBudgetTierChange: (tier: BudgetTier) => void;
+  /** KAI-279: exact whole-trip party-total cap (yen) when Custom total is
+   *  chosen; undefined for presets / no-constraint. */
+  customBudgetCap?: number;
+  onCustomBudgetCapChange: (cap: number | undefined) => void;
 
   publicTransport: boolean;
   onPublicTransportChange: (enabled: boolean) => void;
@@ -413,6 +422,114 @@ const BUDGET_TIER_LABELS: Record<BudgetTier, { label: string; desc: string }> =
     luxury: { label: "Flexible", desc: "Keep options open" },
   };
 
+export const CUSTOM_BUDGET_VALUE = "__custom__";
+
+function presetBudgetHint(
+  tier: BudgetTier,
+  t: (key: string, options?: Record<string, unknown>) => string,
+): string {
+  if (tier === "luxury") return t("home.customBudget.noLimit");
+  return t("home.customBudget.upToTotal", {
+    amount: formatYenAmount(BUDGET_TIER_LIMITS[tier]),
+  });
+}
+
+/**
+ * KAI-279 Custom-total editor. A compact inline yen input; only a valid
+ * whole-yen amount above zero is committed as the party-total cap. Empty or
+ * malformed input never commits and never becomes ¥0.
+ */
+function CustomBudgetEditor({
+  committedCap,
+  partySize,
+  onCommit,
+  onClose,
+}: {
+  committedCap: number | undefined;
+  partySize: number;
+  onCommit: (cap: number) => void;
+  onClose: () => void;
+}) {
+  const { t } = useTranslation();
+  const [draft, setDraft] = React.useState(
+    committedCap !== undefined ? String(committedCap) : "",
+  );
+  const [invalid, setInvalid] = React.useState(false);
+
+  const commit = () => {
+    const parsed = parseCustomBudgetInput(draft);
+    if (parsed.kind === "valid") {
+      setInvalid(false);
+      onCommit(parsed.capYen);
+      onClose();
+    } else {
+      setInvalid(true);
+    }
+  };
+
+  return (
+    <div
+      data-testid="custom-budget-editor"
+      className="w-full rounded-xl border border-emerald-200 bg-emerald-50/60 px-3 py-2 dark:border-emerald-800 dark:bg-emerald-950/30"
+    >
+      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+        <div className="flex flex-col">
+          <span className="text-[11px] font-extrabold text-slate-800 dark:text-slate-100">
+            {t("home.customBudget.scope")}
+          </span>
+          <span className="text-[10px] text-slate-500 dark:text-slate-300">
+            {t("home.customBudget.helper", { party: partySize })}
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+            ¥
+          </span>
+          <input
+            type="text"
+            inputMode="numeric"
+            autoComplete="off"
+            enterKeyHint="done"
+            aria-label={t("home.customBudget.scope")}
+            value={draft}
+            onChange={(event) => {
+              setDraft(event.target.value.replace(/[^\d,]/g, ""));
+              if (invalid) setInvalid(false);
+            }}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") commit();
+              if (event.key === "Escape") onClose();
+            }}
+            placeholder={t("home.customBudget.placeholder")}
+            className="h-9 w-32 rounded-lg border border-slate-200 bg-white px-2 text-sm font-bold text-slate-900 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
+          />
+          <button
+            type="button"
+            data-testid="custom-budget-apply"
+            onClick={commit}
+            className="inline-flex h-9 items-center rounded-lg bg-emerald-700 px-3 text-xs font-extrabold text-white transition-colors hover:bg-emerald-800"
+          >
+            {t("home.customBudget.apply")}
+          </button>
+          <button
+            type="button"
+            aria-label={t("ui.close")}
+            onClick={onClose}
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+          >
+            <X className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+      {invalid && (
+        <p className="mt-1 text-[10px] font-semibold text-rose-600 dark:text-rose-400">
+          {t("home.customBudget.invalid")}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export const HomePlanner: React.FC<HomePlannerProps> = ({
   vibe,
   onVibeChange,
@@ -422,6 +539,8 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
   onPartySizeChange,
   budgetTier,
   onBudgetTierChange,
+  customBudgetCap,
+  onCustomBudgetCapChange,
   publicTransport,
   onPublicTransportChange,
   carMode,
@@ -463,6 +582,25 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
     };
   }, [transportMenuOpen]);
 
+  const [customEditorOpen, setCustomEditorOpen] = React.useState(false);
+  const customActive = customBudgetCap !== undefined || customEditorOpen;
+  const budgetSelectValue = customActive ? CUSTOM_BUDGET_VALUE : budgetTier;
+  const selectBudget = (val: string | null) => {
+    if (!val) return;
+    if (val === CUSTOM_BUDGET_VALUE) {
+      setCustomEditorOpen(true);
+      return;
+    }
+    setCustomEditorOpen(false);
+    onCustomBudgetCapChange(undefined);
+    onBudgetTierChange(val as BudgetTier);
+  };
+  const budgetTriggerLabel = customActive
+    ? customBudgetCap !== undefined
+      ? `${t("home.customBudget.custom")} · ¥${formatYenAmount(customBudgetCap)}`
+      : t("home.customBudget.custom")
+    : t(`home.budgets.${budgetTier}`);
+
   const openMobileField = (
     field: "vibe" | "duration" | "budget" | "transport",
   ) => {
@@ -474,7 +612,8 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
     mobileFieldOpenerRef.current?.focus();
     mobileFieldOpenerRef.current = null;
   };
-  const translate = (key: string) => t(key as never);
+  const translate = (key: string, options?: Record<string, unknown>): string =>
+    t(key as never, options as never) as unknown as string;
   const primaryButtonLabel = !hasUserApplied
     ? t("home.find")
     : isDirty
@@ -517,13 +656,46 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
       description: translate(`home.durationHints.${value}`),
       icon: Clock,
     })),
-    budget: Object.entries(BUDGET_TIER_LABELS).map(([value]) => ({
-      value,
-      label: translate(`home.budgets.${value}`),
-      description: translate(`home.budgetHints.${value}`),
-      icon: Wallet,
-    })),
+    budget: [
+      ...Object.entries(BUDGET_TIER_LABELS).map(([value]) => ({
+        value,
+        label: translate(`home.budgets.${value}`),
+        description: presetBudgetHint(value as BudgetTier, translate),
+        icon: Wallet,
+      })),
+      {
+        value: CUSTOM_BUDGET_VALUE,
+        label: translate("home.customBudget.custom"),
+        description: translate("home.customBudget.scope"),
+        icon: Wallet,
+      },
+    ],
   };
+
+  // The editor is visible ONLY while the traveller is entering/editing a
+  // custom amount. A committed cap is reflected in the trigger label
+  // (customActive); keeping the editor mounted on the committed cap would
+  // make it impossible to dismiss.
+  const customBudgetEditor = customEditorOpen ? (
+    <CustomBudgetEditor
+      committedCap={customBudgetCap}
+      partySize={partySize}
+      onCommit={onCustomBudgetCapChange}
+      // Closing the editor only hides it. Clearing a committed custom cap
+      // happens when the traveller selects a preset tier (selectBudget);
+      // never clear here — a stale pre-commit closure would wipe the cap
+      // immediately after Set.
+      onClose={() => setCustomEditorOpen(false)}
+    />
+  ) : null;
+  const mobileSheetValue =
+    mobileField === "vibe"
+      ? vibe
+      : mobileField === "duration"
+        ? tripDuration
+        : mobileField === "budget"
+          ? budgetSelectValue
+          : "";
 
   return (
     <div className="w-full">
@@ -660,21 +832,14 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-300 mb-0.5">
               {t("home.budget")}
             </span>
-            <Select
-              value={budgetTier}
-              onValueChange={(val: string | null) => {
-                if (val) onBudgetTierChange(val as BudgetTier);
-              }}
-            >
+            <Select value={budgetSelectValue} onValueChange={selectBudget}>
               <SelectTrigger
                 className="w-full border-none p-0 h-auto bg-transparent shadow-none focus:ring-0 font-bold text-xs sm:text-sm text-slate-900 dark:text-white flex items-center justify-between"
                 aria-label={t("home.budget")}
               >
                 <div className="flex items-center gap-2 truncate">
                   <Wallet className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span className="truncate">
-                    {t(`home.budgets.${budgetTier}`)}
-                  </span>
+                  <span className="truncate">{budgetTriggerLabel}</span>
                 </div>
               </SelectTrigger>
               <SelectContent className="rounded-xl border-slate-200 dark:border-[hsl(var(--border-subtle))] shadow-xl bg-white dark:bg-[hsl(var(--surface-overlay))] p-1">
@@ -687,11 +852,22 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
                     <div className="flex flex-col text-xs font-semibold">
                       <span>{translate(`home.budgets.${key}`)}</span>
                       <span className="text-slate-500 text-[10px] font-normal">
-                        {translate(`home.budgetHints.${key}`)}
+                        {presetBudgetHint(key as BudgetTier, translate)}
                       </span>
                     </div>
                   </SelectItem>
                 ))}
+                <SelectItem
+                  value={CUSTOM_BUDGET_VALUE}
+                  className="py-2.5 px-3 cursor-pointer"
+                >
+                  <div className="flex flex-col text-xs font-semibold">
+                    <span>{t("home.customBudget.custom")}</span>
+                    <span className="text-slate-500 text-[10px] font-normal">
+                      {t("home.customBudget.scope")}
+                    </span>
+                  </div>
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -736,6 +912,8 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
             )}
           </div>
         </div>
+
+        {customBudgetEditor}
 
         {/* Row 2: Action Buttons Row (Centered directly beneath filter bar) */}
         <div className="mt-4 flex items-center justify-center gap-3 w-full">
@@ -839,7 +1017,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               {
                 field: "budget" as const,
                 label: t("home.budget"),
-                value: translate(`home.budgets.${budgetTier}`),
+                value: budgetTriggerLabel,
                 icon: Wallet,
               },
               {
@@ -867,6 +1045,7 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
               </button>
             ))}
           </div>
+          {customBudgetEditor}
           <div className="home-planner-actions mt-3 flex flex-col gap-2">
             <button
               type="button"
@@ -903,19 +1082,13 @@ export const HomePlanner: React.FC<HomePlannerProps> = ({
           <MobileOptionSheet
             title={t(`home.${mobileField}`)}
             options={mobileOptions[mobileField]}
-            value={
-              mobileField === "vibe"
-                ? vibe
-                : mobileField === "duration"
-                  ? tripDuration
-                  : budgetTier
-            }
+            value={mobileSheetValue}
             onClose={closeMobileField}
             onChange={(value) => {
               if (mobileField === "vibe") onVibeChange(value);
               else if (mobileField === "duration")
                 onTripDurationChange(value as HomepageTripDuration);
-              else onBudgetTierChange(value as BudgetTier);
+              else selectBudget(value);
             }}
           />
         ) : null}

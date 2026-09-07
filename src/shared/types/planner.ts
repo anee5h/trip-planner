@@ -24,8 +24,10 @@ export function partyProfileForSize(partySize: number): PartyProfile {
 }
 
 export const BUDGET_TIER_LIMITS: Record<BudgetTier, number> = {
-  // Party-total ceilings for the baseline two-person full-day context. Home
-  // scales these same ceilings by party size and trip duration.
+  // KAI-279: canonical WHOLE-TRIP, party-total ceilings (never per person and
+  // never scaled by party size or trip duration). Economy ¥50,000, Standard
+  // ¥100,000, Comfortable ¥200,000 for the entire selected party and trip;
+  // the canonical TripEstimate is assessed against these same flat caps.
   economy: 50000,
   standard: 100000,
   comfortable: 200_000,

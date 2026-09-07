@@ -539,7 +539,17 @@
     "day2Label": "2日目",
     "dayLabel": "{{day}}日目",
     "anyFutureDate": "好きな日付を選択",
-    "originForecastHint": "予報は出発地付近の天気です"
+    "originForecastHint": "予報は出発地付近の天気です",
+    "customBudget": {
+      "custom": "合計予算を指定",
+      "scope": "旅行全体の合計",
+      "helper": "{{party}}人分の合計",
+      "placeholder": "金額を入力（円）",
+      "apply": "設定",
+      "invalid": "0より大きい整数（円）で入力してください",
+      "upToTotal": "合計 ¥{{amount}} まで",
+      "noLimit": "予算の制限なし"
+    }
   },
   "destination": {
     "alreadyVisited": "訪問済み",

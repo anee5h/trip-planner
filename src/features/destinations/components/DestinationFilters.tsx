@@ -54,6 +54,11 @@ import {
 import { getCollections } from "@/shared/data/collections";
 import { getCollectionContent } from "@/shared/utils/collections";
 import type { BudgetFilter } from "@/shared/types/planner";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
+import {
+  formatYenAmount,
+  parseCustomBudgetInput,
+} from "@/shared/services/budget/budgetConstraint";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import { isOvernightDuration } from "@/shared/types/tripDuration";
 import { formatTravelDateShort } from "@/shared/utils/recommendationLabels";
@@ -97,6 +102,10 @@ interface DestinationFiltersProps {
   setWeather: (val: "any" | "rainy" | "hot" | "cold") => void;
   budgetTier: BudgetFilter;
   setBudgetTier: (val: BudgetFilter) => void;
+  /** KAI-279: the resolved flat party-total cap in yen (Infinity for any /
+   *  flexible). Present so the UI can label and edit a Custom total. */
+  maxBudget?: number;
+  setMaxBudget?: (value: number) => void;
   vibe: string;
   setVibe: (val: string) => void;
   tripDuration: TripDuration;
@@ -146,6 +155,8 @@ export default function DestinationFilters({
   setWeather,
   budgetTier,
   setBudgetTier,
+  maxBudget,
+  setMaxBudget,
   vibe,
   setVibe,
   tripDuration,
@@ -172,6 +183,34 @@ export default function DestinationFilters({
   const [modalOpen, setModalOpen] = useState(false);
   const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
+
+  // KAI-279: a finite maxBudget that differs from its tier ceiling is a
+  // Custom party-total cap carried on the numeric budget field.
+  const isCustomBudget =
+    budgetTier !== "any" &&
+    budgetTier !== "luxury" &&
+    maxBudget !== undefined &&
+    Number.isFinite(maxBudget) &&
+    maxBudget !== BUDGET_TIER_LIMITS[budgetTier];
+  const [customEditorOpen, setCustomEditorOpen] = useState(false);
+  const [customDraft, setCustomDraft] = useState(
+    isCustomBudget && maxBudget !== undefined ? String(maxBudget) : "",
+  );
+  const [customInvalid, setCustomInvalid] = useState(false);
+  const customDraftCap = (): number | undefined => {
+    const parsed = parseCustomBudgetInput(customDraft);
+    if (parsed.kind === "valid") return parsed.capYen;
+    setCustomInvalid(true);
+    return undefined;
+  };
+  const commitCustomCap = () => {
+    const cap = customDraftCap();
+    if (cap === undefined) return;
+    setCustomInvalid(false);
+    setBudgetTier("standard");
+    setMaxBudget?.(cap);
+    setCustomEditorOpen(false);
+  };
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const availableCollections = getCollections();
@@ -297,18 +336,28 @@ export default function DestinationFilters({
     });
   });
   if (budgetTier !== "any") {
-    const budgetMap: Record<BudgetFilter, string> = {
-      any: isJa ? "指定なし" : "Any",
-      economy: isJa ? "エコノミー" : "Economy",
-      standard: isJa ? "スタンダード" : "Standard",
-      comfortable: isJa ? "コンフォート" : "Comfort",
-      luxury: isJa ? "制約なし" : "Flexible",
-    };
-    activeChips.push({
-      id: "budget",
-      label: budgetMap[budgetTier] || budgetTier,
-      onRemove: () => setBudgetTier("any"),
-    });
+    if (isCustomBudget && maxBudget !== undefined) {
+      activeChips.push({
+        id: "budget",
+        label: isJa
+          ? `予算 ≤ ¥${formatYenAmount(maxBudget)}（合計）`
+          : `Budget ≤ ¥${formatYenAmount(maxBudget)} total`,
+        onRemove: () => setBudgetTier("any"),
+      });
+    } else {
+      const budgetMap: Record<BudgetFilter, string> = {
+        any: isJa ? "指定なし" : "Any",
+        economy: isJa ? "エコノミー" : "Economy",
+        standard: isJa ? "スタンダード" : "Standard",
+        comfortable: isJa ? "コンフォート" : "Comfort",
+        luxury: isJa ? "制約なし" : "Flexible",
+      };
+      activeChips.push({
+        id: "budget",
+        label: budgetMap[budgetTier] || budgetTier,
+        onRemove: () => setBudgetTier("any"),
+      });
+    }
   }
   if (partySize !== 2) {
     activeChips.push({
@@ -948,46 +997,80 @@ export default function DestinationFilters({
                       {
                         val: "any",
                         label: isJa ? "指定なし" : "Any",
-                        desc: isJa ? "制限なし" : "All price ranges",
+                        desc: isJa ? "予算の制限なし" : "No budget limit",
                         icon: Sparkles,
                         color: "text-emerald-700",
                       },
                       {
                         val: "economy",
                         label: isJa ? "エコノミー" : "Economy",
-                        desc: isJa ? "費用を抑える" : "Budget friendly",
+                        desc: isJa
+                          ? `合計 ¥${formatYenAmount(BUDGET_TIER_LIMITS.economy)} まで`
+                          : `Up to ¥${formatYenAmount(BUDGET_TIER_LIMITS.economy)} total`,
                         icon: PiggyBank,
                         color: "text-emerald-500",
                       },
                       {
                         val: "standard",
                         label: isJa ? "スタンダード" : "Standard",
-                        desc: isJa ? "バランス重視" : "Balanced spending",
+                        desc: isJa
+                          ? `合計 ¥${formatYenAmount(BUDGET_TIER_LIMITS.standard)} まで`
+                          : `Up to ¥${formatYenAmount(BUDGET_TIER_LIMITS.standard)} total`,
                         icon: Wallet,
                         color: "text-blue-500",
                       },
                       {
                         val: "comfortable",
                         label: isJa ? "コンフォート" : "Comfort",
-                        desc: isJa ? "快適さ重視" : "Higher comfort",
+                        desc: isJa
+                          ? `合計 ¥${formatYenAmount(BUDGET_TIER_LIMITS.comfortable)} まで`
+                          : `Up to ¥${formatYenAmount(BUDGET_TIER_LIMITS.comfortable)} total`,
                         icon: Armchair,
                         color: "text-violet-500",
                       },
                       {
                         val: "luxury",
                         label: isJa ? "制約なし" : "Flexible",
-                        desc: isJa ? "選択肢を広く" : "Keep options open",
+                        desc: isJa ? "予算の制限なし" : "No budget limit",
                         icon: CircleDollarSign,
                         color: "text-amber-500",
                       },
+                      {
+                        val: "__custom__",
+                        label: isJa ? "合計予算を指定" : "Custom total",
+                        desc: isJa
+                          ? "旅行全体の合計（円）"
+                          : "Trip total (yen)",
+                        icon: Ticket,
+                        color: "text-slate-500",
+                      },
                     ].map((opt) => {
-                      const isSelected = budgetTier === opt.val;
+                      const isSelected =
+                        opt.val === "__custom__"
+                          ? isCustomBudget
+                          : budgetTier === opt.val;
                       const Icon = opt.icon;
                       return (
                         <button
                           key={opt.val}
                           type="button"
-                          onClick={() => setBudgetTier(opt.val as BudgetFilter)}
+                          aria-pressed={isSelected}
+                          data-testid={
+                            opt.val === "__custom__"
+                              ? "budget-custom-tile"
+                              : `budget-tile-${opt.val}`
+                          }
+                          onClick={() => {
+                            if (opt.val === "__custom__") {
+                              setCustomEditorOpen((open) => !open);
+                              if (isCustomBudget && maxBudget !== undefined) {
+                                setCustomDraft(String(maxBudget));
+                              }
+                              return;
+                            }
+                            setCustomEditorOpen(false);
+                            setBudgetTier(opt.val as BudgetFilter);
+                          }}
                           className={`min-h-[52px] px-3 py-2 rounded-xl border text-left transition-all ${
                             isSelected
                               ? "border-emerald-700 bg-emerald-50 text-emerald-700 shadow-sm dark:bg-emerald-500/30 dark:text-emerald-200 dark:ring-1 dark:ring-emerald-400/50"
@@ -1007,6 +1090,59 @@ export default function DestinationFilters({
                       );
                     })}
                   </div>
+                  {(customEditorOpen || isCustomBudget) && (
+                    <div
+                      data-testid="budget-custom-editor"
+                      className="mt-2 rounded-xl border border-emerald-200 bg-emerald-50/60 px-3 py-2 dark:border-emerald-800 dark:bg-emerald-950/30"
+                    >
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                          ¥
+                        </span>
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          aria-label={isJa ? "旅行全体の合計" : "Trip total"}
+                          value={customDraft}
+                          onChange={(event) => {
+                            setCustomDraft(
+                              event.target.value.replace(/[^\d,]/g, ""),
+                            );
+                            if (customInvalid) setCustomInvalid(false);
+                          }}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter") commitCustomCap();
+                          }}
+                          placeholder={
+                            isJa ? "金額を入力（円）" : "Enter yen amount"
+                          }
+                          className="h-9 w-32 rounded-lg border border-slate-200 bg-white px-2 text-sm font-bold text-slate-900 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 dark:border-slate-600 dark:bg-slate-900 dark:text-white"
+                        />
+                        <button
+                          type="button"
+                          data-testid="budget-custom-apply"
+                          onClick={commitCustomCap}
+                          className="inline-flex h-9 items-center rounded-lg bg-emerald-700 px-3 text-xs font-extrabold text-white transition-colors hover:bg-emerald-800"
+                        >
+                          {isJa ? "設定" : "Set"}
+                        </button>
+                        {isCustomBudget && maxBudget !== undefined && (
+                          <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-300">
+                            {isJa
+                              ? `現在: 合計 ¥${formatYenAmount(maxBudget)}`
+                              : `Current: ¥${formatYenAmount(maxBudget)} total`}
+                          </span>
+                        )}
+                      </div>
+                      {customInvalid && (
+                        <p className="mt-1 text-[10px] font-semibold text-rose-600 dark:text-rose-400">
+                          {isJa
+                            ? "0より大きい整数（円）で入力してください"
+                            : "Enter a whole-yen amount above 0"}
+                        </p>
+                      )}
+                    </div>
+                  )}
                 </div>
 
                 {/* Accessibility Requirements Multi-Select Chips */}

@@ -112,6 +112,8 @@ function HomeSurface() {
     setPartySize,
     budgetTier,
     setBudgetTier,
+    customBudgetCap,
+    setCustomBudgetCap,
     publicTransport,
     setPublicTransport,
     carMode,
@@ -275,6 +277,8 @@ function HomeSurface() {
               onPartySizeChange={setPartySize}
               budgetTier={budgetTier}
               onBudgetTierChange={setBudgetTier}
+              customBudgetCap={customBudgetCap}
+              onCustomBudgetCapChange={setCustomBudgetCap}
               publicTransport={publicTransport}
               onPublicTransportChange={setPublicTransport}
               carMode={carMode}

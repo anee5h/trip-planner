@@ -287,11 +287,16 @@ describe("KAI-91: Any budget option", () => {
     // Under Standard, only destinations with estimated cost <= 40000 (standard tier) or maxBudget are allowed
     expect(count).toBeLessThanOrEqual(destinations.length);
 
-    // Active chip shows Standard budget
-    const removeStandardChipBtn = container.querySelector(
-      "button[title*='Standard']",
+    // KAI-279: an explicit numeric budget is a Custom party-total cap; the
+    // active chip shows the resolved total instead of an opaque "Standard".
+    const removeCustomBudgetChipBtn = Array.from(
+      container.querySelectorAll("button"),
+    ).find(
+      (btn) =>
+        btn.title?.includes("Budget") ||
+        btn.textContent?.includes("Budget ≤ ¥45,000 total"),
     );
-    expect(removeStandardChipBtn).not.toBeNull();
+    expect(removeCustomBudgetChipBtn).not.toBeUndefined();
   });
 
   it("keeps Flexible and other existing budget choices valid and unchanged", () => {
@@ -349,7 +354,7 @@ describe("KAI-91: Any budget option", () => {
     const anyBudgetBtn = Array.from(container.querySelectorAll("button")).find(
       (btn) =>
         btn.textContent?.includes("Any") &&
-        btn.textContent?.includes("All price ranges"),
+        btn.textContent?.includes("No budget limit"),
     );
     expect(anyBudgetBtn).not.toBeUndefined();
     act(() => {

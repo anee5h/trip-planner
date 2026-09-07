@@ -16,6 +16,7 @@ import {
   normalizeTripDuration,
   type TripDuration,
 } from "@/shared/types/tripDuration";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import type { Collection } from "@/shared/types/collection";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
@@ -49,6 +50,10 @@ import {
   type DestinationCombo,
 } from "@/shared/services/recommendation/DestinationCombinationService";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
+import {
+  budgetCapYen,
+  formatYenAmount,
+} from "@/shared/services/budget/budgetConstraint";
 import {
   ItineraryPickerModal,
   type PendingItinerarySave,
@@ -158,7 +163,10 @@ import {
   useWeekendWeather,
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
-import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import {
+  calculateTripEstimate,
+  evaluateAffordability,
+} from "@/shared/services/budget/tripEstimateEngine";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
@@ -232,6 +240,11 @@ const DETAIL_COPY = {
       "Local access available — time and cost unavailable",
     alreadyThere: "Already there",
     costUnavailable: "Cost unavailable",
+    budgetWithin: "Within your ¥{{amount}} total budget",
+    budgetMayExceed: "May exceed your ¥{{amount}} total budget",
+    budgetAbove: "Above your ¥{{amount}} total budget",
+    budgetUncertain:
+      "Budget fit uncertain — some required costs are unavailable",
     corridorFareOnly: "Intercity fare only; local access cost is not modeled",
     localBoundedFare: "Local fare estimate (bounded)",
     atAGlance: "At a glance",
@@ -282,6 +295,10 @@ const DETAIL_COPY = {
     localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
     alreadyThere: "既に到着",
     costUnavailable: "料金不明",
+    budgetWithin: "合計 ¥{{amount}} の予算内に収まる見込み",
+    budgetMayExceed: "合計 ¥{{amount}} の予算を超える可能性があります",
+    budgetAbove: "合計 ¥{{amount}} の予算を超えています",
+    budgetUncertain: "予算内か不明 — 必須費用の一部が利用できません",
     corridorFareOnly: "都市間交通の料金のみ（現地アクセス費は未算出）",
     localBoundedFare: "近距離運賃の概算（範囲推定）",
     atAGlance: "概要",
@@ -383,12 +400,14 @@ export default function DestinationDetails() {
     ],
   );
   const activeBudget =
-    navState?.budget ??
-    (hasExplicitTripContext && tripContext.budget.kind === "cap"
-      ? tripContext.budget.cap
-      : undefined) ??
-    user?.user_metadata?.preferences?.budget ??
-    50000;
+    navState?.budget !== undefined && navState.budget !== null
+      ? Number.isFinite(navState.budget)
+        ? navState.budget
+        : undefined
+      : hasExplicitTripContext
+        ? budgetCapYen(tripContext.budget)
+        : (user?.user_metadata?.preferences?.budget ??
+          BUDGET_TIER_LIMITS.standard);
   const activeTravelDate =
     navState?.travelDate ??
     (hasExplicitTripContext
@@ -1073,6 +1092,36 @@ export default function DestinationDetails() {
     }
     return modes;
   }, [destination, activeModes, eligibleModes, homeStationCoords]);
+
+  // KAI-279: Phase-5 affordability classification against the ACTIVE flat
+  // party-total cap. A complete total classifies below/straddles/above; an
+  // incomplete estimate (no complete total) stays UNCERTAIN — never
+  // converted into a confident "within budget" claim (KAI-277).
+  const budgetFitNote = useMemo(() => {
+    const cap = activeBudget;
+    if (cap === undefined || !Number.isFinite(cap)) return null;
+    if (!destination || availableModes.length === 0) return null;
+    let result: ReturnType<typeof calculateTripEstimate> | undefined;
+    for (const mode of availableModes) {
+      const candidate = modeEstimate(mode);
+      if (candidate?.total) {
+        result = candidate;
+        break;
+      }
+    }
+    if (!result?.total) {
+      return copy.budgetUncertain.replace("{{amount}}", formatYenAmount(cap));
+    }
+    const state = evaluateAffordability(result, cap);
+    if (state === "fits")
+      return copy.budgetWithin.replace("{{amount}}", formatYenAmount(cap));
+    if (state === "may_exceed")
+      return copy.budgetMayExceed.replace("{{amount}}", formatYenAmount(cap));
+    if (state === "over")
+      return copy.budgetAbove.replace("{{amount}}", formatYenAmount(cap));
+    return copy.budgetUncertain.replace("{{amount}}", formatYenAmount(cap));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeBudget, availableModes, destination, copy]);
 
   // A local discovery estimate is presentation-only. It is intentionally
   // excluded from availableModes so it cannot affect transport selection,
@@ -2246,6 +2295,14 @@ export default function DestinationDetails() {
                             </>
                           )}
                         </div>
+                        {budgetFitNote && (
+                          <p
+                            data-testid="budget-fit-note"
+                            className="mt-3 rounded-lg bg-slate-50 px-3 py-2 text-[11px] font-semibold text-slate-600 dark:bg-slate-800/60 dark:text-slate-300"
+                          >
+                            {budgetFitNote}
+                          </p>
+                        )}
                       </CardContent>
                     </Card>
 

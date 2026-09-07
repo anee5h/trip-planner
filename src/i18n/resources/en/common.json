@@ -539,7 +539,17 @@
     "day2Label": "Day 2",
     "dayLabel": "Day {{day}}",
     "anyFutureDate": "Any future date",
-    "originForecastHint": "Forecast shows weather near your origin"
+    "originForecastHint": "Forecast shows weather near your origin",
+    "customBudget": {
+      "custom": "Custom total",
+      "scope": "Trip total",
+      "helper": "Total for {{party}} travellers",
+      "placeholder": "Enter yen amount",
+      "apply": "Set",
+      "invalid": "Enter a whole-yen amount above 0",
+      "upToTotal": "Up to ¥{{amount}} total",
+      "noLimit": "No budget limit"
+    }
   },
   "destination": {
     "alreadyVisited": "Already Visited",

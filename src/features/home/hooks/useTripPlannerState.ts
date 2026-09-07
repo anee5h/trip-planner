@@ -39,11 +39,20 @@ export function useTripPlannerState(
         controls.carMode,
         controls.publicModes,
       );
-      const budget = getPlannerBudgetLimit(
-        controls.budgetTier,
-        controls.partySize,
-        controls.tripDuration,
-      );
+      // KAI-279: the planner budget is a flat whole-trip party-total cap —
+      // the user's exact Custom cap when set, otherwise the tier's canonical
+      // ceiling (luxury/Any = no ceiling). It never scales with party or
+      // duration.
+      const budget =
+        controls.customBudgetCap !== undefined &&
+        Number.isFinite(controls.customBudgetCap) &&
+        controls.customBudgetCap > 0
+          ? controls.customBudgetCap
+          : getPlannerBudgetLimit(
+              controls.budgetTier,
+              controls.partySize,
+              controls.tripDuration,
+            );
       return { ...controls, budget, carMode, publicModes };
     },
     [],

@@ -62,10 +62,9 @@ const EXPLORE_OVERNIGHT_3D2N_TRAVEL_SOFTEN = 0.55;
 const EXPLORE_OVERNIGHT_UNMEASURED_2D1N_PENALTY = -4;
 import {
   partyProfileForSize,
-  type BudgetTier,
+  BUDGET_TIER_LIMITS,
   type BudgetFilter,
 } from "@/shared/types/planner";
-import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
 import { evaluateBudgetAffordability } from "@/shared/services/budget/tripEstimateEngine";
 import {
   hasPersonalizedOrigin,
@@ -591,18 +590,21 @@ export default function Destinations() {
     // or a known-subtotal minimum above the ceiling) are excluded. This
     // keeps Explore consistent with Home (which retains partials) — it
     // never claims a partial trip "fits".
+    // KAI-279: the affordability ceiling is the canonical FLAT party-total
+    // cap — a preset's fixed ceiling or the user's exact custom cap — never a
+    // party/duration-scaled value. `maxBudget` already carries that resolved
+    // cap (parse maps a tier to BUDGET_TIER_LIMITS[tier] and a numeric custom
+    // budget to itself).
     if (budgetTier !== "any" && budgetTier !== "luxury") {
-      const tierLimit = getPlannerBudgetLimit(
-        budgetTier as BudgetTier,
-        partySize,
-        tripDuration,
-      );
-      result = result.filter((dest) => {
-        const estimate = budgetEstimateFor(dest)?.estimate;
-        if (!estimate) return false;
-        const state = evaluateBudgetAffordability(estimate, tierLimit);
-        return state === "fits" || state === "partial";
-      });
+      const cap = maxBudget;
+      if (Number.isFinite(cap)) {
+        result = result.filter((dest) => {
+          const estimate = budgetEstimateFor(dest)?.estimate;
+          if (!estimate) return false;
+          const state = evaluateBudgetAffordability(estimate, cap);
+          return state === "fits" || state === "partial";
+        });
+      }
     }
 
     // 1.6. Vibe & Atmosphere Filter
@@ -1333,16 +1335,17 @@ export default function Destinations() {
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);
-          // 'any' (no filter) keeps the standard planning ceiling; a tier
-          // syncs the numeric scorer budget to the same context-aware limit.
+          // KAI-279: 'any' and 'flexible' carry no constraint (a real tier
+          // never doubles as the unselected state); any other tier syncs the
+          // numeric scorer budget to its canonical FLAT party-total ceiling.
           setMaxBudget(
-            getPlannerBudgetLimit(
-              tier === "any" ? "standard" : tier,
-              partySize,
-              tripDuration,
-            ),
+            tier === "any" || tier === "luxury"
+              ? Number.POSITIVE_INFINITY
+              : BUDGET_TIER_LIMITS[tier],
           );
         }}
+        maxBudget={maxBudget}
+        setMaxBudget={setMaxBudget}
         vibe={vibe}
         setVibe={setVibe}
         tripDuration={tripDuration}

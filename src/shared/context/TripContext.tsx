@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import type { BudgetFilter } from "@/shared/types/planner";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import type { CarMode } from "@/shared/utils/carMode";
 import type { SavedOriginLocation } from "@/shared/hooks/useTripStore";
@@ -44,7 +45,9 @@ export function createDefaultTripContext(): TripContext {
     partySize: 2,
     publicModes: [],
     carMode: "none",
-    budget: { kind: "cap", cap: 75000, tier: "standard" },
+    // KAI-279: default budget is the canonical Standard whole-trip
+    // party-total ceiling (¥100,000), never a magic non-tier ¥75,000.
+    budget: { kind: "cap", cap: BUDGET_TIER_LIMITS.standard, tier: "standard" },
   };
 }
 
@@ -92,7 +95,16 @@ function parseBudget(params: URLSearchParams): TripBudget | undefined {
     };
   }
   if (tier) {
-    return { kind: "cap", cap: 75000, tier: tier as BudgetFilter };
+    // KAI-279: a tier-only URL maps to that tier's canonical flat
+    // party-total ceiling (economy → ¥50,000, standard → ¥100,000,
+    // comfortable → ¥200,000, flexible → unlimited) — never a magic ¥75,000.
+    const normalized =
+      tier === "luxury" || tier === "flexible" ? "luxury" : tier;
+    return {
+      kind: "cap",
+      cap: BUDGET_TIER_LIMITS[normalized as keyof typeof BUDGET_TIER_LIMITS],
+      tier: normalized as BudgetFilter,
+    };
   }
   return undefined;
 }

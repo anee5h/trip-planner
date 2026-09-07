@@ -86,4 +86,42 @@ describe("TripContext contract", () => {
       duration: "halfDay",
     });
   });
+
+  it("KAI-279: the default context budget is the canonical Standard party-total ceiling", () => {
+    expect(createDefaultTripContext().budget).toEqual({
+      kind: "cap",
+      cap: 100000,
+      tier: "standard",
+    });
+  });
+
+  it("KAI-279: a tier-only URL maps to that tier's canonical flat cap, never a magic 75000", () => {
+    expect(
+      tripContextFromSearchParams(new URLSearchParams("budgetTier=economy"))
+        .budget,
+    ).toEqual({ kind: "cap", cap: 50000, tier: "economy" });
+    expect(
+      tripContextFromSearchParams(new URLSearchParams("budgetTier=standard"))
+        .budget,
+    ).toEqual({ kind: "cap", cap: 100000, tier: "standard" });
+    expect(
+      tripContextFromSearchParams(new URLSearchParams("budgetTier=comfortable"))
+        .budget,
+    ).toEqual({ kind: "cap", cap: 200000, tier: "comfortable" });
+    expect(
+      tripContextFromSearchParams(new URLSearchParams("budgetTier=flexible"))
+        .budget,
+    ).toEqual({ kind: "cap", cap: Infinity, tier: "luxury" });
+  });
+
+  it("KAI-279: a numeric URL budget is a custom party-total cap and round-trips exactly", () => {
+    expect(
+      tripContextFromSearchParams(new URLSearchParams("budget=80000")).budget,
+    ).toEqual({ kind: "cap", cap: 80000 });
+    expect(
+      tripContextFromSearchParams(
+        new URLSearchParams("budgetTier=standard&budget=80000"),
+      ).budget,
+    ).toEqual({ kind: "cap", cap: 80000, tier: "standard" });
+  });
 });

@@ -19,8 +19,11 @@ import {
   type HomepageTripDuration,
   type BudgetTier,
 } from "@/shared/types/homePlannerState";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import { normalizeHomepageTripDuration } from "@/shared/types/tripDuration";
 import { useOptionalTripContext } from "@/shared/context/TripContext";
+
+const PRESET_TIERS = ["economy", "standard", "comfortable"] as const;
 
 function homepageDurationFromUrl(): HomepageTripDuration | undefined {
   if (typeof window === "undefined") return undefined;
@@ -85,6 +88,8 @@ export interface HomePlannerStateValue {
   setPartySize: (partySize: number) => void;
   budgetTier: BudgetTier;
   setBudgetTier: (tier: BudgetTier) => void;
+  customBudgetCap?: number;
+  setCustomBudgetCap: (cap: number | undefined) => void;
   publicModes: string[];
   publicTransport: boolean;
   setPublicTransport: (enabled: boolean) => void;
@@ -185,14 +190,27 @@ export function HomePlannerStateProvider({
     const normalizedDuration = normalizeHomepageTripDuration(
       tripContext.duration,
     );
-    const contextTier = tripContext.budget.tier;
-    const budgetTier: BudgetTier =
+    const contextBudget = tripContext.budget;
+    // KAI-279: hydrate the planner from the canonical context budget —
+    // preset tiers map to their flat ceiling, a numeric cap that differs
+    // from its tier ceiling is a Custom party-total cap, and any/flexible is
+    // the no-constraint choice.
+    const contextTier = contextBudget.tier;
+    const tier: BudgetTier =
       contextTier === "economy" ||
       contextTier === "standard" ||
       contextTier === "comfortable" ||
       contextTier === "luxury"
         ? contextTier
         : "standard";
+    const contextCap = contextBudget.kind === "cap" ? contextBudget.cap : null;
+    const finiteCap = contextCap !== null && Number.isFinite(contextCap);
+    const matchesTierCeiling =
+      contextTier &&
+      (PRESET_TIERS as readonly string[]).includes(contextTier) &&
+      finiteCap &&
+      contextCap === BUDGET_TIER_LIMITS[contextTier as BudgetTier];
+    const isCustom = finiteCap && !matchesTierCeiling;
     const controls = {
       tripDuration: normalizedDuration ?? "halfDay",
       partySize: tripContext.partySize,
@@ -200,7 +218,12 @@ export function HomePlannerStateProvider({
       publicTransport:
         tripContext.carMode === "none" || tripContext.publicModes.length > 0,
       carMode: tripContext.carMode,
-      budgetTier,
+      budgetTier: isCustom
+        ? tier
+        : contextBudget.kind === "any"
+          ? "luxury"
+          : tier,
+      customBudgetCap: isCustom && contextCap !== null ? contextCap : undefined,
     } satisfies Partial<PlannerControlsState>;
     setDraftState((previous) => ({ ...previous, ...controls }));
     setAppliedState((previous) => ({ ...previous, ...controls }));
@@ -255,6 +278,9 @@ export function HomePlannerStateProvider({
   const setBudgetTier = useCallback((budgetTier: BudgetTier) => {
     setDraftState((previous) => ({ ...previous, budgetTier }));
   }, []);
+  const setCustomBudgetCap = useCallback((cap: number | undefined) => {
+    setDraftState((previous) => ({ ...previous, customBudgetCap: cap }));
+  }, []);
   const setPublicTransport = useCallback((publicTransport: boolean) => {
     setDraftState((previous) => ({ ...previous, publicTransport }));
   }, []);
@@ -274,6 +300,8 @@ export function HomePlannerStateProvider({
       setPartySize,
       budgetTier: draftState.budgetTier,
       setBudgetTier,
+      customBudgetCap: draftState.customBudgetCap,
+      setCustomBudgetCap,
       publicModes: draftState.publicModes,
       publicTransport: draftState.publicTransport,
       setPublicTransport,
@@ -290,6 +318,7 @@ export function HomePlannerStateProvider({
       setTripDuration,
       setPartySize,
       setBudgetTier,
+      setCustomBudgetCap,
       setPublicTransport,
       setCarMode,
       hasUserApplied,
