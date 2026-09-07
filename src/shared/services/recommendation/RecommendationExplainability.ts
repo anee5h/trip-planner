@@ -16,7 +16,10 @@ import {
 import { formatJPYRange } from "@/shared/services/budget/BudgetService";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getOriginAwareTransportEstimate,
+  getTravelDecisionSemantics,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import type { PriceRange } from "@/shared/types/planner";
 
@@ -198,6 +201,7 @@ export function createRecommendationMatch(
       if (
         estimate &&
         estimate.evidence !== "unknown" &&
+        getTravelDecisionSemantics(estimate) === "reliable" &&
         estimate.timeRange[0] <= 60
       ) {
         hasFastTrain = true;

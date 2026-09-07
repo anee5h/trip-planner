@@ -1,7 +1,11 @@
 import type { Destination } from "@/shared/types/destination";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import type { PipelineRecommendation } from "./RecommendationTypes";
-import type { TravelDurationEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getDecisionOneWayMinutes,
+  getTravelDecisionSemantics,
+  type TravelDurationEstimate,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import { getContainedPlaces } from "./WeekendAreaPolicy";
 
 /** Virtual result id for the Tokyo 23 Wards group card. */
@@ -206,10 +210,16 @@ export function consolidateTokyoWards(
     (fastest, member) => {
       const estimate = member.transportEstimate;
       if (!estimate) return fastest;
-      if (!fastest || estimate.timeRange[0] < fastest.timeRange[0]) {
-        return estimate;
+      const candidateDecision = getTravelDecisionSemantics(estimate);
+      if (!fastest) return estimate;
+      const fastestDecision = getTravelDecisionSemantics(fastest);
+      if (candidateDecision !== fastestDecision) {
+        return candidateDecision === "reliable" ? estimate : fastest;
       }
-      return fastest;
+      return getDecisionOneWayMinutes(estimate) <
+        getDecisionOneWayMinutes(fastest)
+        ? estimate
+        : fastest;
     },
     undefined,
   );

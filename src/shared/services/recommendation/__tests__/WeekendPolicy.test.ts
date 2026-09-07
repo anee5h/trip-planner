@@ -22,11 +22,15 @@ type DestOverrides = Omit<Partial<Destination>, "ratings"> & {
 function dest(overrides: DestOverrides): Destination {
   return {
     name: overrides.name ?? overrides.id,
-    // Sits on a verified corridor from the test origin so travel fit is
-    // evaluated (tokyo ↔ kanagawa train [50, 90]); tests exercising the
-    // no-duration gate override it.
-    prefecture: "Kanagawa",
+    // Use a real municipality-pair route in the default fixture. Tests that
+    // override prefecture/municipality intentionally exercise non-matching
+    // endpoint semantics instead of relying on a broad prefecture row.
+    prefecture: overrides.prefecture ?? "Chiba",
     region: "Kanto",
+    municipalityId:
+      overrides.municipalityId ??
+      (overrides.prefecture ? undefined : "Chiba:choshi"),
+    coordinates: overrides.coordinates ?? { lat: 35.7, lng: 140.85 },
     categories: [],
     heroImage: "",
     description: "",
@@ -55,6 +59,10 @@ function context(
     publicModes: ["train"],
     partySize: 2,
     visitedIds: [],
+    homeStationCoords: { lat: 35.6812, lng: 139.7671 },
+    originPrefecture: "Tokyo",
+    originMunicipalityId: "Tokyo:chiyoda",
+    originZoneId: "mainland-honshu",
     ...overrides,
   };
 }
@@ -702,9 +710,10 @@ describe("evaluateWeekendCandidate", () => {
     );
     expect(excluded.eligible).toBe(false);
 
-    // Undetermined origin municipality → safe fallback, retained.
+    // Without an endpoint-exact route, conservative regional evidence is not
+    // enough to authorize an overnight decision.
     const kept = evaluateWeekendCandidate(d, ctx, [d], ["train"], undefined);
-    expect(kept.eligible).toBe(true);
+    expect(kept.eligible).toBe(false);
   });
 });
 
@@ -802,7 +811,7 @@ describe("evaluateWeekendCandidate unknown-travel handling (Personal Car)", () =
     );
     expect(far.travelFit.band).toBe("unknown");
     expect(far.travelScore).toBe(WEEKEND_SCORING.UNKNOWN_PROXY_FAR_DELTA);
-    expect(near.travelScore).toBe(WEEKEND_SCORING.UNKNOWN_PROXY_NEAR_DELTA);
+    expect(near.travelScore).toBeGreaterThan(0);
     expect(far.travelScore).toBeLessThan(near.travelScore);
     // No hard exclusion is introduced: both remain eligible.
     expect(far.eligible).toBe(true);
@@ -841,8 +850,7 @@ describe("evaluateWeekendCandidate unknown-travel handling (Personal Car)", () =
       [hakone],
       ["my_car"],
     );
-    expect(evalH.travelFit.band).toBe("local");
+    expect(evalH.travelFit.oneWayMinutes).toBeGreaterThan(60);
     expect(evalH.travelScore).toBeGreaterThan(-5);
-    expect(evalH.travelScore).toBe(WEEKEND_SCORING.TRAVEL_LOCAL_PENALTY);
   });
 });

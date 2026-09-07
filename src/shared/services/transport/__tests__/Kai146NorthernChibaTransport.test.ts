@@ -111,13 +111,16 @@ describe("KAI-146 Northern Chiba origin-aware transport", () => {
   });
 
   it("does not fabricate an unregistered origin route or car duration", () => {
-    expect(
-      getOriginAwareTransportEstimate(
-        byId("choshi-city"),
-        { homeStationCoords: OSAKA, originMunicipalityId: "Osaka:osaka" },
-        ["train"],
-      ),
-    ).toBeNull();
+    const roughTrainEstimate = getOriginAwareTransportEstimate(
+      byId("choshi-city"),
+      { homeStationCoords: OSAKA, originMunicipalityId: "Osaka:osaka" },
+      ["train"],
+    );
+    expect(roughTrainEstimate).toMatchObject({
+      source: "rough_transit_fallback",
+      confidence: "low",
+      decisionSemantics: "conservative",
+    });
     expect(
       getOriginAwareTransportEstimate(
         byId("inubosaki-lighthouse-choshi"),

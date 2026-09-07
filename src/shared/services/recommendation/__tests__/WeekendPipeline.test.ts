@@ -24,11 +24,14 @@ type DestOverrides = Omit<Partial<Destination>, "ratings"> & {
 function dest(overrides: DestOverrides): Destination {
   return {
     name: overrides.name ?? overrides.id,
-    // Default prefecture sits on a short verified corridor from the default
-    // tokyoHome origin (tokyo ↔ kanagawa train [50, 90]); tests that
-    // exercise the no-duration gate override it.
-    prefecture: "Kanagawa",
+    // Default to an exact municipality-pair corridor. Prefecture-only test
+    // overrides intentionally have no endpoint match and therefore exercise
+    // the unavailable/rough path rather than a fabricated broad corridor.
+    prefecture: overrides.prefecture ?? "Chiba",
     region: "Kanto",
+    municipalityId:
+      overrides.municipalityId ??
+      (overrides.prefecture ? undefined : "Chiba:choshi"),
     categories: [],
     heroImage: "",
     description: "",
@@ -62,6 +65,9 @@ function ctx(
     partySize: 2,
     visitedIds: [],
     homeStationCoords: tokyoHome,
+    originPrefecture: "Tokyo",
+    originMunicipalityId: "Tokyo:chiyoda",
+    originZoneId: "mainland-honshu",
     ...overrides,
   };
 }
@@ -370,7 +376,7 @@ describe("runRecommendationPipeline — weekend mode", () => {
     expect(results).toHaveLength(1);
     const weekend = results[0].overnight;
     expect(weekend).toBeDefined();
-    expect(weekend!.travelFit.band).toBe("nearby");
+    expect(weekend!.travelFit.band).toBe("strong");
     expect(weekend!.capacity.activityMinutes).toBe(600);
     expect(weekend!.weatherDays).toHaveLength(2);
   });
@@ -726,7 +732,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     expect(ids).toContain("fukuoka-city");
   });
 
-  it("Shinjuku base + Shinjuku Ward excluded in 2D1N; Nikko kept", () => {
+  it("keeps low-confidence regional Nikko out of overnight decisions", () => {
     const results = runRecommendationPipeline(
       [byId.get("shinjuku-city")!, byId.get("nikko-city")!],
       ctx({
@@ -738,7 +744,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     );
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("shinjuku-city");
-    expect(ids).toContain("nikko-city");
+    expect(ids).not.toContain("nikko-city");
   });
 
   it("Shinjuku base + Shibuya Ward is too near for an overnight trip", () => {
@@ -810,7 +816,10 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
       expect(byId.get(r.id)!.municipalityId).not.toBe("Osaka:osaka");
     }
     expect(results.map((r) => r.id)).toContain("fukuoka-city");
-    expect(results.map((r) => r.id)).not.toContain("kyoto-city");
+    // Kyoto is an ordinary intercity rough estimate, not an origin-local
+    // destination; the local exclusion must not remove it merely because the
+    // static prefecture row is unavailable.
+    expect(results.map((r) => r.id)).toContain("kyoto-city");
   });
 
   it("full catalogue, Shinjuku base: local wards absent and Nikko present", () => {
@@ -834,7 +843,7 @@ describe("runRecommendationPipeline — origin-local exclusion (real fixtures)",
     const ids = results.map((r) => r.id);
     expect(ids).not.toContain("shibuya-city");
     expect(ids).not.toContain("taito-city");
-    expect(ids).toContain("nikko-city");
+    expect(ids).not.toContain("nikko-city");
   });
 
   it("Chiba weekend ranking suppresses ordinary Tokyo rail results", () => {
@@ -953,13 +962,12 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     expect(results).toEqual([]);
   });
 
-  it("coherent non-city area (Kamikochi) qualifies as standalone_area", () => {
+  it("keeps low-confidence Kamikochi out of overnight decisions", () => {
     const results = runRecommendationPipeline(
       [byId.get("nagano-kamikochi")!],
       ctx({ tripDuration: "2d1n", budget: 200000 }),
     );
-    expect(results.map((r) => r.id)).toContain("nagano-kamikochi");
-    expect(results[0].overnight?.areaKind).toBe("standalone_area");
+    expect(results.map((r) => r.id)).not.toContain("nagano-kamikochi");
   });
 
   it("full catalogue Tokyo/Osaka/Fukuoka return only trip-area results", () => {
@@ -997,6 +1005,9 @@ describe("runRecommendationPipeline — hub-first weekend results", () => {
     const noRoute = dest({
       id: "no-route",
       role: "hub",
+      prefecture: "Wakayama",
+      municipalityId: "Wakayama:unknown",
+      coordinates: { lat: 34.2, lng: 135.2 },
       localAccessUnestimated: true,
       transportOptions: {},
       recommendedVisitHours: { min: 1, max: 10 },

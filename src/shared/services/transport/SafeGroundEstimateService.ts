@@ -1,6 +1,5 @@
 import type { Destination } from "@/shared/types/destination";
 import { getDistance } from "@/shared/utils/distance";
-import { estimateBetween } from "./TransportEstimator";
 import {
   getEligibleOriginModes,
   resolveDestinationTransportZone,
@@ -10,9 +9,11 @@ import {
 import type { TransportMode } from "./types";
 import type { EstimatedTransportEstimate } from "./OriginAwareTransportService";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
-import { resolveOriginMunicipalityId } from "../recommendation/OriginAreaService";
-import { getDestinationList } from "../destination/DestinationService";
 import { getRoutableCarAccessAnchors } from "./CarAccessService";
+import {
+  estimateCarFallback,
+  estimateTransitFallback,
+} from "./GroundFallbackModel";
 
 /**
  * Coordinate estimates are useful for nearby discovery, not for silently
@@ -21,6 +22,8 @@ import { getRoutableCarAccessAnchors } from "./CarAccessService";
  * outing merely because both points are on Honshu.
  */
 export const MAX_ESTIMATED_GROUND_DISTANCE_KM = 120;
+export const MAX_CAR_FALLBACK_DISTANCE_KM = 300;
+export const MAX_REGIONAL_TRANSIT_FALLBACK_DISTANCE_KM = 700;
 
 /**
  * Geographic islands can still be ordinary large land-transport regions.
@@ -53,6 +56,13 @@ function isFiniteCoordinate(value: unknown): value is number {
   return typeof value === "number" && Number.isFinite(value);
 }
 
+function hasDifficultCarTopologySignals(destination: Destination): boolean {
+  return [...(destination.tags ?? []), ...(destination.categories ?? [])].some(
+    (signal) =>
+      /peninsula|mountain|remote|coastal|coast|ocean|island/i.test(signal),
+  );
+}
+
 function isSupportedDestinationMode(
   destination: Destination,
   mode: TransportMode,
@@ -61,12 +71,13 @@ function isSupportedDestinationMode(
   if (optionMode === "car") {
     return getRoutableCarAccessAnchors(destination).length > 0;
   }
-  // A bounded local estimate is safe for rail only. Bus duration needs a
-  // canonical corridor; never substitute a generic bus-shaped duration for a
-  // personalized origin. An omitted localAccessModes field means the zone
-  // topology is the destination-level evidence. An explicit [] remains a
-  // hard no-access declaration. transportOptions is never authorization.
-  if (optionMode !== "train") return false;
+  if (
+    destination.transportOptions &&
+    Object.keys(destination.transportOptions).length === 0 &&
+    (destination.kind === "city" || destination.role === "hub")
+  ) {
+    return false;
+  }
   return (
     destination.localAccessModes === undefined ||
     destination.localAccessModes.includes(optionMode)
@@ -86,43 +97,56 @@ function pickFastestEstimate(
   context: SafeGroundEstimateContext,
   modes: readonly string[],
 ): EstimatedTransportEstimate | null {
-  let best:
-    | {
-        mode: TransportMode;
-        timeRange: [number, number];
-        midpoint: number;
-      }
-    | undefined;
+  let best: (EstimatedTransportEstimate & { midpoint: number }) | undefined;
 
   for (const mode of modes) {
     if (!ESTIMATABLE_GROUND_MODES.has(mode as TransportMode)) continue;
     if (!isSupportedDestinationMode(destination, mode as TransportMode)) {
       continue;
     }
-    const estimatorMode = mode === "my_car" ? "car" : (mode as TransportMode);
-    const calculated = estimateBetween(
-      { coordinates: context.homeStationCoords },
-      { coordinates: destination.coordinates! },
-      estimatorMode,
-    );
-    if (!calculated.available) continue;
-    const midpoint = (calculated.timeRange[0] + calculated.timeRange[1]) / 2;
-    if (!best || midpoint < best.midpoint) {
-      best = {
-        mode: mode as TransportMode,
-        timeRange: calculated.timeRange,
-        midpoint,
-      };
-    }
+    const normalizedMode = mode === "my_car" ? "car" : mode;
+    const model =
+      normalizedMode === "car"
+        ? estimateCarFallback(
+            context.homeStationCoords,
+            destination.coordinates!,
+            hasDifficultCarTopologySignals(destination),
+          )
+        : normalizedMode === "train" || normalizedMode === "bus"
+          ? estimateTransitFallback(
+              context.homeStationCoords,
+              destination.coordinates!,
+              destination.transportOptions !== undefined &&
+                Object.keys(destination.transportOptions).length === 0,
+            )
+          : null;
+    if (!model) continue;
+    const midpoint = (model.timeRange[0] + model.timeRange[1]) / 2;
+    const estimateSource: EstimatedTransportEstimate["source"] =
+      normalizedMode === "car"
+        ? "calculated_ground_display"
+        : "calculated_local_display";
+    const candidate = {
+      mode: mode as TransportMode,
+      timeRange: model.timeRange,
+      source: estimateSource,
+      evidence: "estimated" as const,
+      confidence: model.confidence,
+      estimateSource: "rough" as const,
+      decisionSemantics:
+        model.confidence === "low"
+          ? ("conservative" as const)
+          : ("reliable" as const),
+      fallbackReason: model.diagnostics.fallbackReason,
+      diagnostics: model.diagnostics,
+      midpoint,
+    };
+    if (!best || midpoint < best.midpoint) best = candidate;
   }
 
   if (!best) return null;
-  return {
-    mode: best.mode,
-    timeRange: best.timeRange,
-    source: "calculated_ground_display",
-    evidence: "estimated",
-  };
+  const { midpoint: _midpoint, ...estimate } = best;
+  return estimate;
 }
 
 /**
@@ -186,7 +210,23 @@ export function getSafeGroundEstimate(
     destination.coordinates.lat,
     destination.coordinates.lng,
   );
-  if (distanceKm > MAX_ESTIMATED_GROUND_DISTANCE_KM) return null;
+  const hasCarAuthorization = context.authorizedModes.some(
+    (mode) => mode === "car" || mode === "my_car",
+  );
+  const hasTransitAuthorization = context.authorizedModes.some(
+    (mode) => mode === "train" || mode === "shinkansen",
+  );
+  const maxFallbackDistance = hasTransitAuthorization
+    ? MAX_REGIONAL_TRANSIT_FALLBACK_DISTANCE_KM
+    : hasCarAuthorization
+      ? MAX_CAR_FALLBACK_DISTANCE_KM
+      : MAX_ESTIMATED_GROUND_DISTANCE_KM;
+  if (
+    distanceKm > MAX_ESTIMATED_GROUND_DISTANCE_KM &&
+    distanceKm > maxFallbackDistance
+  ) {
+    return null;
+  }
 
   const topology = getEligibleOriginModes({
     originZoneId,
@@ -203,17 +243,6 @@ export function getSafeGroundEstimate(
 
   if (authorizedGroundModes.length === 0) return null;
 
-  const catalog =
-    context.allDestinations ?? (getDestinationList("en") as Destination[]);
-  const originMunicipalityId = resolveOriginMunicipalityId(
-    context.homeStationCoords,
-    catalog,
-  );
-  const source =
-    originMunicipalityId && destination.municipalityId === originMunicipalityId
-      ? "calculated_local_display"
-      : "calculated_ground_display";
-
   const estimate = pickFastestEstimate(
     destination,
     context,
@@ -222,7 +251,6 @@ export function getSafeGroundEstimate(
   return estimate
     ? {
         ...estimate,
-        source,
         originZoneId,
         destinationZoneId,
       }

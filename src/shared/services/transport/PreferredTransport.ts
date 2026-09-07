@@ -15,6 +15,8 @@ export interface PreferredTransport {
   /** Canonical traveller-facing range for this selected mode. */
   estimatedBudgetRange: [number, number] | null;
   evidence: TravelDurationEvidence;
+  estimateSource?: "routed" | "route-distance-derived" | "rough";
+  confidence?: "high" | "medium" | "low";
   corridorEvidence?: "verified";
 }
 
@@ -66,6 +68,8 @@ export function getFastestPreferredTransport(
     mode: estimate.mode,
     timeRange: estimate.timeRange,
     evidence: estimate.evidence,
+    estimateSource: estimate.estimateSource,
+    confidence: estimate.confidence,
     corridorEvidence: estimate.corridorEvidence,
     estimatedBudgetRange,
     // Compatibility ceiling only; new callers must use estimatedBudgetRange.

@@ -38,6 +38,7 @@ import {
   getLocalBoundedRailFareEstimate,
   LOCAL_BOUNDED_FARE_SOURCE_URLS,
 } from "./LocalBoundedFareEstimator";
+import { getSafeGroundEstimate } from "./SafeGroundEstimateService";
 import {
   resolveDestinationTransportZone,
   topology,
@@ -51,12 +52,49 @@ export type OriginAwareEstimateSource =
   | "verified_car_route"
   | "verified_flight"
   | "verified_ferry"
-  | "calculated_local_bounded_estimate";
+  | "rough_transit_fallback"
+  | "car_fallback_model";
 
 export type TravelDurationEvidence = "verified" | "estimated" | "unknown";
+export type TravelEstimateSource =
+  "routed" | "route-distance-derived" | "rough";
+export type TravelEstimateConfidence = "high" | "medium" | "low";
+export type TravelDecisionSemantics = "reliable" | "conservative";
+
+/**
+ * Low-confidence regional transit is not an ordinary numeric duration.
+ * Consumers may use it only through a conservative upper-bound decision value;
+ * it must never be ranked or explained from its midpoint as if it were routed.
+ */
+export function getTravelDecisionSemantics(
+  estimate: Pick<
+    TravelDurationEstimate,
+    "estimateSource" | "confidence" | "evidence"
+  >,
+): TravelDecisionSemantics {
+  return estimate.estimateSource === "rough" && estimate.confidence === "low"
+    ? "conservative"
+    : "reliable";
+}
+
+export function getDecisionOneWayMinutes(
+  estimate: Pick<
+    TravelDurationEstimate,
+    "timeRange" | "estimateSource" | "confidence" | "evidence"
+  >,
+): number {
+  if (getTravelDecisionSemantics(estimate) === "conservative") {
+    return estimate.timeRange[1] + 30;
+  }
+  return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+}
 
 export type EstimatedTransportEstimateSource =
-  "calculated_local_display" | "calculated_ground_display" | "car_outage_rough";
+  | "calculated_local_display"
+  | "calculated_ground_display"
+  | "car_outage_rough"
+  | "rough_transit_fallback"
+  | "car_fallback_model";
 
 /**
  * Canonical origin-aware transport estimate. Every consumer (travel fit,
@@ -71,7 +109,12 @@ export interface OriginAwareTransportEstimate {
   roundTripTimeRange?: [number, number];
   source: OriginAwareEstimateSource;
   evidence: TravelDurationEvidence;
-  /** Evidence for the fare itself, independent of door-to-door duration. */
+  /** Normalized evidence label used by diagnostics and presentation policy. */
+  estimateSource?: TravelEstimateSource;
+  confidence?: TravelEstimateConfidence;
+  decisionSemantics?: TravelDecisionSemantics;
+  fallbackReason?: string;
+  diagnostics?: object;
   fareEvidence?: TravelDurationEvidence;
   /** The intercity corridor remains verified when access is estimated. */
   corridorEvidence?: "verified";
@@ -135,6 +178,11 @@ export interface EstimatedTransportEstimate {
   timeRange: [number, number];
   source: EstimatedTransportEstimateSource;
   evidence: "estimated";
+  estimateSource?: TravelEstimateSource;
+  confidence?: TravelEstimateConfidence;
+  decisionSemantics?: TravelDecisionSemantics;
+  fallbackReason?: string;
+  diagnostics?: object;
   originZoneId?: TransportZoneId;
   destinationZoneId?: TransportZoneId;
 }
@@ -376,35 +424,51 @@ function getLocalBoundedOriginAwareEstimate(
   context: OriginAwareEstimateContext,
   destinationZoneId: TransportZoneId,
 ): OriginAwareTransportEstimate | null {
-  const local = getLocalBoundedRailFareEstimate(destination, {
+  if (!context.homeStationCoords) return null;
+  const fallback = getSafeGroundEstimate(destination, {
     homeStationCoords: context.homeStationCoords,
-    originZoneId: context.originZoneId,
+    homeStationTransportZoneId: context.originZoneId,
+    authorizedModes: ["train"],
   });
-  if (!local) return null;
+  if (!fallback || fallback.mode !== "train") return null;
+  const isRegional = fallback.confidence === "low";
+  const fare = isRegional
+    ? null
+    : getLocalBoundedRailFareEstimate(destination, {
+        homeStationCoords: context.homeStationCoords,
+        originZoneId: context.originZoneId,
+      });
   return {
     mode: "train",
-    timeRange: local.timeRange,
-    source: "calculated_local_bounded_estimate",
+    timeRange: fallback.timeRange,
+    source: "rough_transit_fallback",
     evidence: "estimated",
-    fareEvidence: local.fare ? "estimated" : "unknown",
-    originZoneId: local.originZoneId ?? context.originZoneId,
-    destinationZoneId: local.destinationZoneId ?? destinationZoneId,
-    fare: local.fare,
-    fareVariability: local.fareVariability,
-    fareSourceUrl: LOCAL_BOUNDED_FARE_SOURCE_URLS[0],
-    fareSourceUrls: local.fareSourceUrls,
-    fareScope: local.fareScope,
+    estimateSource: "rough",
+    confidence: fallback.confidence,
+    decisionSemantics:
+      fallback.confidence === "low" ? "conservative" : "reliable",
+    fallbackReason: fallback.fallbackReason,
+    diagnostics: fallback.diagnostics,
+    originZoneId: fallback.originZoneId ?? context.originZoneId,
+    destinationZoneId: fallback.destinationZoneId ?? destinationZoneId,
+    fareEvidence: fare ? "estimated" : "unknown",
+    fareScope: fare?.fareScope ?? "unknown",
+    fare: fare?.fare,
+    fareVariability: fare?.fareVariability,
+    fareSourceUrl: fare
+      ? (fare.fareSourceUrls[0] ?? LOCAL_BOUNDED_FARE_SOURCE_URLS[0])
+      : undefined,
+    fareSourceUrls: fare?.fareSourceUrls,
   };
 }
 
 /**
- * Ground-mode registry lookup. Conventional train corridors carry verified
- * prefecture-pair durations; Shinkansen uses the curated physical
- * access-hub registry. Bus corridors are verified city-pair facts
- * (bus-routes.json) and resolve at municipality granularity only — a
- * prefecture-pair bus key would overgeneralize local/limousine service into
- * intercity availability (MODE_SEMANTICS §3). Neither access radius can
- * create a corridor without a registry row.
+ * Ground-mode registry lookup. Conventional train municipality rows and
+ * Shinkansen access-hub routes carry verified corridor facts. Bus corridors
+ * are verified city-pair facts (bus-routes.json) and resolve at municipality
+ * granularity only. Broad prefecture rows are retained as reference data but
+ * are never personalized into a destination estimate; missing coverage uses
+ * the bounded fallback with explicit rough provenance.
  */
 function getGroundEstimate(
   destination: Destination,
@@ -485,6 +549,8 @@ function getGroundEstimate(
       mode,
       timeRange: adjusted.timeRange,
       source: "verified_ground_route",
+      estimateSource: "routed",
+      confidence: adjusted.evidence === "verified" ? "high" : "medium",
       evidence: adjusted.evidence,
       fareEvidence: selected.route.fare ? "verified" : "unknown",
       corridorEvidence: "verified",
@@ -563,6 +629,8 @@ function getGroundEstimate(
         mode,
         timeRange: adjusted.timeRange,
         source: "verified_ground_route",
+        estimateSource: "routed",
+        confidence: adjusted.evidence === "verified" ? "high" : "medium",
         evidence: adjusted.evidence,
         fareEvidence: selected.route.fare ? "verified" : "unknown",
         corridorEvidence: "verified",
@@ -608,8 +676,9 @@ function getGroundEstimate(
   // verified corridor between two specific cities must never be widened
   // into a whole-prefecture claim (an Aichi→Gifu prefecture row would
   // present a Nagoya→Gifu-city time as a Nagoya→Takayama time). Prefer the
-  // exact municipality pair whenever both sides are known; fall back to the
-  // prefecture-pair registry only when no municipality row exists.
+  // exact municipality route. Broad prefecture rows are never used as
+  // personalized destination estimates; train falls back to the bounded
+  // model below with explicit rough provenance.
   const municipalityRoute =
     originMunicipalityId && destination.municipalityId
       ? getMunicipalityGroundRoute(
@@ -618,16 +687,11 @@ function getGroundEstimate(
           mode,
         )
       : null;
-  // A record with route-known-but-unestimated local access must not inherit a
-  // broad prefecture corridor and present a station-to-attraction claim.
-  // Require an exact municipality corridor until the final local leg has its
-  // own evidence. Legacy transportOptions never bypass this guard.
-  if (!municipalityRoute && destination.localAccessUnestimated === true) {
-    return null;
-  }
-  const route =
-    municipalityRoute ??
-    getGroundRoute(originPrefecture, destinationPrefecture, mode);
+  // A static prefecture-pair row describes one corridor, not every
+  // destination in that prefecture. Only an exact municipality row can be
+  // trusted here; otherwise use the bounded fallback with explicit rough
+  // provenance instead of turning Osaka→Kyoto into Osaka→Amanohashidate.
+  const route = municipalityRoute;
   if (!route && mode === "train") {
     return getLocalBoundedOriginAwareEstimate(
       destination,
@@ -640,6 +704,8 @@ function getGroundEstimate(
     mode,
     timeRange: route.timeRange,
     source: "verified_ground_route",
+    estimateSource: "routed",
+    confidence: "high",
     evidence: "verified",
     fareEvidence: route.fare ? "verified" : "unknown",
     originZoneId: context.originZoneId,
@@ -778,6 +844,12 @@ export function getOriginAwareTransportEstimate(
           timeRange: [route.durationMinutes!, route.durationMinutes!],
           roundTripTimeRange: [roundTripMinutes, roundTripMinutes],
           source: "verified_car_route",
+          estimateSource: "routed",
+          confidence:
+            route.confidence === "verified" &&
+            returnRoute.confidence === "verified"
+              ? "high"
+              : "medium",
           evidence:
             route.confidence === "verified" &&
             returnRoute.confidence === "verified"
@@ -865,8 +937,20 @@ export function getOriginAwareTransportEstimate(
       estimate = getGroundEstimate(destination, context, mode);
     }
     // car/my_car have no verified origin-aware durations.
-    if (estimate && (!best || estimate.timeRange[0] < best.timeRange[0])) {
-      best = estimate;
+    if (estimate) {
+      if (!best) {
+        best = estimate;
+      } else {
+        const candidateSemantics = getTravelDecisionSemantics(estimate);
+        const bestSemantics = getTravelDecisionSemantics(best);
+        if (candidateSemantics !== bestSemantics) {
+          if (candidateSemantics === "reliable") best = estimate;
+        } else if (
+          getDecisionOneWayMinutes(estimate) < getDecisionOneWayMinutes(best)
+        ) {
+          best = estimate;
+        }
+      }
     }
   }
   rememberOriginAwareEstimate(cacheKey, best);

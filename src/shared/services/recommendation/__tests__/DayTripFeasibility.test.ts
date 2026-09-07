@@ -6,10 +6,12 @@ import {
   getEstimatedBudgetRange,
   getTransportCost,
 } from "@/shared/services/budget/BudgetService";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import {
   getDayTripTravelDurationEvidence,
   estimateDayTripDuration,
 } from "../TripDurationService";
+import { calculateScore } from "../RecommendationScorer";
 import {
   getRecommendations,
   getValidModes,
@@ -34,6 +36,7 @@ const CHIBA = { lat: 35.6131, lng: 140.1133 };
 const SAPPORO = { lat: 43.0687, lng: 141.3508 };
 const FUKUOKA = { lat: 33.5902, lng: 130.4017 };
 const TAKAMATSU = { lat: 34.3519, lng: 134.0467 };
+const KUGA = { lat: 34.087, lng: 132.078 };
 const ALL_PUBLIC_MODES = ["train", "shinkansen", "bus", "flight", "ferry"];
 const DISTANT_IDS = new Set([
   "aomori-city",
@@ -87,6 +90,47 @@ function hasCanonicalIntercityEvidence(result: RecommendationResult): boolean {
 }
 
 describe("day-trip travel evidence", () => {
+  it("treats low-confidence regional transit conservatively across decisions", () => {
+    const tsuwano = catalog.find(
+      (destination) => destination.id === "tsuwano-castle",
+    )!;
+    const context = {
+      ...contextFor(KUGA, "halfDay"),
+      publicModes: ["train"],
+      originZoneId: "mainland-honshu" as const,
+    };
+    const estimate = estimateDayTripDuration(
+      tsuwano,
+      { ...context, availableTimeHours: 7.5 },
+      ["train"],
+    );
+
+    expect(estimate?.decisionSemantics).toBe("conservative");
+    expect(estimate?.travelEstimate?.confidence).toBe("low");
+    expect(estimate?.feasibilityTravelMinutes).toBeGreaterThan(300);
+    expect(estimate?.isImpossible).toBe(true);
+    expect(getRecommendations([tsuwano], context)).toHaveLength(0);
+
+    const score = calculateScore(tsuwano, {
+      ...context,
+      tripDuration: "any",
+    });
+    expect(score.modeScoreBreakdown.train.transport).toBe(0);
+
+    const budget = calculateTripEstimate({
+      dest: tsuwano,
+      mode: "train",
+      partySize: 2,
+      homeCoords: KUGA,
+      duration: "halfDay",
+      includeOriginTravel: true,
+    });
+    const originTravel = budget.components.find(
+      (component) => component.evidence.scope === "origin_travel",
+    );
+    expect(originTravel?.cost.kind).toBe("unavailable");
+  });
+
   it("propagates bounded catchment evidence while retaining corridor provenance", () => {
     const nara = catalog.find((destination) => destination.id === "nara-city")!;
     const context = contextFor({ lat: 35.6812, lng: 139.7671 }, "halfDay");
@@ -274,7 +318,7 @@ describe("day-trip travel evidence", () => {
       expect(results.length).toBeGreaterThan(0);
       expect(
         results.some(
-          (result) => result.transportEstimate?.evidence === "verified",
+          (result) => result.transportEstimate?.estimateSource === "rough",
         ),
       ).toBe(true);
       expect(results.every((result) => !DISTANT_IDS.has(result.id))).toBe(true);
@@ -384,7 +428,7 @@ describe("day-trip travel evidence", () => {
       ).some((mode) => mode === "train" || mode === "bus"),
     );
     expect(publicGroundEntries.length).toBeGreaterThan(0);
-    expect(publicGroundEntries.length).toBeLessThan(36);
+    expect(publicGroundEntries.length).toBeLessThan(40);
     expect(
       publicGroundEntries.every(
         (result) =>

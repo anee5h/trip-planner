@@ -36,7 +36,11 @@ import {
   getCanonicalTransportCost,
   type TransportCostResult,
 } from "@/shared/services/transport/transportCostV2";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getDecisionOneWayMinutes,
+  getOriginAwareTransportEstimate,
+  getTravelDecisionSemantics,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import type { CarRoundTripRoute } from "@/shared/services/transport/CarRouteProvider";
 import {
   isCarRoundTripRouteForDestination,
@@ -765,6 +769,29 @@ function originComponent(
     };
   }
 
+  const decisionEstimate = getOriginAwareTransportEstimate(
+    dest,
+    {
+      homeStationCoords: homeCoords,
+      ferryTemporal,
+      carRoute: scopedCarRoute,
+    },
+    [mode as TransportMode],
+  );
+  if (
+    decisionEstimate &&
+    getTravelDecisionSemantics(decisionEstimate) === "conservative"
+  ) {
+    return component(
+      { kind: "unavailable", reason: "insufficient_model_evidence" },
+      {
+        ...baseEvidence,
+        derivation: "computed",
+        reason: "insufficient_model_evidence",
+      },
+    );
+  }
+
   const model = modelOriginRange(dest, mode, partySize, homeCoords);
   if (!model) {
     return component(transport.cost, {
@@ -841,9 +868,10 @@ function mealDurationHours(context: TripEstimateContext): number | undefined {
   if (!travel || travel.evidence === "unknown") {
     return visitMax;
   }
+  const decisionOneWayMinutes = getDecisionOneWayMinutes(travel);
   const roundTripMinutes = travel.roundTripTimeRange
     ? (travel.roundTripTimeRange[0] + travel.roundTripTimeRange[1]) / 2
-    : travel.timeRange[0] + travel.timeRange[1];
+    : decisionOneWayMinutes * 2;
   const bufferHours =
     ((context.dest.travelBuffers?.transferMinutes ?? 0) +
       (context.dest.travelBuffers?.ferryMinutes ?? 0)) /
