@@ -1,6 +1,8 @@
 import { describe, expect, it } from "vitest";
 import {
   DEFAULT_DESTINATION_EXPLORER_STATE,
+  applyTripContextBudgetToExplorerState,
+  budgetParamsPresent,
   hasRestrictedTransportSelection,
   parseDestinationSearchParams,
   resolvePublicTransportModes,
@@ -571,5 +573,72 @@ describe("KAI-275 preserve car-only selection", () => {
       "mainland-honshu",
     );
     expect(modesAny).toContain("train");
+  });
+});
+
+describe("KAI-279 Explore budget hydration from TripContext", () => {
+  it("budgetParamsPresent is true only when a budget param exists", () => {
+    expect(budgetParamsPresent(new URLSearchParams("date=2026-08-12"))).toBe(
+      false,
+    );
+    expect(budgetParamsPresent(new URLSearchParams(""))).toBe(false);
+    expect(budgetParamsPresent(new URLSearchParams("sort=recommended"))).toBe(
+      false,
+    );
+    expect(budgetParamsPresent(new URLSearchParams("budget=any"))).toBe(true);
+    expect(budgetParamsPresent(new URLSearchParams("budgetTier=economy"))).toBe(
+      true,
+    );
+    expect(
+      budgetParamsPresent(
+        new URLSearchParams("budgetKind=custom&budget=80000"),
+      ),
+    ).toBe(true);
+  });
+
+  it("a Custom TripContext hydrates Explore to Custom with the exact cap", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("date=2026-08-12"),
+    );
+    const hydrated = applyTripContextBudgetToExplorerState(parsed, {
+      kind: "custom",
+      cap: 80000,
+    });
+    expect(hydrated.budgetTier).toBe("standard");
+    expect(hydrated.budgetKind).toBe("custom");
+    expect(hydrated.maxBudget).toBe(80000);
+    // The normal serializer canonicalizes that state — never budget=any.
+    const serialized = serializeDestinationSearchParams(hydrated).toString();
+    expect(serialized).toContain("budget=80000");
+    expect(serialized).toContain("budgetKind=custom");
+    expect(serialized).not.toContain("budget=any");
+  });
+
+  it("a preset TripContext hydrates Explore to that preset and ceiling", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("date=2026-08-12"),
+    );
+    const hydrated = applyTripContextBudgetToExplorerState(parsed, {
+      kind: "preset",
+      preset: "economy",
+    });
+    expect(hydrated.budgetTier).toBe("economy");
+    expect(hydrated.budgetKind).toBe("preset");
+    expect(hydrated.maxBudget).toBe(BUDGET_TIER_LIMITS.economy);
+    const serialized = serializeDestinationSearchParams(hydrated).toString();
+    expect(serialized).toContain("budgetTier=economy");
+    expect(serialized).toContain("budget=50000");
+    expect(serialized).not.toContain("budget=any");
+  });
+
+  it("a none TripContext hydrates Explore to Any (no constraint)", () => {
+    const parsed = parseDestinationSearchParams(
+      new URLSearchParams("date=2026-08-12"),
+    );
+    const hydrated = applyTripContextBudgetToExplorerState(parsed, {
+      kind: "none",
+    });
+    expect(hydrated.budgetTier).toBe("any");
+    expect(hydrated.budgetKind).toBe("preset");
   });
 });

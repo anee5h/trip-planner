@@ -33,6 +33,7 @@ import {
 import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 import {
@@ -127,13 +128,26 @@ import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
-import { resolvePublicTransportModes } from "@/features/destinations/destinationSearchParams";
+import {
+  applyTripContextBudgetToExplorerState,
+  budgetParamsPresent,
+  resolvePublicTransportModes,
+} from "@/features/destinations/destinationSearchParams";
 
 export default function Destinations() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [initialExplorerState] = useState(() =>
-    parseDestinationSearchParams(searchParams),
-  );
+  // KAI-279 precedence: an explicit /destinations URL budget wins; when the
+  // URL has NO budget params and an explicit TripContext exists, hydrate
+  // Explore's budget controls FROM the context (never the Explore default,
+  // whose serializer would write budget=any back over the preserved budget).
+  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
+  const [initialExplorerState] = useState(() => {
+    const parsed = parseDestinationSearchParams(searchParams);
+    if (!budgetParamsPresent(searchParams) && hasExplicitTripContext) {
+      return applyTripContextBudgetToExplorerState(parsed, tripContext.budget);
+    }
+    return parsed;
+  });
   const initialSearchParams = searchParams.toString();
   const lastWrittenSearchRef = useRef(initialSearchParams);
   const filtersInitializedRef = useRef(false);

@@ -255,6 +255,115 @@ test("KAI-279: Custom ¥80,000 party-total survives Home->Explore->Detail; party
   expect(href4).not.toContain("budget=160000");
 });
 
+test("KAI-279 review fix: Explore preserves the session Custom ¥80,000 when the URL has no budget params", async ({
+  page,
+}) => {
+  // Seed the canonical session TripContext with Custom ¥80,000 (as a Home
+  // flow would have left it), then land on /destinations WITHOUT any budget
+  // URL params. Explore must hydrate its budget controls from the context and
+  // its URL-sync effect must canonicalize Custom ¥80,000 — never write
+  // budget=any back over the preserved context.
+  await page.addInitScript(() => {
+    sessionStorage.setItem(
+      "meguruto-active-trip-context",
+      JSON.stringify({
+        origin: {
+          label: "Tokyo Station",
+          coordinates: { lat: 35.6812, lng: 139.7671 },
+          source: "station",
+          transportZoneId: "mainland-honshu",
+        },
+        travelDate: null,
+        dateSemantics: "any",
+        duration: "fullDay",
+        partySize: 2,
+        publicModes: ["train", "shinkansen", "bus", "flight"],
+        carMode: "none",
+        budget: { kind: "custom", cap: 80000 },
+      }),
+    );
+  });
+  await page.goto("/destinations?date=2026-08-12");
+  // Let Explore mount + URL-sync settle.
+  await expect(
+    page.locator("#results-grid, [data-testid='destination-card']").first(),
+  ).toBeVisible();
+  await page.waitForTimeout(800);
+
+  // The canonicalized URL must carry the Custom ¥80,000, never budget=any.
+  const url = new URL(page.url());
+  expect(url.searchParams.get("budget")).toBe("80000");
+  expect(url.searchParams.get("budgetKind")).toBe("custom");
+  expect(url.search).not.toContain("budget=any");
+
+  // Filters surface still shows the Custom ¥80,000 editor + selected tile.
+  await openExploreFilters(page);
+  const editor = page.getByTestId("budget-custom-editor").filter({
+    visible: true,
+  });
+  await expect(editor).toBeVisible();
+  await expect(editor).toContainText("80,000");
+  await expect(page.getByTestId("budget-custom-tile")).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  await page.keyboard.press("Escape");
+
+  // A destination Detail link inherits the preserved Custom cap.
+  const detailLink = page
+    .locator("main a[href^='/destinations/']")
+    .filter({ visible: true })
+    .first();
+  await expect(detailLink).toBeVisible();
+  const detailHref = await detailLink.getAttribute("href");
+  expect(detailHref).not.toBeNull();
+  expect(detailHref).toContain("budget=80000");
+  expect(detailHref).toContain("budgetKind=custom");
+});
+
+test("KAI-279 review fix: plain /destinations preserves a session Economy preset", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    sessionStorage.setItem(
+      "meguruto-active-trip-context",
+      JSON.stringify({
+        origin: {
+          label: "Tokyo Station",
+          coordinates: { lat: 35.6812, lng: 139.7671 },
+          source: "station",
+          transportZoneId: "mainland-honshu",
+        },
+        travelDate: null,
+        dateSemantics: "any",
+        duration: "fullDay",
+        partySize: 2,
+        publicModes: ["train", "shinkansen", "bus", "flight"],
+        carMode: "none",
+        budget: { kind: "preset", preset: "economy" },
+      }),
+    );
+  });
+  await page.goto("/destinations");
+  await expect(
+    page.locator("#results-grid, [data-testid='destination-card']").first(),
+  ).toBeVisible();
+  await page.waitForTimeout(800);
+
+  // The canonicalized URL carries the Economy preset + ¥50,000 ceiling.
+  const url = new URL(page.url());
+  expect(url.searchParams.get("budget")).toBe("50000");
+  expect(url.searchParams.get("budgetTier")).toBe("economy");
+  expect(url.search).not.toContain("budget=any");
+
+  // Filters surface shows Economy selected with numeric semantics.
+  await openExploreFilters(page);
+  const economyTile = page.getByTestId("budget-tile-economy");
+  await expect(economyTile).toHaveAttribute("aria-pressed", "true");
+  await expect(economyTile).toContainText("50,000");
+  await page.keyboard.press("Escape");
+});
+
 test("KAI-279: Economy preset carries its visible ¥50,000 party-total into Explore", async ({
   page,
 }) => {

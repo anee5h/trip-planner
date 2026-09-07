@@ -9,6 +9,7 @@ import type { TripDuration } from "@/shared/types/tripDuration";
 import { normalizeExplorerTripDuration } from "@/shared/types/tripDuration";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
+import type { TripBudget } from "@/shared/context/TripContext";
 
 /**
  * KAI-275: resolve the EXPLICIT transport universe from the split-domain
@@ -130,6 +131,54 @@ export function hasRestrictedTransportSelection(
     publicModes.length !== defaults.publicModes.length ||
     defaults.publicModes.some((mode) => !publicModes.includes(mode))
   );
+}
+
+/** True when the URL carries any budget-related parameter. */
+export function budgetParamsPresent(params: URLSearchParams): boolean {
+  return (
+    params.has("budget") || params.has("budgetTier") || params.has("budgetKind")
+  );
+}
+
+/**
+ * KAI-279 precedence fix: when /destinations has NO budget URL parameters but
+ * an explicit TripContext exists, initialize Explore's budget controls FROM
+ * the canonical context instead of the Explore default (which would serialize
+ * budget=any and erase the preserved context):
+ *
+ *   { kind: "custom", cap }   -> Standard carrier tier + budgetKind=custom +
+ *                                exact maxBudget cap
+ *   { kind: "preset", preset }-> that preset tier + its flat ceiling
+ *   { kind: "none" }          -> Any / no constraint
+ *
+ * The normal serializer then canonicalizes that real state into the URL.
+ */
+export function applyTripContextBudgetToExplorerState(
+  state: DestinationExplorerState,
+  budget: TripBudget,
+): DestinationExplorerState {
+  if (budget.kind === "custom") {
+    return {
+      ...state,
+      budgetTier: "standard",
+      budgetKind: "custom",
+      maxBudget: budget.cap,
+    };
+  }
+  if (budget.kind === "preset") {
+    return {
+      ...state,
+      budgetTier: budget.preset,
+      budgetKind: "preset",
+      maxBudget: BUDGET_TIER_LIMITS[budget.preset],
+    };
+  }
+  return {
+    ...state,
+    budgetTier: "any",
+    budgetKind: "preset",
+    maxBudget: DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget,
+  };
 }
 
 const parseNumber = (value: string | null, fallback: number) => {
