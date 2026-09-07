@@ -21,6 +21,10 @@ import { orderRecentlyViewedDestinations } from "./services/HomeRailService";
 import { useTranslation } from "react-i18next";
 import { getFixedSeason } from "@/shared/utils/season";
 import type { HomePendingAction } from "./state/HomeAction";
+import {
+  composeBoundedDiverseTopMatches,
+  getExperienceFamily,
+} from "@/shared/services/recommendation/RailCompositionService";
 
 export default function HeavyHome({
   pendingAction,
@@ -162,6 +166,26 @@ export default function HeavyHome({
       rouletteEnabled: rouletteOpen,
     });
 
+  const topMatches = useMemo(
+    () =>
+      composeBoundedDiverseTopMatches(recommendedDestinations, {
+        count: 10,
+        familyOf: getExperienceFamily,
+        scoreOf: (destination) => {
+          const score = (destination as Destination & { score?: unknown })
+            .score;
+          return typeof score === "number" && Number.isFinite(score)
+            ? score
+            : 0;
+        },
+        lookahead: 3,
+        qualityMargin: 8,
+        diversityWindow: 5,
+        maxFamilyCount: 2,
+      }),
+    [recommendedDestinations],
+  );
+
   const seasonalReferenceDate = useMemo(() => new Date(), []);
   const currentSeason = useMemo(
     () => getFixedSeason(seasonalReferenceDate),
@@ -176,9 +200,8 @@ export default function HeavyHome({
   );
   const recentDestinations = useRecentlyViewedDestinations();
   const topMatchIds = useMemo(
-    () =>
-      recommendedDestinations.slice(0, 10).map((destination) => destination.id),
-    [recommendedDestinations],
+    () => topMatches.map((destination) => destination.id),
+    [topMatches],
   );
   const recentlyViewedDestinations = useMemo(
     () => orderRecentlyViewedDestinations(recentDestinations, topMatchIds),
@@ -238,7 +261,7 @@ export default function HeavyHome({
       {/* Section 1: Top Matches Section */}
       {liteReady ? (
         <TopMatchesSection
-          recommendations={recommendedDestinations}
+          recommendations={topMatches}
           hasUserApplied={hasUserApplied}
           appliedState={resolvedApplied}
           travelDate={selectedDate}
@@ -329,8 +352,8 @@ export default function HeavyHome({
 
       <DeferredSection order={2} when={liteReady}>
         <DeferredDiscoveryRails
-          recommendedDestinations={recommendedDestinations}
           allDestinations={allDestinations}
+          recommendedDestinations={recommendedDestinations}
           topMatchIds={topMatchIds}
           recentlyViewedDestinations={recentlyViewedDestinations}
           bucketListDisplayedIds={bucketListDisplayedIds}

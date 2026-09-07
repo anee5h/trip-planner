@@ -24,7 +24,6 @@ import type { ScoredDestination } from "@/shared/services/recommendation/Recomme
 
 export const MAX_HOME_RAIL_CARDS = 10;
 export const MAX_NEARBY_TRAVEL_MINUTES = 120;
-export const DUPLICATE_QUALITY_MARGIN = 5;
 
 export const DAY_TRIP_RAILS = [
   "topMatches",
@@ -359,33 +358,4 @@ export function getWorthLongerJourneyDestinations(
       ),
     count,
   );
-}
-
-export function softDeduplicateRail<T extends RankedDestination>(
-  candidates: readonly T[],
-  usedIds: ReadonlySet<string>,
-  count = MAX_HOME_RAIL_CARDS,
-  qualityOf?: (candidate: T) => number,
-  duplicateQualityMargin = DUPLICATE_QUALITY_MARGIN,
-): T[] {
-  const quality = qualityOf ?? scoreOf;
-  const unused = candidates.filter((candidate) => !usedIds.has(candidate.id));
-  const used = candidates.filter((candidate) => usedIds.has(candidate.id));
-  const selected: T[] = [];
-
-  while (selected.length < Math.min(MAX_HOME_RAIL_CARDS, count)) {
-    const nextUnused = unused[0];
-    const nextUsed = used[0];
-    if (!nextUnused && !nextUsed) break;
-    if (
-      nextUnused &&
-      (!nextUsed ||
-        quality(nextUnused) + duplicateQualityMargin >= quality(nextUsed))
-    ) {
-      selected.push(unused.shift()!);
-    } else {
-      selected.push(used.shift()!);
-    }
-  }
-  return selected;
 }

@@ -1,0 +1,172 @@
+{
+  "source": {
+    "browser": "Firefox",
+    "preview": "http://127.0.0.1:4184/",
+    "viewport": { "width": 1440, "height": 900 },
+    "screenshot": "qa/kai-205/screenshots/home-desktop-diversity-final.png",
+    "plannerState": "default Home state, Tokyo Station label, half-day, party size 2, standard budget, public transit"
+  },
+  "rawTopMatches": [
+    {
+      "rank": 1,
+      "id": "roppongi-hills-tokyo-city-view",
+      "score": 79.032,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 2,
+      "id": "boso-peninsula",
+      "score": 76.6,
+      "family": "nature/outdoors"
+    },
+    {
+      "rank": 3,
+      "id": "tokyo-skytree-sumida",
+      "score": 74.3278449612403,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 4,
+      "id": "shibuya-sky-shibuya",
+      "score": 78.38769321533924,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 5,
+      "id": "tokyo-metropolitan-government-building-shinjuku",
+      "score": 77.832,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 6,
+      "id": "imperial-palace-chiyoda",
+      "score": 71.33418540433925,
+      "family": "culture/history"
+    },
+    {
+      "rank": 7,
+      "id": "tokyo-tower-minato",
+      "score": 77.832,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 8,
+      "id": "sunshine-60-observatory-ikebukuro",
+      "score": 75.72848484848484,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 9,
+      "id": "ueno-zoo",
+      "score": 69.032,
+      "family": "family/entertainment"
+    },
+    {
+      "rank": 10,
+      "id": "joypolis",
+      "score": 67.17616666666666,
+      "family": "nature/outdoors"
+    }
+  ],
+  "composedTopMatches": [
+    {
+      "rank": 1,
+      "id": "roppongi-hills-tokyo-city-view",
+      "score": 79.032,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 2,
+      "id": "boso-peninsula",
+      "score": 76.6,
+      "family": "nature/outdoors"
+    },
+    {
+      "rank": 3,
+      "id": "tokyo-skytree-sumida",
+      "score": 74.3278449612403,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 4,
+      "id": "imperial-palace-chiyoda",
+      "score": 71.33418540433925,
+      "family": "culture/history"
+    },
+    {
+      "rank": 5,
+      "id": "shibuya-sky-shibuya",
+      "score": 78.38769321533924,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 6,
+      "id": "tokyo-metropolitan-government-building-shinjuku",
+      "score": 77.832,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 7,
+      "id": "tokyo-tower-minato",
+      "score": 77.832,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 8,
+      "id": "ueno-zoo",
+      "score": 69.032,
+      "family": "family/entertainment"
+    },
+    {
+      "rank": 9,
+      "id": "sunshine-60-observatory-ikebukuro",
+      "score": 75.72848484848484,
+      "family": "observation/viewpoint"
+    },
+    {
+      "rank": 10,
+      "id": "joypolis",
+      "score": 67.17616666666666,
+      "family": "nature/outdoors"
+    }
+  ],
+  "familyMix": {
+    "raw": {
+      "observation/viewpoint": 6,
+      "nature/outdoors": 2,
+      "culture/history": 1,
+      "family/entertainment": 1
+    },
+    "composed": {
+      "observation/viewpoint": 6,
+      "nature/outdoors": 2,
+      "culture/history": 1,
+      "family/entertainment": 1
+    },
+    "firstFourRaw": { "observation/viewpoint": 3, "nature/outdoors": 1 },
+    "firstFourComposed": {
+      "observation/viewpoint": 2,
+      "nature/outdoors": 1,
+      "culture/history": 1
+    },
+    "firstFiveRaw": { "observation/viewpoint": 4, "nature/outdoors": 1 },
+    "firstFiveComposed": {
+      "observation/viewpoint": 3,
+      "nature/outdoors": 1,
+      "culture/history": 1
+    }
+  },
+  "boundedDecision": {
+    "promotedId": "imperial-palace-chiyoda",
+    "rawRank": 6,
+    "composedRank": 4,
+    "scoreGapFromShibuyaSky": 7.053507215660754,
+    "lookahead": 3,
+    "qualityMargin": 8,
+    "diversityWindow": 5,
+    "maxFamilyCount": 2,
+    "scoresChanged": false,
+    "recommendationWeightsChanged": false,
+    "geographyChanged": false
+  }
+}

@@ -19,14 +19,14 @@ function destination(id: string, score: number, season: number): Destination {
 }
 
 describe("buildHomeDiscoveryRails", () => {
-  it("keeps deterministic seasonal order and existing soft de-duplication", () => {
+  it("keeps deterministic seasonal order and excludes earlier IDs", () => {
     const result = buildHomeDiscoveryRails({
+      allDestinations: [],
       recommendedDestinations: [
         destination("top-match", 100, 10),
         destination("seasonal-high", 80, 10),
         destination("seasonal-low", 70, 8),
       ],
-      allDestinations: [],
       topMatchIds: ["top-match"],
       recentlyViewedDestinations: [],
       bucketListDisplayedIds: [],
@@ -39,7 +39,6 @@ describe("buildHomeDiscoveryRails", () => {
     });
 
     expect(result.seasonal.map(({ id }) => id)).toEqual([
-      "top-match",
       "seasonal-high",
       "seasonal-low",
     ]);
@@ -49,8 +48,9 @@ describe("buildHomeDiscoveryRails", () => {
     expect(result.longerJourney).toEqual([]);
   });
 
-  it("preserves weekend rail order while applying shared de-duplication", () => {
+  it("preserves weekend rail order while applying strict shared deduplication", () => {
     const result = buildHomeDiscoveryRails({
+      allDestinations: [],
       tripDuration: "2d1n",
       recommendedDestinations: [
         destination("top-match", 100, 10),
@@ -69,7 +69,6 @@ describe("buildHomeDiscoveryRails", () => {
           },
         } as unknown as Destination,
       ],
-      allDestinations: [],
       topMatchIds: ["top-match"],
       recentlyViewedDestinations: [],
       bucketListDisplayedIds: [],
@@ -84,11 +83,25 @@ describe("buildHomeDiscoveryRails", () => {
       "weekend-high",
       "longer",
     ]);
-    expect(result.seasonal.map(({ id }) => id)).toEqual([
-      "top-match",
-      "weekend-high",
-      "longer",
-    ]);
+    expect(result.seasonal.map(({ id }) => id)).toEqual([]);
     expect(result.longerJourney.map(({ id }) => id)).toEqual([]);
+  });
+
+  it("does not use full-catalogue candidates to fill a sparse nearby rail", () => {
+    const result = buildHomeDiscoveryRails({
+      allDestinations: [],
+      recommendedDestinations: [destination("top-match", 100, 10)],
+      topMatchIds: ["top-match"],
+      recentlyViewedDestinations: [],
+      bucketListDisplayedIds: [],
+      homeStationCoords: { lat: 35.68, lng: 139.76 },
+      carMode: "none",
+      publicModes: [],
+      visitedIds: [],
+      tripDuration: "fullDay",
+      seasonalReferenceDate: new Date("2026-08-01T12:00:00"),
+    });
+
+    expect(result.nearby.map(({ id }) => id)).toEqual([]);
   });
 });

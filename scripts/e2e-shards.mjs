@@ -55,6 +55,7 @@ const WEIGHTS = {
   "kai-259-signup-header": 20, // guest header + deterministic auth header flow
   "kai-138-compact-mobile-homepage": 20, // compact Home geometry and nav clearance
   "card-rail-alignment": 4, // equal-height rail contract (Home top matches + hubs)
+  "kai-205-composition": 20, // cross-rail canonical IDs + card-height composition contract
   "kai-64-pwa": 0, // skips without PWA_E2E=1 (owned by the PWA job)
   "kai-64-upgrade": 0, // same
   "kai-80-a11y": 0, // skips without A11Y_E2E=1 (owned by the a11y run)
@@ -91,6 +92,7 @@ const BINS = {
     "kai-259-signup-header",
     "kai-138-compact-mobile-homepage",
     "card-rail-alignment",
+    "kai-205-composition",
     "kai-64-pwa",
     "kai-64-upgrade",
     "kai-80-a11y",

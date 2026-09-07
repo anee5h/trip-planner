@@ -258,8 +258,11 @@ test.describe("KAI-74 homepage rails", () => {
     const cardNames = await section
       .locator('a[href^="/destinations/"] h3')
       .allTextContents();
-    expect(cardNames[0]).toBe("Yokohama Zoorasia");
-    expect(cardNames).toContain("Shin-Yokohama Ramen Museum");
+    // cross-rail composition; preserve the origin/eligibility contract below
+    // without asserting stale destination membership or rank.
+    expect(cardNames.length).toBeGreaterThan(0);
+    expect(cardNames.length).toBeLessThanOrEqual(10);
+    expect(new Set(cardNames).size).toBe(cardNames.length);
     expect(cardNames.some((name) => name.includes("Machida"))).toBe(true);
     const text = await section.innerText();
     expect(text).toMatch(/Kanagawa|Tokyo/);

@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Destination } from "@/shared/types/destination";
-import { getDistance } from "@/shared/utils/distance";
 import type { BudgetTier } from "@/shared/types/planner";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
 import type { TransportZoneId } from "@/shared/types/transportTopology";
@@ -17,9 +16,9 @@ import {
   getUnexploredNearbyDestinations,
   getOvernightGetawayDestinations,
   getWorthLongerJourneyDestinations,
-  softDeduplicateRail,
   type OriginRailContext,
 } from "../services/HomeRailService";
+import { selectUniqueRail } from "@/shared/services/recommendation/RailCompositionService";
 
 export interface HomeDiscoveryRails {
   seasonal: Destination[];
@@ -37,8 +36,8 @@ export interface HomeDiscoveryRailStage {
 }
 
 interface BuildHomeDiscoveryRailsInput {
-  recommendedDestinations: Destination[];
   allDestinations: Destination[];
+  recommendedDestinations: Destination[];
   topMatchIds: readonly string[];
   recentlyViewedDestinations: readonly Destination[];
   bucketListDisplayedIds: readonly string[];
@@ -56,14 +55,14 @@ interface BuildHomeDiscoveryRailsInput {
 /**
  * Creates the same ordered discovery-rail selection as Home used to perform
  * synchronously, but exposes one complete rail at a time. The picker keeps
- * shared soft-deduplication state between stages.
+ * shared canonical-ID exclusions between stages.
  */
 export function createHomeDiscoveryRailStages(
   input: BuildHomeDiscoveryRailsInput,
 ): { next: () => HomeDiscoveryRailStage | null } {
   const {
-    recommendedDestinations,
     allDestinations,
+    recommendedDestinations,
     topMatchIds,
     recentlyViewedDestinations,
     bucketListDisplayedIds,
@@ -95,18 +94,8 @@ export function createHomeDiscoveryRailStages(
   );
   bucketListDisplayedIds.forEach((id) => usedIds.add(id));
 
-  const pick = (
-    candidates: Destination[],
-    qualityOf?: (candidate: Destination) => number,
-    duplicateQualityMargin?: number,
-  ) => {
-    const selected = softDeduplicateRail(
-      candidates,
-      usedIds,
-      10,
-      qualityOf,
-      duplicateQualityMargin,
-    );
+  const pick = (candidates: Destination[]) => {
+    const selected = selectUniqueRail(candidates, usedIds, 10);
     selected.forEach((destination) => usedIds.add(destination.id));
     return selected;
   };
@@ -114,8 +103,6 @@ export function createHomeDiscoveryRailStages(
   const stages: Array<{
     key: HomeDiscoveryRailKey;
     getCandidates: () => Destination[];
-    qualityOf?: (candidate: Destination) => number;
-    duplicateQualityMargin?: number;
   }> = isOvernightMode
     ? [
         {
@@ -155,16 +142,6 @@ export function createHomeDiscoveryRailStages(
           key: "nearby",
           getCandidates: () =>
             getUnexploredNearbyDestinations(allDestinations, originRailContext),
-          qualityOf: (destination) =>
-            homeStationCoords && destination.coordinates
-              ? -getDistance(
-                  homeStationCoords.lat,
-                  homeStationCoords.lng,
-                  destination.coordinates.lat,
-                  destination.coordinates.lng,
-                )
-              : Number.NEGATIVE_INFINITY,
-          duplicateQualityMargin: 0,
         },
       ];
   let stageIndex = 0;
@@ -175,11 +152,7 @@ export function createHomeDiscoveryRailStages(
       if (!stage) return null;
       return {
         key: stage.key,
-        destinations: pick(
-          stage.getCandidates(),
-          stage.qualityOf,
-          stage.duplicateQualityMargin,
-        ),
+        destinations: pick(stage.getCandidates()),
       };
     },
   };
@@ -222,8 +195,8 @@ const EMPTY_DISCOVERY_RAILS: HomeDiscoveryRails = {
 };
 
 export default function DeferredDiscoveryRails({
-  recommendedDestinations,
   allDestinations,
+  recommendedDestinations,
   topMatchIds,
   recentlyViewedDestinations,
   bucketListDisplayedIds,
@@ -245,8 +218,8 @@ export default function DeferredDiscoveryRails({
   const stages = useMemo(
     () =>
       createHomeDiscoveryRailStages({
-        recommendedDestinations,
         allDestinations,
+        recommendedDestinations,
         topMatchIds,
         recentlyViewedDestinations,
         bucketListDisplayedIds,
@@ -261,8 +234,8 @@ export default function DeferredDiscoveryRails({
         seasonalReferenceDate,
       }),
     [
-      recommendedDestinations,
       allDestinations,
+      recommendedDestinations,
       topMatchIds,
       recentlyViewedDestinations,
       bucketListDisplayedIds,
@@ -367,7 +340,7 @@ export default function DeferredDiscoveryRails({
         duration={tripDuration}
       />
       <UnexploredNearbyRail
-        destinations={allDestinations}
+        destinations={recommendedDestinations}
         precomputedDestinations={discoveryRails.nearby}
         homeStationCoords={homeStationCoords}
         homeStationTransportZoneId={homeStationTransportZoneId}
