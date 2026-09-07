@@ -5,10 +5,13 @@ export interface RailCandidate {
   id: string;
 }
 
+const DEFAULT_RAIL_BACKFILL_HEADROOM = 5;
+
 /**
  * Selects the first unseen canonical IDs in an already-ranked candidate pool.
  * The input pool owns eligibility and ranking; this function only composes it
- * against IDs claimed by earlier visible sections.
+ * against IDs claimed by earlier visible sections. Finite rails inspect only
+ * bounded ranked headroom rather than scanning arbitrarily deep to fill cards.
  */
 export function selectUniqueRail<T>(
   candidates: readonly T[],
@@ -16,11 +19,15 @@ export function selectUniqueRail<T>(
   count = Number.POSITIVE_INFINITY,
   idOf: (candidate: T) => string = (candidate) =>
     (candidate as T & { id: string }).id,
+  backfillHeadroom = DEFAULT_RAIL_BACKFILL_HEADROOM,
 ): T[] {
   if (count <= 0) return [];
   const selected: T[] = [];
   const selectedIds = new Set<string>();
-  for (const candidate of candidates) {
+  const candidateLimit = Number.isFinite(count)
+    ? Math.min(candidates.length, count + Math.max(0, backfillHeadroom))
+    : candidates.length;
+  for (const candidate of candidates.slice(0, candidateLimit)) {
     const candidateId = idOf(candidate);
     if (seenIds.has(candidateId) || selectedIds.has(candidateId)) {
       continue;
@@ -39,7 +46,7 @@ export interface BoundedDiversityOptions<T> {
   lookahead?: number;
   qualityMargin?: number;
   maxConsecutive?: number;
-  /** Soft front-screen window; never a hard family quota. */
+  /** Soft rolling family-density window; never a hard family quota. */
   diversityWindow?: number;
   /** Maximum family density before a close alternative is considered. */
   maxFamilyCount?: number;
@@ -53,7 +60,7 @@ function defaultScoreOf<T>(candidate: T): number {
 /**
  * Applies a bounded presentation-only diversity pass to an already-ranked
  * eligible pool. It can choose a nearby alternative only when it is within the
- * quality margin and lookahead window; a soft front-screen family-density
+ * quality margin and lookahead window; a soft rolling family-density
  * trigger supplements the consecutive-run guard, but never becomes a hard
  * family quota. It never reaches deep into the pool or changes scores.
  */
@@ -194,11 +201,14 @@ export function composeDetailRails(
   const claimDestinations = (
     candidates: readonly Destination[],
     count = Number.POSITIVE_INFINITY,
+    backfillHeadroom = DEFAULT_RAIL_BACKFILL_HEADROOM,
   ) => {
     const selected = selectUniqueRail(
       candidates.filter((candidate) => candidate.id !== input.destinationId),
       seenIds,
       count,
+      undefined,
+      backfillHeadroom,
     );
     selected.forEach((candidate) => seenIds.add(candidate.id));
     return selected;
@@ -219,7 +229,7 @@ export function composeDetailRails(
   if (input.isHub) {
     return {
       featuredChildSights: claimDestinations(input.featuredChildSights),
-      hubMoreDestinations: claimDestinations(input.hubMoreDestinations),
+      hubMoreDestinations: claimDestinations(input.hubMoreDestinations, 6),
       greatAdditions: claimCombinations(),
       nearbyHubs: claimDestinations(input.nearbyHubs),
       nearbyPlaces: [],
@@ -233,6 +243,6 @@ export function composeDetailRails(
     greatAdditions: claimCombinations(),
     nearbyHubs: [],
     nearbyPlaces: claimDestinations(input.nearbyPlaces, 4),
-    halfDaySiblings: claimDestinations(input.halfDaySiblings, 3),
+    halfDaySiblings: claimDestinations(input.halfDaySiblings, 3, 0),
   };
 }

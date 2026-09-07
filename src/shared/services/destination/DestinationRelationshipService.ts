@@ -303,7 +303,7 @@ export class DestinationRelationshipService {
 
     return Array.from(
       new Map(results.map((place) => [place.id, place])).values(),
-    ).slice(0, 4);
+    );
   }
 
   /** Returns thematically related destinations. */

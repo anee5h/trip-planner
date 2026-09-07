@@ -576,10 +576,7 @@
           "shibuya-sky-shibuya",
           "joypolis",
           "sunshine-aquarium",
-          "odaiba-minato",
-          "soji-ji-yokohama",
-          "shin-yokohama-ramen-museum",
-          "yokohama-landmark-tower-sky-garden"
+          "odaiba-minato"
         ],
         "nearby": [
           "tokyo-station-chiyoda",
@@ -599,17 +596,24 @@
   "detail": {
     "jindaiji": {
       "before": {
-        "combinations": ["ghibli-museum", "jindaiji", "kitaro-chaya"],
+        "combinations": [
+          "ghibli-museum",
+          "jindaiji",
+          "kitaro-chaya",
+          "jindai-botanical-gardens"
+        ],
         "nearbyPlaces": [
           "chofu-tokyo",
           "jindaiji",
           "jindai-botanical-gardens",
-          "kitaro-chaya"
+          "kitaro-chaya",
+          "fudaten-shrine"
         ],
         "halfDaySiblings": [
           "jindaiji",
           "jindai-botanical-gardens",
-          "kitaro-chaya"
+          "kitaro-chaya",
+          "fudaten-shrine"
         ],
         "nearbyHubs": [
           "chofu-tokyo",
@@ -663,7 +667,11 @@
       },
       "after": {
         "combinations": ["ghibli-museum", "jindaiji", "kitaro-chaya"],
-        "nearbyPlaces": ["chofu-tokyo", "jindai-botanical-gardens"],
+        "nearbyPlaces": [
+          "chofu-tokyo",
+          "jindai-botanical-gardens",
+          "fudaten-shrine"
+        ],
         "halfDaySiblings": [],
         "nearbyHubs": [
           "chofu-tokyo",
@@ -717,8 +725,9 @@
       },
       "renderedRailDuplicateIdsBefore": [
         "jindaiji",
+        "jindai-botanical-gardens",
         "kitaro-chaya",
-        "jindai-botanical-gardens"
+        "fudaten-shrine"
       ],
       "renderedRailDuplicateIdsAfter": []
     },
@@ -742,7 +751,10 @@
         "combinations": [
           "kyoto-international-manga-museum",
           "nijo-castle-kyoto",
-          "kiyomizu-dera"
+          "kiyomizu-dera",
+          "ginkaku-ji",
+          "nishiki-market",
+          "sanjusangen-do"
         ],
         "nearbyHubs": [
           "otsu-city",
@@ -768,7 +780,7 @@
           "uzumasa-kyoto-village"
         ],
         "hubMoreDestinations": ["kyoto-national-museum", "nishiki-market"],
-        "combinations": [],
+        "combinations": ["sanjusangen-do"],
         "nearbyHubs": [
           "otsu-city",
           "uji-city",
@@ -780,7 +792,9 @@
       "renderedRailDuplicateIdsBefore": [
         "kyoto-international-manga-museum",
         "nijo-castle-kyoto",
-        "kiyomizu-dera"
+        "kiyomizu-dera",
+        "ginkaku-ji",
+        "nishiki-market"
       ],
       "renderedRailDuplicateIdsAfter": []
     }

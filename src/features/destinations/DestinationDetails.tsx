@@ -705,8 +705,7 @@ export default function DestinationDetails() {
     () =>
       childDestinations
         .filter((place) => (place.indoorPercent ?? 0) >= 70)
-        .sort((a, b) => b.ratings.rain - a.ratings.rain)
-        .slice(0, 3),
+        .sort((a, b) => b.ratings.rain - a.ratings.rain),
     [childDestinations],
   );
 
@@ -718,8 +717,7 @@ export default function DestinationDetails() {
             /food|market|night|evening|shopping/i.test(label),
           ),
         )
-        .sort((a, b) => b.ratings.food - a.ratings.food)
-        .slice(0, 3),
+        .sort((a, b) => b.ratings.food - a.ratings.food),
     [childDestinations],
   );
 
@@ -741,14 +739,12 @@ export default function DestinationDetails() {
     }
     return DestinationRelationshipService.getChildDestinations(
       destination.relationships.parentDestinationId,
-    )
-      .filter(
-        (place) =>
-          place.id !== destination.id &&
-          (place.recommendedVisitHours?.max ?? 99) <= 4 &&
-          isPlaceAvailableInLocale(place, locale),
-      )
-      .slice(0, 3);
+    ).filter(
+      (place) =>
+        place.id !== destination.id &&
+        (place.recommendedVisitHours?.max ?? 99) <= 4 &&
+        isPlaceAvailableInLocale(place, locale),
+    );
   }, [destination, locale, relationshipCatalogueReady]);
 
   const nearbyPlaces = useMemo(() => {
@@ -1186,7 +1182,7 @@ export default function DestinationDetails() {
 
   const nearbyCombinations = useMemo(() => {
     if (!destination) return [];
-    return findNearbyCombinations(destination, undefined, 3);
+    return findNearbyCombinations(destination, undefined, 6);
   }, [destination]);
 
   const composedDetailRails = useMemo(

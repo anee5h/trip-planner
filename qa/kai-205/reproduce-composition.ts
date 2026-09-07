@@ -65,7 +65,7 @@ function detailRails(primary: Destination) {
   const combinations = findNearbyCombinations(
     primary,
     undefined,
-    3,
+    6,
     "nearby",
     all,
   );
@@ -74,13 +74,11 @@ function detailRails(primary: Destination) {
   const halfDaySiblings = primary.relationships?.parentDestinationId
     ? DestinationRelationshipService.getChildDestinations(
         primary.relationships.parentDestinationId,
+      ).filter(
+        (place) =>
+          place.id !== primary.id &&
+          (place.recommendedVisitHours?.max ?? 99) <= 4,
       )
-        .filter(
-          (place) =>
-            place.id !== primary.id &&
-            (place.recommendedVisitHours?.max ?? 99) <= 4,
-        )
-        .slice(0, 3)
     : [];
   const nearbyHubs = DestinationRelationshipService.getNearbyHubs(primary, 50);
   const composed = composeDetailRails({
@@ -129,16 +127,14 @@ function hubDetailRails(primary: Destination) {
   );
   const indoorChildren = [...childDestinations]
     .filter((place) => (place.indoorPercent ?? 0) >= 70)
-    .sort((a, b) => b.ratings.rain - a.ratings.rain)
-    .slice(0, 3);
+    .sort((a, b) => b.ratings.rain - a.ratings.rain);
   const foodAndEveningChildren = [...childDestinations]
     .filter((place) =>
       [...(place.categories ?? []), ...(place.tags ?? [])].some((label) =>
         /food|market|night|evening|shopping/i.test(label),
       ),
     )
-    .sort((a, b) => b.ratings.food - a.ratings.food)
-    .slice(0, 3);
+    .sort((a, b) => b.ratings.food - a.ratings.food);
   const seenMore = new Set<string>();
   const hubMoreDestinations = [
     ...indoorChildren,
@@ -151,7 +147,7 @@ function hubDetailRails(primary: Destination) {
   const combinations = findNearbyCombinations(
     primary,
     undefined,
-    3,
+    6,
     "nearby",
     all,
   );

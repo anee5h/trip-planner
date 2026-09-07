@@ -54,6 +54,33 @@ describe("canonical rail composition", () => {
     expect(selected.map(({ id }) => id)).toEqual(["same-id", "different-id"]);
   });
 
+  it("backfills only bounded ranked headroom and leaves deep weak candidates out", () => {
+    const closeBackfill = selectUniqueRail(
+      [
+        candidate("a", 100, "history"),
+        candidate("b", 99, "nature"),
+        candidate("c", 98, "culture"),
+        candidate("d", 97, "family"),
+        candidate("e", 96, "nature"),
+      ],
+      new Set(["a", "b", "c"]),
+      2,
+    );
+    expect(closeBackfill.map(({ id }) => id)).toEqual(["d", "e"]);
+
+    const deepOnly = selectUniqueRail(
+      [
+        ...["a", "b", "c", "d", "e", "f", "g"].map((id, index) =>
+          candidate(id, 100 - index, "observation"),
+        ),
+        candidate("deep", 20, "nature"),
+      ],
+      new Set(["a", "b", "c", "d", "e", "f", "g"]),
+      2,
+    );
+    expect(deepOnly).toEqual([]);
+  });
+
   it("returns fewer cards for a sparse pool and never invents a filler", () => {
     const selected = selectUniqueRail(
       [candidate("only", 100, "nature")],
@@ -229,6 +256,42 @@ describe("ordered Detail rail composition", () => {
     ).toEqual(["a", "b", "c"]);
     expect(composed.nearbyPlaces.map(({ id }) => id)).toEqual(["d"]);
     expect(composed.halfDaySiblings.map(({ id }) => id)).toEqual(["e"]);
+  });
+
+  it("backfills a later Detail rail from ranks beyond claimed candidates", () => {
+    const composed = composeDetailRails({
+      destinationId: "current",
+      isHub: false,
+      featuredChildSights: [],
+      hubMoreDestinations: [],
+      greatAdditions: [combination("a"), combination("b"), combination("c")],
+      nearbyHubs: [],
+      nearbyPlaces: [
+        place("a"),
+        place("b"),
+        place("c"),
+        place("d"),
+        place("e"),
+      ],
+      halfDaySiblings: [],
+    });
+
+    expect(composed.nearbyPlaces.map(({ id }) => id)).toEqual(["d", "e"]);
+  });
+
+  it("hides a later Detail rail when its raw pool is genuinely exhausted", () => {
+    const composed = composeDetailRails({
+      destinationId: "current",
+      isHub: false,
+      featuredChildSights: [],
+      hubMoreDestinations: [],
+      greatAdditions: [combination("a"), combination("b"), combination("c")],
+      nearbyHubs: [],
+      nearbyPlaces: [place("a"), place("b"), place("c")],
+      halfDaySiblings: [],
+    });
+
+    expect(composed.nearbyPlaces).toEqual([]);
   });
 
   it("claims hub rails in visual order and leaves no duplicate backfill", () => {

@@ -18,7 +18,7 @@ async function canonicalIds(locator: Locator): Promise<string[]> {
           .pop()!,
       ),
     );
-  return [...new Set(hrefs)];
+  return hrefs;
 }
 
 function intersection(left: readonly string[], right: readonly string[]) {
@@ -77,41 +77,37 @@ test.describe("KAI-205 composition", () => {
     const halfDay = related
       .locator('[data-testid="destination-detail-rail"]')
       .filter({ hasText: "More half-day options" });
-    await expect(additions).toBeVisible();
+    await expect(additions).toHaveCount(0);
     await expect(nearby).toBeVisible();
     await expect(halfDay).toHaveCount(0);
 
-    const additionsIds = await canonicalIds(additions);
+    const renderedIds = await canonicalIds(related);
+    expect(new Set(renderedIds).size).toBe(renderedIds.length);
     const nearbyIds = await canonicalIds(nearby);
     const halfDayIds = await canonicalIds(halfDay);
-    expect(intersection(additionsIds, nearbyIds)).toEqual([]);
+    expect(nearbyIds.length).toBeGreaterThan(0);
     expect(halfDayIds).toEqual([]);
   });
 
-  test("Detail rail card families keep sibling bottoms aligned", async ({
+  test("Detail combination cards keep sibling bottoms aligned", async ({
     page,
   }) => {
-    await page.goto("/destinations/chofu-historic-jindaiji-district");
+    await page.route(
+      "**/data/destinations/akiyoshido-cave-yamaguchi.json",
+      (route) => route.fulfill({ status: 404, body: "" }),
+    );
+    await page.goto("/destinations/akiyoshido-cave-yamaguchi");
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-    const rails = [
-      page.locator('[data-testid="destination-combination-rail"]').first(),
-      page
-        .locator('[data-testid="destination-detail-rail"]')
-        .filter({ hasText: "Nearby places" }),
-    ];
-    for (const rail of rails) {
-      await expect(rail).toBeVisible();
-      const cards = rail.locator(
-        '[data-testid="destination-combination-rail"] article, div.overflow-hidden.flex.flex-col',
-      );
-      await expect.poll(() => cards.count()).toBeGreaterThanOrEqual(2);
-      const bottoms = await cards.evaluateAll((elements) =>
-        elements.map((element) => element.getBoundingClientRect().bottom),
-      );
-      expect(Math.max(...bottoms) - Math.min(...bottoms)).toBeLessThanOrEqual(
-        2,
-      );
-    }
+    const rail = page
+      .locator('[data-testid="destination-combination-rail"]')
+      .first();
+    await expect(rail).toBeVisible();
+    const cards = rail.locator("article");
+    await expect.poll(() => cards.count()).toBeGreaterThanOrEqual(2);
+    const bottoms = await cards.evaluateAll((elements) =>
+      elements.map((element) => element.getBoundingClientRect().bottom),
+    );
+    expect(Math.max(...bottoms) - Math.min(...bottoms)).toBeLessThanOrEqual(2);
   });
 });

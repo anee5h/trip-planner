@@ -57,15 +57,17 @@ when the own pool is sparse, the rail returns fewer cards rather than filler.
 Raw rendered rail IDs:
 
 - Great additions: `ghibli-museum`, `jindaiji`, `kitaro-chaya`
-- Nearby places: `chofu-tokyo`, `jindaiji`, `jindai-botanical-gardens`, `kitaro-chaya`
-- More half-day options: `jindaiji`, `jindai-botanical-gardens`, `kitaro-chaya`
+- Nearby places: `chofu-tokyo`, `jindaiji`, `jindai-botanical-gardens`, `kitaro-chaya`, `fudaten-shrine`;
+- More half-day options: `jindaiji`, `jindai-botanical-gardens`, `kitaro-chaya`,
+  `fudaten-shrine` (the fourth ranked eligible sibling proves the source was not
+  pre-truncated)
 
 | Measure                                       | Before | After |
 | --------------------------------------------- | -----: | ----: |
-| Duplicate IDs across the three rendered rails |      3 |     0 |
-| Nearby places cards                           |      4 |     2 |
-| Half-day options cards                        |      3 |     0 |
-| Great additions cards                         |      3 |     3 |
+| Duplicate IDs across the three rendered rails |      4 |     0 |
+| Nearby places cards                           |      5 |     3 |
+| Half-day options cards                        |      4 |     0 |
+| Great additions cards                         |      4 |     3 |
 
 The half-day rail is not padded after its candidates are claimed by earlier rails.
 The non-hub `nearbyHubs` relationship array is retained in the JSON for diagnostic
