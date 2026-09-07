@@ -152,6 +152,10 @@ export interface OriginAwareEstimateContext {
   /** Municipality of the origin ("Osaka:osaka"), for same-prefecture
    *  metro corridors. */
   originMunicipalityId?: string;
+  /** Human-readable label for the canonical origin endpoint. */
+  originLabel?: string;
+  /** Stable origin anchor identity when a caller has one. */
+  originAnchorId?: string;
   ferryTemporal?: FerryTemporalContext;
   /** Optional provider-normalized route facts for car/my_car. */
   carRoute?: CarRoundTripRoute;

@@ -1,5 +1,6 @@
 import { memo, useId } from "react";
 import type { Destination } from "@/shared/types/destination";
+import type { JourneyScope } from "@/shared/types/journey";
 import { ScrollContainer } from "@/shared/components/ui/ScrollContainer";
 import DestinationCard from "./DestinationCard";
 
@@ -15,6 +16,8 @@ interface DestinationDetailRailProps {
   nextLabel: string;
   /** Keep detail-page discovery rails scannable without removing actions. */
   compact?: boolean;
+  /** Explicit scope for cards that describe access within the current hub. */
+  journeyScope?: JourneyScope;
 }
 
 const RAIL_CARD_CLASS =
@@ -31,6 +34,7 @@ export function DestinationDetailRail({
   previousLabel,
   nextLabel,
   compact = false,
+  journeyScope,
 }: DestinationDetailRailProps) {
   const headingId = `destination-rail-${useId().replace(/:/g, "")}`;
   const uniqueDestinations = destinations
@@ -77,6 +81,7 @@ export function DestinationDetailRail({
               publicModes={publicModes}
               activeTransportMode="all"
               compact={compact}
+              journeyScope={journeyScope}
             />
           </div>
         ))}

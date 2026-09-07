@@ -6,6 +6,7 @@ import type {
   JourneyProvenance,
   JourneyConfidence,
   JourneyEvidence,
+  JourneyCompleteness,
 } from "@/shared/types/journey";
 import type { CarAccessCoordinates } from "@/shared/types/carAccess";
 import type { Destination } from "@/shared/types/destination";
@@ -15,6 +16,7 @@ import type {
   CarRouteResult,
 } from "./CarRouteProvider";
 import { isCarRoundTripRouteForDestination } from "./CarRouteProvider";
+import { journeyHandoffCapabilityForMode } from "./JourneyHandoff";
 
 const unknownCost: JourneyCost = {
   currency: "JPY",
@@ -149,6 +151,20 @@ export function buildCarJourney(
   );
   const inbound = legFromRoute(route.returnRoute, returnOrigin, "return", mode);
   const legs = [outbound, inbound] as const;
+  // KAI-278 endpoint truthfulness: provider-backed car journeys route to a
+  // verified route/access anchor (e.g. Karuizawa's parking anchor, ~1 km from
+  // the town centroid). The Journey's top-level destination must be that
+  // canonical arrival anchor so external directions hand off to the same
+  // place the route actually ends. Catalogue identity is preserved (id/name).
+  const arrival = outbound.destination;
+  const arrivalCoordinates =
+    arrival.coordinates ??
+    (destination.coordinates
+      ? {
+          lat: destination.coordinates.lat,
+          lng: destination.coordinates.lng,
+        }
+      : undefined);
   const allAvailable = legs.every((leg) => leg.availability === "available");
   const anyUnavailable = legs.some((leg) => leg.availability === "unavailable");
   const anyUnknown = legs.some((leg) => leg.confidence === "unknown");
@@ -173,17 +189,31 @@ export function buildCarJourney(
     cost: costEvidence,
     checkedAt: route.returnRoute.retrievedAt ?? route.outbound.retrievedAt,
   };
+  const completeness: JourneyCompleteness = allAvailable
+    ? "complete"
+    : anyUnavailable
+      ? "unavailable"
+      : "partial";
   return {
     kind: "journey",
     origin: originEndpoint,
     destination: {
       id: destination.id,
+      anchorKey: arrivalCoordinates
+        ? `coordinates:${arrivalCoordinates.lat.toFixed(4)}:${arrivalCoordinates.lng.toFixed(4)}`
+        : destination.id,
       name: destination.name,
-      coordinates: destination.coordinates
-        ? { lat: destination.coordinates.lat, lng: destination.coordinates.lng }
-        : undefined,
-      kind: "destination",
+      coordinates: arrivalCoordinates,
+      kind: arrival.kind === "access_anchor" ? "access_anchor" : "destination",
     },
+    scope: "origin_journey",
+    directionality: "round_trip",
+    completeness,
+    externalHandoff: journeyHandoffCapabilityForMode(
+      mode,
+      completeness,
+      allAvailable ? "available" : anyUnavailable ? "unavailable" : "unknown",
+    ),
     legs,
     ...(cost ? { cost } : {}),
     availability: allAvailable

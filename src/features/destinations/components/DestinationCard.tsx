@@ -7,6 +7,7 @@ import { ItineraryPickerModal } from "@/features/trips/components/ItineraryPicke
 import { MarkVisitedModal } from "./MarkVisitedModal";
 import { VisitedDateModal } from "./VisitedDateModal";
 import type { Destination } from "@/shared/types/destination";
+import type { JourneyScope } from "@/shared/types/journey";
 import type { Collection } from "@/shared/types/collection";
 import CollectionBadge from "@/shared/components/ui/CollectionBadge";
 import { getCollectionById } from "@/shared/data/collections";
@@ -65,6 +66,8 @@ import { localizeRecommendationReason } from "@/shared/utils/recommendationLabel
 import type { ScoredDestination } from "@/shared/services/recommendation/RecommendationTypes";
 import { getPrimaryDisplayReason } from "@/shared/services/recommendation/RecommendationExplainability";
 import { DestinationRelationshipService } from "@/shared/services/destination/DestinationRelationshipService";
+import { resolveDestinationTransportZone } from "@/shared/services/transport/TransportTopologyService";
+import { destinationSharesOriginAnchor } from "@/shared/services/transport/JourneyEndpoints";
 import { formatWeekendMinutes } from "@/shared/services/recommendation/WeekendAreaPolicy";
 import {
   buildTokyoWardsLink,
@@ -105,6 +108,8 @@ interface DestinationCardProps {
   ferryTemporal?: FerryTemporalContext;
   /** Detail-page rails use a denser card while retaining all actions. */
   compact?: boolean;
+  /** Scope of the displayed journey; local rails must not fall back to home. */
+  journeyScope?: JourneyScope;
   duration?: TripDuration;
 }
 
@@ -120,6 +125,7 @@ export default function DestinationCard({
   conditionLabel,
   ferryTemporal,
   compact = false,
+  journeyScope,
   duration = "fullDay",
 }: DestinationCardProps) {
   const { locale } = useLocale();
@@ -159,6 +165,21 @@ export default function DestinationCard({
     homeStationTransportZoneId,
     canMutateProfile,
   } = useTripStore();
+  const isLocalAccessJourney = journeyScope === "local_access";
+  const journeyOriginCoords = isLocalAccessJourney
+    ? (parent?.coordinates ?? null)
+    : homeStationCoords;
+  const journeyOriginZoneId = isLocalAccessJourney
+    ? parent
+      ? resolveDestinationTransportZone(parent)
+      : undefined
+    : homeStationTransportZoneId;
+  const localAccessOriginAvailable =
+    !isLocalAccessJourney || Boolean(journeyOriginCoords);
+  const localAccessUnavailable =
+    isLocalAccessJourney &&
+    (!localAccessOriginAvailable ||
+      destination.localAccessUnestimated === true);
   // A virtual group (e.g. a UNESCO property) is visited when at least one of
   // its curated members is visited. Visit tracking stays on real destination
   // ids — group ids are never persisted as visits.
@@ -182,6 +203,7 @@ export default function DestinationCard({
           alreadyVisited: "訪問済み",
           markVisited: "訪問済みにする",
           markUnvisited: "未訪問に戻す",
+          alreadyThere: "既に到着",
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         }
       : {
@@ -193,6 +215,7 @@ export default function DestinationCard({
           alreadyVisited: "Already Visited",
           markVisited: "Mark destination as visited",
           markUnvisited: "Mark destination as unvisited",
+          alreadyThere: "Already there",
           travelUnavailable: t("home.transportModes.travelUnavailable"),
         };
   // Beta product decision (KAI-89): the overall destination score is hidden
@@ -279,27 +302,42 @@ export default function DestinationCard({
     "flight",
     "ferry",
   ];
-  const validModes = getValidModes(
-    destination,
-    carMode,
-    selectedPublicModes,
-    homeStationCoords ?? undefined,
-    undefined,
-    homeStationTransportZoneId,
-    ferryTemporal,
-  );
-  const displayModes = validModes;
-  const dayTravelEstimate = isOvernight
-    ? undefined
-    : getDayTripTravelDurationEvidence(
+  const validModes = !localAccessUnavailable
+    ? getValidModes(
         destination,
-        {
-          homeStationCoords: homeStationCoords ?? undefined,
-          originZoneId: homeStationTransportZoneId,
-          ferryTemporal,
-        },
-        displayModes,
-      ).estimate;
+        carMode,
+        selectedPublicModes,
+        journeyOriginCoords ?? undefined,
+        undefined,
+        journeyOriginZoneId,
+        ferryTemporal,
+      )
+    : [];
+  const displayModes = validModes;
+  // KAI-278 same-origin semantics: when the destination shares the canonical
+  // origin anchor (Tokyo Station -> Tokyo Station), there is no journey to
+  // estimate. Skip the origin-aware engine call entirely so a raw 14-19 min
+  // local estimate can never be produced or displayed for one anchor; the
+  // travel-time cell renders the same-origin state instead.
+  const sameOriginAnchor =
+    !isLocalAccessJourney &&
+    destinationSharesOriginAnchor(
+      destination,
+      journeyOriginCoords ?? undefined,
+      undefined,
+    );
+  const dayTravelEstimate =
+    isOvernight || sameOriginAnchor
+      ? undefined
+      : getDayTripTravelDurationEvidence(
+          destination,
+          {
+            homeStationCoords: journeyOriginCoords ?? undefined,
+            originZoneId: journeyOriginZoneId,
+            ferryTemporal,
+          },
+          displayModes,
+        ).estimate;
   const preferredTransport = isOvernight ? undefined : dayTravelEstimate;
   // KAI-260: cards render the bounded traveller range even when the engine
   // used an explicit model/profile fallback. Evidence quality is disclosed
@@ -346,8 +384,8 @@ export default function DestinationCard({
       dest: destination,
       mode,
       partySize,
-      homeCoords: homeStationCoords ?? undefined,
-      includeOriginTravel: Boolean(homeStationCoords),
+      homeCoords: journeyOriginCoords ?? undefined,
+      includeOriginTravel: Boolean(journeyOriginCoords),
       duration,
       ferryTemporal,
     });
@@ -371,7 +409,7 @@ export default function DestinationCard({
     resolvedBudgetEstimate,
     preferredTransport,
     partySize,
-    homeStationCoords,
+    journeyOriginCoords,
     isOvernight,
     duration,
     ferryTemporal,
@@ -382,8 +420,8 @@ export default function DestinationCard({
     ? estimateTripDuration(
         destination,
         {
-          homeStationCoords: homeStationCoords ?? undefined,
-          originZoneId: homeStationTransportZoneId,
+          homeStationCoords: journeyOriginCoords ?? undefined,
+          originZoneId: journeyOriginZoneId,
           availableTimeHours,
           ferryTemporal,
         },
@@ -392,8 +430,8 @@ export default function DestinationCard({
     : estimateDayTripDuration(
         destination,
         {
-          homeStationCoords: homeStationCoords ?? undefined,
-          originZoneId: homeStationTransportZoneId,
+          homeStationCoords: journeyOriginCoords ?? undefined,
+          originZoneId: journeyOriginZoneId,
           availableTimeHours,
           ferryTemporal,
         },
@@ -582,6 +620,20 @@ export default function DestinationCard({
                     {conditionLabel}
                   </p>
                 )}
+                {journeyScope === "local_access" && (
+                  <p
+                    data-testid="journey-scope"
+                    className="mb-1 line-clamp-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400"
+                  >
+                    {localAccessUnavailable
+                      ? locale === "ja"
+                        ? "現地アクセスは利用できません"
+                        : "Local access unavailable"
+                      : locale === "ja"
+                        ? `現地アクセス · ${localizedParent?.name ?? "ハブ"}から`
+                        : `Local access · from ${localizedParent?.name ?? "hub"}`}
+                  </p>
+                )}
                 <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs font-semibold text-slate-700 dark:text-slate-300 md:gap-x-3 md:gap-y-1.5 md:text-sm">
                   {(() => {
                     // The Tokyo wards group shows the fastest shared gateway
@@ -592,7 +644,10 @@ export default function DestinationCard({
                     // KAI-275: an explicit transport icon per mode. MapPin is a
                     // LOCATION icon (used only on the location row above) and
                     // must never stand in for a transport mode; unknown modes
-                    // fall back to a neutral route icon instead.
+                    // fall back to a neutral route icon instead. The one
+                    // exception below is the same-anchor "Already there" state
+                    // (KAI-278), which represents no journey at all — a
+                    // location pin, not a mode claim.
                     const TRANSPORT_ICONS: Record<string, LucideIcon> = {
                       train: TrainFront,
                       shinkansen: TrainFront,
@@ -602,26 +657,36 @@ export default function DestinationCard({
                       flight: Plane,
                       ferry: Ship,
                     };
-                    const Icon = mode
-                      ? (TRANSPORT_ICONS[mode] ?? Route)
-                      : Route;
-
-                    const transport = gateway ?? preferredTransport;
+                    const transport = localAccessUnavailable
+                      ? null
+                      : (gateway ?? preferredTransport);
+                    // KAI-278: same-origin destinations render an explicit
+                    // state rather than a journey estimate (no mode claim).
+                    const isSameAnchor = sameOriginAnchor && !gateway;
                     const isApproximate = Boolean(
                       transport &&
+                      !isSameAnchor &&
                       "evidence" in transport &&
                       transport.evidence === "estimated",
                     );
-                    const formattedTime = transport
-                      ? isApproximate
-                        ? formatApproximateTransportTime(
-                            transport.timeRange,
-                            locale,
-                          )
-                        : formatTransportTime(transport.timeRange, locale)
-                      : "";
+                    const formattedTime = isSameAnchor
+                      ? cardCopy.alreadyThere
+                      : transport
+                        ? isApproximate
+                          ? formatApproximateTransportTime(
+                              transport.timeRange,
+                              locale,
+                            )
+                          : formatTransportTime(transport.timeRange, locale)
+                        : "";
 
                     const isDriving = mode === "car" || mode === "my_car";
+
+                    const Icon = isSameAnchor
+                      ? MapPin
+                      : mode
+                        ? (TRANSPORT_ICONS[mode] ?? Route)
+                        : Route;
 
                     return (
                       <div
@@ -631,7 +696,7 @@ export default function DestinationCard({
                         <Icon className="mr-1.5 size-3.5 shrink-0 text-slate-500 md:size-4" />
                         <span className="truncate">
                           {formattedTime || cardCopy.travelUnavailable}
-                          {formattedTime && isDriving
+                          {formattedTime && !isSameAnchor && isDriving
                             ? t("compare.driving")
                             : ""}
                         </span>

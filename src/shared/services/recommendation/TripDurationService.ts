@@ -10,7 +10,7 @@ import {
   resolveCarRouteForDestination,
 } from "@/shared/services/transport/CarRouteProvider";
 import { getCarOutageFallbackEstimate } from "@/shared/services/transport/carRouteOutageFallback";
-import { getJourneyEndpoints } from "@/shared/services/transport/JourneyService";
+import { getJourneyEndpoints } from "@/shared/services/transport/JourneyEndpoints";
 import {
   getSafeGroundEstimate,
   type SafeGroundEstimateContext,

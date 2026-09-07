@@ -26,6 +26,11 @@ import {
   type TravelDurationEstimate,
   type TravelDurationEvidence,
 } from "@/shared/services/transport/OriginAwareTransportService";
+import { getOriginAwareTransportJourney } from "@/shared/services/transport/JourneyService";
+import { buildJourneyHandoff } from "@/shared/services/transport/JourneyHandoff";
+import { buildPartialLocalAccessJourney } from "@/shared/services/transport/JourneyService";
+import { destinationSharesOriginAnchor } from "@/shared/services/transport/JourneyEndpoints";
+import type { TransportMode } from "@/shared/services/transport/types";
 import {
   getEligibleOriginModes,
   hasFerryRoute,
@@ -225,6 +230,7 @@ const DETAIL_COPY = {
     ferryRouteUnestimated: "Ferry route available — time and cost unavailable",
     localAccessUnestimated:
       "Local access available — time and cost unavailable",
+    alreadyThere: "Already there",
     costUnavailable: "Cost unavailable",
     corridorFareOnly: "Intercity fare only; local access cost is not modeled",
     localBoundedFare: "Local fare estimate (bounded)",
@@ -274,6 +280,7 @@ const DETAIL_COPY = {
     localRouteUnverified: "ルート未検証",
     ferryRouteUnestimated: "フェリー航路あり — 所要時間・料金は利用できません",
     localAccessUnestimated: "現地アクセスあり — 所要時間・料金は利用できません",
+    alreadyThere: "既に到着",
     costUnavailable: "料金不明",
     corridorFareOnly: "都市間交通の料金のみ（現地アクセス費は未算出）",
     localBoundedFare: "近距離運賃の概算（範囲推定）",
@@ -462,17 +469,6 @@ export default function DestinationDetails() {
       toast.success(t("ui.linkCopied"));
     }
   };
-
-  // Google Maps transit directions from the stored home station. Reused by
-  // the At-a-glance "Get directions" link (single implementation).
-  const directionsHref =
-    homeStation && destination
-      ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(
-          homeStation,
-        )}&destination=${encodeURIComponent(
-          `${destination.name}, ${destination.prefecture}, Japan`,
-        )}&travelmode=transit`
-      : undefined;
 
   const directionsLabel = locale === "ja" ? "ルート案内" : "Get directions";
 
@@ -776,6 +772,25 @@ export default function DestinationDetails() {
     [destination],
   );
 
+  const partialLocalJourney = useMemo(() => {
+    if (
+      !destination?.localAccessUnestimated ||
+      !destination.localAccessModes?.length
+    ) {
+      return null;
+    }
+    return buildPartialLocalAccessJourney(
+      destination,
+      destination.localAccessModes as readonly TransportMode[],
+      {
+        id: `${destination.id}:arrival-anchor`,
+        anchorKey: `arrival:${destination.id}`,
+        name: locale === "ja" ? "到着地点" : "Arrival / local access anchor",
+        kind: "access_anchor",
+      },
+    );
+  }, [destination, locale]);
+
   /** Ferry connectivity is route-known but not estimable. */
   const ferryRouteKnown = useMemo(() => {
     if (!originZoneIdForDisplay || !destinationZoneIdForDisplay) return false;
@@ -919,6 +934,17 @@ export default function DestinationDetails() {
     return `${prefix}${formatMinutes(range[0])}–${formatMinutes(range[1])}`;
   };
 
+  // KAI-278 same-origin semantics: when the destination shares the canonical
+  // origin anchor (Tokyo Station -> Tokyo Station), there is no journey at
+  // all. Glance and ground rows render the explicit state below instead of a
+  // normal-looking local estimate; the canonical Journey seam already forbids
+  // the directions handoff for the same anchor.
+  const sameOriginAnchorDestination = destinationSharesOriginAnchor(
+    destination ?? undefined,
+    homeStationCoords ?? undefined,
+    undefined,
+  );
+
   const groundMinutesFor = (mode: GroundMode): number | undefined => {
     const estimate = groundEstimateFor(mode);
     if (estimate) {
@@ -945,6 +971,7 @@ export default function DestinationDetails() {
   };
 
   const formatGroundTime = (mode: GroundMode): string => {
+    if (sameOriginAnchorDestination) return copy.alreadyThere;
     const estimate = groundEstimateFor(mode);
     if (!estimate) return "N/A";
     if (estimate.evidence === "estimated") {
@@ -1091,6 +1118,32 @@ export default function DestinationDetails() {
       ? selectedTransportState
       : defaultMode;
 
+  const displayedJourney = useMemo(() => {
+    if (!destination || !selectedTransport || !homeStationCoords) return null;
+    return getOriginAwareTransportJourney(
+      destination,
+      {
+        homeStationCoords,
+        originZoneId: homeStationTransportZoneId ?? undefined,
+        originLabel: homeStation ?? undefined,
+        carRoute: carRefinement.routes,
+        ferryTemporal,
+      },
+      [selectedTransport],
+    );
+  }, [
+    destination,
+    selectedTransport,
+    homeStationCoords,
+    homeStationTransportZoneId,
+    homeStation,
+    carRefinement.routes,
+    ferryTemporal,
+  ]);
+  const directionsHref = displayedJourney
+    ? buildJourneyHandoff(displayedJourney)?.href
+    : undefined;
+
   const nearbyCombinations = useMemo(() => {
     if (!destination) return [];
     return findNearbyCombinations(destination, undefined, 3);
@@ -1141,6 +1194,7 @@ export default function DestinationDetails() {
   const heroImage = getWikimediaResponsiveImage(destination.heroImage);
   const glanceMode = selectedTransport ?? defaultMode;
   const glanceTravelTime = (() => {
+    if (sameOriginAnchorDestination) return copy.alreadyThere;
     if (glanceMode === "flight" && flightEstimate) {
       return formatTransportTime(flightEstimate.timeRange, locale);
     }
@@ -1155,6 +1209,7 @@ export default function DestinationDetails() {
       glanceMode === "my_car"
     ) {
       const estimate = groundEstimateFor(glanceMode);
+      if (sameOriginAnchorDestination) return copy.alreadyThere;
       if (estimate) return formatTransportTime(estimate.timeRange, locale);
       return formatGroundTime(glanceMode);
     }
@@ -1796,6 +1851,7 @@ export default function DestinationDetails() {
                   partySize={partySize}
                   carMode={activeCarMode}
                   publicModes={activePublicModes}
+                  journeyScope="local_access"
                   compact
                   previousLabel={copy.scrollLeft}
                   nextLabel={copy.scrollRight}
@@ -1834,6 +1890,9 @@ export default function DestinationDetails() {
                       destinations={hubMoreDestinations}
                       currentDestinationId={destination.id}
                       partySize={partySize}
+                      carMode={activeCarMode}
+                      publicModes={activePublicModes}
+                      journeyScope="local_access"
                       compact
                       previousLabel={copy.scrollLeft}
                       nextLabel={copy.scrollRight}
@@ -1943,214 +2002,248 @@ export default function DestinationDetails() {
                           </div>
                         )}
                         <div className="space-y-2 flex-grow">
-                          {availableModes.length === 0 &&
-                            (localDisplayEstimate ? (
-                              <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
-                                <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatApproximateTransportTime(
-                                    localDisplayEstimate.timeRange,
-                                    locale,
-                                  )}
-                                </div>
-                                <div className="text-xs text-slate-500 dark:text-slate-300">
-                                  {copy.localRouteUnverified}
-                                </div>
-                              </div>
-                            ) : (
-                              <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
-                                {ferryRouteKnown
-                                  ? copy.ferryRouteUnestimated
-                                  : localAccessKnown
-                                    ? copy.localAccessUnestimated
-                                    : copy.transportUnavailable}
-                              </div>
-                            ))}
-                          {isModeVisible("train") &&
-                            groundMinutesFor("train") !== undefined && (
-                              <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                                <span className="text-slate-500 flex items-center">
-                                  <Train className="w-4 h-4 mr-1.5" />{" "}
-                                  {locale === "ja" ? "電車" : "Train"}
-                                </span>
-                                <div className="text-right">
-                                  <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                    {formatGroundTime("train")}
-                                  </div>
-                                  <div className="text-xs text-slate-500">
-                                    {formatGroundCost("train")}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          {isModeVisible("shinkansen") &&
-                            groundMinutesFor("shinkansen") !== undefined && (
-                              <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                                <span className="text-slate-500 flex items-center">
-                                  <TrainFront className="w-4 h-4 mr-1.5" />{" "}
-                                  {locale === "ja" ? "新幹線" : "Shinkansen"}
-                                </span>
-                                <div className="text-right">
-                                  <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                    {formatGroundTime("shinkansen")}
-                                  </div>
-                                  <div className="text-xs text-slate-500">
-                                    {formatGroundCost("shinkansen")}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          {isModeVisible("bus") &&
-                            groundMinutesFor("bus") !== undefined && (
-                              <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                                <span className="text-slate-500 flex items-center">
-                                  <Bus className="w-4 h-4 mr-1.5" />{" "}
-                                  {locale === "ja" ? "バス" : "Bus"}
-                                </span>
-                                <div className="text-right">
-                                  <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                    {formatGroundTime("bus")}
-                                  </div>
-                                  <div className="text-xs text-slate-500">
-                                    {formatGroundCost("bus")}
-                                  </div>
-                                </div>
-                              </div>
-                            )}
-                          {isModeVisible("car") && (
-                            <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                              <span className="text-slate-500 flex items-center">
-                                <Car className="w-4 h-4 mr-1.5" />{" "}
-                                {locale === "ja" ? "レンタカー" : "Rental Car"}
+                          {sameOriginAnchorDestination ? (
+                            <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
+                              <span className="font-semibold text-slate-700 dark:text-slate-300">
+                                {copy.alreadyThere}
                               </span>
-                              <div className="text-right">
-                                <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatGroundTime("car")}
-                                  {groundEstimateFor("car")?.evidence ===
-                                    "estimated" && (
-                                    <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
-                                      {locale === "ja"
-                                        ? "概算目安"
-                                        : "Rough estimate"}
-                                    </span>
-                                  )}
-                                </div>
-                                <div className="text-xs text-slate-500">
-                                  {formatGroundCost("car")}
-                                </div>
-                              </div>
                             </div>
-                          )}
-                          {isModeVisible("my_car") && (
-                            <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                              <span className="text-slate-500 flex items-center">
-                                <Car className="w-4 h-4 mr-1.5" />{" "}
-                                {locale === "ja" ? "マイカー" : "Personal Car"}
-                              </span>
-                              <div className="text-right">
-                                <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatGroundTime("my_car")}
-                                  {groundEstimateFor("my_car")?.evidence ===
-                                    "estimated" && (
-                                    <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
-                                      {locale === "ja"
-                                        ? "概算目安"
-                                        : "Rough estimate"}
-                                    </span>
-                                  )}
-                                </div>
-                                <div className="text-xs text-slate-500">
-                                  {formatGroundCost("my_car")}
-                                </div>
-                              </div>
-                            </div>
-                          )}
-                          {ferryEstimate && isModeVisible("ferry") && (
-                            <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                              <span className="text-slate-500 flex items-center">
-                                <Ship className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
-                                {locale === "ja" ? "フェリー" : "Ferry"}
-                              </span>
-                              <div className="text-right">
-                                <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  <span className="truncate">
-                                    {formatTransportTime(
-                                      ferryEstimate.timeRange,
-                                      locale,
+                          ) : (
+                            <>
+                              {availableModes.length === 0 &&
+                                (localDisplayEstimate ? (
+                                  <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
+                                    <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                      {formatApproximateTransportTime(
+                                        localDisplayEstimate.timeRange,
+                                        locale,
+                                      )}
+                                    </div>
+                                    <div className="text-xs text-slate-500 dark:text-slate-300">
+                                      {copy.localRouteUnverified}
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
+                                    {partialLocalJourney ? (
+                                      <>
+                                        <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                          {locale === "ja"
+                                            ? "出発地からの旅程は利用できません"
+                                            : "Origin journey unavailable"}
+                                        </div>
+                                        <div className="text-xs text-slate-500 dark:text-slate-300">
+                                          {locale === "ja"
+                                            ? `既知の現地アクセス: ${partialLocalJourney.legs.map((leg) => leg.mode).join("・")}`
+                                            : `Known local access: ${partialLocalJourney.legs.map((leg) => leg.mode).join(" / ")}`}
+                                        </div>
+                                      </>
+                                    ) : ferryRouteKnown ? (
+                                      copy.ferryRouteUnestimated
+                                    ) : localAccessKnown ? (
+                                      copy.localAccessUnestimated
+                                    ) : (
+                                      copy.transportUnavailable
                                     )}
+                                  </div>
+                                ))}
+                              {isModeVisible("train") &&
+                                groundMinutesFor("train") !== undefined && (
+                                  <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                    <span className="text-slate-500 flex items-center">
+                                      <Train className="w-4 h-4 mr-1.5" />{" "}
+                                      {locale === "ja" ? "電車" : "Train"}
+                                    </span>
+                                    <div className="text-right">
+                                      <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                        {formatGroundTime("train")}
+                                      </div>
+                                      <div className="text-xs text-slate-500">
+                                        {formatGroundCost("train")}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                              {isModeVisible("shinkansen") &&
+                                groundMinutesFor("shinkansen") !==
+                                  undefined && (
+                                  <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                    <span className="text-slate-500 flex items-center">
+                                      <TrainFront className="w-4 h-4 mr-1.5" />{" "}
+                                      {locale === "ja"
+                                        ? "新幹線"
+                                        : "Shinkansen"}
+                                    </span>
+                                    <div className="text-right">
+                                      <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                        {formatGroundTime("shinkansen")}
+                                      </div>
+                                      <div className="text-xs text-slate-500">
+                                        {formatGroundCost("shinkansen")}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                              {isModeVisible("bus") &&
+                                groundMinutesFor("bus") !== undefined && (
+                                  <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                    <span className="text-slate-500 flex items-center">
+                                      <Bus className="w-4 h-4 mr-1.5" />{" "}
+                                      {locale === "ja" ? "バス" : "Bus"}
+                                    </span>
+                                    <div className="text-right">
+                                      <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                        {formatGroundTime("bus")}
+                                      </div>
+                                      <div className="text-xs text-slate-500">
+                                        {formatGroundCost("bus")}
+                                      </div>
+                                    </div>
+                                  </div>
+                                )}
+                              {isModeVisible("car") && (
+                                <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                  <span className="text-slate-500 flex items-center">
+                                    <Car className="w-4 h-4 mr-1.5" />{" "}
+                                    {locale === "ja"
+                                      ? "レンタカー"
+                                      : "Rental Car"}
                                   </span>
+                                  <div className="text-right">
+                                    <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                      {formatGroundTime("car")}
+                                      {groundEstimateFor("car")?.evidence ===
+                                        "estimated" && (
+                                        <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
+                                          {locale === "ja"
+                                            ? "概算目安"
+                                            : "Rough estimate"}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div className="text-xs text-slate-500">
+                                      {formatGroundCost("car")}
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="text-xs text-slate-500">
-                                  {(() => {
-                                    // KAI-260: canonical range-first estimate;
-                                    // transport evidence quality does not hide a
-                                    // bounded planning range.
-                                    const ferryResult = modeEstimate("ferry");
-                                    const ferryRange = ferryResult?.total
-                                      ? ([
-                                          ferryResult.total.min,
-                                          ferryResult.total.max,
-                                        ] as [number, number])
-                                      : undefined;
-                                    if (!ferryResult?.total) {
-                                      return copy.costUnavailable;
-                                    }
-                                    return (
-                                      <>
-                                        {copy.estimated}{" "}
-                                        {formatTravellerEstimateRange(
-                                          ferryRange,
-                                          ferryResult.estimateQuality,
+                              )}
+                              {isModeVisible("my_car") && (
+                                <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                  <span className="text-slate-500 flex items-center">
+                                    <Car className="w-4 h-4 mr-1.5" />{" "}
+                                    {locale === "ja"
+                                      ? "マイカー"
+                                      : "Personal Car"}
+                                  </span>
+                                  <div className="text-right">
+                                    <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                      {formatGroundTime("my_car")}
+                                      {groundEstimateFor("my_car")?.evidence ===
+                                        "estimated" && (
+                                        <span className="ml-1 text-[10px] font-medium text-amber-600 dark:text-amber-500">
+                                          {locale === "ja"
+                                            ? "概算目安"
+                                            : "Rough estimate"}
+                                        </span>
+                                      )}
+                                    </div>
+                                    <div className="text-xs text-slate-500">
+                                      {formatGroundCost("my_car")}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                              {ferryEstimate && isModeVisible("ferry") && (
+                                <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                  <span className="text-slate-500 flex items-center">
+                                    <Ship className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
+                                    {locale === "ja" ? "フェリー" : "Ferry"}
+                                  </span>
+                                  <div className="text-right">
+                                    <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                      <span className="truncate">
+                                        {formatTransportTime(
+                                          ferryEstimate.timeRange,
                                           locale,
                                         )}
-                                      </>
-                                    );
-                                  })()}
+                                      </span>
+                                    </div>
+                                    <div className="text-xs text-slate-500">
+                                      {(() => {
+                                        // KAI-260: canonical range-first estimate;
+                                        // transport evidence quality does not hide a
+                                        // bounded planning range.
+                                        const ferryResult =
+                                          modeEstimate("ferry");
+                                        const ferryRange = ferryResult?.total
+                                          ? ([
+                                              ferryResult.total.min,
+                                              ferryResult.total.max,
+                                            ] as [number, number])
+                                          : undefined;
+                                        if (!ferryResult?.total) {
+                                          return copy.costUnavailable;
+                                        }
+                                        return (
+                                          <>
+                                            {copy.estimated}{" "}
+                                            {formatTravellerEstimateRange(
+                                              ferryRange,
+                                              ferryResult.estimateQuality,
+                                              locale,
+                                            )}
+                                          </>
+                                        );
+                                      })()}
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                            </div>
-                          )}
-                          {flightEstimate && isModeVisible("flight") && (
-                            <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
-                              <span className="text-slate-500 flex items-center">
-                                <Plane className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
-                                {locale === "ja" ? "飛行機" : "Flight"}
-                              </span>
-                              <div className="text-right">
-                                <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                  {formatTransportTime(
-                                    flightEstimate.timeRange,
-                                    locale,
-                                  )}
+                              )}
+                              {flightEstimate && isModeVisible("flight") && (
+                                <div className="flex justify-between items-center text-sm border-b border-slate-100 dark:border-slate-800 pb-2">
+                                  <span className="text-slate-500 flex items-center">
+                                    <Plane className="w-4 h-4 mr-1.5 text-sky-500" />{" "}
+                                    {locale === "ja" ? "飛行機" : "Flight"}
+                                  </span>
+                                  <div className="text-right">
+                                    <div className="font-semibold text-slate-700 dark:text-slate-300">
+                                      {formatTransportTime(
+                                        flightEstimate.timeRange,
+                                        locale,
+                                      )}
+                                    </div>
+                                    <div className="text-xs text-slate-500">
+                                      {(() => {
+                                        // KAI-260: canonical range-first estimate;
+                                        // unavailable source fare may still have a
+                                        // bounded model range.
+                                        const flightResult =
+                                          modeEstimate("flight");
+                                        const flightRange = flightResult?.total
+                                          ? ([
+                                              flightResult.total.min,
+                                              flightResult.total.max,
+                                            ] as [number, number])
+                                          : undefined;
+                                        if (!flightResult?.total) {
+                                          return copy.costUnavailable;
+                                        }
+                                        return (
+                                          <>
+                                            {copy.estimated}{" "}
+                                            {formatTravellerEstimateRange(
+                                              flightRange,
+                                              flightResult.estimateQuality,
+                                              locale,
+                                            )}
+                                          </>
+                                        );
+                                      })()}
+                                    </div>
+                                  </div>
                                 </div>
-                                <div className="text-xs text-slate-500">
-                                  {(() => {
-                                    // KAI-260: canonical range-first estimate;
-                                    // unavailable source fare may still have a
-                                    // bounded model range.
-                                    const flightResult = modeEstimate("flight");
-                                    const flightRange = flightResult?.total
-                                      ? ([
-                                          flightResult.total.min,
-                                          flightResult.total.max,
-                                        ] as [number, number])
-                                      : undefined;
-                                    if (!flightResult?.total) {
-                                      return copy.costUnavailable;
-                                    }
-                                    return (
-                                      <>
-                                        {copy.estimated}{" "}
-                                        {formatTravellerEstimateRange(
-                                          flightRange,
-                                          flightResult.estimateQuality,
-                                          locale,
-                                        )}
-                                      </>
-                                    );
-                                  })()}
-                                </div>
-                              </div>
-                            </div>
+                              )}
+                            </>
                           )}
                         </div>
                       </CardContent>
