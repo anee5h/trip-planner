@@ -97,6 +97,38 @@ export function formatApproximateTransportTime(
     : `${prefix}${formatHours(minHours)}${separator}${formatHours(maxHours)} hr`;
 }
 
+export interface TravelEstimateDisplayMetadata {
+  readonly timeRange: readonly [number, number];
+  readonly evidence?: "verified" | "estimated" | "unknown";
+  readonly confidence?: "high" | "medium" | "low" | "unknown";
+  readonly estimateSource?: "routed" | "route-distance-derived" | "rough";
+}
+
+/** Apply the evidence boundary to user-facing travel time. */
+export function formatTravelEstimateLabel(
+  estimate: TravelEstimateDisplayMetadata,
+  locale: string = "en",
+): string {
+  if (estimate.confidence === "low" || estimate.evidence === "unknown") {
+    return locale === "ja"
+      ? "所要時間不確実 — 経路を確認してください"
+      : "Travel time uncertain — check directions";
+  }
+  const formatted = formatTransportTime(
+    [estimate.timeRange[0], estimate.timeRange[1]],
+    locale,
+  );
+  if (
+    estimate.estimateSource === "rough" ||
+    estimate.evidence === "estimated"
+  ) {
+    return locale === "ja"
+      ? `概算：${formatted}`
+      : `Rough estimate: ${formatted}`;
+  }
+  return formatted;
+}
+
 /**
  * Formats a cost range (in JPY) into human-readable string.
  * Example: [9000, 18000] => "¥9,000 – ¥18,000", [1200, 1200] => "¥1,200"

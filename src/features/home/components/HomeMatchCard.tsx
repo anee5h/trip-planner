@@ -18,10 +18,7 @@ import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { isCarOutageRoughEstimate } from "@/shared/services/transport/carRouteOutageFallback";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
-import {
-  formatApproximateTransportTime,
-  formatTransportTime,
-} from "@/shared/services/transport/formatters";
+import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 import { buildTokyoWardsLink } from "@/shared/services/recommendation/TokyoWardsConsolidation";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { useTranslation } from "react-i18next";
@@ -181,18 +178,11 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
     sharedDayEstimate ??
     fallbackOvernightTransport ??
     deterministicOvernightEstimate;
-  const isApproximateDisplay = Boolean(
-    displayTransport &&
-    "evidence" in displayTransport &&
-    displayTransport.evidence === "estimated",
-  );
   // KAI-226 resilience: rough outage estimates are additionally labeled so
   // the user can tell a temporary provider outage from a normal estimate.
   const isRoughOutageDisplay = isCarOutageRoughEstimate(displayTransport);
   const travelTimeText = displayTransport
-    ? isApproximateDisplay
-      ? formatApproximateTransportTime(displayTransport.timeRange, locale)
-      : formatTransportTime(displayTransport.timeRange, locale)
+    ? formatTravelEstimateLabel(displayTransport, locale)
     : t("home.transportModes.travelUnavailable");
   const transportDisplay = displayTransport
     ? {

@@ -24,6 +24,12 @@ import {
   formatPrefecture,
   localizePlaceLabel,
 } from "@/shared/utils/placeLabels";
+import {
+  getDecisionOneWayMinutes,
+  getOriginAwareTransportEstimate,
+  getTravelDecisionSemantics,
+} from "@/shared/services/transport/OriginAwareTransportService";
+import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 
 import {
   getWalkingIntensity,
@@ -33,7 +39,13 @@ import {
 export default function Compare() {
   const { t } = useTranslation();
   const { locale } = useLocale();
-  const { compareList, toggleCompare, clearCompare } = useTripStore();
+  const {
+    compareList,
+    toggleCompare,
+    clearCompare,
+    homeStationCoords,
+    homeStationTransportZoneId,
+  } = useTripStore();
   const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
   // Compare reads ratings/walking/budget/transport plus canonical cost facts.
   // The full catalogue is runtime-loaded; loading is
@@ -51,6 +63,31 @@ export default function Compare() {
   const compareDestinations = compareList
     .map((id) => allDestinations.find((d) => d.id === id))
     .filter((d): d is Destination => !!d);
+
+  const compareTransportEstimates = compareDestinations.map((dest) =>
+    homeStationCoords
+      ? getOriginAwareTransportEstimate(
+          dest,
+          {
+            homeStationCoords,
+            originZoneId: homeStationTransportZoneId,
+          },
+          ["train", "shinkansen", "bus"],
+        )
+      : null,
+  );
+
+  const reliableCompareMinutes = compareTransportEstimates
+    .filter(
+      (estimate): estimate is NonNullable<typeof estimate> =>
+        estimate !== null &&
+        getTravelDecisionSemantics(estimate) === "reliable",
+    )
+    .map((estimate) => getDecisionOneWayMinutes(estimate));
+  const minReliableCompareMinutes =
+    reliableCompareMinutes.length > 0
+      ? Math.min(...reliableCompareMinutes)
+      : undefined;
 
   if (liteError) {
     return (
@@ -154,14 +191,6 @@ export default function Compare() {
   );
   const minBudget = knownBudgets.length > 0 ? getMin(knownBudgets) : null;
   const budgets = engineBudgetMidpoints;
-
-  const travelTimes = compareDestinations.map((d) => {
-    const times = Object.values(d.transportOptions || {}).filter(
-      (t): t is number => t !== undefined,
-    );
-    return times.length > 0 ? Math.min(...times) : 999;
-  });
-  const minTravelTime = getMin(travelTimes);
 
   // Beta product decision (KAI-89): the overall destination score is hidden
   // from Compare too. The legacy experience rows (couple/summer) remain the
@@ -283,40 +312,42 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 {t("compare.travelTime")}
               </TableCell>
-              {compareDestinations.map((dest) => {
-                const times = Object.entries(
-                  dest.transportOptions || {},
-                ).filter(([_, v]) => v !== undefined) as [string, number][];
-                const fastest =
-                  times.length > 0
-                    ? times.reduce((min, curr) =>
-                        curr[1] < min[1] ? curr : min,
-                      )
-                    : ["none", 999];
-                const time = fastest[1];
-                const mode = fastest[0];
-                const modeLabel = t(`home.transportModes.${String(mode)}`, {
-                  defaultValue: String(mode),
-                });
-                const formattedTime =
-                  locale === "ja"
-                    ? `${time}分（${modeLabel}）`
-                    : `${time} min (${mode})`;
+              {compareDestinations.map((dest, destIdx) => {
+                const estimate = compareTransportEstimates[destIdx];
+                const reliable =
+                  estimate &&
+                  getTravelDecisionSemantics(estimate) === "reliable";
+                const modeLabel = estimate
+                  ? t(`home.transportModes.${String(estimate.mode)}`, {
+                      defaultValue: String(estimate.mode),
+                    })
+                  : undefined;
                 return (
                   <TableCell key={dest.id}>
-                    <span
-                      className={
-                        time === minTravelTime
-                          ? "font-bold text-emerald-700 dark:text-emerald-300"
-                          : ""
-                      }
-                    >
-                      {time !== 999 ? formattedTime : t("compare.unavailable")}
-                    </span>
-                    {time === minTravelTime && time !== 999 && (
-                      <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800">
-                        {t("compare.fastest")}
-                      </Badge>
+                    {estimate ? (
+                      <>
+                        <span
+                          className={
+                            reliable &&
+                            getDecisionOneWayMinutes(estimate) ===
+                              minReliableCompareMinutes
+                              ? "font-bold text-emerald-700 dark:text-emerald-300"
+                              : ""
+                          }
+                        >
+                          {formatTravelEstimateLabel(estimate, locale)} (
+                          {modeLabel})
+                        </span>
+                        {reliable &&
+                          getDecisionOneWayMinutes(estimate) ===
+                            minReliableCompareMinutes && (
+                            <Badge className="ml-2 bg-emerald-100 text-emerald-700 hover:bg-emerald-100 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-300 dark:border-emerald-800">
+                              {t("compare.fastest")}
+                            </Badge>
+                          )}
+                      </>
+                    ) : (
+                      t("compare.unavailable")
                     )}
                   </TableCell>
                 );
@@ -396,13 +427,12 @@ export default function Compare() {
           // KAI-217B round-2: display RANGE; midpoint is internal ranking.
           const budgetVal = budgets[destIdx];
           const budgetRange = engineBudgetRanges[destIdx];
-          const travelTimesForDest = Object.values(
-            dest.transportOptions || {},
-          ).filter((t): t is number => t !== undefined);
-          const travelTime =
-            travelTimesForDest.length > 0
-              ? Math.min(...travelTimesForDest)
-              : 999;
+          const estimate = compareTransportEstimates[destIdx];
+          const travelTime = estimate
+            ? formatTravelEstimateLabel(estimate, locale)
+            : undefined;
+          const reliable =
+            estimate && getTravelDecisionSemantics(estimate) === "reliable";
 
           return (
             <div
@@ -471,12 +501,11 @@ export default function Compare() {
                     {t("compare.travelTime")}
                   </p>
                   <p className="font-bold text-slate-900 dark:text-white">
-                    {travelTime === 999
-                      ? t("compare.unavailable")
-                      : locale === "ja"
-                        ? `${travelTime}分`
-                        : `${travelTime} min`}
-                    {travelTime === minTravelTime && travelTime !== 999 && (
+                    {travelTime ?? t("compare.unavailable")}
+                    {reliable &&
+                      estimate &&
+                      getDecisionOneWayMinutes(estimate) ===
+                        minReliableCompareMinutes && (
                       <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
                         {t("compare.fastest")}
                       </span>

@@ -9,7 +9,7 @@ import type { Destination } from "@/shared/types/destination";
 import destinations from "@/shared/data/destinations-index.json";
 import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
-import { formatApproximateTransportTime } from "@/shared/services/transport/formatters";
+import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 import * as TripDurationService from "@/shared/services/recommendation/TripDurationService";
 import DestinationCard from "../DestinationCard";
 import type { ExploreBudgetEstimate } from "../../exploreBudget";
@@ -181,7 +181,7 @@ describe("DestinationCard responsive content", () => {
     );
 
     expect(host.textContent).toContain(
-      formatApproximateTransportTime(displayOnlyEstimate!.timeRange, "en"),
+      formatTravelEstimateLabel(displayOnlyEstimate!, "en"),
     );
   });
 
@@ -212,7 +212,7 @@ describe("DestinationCard responsive content", () => {
     const budgetText = Array.from(host.querySelectorAll("span"))
       .map((node) => node.textContent ?? "")
       .find((text) => text.includes("for 2"));
-    expect(budgetText).toMatch(/^~/);
+    expect(budgetText).toContain("Known");
     expect(budgetText).not.toContain("Approx");
   });
 

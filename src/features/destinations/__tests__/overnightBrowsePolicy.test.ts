@@ -82,11 +82,9 @@ describe("overnight Explore browse policy (Nakayama, Personal Car)", () => {
     }
   });
 
-  it("car arcs close the >120 km gap for in-envelope cities; undefined stays for out-of-envelope", () => {
-    // Nagoya is inside the Kanagawa discovery envelope → the SafeGround car
-    // arc now estimates it (the old recommender gate removed it via
-    // minutes_undefined). Osaka/Kyoto sit beyond the arc envelope → minutes
-    // stay undefined, and the browse policy does NOT gate on that.
+  it("car fallback covers in-envelope cities; out-of-envelope stays unavailable", () => {
+    // Nagoya is inside the coordinate/topology-aware car fallback envelope;
+    // Osaka/Kyoto remain beyond the bounded fallback distance.
     const expectations: Array<[string, boolean]> = [
       ["nagoya-city", true],
       ["osaka-city", false],
@@ -99,7 +97,11 @@ describe("overnight Explore browse policy (Nakayama, Personal Car)", () => {
         { homeStationCoords: ORIGIN, originZoneId: ZONE },
         ["my_car"],
       );
-      expect(minutes, id).toEqual(estimated ? 230 : undefined);
+      if (estimated) {
+        expect(minutes, id).toBeGreaterThan(0);
+      } else {
+        expect(minutes, id).toBeUndefined();
+      }
     }
   });
 

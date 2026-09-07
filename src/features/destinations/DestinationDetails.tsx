@@ -23,9 +23,9 @@ import { getCollectionById } from "@/shared/data/collections";
 import { sortCollections } from "@/shared/utils/collections";
 import { getValidModes } from "@/shared/services/recommendation/RecommendationService";
 import {
+  getDecisionOneWayMinutes,
   getOriginAwareTransportEstimate,
   type TravelDurationEstimate,
-  type TravelDurationEvidence,
 } from "@/shared/services/transport/OriginAwareTransportService";
 import { getOriginAwareTransportJourney } from "@/shared/services/transport/JourneyService";
 import { buildJourneyHandoff } from "@/shared/services/transport/JourneyHandoff";
@@ -126,10 +126,7 @@ import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTr
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
 import { useDestinationCarRouteRefinement } from "@/features/destinations/hooks/useDestinationCarRouteRefinement";
 import { getSafeGroundEstimate } from "@/shared/services/transport/SafeGroundEstimateService";
-import {
-  formatApproximateTransportTime,
-  formatTransportTime,
-} from "@/shared/services/transport/formatters";
+import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 import { getSafeDisplayEstimate } from "@/features/home/services/LocalDiscoveryDisplayEstimator";
 import { useLocale } from "@/shared/context/LocaleContext";
 import {
@@ -916,36 +913,20 @@ export default function DestinationDetails() {
         [mode],
       );
       if (estimate) return estimate;
-      // KAI-226: without a provider route (still loading, outage or no
-      // acquisition yet), car rows fall back to the bounded deterministic
-      // estimate — except an authoritative no_route, which stays
-      // unavailable.
-      if (mode === "car" || mode === "my_car") {
-        if (carRefinement.status === "no_route") return undefined;
-        const rough = getSafeGroundEstimate(destination, {
-          homeStationCoords,
-          homeStationTransportZoneId: homeStationTransportZoneId ?? undefined,
-          authorizedModes: [mode],
-        });
-        if (rough) {
-          return { ...rough, mode };
-        }
+      if (
+        (mode === "car" || mode === "my_car") &&
+        carRefinement.status === "no_route"
+      ) {
+        return undefined;
       }
+      const rough = getSafeGroundEstimate(destination, {
+        homeStationCoords,
+        homeStationTransportZoneId: homeStationTransportZoneId ?? undefined,
+        authorizedModes: [mode],
+      });
+      if (rough) return { ...rough, mode };
     }
     return undefined;
-  };
-
-  const formatTravelTimeRange = (range: [number, number]): string => {
-    const formatMinutes = (value: number): string => {
-      const minutes = Math.round(value);
-      if (minutes <= 0) return "N/A";
-      if (minutes < 60) return `${minutes}m`;
-      const hours = Math.floor(minutes / 60);
-      const mins = minutes % 60;
-      return mins > 0 ? `${hours}h ${mins}m` : `${hours}h`;
-    };
-    const prefix = locale === "ja" ? "約" : "~";
-    return `${prefix}${formatMinutes(range[0])}–${formatMinutes(range[1])}`;
   };
 
   // KAI-278 same-origin semantics: when the destination shares the canonical
@@ -962,7 +943,7 @@ export default function DestinationDetails() {
   const groundMinutesFor = (mode: GroundMode): number | undefined => {
     const estimate = groundEstimateFor(mode);
     if (estimate) {
-      return Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2);
+      return getDecisionOneWayMinutes(estimate);
     }
     // OriginAwareTransportService intentionally has no synthesized car route.
     // Keep valid road selections visible, but do not borrow a stale catalogue
@@ -971,31 +952,11 @@ export default function DestinationDetails() {
     return destination?.transportOptions?.[mode];
   };
 
-  const formatTravelTimeMinutes = (
-    minutes: number | undefined,
-    evidence?: TravelDurationEvidence,
-  ): string => {
-    if (minutes === undefined || minutes <= 0) return "N/A";
-    const prefix =
-      evidence === "estimated" ? (locale === "ja" ? "約" : "~") : "";
-    if (minutes < 60) return `${prefix}${minutes}m`;
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return mins > 0 ? `${prefix}${hours}h ${mins}m` : `${prefix}${hours}h`;
-  };
-
   const formatGroundTime = (mode: GroundMode): string => {
     if (sameOriginAnchorDestination) return copy.alreadyThere;
     const estimate = groundEstimateFor(mode);
     if (!estimate) return "N/A";
-    if (estimate.evidence === "estimated") {
-      // KAI-226: discovery/outage estimates stay clearly approximate ranges.
-      return formatTravelTimeRange(estimate.timeRange);
-    }
-    return formatTravelTimeMinutes(
-      Math.round((estimate.timeRange[0] + estimate.timeRange[1]) / 2),
-      "verified",
-    );
+    return formatTravelEstimateLabel(estimate, locale);
   };
 
   // KAI-260: a bounded canonical range remains displayable when its
@@ -1256,10 +1217,16 @@ export default function DestinationDetails() {
   const glanceTravelTime = (() => {
     if (sameOriginAnchorDestination) return copy.alreadyThere;
     if (glanceMode === "flight" && flightEstimate) {
-      return formatTransportTime(flightEstimate.timeRange, locale);
+      return formatTravelEstimateLabel(
+        { ...flightEstimate, evidence: "estimated" },
+        locale,
+      );
     }
     if (glanceMode === "ferry" && ferryEstimate) {
-      return formatTransportTime(ferryEstimate.timeRange, locale);
+      return formatTravelEstimateLabel(
+        { ...ferryEstimate, evidence: "estimated" },
+        locale,
+      );
     }
     if (
       glanceMode === "train" ||
@@ -1270,11 +1237,11 @@ export default function DestinationDetails() {
     ) {
       const estimate = groundEstimateFor(glanceMode);
       if (sameOriginAnchorDestination) return copy.alreadyThere;
-      if (estimate) return formatTransportTime(estimate.timeRange, locale);
-      return formatGroundTime(glanceMode);
+      if (estimate) return formatGroundTime(glanceMode);
+      return "N/A";
     }
     return localDisplayEstimate
-      ? formatApproximateTransportTime(localDisplayEstimate.timeRange, locale)
+      ? formatTravelEstimateLabel(localDisplayEstimate, locale)
       : undefined;
   })();
   const glanceVisitDuration = (() => {
@@ -2076,8 +2043,8 @@ export default function DestinationDetails() {
                                 (localDisplayEstimate ? (
                                   <div className="py-2 text-sm text-slate-500 dark:text-slate-300">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                      {formatApproximateTransportTime(
-                                        localDisplayEstimate.timeRange,
+                                      {formatTravelEstimateLabel(
+                                        localDisplayEstimate,
                                         locale,
                                       )}
                                     </div>
@@ -2224,8 +2191,11 @@ export default function DestinationDetails() {
                                   <div className="text-right">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
                                       <span className="truncate">
-                                        {formatTransportTime(
-                                          ferryEstimate.timeRange,
+                                        {formatTravelEstimateLabel(
+                                          {
+                                            ...ferryEstimate,
+                                            evidence: "estimated",
+                                          },
                                           locale,
                                         )}
                                       </span>
@@ -2269,8 +2239,11 @@ export default function DestinationDetails() {
                                   </span>
                                   <div className="text-right">
                                     <div className="font-semibold text-slate-700 dark:text-slate-300">
-                                      {formatTransportTime(
-                                        flightEstimate.timeRange,
+                                      {formatTravelEstimateLabel(
+                                        {
+                                          ...flightEstimate,
+                                          evidence: "estimated",
+                                        },
                                         locale,
                                       )}
                                     </div>

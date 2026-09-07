@@ -15,10 +15,7 @@ import { LazyImage } from "@/shared/components/ui/LazyImage";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import { getFastestPreferredTransport } from "@/shared/services/transport/PreferredTransport";
-import {
-  formatApproximateTransportTime,
-  formatTransportTime,
-} from "@/shared/services/transport/formatters";
+import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 import {
   formatPrefecture,
   localizePlaceLabel,
@@ -189,11 +186,6 @@ export default function RouletteModal({
             homeStationTransportZoneId,
           )
         : null;
-  const isApproximateTransport = Boolean(
-    bestTransport &&
-    "evidence" in bestTransport &&
-    bestTransport.evidence === "estimated",
-  );
   const transportLabel = bestTransport
     ? (t(
         MODE_LABELS[bestTransport.mode as keyof typeof MODE_LABELS] ??
@@ -325,12 +317,7 @@ export default function RouletteModal({
                   <span className="inline-flex items-center gap-1">
                     <Clock className="h-3.5 w-3.5 text-emerald-500" />
                     {bestTransport
-                      ? isApproximateTransport
-                        ? formatApproximateTransportTime(
-                            bestTransport.timeRange,
-                            locale,
-                          )
-                        : formatTransportTime(bestTransport.timeRange, locale)
+                      ? formatTravelEstimateLabel(bestTransport, locale)
                       : t("home.transportModes.travel")}
                   </span>
                   <span className="text-slate-300 dark:text-slate-600">·</span>

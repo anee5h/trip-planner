@@ -274,7 +274,7 @@ describe("DestinationDetails transport rows", () => {
       await flush(80);
     });
     const text = host.textContent ?? "";
-    expect(text).toContain("10m");
+    expect(text).toContain("5–15 min");
     expect(text).not.toContain("Transport estimate unavailable");
   });
 
