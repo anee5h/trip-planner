@@ -40,7 +40,12 @@ async function setup(page: Page) {
 const isMobile = (page: Page) => page.viewportSize()!.width < 1024;
 
 async function setParty(page: Page, size: number) {
-  const partyValue = page.getByTestId("home-party-size");
+  // Two home-party-size nodes exist (desktop + mobile instances); scope to
+  // the visible one and reuse it for the final assertion.
+  const partyValue = page
+    .getByTestId("home-party-size")
+    .filter({ visible: true })
+    .first();
   await expect(partyValue).toBeVisible();
   const current = Number(await partyValue.textContent());
   const step = current < size ? 1 : -1;
@@ -54,7 +59,7 @@ async function setParty(page: Page, size: number) {
     });
     await btn.click();
   }
-  await expect(page.getByTestId("home-party-size")).toHaveText(String(size));
+  await expect(partyValue).toHaveText(String(size));
 }
 
 async function setDurationFullDay(page: Page) {

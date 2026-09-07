@@ -175,7 +175,13 @@ test("KAI-276: browser history and logo navigation preserve the active context",
         partySize: 4,
         publicModes: ["train"],
         carMode: "none",
-        budget: { kind: "custom", cap: 30000 },
+        // KAI-279 review: this is a NAVIGATION test (back/forward, logo,
+        // party/duration/mode preservation). It is not a budget-affordance
+        // test — an artificially low Custom cap would correctly filter out
+        // every destination under the flat party-total contract. KAI-279 has
+        // dedicated Custom-budget persistence coverage, so this fixture uses
+        // no constraint.
+        budget: { kind: "none" },
       }),
     );
   });
