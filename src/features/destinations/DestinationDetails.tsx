@@ -52,6 +52,7 @@ import {
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import {
   budgetCapYen,
+  classifyBudgetFit,
   formatYenAmount,
 } from "@/shared/services/budget/budgetConstraint";
 import {
@@ -163,10 +164,7 @@ import {
   useWeekendWeather,
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
-import {
-  calculateTripEstimate,
-  evaluateAffordability,
-} from "@/shared/services/budget/tripEstimateEngine";
+import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
@@ -1093,36 +1091,6 @@ export default function DestinationDetails() {
     return modes;
   }, [destination, activeModes, eligibleModes, homeStationCoords]);
 
-  // KAI-279: Phase-5 affordability classification against the ACTIVE flat
-  // party-total cap. A complete total classifies below/straddles/above; an
-  // incomplete estimate (no complete total) stays UNCERTAIN — never
-  // converted into a confident "within budget" claim (KAI-277).
-  const budgetFitNote = useMemo(() => {
-    const cap = activeBudget;
-    if (cap === undefined || !Number.isFinite(cap)) return null;
-    if (!destination || availableModes.length === 0) return null;
-    let result: ReturnType<typeof calculateTripEstimate> | undefined;
-    for (const mode of availableModes) {
-      const candidate = modeEstimate(mode);
-      if (candidate?.total) {
-        result = candidate;
-        break;
-      }
-    }
-    if (!result?.total) {
-      return copy.budgetUncertain.replace("{{amount}}", formatYenAmount(cap));
-    }
-    const state = evaluateAffordability(result, cap);
-    if (state === "fits")
-      return copy.budgetWithin.replace("{{amount}}", formatYenAmount(cap));
-    if (state === "may_exceed")
-      return copy.budgetMayExceed.replace("{{amount}}", formatYenAmount(cap));
-    if (state === "over")
-      return copy.budgetAbove.replace("{{amount}}", formatYenAmount(cap));
-    return copy.budgetUncertain.replace("{{amount}}", formatYenAmount(cap));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeBudget, availableModes, destination, copy]);
-
   // A local discovery estimate is presentation-only. It is intentionally
   // excluded from availableModes so it cannot affect transport selection,
   // budget calculations, or any recommendation decision.
@@ -1166,6 +1134,28 @@ export default function DestinationDetails() {
     selectedTransportState && availableModes.includes(selectedTransportState)
       ? selectedTransportState
       : defaultMode;
+
+  // KAI-279 (review fix): affordability classification against the ACTIVE
+  // flat party-total cap, evaluated on the estimate of the mode the traveller
+  // is actually viewing/has selected — NEVER a scan across alternate modes.
+  // A selected mode with partial/unresolved required costs stays UNCERTAIN
+  // even when another mode would fit (KAI-277 preserved).
+  const budgetFitNote = useMemo(() => {
+    const cap = activeBudget;
+    if (cap === undefined || !Number.isFinite(cap)) return null;
+    if (!destination || !selectedTransport) return null;
+    const result = modeEstimate(selectedTransport);
+    const amount = formatYenAmount(cap);
+    const state = classifyBudgetFit(result, cap);
+    if (state === "within")
+      return copy.budgetWithin.replace("{{amount}}", amount);
+    if (state === "may_exceed")
+      return copy.budgetMayExceed.replace("{{amount}}", amount);
+    if (state === "above")
+      return copy.budgetAbove.replace("{{amount}}", amount);
+    return copy.budgetUncertain.replace("{{amount}}", amount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeBudget, destination, selectedTransport, copy]);
 
   const displayedJourney = useMemo(() => {
     if (!destination || !selectedTransport || !homeStationCoords) return null;

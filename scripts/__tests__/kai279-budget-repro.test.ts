@@ -106,11 +106,10 @@ describe("KAI-279 phase-0 reproduction artifact", () => {
     // outing is ¥50,000 (never per-person 12,500).
     expect(report.scaledLimits["economy|party=1|shortOuting"]).toBe(50000);
     expect(report.scaledLimits["economy|party=4|3d2n"]).toBe(50000);
-    // Tier-only URLs resolve to the tier's canonical flat cap.
+    // Tier-only URLs resolve to the tier's canonical preset.
     expect(report.tripContextBudgetParse["economy-tier-only"]).toEqual({
-      kind: "cap",
-      cap: 50000,
-      tier: "economy",
+      kind: "preset",
+      preset: "economy",
     });
   });
 });

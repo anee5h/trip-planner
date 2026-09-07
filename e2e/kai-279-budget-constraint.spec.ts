@@ -209,8 +209,10 @@ test("KAI-279: Custom ¥80,000 party-total survives Home->Explore->Detail; party
 
   const href = await topMatchesViewAllHref(page);
   expect(href).not.toBeNull();
-  // The exact custom cap and party/duration ride the URL into Explore.
+  // The exact custom cap (explicitly marked, so it survives the luxury /
+  // ceiling-equality ambiguity) and party/duration ride the URL into Explore.
   expect(href).toContain("budget=80000");
+  expect(href).toContain("budgetKind=custom");
   expect(href).toContain("budgetTier=standard");
   expect(href).toContain("partySize=2");
   expect(href).toContain("duration=fullDay");
@@ -219,13 +221,19 @@ test("KAI-279: Custom ¥80,000 party-total survives Home->Explore->Detail; party
   await page.goto(href!);
   await assertAppliedCustomOnExplore(page, "80,000");
 
-  // Open the first destination card -> Detail.
-  const firstCard = page
-    .locator("a[href^='/destinations/']")
-    .filter({ has: page.locator("article, img").first() })
+  // Open the first destination card -> Detail. The card link (wrapping the
+  // Explore button) lives in <main>; the thumbnail is a sibling, not a
+  // descendant, so scope to the visible navigation boundary only.
+  const firstDetailLink = page
+    .locator("main a[href^='/destinations/']")
+    .filter({ visible: true })
     .first();
-  await expect(firstCard).toBeVisible();
-  const detailUrl = await firstCard.getAttribute("href");
+  await expect(firstDetailLink).toBeVisible();
+  const detailUrl = await firstDetailLink.getAttribute("href");
+  expect(detailUrl).not.toBeNull();
+  // The card link inherits the applied custom cap into the detail context.
+  expect(detailUrl).toContain("budgetKind=custom");
+  expect(detailUrl).toContain("budget=80000");
   await page.goto(detailUrl!);
 
   await expect(page.locator("h1").first()).toBeVisible();
@@ -242,6 +250,7 @@ test("KAI-279: Custom ¥80,000 party-total survives Home->Explore->Detail; party
   const href4 = await topMatchesViewAllHref(page);
   expect(href4).not.toBeNull();
   expect(href4).toContain("budget=80000");
+  expect(href4).toContain("budgetKind=custom");
   expect(href4).toContain("partySize=4");
   expect(href4).not.toContain("budget=160000");
 });

@@ -7,6 +7,7 @@
 import { describe, expect, it } from "vitest";
 import { writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { format as prettierFormat } from "prettier";
 import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
 import { BUDGET_TIER_LIMITS, type BudgetTier } from "@/shared/types/planner";
 import {
@@ -163,12 +164,12 @@ function buildAudit() {
       searchParamsMaxBudget: customRoundTrip.maxBudget,
       contextCap: budgetCapYen(
         tripContextFromSearchParams(
-          new URLSearchParams("budgetTier=standard&budget=80000"),
+          new URLSearchParams("budgetKind=custom&budget=80000"),
         ).budget,
       ),
       constraintKey: budgetConstraintKey(
         tripContextFromSearchParams(
-          new URLSearchParams("budgetTier=standard&budget=80000"),
+          new URLSearchParams("budgetKind=custom&budget=80000"),
         ).budget,
       ),
     },
@@ -181,7 +182,7 @@ function buildAudit() {
     capScalingDefects,
     customCaps,
     customScalingDefects,
-    anyBudget: { kind: anyBudget.kind, tier: anyBudget.tier, noConstraint },
+    anyBudget: { kind: anyBudget.kind, noConstraint },
     classification,
     contextRoundTrips,
     invariants: {
@@ -208,7 +209,7 @@ function buildAudit() {
 }
 
 describe("KAI-279 bounded QA audit artifact", () => {
-  it("writes the audit deterministically and holds its invariants", () => {
+  it("writes the audit deterministically and holds its invariants", async () => {
     const audit = buildAudit();
     const jsonPath = resolve(root, "qa/kai-279/budget-constraint-audit.json");
     const mdPath = resolve(root, "qa/kai-279/budget-constraint-audit.md");
@@ -241,9 +242,14 @@ describe("KAI-279 bounded QA audit artifact", () => {
     for (const [name, row] of Object.entries(audit.contextRoundTrips)) {
       lines.push(`- ${name}: ${JSON.stringify(row)}`);
     }
-    writeFileSync(mdPath, `${lines.join("\n")}\n`);
+    // Prettier-format the generated Markdown so `npm run format:check` stays
+    // green on the committed artifact (CI runs format BEFORE tests).
+    const md = await prettierFormat(`${lines.join("\n")}\n`, {
+      parser: "markdown",
+    });
+    writeFileSync(mdPath, md);
 
-    // Determinism: identical structure on a second run.
+    // Determinism: identical structure AND identical bytes on a second run.
     expect(JSON.stringify(buildAudit())).toBe(JSON.stringify(audit));
     expect(audit.invariants.capNeverScalesWithPartySize).toBe(true);
     expect(audit.invariants.capNeverScalesWithDuration).toBe(true);

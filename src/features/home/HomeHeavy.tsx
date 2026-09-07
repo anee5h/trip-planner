@@ -111,11 +111,20 @@ export default function HeavyHome({
       partySize: resolvedApplied.partySize,
       publicModes: resolvedApplied.publicModes,
       carMode: resolvedApplied.carMode,
-      budget: {
-        kind: "cap",
-        cap: resolvedApplied.budget,
-        tier: resolvedApplied.budgetTier,
-      },
+      // KAI-279: write the canonical explicit budget kind — a Custom
+      // party-total cap, a preset tier ceiling, or none (Flexible/Any).
+      budget:
+        resolvedApplied.customBudgetCap !== undefined &&
+        Number.isFinite(resolvedApplied.customBudgetCap) &&
+        resolvedApplied.customBudgetCap > 0
+          ? { kind: "custom", cap: resolvedApplied.customBudgetCap }
+          : resolvedApplied.budgetTier === "luxury"
+            ? { kind: "none" }
+            : {
+                kind: "preset",
+                preset: resolvedApplied.budgetTier as
+                  "economy" | "standard" | "comfortable",
+              },
     });
   }, [
     forecastSelection.type,

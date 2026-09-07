@@ -46,6 +46,7 @@ export const TopMatchesSection: React.FC<TopMatchesSectionProps> = ({
     budgetTier: appliedState.budgetTier,
     tripDuration: appliedState.tripDuration,
     budget: appliedState.budget,
+    customBudgetCap: appliedState.customBudgetCap,
     carMode: appliedState.carMode,
     publicModes: appliedState.publicModes,
     date: viewAllDate,

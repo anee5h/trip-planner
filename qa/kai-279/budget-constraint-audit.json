@@ -73,8 +73,7 @@
   },
   "customScalingDefects": 0,
   "anyBudget": {
-    "kind": "any",
-    "tier": "any",
+    "kind": "none",
     "noConstraint": {
       "kind": "none"
     }

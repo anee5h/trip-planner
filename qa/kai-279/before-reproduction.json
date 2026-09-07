@@ -112,32 +112,27 @@
   },
   "tripContextBudgetParse": {
     "any": {
-      "kind": "any",
-      "tier": "any"
+      "kind": "none"
     },
     "economy-tier-only": {
-      "kind": "cap",
-      "cap": 50000,
-      "tier": "economy"
+      "kind": "preset",
+      "preset": "economy"
     },
     "standard-tier-only": {
-      "kind": "cap",
-      "cap": 100000,
-      "tier": "standard"
+      "kind": "preset",
+      "preset": "standard"
     },
     "comfortable-tier-only": {
-      "kind": "cap",
-      "cap": 200000,
-      "tier": "comfortable"
+      "kind": "preset",
+      "preset": "comfortable"
     },
     "custom-80000": {
-      "kind": "cap",
+      "kind": "custom",
       "cap": 80000
     },
     "custom-80000-with-tier": {
-      "kind": "cap",
-      "cap": 80000,
-      "tier": "standard"
+      "kind": "custom",
+      "cap": 80000
     }
   },
   "classificationSample": {

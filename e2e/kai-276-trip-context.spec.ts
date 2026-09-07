@@ -102,7 +102,7 @@ test("KAI-276: Compare preserves the active trip context", async ({ page }) => {
         partySize: 4,
         publicModes: ["train"],
         carMode: "none",
-        budget: { kind: "cap", cap: 30000, tier: "standard" },
+        budget: { kind: "custom", cap: 30000 },
       }),
     );
     localStorage.setItem("trip-planner-compare", JSON.stringify(["ueno-zoo"]));
@@ -135,7 +135,7 @@ test("KAI-276: Detail to Compare modal keeps Ueno party and estimate context", a
         partySize: 4,
         publicModes: ["train"],
         carMode: "none",
-        budget: { kind: "cap", cap: 30000, tier: "standard" },
+        budget: { kind: "custom", cap: 30000 },
       }),
     );
     localStorage.setItem("trip-planner-compare", JSON.stringify([]));
@@ -175,7 +175,7 @@ test("KAI-276: browser history and logo navigation preserve the active context",
         partySize: 4,
         publicModes: ["train"],
         carMode: "none",
-        budget: { kind: "cap", cap: 30000, tier: "standard" },
+        budget: { kind: "custom", cap: 30000 },
       }),
     );
   });

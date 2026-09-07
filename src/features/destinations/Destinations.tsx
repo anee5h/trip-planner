@@ -196,6 +196,9 @@ export default function Destinations() {
   const [budgetTier, setBudgetTier] = useState<BudgetFilter>(
     initialExplorerState.budgetTier,
   );
+  const [budgetKind, setBudgetKind] = useState<"preset" | "custom">(
+    initialExplorerState.budgetKind,
+  );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
   const [weather, setWeather] = useState(initialExplorerState.weather);
   const [tripDuration, setTripDuration] = useState<TripDuration>(
@@ -313,6 +316,7 @@ export default function Destinations() {
     setPublicModes(restored.publicModes);
     setPartySize(restored.partySize);
     setBudgetTier(restored.budgetTier);
+    setBudgetKind(restored.budgetKind);
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
@@ -345,6 +349,7 @@ export default function Destinations() {
       partySize,
       partyProfile: partyProfileForSize(partySize),
       budgetTier,
+      budgetKind,
       vibe,
       weather,
       tripDuration,
@@ -1208,6 +1213,7 @@ export default function Destinations() {
     setPublicModes(defaults.publicModes);
     setPartySize(defaults.partySize);
     setBudgetTier(defaults.budgetTier);
+    setBudgetKind(defaults.budgetKind);
     setVibe(defaults.vibe);
     setWeather(defaults.weather);
     setTripDuration(defaults.tripDuration);
@@ -1338,6 +1344,9 @@ export default function Destinations() {
           // KAI-279: 'any' and 'flexible' carry no constraint (a real tier
           // never doubles as the unselected state); any other tier syncs the
           // numeric scorer budget to its canonical FLAT party-total ceiling.
+          // Selecting a preset tile (or Any/Flexible) also resets the source
+          // kind to preset — only the Custom editor commits budgetKind=custom.
+          setBudgetKind("preset");
           setMaxBudget(
             tier === "any" || tier === "luxury"
               ? Number.POSITIVE_INFINITY
@@ -1346,6 +1355,8 @@ export default function Destinations() {
         }}
         maxBudget={maxBudget}
         setMaxBudget={setMaxBudget}
+        budgetKind={budgetKind}
+        setBudgetKind={setBudgetKind}
         vibe={vibe}
         setVibe={setVibe}
         tripDuration={tripDuration}

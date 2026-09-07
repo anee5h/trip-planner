@@ -106,6 +106,10 @@ interface DestinationFiltersProps {
    *  flexible). Present so the UI can label and edit a Custom total. */
   maxBudget?: number;
   setMaxBudget?: (value: number) => void;
+  /** KAI-279 explicit custom-vs-preset source (never inferred from numeric
+   *  equality — a Custom ¥100,000 is still Custom). */
+  budgetKind?: "preset" | "custom";
+  setBudgetKind?: (kind: "preset" | "custom") => void;
   vibe: string;
   setVibe: (val: string) => void;
   tripDuration: TripDuration;
@@ -157,6 +161,8 @@ export default function DestinationFilters({
   setBudgetTier,
   maxBudget,
   setMaxBudget,
+  budgetKind = "preset",
+  setBudgetKind,
   vibe,
   setVibe,
   tripDuration,
@@ -184,14 +190,10 @@ export default function DestinationFilters({
   const [collectionPopoverOpen, setCollectionPopoverOpen] = useState(false);
   const collectionPopoverRef = useRef<HTMLDivElement>(null);
 
-  // KAI-279: a finite maxBudget that differs from its tier ceiling is a
-  // Custom party-total cap carried on the numeric budget field.
-  const isCustomBudget =
-    budgetTier !== "any" &&
-    budgetTier !== "luxury" &&
-    maxBudget !== undefined &&
-    Number.isFinite(maxBudget) &&
-    maxBudget !== BUDGET_TIER_LIMITS[budgetTier];
+  // KAI-279: Custom-vs-preset is EXPLICIT in state (budgetKind), never
+  // inferred from numeric equality — a Custom ¥100,000 is still Custom even
+  // though it equals the Standard ceiling.
+  const isCustomBudget = budgetKind === "custom";
   const [customEditorOpen, setCustomEditorOpen] = useState(false);
   const [customDraft, setCustomDraft] = useState(
     isCustomBudget && maxBudget !== undefined ? String(maxBudget) : "",
@@ -207,7 +209,10 @@ export default function DestinationFilters({
     const cap = customDraftCap();
     if (cap === undefined) return;
     setCustomInvalid(false);
+    // Standard is only the filtering carrier tier; the source kind marks the
+    // cap as Custom so it round-trips even at ¥100,000 / ¥200,000.
     setBudgetTier("standard");
+    setBudgetKind?.("custom");
     setMaxBudget?.(cap);
     setCustomEditorOpen(false);
   };
@@ -1069,6 +1074,7 @@ export default function DestinationFilters({
                               return;
                             }
                             setCustomEditorOpen(false);
+                            setBudgetKind?.("preset");
                             setBudgetTier(opt.val as BudgetFilter);
                           }}
                           className={`min-h-[52px] px-3 py-2 rounded-xl border text-left transition-all ${

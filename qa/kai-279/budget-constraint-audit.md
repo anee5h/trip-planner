@@ -8,6 +8,7 @@ Cap scaling defects (party/duration): 0
 Custom cap scaling defects: 0
 
 ## Classification (canonical classifiers, cap ¥80,000)
+
 - completeBelow: estimate [40,000, 60,000] → detail=fits explore=fits
 - completeStraddle: estimate [60,000, 100,000] → detail=may_exceed explore=exceeds
 - completeAbove: estimate [90,000, 120,000] → detail=over explore=exceeds
@@ -15,6 +16,7 @@ Custom cap scaling defects: 0
 - unavailable: estimate unavailable → detail=unknown explore=unknown
 
 ## Invariants
+
 - capNeverScalesWithPartySize: PASS
 - capNeverScalesWithDuration: PASS
 - customCapNeverScales: PASS
@@ -25,5 +27,6 @@ Custom cap scaling defects: 0
 - overnightCapsStayFlat: PASS
 
 ## Context round-trips
+
 - economyPreset: {"searchParamsMaxBudget":50000,"contextCap":50000,"constraintKey":"preset:economy"}
 - custom80000: {"searchParamsMaxBudget":80000,"contextCap":80000,"constraintKey":"custom:80000"}

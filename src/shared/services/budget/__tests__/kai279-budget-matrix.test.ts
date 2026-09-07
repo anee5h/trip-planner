@@ -5,7 +5,7 @@
  */
 import { describe, expect, it } from "vitest";
 import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
-import { BUDGET_TIER_LIMITS, type BudgetTier } from "@/shared/types/planner";
+import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import {
   budgetCapYen,
   budgetConstraintKey,
@@ -37,16 +37,15 @@ function completeResult(
 
 describe("KAI-279 presets", () => {
   it("Any / flexible resolve to NO cap", () => {
-    expect(resolveBudgetConstraint({ kind: "any", tier: "any" })).toEqual({
-      kind: "none",
-    });
+    expect(resolveBudgetConstraint({ kind: "none" })).toEqual({ kind: "none" });
+    expect(budgetCapYen({ kind: "none" })).toBeUndefined();
+    expect(budgetConstraintKey({ kind: "none" })).toBe("none");
+    // Flexible / Any URLs parse to the explicit no-constraint state.
     expect(
-      resolveBudgetConstraint({ kind: "cap", cap: Infinity, tier: "luxury" }),
-    ).toEqual({
-      kind: "none",
-    });
-    expect(budgetCapYen({ kind: "any" })).toBeUndefined();
-    expect(budgetConstraintKey({ kind: "any" })).toBe("none");
+      tripContextFromSearchParams(
+        new URLSearchParams("budgetTier=flexible&budget=flexible"),
+      ).budget,
+    ).toEqual({ kind: "none" });
   });
 
   it("economy/standard/comfortable map to the canonical verified caps", () => {
@@ -74,7 +73,7 @@ describe("KAI-279 presets", () => {
 
 describe("KAI-279 custom cap", () => {
   it("custom ¥80,000 is exactly ¥80,000 at every party size and duration", () => {
-    const custom = { kind: "cap", cap: 80000 } as const;
+    const custom = { kind: "custom", cap: 80000 } as const;
     expect(budgetCapYen(custom)).toBe(80000);
     expect(resolveBudgetConstraint(custom)).toEqual({
       kind: "custom",
@@ -84,7 +83,7 @@ describe("KAI-279 custom cap", () => {
       for (const duration of ["halfDay", "fullDay", "2d1n", "3d2n"]) {
         const parsed = tripContextFromSearchParams(
           new URLSearchParams(
-            `partySize=${party}&duration=${duration}&budget=80000`,
+            `partySize=${party}&duration=${duration}&budgetKind=custom&budget=80000`,
           ),
         );
         expect(budgetCapYen(parsed.budget)).toBe(80000);
@@ -115,10 +114,10 @@ describe("KAI-279 custom cap", () => {
 
   it("party 2 -> 4 preserves an ¥80,000 custom cap", () => {
     const two = tripContextFromSearchParams(
-      new URLSearchParams("partySize=2&budget=80000"),
+      new URLSearchParams("partySize=2&budgetKind=custom&budget=80000"),
     ).budget;
     const four = tripContextFromSearchParams(
-      new URLSearchParams("partySize=4&budget=80000"),
+      new URLSearchParams("partySize=4&budgetKind=custom&budget=80000"),
     ).budget;
     expect(budgetCapYen(two)).toBe(80000);
     expect(budgetCapYen(four)).toBe(80000);
@@ -201,11 +200,11 @@ describe("KAI-279 context persistence contract", () => {
     const preset = tripContextFromSearchParams(
       new URLSearchParams("budgetTier=economy&budget=50000"),
     ).budget;
-    expect(preset).toEqual({ kind: "cap", cap: 50000, tier: "economy" });
+    expect(preset).toEqual({ kind: "preset", preset: "economy" });
     const custom = tripContextFromSearchParams(
-      new URLSearchParams("budgetTier=standard&budget=80000"),
+      new URLSearchParams("budgetKind=custom&budget=80000"),
     ).budget;
-    expect(custom).toEqual({ kind: "cap", cap: 80000, tier: "standard" });
+    expect(custom).toEqual({ kind: "custom", cap: 80000 });
   });
 
   it("tier identity is preserved so presets survive round-trips as presets", () => {
@@ -218,7 +217,7 @@ describe("KAI-279 context persistence contract", () => {
       capYen: 100000,
     });
     const custom = tripContextFromSearchParams(
-      new URLSearchParams("budgetTier=standard&budget=80000"),
+      new URLSearchParams("budgetKind=custom&budget=80000"),
     ).budget;
     expect(resolveBudgetConstraint(custom)).toEqual({
       kind: "custom",
@@ -229,11 +228,12 @@ describe("KAI-279 context persistence contract", () => {
 
 describe("KAI-279 preset tier set sanity", () => {
   it("luxury is never a preset constraint (flexible)", () => {
-    const tier: BudgetTier = "luxury";
-    expect(BUDGET_TIER_LIMITS[tier]).toBe(Infinity);
-    expect(presetCapYen(tier)).toBe(Infinity);
+    expect(BUDGET_TIER_LIMITS.luxury).toBe(Infinity);
+    expect(presetCapYen("luxury")).toBe(Infinity);
     expect(
-      resolveBudgetConstraint({ kind: "cap", cap: Infinity, tier: "luxury" }),
+      tripContextFromSearchParams(
+        new URLSearchParams("budgetTier=luxury&budget=flexible"),
+      ).budget,
     ).toEqual({ kind: "none" });
   });
 });

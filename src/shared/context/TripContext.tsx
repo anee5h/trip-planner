@@ -6,7 +6,6 @@ import {
   useMemo,
   useState,
 } from "react";
-import type { BudgetFilter } from "@/shared/types/planner";
 import { BUDGET_TIER_LIMITS } from "@/shared/types/planner";
 import type { TripDuration } from "@/shared/types/tripDuration";
 import type { CarMode } from "@/shared/utils/carMode";
@@ -16,9 +15,28 @@ import { useLocation } from "react-router-dom";
 
 export type TripDateSemantics = "any" | "today" | "tomorrow" | "custom";
 
+/** KAI-279 preset tiers that carry a real party-total ceiling. */
+export type TripBudgetPreset = "economy" | "standard" | "comfortable";
+
+/**
+ * KAI-279 canonical budget state — the SOURCE is explicit, never inferred
+ * from numeric equality:
+ *
+ *   none    — Any budget / Flexible: no affordability constraint.
+ *   preset  — Economy / Standard / Comfortable: the canonical flat
+ *             party-total ceiling for that tier.
+ *   custom  — an exact user-entered party-total yen cap. Custom is FIRST
+ *             CLASS: a Custom ¥100,000 stays Custom even though it equals the
+ *             Standard ceiling, and a Custom cap chosen after Flexible stays
+ *             Custom (the previous tier never reclassifies it).
+ *
+ * Legacy persisted shapes ({ kind: "any" } / { kind: "cap", cap, tier }) are
+ * normalized on read via normalizeTripBudget.
+ */
 export type TripBudget =
-  | { kind: "any"; tier?: BudgetFilter }
-  | { kind: "cap"; cap: number; tier?: BudgetFilter };
+  | { kind: "none" }
+  | { kind: "preset"; preset: TripBudgetPreset }
+  | { kind: "custom"; cap: number };
 
 export interface TripContext {
   origin: SavedOriginLocation | null;
@@ -36,6 +54,67 @@ export type TripContextPatch = Partial<TripContext>;
 
 const TRIP_CONTEXT_STORAGE_KEY = "meguruto-active-trip-context";
 
+const PRESET_TIER_SET = new Set<string>(["economy", "standard", "comfortable"]);
+
+function isPresetName(value: unknown): value is TripBudgetPreset {
+  return typeof value === "string" && PRESET_TIER_SET.has(value);
+}
+
+/**
+ * Tolerant read-path normalizer: maps the canonical shapes, the legacy
+ * { kind: "any" } / { kind: "cap", cap, tier? } shapes and bare numbers into
+ * the explicit three-kind canonical TripBudget. Legacy inference is only
+ * applied when the source field is absent (old persisted contexts); every new
+ * write path stamps an explicit kind.
+ */
+export function normalizeTripBudget(value: unknown): TripBudget {
+  if (value === null || value === undefined) return { kind: "none" };
+  if (typeof value === "number") {
+    return Number.isFinite(value) && value > 0
+      ? { kind: "custom", cap: value }
+      : { kind: "none" };
+  }
+  if (typeof value !== "object") return { kind: "none" };
+  const record = value as Record<string, unknown>;
+  if (record.kind === "none") return { kind: "none" };
+  if (record.kind === "preset" && isPresetName(record.preset)) {
+    return { kind: "preset", preset: record.preset };
+  }
+  if (record.kind === "custom") {
+    const cap = record.cap;
+    return typeof cap === "number" && Number.isFinite(cap) && cap > 0
+      ? { kind: "custom", cap }
+      : { kind: "none" };
+  }
+  if (record.kind === "any") return { kind: "none" };
+  // Legacy { kind: "cap", cap, tier? }.
+  if (record.kind === "cap" || record.cap !== undefined) {
+    const cap = Number(record.cap);
+    const tier = record.tier;
+    if (typeof tier === "string" && PRESET_TIER_SET.has(tier)) {
+      if (
+        Number.isFinite(cap) &&
+        cap === BUDGET_TIER_LIMITS[tier as TripBudgetPreset]
+      ) {
+        return { kind: "preset", preset: tier as TripBudgetPreset };
+      }
+      return Number.isFinite(cap) && cap > 0
+        ? { kind: "custom", cap }
+        : { kind: "none" };
+    }
+    // Legacy luxury/any/undefined tier cap: luxury/Infinity means no
+    // constraint; a finite number (numeric-only legacy custom) is Custom.
+    if (!Number.isFinite(cap) || cap <= 0) return { kind: "none" };
+    if (tier === "luxury" || tier === "flexible") {
+      return cap === Number.POSITIVE_INFINITY
+        ? { kind: "none" }
+        : { kind: "custom", cap };
+    }
+    return { kind: "custom", cap };
+  }
+  return { kind: "none" };
+}
+
 export function createDefaultTripContext(): TripContext {
   return {
     origin: null,
@@ -45,9 +124,9 @@ export function createDefaultTripContext(): TripContext {
     partySize: 2,
     publicModes: [],
     carMode: "none",
-    // KAI-279: default budget is the canonical Standard whole-trip
+    // KAI-279: the default budget is the canonical Standard whole-trip
     // party-total ceiling (¥100,000), never a magic non-tier ¥75,000.
-    budget: { kind: "cap", cap: BUDGET_TIER_LIMITS.standard, tier: "standard" },
+    budget: { kind: "preset", preset: "standard" },
   };
 }
 
@@ -62,7 +141,9 @@ export function mergeTripContext(
     ...(patch.publicModes !== undefined
       ? { publicModes: [...patch.publicModes] }
       : {}),
-    ...(patch.budget !== undefined ? { budget: { ...patch.budget } } : {}),
+    ...(patch.budget !== undefined
+      ? { budget: normalizeTripBudget(patch.budget) }
+      : {}),
   };
 }
 
@@ -86,26 +167,51 @@ function parsePartySize(value: string | null): number | undefined {
 function parseBudget(params: URLSearchParams): TripBudget | undefined {
   const tier = params.get("budgetTier") ?? undefined;
   const raw = params.get("budget");
-  if (tier === "any" || raw === "any") return { kind: "any", tier: "any" };
-  if (raw !== null && /^\d+$/.test(raw)) {
-    return {
-      kind: "cap",
-      cap: Number(raw),
-      ...(tier ? { tier: tier as BudgetFilter } : {}),
-    };
+  const rawKind = params.get("budgetKind");
+  // KAI-279 review fix: when NO budget-related parameter is present, return
+  // undefined so the route patch carries no budget — missing URL state must
+  // never overwrite explicit/session context (KAI-276 rule). Only explicit
+  // budget state (any/flexible/luxury, valid preset, valid custom, supported
+  // legacy numeric) creates a budget patch.
+  if (tier === undefined && raw === null && rawKind === null) return undefined;
+  const numeric = raw !== null && /^\d+$/.test(raw);
+  // EXPLICIT custom marker: budgetKind=custom wins over any tier signal so a
+  // Custom cap chosen after Flexible (budgetTier=luxury) or a Custom cap that
+  // equals a preset ceiling (Standard -> Custom ¥100,000) stays Custom.
+  if (rawKind === "custom" && numeric) {
+    const cap = Number(raw);
+    if (Number.isFinite(cap) && cap > 0) return { kind: "custom", cap };
+    return { kind: "none" };
   }
-  if (tier) {
-    // KAI-279: a tier-only URL maps to that tier's canonical flat
-    // party-total ceiling (economy → ¥50,000, standard → ¥100,000,
-    // comfortable → ¥200,000, flexible → unlimited) — never a magic ¥75,000.
-    const normalized =
-      tier === "luxury" || tier === "flexible" ? "luxury" : tier;
-    return {
-      kind: "cap",
-      cap: BUDGET_TIER_LIMITS[normalized as keyof typeof BUDGET_TIER_LIMITS],
-      tier: normalized as BudgetFilter,
-    };
+  if (tier === "any" || raw === "any" || raw === "flexible") {
+    return { kind: "none" };
   }
+  if (numeric) {
+    const cap = Number(raw);
+    // Legacy URLs carry no budgetKind; infer preset ONLY when the cap equals
+    // the tier's canonical ceiling. Every new write path is explicit.
+    if (
+      tier !== undefined &&
+      (tier === "economy" || tier === "standard" || tier === "comfortable") &&
+      Number.isFinite(cap) &&
+      cap === BUDGET_TIER_LIMITS[tier]
+    ) {
+      return { kind: "preset", preset: tier };
+    }
+    return Number.isFinite(cap) && cap > 0
+      ? { kind: "custom", cap }
+      : { kind: "none" };
+  }
+  if (tier === "economy" || tier === "standard" || tier === "comfortable") {
+    // Tier-only URL maps to that tier's canonical flat party-total ceiling.
+    return { kind: "preset", preset: tier };
+  }
+  if (tier === "luxury" || tier === "flexible") {
+    // Flexible/luxury (no numeric budget) = no constraint.
+    return { kind: "none" };
+  }
+  // Malformed/unrecognized budget params are not a valid state — do not
+  // fabricate a no-constraint patch that would erase the active budget.
   return undefined;
 }
 
@@ -192,10 +298,8 @@ export function tripContextFromRouteState(state: unknown): TripContextPatch {
   ) {
     patch.carMode = source.carMode;
   }
-  if (source.budget && typeof source.budget === "object") {
-    patch.budget = source.budget as TripBudget;
-  } else if (typeof source.budget === "number") {
-    patch.budget = { kind: "cap", cap: source.budget };
+  if (source.budget !== undefined) {
+    patch.budget = normalizeTripBudget(source.budget);
   }
   if (typeof source.destinationId === "string")
     patch.destinationId = source.destinationId;
@@ -214,7 +318,13 @@ function readStoredContext(): TripContextPatch {
   if (typeof window === "undefined") return {};
   try {
     const raw = window.sessionStorage.getItem(TRIP_CONTEXT_STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as TripContextPatch) : {};
+    if (!raw) return {};
+    const parsed = JSON.parse(raw) as Record<string, unknown>;
+    const patch: TripContextPatch = { ...(parsed as TripContextPatch) };
+    if (parsed.budget !== undefined) {
+      patch.budget = normalizeTripBudget(parsed.budget);
+    }
+    return patch;
   } catch {
     return {};
   }

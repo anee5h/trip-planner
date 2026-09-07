@@ -1,5 +1,7 @@
 import { BUDGET_TIER_LIMITS, type BudgetTier } from "@/shared/types/planner";
 import type { TripBudget } from "@/shared/context/TripContext";
+import type { TripEstimateResult } from "./tripEstimateEngine";
+import { evaluateAffordability } from "./tripEstimateEngine";
 
 /**
  * KAI-279 canonical budget constraint.
@@ -10,7 +12,10 @@ import type { TripBudget } from "@/shared/context/TripContext";
  *   preset   — Economy / Standard / Comfortable: the canonical flat
  *              party-total ceilings (¥50k / ¥100k / ¥200k) that never scale
  *              with party size or trip duration.
- *   custom   — an exact user-entered party-total cap.
+ *   custom   — an exact user-entered party-total cap. Custom is FIRST CLASS:
+ *              the canonical TripBudget carries an explicit kind, so a Custom
+ *              ¥100,000 is never reclassified as the Standard preset and a
+ *              cap chosen after Flexible is never treated as no-constraint.
  *
  * capYen is the total spend ceiling for the whole selected party and trip.
  * It is never multiplied by partySize. The canonical TripEstimate scales
@@ -35,32 +40,24 @@ export function presetCapYen(preset: BudgetTier): number {
   return BUDGET_TIER_LIMITS[preset];
 }
 
-const PRESET_TIERS: readonly BudgetTier[] = [
-  "economy",
-  "standard",
-  "comfortable",
-];
-
 /**
- * Normalize any TripBudget into the explicit constraint vocabulary. A cap
- * whose value equals its tier ceiling is a preset; any other finite cap is a
- * custom party-total cap; any/flexible/absent is no constraint.
+ * Normalize any canonical TripBudget into the explicit constraint vocabulary.
+ * Source is explicit in the state — the resolver never re-infers custom from
+ * numeric equality against a ceiling.
  */
 export function resolveBudgetConstraint(
   budget: TripBudget | undefined,
 ): ResolvedBudgetConstraint {
-  if (!budget || budget.kind === "any") return { kind: "none" };
-  const tier = budget.tier;
-  if (tier === "luxury") return { kind: "none" };
-  const cap = budget.cap;
-  if (!Number.isFinite(cap)) return { kind: "none" };
-  if (tier && (PRESET_TIERS as readonly string[]).includes(tier)) {
-    if (cap === BUDGET_TIER_LIMITS[tier as BudgetTier]) {
-      return { kind: "preset", preset: tier as BudgetTier, capYen: cap };
-    }
-    return { kind: "custom", capYen: cap };
+  if (!budget || budget.kind === "none") return { kind: "none" };
+  if (budget.kind === "preset") {
+    return {
+      kind: "preset",
+      preset: budget.preset,
+      capYen: BUDGET_TIER_LIMITS[budget.preset],
+    };
   }
-  return { kind: "custom", capYen: cap };
+  if (!Number.isFinite(budget.cap) || budget.cap <= 0) return { kind: "none" };
+  return { kind: "custom", capYen: budget.cap };
 }
 
 /**
@@ -106,4 +103,32 @@ export function parseCustomBudgetInput(
   const parsed = Number(trimmed);
   if (!Number.isSafeInteger(parsed) || parsed <= 0) return { kind: "invalid" };
   return { kind: "valid", capYen: parsed };
+}
+
+/** Traveller-facing budget-fit vocabulary for a complete/partial estimate. */
+export type BudgetFitState = "within" | "may_exceed" | "above" | "uncertain";
+
+/**
+ * KAI-279 Blocker-2 fix: classify affordability from the estimate of ONE
+ * mode — the mode the traveller is actually viewing/selected. This function
+ * deliberately receives a single estimate: it never scans alternate modes, so
+ * a selected mode with partial/unresolved required costs stays UNCERTAIN even
+ * when another (unselected) mode would fit the cap (KAI-277 preserved).
+ *
+ *   complete total, max <= cap          -> within
+ *   complete total, min <= cap < max    -> may_exceed
+ *   complete total, min > cap           -> above
+ *   no complete total (partial/unavail) -> uncertain (never a within claim)
+ */
+export function classifyBudgetFit(
+  estimate: Pick<TripEstimateResult, "total"> | undefined | null,
+  cap: number | undefined,
+): BudgetFitState {
+  if (cap === undefined || !Number.isFinite(cap)) return "uncertain";
+  if (!estimate?.total) return "uncertain";
+  const state = evaluateAffordability(estimate, cap);
+  if (state === "fits") return "within";
+  if (state === "may_exceed") return "may_exceed";
+  if (state === "over") return "above";
+  return "uncertain";
 }
