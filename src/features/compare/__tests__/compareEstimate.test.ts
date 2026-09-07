@@ -17,7 +17,7 @@ const contextFor = (partySize: number, publicModes: string[]): TripContext => ({
   partySize,
   publicModes,
   carMode: "none",
-  budget: { kind: "cap", cap: 30000, tier: "standard" },
+  budget: { kind: "custom", cap: 30000 },
 });
 
 describe("resolveCompareEstimate", () => {

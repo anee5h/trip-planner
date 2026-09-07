@@ -15,6 +15,7 @@ import {
 } from "@/features/home/services/TransportResolver";
 import {
   createDefaultPlannerControls,
+  DEFAULT_PLANNER_BUDGET_TIER,
   type PlannerControlsState,
   type HomepageTripDuration,
   type BudgetTier,
@@ -85,6 +86,8 @@ export interface HomePlannerStateValue {
   setPartySize: (partySize: number) => void;
   budgetTier: BudgetTier;
   setBudgetTier: (tier: BudgetTier) => void;
+  customBudgetCap?: number;
+  setCustomBudgetCap: (cap: number | undefined) => void;
   publicModes: string[];
   publicTransport: boolean;
   setPublicTransport: (enabled: boolean) => void;
@@ -185,14 +188,20 @@ export function HomePlannerStateProvider({
     const normalizedDuration = normalizeHomepageTripDuration(
       tripContext.duration,
     );
-    const contextTier = tripContext.budget.tier;
-    const budgetTier: BudgetTier =
-      contextTier === "economy" ||
-      contextTier === "standard" ||
-      contextTier === "comfortable" ||
-      contextTier === "luxury"
-        ? contextTier
-        : "standard";
+    // KAI-279: hydrate the planner from the canonical context budget. The
+    // context carries an EXPLICIT kind (none | preset | custom), so a Custom
+    // cap that equals a preset ceiling or was chosen after Flexible is
+    // restored as Custom — the previous tier never reclassifies it.
+    const contextBudget = tripContext.budget;
+    let tier: BudgetTier = DEFAULT_PLANNER_BUDGET_TIER;
+    let customCap: number | undefined;
+    if (contextBudget.kind === "none") {
+      tier = "luxury";
+    } else if (contextBudget.kind === "preset") {
+      tier = contextBudget.preset;
+    } else {
+      customCap = contextBudget.cap;
+    }
     const controls = {
       tripDuration: normalizedDuration ?? "halfDay",
       partySize: tripContext.partySize,
@@ -200,7 +209,8 @@ export function HomePlannerStateProvider({
       publicTransport:
         tripContext.carMode === "none" || tripContext.publicModes.length > 0,
       carMode: tripContext.carMode,
-      budgetTier,
+      budgetTier: tier,
+      customBudgetCap: customCap,
     } satisfies Partial<PlannerControlsState>;
     setDraftState((previous) => ({ ...previous, ...controls }));
     setAppliedState((previous) => ({ ...previous, ...controls }));
@@ -255,6 +265,9 @@ export function HomePlannerStateProvider({
   const setBudgetTier = useCallback((budgetTier: BudgetTier) => {
     setDraftState((previous) => ({ ...previous, budgetTier }));
   }, []);
+  const setCustomBudgetCap = useCallback((cap: number | undefined) => {
+    setDraftState((previous) => ({ ...previous, customBudgetCap: cap }));
+  }, []);
   const setPublicTransport = useCallback((publicTransport: boolean) => {
     setDraftState((previous) => ({ ...previous, publicTransport }));
   }, []);
@@ -274,6 +287,8 @@ export function HomePlannerStateProvider({
       setPartySize,
       budgetTier: draftState.budgetTier,
       setBudgetTier,
+      customBudgetCap: draftState.customBudgetCap,
+      setCustomBudgetCap,
       publicModes: draftState.publicModes,
       publicTransport: draftState.publicTransport,
       setPublicTransport,
@@ -290,6 +305,7 @@ export function HomePlannerStateProvider({
       setTripDuration,
       setPartySize,
       setBudgetTier,
+      setCustomBudgetCap,
       setPublicTransport,
       setCarMode,
       hasUserApplied,

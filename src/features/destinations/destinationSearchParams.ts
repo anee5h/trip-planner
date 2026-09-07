@@ -9,6 +9,7 @@ import type { TripDuration } from "@/shared/types/tripDuration";
 import { normalizeExplorerTripDuration } from "@/shared/types/tripDuration";
 import { normalizeTravelDateParam } from "@/shared/services/recommendation/TravelConditions";
 import { ALL_PUBLIC_MODES } from "@/features/home/services/TransportResolver";
+import type { TripBudget } from "@/shared/context/TripContext";
 
 /**
  * KAI-275: resolve the EXPLICIT transport universe from the split-domain
@@ -49,6 +50,10 @@ export const DEFAULT_DESTINATION_EXPLORER_STATE = {
   /** YYYY-MM-DD or "" (unset = any date browsing). */
   date: "",
   maxBudget: BUDGET_TIER_LIMITS.standard,
+  /** KAI-279: whether the active numeric cap is a Custom party-total
+   *  (budgetKind=custom) or a preset ceiling. Explicit, never inferred from
+   *  numeric equality. Meaningless for any/luxury. */
+  budgetKind: "preset" as "preset" | "custom",
   sortBy: "recommended",
   carMode: "none",
   publicModes: [] as string[],
@@ -128,6 +133,54 @@ export function hasRestrictedTransportSelection(
   );
 }
 
+/** True when the URL carries any budget-related parameter. */
+export function budgetParamsPresent(params: URLSearchParams): boolean {
+  return (
+    params.has("budget") || params.has("budgetTier") || params.has("budgetKind")
+  );
+}
+
+/**
+ * KAI-279 precedence fix: when /destinations has NO budget URL parameters but
+ * an explicit TripContext exists, initialize Explore's budget controls FROM
+ * the canonical context instead of the Explore default (which would serialize
+ * budget=any and erase the preserved context):
+ *
+ *   { kind: "custom", cap }   -> Standard carrier tier + budgetKind=custom +
+ *                                exact maxBudget cap
+ *   { kind: "preset", preset }-> that preset tier + its flat ceiling
+ *   { kind: "none" }          -> Any / no constraint
+ *
+ * The normal serializer then canonicalizes that real state into the URL.
+ */
+export function applyTripContextBudgetToExplorerState(
+  state: DestinationExplorerState,
+  budget: TripBudget,
+): DestinationExplorerState {
+  if (budget.kind === "custom") {
+    return {
+      ...state,
+      budgetTier: "standard",
+      budgetKind: "custom",
+      maxBudget: budget.cap,
+    };
+  }
+  if (budget.kind === "preset") {
+    return {
+      ...state,
+      budgetTier: budget.preset,
+      budgetKind: "preset",
+      maxBudget: BUDGET_TIER_LIMITS[budget.preset],
+    };
+  }
+  return {
+    ...state,
+    budgetTier: "any",
+    budgetKind: "preset",
+    maxBudget: DEFAULT_DESTINATION_EXPLORER_STATE.maxBudget,
+  };
+}
+
 const parseNumber = (value: string | null, fallback: number) => {
   if (value === null) return fallback;
   const parsed = Number(value);
@@ -164,6 +217,8 @@ export function parseDestinationSearchParams(
           : 2;
 
   const rawBudget = params.get("budget");
+  const explicitCustom = params.get("budgetKind") === "custom";
+  const hasNumericBudget = rawBudget !== null && /^\d+$/.test(rawBudget);
   let budgetTier: BudgetFilter = defaults.budgetTier;
   if (rawBudgetTier === "any" || rawBudget === "any") {
     budgetTier = "any";
@@ -181,18 +236,49 @@ export function parseDestinationSearchParams(
     budgetTier = "comfortable";
   } else if (rawBudgetTier === "flexible") {
     budgetTier = "luxury";
-  } else if (rawBudget !== null && /^\d+$/.test(rawBudget)) {
+  } else if (hasNumericBudget) {
     budgetTier = "standard";
   }
 
+  // KAI-279: an EXPLICIT Custom party-total (budgetKind=custom) always
+  // carries its numeric cap. The tier field only serves as the filtering
+  // carrier for Explore — when the custom cap was chosen after Flexible
+  // (budgetTier=luxury) or Any, use Standard as the carrier so the
+  // affordability filter engages on the cap.
+  if (explicitCustom && hasNumericBudget) {
+    if (budgetTier === "any" || budgetTier === "luxury") {
+      budgetTier = "standard";
+    }
+  } else if (explicitCustom && !hasNumericBudget) {
+    budgetTier = "any";
+  }
+
   const maxBudget =
-    budgetTier === "luxury"
-      ? Number.POSITIVE_INFINITY
-      : rawBudget !== null && /^\d+$/.test(rawBudget)
-        ? parseNumber(rawBudget, defaults.maxBudget)
-        : budgetTier === "any"
-          ? defaults.maxBudget
-          : BUDGET_TIER_LIMITS[budgetTier];
+    explicitCustom && hasNumericBudget
+      ? parseNumber(rawBudget, defaults.maxBudget)
+      : budgetTier === "luxury"
+        ? Number.POSITIVE_INFINITY
+        : hasNumericBudget
+          ? parseNumber(rawBudget, defaults.maxBudget)
+          : budgetTier === "any"
+            ? defaults.maxBudget
+            : BUDGET_TIER_LIMITS[budgetTier];
+
+  // KAI-279: custom-vs-preset is explicit on new URLs; legacy numeric URLs
+  // (no budgetKind) infer custom only when the cap differs from the tier
+  // ceiling. Any/luxury carry no meaningful kind.
+  let budgetKind: "preset" | "custom" = "preset";
+  if (explicitCustom) {
+    budgetKind = "custom";
+  } else if (
+    budgetTier !== "any" &&
+    budgetTier !== "luxury" &&
+    hasNumericBudget &&
+    Number.isFinite(maxBudget) &&
+    maxBudget !== BUDGET_TIER_LIMITS[budgetTier]
+  ) {
+    budgetKind = "custom";
+  }
 
   return {
     searchQuery: params.get("q") ?? defaults.searchQuery,
@@ -232,6 +318,7 @@ export function parseDestinationSearchParams(
         ? (params.get("weather") as "rainy" | "hot" | "cold")
         : defaults.weather,
     budgetTier,
+    budgetKind,
     vibe: params.get("vibe") ?? defaults.vibe,
     tripDuration:
       explicitDuration ?? legacyModeDuration ?? defaults.tripDuration,
@@ -271,6 +358,10 @@ export function serializeDestinationSearchParams(
         ? "flexible"
         : String(state.maxBudget),
     );
+    // KAI-279: an explicit Custom party-total cap is serialized with a
+    // budgetKind=custom marker so a Custom cap that equals a preset ceiling
+    // (e.g. ¥100,000 == Standard) is never reclassified as that preset.
+    if (state.budgetKind === "custom") params.set("budgetKind", "custom");
   }
   params.set("sort", sanitizeSort(state.sortBy));
   params.set("car", sanitizeCarMode(state.carMode));
@@ -302,6 +393,10 @@ export function serializePlannerSearchParams(input: {
   budgetTier: BudgetTier;
   tripDuration: TripDuration;
   budget: number;
+  /** KAI-279: when the traveller chose a Custom party-total, the exact cap
+   *  (serialized as budgetKind=custom so it survives the tier/luxury
+   *  ambiguity). */
+  customBudgetCap?: number;
   carMode: string;
   publicModes: string[];
   date?: string;
@@ -318,12 +413,22 @@ export function serializePlannerSearchParams(input: {
   if (input.tripDuration && input.tripDuration !== "any") {
     params.set("duration", input.tripDuration);
   }
+  const isCustom =
+    input.customBudgetCap !== undefined &&
+    Number.isFinite(input.customBudgetCap) &&
+    input.customBudgetCap > 0;
   params.set(
     "budget",
-    input.budgetTier === "luxury" || !Number.isFinite(input.budget)
-      ? "flexible"
-      : String(input.budget),
+    isCustom
+      ? String(input.customBudgetCap)
+      : input.budgetTier === "luxury" || !Number.isFinite(input.budget)
+        ? "flexible"
+        : String(input.budget),
   );
+  // KAI-279: mark an explicit Custom party-total so it survives every
+  // surface even when the previous tier was Flexible (budgetTier=luxury) or
+  // the cap equals a preset ceiling.
+  if (isCustom) params.set("budgetKind", "custom");
   if (input.carMode && input.carMode !== "none") {
     params.set("car", input.carMode);
   }

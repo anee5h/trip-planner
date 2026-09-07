@@ -150,16 +150,19 @@ describe("useTripPlannerState", () => {
     expect(getResult().partySize).toBe(8);
   });
 
-  it("uses applied party size for the downstream party-aware budget", () => {
+  it("KAI-279: party-size changes never change the downstream budget cap", () => {
     const getResult = setupHook();
     const twoPersonBudget = getResult().resolvedApplied.budget;
+    expect(twoPersonBudget).toBe(100000); // canonical Standard party-total ceiling
 
     act(() => {
       getResult().setPartySize(4);
     });
 
     expect(getResult().resolvedDraft.partySize).toBe(4);
-    expect(getResult().resolvedDraft.budget).toBe(twoPersonBudget * 2);
+    // The party-total cap is flat: raising the party from 2 to 4 does NOT
+    // raise the budget ceiling — the estimate scales, the cap does not.
+    expect(getResult().resolvedDraft.budget).toBe(twoPersonBudget);
     expect(getResult().resolvedApplied.partySize).toBe(2);
 
     act(() => {
@@ -167,7 +170,7 @@ describe("useTripPlannerState", () => {
     });
 
     expect(getResult().resolvedApplied.partySize).toBe(4);
-    expect(getResult().resolvedApplied.budget).toBe(twoPersonBudget * 2);
+    expect(getResult().resolvedApplied.budget).toBe(twoPersonBudget);
   });
 
   describe("transport selection with mock user", () => {

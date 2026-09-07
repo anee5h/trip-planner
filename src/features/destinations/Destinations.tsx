@@ -33,6 +33,7 @@ import {
 import type { TravelConditionEvaluation } from "@/shared/services/recommendation/TravelConditions";
 import { buildRecommendationCandidate } from "@/shared/services/recommendation/RecommendationPipeline";
 import { useTripStore } from "@/shared/hooks/useTripStore";
+import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { useLocale } from "@/shared/context/LocaleContext";
 import { getLocalizedStationLabel } from "@/shared/utils/formatOriginLocation";
 import {
@@ -62,10 +63,9 @@ const EXPLORE_OVERNIGHT_3D2N_TRAVEL_SOFTEN = 0.55;
 const EXPLORE_OVERNIGHT_UNMEASURED_2D1N_PENALTY = -4;
 import {
   partyProfileForSize,
-  type BudgetTier,
+  BUDGET_TIER_LIMITS,
   type BudgetFilter,
 } from "@/shared/types/planner";
-import { getPlannerBudgetLimit } from "@/features/home/services/PlannerBudgetPolicy";
 import { evaluateBudgetAffordability } from "@/shared/services/budget/tripEstimateEngine";
 import {
   hasPersonalizedOrigin,
@@ -128,13 +128,26 @@ import {
   resolveExploreBudgetEstimate,
   type ExploreBudgetEstimate,
 } from "./exploreBudget";
-import { resolvePublicTransportModes } from "@/features/destinations/destinationSearchParams";
+import {
+  applyTripContextBudgetToExplorerState,
+  budgetParamsPresent,
+  resolvePublicTransportModes,
+} from "@/features/destinations/destinationSearchParams";
 
 export default function Destinations() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [initialExplorerState] = useState(() =>
-    parseDestinationSearchParams(searchParams),
-  );
+  // KAI-279 precedence: an explicit /destinations URL budget wins; when the
+  // URL has NO budget params and an explicit TripContext exists, hydrate
+  // Explore's budget controls FROM the context (never the Explore default,
+  // whose serializer would write budget=any back over the preserved budget).
+  const { tripContext, hasExplicitTripContext } = useOptionalTripContext();
+  const [initialExplorerState] = useState(() => {
+    const parsed = parseDestinationSearchParams(searchParams);
+    if (!budgetParamsPresent(searchParams) && hasExplicitTripContext) {
+      return applyTripContextBudgetToExplorerState(parsed, tripContext.budget);
+    }
+    return parsed;
+  });
   const initialSearchParams = searchParams.toString();
   const lastWrittenSearchRef = useRef(initialSearchParams);
   const filtersInitializedRef = useRef(false);
@@ -196,6 +209,9 @@ export default function Destinations() {
   const [partySize, setPartySize] = useState(initialExplorerState.partySize);
   const [budgetTier, setBudgetTier] = useState<BudgetFilter>(
     initialExplorerState.budgetTier,
+  );
+  const [budgetKind, setBudgetKind] = useState<"preset" | "custom">(
+    initialExplorerState.budgetKind,
   );
   const [vibe, setVibe] = useState(initialExplorerState.vibe);
   const [weather, setWeather] = useState(initialExplorerState.weather);
@@ -314,6 +330,7 @@ export default function Destinations() {
     setPublicModes(restored.publicModes);
     setPartySize(restored.partySize);
     setBudgetTier(restored.budgetTier);
+    setBudgetKind(restored.budgetKind);
     setVibe(restored.vibe);
     setWeather(restored.weather);
     setTripDuration(restored.tripDuration);
@@ -346,6 +363,7 @@ export default function Destinations() {
       partySize,
       partyProfile: partyProfileForSize(partySize),
       budgetTier,
+      budgetKind,
       vibe,
       weather,
       tripDuration,
@@ -591,18 +609,21 @@ export default function Destinations() {
     // or a known-subtotal minimum above the ceiling) are excluded. This
     // keeps Explore consistent with Home (which retains partials) — it
     // never claims a partial trip "fits".
+    // KAI-279: the affordability ceiling is the canonical FLAT party-total
+    // cap — a preset's fixed ceiling or the user's exact custom cap — never a
+    // party/duration-scaled value. `maxBudget` already carries that resolved
+    // cap (parse maps a tier to BUDGET_TIER_LIMITS[tier] and a numeric custom
+    // budget to itself).
     if (budgetTier !== "any" && budgetTier !== "luxury") {
-      const tierLimit = getPlannerBudgetLimit(
-        budgetTier as BudgetTier,
-        partySize,
-        tripDuration,
-      );
-      result = result.filter((dest) => {
-        const estimate = budgetEstimateFor(dest)?.estimate;
-        if (!estimate) return false;
-        const state = evaluateBudgetAffordability(estimate, tierLimit);
-        return state === "fits" || state === "partial";
-      });
+      const cap = maxBudget;
+      if (Number.isFinite(cap)) {
+        result = result.filter((dest) => {
+          const estimate = budgetEstimateFor(dest)?.estimate;
+          if (!estimate) return false;
+          const state = evaluateBudgetAffordability(estimate, cap);
+          return state === "fits" || state === "partial";
+        });
+      }
     }
 
     // 1.6. Vibe & Atmosphere Filter
@@ -1206,6 +1227,7 @@ export default function Destinations() {
     setPublicModes(defaults.publicModes);
     setPartySize(defaults.partySize);
     setBudgetTier(defaults.budgetTier);
+    setBudgetKind(defaults.budgetKind);
     setVibe(defaults.vibe);
     setWeather(defaults.weather);
     setTripDuration(defaults.tripDuration);
@@ -1333,16 +1355,22 @@ export default function Destinations() {
         budgetTier={budgetTier}
         setBudgetTier={(tier) => {
           setBudgetTier(tier);
-          // 'any' (no filter) keeps the standard planning ceiling; a tier
-          // syncs the numeric scorer budget to the same context-aware limit.
+          // KAI-279: 'any' and 'flexible' carry no constraint (a real tier
+          // never doubles as the unselected state); any other tier syncs the
+          // numeric scorer budget to its canonical FLAT party-total ceiling.
+          // Selecting a preset tile (or Any/Flexible) also resets the source
+          // kind to preset — only the Custom editor commits budgetKind=custom.
+          setBudgetKind("preset");
           setMaxBudget(
-            getPlannerBudgetLimit(
-              tier === "any" ? "standard" : tier,
-              partySize,
-              tripDuration,
-            ),
+            tier === "any" || tier === "luxury"
+              ? Number.POSITIVE_INFINITY
+              : BUDGET_TIER_LIMITS[tier],
           );
         }}
+        maxBudget={maxBudget}
+        setMaxBudget={setMaxBudget}
+        budgetKind={budgetKind}
+        setBudgetKind={setBudgetKind}
         vibe={vibe}
         setVibe={setVibe}
         tripDuration={tripDuration}

@@ -67,6 +67,7 @@ function renderPlanner(
     onPartySizeChange: vi.fn(),
     budgetTier: "standard",
     onBudgetTierChange: vi.fn(),
+    onCustomBudgetCapChange: vi.fn(),
     publicTransport: true,
     onPublicTransportChange: vi.fn(),
     carMode: "none",

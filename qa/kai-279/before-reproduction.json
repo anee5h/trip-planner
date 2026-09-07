@@ -1,0 +1,158 @@
+{
+  "baseline": "5e8d80aac43094611802893ffc6cc2bb13683298",
+  "flatCeilings": {
+    "economy": 50000,
+    "standard": 100000,
+    "comfortable": 200000,
+    "luxury": null
+  },
+  "scaledLimits": {
+    "economy|party=1|shortOuting": 50000,
+    "economy|party=1|halfDay": 50000,
+    "economy|party=1|fullDay": 50000,
+    "economy|party=1|1d1n": 50000,
+    "economy|party=1|2d1n": 50000,
+    "economy|party=1|3d2n": 50000,
+    "economy|party=2|shortOuting": 50000,
+    "economy|party=2|halfDay": 50000,
+    "economy|party=2|fullDay": 50000,
+    "economy|party=2|1d1n": 50000,
+    "economy|party=2|2d1n": 50000,
+    "economy|party=2|3d2n": 50000,
+    "economy|party=4|shortOuting": 50000,
+    "economy|party=4|halfDay": 50000,
+    "economy|party=4|fullDay": 50000,
+    "economy|party=4|1d1n": 50000,
+    "economy|party=4|2d1n": 50000,
+    "economy|party=4|3d2n": 50000,
+    "standard|party=1|shortOuting": 100000,
+    "standard|party=1|halfDay": 100000,
+    "standard|party=1|fullDay": 100000,
+    "standard|party=1|1d1n": 100000,
+    "standard|party=1|2d1n": 100000,
+    "standard|party=1|3d2n": 100000,
+    "standard|party=2|shortOuting": 100000,
+    "standard|party=2|halfDay": 100000,
+    "standard|party=2|fullDay": 100000,
+    "standard|party=2|1d1n": 100000,
+    "standard|party=2|2d1n": 100000,
+    "standard|party=2|3d2n": 100000,
+    "standard|party=4|shortOuting": 100000,
+    "standard|party=4|halfDay": 100000,
+    "standard|party=4|fullDay": 100000,
+    "standard|party=4|1d1n": 100000,
+    "standard|party=4|2d1n": 100000,
+    "standard|party=4|3d2n": 100000,
+    "comfortable|party=1|shortOuting": 200000,
+    "comfortable|party=1|halfDay": 200000,
+    "comfortable|party=1|fullDay": 200000,
+    "comfortable|party=1|1d1n": 200000,
+    "comfortable|party=1|2d1n": 200000,
+    "comfortable|party=1|3d2n": 200000,
+    "comfortable|party=2|shortOuting": 200000,
+    "comfortable|party=2|halfDay": 200000,
+    "comfortable|party=2|fullDay": 200000,
+    "comfortable|party=2|1d1n": 200000,
+    "comfortable|party=2|2d1n": 200000,
+    "comfortable|party=2|3d2n": 200000,
+    "comfortable|party=4|shortOuting": 200000,
+    "comfortable|party=4|halfDay": 200000,
+    "comfortable|party=4|fullDay": 200000,
+    "comfortable|party=4|1d1n": 200000,
+    "comfortable|party=4|2d1n": 200000,
+    "comfortable|party=4|3d2n": 200000,
+    "luxury|party=1|shortOuting": null,
+    "luxury|party=1|halfDay": null,
+    "luxury|party=1|fullDay": null,
+    "luxury|party=1|1d1n": null,
+    "luxury|party=1|2d1n": null,
+    "luxury|party=1|3d2n": null,
+    "luxury|party=2|shortOuting": null,
+    "luxury|party=2|halfDay": null,
+    "luxury|party=2|fullDay": null,
+    "luxury|party=2|1d1n": null,
+    "luxury|party=2|2d1n": null,
+    "luxury|party=2|3d2n": null,
+    "luxury|party=4|shortOuting": null,
+    "luxury|party=4|halfDay": null,
+    "luxury|party=4|fullDay": null,
+    "luxury|party=4|1d1n": null,
+    "luxury|party=4|2d1n": null,
+    "luxury|party=4|3d2n": null
+  },
+  "exploreParse": {
+    "any": {
+      "budgetTier": "any",
+      "maxBudget": 100000
+    },
+    "economy": {
+      "budgetTier": "economy",
+      "maxBudget": 50000
+    },
+    "standard": {
+      "budgetTier": "standard",
+      "maxBudget": 100000
+    },
+    "comfortable": {
+      "budgetTier": "comfortable",
+      "maxBudget": 200000
+    },
+    "custom-80000": {
+      "budgetTier": "standard",
+      "maxBudget": 80000
+    },
+    "custom-80000-notier": {
+      "budgetTier": "standard",
+      "maxBudget": 80000
+    },
+    "flexible": {
+      "budgetTier": "luxury",
+      "maxBudget": null
+    }
+  },
+  "tripContextBudgetParse": {
+    "any": {
+      "kind": "none"
+    },
+    "economy-tier-only": {
+      "kind": "preset",
+      "preset": "economy"
+    },
+    "standard-tier-only": {
+      "kind": "preset",
+      "preset": "standard"
+    },
+    "comfortable-tier-only": {
+      "kind": "preset",
+      "preset": "comfortable"
+    },
+    "custom-80000": {
+      "kind": "custom",
+      "cap": 80000
+    },
+    "custom-80000-with-tier": {
+      "kind": "custom",
+      "cap": 80000
+    }
+  },
+  "classificationSample": {
+    "below": {
+      "scaledStandard2pFullDay": "fits",
+      "custom80000": "fits"
+    },
+    "straddle": {
+      "scaledStandard2pFullDay": "fits",
+      "custom80000": "exceeds"
+    },
+    "above": {
+      "scaledStandard2pFullDay": "exceeds",
+      "custom80000": "exceeds"
+    }
+  },
+  "findings": [
+    "getPlannerBudgetLimit returns FLAT party-total ceilings (never scaled by party/duration).",
+    "Explore numeric custom budget parses budgetTier=standard + exact maxBudget cap (custom label).",
+    "TripContext tier-only parse maps to that tier's canonical flat cap (no magic 75000).",
+    "Flat ceilings match KAI-220 (50000/100000/200000)."
+  ]
+}

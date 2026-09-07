@@ -35,7 +35,7 @@ vi.mock("@/shared/context/TripContext", () => ({
       partySize: 2,
       publicModes: [],
       carMode: "none",
-      budget: { kind: "cap", cap: 75000, tier: "standard" },
+      budget: { kind: "preset", preset: "standard" },
     },
     hasExplicitTripContext: false,
     updateTripContext: vi.fn(),

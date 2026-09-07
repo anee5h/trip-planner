@@ -1006,7 +1006,9 @@ test.describe("KAI-80 authenticated state (fixture, no production mutation)", ()
     const viewAllUrl = new URL(viewAllHref as string, page.url());
     expect(viewAllUrl.searchParams.get("partySize")).toBe("4");
     expect(viewAllUrl.searchParams.get("party")).toBe("group");
-    // halfDay standard budget is party-aware: 50,000 × 4 × 0.75.
-    expect(viewAllUrl.searchParams.get("budget")).toBe("150000");
+    // KAI-279: Standard is a FLAT party-total ceiling (¥100,000) — it no
+    // longer scales per person (old 50,000 × 4 × 0.75 = ¥150,000 model was
+    // removed). The cap is identical at party 4 half-day.
+    expect(viewAllUrl.searchParams.get("budget")).toBe("100000");
   });
 });

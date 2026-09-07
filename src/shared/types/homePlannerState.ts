@@ -24,6 +24,10 @@ export interface PlannerControlsState extends PlannerTransportSelection {
   tripDuration: HomepageTripDuration;
   partySize: number;
   budgetTier: BudgetTier;
+  /** KAI-279: exact user-entered whole-trip party-total cap (yen) when the
+   *  traveller chose Custom total. Absent/undefined for presets and Any. The
+   *  cap never scales with party size or trip duration. */
+  customBudgetCap?: number;
 }
 
 export const DEFAULT_PLANNER_BUDGET_TIER: BudgetTier = "standard";

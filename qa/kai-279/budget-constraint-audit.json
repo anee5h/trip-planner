@@ -1,0 +1,135 @@
+{
+  "baseline": "5e8d80aac43094611802893ffc6cc2bb13683298",
+  "presetCeilings": {
+    "economy": 50000,
+    "standard": 100000,
+    "comfortable": 200000,
+    "luxury": null
+  },
+  "capMatrix": {
+    "economy|party=1|halfDay": 50000,
+    "economy|party=1|fullDay": 50000,
+    "economy|party=1|2d1n": 50000,
+    "economy|party=1|3d2n": 50000,
+    "economy|party=2|halfDay": 50000,
+    "economy|party=2|fullDay": 50000,
+    "economy|party=2|2d1n": 50000,
+    "economy|party=2|3d2n": 50000,
+    "economy|party=4|halfDay": 50000,
+    "economy|party=4|fullDay": 50000,
+    "economy|party=4|2d1n": 50000,
+    "economy|party=4|3d2n": 50000,
+    "standard|party=1|halfDay": 100000,
+    "standard|party=1|fullDay": 100000,
+    "standard|party=1|2d1n": 100000,
+    "standard|party=1|3d2n": 100000,
+    "standard|party=2|halfDay": 100000,
+    "standard|party=2|fullDay": 100000,
+    "standard|party=2|2d1n": 100000,
+    "standard|party=2|3d2n": 100000,
+    "standard|party=4|halfDay": 100000,
+    "standard|party=4|fullDay": 100000,
+    "standard|party=4|2d1n": 100000,
+    "standard|party=4|3d2n": 100000,
+    "comfortable|party=1|halfDay": 200000,
+    "comfortable|party=1|fullDay": 200000,
+    "comfortable|party=1|2d1n": 200000,
+    "comfortable|party=1|3d2n": 200000,
+    "comfortable|party=2|halfDay": 200000,
+    "comfortable|party=2|fullDay": 200000,
+    "comfortable|party=2|2d1n": 200000,
+    "comfortable|party=2|3d2n": 200000,
+    "comfortable|party=4|halfDay": 200000,
+    "comfortable|party=4|fullDay": 200000,
+    "comfortable|party=4|2d1n": 200000,
+    "comfortable|party=4|3d2n": 200000,
+    "luxury|party=1|halfDay": null,
+    "luxury|party=1|fullDay": null,
+    "luxury|party=1|2d1n": null,
+    "luxury|party=1|3d2n": null,
+    "luxury|party=2|halfDay": null,
+    "luxury|party=2|fullDay": null,
+    "luxury|party=2|2d1n": null,
+    "luxury|party=2|3d2n": null,
+    "luxury|party=4|halfDay": null,
+    "luxury|party=4|fullDay": null,
+    "luxury|party=4|2d1n": null,
+    "luxury|party=4|3d2n": null
+  },
+  "capScalingDefects": [],
+  "customCaps": {
+    "party=1|halfDay": 80000,
+    "party=1|fullDay": 80000,
+    "party=1|2d1n": 80000,
+    "party=1|3d2n": 80000,
+    "party=2|halfDay": 80000,
+    "party=2|fullDay": 80000,
+    "party=2|2d1n": 80000,
+    "party=2|3d2n": 80000,
+    "party=4|halfDay": 80000,
+    "party=4|fullDay": 80000,
+    "party=4|2d1n": 80000,
+    "party=4|3d2n": 80000
+  },
+  "customScalingDefects": 0,
+  "anyBudget": {
+    "kind": "none",
+    "noConstraint": {
+      "kind": "none"
+    }
+  },
+  "classification": {
+    "completeBelow": {
+      "estimate": "[40,000, 60,000]",
+      "budget": 80000,
+      "detail": "fits",
+      "explore": "fits"
+    },
+    "completeStraddle": {
+      "estimate": "[60,000, 100,000]",
+      "budget": 80000,
+      "detail": "may_exceed",
+      "explore": "exceeds"
+    },
+    "completeAbove": {
+      "estimate": "[90,000, 120,000]",
+      "budget": 80000,
+      "detail": "over",
+      "explore": "exceeds"
+    },
+    "partialRequiredCost": {
+      "estimate": "no total; known subtotal [40,000, 50,000]",
+      "budget": 80000,
+      "detail": "unknown",
+      "explore": "partial"
+    },
+    "unavailable": {
+      "estimate": "unavailable",
+      "budget": 80000,
+      "detail": "unknown",
+      "explore": "unknown"
+    }
+  },
+  "contextRoundTrips": {
+    "economyPreset": {
+      "searchParamsMaxBudget": 50000,
+      "contextCap": 50000,
+      "constraintKey": "preset:economy"
+    },
+    "custom80000": {
+      "searchParamsMaxBudget": 80000,
+      "contextCap": 80000,
+      "constraintKey": "custom:80000"
+    }
+  },
+  "invariants": {
+    "capNeverScalesWithPartySize": true,
+    "capNeverScalesWithDuration": true,
+    "customCapNeverScales": true,
+    "anyHasNoCap": true,
+    "identicalContextGivesIdenticalCap": true,
+    "incompleteNeverConfidentlyWithin": true,
+    "customAndPresetShareOneAffordabilityPath": true,
+    "overnightCapsStayFlat": true
+  }
+}
