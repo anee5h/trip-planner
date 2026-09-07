@@ -46,7 +46,7 @@ function fixtureAsyncProvider(): AsyncCarRouteProvider {
         provider: "test-route-provider",
         direction: request.direction,
         retrievedAt: "2026-09-03T00:00:00.000Z",
-        distanceKm: request.direction === "outbound" ? 61 : 63,
+        distanceKm: request.direction === "outbound" ? 130 : 131,
         durationMinutes: request.direction === "outbound" ? 84 : 90,
         toll: { state: "unknown", basis: "unspecified" },
         confidence: "verified",
@@ -111,9 +111,9 @@ describe("KAI-226 runtime route acquisition", () => {
     const karuizawaRoute = routes[karuizawa.id];
     expect(karuizawaRoute.outbound.provider).toBe("test-route-provider");
     expect(karuizawaRoute.outbound.direction).toBe("outbound");
-    expect(karuizawaRoute.outbound.distanceKm).toBe(61);
+    expect(karuizawaRoute.outbound.distanceKm).toBe(130);
     expect(karuizawaRoute.returnRoute.direction).toBe("return");
-    expect(karuizawaRoute.returnRoute.distanceKm).toBe(63);
+    expect(karuizawaRoute.returnRoute.distanceKm).toBe(131);
     // Route is scoped to the Karuizawa anchor.
     expect(karuizawaRoute.outbound.accessAnchor?.id).toContain("karuizawa");
 
@@ -140,7 +140,7 @@ describe("KAI-226 runtime route acquisition", () => {
     expect(engine.journey).toBeDefined();
     expect(engine.journey!.legs[0].duration.minutes).toEqual([84, 84]);
     expect(engine.journey!.legs[1].duration.minutes).toEqual([90, 90]);
-    expect(engine.journey!.legs[0].routeMetadata?.routeDistanceKm).toBe(61);
+    expect(engine.journey!.legs[0].routeMetadata?.routeDistanceKm).toBe(130);
     const origin = engine.components.find(
       (c) => c.evidence.scope === "origin_travel",
     );

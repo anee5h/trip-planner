@@ -66,7 +66,7 @@ function route(
     provider: "fixture-provider",
     direction,
     retrievedAt: "2026-09-03T00:00:00Z",
-    distanceKm: direction === "outbound" ? 100 : 112,
+    distanceKm: direction === "outbound" ? 160 : 170,
     durationMinutes: direction === "outbound" ? 120 : 128,
     toll: {
       state: "priced",
@@ -107,8 +107,8 @@ describe("CarRouteProvider", () => {
       route(firstAnchor, "return"),
     ]);
     const result = getCarRoundTripRoute(provider, destination, origin);
-    expect(result.outbound.distanceKm).toBe(100);
-    expect(result.returnRoute.distanceKm).toBe(112);
+    expect(result.outbound.distanceKm).toBe(160);
+    expect(result.returnRoute.distanceKm).toBe(170);
     expect(result.outbound.durationMinutes).not.toBe(
       result.returnRoute.durationMinutes,
     );

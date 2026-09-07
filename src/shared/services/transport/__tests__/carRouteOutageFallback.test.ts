@@ -268,8 +268,9 @@ describe("car outage fallback policy", () => {
 
   it("fallback never leaks across destinations", () => {
     resetCarRouteFallbackCounters();
-    // Karuizawa is 140+ km away: the bounded estimator refuses to fabricate
-    // a long estimate, and the failure evidence is scoped per destination.
+    // Karuizawa is within the bounded regional car envelope. The fallback
+    // must remain destination-scoped rather than inheriting Yomiuriland's
+    // failure or route facts.
     const forKaruizawa = getCarOutageFallbackEstimate(
       karuizawa,
       fallbackContext,
@@ -280,7 +281,9 @@ describe("car outage fallback policy", () => {
       fallbackContext,
       bareErrorRoute("quota_exceeded"),
     );
-    expect(forKaruizawa).toBeNull();
+    expect(forKaruizawa).not.toBeNull();
+    expect(forKaruizawa?.source).toBe(CAR_ROUTE_OUTAGE_FALLBACK_SOURCE);
+    expect(forKaruizawa?.destinationZoneId).toBe("mainland-honshu");
     expect(forYomiuriland).not.toBeNull();
   });
 });
