@@ -49,6 +49,7 @@ import {
   findNearbyCombinations,
   type DestinationCombo,
 } from "@/shared/services/recommendation/DestinationCombinationService";
+import { composeDetailRails } from "@/shared/services/recommendation/RailCompositionService";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import {
   budgetCapYen,
@@ -1188,6 +1189,30 @@ export default function DestinationDetails() {
     return findNearbyCombinations(destination, undefined, 3);
   }, [destination]);
 
+  const composedDetailRails = useMemo(
+    () =>
+      composeDetailRails({
+        destinationId: destination?.id ?? "",
+        isHub: destination?.role === "hub",
+        featuredChildSights,
+        hubMoreDestinations,
+        greatAdditions: nearbyCombinations,
+        nearbyHubs,
+        nearbyPlaces,
+        halfDaySiblings,
+      }),
+    [
+      destination?.id,
+      destination?.role,
+      featuredChildSights,
+      halfDaySiblings,
+      hubMoreDestinations,
+      nearbyCombinations,
+      nearbyHubs,
+      nearbyPlaces,
+    ],
+  );
+
   const handleSaveCombination = (combo: DestinationCombo) => {
     const pairKey = getCombinationKey(combo.primary.id, combo.secondary.id);
     const comboGroup: ItineraryGroup = {
@@ -1298,12 +1323,14 @@ export default function DestinationDetails() {
   const hasHubDiscovery =
     isHub && (featuredChildSights.length > 0 || childDestinations.length > 0);
   const hasGoNext =
-    isHub && (nearbyCombinations.length > 0 || nearbyHubs.length > 0);
+    isHub &&
+    (composedDetailRails.greatAdditions.length > 0 ||
+      composedDetailRails.nearbyHubs.length > 0);
   const hasRelatedPlaces =
     !isHub &&
-    (nearbyCombinations.length > 0 ||
-      nearbyPlaces.length > 0 ||
-      halfDaySiblings.length > 0);
+    (composedDetailRails.greatAdditions.length > 0 ||
+      composedDetailRails.nearbyPlaces.length > 0 ||
+      composedDetailRails.halfDaySiblings.length > 0);
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen">
       {relationshipCatalogueStatus === "error" && (
@@ -1882,10 +1909,10 @@ export default function DestinationDetails() {
                 </h2>
               </div>
 
-              {featuredChildSights.length > 0 && (
+              {composedDetailRails.featuredChildSights.length > 0 && (
                 <DestinationDetailRail
                   title={locale === "ja" ? "注目の見どころ" : "Top sights"}
-                  destinations={featuredChildSights}
+                  destinations={composedDetailRails.featuredChildSights}
                   currentDestinationId={destination.id}
                   partySize={partySize}
                   carMode={activeCarMode}
@@ -1921,12 +1948,12 @@ export default function DestinationDetails() {
                     </div>
                   </div>
 
-                  {hubMoreDestinations.length > 0 && (
+                  {composedDetailRails.hubMoreDestinations.length > 0 && (
                     <DestinationDetailRail
                       title={
                         locale === "ja" ? "さらに楽しむ" : "More things to do"
                       }
-                      destinations={hubMoreDestinations}
+                      destinations={composedDetailRails.hubMoreDestinations}
                       currentDestinationId={destination.id}
                       partySize={partySize}
                       carMode={activeCarMode}
@@ -2804,7 +2831,7 @@ export default function DestinationDetails() {
               </div>
 
               <DestinationCombinationRail
-                combinations={nearbyCombinations}
+                combinations={composedDetailRails.greatAdditions}
                 locale={locale}
                 currentDestinationId={destination.id}
                 currentDestinationName={
@@ -2823,7 +2850,7 @@ export default function DestinationDetails() {
                 compact
               />
 
-              {nearbyHubs.length > 0 && (
+              {composedDetailRails.nearbyHubs.length > 0 && (
                 <DestinationDetailRail
                   title={locale === "ja" ? "近くの都市ハブ" : "Nearby hubs"}
                   description={
@@ -2831,7 +2858,7 @@ export default function DestinationDetails() {
                       ? "50km圏内の都市ハブ"
                       : "City hubs within 50 km."
                   }
-                  destinations={nearbyHubs}
+                  destinations={composedDetailRails.nearbyHubs}
                   currentDestinationId={destination.id}
                   partySize={partySize}
                   carMode={activeCarMode}
@@ -2866,7 +2893,7 @@ export default function DestinationDetails() {
               </div>
 
               <DestinationCombinationRail
-                combinations={nearbyCombinations}
+                combinations={composedDetailRails.greatAdditions}
                 locale={locale}
                 currentDestinationId={destination.id}
                 currentDestinationName={
@@ -2885,7 +2912,7 @@ export default function DestinationDetails() {
                 compact
               />
 
-              {nearbyPlaces.length > 0 && (
+              {composedDetailRails.nearbyPlaces.length > 0 && (
                 <DestinationDetailRail
                   title={locale === "ja" ? "近くの場所" : "Nearby places"}
                   description={
@@ -2893,7 +2920,7 @@ export default function DestinationDetails() {
                       ? `${localizedDestination?.name || destination.name}に関連する場所`
                       : `Related places for ${localizedDestination?.name || destination.name}.`
                   }
-                  destinations={nearbyPlaces}
+                  destinations={composedDetailRails.nearbyPlaces}
                   currentDestinationId={destination.id}
                   partySize={partySize}
                   carMode={activeCarMode}
@@ -2904,14 +2931,14 @@ export default function DestinationDetails() {
                 />
               )}
 
-              {halfDaySiblings.length > 0 && (
+              {composedDetailRails.halfDaySiblings.length > 0 && (
                 <DestinationDetailRail
                   title={
                     locale === "ja"
                       ? "同じ街の半日スポット"
                       : "More half-day options"
                   }
-                  destinations={halfDaySiblings}
+                  destinations={composedDetailRails.halfDaySiblings}
                   currentDestinationId={destination.id}
                   partySize={partySize}
                   compact
