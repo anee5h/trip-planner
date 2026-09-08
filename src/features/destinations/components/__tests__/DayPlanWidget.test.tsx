@@ -104,7 +104,7 @@ describe("canonical duration planner defaults", () => {
 });
 
 describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
-  it("derives plan density from the selected time instead of a duplicate course control", () => {
+  it("quick creates a default plan without opening the full preferences form", () => {
     let generatedPlan: ReturnType<typeof generateDayPlan> | null | undefined;
     host = document.createElement("div");
     document.body.appendChild(host);
@@ -125,6 +125,95 @@ describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
     act(() => {
       Array.from(host!.querySelectorAll("button"))
         .find((button) => button.textContent?.includes("Create day plan"))
+        ?.click();
+    });
+
+    expect(generatedPlan).toBeDefined();
+    expect(host.querySelector("form")).toBeNull();
+    expect(
+      host.querySelector('[data-testid="planner-generated-timeline"]'),
+    ).not.toBeNull();
+    expect(generatedPlan!.generatedWith).toMatchObject({
+      availableMinutes: 540,
+      planType: "full_day",
+    });
+  });
+
+  it("shows primary preferences first and keeps advanced options disclosed", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget destination={mockPoi1} />
+        </MemoryRouter>,
+      );
+    });
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Customize"))
+        ?.click();
+    });
+
+    expect(
+      host.querySelector('[data-testid="planner-primary-controls"]'),
+    ).not.toBeNull();
+    expect(
+      host.querySelector('[data-testid="planner-advanced-options"]'),
+    ).toBeNull();
+    expect(
+      Array.from(host.querySelectorAll("label")).map((label) =>
+        label.textContent?.trim(),
+      ),
+    ).toEqual(
+      expect.arrayContaining([
+        "Arrive at first stop",
+        "Time available",
+        "Pace",
+      ]),
+    );
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("More options"))
+        ?.click();
+    });
+
+    expect(
+      host.querySelector('[data-testid="planner-advanced-options"]'),
+    ).not.toBeNull();
+    expect(
+      Array.from(host.querySelectorAll("label")).map((label) =>
+        label.textContent?.trim(),
+      ),
+    ).toEqual(
+      expect.arrayContaining(["Finish at", "Area Catchment", "Party Size"]),
+    );
+  });
+
+  it("derives plan density from the selected time instead of a duplicate course control", () => {
+    let generatedPlan: ReturnType<typeof generateDayPlan> | null | undefined;
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget
+            destination={mockPoi1}
+            onPlanGenerated={(plan) => {
+              generatedPlan = plan;
+            }}
+          />
+        </MemoryRouter>,
+      );
+    });
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Customize"))
         ?.click();
     });
 
@@ -174,7 +263,7 @@ describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
 
     act(() => {
       Array.from(host!.querySelectorAll("button"))
-        .find((button) => button.textContent?.includes("プランを作成"))
+        .find((button) => button.textContent?.includes("カスタマイズ"))
         ?.click();
     });
 
@@ -199,7 +288,7 @@ describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
 
     act(() => {
       Array.from(host!.querySelectorAll("button"))
-        .find((button) => button.textContent?.includes("Create day plan"))
+        .find((button) => button.textContent?.includes("Customize"))
         ?.click();
     });
     act(() => {

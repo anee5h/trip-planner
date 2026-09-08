@@ -29,6 +29,7 @@ import {
   Sparkles,
   RotateCcw,
   SlidersHorizontal,
+  ChevronDown,
   Trash2,
   MoveUp,
   MoveDown,
@@ -118,6 +119,7 @@ export function DayPlanWidget({
 
   const [hasGenerated, setHasGenerated] = useState(false);
   const [showConfig, setShowConfig] = useState(false);
+  const [showAdvancedOptions, setShowAdvancedOptions] = useState(false);
 
   const initialPlanType = getInitialDayPlanType(
     duration,
@@ -167,12 +169,12 @@ export function DayPlanWidget({
     setGeneratedPlan(null);
     setHasGenerated(false);
     setShowConfig(false);
+    setShowAdvancedOptions(false);
   }, [destination.id, duration, defaultPlanType, fullDayDisabled]);
 
   const resultRef = useRef<HTMLDivElement>(null);
 
-  const handleStartCreation = () => {
-    setShowConfig(true);
+  const trackCreationStarted = (preferencesOpened: boolean) => {
     const analyticsDetails = {
       primaryRole: isHubOrCity ? ("hub" as const) : ("poi" as const),
       planType,
@@ -188,12 +190,19 @@ export function DayPlanWidget({
       analyticsDetails,
       locale,
     );
-    recommendationAnalytics.trackPlanningToolEvent(
-      "day_plan_preferences_opened",
-      destination.id,
-      analyticsDetails,
-      locale,
-    );
+    if (preferencesOpened) {
+      recommendationAnalytics.trackPlanningToolEvent(
+        "day_plan_preferences_opened",
+        destination.id,
+        analyticsDetails,
+        locale,
+      );
+    }
+  };
+
+  const handleCustomize = () => {
+    setShowConfig(true);
+    trackCreationStarted(true);
   };
 
   const handleGeneratePlan = (
@@ -494,12 +503,20 @@ export function DayPlanWidget({
                         ? `${localizedDestination.name}への訪問を中心に、徒歩・ローカル移動圏内の周辺スポットを組み立てます。`
                         : `Build a personalized schedule around ${destination.name} with optimal visit durations.`}
                   </p>
-                  <div className="flex items-center gap-3 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300">
+                  <div className="flex flex-wrap items-center gap-2 pt-1 text-[11px] font-semibold text-slate-500 dark:text-slate-300">
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5 text-emerald-500" />
                       {locale === "ja"
                         ? `推奨所要時間: 約${suitableDurationHours}〜${suitableDurationMaxHours}時間`
                         : `Est. duration: ~${suitableDurationHours}–${suitableDurationMaxHours} hours`}
+                    </span>
+                    <span
+                      data-testid="planner-default-summary"
+                      className="rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-1"
+                    >
+                      {locale === "ja"
+                        ? `${planType === "half_day" ? "半日" : "1日"}・標準・${partySize}人`
+                        : `${planType === "half_day" ? "Half day" : "Full day"} · Balanced · ${partySize} ${partySize === 1 ? "person" : "people"}`}
                     </span>
                   </div>
                 </>
@@ -513,20 +530,34 @@ export function DayPlanWidget({
             </div>
 
             {eligible && (
-              <Button
-                onClick={handleStartCreation}
-                aria-expanded={showConfig}
-                className="w-full sm:w-auto min-h-[44px] px-5 bg-emerald-700 hover:bg-emerald-800 text-white font-bold rounded-xl shadow-sm shrink-0 flex items-center justify-center gap-2"
-              >
-                <Plus className="w-4 h-4" />
-                <span>
-                  {locale === "ja"
-                    ? "プランを作成"
-                    : isHubOrCity
-                      ? "Create area plan"
-                      : "Create day plan"}
-                </span>
-              </Button>
+              <div className="flex w-full shrink-0 flex-col gap-2 sm:w-auto sm:min-w-[190px]">
+                <Button
+                  onClick={() => {
+                    trackCreationStarted(false);
+                    handleGeneratePlan();
+                  }}
+                  className="w-full min-h-[44px] bg-emerald-700 px-5 text-white font-bold rounded-xl shadow-sm flex items-center justify-center gap-2"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>
+                    {locale === "ja"
+                      ? "プランを作成"
+                      : isHubOrCity
+                        ? "Create area plan"
+                        : "Create day plan"}
+                  </span>
+                </Button>
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={handleCustomize}
+                  aria-expanded={showConfig}
+                  className="w-full min-h-[44px] rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300"
+                >
+                  <SlidersHorizontal className="w-3.5 h-3.5 mr-1.5" />
+                  {locale === "ja" ? "カスタマイズ" : "Customize"}
+                </Button>
+              </div>
             )}
           </div>
         )}
@@ -551,7 +582,10 @@ export function DayPlanWidget({
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 text-xs">
+            <div
+              data-testid="planner-primary-controls"
+              className="grid grid-cols-1 gap-4 text-xs sm:grid-cols-2 md:grid-cols-3"
+            >
               {/* Arrive at First Stop */}
               <div>
                 <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
@@ -638,24 +672,6 @@ export function DayPlanWidget({
                 )}
               </div>
 
-              <div>
-                <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
-                  {locale === "ja" ? "終了地点" : "Finish at"}
-                </label>
-                <select
-                  value={returnMode}
-                  onChange={(e) => setReturnMode(e.target.value as ReturnMode)}
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold"
-                >
-                  <option value="none">
-                    {locale === "ja" ? "最後のスポット" : "Last attraction"}
-                  </option>
-                  <option value="nearest_station">
-                    {locale === "ja" ? "最寄り駅" : "Nearest station"}
-                  </option>
-                </select>
-              </div>
-
               {/* Pace */}
               <div>
                 <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
@@ -677,55 +693,97 @@ export function DayPlanWidget({
                   </option>
                 </select>
               </div>
-
-              {/* Catchment Scope */}
-              <div>
-                <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
-                  {locale === "ja" ? "検索範囲" : "Area Catchment"}
-                </label>
-                <select
-                  value={catchmentScope}
-                  onChange={(e) =>
-                    setCatchmentScope(e.target.value as CatchmentScope)
-                  }
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
-                >
-                  <option value="nearby">
-                    {locale === "ja"
-                      ? "周辺エリア (8〜12km)"
-                      : "Nearby (8–12 km)"}
-                  </option>
-                  <option value="wider">
-                    {locale === "ja"
-                      ? "広域エリア (最大20km)"
-                      : "Wider area (up to 20 km)"}
-                  </option>
-                </select>
-              </div>
-
-              {/* Party Size */}
-              <div>
-                <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
-                  {locale === "ja" ? "人数" : "Party Size"}
-                </label>
-                <select
-                  value={partySize}
-                  onChange={(e) => onPartySizeChange?.(Number(e.target.value))}
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
-                >
-                  {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <option key={n} value={n}>
-                      {n}{" "}
-                      {t(
-                        n === 1
-                          ? "destination.dayPlan.person"
-                          : "destination.dayPlan.people",
-                      )}
-                    </option>
-                  ))}
-                </select>
-              </div>
             </div>
+
+            <button
+              type="button"
+              aria-expanded={showAdvancedOptions}
+              aria-controls="planner-advanced-options"
+              onClick={() => setShowAdvancedOptions((visible) => !visible)}
+              className="flex min-h-[44px] w-full items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-3 text-left text-xs font-bold text-slate-700 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-200 md:col-span-3"
+            >
+              <span>{locale === "ja" ? "その他の条件" : "More options"}</span>
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${showAdvancedOptions ? "rotate-180" : ""}`}
+                aria-hidden="true"
+              />
+            </button>
+
+            {showAdvancedOptions && (
+              <div
+                data-testid="planner-advanced-options"
+                id="planner-advanced-options"
+                className="grid grid-cols-1 gap-4 border-l-2 border-slate-100 pl-3 text-xs dark:border-slate-800 sm:grid-cols-2 md:col-span-3 md:grid-cols-3"
+              >
+                <div>
+                  <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                    {locale === "ja" ? "終了地点" : "Finish at"}
+                  </label>
+                  <select
+                    value={returnMode}
+                    onChange={(e) =>
+                      setReturnMode(e.target.value as ReturnMode)
+                    }
+                    className="w-full min-h-[44px] bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold"
+                  >
+                    <option value="none">
+                      {locale === "ja" ? "最後のスポット" : "Last attraction"}
+                    </option>
+                    <option value="nearest_station">
+                      {locale === "ja" ? "最寄り駅" : "Nearest station"}
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                    {locale === "ja" ? "検索範囲" : "Area Catchment"}
+                  </label>
+                  <select
+                    value={catchmentScope}
+                    onChange={(e) =>
+                      setCatchmentScope(e.target.value as CatchmentScope)
+                    }
+                    className="w-full min-h-[44px] bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  >
+                    <option value="nearby">
+                      {locale === "ja"
+                        ? "周辺エリア (8〜12km)"
+                        : "Nearby (8–12 km)"}
+                    </option>
+                    <option value="wider">
+                      {locale === "ja"
+                        ? "広域エリア (最大20km)"
+                        : "Wider area (up to 20 km)"}
+                    </option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+                    {locale === "ja" ? "人数" : "Party Size"}
+                  </label>
+                  <select
+                    value={partySize}
+                    onChange={(e) =>
+                      onPartySizeChange?.(Number(e.target.value))
+                    }
+                    className="w-full min-h-[44px] bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  >
+                    {[1, 2, 3, 4, 5, 6].map((n) => (
+                      <option key={n} value={n}>
+                        {n}{" "}
+                        {t(
+                          n === 1
+                            ? "destination.dayPlan.person"
+                            : "destination.dayPlan.people",
+                        )}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
 
             {/* Planning Window Scope Note Banner */}
             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/60 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-600 dark:text-slate-300 gap-1.5">
@@ -859,7 +917,12 @@ export function DayPlanWidget({
 
         {/* GENERATED TIMELINE */}
         {hasGenerated && generatedPlan && !generatedPlan.isUnfeasible && (
-          <div ref={resultRef} tabIndex={-1} className="space-y-6">
+          <div
+            ref={resultRef}
+            tabIndex={-1}
+            data-testid="planner-generated-timeline"
+            className="space-y-4 sm:space-y-5"
+          >
             {preferencesChanged && (
               <div
                 className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs font-semibold text-amber-900"
@@ -949,7 +1012,7 @@ export function DayPlanWidget({
               const IconComp = blockMeta.icon;
 
               return (
-                <div key={block} className="space-y-3">
+                <div key={block} className="space-y-2">
                   <div className="flex items-center gap-2">
                     <div
                       className={`p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 ${blockMeta.color}`}
@@ -961,7 +1024,7 @@ export function DayPlanWidget({
                     </span>
                   </div>
 
-                  <div className="space-y-2 pl-3 border-l-2 border-slate-100 dark:border-slate-800 ml-3">
+                  <div className="space-y-1.5 pl-2.5 border-l-2 border-slate-100 dark:border-slate-800 ml-2.5">
                     {blockSteps.map((step: DayPlanStep) => {
                       const destinationIndex = generatedPlan.steps
                         .filter(isRealDestinationStop)
@@ -971,7 +1034,7 @@ export function DayPlanWidget({
                         return (
                           <div
                             key={step.id}
-                            className="flex items-start justify-between gap-3 p-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-700/50 transition-all group"
+                            className="flex items-start justify-between gap-2 p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-700/50 transition-all group"
                           >
                             <div className="flex items-start gap-3 flex-1 min-w-0">
                               <span className="text-xs font-mono font-bold text-slate-500 shrink-0 mt-0.5">
@@ -1071,7 +1134,7 @@ export function DayPlanWidget({
                         return (
                           <div
                             key={step.id}
-                            className="p-3 bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 rounded-xl flex items-center justify-between text-xs"
+                            className="p-2.5 bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200/60 dark:border-amber-900/40 rounded-xl flex items-center justify-between text-xs"
                           >
                             <div className="flex items-center gap-2 text-amber-900 dark:text-amber-200 font-bold">
                               <span className="font-mono text-slate-500">
@@ -1087,7 +1150,7 @@ export function DayPlanWidget({
                       return (
                         <div
                           key={step.id}
-                          className="p-2.5 text-[11px] text-slate-500 dark:text-slate-300 flex items-center gap-2"
+                          className="p-2 text-[11px] text-slate-500 dark:text-slate-300 flex items-center gap-2"
                         >
                           <span className="font-mono">{step.startTime}</span>
                           <span>• {step.title[locale]}</span>
@@ -1100,7 +1163,7 @@ export function DayPlanWidget({
             })}
 
             {/* Footer Actions */}
-            <div className="flex flex-col items-stretch gap-2 pt-4 border-t border-slate-100 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col items-stretch gap-2 pt-3 border-t border-slate-100 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex w-full items-center gap-2 sm:w-auto">
                 <Button
                   variant="outline"

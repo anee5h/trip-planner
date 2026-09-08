@@ -22,9 +22,7 @@ async function generatePlan(
       : `/destinations/${DESTINATION}`;
   await page.goto(path);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  await page
-    .getByRole("button", { name: /Create (area|day) plan|プランを作成/ })
-    .click();
+  await page.getByRole("button", { name: /Customize|カスタマイズ/ }).click();
   await page
     .getByRole("button", { name: /Generate Plan|プランを生成/ })
     .click();
