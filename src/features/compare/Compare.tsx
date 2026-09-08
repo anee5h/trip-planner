@@ -506,10 +506,10 @@ export default function Compare() {
                       estimate &&
                       getDecisionOneWayMinutes(estimate) ===
                         minReliableCompareMinutes && (
-                      <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
-                        {t("compare.fastest")}
-                      </span>
-                    )}
+                        <span className="ml-1 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wide bg-emerald-50 dark:bg-emerald-950 px-1.5 py-0.5 rounded">
+                          {t("compare.fastest")}
+                        </span>
+                      )}
                   </p>
                 </div>
                 <div>
