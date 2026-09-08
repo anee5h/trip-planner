@@ -83,6 +83,18 @@ export function getInitialAvailableMinutes(planType: DayPlanType): number {
   return planType === "half_day" ? 300 : 540;
 }
 
+/**
+ * KAI-282: plan density follows the selected time window. Keep the planner
+ * engine's existing full/half-day contract, but do not expose a second
+ * primary control that can disagree with availableMinutes.
+ */
+export function getPlanTypeForAvailableMinutes(
+  availableMinutes: number,
+  fullDayDisabled: boolean,
+): DayPlanType {
+  return !fullDayDisabled && availableMinutes >= 480 ? "full_day" : "half_day";
+}
+
 export function DayPlanWidget({
   destination,
   locale = "en",
@@ -571,8 +583,16 @@ export function DayPlanWidget({
                   value={durationPreset}
                   onChange={(e) => {
                     setDurationPreset(e.target.value);
-                    if (e.target.value !== "custom")
-                      setAvailableMinutes(Number(e.target.value));
+                    if (e.target.value !== "custom") {
+                      const nextMinutes = Number(e.target.value);
+                      setAvailableMinutes(nextMinutes);
+                      setPlanType(
+                        getPlanTypeForAvailableMinutes(
+                          nextMinutes,
+                          fullDayDisabled,
+                        ),
+                      );
+                    }
                   }}
                   className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
                 >
@@ -600,14 +620,19 @@ export function DayPlanWidget({
                     min={60}
                     max={720}
                     value={availableMinutes}
-                    onChange={(e) =>
-                      setAvailableMinutes(
-                        Math.max(
-                          60,
-                          Math.min(720, Number(e.target.value) || 60),
+                    onChange={(e) => {
+                      const nextMinutes = Math.max(
+                        60,
+                        Math.min(720, Number(e.target.value) || 60),
+                      );
+                      setAvailableMinutes(nextMinutes);
+                      setPlanType(
+                        getPlanTypeForAvailableMinutes(
+                          nextMinutes,
+                          fullDayDisabled,
                         ),
-                      )
-                    }
+                      );
+                    }}
                     className="mt-2 w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold"
                   />
                 )}
@@ -627,29 +652,6 @@ export function DayPlanWidget({
                   </option>
                   <option value="nearest_station">
                     {locale === "ja" ? "最寄り駅" : "Nearest station"}
-                  </option>
-                </select>
-              </div>
-
-              {/* Plan Type Target */}
-              <div>
-                <label className="block font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
-                  {locale === "ja" ? "コース種類" : "Course Type"}
-                </label>
-                <select
-                  value={planType}
-                  onChange={(e) => setPlanType(e.target.value as DayPlanType)}
-                  className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white rounded-xl px-3 py-2.5 text-base sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 min-h-[44px]"
-                >
-                  <option value="full_day" disabled={fullDayDisabled}>
-                    {locale === "ja"
-                      ? "1日コース (3〜4スポット)"
-                      : "Full Day (3–4 stops)"}
-                  </option>
-                  <option value="half_day">
-                    {locale === "ja"
-                      ? "半日コース (2スポット)"
-                      : "Half Day (2 stops)"}
                   </option>
                 </select>
               </div>
