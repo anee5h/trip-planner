@@ -139,6 +139,27 @@ describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
     });
   });
 
+  it("does not repeat generated cost in the planner header", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget destination={mockPoi1} />
+        </MemoryRouter>,
+      );
+    });
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Create day plan"))
+        ?.click();
+    });
+
+    expect(host.textContent).not.toContain("Approx. ¥3.2k–7.2k");
+  });
+
   it("shows primary preferences first and keeps advanced options disclosed", () => {
     host = document.createElement("div");
     document.body.appendChild(host);
