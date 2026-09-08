@@ -16,39 +16,44 @@ composition helpers; it does not synthesize candidates.
 
 | Measure                                                     | Before composition | After composition |
 | ----------------------------------------------------------- | -----------------: | ----------------: |
-| Recommendation-eligible pool                                |                 52 |                52 |
-| Nearby full-catalogue pool (own source)                     |                220 |               220 |
-| Nearby pool from eligible recommendations (diagnostic only) |                 49 |                49 |
+| Recommendation-eligible pool                                |                 42 |                42 |
+| Nearby full-catalogue pool (own source)                     |                167 |               167 |
+| Nearby pool from eligible recommendations (diagnostic only) |                 39 |                39 |
 | Canonical duplicate IDs across Top/Seasonal/Under-60/Nearby |                 45 |                 0 |
 | Top Matches ↔ seasonal overlap                              |              10/10 |              0/10 |
 
-Displayed Top Matches retained 10 unique IDs. In the pinned service fixture, the ranked family mix was
-`culture/history: 2`, `observation/viewpoint: 4`, and `family/entertainment: 4`; the
-composed result was `culture/history: 3`, `observation/viewpoint: 4`, and
-`family/entertainment: 3`. The bounded pass preserves the existing Home rail order:
+The regenerated transport-aware run retains 10 unique Top Matches. The recommendation
+pool is smaller because the KAI-348 transport contract removes candidates whose only
+origin estimate is conservative-only or otherwise lacks sufficient evidence for a
+bounded half-day plan. This is a transport-truthfulness change, not a recommendation
+weight or composition-policy change. The bounded pass preserves the existing Home rail order:
 Top Matches → Seasonal → Under 60 → Unexplored Nearby → Featured Collections.
+
+The new ranked/composed family mix is `culture/history: 1`,
+`observation/viewpoint: 4`, `family/entertainment: 4`, and
+`town/city exploration: 1`. No candidate was pulled forward to compensate for the
+transport-evidence removals; the rails remain shorter when their eligible source pools
+are shorter.
 
 The reviewed rendered-default Home fixture (Firefox preview, 1440×900, current
 planner defaults) had this raw first-screen shape:
 
-- Roppongi Hills (observation, 79.032)
-- Boso Peninsula (nature, 76.600)
-- Tokyo Skytree (observation, 74.328)
-- Shibuya Sky (observation, 78.388)
-- Tokyo Metropolitan Government Building (observation, 77.832)
+- Imperial Palace (culture/history)
+- Tokyo Skytree (observation/viewpoint)
+- Ueno Zoo (family/entertainment)
+- Tokyo Metropolitan Government Building (observation/viewpoint)
+- teamLab Planets (family/entertainment)
 
-Imperial Palace was the next culture candidate at 71.334. The composition pass
-promoted it to rank 4 because it was within the bounded 8-point quality margin
-and the three-candidate lookahead. The rendered first five became observation,
-nature, observation, culture, observation: two observation cards in the first
-four, without changing any recommendation score or geography input. We did not
-pull the weaker/deeper family alternatives forward: Ueno Zoo was 8.800 points
-below Tokyo Tower, and Takanawa Gateway was outside the bounded lookahead.
+The regenerated first five reflect the changed transport-eligible pool directly;
+the composition pass does not alter recommendation scores or introduce a new
+ranking weight. The transport-truthfulness change also admits Kirin Beer Yokohama
+Factory and Yokohama Zoorasia while removing conservative-only suburban/regional
+rows from the half-day recommendation source.
 
-The nearby rail keeps its established own producer pool: 220 full-catalogue
+The nearby rail keeps its established own producer pool: 167 full-catalogue
 records are filtered by origin transport evidence, duration, coordinates, and
 visited state, without inheriting recommendation budget/vibe scoring. The
-49-candidate recommendation-eligible result is retained as a diagnostic
+39-candidate recommendation-eligible result is retained as a diagnostic
 comparison only. Composition claims canonical IDs after that producer filter;
 when the own pool is sparse, the rail returns fewer cards rather than filler.
 
@@ -82,13 +87,14 @@ hub-order composition measured:
 | --------------------------------------- | -----: | ----: |
 | Featured child sights                   |     12 |    12 |
 | More things to do                       |      2 |     2 |
-| Great additions                         |      3 |     0 |
+| Great additions                         |      6 |     1 |
 | Nearby hubs                             |      5 |     5 |
-| Duplicate IDs across rendered hub rails |      3 |     0 |
+| Duplicate IDs across rendered hub rails |      5 |     0 |
 
-The three Great Additions candidates were already claimed by higher-priority hub
-rails and were correctly suppressed rather than replaced by unrelated records.
-The healthy hub pool still renders 14 distinct child choices before later rails.
+Five of the six raw Great Additions candidates were already claimed by
+higher-priority hub rails and were correctly suppressed rather than replaced by
+unrelated records. The healthy hub pool still renders 15 distinct child choices
+before later rails.
 
 ## Sparse pools
 
