@@ -208,9 +208,9 @@ describe("KAI-95: Mobile viewport zoom prevention & modal typography", () => {
     expect(content).toMatch(
       /value=\{returnMode\}[\s\S]*?className="[^"]*text-base\s+sm:text-sm/,
     );
-    expect(content).toMatch(
-      /value=\{planType\}[\s\S]*?className="[^"]*text-base\s+sm:text-sm/,
-    );
+    // KAI-282 removes the duplicate Course Type select; plan density now
+    // follows the time-available control instead of exposing planType here.
+    expect(content).not.toMatch(/value=\{planType\}/);
     expect(content).toMatch(
       /value=\{pace\}[\s\S]*?className="[^"]*text-base\s+sm:text-sm/,
     );

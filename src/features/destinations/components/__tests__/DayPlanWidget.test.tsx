@@ -9,6 +9,7 @@ import {
   DayPlanWidget,
   getInitialAvailableMinutes,
   getInitialDayPlanType,
+  getPlanTypeForAvailableMinutes,
 } from "../DayPlanWidget";
 
 // KAI-121: generateDayPlan needs the FULL catalogue (nearby candidates).
@@ -87,9 +88,103 @@ describe("canonical duration planner defaults", () => {
       "full_day",
     );
   });
+
+  it.each([
+    [300, false, "half_day"],
+    [540, false, "full_day"],
+    [540, true, "half_day"],
+  ] as const)(
+    "derives %s minutes with fullDayDisabled=%s as %s",
+    (availableMinutes, fullDayDisabled, expectedPlanType) => {
+      expect(
+        getPlanTypeForAvailableMinutes(availableMinutes, fullDayDisabled),
+      ).toBe(expectedPlanType);
+    },
+  );
 });
 
 describe("DayPlanGeneratorService - Disclosures & Hub Routing", () => {
+  it("derives plan density from the selected time instead of a duplicate course control", () => {
+    let generatedPlan: ReturnType<typeof generateDayPlan> | null | undefined;
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget
+            destination={mockPoi1}
+            onPlanGenerated={(plan) => {
+              generatedPlan = plan;
+            }}
+          />
+        </MemoryRouter>,
+      );
+    });
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Create day plan"))
+        ?.click();
+    });
+
+    expect(
+      Array.from(host.querySelectorAll("label")).map((label) =>
+        label.textContent?.trim(),
+      ),
+    ).not.toContain("Course Type");
+
+    const timeAvailable = Array.from(host.querySelectorAll("select")).find(
+      (select) =>
+        Array.from(select.options).some((option) =>
+          option.textContent?.includes("Half day"),
+        ),
+    );
+    expect(timeAvailable).toBeDefined();
+
+    act(() => {
+      timeAvailable!.value = "300";
+      timeAvailable!.dispatchEvent(new Event("change", { bubbles: true }));
+    });
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("Generate Plan"))
+        ?.click();
+    });
+
+    expect(generatedPlan).toBeDefined();
+    const generated = generatedPlan!;
+    expect(generated.generatedWith).toMatchObject({
+      availableMinutes: 300,
+      planType: "half_day",
+    });
+  });
+
+  it("removes the duplicate course control from the Japanese planner form", () => {
+    host = document.createElement("div");
+    document.body.appendChild(host);
+    root = createRoot(host);
+    act(() => {
+      root!.render(
+        <MemoryRouter>
+          <DayPlanWidget destination={mockPoi1} locale="ja" />
+        </MemoryRouter>,
+      );
+    });
+
+    act(() => {
+      Array.from(host!.querySelectorAll("button"))
+        .find((button) => button.textContent?.includes("プランを作成"))
+        ?.click();
+    });
+
+    expect(
+      Array.from(host.querySelectorAll("label")).map((label) =>
+        label.textContent?.trim(),
+      ),
+    ).not.toContain("コース種類");
+  });
+
   it("reorders destination cards despite intervening travel steps", () => {
     host = document.createElement("div");
     document.body.appendChild(host);
