@@ -80,6 +80,17 @@ export interface Kai260BoundedTransition {
   readonly currentMissingReasons: readonly string[];
 }
 
+export function isConservativeOnlyMissingReasons(
+  missingReasons: readonly string[],
+): boolean {
+  return (
+    missingReasons.length > 0 &&
+    missingReasons.every(
+      (reason) => reason === "origin_travel:insufficient_model_evidence",
+    )
+  );
+}
+
 function candidatesFor(
   destination: Destination,
   origin: (typeof ORIGINS)[number],
@@ -111,13 +122,15 @@ function classifyDestination(
 ): RangeDestinationRow {
   const { modes, candidates } = candidatesFor(destination, origin);
   const bounded = candidates.filter((candidate) => candidate.estimate.total);
-  const conservative = candidates.some((candidate) =>
-    candidate.estimate.missingComponents.some(
-      (missing) =>
-        missing.scope === "origin_travel" &&
-        missing.reason === "insufficient_model_evidence",
-    ),
-  );
+  const conservative =
+    candidates.length > 0 &&
+    candidates.every((candidate) =>
+      isConservativeOnlyMissingReasons(
+        candidate.estimate.missingComponents.map(
+          (missing) => `${missing.scope}:${missing.reason}`,
+        ),
+      ),
+    );
   const missingReasons = [
     ...new Set(
       candidates.flatMap((candidate) =>
@@ -235,6 +248,21 @@ export function runRangeBenchmark(
 }
 
 describe("KAI-260 range-first benchmark", () => {
+  it("keeps mixed missing reasons in the 90% gate population", () => {
+    expect(
+      isConservativeOnlyMissingReasons([
+        "origin_travel:insufficient_model_evidence",
+        "accommodation:source_missing",
+      ]),
+    ).toBe(false);
+    expect(
+      isConservativeOnlyMissingReasons([
+        "origin_travel:insufficient_model_evidence",
+        "origin_travel:insufficient_model_evidence",
+      ]),
+    ).toBe(true);
+  });
+
   it("applies the unchanged 90% gate only to the evidence-qualified population", () => {
     const destinations = JSON.parse(
       fs.readFileSync(INDEX_PATH, "utf8"),
