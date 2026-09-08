@@ -71,10 +71,10 @@ test("KAI-276: halfDay detail planner starts at the half-day window", async ({
   });
   await page.goto("/destinations/ueno-zoo");
   await waitForDetail(page);
-  const planButton = page
-    .getByRole("button", { name: /Create day plan|Create area plan/i })
+  const customizeButton = page
+    .getByRole("button", { name: /Customize|カスタマイズ/i })
     .first();
-  await planButton.click();
+  await customizeButton.click();
   const form = page
     .getByText("Customize Plan Preferences", { exact: true })
     .locator("xpath=ancestor::form[1]");
