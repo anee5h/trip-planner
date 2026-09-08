@@ -50,7 +50,10 @@ import {
   type DestinationCombo,
 } from "@/shared/services/recommendation/DestinationCombinationService";
 import { composeDetailRails } from "@/shared/services/recommendation/RailCompositionService";
-import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
+import {
+  formatLocalizedJPYRange,
+  formatTravellerEstimateRange,
+} from "@/shared/services/budget/BudgetService";
 import {
   budgetCapYen,
   classifyBudgetFit,
@@ -163,6 +166,7 @@ import {
   getWeatherDescription,
 } from "@/shared/hooks/useWeather";
 import { calculateTripEstimate } from "@/shared/services/budget/tripEstimateEngine";
+import { getTransportDisplayCost } from "@/shared/services/budget/transportDisplayCost";
 import { RecommendationFeedbackControl } from "@/features/recommendations/components/RecommendationFeedbackControl";
 
 function WeatherIcon({ type }: { type: string }) {
@@ -220,6 +224,8 @@ const DETAIL_COPY = {
     nearbyPlaces: "Nearby Places & Hubs",
     addToItinerary: "Add to Itinerary",
     travelTime: "Travel Time",
+    transportCostPerPersonRoundTrip: "/ person, round trip",
+    transportCostPerCarRoundTrip: "/ car, round trip",
     comfortMetrics: "Comfort Metrics",
     experienceRatings: "Experience Ratings",
     seasonalRatings: "Seasonal Ratings",
@@ -276,6 +282,8 @@ const DETAIL_COPY = {
     nearbyPlaces: "近くの場所と都市ハブ",
     addToItinerary: "旅程に追加",
     travelTime: "所要時間",
+    transportCostPerPersonRoundTrip: "／1人・往復",
+    transportCostPerCarRoundTrip: "／車・往復",
     comfortMetrics: "快適性",
     experienceRatings: "体験評価",
     seasonalRatings: "季節評価",
@@ -990,12 +998,20 @@ export default function DestinationDetails() {
 
   const formatGroundCost = (mode: GroundMode): string => {
     const result = modeEstimate(mode);
-    if (!result?.total) return copy.costUnavailable;
-    return `${copy.estimated} ${formatTravellerEstimateRange(
-      [result.total.min, result.total.max],
-      result.estimateQuality,
-      locale,
-    )}`;
+    const transportCost = getTransportDisplayCost(result, mode, partySize);
+    if (!transportCost) return copy.costUnavailable;
+    const unit =
+      transportCost.unit === "per_car_round_trip"
+        ? copy.transportCostPerCarRoundTrip
+        : copy.transportCostPerPersonRoundTrip;
+    const costRange = formatLocalizedJPYRange(transportCost.range, locale);
+    const costLabel =
+      result?.estimateQuality === "verified"
+        ? costRange
+        : locale === "ja"
+          ? `約 ${costRange}`
+          : `~${costRange}`;
+    return `${copy.estimated} ${costLabel} ${unit}`;
   };
 
   const isModeVisible = (mode: string) => {

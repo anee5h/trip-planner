@@ -214,6 +214,25 @@ afterEach(() => {
 });
 
 describe("DestinationDetails transport rows", () => {
+  it("shows transport-only per-person cost instead of the whole-trip total", async () => {
+    storeState.homeStationCoords = { lat: 35.6812, lng: 139.7671 };
+    storeState.homeStationTransportZoneId = "mainland-honshu";
+    render("/destinations/ueno-zoo", {
+      carMode: "none",
+      publicModes: ["train"],
+      partySize: 4,
+      duration: "2d1n",
+    });
+    await act(async () => {
+      await flush(80);
+    });
+
+    const transportCost = Array.from(host.querySelectorAll("*"), (element) =>
+      element.textContent?.trim(),
+    ).find((text) => text === "est. ~¥600–2k / person, round trip");
+    expect(transportCost).toBeDefined();
+  });
+
   it("mainland origin → Naha renders no Train or Shinkansen row", async () => {
     render();
     await act(async () => {
