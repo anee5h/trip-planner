@@ -74,6 +74,45 @@ test("Rich destination details render discovery rails", async ({ page }) => {
   await expect(page.locator("[data-rail]").first()).toBeVisible();
 });
 
+test("destination and hub pages expose a compact section jump rail in EN and JA", async ({
+  page,
+}) => {
+  for (const route of [
+    "/destinations/ueno-park",
+    "/destinations/kyoto-city",
+    "/ja/destinations/ueno-park",
+    "/ja/destinations/kyoto-city",
+  ]) {
+    await page.goto(route);
+    const nav = page.getByTestId("destination-section-nav");
+    await expect(nav).toBeVisible();
+    await expect(nav.locator("a").first()).toHaveAttribute("href", "#overview");
+    await expect(nav.locator('a[href="#plan-this-trip"]')).toHaveCount(1);
+    await expect(nav.locator('a[href="#before-you-go"]')).toHaveCount(1);
+    if (route === "/destinations/kyoto-city") {
+      const visiblePeek = await nav.evaluate((element) => {
+        const navRect = element.getBoundingClientRect();
+        const lastLink = element.querySelectorAll("a").item(4);
+        if (!lastLink) return 0;
+        const lastRect = lastLink.getBoundingClientRect();
+        return Math.max(
+          0,
+          Math.min(lastRect.right, navRect.right) -
+            Math.max(lastRect.left, navRect.left),
+        );
+      });
+      expect(visiblePeek).toBeGreaterThanOrEqual(16);
+    }
+    await nav.locator('a[href="#before-you-go"]').click();
+    await expect(page).toHaveURL(/#before-you-go$/);
+    await expect(page.locator("#before-you-go")).toBeInViewport();
+    await expect(page.locator("html")).toHaveAttribute(
+      "lang",
+      route.startsWith("/ja/") ? "ja" : "en",
+    );
+  }
+});
+
 test("Japanese destination details render with the JA card", async ({
   page,
 }) => {

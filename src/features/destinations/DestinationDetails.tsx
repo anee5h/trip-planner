@@ -1310,6 +1310,43 @@ export default function DestinationDetails() {
     (composedDetailRails.greatAdditions.length > 0 ||
       composedDetailRails.nearbyPlaces.length > 0 ||
       composedDetailRails.halfDaySiblings.length > 0);
+  const sectionNavItems = [
+    {
+      id: "overview",
+      label: locale === "ja" ? "概要" : "Overview",
+    },
+    {
+      id: "plan-this-trip",
+      label: locale === "ja" ? "計画" : "Plan",
+    },
+    ...(hasHubDiscovery
+      ? [
+          {
+            id: "top-sights",
+            label: locale === "ja" ? "見どころ" : "Things to do",
+          },
+        ]
+      : []),
+    {
+      id: "before-you-go",
+      label: locale === "ja" ? "出発前" : "Before you go",
+    },
+    ...(hasGoNext
+      ? [
+          {
+            id: "go-next",
+            label: locale === "ja" ? "次に見る" : "Nearby",
+          },
+        ]
+      : hasRelatedPlaces
+        ? [
+            {
+              id: "related-places",
+              label: locale === "ja" ? "周辺" : "Nearby",
+            },
+          ]
+        : []),
+  ];
   return (
     <div className="bg-slate-50 dark:bg-background min-h-screen">
       {relationshipCatalogueStatus === "error" && (
@@ -1596,10 +1633,30 @@ export default function DestinationDetails() {
       </div>
 
       <div className="container mx-auto max-w-6xl px-4 py-5 sm:py-8">
+        <nav
+          data-testid="destination-section-nav"
+          aria-label={
+            locale === "ja" ? "ページ内ナビゲーション" : "On this page"
+          }
+          className={`-mx-4 mb-5 flex overflow-x-auto px-4 pb-1 sm:mx-0 sm:mb-7 sm:gap-2 sm:px-0 ${
+            sectionNavItems.length >= 5 ? "gap-1" : "gap-2"
+          }`}
+        >
+          {sectionNavItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className="shrink-0 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-600 transition-colors hover:border-emerald-300 hover:text-emerald-700 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-emerald-700 dark:hover:text-emerald-300"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
         <div className="space-y-6 sm:space-y-8">
           <section
             data-section="overview"
             data-testid="destination-at-a-glance-section"
+            id="overview"
             className="py-1 sm:py-2"
           >
             <div className="flex items-center justify-between gap-3">
