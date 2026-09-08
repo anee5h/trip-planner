@@ -436,7 +436,9 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
         publicModes: ["train"],
       });
       expect(estimate).not.toBeNull();
-      expect(text).toContain(formatTravelEstimateLabel(estimate!, "en"));
+      expect(text).toContain(
+        formatTravelEstimateLabel(estimate!, "en", { compact: true }),
+      );
     },
   );
 
@@ -449,7 +451,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("Rough estimate:");
+    expect(text).not.toContain("Rough estimate:");
   });
 
   it("shows a bounded coordinate-derived estimate for an authorized mainland route", async () => {
@@ -461,7 +463,7 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
 
     const text = host.textContent ?? "";
     expect(text).not.toMatch(/Est\.\s*\d+/);
-    expect(text).toContain("Rough estimate:");
+    expect(text).not.toContain("Rough estimate:");
   });
 
   it("allows an explicitly local discovery surface to show an approximate estimate", async () => {
@@ -484,8 +486,10 @@ describe("HomeMatchCard — canonical travel-time truth", () => {
     });
 
     const text = host.textContent ?? "";
-    expect(text).toContain(formatTravelEstimateLabel(localEstimate!, "en"));
-    expect(text).toContain("Rough estimate:");
+    expect(text).toContain(
+      formatTravelEstimateLabel(localEstimate!, "en", { compact: true }),
+    );
+    expect(text).not.toContain("Rough estimate:");
   });
 
   it("negative: does NOT fabricate local display estimate for cross-water island (Yokohama -> Ogasawara)", async () => {
@@ -767,7 +771,7 @@ describe("KAI-275 overnight Personal-Car travel display", () => {
     // Zero-ORS discovery must NOT dead-end the card: the bounded SafeGround
     // estimate (same authority as the day path/ranking) provides the time.
     expect(text).not.toContain("home.transportModes.travelUnavailable");
-    expect(text).toContain("Rough estimate:");
+    expect(text).not.toContain("Rough estimate:");
     expect(text).not.toMatch(/Est\.\s*\d+/);
   });
 

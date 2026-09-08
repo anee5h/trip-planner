@@ -663,7 +663,9 @@ export default function DestinationCard({
                     const formattedTime = isSameAnchor
                       ? cardCopy.alreadyThere
                       : transport
-                        ? formatTravelEstimateLabel(transport, locale)
+                        ? formatTravelEstimateLabel(transport, locale, {
+                            compact: true,
+                          })
                         : "";
 
                     const isDriving = mode === "car" || mode === "my_car";
