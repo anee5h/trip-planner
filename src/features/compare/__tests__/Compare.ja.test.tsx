@@ -161,10 +161,10 @@ describe("Compare Page & Modal — Japanese Localization", () => {
     expect(text).toContain("道頓堀");
     expect(text).toContain("たこ焼きの本場");
 
-    // Japanese travel time and mode rendered instead of raw English "min (shinkansen)"
-    expect(text).toContain("130分（新幹線）");
-    expect(text).not.toContain("130 min");
-    expect(text).not.toContain("(shinkansen)");
+    // Compare has no personalized origin in this fixture, so it must not
+    // reinterpret static transportOptions as an end-to-end journey.
+    expect(text).toContain("比較情報なし");
+    expect(text).not.toContain("130分（新幹線）");
     expect(text).not.toContain("(train)");
   });
 

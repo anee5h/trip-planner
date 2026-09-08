@@ -40,9 +40,12 @@ describe("HubPlanningService", () => {
     expect(plan.items.length).toBeGreaterThanOrEqual(2);
     expect(plan.items[0].isHub).toBe(true);
 
-    // Verify budget calculations
-    expect(plan.budget.travelToHubCost).toBeGreaterThan(0);
-    expect(plan.budget.partyTotal).toBeGreaterThan(plan.budget.perPersonTotal);
+    // No endpoint-exact rail fare is available for this synthetic hub. The
+    // budget must not turn a low-confidence regional duration into a numeric
+    // origin transport amount.
+    expect(plan.budget.travelToHubCost).toBe(0);
+    expect(plan.budget.originTransportIncluded).toBe(false);
+    expect(plan.budget.hasUnknownBudgetItems).toBe(true);
     expect(plan.budget.perPersonRange.min).toBeLessThan(
       plan.budget.perPersonRange.max,
     );

@@ -33,7 +33,44 @@ function validCoordinates(value) {
   );
 }
 
-/** @returns {{ok:true, body?:any, error?:string, status?:number}} */
+function straightLineDistanceKm(from, to) {
+  const R = 6371;
+  const dLat = ((to.lat - from.lat) * Math.PI) / 180;
+  const dLng = ((to.lng - from.lng) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((from.lat * Math.PI) / 180) *
+      Math.cos((to.lat * Math.PI) / 180) *
+      Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function routeSanityError(summary, from, to) {
+  if (!isFiniteNumber(summary.distance) || summary.distance <= 0) {
+    return "invalid_route_distance";
+  }
+  if (!isFiniteNumber(summary.duration) || summary.duration <= 0) {
+    return "invalid_route_duration";
+  }
+  const distanceKm = summary.distance / 1000;
+  const durationMinutes = summary.duration / 60;
+  if (distanceKm + 0.01 < straightLineDistanceKm(from, to)) {
+    return "route_distance_below_straight_line";
+  }
+  const averageSpeedKmH = distanceKm / (durationMinutes / 60);
+  if (
+    !Number.isFinite(averageSpeedKmH) ||
+    averageSpeedKmH < 1 ||
+    averageSpeedKmH > 180
+  ) {
+    return "implausible_route_speed";
+  }
+  return undefined;
+}
+
+/**
+ * @returns {{ok:true, body?:any, error?:string, status?:number}}
+ */
 export function validateCarRouteRequest(body) {
   if (body === null || typeof body !== "object") {
     return { ok: false, error: "invalid_json" };
@@ -260,11 +297,16 @@ export async function routeCar(
   if (summary === null || typeof summary !== "object") {
     return canonicalFailure(body, "invalid_provider_response", "error", now);
   }
-  if (!isFiniteNumber(summary.distance) || summary.distance < 0) {
+  if (!isFiniteNumber(summary.distance) || summary.distance <= 0) {
     return canonicalFailure(body, "malformed_distance", "error", now);
   }
-  if (!isFiniteNumber(summary.duration) || summary.duration < 0) {
+  if (!isFiniteNumber(summary.duration) || summary.duration <= 0) {
     return canonicalFailure(body, "malformed_duration", "error", now);
+  }
+
+  const sanityError = routeSanityError(summary, from, to);
+  if (sanityError) {
+    return canonicalFailure(body, sanityError, "error", now);
   }
 
   return {

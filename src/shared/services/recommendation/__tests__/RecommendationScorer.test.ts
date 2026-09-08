@@ -383,31 +383,19 @@ describe("RecommendationScorer Unit Tests", () => {
     const result = calculateScore(destination, context);
     const train = result.modeScoreBreakdown.train;
     const shinkansen = result.modeScoreBreakdown.shinkansen;
-    const trainEfficiency = getDayTripTravelEfficiency(
-      destination,
-      context,
-      "train",
-    )!;
     const shinkansenEfficiency = getDayTripTravelEfficiency(
       destination,
       context,
       "shinkansen",
     )!;
 
-    expect(train.usable).toBe(true);
+    expect(train.usable).toBe(false);
     expect(shinkansen.usable).toBe(true);
-    // KAI-260: both modes have bounded canonical ranges; budget can now
-    // legitimately influence the winner rather than disappearing on partial
-    // evidence. Keep this test about mode usability and distinct scoring.
+    // The train path has only low-confidence regional fallback evidence, so it
+    // is conservatively unavailable for day-trip feasibility. The routed
+    // Shinkansen path remains usable and wins without a rough midpoint bonus.
     expect(Number.isFinite(train.budget)).toBe(true);
     expect(Number.isFinite(shinkansen.budget)).toBe(true);
-    expect(shinkansenEfficiency.oneWayMinutes).toBeLessThan(
-      trainEfficiency.oneWayMinutes,
-    );
-    // KAI-217B: with the canonical engine, train (partial — no verified
-    // fare) no longer receives the cheap-heuristic budget bonus that made
-    // it win bestMode. Shinkansen (complete verified cost) now wins on
-    // total score.
     expect(result.bestMode).toBe("shinkansen");
     expect(result.dayTripTravelEfficiency?.mode).toBe(result.bestMode);
     expect(result.dayTripTravelEfficiency?.oneWayMinutes).toBe(

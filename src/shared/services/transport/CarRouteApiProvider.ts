@@ -1,7 +1,8 @@
-import type {
-  AsyncCarRouteProvider,
-  CarRouteRequest,
-  CarRouteResult,
+import {
+  carRouteSanityError,
+  type AsyncCarRouteProvider,
+  type CarRouteRequest,
+  type CarRouteResult,
 } from "./CarRouteProvider";
 
 /**
@@ -21,6 +22,7 @@ export const CAR_ROUTE_API_ENDPOINT = "/api/car-route";
 
 export const CAR_ROUTE_CACHE_TTL_MS = 10 * 60 * 1000;
 export const CAR_ROUTE_CACHE_MAX_ENTRIES = 200;
+export const CAR_ROUTE_API_TIMEOUT_MS = 12_000;
 
 interface CacheEntry {
   readonly result: CarRouteResult;
@@ -34,6 +36,9 @@ function cacheKey(request: CarRouteRequest): string {
     request.origin.coordinates.lat,
     request.origin.coordinates.lng,
     request.destination.id,
+    request.destination.coordinates.lat,
+    request.destination.coordinates.lng,
+    request.destination.accessAnchorId ?? "",
     request.direction,
   ].join("|");
 }
@@ -57,10 +62,14 @@ export function peekCachedCarRoundTrip(
   for (const [key, entry] of routeCache) {
     if (now - entry.cachedAt > CAR_ROUTE_CACHE_TTL_MS) continue;
     const parts = key.split("|");
-    if (parts.length !== 4) continue;
-    const [lat, lng, id, direction] = parts;
+    if (parts.length !== 7) continue;
+    const lat = parts[0];
+    const lng = parts[1];
+    const id = parts[2];
+    const direction = parts[6];
     if (Number(lat) !== origin.lat || Number(lng) !== origin.lng) continue;
     if (!ids.has(id)) continue;
+    if (direction !== "outbound" && direction !== "return") continue;
     if (entry.result.availability !== "available") continue;
     if (direction === "outbound") outbound = entry.result;
     if (direction === "return") returnRoute = entry.result;
@@ -201,6 +210,11 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
 
   private async fetchRoute(request: CarRouteRequest): Promise<CarRouteResult> {
     let response: Response;
+    const controller = new AbortController();
+    const timeout = setTimeout(
+      () => controller.abort(),
+      CAR_ROUTE_API_TIMEOUT_MS,
+    );
     try {
       response = await this.fetchImpl(this.endpoint, {
         method: "POST",
@@ -222,9 +236,21 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
           direction: request.direction,
           ...(request.departureAt ? { departureAt: request.departureAt } : {}),
         }),
+        signal: controller.signal,
       });
-    } catch {
-      return errorResult(request, "error", "network_error");
+    } catch (error) {
+      return errorResult(
+        request,
+        "error",
+        error &&
+          typeof error === "object" &&
+          "name" in error &&
+          error.name === "AbortError"
+          ? "timeout"
+          : "network_error",
+      );
+    } finally {
+      clearTimeout(timeout);
     }
 
     let payload: unknown;
@@ -243,7 +269,12 @@ export class CarRouteApiProvider implements AsyncCarRouteProvider {
       }
       return errorResult(request, "error", `provider_http_${response.status}`);
     }
-    return parseResult(payload, request);
+    const result = parseResult(payload, request);
+    if (result.availability === "available") {
+      const sanityError = carRouteSanityError(result, request);
+      if (sanityError) return errorResult(request, "error", sanityError);
+    }
+    return result;
   }
 }
 

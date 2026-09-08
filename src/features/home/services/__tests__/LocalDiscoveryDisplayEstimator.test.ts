@@ -147,7 +147,7 @@ describe("getSafeDisplayEstimate", () => {
       allDestinations: mockCatalog,
     });
     expect(result).not.toBeNull();
-    expect(result?.source).toBe("calculated_local_display");
+    expect(result?.estimateSource).toBe("rough");
     expect(result?.mode).toBe("train");
     expect(result?.timeRange[0]).toBeGreaterThan(0);
   });
@@ -201,7 +201,7 @@ describe("getSafeDisplayEstimate", () => {
       allDestinations: mockCatalog,
     });
     expect(result).not.toBeNull();
-    expect(result?.source).toBe("calculated_ground_display");
+    expect(result?.estimateSource).toBe("rough");
     expect(result?.mode).toBe("train");
     expect(result?.timeRange[0]).toBeGreaterThan(0);
   });
@@ -212,7 +212,7 @@ describe("getSafeDisplayEstimate", () => {
       allDestinations: mockCatalog,
     });
     expect(result).not.toBeNull();
-    expect(result?.source).toBe("calculated_ground_display");
+    expect(result?.estimateSource).toBe("rough");
   });
 
   it("returns ground estimate for Nakayama → Yokohama POI displaying a time", () => {
@@ -230,7 +230,7 @@ describe("getSafeDisplayEstimate", () => {
       allDestinations: mockCatalog,
     });
     expect(result).not.toBeNull();
-    expect(result?.source).toBe("calculated_ground_display");
+    expect(result?.estimateSource).toBe("rough");
   });
 
   // ── Island/topology guards ──
@@ -269,7 +269,6 @@ describe("getSafeDisplayEstimate", () => {
     });
     // Should still get an estimate (ground), but NOT same-municipality
     expect(result).not.toBeNull();
-    expect(result?.source).not.toBe("calculated_local_display");
-    expect(result?.source).toBe("calculated_ground_display");
+    expect(result?.estimateSource).toBe("rough");
   });
 });

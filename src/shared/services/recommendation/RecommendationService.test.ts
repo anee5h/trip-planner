@@ -173,7 +173,7 @@ const mockDestinations = [
 describe("RecommendationService Unit Tests", () => {
   const homeCoords = { lat: 35.6812, lng: 139.7671 }; // Tokyo Station
 
-  it("preserves canonical transport availability", () => {
+  it("excludes conservative-only regional transport from recommendations", () => {
     const results = getRecommendations(mockDestinations, {
       tripType: "any",
       budget: 50000,
@@ -189,7 +189,10 @@ describe("RecommendationService Unit Tests", () => {
     const ids = results.map((r) => r.id);
     expect(ids).toContain("hakone-onsen");
     expect(ids).toContain("kamakura-history");
-    expect(ids).toContain("fuji-climbing");
+    // The generic regional fallback is conservative-only and must not drive
+    // unconstrained recommendation ranking. Verified/bounded fixture routes
+    // remain eligible above.
+    expect(ids).not.toContain("fuji-climbing");
   });
 
   it("returns recommendations for car-only searches with a budget tier", () => {
@@ -315,7 +318,10 @@ describe("RecommendationService Unit Tests", () => {
       tripDuration: "halfDay",
     });
 
-    expect(results.map((result) => result.id)).toContain("short-trip");
+    // short-trip clones Hakone's conservative suburban corridor. Its old
+    // static 4-hour value is no longer sufficient evidence for half-day
+    // recommendation eligibility.
+    expect(results.map((result) => result.id)).not.toContain("short-trip");
     expect(results.map((result) => result.id)).not.toContain("hakone-onsen");
     expect(matchesTripDuration(3, "shortOuting")).toBe(true);
     expect(matchesTripDuration(5, "halfDay")).toBe(true);
@@ -327,6 +333,12 @@ describe("RecommendationService Unit Tests", () => {
     const feasible = {
       ...mockDestinations[1],
       id: "feasible-half-day",
+      // Give the positive fixture a real same-zone canonical identity and
+      // colocated endpoint. This tests bounded canonical travel rather than
+      // relying on the old static train:55 value.
+      prefecture: "Tokyo",
+      municipalityId: "Tokyo:chiyoda",
+      coordinates: homeCoords,
       recommendedVisitHours: { min: 3, max: 4 },
     };
     const infeasible = {

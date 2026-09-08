@@ -18,7 +18,10 @@ import {
 import { getFixedSeason } from "@/shared/utils/season";
 import { getFlightTransportEstimate } from "@/shared/services/transport/FlightTransportEstimator";
 import { getFerryTransportEstimate } from "@/shared/services/transport/FerryTransportEstimator";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getOriginAwareTransportEstimate,
+  getTravelDecisionSemantics,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import { resolveCarRouteForDestination } from "@/shared/services/transport/CarRouteProvider";
 import { isCarModeEligible } from "@/shared/services/transport/CarAccessService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
@@ -439,7 +442,7 @@ export function calculateScore(
         },
         ["train"],
       );
-      if (estimate) {
+      if (estimate && getTravelDecisionSemantics(estimate) === "reliable") {
         transportScore +=
           SCORING_WEIGHTS.TRANSPORT_TRAIN_BASE +
           Math.max(0, 12 - estimate.timeRange[0] / 10);

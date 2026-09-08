@@ -29,7 +29,10 @@ import { evaluateTravelConditions } from "./TravelConditions";
 import { isTripDatesTransportEligible } from "./TravelConditions";
 import { resolveOriginMunicipalityId } from "./OriginAreaService";
 import { consolidateTokyoWards } from "./TokyoWardsConsolidation";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import {
+  getOriginAwareTransportEstimate,
+  getTravelDecisionSemantics,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import {
   consolidateWeekendAreas,
   type WeekendAreaConsolidation,
@@ -183,6 +186,31 @@ export function runRecommendationPipeline(
         )
       : [];
     if (modes.length === 0 && (hasOrigin || isOvernight)) return false;
+
+    // A low-confidence regional fallback is not an authoritative travel-time
+    // input for unconstrained recommendation ranking. Keep medium-confidence
+    // metro/suburban rough estimates available, but reject a candidate when
+    // every available mode is conservative-only; constrained day-trip and
+    // weekend paths apply their own conservative feasibility gates below.
+    if (hasOrigin && !isOvernight && modes.length > 0) {
+      const estimates = modes
+        .map(
+          (mode) =>
+            getDayTripTravelDurationEvidence(destination, context, [mode])
+              .estimate,
+        )
+        .filter((estimate): estimate is NonNullable<typeof estimate> =>
+          Boolean(estimate),
+        );
+      if (
+        estimates.length > 0 &&
+        estimates.every(
+          (estimate) => getTravelDecisionSemantics(estimate) === "conservative",
+        )
+      ) {
+        return false;
+      }
+    }
     // Canonical trip-date transport eligibility: a ferry-only trip must be
     // covered on every travel day (outbound Day 1 / return Day 2).
     if (

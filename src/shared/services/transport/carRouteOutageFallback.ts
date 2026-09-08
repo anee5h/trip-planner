@@ -179,6 +179,7 @@ export function getCarOutageFallbackEstimate(
   return {
     ...estimate,
     source: CAR_ROUTE_OUTAGE_FALLBACK_SOURCE,
+    fallbackReason: `car_provider_${failureCode}`,
     failureCode,
   };
 }

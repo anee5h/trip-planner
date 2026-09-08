@@ -103,7 +103,7 @@ describe("RecommendationExplainability Unit Tests", () => {
     );
   });
 
-  it("generates match object with budget and train transport explanations", () => {
+  it("does not claim fast train access from rough midpoint evidence", () => {
     const context = {
       tripType: "any",
       budget: 15000,
@@ -123,7 +123,7 @@ describe("RecommendationExplainability Unit Tests", () => {
     expect(match.reasons[0].title).toBe("Within Budget");
     expect(
       match.reasons.some((reason) => reason.title === "Fast Train Access"),
-    ).toBe(true);
+    ).toBe(false);
   });
 
   it("explains weather from the current recommendation context", () => {

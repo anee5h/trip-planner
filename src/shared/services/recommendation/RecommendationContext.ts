@@ -92,6 +92,9 @@ export interface RecommendationContext {
   /** @deprecated Use destinationWeather.actual. */
   currentWeather?: { temp: number; desc: string } | null;
   homeStationCoords?: { lat: number; lng: number } | null;
+  /** Optional resolved origin identity for endpoint-exact transport rows. */
+  originPrefecture?: string;
+  originMunicipalityId?: string;
   originZoneId?: TransportZoneId;
   /** Planned trip date/season for ferry availability; never the clock. */
   ferryTemporal?: FerryTemporalContext;
@@ -120,6 +123,8 @@ export interface RecommendationContext {
 
 export interface TripDurationContext {
   homeStationCoords?: { lat: number; lng: number } | null;
+  originPrefecture?: string;
+  originMunicipalityId?: string;
   originZoneId?: TransportZoneId;
   availableTimeHours?: number;
   ferryTemporal?: FerryTemporalContext;

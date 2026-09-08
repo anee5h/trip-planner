@@ -104,7 +104,7 @@ describe("KAI-66 verified corridor additions (review revisions)", () => {
     expect(estimate!.timeRange[1]).toBeLessThanOrEqual(165);
   });
 
-  it("gifu destinations without a municipality row stay unknown (no prefecture fallback claim)", () => {
+  it("gifu destinations without a municipality row use marked rough fallback", () => {
     const gero = dest({
       id: "gero-city",
       prefecture: "Gifu",
@@ -119,7 +119,11 @@ describe("KAI-66 verified corridor additions (review revisions)", () => {
       },
       ["train"],
     );
-    expect(estimate).toBeNull();
+    expect(estimate).toMatchObject({
+      source: "rough_transit_fallback",
+      confidence: "low",
+      decisionSemantics: "conservative",
+    });
   });
 
   it("hiroshima→iwakuni conventional rail resolves at the verified duration", () => {

@@ -93,6 +93,29 @@ describe("routeCar canonical mapping", () => {
     });
   });
 
+  it("rejects a route shorter than the straight-line distance", async () => {
+    const fetchMock = async () =>
+      jsonResponse({
+        routes: [{ summary: { distance: 1000, duration: 600 } }],
+      });
+    const result = await routeCar(BODY, ENV, fetchMock, NOW);
+    expect(result).toMatchObject({
+      availability: "error",
+      errorCode: "route_distance_below_straight_line",
+    });
+  });
+
+  it("rejects a route with an implausible average speed", async () => {
+    const fetchMock = async () =>
+      jsonResponse({
+        routes: [{ summary: { distance: 123456, duration: 1800 } }],
+      });
+    const result = await routeCar(BODY, ENV, fetchMock, NOW);
+    expect(result).toMatchObject({
+      availability: "error",
+      errorCode: "implausible_route_speed",
+    });
+  });
   it("reverses endpoints for an independent return route", async () => {
     const returnBody = { ...BODY, direction: "return" };
     const fetchMock = async (_url, init) => {

@@ -8,6 +8,7 @@ import {
   resolveCarAccess,
 } from "./CarAccessService";
 import type { Destination } from "@/shared/types/destination";
+import { getDistanceKm } from "./TransportEstimator";
 
 export type CarRouteDirection = "outbound" | "return";
 export type CarRouteAvailability =
@@ -145,6 +146,46 @@ function sameEndpoint(
   );
 }
 
+export function carRouteSanityError(
+  result: Pick<CarRouteResult, "distanceKm" | "durationMinutes">,
+  request: CarRouteRequest,
+): string | undefined {
+  const distanceKm = result.distanceKm;
+  const durationMinutes = result.durationMinutes;
+  if (
+    !Number.isFinite(distanceKm) ||
+    distanceKm === undefined ||
+    distanceKm <= 0
+  ) {
+    return "invalid_route_distance";
+  }
+  if (
+    !Number.isFinite(durationMinutes) ||
+    durationMinutes === undefined ||
+    durationMinutes <= 0
+  ) {
+    return "invalid_route_duration";
+  }
+  const straightLineKm = getDistanceKm(
+    request.origin.coordinates.lat,
+    request.origin.coordinates.lng,
+    request.destination.coordinates.lat,
+    request.destination.coordinates.lng,
+  );
+  if (distanceKm + 0.01 < straightLineKm) {
+    return "route_distance_below_straight_line";
+  }
+  const averageSpeedKmH = distanceKm / (durationMinutes / 60);
+  if (
+    !Number.isFinite(averageSpeedKmH) ||
+    averageSpeedKmH < 1 ||
+    averageSpeedKmH > 180
+  ) {
+    return "implausible_route_speed";
+  }
+  return undefined;
+}
+
 function isAvailable(result: CarRouteResult): boolean {
   return (
     result.availability === "available" &&
@@ -169,13 +210,17 @@ function normalizeProviderResult(
   };
   if (result.availability !== "available") return withIdentity;
 
-  const valid =
+  const identityValid =
     result.direction === request.direction &&
     sameEndpoint(withIdentity.originEndpoint, request.origin) &&
     sameEndpoint(withIdentity.destination, request.destination) &&
-    sameEndpoint(withIdentity.accessAnchor, expectedAccessAnchor) &&
+    sameEndpoint(withIdentity.accessAnchor, expectedAccessAnchor);
+  const sanityError = carRouteSanityError(withIdentity, request);
+  const valid =
+    identityValid &&
     result.completeness !== "unknown" &&
-    isAvailable(withIdentity);
+    isAvailable(withIdentity) &&
+    !sanityError;
   if (valid) return withIdentity;
 
   return {
@@ -183,7 +228,11 @@ function normalizeProviderResult(
     availability: "unknown",
     confidence: "unknown",
     completeness: "unknown",
-    errorCode: result.errorCode ?? "invalid_provider_route",
+    errorCode:
+      result.errorCode ??
+      (identityValid
+        ? (sanityError ?? "invalid_provider_route")
+        : "invalid_provider_route"),
   };
 }
 

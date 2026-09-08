@@ -12,9 +12,10 @@ import type {
 } from "@/shared/types/journey";
 import { journeyCostCompleteness } from "@/shared/types/journey";
 import { journeyHandoffCapabilityForMode } from "./JourneyHandoff";
-import type {
-  EstimatedTransportEstimate,
-  OriginAwareTransportEstimate,
+import {
+  getTravelDecisionSemantics,
+  type EstimatedTransportEstimate,
+  type OriginAwareTransportEstimate,
 } from "./OriginAwareTransportService";
 import type { TransportEstimate, TransportFareScope } from "./types";
 
@@ -30,6 +31,7 @@ function confidenceFor(
   if (evidence === "unknown") return "unknown";
   if (
     source === "verified_ground_route" ||
+    source === "verified_car_route" ||
     source === "verified_flight" ||
     source === "verified_ferry"
   ) {
@@ -135,6 +137,10 @@ function metadataFromOriginAware(
 ): JourneyRouteMetadata {
   return {
     source: estimate.source,
+    estimateSource: estimate.estimateSource,
+    decisionSemantics: getTravelDecisionSemantics(estimate),
+    fallbackReason: estimate.fallbackReason,
+    diagnostics: estimate.diagnostics,
     originZoneId: estimate.originZoneId,
     destinationZoneId: estimate.destinationZoneId,
     corridorEvidence: estimate.corridorEvidence,
@@ -296,6 +302,10 @@ export function buildJourneyFromEstimatedTransportEstimate(
     provenance,
     routeMetadata: {
       source: estimate.source,
+      estimateSource: estimate.estimateSource,
+      decisionSemantics: getTravelDecisionSemantics(estimate),
+      fallbackReason: estimate.fallbackReason,
+      diagnostics: estimate.diagnostics,
       originZoneId: estimate.originZoneId,
       destinationZoneId: estimate.destinationZoneId,
     },

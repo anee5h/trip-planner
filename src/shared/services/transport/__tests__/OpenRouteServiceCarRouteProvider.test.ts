@@ -190,6 +190,29 @@ describe("OpenRouteServiceCarRouteProvider", () => {
     });
   });
 
+  it("turns an ORS request timeout into an observable provider error", async () => {
+    vi.useFakeTimers();
+    const fetchMock = vi.fn(
+      (_input: string, init?: RequestInit) =>
+        new Promise<Response>((_resolve, reject) => {
+          init?.signal?.addEventListener("abort", () =>
+            reject(new DOMException("aborted", "AbortError")),
+          );
+        }),
+    );
+    const provider = new OpenRouteServiceCarRouteProvider({
+      apiKey: "fixture-key",
+      fetchImpl: fetchMock,
+      timeoutMs: 25,
+    });
+    const pending = provider.route(request());
+    await vi.advanceTimersByTimeAsync(25);
+    await expect(pending).resolves.toMatchObject({
+      availability: "error",
+      errorCode: "timeout",
+    });
+    vi.useRealTimers();
+  });
   it("distinguishes network failures", async () => {
     const fetchMock = vi.fn(async () => {
       throw new Error("network down");

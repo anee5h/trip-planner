@@ -97,8 +97,13 @@ import {
   TOKYO_WARDS_DIVERSITY_BONUS_MAX,
   TOKYO_WARDS_GROUP_ID,
 } from "@/shared/services/recommendation/TokyoWardsConsolidation";
+import type { TransportMode } from "@/shared/services/transport/types";
 import type { OriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
-import { getOriginAwareTransportEstimate } from "@/shared/services/transport/OriginAwareTransportService";
+import { getSafeGroundEstimate } from "@/shared/services/transport/SafeGroundEstimateService";
+import {
+  getDecisionOneWayMinutes,
+  getOriginAwareTransportEstimate,
+} from "@/shared/services/transport/OriginAwareTransportService";
 import { getDayTripTravelDurationEvidence } from "@/shared/services/recommendation/TripDurationService";
 import {
   tokenizeQuery,
@@ -743,6 +748,45 @@ export default function Destinations() {
       return evaluation;
     };
 
+    const hasOnlyConservativeTravelEvidence = (
+      dest: Destination,
+      modes: string[],
+    ): boolean => {
+      if (!homeStationCoords) return false;
+      const estimates = modes
+        .map((mode) =>
+          getOriginAwareTransportEstimate(
+            dest,
+            {
+              homeStationCoords,
+              originZoneId: homeStationTransportZoneId ?? undefined,
+            },
+            [mode as TransportMode],
+          ),
+        )
+        .map(
+          (estimate, index) =>
+            estimate ??
+            getSafeGroundEstimate(dest, {
+              homeStationCoords: homeStationCoords ?? undefined,
+              homeStationTransportZoneId:
+                homeStationTransportZoneId ?? undefined,
+              authorizedModes: [modes[index] as TransportMode],
+            }),
+        )
+        .filter((estimate): estimate is NonNullable<typeof estimate> =>
+          Boolean(estimate),
+        );
+      return (
+        estimates.length > 0 &&
+        estimates.every(
+          (estimate) =>
+            estimate.estimateSource === "rough" &&
+            estimate.confidence === "low",
+        )
+      );
+    };
+
     // Overnight durations use a dedicated BROWSE gate, separated from the
     // weekend RECOMMENDATION heuristics (which Home Top Matches retains via
     // evaluateWeekendCandidate). Explore answers "what can I browse for this
@@ -779,6 +823,7 @@ export default function Destinations() {
           ferryTemporal,
         );
         if (modes.length === 0) return false;
+        if (hasOnlyConservativeTravelEvidence(dest, modes)) return false;
         // Canonical trip-date transport eligibility: a ferry-only trip must
         // be covered on every travel day (outbound Day 1 / return Day 2).
         if (
@@ -842,11 +887,7 @@ export default function Destinations() {
               canonicalEstimate ?? fallbackEstimate ?? null;
             weekendTravelById.set(dest.id, {
               oneWayMinutes: travelEstimate
-                ? Math.round(
-                    (travelEstimate.timeRange[0] +
-                      travelEstimate.timeRange[1]) /
-                      2,
-                  )
+                ? getDecisionOneWayMinutes(travelEstimate)
                 : undefined,
               bestMode: travelEstimate?.mode,
               estimate: canonicalEstimate ?? undefined,
@@ -932,7 +973,8 @@ export default function Destinations() {
               if (
                 memberEstimate &&
                 (!gatewayEstimate ||
-                  memberEstimate.timeRange[0] < gatewayEstimate.timeRange[0])
+                  getDecisionOneWayMinutes(memberEstimate) <
+                    getDecisionOneWayMinutes(gatewayEstimate))
               ) {
                 gatewayEstimate = memberEstimate;
               }
@@ -1035,6 +1077,7 @@ export default function Destinations() {
           ferryTemporal,
         );
         if (modes.length === 0) return false;
+        if (hasOnlyConservativeTravelEvidence(dest, modes)) return false;
         // Canonical trip-date transport eligibility (same authority as Home).
         if (
           travelDates &&

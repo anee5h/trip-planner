@@ -10,6 +10,10 @@ const INDEX_PATH = path.resolve(
   process.cwd(),
   "src/shared/data/destinations-index.json",
 );
+const BASELINE_PATH = path.resolve(
+  process.cwd(),
+  "scripts/audit/fixtures/kai-260-main-bounded.json",
+);
 const ORIGINS = [
   {
     key: "nakayama",
@@ -23,66 +27,218 @@ const ORIGINS = [
 ] as const;
 const PUBLIC_MODES = ["train", "shinkansen", "bus", "flight", "ferry"];
 
+type RangeClassification =
+  | "bounded_plannable"
+  | "conservative_discovered"
+  | "unavailable"
+  | "unsupported";
+
+interface RangeCandidate {
+  readonly mode: string;
+  readonly estimate: ReturnType<typeof calculateTripEstimate>;
+}
+
+export interface RangeDestinationRow {
+  readonly id: string;
+  readonly name: string;
+  readonly classification: RangeClassification;
+  readonly modes: readonly string[];
+  readonly missingReasons: readonly string[];
+  readonly bestEstimateQuality?: string;
+}
+
 export interface RangeBenchmarkRow {
   origin: string;
   total: number;
+  /** Legacy mode-authorized population, retained for report continuity. */
   routable: number;
+  /** Legacy alias for boundedPlannable. */
   bounded: number;
+  /** Canonical bounded-planning count. */
+  boundedPlannable: number;
+  /** Other mode-authorized destinations without a bounded result. */
   unavailable: number;
+  /** Legacy combined unavailable count, including conservative discoveries. */
+  modeAuthorizedUnavailable: number;
+  /** Non-gating mode-authorized candidates rejected as conservative-only. */
+  conservativeDiscovered: number;
+  /** Destinations with no authorized travel mode. */
+  unsupported: number;
+  /** Non-conservative mode-authorized population used by the 90% gate. */
+  gatePopulation: number;
+  /** Existing 90% threshold, applied only to the gate population. */
   usablePct: number;
   estimateQuality: Record<string, number>;
+}
+
+export interface Kai260BoundedTransition {
+  readonly origin: string;
+  readonly destinationId: string;
+  readonly destinationName: string;
+  readonly currentClassification: RangeClassification;
+  readonly currentModes: readonly string[];
+  readonly currentMissingReasons: readonly string[];
+}
+
+export function isConservativeOnlyMissingReasons(
+  missingReasons: readonly string[],
+): boolean {
+  return (
+    missingReasons.length > 0 &&
+    missingReasons.every(
+      (reason) => reason === "origin_travel:insufficient_model_evidence",
+    )
+  );
+}
+
+function candidatesFor(
+  destination: Destination,
+  origin: (typeof ORIGINS)[number],
+): { modes: readonly string[]; candidates: readonly RangeCandidate[] } {
+  const modes = getValidModes(
+    destination,
+    "none",
+    PUBLIC_MODES,
+    origin.coords,
+    "standard",
+  );
+  const candidates = modes.map((mode) => ({
+    mode,
+    estimate: calculateTripEstimate({
+      dest: destination,
+      mode,
+      partySize: 2,
+      tripMode: "day_trip",
+      includeOriginTravel: true,
+      homeCoords: origin.coords,
+    }),
+  }));
+  return { modes, candidates };
+}
+
+function classifyDestination(
+  destination: Destination,
+  origin: (typeof ORIGINS)[number],
+): RangeDestinationRow {
+  const { modes, candidates } = candidatesFor(destination, origin);
+  const bounded = candidates.filter((candidate) => candidate.estimate.total);
+  const conservative =
+    candidates.length > 0 &&
+    candidates.every((candidate) =>
+      isConservativeOnlyMissingReasons(
+        candidate.estimate.missingComponents.map(
+          (missing) => `${missing.scope}:${missing.reason}`,
+        ),
+      ),
+    );
+  const missingReasons = [
+    ...new Set(
+      candidates.flatMap((candidate) =>
+        candidate.estimate.missingComponents.map(
+          (missing) => `${missing.scope}:${missing.reason}`,
+        ),
+      ),
+    ),
+  ].sort();
+  const classification: RangeClassification =
+    bounded.length > 0
+      ? "bounded_plannable"
+      : modes.length === 0
+        ? "unsupported"
+        : conservative
+          ? "conservative_discovered"
+          : "unavailable";
+  const best = [...bounded].sort(
+    (left, right) => left.estimate.total!.max - right.estimate.total!.max,
+  )[0];
+  return {
+    id: destination.id,
+    name: destination.name,
+    classification,
+    modes,
+    missingReasons,
+    ...(best ? { bestEstimateQuality: best.estimate.estimateQuality } : {}),
+  };
+}
+
+export function classifyRangeDestinations(
+  destinations: Destination[],
+): Record<string, readonly RangeDestinationRow[]> {
+  return Object.fromEntries(
+    ORIGINS.map((origin) => [
+      origin.key,
+      destinations.map((destination) =>
+        classifyDestination(destination, origin),
+      ),
+    ]),
+  );
+}
+
+export function findBoundedToUnavailableTransitions(
+  baseline: Record<string, { boundedIds: readonly string[] }>,
+  current: Record<string, readonly RangeDestinationRow[]>,
+): Kai260BoundedTransition[] {
+  return ORIGINS.flatMap((origin) => {
+    const baselineIds = new Set(baseline[origin.key]?.boundedIds ?? []);
+    return current[origin.key]
+      .filter(
+        (row) =>
+          baselineIds.has(row.id) && row.classification !== "bounded_plannable",
+      )
+      .map((row) => ({
+        origin: origin.key,
+        destinationId: row.id,
+        destinationName: row.name,
+        currentClassification: row.classification,
+        currentModes: row.modes,
+        currentMissingReasons: row.missingReasons,
+      }));
+  });
 }
 
 export function runRangeBenchmark(
   destinations: Destination[],
 ): Record<string, RangeBenchmarkRow> {
+  const classified = classifyRangeDestinations(destinations);
   return Object.fromEntries(
     ORIGINS.map((origin) => {
-      let routable = 0;
-      let bounded = 0;
-      let unavailable = 0;
+      const rows = classified[origin.key];
+      const boundedRows = rows.filter(
+        (row) => row.classification === "bounded_plannable",
+      );
+      const conservativeDiscovered = rows.filter(
+        (row) => row.classification === "conservative_discovered",
+      ).length;
+      const unsupported = rows.filter(
+        (row) => row.classification === "unsupported",
+      ).length;
+      const unavailable = rows.filter(
+        (row) => row.classification === "unavailable",
+      ).length;
+      const modeAuthorizedUnavailable = unavailable + conservativeDiscovered;
+      const gatePopulation = boundedRows.length + unavailable;
       const estimateQuality: Record<string, number> = {};
-      for (const dest of destinations) {
-        const modes = getValidModes(
-          dest,
-          "none",
-          PUBLIC_MODES,
-          origin.coords,
-          "standard",
-        );
-        if (modes.length === 0) continue;
-        routable += 1;
-        let best: ReturnType<typeof calculateTripEstimate> | undefined;
-        for (const mode of modes) {
-          const estimate = calculateTripEstimate({
-            dest,
-            mode,
-            partySize: 2,
-            tripMode: "day_trip",
-            includeOriginTravel: true,
-            homeCoords: origin.coords,
-          });
-          if (estimate.total && (!best || estimate.total.max < best.total!.max))
-            best = estimate;
+      for (const row of boundedRows) {
+        if (row.bestEstimateQuality) {
+          estimateQuality[row.bestEstimateQuality] =
+            (estimateQuality[row.bestEstimateQuality] ?? 0) + 1;
         }
-        if (!best) {
-          unavailable += 1;
-          continue;
-        }
-        bounded += 1;
-        estimateQuality[best.estimateQuality] =
-          (estimateQuality[best.estimateQuality] ?? 0) + 1;
       }
       return [
         origin.key,
         {
           origin: origin.label,
           total: destinations.length,
-          routable,
-          bounded,
+          routable: destinations.length - unsupported,
+          bounded: boundedRows.length,
+          boundedPlannable: boundedRows.length,
           unavailable,
-          usablePct: routable
-            ? Number(((bounded / routable) * 100).toFixed(2))
+          modeAuthorizedUnavailable,
+          conservativeDiscovered,
+          unsupported,
+          gatePopulation,
+          usablePct: gatePopulation
+            ? Number(((boundedRows.length / gatePopulation) * 100).toFixed(2))
             : 0,
           estimateQuality,
         },
@@ -92,7 +248,22 @@ export function runRangeBenchmark(
 }
 
 describe("KAI-260 range-first benchmark", () => {
-  it("reports deterministic bounded traveller ranges for all five origins", () => {
+  it("keeps mixed missing reasons in the 90% gate population", () => {
+    expect(
+      isConservativeOnlyMissingReasons([
+        "origin_travel:insufficient_model_evidence",
+        "accommodation:source_missing",
+      ]),
+    ).toBe(false);
+    expect(
+      isConservativeOnlyMissingReasons([
+        "origin_travel:insufficient_model_evidence",
+        "origin_travel:insufficient_model_evidence",
+      ]),
+    ).toBe(true);
+  });
+
+  it("applies the unchanged 90% gate only to the evidence-qualified population", () => {
     const destinations = JSON.parse(
       fs.readFileSync(INDEX_PATH, "utf8"),
     ) as Destination[];
@@ -101,11 +272,57 @@ describe("KAI-260 range-first benchmark", () => {
     expect(second).toEqual(first);
     for (const origin of ORIGINS) {
       const row = first[origin.key];
-      expect(row.routable + row.unavailable).toBeLessThanOrEqual(row.total);
-      expect(row.bounded).toBeLessThanOrEqual(row.routable);
-      expect(row.routable).toBeGreaterThan(0);
+      expect(
+        row.boundedPlannable +
+          row.unavailable +
+          row.conservativeDiscovered +
+          row.unsupported,
+      ).toBe(row.total);
+      expect(row.bounded).toBe(row.boundedPlannable);
+      expect(row.modeAuthorizedUnavailable).toBe(
+        row.unavailable + row.conservativeDiscovered,
+      );
+      expect(row.gatePopulation).toBe(row.boundedPlannable + row.unavailable);
+      expect(row.gatePopulation).toBeGreaterThan(0);
       expect(row.usablePct).toBeGreaterThanOrEqual(90);
     }
     console.log(JSON.stringify(first, null, 2));
+  });
+
+  it("reports every bounded-to-unavailable regression for explicit justification", () => {
+    const destinations = JSON.parse(
+      fs.readFileSync(INDEX_PATH, "utf8"),
+    ) as Destination[];
+    const baseline = JSON.parse(
+      fs.readFileSync(BASELINE_PATH, "utf8"),
+    ) as Record<string, { boundedIds: readonly string[] }>;
+    const current = classifyRangeDestinations(destinations);
+    const transitions = findBoundedToUnavailableTransitions(baseline, current);
+    const explicitJustifications: Record<string, string> = {};
+    const unjustified = transitions.filter(
+      (transition) =>
+        !explicitJustifications[
+          `${transition.origin}:${transition.destinationId}`
+        ],
+    );
+    expect(unjustified, JSON.stringify(transitions, null, 2)).toEqual([]);
+    for (const transition of transitions) {
+      expect(
+        explicitJustifications[
+          `${transition.origin}:${transition.destinationId}`
+        ],
+      ).toMatch(/\S+/);
+    }
+    console.log(
+      JSON.stringify(
+        {
+          baselineSourceHead: (baseline as { sourceHead?: string }).sourceHead,
+          boundedToUnavailable: transitions,
+          justified: explicitJustifications,
+        },
+        null,
+        2,
+      ),
+    );
   });
 });

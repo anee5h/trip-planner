@@ -11,6 +11,7 @@ import type { TransportZoneId } from "./transportTopology";
 export type JourneyEvidence = "verified" | "estimated" | "unknown";
 export type JourneyAvailability = "available" | "unavailable" | "unknown";
 export type JourneyConfidence = "high" | "medium" | "low" | "unknown";
+export type JourneyDecisionSemantics = "reliable" | "conservative";
 export type JourneyCostState = "known" | "unknown" | "unavailable";
 export type JourneyCostCompleteness = "complete" | "partial" | "unknown";
 export type JourneyScope =
@@ -88,6 +89,10 @@ export interface JourneyCost {
  * provider-specific JSON part of the Journey contract. */
 export interface JourneyRouteMetadata {
   readonly source?: string;
+  readonly estimateSource?: "routed" | "route-distance-derived" | "rough";
+  readonly decisionSemantics?: JourneyDecisionSemantics;
+  readonly fallbackReason?: string;
+  readonly diagnostics?: object;
   readonly originZoneId?: TransportZoneId;
   readonly destinationZoneId?: TransportZoneId;
   readonly corridorEvidence?: "verified";

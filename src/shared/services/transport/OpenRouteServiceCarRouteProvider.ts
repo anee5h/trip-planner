@@ -1,8 +1,9 @@
-import type {
-  AsyncCarRouteProvider,
-  CarRouteEndpoint,
-  CarRouteRequest,
-  CarRouteResult,
+import {
+  carRouteSanityError,
+  type AsyncCarRouteProvider,
+  type CarRouteEndpoint,
+  type CarRouteRequest,
+  type CarRouteResult,
 } from "./CarRouteProvider";
 
 export const OPENROUTESERVICE_DRIVING_CAR_URL =
@@ -13,11 +14,14 @@ type FetchImplementation = (
   init?: RequestInit,
 ) => Promise<Response>;
 
+export const ORS_REQUEST_TIMEOUT_MS = 12_000;
+
 export interface OpenRouteServiceCarRouteProviderOptions {
   /** Supplied by deployment configuration; never committed to the repository. */
   readonly apiKey: string | undefined;
   readonly endpoint?: string;
   readonly fetchImpl?: FetchImplementation;
+  readonly timeoutMs?: number;
   readonly now?: () => string;
 }
 
@@ -130,12 +134,14 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
   private readonly apiKey: string | undefined;
   private readonly endpoint: string;
   private readonly fetchImpl: FetchImplementation | undefined;
+  private readonly timeoutMs: number;
   private readonly now: () => string;
 
   constructor(options: OpenRouteServiceCarRouteProviderOptions) {
     this.apiKey = options.apiKey?.trim() || undefined;
     this.endpoint = options.endpoint ?? OPENROUTESERVICE_DRIVING_CAR_URL;
     this.fetchImpl = options.fetchImpl ?? globalThis.fetch?.bind(globalThis);
+    this.timeoutMs = options.timeoutMs ?? ORS_REQUEST_TIMEOUT_MS;
     this.now = options.now ?? (() => new Date().toISOString());
   }
 
@@ -189,6 +195,8 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
     };
 
     let response: Response;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
     try {
       response = await this.fetchImpl(this.endpoint, {
         method: "POST",
@@ -198,15 +206,23 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
           Accept: "application/json",
         },
         body: JSON.stringify(body),
+        signal: controller.signal,
       });
-    } catch {
+    } catch (error) {
       return failure(
         request,
         this.endpoint,
         this.now,
         "error",
-        "network_error",
+        error &&
+          typeof error === "object" &&
+          "name" in error &&
+          error.name === "AbortError"
+          ? "timeout"
+          : "network_error",
       );
+    } finally {
+      clearTimeout(timeout);
     }
 
     if (response.status === 429) {
@@ -285,7 +301,7 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
     if (
       typeof summary.distance !== "number" ||
       !Number.isFinite(summary.distance) ||
-      summary.distance < 0
+      summary.distance <= 0
     ) {
       return failure(
         request,
@@ -298,7 +314,7 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
     if (
       typeof summary.duration !== "number" ||
       !Number.isFinite(summary.duration) ||
-      summary.duration < 0
+      summary.duration <= 0
     ) {
       return failure(
         request,
@@ -307,6 +323,19 @@ export class OpenRouteServiceCarRouteProvider implements AsyncCarRouteProvider {
         "error",
         "malformed_duration",
       );
+    }
+
+    const normalizedDistanceKm = summary.distance / 1000;
+    const normalizedDurationMinutes = summary.duration / 60;
+    const sanityError = carRouteSanityError(
+      {
+        distanceKm: normalizedDistanceKm,
+        durationMinutes: normalizedDurationMinutes,
+      },
+      request,
+    );
+    if (sanityError) {
+      return failure(request, this.endpoint, this.now, "error", sanityError);
     }
 
     return {

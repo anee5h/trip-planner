@@ -43,10 +43,7 @@ import {
   formatTravellerEstimateRange,
 } from "@/shared/services/budget/BudgetService";
 import type { FerryTemporalContext } from "@/shared/services/transport/types";
-import {
-  formatApproximateTransportTime,
-  formatTransportTime,
-} from "@/shared/services/transport/formatters";
+import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 import {
   estimateDayTripDuration,
   estimateTripDuration,
@@ -663,21 +660,10 @@ export default function DestinationCard({
                     // KAI-278: same-origin destinations render an explicit
                     // state rather than a journey estimate (no mode claim).
                     const isSameAnchor = sameOriginAnchor && !gateway;
-                    const isApproximate = Boolean(
-                      transport &&
-                      !isSameAnchor &&
-                      "evidence" in transport &&
-                      transport.evidence === "estimated",
-                    );
                     const formattedTime = isSameAnchor
                       ? cardCopy.alreadyThere
                       : transport
-                        ? isApproximate
-                          ? formatApproximateTransportTime(
-                              transport.timeRange,
-                              locale,
-                            )
-                          : formatTransportTime(transport.timeRange, locale)
+                        ? formatTravelEstimateLabel(transport, locale)
                         : "";
 
                     const isDriving = mode === "car" || mode === "my_car";

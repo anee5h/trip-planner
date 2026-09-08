@@ -42,6 +42,7 @@ const { estimate, safeEstimate } = vi.hoisted(() => ({
 
 vi.mock("@/shared/services/transport/OriginAwareTransportService", () => ({
   getOriginAwareTransportEstimate: estimate,
+  getTravelDecisionSemantics: vi.fn(() => "reliable"),
 }));
 
 vi.mock("@/shared/services/transport/SafeGroundEstimateService", () => ({

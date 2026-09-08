@@ -320,6 +320,9 @@ describe("TripDurationService", () => {
     expect(getDayTripAvailableTimeHours("halfDay")).toBe(7.5);
     expect(getDayTripAvailableTimeHours("fullDay")).toBe(14);
     expect(getDayTripAvailableTimeHours("any")).toBe(14);
+    // A coordinate-only long-distance transit request is intentionally not
+    // admitted as a precise half-day recommendation; it needs a routed
+    // corridor or directions check.
     expect(
       matchesPersonalizedDayTripDuration(
         feasibleTokyoCandidate,
@@ -327,7 +330,7 @@ describe("TripDurationService", () => {
         ["train"],
         "halfDay",
       ),
-    ).toBe(true);
+    ).toBe(false);
     expect(
       matchesPersonalizedDayTripDuration(
         infeasibleTokyoCandidate,
