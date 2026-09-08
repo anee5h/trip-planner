@@ -1,24 +1,27 @@
 #!/usr/bin/env node
 /**
- * KAI-81: production security-header smoke check.
+ * KAI-81/KAI-283: production security-header smoke check.
  *
- * Verifies the required browser/security policies are actually served on
- * production responses (home, a canonical destination, the JA mirror, a
- * catch-all SPA route, a real hashed static asset, and a 404 route) and
- * that they have not silently weakened. Fails closed with a clear message
- * on any violation.
- *
- * The hashed production asset is discovered from dist/index.html — the
- * caller (security-smoke workflow) builds first, so the local build's hash
- * matches the deployed artifact.
+ * Verifies the required browser/security policies on the deployment actually
+ * serving production. The entry asset is discovered from production HTML, not
+ * from this checkout's build, because Vite asset hashes are deployment data.
+ * The deployed Vite manifest/version module also identifies the commit serving
+ * the custom domain when the caller supplies EXPECTED_DEPLOYMENT_SHA.
  *
  * Usage: node scripts/check-security-headers.mjs [baseUrl]
- * Default baseUrl: https://meguruto.app
+ * Exit codes: 0 pass, 1 application/deployment failure, 2 Cloudflare challenge.
  */
-import { readFileSync, existsSync } from "node:fs";
-import path from "node:path";
+import { pathToFileURL } from "node:url";
 
-const BASE_URL = process.argv[2] ?? "https://meguruto.app";
+const BASE_URL = (process.argv[2] ?? "https://meguruto.app").replace(
+  /\/+$/,
+  "",
+);
+const EXPECTED_DEPLOYMENT_SHA =
+  process.env.EXPECTED_DEPLOYMENT_SHA?.trim() || null;
+
+export const FUNCTION_404_ROUTE = "/destinations/this-path-does-not-exist-xyz";
+export const STATIC_404_ROUTE = "/this-path-does-not-exist-xyz";
 
 /**
  * Must stay byte-identical (modulo whitespace) to the policy served by
@@ -73,70 +76,186 @@ const REQUIRED = [
   ],
 ];
 
-/** Discovers the hashed entry asset (e.g. /assets/index-XXXX.js) from the
- *  production build so the smoke checks a real static asset URL. */
-function discoverBuiltAsset() {
-  const shellPath = path.join(process.cwd(), "dist", "index.html");
-  if (!existsSync(shellPath)) {
-    console.error(
-      "FAIL: dist/index.html not found — run `npm run build` first (the security-smoke workflow builds before this step).",
-    );
-    process.exit(1);
-  }
-  const shell = readFileSync(shellPath, "utf8");
-  const match = shell.match(/<script[^>]+type="module"[^>]+src="([^"]+)"/);
-  if (!match) {
-    console.error("FAIL: no module script found in dist/index.html");
-    process.exit(1);
-  }
-  return match[1];
+/** Classifies only recognizable Cloudflare challenge responses as challenges. */
+export function classifyResponse({ status, headers, body }) {
+  if (status !== 403) return "application";
+
+  const cfMitigated =
+    headers.get("cf-mitigated")?.toLowerCase() === "challenge";
+  const server = headers.get("server")?.toLowerCase() ?? "";
+  const challengeBody = /just a moment|challenge-platform|cf-chl-/i.test(body);
+
+  return cfMitigated || (server.includes("cloudflare") && challengeBody)
+    ? "cloudflare-challenge"
+    : "application";
 }
 
-function assert(cond, message) {
-  if (!cond) {
+/** Finds the actual entry module URL advertised by the live HTML shell. */
+export function discoverAssetPath(html) {
+  const match = html.match(
+    /<script\b(?=[^>]*\btype=["']module["'])(?=[^>]*\bsrc=["']([^"']+)["'])[^>]*>/i,
+  );
+  if (!match) {
+    throw new Error("production HTML has no module entry asset");
+  }
+  return new URL(match[1], `${BASE_URL}/`).pathname;
+}
+
+/** Finds the version module in a deployed Vite manifest. */
+export function discoverVersionAssetPath(manifest) {
+  const versionEntry = Object.values(manifest).find(
+    (entry) => entry?.name === "version" && typeof entry.file === "string",
+  );
+  return versionEntry ? `/${versionEntry.file.replace(/^\/+/, "")}` : null;
+}
+
+/** Extracts the 40-character build commit baked into src/shared/utils/version.ts. */
+export function extractCommitSha(versionModule) {
+  return versionModule.match(/\b([0-9a-f]{40})\b/i)?.[1] ?? null;
+}
+
+function assert(condition, message) {
+  if (!condition) {
     console.error(`❌ FAIL: ${message}`);
     process.exitCode = 1;
   }
 }
 
+async function fetchProduction(route) {
+  const response = await fetch(`${BASE_URL}${route}`, { redirect: "manual" });
+  const body = await response.text();
+  const classification = classifyResponse({
+    status: response.status,
+    headers: response.headers,
+    body,
+  });
+
+  if (classification === "cloudflare-challenge") {
+    const error = new Error(
+      `Cloudflare challenge intercepted ${route} (HTTP ${response.status})`,
+    );
+    error.code = "cloudflare-challenge";
+    error.route = route;
+    throw error;
+  }
+
+  return {
+    status: response.status,
+    headers: response.headers,
+    body,
+  };
+}
+
+async function discoverDeployment() {
+  const shell = await fetchProduction("/");
+  assert(shell.status === 200, `production shell -> 200 (got ${shell.status})`);
+  const asset = discoverAssetPath(shell.body);
+
+  const manifestResponse = await fetchProduction("/.vite/manifest.json");
+  if (manifestResponse.status !== 200) {
+    throw new Error(
+      `deployed Vite manifest unavailable (HTTP ${manifestResponse.status})`,
+    );
+  }
+
+  let manifest;
+  try {
+    manifest = JSON.parse(manifestResponse.body);
+  } catch {
+    throw new Error("deployed Vite manifest is not valid JSON");
+  }
+
+  const versionAsset = discoverVersionAssetPath(manifest);
+  if (!versionAsset) {
+    throw new Error("deployed Vite manifest has no version asset");
+  }
+
+  const versionResponse = await fetchProduction(versionAsset);
+  if (versionResponse.status !== 200) {
+    throw new Error(
+      `deployed version asset ${versionAsset} -> 200 (got ${versionResponse.status})`,
+    );
+  }
+  const commitSha = extractCommitSha(versionResponse.body);
+  if (!commitSha) {
+    throw new Error(`deployed version asset ${versionAsset} has no commit SHA`);
+  }
+
+  return { asset, versionAsset, commitSha };
+}
+
 async function checkRoute(route, expectedStatus = 200) {
-  const res = await fetch(`${BASE_URL}${route}`);
+  const result = await fetchProduction(route);
   assert(
-    res.status === expectedStatus,
-    `${route} -> ${expectedStatus} (got ${res.status})`,
+    result.status === expectedStatus,
+    `${route} -> ${expectedStatus} (got ${result.status})`,
   );
   for (const [header, test, label] of REQUIRED) {
-    const value = res.headers.get(header);
+    const value = result.headers.get(header);
     assert(
       value !== null && test(value),
       `${route}: ${label} (got ${value ?? "MISSING"})`,
     );
   }
-  return res;
+  return result;
 }
 
 async function check() {
-  const builtAsset = discoverBuiltAsset();
+  const deployment = await discoverDeployment();
+  console.log(`ℹ️ deployed entry asset: ${deployment.asset}`);
+  console.log(`ℹ️ deployed version asset: ${deployment.versionAsset}`);
+  console.log(`ℹ️ deployed commit: ${deployment.commitSha}`);
 
-  // Home, canonical destination, JA mirror, and a catch-all SPA route
-  // (exercises the KAI-111 Function path) — all must serve the full
-  // required-header contract.
+  if (
+    EXPECTED_DEPLOYMENT_SHA &&
+    deployment.commitSha !== EXPECTED_DEPLOYMENT_SHA
+  ) {
+    const error = new Error(
+      `deployment drift: expected ${EXPECTED_DEPLOYMENT_SHA}, live ${deployment.commitSha}`,
+    );
+    error.code = "deployment-drift";
+    throw error;
+  }
+
+  // Home, canonical destination, JA mirror, private SPA route, and the actual
+  // deployed hashed asset. The asset comes from production HTML, not dist/.
   const routes = [
     "/",
     "/destinations/abashiri-city",
     "/ja/",
     "/settings",
-    builtAsset,
+    deployment.asset,
   ];
   for (const route of routes) {
     await checkRoute(route);
   }
 
-  // Real 404 route (KAI-111): full required-header contract, not CSP alone.
-  const notFound = await checkRoute("/this-path-does-not-exist-xyz", 404);
+  // Function-owned destination 404s carry the HTTP noindex contract. This is
+  // intentionally distinct from arbitrary paths, which are cheap static 404s.
+  const functionNotFound = await checkRoute(FUNCTION_404_ROUTE, 404);
   assert(
-    (notFound.headers.get("x-robots-tag") ?? "").includes("noindex"),
-    `/unknown -> noindex (got ${notFound.headers.get("x-robots-tag")})`,
+    functionNotFound.headers.get("x-robots-tag") === "noindex, follow",
+    `${FUNCTION_404_ROUTE}: X-Robots-Tag noindex, follow (got ${functionNotFound.headers.get("x-robots-tag") ?? "MISSING"})`,
+  );
+
+  const jaFunctionNotFound = await checkRoute(
+    "/ja/destinations/this-path-does-not-exist-xyz",
+    404,
+  );
+  assert(
+    jaFunctionNotFound.headers.get("x-robots-tag") === "noindex, follow",
+    "/ja destination 404 preserves the HTTP noindex contract",
+  );
+
+  // Arbitrary paths bypass Functions by design (KAI-250) and are served by
+  // the static locale-aware 404 document. Its noindex contract is body-level;
+  // requiring X-Robots-Tag here would reintroduce the removed catch-all.
+  const staticNotFound = await checkRoute(STATIC_404_ROUTE, 404);
+  assert(
+    /<meta[^>]+name="robots"[^>]+content="noindex, follow"/.test(
+      staticNotFound.body,
+    ),
+    `${STATIC_404_ROUTE}: static 404 body is noindex, follow`,
   );
 
   if (process.exitCode) {
@@ -144,11 +263,27 @@ async function check() {
     process.exit(1);
   }
   console.log(
-    `✅ security headers OK on ${BASE_URL} (${routes.length} routes + 404 contract)`,
+    `✅ security headers OK on ${BASE_URL} (${routes.length} routes + Function/static 404 contracts)`,
   );
 }
 
-check().catch((err) => {
-  console.error(`❌ FAIL: ${err.message}`);
-  process.exit(1);
-});
+const invokedAsScript =
+  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedAsScript) {
+  check().catch((error) => {
+    if (error.code === "cloudflare-challenge") {
+      console.error(`⚠️ CLOUDFLARE_CHALLENGE: ${error.message}`);
+      console.error(
+        "The edge challenge prevented application verification; this is not an application-header verdict.",
+      );
+      process.exit(2);
+    }
+    if (error.code === "deployment-drift") {
+      console.error(`❌ DEPLOYMENT_DRIFT: ${error.message}`);
+      process.exit(1);
+    }
+    console.error(`❌ FAIL: ${error.message}`);
+    process.exit(1);
+  });
+}

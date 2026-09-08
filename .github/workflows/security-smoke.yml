@@ -34,4 +34,10 @@ jobs:
         run: npm run check:bundle-secrets
 
       - name: Production security headers
+        # The verifier discovers the live hashed asset and deployed commit from
+        # production; Cloudflare challenges exit distinctly from app failures.
+        # Compare identity on main runs; feature-branch manual probes still
+        # discover and print the live identity without requiring a deploy.
+        env:
+          EXPECTED_DEPLOYMENT_SHA: ${{ github.ref == 'refs/heads/main' && github.sha || '' }}
         run: npm run check:security-headers
