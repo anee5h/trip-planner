@@ -182,7 +182,7 @@ export const HomeMatchCard: React.FC<HomeMatchCardProps> = ({
   // the user can tell a temporary provider outage from a normal estimate.
   const isRoughOutageDisplay = isCarOutageRoughEstimate(displayTransport);
   const travelTimeText = displayTransport
-    ? formatTravelEstimateLabel(displayTransport, locale)
+    ? formatTravelEstimateLabel(displayTransport, locale, { compact: true })
     : t("home.transportModes.travelUnavailable");
   const transportDisplay = displayTransport
     ? {

@@ -34,4 +34,54 @@ describe("formatTravelEstimateLabel", () => {
       }),
     ).toBe("1h 22m");
   });
+
+  it("uses compact approximation marks without hiding the numeric range", () => {
+    expect(
+      formatTravelEstimateLabel(
+        {
+          timeRange: [21, 49],
+          evidence: "estimated",
+          estimateSource: "rough",
+        },
+        "en",
+        { compact: true },
+      ),
+    ).toBe("21–49 min");
+    expect(
+      formatTravelEstimateLabel(
+        {
+          timeRange: [40, 40],
+          evidence: "estimated",
+          estimateSource: "rough",
+        },
+        "en",
+        { compact: true },
+      ),
+    ).toBe("~40 min");
+  });
+
+  it("keeps compact Japanese labels readable", () => {
+    expect(
+      formatTravelEstimateLabel(
+        {
+          timeRange: [21, 49],
+          evidence: "estimated",
+          estimateSource: "rough",
+        },
+        "ja",
+        { compact: true },
+      ),
+    ).toBe("21–49分");
+    expect(
+      formatTravelEstimateLabel(
+        {
+          timeRange: [40, 40],
+          evidence: "estimated",
+          estimateSource: "rough",
+        },
+        "ja",
+        { compact: true },
+      ),
+    ).toBe("約40分");
+  });
 });

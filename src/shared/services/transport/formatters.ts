@@ -104,10 +104,16 @@ export interface TravelEstimateDisplayMetadata {
   readonly estimateSource?: "routed" | "route-distance-derived" | "rough";
 }
 
+export interface TravelEstimateLabelOptions {
+  /** Compact cards keep the numeric value and use a short approximation mark. */
+  readonly compact?: boolean;
+}
+
 /** Apply the evidence boundary to user-facing travel time. */
 export function formatTravelEstimateLabel(
   estimate: TravelEstimateDisplayMetadata,
   locale: string = "en",
+  options: TravelEstimateLabelOptions = {},
 ): string {
   if (estimate.confidence === "low" || estimate.evidence === "unknown") {
     return locale === "ja"
@@ -122,6 +128,14 @@ export function formatTravelEstimateLabel(
     estimate.estimateSource === "rough" ||
     estimate.evidence === "estimated"
   ) {
+    if (options.compact) {
+      const isSingleValue = estimate.timeRange[0] === estimate.timeRange[1];
+      return isSingleValue
+        ? locale === "ja"
+          ? `約${formatted}`
+          : `~${formatted}`
+        : formatted;
+    }
     return locale === "ja"
       ? `概算：${formatted}`
       : `Rough estimate: ${formatted}`;

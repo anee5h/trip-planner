@@ -181,8 +181,9 @@ describe("DestinationCard responsive content", () => {
     );
 
     expect(host.textContent).toContain(
-      formatTravelEstimateLabel(displayOnlyEstimate!, "en"),
+      formatTravelEstimateLabel(displayOnlyEstimate!, "en", { compact: true }),
     );
+    expect(host.textContent).not.toContain("Rough estimate:");
   });
 
   it("renders Explore's shared estimate with a compact approximate prefix", () => {
