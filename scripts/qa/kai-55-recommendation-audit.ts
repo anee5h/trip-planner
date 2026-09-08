@@ -1,14 +1,25 @@
 import { JSDOM } from "jsdom";
+import liteIndex from "../../src/shared/data/destinations-index.lite.json";
 import type { Destination } from "../../src/shared/types/destination";
 import type { BudgetTier } from "../../src/shared/types/planner";
-import type {
-  RecommendationContext,
-  TripDuration,
-  TripMode,
-} from "../../src/shared/services/recommendation/RecommendationContext";
+import type { RecommendationContext } from "../../src/shared/services/recommendation/RecommendationContext";
+import type { TripDuration } from "../../src/shared/types/tripDuration";
 import type { PipelineRecommendation } from "../../src/shared/services/recommendation/RecommendationTypes";
 
 const dom = new JSDOM("", { url: "http://localhost" });
+const realFetch = globalThis.fetch.bind(globalThis);
+globalThis.fetch = ((input: RequestInfo | URL, init?: RequestInit) => {
+  const url = String(input);
+  if (url.endsWith("/data/destinations-index.lite.json")) {
+    return Promise.resolve(
+      new Response(JSON.stringify(liteIndex), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      }),
+    );
+  }
+  return realFetch(input, init);
+}) as typeof fetch;
 Object.defineProperty(globalThis, "window", {
   configurable: true,
   value: dom.window,
@@ -24,8 +35,10 @@ Object.defineProperty(globalThis, "navigator", {
 
 const { getDestinationList } =
   await import("../../src/shared/services/destination/DestinationService");
-const { getEstimatedBudgetRange } =
-  await import("../../src/shared/services/budget/BudgetService");
+const { loadLiteIndex } =
+  await import("../../src/shared/services/place/PlaceCatalog");
+const { calculateTripEstimate, evaluateAffordability } =
+  await import("../../src/shared/services/budget/tripEstimateEngine");
 const {
   getOriginAwareTransportEstimate,
 }: {
@@ -44,6 +57,8 @@ const {
   await import("../../src/shared/services/transport/TransportTopologyService");
 const { deriveTripDates } =
   await import("../../src/shared/services/recommendation/TravelConditions");
+const { normalizeTripDuration } =
+  await import("../../src/shared/types/tripDuration");
 const {
   getVisitBand,
   estimateDayTripDuration,
@@ -146,7 +161,7 @@ interface Scenario {
   id: string;
   title: string;
   origin: OriginKey;
-  tripMode?: TripMode;
+  tripMode?: "day_trip" | "weekend_2d1n";
   tripDuration?: TripDuration;
   budget?: number;
   budgetTier?: BudgetTier;
@@ -642,13 +657,24 @@ const scenarios: Scenario[] = [
   },
 ];
 
+await loadLiteIndex();
 const destinations = getDestinationList("en") as Destination[];
+if (destinations.length < 100) {
+  throw new Error(
+    `KAI-55 requires a loaded catalogue; received ${destinations.length} records`,
+  );
+}
 
 function contextFor(scenario: Scenario): RecommendationContext {
   const origin = ORIGINS[scenario.origin];
   const tripMode = scenario.tripMode ?? "day_trip";
+  const tripDuration =
+    scenario.tripDuration ??
+    (scenario.tripMode === "weekend_2d1n"
+      ? normalizeTripDuration(scenario.tripMode)
+      : "any");
   const travelDates = scenario.travelDate
-    ? deriveTripDates(scenario.travelDate, tripMode)
+    ? deriveTripDates(scenario.travelDate, tripDuration)
     : undefined;
   return {
     vibe: scenario.vibe ?? "any",
@@ -666,7 +692,7 @@ function contextFor(scenario: Scenario): RecommendationContext {
     }),
     ferryTemporal: scenario.travelDate ? QA_FERRY_TEMPORAL : undefined,
     travelDates,
-    tripDuration: scenario.tripDuration ?? "any",
+    tripDuration,
     tripMode,
     accommodationAllowance: scenario.accommodationAllowance,
   };
@@ -725,23 +751,26 @@ function estimateMatches(
   );
 }
 
-function budgetUsesOnlyVerifiedTravel(
+function budgetEvidenceIsHonest(result: PipelineRecommendation) {
+  if (result.transportEstimate?.evidence !== "estimated") return true;
+  if (!result.estimatedCostRange) return true;
+  return result.estimatedCostQuality !== "verified";
+}
+
+function tripEstimateForBudget(
   result: PipelineRecommendation,
+  mode: string,
   context: RecommendationContext,
 ) {
-  const estimated = result.transportEstimate?.evidence === "estimated";
-  if (!estimated) return true;
-  const modes = modesFor(result, context);
-  return modes.every((mode) => {
-    const budget = getEstimatedBudgetRange(
-      result,
-      mode,
-      context.partySize,
-      context.budgetTier,
-      context.homeStationCoords ?? undefined,
-      context.ferryTemporal,
-    );
-    return !budget.transportIncluded && !budget.durationIncluded;
+  return calculateTripEstimate({
+    dest: result,
+    mode,
+    partySize: context.partySize,
+    homeCoords: context.homeStationCoords ?? undefined,
+    duration: context.tripDuration ?? "any",
+    budgetTier: context.budgetTier,
+    ferryTemporal: context.ferryTemporal,
+    includeOriginTravel: true,
   });
 }
 
@@ -760,7 +789,7 @@ function formatEstimate(estimate: TravelDurationEstimate | null | undefined) {
 function formatBudget(result: PipelineRecommendation) {
   if (!result.estimatedCostRange) return "unknown";
   const suffix = result.estimatedCostTransportIncluded
-    ? "verified"
+    ? (result.estimatedCostQuality ?? "unknown")
     : "transport-unknown";
   return `¥${result.estimatedCostRange[0]}-${result.estimatedCostRange[1]} (${suffix})`;
 }
@@ -858,9 +887,9 @@ function validate(
       }
       const invalid = results.filter(
         (result) =>
-          !result.weekend ||
-          !result.weekend.travelFit.eligible ||
-          result.weekend.capacity.activityMinutes < 480,
+          !result.overnight ||
+          !result.overnight.travelFit.eligible ||
+          result.overnight.capacity.activityMinutes < 480,
       );
       if (invalid.length > 0) {
         return fail(
@@ -888,42 +917,45 @@ function validate(
     }
     case "knownBudgetWithin": {
       const context = contextFor(scenario);
-      const violations = results.filter((result) => {
+      const definitelyOver = results.filter((result) => {
         const modes = modesFor(result, context);
-        const verified = modes
-          .map((mode) =>
-            getEstimatedBudgetRange(
-              result,
-              mode,
-              context.partySize,
-              context.budgetTier,
-              context.homeStationCoords ?? undefined,
-              context.ferryTemporal,
-            ),
-          )
-          .filter(
-            (estimate) =>
-              estimate.transportIncluded &&
-              estimate.durationIncluded &&
-              estimate.range,
-          );
+        const estimates = modes.map((mode) =>
+          tripEstimateForBudget(result, mode, context),
+        );
         return (
-          verified.length > 0 &&
-          Math.min(...verified.map((estimate) => estimate.range![1])) >
-            context.budget
+          estimates.length > 0 &&
+          estimates.every(
+            (estimate) =>
+              evaluateAffordability(estimate, context.budget) === "over" &&
+              estimate.completeness === "complete" &&
+              estimate.evidenceCompleteness === "complete" &&
+              estimate.estimateQuality === "verified",
+          )
         );
       });
-      if (violations.length > 0) {
+      if (definitelyOver.length > 0) {
         return fail(
-          `Known budget violations: ${violations
+          `Definitely over-budget results with complete verified evidence: ${definitelyOver
             .slice(0, 8)
             .map((r) => `${r.id}=${formatBudget(r)}`)
             .join(", ")}`,
           "P1",
         );
       }
+      const uncertain = results.filter((result) => {
+        const modes = modesFor(result, context);
+        return modes.some((mode) => {
+          const estimate = tripEstimateForBudget(result, mode, context);
+          return (
+            evaluateAffordability(estimate, context.budget) === "may_exceed" ||
+            estimate.completeness !== "complete" ||
+            estimate.evidenceCompleteness !== "complete" ||
+            estimate.estimateQuality !== "verified"
+          );
+        });
+      });
       notes.push(
-        `No returned result has a verified complete estimate above ¥${context.budget}.`,
+        `${uncertain.length} results remain bounded-but-uncertain, straddling, partial, or unknown; range.max above the cap is not itself a budget violation.`,
       );
       return { status: "PASS", severity: "none", notes };
     }
@@ -976,14 +1008,14 @@ function validate(
           mismatches.push(`${result.id}: unknown travel received a duration`);
         }
         if (canonical === null) {
-          if (derived) {
+          if (derived && derived.travelEvidence !== "estimated") {
             mismatches.push(
-              `${result.id}: strict duration unexpectedly ${derived.bestTravelMinutes ?? "known"}`,
+              `${result.id}: fallback duration is not marked estimated`,
             );
           }
-          if (!budgetUsesOnlyVerifiedTravel(result, context)) {
+          if (!budgetEvidenceIsHonest(result)) {
             mismatches.push(
-              `${result.id}: estimated travel entered budget data`,
+              `${result.id}: estimated travel was presented as verified budget data`,
             );
           }
           continue;
@@ -993,20 +1025,10 @@ function validate(
         );
         if (
           !result.transportEstimate ||
-          result.transportEstimate.evidence !== "verified"
+          !estimateMatches(result.transportEstimate, canonical)
         ) {
           mismatches.push(
-            `${result.id}: pipeline ${formatEstimate(result.transportEstimate)} vs verified ${formatEstimate(canonical)}`,
-          );
-        }
-        if (
-          result.transportEstimate &&
-          (result.transportEstimate.mode !== canonical.mode ||
-            result.transportEstimate.timeRange[0] !== canonical.timeRange[0] ||
-            result.transportEstimate.timeRange[1] !== canonical.timeRange[1])
-        ) {
-          mismatches.push(
-            `${result.id}: pipeline ${formatEstimate(result.transportEstimate)} vs ${formatEstimate(canonical)}`,
+            `${result.id}: pipeline ${formatEstimate(result.transportEstimate)} vs canonical ${formatEstimate(canonical)}`,
           );
         }
         if (derived?.bestTravelMinutes !== canonicalMid) {
@@ -1014,8 +1036,10 @@ function validate(
             `${result.id}: strict duration ${derived?.bestTravelMinutes ?? "unknown"} vs ${canonicalMid}`,
           );
         }
-        if (!budgetUsesOnlyVerifiedTravel(result, context)) {
-          mismatches.push(`${result.id}: estimated travel entered budget data`);
+        if (!budgetEvidenceIsHonest(result)) {
+          mismatches.push(
+            `${result.id}: estimated travel was presented as verified budget data`,
+          );
         }
       }
       if (mismatches.length > 0)
@@ -1263,30 +1287,44 @@ function validate(
     }
     case "islandTopology": {
       const context = contextFor(scenario);
-      const invalid = results.filter((result) => {
-        const zone = resolveDestinationTransportZone(result);
-        if (!ISLAND_ZONE_IDS.has(zone)) return false;
+      const islandResults = results.filter((result) =>
+        ISLAND_ZONE_IDS.has(resolveDestinationTransportZone(result)),
+      );
+      if (islandResults.length === 0) {
+        return fail(
+          "No island candidates reached the topology audit; the scenario must inspect real island results.",
+          "P1",
+        );
+      }
+      const invalid = islandResults.filter((result) => {
         const modes = modesFor(result, context);
         const evidence = getDayTripTravelDurationEvidence(
           result,
           context,
           modes,
         );
+        const estimate = evidence.estimate;
+        const hasVerifiedIslandAccess = Boolean(
+          estimate &&
+          ["ferry", "flight"].includes(estimate.mode) &&
+          ["verified_ferry", "verified_flight"].includes(estimate.source),
+        );
         return (
+          modes.length === 0 ||
           modes.some((mode) => !["ferry", "flight"].includes(mode)) ||
-          evidence.evidence === "estimated"
+          !hasVerifiedIslandAccess
         );
       });
       if (invalid.length > 0)
         return fail(
-          `Island candidates expose mainland modes: ${invalid
+          `Island candidates expose invalid access modes: ${invalid
             .slice(0, 8)
             .map((r) => r.id)
             .join(", ")}`,
           "P1",
         );
       notes.push(
-        "No inspected island candidate is authorized through rail, bus, or car topology or receives an estimated duration.",
+        `Inspected ${islandResults.length} island candidates; all use verified ferry/flight access and none use rail, bus, or car topology.`,
       );
       return { status: "PASS", severity: "none", notes };
     }

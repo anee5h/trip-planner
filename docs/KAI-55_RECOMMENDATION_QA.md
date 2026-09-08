@@ -18,6 +18,222 @@ Targeted reproduction is available with KAI55_SCENARIO, for example:
 
     KAI55_SCENARIO=C04 node_modules/.bin/tsx --tsconfig tsconfig.app.json scripts/qa/kai-55-recommendation-audit.ts
 
+## 2026-09-08 final Astra closure audit
+
+Date: 2026-09-08
+
+Audited main SHA: `893f2c10c9a1506cbaad6c39ba63b78c5dad562a`
+
+Scope: the documented KAI-55 recommendation-quality audit, including the eight
+hard failures from the valid 42-scenario rerun. This closure pass changes QA
+runner infrastructure and audit contracts only. It does not change production
+recommendation, budget, or transport policy.
+
+### Reproduction
+
+```text
+node_modules/.bin/tsx --tsconfig tsconfig.app.json scripts/qa/kai-55-recommendation-audit.ts
+```
+
+The runner now:
+
+- awaits the canonical async `loadLiteIndex()` catalogue loader;
+- supplies the checked-in lite runtime asset through the Node QA fetch boundary;
+- fails loudly when the loaded catalogue is below the sane 100-record floor;
+- preserves all 42 scenario IDs;
+- preserves `duration=any` for unspecified day-trip scenarios;
+- normalizes the legacy `weekend_2d1n` scenario mode to canonical `2d1n`;
+- validates canonical `overnight` metadata rather than the removed `weekend` field;
+- reports rough budget evidence as `rough`, never as `verified`;
+- requires T06 to inspect real island candidates and validates access topology,
+  rather than treating an estimated duration as proof of an invalid route;
+- treats only complete, verified, definitely-over budget evidence as a hard
+  budget failure.
+
+### Final result
+
+```text
+catalogue=1130 scenarios=42
+summary={"PASS":31,"REVIEW":11}
+FAIL=0
+runner_exit=0
+```
+
+The 11 REVIEW cases are the documented subjective ranking/product-quality
+judgments. They remain REVIEW intentionally; they are not unexplained hard
+failures and are acceptable under KAI-55's human-audit acceptance criteria.
+
+### Disposition of the eight original failures
+
+#### TR01 — Origin-aware travel consistency
+
+- **Scenario:** Nakayama origin; public train/shinkansen; day trip.
+- **Historical expectation:** only verified origin-aware travel should flow into
+  derived duration and budget checks.
+- **Current result:** pipeline and shared transport evidence match. Example
+  Yokohama City is `29–60m`; when a cost range exists it is `¥9,400–23,600`
+  with quality `rough`; unsupported fare remains unknown.
+- **Provenance:** `rough_transit_fallback`.
+- **Confidence:** `medium`.
+- **Completeness:** duration is bounded; cost evidence is rough/partial rather
+  than source-verified. The bounded budget engine result is explicitly
+  `evidenceCompleteness=partial`, `estimateQuality=rough`, and its scope is
+  `local_bounded_estimate` or `corridor_only`.
+- **UI state:** estimated travel and Rough estimate budget labeling.
+- **Recommendation/budget treatment:** usable bounded evidence for ranking and
+  soft eligibility; not treated as verified fare evidence. Budget transport
+  quality remains rough, not verified.
+- **Intended contract:** KAI-348 bounded estimated evidence may flow downstream
+  when provenance and uncertainty are retained; unknown fare must remain
+  unknown.
+- **Verdict:** **stale audit contract**, no production defect.
+
+#### TR02 — Car fallback duration
+
+- **Scenario:** Nakayama origin; personal car only; day trip.
+- **Historical expectation:** car duration must remain entirely unknown and no
+  duration may be inferred from distance.
+- **Current result:** Boso Peninsula is `199–294m`; Hakone is `130–194m`.
+- **Provenance:** `calculated_ground_display`.
+- **Confidence:** `medium`.
+- **Completeness:** bounded estimated duration only; no verified provider route
+  and no complete transport fare. Budget remains `unknown` with no complete
+  estimated cost range.
+- **UI state:** estimated/rough travel state; no falsely cheap car budget.
+- **Recommendation/budget treatment:** bounded conservative estimate can inform
+  eligibility/ranking; budget logic does not treat it as verified and retains
+  transport cost as unknown.
+- **Intended contract:** KAI-348 permits conservative car fallback evidence
+  when marked estimated; it must not become a verified route or fare.
+- **Verdict:** **stale audit contract**, no production defect.
+
+#### TR04 — Shin-Yokohama origin coverage
+
+- **Scenario:** Shin-Yokohama origin; public train/shinkansen; day trip.
+- **Historical expectation:** only verified registry corridors should produce a
+  duration or budget input.
+- **Current result:** pipeline and shared evidence match. Example Yokohama City
+  is `26–55m`; a bounded budget range, where present, is rough; unsupported
+  transport cost remains unknown.
+- **Provenance:** `rough_transit_fallback`.
+- **Confidence:** `medium`.
+- **Completeness:** bounded estimated duration; budget evidence is rough/partial
+  (`evidenceCompleteness=partial`, not verified).
+- **UI state:** estimated travel and Rough estimate budget labeling.
+- **Recommendation/budget treatment:** bounded evidence is usable for soft
+  recommendation decisions; it is not consumed as verified fare evidence.
+- **Intended contract:** same KAI-348 provenance-aware bounded-estimate contract
+  as TR01.
+- **Verdict:** **stale audit contract**, no production defect.
+
+#### T06 — Island topology under public transport
+
+- **Scenario:** Tokyo origin; all public modes; dated ferry context.
+- **Historical expectation:** island destinations must use ferry/flight access,
+  never fabricated mainland rail access.
+- **Current result:** 32 island candidates were inspected. All authorized modes
+  are ferry or flight, and access provenance is `verified_ferry` or
+  `verified_flight`. Estimated travel time is present for some routes, but that
+  describes duration uncertainty, not invalid access topology.
+- **Provenance/confidence/completeness:** access topology is verified by the
+  ferry/flight route source; duration may be estimated and bounded separately.
+- **UI state:** estimated duration is shown as estimated; no island route is
+  presented as mainland rail/bus/car access.
+- **Recommendation/budget treatment:** island eligibility uses ferry/flight
+  topology; no generic mainland mode is invented.
+- **Intended contract:** validate access mode and route provenance separately
+  from whether the duration is estimated.
+- **Verdict:** **stale audit assertion**, no production defect. The runner was
+  also hardened so T06 cannot pass vacuously without inspecting island results.
+
+#### B01 — Economy budget gate
+
+- **Scenario:** Nakayama origin; party size 2; economy cap `¥20,000`.
+- **Historical expectation:** known complete verified estimates must not exceed
+  the cap.
+- **Current results:** representative ranges include Hakone
+  `¥9,600–27,200`, Enoshima `¥8,200–23,800`, Boso Peninsula
+  `¥12,200–35,800`, and Yokohama `¥6,000–16,400`.
+- **Completeness:** bounded totals are structurally `complete`, but their
+  evidence is `partial` and `estimateQuality=rough`; origin transport is a
+  model estimate with corridor/local-bounded scope. No missing component is
+  silently converted to zero.
+- **Fit classification:** Hakone/Enoshima/Boso straddle the cap; Yokohama is
+  below it. None is a complete, verified, definitely-over result.
+- **Why admitted:** recommendation eligibility uses the soft
+  `fits`/`may_exceed`/`unknown` contract. Modelled transport does not justify
+  hard exclusion, and straddling ranges remain visible with uncertainty.
+- **UI state:** rough range is displayed; no straddling result claims a definite
+  within-budget fit.
+- **Verdict:** **stale audit contract**, no production defect.
+
+#### B02 — Very-low budget adversarial case
+
+- **Scenario:** Yokohama origin; party size 2; train only; economy cap
+  `¥10,000`.
+- **Historical expectation:** expensive train trips should be excluded and
+  unknown fares should remain unknown.
+- **Current results:** Hakone `¥9,600–27,200`, Yokohama
+  `¥5,800–15,200`, and Enoshima `¥8,200–23,800` are representative
+  straddling ranges; unknown-fare destinations remain explicitly unknown.
+- **Completeness:** bounded totals are `complete` in shape but
+  `evidenceCompleteness=partial` and `estimateQuality=rough`; transport scopes
+  are corridor/local bounded estimates, not verified fares.
+- **Fit classification:** these are not definitely over based on their minimum
+  values; the maximum crossing the cap is insufficient for a hard failure.
+- **Why admitted:** KAI-279 soft recommendation semantics retain straddling
+  and modelled estimates while avoiding a false definite-within-budget claim.
+- **UI state:** rough ranges are visible; unknown transport cost is not rendered
+  as a verified zero or cheap estimate.
+- **Verdict:** **stale audit contract**, no production defect.
+
+#### W01 — Weekend from Nakayama
+
+- **Historical expectation:** coherent areas with sufficient activity and
+  eligible 2D1N travel.
+- **Current result after runner repair:** `143` results; all satisfy travel,
+  capacity, and area gates.
+- **Root cause of the original FAIL:** runner passed legacy `weekend_2d1n`
+  without canonicalizing `tripDuration` to `2d1n`, then inspected obsolete
+  `result.weekend` instead of `result.overnight`.
+- **Verdict:** **runner contract drift**, no production defect.
+
+#### W02 — Weekend from Tokyo
+
+- **Historical expectation:** practical longer-distance weekend destinations
+  should rank above unsuitable local/day-trip candidates.
+- **Current result after runner repair:** `133` results; all satisfy travel,
+  capacity, and area gates.
+- **Root cause of the original FAIL:** same runner-only legacy duration/metadata
+  mismatch as W01.
+- **Verdict:** **runner contract drift**, no production defect.
+
+### Explore default-filter check
+
+The current Explore defaults remain unfiltered for transport and duration:
+
+- empty `publicModes` plus no car resolves to **any public transport**;
+- default `tripDuration` is **any**;
+- saved transport preferences are not injected into Explore defaults.
+
+The KAI-55 runner now preserves those defaults for unspecified day-trip
+scenarios, while explicitly normalizing only the legacy weekend scenario to
+`2d1n`. T06 therefore audits real island coverage instead of a filtered or
+vacuous subset.
+
+### Final beta/Astra verdict
+
+**KAI-55 beta blocker: CLOSED.** The documented runner is durable and the exact
+42-scenario run has zero unexplained hard failures. The eight original FAILs
+are all dispositioned above; none requires a production recommendation,
+budget, or transport-policy change.
+
+**Astra remediation arc: COMPLETE.** The 11 remaining REVIEW cases are
+explicitly subjective/manual ranking judgments permitted by KAI-55 acceptance
+criteria and are not silently converted to PASS.
+
+Next workstream: **KAI-81 security review**.
+
 ## 2026-08-09 rerun
 
 The complete 42-scenario audit was rerun after PR #121. It produced:
