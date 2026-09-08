@@ -37,7 +37,6 @@ import {
   Compass,
   X,
 } from "lucide-react";
-import { formatLocalizedJPYRange } from "@/shared/services/budget/BudgetService";
 import { recommendationAnalytics } from "@/shared/services/analytics/RecommendationAnalyticsService";
 import { getLocalizedPlace } from "@/shared/services/place/PlaceCatalog";
 import type { TripDuration } from "@/shared/types/tripDuration";
@@ -48,7 +47,6 @@ interface DayPlanWidgetProps {
   locale?: "en" | "ja";
   partySize?: number;
   onPartySizeChange?: (partySize: number) => void;
-  generatedCostRange?: [number, number];
   onSaveToItinerary?: (plan: DayPlan) => void;
   onPlanGenerated?: (plan: DayPlan | null) => void;
   /** When false, the plan-creation entry point is hidden because the
@@ -101,7 +99,6 @@ export function DayPlanWidget({
   locale = "en",
   partySize: externalPartySize = 2,
   onPartySizeChange,
-  generatedCostRange,
   onSaveToItinerary,
   onPlanGenerated,
   eligible = true,
@@ -451,15 +448,6 @@ export function DayPlanWidget({
                     10}{" "}
                   {locale === "ja" ? "時間" : "hours"}
                 </span>
-              </div>
-              <div className="w-px h-4 bg-slate-200 dark:bg-slate-700" />
-              <div>
-                {generatedCostRange || generatedPlan.totalBudgetRange
-                  ? `${locale === "ja" ? "約 " : "Approx. "}${formatLocalizedJPYRange(
-                      generatedCostRange ?? generatedPlan.totalBudgetRange,
-                      locale,
-                    )}`
-                  : formatLocalizedJPYRange(undefined, locale)}
               </div>
             </div>
           )}

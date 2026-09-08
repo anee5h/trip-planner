@@ -108,12 +108,6 @@ export function DestinationPlanningSection({
         )
       : undefined;
 
-  // KAI-260: generated-plan summaries use the canonical bounded range. A
-  // rough/estimated ingredient is disclosed by the breakdown badge, not used
-  // to suppress a useful total.
-  const completePlanCostRange: [number, number] | undefined =
-    costBreakdown?.totalRange;
-
   return (
     <div className="space-y-3 pb-2 md:pb-0">
       {/* Unified Progressive Day Plan Generator */}
@@ -124,7 +118,6 @@ export function DestinationPlanningSection({
         travelDate={travelDate}
         partySize={activePartySize}
         onPartySizeChange={setActivePartySize}
-        generatedCostRange={completePlanCostRange}
         eligible={eligible}
         catalogueLoading={catalogueLoading}
         catalogueError={catalogueError}
