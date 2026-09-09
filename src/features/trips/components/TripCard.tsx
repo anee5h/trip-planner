@@ -90,11 +90,19 @@ export default function TripCard({ trip, onSelect, onDelete }: TripCardProps) {
         </div>
       </div>
 
-      <div className="mt-3 flex items-center gap-2 text-sm text-slate-500 dark:text-slate-300">
-        <Calendar className="size-4 shrink-0" />
-        <span>
-          {dateLabel || <span className="italic">{t("ui.noDatesSet")}</span>}
-        </span>
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500 dark:text-slate-300">
+        <div className="flex items-center gap-2">
+          <Calendar className="size-4 shrink-0" />
+          <span>
+            {dateLabel || <span className="italic">{t("ui.noDatesSet")}</span>}
+          </span>
+        </div>
+        {trip.status !== "draft" && (
+          <span data-trip-status>
+            {t("trips.status")}:{" "}
+            {t(`trips.statusLabels.${trip.status}`, trip.status)}
+          </span>
+        )}
       </div>
 
       <div className="mt-4 flex items-center justify-between gap-3 border-t border-slate-100 pt-3 dark:border-slate-800">

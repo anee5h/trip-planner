@@ -17,6 +17,10 @@ vi.mock("react-i18next", () => ({
         "ui.noDatesSet": "No dates set",
         "ui.stop": "stop",
         "ui.stops": "stops",
+        "trips.status": "Status",
+        "trips.statusLabels.planned": "Planned",
+        "trips.statusLabels.completed": "Completed",
+        "trips.statusLabels.cancelled": "Cancelled",
       })[key] ?? key,
   }),
 }));
@@ -58,10 +62,37 @@ afterEach(() => {
 });
 
 describe("TripCard", () => {
-  it("renders a compact trip summary without a meaningless status badge", () => {
+  it("renders non-draft statuses while hiding only the permanent draft state", () => {
     render();
     expect(host.textContent).toContain("Kyoto Weekend");
-    expect(host.textContent).not.toContain("planned");
+    expect(host.textContent).toContain("Status: Planned");
+
+    for (const [status, label] of [
+      ["completed", "Completed"],
+      ["cancelled", "Cancelled"],
+    ] as const) {
+      act(() =>
+        root.render(
+          <TripCard
+            trip={{ ...mockTrip, status }}
+            onSelect={onSelect}
+            onDelete={onDelete}
+          />,
+        ),
+      );
+      expect(host.textContent).toContain(`Status: ${label}`);
+    }
+
+    act(() =>
+      root.render(
+        <TripCard
+          trip={{ ...mockTrip, status: "draft" }}
+          onSelect={onSelect}
+          onDelete={onDelete}
+        />,
+      ),
+    );
+    expect(host.textContent).not.toContain("Status:");
   });
 
   it("calls onSelect from the Edit itinerary action", () => {

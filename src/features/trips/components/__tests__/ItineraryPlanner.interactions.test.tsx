@@ -150,6 +150,22 @@ describe("ItineraryPlanner stop interactions", () => {
     expect(host.querySelector('input[type="date"]')).toBeNull();
   });
 
+  it("labels legacy stop dates outside the canonical trip range explicitly", () => {
+    renderPlanner({
+      ...baseTrip,
+      endDate: "2026-08-09",
+      stops: [
+        {
+          ...baseTrip.stops[0],
+          date: "2026-08-12",
+        },
+      ],
+    });
+
+    expect(host.textContent).toContain("Outside trip dates · Aug 12, 2026");
+    expect(host.textContent).not.toContain("Day 5");
+  });
+
   it("keeps first and last accessible move actions disabled at the boundaries", () => {
     renderPlanner(sameDayTrip);
     const menus = host.querySelectorAll('[role="menu"]');

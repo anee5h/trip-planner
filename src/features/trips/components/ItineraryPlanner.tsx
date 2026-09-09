@@ -55,13 +55,28 @@ function addUtcDays(dateStr: string, days: number): string {
 function formatGroupLabel(
   date: string | undefined,
   tripStartDate: string | undefined,
+  tripEndDate: string | undefined,
   locale: "en" | "ja",
 ): string {
   if (!date) return locale === "ja" ? "日程未設定" : "Unscheduled";
 
   const formatted = formatTripDateRange(date, undefined, locale);
-  if (tripStartDate) {
-    const dayNumber = getUtcDay(date) - getUtcDay(tripStartDate) + 1;
+  const hasCanonicalStart = /^\d{4}-\d{2}-\d{2}$/.test(tripStartDate ?? "");
+  const hasCanonicalDate = /^\d{4}-\d{2}-\d{2}$/.test(date);
+  const canonicalEnd = /^\d{4}-\d{2}-\d{2}$/.test(tripEndDate ?? "")
+    ? tripEndDate
+    : undefined;
+
+  if (hasCanonicalStart && hasCanonicalDate) {
+    const isWithinTripDates =
+      date >= tripStartDate! && (!canonicalEnd || date <= canonicalEnd);
+    if (!isWithinTripDates) {
+      return locale === "ja"
+        ? `日程範囲外 · ${formatted}`
+        : `Outside trip dates · ${formatted}`;
+    }
+
+    const dayNumber = getUtcDay(date) - getUtcDay(tripStartDate!) + 1;
     if (Number.isInteger(dayNumber) && dayNumber > 0) {
       return locale === "ja"
         ? `${dayNumber}日目 · ${formatted}`
@@ -524,12 +539,18 @@ export default function ItineraryPlanner({
                 aria-label={formatGroupLabel(
                   group.date,
                   trip.startDate,
+                  trip.endDate,
                   locale,
                 )}
               >
                 <h5 className="mb-2 flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-300">
                   <CalendarDays className="size-3.5 text-emerald-600 dark:text-emerald-300" />
-                  {formatGroupLabel(group.date, trip.startDate, locale)}
+                  {formatGroupLabel(
+                    group.date,
+                    trip.startDate,
+                    trip.endDate,
+                    locale,
+                  )}
                 </h5>
 
                 <div role="list" className="space-y-2">
