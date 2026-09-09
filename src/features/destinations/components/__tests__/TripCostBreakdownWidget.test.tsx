@@ -8,6 +8,7 @@ import { createRoot, type Root } from "react-dom/client";
 import { afterEach, describe, it, expect, vi } from "vitest";
 import { TripCostBreakdownWidget } from "../TripCostBreakdownWidget";
 import type { Destination } from "@/shared/types/destination";
+import destinations from "@/shared/data/destinations-index.json";
 import type { GeneratedPlanCostResult } from "@/shared/services/budget/GeneratedPlanCostService";
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -62,7 +63,34 @@ vi.mock("lucide-react", () => ({
 // accommodation = allowance) so the rows + total are derived from the SAME
 // source.
 vi.mock("@/shared/services/budget/tripEstimateEngine", () => ({
-  calculateTripEstimate: ({ duration }: { duration?: string }) => {
+  calculateTripEstimate: ({
+    dest,
+    duration,
+  }: {
+    dest?: Destination;
+    duration?: string;
+  }) => {
+    if (dest?.id === "disneysea") {
+      return {
+        completeness: "partial",
+        total: undefined,
+        knownSubtotal: [8800, 18200],
+        missingComponents: [
+          { scope: "admission", reason: "price_variable_by_date" },
+        ],
+        estimateQuality: "estimated",
+        components: [
+          {
+            cost: { kind: "unavailable", reason: "price_variable_by_date" },
+            evidence: { scope: "admission", derivation: "source_fact" },
+          },
+          {
+            cost: { kind: "bounded", min: 8800, max: 18200 },
+            evidence: { scope: "meals", derivation: "model_estimate" },
+          },
+        ],
+      };
+    }
     const allowance =
       duration === "2d1n" ? 10000 : duration === "3d2n" ? 20000 : 0;
     const components = [
@@ -249,6 +277,8 @@ afterEach(() => {
 });
 
 function renderWidget(props: {
+  destination?: Destination;
+  locale?: "en" | "ja";
   duration?: "shortOuting" | "halfDay" | "fullDay" | "2d1n" | "3d2n";
   partySize?: number;
   activeTransportMode?: string;
@@ -260,8 +290,8 @@ function renderWidget(props: {
   act(() => {
     root!.render(
       <TripCostBreakdownWidget
-        destination={testDestination}
-        locale="en"
+        destination={props.destination ?? testDestination}
+        locale={props.locale ?? "en"}
         partySize={props.partySize ?? 2}
         activeTransportMode={props.activeTransportMode ?? "train"}
         defaultExpanded={props.defaultExpanded ?? false}
@@ -274,6 +304,37 @@ function renderWidget(props: {
 
 // ── Tests ─────────────────────────────────────────────────────────────────────
 describe("TripCostBreakdownWidget canonical duration", () => {
+  it("DisneySea variable admission is disclosed at the collapsed and expanded boundary in EN/JA", () => {
+    const disneySea = (destinations as unknown as Destination[]).find(
+      (destination) => destination.id === "disneysea",
+    );
+    expect(disneySea).toBeDefined();
+
+    const container = renderWidget({ destination: disneySea });
+    expect(container.textContent).toContain("Partial total");
+    expect(container.textContent).toContain(
+      "Admission unavailable/not included",
+    );
+    expect(
+      container.textContent?.match(/Admission unavailable\/not included/g),
+    ).toHaveLength(1);
+    expect(container.textContent).toContain("origin transport excluded");
+
+    const toggle = Array.from(container.querySelectorAll("button")).find(
+      (btn) => btn.textContent?.includes("breakdown"),
+    );
+    act(() => toggle?.click());
+    expect(container.textContent).toContain("Admission unavailable");
+
+    act(() => root?.unmount());
+    host?.remove();
+    root = undefined;
+    host = undefined;
+    const japanese = renderWidget({ destination: disneySea, locale: "ja" });
+    expect(japanese.textContent).toContain("部分合計");
+    expect(japanese.textContent).toContain("入場料不明・未算入");
+  });
+
   it("renders an inferred one-night allowance", () => {
     const container = renderWidget({ duration: "2d1n", defaultExpanded: true });
     expect(container.textContent).toContain("Stay allowance (1 night)");
@@ -661,5 +722,34 @@ describe("TripCostBreakdownWidget generated-plan admission semantics", () => {
     expect(text).toContain("¥1,500");
     expect(text).toContain("Missing:");
     expect(text).toContain("admission");
+  });
+
+  it("mandatory unresolved admission is disclosed in collapsed and expanded states in EN/JA", () => {
+    const plan = {
+      ...basePlan({
+        min: 0,
+        max: 0,
+        source: "unknown",
+        applicable: true,
+        satisfied: false,
+        knownNumeric: false,
+        semanticState: "unknown",
+      }),
+      completeness: "partial" as const,
+      knownSubtotal: [8800, 18200] as [number, number],
+    };
+    const collapsed = renderPlanWidget(plan);
+    expect(collapsed).toContain("Partial total");
+    expect(collapsed).toContain("Admission unavailable/not included");
+    expect(collapsed).toContain("origin transport excluded");
+    const toggle = Array.from(host!.querySelectorAll("button")).find((btn) =>
+      btn.textContent?.includes("breakdown"),
+    );
+    act(() => toggle?.click());
+    expect(host!.textContent).toContain("Admission unavailable/not included");
+
+    const japanese = renderPlanWidget(plan, "ja");
+    expect(japanese).toContain("部分合計");
+    expect(japanese).toContain("入場料不明・未算入");
   });
 });
