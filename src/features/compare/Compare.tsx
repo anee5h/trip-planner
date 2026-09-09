@@ -15,6 +15,7 @@ import {
 } from "@/shared/components/ui/table";
 import { Map, PlusSquare, Trash2 } from "lucide-react";
 import { Badge } from "@/shared/components/ui/badge";
+import { WalkingIntensityBadge } from "./components/WalkingIntensityBadge";
 import { resolveCompareEstimate } from "./compareEstimate";
 import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
@@ -34,10 +35,7 @@ import {
 import { formatTravelEstimateLabel } from "@/shared/services/transport/formatters";
 import { resolveOriginTransportZone } from "@/shared/services/transport/OriginTransportZone";
 
-import {
-  getWalkingIntensity,
-  getWalkingIntensityMetadata,
-} from "@/shared/utils/walking";
+import { getWalkingIntensity } from "@/shared/utils/walking";
 
 const COMPARE_REFERENCE_MODES = ["train", "shinkansen", "bus"] as const;
 const COMPARE_SUPPORTED_MODES = [
@@ -472,21 +470,14 @@ export default function Compare() {
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
                 {t("compare.walkIntensity")}
               </TableCell>
-              {compareDestinations.map((dest) => {
-                const walkMeta = getWalkingIntensityMetadata(
-                  getWalkingIntensity(dest),
-                  locale,
-                );
-                return (
-                  <TableCell key={dest.id}>
-                    <span
-                      className={`px-2.5 py-0.5 rounded-full text-xs font-bold border ${walkMeta.badgeClass}`}
-                    >
-                      {walkMeta.icon} {walkMeta.label}
-                    </span>
-                  </TableCell>
-                );
-              })}
+              {compareDestinations.map((dest) => (
+                <TableCell key={dest.id}>
+                  <WalkingIntensityBadge
+                    level={getWalkingIntensity(dest)}
+                    locale={locale}
+                  />
+                </TableCell>
+              ))}
             </TableRow>
             <TableRow>
               <TableCell className="font-semibold text-slate-700 dark:text-slate-300">
@@ -652,15 +643,10 @@ export default function Compare() {
                   <p className="text-slate-500 font-semibold mb-0.5">
                     {t("compare.walkIntensity")}
                   </p>
-                  <p className="font-bold text-slate-900 dark:text-white">
-                    {(() => {
-                      const walkMeta = getWalkingIntensityMetadata(
-                        getWalkingIntensity(dest),
-                        locale,
-                      );
-                      return `${walkMeta.icon} ${walkMeta.label}`;
-                    })()}
-                  </p>
+                  <WalkingIntensityBadge
+                    level={getWalkingIntensity(dest)}
+                    locale={locale}
+                  />
                 </div>
               </div>
             </div>

@@ -3,14 +3,12 @@ import { useTripStore } from "@/shared/hooks/useTripStore";
 import { useCatalogue } from "@/shared/hooks/useCatalogue";
 import { Button } from "@/shared/components/ui/button";
 import { Badge } from "@/shared/components/ui/badge";
+import { WalkingIntensityBadge } from "./WalkingIntensityBadge";
 import { resolveCompareEstimate } from "../compareEstimate";
 import { useOptionalTripContext } from "@/shared/context/TripContext";
 import { formatTravellerEstimateRange } from "@/shared/services/budget/BudgetService";
 import { isRatingVerified } from "@/shared/services/recommendation/RecommendationScorer";
-import {
-  getWalkingIntensity,
-  getWalkingIntensityMetadata,
-} from "@/shared/utils/walking";
+import { getWalkingIntensity } from "@/shared/utils/walking";
 import { X, Trash2, Scale, ExternalLink } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "@/shared/context/LocaleContext";
@@ -149,10 +147,6 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                 const isLowestBudget = cost === minBudget;
                 const time = travelTimes[idx];
                 const isFastest = time === minTravelTime && time !== 999;
-                const walkMeta = getWalkingIntensityMetadata(
-                  getWalkingIntensity(dest),
-                  locale,
-                );
 
                 return (
                   <div
@@ -254,11 +248,11 @@ export default function CompareModal({ isOpen, onClose }: CompareModalProps) {
                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-300 uppercase">
                           {t("compare.walk")}
                         </span>
-                        <span
-                          className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${walkMeta.badgeClass}`}
-                        >
-                          {walkMeta.label}
-                        </span>
+                        <WalkingIntensityBadge
+                          level={getWalkingIntensity(dest)}
+                          locale={locale}
+                          className="text-[10px] px-2 py-0"
+                        />
                       </div>
 
                       {/* Couple Rating */}
